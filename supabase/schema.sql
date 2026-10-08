@@ -22864,3 +22864,1124 @@ BEGIN
  THEN RAISE EXCEPTION 'sitov_verb_parity_permission_invalid' USING ERRCODE='42501'; END IF;
 END $sitov$;
 NOTIFY pgrst,'reload schema';
+
+-- SITOV-NIGHT integrated overlay 20261008213000_sitov_commercial_access.sql
+-- Sitov Academy commercial core. Additive only: no legacy grants or content rewritten.
+-- DRAFT partial enforcement: exact vocabulary ports; selected-item path and other generic scoring ports remain gated.
+CREATE SCHEMA IF NOT EXISTS sitov_access_private;
+REVOKE ALL ON SCHEMA sitov_access_private FROM PUBLIC,anon;
+GRANT USAGE ON SCHEMA sitov_access_private TO authenticated;
+
+CREATE TABLE IF NOT EXISTS sitov_access_private.students (
+ student_id uuid PRIMARY KEY REFERENCES public.profiles(id) ON DELETE CASCADE,
+ vip_enabled boolean NOT NULL DEFAULT false,
+ trial jsonb NOT NULL DEFAULT '{"version":1,"rules":[]}',
+ revision bigint NOT NULL DEFAULT 0 CHECK(revision>=0),
+ changed_by uuid REFERENCES public.profiles(id), updated_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS sitov_access_private.billing_settings (
+ singleton boolean PRIMARY KEY DEFAULT true CHECK(singleton),
+ enabled boolean NOT NULL DEFAULT false, provider text NOT NULL DEFAULT 'none' CHECK(provider IN('none','stripe')),
+ revision bigint NOT NULL DEFAULT 0 CHECK(revision>=0),
+ CHECK(NOT enabled OR provider<>'none')
+);
+INSERT INTO sitov_access_private.billing_settings(singleton) VALUES(true) ON CONFLICT DO NOTHING;
+CREATE TABLE IF NOT EXISTS sitov_access_private.products (
+ level text PRIMARY KEY REFERENCES public.learning_levels(code),
+ amount_minor bigint CHECK(amount_minor>0), currency text CHECK(currency ~ '^[A-Z]{3}$'),
+ revision bigint NOT NULL DEFAULT 0 CHECK(revision>=0),
+ CHECK((amount_minor IS NULL)=(currency IS NULL))
+);
+INSERT INTO sitov_access_private.products(level)
+ SELECT code FROM public.learning_levels WHERE code IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ ON CONFLICT DO NOTHING;
+CREATE TABLE IF NOT EXISTS sitov_access_private.orders (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(), student_id uuid NOT NULL REFERENCES public.profiles(id),
+ level text NOT NULL REFERENCES sitov_access_private.products(level), request_id uuid NOT NULL,
+ status text NOT NULL DEFAULT 'created' CHECK(status IN('created','pending','paid','failed','cancelled','refunded')),
+ provider text NOT NULL DEFAULT 'none' CHECK(provider IN('none','stripe')),
+ provider_confirmation_verified boolean NOT NULL DEFAULT false,
+ amount_minor bigint NOT NULL CHECK(amount_minor>0), currency text NOT NULL CHECK(currency ~ '^[A-Z]{3}$'),
+ created_at timestamptz NOT NULL DEFAULT now(), UNIQUE(student_id,request_id),
+ CHECK(NOT provider_confirmation_verified OR provider<>'none'),
+ CHECK(status<>'paid' OR provider_confirmation_verified)
+);
+CREATE TABLE IF NOT EXISTS sitov_access_private.purchases (
+ order_id uuid PRIMARY KEY REFERENCES sitov_access_private.orders(id),
+ active boolean NOT NULL DEFAULT true
+);
+ALTER TABLE sitov_access_private.students ENABLE ROW LEVEL SECURITY;
+ALTER TABLE sitov_access_private.billing_settings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE sitov_access_private.products ENABLE ROW LEVEL SECURITY;
+ALTER TABLE sitov_access_private.orders ENABLE ROW LEVEL SECURITY;
+ALTER TABLE sitov_access_private.purchases ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON ALL TABLES IN SCHEMA sitov_access_private FROM PUBLIC,anon,authenticated;
+
+CREATE OR REPLACE FUNCTION sitov_access_private.staff() RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND coalesce(identity_private.current_profile_role(),'') IN('teacher','admin')
+ AND sitov_security_private.sitov_staff_mfa_satisfied()
+$$;
+CREATE OR REPLACE FUNCTION sitov_access_private.actor_allowed(p_student uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND ((auth.uid()=p_student AND (coalesce(identity_private.current_profile_role(),'') NOT IN('teacher','admin') OR sitov_access_private.staff())) OR sitov_access_private.staff())
+$$;
+CREATE OR REPLACE FUNCTION sitov_access_private.purchased(p_student uuid,p_level text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(p_student) AND EXISTS(
+ SELECT 1 FROM sitov_access_private.purchases g JOIN sitov_access_private.orders o ON o.id=g.order_id
+ WHERE o.student_id=p_student AND o.level=p_level AND g.active AND o.status='paid' AND o.provider_confirmation_verified)
+$$;
+
+-- Canonical metadata resolved from existing catalogs. No writable shadow catalog.
+CREATE OR REPLACE FUNCTION sitov_access_private.resolve_item(p_kind text,p_item_id text)
+RETURNS TABLE(unit_id uuid,level text,trainer text,owner_id uuid,published boolean,legacy_media boolean)
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ WITH refs AS (
+ SELECT c.unit_id,false media FROM public.learning_vocabulary_cards c WHERE p_kind='vocabulary_card' AND c.id::text=p_item_id
+ UNION ALL SELECT e.unit_id,false FROM public.learning_exercises e WHERE p_kind='exercise' AND e.id::text=p_item_id AND e.node_id IS NULL
+ UNION ALL SELECT e.unit_id,false FROM public.learning_exercises e WHERE p_kind='path_task' AND e.id::text=p_item_id AND e.node_id IS NOT NULL AND e.path_is_active
+ UNION ALL SELECT r.unit_id,false FROM public.learning_reading_texts r WHERE p_kind='reading_text' AND r.id::text=p_item_id
+ UNION ALL SELECT v.unit_id,v.storage_path IS NOT NULL AND v.folder_id IS NOT NULL FROM public.learning_videos v
+ WHERE p_kind='video' AND v.id::text=p_item_id AND (v.folder_id IS NULL OR EXISTS(
+ SELECT 1 FROM public.lms_media_folder f JOIN public.learning_units u ON u.id=v.unit_id WHERE f.folder_id=v.folder_id AND f.level=u.level))
+ UNION ALL SELECT v.unit_id,false FROM public.sitov_verb_catalog v WHERE p_kind='verb' AND v.id=p_item_id
+ UNION ALL SELECT n.unit_id,false FROM public.path_nodes n WHERE p_kind='path_node' AND n.id::text=p_item_id AND n.is_active
+ UNION ALL SELECT n.unit_id,false FROM public.path_nodes n JOIN public.path_nodes anchor ON anchor.id=n.anchor_node_id AND anchor.unit_id=n.unit_id
+ WHERE p_kind='path_special' AND n.id::text=p_item_id AND n.kind='special' AND n.is_active
+ UNION ALL SELECT e.unit_id,false FROM public.learning_exercises e JOIN public.path_nodes n ON n.id=e.node_id AND n.unit_id=e.unit_id
+ JOIN public.path_nodes anchor ON anchor.id=n.anchor_node_id AND anchor.unit_id=n.unit_id
+ WHERE p_kind='path_special_item' AND e.id::text=p_item_id AND n.kind='special' AND n.is_active AND e.path_is_active AND e.content_status='ready'
+ ) SELECT u.id,u.level,u.trainer::text,u.owner_auth_user_id,u.is_active,r.media FROM refs r JOIN public.learning_units u ON u.id=r.unit_id
+ UNION ALL SELECT NULL::uuid,f.level,'videos',NULL::uuid,true,true FROM public.lms_presentation_asset a
+ JOIN public.lms_media_folder f ON f.folder_id=a.folder_id WHERE p_kind='presentation' AND a.asset_id::text=p_item_id
+$$;
+
+CREATE OR REPLACE FUNCTION sitov_access_private.trial_item_allowed(p_student uuid,p_kind text,p_item_id text,p_unit uuid,p_level text,p_trainer text)
+RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT p_unit IS NOT NULL AND EXISTS(SELECT 1 FROM sitov_access_private.students s,
+ LATERAL jsonb_array_elements(s.trial->'rules') rule
+ WHERE s.student_id=p_student AND rule->>'level'=p_level AND rule->>'trainer'=p_trainer
+ AND (rule->'unit_ids'='null'::jsonb OR rule->'unit_ids' @> to_jsonb(ARRAY[p_unit::text]))
+ AND (rule->'items'='null'::jsonb OR EXISTS(SELECT 1 FROM jsonb_array_elements(rule->'items') bucket
+ WHERE bucket->>'unit_id'=p_unit::text AND (bucket->'refs'='null'::jsonb OR bucket->'refs' @>
+ jsonb_build_array(jsonb_build_object('kind',p_kind,'id',p_item_id))))))
+$$;
+CREATE OR REPLACE FUNCTION sitov_access_private.item_allowed(p_student uuid,p_kind text,p_item_id text)
+RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(p_student) AND EXISTS(
+ SELECT 1 FROM sitov_access_private.resolve_item(p_kind,p_item_id) i JOIN public.profiles p ON p.id=p_student
+ LEFT JOIN public.learning_trainer_grants g ON g.auth_user_id=p.id AND g.level=i.level AND g.trainer::text=i.trainer
+ WHERE (i.owner_id IS NULL OR i.owner_id=p.id) AND (p.role IN('teacher','admin') OR (p.role='student'
+ AND (i.published OR i.owner_id=p.id) AND i.level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ AND NOT(i.trainer='verbs' AND i.level IN('C1.1','C1.2')) AND (
+ EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND s.vip_enabled)
+ OR sitov_access_private.purchased(p.id,i.level)
+ OR (EXISTS(SELECT 1 FROM public.student_level_access l WHERE l.auth_user_id=p.id AND l.level=i.level)
+ AND coalesce(g.enabled,true) AND (i.legacy_media OR i.owner_id=p.id OR g.unit_mode IS DISTINCT FROM 'selected'
+ OR EXISTS(SELECT 1 FROM public.learning_unit_grants x WHERE x.auth_user_id=p.id AND x.level=i.level AND x.trainer::text=i.trainer AND x.unit_id=i.unit_id)))
+ OR (i.owner_id IS NULL AND sitov_access_private.trial_item_allowed(p.id,p_kind,p_item_id,i.unit_id,i.level,i.trainer))
+ ))))
+$$;
+
+CREATE OR REPLACE FUNCTION sitov_access_private.validate_trial(p_manifest jsonb) RETURNS boolean
+LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$
+DECLARE r jsonb;b jsonb;ref jsonb;v jsonb;seen text[]:='{}';key text;BEGIN
+ IF p_manifest IS NULL OR jsonb_typeof(p_manifest)<>'object' OR p_manifest->'version'<>'1'::jsonb
+ OR NOT(p_manifest ?& ARRAY['version','rules']) OR (p_manifest-ARRAY['version','rules'])<>'{}'::jsonb
+ OR jsonb_typeof(p_manifest->'rules')<>'array' OR jsonb_array_length(p_manifest->'rules')>50 THEN RETURN false;END IF;
+ FOR r IN SELECT value FROM jsonb_array_elements(p_manifest->'rules') LOOP
+  IF jsonb_typeof(r)<>'object' OR NOT(r ?& ARRAY['level','trainer','unit_ids','items'])
+  OR (r-ARRAY['level','trainer','unit_ids','items'])<>'{}'::jsonb
+  OR jsonb_typeof(r->'level')<>'string' OR jsonb_typeof(r->'trainer')<>'string'
+  OR r->>'level' NOT IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+  OR r->>'trainer' NOT IN('vocabulary','exercises','pronunciation','videos','verbs')
+  OR r->>'trainer'='verbs' AND r->>'level' IN('C1.1','C1.2') THEN RETURN false;END IF;
+  key:=(r->>'level')||':'||(r->>'trainer');IF key=ANY(seen) THEN RETURN false;END IF;seen:=array_append(seen,key);
+  IF r->'unit_ids'<>'null'::jsonb THEN
+   IF jsonb_typeof(r->'unit_ids')<>'array' OR jsonb_array_length(r->'unit_ids')>1000 THEN RETURN false;END IF;
+   IF (SELECT count(*)<>count(DISTINCT value) FROM jsonb_array_elements(r->'unit_ids')) THEN RETURN false;END IF;
+   FOR v IN SELECT value FROM jsonb_array_elements(r->'unit_ids') LOOP
+    IF jsonb_typeof(v)<>'string' OR NOT EXISTS(SELECT 1 FROM public.learning_units u WHERE u.id::text=(v#>>'{}')
+    AND u.level=r->>'level' AND u.trainer::text=r->>'trainer' AND u.is_active AND u.owner_auth_user_id IS NULL) THEN RETURN false;END IF;
+   END LOOP;
+  END IF;
+  IF r->'items'='null'::jsonb THEN CONTINUE;END IF;
+  IF jsonb_typeof(r->'items')<>'array' OR jsonb_array_length(r->'items')>1000 THEN RETURN false;END IF;
+  IF (SELECT count(*)<>count(DISTINCT value->>'unit_id') FROM jsonb_array_elements(r->'items')) THEN RETURN false;END IF;
+  FOR b IN SELECT value FROM jsonb_array_elements(r->'items') LOOP
+   IF jsonb_typeof(b)<>'object' OR NOT(b ?& ARRAY['unit_id','refs']) OR (b-ARRAY['unit_id','refs'])<>'{}'::jsonb
+   OR NOT EXISTS(SELECT 1 FROM public.learning_units u WHERE u.id::text=b->>'unit_id' AND u.level=r->>'level'
+   AND u.trainer::text=r->>'trainer' AND u.is_active AND u.owner_auth_user_id IS NULL)
+   OR (r->'unit_ids'<>'null'::jsonb AND NOT(r->'unit_ids' @> jsonb_build_array(b->>'unit_id'))) THEN RETURN false;END IF;
+   IF b->'refs'='null'::jsonb THEN CONTINUE;END IF;
+   IF jsonb_typeof(b->'refs')<>'array' OR jsonb_array_length(b->'refs')>1000 THEN RETURN false;END IF;
+   IF (SELECT count(*)<>count(DISTINCT value) FROM jsonb_array_elements(b->'refs')) THEN RETURN false;END IF;
+   FOR ref IN SELECT value FROM jsonb_array_elements(b->'refs') LOOP
+    IF jsonb_typeof(ref)<>'object' OR NOT(ref ?& ARRAY['kind','id']) OR (ref-ARRAY['kind','id'])<>'{}'::jsonb
+    OR jsonb_typeof(ref->'kind')<>'string' OR jsonb_typeof(ref->'id')<>'string'
+    OR NOT EXISTS(SELECT 1 FROM sitov_access_private.resolve_item(ref->>'kind',ref->>'id') i WHERE i.unit_id::text=b->>'unit_id'
+    AND i.level=r->>'level' AND i.trainer=r->>'trainer' AND i.published AND i.owner_id IS NULL) THEN RETURN false;END IF;
+   END LOOP;
+  END LOOP;
+ END LOOP;RETURN true;
+END $$;
+
+CREATE OR REPLACE FUNCTION public.set_sitov_student_vip(p_student uuid,p_enabled boolean,p_expected_revision bigint)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE rev bigint;BEGIN
+ IF NOT sitov_access_private.staff() THEN RETURN jsonb_build_object('error','forbidden');END IF;
+ IF p_enabled IS NULL OR p_expected_revision IS NULL OR p_expected_revision<0 OR NOT EXISTS(
+ SELECT 1 FROM public.profiles WHERE id=p_student AND role='student') THEN RETURN jsonb_build_object('error','invalid_input');END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('learning-access:'||p_student::text,0));
+ INSERT INTO sitov_access_private.students(student_id) VALUES(p_student) ON CONFLICT DO NOTHING;
+ SELECT revision INTO rev FROM sitov_access_private.students WHERE student_id=p_student FOR UPDATE;
+ IF rev<>p_expected_revision THEN RETURN jsonb_build_object('error','revision_conflict');END IF;
+ UPDATE sitov_access_private.students SET vip_enabled=p_enabled,revision=revision+1,changed_by=auth.uid(),updated_at=clock_timestamp() WHERE student_id=p_student;
+ RETURN jsonb_build_object('success',true,'revision',rev+1,'vip_enabled',p_enabled);
+END $$;
+CREATE OR REPLACE FUNCTION public.set_sitov_student_trial(p_student uuid,p_manifest jsonb,p_expected_revision bigint)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE rev bigint;BEGIN
+ IF NOT sitov_access_private.staff() THEN RETURN jsonb_build_object('error','forbidden');END IF;
+ IF p_expected_revision IS NULL OR p_expected_revision<0 OR NOT EXISTS(SELECT 1 FROM public.profiles WHERE id=p_student AND role='student')
+ OR NOT sitov_access_private.validate_trial(p_manifest) THEN RETURN jsonb_build_object('error','invalid_input');END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('learning-access:'||p_student::text,0));
+ INSERT INTO sitov_access_private.students(student_id) VALUES(p_student) ON CONFLICT DO NOTHING;
+ SELECT revision INTO rev FROM sitov_access_private.students WHERE student_id=p_student FOR UPDATE;
+ IF rev<>p_expected_revision THEN RETURN jsonb_build_object('error','revision_conflict');END IF;
+ UPDATE sitov_access_private.students SET trial=p_manifest,revision=revision+1,changed_by=auth.uid(),updated_at=clock_timestamp() WHERE student_id=p_student;
+ RETURN jsonb_build_object('success',true,'revision',rev+1);
+END $$;
+CREATE OR REPLACE FUNCTION public.get_sitov_access_context(p_student uuid DEFAULT NULL)
+RETURNS jsonb LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$
+DECLARE student uuid:=coalesce(p_student,auth.uid());BEGIN
+ IF NOT sitov_access_private.actor_allowed(student) THEN RETURN jsonb_build_object('error','forbidden');END IF;
+ IF NOT EXISTS(SELECT 1 FROM public.profiles WHERE id=student) THEN RETURN jsonb_build_object('error','not_found');END IF;
+ RETURN jsonb_build_object('vip_enabled',coalesce((SELECT vip_enabled FROM sitov_access_private.students WHERE student_id=student),false),
+ 'trial',coalesce((SELECT trial FROM sitov_access_private.students WHERE student_id=student),'{"version":1,"rules":[]}'::jsonb),
+ 'revision',coalesce((SELECT revision FROM sitov_access_private.students WHERE student_id=student),0),
+ 'purchased_levels',(SELECT coalesce(jsonb_agg(level ORDER BY level),'[]'::jsonb) FROM sitov_access_private.products WHERE sitov_access_private.purchased(student,level)));
+END $$;
+CREATE OR REPLACE FUNCTION public.get_sitov_billing_settings() RETURNS jsonb
+LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$ BEGIN
+ IF NOT sitov_access_private.staff() THEN RETURN jsonb_build_object('error','forbidden');END IF;
+ RETURN (SELECT jsonb_build_object('enabled',enabled,'provider',provider,'revision',revision,
+ 'configuration_ready',false,'missing',jsonb_build_array('provider_adapter'),
+ 'products',(SELECT jsonb_agg(to_jsonb(p) ORDER BY level) FROM sitov_access_private.products p)) FROM sitov_access_private.billing_settings);
+END $$;
+CREATE OR REPLACE FUNCTION public.set_sitov_billing_enabled(p_enabled boolean,p_expected_revision bigint)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE s sitov_access_private.billing_settings%ROWTYPE;BEGIN
+ IF NOT sitov_access_private.staff() THEN RETURN jsonb_build_object('error','forbidden');END IF;
+ IF p_enabled IS NULL OR p_expected_revision IS NULL THEN RETURN jsonb_build_object('error','invalid_input');END IF;
+ SELECT * INTO s FROM sitov_access_private.billing_settings FOR UPDATE;
+ IF s.revision<>p_expected_revision THEN RETURN jsonb_build_object('error','revision_conflict');END IF;
+ IF p_enabled THEN RETURN jsonb_build_object('error','provider_not_configured','missing',jsonb_build_array('provider_adapter'));END IF;
+ UPDATE sitov_access_private.billing_settings SET enabled=false,revision=revision+1;
+ RETURN jsonb_build_object('success',true,'revision',s.revision+1,'enabled',false);
+END $$;
+CREATE OR REPLACE FUNCTION public.set_sitov_product_price(p_level text,p_amount_minor bigint,p_currency text,p_expected_revision bigint)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE rev bigint;BEGIN
+ IF NOT sitov_access_private.staff() THEN RETURN jsonb_build_object('error','forbidden');END IF;
+ IF p_amount_minor IS NULL OR p_amount_minor<=0 OR p_currency IS NULL OR p_currency !~ '^[A-Z]{3}$' OR p_expected_revision IS NULL
+ THEN RETURN jsonb_build_object('error','invalid_input');END IF;
+ SELECT revision INTO rev FROM sitov_access_private.products WHERE level=p_level FOR UPDATE;
+ IF NOT FOUND THEN RETURN jsonb_build_object('error','invalid_input');END IF;
+ IF rev<>p_expected_revision THEN RETURN jsonb_build_object('error','revision_conflict');END IF;
+ UPDATE sitov_access_private.products SET amount_minor=p_amount_minor,currency=p_currency,revision=revision+1 WHERE level=p_level;
+ RETURN jsonb_build_object('success',true,'revision',rev+1);
+END $$;
+CREATE OR REPLACE FUNCTION public.start_sitov_checkout(p_level text,p_request_id uuid) RETURNS jsonb
+LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$ BEGIN
+ IF auth.uid() IS NULL THEN RETURN jsonb_build_object('error','unauthenticated');END IF;
+ IF p_request_id IS NULL OR NOT EXISTS(SELECT 1 FROM sitov_access_private.products WHERE level=p_level)
+ THEN RETURN jsonb_build_object('error','invalid_input');END IF;
+ IF NOT(SELECT enabled FROM sitov_access_private.billing_settings) THEN RETURN jsonb_build_object('error','payment_disabled');END IF;
+ -- No provider implementation in this release: never create an order, redirect or entitlement.
+ RETURN jsonb_build_object('error','provider_not_configured');
+END $$;
+
+REVOKE ALL ON FUNCTION sitov_access_private.staff(),sitov_access_private.actor_allowed(uuid),
+ sitov_access_private.purchased(uuid,text),sitov_access_private.resolve_item(text,text),
+ sitov_access_private.trial_item_allowed(uuid,text,text,uuid,text,text),sitov_access_private.item_allowed(uuid,text,text),
+ sitov_access_private.validate_trial(jsonb) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION sitov_access_private.item_allowed(uuid,text,text) TO authenticated;
+REVOKE ALL ON FUNCTION public.set_sitov_student_vip(uuid,boolean,bigint),public.set_sitov_student_trial(uuid,jsonb,bigint),
+ public.get_sitov_access_context(uuid),public.get_sitov_billing_settings(),public.set_sitov_billing_enabled(boolean,bigint),
+ public.set_sitov_product_price(text,bigint,text,bigint),public.start_sitov_checkout(text,uuid) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.set_sitov_student_vip(uuid,boolean,bigint),public.set_sitov_student_trial(uuid,jsonb,bigint),
+ public.get_sitov_access_context(uuid),public.get_sitov_billing_settings(),public.set_sitov_billing_enabled(boolean,bigint),
+ public.set_sitov_product_price(text,bigint,text,bigint),public.start_sitov_checkout(text,uuid) TO authenticated;
+
+CREATE TABLE IF NOT EXISTS sitov_access_private.guard_backups(signature text PRIMARY KEY,definition text NOT NULL);
+ALTER TABLE sitov_access_private.guard_backups ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON sitov_access_private.guard_backups FROM PUBLIC,anon,authenticated;
+INSERT INTO sitov_access_private.guard_backups(signature,definition)
+SELECT signature,pg_get_functiondef(to_regprocedure(signature)) FROM unnest(ARRAY[
+ 'trainer_access_private.allowed(text,text)','trainer_access_private.unit_allowed(text,text,text)',
+ 'learning_private.unit_allowed(uuid)','learning_private.allowed_unit_ids()',
+ 'sitov_verb_private.level_allowed(uuid,text)','sitov_verb_private.verb_allowed(uuid,text)',
+ 'media_private.folder_allowed(uuid)','media_private.published_video_unit_ids()','media_private.path_allowed(text,boolean)']) signature
+WHERE to_regprocedure(signature) IS NOT NULL ON CONFLICT DO NOTHING;
+
+-- Guarded source integration. Selected-item trial cannot enter old unit-only
+-- SECURITY DEFINER scoring RPCs until their individual item ports are wired.
+CREATE OR REPLACE FUNCTION sitov_access_private.legacy_unit_allowed(p_student uuid,p_unit uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.learning_units u JOIN public.profiles p ON p.id=p_student
+ LEFT JOIN public.learning_trainer_grants g ON g.auth_user_id=p.id AND g.level=u.level AND g.trainer=u.trainer
+ WHERE u.id=p_unit AND (u.owner_auth_user_id IS NULL OR u.owner_auth_user_id=p.id)
+ AND (p.role IN('teacher','admin') OR (u.level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ AND NOT(u.trainer='verbs' AND u.level IN('C1.1','C1.2')) AND (u.is_active OR u.owner_auth_user_id=p.id)
+ AND EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=u.level)
+ AND coalesce(g.enabled,true) AND (u.owner_auth_user_id=p.id OR g.unit_mode IS DISTINCT FROM 'selected'
+ OR EXISTS(SELECT 1 FROM public.learning_unit_grants x WHERE x.auth_user_id=p.id AND x.unit_id=u.id AND x.level=u.level AND x.trainer=u.trainer)))))
+$$;
+CREATE OR REPLACE FUNCTION sitov_access_private.unit_allowed(p_student uuid,p_unit uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(p_student) AND EXISTS(SELECT 1 FROM public.learning_units u JOIN public.profiles p ON p.id=p_student
+ WHERE u.id=p_unit AND (u.owner_auth_user_id IS NULL OR u.owner_auth_user_id=p.id)
+ AND (sitov_access_private.legacy_unit_allowed(p_student,p_unit)
+ OR (p.role='student' AND (u.is_active OR u.owner_auth_user_id=p.id)
+ AND u.level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ AND NOT(u.trainer='verbs' AND u.level IN('C1.1','C1.2')) AND (
+ EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND s.vip_enabled)
+ OR sitov_access_private.purchased(p.id,u.level)
+ OR (u.owner_auth_user_id IS NULL AND EXISTS(SELECT 1 FROM sitov_access_private.students s,
+ LATERAL jsonb_array_elements(s.trial->'rules') r WHERE s.student_id=p.id AND r->>'level'=u.level AND r->>'trainer'=u.trainer::text
+ AND (r->'unit_ids'='null'::jsonb OR r->'unit_ids' @> to_jsonb(ARRAY[u.id::text]))
+ AND (r->'items'='null'::jsonb OR EXISTS(SELECT 1 FROM jsonb_array_elements(r->'items') b
+ WHERE b->>'unit_id'=u.id::text AND b->'refs'='null'::jsonb))))))))
+$$;
+CREATE OR REPLACE FUNCTION sitov_access_private.level_allowed(p_student uuid,p_level text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(p_student) AND p_level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ AND EXISTS(SELECT 1 FROM public.profiles p WHERE p.id=p_student AND (p.role IN('teacher','admin')
+ OR EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=p_level)
+ OR EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND (s.vip_enabled OR EXISTS(
+ SELECT 1 FROM jsonb_array_elements(s.trial->'rules') r WHERE r->>'level'=p_level
+ AND r->'unit_ids'<>'[]'::jsonb AND (r->'items'='null'::jsonb OR EXISTS(
+ SELECT 1 FROM jsonb_array_elements(r->'items') b WHERE (b->'refs'='null'::jsonb OR b->'refs'<>'[]'::jsonb)
+ AND (r->'unit_ids'='null'::jsonb OR r->'unit_ids' @> jsonb_build_array(b->>'unit_id'))))))) OR sitov_access_private.purchased(p.id,p_level)))
+$$;
+CREATE OR REPLACE FUNCTION trainer_access_private.allowed(p_level text,p_trainer text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(auth.uid()) AND p_level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ AND p_trainer IN('vocabulary','exercises','pronunciation','videos','verbs') AND NOT(p_trainer='verbs' AND p_level IN('C1.1','C1.2'))
+ AND EXISTS(SELECT 1 FROM public.profiles p WHERE p.id=auth.uid() AND (p.role IN('teacher','admin')
+ OR sitov_access_private.purchased(p.id,p_level) OR EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND s.vip_enabled)
+ OR (EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=p_level)
+ AND coalesce((SELECT g.enabled FROM public.learning_trainer_grants g WHERE g.auth_user_id=p.id AND g.level=p_level AND g.trainer::text=p_trainer),true))))
+$$;
+CREATE OR REPLACE FUNCTION trainer_access_private.unit_allowed(p_level text,p_trainer text,p_unit text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.learning_units u WHERE u.id::text=p_unit AND u.level=p_level AND u.trainer::text=p_trainer
+ AND sitov_access_private.unit_allowed(auth.uid(),u.id))
+$$;
+CREATE OR REPLACE FUNCTION learning_private.unit_allowed(p_unit_id uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT sitov_access_private.unit_allowed(auth.uid(),p_unit_id) $$;
+CREATE OR REPLACE FUNCTION learning_private.allowed_unit_ids() RETURNS uuid[]
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT coalesce(array_agg(id),'{}'::uuid[]) FROM public.learning_units WHERE sitov_access_private.unit_allowed(auth.uid(),id)
+$$;
+CREATE OR REPLACE FUNCTION public.get_sitov_access_catalog(p_level text,p_trainer text) RETURNS jsonb
+LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$ BEGIN
+ IF NOT sitov_access_private.actor_allowed(auth.uid()) THEN RETURN jsonb_build_object('error','forbidden');END IF;
+ IF p_level NOT IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ OR p_trainer NOT IN('vocabulary','exercises','pronunciation','videos','verbs') THEN RETURN jsonb_build_object('error','invalid_input');END IF;
+ RETURN (WITH refs AS (
+ SELECT 'vocabulary_card' kind,id::text id FROM public.learning_vocabulary_cards
+ UNION ALL SELECT CASE WHEN node_id IS NULL THEN 'exercise' ELSE 'path_task' END,id::text FROM public.learning_exercises
+ UNION ALL SELECT 'reading_text',id::text FROM public.learning_reading_texts
+ UNION ALL SELECT 'video',id::text FROM public.learning_videos
+ UNION ALL SELECT 'verb',id FROM public.sitov_verb_catalog
+ UNION ALL SELECT 'path_node',id::text FROM public.path_nodes
+ UNION ALL SELECT 'path_special',id::text FROM public.path_nodes WHERE kind='special'
+ UNION ALL SELECT 'path_special_item',e.id::text FROM public.learning_exercises e JOIN public.path_nodes n ON n.id=e.node_id AND n.unit_id=e.unit_id WHERE n.kind='special'
+ UNION ALL SELECT 'presentation',asset_id::text FROM public.lms_presentation_asset
+ ),items AS (SELECT r.kind,r.id,i.unit_id,i.published FROM refs r CROSS JOIN LATERAL sitov_access_private.resolve_item(r.kind,r.id) i
+ WHERE i.level=p_level AND i.trainer=p_trainer AND (i.owner_id IS NULL OR i.owner_id=auth.uid()) AND sitov_access_private.item_allowed(auth.uid(),r.kind,r.id)),
+ units AS (SELECT i.unit_id,coalesce(u.label,'') label,jsonb_agg(jsonb_build_object('kind',i.kind,'id',i.id,'label',coalesce(u.label,''),'published',i.published) ORDER BY i.kind,i.id) items
+ FROM items i LEFT JOIN public.learning_units u ON u.id=i.unit_id GROUP BY i.unit_id,u.label)
+ SELECT jsonb_build_object('version',1,'level',p_level,'trainer',p_trainer,'units',coalesce(jsonb_agg(jsonb_build_object('id',unit_id,'label',label,'items',items) ORDER BY unit_id),'[]'::jsonb)) FROM units);
+END $$;
+REVOKE ALL ON FUNCTION sitov_access_private.legacy_unit_allowed(uuid,uuid),sitov_access_private.unit_allowed(uuid,uuid),sitov_access_private.level_allowed(uuid,text) FROM PUBLIC,anon,authenticated;
+REVOKE ALL ON FUNCTION public.get_sitov_access_catalog(text,text) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.get_sitov_access_catalog(text,text) TO authenticated;
+
+-- RESTRICTIVE policies compose with existing publication/pedagogy checks.
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_vocabulary_cards;
+CREATE POLICY sitov_commercial_item_scope ON public.learning_vocabulary_cards AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'vocabulary_card',id::text));
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_exercises;
+CREATE POLICY sitov_commercial_item_scope ON public.learning_exercises AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),CASE WHEN node_id IS NULL THEN 'exercise' ELSE 'path_task' END,id::text));
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_reading_texts;
+CREATE POLICY sitov_commercial_item_scope ON public.learning_reading_texts AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'reading_text',id::text));
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_videos;
+CREATE POLICY sitov_commercial_item_scope ON public.learning_videos AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'video',id::text));
+
+-- Verb RPCs already recheck verb_allowed before selection/scoring/receipt replay.
+CREATE OR REPLACE FUNCTION sitov_verb_private.level_allowed(p_user uuid,p_level text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(p_user) AND p_level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2')
+ AND EXISTS(SELECT 1 FROM public.profiles p WHERE p.id=p_user AND (p.role IN('teacher','admin')
+ OR EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND s.vip_enabled)
+ OR sitov_access_private.purchased(p.id,p_level)
+ OR (EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=p_level)
+ AND coalesce((SELECT g.enabled FROM public.learning_trainer_grants g WHERE g.auth_user_id=p.id AND g.level=p_level AND g.trainer='verbs'),true)
+ AND NOT EXISTS(SELECT 1 FROM public.learning_trainer_grants g WHERE g.auth_user_id=p.id AND g.level=p_level AND g.trainer='verbs' AND g.unit_mode='selected'
+ AND NOT EXISTS(SELECT 1 FROM public.learning_unit_grants x WHERE x.auth_user_id=p.id AND x.level=p_level AND x.trainer='verbs')))
+ OR EXISTS(SELECT 1 FROM public.sitov_verb_catalog c WHERE c.level=p_level AND sitov_access_private.item_allowed(p.id,'verb',c.id))))
+$$;
+CREATE OR REPLACE FUNCTION sitov_verb_private.verb_allowed(p_user uuid,p_verb text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.item_allowed(p_user,'verb',p_verb)
+$$;
+
+-- A trial folder is only navigation metadata for an allowed exact video.
+-- Presentations have their own restrictive predicate, preventing folder inheritance.
+CREATE OR REPLACE FUNCTION media_private.folder_allowed(p_folder_id uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(auth.uid()) AND EXISTS(SELECT 1 FROM public.lms_media_folder f WHERE f.folder_id=p_folder_id
+ AND (sitov_verb_private.media_allowed(f.level)
+ OR (f.level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2') AND (
+ EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=auth.uid() AND s.vip_enabled)
+ OR sitov_access_private.purchased(auth.uid(),f.level)
+ OR EXISTS(SELECT 1 FROM public.learning_videos v WHERE v.folder_id=f.folder_id AND sitov_access_private.item_allowed(auth.uid(),'video',v.id::text))))))
+$$;
+CREATE OR REPLACE FUNCTION media_private.published_video_unit_ids() RETURNS uuid[]
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT coalesce(array_agg(DISTINCT u.id),'{}'::uuid[]) FROM public.learning_videos v JOIN public.learning_units u ON u.id=v.unit_id
+ JOIN public.lms_media_folder f ON f.folder_id=v.folder_id AND f.level=u.level
+ WHERE v.storage_path IS NOT NULL AND u.trainer='videos' AND u.is_active AND sitov_access_private.item_allowed(auth.uid(),'video',v.id::text)
+$$;
+CREATE OR REPLACE FUNCTION media_private.path_allowed(p_name text,p_write boolean DEFAULT false) RETURNS boolean
+LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$
+DECLARE parts text[]:=string_to_array(p_name,'/');folder uuid;BEGIN
+ IF cardinality(parts)<>4 OR parts[2]!~'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+ OR parts[4]!~'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.(mp4|webm|pdf|pptx|key)$'
+ OR NOT((parts[3]='videos' AND parts[4]~'\.(mp4|webm)$') OR (parts[3]='presentations' AND parts[4]~'\.(pdf|pptx|key)$')) THEN RETURN false;END IF;
+ folder:=parts[2]::uuid;
+ IF NOT EXISTS(SELECT 1 FROM public.lms_media_folder f WHERE f.folder_id=folder AND f.level=parts[1]) THEN RETURN false;END IF;
+ IF sitov_access_private.staff() THEN RETURN true;END IF;
+ IF p_write IS DISTINCT FROM false OR NOT media_private.folder_allowed(folder) THEN RETURN false;END IF;
+ RETURN (parts[3]='videos' AND EXISTS(SELECT 1 FROM public.learning_videos v WHERE v.folder_id=folder AND v.storage_path=p_name
+ AND sitov_access_private.item_allowed(auth.uid(),'video',v.id::text)))
+ OR (parts[3]='presentations' AND EXISTS(SELECT 1 FROM public.lms_presentation_asset a WHERE a.folder_id=folder AND a.storage_path=p_name
+ AND sitov_access_private.item_allowed(auth.uid(),'presentation',a.asset_id::text)));
+END $$;
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.lms_presentation_asset;
+CREATE POLICY sitov_commercial_item_scope ON public.lms_presentation_asset AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'presentation',asset_id::text));
+
+-- Vocabulary metadata is visible only when at least one exact card is usable.
+-- This deliberately does not widen the old whole-unit scoring predicate.
+CREATE OR REPLACE FUNCTION sitov_access_private.vocabulary_unit_visible(p_unit uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.unit_id=p_unit
+ AND sitov_access_private.item_allowed(auth.uid(),'vocabulary_card',c.id::text))
+$$;
+REVOKE ALL ON FUNCTION sitov_access_private.vocabulary_unit_visible(uuid) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION sitov_access_private.vocabulary_unit_visible(uuid) TO authenticated;
+DROP POLICY IF EXISTS sitov_vocabulary_exact_read ON public.learning_vocabulary_cards;
+CREATE POLICY sitov_vocabulary_exact_read ON public.learning_vocabulary_cards FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'vocabulary_card',id::text));
+DROP POLICY IF EXISTS sitov_vocabulary_unit_metadata ON public.learning_units;
+CREATE POLICY sitov_vocabulary_unit_metadata ON public.learning_units FOR SELECT TO authenticated
+ USING(trainer='vocabulary' AND sitov_access_private.vocabulary_unit_visible(id));
+DO $sitov_vocab$ DECLARE f record; original text; patched text; BEGIN
+ IF to_regnamespace('vocabulary_private') IS NULL THEN RETURN;END IF;
+ EXECUTE 'DROP POLICY IF EXISTS sitov_vocabulary_progress_scope ON public.vocabulary_direction_progress';
+ EXECUTE 'CREATE POLICY sitov_vocabulary_progress_scope ON public.vocabulary_direction_progress FOR SELECT TO authenticated USING(auth_user_id=auth.uid() AND sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',card_id::text))';
+ EXECUTE 'DROP POLICY IF EXISTS sitov_vocabulary_translation_scope ON public.vocabulary_translations';
+ EXECUTE 'CREATE POLICY sitov_vocabulary_translation_scope ON public.vocabulary_translations AS RESTRICTIVE FOR SELECT TO authenticated USING(sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',card_id::text))';
+ FOR f IN SELECT p.oid,p.oid::regprocedure::text signature,p.proname FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+ WHERE (n.nspname='vocabulary_private' AND p.proname IN('initialize_cards','progress_allowed','check_retry_answer','submit_answer','submit_answer_once','submit_self_rating','submit_self_rating_once','reset_lesson','skip_assessment'))
+ OR (n.nspname='public' AND p.proname='set_vocabulary_lesson_paused')
+ LOOP
+  original:=pg_get_functiondef(f.oid);
+  INSERT INTO sitov_access_private.guard_backups(signature,definition) VALUES(f.signature,original) ON CONFLICT DO NOTHING;
+  patched:=replace(original,'learning_private.unit_allowed(card.unit_id)', 'sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',card.id::text)');
+  patched:=replace(patched,'learning_private.unit_allowed(c.unit_id)', 'sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',c.id::text)');
+  IF f.proname='progress_allowed' THEN
+   patched:=replace(patched,'AND target.is_active AND trainer_access_private.allowed(target.code,''vocabulary'')',
+    'AND target.is_active AND (trainer_access_private.allowed(target.code,''vocabulary'') OR (u.level=p_target_level AND sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',c.id::text)))');
+   patched:=replace(patched,'THEN learning_private.unit_allowed(u.id)', 'THEN sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',c.id::text)');
+  END IF;
+  IF f.proname='reset_lesson' THEN
+   patched:=replace(patched,'learning_private.unit_allowed(p_unit_id)','sitov_access_private.vocabulary_unit_visible(p_unit_id)');
+   patched:=replace(patched,'AND c.unit_id=p_unit_id;', 'AND c.unit_id=p_unit_id AND sitov_access_private.item_allowed(actor,''vocabulary_card'',c.id::text);');
+  END IF;
+  IF f.proname='skip_assessment' THEN
+   patched:=replace(patched,'NOT trainer_access_private.allowed(p_level,''vocabulary'')',
+    'NOT (trainer_access_private.allowed(p_level,''vocabulary'') OR EXISTS(SELECT 1 FROM public.learning_units x WHERE x.level=p_level AND sitov_access_private.vocabulary_unit_visible(x.id)))');
+   patched:=replace(patched,'learning_private.unit_allowed(u.id)', 'sitov_access_private.vocabulary_unit_visible(u.id)');
+   patched:=replace(patched,'WHERE unit_id=first_unit.id;', 'WHERE unit_id=first_unit.id AND sitov_access_private.item_allowed(actor,''vocabulary_card'',id::text);');
+  END IF;
+  IF f.proname='set_vocabulary_lesson_paused' THEN
+   patched:=replace(patched,'learning_private.unit_allowed(p_unit_id)', 'sitov_access_private.vocabulary_unit_visible(p_unit_id)');
+   IF position('sitov_vocabulary_pause_scope' in patched)=0 THEN
+    patched:=replace(patched,' IF p_paused THEN', ' IF NOT sitov_access_private.vocabulary_unit_visible(p_unit_id) THEN -- sitov_vocabulary_pause_scope
+     RETURN jsonb_build_object(''error'',''trainer_access_denied'');END IF;
+ IF p_paused THEN');
+   END IF;
+  END IF;
+  -- Reapplication sees already patched bodies; unrelated body drift fails closed.
+  IF patched=original AND position('sitov_access_private.' in patched)=0
+   AND position('vocabulary_private.progress_allowed(' in patched)=0 THEN
+   RAISE EXCEPTION 'sitov_vocabulary_port_anchor_missing: %',f.signature;
+  END IF;
+  IF f.proname<>'progress_allowed' AND position('learning-access:' in patched)=0 THEN
+   patched:=regexp_replace(patched,'BEGIN', 'BEGIN PERFORM pg_advisory_xact_lock(hashtextextended(''learning-access:''||auth.uid()::text,0));');
+  END IF;
+  EXECUTE patched;
+ END LOOP;
+END $sitov_vocab$;
+
+-- SITOV-NIGHT integrated overlay 20261008213100_sitov_pronunciation_pretests.sql
+-- Sitov Academy private pretest state core. No production pool seeded.
+-- Current exact passage guards new target access; historical participant access is separate.
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_definitions(
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(), text_id uuid NOT NULL REFERENCES public.learning_reading_texts(id),
+ text_version text NOT NULL CHECK(text_version~'^[a-f0-9]{64}$'), test_version text NOT NULL CHECK(test_version~'^[a-f0-9]{64}$'),
+ definition jsonb NOT NULL, active boolean NOT NULL DEFAULT false, created_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(text_id,text_version,test_version));
+CREATE UNIQUE INDEX IF NOT EXISTS sitov_pretest_active_definition ON sitov_pronunciation_private.pretest_definitions(text_id) WHERE active;
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_attempts(
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(), student_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+ text_id uuid NOT NULL REFERENCES public.learning_reading_texts(id), definition_id uuid NOT NULL REFERENCES sitov_pronunciation_private.pretest_definitions(id),
+ tasks jsonb NOT NULL, answers jsonb NOT NULL DEFAULT '{}', status text NOT NULL DEFAULT 'in_progress' CHECK(status IN('in_progress','passed','failed','outdated')),
+ revision integer NOT NULL DEFAULT 0 CHECK(revision>=0), result jsonb, started_at timestamptz NOT NULL DEFAULT clock_timestamp(), updated_at timestamptz NOT NULL DEFAULT clock_timestamp());
+CREATE UNIQUE INDEX IF NOT EXISTS sitov_pretest_open_attempt ON sitov_pronunciation_private.pretest_attempts(student_id,text_id) WHERE status='in_progress';
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_passes(
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(), student_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+ definition_id uuid NOT NULL REFERENCES sitov_pronunciation_private.pretest_definitions(id), attempt_id uuid NOT NULL REFERENCES sitov_pronunciation_private.pretest_attempts(id),
+ passed_at timestamptz NOT NULL DEFAULT clock_timestamp(), UNIQUE(student_id,definition_id));
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_receipts(
+ student_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,request_id uuid NOT NULL,payload jsonb NOT NULL,response jsonb NOT NULL,
+ PRIMARY KEY(student_id,request_id));
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.upload_tickets(
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),student_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+ text_id uuid NOT NULL REFERENCES public.learning_reading_texts(id),definition_id uuid NOT NULL REFERENCES sitov_pronunciation_private.pretest_definitions(id),
+ path text NOT NULL UNIQUE,expires_at timestamptz NOT NULL,consumed_at timestamptz);
+DO $$ DECLARE t text;BEGIN FOREACH t IN ARRAY ARRAY['pretest_definitions','pretest_attempts','pretest_passes','pretest_receipts','upload_tickets'] LOOP
+ EXECUTE format('ALTER TABLE sitov_pronunciation_private.%I ENABLE ROW LEVEL SECURITY',t);
+ EXECUTE format('REVOKE ALL ON sitov_pronunciation_private.%I FROM PUBLIC,anon,authenticated',t);END LOOP;END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.pretest_hash(p_text text) RETURNS text LANGUAGE sql IMMUTABLE SET search_path='' AS $$ SELECT encode(sha256(convert_to(p_text,'UTF8')),'hex') $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.valid_pool(d jsonb) RETURNS boolean LANGUAGE plpgsql IMMUTABLE SET search_path='' AS $$
+DECLARE c jsonb;q jsonb;n integer;BEGIN
+ IF jsonb_typeof(d)<>'object' OR d->>'policyId' IS DISTINCT FROM 'sitov-pronunciation-language-prerequisites-v1' OR jsonb_typeof(d->'competencies')<>'array' OR jsonb_typeof(d->'tasks')<>'array' THEN RETURN false;END IF;
+ IF jsonb_array_length(d->'competencies') NOT BETWEEN 1 AND 40 OR jsonb_array_length(d->'tasks') NOT BETWEEN 6 AND 1000 THEN RETURN false;END IF;
+ IF (SELECT count(DISTINCT x->>'id') FROM jsonb_array_elements(d->'tasks') x)<>jsonb_array_length(d->'tasks') OR (SELECT count(DISTINCT x->>'id') FROM jsonb_array_elements(d->'competencies') x)<>jsonb_array_length(d->'competencies') THEN RETURN false;END IF;
+ n:=0;FOR c IN SELECT * FROM jsonb_array_elements(d->'competencies') LOOP
+ IF c->>'id' !~ '^sitov[.:-][a-zA-Z0-9._:-]{1,90}$' OR coalesce(c->>'itemsPerAttempt','') !~ '^[0-9]+$' OR (c->>'itemsPerAttempt')::int NOT BETWEEN 3 AND 40 THEN RETURN false;END IF;
+ n:=n+(c->>'itemsPerAttempt')::int;
+ IF (SELECT count(*) FROM jsonb_array_elements(d->'tasks') x WHERE x->>'competencyId'=c->>'id')<2*(c->>'itemsPerAttempt')::int THEN RETURN false;END IF;END LOOP;
+ IF n>120 THEN RETURN false;END IF;
+ FOR q IN SELECT * FROM jsonb_array_elements(d->'tasks') LOOP
+ IF coalesce(q->>'id','') !~ '^sitov[.:-][a-zA-Z0-9._:-]{1,90}$' OR q->>'kind' IS DISTINCT FROM 'single_choice' OR jsonb_typeof(q->'promptDe') IS DISTINCT FROM 'string' OR (q->'fragmentDe' IS NOT NULL AND q->'fragmentDe'<>'null'::jsonb AND (jsonb_typeof(q->'fragmentDe')<>'string' OR length(q->>'fragmentDe')>300)) OR nullif(btrim(q->>'promptDe'),'') IS NULL OR length(q->>'promptDe')>500 OR jsonb_typeof(q->'options')<>'array' THEN RETURN false;END IF;
+ IF NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d->'competencies') mapped_core WHERE mapped_core->>'id'=q->>'competencyId') OR jsonb_array_length(q->'options') NOT BETWEEN 3 AND 5 THEN RETURN false;END IF;
+ IF (SELECT count(DISTINCT o->>'id') FROM jsonb_array_elements(q->'options') o)<>jsonb_array_length(q->'options') OR (SELECT count(DISTINCT btrim(o->>'textDe')) FROM jsonb_array_elements(q->'options') o)<>jsonb_array_length(q->'options') THEN RETURN false;END IF;
+ IF EXISTS(SELECT 1 FROM jsonb_array_elements(q->'options') o WHERE coalesce(o->>'id','') !~ '^sitov[.:-][a-zA-Z0-9._:-]{1,90}$' OR jsonb_typeof(o->'textDe') IS DISTINCT FROM 'string' OR nullif(btrim(o->>'textDe'),'') IS NULL OR length(o->>'textDe')>300) OR NOT EXISTS(SELECT 1 FROM jsonb_array_elements(q->'options') o WHERE o->>'id'=q->>'correctOptionId') THEN RETURN false;END IF;END LOOP;
+ RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+-- Independent approval is private and outside definition JSON: no circular test hash.
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_approvals(
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),definition_id uuid NOT NULL REFERENCES sitov_pronunciation_private.pretest_definitions(id),
+ text_version text NOT NULL CHECK(text_version~'^[a-f0-9]{64}$'),test_version text NOT NULL CHECK(test_version~'^[a-f0-9]{64}$'),
+ author_identity text NOT NULL CHECK(length(btrim(author_identity)) BETWEEN 3 AND 200),
+ reviewer_identity text NOT NULL CHECK(length(btrim(reviewer_identity)) BETWEEN 3 AND 200 AND btrim(reviewer_identity)<>btrim(author_identity)),
+ review_status text NOT NULL CHECK(review_status='independent_approved'),reviewed_at timestamptz NOT NULL,
+ review_document_ref text NOT NULL CHECK(review_document_ref~'^sitov[.:-]editorial[.:-]review[.:-][a-zA-Z0-9._:-]+$'),
+ review_document_sha256 text NOT NULL CHECK(review_document_sha256~'^[a-f0-9]{64}$'),
+ reference_kind text NOT NULL CHECK(reference_kind IN('prepared_qwen','human_recording')),
+ reference_bucket text NOT NULL,reference_path text NOT NULL,reference_audio_sha256 text NOT NULL CHECK(reference_audio_sha256~'^[a-f0-9]{64}$'));
+ALTER TABLE sitov_pronunciation_private.pretest_approvals ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON sitov_pronunciation_private.pretest_approvals FROM PUBLIC,anon,authenticated,service_role;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.immutable_approval() RETURNS trigger LANGUAGE plpgsql SET search_path='' AS $$ BEGIN RAISE EXCEPTION 'immutable_pretest_approval';END $$;
+DROP TRIGGER IF EXISTS sitov_pretest_approval_immutable ON sitov_pronunciation_private.pretest_approvals;
+CREATE TRIGGER sitov_pretest_approval_immutable BEFORE UPDATE OR DELETE ON sitov_pronunciation_private.pretest_approvals FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.immutable_approval();
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.valid_spans(p_text text,p_spans jsonb) RETURNS boolean LANGUAGE plpgsql IMMUTABLE SET search_path='' AS $$
+DECLARE span jsonb;BEGIN
+ IF jsonb_typeof(p_spans) IS DISTINCT FROM 'array' OR jsonb_array_length(p_spans)=0 THEN RETURN false;END IF;
+ FOR span IN SELECT value FROM jsonb_array_elements(p_spans) LOOP
+  IF coalesce(span->>'start','')!~'^[0-9]+$' OR coalesce(span->>'end','')!~'^[0-9]+$' OR (span->>'end')::int<=(span->>'start')::int OR nullif(btrim(span->>'quote'),'') IS NULL OR substring(p_text FROM (span->>'start')::int+1 FOR (span->>'end')::int-(span->>'start')::int) IS DISTINCT FROM span->>'quote' THEN RETURN false;END IF;
+ END LOOP;RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.valid_authoring(p_text text,d jsonb) RETURNS boolean LANGUAGE plpgsql IMMUTABLE SET search_path='' AS $$
+#variable_conflict use_column
+DECLARE c jsonb;q jsonb;f jsonb;category text;BEGIN
+ IF NOT sitov_pronunciation_private.valid_pool(d) OR jsonb_typeof(d->'omittedCategories') IS DISTINCT FROM 'array' OR jsonb_typeof(d->'reviewForms') IS DISTINCT FROM 'array' OR jsonb_array_length(d->'reviewForms')<>2 THEN RETURN false;END IF;
+ FOR c IN SELECT value FROM jsonb_array_elements(d->'competencies') LOOP
+  IF nullif(btrim(c->>'category'),'') IS NULL OR nullif(btrim(c->>'necessityDe'),'') IS NULL OR NOT sitov_pronunciation_private.valid_spans(p_text,c->'sourceSpans') OR jsonb_typeof(c->'languageUnits') IS DISTINCT FROM 'array' OR jsonb_array_length(c->'languageUnits')<3 OR jsonb_typeof(c->'mapping') IS DISTINCT FROM 'object' THEN RETURN false;END IF;
+ END LOOP;
+ FOREACH category IN ARRAY ARRAY['vocabulary','verb_forms','syntax','nominal_forms'] LOOP
+  IF NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d->'competencies') x WHERE x->>'category'=category) AND NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d->'omittedCategories') x WHERE x->>'category'=category AND length(btrim(x->>'reasonDe'))>=20) THEN RETURN false;END IF;
+ END LOOP;
+ IF EXISTS(SELECT 1 FROM jsonb_array_elements(d->'omittedCategories') x WHERE nullif(btrim(x->>'category'),'') IS NULL OR length(btrim(coalesce(x->>'reasonDe','')))<20) THEN RETURN false;END IF;
+ FOR q IN SELECT value FROM jsonb_array_elements(d->'tasks') LOOP
+  IF NOT sitov_pronunciation_private.valid_spans(p_text,q->'sourceSpans') OR length(btrim(coalesce(q->>'rationaleDe','')))<35 OR nullif(btrim(q->>'assessmentUnit'),'') IS NULL OR nullif(btrim(q->>'equivalenceKey'),'') IS NULL THEN RETURN false;END IF;
+ END LOOP;
+ IF (SELECT count(DISTINCT (x->>'competencyId',lower(btrim(x->>'assessmentUnit')))) FROM jsonb_array_elements(d->'tasks') x)<>jsonb_array_length(d->'tasks') OR (SELECT count(DISTINCT (x->>'competencyId',lower(btrim(x->>'equivalenceKey')))) FROM jsonb_array_elements(d->'tasks') x)<>jsonb_array_length(d->'tasks') OR (SELECT count(DISTINCT lower(btrim(x->>'promptDe'))) FROM jsonb_array_elements(d->'tasks') x)<>jsonb_array_length(d->'tasks') THEN RETURN false;END IF;
+ IF EXISTS(SELECT 1 FROM jsonb_array_elements(d->'reviewForms') x WHERE jsonb_typeof(x->'questionIds') IS DISTINCT FROM 'array') THEN RETURN false;END IF;
+ IF (SELECT count(*) FROM jsonb_array_elements(d->'reviewForms') f CROSS JOIN LATERAL jsonb_array_elements_text(f->'questionIds') q)<>(SELECT count(DISTINCT q) FROM jsonb_array_elements(d->'reviewForms') f CROSS JOIN LATERAL jsonb_array_elements_text(f->'questionIds') q) THEN RETURN false;END IF;
+ FOR f IN SELECT value FROM jsonb_array_elements(d->'reviewForms') LOOP
+  IF EXISTS(SELECT 1 FROM jsonb_array_elements_text(f->'questionIds') id WHERE NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d->'tasks') q WHERE q->>'id'=id)) THEN RETURN false;END IF;
+  FOR c IN SELECT value FROM jsonb_array_elements(d->'competencies') LOOP
+   IF (SELECT count(*) FROM jsonb_array_elements_text(f->'questionIds') id JOIN LATERAL jsonb_array_elements(d->'tasks') q ON q->>'id'=id WHERE q->>'competencyId'=c->>'id')<>(c->>'itemsPerAttempt')::int THEN RETURN false;END IF;
+  END LOOP;
+ END LOOP;RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.reference_valid(p_text text,p_stored_url text,a sitov_pronunciation_private.pretest_approvals) RETURNS boolean LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path='' AS $$
+DECLARE prepared text;metadata jsonb;timings jsonb;t jsonb;spoken text;previous_end numeric:=0;BEGIN
+ SELECT user_metadata INTO metadata FROM storage.objects WHERE bucket_id=a.reference_bucket AND name=a.reference_path AND archived_at IS NULL AND NOT coalesce(is_delete_marker,false) FOR SHARE;
+ IF NOT FOUND OR metadata->>'audioSha256' IS DISTINCT FROM a.reference_audio_sha256 THEN RETURN false;END IF;
+ IF a.reference_kind='prepared_qwen' THEN
+  prepared:=vocabulary_private.sitov_prepared_german_audio_url(p_text);
+  IF a.reference_bucket<>'audio_cache' OR (prepared IS DISTINCT FROM '/supabase/storage/v1/object/public/audio_cache/'||a.reference_path
+   AND prepared IS DISTINCT FROM 'storage://audio_cache/'||a.reference_path) THEN RETURN false;END IF;
+ ELSE
+  spoken:=vocabulary_private.sitov_normalize_audio_text(p_text);
+  IF p_stored_url IS DISTINCT FROM 'storage://'||a.reference_bucket||'/'||a.reference_path OR metadata->>'origin' IS DISTINCT FROM 'human_recording' OR metadata->>'textSha256' IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(spoken) THEN RETURN false;END IF;
+ END IF;
+ spoken:=vocabulary_private.sitov_normalize_audio_text(p_text);timings:=metadata->'wordTimings';
+ IF jsonb_typeof(timings) IS DISTINCT FROM 'array' OR jsonb_array_length(timings)<>cardinality(string_to_array(spoken,' ')) THEN RETURN false;END IF;
+ FOR t IN SELECT value FROM jsonb_array_elements(timings) LOOP
+  IF jsonb_typeof(t->'start') IS DISTINCT FROM 'number' OR jsonb_typeof(t->'end') IS DISTINCT FROM 'number' OR (t->>'start')::numeric<previous_end OR (t->>'end')::numeric<=(t->>'start')::numeric OR (t->>'end')::numeric>1200 THEN RETURN false;END IF;
+  previous_end:=(t->>'end')::numeric;
+ END LOOP;RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+-- Imported asset proofs are immutable and bound to the exact frozen definition.
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_question_audio_proofs(
+ definition_id uuid NOT NULL REFERENCES sitov_pronunciation_private.pretest_definitions(id),
+ test_version text NOT NULL CHECK(test_version~'^[a-f0-9]{64}$'),text_sha256 text NOT NULL CHECK(text_sha256~'^[a-f0-9]{64}$'),
+ path text NOT NULL CHECK(path~'^sitov-qwen-v1/de/[a-f0-9]{64}\.mp3$'),audio_sha256 text NOT NULL CHECK(audio_sha256~'^[a-f0-9]{64}$'),
+ word_timings_sha256 text NOT NULL CHECK(word_timings_sha256~'^[a-f0-9]{64}$'),recorded_at timestamptz NOT NULL DEFAULT clock_timestamp(),PRIMARY KEY(definition_id,test_version,text_sha256));
+ALTER TABLE sitov_pronunciation_private.pretest_question_audio_proofs ADD COLUMN IF NOT EXISTS word_timings_sha256 text CHECK(word_timings_sha256~'^[a-f0-9]{64}$');
+ALTER TABLE sitov_pronunciation_private.pretest_question_audio_proofs ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON sitov_pronunciation_private.pretest_question_audio_proofs FROM PUBLIC,anon,authenticated,service_role;
+DROP TRIGGER IF EXISTS sitov_pretest_question_proof_immutable ON sitov_pronunciation_private.pretest_question_audio_proofs;
+CREATE TRIGGER sitov_pretest_question_proof_immutable BEFORE UPDATE OR DELETE ON sitov_pronunciation_private.pretest_question_audio_proofs FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.immutable_approval();
+-- Whitelist only public German task text. Normalize/deduplicate shared assets;
+-- private keys, rationale, IDs and bookkeeping never become spoken input.
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.public_audio_texts(d jsonb) RETURNS SETOF text LANGUAGE sql IMMUTABLE SET search_path='' AS $$
+ SELECT DISTINCT vocabulary_private.sitov_normalize_audio_text(source_text) FROM (
+  SELECT q->>'promptDe' source_text FROM jsonb_array_elements(d->'tasks') q
+  UNION ALL SELECT q->>'fragmentDe' FROM jsonb_array_elements(d->'tasks') q
+  UNION ALL SELECT o->>'textDe' FROM jsonb_array_elements(d->'tasks') q CROSS JOIN LATERAL jsonb_array_elements(q->'options') o
+ ) spoken WHERE nullif(btrim(source_text),'') IS NOT NULL $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.public_audio_ready(p_id uuid,p_test_version text,d jsonb) RETURNS boolean LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path='' AS $$
+#variable_conflict use_variable
+DECLARE spoken text;prepared text;path text;authored jsonb;timing jsonb;words text[];i integer;BEGIN
+ IF NOT sitov_pronunciation_private.valid_pool(d) THEN RETURN false;END IF;
+ FOR spoken IN SELECT * FROM sitov_pronunciation_private.public_audio_texts(d) LOOP
+  prepared:=vocabulary_private.sitov_prepared_german_audio_url(spoken);
+  IF prepared LIKE 'storage://audio_cache/%' THEN path:=substring(prepared FROM length('storage://audio_cache/')+1);
+  ELSIF prepared LIKE '/supabase/storage/v1/object/public/audio_cache/%' THEN path:=substring(prepared FROM length('/supabase/storage/v1/object/public/audio_cache/')+1);
+  ELSE RETURN false;END IF;
+  SELECT user_metadata INTO authored FROM storage.objects WHERE bucket_id='audio_cache' AND name=path AND archived_at IS NULL AND NOT coalesce(is_delete_marker,false) FOR SHARE;
+  IF NOT FOUND OR NOT EXISTS(SELECT 1 FROM sitov_pronunciation_private.pretest_question_audio_proofs proof WHERE proof.definition_id=p_id AND proof.test_version=p_test_version AND proof.text_sha256=sitov_pronunciation_private.pretest_hash(spoken) AND proof.path=path AND proof.audio_sha256=authored->>'audioSha256' AND proof.word_timings_sha256=sitov_pronunciation_private.pretest_hash((authored->'wordTimings')::text)) THEN RETURN false;END IF;
+  -- Shared validator checks model/profile/text/audio hash, size and timing range.
+  -- The stored contract contains positional {start,end} timings, not words.
+  -- Exact normalized text + timing count/hash binds their lexical positions.
+  words:=string_to_array(spoken,' ');i:=0;
+  FOR timing IN SELECT value FROM jsonb_array_elements(authored->'wordTimings') LOOP
+   i:=i+1;
+   IF (timing->>'end')::numeric<(timing->>'start')::numeric THEN RETURN false;END IF;
+  END LOOP;
+  IF i<>cardinality(words) THEN RETURN false;END IF;
+ END LOOP;RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.public_audio_texts(jsonb),sitov_pronunciation_private.public_audio_ready(uuid,text,jsonb) FROM PUBLIC,anon,authenticated,service_role;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.publication_ready(p_id uuid,p_text uuid,p_text_version text,p_test_version text,d jsonb) RETURNS boolean LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path='' AS $$
+DECLARE body text;url text;a sitov_pronunciation_private.pretest_approvals;BEGIN
+ SELECT sentence_de,audio_url INTO body,url FROM public.learning_reading_texts WHERE id=p_text;
+ IF NOT FOUND OR p_text_version IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(body) OR p_test_version IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(d::text) OR NOT sitov_pronunciation_private.valid_authoring(body,d) OR NOT sitov_pronunciation_private.public_audio_ready(p_id,p_test_version,d) THEN RETURN false;END IF;
+ FOR a IN SELECT * FROM sitov_pronunciation_private.pretest_approvals WHERE definition_id=p_id AND text_version=p_text_version AND test_version=p_test_version AND review_status='independent_approved' AND reviewed_at<=clock_timestamp() LOOP
+  IF sitov_pronunciation_private.reference_valid(body,url,a) THEN RETURN true;END IF;
+ END LOOP;RETURN false;EXCEPTION WHEN others THEN RETURN false;END $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.immutable_approval(),sitov_pronunciation_private.valid_spans(text,jsonb),sitov_pronunciation_private.valid_authoring(text,jsonb),sitov_pronunciation_private.reference_valid(text,text,sitov_pronunciation_private.pretest_approvals),sitov_pronunciation_private.publication_ready(uuid,uuid,text,text,jsonb) FROM PUBLIC,anon,authenticated,service_role;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.guard_definition() RETURNS trigger LANGUAGE plpgsql SET search_path='' AS $$ BEGIN
+ IF TG_OP='UPDATE' AND (NEW.id,NEW.text_id,NEW.text_version,NEW.test_version,NEW.definition) IS DISTINCT FROM (OLD.id,OLD.text_id,OLD.text_version,OLD.test_version,OLD.definition) THEN RAISE EXCEPTION 'immutable_pretest_definition';END IF;
+ NEW.test_version:=sitov_pronunciation_private.pretest_hash(NEW.definition::text);
+ IF NEW.active AND NOT sitov_pronunciation_private.publication_ready(NEW.id,NEW.text_id,NEW.text_version,NEW.test_version,NEW.definition) THEN RAISE EXCEPTION 'pretest_publication_proof_required';END IF;RETURN NEW;END $$;
+DROP TRIGGER IF EXISTS sitov_pretest_definition_guard ON sitov_pronunciation_private.pretest_definitions;
+CREATE TRIGGER sitov_pretest_definition_guard BEFORE INSERT OR UPDATE ON sitov_pronunciation_private.pretest_definitions FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_definition();
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.current_pretest(p_text uuid) RETURNS sitov_pronunciation_private.pretest_definitions LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT d FROM sitov_pronunciation_private.pretest_definitions d JOIN public.learning_reading_texts r ON r.id=d.text_id WHERE d.text_id=p_text AND d.active AND d.text_version=sitov_pronunciation_private.pretest_hash(r.sentence_de) AND sitov_pronunciation_private.publication_ready(d.id,d.text_id,d.text_version,d.test_version,d.definition) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.current_pass(p_text uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND sitov_access_private.item_allowed(auth.uid(),'reading_text',p_text::text) AND EXISTS(SELECT 1 FROM sitov_pronunciation_private.pretest_passes p WHERE p.student_id=auth.uid() AND p.definition_id=(sitov_pronunciation_private.current_pretest(p_text)).id) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.attempt_summary(a sitov_pronunciation_private.pretest_attempts) RETURNS jsonb LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT jsonb_build_object('id',a.id,'textId',a.text_id,'textVersion',d.text_version,'testVersion',d.test_version,'status',a.status,'revision',a.revision,'startedAt',a.started_at,'updatedAt',a.updated_at,'questionIds',(SELECT jsonb_agg(q->>'id') FROM jsonb_array_elements(a.tasks) q),'answers',a.answers,'answeredCount',(SELECT count(*) FROM jsonb_object_keys(a.answers)),'totalCount',jsonb_array_length(a.tasks)) FROM sitov_pronunciation_private.pretest_definitions d WHERE d.id=a.definition_id $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.attempt_response(a sitov_pronunciation_private.pretest_attempts) RETURNS jsonb LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT CASE WHEN a.status='in_progress' THEN jsonb_build_object('attempt',sitov_pronunciation_private.attempt_summary(a),'tasks',(SELECT jsonb_agg(jsonb_build_object('id',q->>'id','competencyId',q->>'competencyId','kind',q->>'kind','promptDe',q->>'promptDe','fragmentDe',q->'fragmentDe','options',(SELECT jsonb_agg(jsonb_build_object('id',o->>'id','textDe',o->>'textDe')) FROM jsonb_array_elements(q->'options') o))) FROM jsonb_array_elements(a.tasks) q)) ELSE jsonb_build_object('attempt',sitov_pronunciation_private.attempt_summary(a),'result',a.result) END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.pretest_error(e text) RETURNS jsonb LANGUAGE sql IMMUTABLE SET search_path='' AS $$ SELECT jsonb_build_object('ok',false,'error',e,'retryable',e IN('retryable_failure','rate_limited')) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.pretest_command(op text,p_text uuid,p_attempt uuid,p_revision integer,p_answers jsonb,p_request uuid,p_extension text DEFAULT NULL) RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE d sitov_pronunciation_private.pretest_definitions;a sitov_pronunciation_private.pretest_attempts;receipt record;payload jsonb;response jsonb;tasks jsonb;prior jsonb;cores jsonb;fails jsonb;proof jsonb;correct integer;total integer;passed boolean;ticket uuid;path text;expires timestamptz;BEGIN
+ IF auth.uid() IS NULL THEN RETURN sitov_pronunciation_private.pretest_error('authentication_required');END IF;
+ IF identity_private.current_profile_role() IN('teacher','admin') AND NOT sitov_access_private.staff() THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('sitov-pretest:'||auth.uid()::text,0));
+ IF op IN('get','save','submit') THEN SELECT * INTO a FROM sitov_pronunciation_private.pretest_attempts WHERE id=p_attempt AND student_id=auth.uid() FOR UPDATE;IF NOT FOUND THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;p_text:=a.text_id;END IF;
+ IF op='get' AND a.status IN('passed','failed','outdated') THEN RETURN jsonb_build_object('ok',true,'data',sitov_pronunciation_private.attempt_response(a));END IF;
+ IF p_text IS NULL OR NOT sitov_access_private.item_allowed(auth.uid(),'reading_text',p_text::text) THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
+ IF op<>'get' AND p_request IS NULL THEN RETURN sitov_pronunciation_private.pretest_error('invalid_input');END IF;
+ payload:=jsonb_build_object('op',op,'text',p_text,'attempt',p_attempt,'revision',p_revision,'answers',p_answers,'extension',p_extension);
+ IF op<>'get' THEN SELECT * INTO receipt FROM sitov_pronunciation_private.pretest_receipts WHERE student_id=auth.uid() AND request_id=p_request;IF FOUND THEN IF receipt.payload<>payload THEN RETURN sitov_pronunciation_private.pretest_error('request_conflict');END IF;RETURN receipt.response;END IF;END IF;
+ d:=sitov_pronunciation_private.current_pretest(p_text);
+ IF op='get' THEN IF a.status='in_progress' AND a.definition_id IS DISTINCT FROM d.id THEN UPDATE sitov_pronunciation_private.pretest_attempts SET status='outdated',updated_at=clock_timestamp() WHERE id=a.id RETURNING * INTO a;END IF;RETURN jsonb_build_object('ok',true,'data',sitov_pronunciation_private.attempt_response(a));END IF;
+ IF op IN('save','submit') AND a.definition_id IS DISTINCT FROM d.id THEN RETURN sitov_pronunciation_private.pretest_error('version_conflict');END IF;
+ IF d.id IS NULL THEN RETURN sitov_pronunciation_private.pretest_error('authoring_not_ready');END IF;
+ IF op='start' THEN
+ UPDATE sitov_pronunciation_private.pretest_attempts SET status='outdated',updated_at=clock_timestamp() WHERE student_id=auth.uid() AND text_id=p_text AND status='in_progress' AND definition_id<>d.id;
+ SELECT * INTO a FROM sitov_pronunciation_private.pretest_attempts WHERE student_id=auth.uid() AND text_id=p_text AND definition_id=d.id AND status IN('in_progress','passed') ORDER BY started_at DESC LIMIT 1;
+ IF NOT FOUND THEN
+ IF (SELECT count(*) FROM sitov_pronunciation_private.pretest_attempts WHERE student_id=auth.uid() AND started_at>clock_timestamp()-interval '1 minute')>=6 THEN RETURN sitov_pronunciation_private.pretest_error('rate_limited');END IF;
+ SELECT previous.tasks INTO prior FROM sitov_pronunciation_private.pretest_attempts previous WHERE previous.student_id=auth.uid() AND previous.text_id=p_text AND previous.definition_id=d.id ORDER BY previous.started_at DESC LIMIT 1;
+ SELECT jsonb_agg(q ORDER BY core_id,position) INTO tasks FROM (SELECT c->>'id' core_id,p.q,row_number() OVER() position FROM jsonb_array_elements(d.definition->'competencies') c CROSS JOIN LATERAL (SELECT q FROM jsonb_array_elements(d.definition->'tasks') q WHERE q->>'competencyId'=c->>'id' ORDER BY EXISTS(SELECT 1 FROM jsonb_array_elements(coalesce(prior,'[]')) old WHERE old->>'id'=q->>'id'),random() LIMIT (c->>'itemsPerAttempt')::int) p) chosen;
+ INSERT INTO sitov_pronunciation_private.pretest_attempts(student_id,text_id,definition_id,tasks) VALUES(auth.uid(),p_text,d.id,tasks) RETURNING * INTO a;END IF;
+ response:=jsonb_build_object('ok',true,'data',sitov_pronunciation_private.attempt_response(a));
+ ELSIF op IN('save','submit') THEN
+ IF a.definition_id<>d.id THEN RETURN sitov_pronunciation_private.pretest_error('version_conflict');END IF;
+ IF a.status<>'in_progress' THEN response:=jsonb_build_object('ok',true,'data',CASE WHEN op='save' THEN sitov_pronunciation_private.attempt_summary(a) ELSE sitov_pronunciation_private.attempt_response(a) END);
+ ELSE
+ IF p_revision IS NULL OR p_revision<>a.revision THEN RETURN sitov_pronunciation_private.pretest_error('attempt_conflict');END IF;
+ IF jsonb_typeof(p_answers) IS DISTINCT FROM 'object' OR EXISTS(SELECT 1 FROM jsonb_each(p_answers) v WHERE jsonb_typeof(v.value)<>'string' OR NOT EXISTS(SELECT 1 FROM jsonb_array_elements(a.tasks) q CROSS JOIN LATERAL jsonb_array_elements(q->'options') o WHERE q->>'id'=v.key AND o->>'id'=v.value#>>'{}')) THEN RETURN sitov_pronunciation_private.pretest_error('invalid_answer');END IF;
+ IF op='submit' AND (SELECT count(*) FROM jsonb_object_keys(p_answers))<>jsonb_array_length(a.tasks) THEN RETURN sitov_pronunciation_private.pretest_error('incomplete_attempt');END IF;
+ UPDATE sitov_pronunciation_private.pretest_attempts SET answers=p_answers,revision=revision+1,updated_at=clock_timestamp() WHERE id=a.id RETURNING * INTO a;
+ IF op='submit' THEN
+ SELECT jsonb_agg(jsonb_build_object('id',id,'correct',n,'total',t,'required',(2*t+2)/3,'met',n>=(2*t+2)/3)) INTO cores FROM (SELECT q->>'competencyId' id,count(*)::int t,count(*) FILTER(WHERE p_answers->> (q->>'id')=q->>'correctOptionId')::int n FROM jsonb_array_elements(a.tasks) q GROUP BY q->>'competencyId') s;
+ SELECT sum((x->>'correct')::int),sum((x->>'total')::int),coalesce(jsonb_agg(x->>'id') FILTER(WHERE NOT (x->>'met')::boolean),'[]') INTO correct,total,fails FROM jsonb_array_elements(cores) x;
+ passed:=correct>=(3*total+3)/4 AND jsonb_array_length(fails)=0;proof:=NULL;
+ IF passed THEN INSERT INTO sitov_pronunciation_private.pretest_passes(student_id,definition_id,attempt_id) VALUES(auth.uid(),d.id,a.id) ON CONFLICT(student_id,definition_id) DO NOTHING;SELECT jsonb_build_object('id',p.id,'textId',p_text,'textVersion',d.text_version,'testVersion',d.test_version,'passedAttemptId',p.attempt_id,'passedAt',p.passed_at,'compatibilityId',NULL) INTO proof FROM sitov_pronunciation_private.pretest_passes p WHERE student_id=auth.uid() AND definition_id=d.id;END IF;
+ UPDATE sitov_pronunciation_private.pretest_attempts SET status=CASE WHEN passed THEN 'passed' ELSE 'failed' END,result=jsonb_build_object('attemptId',a.id,'textId',p_text,'textVersion',d.text_version,'testVersion',d.test_version,'passed',passed,'correct',correct,'total',total,'competencies',cores,'failedCompetencyIds',fails,'learningLinks','[]'::jsonb,'proof',proof) WHERE id=a.id RETURNING * INTO a;
+ END IF;
+ response:=jsonb_build_object('ok',true,'data',CASE WHEN op='save' THEN sitov_pronunciation_private.attempt_summary(a) ELSE sitov_pronunciation_private.attempt_response(a) END);END IF;
+ ELSIF op='ticket' THEN
+ IF NOT sitov_pronunciation_private.current_pass(p_text) THEN RETURN sitov_pronunciation_private.pretest_error('test_required');END IF;
+ IF p_extension IS NULL OR p_extension NOT IN('webm','mp4','ogg','wav','mp3') THEN RETURN sitov_pronunciation_private.pretest_error('invalid_input');END IF;
+ ticket:=gen_random_uuid();path:=auth.uid()::text||'/'||ticket::text||'.'||p_extension;expires:=clock_timestamp()+interval '10 minutes';
+ INSERT INTO sitov_pronunciation_private.upload_tickets(id,student_id,text_id,definition_id,path,expires_at) VALUES(ticket,auth.uid(),p_text,d.id,path,expires);
+ response:=jsonb_build_object('ok',true,'data',jsonb_build_object('ticketId',ticket,'path',path,'textVersion',d.text_version,'expiresAt',expires));
+ ELSE RETURN sitov_pronunciation_private.pretest_error('invalid_input');END IF;
+ INSERT INTO sitov_pronunciation_private.pretest_receipts VALUES(auth.uid(),p_request,payload,response);RETURN response;END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.pretest_catalog(p_level text) RETURNS jsonb LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$
+DECLARE r record;d sitov_pronunciation_private.pretest_definitions;a sitov_pronunciation_private.pretest_attempts;entries jsonb:='[]';status text;proof jsonb;reason text;BEGIN
+ IF auth.uid() IS NULL THEN RETURN sitov_pronunciation_private.pretest_error('authentication_required');END IF;
+ FOR r IN SELECT t.id,t.sentence_de,t.focus,u.id unit_id,u.label FROM public.learning_reading_texts t JOIN public.learning_units u ON u.id=t.unit_id WHERE u.level=p_level AND sitov_access_private.item_allowed(auth.uid(),'reading_text',t.id::text) ORDER BY u.sort_order,t.id LOOP
+ d:=sitov_pronunciation_private.current_pretest(r.id);a:=NULL;proof:=NULL;reason:=NULL;
+ IF d.id IS NULL THEN status:='locked';reason:=CASE WHEN EXISTS(SELECT 1 FROM sitov_pronunciation_private.pretest_attempts old WHERE old.student_id=auth.uid() AND old.text_id=r.id) THEN 'version_changed' ELSE 'authoring_not_ready' END;ELSE SELECT latest.* INTO a FROM sitov_pronunciation_private.pretest_attempts latest WHERE latest.student_id=auth.uid() AND latest.text_id=r.id AND latest.definition_id=d.id AND latest.status<>'outdated' ORDER BY latest.started_at DESC LIMIT 1;status:=coalesce(a.status,'available');IF status='passed' THEN proof:=a.result->'proof';END IF;END IF;
+ entries:=entries||jsonb_build_array(jsonb_build_object('textId',r.id,'unitId',r.unit_id,'level',p_level,'title',r.label,'focus',r.focus,'kind','regular','textVersion',sitov_pronunciation_private.pretest_hash(r.sentence_de),'testVersion',d.test_version,'status',status,'lockedReason',reason,'attempt',CASE WHEN a.id IS NULL THEN NULL ELSE sitov_pronunciation_private.attempt_summary(a) END,'proof',proof,'target',CASE status WHEN 'locked' THEN NULL WHEN 'passed' THEN 'pronunciation' WHEN 'in_progress' THEN 'resume_pretest' ELSE 'pretest' END));END LOOP;
+ RETURN jsonb_build_object('ok',true,'data',entries);END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.pretest_staff(p_text uuid,p_student uuid) RETURNS jsonb LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$ BEGIN
+ IF NOT sitov_access_private.staff() THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
+ RETURN jsonb_build_object('ok',true,'data',jsonb_build_object('definitions',(SELECT coalesce(jsonb_agg(to_jsonb(d)),'[]') FROM sitov_pronunciation_private.pretest_definitions d WHERE text_id=p_text),'attempts',(SELECT coalesce(jsonb_agg(sitov_pronunciation_private.attempt_response(a)),'[]') FROM sitov_pronunciation_private.pretest_attempts a WHERE text_id=p_text AND (p_student IS NULL OR student_id=p_student))));END $$;
+CREATE OR REPLACE FUNCTION public.sitov_get_pronunciation_pretests(p_level text) RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_pronunciation_private.pretest_catalog(p_level) $$;
+CREATE OR REPLACE FUNCTION public.sitov_start_pronunciation_pretest(p_text_id uuid,p_request_id uuid) RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_pronunciation_private.pretest_command('start',p_text_id,NULL,NULL,NULL,p_request_id) $$;
+CREATE OR REPLACE FUNCTION public.sitov_get_pronunciation_pretest_attempt(p_attempt_id uuid) RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_pronunciation_private.pretest_command('get',NULL,p_attempt_id,NULL,NULL,NULL) $$;
+CREATE OR REPLACE FUNCTION public.sitov_save_pronunciation_pretest_answers(p_attempt_id uuid,p_revision integer,p_answers jsonb,p_request_id uuid) RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_pronunciation_private.pretest_command('save',NULL,p_attempt_id,p_revision,p_answers,p_request_id) $$;
+CREATE OR REPLACE FUNCTION public.sitov_submit_pronunciation_pretest(p_attempt_id uuid,p_revision integer,p_answers jsonb,p_request_id uuid) RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_pronunciation_private.pretest_command('submit',NULL,p_attempt_id,p_revision,p_answers,p_request_id) $$;
+CREATE OR REPLACE FUNCTION public.sitov_get_pronunciation_pretest_staff(p_text_id uuid,p_student_id uuid DEFAULT NULL) RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_pronunciation_private.pretest_staff(p_text_id,p_student_id) $$;
+CREATE OR REPLACE FUNCTION public.sitov_create_pronunciation_upload_ticket(p_text_id uuid,p_request_id uuid,p_extension text) RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_pronunciation_private.pretest_command('ticket',p_text_id,NULL,NULL,NULL,p_request_id,p_extension) $$;
+-- Do not revoke unrelated old guards. Only new functions receive API grants.
+DO $$ DECLARE f record;BEGIN FOR f IN SELECT p.oid::regprocedure signature FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='sitov_pronunciation_private' AND p.proname IN('pretest_hash','valid_pool','guard_definition','current_pretest','current_pass','attempt_summary','attempt_response','pretest_error','pretest_command','pretest_catalog','pretest_staff') LOOP EXECUTE format('REVOKE ALL ON FUNCTION %s FROM PUBLIC,anon,authenticated',f.signature);END LOOP;END $$;
+GRANT EXECUTE ON FUNCTION sitov_pronunciation_private.pretest_command(text,uuid,uuid,integer,jsonb,uuid,text),sitov_pronunciation_private.pretest_catalog(text),sitov_pronunciation_private.pretest_staff(uuid,uuid),sitov_pronunciation_private.current_pass(uuid) TO authenticated;
+DO $$ DECLARE f record;BEGIN FOR f IN SELECT p.oid::regprocedure signature FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='public' AND p.proname IN('sitov_get_pronunciation_pretests','sitov_start_pronunciation_pretest','sitov_get_pronunciation_pretest_attempt','sitov_save_pronunciation_pretest_answers','sitov_submit_pronunciation_pretest','sitov_get_pronunciation_pretest_staff','sitov_create_pronunciation_upload_ticket') LOOP EXECUTE format('REVOKE ALL ON FUNCTION %s FROM PUBLIC,anon',f.signature);EXECUTE format('GRANT EXECUTE ON FUNCTION %s TO authenticated',f.signature);END LOOP;END $$;
+
+-- Preserve exact prior definitions for a coordinated, non-destructive rollback.
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_legacy_functions(signature text PRIMARY KEY,definition text NOT NULL);
+REVOKE ALL ON sitov_pronunciation_private.pretest_legacy_functions FROM PUBLIC,anon,authenticated;
+ALTER TABLE sitov_pronunciation_private.pretest_legacy_functions ENABLE ROW LEVEL SECURITY;
+INSERT INTO sitov_pronunciation_private.pretest_legacy_functions SELECT signature,pg_get_functiondef(signature::regprocedure) FROM unnest(ARRAY[
+ 'sitov_pronunciation_private.text_allowed(uuid)','sitov_pronunciation_private.guard_submission()',
+ 'sitov_pronunciation_private.can_record()','pronunciation_private.create_submission(uuid,text)',
+ 'pronunciation_private.can_access_submission(uuid)']) signature ON CONFLICT DO NOTHING;
+ALTER TABLE sitov_pronunciation_private.upload_tickets ALTER COLUMN text_id DROP NOT NULL;
+ALTER TABLE sitov_pronunciation_private.upload_tickets ALTER COLUMN definition_id DROP NOT NULL;
+ALTER TABLE sitov_pronunciation_private.upload_tickets ADD COLUMN IF NOT EXISTS purpose text NOT NULL DEFAULT 'target' CHECK(purpose IN('target','reply'));
+ALTER TABLE sitov_pronunciation_private.upload_tickets ADD COLUMN IF NOT EXISTS submission_id uuid REFERENCES public.submissions(id);
+-- The BEFORE INSERT guard binds NEW.id atomically before the submission exists.
+ALTER TABLE sitov_pronunciation_private.upload_tickets ALTER CONSTRAINT upload_tickets_submission_id_fkey DEFERRABLE INITIALLY DEFERRED;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.text_allowed(p_prompt uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT sitov_pronunciation_private.current_pass(p_prompt) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.staff_preview() RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT sitov_access_private.staff() $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.staff_preview() FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION sitov_pronunciation_private.staff_preview() TO authenticated;
+DROP POLICY IF EXISTS sitov_pronunciation_readiness_bounds ON public.learning_reading_texts;
+CREATE POLICY sitov_pronunciation_readiness_bounds ON public.learning_reading_texts AS RESTRICTIVE FOR SELECT TO authenticated USING(sitov_pronunciation_private.staff_preview() OR sitov_pronunciation_private.current_pass(id));
+-- Historical submissions and saved text snapshots do not grant any target rights.
+CREATE OR REPLACE FUNCTION pronunciation_private.can_access_submission(p_id uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND EXISTS(SELECT 1 FROM public.submissions s WHERE s.id=p_id AND s.type='audio' AND (s.auth_user_id=auth.uid() OR sitov_access_private.staff())) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.ticket_upload_allowed(p_path text) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND EXISTS(SELECT 1 FROM sitov_pronunciation_private.upload_tickets t WHERE t.student_id=auth.uid() AND t.path=p_path AND t.consumed_at IS NULL AND t.expires_at>clock_timestamp() AND (
+ (t.purpose='target' AND t.submission_id IS NULL AND t.definition_id=(sitov_pronunciation_private.current_pretest(t.text_id)).id AND sitov_pronunciation_private.current_pass(t.text_id)) OR
+ (t.purpose='reply' AND t.text_id IS NULL AND t.definition_id IS NULL AND pronunciation_private.can_access_submission(t.submission_id)))) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.can_record() RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM sitov_pronunciation_private.upload_tickets t WHERE t.student_id=auth.uid() AND sitov_pronunciation_private.ticket_upload_allowed(t.path)) $$;
+DROP POLICY IF EXISTS sitov_pronunciation_ready_upload ON storage.objects;
+CREATE POLICY sitov_pronunciation_ready_upload ON storage.objects AS RESTRICTIVE FOR INSERT TO authenticated WITH CHECK(bucket_id NOT IN('pronunciation_audio','audio_submissions') OR bucket_id='pronunciation_audio' AND sitov_pronunciation_private.ticket_upload_allowed(name));
+DROP POLICY IF EXISTS sitov_pronunciation_owned_upload ON storage.objects;
+CREATE POLICY sitov_pronunciation_owned_upload ON storage.objects FOR INSERT TO authenticated WITH CHECK(bucket_id='pronunciation_audio' AND sitov_pronunciation_private.ticket_upload_allowed(name));
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.guard_submission() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE ticket sitov_pronunciation_private.upload_tickets;source_text text;BEGIN
+ IF auth.uid() IS NULL OR NEW.type<>'audio' OR NEW.prompt_id IS NULL THEN RETURN NEW;END IF;
+ IF TG_OP='UPDATE' AND (NEW.prompt_id,NEW.content_url,NEW.auth_user_id) IS NOT DISTINCT FROM (OLD.prompt_id,OLD.content_url,OLD.auth_user_id) THEN RETURN NEW;END IF;
+ IF NEW.content_url IS NULL OR NEW.content_url NOT LIKE 'storage://pronunciation_audio/'||auth.uid()::text||'/%' OR NEW.auth_user_id<>auth.uid() THEN RAISE EXCEPTION 'test_required' USING ERRCODE='42501';END IF;
+ SELECT * INTO ticket FROM sitov_pronunciation_private.upload_tickets t WHERE t.path=replace(NEW.content_url,'storage://pronunciation_audio/','') AND t.student_id=auth.uid() FOR UPDATE;
+ SELECT r.sentence_de INTO source_text FROM public.learning_reading_texts r WHERE r.id=NEW.prompt_id FOR SHARE;
+ PERFORM 1 FROM sitov_pronunciation_private.pretest_definitions d WHERE d.id=ticket.definition_id FOR SHARE;
+ IF ticket.id IS NULL OR ticket.purpose<>'target' OR ticket.text_id<>NEW.prompt_id OR NOT sitov_pronunciation_private.ticket_upload_allowed(ticket.path) OR NOT EXISTS(SELECT 1 FROM storage.objects o WHERE o.bucket_id='pronunciation_audio' AND o.name=ticket.path) THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
+ NEW.text_content:=source_text;
+ UPDATE sitov_pronunciation_private.upload_tickets SET consumed_at=clock_timestamp(),submission_id=NEW.id WHERE id=ticket.id;RETURN NEW;END $$;
+-- Ownership reassignment cannot bypass new-reading authorization.
+DROP TRIGGER IF EXISTS sitov_pronunciation_ready_submission ON public.submissions;
+CREATE TRIGGER sitov_pronunciation_ready_submission BEFORE INSERT OR UPDATE OF prompt_id,content_url,auth_user_id ON public.submissions FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_submission();
+CREATE OR REPLACE FUNCTION pronunciation_private.create_submission(p_prompt_id uuid,p_audio_path text) RETURNS uuid LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE result uuid;level text;ticket sitov_pronunciation_private.upload_tickets;BEGIN
+ IF auth.uid() IS NULL OR p_audio_path IS NULL OR p_audio_path NOT LIKE 'storage://pronunciation_audio/'||auth.uid()::text||'/%' THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
+ SELECT * INTO ticket FROM sitov_pronunciation_private.upload_tickets t WHERE 'storage://pronunciation_audio/'||t.path=p_audio_path AND t.student_id=auth.uid() FOR UPDATE;
+ IF ticket.id IS NULL OR ticket.purpose<>'target' OR ticket.text_id IS DISTINCT FROM p_prompt_id THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
+ IF ticket.consumed_at IS NOT NULL THEN
+  -- Exact historical receipt only: no current body/reference or new authorization.
+  SELECT s.id INTO result FROM public.submissions s WHERE s.id=ticket.submission_id AND s.auth_user_id=auth.uid() AND s.type='audio' AND s.prompt_id=p_prompt_id AND s.content_url=p_audio_path;
+  IF result IS NULL AND ticket.submission_id IS NULL THEN
+   -- Older consumed tickets predate the explicit submission binding. Match one
+   -- exact owned row only; ambiguous or foreign matches remain denied.
+   SELECT min(s.id::text)::uuid INTO result FROM public.submissions s WHERE s.auth_user_id=auth.uid() AND s.type='audio' AND s.prompt_id=p_prompt_id AND s.content_url=p_audio_path HAVING count(*)=1;
+  END IF;
+  IF result IS NULL THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
+  RETURN result;
+ END IF;
+ IF NOT sitov_pronunciation_private.current_pass(p_prompt_id) THEN RAISE EXCEPTION 'test_required' USING ERRCODE='42501';END IF;
+ SELECT u.level INTO level FROM public.learning_reading_texts r JOIN public.learning_units u ON u.id=r.unit_id WHERE r.id=p_prompt_id;
+ INSERT INTO public.submissions(auth_user_id,type,content_url,status,level,prompt_id) VALUES(auth.uid(),'audio',p_audio_path,'pending',level,p_prompt_id) RETURNING id INTO result;RETURN result;END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.reply_ticket(p_submission uuid,p_request uuid,p_extension text) RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE payload jsonb;receipt record;id uuid;path text;expires timestamptz;response jsonb;BEGIN
+ IF auth.uid() IS NULL THEN RETURN sitov_pronunciation_private.pretest_error('authentication_required');END IF;
+ IF NOT pronunciation_private.can_access_submission(p_submission) THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
+ IF p_request IS NULL OR p_extension IS NULL OR p_extension NOT IN('webm','mp4','ogg','wav','mp3') THEN RETURN sitov_pronunciation_private.pretest_error('invalid_input');END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('sitov-pretest:'||auth.uid()::text,0));payload:=jsonb_build_object('op','reply','submission',p_submission,'extension',p_extension);
+ SELECT * INTO receipt FROM sitov_pronunciation_private.pretest_receipts WHERE student_id=auth.uid() AND request_id=p_request;
+ IF FOUND THEN IF receipt.payload<>payload THEN RETURN sitov_pronunciation_private.pretest_error('request_conflict');END IF;RETURN receipt.response;END IF;
+ id:=gen_random_uuid();path:=auth.uid()::text||'/'||id::text||'.'||p_extension;expires:=clock_timestamp()+interval '10 minutes';
+ INSERT INTO sitov_pronunciation_private.upload_tickets(id,student_id,purpose,submission_id,path,expires_at) VALUES(id,auth.uid(),'reply',p_submission,path,expires);
+ response:=jsonb_build_object('ok',true,'data',jsonb_build_object('ticketId',id,'path',path,'expiresAt',expires,'submissionId',p_submission,'purpose','reply'));
+ INSERT INTO sitov_pronunciation_private.pretest_receipts VALUES(auth.uid(),p_request,payload,response);RETURN response;END $$;
+CREATE OR REPLACE FUNCTION public.sitov_create_pronunciation_reply_upload_ticket(p_submission_id uuid,p_request_id uuid,p_extension text) RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_pronunciation_private.reply_ticket(p_submission_id,p_request_id,p_extension) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.consume_reply_ticket() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE t sitov_pronunciation_private.upload_tickets;BEGIN
+ IF NEW.audio_path IS NULL THEN RETURN NEW;END IF;
+ SELECT * INTO t FROM sitov_pronunciation_private.upload_tickets WHERE path=replace(NEW.audio_path,'storage://pronunciation_audio/','') AND student_id=auth.uid() FOR UPDATE;
+ IF t.id IS NULL OR t.purpose<>'reply' OR t.submission_id<>NEW.submission_id OR NOT sitov_pronunciation_private.ticket_upload_allowed(t.path) OR NEW.sender_id<>auth.uid() OR NOT EXISTS(SELECT 1 FROM storage.objects o WHERE o.bucket_id='pronunciation_audio' AND o.name=t.path) THEN RAISE EXCEPTION 'invalid_reply_ticket' USING ERRCODE='42501';END IF;
+ UPDATE sitov_pronunciation_private.upload_tickets SET consumed_at=clock_timestamp() WHERE id=t.id;RETURN NEW;END $$;
+DROP TRIGGER IF EXISTS sitov_pretest_reply_ticket ON public.pronunciation_messages;
+CREATE TRIGGER sitov_pretest_reply_ticket BEFORE INSERT ON public.pronunciation_messages FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.consume_reply_ticket();
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.ticket_upload_allowed(text),sitov_pronunciation_private.reply_ticket(uuid,uuid,text),sitov_pronunciation_private.consume_reply_ticket() FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION sitov_pronunciation_private.ticket_upload_allowed(text),sitov_pronunciation_private.reply_ticket(uuid,uuid,text) TO authenticated;
+REVOKE ALL ON FUNCTION public.sitov_create_pronunciation_reply_upload_ticket(uuid,uuid,text) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.sitov_create_pronunciation_reply_upload_ticket(uuid,uuid,text) TO authenticated;
+-- Exact selected-item commercial rights need a new permissive port as well as
+-- restrictive bounds; the older unit-only release policy cannot grant this path.
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.unit_has_current_pass(p_unit uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND EXISTS(SELECT 1 FROM public.learning_reading_texts r WHERE r.unit_id=p_unit AND sitov_pronunciation_private.current_pass(r.id)) $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.unit_has_current_pass(uuid) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION sitov_pronunciation_private.unit_has_current_pass(uuid) TO authenticated;
+DROP POLICY IF EXISTS sitov_pretest_released_read ON public.learning_reading_texts;
+CREATE POLICY sitov_pretest_released_read ON public.learning_reading_texts FOR SELECT TO authenticated USING(sitov_pronunciation_private.current_pass(id) AND learning_private.german_text_allowed(sentence_de) AND learning_private.german_text_allowed(focus));
+DROP POLICY IF EXISTS sitov_pretest_released_unit ON public.learning_units;
+CREATE POLICY sitov_pretest_released_unit ON public.learning_units FOR SELECT TO authenticated USING(trainer='pronunciation' AND sitov_pronunciation_private.unit_has_current_pass(id));
+
+-- Operational rollback switch applies inside triggers, including old SECURITY DEFINER wrappers.
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.write_control(singleton boolean PRIMARY KEY DEFAULT true CHECK(singleton),enabled boolean NOT NULL DEFAULT false);
+REVOKE ALL ON sitov_pronunciation_private.write_control FROM PUBLIC,anon,authenticated;
+ALTER TABLE sitov_pronunciation_private.write_control ENABLE ROW LEVEL SECURITY;
+INSERT INTO sitov_pronunciation_private.write_control(singleton,enabled) VALUES(true,false) ON CONFLICT DO NOTHING;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.writes_enabled() RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT coalesce((SELECT enabled FROM sitov_pronunciation_private.write_control WHERE singleton),false) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.guard_writes() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE protected boolean;BEGIN
+ IF TG_TABLE_NAME='submissions' THEN
+  IF TG_OP='DELETE' THEN protected:=OLD.type='audio';ELSIF TG_OP='UPDATE' THEN protected:=OLD.type='audio' OR NEW.type='audio';ELSE protected:=NEW.type='audio';END IF;
+ ELSIF TG_TABLE_NAME='objects' THEN
+  IF TG_OP='DELETE' THEN protected:=OLD.bucket_id IN('pronunciation_audio','audio_submissions');ELSIF TG_OP='UPDATE' THEN protected:=OLD.bucket_id IN('pronunciation_audio','audio_submissions') OR NEW.bucket_id IN('pronunciation_audio','audio_submissions');ELSE protected:=NEW.bucket_id IN('pronunciation_audio','audio_submissions');END IF;
+ ELSE protected:=true;END IF;
+ IF protected AND auth.uid() IS NOT NULL AND NOT sitov_pronunciation_private.writes_enabled() THEN RAISE EXCEPTION 'pronunciation_writes_frozen' USING ERRCODE='42501';END IF;
+ IF TG_OP='DELETE' THEN RETURN OLD;END IF;RETURN NEW;END $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.writes_enabled(),sitov_pronunciation_private.guard_writes() FROM PUBLIC,anon,authenticated;
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON public.submissions;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON public.submissions FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON public.pronunciation_messages;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON public.pronunciation_messages FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON storage.objects;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON storage.objects FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON pronunciation_private.staff_hidden_messages;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON pronunciation_private.staff_hidden_messages FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON pronunciation_private.staff_hidden_submissions;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON pronunciation_private.staff_hidden_submissions FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+-- Re-enable only after the exact current forward gates and APIs have been restored.
+UPDATE sitov_pronunciation_private.write_control SET enabled=true WHERE singleton;
+
+-- SITOV-NIGHT integrated overlay 20261008213200_sitov_learning_specials.sql
+-- Sitov Academy optional Special engine. Empty private authoring base; no active content seeded.
+CREATE SCHEMA IF NOT EXISTS sitov_special_private;
+REVOKE ALL ON SCHEMA sitov_special_private FROM PUBLIC,anon;
+GRANT USAGE ON SCHEMA sitov_special_private TO authenticated;
+CREATE TABLE IF NOT EXISTS sitov_special_private.definitions (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),node_id uuid NOT NULL REFERENCES public.path_nodes(id),
+ version text NOT NULL CHECK(version ~ '^[a-f0-9]{64}$'),source_ref text NOT NULL CHECK(length(source_ref) BETWEEN 1 AND 500),
+ blueprint jsonb NOT NULL,pool jsonb NOT NULL CHECK(jsonb_typeof(pool)='array'),
+ published boolean NOT NULL DEFAULT false,editorial_proof jsonb,audio_import_proof jsonb,
+ created_by uuid REFERENCES public.profiles(id),created_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(node_id,version),UNIQUE(node_id,id),CHECK(NOT published OR (editorial_proof IS NOT NULL AND audio_import_proof IS NOT NULL))
+);
+CREATE TABLE IF NOT EXISTS sitov_special_private.activation (
+ node_id uuid PRIMARY KEY REFERENCES public.path_nodes(id),definition_id uuid NOT NULL,FOREIGN KEY(node_id,definition_id) REFERENCES sitov_special_private.definitions(node_id,id)
+);
+ALTER TABLE sitov_special_private.activation ENABLE ROW LEVEL SECURITY;
+CREATE TABLE IF NOT EXISTS sitov_special_private.sources (
+ source_ref text PRIMARY KEY,source_sha256 text NOT NULL CHECK(source_sha256 ~ '^[a-f0-9]{64}$'),
+ level text NOT NULL REFERENCES public.learning_levels(code),evidence_uri text NOT NULL CHECK(evidence_uri ~ '^(obsidian|catalog):.+'),active boolean NOT NULL DEFAULT false
+);
+CREATE TABLE IF NOT EXISTS sitov_special_private.approvals (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),node_id uuid NOT NULL REFERENCES public.path_nodes(id),version text NOT NULL,
+ source_ref text NOT NULL REFERENCES sitov_special_private.sources(source_ref),source_sha256 text NOT NULL,
+ reviewed_by uuid NOT NULL REFERENCES public.profiles(id),reviewed_at timestamptz NOT NULL DEFAULT now(),revoked_at timestamptz,
+ UNIQUE(node_id,version)
+);
+ALTER TABLE sitov_special_private.sources ENABLE ROW LEVEL SECURITY;
+ALTER TABLE sitov_special_private.approvals ENABLE ROW LEVEL SECURITY;
+CREATE OR REPLACE FUNCTION sitov_special_private.definition_fingerprint(p_node uuid,p_source text,p_blueprint jsonb,p_pool jsonb) RETURNS text LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT encode(sha256(convert_to(jsonb_build_object('policy','sitov-special-definition-v1','node',jsonb_build_object('id',n.id,'unitId',n.unit_id,'sourceId',n.source_id,'anchorId',n.anchor_node_id,'title',n.title,'topic',n.topic,'goals',n.goals),'sourceRef',p_source,'sourceSha256',s.source_sha256,'blueprint',p_blueprint,'pool',p_pool)::text,'UTF8')),'hex')
+ FROM public.path_nodes n LEFT JOIN sitov_special_private.sources s ON s.source_ref=p_source WHERE n.id=p_node $$;
+CREATE OR REPLACE FUNCTION sitov_special_private.audible_texts(p_pool jsonb) RETURNS TABLE(spoken text) LANGUAGE sql IMMUTABLE SET search_path='' AS $$
+ WITH q AS(SELECT value->'snapshot'->'content' c FROM jsonb_array_elements(p_pool)),texts AS(
+ SELECT c->>'question' t FROM q UNION ALL SELECT c->>'instruction' FROM q UNION ALL SELECT c->>'correct_answer' FROM q
+ UNION ALL SELECT concat_ws(' ',c->>'text_before',c->>'correct_answer',c->>'text_after') FROM q WHERE c ? 'text_before'
+ UNION ALL SELECT jsonb_array_elements_text(c->'options') FROM q WHERE jsonb_typeof(c->'options')='array'
+ UNION ALL SELECT jsonb_array_elements_text(c->'parts') FROM q WHERE jsonb_typeof(c->'parts')='array')
+ SELECT DISTINCT vocabulary_private.sitov_normalize_audio_text(t) FROM texts WHERE nullif(vocabulary_private.sitov_normalize_audio_text(t),'') IS NOT NULL $$;
+CREATE OR REPLACE FUNCTION sitov_special_private.guard_approval() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+BEGIN
+ IF NOT sitov_access_private.staff() OR NEW.reviewed_by IS DISTINCT FROM auth.uid() OR NEW.revoked_at IS NOT NULL
+ OR NOT EXISTS(SELECT 1 FROM sitov_special_private.sources s JOIN public.path_nodes n ON n.id=NEW.node_id JOIN public.learning_units u ON u.id=n.unit_id WHERE s.source_ref=NEW.source_ref AND s.source_sha256=NEW.source_sha256 AND s.active AND s.level=u.level)
+ THEN RAISE EXCEPTION 'special_review_required';END IF;RETURN NEW;END $$;
+DROP TRIGGER IF EXISTS sitov_special_review_guard ON sitov_special_private.approvals;
+CREATE TRIGGER sitov_special_review_guard BEFORE INSERT ON sitov_special_private.approvals FOR EACH ROW EXECUTE FUNCTION sitov_special_private.guard_approval();
+CREATE OR REPLACE FUNCTION sitov_special_private.definition_ready(d sitov_special_private.definitions) RETURNS boolean LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$
+DECLARE text_row record;asset jsonb;expected_path text;expected_object text;authored jsonb;asset_count integer;
+BEGIN
+ IF NOT d.published OR d.version IS DISTINCT FROM sitov_special_private.definition_fingerprint(d.node_id,d.source_ref,d.blueprint,d.pool)
+ OR NOT EXISTS(SELECT 1 FROM sitov_special_private.approvals a JOIN sitov_special_private.sources s ON s.source_ref=a.source_ref JOIN public.path_nodes n ON n.id=a.node_id JOIN public.learning_units u ON u.id=n.unit_id JOIN public.profiles reviewer ON reviewer.id=a.reviewed_by
+ WHERE a.node_id=d.node_id AND a.version=d.version AND a.source_ref=d.source_ref AND a.source_sha256=s.source_sha256 AND s.active AND s.level=u.level AND a.revoked_at IS NULL AND reviewer.role IN('teacher','admin')
+ AND d.editorial_proof=jsonb_build_object('reviewId',a.id,'definitionVersion',a.version,'sourceSha256',a.source_sha256))
+ OR d.audio_import_proof->>'definitionVersion' IS DISTINCT FROM d.version OR jsonb_typeof(d.audio_import_proof->'assets') IS DISTINCT FROM 'array'
+ THEN RETURN false;END IF;
+ SELECT count(*) INTO asset_count FROM sitov_special_private.audible_texts(d.pool);
+ IF asset_count=0 OR jsonb_array_length(d.audio_import_proof->'assets')<>asset_count THEN RETURN false;END IF;
+ FOR text_row IN SELECT spoken FROM sitov_special_private.audible_texts(d.pool) LOOP
+  expected_path:=vocabulary_private.sitov_prepared_german_audio_url(text_row.spoken);
+  SELECT value INTO asset FROM jsonb_array_elements(d.audio_import_proof->'assets') WHERE value->>'textSha256'=encode(sha256(convert_to(text_row.spoken,'UTF8')),'hex');
+  -- The trusted helper validates the asset; normalize only its two exact references.
+  -- Published legacy proof remains immutable when 96 makes the bucket private.
+  expected_object:=CASE
+   WHEN expected_path ~ '^storage://audio_cache/sitov-qwen-v1/de/[a-f0-9]{64}\.mp3$' THEN substr(expected_path,length('storage://audio_cache/')+1)
+   WHEN expected_path ~ '^/supabase/storage/v1/object/public/audio_cache/sitov-qwen-v1/de/[a-f0-9]{64}\.mp3$' THEN substr(expected_path,length('/supabase/storage/v1/object/public/audio_cache/')+1)
+   ELSE NULL END;
+  IF expected_object IS NULL OR asset IS NULL OR NOT coalesce(asset->>'path' IN('storage://audio_cache/'||expected_object,'/supabase/storage/v1/object/public/audio_cache/'||expected_object),false) OR (SELECT count(*) FROM jsonb_array_elements(d.audio_import_proof->'assets') WHERE value->>'textSha256'=asset->>'textSha256')<>1 THEN RETURN false;END IF;
+  SELECT user_metadata INTO authored FROM storage.objects WHERE bucket_id='audio_cache' AND name=expected_object AND archived_at IS NULL AND coalesce(is_delete_marker,false)=false;
+  IF authored IS NULL OR asset->>'audioSha256' IS DISTINCT FROM authored->>'audioSha256' THEN RETURN false;END IF;
+ END LOOP;
+ RETURN NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d.pool) item WHERE item->'snapshot' IS DISTINCT FROM path_private.snapshot((item->>'id')::uuid) OR item->'snapshot'->>'type' NOT IN('multiple_choice','fill_in_blank','sentence_building'));
+EXCEPTION WHEN OTHERS THEN RETURN false;END $$;
+CREATE OR REPLACE FUNCTION sitov_special_private.guard_activation() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE d sitov_special_private.definitions;
+BEGIN SELECT * INTO d FROM sitov_special_private.definitions WHERE id=NEW.definition_id AND node_id=NEW.node_id;
+ IF d.id IS NULL OR NOT sitov_special_private.definition_ready(d) THEN RAISE EXCEPTION 'special_publication_proof_required';END IF;RETURN NEW;END $$;
+DROP TRIGGER IF EXISTS sitov_special_activation_guard ON sitov_special_private.activation;
+CREATE TRIGGER sitov_special_activation_guard BEFORE INSERT OR UPDATE ON sitov_special_private.activation FOR EACH ROW EXECUTE FUNCTION sitov_special_private.guard_activation();
+CREATE OR REPLACE FUNCTION sitov_special_private.validate_definition() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE v_item jsonb;part record;total integer:=0;fingerprint text;
+BEGIN
+ fingerprint:=sitov_special_private.definition_fingerprint(NEW.node_id,NEW.source_ref,NEW.blueprint,NEW.pool);
+ IF NEW.version IS NOT NULL AND NEW.version<>fingerprint THEN RAISE EXCEPTION 'special_version_mismatch';END IF;NEW.version:=fingerprint;
+ IF NOT EXISTS(SELECT 1 FROM public.path_nodes WHERE id=NEW.node_id AND kind='special') OR jsonb_typeof(NEW.blueprint)<>'object'
+ OR jsonb_array_length(NEW.pool)<>(SELECT count(DISTINCT value->>'id') FROM jsonb_array_elements(NEW.pool)) THEN RAISE EXCEPTION 'invalid_special_definition';END IF;
+ FOR v_item IN SELECT value FROM jsonb_array_elements(NEW.pool) LOOP
+  IF NOT EXISTS(SELECT 1 FROM public.learning_exercises e WHERE e.id=(v_item->>'id')::uuid AND e.node_id=NEW.node_id AND e.path_is_active AND e.content_status='ready')
+   OR v_item->'snapshot' IS DISTINCT FROM path_private.snapshot((v_item->>'id')::uuid) OR NOT NEW.blueprint ? (v_item->>'stratum') THEN RAISE EXCEPTION 'invalid_special_snapshot';END IF;
+ END LOOP;
+ FOR part IN SELECT key,value FROM jsonb_each_text(NEW.blueprint) LOOP
+  IF part.value !~ '^[1-9][0-9]?$' THEN RAISE EXCEPTION 'invalid_special_blueprint';END IF;total:=total+part.value::integer;
+  IF NEW.published AND (SELECT count(*) FROM jsonb_array_elements(NEW.pool) q WHERE q->>'stratum'=part.key)<2*part.value::integer THEN RAISE EXCEPTION 'insufficient_special_stratum';END IF;
+ END LOOP;
+ IF NEW.published AND EXISTS(SELECT 1 FROM jsonb_array_elements(NEW.pool) item WHERE item->'snapshot'->>'type' NOT IN('multiple_choice','fill_in_blank','sentence_building')) THEN RAISE EXCEPTION 'unsupported_special_format';END IF;
+ IF NEW.published AND (total<>10 OR jsonb_array_length(NEW.pool)<20) THEN RAISE EXCEPTION 'invalid_special_pool';END IF;
+ IF NEW.published AND NOT sitov_special_private.definition_ready(NEW) THEN RAISE EXCEPTION 'special_publication_proof_required';END IF;
+ RETURN NEW;
+END $$;
+DROP TRIGGER IF EXISTS sitov_special_validate ON sitov_special_private.definitions;
+CREATE TRIGGER sitov_special_validate BEFORE INSERT ON sitov_special_private.definitions FOR EACH ROW EXECUTE FUNCTION sitov_special_private.validate_definition();
+CREATE TABLE IF NOT EXISTS sitov_special_private.runs (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),student_id uuid NOT NULL REFERENCES public.profiles(id),
+ definition_id uuid NOT NULL REFERENCES sitov_special_private.definitions(id),mode text NOT NULL CHECK(mode IN('learning','test')),
+ status text NOT NULL DEFAULT 'in_progress' CHECK(status IN('in_progress','completed')),
+ selected uuid[] NOT NULL,queue uuid[] NOT NULL,revealed boolean NOT NULL DEFAULT false,
+ answers jsonb NOT NULL DEFAULT '{}',result jsonb,revision integer NOT NULL DEFAULT 0 CHECK(revision>=0),
+ started_at timestamptz NOT NULL DEFAULT now(),updated_at timestamptz NOT NULL DEFAULT now(),completed_at timestamptz
+);
+CREATE UNIQUE INDEX IF NOT EXISTS sitov_special_open_run ON sitov_special_private.runs(student_id,definition_id,mode) WHERE status='in_progress';
+CREATE TABLE IF NOT EXISTS sitov_special_private.receipts (
+ student_id uuid NOT NULL REFERENCES public.profiles(id),request_id uuid NOT NULL,payload jsonb NOT NULL,response jsonb NOT NULL,
+ PRIMARY KEY(student_id,request_id)
+);
+ALTER TABLE sitov_special_private.definitions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE sitov_special_private.runs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE sitov_special_private.receipts ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON ALL TABLES IN SCHEMA sitov_special_private FROM PUBLIC,anon,authenticated;
+CREATE OR REPLACE FUNCTION sitov_special_private.immutable_definition() RETURNS trigger LANGUAGE plpgsql SET search_path='' AS $$
+BEGIN RAISE EXCEPTION 'special_definition_immutable' USING ERRCODE='23514';END $$;
+DROP TRIGGER IF EXISTS sitov_special_immutable ON sitov_special_private.definitions;
+CREATE TRIGGER sitov_special_immutable BEFORE UPDATE OR DELETE ON sitov_special_private.definitions FOR EACH ROW EXECUTE FUNCTION sitov_special_private.immutable_definition();
+CREATE OR REPLACE FUNCTION sitov_special_private.error(e text) RETURNS jsonb LANGUAGE sql IMMUTABLE SET search_path='' AS $$
+ SELECT jsonb_build_object('ok',false,'error',e,'retryable',e='retryable_failure') $$;
+CREATE OR REPLACE FUNCTION sitov_special_private.available(p_node uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND sitov_access_private.item_allowed(auth.uid(),'path_special',p_node::text)
+ AND EXISTS(SELECT 1 FROM public.path_nodes n JOIN public.path_nodes anchor ON anchor.id=n.anchor_node_id AND anchor.unit_id=n.unit_id
+ JOIN public.learning_units u ON u.id=n.unit_id
+ JOIN public.path_node_progress p ON p.node_id=anchor.id AND p.auth_user_id=auth.uid() AND p.status='completed'
+ WHERE n.id=p_node AND n.kind='special' AND n.is_active AND anchor.is_active AND u.is_active AND u.is_path) $$;
+CREATE OR REPLACE FUNCTION sitov_special_private.response(r sitov_special_private.runs,p_locale text) RETURNS jsonb LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT jsonb_build_object('runId',r.id,'nodeId',d.node_id,'definitionVersion',d.version,'mode',r.mode,'status',r.status,
+ 'revision',r.revision,'selected',to_jsonb(r.selected),'queue',to_jsonb(r.queue),'revealed',r.revealed,'answers',r.answers,'result',r.result,
+ 'tasks',coalesce((SELECT jsonb_agg(path_private.present(q->'snapshot',p_locale) ORDER BY array_position(r.selected,(q->>'id')::uuid))
+ FROM jsonb_array_elements(d.pool) q WHERE (q->>'id')::uuid=ANY(r.selected)),'[]'::jsonb),
+ 'learningSolution',CASE WHEN r.mode='learning' AND r.revealed AND cardinality(r.queue)>0 THEN
+ (SELECT jsonb_build_object('content',q->'snapshot'->'content','explanation',q->'snapshot'->'translations'->p_locale->'explanation')
+ FROM jsonb_array_elements(d.pool) q WHERE q->>'id'=r.queue[1]::text) ELSE NULL END)
+ FROM sitov_special_private.definitions d WHERE d.id=r.definition_id $$;
+-- Read/transition payload bound to session, immutable definition, selected private snapshot and CAS revision.
+CREATE OR REPLACE FUNCTION sitov_special_private.operation(op text,p_node uuid,p_run uuid,p_mode text,p_revision integer,p_request uuid,p_answers jsonb,p_locale text)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE actor uuid:=auth.uid();d sitov_special_private.definitions;r sitov_special_private.runs;saved sitov_special_private.receipts;
+ payload jsonb;response jsonb;eligible uuid[];chosen uuid[];previous uuid[];part record;quota integer;score integer;feedback jsonb;head uuid;
+BEGIN
+ IF actor IS NULL THEN RETURN sitov_special_private.error('authentication_required');END IF;
+ IF p_locale IS NULL OR p_locale NOT IN('de','en','ru','uk','tr') OR op IS NULL OR op NOT IN('start','get','reveal','right','wrong','save','submit') THEN RETURN sitov_special_private.error('invalid_input');END IF;
+ PERFORM learning_reset_private.assert_writable(actor);
+ PERFORM pg_advisory_xact_lock(hashtextextended('sitov-special:'||actor::text,0));
+ IF op<>'start' THEN SELECT * INTO r FROM sitov_special_private.runs WHERE id=p_run AND student_id=actor FOR UPDATE;
+  IF r.id IS NULL THEN RETURN sitov_special_private.error('not_found');END IF;
+  SELECT * INTO d FROM sitov_special_private.definitions WHERE id=r.definition_id;p_node:=d.node_id;
+ ELSE IF p_mode IS NULL OR p_mode NOT IN('learning','test') THEN RETURN sitov_special_private.error('invalid_input');END IF;
+  SELECT def.* INTO d FROM sitov_special_private.definitions def JOIN sitov_special_private.activation active ON active.definition_id=def.id AND active.node_id=def.node_id WHERE def.node_id=p_node AND def.published;
+ END IF;
+ IF NOT sitov_special_private.available(p_node) THEN RETURN sitov_special_private.error('not_found');END IF;
+ IF d.id IS NULL THEN RETURN sitov_special_private.error('authoring_not_ready');END IF;
+ IF NOT sitov_special_private.definition_ready(d) THEN RETURN sitov_special_private.error('version_conflict');END IF;
+ IF NOT d.published OR NOT EXISTS(SELECT 1 FROM sitov_special_private.activation WHERE definition_id=d.id AND node_id=p_node) THEN RETURN sitov_special_private.error('version_conflict');END IF;
+ SELECT coalesce(array_agg((q->>'id')::uuid),'{}') INTO eligible FROM jsonb_array_elements(d.pool) q
+ WHERE sitov_access_private.item_allowed(actor,'path_special_item',q->>'id');
+ IF EXISTS(SELECT 1 FROM jsonb_array_elements(d.pool) item WHERE item->'snapshot' IS DISTINCT FROM path_private.snapshot((item->>'id')::uuid)) THEN RETURN sitov_special_private.error('version_conflict');END IF;
+ IF r.id IS NOT NULL AND NOT r.selected<@eligible THEN RETURN sitov_special_private.error('not_found');END IF;
+ IF op='get' THEN RETURN jsonb_build_object('ok',true,'data',sitov_special_private.response(r,p_locale));END IF;
+ IF p_request IS NULL THEN RETURN sitov_special_private.error('invalid_input');END IF;
+ payload:=jsonb_build_object('op',op,'node',p_node,'run',p_run,'mode',p_mode,'revision',p_revision,'answers',p_answers,'locale',p_locale);
+ SELECT * INTO saved FROM sitov_special_private.receipts WHERE student_id=actor AND request_id=p_request;
+ IF saved.request_id IS NOT NULL THEN IF saved.payload<>payload THEN RETURN sitov_special_private.error('request_conflict');END IF;RETURN saved.response;END IF;
+ IF op='start' THEN
+  SELECT * INTO r FROM sitov_special_private.runs WHERE student_id=actor AND definition_id=d.id AND mode=p_mode AND status='in_progress' FOR UPDATE;
+  IF r.id IS NULL THEN
+   chosen:=eligible;
+   IF p_mode='test' THEN
+    IF cardinality(eligible)<20 THEN RETURN sitov_special_private.error('scope_insufficient_for_test');END IF;
+    SELECT selected INTO previous FROM sitov_special_private.runs WHERE student_id=actor AND definition_id=d.id AND mode='test' AND status='completed' ORDER BY completed_at DESC,id DESC LIMIT 1;
+    chosen:='{}';quota:=0;
+    IF jsonb_typeof(d.blueprint)<>'object' THEN RETURN sitov_special_private.error('authoring_not_ready');END IF;
+    FOR part IN SELECT key,value FROM jsonb_each_text(d.blueprint) ORDER BY key LOOP
+     IF part.value !~ '^[1-9][0-9]?$' THEN RETURN sitov_special_private.error('authoring_not_ready');END IF;
+     quota:=quota+part.value::integer;
+     SELECT coalesce(array_agg(id),'{}') INTO previous FROM (SELECT (q->>'id')::uuid id FROM jsonb_array_elements(d.pool) q
+      WHERE q->>'stratum'=part.key AND (q->>'id')::uuid=ANY(eligible)
+      AND NOT (q->>'id')::uuid=ANY(coalesce((SELECT selected FROM sitov_special_private.runs WHERE student_id=actor AND definition_id=d.id AND mode='test' AND status='completed' ORDER BY completed_at DESC,id DESC LIMIT 1),'{}'))
+      ORDER BY md5(p_request::text||(q->>'id')) LIMIT part.value::integer) s;
+     IF cardinality(previous)<>part.value::integer THEN RETURN sitov_special_private.error('scope_insufficient_for_test');END IF;
+     chosen:=chosen||previous;
+    END LOOP;
+    IF quota<>10 OR cardinality(chosen)<>10 THEN RETURN sitov_special_private.error('authoring_not_ready');END IF;
+   END IF;
+   IF cardinality(chosen)=0 THEN RETURN sitov_special_private.error('not_found');END IF;
+   INSERT INTO sitov_special_private.runs(student_id,definition_id,mode,selected,queue) VALUES(actor,d.id,p_mode,chosen,chosen) RETURNING * INTO r;
+  END IF;
+ ELSE
+  IF r.status<>'in_progress' THEN RETURN sitov_special_private.error('attempt_completed');END IF;
+  IF p_revision IS NULL OR p_revision<>r.revision THEN RETURN sitov_special_private.error('revision_conflict');END IF;
+  IF op IN('reveal','right','wrong') THEN
+   IF r.mode<>'learning' OR cardinality(r.queue)=0 THEN RETURN sitov_special_private.error('invalid_input');END IF;
+   IF op='reveal' THEN r.revealed:=true;
+   ELSE IF NOT r.revealed THEN RETURN sitov_special_private.error('reveal_required');END IF;
+    head:=r.queue[1];r.queue:=r.queue[2:cardinality(r.queue)];
+    IF op='wrong' THEN r.queue:=r.queue||head;END IF;r.revealed:=false;
+    IF cardinality(r.queue)=0 THEN r.status:='completed';r.completed_at:=clock_timestamp();END IF;
+   END IF;
+  ELSE
+   IF r.mode<>'test' OR jsonb_typeof(p_answers) IS DISTINCT FROM 'object' THEN RETURN sitov_special_private.error('invalid_answer');END IF;
+   IF EXISTS(SELECT 1 FROM jsonb_each(p_answers) a WHERE NOT a.key=ANY(r.selected::text[]) OR jsonb_typeof(a.value)<>'object'
+     OR NOT path_private.only_keys(a.value,ARRAY['text','index','indices']) OR EXISTS(SELECT 1 FROM jsonb_array_elements(d.pool) q WHERE q->>'id'=a.key AND path_private.grade((q->'snapshot'->>'type')::public.exercise_type,q->'snapshot'->'content',a.value) ? 'error')) THEN RETURN sitov_special_private.error('invalid_answer');END IF;
+   r.answers:=r.answers||p_answers;
+   IF op='submit' THEN
+    IF (SELECT count(*) FROM jsonb_object_keys(r.answers))<>10 THEN RETURN sitov_special_private.error('incomplete_attempt');END IF;
+    SELECT count(*) FILTER(WHERE (path_private.grade((q->'snapshot'->>'type')::public.exercise_type,q->'snapshot'->'content',r.answers->(q->>'id'))->>'correct')::boolean),
+     jsonb_agg(jsonb_build_object('itemId',q->>'id','correct',(path_private.grade((q->'snapshot'->>'type')::public.exercise_type,q->'snapshot'->'content',r.answers->(q->>'id'))->>'correct')::boolean,
+      'solution',q->'snapshot'->'content','explanation',q->'snapshot'->'translations'->p_locale->'explanation'))
+     INTO score,feedback FROM jsonb_array_elements(d.pool) q WHERE (q->>'id')::uuid=ANY(r.selected);
+    r.status:='completed';r.completed_at:=clock_timestamp();r.result:=jsonb_build_object('correct',score,'total',10,'passed',score>=8,'feedback',feedback);
+   END IF;
+  END IF;
+  UPDATE sitov_special_private.runs SET queue=r.queue,revealed=r.revealed,answers=r.answers,result=r.result,status=r.status,completed_at=r.completed_at,revision=revision+1,updated_at=clock_timestamp() WHERE id=r.id RETURNING * INTO r;
+ END IF;
+ response:=jsonb_build_object('ok',true,'data',sitov_special_private.response(r,p_locale));
+ INSERT INTO sitov_special_private.receipts VALUES(actor,p_request,payload,response);RETURN response;
+EXCEPTION WHEN OTHERS THEN RETURN sitov_special_private.error('retryable_failure');END $$;
+CREATE OR REPLACE FUNCTION public.sitov_special_operation(p_operation text,p_node_id uuid DEFAULT NULL,p_run_id uuid DEFAULT NULL,p_mode text DEFAULT NULL,p_revision integer DEFAULT NULL,p_request_id uuid DEFAULT NULL,p_answers jsonb DEFAULT NULL,p_locale text DEFAULT 'de')
+RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_special_private.operation(p_operation,p_node_id,p_run_id,p_mode,p_revision,p_request_id,p_answers,p_locale) $$;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA sitov_special_private FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION sitov_special_private.operation(text,uuid,uuid,text,integer,uuid,jsonb,text) TO authenticated;
+REVOKE ALL ON FUNCTION public.sitov_special_operation(text,uuid,uuid,text,integer,uuid,jsonb,text) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.sitov_special_operation(text,uuid,uuid,text,integer,uuid,jsonb,text) TO authenticated;
+-- No definition creation/publication RPC in v1: audited authoring and measured audio import adapter pending.
+CREATE OR REPLACE FUNCTION public.sitov_special_staff_catalog(p_node_id uuid) RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+BEGIN
+ IF NOT sitov_access_private.staff() THEN RETURN sitov_special_private.error('not_found');END IF;
+ RETURN jsonb_build_object('ok',true,'data',jsonb_build_object('definitions',(SELECT coalesce(jsonb_agg(to_jsonb(d) ORDER BY d.created_at),'[]') FROM sitov_special_private.definitions d WHERE d.node_id=p_node_id),'runs',(SELECT coalesce(jsonb_agg(jsonb_build_object('id',r.id,'studentId',r.student_id,'mode',r.mode,'status',r.status,'revision',r.revision,'result',r.result)),'[]') FROM sitov_special_private.runs r JOIN sitov_special_private.definitions d ON d.id=r.definition_id WHERE d.node_id=p_node_id)));
+END $$;
+REVOKE ALL ON FUNCTION public.sitov_special_staff_catalog(uuid) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.sitov_special_staff_catalog(uuid) TO authenticated;
+
+-- SITOV-NIGHT integrated overlay 20261008213300_sitov_private_audio_delivery.sql
+-- Sitov Academy: deploy only together with the authenticated audio adapter,
+-- exact-current pronunciation RLS and audited prepared assets. No file copies,
+-- learner state, historical recordings or authored IDs are rewritten here.
+DO $sitov$
+BEGIN
+ IF NOT EXISTS(SELECT 1 FROM storage.buckets WHERE id='audio_cache') THEN
+  RAISE EXCEPTION 'sitov_audio_cache_missing';
+ END IF;
+ UPDATE storage.buckets SET public=false WHERE id='audio_cache' AND public IS DISTINCT FROM false;
+END $sitov$;
+
+-- Public object URLs bypass SQL SELECT policy for public buckets. Both the
+-- bucket flag and this restrictive policy are required; service delivery only.
+DROP POLICY IF EXISTS sitov_audio_cache_private_read ON storage.objects;
+CREATE POLICY sitov_audio_cache_private_read ON storage.objects AS RESTRICTIVE
+ FOR SELECT TO anon,authenticated USING(bucket_id<>'audio_cache');
+
+-- Keep publication proof and its original OID/ACL, changing only the stored
+-- reference. Audio controls authorize the canonical card, never this path.
+DO $sitov$
+DECLARE definition text;
+ previous constant text:=$old$RETURN '/supabase/storage/v1/object/public/audio_cache/' || cache_path;$old$;
+ current_reference constant text:=$new$RETURN 'storage://audio_cache/' || cache_path;$new$;
+BEGIN
+ definition:=pg_get_functiondef('vocabulary_private.sitov_prepared_german_audio_url(text)'::regprocedure);
+ IF position(current_reference IN definition)>0 THEN RETURN; END IF;
+ IF position(previous IN definition)=0 THEN RAISE EXCEPTION 'sitov_prepared_audio_reference_contract_changed'; END IF;
+ EXECUTE replace(definition,previous,current_reference);
+END $sitov$;
+NOTIFY pgrst,'reload schema';

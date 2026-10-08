@@ -562,3 +562,10 @@ DO $$ BEGIN
 END $$;
 ALTER TABLE public.submissions DROP COLUMN parent_id,DROP COLUMN attempt_number;
 ALTER TABLE public.submissions ADD CONSTRAINT submissions_level_fk FOREIGN KEY(level) REFERENCES public.learning_levels(code);
+
+-- SITOV-NIGHT-2026-10-08: this historical learning cutover is not the current
+-- complete install target. Fresh normalized installs use supabase/schema.sql
+-- (through 96); existing reviewed through-92 databases apply canonical
+-- 20261008213000, 20261008213100, 20261008213200, 20261008213300 in order.
+-- Do not append those overlays here without the intervening business/learning
+-- migrations. Immutable QA inputs: tests/fixtures/sitov-night-integrated96/plan.json.

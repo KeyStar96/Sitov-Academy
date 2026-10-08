@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "target": "sitov-night-integrated96-v1",
+  "sourceIntegrationSha": "b5a154894a75f2682fd147de58ff6eb558760d6e",
+  "baselineSourceSha": "e22c73883356e61700ed57f3cfeb601f9bf55b32",
+  "baselineSchemaSha256": "c6b90f3bb5527ae6d36d0336c84afd7c5549a5e16d9f79af245d21c0fb8b5cfe",
+  "baselineLookupsSha256": "9e19b140bc5ae9b0585cadb3e97a0691a4c04717dce62959682c689e985e1803",
+  "canonicalSha256": "a2e50e97d6e680ea2d3ec76ab9c758ee008f041d40d16182374e5ff21994f456",
+  "through": 96,
+  "overlays": [
+    {
+      "through": 93,
+      "name": "20261008213000_sitov_commercial_access.sql",
+      "sha256": "a529f1d1d87e2feda9e69f79992cf65d01cbd63d5211f47a9482587855a77781"
+    },
+    {
+      "through": 94,
+      "name": "20261008213100_sitov_pronunciation_pretests.sql",
+      "sha256": "a4f9f14d4bbe643f70e34a3222c681f6a4153fd3fd85b4944a08d84b6f1b74df"
+    },
+    {
+      "through": 95,
+      "name": "20261008213200_sitov_learning_specials.sql",
+      "sha256": "46731b6b85663a9e8af32b245ad28f22375d52676abd2fc271298ee383762de0"
+    },
+    {
+      "through": 96,
+      "name": "20261008213300_sitov_private_audio_delivery.sql",
+      "sha256": "64b5a159aa1109eaef2afd72c38733a8c9f45ebfffa4187f4931b7a0dba5b169"
+    }
+  ],
+  "seed": "synthetic-baseline-only; no real draft or approval import",
+  "actualTransportProof": false
+}
