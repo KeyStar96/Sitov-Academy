@@ -1,0 +1,80 @@
+{
+  "version": "sitov-night-core-v1",
+  "source": "Current user master request; implementation details from S1/S3 will be reviewed before v1 freeze",
+  "access": {
+    "roles": [
+      "student",
+      "teacher",
+      "admin"
+    ],
+    "vip": "Additional student commercial entitlement; never a profile-role replacement; never bypasses per-text pretest",
+    "existing_rights": "Exact effective level/trainer/unit/item rights retained, including null/all vs empty/none vs selected. No VIP blanket backfill; no forced trial conversion. Before/after isolated normalized current-schema proof required. Live all-account comparison deferred mandatory deployment gate.",
+    "language_policy": {
+      "authorization": "de/en/ru/uk/tr are interface languages, never commercial/pronunciation denial",
+      "vocabulary_source": "Preserve current non-de source language behavior. For de UI, use explicit supported non-de stored native_language; do not invent an English fallback. Missing valid source is a localized actionable learning-input state, never denial of commercial rights; exact integration allocated separately. No profile/learning-state rewrite."
+    },
+    "billing": "Disabled provider=none, checkout disabled; no invented price/subscription/paid API; truthful not configured state.",
+    "content_keys": "Stable typed kind + existing level/unit/item UUID or stable authored text ID; deny unknown IDs; manifest is content metadata, not trusted rights."
+  },
+  "pronunciation": {
+    "gate": "Commercial authorization AND current individual text pretest passed. No milestones, word coverage, length, vocabulary count, verb/path evidence, level progress, hard override or old checkpoint as pedagogical unlock.",
+    "history": "Separate authorized historical submissions/text snapshots/reviews remain reachable; no new read/record/submit bypass through history",
+    "version": "Freeze text/version per attempt; server grades; resume persisted account-bound attempt; material test/text changes invalidate future passage by explicit version policy; no answers in public DTO",
+    "states": [
+      "not_started",
+      "in_progress",
+      "passed",
+      "failed",
+      "outdated"
+    ],
+    "error_contract": "Localized UI based on stable machine codes; unauthorized/not_found/test_required/version_conflict/invalid_answer/retryable_failure differentiated; exact RPC signatures from S3 proposal"
+  },
+  "mapping": {
+    "version": 1,
+    "owner": "S2",
+    "schema": {
+      "topic_id": "stable sitov.* identifier",
+      "competency_id": "stable sitov.* identifier",
+      "level": "existing access level",
+      "targets": "references to existing node/unit/card/verb/pronunciation-text IDs; optional pronunciation features",
+      "recommendation": "server resolves published accessible target and actual existing evidence; no synthetic mastery or parallel progress store"
+    },
+    "barrier": "Recommendations never add a pronunciation gate or override commercial access"
+  },
+  "help": {
+    "component": "components/motion/SitovTrainerHelp.tsx",
+    "initial_props": [
+      "title",
+      "children",
+      "defaultOpen?",
+      "className?"
+    ],
+    "labels": {
+      "de": "Hilfe",
+      "en": "Help",
+      "ru": "Помощь",
+      "uk": "Допомога",
+      "tr": "Yardım"
+    },
+    "rules": "Existing Lightbulb + short label; consistent placement, 48px touch target, keyboard/focus/screenreader/reduced motion. Necessary instructions/errors stay visible. S4 may propose minimal backwards-compatible changes, central files await M approval."
+  },
+  "publication": {
+    "audio": "Prepared local male Qwen profile plus measured word timestamps and audited imported storage proof required before active publication; missing audio remains draft",
+    "specials": "Optional sidequests do not block main path; preserve main progress/IDs",
+    "optional_bonus": "Exactly A1.1 short rhyme and A1.2 tongue twister only after mandatory features and budget; otherwise explicitly deferred"
+  },
+  "qa": {
+    "minimum": "Functional rights/behavior tests with full normalized migrations; TS, affected ESLint/Jest, real isolated SQL, build and relevant browser flows; mocked and real proofs separate",
+    "must_prove": "Commercially authorized student with zero vocabulary/verb/path evidence can start pretest; passing unlocks exactly corresponding text/audio/record/submit. Staff hard cannot substitute. Direct RLS/storage cannot bypass. Historical artifacts retained."
+  },
+  "status": "FROZEN_BY_M",
+  "frozen_at": "2026-10-08T21:14:24.770912+00:00",
+  "audio_delivery": {
+    "owner": "M",
+    "approach": "private audio_cache with authored-content references and authenticated same-origin pronunciation gateway, current commercial+exact text pass checked per request/Range",
+    "existing_trainers": "Coordinate all affected cached/prepared audio reads before bucket privatization; no breaking partial switch",
+    "S1_port": "sitov_access_private.item_allowed(p_student uuid,p_kind text,p_item_id text)",
+    "S3_port": "exact current version passage, body read, upload ticket and DB/RLS guards",
+    "acceptance": "Real HTTP/Storage denial and existing trainer playback proof required; PGlite mocks alone insufficient"
+  }
+}

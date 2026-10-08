@@ -1,0 +1,131 @@
+{
+  "version": "sitov-commercial-access-v1",
+  "status": "FROZEN_BY_M",
+  "epoch": 2,
+  "base_sha": "966a380f7a6118654f19750a9d62200795feb8c2",
+  "profile_roles": [
+    "student",
+    "teacher",
+    "admin"
+  ],
+  "access_sources": [
+    "legacy_manual",
+    "vip",
+    "trial",
+    "purchase"
+  ],
+  "combination": "union of independent source-local permissions; no global negative override",
+  "legacy": "retain normalized grant tables and exact all/none/selected; retain level-only uploaded-media and presentation path",
+  "trial": {
+    "ui_label_de": "Testzugang",
+    "profile_role": "student",
+    "missing_trainer_rule": "deny from this source",
+    "units": {
+      "null": "all current and future published units",
+      "empty": "none",
+      "selected": "exact stable IDs"
+    },
+    "items_per_unit": {
+      "null": "all current and future published items",
+      "empty": "none",
+      "selected": "exact typed stable IDs"
+    },
+    "writes_student_level_access": false,
+    "own_words": "no trial-only feature grant by default"
+  },
+  "catalog": {
+    "version": 1,
+    "container": [
+      "level",
+      "trainer"
+    ],
+    "unit": [
+      "id",
+      "label"
+    ],
+    "item": [
+      "kind",
+      "id",
+      "label",
+      "published"
+    ],
+    "kinds": [
+      "vocabulary_card",
+      "exercise",
+      "reading_text",
+      "video",
+      "verb",
+      "path_node",
+      "path_task",
+      "presentation"
+    ],
+    "pending": [
+      "S2 special kind+canonical unit mapping",
+      "S3 reading_text ID+test version",
+      "canonical verb scope mapping"
+    ]
+  },
+  "commercial_guard_sql": "sitov_access_private.item_allowed(p_student uuid,p_kind text,p_item_id text) RETURNS boolean",
+  "commercial_guard_ts": "currentUserHasContentAccess(ref: SitovContentRef): Promise<boolean>",
+  "pronunciation": "commercial authorization AND S3 current per-text pretest; VIP never skips; pretest metadata separate from full text",
+  "concurrency": "per-student row lock and expected revision; conflict returns revision_conflict",
+  "billing": {
+    "initial_enabled": false,
+    "provider": "none",
+    "products": [
+      "A1.1",
+      "A1.2",
+      "A2.1",
+      "A2.2",
+      "B1.1",
+      "B1.2",
+      "B2.1",
+      "B2.2",
+      "C1.1",
+      "C1.2"
+    ],
+    "initial_prices": null,
+    "subscriptions": false,
+    "repeat_migration": "ON CONFLICT DO NOTHING on configuration",
+    "trusted_confirmation_implemented": false
+  },
+  "migration": {
+    "file": "20261008213000_sitov_commercial_access.sql",
+    "vps": "93_sitov_commercial_access.sql"
+  },
+  "release_gates": [
+    "normalized full 01–92 before-after fixture comparison",
+    "private item-bound audio/storage delivery",
+    "browser/mobile/keyboard checks",
+    "mandatory later production all-account effective-rights comparison"
+  ],
+  "handoff": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s1/SmartGerman/docs/handoffs/SITOV-NIGHT-2026-10-08/S1/contract-baseline-v0.1.md",
+  "audio": {
+    "private_guard_sql": "sitov_access_private.audio_allowed(p_student uuid,p_kind text,p_item_id text,p_audio_path text) RETURNS boolean",
+    "public_authorization_rpc": "M owned adapter; S1 implements commercial item_allowed only. S3 provides exact current text-pass predicate. Content/path binding and private gateway centrally coordinated.",
+    "caller": "public caller bound to auth.uid(); no client student ID",
+    "checks": [
+      "commercial typed item scope",
+      "canonical stored content/asset binding",
+      "S3 current passed per-text test for reading_text"
+    ],
+    "proposed_signed_url_seconds": 60,
+    "history": "separate stored submission/message authorization; never new upload/text bypass",
+    "upload_owner": "M/S3 bind new upload ticket to current text/test version; historical can_record is insufficient",
+    "shared_files": [
+      "lib/audio/neural-cache.ts",
+      "lib/audio/prepared-content.ts",
+      "app/actions/generate-audio.ts",
+      "prepared-content callers",
+      "audio import adapters",
+      "bucket policies",
+      "supabase/schema.sql",
+      "lib/types/backend.ts"
+    ]
+  },
+  "frozen_at": "2026-10-08T21:14:24.770912+00:00",
+  "language_policy": {
+    "authorization": "de/en/ru/uk/tr are interface languages, never commercial/pronunciation denial",
+    "vocabulary_source": "Preserve current non-de source language behavior. For de UI, use explicit supported non-de stored native_language; do not invent an English fallback. Missing valid source is a localized actionable learning-input state, never denial of commercial rights; exact integration allocated separately. No profile/learning-state rewrite."
+  }
+}
