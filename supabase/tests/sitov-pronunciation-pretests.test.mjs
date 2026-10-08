@@ -234,5 +234,22 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
    await db.actor(sitovUsers.explicitAll);assert.ok((await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+target.data.path])).error)
    assert.deepEqual(await sitovHistorySnapshot(db),originalHistory)
   })
+  await t.test('private96 reference conversion preserves exact current passage and reference revocation',async()=>{
+   await db.actor(null,'postgres')
+   const before=(await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id id',[text])).rows[0].id
+   assert.ok(before)
+   const audio=(await db.query('SELECT reference_path path FROM sitov_pronunciation_private.pretest_approvals WHERE definition_id=$1 ORDER BY reviewed_at DESC LIMIT 1',[before])).rows[0]
+   const private96=await readFile(new URL('../vps/96_sitov_private_audio_delivery.sql',import.meta.url),'utf8')
+   await db.exec(private96);await db.exec(private96)
+   assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id id',[text])).rows[0].id,before)
+   assert.equal((await db.query("SELECT public FROM storage.buckets WHERE id='audio_cache'")).rows[0].public,false)
+   await db.actor(student);assert.equal((await rpc(db,'sitov_get_pronunciation_pretests',['A1.1'])).ok,true)
+   assert.equal((await db.query('SELECT sitov_pronunciation_private.current_pass($1) allowed',[text])).rows[0].allowed,true)
+   await db.actor(null,'postgres');await db.exec(`UPDATE storage.objects SET archived_at=now() WHERE bucket_id='audio_cache' AND name='${audio.path}'`)
+   assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id id',[text])).rows[0].id,null)
+   await db.exec(`UPDATE storage.objects SET archived_at=NULL WHERE bucket_id='audio_cache' AND name='${audio.path}'`)
+   assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id id',[text])).rows[0].id,before)
+   assert.deepEqual(await sitovHistorySnapshot(db),originalHistory)
+  })
  }finally{await db.close();execFileSync(psql,['-X','-w','-h',socket,'-p',port,'-d','postgres','-c',`DROP DATABASE ${database} WITH (FORCE)`],{stdio:'pipe'})}
 })

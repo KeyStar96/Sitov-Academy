@@ -94,7 +94,8 @@ DECLARE prepared text;metadata jsonb;timings jsonb;t jsonb;spoken text;previous_
  IF NOT FOUND OR metadata->>'audioSha256' IS DISTINCT FROM a.reference_audio_sha256 THEN RETURN false;END IF;
  IF a.reference_kind='prepared_qwen' THEN
   prepared:=vocabulary_private.sitov_prepared_german_audio_url(p_text);
-  IF a.reference_bucket<>'audio_cache' OR prepared IS DISTINCT FROM '/supabase/storage/v1/object/public/audio_cache/'||a.reference_path THEN RETURN false;END IF;
+  IF a.reference_bucket<>'audio_cache' OR (prepared IS DISTINCT FROM '/supabase/storage/v1/object/public/audio_cache/'||a.reference_path
+   AND prepared IS DISTINCT FROM 'storage://audio_cache/'||a.reference_path) THEN RETURN false;END IF;
  ELSE
   spoken:=vocabulary_private.sitov_normalize_audio_text(p_text);
   IF p_stored_url IS DISTINCT FROM 'storage://'||a.reference_bucket||'/'||a.reference_path OR metadata->>'origin' IS DISTINCT FROM 'human_recording' OR metadata->>'textSha256' IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(spoken) THEN RETURN false;END IF;
