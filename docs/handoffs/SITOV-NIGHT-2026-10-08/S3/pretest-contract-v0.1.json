@@ -1,6 +1,6 @@
 {
   "version": "sitov-pronunciation-pretest-contract-proposal-v0.1",
-  "approval": "PENDING_M",
+  "approval": "CORE_ACCEPTED_BY_M_2026-10-08; implementation unverified",
   "base_sha": "966a380f7a6118654f19750a9d62200795feb8c2",
   "catalog": {
     "fields": [
@@ -179,7 +179,7 @@
   "version_policy": [
     "Content version hashes exact stored German body; definition version hashes immutable matrix/pool/criteria/keys",
     "New active text or definition requires current-version test proof; old attempt becomes outdated, remains accessible to owner/staff",
-    "Compatibility only explicit staff-reviewed immutable row binding both old/new fingerprints and unchanged competency/criteria evidence; no migration of hard/old checkpoints into proof",
+    "No compatibility transfer is required initially: new text/test version requires a new individual test, retaining all old results. Transfer stays disabled until an explicit validated compatibility implementation exists; no hard/checkpoint/VIP migration.",
     "Definition missing/invalid closes new starts; staff diagnostics actionable; inactive drafts may save without publication"
   ],
   "schema": [
@@ -199,8 +199,8 @@
   ],
   "publication": [
     "All active texts require validated matrix/pool/criteria and immutable text/version association",
-    "New German task prompts/options/fragments frozen in audio manifest and local Qwen imported word-timing proof even if written quiz is silent",
-    "No active definition until M provides verified audio/storage proof; secure drafts remain closed",
+    "Written pretests stay written; no unused recordings or audio controls. Existing target reference needs valid prepared-audio proof; every actually audible new German task requires frozen manifest and local Qwen/timing/import proof",
+    "No active definition until complete authored validation and required audible asset proof; secure drafts remain closed",
     "Direct table/RPC mutations must enforce publication checks, not only Next action"
   ],
   "shared_blockers": [
