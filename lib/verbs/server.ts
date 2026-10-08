@@ -7,19 +7,24 @@ import { createAdminClient } from '@/utils/supabase/admin'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { hasTrainerAccess } from '@/lib/access/levels'
 import { readAllRows } from '@/lib/supabase-read'
+import { pickWeightedRandomOrder, selectionWeightForBox } from '@/lib/leitner'
 import { getSitovVerbById, getSitovVerbCatalog, getSitovVerbTenses } from './catalog'
-import { buildSitovVerbExercise, prioritizeSitovVerbTasks } from './engine'
+import { buildSitovVerbExercise, getSitovVerbPreviousIds, prioritizeSitovVerbTasks } from './engine'
 import { buildSitovVerbLearningBox } from './learning-box'
 import { SITOV_VERB_TRAINER_LEVELS, type SitovVerbLocale } from './types'
 import type { SitovVerbPublicExercise, SitovVerbResult, SitovVerbReviewResult, SitovVerbTrainerState } from './contracts'
 
 const sitovLevel = z.enum(SITOV_VERB_TRAINER_LEVELS)
 const sitovTense = z.enum(['present', 'perfect', 'past'])
-const sitovNextInput = z.object({ level: sitovLevel, tenses: z.array(sitovTense).min(1).max(3).optional(), excludeVerbId: z.string().max(160).optional(), box: z.number().int().min(1).max(7).optional() }).strict()
+const sitovNextInput = z.object({ level: sitovLevel, tenses: z.array(sitovTense).min(1).max(3).optional(), excludeVerbId: z.string().max(160).optional(), box: z.number().int().min(1).max(7).optional(),
+  verbIds: z.array(z.string().min(1).max(160)).min(1).max(1000).optional() }).strict()
 const sitovBoxInput = z.object({ level: sitovLevel, verbIds: z.array(z.string().min(1).max(160)).min(1).max(1000), selected: z.boolean() }).strict()
 const sitovAnswerInput = z.object({ exerciseId: z.uuid(), answer: z.array(z.string().max(240)).min(1).max(3) }).strict()
 const sitovProgressSchema = z.object({ verbId: z.string(), tense: sitovTense, box: z.number().int().min(1).max(7), attempts: z.number().int().nonnegative(), correct: z.number().int().nonnegative(), lapses: z.number().int().nonnegative(), nextReviewAt: z.string().nullable(), lastAnsweredAt: z.string().nullable() }).transform(row => ({ ...row, nextReviewAt: row.nextReviewAt ?? null, lastAnsweredAt: row.lastAnsweredAt ?? null }))
-const sitovReviewSchema = z.object({ correct: z.boolean(), solution: z.string(), progress: sitovProgressSchema })
+const sitovReviewSchema = z.object({ correct: z.boolean(), solution: z.string(), progress: sitovProgressSchema,
+  retry: z.boolean().optional().default(false), softError: z.enum(['umlaut', 'typo']).nullable().optional() })
+  .transform((result): SitovVerbReviewResult => ({ correct: result.correct, solution: result.solution,
+    progress: result.progress, retry: result.retry, ...(result.softError === undefined ? {} : { softError: result.softError }) }))
 class SitovVerbError extends Error {}
 
 async function sitovRequest<T>(work: (client: Awaited<ReturnType<typeof createClient>>, userId: string) => Promise<T>): Promise<SitovVerbResult<T>> {
@@ -36,7 +41,7 @@ async function sitovRequest<T>(work: (client: Awaited<ReturnType<typeof createCl
 }
 function sitovRpcData(data: unknown, error: unknown) {
   if (error || data == null || typeof data !== 'object' || Array.isArray(data)) throw new SitovVerbError('request_failed')
-  if ('error' in data) throw new SitovVerbError(['not_authenticated', 'not_authorized', 'not_found', 'invalid_input', 'expired', 'conflict'].includes(String(data.error)) ? String(data.error) : 'request_failed')
+  if ('error' in data) throw new SitovVerbError(['not_authenticated', 'not_authorized', 'not_found', 'invalid_input', 'expired', 'conflict', 'review_not_due', 'retry_not_available', 'spacing_required'].includes(String(data.error)) ? String(data.error) : 'request_failed')
   return data
 }
 
@@ -61,6 +66,7 @@ async function sitovLoad(client: Awaited<ReturnType<typeof createClient>>, learn
     authorizedLevels: SITOV_VERB_TRAINER_LEVELS.filter(item => SITOV_VERB_TRAINER_LEVELS.indexOf(item) <= SITOV_VERB_TRAINER_LEVELS.indexOf(parsed.data) && hasTrainerAccess(profile, item, 'verbs')),
     tenses: getSitovVerbTenses(parsed.data), verbs,
     selectedIds: box.filter(row => row.selected).map(row => row.verb_id),
+    previousVerbIds: getSitovVerbPreviousIds(progress.map(row => ({ verbId: row.verb_id, lastAnsweredAt: row.last_answered_at }))),
     progress: progress.filter(row => visible.has(row.verb_id)).map(row => sitovProgressSchema.parse({ verbId: row.verb_id, tense: row.tense, box: row.box, attempts: row.attempts, correct: row.correct, lapses: row.lapses, nextReviewAt: row.next_review_at, lastAnsweredAt: row.last_answered_at })),
   }
 }
@@ -82,14 +88,17 @@ export function nextSitovVerbExercise(input: z.infer<typeof sitovNextInput>, lan
     if (!parsed.success) throw new SitovVerbError('invalid_input')
     const state = await sitovLoad(client, learnerId, parsed.data.level)
     if (parsed.data.tenses?.some(tense => !state.tenses.includes(tense))) throw new SitovVerbError('not_authorized')
-    const selected = parsed.data.box == null
+    if (parsed.data.box === 7) return null
+    const snapshot = parsed.data.verbIds ? new Set(parsed.data.verbIds) : null
+    const selected = snapshot
+      ? state.verbs.filter(verb => snapshot.has(verb.id) && state.selectedIds.includes(verb.id))
+      : parsed.data.box == null
       ? state.verbs.filter(verb => state.selectedIds.includes(verb.id))
       : buildSitovVerbLearningBox(state).cards.filter(card => card.box === parsed.data.box).map(card => card.verb)
-    let tasks = prioritizeSitovVerbTasks(selected, state.progress, state.level, parsed.data.tenses)
-    if (tasks.length > 1 && parsed.data.excludeVerbId) {
-      const others = tasks.filter(task => task.verbId !== parsed.data.excludeVerbId)
-      if (others.length) tasks = others
-    }
+    const previous = new Set(state.previousVerbIds)
+    if (parsed.data.excludeVerbId) previous.add(parsed.data.excludeVerbId)
+    const tasks = pickWeightedRandomOrder(prioritizeSitovVerbTasks(selected, state.progress, state.level, parsed.data.tenses)
+      .filter(task => !previous.has(task.verbId)), task => selectionWeightForBox(task.progress?.box))
     const task = tasks[0]
     if (!task) return null
     const verb = getSitovVerbById(task.verbId)
@@ -108,7 +117,15 @@ export function submitSitovVerbAnswer(input: z.infer<typeof sitovAnswerInput>): 
     if (!parsed.success) throw new SitovVerbError('invalid_input')
     const { data, error } = await client.rpc('sitov_submit_verb_answer', { p_challenge_id: parsed.data.exerciseId, p_answer: parsed.data.answer })
     const result = sitovReviewSchema.parse(sitovRpcData(data, error))
-    return { correct: result.correct, solution: result.solution, progress: result.progress }
+    return result
+  })
+}
+export function checkSitovVerbRetry(input: z.infer<typeof sitovAnswerInput>): Promise<SitovVerbResult<SitovVerbReviewResult>> {
+  return sitovRequest(async client => {
+    const parsed = sitovAnswerInput.safeParse(input)
+    if (!parsed.success) throw new SitovVerbError('invalid_input')
+    const { data, error } = await client.rpc('sitov_check_verb_retry', { p_challenge_id: parsed.data.exerciseId, p_answer: parsed.data.answer })
+    return sitovReviewSchema.parse(sitovRpcData(data, error))
   })
 }
 export function sitovVerbStats(state: SitovVerbTrainerState, now = Date.now()) {

@@ -6,6 +6,8 @@ import {
 import {
   buildSitovVerbExercise,
   evaluateSitovVerbAnswer,
+  gradeSitovVerbAnswer,
+  getSitovVerbPreviousIds,
   getSitovVerbExerciseKinds,
   getSitovVerbTenses,
   prioritizeSitovVerbTasks,
@@ -275,7 +277,7 @@ describe("Sitov Academy verb exercises and progression", () => {
     ).not.toContain("participle");
   });
 
-  it("grades all generated task structures consistently and rejects wrong slots and spelling", () => {
+  it("grades task structures with the shared spelling tolerance and rejects wrong slots", () => {
     for (const row of SITOV_VERB_CATALOG) {
       for (const tense of ["present", "perfect", "past"] as const) {
         for (const kind of getSitovVerbExerciseKinds(row, tense)) {
@@ -300,7 +302,9 @@ describe("Sitov Academy verb exercises and progression", () => {
       person: 1,
     });
     expect(evaluateSitovVerbAnswer(present, ["  FÄHRST  "])).toBe(true);
-    expect(evaluateSitovVerbAnswer(present, ["fahrst"])).toBe(false);
+    expect(gradeSitovVerbAnswer(present, ["fahrst"])).toEqual({ correct: true, softError: "typo" });
+    expect(gradeSitovVerbAnswer(present, ["faehrst"])).toEqual({ correct: true, softError: "umlaut" });
+    expect(evaluateSitovVerbAnswer(present, ["fahren"])).toBe(false);
     expect(evaluateSitovVerbAnswer(present, ["fährst", "fahren"])).toBe(false);
     expect(
       evaluateSitovVerbAnswer(
@@ -336,13 +340,8 @@ describe("Sitov Academy verb exercises and progression", () => {
     );
     expect(tasks.map((task) => `${task.verbId}:${task.tense}`)).toEqual([
       "sitov-verb-fahren:perfect",
-      "sitov-verb-fahren:present",
     ]);
     expect(tasks[0]).toMatchObject({ due: true, progress: null });
-    expect(tasks[1]).toMatchObject({
-      due: false,
-      progress: { box: 5, attempts: 15 },
-    });
     expect(progress[0].box).toBe(5);
     expect(
       prioritizeSitovVerbTasks(
@@ -362,5 +361,30 @@ describe("Sitov Academy verb exercises and progression", () => {
         now,
       ),
     ).toEqual([]);
+  });
+
+  it("never schedules archive forms or repeat grading on the same Berlin calendar day", () => {
+    const now = Date.parse("2026-10-03T12:00:00Z");
+    const progress: SitovVerbProgress[] = [
+      { verbId: verb("fahren").id, tense: "present", box: 7, attempts: 12, correct: 12, lapses: 0,
+        nextReviewAt: "2026-10-01T12:00:00Z", lastAnsweredAt: "2026-10-01T10:00:00Z" },
+      { verbId: verb("fahren").id, tense: "perfect", box: 4, attempts: 12, correct: 11, lapses: 1,
+        nextReviewAt: "2026-10-03T11:05:00Z", lastAnsweredAt: "2026-10-03T11:00:00Z" },
+    ];
+    expect(prioritizeSitovVerbTasks([verb("fahren")], progress, "A1.2", undefined, now)).toEqual([]);
+  });
+
+  it("recovers the latest graded source verb and handles equal timestamps without guessing", () => {
+    expect(getSitovVerbPreviousIds([
+      { verbId: "old", lastAnsweredAt: "2026-10-01T12:00:00Z" },
+      { verbId: "new", lastAnsweredAt: "2026-10-02T12:00:00Z" },
+      { verbId: "new", lastAnsweredAt: "2026-10-02T12:00:00Z" },
+      { verbId: "unanswered", lastAnsweredAt: null },
+      { verbId: "invalid", lastAnsweredAt: "invalid" },
+    ])).toEqual(["new"]);
+    expect(getSitovVerbPreviousIds([
+      { verbId: "b", lastAnsweredAt: "2026-10-02T12:00:00Z" },
+      { verbId: "a", lastAnsweredAt: "2026-10-02T12:00:00Z" },
+    ])).toEqual(["a", "b"]);
   });
 });

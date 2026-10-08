@@ -14,6 +14,7 @@ ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_f
 # Explicit file metadata: comments/string literals must never disable transactions.
 ORDER.append('90_sitov_pronunciation_recall_evidence.sql')
 ORDER.append('91_sitov_learning_progress_media_visibility.sql')
+ORDER.append('92_sitov_verb_vocabulary_parity.sql')
 AUTOCOMMIT={'08_performance_indexes.sql'}
 
 def run(args,**kwargs):

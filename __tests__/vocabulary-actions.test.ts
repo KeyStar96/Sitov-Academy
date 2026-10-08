@@ -170,8 +170,8 @@ describe('answer request routing', () => {
   })
   it('ignores forged correctness and returns only the server grade', async () => {
     const { rpc } = session()
-    rpc.mockResolvedValue({ data: { ...review, isCorrect: false }, error: null })
-    expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'wrong', isCorrect: true } as SubmitVocabularyAnswerInput)).toMatchObject({ success: true, isCorrect: false })
+    rpc.mockResolvedValue({ data: { ...review, isCorrect: false, newPhase: 1 }, error: null })
+    expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'wrong', isCorrect: true } as SubmitVocabularyAnswerInput)).toMatchObject({ success: true, isCorrect: false, newPhase: 1 })
     expect(rpc).toHaveBeenCalledWith('submit_vocabulary_answer', expect.objectContaining({ p_is_correct: null, p_typed_answer: 'wrong' }))
   })
   it.each(['umlaut', 'typo'])('preserves the authoritative soft-error reason %s', async softError => {

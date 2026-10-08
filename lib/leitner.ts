@@ -34,8 +34,8 @@ export const PHASE_INTERVALS_IN_DAYS: Readonly<Record<LeitnerPhase, number>> = {
 }
 
 /**
- * Phase-6-Regel: Ein falscher erster Versuch macht die Vokabel am nächsten Tag
- * wieder fällig — unabhängig davon, in welche Phase sie zurückrutscht.
+ * Ein falscher erster Versuch setzt die betroffene Abfragerichtung in Phase 1
+ * und macht sie am nächsten Kalendertag wieder fällig.
  */
 export const WRONG_ANSWER_INTERVAL_IN_DAYS = 1
 
@@ -146,7 +146,7 @@ export interface LeitnerAnswerResult {
   /** Phase nach der Antwort; bei „gelernt" ist es Phase 6. */
   newPhase: LeitnerPhase
   becameLearned: boolean
-  /** True, wenn die Vokabel eine Phase zurückgerutscht ist. */
+  /** True, wenn die betroffene Abfragerichtung in Phase 1 zurückgesetzt wurde. */
   movedBack: boolean
   intervalInDays: number
   nextReviewDate: Date
@@ -170,14 +170,13 @@ export function intervalForPhase(phase: LeitnerPhase, isHardForNativeLanguage = 
 /**
  * Wendet den *ersten* Versuch des Tages auf den Lernstand an — Spiegel von
  * `vocabulary_private.submit_answer`/`submit_self_rating`
- * (`supabase/vps/22_vocabulary_phase6_rules.sql`). Wiederholungen in derselben
- * Sitzung ändern nichts und laufen nicht hier durch.
+ * Wiederholungen in derselben Sitzung ändern nichts und laufen nicht hier
+ * durch. Vokabel- und Verbtrainer verwenden dieselbe Rücksetzregel.
  *
  * Richtig  → eine Phase weiter mit deren Intervall; aus Phase 6 heraus gilt die
  *            Vokabel als gelernt.
- * Falsch   → **exakt eine Phase zurück**, mindestens bis Phase 1, und am
- *            nächsten Tag wieder fällig. Der übrige Lernfortschritt bleibt
- *            erhalten; es wird nichts zurückgesetzt.
+ * Falsch   → zurück in Phase 1 und am nächsten Tag wieder fällig. Andere
+ *            Abfragerichtungen und Zeitformen behalten ihren Lernstand.
  *
  * Die Datenbank legt den Termin zusätzlich auf den Beginn des Kalendertags
  * (Europe/Berlin); hier zählt nur die Zahl der Tage.
@@ -203,7 +202,7 @@ export function applyLeitnerAnswer(input: LeitnerAnswerInput): LeitnerAnswerResu
     }
   }
 
-  const newPhase: LeitnerPhase = Math.max(1, previousPhase - 1) as LeitnerPhase
+  const newPhase: LeitnerPhase = 1
   const intervalInDays = WRONG_ANSWER_INTERVAL_IN_DAYS
 
   return {

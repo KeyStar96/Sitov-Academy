@@ -38,7 +38,8 @@ const sentence: DueVocabularyCard = { ...choice, progressId: 'sentence', mode: '
 
 function result(overrides: Partial<SubmitVocabularyAnswerResult> = {}): SubmitVocabularyAnswerResult {
   return { success: true, isCorrect: true, correctAnswer: 'das Haus', isAlternative: false, softError: null,
-    previousPhase: 4, newPhase: 5, becameLearned: false, movedBack: false, intervalInDays: 29, ...overrides }
+    previousPhase: 4, newPhase: overrides.isCorrect === false ? 1 : 5, becameLearned: false,
+    movedBack: overrides.isCorrect === false, intervalInDays: overrides.isCorrect === false ? 1 : 29, ...overrides }
 }
 
 function mount(cards: DueVocabularyCard[]) {

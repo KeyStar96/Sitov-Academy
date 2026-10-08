@@ -4,7 +4,7 @@ import type { SitovVerbTrainerState, SitovVerbPublicExercise, SitovVerbReviewRes
 import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
 import { getSitovVerbCopy } from '@/lib/verbs/i18n'
 
-jest.mock('@/app/actions/verbs', () => ({ nextSitovVerbExercise: jest.fn(), setSitovVerbBox: jest.fn(), submitSitovVerbAnswer: jest.fn() }))
+jest.mock('@/app/actions/verbs', () => ({ nextSitovVerbExercise: jest.fn(), setSitovVerbBox: jest.fn(), submitSitovVerbAnswer: jest.fn(), checkSitovVerbRetry: jest.fn() }))
 jest.unmock('lucide-react')
 
 const sitovState: SitovVerbTrainerState = {
@@ -21,7 +21,7 @@ const sitovExercise: SitovVerbPublicExercise = { exerciseId: '2e45a8a0-bca2-409e
 const sitovReview: SitovVerbReviewResult = { correct: true, solution: 'fährst', progress: { verbId: 'sitov-fahren', tense: 'present', box: 2,
   attempts: 1, correct: 1, lapses: 0, nextReviewAt: '2099-01-01T00:00:00Z', lastAnsweredAt: '2026-10-03T10:00:00Z' } }
 function sitovActions(): SitovVerbTrainerActions {
-  return { next: jest.fn().mockResolvedValue({ data: sitovExercise }), box: jest.fn().mockResolvedValue({ data: { selectedIds: ['sitov-fahren'] } }), answer: jest.fn().mockResolvedValue({ data: sitovReview }) }
+  return { next: jest.fn().mockResolvedValue({ data: sitovExercise }), box: jest.fn().mockResolvedValue({ data: { selectedIds: ['sitov-fahren'] } }), answer: jest.fn().mockResolvedValue({ data: sitovReview }), retry: jest.fn().mockResolvedValue({ data: { ...sitovReview, retry: true } }) }
 }
 
 function sitovHeroButton(label: string = sitovTrainerUiCopy('en').practice, title: string = getSitovVerbCopy('en').title) {
@@ -183,9 +183,9 @@ test('a compartment round keeps its server box scope, drains cleanly and never r
   fireEvent.click(screen.getByRole('button', { name: 'Check answer' }))
   fireEvent.click(await screen.findByRole('button', { name: 'Next form' }))
   expect(await screen.findByRole('heading', { name: 'One round further.' })).toBeInTheDocument()
-  expect(actions.next).toHaveBeenLastCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: 'sitov-fahren', box: 1 }, 'en')
+  expect(actions.next).toHaveBeenLastCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: 'sitov-fahren', box: 1, verbIds: ['sitov-fahren'] }, 'en')
   fireEvent.click(screen.getByRole('button', { name: 'Another round' }))
-  expect(await screen.findByRole('heading', { name: 'There are no tasks for this selection yet.' })).toBeInTheDocument()
+  expect(await screen.findByRole('heading', { name: 'More forms are still ready.' })).toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: 'One round further.' })).not.toBeInTheDocument()
   expect(actions.next).toHaveBeenCalledTimes(3)
 })
@@ -215,4 +215,90 @@ test('automatic practice after a compartment round clears the previous server bo
   fireEvent.click(sitovHeroButton())
   await screen.findByRole('textbox', { name: 'Your answer 1' })
   expect(actions.next).toHaveBeenLastCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: undefined }, 'en')
+})
+
+
+test('wrong forms return after the due queue and repeat until correct without scoring twice', async () => {
+  const second = { ...sitovExercise, exerciseId: '7f7fe973-9525-48b7-8aee-795211236120', verbId: 'sitov-lernen', infinitive: 'lernen' }
+  const wrong = { ...sitovReview, correct: false, progress: { ...sitovReview.progress, box: 1, correct: 0, lapses: 1 } }
+  const actions = sitovActions()
+  actions.next = jest.fn().mockResolvedValueOnce({ data: sitovExercise }).mockResolvedValueOnce({ data: second }).mockResolvedValue({ data: null })
+  actions.answer = jest.fn().mockResolvedValueOnce({ data: wrong }).mockResolvedValueOnce({ data: { ...sitovReview, progress: { ...sitovReview.progress, verbId: second.verbId } } })
+  actions.retry = jest.fn().mockResolvedValueOnce({ data: { ...wrong, retry: true } }).mockResolvedValueOnce({ data: { ...wrong, correct: true, retry: true } })
+  const state = { ...sitovState, selectedIds: ['sitov-fahren', 'sitov-lernen'], verbs: [...sitovState.verbs, { ...sitovState.verbs[0], id: 'sitov-lernen', infinitive: 'lernen' }] }
+  render(<VerbTrainerClient initialState={state} lang="en" actions={actions} />)
+  fireEvent.click(sitovHeroButton())
+  fireEvent.click(await screen.findByRole('button', { name: 'Show solution' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Next form' }))
+  expect(await screen.findByRole('heading', { name: 'lernen' })).toBeInTheDocument()
+  fireEvent.change(screen.getByRole('textbox', { name: 'Your answer 1' }), { target: { value: 'lernst' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Check answer' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Next form' }))
+  expect(await screen.findByText('Repeat')).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: 'fahren' })).toBeInTheDocument()
+  expect(screen.getByRole('progressbar', { name: 'Your round' })).toHaveAttribute('aria-valuenow', '2')
+  fireEvent.click(screen.getByRole('button', { name: 'Show solution' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Next form' }))
+  fireEvent.change(screen.getByRole('textbox', { name: 'Your answer 1' }), { target: { value: 'fährst' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Check answer' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'End round' }))
+  expect(await screen.findByRole('heading', { name: 'One round further.' })).toBeInTheDocument()
+  expect(screen.getByText('1', { selector: 'strong' })).toHaveTextContent('1 / 2')
+  expect(actions.answer).toHaveBeenCalledTimes(2)
+  expect(actions.retry).toHaveBeenCalledTimes(2)
+  expect(actions.retry).toHaveBeenNthCalledWith(1, { exerciseId: sitovExercise.exerciseId, answer: [''] })
+  expect(actions.retry).toHaveBeenNthCalledWith(2, { exerciseId: sitovExercise.exerciseId, answer: ['fährst'] })
+  expect(actions.next).toHaveBeenCalledTimes(3)
+})
+
+test('archive forms have no scheduled date or practice action', async () => {
+  const learned = { ...sitovReview.progress, box: 7, nextReviewAt: null }
+  const state = { ...sitovState, progress: [learned, { ...learned, tense: 'perfect' as const }] }
+  render(<VerbTrainerClient initialState={state} lang="en" actions={sitovActions()} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Open Learned' }))
+  const dialog = await screen.findByRole('dialog')
+  expect(within(dialog).queryByText('Next scheduled review')).not.toBeInTheDocument()
+  expect(within(dialog).queryByRole('button', { name: 'Practise this compartment' })).not.toBeInTheDocument()
+  expect(within(dialog).getAllByText(/archive|no more reviews/i)).toHaveLength(2)
+})
+
+test('a round freezes the shared vocabulary size until the next start', async () => {
+  const { saveRoundSize } = await import('@/lib/vocabulary-lernkasten')
+  saveRoundSize(10)
+  const many = Array.from({ length: 15 }, (_, i) => ({ ...sitovState.verbs[0], id: `sitov-verb-${i}` }))
+  const actions = sitovActions()
+  render(<VerbTrainerClient initialState={{ ...sitovState, verbs: many, selectedIds: many.map(verb => verb.id) }} lang="en" actions={actions} />)
+  fireEvent.click(sitovHeroButton())
+  await screen.findByRole('textbox', { name: 'Your answer 1' })
+  expect(screen.getByRole('progressbar', { name: 'Your round' })).toHaveAttribute('aria-valuemax', '10')
+  const { act } = await import('@testing-library/react')
+  act(() => saveRoundSize(30))
+  expect(screen.getByRole('progressbar', { name: 'Your round' })).toHaveAttribute('aria-valuemax', '10')
+  fireEvent.click(screen.getByRole('button', { name: 'End round' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Another round' }))
+  await screen.findByRole('textbox', { name: 'Your answer 1' })
+  expect(screen.getByRole('progressbar', { name: 'Your round' })).toHaveAttribute('aria-valuemax', '30')
+  act(() => saveRoundSize(20))
+})
+
+
+test('accepted spelling errors show the localized shared correction badge', async () => {
+  const actions = sitovActions()
+  actions.answer = jest.fn().mockResolvedValue({ data: { ...sitovReview, softError: 'umlaut' } })
+  render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
+  fireEvent.click(sitovHeroButton())
+  fireEvent.change(await screen.findByRole('textbox', { name: 'Your answer 1' }), { target: { value: 'faehrst' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Check answer' }))
+  expect(await screen.findByText(getSitovVerbCopy('en').softUmlaut)).toBeInTheDocument()
+  expect(screen.queryByText('Got it!')).not.toBeInTheDocument()
+})
+
+test('deferred siblings remain ready instead of being reported as fully completed', async () => {
+  const actions = sitovActions()
+  actions.next = jest.fn().mockResolvedValue({ data: null })
+  render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
+  fireEvent.click(sitovHeroButton())
+  expect(await screen.findByRole('heading', { name: 'More forms are still ready.' })).toBeInTheDocument()
+  expect(screen.getByText('Practise another verb first.')).toBeInTheDocument()
+  expect(screen.queryByText('All done for now.')).not.toBeInTheDocument()
 })

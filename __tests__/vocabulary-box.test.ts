@@ -1,4 +1,5 @@
 import { computeWordBoxState, summarizeBox, summarizeLessons, phaseIntervalInDays, type DirectionProgressRow } from '@/lib/vocabulary-box'
+import { applyLeitnerAnswer } from '@/lib/leitner'
 
 const NOW = Date.parse('2026-06-01T09:00:00.000Z')
 const PAST = '2026-05-30T09:00:00.000Z'
@@ -12,6 +13,16 @@ function rows(deToNative: number, nativeToDe: number, due: 'none' | 'both' | 'de
 }
 
 describe('computeWordBoxState', () => {
+  it.each([2, 3, 4, 5, 6])('a wrong phase %s direction returns the word to phase one while preserving the other direction', phase => {
+    const stored = rows(phase, phase)
+    const result = applyLeitnerAnswer({ currentBox: phase, isCorrect: false, now: new Date(NOW) })
+    const updated = [stored[0], { ...stored[1], box_number: result.newBox, next_review_date: result.nextReviewDate.toISOString() }]
+    const state = computeWordBoxState(updated, NOW)
+    expect(state).toMatchObject({ phase: 1, isLearned: false, isHalfKnown: true,
+      directions: { de_to_native: { phase }, native_to_de: { phase: 1, isDue: false } } })
+    expect(stored).toEqual(rows(phase, phase))
+  })
+
   it('legt eine Vokabel in die Phase ihrer schwächeren Richtung', () => {
     // Das ist die ganze Regel: Wer Deutsch → Russisch schon in Phase 4 kann,
     // aber umgekehrt erst in Phase 2, steht mit der Vokabel in Phase 2.

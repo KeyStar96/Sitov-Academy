@@ -37,8 +37,8 @@
 .sitovStepIcon[data-tone='success'] { --sitov-guide-tone: var(--sitov-guide-success); }
 .sitovStepIcon[data-tone='danger'] { --sitov-guide-tone: var(--sitov-guide-danger); }
 
-/* A due correct answer moves one compartment. A wrong form returns all the
-   way from 3 to 1; after that every compartment is visited again. */
+/* The same Leitner movement as the vocabulary guide: correct moves one
+   compartment forward, wrong moves 3 → 1, then each step reaches the archive. */
 @keyframes sitov-guide-card {
   0% { transform: translate(0, 0); opacity: 0; }
   2%, 5% { transform: translate(0, 0); opacity: 1; }
@@ -91,7 +91,6 @@
   .sitovStep { gap: .55rem; font-size: .82rem; }
   .sitovStepIcon { width: 1.9rem; height: 1.9rem; }
   .sitovNumeral { font-size: .66rem; gap: .1rem; }
-  .sitovNumeral svg { width: 8px; height: 8px; }
   .sitovFeedback { width: 1.05rem; height: 1.05rem; right: 2%; }
   .sitovExample { padding-inline: .45rem; }
 }

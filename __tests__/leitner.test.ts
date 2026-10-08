@@ -116,38 +116,38 @@ describe('applyLeitnerAnswer – richtige Antwort', () => {
 })
 
 describe('applyLeitnerAnswer – falsche Antwort', () => {
-  it('rutscht exakt eine Phase zurück', () => {
+  it('setzt jede spätere Phase vollständig auf Phase 1 zurück', () => {
     for (const phase of [2, 3, 4, 5, 6]) {
       const result = applyLeitnerAnswer({ currentBox: phase, isCorrect: false, now: NOW })
 
       expect(result.previousPhase).toBe(phase)
-      expect(result.newPhase).toBe(phase - 1)
-      expect(result.newBox).toBe(phase - 1)
+      expect(result.newPhase).toBe(1)
+      expect(result.newBox).toBe(1)
       expect(result.movedBack).toBe(true)
       expect(result.becameLearned).toBe(false)
     }
   })
 
-  it('bleibt in Phase 1 stehen und löscht den Fortschritt nicht', () => {
+  it('bleibt bei einem Fehler in Phase 1 und plant den nächsten Tag', () => {
     const result = applyLeitnerAnswer({ currentBox: 1, isCorrect: false, now: NOW })
 
     expect(result.newBox).toBe(1)
     expect(result.newPhase).toBe(1)
+    expect(result.movedBack).toBe(false)
     expect(result.intervalInDays).toBe(1)
     expect(daysBetween(NOW, result.nextReviewDate)).toBe(1)
   })
 
-  it('holt eine gelernte Vokabel zurück in Phase 5', () => {
+  it('setzt auch einen ausdrücklich geprüften gelernten Zustand auf Phase 1 zurück', () => {
     const result = applyLeitnerAnswer({ currentBox: 7, isCorrect: false, now: NOW })
 
     expect(result.previousPhase).toBe(6)
-    expect(result.newBox).toBe(5)
+    expect(result.newBox).toBe(1)
     expect(result.movedBack).toBe(true)
   })
 
   it('macht eine falsche Vokabel immer am nächsten Tag wieder fällig (Phase-6-Regel)', () => {
-    // Nicht das Intervall der niedrigeren Phase: Ein Fehler in Phase 6 schiebt
-    // die Vokabel nicht 29 Tage weg, sondern bringt sie morgen zurück.
+    // Rücksetzen betrifft das Fach; das Datum bleibt für jeden Fehler morgen.
     for (const currentBox of [1, 2, 3, 4, 5, 6, 7]) {
       for (const isHardForNativeLanguage of [false, true]) {
         const result = applyLeitnerAnswer({ currentBox, isCorrect: false, isHardForNativeLanguage, now: NOW })

@@ -2541,6 +2541,7 @@ export type Database = {
         Returns: Json
       }
       sitov_set_verb_box: { Args: { p_level: string; p_verb_ids: string[]; p_selected: boolean }; Returns: Json }
+      sitov_check_verb_retry: { Args: { p_challenge_id: string; p_answer: Json }; Returns: Json }
       sitov_submit_verb_answer: { Args: { p_challenge_id: string; p_answer: Json }; Returns: Json }
       set_student_level_access: {
         Args: { p_levels: string[]; p_user_id: string }

@@ -32,7 +32,8 @@ const sentence: DueVocabularyCard = { ...word, format: 'sentence', prompt: 'Я �
 const reverse: DueVocabularyCard = { ...word, progressId: 'reverse', direction: 'de_to_native', promptLanguage: 'de', prompt: 'Haus' }
 function result(overrides: Partial<SubmitVocabularyAnswerResult> = {}): SubmitVocabularyAnswerResult {
   return { success: true, isCorrect: true, correctAnswer: 'das Haus', isAlternative: false, softError: null,
-    previousPhase: 1, newPhase: 2, becameLearned: false, movedBack: false, intervalInDays: 1, ...overrides }
+    previousPhase: 1, newPhase: overrides.isCorrect === false ? 1 : 2, becameLearned: false,
+    movedBack: overrides.isCorrect === false && (overrides.previousPhase ?? 1) > 1, intervalInDays: 1, ...overrides }
 }
 beforeEach(() => {
   jest.clearAllMocks()
@@ -70,7 +71,7 @@ it('prepares headword audio but hides the solution and self-rating controls unti
 })
 
 it('keeps the target level on carried typed answers, failed-write retries and practice retries', async () => {
-  jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce({ success: false }).mockResolvedValueOnce(result({ isCorrect: false, previousPhase: 3, newPhase: 2 }))
+  jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce({ success: false }).mockResolvedValueOnce(result({ isCorrect: false, previousPhase: 3, newPhase: 1 }))
   render(<VocabCardSession learnerId={learnerId} level="A1.2" cards={[{ ...word, phase: 3, box: 3, originLevel: 'A1.1', targetLevel: 'A1.2' }]}
     translations={de.vocabulary} uiLanguage="ru" overviewHref="/ru/dashboard/level/A1.2/vocabulary" />)
   expect(screen.getByTestId('carryover-origin')).toHaveTextContent('Из A1.1')
@@ -415,7 +416,7 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
   })
 
   it('prüft eine getippte Wiederholung serverseitig, ohne den Lernstand erneut zu setzen', async () => {
-    jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ isCorrect: false, previousPhase: 4, newPhase: 3, movedBack: true }))
+    jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ isCorrect: false, previousPhase: 4, newPhase: 1, movedBack: true }))
     jest.mocked(checkVocabularyRetry)
       .mockResolvedValueOnce({ success: true, isCorrect: false, correctAnswer: 'das Haus', isAlternative: false, softError: null })
       .mockResolvedValueOnce({ success: true, isCorrect: true, correctAnswer: 'das Haus', isAlternative: false, softError: null })
@@ -428,7 +429,7 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
     expect(screen.getByRole('textbox')).toHaveValue('')
     expect(screen.getByText(de.vocabulary.retry_label)).toBeInTheDocument()
     // Die Wiederholung zeigt die schon zurückgestufte Phase.
-    expect(screen.getByText('Karte 2 von 2, Phase 3 von 6')).toBeInTheDocument()
+    expect(screen.getByText('Karte 2 von 2, Phase 1 von 6')).toBeInTheDocument()
     await submit('die Haus')
     expect(checkVocabularyRetry).toHaveBeenCalledWith({ progressId: word.progressId, typedAnswer: 'die Haus', expectedLearnerId: learnerId, uiLanguage: 'ru', targetLevel: 'A1.1' })
     expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1)

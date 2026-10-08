@@ -26,17 +26,22 @@ const mockEntries: SitovVerbEntry[] = ['first', 'learned', 'unselected'].map(id 
 }))
 const insert = jest.fn()
 const from = jest.fn()
+const mockProgress = [{ verb_id: 'sitov-first', tense: 'present', box: 6 }, { verb_id: 'sitov-first', tense: 'perfect', box: 2 },
+  { verb_id: 'sitov-learned', tense: 'present', box: 7 }, { verb_id: 'sitov-learned', tense: 'perfect', box: 7 }].map(row => ({
+  ...row, attempts: 8, correct: 8, lapses: 0, next_review_at: row.box === 2 ? '2026-10-01T10:00:00Z' : row.box === 7 ? '2026-10-02T10:00:00Z' : '2099-01-01T10:00:00Z',
+  last_answered_at: row.verb_id === 'sitov-learned' ? '2026-10-02T10:00:00Z' : '2026-10-01T10:00:00Z',
+}))
+function seedProgress(rows = mockProgress) {
+  jest.mocked(readAllRows).mockReset()
+    .mockResolvedValueOnce(mockEntries.map(entry => ({ id: entry.id, unit_id: 'sitov-unit', level: 'A1.1' })))
+    .mockResolvedValueOnce([{ verb_id: 'sitov-first', selected: true }, { verb_id: 'sitov-learned', selected: true }, { verb_id: 'sitov-unselected', selected: false }])
+    .mockResolvedValueOnce(rows)
+}
 beforeEach(() => {
   jest.clearAllMocks()
   jest.mocked(createClient).mockResolvedValue({ auth: { getUser: async () => ({ data: { user: { id: 'sitov-learner' } }, error: null }) } } as unknown as Awaited<ReturnType<typeof createClient>>)
   jest.mocked(loadLevelAccessProfile).mockResolvedValue({ role: 'student', allowed_levels: ['A1.1', 'A1.2'], trainer_grants: [] })
-  jest.mocked(readAllRows)
-    .mockResolvedValueOnce(mockEntries.map(entry => ({ id: entry.id, unit_id: 'sitov-unit', level: 'A1.1' })))
-    .mockResolvedValueOnce([{ verb_id: 'sitov-first', selected: true }, { verb_id: 'sitov-learned', selected: true }, { verb_id: 'sitov-unselected', selected: false }])
-    .mockResolvedValueOnce([{ verb_id: 'sitov-first', tense: 'present', box: 6 }, { verb_id: 'sitov-first', tense: 'perfect', box: 2 },
-      { verb_id: 'sitov-learned', tense: 'present', box: 7 }, { verb_id: 'sitov-learned', tense: 'perfect', box: 7 }].map(row => ({
-      ...row, attempts: 8, correct: 8, lapses: 0, next_review_at: '2099-01-01T10:00:00Z', last_answered_at: '2026-10-01T10:00:00Z',
-    })))
+  seedProgress()
   insert.mockReturnValue({ select: () => ({ single: async () => ({ data: { id: 'sitov-challenge' }, error: null }) }) })
   from.mockReturnValue({ insert })
   jest.mocked(createAdminClient).mockReturnValue({ from } as unknown as ReturnType<typeof createAdminClient>)
@@ -54,9 +59,50 @@ test('a higher tense does not put the same verb in two compartments or allow an 
   expect(insert).not.toHaveBeenCalled()
 })
 
-test('the learned compartment remains eligible for the independent long-term verb review', async () => {
+test('the learned compartment is an archive and cannot issue normal challenges', async () => {
   const result = await nextSitovVerbExercise({ level: 'A1.2', box: 7 }, 'en')
-  expect(result.data?.verbId).toBe('sitov-learned')
+  expect(result).toEqual({ data: null })
+  expect(createAdminClient).not.toHaveBeenCalled()
+})
+
+test('normal practice issues only a due form and stops when only a future tense is requested', async () => {
+  const result = await nextSitovVerbExercise({ level: 'A1.2', tenses: ['present'] }, 'en')
+  expect(result).toEqual({ data: null })
+  expect(createAdminClient).not.toHaveBeenCalled()
+})
+
+test.each([undefined, 2])('spacing defers the only sibling task instead of reusing the excluded verb in box %s', async box => {
+  expect(await nextSitovVerbExercise({ level: 'A1.2', excludeVerbId: 'sitov-first', ...(box == null ? {} : { box }) }, 'en')).toEqual({ data: null })
+  expect(insert).not.toHaveBeenCalled()
+})
+
+test('restart and reload use the latest persisted graded verb even without caller exclusion', async () => {
+  seedProgress(mockProgress.map(row => ({ ...row, last_answered_at: row.verb_id === 'sitov-first' ? '2026-10-03T10:00:00Z' : row.last_answered_at })))
+  expect(await nextSitovVerbExercise({ level: 'A1.2' }, 'en')).toEqual({ data: null })
+  expect(insert).not.toHaveBeenCalled()
+})
+
+test('a newer graded verb outside this context supplies the global spacing boundary', async () => {
+  seedProgress([...mockProgress, { ...mockProgress[0], verb_id: 'sitov-outside-context', last_answered_at: '2026-10-04T10:00:00Z' }])
+  expect((await nextSitovVerbExercise({ level: 'A1.2' }, 'en')).data?.verbId).toBe('sitov-first')
+})
+
+test('a compartment snapshot retains original selected verbs after their current aggregate phase changes', async () => {
+  expect((await nextSitovVerbExercise({ level: 'A1.2', box: 6, verbIds: ['sitov-first'] }, 'en')).data).toMatchObject({ verbId: 'sitov-first', tense: 'perfect' })
+})
+
+test('snapshot IDs remain constrained to selected authorized verbs and cannot turn archive into practice', async () => {
+  expect(await nextSitovVerbExercise({ level: 'A1.2', box: 1, verbIds: ['sitov-unselected', 'sitov-not-visible'] }, 'en')).toEqual({ data: null })
+  seedProgress()
+  expect(await nextSitovVerbExercise({ level: 'A1.2', box: 7, verbIds: ['sitov-first'] }, 'en')).toEqual({ data: null })
+  expect(insert).not.toHaveBeenCalled()
+})
+
+test('empty or oversized snapshot lists and invalid compartments fail validation', async () => {
+  expect(await nextSitovVerbExercise({ level: 'A1.2', verbIds: [] }, 'en')).toEqual({ error: 'invalid_input' })
+  expect(await nextSitovVerbExercise({ level: 'A1.2', verbIds: Array(1001).fill('sitov-first') }, 'en')).toEqual({ error: 'invalid_input' })
+  expect(await nextSitovVerbExercise({ level: 'A1.2', box: 8, verbIds: ['sitov-first'] }, 'en')).toEqual({ error: 'invalid_input' })
+  expect(readAllRows).not.toHaveBeenCalled()
 })
 
 test('invalid compartments and locked tenses cannot issue a stored challenge', async () => {

@@ -31,7 +31,7 @@ Trennbare, untrennbare und reflexive Verben, Dativreflexiva, starke und schwache
 | Gezieltes Training | Gleiche Box, mit frei wählbarer Teilmenge der freigegebenen Zeiten. Ohne ausgewählte Zeit startet keine Runde. |
 | Meine Verbbox | Suche nach Infinitiv und Interfacebedeutung, Filter nach Einführungsniveau und ausgewählten Verben, einzelne Auswahl sowie „sichtbare Verben hinzufügen“. Gesperrte Niveaufilter bleiben erkennbar. |
 
-Eine Runde umfasst bis zu zehn bewertete Aufgaben und lässt sich früher beenden. Feedback und Lösung erscheinen nach der bestätigten Serverantwort. „Lösung anzeigen“ sendet einen leeren Versuch und zählt als falsch. Danach führt ein eigener Knopf zur nächsten Aufgabe; Eingabe, Feedback und Abschluss erhalten passenden Tastaturfokus. Doppelte Aktionen während eines laufenden Requests sind blockiert, Fehler lassen sich wiederholen.
+Die Rundengröße übernimmt die bestehende Einstellung des Vokabeltrainers: 10, 20, 30, 40, 50 oder alle fälligen Formen; Standard sind 20. Die Auswahl wird beim Start festgehalten und lässt sich früher beenden. Feedback und Lösung erscheinen nach der bestätigten Serverantwort. „Lösung anzeigen“ sendet einen leeren Versuch und zählt als falsch. Danach führt ein eigener Knopf zur nächsten Aufgabe; Eingabe, Feedback und Abschluss erhalten passenden Tastaturfokus. Doppelte Aktionen während eines laufenden Requests sind blockiert, Fehler lassen sich wiederholen.
 
 Die Engine variiert Person und Aufgabentyp serverseitig. Die sechs technischen Typen sind:
 
@@ -52,14 +52,17 @@ Fortschritt ist über `(auth_user_id, verb_id, tense)` eindeutig. Präsens, Perf
 
 | Ergebnis | Box und nächste Wiederholung |
 | --- | --- |
-| Erster richtiger Versuch | Box 2, nach einem Tag |
-| Richtige fällige Antwort | Eine Box höher, maximal Box 7; Abstände für Box 2–7: 1, 3, 7, 14, 30, 60 Tage |
-| Richtige zusätzliche Übung vor Fälligkeit | Versuch und Treffer werden gezählt; Box und Termin bleiben bestehen |
-| Falsche Antwort oder Lösung anzeigen | Box 1, nach fünf Minuten; Fehlerzähler steigt |
+| Erster richtiger Versuch | Fach 2, am nächsten Kalendertag |
+| Richtige fällige Antwort | Genau ein Fach weiter; Lernphasen 1–6 verwenden gemeinsam mit dem Vokabeltrainer 1, 1, 3, 9, 29, 90 Tage |
+| Falsche Antwort oder Lösung anzeigen | Zurück in Fach 1; morgen wieder fällig |
+| Fehlerwiederholung in derselben Runde | Ans Rundenende, bis die Antwort stimmt; Prüfung ohne zusätzliche Änderung von Fach, Termin oder Zählern |
+| Fach 7 | Archiv; keine regulären Wiederholungen |
 
-Ab Box 6 gilt eine Zeitform in der Oberfläche als sicher. Die Warteschlange bevorzugt fällige/neue Formen, dann den frühesten Termin, schwächere Boxen und höhere Fehlerzahlen. Gibt es weitere Verben, wird das zuletzt geübte Verb beim nächsten Abruf vermieden. Wenn alle Formen noch warten, bleibt zusätzliche Übung möglich; sie beschleunigt den Boxaufstieg nicht.
+Termine liegen am Beginn des entsprechenden Kalendertags in Europe/Berlin, einschließlich Sommerzeitwechsel. Nur der erste fällige Versuch wird bewertet. Nicht fällige und archivierte Formen werden weder gewählt noch erneut bewertet. Die gemeinsame faire Antwortprüfung akzeptiert Groß-/Kleinschreibung und typografische Satzzeichen; akzeptierte leichte Tipp- oder Umlautfehler begrenzen das neue Intervall auf das vorherige Fachintervall.
 
-Auswahl und Fortschritt werden im Account gespeichert. Entfernen, erneutes Hinzufügen und Niveauwechsel löschen keine Lernspur. Neue Zeiten beginnen ohne bestehenden Fortschritt. Gesperrte Inhalte werden ausgeblendet, bleiben aber gespeichert und können nach erneuter Freigabe weitergeführt werden. Die aktuelle Zehner-Runde und noch nicht abgeschickte Antworten sind lokale UI-Zustände; ein Gerätewechsel übernimmt die bestätigte Box und Bewertung, nicht den ungespeicherten Entwurf.
+Die Auswahl verwendet dieselben Fachgewichte wie der Vokabeltrainer. Zwischen zwei regulären Aufgaben desselben Verbs muss ein anderes Verb liegen; verbleibende Zeitformen bleiben andernfalls fällig. Fehlerwiederholungen sind davon ausgenommen. Fachrunden behalten ihre ursprünglich ausgewählten Verben, auch wenn eine Bewertung deren Fach verändert.
+
+Auswahl und Fortschritt werden im Account gespeichert. Entfernen, erneutes Hinzufügen und Niveauwechsel löschen keine Lernspur. Neue Zeiten beginnen ohne bestehenden Fortschritt. Gesperrte Inhalte werden ausgeblendet, bleiben aber gespeichert und können nach erneuter Freigabe weitergeführt werden. Die aktuelle Runde, Fehlerwarteschlange und noch nicht abgeschickte Antworten sind lokale UI-Zustände; ein Gerätewechsel übernimmt die bestätigte Box und Bewertung, nicht den ungespeicherten Entwurf.
 
 Die bestehenden Reset-Workflows sind integriert: Ein Lehrerreset eines Niveaus löscht dessen eingeführte Verb-Lernspuren und betroffene Challenges, erhält die Auswahl; der vollständige Account-Lernreset entfernt auch die Verbbox. Ein bloßer Rechtewechsel löst keinen Reset aus.
 
@@ -158,3 +161,9 @@ Abschließende gezielte Nachprüfung: **111 Tests / 6 Suites** bestanden, darunt
 Im Browser geprüft: 320/390-Pixel-Handyansichten und 1280-Pixel-Desktop, identische Maße aller fünf Karten, echte CSS-Tiefentransformationen, Wischen und horizontales Scrollen ohne Navigation, Tastaturwechsel mit Fokus, Vordergrund-Klick zum richtigen Trainerziel (anonym anschließend Login), Light/Dark und hoher Kontrast. Die Motivbewegung und Sichtfeldpause sind visuell beziehungsweise über den gerenderten Zustand bestätigt. Die Systemeinstellung „weniger Bewegung“ wurde durch Code und reale Komponententests abgesichert; eine manuelle Betriebssystem-Umschaltung wird nicht behauptet.
 
 Der oben dokumentierte erste Produktionsnachweis bleibt die Historie von Release `1b3ab7377469`. Der neue VPS-Build, die Aktivierung und Screenshots dieses Oberflächen-Nachtrags werden in Obsidian unter `25_Verbtrainer_und_Trainer_Motion_2026-10-03.md` dokumentiert. Für diesen Nachtrag sind keine SQL-Migrationen erforderlich.
+
+## Gemeinsame Lernboxregeln – 8. Oktober 2026
+
+Vokabel- und Verbtrainer verwenden dieselben sechs Lernphasen, Tagesgrenzen, Rundengrößen und fairen Antwortregeln. Auf ausdrücklichen Nutzerwunsch führt jede falsche erste Antwort direkt zurück in Phase 1, auch aus einer späteren Phase. Die Änderung gilt für neue Bewertungen; vorhandene Fachstände und Antwortquittungen werden erhalten. Die Animationen und Texte in allen fünf Sprachen zeigen dieselbe Regel.
+
+Die additive Migration [92_sitov_verb_vocabulary_parity.sql](../supabase/vps/92_sitov_verb_vocabulary_parity.sql) ersetzt die Verb-Bewertung, ergänzt die schreibfreie Prüfung von Fehlerwiederholungen und stellt die Fehlerzweige beider Vokabel-Bewertungsarten auf Phase 1 um. Sie gleicht bisherige aktive Verb-Wiederholungstermine an Berlin-Kalendertage an, ohne Antworten, Zähler, Auswahl oder Fachstände zurückzusetzen. Archivierte Formen werden nicht mehr regulär gewählt. Vor der Umstellung erstellt der VPS-Runner ein vollständiges Datenbank-/Storage-Backup; App und Mail bleiben bis zur überprüften Aktivierung gestoppt. Der native [Vertragstest](../deploy/vps/tests/sitov-verb-vocabulary-parity.sql) endet mit ROLLBACK.

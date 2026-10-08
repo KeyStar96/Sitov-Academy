@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Check, Layers3, RotateCcw, Route, X } from 'lucide-react'
+import { Archive, Check, RotateCcw, Route, X } from 'lucide-react'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import { EASE_OUT_SOFT, MOTION, staggerDelay, useReducedMotionSafe } from '@/lib/motion'
 import { getSitovVerbCopy } from '@/lib/verbs/i18n'
@@ -24,7 +24,7 @@ export default function SitovVerbLearningGuide({ lang, tenses }: { lang: string;
   const steps = [
     { key: 'right', icon: Check, tone: 'success', text: copy.guideCompactRight },
     { key: 'wrong', icon: RotateCcw, tone: 'danger', text: copy.guideCompactWrong },
-    { key: 'scope', icon: Layers3, tone: 'verb', text: copy.guideCompactScope },
+    { key: 'archive', icon: Archive, tone: 'success', text: copy.guideCompactScope },
   ] as const
 
   return <SitovMotionStage className={styles.sitovGuide} data-sitov-verb-guide-stage data-reduced={reduced}>
@@ -41,7 +41,7 @@ export default function SitovVerbLearningGuide({ lang, tenses }: { lang: string;
       <div className={styles.sitovSlots}>
         {SITOV_VERB_REVIEW_DAYS.map((_, index) => <span key={index + 1} className={styles.sitovSlot}
           data-sitov-verb-guide-slot={index + 1} data-learned={index === 6 || undefined}>
-          <span className={styles.sitovNumeral}>{index + 1}{index === 6 && <Check size={10} strokeWidth={3.5} />}</span>
+          <span className={styles.sitovNumeral}>{index === 6 ? <Check size={13} strokeWidth={3.5} /> : index + 1}</span>
         </span>)}
         <span className={styles.sitovCard} data-sitov-verb-guide-card>
           <span className={styles.sitovPaper}><span /><span /><span /></span>
@@ -49,7 +49,7 @@ export default function SitovVerbLearningGuide({ lang, tenses }: { lang: string;
           <span className={`${styles.sitovFeedback} ${styles.sitovRight}`} data-sitov-verb-guide-feedback="right"><Check size={11} strokeWidth={3.5} /></span>
         </span>
       </div>
-      <div className={styles.sitovDays}>{SITOV_VERB_REVIEW_DAYS.map((days, index) => <span key={index}>{days}</span>)}</div>
+      <div className={styles.sitovDays} data-sitov-verb-guide-days>{SITOV_VERB_REVIEW_DAYS.map((days, index) => <span key={index}>{days ?? '–'}</span>)}</div>
       <p className={styles.sitovCaption}>{copy.guideTrackCaption}</p>
     </div>
 

@@ -88,7 +88,7 @@ function SitovVerbBoxInspector({ phase, cards, state, lang, busy, opener, onClos
               const answeredDate = sitovDate(form.progress?.lastAnsweredAt ?? null, lang)
               return <div key={form.tense} data-box={form.box} data-due={form.due} data-matching={tense === 'all' || form.tense === tense}>
                 <dt>{trainerCopy[form.tense]}<span>{sitovBoxName(form.key, lang)}</span>{form.box === 7 && <Check size={16} aria-hidden="true" />}</dt>
-                <dd className={styles.sitovReview}><Clock3 size={14} aria-hidden="true" />{!form.progress?.attempts ? copy.newForm : form.due ? copy.dueNow : <><span>{copy.nextReview}</span><time dateTime={form.progress.nextReviewAt!}>{reviewDate}</time></>}</dd>
+                <dd className={styles.sitovReview}>{form.box === 7 ? <><Check size={14} aria-hidden="true" />{copy.longTerm}</> : <><Clock3 size={14} aria-hidden="true" />{!form.progress?.attempts ? copy.newForm : form.due ? copy.dueNow : <><span>{copy.nextReview}</span><time dateTime={form.progress.nextReviewAt!}>{reviewDate}</time></>}</>}</dd>
                 {!!form.progress?.attempts && <dd className={styles.sitovFormReceipt}>
                   <span>{sitovVerbBoxText(copy.correct, { count: form.progress.correct })} / {sitovVerbBoxText(copy.tries, { count: form.progress.attempts })}</span>
                   {answeredDate && <span>{copy.lastAnswer}: <time dateTime={form.progress.lastAnsweredAt!}>{answeredDate}</time></span>}
@@ -98,7 +98,7 @@ function SitovVerbBoxInspector({ phase, cards, state, lang, busy, opener, onClos
             {card.partlyAhead && <p className={styles.sitovAhead}><Check size={14} aria-hidden="true" />{copy.partlyAhead}</p>}
           </li>)}</ul>}
       </div>
-      <footer className={styles.sitovInspectorFooter}><p>{copy.retained}</p><button type="button" disabled={busy || !members.length} className={styles.sitovPractice} onClick={() => { onClose(); onPractice(phase) }}>{copy.practice}<ArrowRight size={18} aria-hidden="true" /></button></footer>
+      <footer className={styles.sitovInspectorFooter}><p>{copy.retained}</p>{phase !== 'learned' && <button type="button" disabled={busy || !members.some(card => card.forms.some(form => form.due))} className={styles.sitovPractice} onClick={() => { onClose(); onPractice(phase) }}>{copy.practice}<ArrowRight size={18} aria-hidden="true" /></button>}</footer>
     </div>
   </dialog>, document.body)
 }
@@ -115,7 +115,7 @@ export default function VerbLearningBox({ state, lang, busy, onPractice, onRemov
   const buckets: SitovLearningBoxBucket[] = box.buckets.map(bucket => {
     const label = copy.names[sitovVerbBoxValue(bucket.key) - 1]
     const days = SITOV_VERB_REVIEW_DAYS[sitovVerbBoxValue(bucket.key) - 1]
-    return { ...bucket, label, interval: bucket.key === 'learned' ? copy.longTerm : bucket.key === 1 ? copy.initial : days === 1 ? copy.day : sitovVerbBoxText(copy.days, { days }),
+    return { ...bucket, label, interval: bucket.key === 'learned' ? copy.longTerm : bucket.key === 1 ? copy.initial : days === 1 ? copy.day : sitovVerbBoxText(copy.days, { days: days ?? 0 }),
       countLabel: sitovVerbBoxText(bucket.count === 1 ? copy.verbCountOne : copy.verbCount, { count: bucket.count }), dueLabel: sitovVerbBoxText(copy.dueVerbs, { count: bucket.due }),
       halfKnownLabel: sitovVerbBoxText(copy.ahead, { count: bucket.halfKnown }), openLabel: sitovVerbBoxText(copy.open, { name: sitovBoxName(bucket.key, lang) }) }
   })

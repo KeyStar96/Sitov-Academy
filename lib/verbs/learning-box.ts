@@ -1,15 +1,17 @@
 import { getSitovVerbTenses } from './progression'
+import { LEITNER_PHASES, PHASE_INTERVALS_IN_DAYS, normalizeBox } from '@/lib/leitner'
+import { isSitovVerbDue } from './review'
 import type { SitovVerbTrainerState } from './contracts'
 import type { SitovVerbProgress, SitovVerbTense } from './types'
 
 export const SITOV_VERB_BOX_KEYS = [1, 2, 3, 4, 5, 6, 'learned'] as const
 export type SitovVerbBoxKey = (typeof SITOV_VERB_BOX_KEYS)[number]
-/** Mirrors sitov_submit_verb_answer; the verb trainer keeps its own schedule. */
-export const SITOV_VERB_REVIEW_DAYS = [1, 1, 3, 7, 14, 30, 60] as const
+/** Shared vocabulary schedule; the final compartment is a terminal archive. */
+export const SITOV_VERB_REVIEW_DAYS: readonly (number | null)[] = [...LEITNER_PHASES.map(phase => PHASE_INTERVALS_IN_DAYS[phase]), null]
 
 export function sitovVerbBoxNumber(progress: SitovVerbProgress | null | undefined): number {
   if (!progress?.attempts || !Number.isFinite(progress.box)) return 1
-  return Math.max(1, Math.min(7, Math.round(progress.box)))
+  return normalizeBox(progress.box)
 }
 export function sitovVerbBoxKey(box: number): SitovVerbBoxKey {
   return box >= 7 ? 'learned' : Math.max(1, Math.min(6, Math.round(box))) as SitovVerbBoxKey
@@ -45,9 +47,8 @@ export function buildSitovVerbLearningBox(state: SitovVerbTrainerState, now = Da
     const forms = getSitovVerbTenses(state.level, verb).map(tense => {
       const progress = progressByKey.get(`${verb.id}:${tense}`) ?? null
       const box = sitovVerbBoxNumber(progress)
-      const dueAt = progress?.nextReviewAt ? Date.parse(progress.nextReviewAt) : Number.NaN
       return { tense, box, key: sitovVerbBoxKey(box), progress,
-        due: !progress?.attempts || !Number.isFinite(dueAt) || dueAt <= now }
+        due: isSitovVerbDue(progress, now) }
     })
     const box = Math.min(...forms.map(form => form.box))
     return { verb, forms, box, key: sitovVerbBoxKey(box), due: forms.some(form => form.due),
@@ -55,6 +56,7 @@ export function buildSitovVerbLearningBox(state: SitovVerbTrainerState, now = Da
   })
   const forms = cards.flatMap(card => card.forms)
   const futureDates = forms.flatMap(form => {
+    if (form.key === 'learned') return []
     const time = form.progress?.nextReviewAt ? Date.parse(form.progress.nextReviewAt) : Number.NaN
     return Number.isFinite(time) && time > now ? [time] : []
   })

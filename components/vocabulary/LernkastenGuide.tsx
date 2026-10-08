@@ -13,7 +13,7 @@ import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
 type Translator = ReturnType<typeof createVocabularyTranslator>
 type StepKey = 'new' | 'right' | 'wrong' | 'both' | 'learned'
 
-/** Die Regeln aus `22_vocabulary_phase6_rules.sql`, in der Reihenfolge, in der eine Karte sie erlebt. */
+/** Die gemeinsamen Lernboxregeln, in der Reihenfolge, in der eine Karte sie erlebt. */
 const STEPS: readonly { key: StepKey; icon: LucideIcon; tone: 'accent' | 'success' | 'danger' | 'violet' }[] = [
   { key: 'new', icon: Sparkles, tone: 'accent' },
   { key: 'right', icon: Check, tone: 'success' },
@@ -24,8 +24,8 @@ const STEPS: readonly { key: StepKey; icon: LucideIcon; tone: 'accent' | 'succes
 
 /**
  * Die Mini-Box: sechs Fächer und das Archiv, darunter die Pause je Fach. Eine
- * Karte wandert hindurch – zweimal vorwärts, einmal falsch und ein Fach
- * zurück, dann bis ins Archiv. Reine Veranschaulichung (aria-hidden); die
+ * Karte wandert hindurch – zweimal vorwärts, einmal falsch zurück in Fach 1,
+ * dann Fach für Fach bis ins Archiv. Reine Veranschaulichung (aria-hidden); die
  * Regeln stehen vollständig im Text daneben.
  */
 function GuideTrack({ t }: { t: Translator }) {

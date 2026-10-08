@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 for (const lang of ['de', 'en', 'ru', 'uk', 'tr']) {
-  test(`verb guide explains the independent form rules in ${lang} and stays usable with reduced motion`, async ({ page }) => {
+  test(`verb guide explains the shared Leitner rules in ${lang} and stays usable with reduced motion`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
     await page.setViewportSize({ width: 320, height: 900 })
     await page.goto(`/${lang}/sitov-preview/verbs`)
@@ -33,6 +33,10 @@ for (const lang of ['de', 'en', 'ru', 'uk', 'tr']) {
     const track = help.locator('[data-sitov-verb-guide-track]')
     await expect(track).toHaveAttribute('aria-hidden', 'true')
     await expect(track.locator('[data-sitov-verb-guide-slot]')).toHaveCount(7)
+    await expect(track.locator('[data-sitov-verb-guide-days] > span')).toHaveText(['1', '1', '3', '9', '29', '90', '–'])
+    const archive = track.locator('[data-sitov-verb-guide-slot="7"]')
+    await expect(archive).toHaveText('')
+    await expect(archive.locator('svg')).toHaveCount(1)
     await expect(help.locator('[data-sitov-verb-guide-example]')).toHaveCount(2)
     await expect(help.locator('[data-sitov-verb-guide-example="past"]')).toHaveCount(0)
     for (const example of await help.locator('[data-sitov-verb-guide-example] [lang="de"][translate="no"]').all()) {
@@ -117,7 +121,7 @@ test('verb guide runs only while visible and pauses for hidden documents and red
   await expect(card).toBeVisible()
 })
 
-test('verb animation returns a mistaken form to box 1 and advances one compartment at a time to box 7', async ({ page }) => {
+test('verb animation returns a mistaken form from box 3 to box 1 and advances one compartment at a time into the archive', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' })
   await page.goto('/en/sitov-preview/verbs')
   await page.getByRole('button', { name: 'How the learning box works' }).click()

@@ -1,4 +1,5 @@
-import { buildSitovVerbLearningBox } from '@/lib/verbs/learning-box'
+import { buildSitovVerbLearningBox, SITOV_VERB_REVIEW_DAYS } from '@/lib/verbs/learning-box'
+import { LEITNER_PHASES, PHASE_INTERVALS_IN_DAYS } from '@/lib/leitner'
 import { getSitovVerbById } from '@/lib/verbs/catalog'
 import type { SitovVerbTrainerState } from '@/lib/verbs/contracts'
 import type { SitovVerbProgress, SitovVerbTense } from '@/lib/verbs/types'
@@ -44,11 +45,17 @@ test('unselected verbs, out-of-context selections and locked tense receipts cann
   expect(a2.cards.find(card => card.verb.id === sein.id)?.forms.map(form => form.tense)).toEqual(['present', 'perfect', 'past'])
 })
 
-test('learned forms still report their scheduled review and invalid dates are treated as ready', () => {
+test('learned forms are archived even with legacy past or invalid review dates', () => {
   const source = { ...state([progress(fahren.id, 'present', 7, '2026-10-01T10:00:00Z'), progress(fahren.id, 'perfect', 7, 'not-a-date')]), selectedIds: [fahren.id] }
   const box = buildSitovVerbLearningBox(source, now)
-  expect(box).toMatchObject({ dueForms: 2, learnedForms: 2, learnedVerbs: 1, nextReviewAt: null })
-  expect(box.buckets.find(bucket => bucket.key === 'learned')).toMatchObject({ count: 1, due: 1 })
+  expect(box).toMatchObject({ dueForms: 0, learnedForms: 2, learnedVerbs: 1, nextReviewAt: null })
+  expect(box.buckets.find(bucket => bucket.key === 'learned')).toMatchObject({ count: 1, due: 0 })
+})
+
+test('the verb box displays the vocabulary schedule and excludes archive dates from the next review', () => {
+  expect(SITOV_VERB_REVIEW_DAYS).toEqual([...LEITNER_PHASES.map(phase => PHASE_INTERVALS_IN_DAYS[phase]), null])
+  const source = { ...state([progress(fahren.id, 'present', 7, '2026-10-08T10:00:00Z'), progress(fahren.id, 'perfect', 3, '2026-10-10T10:00:00Z')]), selectedIds: [fahren.id] }
+  expect(buildSitovVerbLearningBox(source, now)).toMatchObject({ dueForms: 0, nextReviewAt: '2026-10-10T10:00:00.000Z' })
 })
 
 test('removing and restoring a verb changes its visibility while reusing the exact same independent receipts', () => {

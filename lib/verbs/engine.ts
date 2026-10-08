@@ -1,4 +1,7 @@
 import { getSitovVerbTenses } from "./progression";
+import { isSitovVerbDue } from "./review";
+import { validateUserAnswer } from "@/lib/grammar-validation";
+import type { SoftErrorReason } from "@/lib/answer-grading";
 import {
   SITOV_VERB_LEVELS,
   type SitovVerbEntry,
@@ -162,7 +165,7 @@ export function buildSitovVerbExercise(
   };
 }
 
-/** Same normalization as the database grader: preserve German spelling. */
+/** German-preserving normalization for literal comparisons. */
 export function normalizeSitovVerbAnswer(value: string): string {
   return value.normalize("NFC").trim().toLowerCase().replace(/\s+/g, " ");
 }
@@ -171,19 +174,35 @@ export function evaluateSitovVerbAnswer(
   exercise: Pick<SitovVerbExercise, "answers">,
   supplied: string[],
 ): boolean {
-  return (
-    supplied.length === exercise.answers.length &&
-    exercise.answers.every((options, index) =>
-      options.some(
-        (answer) =>
-          normalizeSitovVerbAnswer(answer) ===
-          normalizeSitovVerbAnswer(supplied[index] ?? ""),
-      ),
-    )
-  );
+  return gradeSitovVerbAnswer(exercise, supplied).correct;
 }
 
-/** Expand the box into verb × unlocked tense; newly unlocked forms start alone at zero. */
+/** Development-only mirror; production feedback is graded by PostgreSQL. */
+export function gradeSitovVerbAnswer(
+  exercise: Pick<SitovVerbExercise, "answers">,
+  supplied: string[],
+): { correct: boolean; softError: SoftErrorReason | null } {
+  if (supplied.length !== exercise.answers.length) return { correct: false, softError: null };
+  const grades = exercise.answers.map((answers, index) => validateUserAnswer(supplied[index] ?? "", answers));
+  if (grades.some(grade => grade.status === "INCORRECT")) return { correct: false, softError: null };
+  const soft = grades.find(grade => grade.status === "SOFT_ERROR");
+  return { correct: true, softError: soft?.status === "SOFT_ERROR" ? soft.reason : null };
+}
+
+/** The persisted spacing boundary also survives switching trainer contexts. */
+export function getSitovVerbPreviousIds(progress: readonly Pick<SitovVerbProgress, "verbId" | "lastAnsweredAt">[]): string[] {
+  let latest = Number.NEGATIVE_INFINITY;
+  let previous = new Set<string>();
+  for (const row of progress) {
+    const time = row.lastAnsweredAt ? Date.parse(row.lastAnsweredAt) : Number.NaN;
+    if (!Number.isFinite(time) || time < latest) continue;
+    if (time > latest) { latest = time; previous = new Set(); }
+    previous.add(row.verbId);
+  }
+  return [...previous].sort();
+}
+
+/** Due verb × unlocked tense tasks only; learned forms stay in the archive. */
 export function prioritizeSitovVerbTasks(
   entries: readonly SitovVerbEntry[],
   progress: readonly SitovVerbProgress[],
@@ -202,17 +221,15 @@ export function prioritizeSitovVerbTasks(
         .filter((tense) => !tenses || tenses.includes(tense))
         .map((tense) => {
           const row = progressByKey.get(`${verb.id}:${tense}`) ?? null;
-          const dueAt = row?.nextReviewAt ? Date.parse(row.nextReviewAt) : 0;
           return {
             verbId: verb.id,
             tense,
-            due: !row || !Number.isFinite(dueAt) || dueAt <= now,
+            due: isSitovVerbDue(row, now),
             progress: row,
           };
         }),
-    );
+    ).filter(task => task.due);
   return tasks.sort((a, b) => {
-    if (a.due !== b.due) return a.due ? -1 : 1;
     const aTime = a.progress?.nextReviewAt
       ? Date.parse(a.progress.nextReviewAt)
       : 0;
