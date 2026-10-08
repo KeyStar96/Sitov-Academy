@@ -120,7 +120,7 @@ it('submits the resumed revision and waits for the persisted pass before offerin
   await waitFor(() => expect(p.onOpenText).toHaveBeenCalledWith(textId))
 })
 it('opens short vocabulary Help with its topic and retains the original learning rules', async () => {
-  render(<LernkastenGuide t={createVocabularyTranslator({ box_guide_title: 'How does your learning box work?' })} />)
+  render(<LernkastenGuide lang="en" t={createVocabularyTranslator({})} />)
   fireEvent.click(screen.getByRole('button', { name: sitovTrainerHelpCopy('en').label }))
   await waitFor(() => expect(screen.getByRole('heading', { name: 'Your vocabulary learning box' })).toBeInTheDocument())
 })

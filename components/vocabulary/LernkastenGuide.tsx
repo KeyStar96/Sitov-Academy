@@ -9,7 +9,7 @@ import type { createVocabularyTranslator } from '@/lib/vocabulary-i18n'
 import { cn } from '@/lib/utils'
 import { EASE_OUT_SOFT, MOTION, staggerDelay, useReducedMotionSafe } from '@/lib/motion'
 import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
-import { sitovVocabularyHelpCopy } from '@/lib/sitov-trainer-help-copy'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 
 type Translator = ReturnType<typeof createVocabularyTranslator>
 type StepKey = 'new' | 'right' | 'wrong' | 'both' | 'learned'
@@ -60,9 +60,9 @@ function GuideTrack({ t }: { t: Translator }) {
  * „Wie funktioniert dein Lernkasten?" – aufklappbare Kurzanleitung unter der
  * Box. Der gemeinsame Schalter zeigt zusätzliche Regeln erst auf Wunsch.
  */
-export default function LernkastenGuide({ t, defaultOpen = false, title, children }: { t: Translator; defaultOpen?: boolean; title?: string; children?: ReactNode }) {
+export default function LernkastenGuide({ t, lang, defaultOpen = false, title, children }: { t: Translator; lang: string; defaultOpen?: boolean; title?: string; children?: ReactNode }) {
   const reduced = useReducedMotionSafe()
-  const help = sitovVocabularyHelpCopy(t('box_guide_title'))
+  const help = sitovTrainerHelpCopy(lang)
 
   return (
     <section aria-label={help.vocabulary}>

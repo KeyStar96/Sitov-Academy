@@ -31,6 +31,7 @@ export interface SitovPronunciationPretestProps {
   /** Must reauthorize the exact current text on the server before loading it. */
   onOpenText: (textId: string) => Promise<ActionResult<null>>
   onRefresh: () => void
+  autoStart?: boolean
 }
 
 type Operation = { kind: 'start'; input: StartInput } | { kind: 'resume'; id: string }
@@ -41,7 +42,7 @@ export default function SitovPronunciationPretest(props: SitovPronunciationPrete
   return <SitovPretestSession key={`${props.entry.textId}:${props.entry.textVersion}:${props.entry.testVersion}`} {...props} />
 }
 
-function SitovPretestSession({ entry: rawEntry, lang, onStart, onResume, onSave, onSubmit, onOpenText, onRefresh }: SitovPronunciationPretestProps) {
+function SitovPretestSession({ entry: rawEntry, lang, onStart, onResume, onSave, onSubmit, onOpenText, onRefresh, autoStart }: SitovPronunciationPretestProps) {
   const entry = sitovPronunciationPretestCatalogEntrySchema.safeParse(rawEntry)
   const copy = sitovPronunciationPretestCopy(lang)
   const [open, setOpen] = useState<OpenAttempt | null>(null)
@@ -55,9 +56,11 @@ function SitovPretestSession({ entry: rawEntry, lang, onStart, onResume, onSave,
   const active = useRef(true)
   const requestBusy = useRef(false)
   const taskTitle = useRef<HTMLLegendElement>(null)
+  const startAction = useRef<HTMLButtonElement>(null)
   const headingId = useId()
   const openAttemptId = open?.attempt.id
   useEffect(() => { active.current = true; return () => { active.current = false } }, [])
+  useEffect(() => { if (autoStart) startAction.current?.click() }, [autoStart])
   useEffect(() => { if (openAttemptId) taskTitle.current?.focus({ preventScroll: true }) }, [index, openAttemptId])
 
   const scopeMatches = (value: { textId: string; textVersion: string; testVersion: string | null }) => entry.success
@@ -153,7 +156,7 @@ function SitovPretestSession({ entry: rawEntry, lang, onStart, onResume, onSave,
       {!error.retryable && attemptId && !blocked && <PressableCard disabled={busy} onClick={() => void run({ kind: 'resume', id: attemptId })}>{copy.resume}</PressableCard>}
       {!error.retryable && !attemptId && !blocked && <PressableCard onClick={onRefresh}>{copy.refresh}</PressableCard>}
     </div>}
-    {blocked ? <PressableCard onClick={onRefresh}>{copy.refresh}</PressableCard> : !open && !error && <PressableCard disabled={busy}
+    {blocked ? <PressableCard onClick={onRefresh}>{copy.refresh}</PressableCard> : !open && !error && <PressableCard ref={startAction} disabled={busy}
       onClick={() => canOpen ? void run({ kind: 'open' }) : !completed && entry.success && entry.data.status === 'in_progress' && attemptId ? void run({ kind: 'resume', id: attemptId }) : start()}>
       {busy ? copy.loading : canOpen ? copy.open : !completed && entry.success && entry.data.status === 'in_progress' ? copy.resume : result ? copy.retry : copy.start}
     </PressableCard>}

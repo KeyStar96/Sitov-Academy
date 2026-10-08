@@ -66,7 +66,7 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
         openLabel: t('box_open_aria', { name: bucketName(bucket.key, t) }),
       }))}
       selected={openPhase} onOpen={open} action={action}>
-      <LernkastenGuide t={t} title={sitovTrainerUiCopy(uiLanguage).help}>
+      <LernkastenGuide t={t} lang={uiLanguage} title={sitovTrainerUiCopy(uiLanguage).help}>
       {summary.untouched > 0 && <p className="mb-3 text-base text-[var(--muted)]">{t('box_untouched', { count: summary.untouched })}</p>}
       {carryover?.enabled && carryover.total > 0 && <div className="space-y-2 text-base text-[var(--muted)]">
         <p>{carryoverTranslator(uiLanguage)('separate', { count: carryover.total })}</p>

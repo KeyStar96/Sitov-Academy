@@ -5,14 +5,12 @@ import { useRouter } from 'next/navigation'
 import { useReducedMotion } from 'framer-motion'
 import { Check, Headphones, Languages, Mail, MessageCircle, Mic } from 'lucide-react'
 import AudioRecorder from '@/components/audio/AudioRecorder'
-import WaveformPlayer from '@/components/audio/WaveformPlayer'
 import KaraokeText from '@/components/audio/KaraokeText'
 import Mailbox from '@/components/audio/Mailbox'
 import NewBadge from '@/components/motion/NewBadge'
 import { useLearningNew } from '@/components/dashboard/useLearningNew'
 import type { LearningNewItems } from '@/lib/learning-new'
 import SolutionAudioButton, { type SitovAudioControl } from '@/components/exercises/SolutionAudioButton'
-import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 import { createPronunciationTranslator, type PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import type { PronunciationConversation } from '@/lib/pronunciation-conversations'
 import type { PronunciationPrompt } from '@/lib/pronunciation-prompts'
@@ -21,9 +19,15 @@ import { usePronunciationCheckpoint } from '@/lib/audio/usePronunciationCheckpoi
 import type { PronunciationCheckpointSnapshot } from '@/lib/pronunciation-checkpoint'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import SitovPronunciationScene from '@/components/audio/SitovPronunciationScene'
-import SitovPronunciationReadinessCard, { SitovLockedReadings } from '@/components/audio/SitovPronunciationReadinessCard'
-import type { SitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness'
 import { sitovReadingCopy } from '@/lib/sitov-reading-i18n'
+import SitovTrainerHero from '@/components/motion/SitovTrainerHero'
+import PressableCard from '@/components/motion/PressableCard'
+import SitovPronunciationPretest from './SitovPronunciationPretest'
+import { getPronunciationPrompts } from '@/app/actions/pronunciation'
+import { getSitovPronunciationPretests, startSitovPronunciationPretest, getSitovPronunciationPretestAttempt, saveSitovPronunciationPretestAnswers, submitSitovPronunciationPretest } from '@/app/actions/sitov-pronunciation-pretest'
+import { sitovPronunciationPretestCatalogSchema, type SitovPronunciationPretestCatalogEntry, type SitovPronunciationPretestActionResult } from '@/lib/sitov-pronunciation-pretest-contract'
+import { sitovPronunciationPretestCopy, sitovPretestErrorCopy } from '@/lib/sitov-pronunciation-pretest-i18n'
+import { toUiLocale } from '@/lib/locale-routing'
 import styles from './PronunciationStudio.module.css'
 
 export type StudioTab = 'studio' | 'mailbox'
@@ -46,7 +50,7 @@ function textStatuses(conversations: readonly PronunciationConversation[]): Map<
  * Die drei Schritte leuchten nacheinander auf, die Texte stehen als Karten mit
  * ihrem Stand da, und beim Anhören des Vorbilds liest man Wort für Wort mit.
  */
-export default function PronunciationStudio({ prompts, conversations, level, lang, translations, initialTab = 'studio', newItems, focusConversation, checkpoint, checkpointUnavailable, learnerId, readiness }: {
+export default function PronunciationStudio({ prompts, conversations, level, lang, translations, initialTab = 'studio', newItems, focusConversation, checkpoint, checkpointUnavailable, learnerId, catalog, focusTextId }: {
   prompts: readonly PronunciationPrompt[]
   conversations: PronunciationConversation[]
   level: string
@@ -60,7 +64,10 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
   checkpoint?: PronunciationCheckpointSnapshot | null
   checkpointUnavailable?: boolean
   learnerId?: string
-  readiness?: SitovPronunciationReadiness | null
+  catalog?: SitovPronunciationPretestActionResult<SitovPronunciationPretestCatalogEntry[]>
+  focusTextId?: string
+  /** Transitional preview compatibility only; never read or used to authorize. */
+  readiness?: unknown
 }) {
   const s = studentTranslator(lang)
   const router = useRouter()
@@ -88,7 +95,7 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
   }
 
   return (
-    <div className={`${styles.sitovStudio} pronunciation-practice mx-auto w-full max-w-6xl space-y-6 text-[var(--foreground)]`}>
+    <div lang={toUiLocale(lang)} className={`${styles.sitovStudio} pronunciation-practice mx-auto w-full max-w-6xl space-y-6 text-[var(--foreground)]`}>
       <div role="tablist" aria-label={s('area_pronunciation')} className={`${styles.sitovTabs} st-segment`} style={{ '--st-active': tab === 'studio' ? 0 : 1 } as CSSProperties}>
         <span className="st-segment__pill" aria-hidden="true" />
         {(['studio', 'mailbox'] as const).map(value => (
@@ -102,7 +109,7 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
       </div>
 
       <div role="tabpanel" id="studio-panel-studio" aria-labelledby="studio-tab-studio" className={styles.sitovPanel} hidden={tab !== 'studio'}>
-        <Studio prompts={prompts} statuses={statuses} level={level} lang={lang} translations={translations} newItems={newItems} onOpenMailbox={() => switchTab('mailbox')} checkpoint={checkpoint} checkpointUnavailable={checkpointUnavailable} learnerId={learnerId} readiness={readiness} />
+        <Studio prompts={prompts} statuses={statuses} level={level} lang={lang} translations={translations} newItems={newItems} onOpenMailbox={() => switchTab('mailbox')} checkpoint={checkpoint} checkpointUnavailable={checkpointUnavailable} learnerId={learnerId} catalog={catalog} focusTextId={focusTextId} />
       </div>
       <div role="tabpanel" id="studio-panel-mailbox" aria-labelledby="studio-tab-mailbox" className={styles.sitovPanel} hidden={tab !== 'mailbox'}>
         {tab === 'mailbox' && <Mailbox conversations={conversations} lang={lang} translations={translations} focusId={focusConversation} />}
@@ -111,7 +118,85 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
   )
 }
 
-function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, newItems, checkpoint, checkpointUnavailable, learnerId, readiness }: {
+function Studio(props: {
+  prompts: readonly PronunciationPrompt[]; statuses: Map<string, TextStatus>; level: string; lang: string; translations: PronunciationTranslations;
+  onOpenMailbox: () => void; newItems?: LearningNewItems; checkpoint?: PronunciationCheckpointSnapshot | null;
+  checkpointUnavailable?: boolean; learnerId?: string; catalog?: SitovPronunciationPretestActionResult<SitovPronunciationPretestCatalogEntry[]>; focusTextId?: string
+}) {
+  const { level, lang, catalog, focusTextId } = props
+  const router = useRouter()
+  const copy = sitovPronunciationPretestCopy(lang)
+  const s = studentTranslator(lang)
+  const parsed = catalog?.ok === true ? sitovPronunciationPretestCatalogSchema.safeParse(catalog.data) : null
+  const entries = parsed?.success ? parsed.data.filter(entry => entry.level === level) : []
+  const [selectedId, setSelectedId] = useState(focusTextId)
+  const [ready, setReady] = useState<{ prompt: PronunciationPrompt; entry: SitovPronunciationPretestCatalogEntry } | null>(null)
+  const [busy, setBusy] = useState(false)
+  const [recordingBusy, setRecordingBusy] = useState(false)
+  const [failure, setFailure] = useState<string | null>(null)
+  const pending = useRef(false)
+  const mounted = useRef(true)
+  const focused = useRef(false)
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
+  const selected = entries.find(entry => entry.textId === selectedId)
+  const validReady = ready && entries.some(entry => entry.textId === ready.entry.textId && entry.status === 'passed'
+    && entry.textVersion === ready.entry.textVersion && entry.testVersion === ready.entry.testVersion)
+  const recordingBlocked = Boolean(validReady && recordingBusy)
+  const next = selected?.target ? selected : entries.find(entry => entry.status === 'in_progress')
+    ?? entries.find(entry => entry.status === 'available' || entry.status === 'failed') ?? entries.find(entry => entry.status === 'passed')
+
+  async function openText(textId: string): Promise<SitovPronunciationPretestActionResult<null>> {
+    if (pending.current) return { ok: false, error: 'attempt_conflict', retryable: true }
+    pending.current = true; setBusy(true); setFailure(null); setReady(null)
+    try {
+      const current = await getSitovPronunciationPretests(level)
+      if (current.ok === false) { if (mounted.current) setFailure(sitovPretestErrorCopy(lang, current.error)); return current }
+      const checked = sitovPronunciationPretestCatalogSchema.safeParse(current.data)
+      const exact = checked.success ? checked.data.find(entry => entry.textId === textId && entry.level === level && entry.status === 'passed') : undefined
+      if (!exact) { setFailure(copy.changed); setReady(null); router.refresh(); return { ok: false, error: 'version_conflict', retryable: false } }
+      const bodies = await getPronunciationPrompts(level)
+      const prompt = bodies.find(row => row.id === textId)
+      if (!prompt) { setFailure(copy.connection); return { ok: false, error: 'retryable_failure', retryable: true } }
+      if (!mounted.current) return { ok: false, error: 'retryable_failure', retryable: true }
+      setReady({ prompt, entry: exact }); setSelectedId(textId); router.refresh()
+      return { ok: true, data: null }
+    } catch { if (mounted.current) setFailure(copy.connection); return { ok: false, error: 'retryable_failure', retryable: true } }
+    finally { pending.current = false; if (mounted.current) setBusy(false) }
+  }
+  function choose(entry: SitovPronunciationPretestCatalogEntry) {
+    if (recordingBlocked || busy || !entry.target) return
+    setSelectedId(entry.textId); setFailure(null)
+    if (entry.status === 'passed') void openText(entry.textId)
+    else setReady(null)
+  }
+  useEffect(() => {
+    if (!focused.current && focusTextId && selected?.status === 'passed') { focused.current = true; void openText(focusTextId) }
+  })
+  const actionLabel = (entry: SitovPronunciationPretestCatalogEntry) => entry.status === 'in_progress' ? copy.resume : entry.status === 'passed' ? copy.open : entry.status === 'failed' ? copy.retry : copy.start
+  return <div className="space-y-5">
+    <SitovTrainerHero mode="media" eyebrow={s('area_pronunciation')} level={level} title={s('studio_tab')}
+      description={next ? <span lang="de" translate="no">{next.title}</span> : copy.unavailable}
+      graphic={<SitovPronunciationScene compact />} action={next ? { label: actionLabel(next), onClick: () => choose(next), disabled: recordingBlocked, busy } : undefined} />
+    {(catalog?.ok === false || (catalog?.ok === true && !parsed?.success)) && <div role="alert"><p>{catalog.ok === false ? sitovPretestErrorCopy(lang, catalog.error) : copy.connection}</p><PressableCard onClick={() => router.refresh()}>{copy.refresh}</PressableCard></div>}
+    {failure && <div role="alert"><p>{failure}</p><PressableCard disabled={busy} onClick={() => selected && choose(selected)}>{copy.retry}</PressableCard></div>}
+    <SitovMotionStage><ul className={styles.sitovCatalog}>{entries.map(entry => <li key={entry.textId}>
+      <PressableCard className={styles.sitovCatalogCard} data-sitov-surface data-state={entry.status} aria-pressed={selectedId === entry.textId}
+        disabled={busy || recordingBlocked || !entry.target} onClick={() => choose(entry)}>
+        <span className={styles.sitovCatalogGraphic} aria-hidden="true"><span /><Mic size={24} /></span>
+        <span lang="de" translate="no" className="font-semibold">{entry.title}</span>
+        <span>{entry.target ? actionLabel(entry) : entry.lockedReason === 'version_changed' ? copy.changed : copy.unavailable}</span>
+      </PressableCard>
+    </li>)}</ul></SitovMotionStage>
+    {selected && selected.status !== 'passed' && <SitovPronunciationPretest key={`${props.learnerId}:${selected.textId}:${selected.textVersion}:${selected.testVersion}`}
+      entry={selected} lang={lang} autoStart={Boolean(selected.target)} onStart={startSitovPronunciationPretest}
+      onResume={getSitovPronunciationPretestAttempt} onSave={saveSitovPronunciationPretestAnswers} onSubmit={submitSitovPronunciationPretest}
+      onOpenText={openText} onRefresh={() => router.refresh()} />}
+    {validReady && ready && <RecordingStudio {...props} key={`${props.learnerId}:${ready.entry.textId}:${ready.entry.textVersion}:${ready.entry.testVersion}`}
+      prompts={[ready.prompt]} textVersion={ready.entry.textVersion} onBusyChange={setRecordingBusy} />}
+  </div>
+}
+
+function RecordingStudio({ prompts, statuses, level, lang, translations, onOpenMailbox, newItems, checkpoint, checkpointUnavailable, learnerId, textVersion, onBusyChange }: {
   prompts: readonly PronunciationPrompt[]
   statuses: Map<string, TextStatus>
   level: string
@@ -122,10 +207,10 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
   checkpoint?: PronunciationCheckpointSnapshot | null
   checkpointUnavailable?: boolean
   learnerId?: string
-  readiness?: SitovPronunciationReadiness | null
+  textVersion: string
+  onBusyChange: (busy: boolean) => void
 }) {
   const t = createPronunciationTranslator(translations)
-  const router = useRouter()
   const readingCopy = sitovReadingCopy(lang)
   const s = studentTranslator(lang)
   const news = useLearningNew(newItems)
@@ -141,16 +226,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
   const reference = useRef<HTMLDivElement>(null)
   const audioControl = useRef<SitovAudioControl | null>(null)
   const selected = prompts.find(prompt => prompt.id === selectedId) ?? prompts[0]
-  const hasTeacherReference = Boolean(selected?.audioUrl && !selected.audioUrl.includes('/audio_cache/'))
-  const useOriginalReference = hasTeacherReference
-
   useEffect(() => {
-    if (!selected) return
-    return prefetchNeuralAudio([{ text: selected.sentenceDe, language: 'de', audioUrl: selected.audioUrl }])
-  }, [selected?.sentenceDe, selected?.audioUrl])
-
-  useEffect(() => {
-    setFollowing(null); setActiveWordIndex(null); setPhase('idle')
     const card = cards.current?.querySelector<HTMLElement>('[aria-pressed="true"]')
     card?.scrollIntoView?.({ block: 'nearest', inline: 'center', behavior: reduced ? 'instant' : 'smooth' })
   }, [selectedId, reduced])
@@ -163,10 +239,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
     referenceProgress(fraction)
   }, [referenceProgress])
 
-  const readinessPanel = readiness !== undefined && <SitovPronunciationReadinessCard readiness={readiness} lang={lang} level={level} onRetry={() => router.refresh()} />
-  if (!selected) return <div className="space-y-5">{readinessPanel}{readiness?.texts.length
-    ? <SitovLockedReadings readiness={readiness} lang={lang} />
-    : readiness === null ? null : <SitovMotionStage className={`${styles.sitovEmpty} st-empty st-empty--hero`}><SitovPronunciationScene compact /><h2>{t('prompts_empty')}</h2><p>{t('prompts_empty_hint')}</p></SitovMotionStage>}</div>
+  if (!selected) return null
 
   const status = statuses.get(selected.id) ?? 'new'
   const wordCount = selected.sentenceDe.split(/\s+/).length
@@ -185,16 +258,6 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
 
   return (
     <div className="space-y-6">
-      <SitovMotionStage className={styles.sitovHero} data-sitov-surface>
-        <div className={styles.sitovHeroCopy}>
-          <div className={styles.sitovEyebrow}>{s('area_pronunciation')}<span>{level}</span></div>
-          <h2>{t('record_title')}</h2>
-          <p>{t('record_hint')}</p>
-          <div className={styles.sitovHeroFoot}><Headphones size={17} aria-hidden="true" />{t('text_count', { count: prompts.length })}</div>
-        </div>
-        <SitovPronunciationScene state={phase === 'idle' && following !== null ? 'listening' : phase} />
-      </SitovMotionStage>
-      {readinessPanel}
       {saved.notice && <p role={saved.notice === 'failed' ? 'alert' : 'status'} className="flex flex-wrap items-center justify-between gap-3 text-sm text-[var(--muted)]">
         <span>{t(saved.notice === 'failed' ? 'checkpoint_failed' : saved.notice === 'conflict' ? 'checkpoint_conflict' : saved.notice === 'saving' ? 'checkpoint_saving' : 'checkpoint_saved')}</span>
         {saved.notice === 'failed' && <button type="button" className="st-button st-button--quiet min-h-12" onClick={() => void saved.retry()}>{t('audio_retry')}</button>}
@@ -228,7 +291,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
                   <button type="button" aria-pressed={isSelected} disabled={recordingBusy && !isSelected} onClick={() => { news.mark('pronunciation_text', prompt.id); saved.select(prompt.id) }}
                     className={`${styles.sitovTextCard} st-textcard st-press`} data-status={textStatus} data-sitov-surface>
                     <span className="st-textcard__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="st-textcard__title">{prompt.title ?? prompt.sentenceDe}{news.isNew('pronunciation_text', prompt.id) && <NewBadge label={s('media_new')} className="st-new-item" />}</span>
+                    <span className="st-textcard__title" lang="de" translate="no">{prompt.title ?? prompt.sentenceDe}{news.isNew('pronunciation_text', prompt.id) && <NewBadge label={s('media_new')} className="st-new-item" />}</span>
                     <span className="st-textcard__status">
                       {textStatus === 'answered' && <Check size={15} strokeWidth={3} aria-hidden="true" />}
                       {textStatus === 'unread' && <span className="sl-due-dot" aria-hidden="true" />}
@@ -239,7 +302,6 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
               )
             })}
           </ul>
-          {readiness && <SitovLockedReadings readiness={readiness} lang={lang} />}
         </section>
         </SitovMotionStage>
 
@@ -252,12 +314,12 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{t('words', { count: wordCount })}</span>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{t('reading_time', { minutes: Math.max(1, Math.ceil(wordCount / 70)) })}</span>
               </div>
-              <h2 key={selected.id} className="text-2xl font-bold tracking-tight sm:text-3xl">{selected.title ?? t('reference_label')}</h2>
-              {selected.focus && <p className="mt-2 text-base leading-relaxed text-[var(--muted)]">{t('prompt_focus', { focus: selected.focus })}</p>}
+              <h2 key={selected.id} lang="de" translate="no" className="text-2xl font-bold tracking-tight sm:text-3xl">{selected.title ?? t('reference_label')}</h2>
+              {selected.focus && <p className="mt-2 text-base leading-relaxed text-[var(--muted)]">{t('prompt_focus', { focus: '' })}<span lang="de" translate="no">{selected.focus}</span></p>}
             </header>
             <div className="st-reading__body">
-              <div data-testid="pronunciation-reading-text">
-                <KaraokeText key={selected.id} text={selected.sentenceDe} progress={following} activeWordIndex={useOriginalReference ? undefined : activeWordIndex} className="st-karaoke whitespace-pre-line"
+              <div data-testid="pronunciation-reading-text" lang="de" translate="no">
+                <KaraokeText key={selected.id} text={selected.sentenceDe} progress={following} activeWordIndex={activeWordIndex} className="st-karaoke whitespace-pre-line"
                   wordLookup={{ promptId: selected.id, level, locale: lang, onSelect: () => {
                     audioControl.current?.pause()
                     reference.current?.querySelector('audio')?.pause()
@@ -267,15 +329,10 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
               <p className="st-reading__follow"><Headphones size={18} aria-hidden="true" />{s('studio_follow')}</p>
               <p className={styles.sitovWordHint}><Languages size={17} aria-hidden="true" />{readingCopy.hint}</p>
               <div ref={reference} className="mt-4 space-y-3">
-                {useOriginalReference
-                  ? <WaveformPlayer key={`${selected.id}:${saved.restoreVersion}`} src={selected.audioUrl} level={level} t={t} label={t('reference_listen')} initialProgress={saved.initialProgress}
-                      onProgress={state => {
-                        if (state.fraction > 0) onReferenceProgress(state.fraction)
-                        if (!state.playing) onReferenceProgress(null)
-                      }} />
-                  : <SolutionAudioButton key={`${selected.id}:${saved.restoreVersion}`} text={selected.sentenceDe} audioUrl={hasTeacherReference ? null : selected.audioUrl} level={level} language="de" initialProgress={saved.initialProgress}
+                <SolutionAudioButton key={`${selected.id}:${saved.restoreVersion}`} text={selected.sentenceDe}
+                      reference={{ kind: 'reading_text', id: selected.id, part: 'reference' }} level={level} language="de" initialProgress={saved.initialProgress}
                       layout="reading" resumeLabel={readingCopy.resume} restartLabel={readingCopy.restart} restartAriaLabel={readingCopy.restartAria} controlRef={audioControl}
-                      label={t('reference_listen')} ariaLabel={t('reference_listen_aria')} onProgress={onReferenceProgress} onWordChange={setActiveWordIndex} />}
+                      label={t('reference_listen')} ariaLabel={t('reference_listen_aria')} onProgress={onReferenceProgress} onWordChange={setActiveWordIndex} />
               </div>
             </div>
           </article>
@@ -289,8 +346,8 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
           )}
           {!answered && status === 'sent' && phase === 'idle' && <p className="st-answer-banner st-answer-banner--calm st-rise" role="status">{s('studio_sent_waiting')}</p>}
 
-          <AudioRecorder key={selected.id} promptId={selected.id} level={level} translations={translations}
-            onRecordingStateChange={setRecordingBusy} onPhaseChange={setPhase} mobileFloating />
+          <AudioRecorder key={selected.id} promptId={selected.id} textVersion={textVersion} level={level} translations={translations}
+            onRecordingStateChange={busy => { setRecordingBusy(busy); onBusyChange(busy) }} onPhaseChange={setPhase} mobileFloating />
           <p className="px-3 text-center text-base leading-relaxed text-[var(--muted)]">{t('recording_privacy')}</p>
         </div>
       </div>

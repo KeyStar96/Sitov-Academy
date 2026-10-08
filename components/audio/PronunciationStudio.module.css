@@ -220,3 +220,17 @@
   .sitovTextCard:hover:not(:disabled), .sitovMicButton:hover:not(:disabled), .sitovMicButton:active:not(:disabled) { transform: none; }
   .sitovMicButton::after { display: none; }
 }
+.sitovCatalog { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: .75rem; }
+.sitovCatalogCard { position: relative; display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: .5rem .75rem; align-items: center; min-height: 96px; width: 100%; padding: 1rem; border: 2px solid var(--border); border-radius: 1.25rem; background: var(--surface); color: var(--foreground); text-align: left; font-size: 1rem; line-height: 1.5; overflow-wrap: anywhere; }
+.sitovCatalogCard > span:last-child { grid-column: 2; color: var(--muted); }
+.sitovCatalogCard[aria-pressed="true"] { border-color: var(--accent-text); background: var(--accent-soft); }
+.sitovCatalogCard:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
+.sitovCatalogCard:disabled { cursor: not-allowed; }
+.sitovCatalogGraphic { position: relative; display: grid; place-items: center; width: 3rem; height: 3rem; grid-row: span 2; isolation: isolate; }
+.sitovCatalogGraphic > span { position: absolute; inset: 0; z-index: -1; border: 2px solid var(--accent-text); border-radius: 35%; background: var(--accent-soft); transform: scale(.82) rotate(-12deg); opacity: .65; transition: transform var(--motion-slow) var(--ease-out-soft), opacity var(--motion-base) var(--ease-out-soft); }
+.sitovCatalogCard[data-state="locked"] .sitovCatalogGraphic > span { transform: scale(.65) rotate(45deg); opacity: .4; }
+.sitovCatalogCard[data-state="in_progress"] .sitovCatalogGraphic > span { transform: scale(.95) rotate(12deg); opacity: .9; }
+.sitovCatalogCard[data-state="failed"] .sitovCatalogGraphic > span { transform: scale(.85) rotate(-25deg); }
+.sitovCatalogCard[data-state="passed"] .sitovCatalogGraphic > span { transform: scale(1) rotate(0); opacity: 1; }
+.sitovCatalogCard:focus-visible .sitovCatalogGraphic > span, .sitovCatalogCard:hover:not(:disabled) .sitovCatalogGraphic > span { transform: scale(1.05) rotate(0); opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .sitovCatalogGraphic > span { transition: none; transform: none !important; } }

@@ -32,8 +32,8 @@ import styles from './PronunciationStudio.module.css'
  */
 export default function AudioRecorder({
   promptId,
+  textVersion,
   onRecordingStateChange,
-  level,
   translations,
   onSubmitted,
   compact = false,
@@ -41,6 +41,7 @@ export default function AudioRecorder({
   onPhaseChange,
 }: {
   promptId: string
+  textVersion?: string
   onRecordingStateChange?: (busy: boolean) => void
   level?: string
   translations?: PronunciationTranslations
@@ -57,7 +58,6 @@ export default function AudioRecorder({
   const [isUploading, setIsUploading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [uploadFailed, setUploadFailed] = useState(false)
-  const uploaded = useRef<{ blob: Blob; path: string } | null>(null)
   const submitPending = useRef(false)
   useEffect(() => { onRecordingStateChange?.(recorder.status === 'requesting' || recorder.isRecording || isUploading || (recorder.hasRecording && !isSubmitted)) }, [recorder.status, recorder.isRecording, recorder.hasRecording, isUploading, isSubmitted, onRecordingStateChange])
   const phase = isSubmitted ? 'submitted' : recorder.isRecording ? 'recording' : recorder.hasRecording ? 'review' : 'idle'
@@ -85,9 +85,9 @@ export default function AudioRecorder({
     setUploadFailed(false)
 
     try {
-      let audioPath = uploaded.current?.blob === recorder.audioBlob ? uploaded.current.path : null
-      if (!audioPath) {
-        const upload = await uploadPrivatePronunciationRecording(recorder.audioBlob)
+      let audioPath: string | null = null
+      {
+        const upload = await uploadPrivatePronunciationRecording(recorder.audioBlob, { purpose: 'target', textId: promptId, textVersion })
         if (upload.success === false) {
           // Details stehen bereits im Log des privaten Uploads.
           console.error("Einreichung abgebrochen: Audio-Upload fehlgeschlagen.")
@@ -95,7 +95,6 @@ export default function AudioRecorder({
           return
         }
         audioPath = upload.audioPath
-        uploaded.current = { blob: recorder.audioBlob, path: audioPath }
       }
 
       const result = await createPronunciationSubmission({ promptId, audioPath })
@@ -109,7 +108,7 @@ export default function AudioRecorder({
       setIsSubmitted(true)
       try { onSubmitted?.(); router.refresh() }
       catch { console.error('Recording saved, but studio could not refresh') }
-    } catch (err) {
+    } catch {
       // Fängt z.B. Netzwerkabbrüche beim Aufruf der Server Action ab, die
       // sonst als unbehandelte Promise-Rejection verschwinden würden.
       console.error("Unerwarteter Fehler beim Einreichen der Aufnahme:")

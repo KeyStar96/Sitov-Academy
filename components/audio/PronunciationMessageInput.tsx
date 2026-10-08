@@ -23,7 +23,6 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
   const [sending, setSending] = useState(false)
   const [notice, setNotice] = useState<'success' | 'error' | null>(null)
   const recorder = useAudioRecorder()
-  const uploaded = useRef<{ blob: Blob; path: string } | null>(null)
   const sendPending = useRef(false)
   const busy = sending || recorder.isRecording || recorder.status === 'requesting'
   useEffect(() => { onBusyChange?.(busy) }, [busy, onBusyChange])
@@ -36,24 +35,21 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
     try {
       let audioPath: string | null = null
       if (recorder.audioBlob) {
-        if (uploaded.current?.blob === recorder.audioBlob) audioPath = uploaded.current.path
-        else {
-          const result = await uploadPrivatePronunciationRecording(recorder.audioBlob)
+        {
+          const result = await uploadPrivatePronunciationRecording(recorder.audioBlob, { purpose: 'reply', submissionId: conversationId })
           if (!result.success) { setNotice('error'); return }
           audioPath = result.audioPath
-          uploaded.current = { blob: recorder.audioBlob, path: audioPath }
         }
       }
       const result = await sendPronunciationMessage({ submissionId: conversationId, text: text.trim(), audioPath })
       if (!result.success) { setNotice('error'); return }
       setText('')
       recorder.reset()
-      uploaded.current = null
       setNotice('success')
       // A failed refresh must not turn an already committed message into a failure.
       try { await onMessageSent(); router.refresh() }
-      catch (error) { console.error("Refreshing sent conversation failed") }
-    } catch (error) {
+      catch { console.error("Refreshing sent conversation failed") }
+    } catch {
       console.error("Sending conversation message failed")
       setNotice('error')
     } finally {
@@ -86,7 +82,7 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
           <div className="min-w-0 flex-1">
             <WaveformPlayer src={recorder.audioUrl} blob={recorder.audioBlob} t={t} label={t('your_recording')} compact />
           </div>
-          <button type="button" className={button} disabled={sending} onClick={() => { recorder.reset(); uploaded.current = null }} aria-label={t('delete_recording_aria')}>
+          <button type="button" className={button} disabled={sending} onClick={recorder.reset} aria-label={t('delete_recording_aria')}>
             <Trash2 size={20} />
           </button>
         </div>
