@@ -7,6 +7,14 @@ DO $$ DECLARE f record; BEGIN
  OR EXISTS(SELECT 1 FROM sitov_access_private.billing_settings WHERE enabled OR revision<>0)
  THEN RAISE EXCEPTION 'sitov_commercial_rollback_requires_preserved_grants'; END IF;
  FOR f IN SELECT definition FROM sitov_access_private.guard_backups LOOP EXECUTE f.definition;END LOOP;
+ DROP POLICY IF EXISTS sitov_vocabulary_exact_read ON public.learning_vocabulary_cards;
+ DROP POLICY IF EXISTS sitov_vocabulary_unit_metadata ON public.learning_units;
+ IF to_regclass('public.vocabulary_direction_progress') IS NOT NULL THEN
+  DROP POLICY IF EXISTS sitov_vocabulary_progress_scope ON public.vocabulary_direction_progress;
+ END IF;
+ IF to_regclass('public.vocabulary_translations') IS NOT NULL THEN
+  DROP POLICY IF EXISTS sitov_vocabulary_translation_scope ON public.vocabulary_translations;
+ END IF;
  DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_vocabulary_cards;
  DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_exercises;
  DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_reading_texts;

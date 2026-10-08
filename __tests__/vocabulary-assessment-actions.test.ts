@@ -16,19 +16,19 @@ const card: VocabularyCardRow = {
   context_sentence_de: 'Ich öffne die Tür.', context_sentence_en: 'I open the door.',
   context_sentence_ru: 'Я открываю дверь.', context_sentence_uk: 'Я відчиняю двері.', context_sentence_tr: 'Kapıyı açıyorum.',
 }
-function setup({ directions = [], language = 'ru', content = card }: { directions?: Array<'de_to_native' | 'native_to_de'>; language?: string; content?: VocabularyCardRow } = {}) {
+function setup({ directions = [], language = 'ru', content = card, trialCardIds }: { trialCardIds?: string[]; directions?: Array<'de_to_native' | 'native_to_de'>; language?: string; content?: VocabularyCardRow } = {}) {
   const response = Promise.resolve({ data: [vocabularyDatabaseRow(content)], error: null })
   const cards = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), order: jest.fn().mockReturnThis(), then: response.then.bind(response) }
   const progress = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), order: jest.fn().mockReturnThis(), range: jest.fn().mockResolvedValue({
     data: directions.map(direction => ({ card_id: card.id, direction, box_number: 7, next_review_date: '2027-01-01' })), error: null,
   }) }
   const profile = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), single: jest.fn().mockResolvedValue({ data: {
-    role: 'student', level_access: [{ level: 'A1.1' }], native_language: 'ru', ui_language: language, trainer_grants: [],
+    role: 'student', level_access: trialCardIds ? [] : [{ level: 'A1.1' }], native_language: 'ru', ui_language: language, trainer_grants: [],
   }, error: null }) }
   const rulesResult = Promise.resolve({ data: [], error: null })
   const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
   const from = jest.fn((table: string) => table === 'profiles' ? profile : table === 'learning_trainer_grants' ? rules : table === 'learning_vocabulary_cards' ? cards : progress)
-  jest.mocked(createClient).mockResolvedValue({ from, rpc: jest.fn().mockResolvedValue({ data: { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 }, error: null }), auth: { getUser: jest.fn().mockResolvedValue({ data: { user: { id: userId } }, error: null }) } } as unknown as Awaited<ReturnType<typeof createClient>>)
+  jest.mocked(createClient).mockResolvedValue({ from, rpc: jest.fn().mockResolvedValue({ data: { vip_enabled: false, trial: { version: 1, rules: trialCardIds ? [{ level: 'A1.1', trainer: 'vocabulary', unit_ids: [card.unit_id], items: [{ unit_id: card.unit_id, refs: trialCardIds.map(id => ({ kind: 'vocabulary_card', id })) }] }] : [] }, purchased_levels: [], revision: 0 }, error: null }), auth: { getUser: jest.fn().mockResolvedValue({ data: { user: { id: userId } }, error: null }) } } as unknown as Awaited<ReturnType<typeof createClient>>)
   return { from, cards, progress }
 }
 beforeEach(() => jest.clearAllMocks())
@@ -67,4 +67,13 @@ it('uses the selected interface locale in the lesson word list and preserves lea
   expect((await getLessonCards('Lektion 1', 'A1.1', 'tr'))[0]).toMatchObject({ translation: 'kapı', phase: 6, isLearned: true })
   setup({ directions: ['de_to_native'] })
   expect((await getLessonCards('Lektion 1', 'A1.1', 'en'))[0]).toMatchObject({ translation: 'door', isLearned: false })
+})
+
+it('selected card trial reaches assessment and lesson list without allowing a sibling in the same unit', async () => {
+  setup({ trialCardIds: [card.id], language: 'de' })
+  expect((await getVocabularyAssessment('Lektion 1', 'A1.1', 'de')).cards).toHaveLength(2)
+  expect((await getLessonCards('Lektion 1', 'A1.1', 'de')).map(c => c.id)).toEqual([card.id])
+  setup({ trialCardIds: [card.id], content: { ...card, id: '30000000-0000-4000-8000-000000000002' } })
+  expect((await getVocabularyAssessment('Lektion 1', 'A1.1', 'de')).cards).toEqual([])
+  expect(await getLessonCards('Lektion 1', 'A1.1', 'de')).toEqual([])
 })

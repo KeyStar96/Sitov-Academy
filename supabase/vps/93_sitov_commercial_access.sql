@@ -1,5 +1,5 @@
 -- Sitov Academy commercial core. Additive only: no legacy grants or content rewritten.
--- DRAFT partial enforcement: source/unit guards and restrictive item scopes; selected-item scoring RPC ports still gated.
+-- DRAFT partial enforcement: exact vocabulary ports; selected-item path and other generic scoring ports remain gated.
 CREATE SCHEMA IF NOT EXISTS sitov_access_private;
 REVOKE ALL ON SCHEMA sitov_access_private FROM PUBLIC,anon;
 GRANT USAGE ON SCHEMA sitov_access_private TO authenticated;
@@ -410,3 +410,67 @@ END $$;
 DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.lms_presentation_asset;
 CREATE POLICY sitov_commercial_item_scope ON public.lms_presentation_asset AS RESTRICTIVE FOR SELECT TO authenticated
  USING(sitov_access_private.item_allowed(auth.uid(),'presentation',asset_id::text));
+
+-- Vocabulary metadata is visible only when at least one exact card is usable.
+-- This deliberately does not widen the old whole-unit scoring predicate.
+CREATE OR REPLACE FUNCTION sitov_access_private.vocabulary_unit_visible(p_unit uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.unit_id=p_unit
+ AND sitov_access_private.item_allowed(auth.uid(),'vocabulary_card',c.id::text))
+$$;
+REVOKE ALL ON FUNCTION sitov_access_private.vocabulary_unit_visible(uuid) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION sitov_access_private.vocabulary_unit_visible(uuid) TO authenticated;
+DROP POLICY IF EXISTS sitov_vocabulary_exact_read ON public.learning_vocabulary_cards;
+CREATE POLICY sitov_vocabulary_exact_read ON public.learning_vocabulary_cards FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'vocabulary_card',id::text));
+DROP POLICY IF EXISTS sitov_vocabulary_unit_metadata ON public.learning_units;
+CREATE POLICY sitov_vocabulary_unit_metadata ON public.learning_units FOR SELECT TO authenticated
+ USING(trainer='vocabulary' AND sitov_access_private.vocabulary_unit_visible(id));
+DO $sitov_vocab$ DECLARE f record; original text; patched text; BEGIN
+ IF to_regnamespace('vocabulary_private') IS NULL THEN RETURN;END IF;
+ EXECUTE 'DROP POLICY IF EXISTS sitov_vocabulary_progress_scope ON public.vocabulary_direction_progress';
+ EXECUTE 'CREATE POLICY sitov_vocabulary_progress_scope ON public.vocabulary_direction_progress FOR SELECT TO authenticated USING(auth_user_id=auth.uid() AND sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',card_id::text))';
+ EXECUTE 'DROP POLICY IF EXISTS sitov_vocabulary_translation_scope ON public.vocabulary_translations';
+ EXECUTE 'CREATE POLICY sitov_vocabulary_translation_scope ON public.vocabulary_translations AS RESTRICTIVE FOR SELECT TO authenticated USING(sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',card_id::text))';
+ FOR f IN SELECT p.oid,p.oid::regprocedure::text signature,p.proname FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+ WHERE (n.nspname='vocabulary_private' AND p.proname IN('initialize_cards','progress_allowed','check_retry_answer','submit_answer','submit_answer_once','submit_self_rating','submit_self_rating_once','reset_lesson','skip_assessment'))
+ OR (n.nspname='public' AND p.proname='set_vocabulary_lesson_paused')
+ LOOP
+  original:=pg_get_functiondef(f.oid);
+  INSERT INTO sitov_access_private.guard_backups(signature,definition) VALUES(f.signature,original) ON CONFLICT DO NOTHING;
+  patched:=replace(original,'learning_private.unit_allowed(card.unit_id)', 'sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',card.id::text)');
+  patched:=replace(patched,'learning_private.unit_allowed(c.unit_id)', 'sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',c.id::text)');
+  IF f.proname='progress_allowed' THEN
+   patched:=replace(patched,'AND target.is_active AND trainer_access_private.allowed(target.code,''vocabulary'')',
+    'AND target.is_active AND (trainer_access_private.allowed(target.code,''vocabulary'') OR (u.level=p_target_level AND sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',c.id::text)))');
+   patched:=replace(patched,'THEN learning_private.unit_allowed(u.id)', 'THEN sitov_access_private.item_allowed(auth.uid(),''vocabulary_card'',c.id::text)');
+  END IF;
+  IF f.proname='reset_lesson' THEN
+   patched:=replace(patched,'learning_private.unit_allowed(p_unit_id)','sitov_access_private.vocabulary_unit_visible(p_unit_id)');
+   patched:=replace(patched,'AND c.unit_id=p_unit_id;', 'AND c.unit_id=p_unit_id AND sitov_access_private.item_allowed(actor,''vocabulary_card'',c.id::text);');
+  END IF;
+  IF f.proname='skip_assessment' THEN
+   patched:=replace(patched,'NOT trainer_access_private.allowed(p_level,''vocabulary'')',
+    'NOT (trainer_access_private.allowed(p_level,''vocabulary'') OR EXISTS(SELECT 1 FROM public.learning_units x WHERE x.level=p_level AND sitov_access_private.vocabulary_unit_visible(x.id)))');
+   patched:=replace(patched,'learning_private.unit_allowed(u.id)', 'sitov_access_private.vocabulary_unit_visible(u.id)');
+   patched:=replace(patched,'WHERE unit_id=first_unit.id;', 'WHERE unit_id=first_unit.id AND sitov_access_private.item_allowed(actor,''vocabulary_card'',id::text);');
+  END IF;
+  IF f.proname='set_vocabulary_lesson_paused' THEN
+   patched:=replace(patched,'learning_private.unit_allowed(p_unit_id)', 'sitov_access_private.vocabulary_unit_visible(p_unit_id)');
+   IF position('sitov_vocabulary_pause_scope' in patched)=0 THEN
+    patched:=replace(patched,' IF p_paused THEN', ' IF NOT sitov_access_private.vocabulary_unit_visible(p_unit_id) THEN -- sitov_vocabulary_pause_scope
+     RETURN jsonb_build_object(''error'',''trainer_access_denied'');END IF;
+ IF p_paused THEN');
+   END IF;
+  END IF;
+  -- Reapplication sees already patched bodies; unrelated body drift fails closed.
+  IF patched=original AND position('sitov_access_private.' in patched)=0
+   AND position('vocabulary_private.progress_allowed(' in patched)=0 THEN
+   RAISE EXCEPTION 'sitov_vocabulary_port_anchor_missing: %',f.signature;
+  END IF;
+  IF f.proname<>'progress_allowed' AND position('learning-access:' in patched)=0 THEN
+   patched:=regexp_replace(patched,'BEGIN', 'BEGIN PERFORM pg_advisory_xact_lock(hashtextextended(''learning-access:''||auth.uid()::text,0));');
+  END IF;
+  EXECUTE patched;
+ END LOOP;
+END $sitov_vocab$;

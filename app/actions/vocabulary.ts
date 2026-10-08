@@ -5,12 +5,13 @@ import { z } from 'zod'
 import { SOFT_ERROR_REASONS, ORTHOGRAPHY_HINTS, ARTICLE_FEEDBACK } from '@/lib/answer-grading'
 import { getRpcError } from '@/lib/rpc-errors'
 import { requestSession } from '@/lib/request-session'
-import { hasTrainerAccess, isAccessLevel, getAllowedLessons } from '@/lib/access/levels'
+import { hasTrainerAccess, isAccessLevel } from '@/lib/access/levels'
 import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, vocabularyReviewMode, type LeitnerPhase } from '@/lib/leitner'
 import { computeWordBoxState, isLessonInBox, summarizeBox, summarizeLessons, PHASE_INSPECTOR_LIMIT, type BoxBucketKey, type WordBoxState } from '@/lib/vocabulary-box'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
 import { carryoverLevelSchema, carryoverStateSchema, readCarryoverCatalog, readCarryoverState, type CarryoverState } from '@/lib/vocabulary-carryover-server'
+import { hasSitovCommercialItemAccess } from '@/lib/access/sitov-commercial'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { sitovLearningSourceLocale } from '@/lib/access/sitov-learning-source'
 import { readAllRows } from '@/lib/supabase-read'
@@ -75,6 +76,16 @@ function refreshVocabulary() {
 
 type Learner = NonNullable<Awaited<ReturnType<typeof loadLearner>>>
 
+function sitovVocabularyCardAllowed(learner: Learner, card: { id: string; level: string; unit_id: string; is_own?: boolean }): boolean {
+  if (!isAccessLevel(card.level)) return false
+  return hasSitovCommercialItemAccess({ ...learner.profile, user_id: learner.user.id,
+    vip_enabled: learner.profile.vip_enabled ?? false, purchased_levels: (learner.profile.purchased_levels ?? []).filter(isAccessLevel),
+    trial: learner.profile.trial ?? { version: 1, rules: [] }, revision: 0 }, {
+    kind: 'vocabulary_card', id: card.id, unit_id: card.unit_id, level: card.level, trainer: 'vocabulary',
+    published: true, owner_user_id: card.is_own ? learner.user.id : null,
+  })
+}
+
 /**
  * Unter „Lektionen" ausgeschaltete Lektionen (Migration 25) als Unit-IDs.
  *
@@ -96,10 +107,9 @@ async function readPausedUnits(learner: Learner): Promise<Set<string>> {
 async function lessonUnitIds(learner: Learner, lessonName: string, level: string): Promise<string[]> {
   const { data, error } = await vocabularyQuery(learner.supabase).eq('unit.label', lessonName).eq('unit.level', level)
   if (error) throw new Error(`vocabulary_lesson_unavailable: ${error.code ?? 'unknown'}`)
-  const allowedLessons = getAllowedLessons(learner.profile, level, 'vocabulary')
   return [...new Set((data ?? []).map(row => mapVocabularyCard(row))
     .filter(card => card.level === level && hasTrainerAccess(learner.profile, card.level, 'vocabulary')
-      && (card.is_own || !allowedLessons || allowedLessons.includes(card.unit_id)))
+      && sitovVocabularyCardAllowed(learner, card))
     .map(card => card.unit_id))]
 }
 
@@ -167,8 +177,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string, 
       if (!card || (!carriedIds.has(card.id) && !hasTrainerAccess(profile, card.level, 'vocabulary'))) return []
       // Unter „Lektionen" ausgeschaltet: Lernstand bleibt, geübt wird die Lektion nicht.
       if (paused.has(card.unit_id)) return []
-      const allowedLessons = getAllowedLessons(profile, card.level, 'vocabulary')
-      if (!carriedIds.has(card.id) && !card.is_own && allowedLessons !== null && !allowedLessons.includes(card.unit_id)) return []
+      if (!carriedIds.has(card.id) && !sitovVocabularyCardAllowed(learner, card)) return []
       const box = normalizeBox(row.box_number)
       const direction = row.direction === 'native_to_de' ? 'native_to_de' : 'de_to_native'
       const sentence = direction === 'native_to_de' && card.sentence_practice
@@ -229,7 +238,6 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
     const learner = await loadLearner()
     if (!learner || !hasTrainerAccess(learner.profile, level, 'vocabulary')) return { learnerId: null, cards: [] }
     const language = languageSchema.catch('de').parse(uiLanguage ?? learner.profile.ui_language)
-    const allowed = getAllowedLessons(learner.profile, level, 'vocabulary')
     if (!sitovLearningSourceLocale(language, learner.profile.native_language)) return { learnerId: learner.user.id, cards: [], learningSourceRequired: true }
     const [{ data, error }, progress] = await Promise.all([
       vocabularyQuery(learner.supabase).eq('unit.level', level).eq('unit.label', lessonName).order('id'),
@@ -241,7 +249,7 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
     return {
       learnerId: learner.user.id,
       cards: (['de_to_native', 'native_to_de'] as const).flatMap(direction => (data ?? []).map(row => mapVocabularyCard(row)).flatMap(card => {
-        if (allowed !== null && !allowed.includes(card.unit_id)) return []
+        if (!sitovVocabularyCardAllowed(learner, card)) return []
         const translation = resolveVocabularyInterfaceTranslation(card, language, learner.profile.native_language)
         if (!translation || assessed.has(`${card.id}:${direction}`)) return []
         return [{ id: card.id, word_de: card.word_de, article: card.article, plural: card.plural,
@@ -303,7 +311,7 @@ export async function initializeLesson(lessonName: string, level?: string, expec
     if (level) query = query.eq('unit.level', level)
     const { data, error } = await query
     if (error || !data?.length) return { success: false, added: 0 }
-    const allowed = data.map(mapVocabularyCard).filter(card => typeof card.id === 'string' && typeof card.level === 'string' && hasTrainerAccess(learner.profile, card.level, 'vocabulary'))
+    const allowed = data.map(mapVocabularyCard).filter(card => typeof card.id === 'string' && typeof card.level === 'string' && sitovVocabularyCardAllowed(learner, card))
     if (!allowed.length) return { success: false, added: 0 }
     const result = await addCardsToTrainer(allowed.map(card => card.id), learner.user.id)
     // Wer eine Lektion aufnimmt, will sie auch üben: eine alte Pause fällt weg.
@@ -548,8 +556,7 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
   if (error) throw new Error(`vocabulary_lesson_unavailable: ${error.code ?? 'unknown'}`)
   return (cards ?? []).map(row => mapVocabularyCard(row)).filter(card => {
     if (!card.id || !card.lesson || !card.level || !hasTrainerAccess(learner.profile, card.level, 'vocabulary')) return false
-    const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
-    if (allowedLessons && !allowedLessons.includes(card.unit_id)) return false
+    if (!sitovVocabularyCardAllowed(learner, card)) return false
     return true
   }).map(card => {
     const states = (progress ?? []).filter(row => row.card_id === card.id)
@@ -731,8 +738,7 @@ async function readWordBox(level: string | undefined, language: z.infer<typeof l
   const now = Date.now()
   const own = cards.map(row => mapVocabularyCard(row)).filter(card => {
     if (!card.id || !card.lesson || !card.level || !hasTrainerAccess(learner.profile, card.level, 'vocabulary')) return false
-    const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
-    return card.is_own || !allowedLessons || allowedLessons.includes(card.unit_id)
+    return sitovVocabularyCardAllowed(learner, card)
   }).map(card => ({
     card,
     state: computeWordBoxState(byCard.get(card.id) ?? [], now),
@@ -786,8 +792,7 @@ export async function resetLessonProgress(lessonName: string, level?: string): P
   const { data: cards, error } = await query
   const allowed = (cards ?? []).map(mapVocabularyCard).filter(card => {
     if (!card.id || !card.lesson || !card.level || !hasTrainerAccess(learner.profile, card.level, 'vocabulary')) return false
-    const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
-    if (allowedLessons && !allowedLessons.includes(card.unit_id)) return false
+    if (!sitovVocabularyCardAllowed(learner, card)) return false
     return true
   })
   if (error || !allowed.length) return { success: false }

@@ -35,9 +35,10 @@ function session(options: {
   direction?: string; signedIn?: boolean; previousCardId?: string | null; actorId?: string
   pausedUnits?: string[] | 'missing'
   nextReviewDate?: string
+  trialCardIds?: string[]
 } = {}) {
   const profile = {
-    role: 'student', level_access: [{ level: 'A1.1' }], native_language: options.nativeLanguage ?? 'ru',
+    role: 'student', level_access: options.trialCardIds ? [] : [{ level: 'A1.1' }], native_language: options.nativeLanguage ?? 'ru',
     ui_language: options.uiLanguage ?? 'ru',
   }
   const rows = [{
@@ -73,13 +74,13 @@ function session(options: {
   const pauses = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: pausesResult.then.bind(pausesResult) }
   const from = jest.fn((table: string) => table === 'profiles' ? profileChain : table === 'learning_trainer_grants' ? rules : table === 'learning_vocabulary_cards' ? cards : table === 'vocabulary_learning_state' ? cursor : table === 'vocabulary_lesson_pauses' ? pauses : progress)
   const rpc = jest.fn().mockImplementation(async (name: string, args: { p_target_level?: string }) => ({
-    data: name === 'get_sitov_access_context' ? { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 } : name === 'get_vocabulary_carryover'
+    data: name === 'get_sitov_access_context' ? { vip_enabled: false, trial: { version: 1, rules: options.trialCardIds ? [{ level: 'A1.1', trainer: 'vocabulary', unit_ids: [card.unit_id], items: [{ unit_id: card.unit_id, refs: options.trialCardIds.map(id => ({ kind: 'vocabulary_card', id })) }] }] : [] }, purchased_levels: [], revision: 0 } : name === 'get_vocabulary_carryover'
       ? { success: true, targetLevel: args.p_target_level, enabled: false, decidedAt: null, startedAt: null, promptRequired: false, cards: [] }
       : review, error: null,
   }))
   const client = {
     from, rpc: jest.fn((name: string, args: { p_target_level?: string }) => name === 'get_sitov_access_context'
-      ? Promise.resolve({ data: { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 }, error: null })
+      ? Promise.resolve({ data: { vip_enabled: false, trial: { version: 1, rules: options.trialCardIds ? [{ level: 'A1.1', trainer: 'vocabulary', unit_ids: [card.unit_id], items: [{ unit_id: card.unit_id, refs: options.trialCardIds.map(id => ({ kind: 'vocabulary_card', id })) }] }] : [] }, purchased_levels: [], revision: 0 }, error: null })
       : rpc(name, args)), auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: options.actorId ?? userId } }, error: null }) },
   }
   jest.mocked(createClient).mockResolvedValue(client as unknown as Awaited<ReturnType<typeof createClient>>)
@@ -334,4 +335,11 @@ it('rejects a queued answer after its stored input source changes, without gradi
   const { rpc } = session({ nativeLanguage: 'tr', uiLanguage: 'de' })
   expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'Ich öffne die Tür.', uiLanguage: 'de', learningSourceLanguage: 'ru' })).toEqual({ success: false, error: 'invalid_input' })
   expect(rpc).not.toHaveBeenCalled()
+})
+
+it('item-selected trial keeps its due session card and drops an unselected same-unit sibling', async () => {
+  session({ trialCardIds: [card.id], uiLanguage: 'de' })
+  expect((await getVocabularySession('A1.1', 'de')).cards.map(c => c.card.id)).toEqual([card.id])
+  session({ trialCardIds: [card.id], card: { ...card, id: '30000000-0000-4000-8000-000000000002' } })
+  expect((await getVocabularySession('A1.1', 'de')).cards).toEqual([])
 })
