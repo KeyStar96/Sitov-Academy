@@ -13,8 +13,10 @@ import StudentProgressSnapshot from '@/components/admin/StudentProgressSnapshot'
 import TeacherStudentPath from '@/components/admin/TeacherStudentPath'
 import { TeacherStudentVocabulary, TeacherStudentPronunciation, TeacherStudentActivity } from '@/components/admin/TeacherStudentPanels'
 import { PageHeader, adminChip, adminFocus } from '@/components/admin/ui'
-import SitovPronunciationAccess from '@/components/admin/SitovPronunciationAccess'
-import { getSitovPronunciationReadiness } from '@/app/actions/sitov-pronunciation-access'
+import SitovPronunciationPretestStaff from '@/components/admin/SitovPronunciationPretestStaff'
+import { getAdminPronunciationPrompts } from '@/app/actions/pronunciation'
+import { requestSession } from '@/lib/request-session'
+import { createHash } from 'node:crypto'
 
 export default async function TeacherStudentPage({ params, searchParams }: {
   params: Promise<{ lang: string; id: string }>; searchParams: Promise<{ tab?: string }>
@@ -56,8 +58,10 @@ export default async function TeacherStudentPage({ params, searchParams }: {
       return result.data ? <TeacherStudentPath data={result.data} studentId={id} studentName={name} lang={lang} canIntervene={student.role === 'student'} /> : <TeacherDashboardFailure lang={lang} error={result.error} />
     }
     if (activeTab === 'pronunciation') {
-      const [result, readiness] = await Promise.all([getTeacherStudentDetail(id, 'pronunciation', lang), student.allowed_levels[0] ? getSitovPronunciationReadiness(student.allowed_levels[0], id) : Promise.resolve(null)])
-      return result.data ? <div className="space-y-5">{student.role === 'student' && <SitovPronunciationAccess studentId={id} levels={student.allowed_levels} lang={lang} initialReadiness={readiness} />}<TeacherStudentPronunciation data={result.data} lang={lang} /></div> : <TeacherDashboardFailure lang={lang} error={result.error} />
+      const [result, prompts, session] = await Promise.all([getTeacherStudentDetail(id, 'pronunciation', lang), getAdminPronunciationPrompts(), requestSession()])
+      const targets = prompts.filter(prompt => prompt.level && student.allowed_levels.some(value => value === prompt.level)).map(prompt => ({ textId: prompt.id, level: prompt.level!, title: prompt.title ?? prompt.lesson,
+        textVersion: createHash('sha256').update(prompt.sentenceDe, 'utf8').digest('hex') }))
+      return result.data ? <div className="space-y-5">{student.role === 'student' && <SitovPronunciationPretestStaff studentId={id} levels={student.allowed_levels} lang={lang} accountId={session.user?.id ?? 'unauthenticated'} targets={targets} />}<TeacherStudentPronunciation data={result.data} lang={lang} /></div> : <TeacherDashboardFailure lang={lang} error={result.error} />
     }
     const result = await getTeacherStudentDetail(id, 'activity', lang)
     return result.data ? <TeacherStudentActivity data={result.data} lang={lang} /> : <TeacherDashboardFailure lang={lang} error={result.error} />
