@@ -1,7 +1,6 @@
 import type { LeitnerBox, LeitnerPhase, VocabularyReviewMode } from '@/lib/leitner'
 import type { BoxBucketKey, BoxSummary, LessonBoxStat, WordBoxState } from '@/lib/vocabulary-box'
 import type { SoftErrorReason, OrthographyHint, ArticleFeedback } from '@/lib/answer-grading'
-import type { Database } from '@/supabase/database.types'
 import type { UiLocale } from '@/lib/locale-routing'
 import { resolveVocabularyTranslation, vocabularyNativeLocale, type VocabularySourceLanguage } from '@/lib/vocabulary-languages'
 
@@ -70,6 +69,8 @@ export interface DueVocabularyCard {
 
 /** Identity belongs to the same authenticated request that produced these cards. */
 export interface VocabularySession {
+  learningSourceLanguage?: import('@/lib/vocabulary-languages').VocabularySourceLanguage
+  learningSourceRequired?: boolean
   learnerId: string | null
   cards: DueVocabularyCard[]
   deferredCount: number
@@ -80,6 +81,7 @@ export interface VocabularySession {
 }
 
 export interface VocabularyAssessmentSession {
+  learningSourceRequired?: boolean
   learnerId: string | null
   cards: VocabularyAssessmentCard[]
 }
@@ -113,6 +115,7 @@ export interface SubmitVocabularyAnswerInput {
   requestId?: string
   typedAnswer: string
   uiLanguage?: string
+  learningSourceLanguage?: import('@/lib/vocabulary-languages').VocabularySourceLanguage
 }
 
 /** Selbsteinschätzung im Karteikarten-Modus; der Server entscheidet den Lernstand. */
@@ -126,6 +129,7 @@ export interface SubmitVocabularySelfRatingInput {
   /** Die Selbsteinschätzung des Lernenden: „Kenn ich" = true. */
   known: boolean
   uiLanguage?: string
+  learningSourceLanguage?: import('@/lib/vocabulary-languages').VocabularySourceLanguage
 }
 
 export interface SubmitVocabularyAnswerResult {
@@ -156,6 +160,7 @@ export interface CheckVocabularyRetryInput {
   expectedLearnerId?: string
   typedAnswer: string
   uiLanguage?: string
+  learningSourceLanguage?: import('@/lib/vocabulary-languages').VocabularySourceLanguage
 }
 
 export interface CheckVocabularyRetryResult {

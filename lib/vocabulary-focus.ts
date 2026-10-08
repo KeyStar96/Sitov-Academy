@@ -36,6 +36,7 @@ export const focusItemSchema = z.discriminatedUnion('format', [
 export type FocusItem = z.infer<typeof focusItemSchema>
 
 export const vocabularyFocusSchema = z.object({
+  learningSourceLanguage: z.enum(['en', 'ru', 'uk', 'tr']).optional(),
   level: z.string().nullable(),
   summary: z.object({ active: count, due: count, mastered: count, articleWords: count, nextDueAt: timestamp.nullable() }),
   words: z.array(focusWordSchema),
@@ -59,7 +60,8 @@ export const focusAnswerInputSchema = z.object({
   cardId: z.string().uuid(),
   format: z.enum(FOCUS_FORMATS),
   answer: z.string().trim().min(1).max(400),
-  lang: z.enum(['en', 'ru', 'uk', 'tr']),
+  lang: z.enum(['de', 'en', 'ru', 'uk', 'tr']),
+  learningSourceLanguage: z.enum(['en', 'ru', 'uk', 'tr']).optional(),
   expectedLearnerId: z.string().uuid().optional(),
 }).strict()
 

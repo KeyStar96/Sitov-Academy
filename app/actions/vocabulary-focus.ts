@@ -3,6 +3,8 @@
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { getRpcError } from '@/lib/rpc-errors'
+import { loadLevelAccessProfile } from '@/lib/access/server'
+import { sitovLearningSourceLocale } from '@/lib/access/sitov-learning-source'
 import {
   focusAnswerInputSchema, focusAnswerResultSchema, vocabularyFocusSchema,
   type FocusAnswerResult, type FocusFailure, type VocabularyFocus,
@@ -20,15 +22,17 @@ function failure(code: string | undefined): FocusFailure {
 
 /** Problemwörter der angemeldeten Person (ein Niveau) mit der nächsten Übungsrunde. */
 export async function getVocabularyFocus(level: string, lang: string): Promise<FocusResult<VocabularyFocus>> {
-  const parsed = z.object({ level: z.string().trim().min(1).max(30), lang: z.enum(['en', 'ru', 'uk', 'tr']) }).safeParse({ level, lang })
+  const parsed = z.object({ level: z.string().trim().min(1).max(30), lang: z.enum(['de', 'en', 'ru', 'uk', 'tr']) }).safeParse({ level, lang })
   if (!parsed.success) return { success: false, error: lang === 'de' ? 'language' : 'failed' }
   try {
     const supabase = await createClient()
-    const { data, error } = await supabase.rpc('get_vocabulary_focus', { p_level: parsed.data.level, p_ui_language: parsed.data.lang })
+    const source = await sourceForFocus(supabase, parsed.data.lang)
+    if (source.ok === false) return { success: false, error: source.error }
+    const { data, error } = await supabase.rpc('get_vocabulary_focus', { p_level: parsed.data.level, p_ui_language: source.language })
     if (error) { console.error('[vocabulary-focus] load_failed'); return { success: false, error: 'failed' } }
     const rpcError = getRpcError(data)
     if (rpcError) return { success: false, error: failure(rpcError.error) }
-    return { success: true, data: vocabularyFocusSchema.parse(data) }
+    return { success: true, data: { ...vocabularyFocusSchema.parse(data), ...(parsed.data.lang === 'de' ? { learningSourceLanguage: source.language } : {}) } }
   } catch { console.error('[vocabulary-focus] load_failed'); return { success: false, error: 'failed' } }
 }
 
@@ -36,19 +40,37 @@ export async function getVocabularyFocus(level: string, lang: string): Promise<F
 export async function submitVocabularyFocusAnswer(input: unknown): Promise<FocusResult<FocusAnswerResult>> {
   const parsed = focusAnswerInputSchema.safeParse(input)
   if (!parsed.success) return { success: false, error: 'failed' }
-  const { requestId, cardId, format, answer, lang, expectedLearnerId } = parsed.data
+  const { requestId, cardId, format, answer, lang, expectedLearnerId, learningSourceLanguage } = parsed.data
   try {
     const supabase = await createClient()
-    if (expectedLearnerId) {
-      const { data: { user }, error } = await supabase.auth.getUser()
-      if (error || user?.id !== expectedLearnerId) return { success: false, error: 'not_authenticated' }
+    const source = await sourceForFocus(supabase, lang, expectedLearnerId)
+    if (source.ok === false) return { success: false, error: source.error }
+    if ((lang === 'de' && !learningSourceLanguage) || (learningSourceLanguage && learningSourceLanguage !== source.language)) {
+      return { success: false, error: 'language' }
     }
     const { data, error } = await supabase.rpc('submit_vocabulary_focus_answer', {
-      p_request_id: requestId, p_card_id: cardId, p_format: format, p_answer: answer, p_ui_language: lang,
+      p_request_id: requestId, p_card_id: cardId, p_format: format, p_answer: answer, p_ui_language: source.language,
     })
     if (error) { console.error('[vocabulary-focus] answer_failed'); return { success: false, error: 'failed' } }
     const rpcError = getRpcError(data)
     if (rpcError) return { success: false, error: failure(rpcError.error) }
     return { success: true, data: focusAnswerResultSchema.parse(data) }
   } catch { console.error('[vocabulary-focus] answer_failed'); return { success: false, error: 'failed' } }
+}
+
+async function sourceForFocus(client: Awaited<ReturnType<typeof createClient>>, ui: string, expected?: string) {
+  if (ui !== 'de') {
+    if (expected) {
+      const auth = await client.auth.getUser()
+      if (auth.error || auth.data.user?.id !== expected) return { ok: false as const, error: 'not_authenticated' as const }
+    }
+    const language = sitovLearningSourceLocale(ui, null)
+    return language ? { ok: true as const, language } : { ok: false as const, error: 'language' as const }
+  }
+  const { data: { user }, error } = await client.auth.getUser()
+  if (error || !user || (expected && user.id !== expected)) return { ok: false as const, error: 'not_authenticated' as const }
+  const profile = await loadLevelAccessProfile(client, user.id)
+  if (!profile) return { ok: false as const, error: 'failed' as const }
+  const language = sitovLearningSourceLocale(ui, profile.native_language)
+  return language ? { ok: true as const, language } : { ok: false as const, error: 'language' as const }
 }

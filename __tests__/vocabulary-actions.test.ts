@@ -73,12 +73,14 @@ function session(options: {
   const pauses = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: pausesResult.then.bind(pausesResult) }
   const from = jest.fn((table: string) => table === 'profiles' ? profileChain : table === 'learning_trainer_grants' ? rules : table === 'learning_vocabulary_cards' ? cards : table === 'vocabulary_learning_state' ? cursor : table === 'vocabulary_lesson_pauses' ? pauses : progress)
   const rpc = jest.fn().mockImplementation(async (name: string, args: { p_target_level?: string }) => ({
-    data: name === 'get_vocabulary_carryover'
+    data: name === 'get_sitov_access_context' ? { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 } : name === 'get_vocabulary_carryover'
       ? { success: true, targetLevel: args.p_target_level, enabled: false, decidedAt: null, startedAt: null, promptRequired: false, cards: [] }
       : review, error: null,
   }))
   const client = {
-    from, rpc, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: options.actorId ?? userId } }, error: null }) },
+    from, rpc: jest.fn((name: string, args: { p_target_level?: string }) => name === 'get_sitov_access_context'
+      ? Promise.resolve({ data: { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 }, error: null })
+      : rpc(name, args)), auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: options.actorId ?? userId } }, error: null }) },
   }
   jest.mocked(createClient).mockResolvedValue(client as unknown as Awaited<ReturnType<typeof createClient>>)
   return { from, rpc, progress, cursor, cards }
@@ -96,11 +98,17 @@ describe('session DTO source language', () => {
     expect(cards.in).toHaveBeenCalledWith('translations.locale', ['de', 'ru', 'tr'])
     expect(result.cards[0]).toMatchObject({ promptLanguage: 'ru', prompt: card.context_sentence_ru, isHardForNativeLanguage: true })
   })
-  it('blocks German UI instead of silently substituting the native language', async () => {
+  it('uses the explicit stored source while keeping German UI and checkpoint provenance separate', async () => {
     const { progress } = session({ nativeLanguage: 'tr', uiLanguage: 'de' })
-    expect((await getVocabularySession('A1.1', 'de')).cards).toEqual([])
+    const result = await getVocabularySession('A1.1', 'de')
+    expect(result.learningSourceLanguage).toBe('tr')
+    expect(result.cards[0]).toMatchObject({ promptLanguage: 'tr', prompt: card.context_sentence_tr })
+    expect(progress.range).toHaveBeenCalled()
+  })
+  it('keeps the authorized actor and returns an actionable missing-source state without fallback', async () => {
+    const { progress } = session({ nativeLanguage: 'de', uiLanguage: 'de' })
+    expect(await getVocabularySession('A1.1', 'de')).toMatchObject({ learnerId: userId, cards: [], learningSourceRequired: true })
     expect(progress.range).not.toHaveBeenCalled()
-    expect((await getVocabularySession('A1.1', 'tr')).cards).toEqual([])
   })
   it.each(['en', 'ru', 'uk', 'tr'] as const)('returns the exact %s UI sentence regardless of profile preferences', async language => {
     session({ nativeLanguage: 'tr', uiLanguage: language })
@@ -134,7 +142,7 @@ describe('session DTO source language', () => {
   })
   it('continues respecting the persisted spacing boundary after source resolution', async () => {
     session({ previousCardId: card.id })
-    expect(await getVocabularySession('A1.1', 'ru')).toEqual({ learnerId: userId, cards: [], deferredCount: 1, previousCardId: card.id })
+    expect(await getVocabularySession('A1.1', 'ru')).toEqual({ learnerId: userId, learningSourceLanguage: 'ru', cards: [], deferredCount: 1, previousCardId: card.id })
   })
 })
 
@@ -315,4 +323,15 @@ it('accepts separate directional decisions but rejects duplicate or overlapping 
  expect(await submitLessonAssessment([decisions[0],decisions[0]],userId)).toMatchObject({success:false})
  expect(await submitLessonAssessment([decisions[0],{cardId:card.id,alreadyKnown:false}],userId)).toMatchObject({success:false})
  expect(rpc).not.toHaveBeenCalled()
+})
+
+it('passes only the explicit current stored source to grading in German UI', async () => {
+  const { rpc } = session({ nativeLanguage: 'tr', uiLanguage: 'de' })
+  expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'Ich öffne die Tür.', uiLanguage: 'de', learningSourceLanguage: 'tr' })).toMatchObject({ success: true })
+  expect(rpc).toHaveBeenCalledWith('submit_vocabulary_answer', expect.objectContaining({ p_ui_language: 'tr' }))
+})
+it('rejects a queued answer after its stored input source changes, without grading or losing commercial identity', async () => {
+  const { rpc } = session({ nativeLanguage: 'tr', uiLanguage: 'de' })
+  expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'Ich öffne die Tür.', uiLanguage: 'de', learningSourceLanguage: 'ru' })).toEqual({ success: false, error: 'invalid_input' })
+  expect(rpc).not.toHaveBeenCalled()
 })

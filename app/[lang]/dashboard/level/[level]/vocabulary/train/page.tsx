@@ -8,13 +8,13 @@ export default async function VocabularyTrainPage({ params, searchParams }: {
   searchParams: Promise<{ lesson?: string }>
 }) {
   const { lang, level } = await params
-  if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const { lesson } = await searchParams
   const decodedLevel = decodeURIComponent(level)
   const [session, dict] = await Promise.all([getVocabularySession(decodedLevel, lang, lesson), getDictionary(lang)])
+  if (session.learningSourceRequired) return <TrainerLanguageRequired lang={lang} />
   const carryover = session.cards.length === 0 && session.learnerId ? await getVocabularyCarryover(decodedLevel) : null
   const emptyWithoutCandidates = session.cards.length === 0 && (!session.learnerId || carryover?.total === 0)
-  return <VocabularyTrainingStart key={session.learnerId} learnerId={session.learnerId} level={decodedLevel} lesson={lesson} cards={session.cards} initialDeferredCount={session.deferredCount} previousCardId={session.previousCardId}
-    checkpoint={session.checkpoint} checkpointRevision={session.checkpointRevision} emptyWithoutCandidates={emptyWithoutCandidates}
+  return <VocabularyTrainingStart key={`${session.learnerId}:${session.learningSourceLanguage ?? 'missing'}`} learnerId={session.learnerId} level={decodedLevel} lesson={lesson} cards={session.cards} initialDeferredCount={session.deferredCount} previousCardId={session.previousCardId}
+    learningSourceLanguage={session.learningSourceLanguage} checkpoint={session.checkpoint} checkpointRevision={session.checkpointRevision} emptyWithoutCandidates={emptyWithoutCandidates}
     translations={dict.vocabulary ?? {}} softErrorTranslations={dict.exercises?.soft_error} uiLanguage={lang} overviewHref={`/${lang}/dashboard/level/${encodeURIComponent(decodedLevel)}/vocabulary`} />
 }

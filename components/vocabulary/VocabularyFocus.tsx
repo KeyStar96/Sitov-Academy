@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Check, Target, X } from 'lucide-react'
 import { getVocabularyFocus, submitVocabularyFocusAnswer } from '@/app/actions/vocabulary-focus'
-import { requeue, type FocusAnswerResult, type FocusItem, type FocusWord, type VocabularyFocus as FocusData } from '@/lib/vocabulary-focus'
+import { requeue, type FocusAnswerResult, type FocusWord, type VocabularyFocus as FocusData } from '@/lib/vocabulary-focus'
 import { vocabularyFocusCopy, type VocabularyFocusTranslator } from '@/lib/vocabulary-focus-i18n'
 import { StageDots } from '@/components/progress/LearningProgressView'
 import { ArticleTask, BuildTask, ChoiceTask, TypeTask } from './FocusTasks'
@@ -44,7 +44,7 @@ export default function VocabularyFocus({ initial, lang, level, learnerId, check
   const [data, setData] = useState(initial)
   const [loadFailed, setLoadFailed] = useState(initial === null)
   const [loading, setLoading] = useState(false)
-  const [restored] = useState(() => restoreVocabularyFocusCheckpoint(checkpoint?.state, initial, lang))
+  const [restored] = useState(() => restoreVocabularyFocusCheckpoint(checkpoint?.state, initial, initial?.learningSourceLanguage ?? lang))
   const [queue, setQueue] = useState<Attempt[] | null>(restored?.queue ?? null)
   const [index, setIndex] = useState(restored?.index ?? 0)
   const [feedback, setFeedback] = useState<Feedback | null>(restored?.feedback as Feedback ?? null)
@@ -97,9 +97,10 @@ export default function VocabularyFocus({ initial, lang, level, learnerId, check
   async function start(source: FocusData | null = data) {
     if (busy) return
     if (!source?.items.length) return
+    if (lang === 'de' && !source.learningSourceLanguage) { setLoadFailed(true); return }
     setBusy(true)
-    const saved = state.current && state.current.index < state.current.queue.length ? state.current : null
-    const nextState: VocabularyFocusCheckpoint = saved ?? { version: 1, language: lang as VocabularyFocusCheckpoint['language'],
+    const saved = state.current && state.current.language === (source.learningSourceLanguage ?? lang) && state.current.index < state.current.queue.length ? state.current : null
+    const nextState: VocabularyFocusCheckpoint = saved ?? { version: 1, language: (source.learningSourceLanguage ?? lang) as VocabularyFocusCheckpoint['language'],
       queue: source.items.map(item => ({ key: `${item.cardId}:0`, item })), index: 0, feedback: null, outcomes: [], requeued: [], pending: null }
     try {
       await persist(nextState)
@@ -128,10 +129,14 @@ export default function VocabularyFocus({ initial, lang, level, learnerId, check
     let result: Awaited<ReturnType<typeof submitVocabularyFocusAnswer>>
     try {
       await persist({ ...state.current, pending: pending.current })
-      result = await submitVocabularyFocusAnswer({ requestId, cardId: attempt.item.cardId, format: attempt.item.format, answer: value, lang, expectedLearnerId: actor.current })
+      result = await submitVocabularyFocusAnswer({ requestId, cardId: attempt.item.cardId, format: attempt.item.format, answer: value, lang, expectedLearnerId: actor.current, learningSourceLanguage: state.current.language })
     }
     catch { result = { success: false, error: 'failed' } }
     if (result.success === false) {
+      if (result.error === 'language' || result.error === 'not_authenticated') {
+        if (mounted.current) { setBusy(false); setConflict(true); setError({ message: t('failed'), retry: null }) }
+        return
+      }
       if (result.error === 'not_due' || result.error === 'not_found') { pending.current = null; await next(true); if (mounted.current) { setBusy(false); setError({ message: t('not_due'), retry: null }) }; return }
       if (mounted.current) { setBusy(false); setError({ message: t('failed'), retry: value }) }
       return

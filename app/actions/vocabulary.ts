@@ -4,7 +4,6 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { SOFT_ERROR_REASONS, ORTHOGRAPHY_HINTS, ARTICLE_FEEDBACK } from '@/lib/answer-grading'
 import { getRpcError } from '@/lib/rpc-errors'
-import { createClient } from '@/utils/supabase/server'
 import { requestSession } from '@/lib/request-session'
 import { hasTrainerAccess, isAccessLevel, getAllowedLessons } from '@/lib/access/levels'
 import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, vocabularyReviewMode, type LeitnerPhase } from '@/lib/leitner'
@@ -13,6 +12,7 @@ import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
 import { carryoverLevelSchema, carryoverStateSchema, readCarryoverCatalog, readCarryoverState, type CarryoverState } from '@/lib/vocabulary-carryover-server'
 import { loadLevelAccessProfile } from '@/lib/access/server'
+import { sitovLearningSourceLocale } from '@/lib/access/sitov-learning-source'
 import { readAllRows } from '@/lib/supabase-read'
 import { vocabularyQuery, mapVocabularyCard } from '@/lib/learning-catalog'
 import { resolveVocabularySentenceSource, resolveVocabularyInterfaceTranslation, resolveCardInterfaceTranslation } from '@/lib/vocabulary-languages'
@@ -118,16 +118,17 @@ export async function getVocabularySession(level?: string, uiLanguage?: string, 
     if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
     const { supabase, user, profile } = learner
     const language = languageSchema.catch('de').parse(uiLanguage ?? profile.ui_language)
-    if (language === 'de') return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
+    const sourceLanguage = sitovLearningSourceLocale(language, profile.native_language)
+    if (!sourceLanguage) return { learnerId: user.id, cards: [], deferredCount: 0, previousCardId: null, learningSourceRequired: true }
     const saved = level ? await loadLearningCheckpoint('vocabulary', level, user.id) : { ok: true as const, checkpoint: null }
     if (!saved.ok) throw new Error('vocabulary_checkpoint_unavailable')
     const parsedCheckpoint = vocabularyCheckpointSchema.safeParse(saved.checkpoint?.state)
-    const checkpoint = parsedCheckpoint.success && parsedCheckpoint.data.language === language
+    const checkpoint = parsedCheckpoint.success && parsedCheckpoint.data.language === sourceLanguage
       && parsedCheckpoint.data.lesson === (lesson ?? null) ? parsedCheckpoint.data : null
     const resumedIds = new Set(checkpoint?.plan ?? [])
     // Session display needs only the interface/native sentence sources and German.
     // Keep the complete catalog shape for other callers; filter this embedded read.
-    const locales = [...new Set(['de', language, profile.native_language].filter((value): value is string => !!value))]
+    const locales = [...new Set(['de', sourceLanguage, profile.native_language].filter((value): value is string => !!value))]
     let catalogQuery = vocabularyQuery(supabase).in('translations.locale', locales).order('id')
     if (level) catalogQuery = catalogQuery.eq('unit.level', level)
     const [catalog, ownProgress, { data: cursor, error: cursorError }, paused, carryover] = await Promise.all([
@@ -158,7 +159,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string, 
       id: card.id, level: card.level, lesson: card.lesson, word_de: card.word_de,
       article: card.article, plural: card.plural, image_url: card.image_url, audio_url: card.audio_url, target_form: card.target_form ?? null,
       contentKind: card.content_kind ?? 'vocabulary', usageChunk: card.chunk_de ?? null,
-      usageChunkTranslation: card[`chunk_translation_${language}`] ?? null,
+      usageChunkTranslation: card[`chunk_translation_${sitovLearningSourceLocale(language, learner.profile.native_language) ?? language}`] ?? null,
       exampleTranslation: card[`context_sentence_${language}`] ?? null,
     }]))
     const cards: DueVocabularyCard[] = progress.flatMap(row => {
@@ -172,7 +173,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string, 
       const direction = row.direction === 'native_to_de' ? 'native_to_de' : 'de_to_native'
       const sentence = direction === 'native_to_de' && card.sentence_practice
       const source = sentence ? resolveVocabularySentenceSource(card, language, profile.native_language) : null
-      const translatedWord = resolveCardInterfaceTranslation(card, language)
+      const translatedWord = resolveCardInterfaceTranslation(card, language, profile.native_language)
       // Incomplete content must never downgrade a DB-enforced sentence to self-rating.
       if ((sentence && !source) || (!sentence && !translatedWord)) return []
       const translation = translatedWord?.text ?? ''
@@ -201,12 +202,12 @@ export async function getVocabularySession(level?: string, uiLanguage?: string, 
     if (restored && !finished && saved.checkpoint) {
       const outstanding = [...restored.queue.slice(restored.state.index).map(item => item.card),
         ...restored.plan.cards.slice(restored.state.round.start + restored.state.round.length)]
-      return { learnerId: user.id, cards: outstanding, deferredCount: restored.state.deferredCount,
+      return { learnerId: user.id, learningSourceLanguage: sourceLanguage, cards: outstanding, deferredCount: restored.state.deferredCount,
         previousCardId: restored.state.lastAnswered,
         checkpoint: { state: restored.state, revision: saved.checkpoint.revision, cards: restored.plan.cards } }
     }
     const weighted = pickWeightedRandomOrder(cards.filter(card => dueIds.has(card.progressId)), card => selectionWeightForBox(card.box))
-    return { learnerId: user.id, ...scheduleVocabularyCards(weighted, cursor?.last_card_id), previousCardId: cursor?.last_card_id ?? null,
+    return { learnerId: user.id, learningSourceLanguage: sourceLanguage, ...scheduleVocabularyCards(weighted, cursor?.last_card_id), previousCardId: cursor?.last_card_id ?? null,
       ...(saved.checkpoint ? { checkpointRevision: saved.checkpoint.revision } : {}) }
   } catch (error) {
     // Weiterwerfen: die Trainer-Route hat eine error.tsx-Boundary. Eine leere
@@ -229,7 +230,7 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
     if (!learner || !hasTrainerAccess(learner.profile, level, 'vocabulary')) return { learnerId: null, cards: [] }
     const language = languageSchema.catch('de').parse(uiLanguage ?? learner.profile.ui_language)
     const allowed = getAllowedLessons(learner.profile, level, 'vocabulary')
-    if (language === 'de') return { learnerId: null, cards: [] }
+    if (!sitovLearningSourceLocale(language, learner.profile.native_language)) return { learnerId: learner.user.id, cards: [], learningSourceRequired: true }
     const [{ data, error }, progress] = await Promise.all([
       vocabularyQuery(learner.supabase).eq('unit.level', level).eq('unit.label', lessonName).order('id'),
       readVocabularyProgress(learner.supabase, learner.user.id),
@@ -241,7 +242,7 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
       learnerId: learner.user.id,
       cards: (['de_to_native', 'native_to_de'] as const).flatMap(direction => (data ?? []).map(row => mapVocabularyCard(row)).flatMap(card => {
         if (allowed !== null && !allowed.includes(card.unit_id)) return []
-        const translation = resolveVocabularyInterfaceTranslation(card, language)
+        const translation = resolveVocabularyInterfaceTranslation(card, language, learner.profile.native_language)
         if (!translation || assessed.has(`${card.id}:${direction}`)) return []
         return [{ id: card.id, word_de: card.word_de, article: card.article, plural: card.plural,
           contentKind: card.content_kind,
@@ -432,16 +433,19 @@ export async function deleteOwnWord(cardId: string): Promise<{ success: boolean 
 /** Every review is graded from the learner's typed answer inside PostgreSQL. */
 export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput): Promise<SubmitVocabularyAnswerResult> {
   const parsed = z.object({ progressId: z.string().uuid(), targetLevel: carryoverLevelSchema.optional(), expectedLearnerId: z.string().uuid().optional(), requestId: z.string().uuid().optional(),
-    typedAnswer: z.string().min(1).max(4000).refine(value => value.trim().length > 0), uiLanguage: languageSchema.optional() }).safeParse(input)
+    typedAnswer: z.string().min(1).max(4000).refine(value => value.trim().length > 0), uiLanguage: languageSchema.optional(), learningSourceLanguage: z.enum(['en', 'ru', 'uk', 'tr']).optional() }).safeParse(input)
   if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
     const learner = await loadLearner(parsed.data.expectedLearnerId)
     if (!learner) return { success: false, error: 'save_failed' }
+    const sourceLanguage = sitovLearningSourceLocale(parsed.data.uiLanguage ?? learner.profile.ui_language, learner.profile.native_language)
+    if (!sourceLanguage || (parsed.data.learningSourceLanguage && parsed.data.learningSourceLanguage !== sourceLanguage)
+      || ((parsed.data.uiLanguage ?? learner.profile.ui_language) === 'de' && !parsed.data.learningSourceLanguage)) return { success: false, error: 'invalid_input' }
     const payload = {
       p_progress_id: parsed.data.progressId, p_is_correct: null,
       ...(parsed.data.targetLevel ? { p_target_level: parsed.data.targetLevel } : {}),
       p_typed_answer: parsed.data.typedAnswer,
-      p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
+      p_ui_language: sourceLanguage,
     }
     const { data, error } = parsed.data.requestId
       ? await learner.supabase.rpc('submit_vocabulary_answer_once', { ...payload, p_request_id: parsed.data.requestId })
@@ -465,15 +469,18 @@ export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput)
  */
 export async function submitVocabularySelfRating(input: SubmitVocabularySelfRatingInput): Promise<SubmitVocabularyAnswerResult> {
   const parsed = z.object({ progressId: z.string().uuid(), targetLevel: carryoverLevelSchema.optional(), expectedLearnerId: z.string().uuid().optional(),
-    requestId: z.string().uuid(), known: z.boolean(), uiLanguage: languageSchema.optional() }).safeParse(input)
+    requestId: z.string().uuid(), known: z.boolean(), uiLanguage: languageSchema.optional(), learningSourceLanguage: z.enum(['en', 'ru', 'uk', 'tr']).optional() }).safeParse(input)
   if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
     const learner = await loadLearner(parsed.data.expectedLearnerId)
     if (!learner) return { success: false, error: 'save_failed' }
+    const sourceLanguage = sitovLearningSourceLocale(parsed.data.uiLanguage ?? learner.profile.ui_language, learner.profile.native_language)
+    if (!sourceLanguage || (parsed.data.learningSourceLanguage && parsed.data.learningSourceLanguage !== sourceLanguage)
+      || ((parsed.data.uiLanguage ?? learner.profile.ui_language) === 'de' && !parsed.data.learningSourceLanguage)) return { success: false, error: 'invalid_input' }
     const { data, error } = await learner.supabase.rpc('submit_vocabulary_self_rating_once', {
       p_request_id: parsed.data.requestId, p_progress_id: parsed.data.progressId, p_known: parsed.data.known,
       ...(parsed.data.targetLevel ? { p_target_level: parsed.data.targetLevel } : {}),
-      p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
+      p_ui_language: sourceLanguage,
     })
     if (error) return { success: false, error: 'save_failed' }
     const failure = getRpcError(data)
@@ -500,15 +507,18 @@ const retryResultSchema = z.object({
  */
 export async function checkVocabularyRetry(input: CheckVocabularyRetryInput): Promise<CheckVocabularyRetryResult> {
   const parsed = z.object({ progressId: z.string().uuid(), targetLevel: carryoverLevelSchema.optional(), expectedLearnerId: z.string().uuid().optional(),
-    typedAnswer: z.string().min(1).max(4000).refine(value => value.trim().length > 0), uiLanguage: languageSchema.optional() }).safeParse(input)
+    typedAnswer: z.string().min(1).max(4000).refine(value => value.trim().length > 0), uiLanguage: languageSchema.optional(), learningSourceLanguage: z.enum(['en', 'ru', 'uk', 'tr']).optional() }).safeParse(input)
   if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
     const learner = await loadLearner(parsed.data.expectedLearnerId)
     if (!learner) return { success: false, error: 'check_failed' }
+    const sourceLanguage = sitovLearningSourceLocale(parsed.data.uiLanguage ?? learner.profile.ui_language, learner.profile.native_language)
+    if (!sourceLanguage || (parsed.data.learningSourceLanguage && parsed.data.learningSourceLanguage !== sourceLanguage)
+      || ((parsed.data.uiLanguage ?? learner.profile.ui_language) === 'de' && !parsed.data.learningSourceLanguage)) return { success: false, error: 'check_failed' }
     const { data, error } = await learner.supabase.rpc('check_vocabulary_retry', {
       p_progress_id: parsed.data.progressId, p_typed_answer: parsed.data.typedAnswer,
       ...(parsed.data.targetLevel ? { p_target_level: parsed.data.targetLevel } : {}),
-      p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
+      p_ui_language: sourceLanguage,
     })
     if (error || getRpcError(data)) return { success: false, error: 'check_failed' }
     const result = retryResultSchema.safeParse(data)
@@ -528,7 +538,6 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
   const learner = await loadLearner()
   if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return []
   const language = languageSchema.catch('de').parse(uiLanguage ?? learner.profile.ui_language)
-  if (language === 'de') return []
   let query = vocabularyQuery(learner.supabase).eq('unit.label', lessonName)
   if (level) query = query.eq('unit.level', level)
   // R10: readVocabularyProgress wirft mit Fehlercode. Ein `.catch(() => null)`
@@ -547,10 +556,10 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
     const learned = states.length === 2 && states.every(row => normalizeBox(row.box_number) === LEITNER_LEARNED_BOX)
     const phase = states.length ? Math.min(...states.map(row => Math.min(6, normalizeBox(row.box_number)))) as LeitnerPhase : null
     return { id: card.id, word_de: card.word_de, article: card.article, plural: card.plural,
-      translation: resolveCardInterfaceTranslation(card, language)?.text ?? '', image_url: card.image_url, audio_url: card.audio_url,
+      translation: resolveCardInterfaceTranslation(card, language, learner.profile.native_language)?.text ?? '', image_url: card.image_url, audio_url: card.audio_url,
       phase, isLearned: learned, contextSentence: card.context_sentence_de,
       contentKind: card.content_kind ?? 'vocabulary', usageChunk: card.chunk_de ?? null,
-      usageChunkTranslation: card[`chunk_translation_${language}`] ?? null,
+      usageChunkTranslation: card[`chunk_translation_${sitovLearningSourceLocale(language, learner.profile.native_language) ?? language}`] ?? null,
       exampleTranslation: card[`context_sentence_${language}`] ?? null }
   }).sort((a, b) => a.word_de.localeCompare(b.word_de, 'de-DE'))
 }
@@ -699,7 +708,7 @@ async function readCarryoverEntries(learner: Learner, carryover: CarryoverState,
     }] : rows
     const state = computeWordBoxState(displayRows)
     if (!state || state.isLearned) return []
-    return [{ card, state, translation: language ? resolveCardInterfaceTranslation(card, language)?.text ?? '' : '', paused: false }]
+    return [{ card, state, translation: language ? resolveCardInterfaceTranslation(card, language, learner.profile.native_language)?.text ?? '' : '', paused: false }]
   })
 }
 
@@ -727,7 +736,7 @@ async function readWordBox(level: string | undefined, language: z.infer<typeof l
   }).map(card => ({
     card,
     state: computeWordBoxState(byCard.get(card.id) ?? [], now),
-    translation: language ? resolveCardInterfaceTranslation(card, language)?.text ?? '' : '',
+    translation: language ? resolveCardInterfaceTranslation(card, language, learner.profile.native_language)?.text ?? '' : '',
     paused: paused.has(card.unit_id),
   }))
   return { own, carryover, carried: await readCarryoverEntries(learner, carryover, language) }
@@ -746,7 +755,6 @@ export async function getPhaseCards(key: BoxBucketKey, level?: string, uiLanguag
   const learner = await loadLearner()
   if (!learner) return { key: bucket, cards: [], total: 0, truncated: false }
   const language = languageSchema.catch('de').parse(uiLanguage ?? learner.profile.ui_language)
-  if (language === 'de') return { key: bucket, cards: [], total: 0, truncated: false }
   const words = await readWordBox(level, language)
   if (!words) return { key: bucket, cards: [], total: 0, truncated: false }
 

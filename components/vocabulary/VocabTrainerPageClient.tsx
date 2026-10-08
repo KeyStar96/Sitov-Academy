@@ -21,6 +21,7 @@ import styles from './SitovVocabularyMotion.module.css'
 
 interface Props {
   learnerId: string | null
+  learningSourceLanguage?: import('@/lib/vocabulary-languages').VocabularySourceLanguage
   initialCards: DueVocabularyCard[]
   /** Verteilung über die sechs Phasen — serverseitig gezählt, siehe getVocabularyBoxSummary. */
   boxSummary: VocabularyBoxSummary
@@ -38,7 +39,7 @@ interface Props {
  * den Lernstand. Lektionen, eigene Wörter und selten geänderte Einstellungen
  * behalten ihre bisherigen Ziele und gespeicherten Werte.
  */
-export default function VocabTrainerPageClient({ learnerId, initialCards, boxSummary, translations = {}, softErrorTranslations, lang, level, initialDeferredCount = 0, initialPreviousCardId = null, carryover }: Props) {
+export default function VocabTrainerPageClient({ learnerId, initialCards, learningSourceLanguage, boxSummary, translations = {}, softErrorTranslations, lang, level, initialDeferredCount = 0, initialPreviousCardId = null, carryover }: Props) {
   const router = useRouter()
   const [refreshing, startRefresh] = useTransition()
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
@@ -55,7 +56,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
   // Leer ist die Box, solange unter „Lektionen" noch keine Lektion eingeschaltet ist.
   const empty = due === 0 && boxSummary.inPhases + boxSummary.learned === 0
 
-  if (session) return <VocabularyTrainingStart key={learnerId} level={level} learnerId={learnerId} cards={session} translations={translations} softErrorTranslations={softErrorTranslations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview} roundSize={chosenSize}
+  if (session) return <VocabularyTrainingStart key={learnerId} level={level} learnerId={learnerId} cards={session} translations={translations} softErrorTranslations={softErrorTranslations} uiLanguage={lang} learningSourceLanguage={learningSourceLanguage} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview} roundSize={chosenSize}
     onBackToLernkasten={lastId => { setPreviousCardId(lastId); setSession(null); startRefresh(() => router.refresh()) }} />
 
   return <div className="mx-auto w-full max-w-5xl space-y-6 text-[var(--foreground)]">

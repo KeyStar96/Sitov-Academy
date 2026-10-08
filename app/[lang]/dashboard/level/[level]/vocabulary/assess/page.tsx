@@ -14,7 +14,6 @@ export default async function VocabularyAssessPage({
   searchParams: Promise<{ lesson?: string }>
 }) {
   const { lang, level } = await params
-  if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const { lesson } = await searchParams
   const decodedLevel = decodeURIComponent(level)
   const decodedLesson = lesson ?? ''
@@ -24,6 +23,7 @@ export default async function VocabularyAssessPage({
   const overviewHref = `/${lang}/dashboard/level/${encodeURIComponent(decodedLevel)}/vocabulary`
 
   const assessment = decodedLesson ? await getVocabularyAssessment(decodedLesson, decodedLevel, lang) : { learnerId: null, cards: [] }
+  if (assessment.learningSourceRequired) return <TrainerLanguageRequired lang={lang} />
   const cardsToAssess = assessment.cards
 
   return (

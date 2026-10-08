@@ -1,3 +1,5 @@
+import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
+import { sitovLearningSourceLocale } from '@/lib/access/sitov-learning-source'
 import { requestSession } from '@/lib/request-session'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { getDictionary } from '@/lib/dictionary'
@@ -30,6 +32,7 @@ export default async function VocabularyLessonsPage({ params, searchParams }: {
     user ? loadLevelAccessProfile(supabase, user.id) : null,
     getDictionary(lang),
   ])
+  if (profile && !sitovLearningSourceLocale(lang, profile.native_language)) return <TrainerLanguageRequired lang={lang} />
   const [status, news] = await Promise.all([
     user ? loadLevelLearningStatus({ supabase, userId: user.id, profile, level: decodedLevel, lang }) : null,
     loadLearningNewItems(decodedLevel),

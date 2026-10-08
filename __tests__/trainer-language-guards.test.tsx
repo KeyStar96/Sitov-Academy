@@ -27,7 +27,7 @@ jest.mock('@/components/vocabulary/VocabCardSession', () => () => null)
 jest.mock('@/components/learning-path/LearningPathClient', () => () => null)
 jest.mock('@/components/audio/PronunciationStudio', () => () => null)
 jest.mock('@/components/dashboard/VideoLibrary', () => () => null)
-jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getVocabularyOverview: jest.fn() }))
+jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getVocabularyOverview: jest.fn(), getVocabularyCarryover: jest.fn().mockResolvedValue({ total: 0 }) }))
 jest.mock('@/app/actions/learning-path', () => ({ getLearningPath: jest.fn() }))
 jest.mock('@/app/actions/pronunciation', () => ({ getPronunciationPrompts: jest.fn() }))
 jest.mock('@/app/actions/sitov-pronunciation-access', () => ({ getSitovPronunciationReadiness: jest.fn().mockResolvedValue(null) }))
@@ -68,11 +68,21 @@ test('German trainer guard checks commercial rights and admits an authorized chi
   expect(screen.getByText('Authorized trainer')).toBeInTheDocument()
 })
 
-test.each(cases)('German %s shows a language choice before loading learner data', async (_name, page) => {
+test.each(cases)('German %s shows a source choice only after the authenticated source check', async (_name, page) => {
+  jest.mocked(getDictionary).mockResolvedValue({ vocabulary: {} } as never)
+  jest.mocked(getVocabularyOverview).mockResolvedValue({ box: {}, carryover: null } as never)
+  jest.mocked(getVocabularySession).mockResolvedValue({ learnerId: 'learner', cards: [], deferredCount: 0, previousCardId: null, learningSourceRequired: true })
   render(await page())
-  expect(screen.getByRole('link', { name: 'Sprache im Profil auswählen' })).toHaveAttribute('href', '/de/dashboard/profile#language-settings')
-  for (const loader of [getDictionary, getVocabularySession, getVocabularyOverview, getLearningPath, getPronunciationPrompts, getPronunciationConversations, currentUserHasTrainerAccess, createClient]) expect(loader).not.toHaveBeenCalled()
-  expect(screen.queryByText('Hidden trainer')).not.toBeInTheDocument()
+  expect(screen.getByRole('link', { name: 'Sprachangaben prüfen' })).toHaveAttribute('href', '/de/dashboard/profile#language-settings')
+  expect(getVocabularySession).toHaveBeenCalledWith('A1.1', 'de', ...( _name === 'learning box' ? [undefined] : [] ))
+})
+
+test.each(cases)('German %s keeps a valid stored source and shows no language denial', async (_name, page) => {
+  jest.mocked(getDictionary).mockResolvedValue({ vocabulary: {} } as never)
+  jest.mocked(getVocabularyOverview).mockResolvedValue({ box: {}, carryover: null } as never)
+  jest.mocked(getVocabularySession).mockResolvedValue({ learnerId: 'learner', cards: [], deferredCount: 0, previousCardId: null, learningSourceLanguage: 'tr' })
+  render(await page())
+  expect(screen.queryByRole('link', { name: 'Sprachangaben prüfen' })).not.toBeInTheDocument()
 })
 
 test.each(['de', 'en', 'ru', 'uk', 'tr'])('language notice has a usable localized profile link in %s', lang => {
@@ -88,5 +98,5 @@ test('uploaded videos remain reachable by level even with a German interface', a
   render(await VideosPage({ params }))
   expect(order).toHaveBeenCalled()
   expect(currentUserHasTrainerAccess).not.toHaveBeenCalled()
-  expect(screen.queryByRole('link', { name: 'Sprache im Profil auswählen' })).not.toBeInTheDocument()
+  expect(screen.queryByRole('link', { name: 'Sprachangaben prüfen' })).not.toBeInTheDocument()
 })

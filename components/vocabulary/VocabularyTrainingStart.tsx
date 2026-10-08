@@ -21,6 +21,6 @@ export default function VocabularyTrainingStart({ level, lesson, emptyWithoutCan
     setSession(refreshed)
   }}>
     {session && <VocabCardSession {...props} level={level} cards={lesson ? session.cards.filter(item => item.card.lesson === lesson || item.originLevel) : session.cards}
-      checkpoint={session.checkpoint} checkpointRevision={session.checkpointRevision} lesson={lesson} initialDeferredCount={session.deferredCount} previousCardId={session.previousCardId} />}
+      learningSourceLanguage={session.learningSourceLanguage} checkpoint={session.checkpoint} checkpointRevision={session.checkpointRevision} lesson={lesson} initialDeferredCount={session.deferredCount} previousCardId={session.previousCardId} />}
   </VocabularyStartGate>
 }

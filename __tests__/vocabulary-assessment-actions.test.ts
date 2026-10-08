@@ -28,7 +28,7 @@ function setup({ directions = [], language = 'ru', content = card }: { direction
   const rulesResult = Promise.resolve({ data: [], error: null })
   const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
   const from = jest.fn((table: string) => table === 'profiles' ? profile : table === 'learning_trainer_grants' ? rules : table === 'learning_vocabulary_cards' ? cards : progress)
-  jest.mocked(createClient).mockResolvedValue({ from, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: { id: userId } }, error: null }) } } as unknown as Awaited<ReturnType<typeof createClient>>)
+  jest.mocked(createClient).mockResolvedValue({ from, rpc: jest.fn().mockResolvedValue({ data: { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 }, error: null }), auth: { getUser: jest.fn().mockResolvedValue({ data: { user: { id: userId } }, error: null }) } } as unknown as Awaited<ReturnType<typeof createClient>>)
   return { from, cards, progress }
 }
 beforeEach(() => jest.clearAllMocks())
@@ -54,13 +54,13 @@ it('does not switch to another language when the requested translation is missin
   setup({ content: { ...card, translation_en: null } })
   expect((await getVocabularyAssessment('Lektion 1', 'A1.1', 'en')).cards).toEqual([])
 })
-it('blocks German interface and German profile before retrieving assessment content', async () => {
+it('uses the valid stored source for German UI and keeps an explicit foreign UI source authoritative', async () => {
   const first = setup()
-  expect((await getVocabularyAssessment('Lektion 1', 'A1.1', 'de')).cards).toEqual([])
-  expect(first.cards.select).not.toHaveBeenCalled()
+  expect((await getVocabularyAssessment('Lektion 1', 'A1.1', 'de')).cards).toEqual(expect.arrayContaining([expect.objectContaining({ translationLanguage: 'ru', translation: card.translation_ru })]))
+  expect(first.cards.select).toHaveBeenCalled()
   const second = setup({ language: 'de' })
-  expect((await getVocabularyAssessment('Lektion 1', 'A1.1', 'en')).cards).toEqual([])
-  expect(second.cards.select).not.toHaveBeenCalled()
+  expect((await getVocabularyAssessment('Lektion 1', 'A1.1', 'en')).cards).toEqual(expect.arrayContaining([expect.objectContaining({ translationLanguage: 'en', translation: card.translation_en })]))
+  expect(second.cards.select).toHaveBeenCalled()
 })
 it('uses the selected interface locale in the lesson word list and preserves learned status', async () => {
   setup({ directions: ['de_to_native', 'native_to_de'] })

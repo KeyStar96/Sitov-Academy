@@ -76,7 +76,7 @@ it('trains an article, brings a wrong word back once and reuses the request id o
   fireEvent.click(screen.getByRole('button', { name: 'Отправить снова' }))
   expect(await screen.findByText('Не совсем.')).toBeInTheDocument()
   expect(requests[0]).toBe(requests[1])
-  expect(submitVocabularyFocusAnswer).toHaveBeenLastCalledWith({ requestId: requests[0], cardId: tisch, format: 'article', answer: 'die', lang: 'ru', expectedLearnerId: id(1) })
+  expect(submitVocabularyFocusAnswer).toHaveBeenLastCalledWith({ requestId: requests[0], cardId: tisch, format: 'article', answer: 'die', lang: 'ru', expectedLearnerId: id(1), learningSourceLanguage: 'ru' })
   expect(screen.getByText('der Tisch')).toBeInTheDocument()
   expect(screen.getByText('Это слово ещё раз появится в этом раунде.')).toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'der' })).toHaveAttribute('data-state', 'correct')

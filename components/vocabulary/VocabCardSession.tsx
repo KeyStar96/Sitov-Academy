@@ -50,6 +50,7 @@ interface VocabCardSessionProps {
   translations?: VocabularyTranslations
   softErrorTranslations?: Partial<Record<SoftErrorReason, string>>
   overviewHref: string
+  learningSourceLanguage?: import('@/lib/vocabulary-languages').VocabularySourceLanguage
   uiLanguage?: string
   previousCardId?: string | null
   initialDeferredCount?: number
@@ -72,7 +73,7 @@ function toSessionItem(card: DueVocabularyCard): SessionItem {
   return { card, retry: false, key: card.progressId }
 }
 
-export default function VocabCardSession({ learnerId, level, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, roundSize, lesson, checkpoint, checkpointRevision, onBackToLernkasten }: VocabCardSessionProps) {
+export default function VocabCardSession({ learnerId, level, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', learningSourceLanguage, previousCardId = null, initialDeferredCount = 0, roundSize, lesson, checkpoint, checkpointRevision, onBackToLernkasten }: VocabCardSessionProps) {
   const router = useRouter()
   const actorId = useRef(learnerId).current
   const mounted = useRef(true)
@@ -142,7 +143,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   const serializeQueue = (items: readonly SessionItem[]): VocabularyCheckpoint['queue'] => items.map(item => [planIndexes.get(item.card.progressId)!, item.card.phase, item.retry])
   const revision = useRef(checkpoint?.revision ?? checkpointRevision ?? 0)
   const checkpointState = useRef<VocabularyCheckpoint>(restored?.state ?? {
-    version: 1, language: uiLanguage as VocabularyCheckpoint['language'], lesson: lesson ?? null,
+    version: 1, language: (learningSourceLanguage ?? uiLanguage) as VocabularyCheckpoint['language'], lesson: lesson ?? null,
     plan: plan.cards.map(card => card.progressId), deferredCount: plan.deferredCount, size, round,
     queue: serializeQueue(queue),
     index, retryCount, moves, roundMovesFrom, lastAnswered: lastAnswered.current, answer, feedback: answerResult, pending: null,
@@ -395,7 +396,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     reviewBusy.current = true
     setReviewPending(true)
     setRetryFailed(false)
-    const result = await checkVocabularyRetry({ progressId: card.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, targetLevel: level ?? card.targetLevel ?? card.card.level }).catch(() => ({ success: false } as const))
+    const result = await checkVocabularyRetry({ progressId: card.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, learningSourceLanguage, targetLevel: level ?? card.targetLevel ?? card.card.level }).catch(() => ({ success: false } as const))
     if (!mounted.current || at !== indexRef.current) return
     reviewBusy.current = false
     setReviewPending(false)
@@ -414,7 +415,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     setReviewPending(true)
     setSaveFailed(false)
     writes.current?.enqueue({ kind: 'typed', index, card: current, input: {
-      progressId: current.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, targetLevel: level ?? current.targetLevel ?? current.card.level, requestId: crypto.randomUUID(),
+      progressId: current.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, learningSourceLanguage, targetLevel: level ?? current.targetLevel ?? current.card.level, requestId: crypto.randomUUID(),
     } })
   }
 
@@ -432,7 +433,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     setReviewPending(true)
     setSaveFailed(false)
     writes.current?.enqueue({ kind: 'self', index, card: current, input: {
-      progressId: current.progressId, expectedLearnerId: actorId, known, uiLanguage, targetLevel: level ?? current.targetLevel ?? current.card.level, requestId: crypto.randomUUID(),
+      progressId: current.progressId, expectedLearnerId: actorId, known, uiLanguage, learningSourceLanguage, targetLevel: level ?? current.targetLevel ?? current.card.level, requestId: crypto.randomUUID(),
     } })
   }
 
@@ -442,7 +443,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     if (!pending || !card || !actorId) return
     reviewBusy.current = true
     setReviewPending(true)
-    const shared = { progressId: card.progressId, requestId: pending.requestId, expectedLearnerId: actorId, uiLanguage,
+    const shared = { progressId: card.progressId, requestId: pending.requestId, expectedLearnerId: actorId, uiLanguage, learningSourceLanguage,
       targetLevel: level ?? card.targetLevel ?? card.card.level }
     writes.current?.enqueue(pending.kind === 'typed'
       ? { kind: 'typed', index: indexRef.current, card, input: { ...shared, typedAnswer: pending.answer } }

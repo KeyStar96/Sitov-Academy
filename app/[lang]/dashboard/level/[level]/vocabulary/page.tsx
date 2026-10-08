@@ -10,7 +10,6 @@ export default async function VocabularyOverviewPage({
   params: Promise<{ lang: string; level: string }>
 }) {
   const { lang, level } = await params
-  if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const decodedLevel = decodeURIComponent(level)
   const dict = await getDictionary(lang)
   const translations = (dict.vocabulary ?? {}) as VocabularyTranslations
@@ -20,10 +19,13 @@ export default async function VocabularyOverviewPage({
     getVocabularySession(decodedLevel, lang),
   ])
 
+  if (session.learningSourceRequired) return <TrainerLanguageRequired lang={lang} />
+
   return (
     <VocabTrainerPageClient
-      key={session.learnerId}
+      key={`${session.learnerId}:${session.learningSourceLanguage ?? 'missing'}`}
       learnerId={session.learnerId}
+      learningSourceLanguage={session.learningSourceLanguage}
       initialCards={session.cards}
       initialDeferredCount={session.deferredCount}
       initialPreviousCardId={session.previousCardId}
