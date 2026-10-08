@@ -1,5 +1,5 @@
 -- Sitov Academy private pretest state core. No production pool seeded.
--- Existing readiness/body/upload guards are replaced in a separate enforcement patch.
+-- Current exact passage guards new target access; historical participant access is separate.
 CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_definitions(
  id uuid PRIMARY KEY DEFAULT gen_random_uuid(), text_id uuid NOT NULL REFERENCES public.learning_reading_texts(id),
  text_version text NOT NULL CHECK(text_version~'^[a-f0-9]{64}$'), test_version text NOT NULL CHECK(test_version~'^[a-f0-9]{64}$'),
@@ -41,7 +41,7 @@ DECLARE c jsonb;q jsonb;n integer;BEGIN
  IF coalesce(q->>'id','') !~ '^sitov[.:-][a-zA-Z0-9._:-]{1,90}$' OR q->>'kind' IS DISTINCT FROM 'single_choice' OR jsonb_typeof(q->'promptDe') IS DISTINCT FROM 'string' OR (q->'fragmentDe' IS NOT NULL AND q->'fragmentDe'<>'null'::jsonb AND (jsonb_typeof(q->'fragmentDe')<>'string' OR length(q->>'fragmentDe')>300)) OR nullif(btrim(q->>'promptDe'),'') IS NULL OR length(q->>'promptDe')>500 OR jsonb_typeof(q->'options')<>'array' THEN RETURN false;END IF;
  IF NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d->'competencies') mapped_core WHERE mapped_core->>'id'=q->>'competencyId') OR jsonb_array_length(q->'options') NOT BETWEEN 3 AND 5 THEN RETURN false;END IF;
  IF (SELECT count(DISTINCT o->>'id') FROM jsonb_array_elements(q->'options') o)<>jsonb_array_length(q->'options') OR (SELECT count(DISTINCT btrim(o->>'textDe')) FROM jsonb_array_elements(q->'options') o)<>jsonb_array_length(q->'options') THEN RETURN false;END IF;
- IF EXISTS(SELECT 1 FROM jsonb_array_elements(q->'options') o WHERE coalesce(o->>'id','') !~ '^sitov[.:-][a-zA-Z0-9._:-]{1,90}$' OR nullif(btrim(o->>'textDe'),'') IS NULL OR length(o->>'textDe')>300) OR NOT EXISTS(SELECT 1 FROM jsonb_array_elements(q->'options') o WHERE o->>'id'=q->>'correctOptionId') THEN RETURN false;END IF;END LOOP;
+ IF EXISTS(SELECT 1 FROM jsonb_array_elements(q->'options') o WHERE coalesce(o->>'id','') !~ '^sitov[.:-][a-zA-Z0-9._:-]{1,90}$' OR jsonb_typeof(o->'textDe') IS DISTINCT FROM 'string' OR nullif(btrim(o->>'textDe'),'') IS NULL OR length(o->>'textDe')>300) OR NOT EXISTS(SELECT 1 FROM jsonb_array_elements(q->'options') o WHERE o->>'id'=q->>'correctOptionId') THEN RETURN false;END IF;END LOOP;
  RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
 CREATE OR REPLACE FUNCTION sitov_pronunciation_private.guard_definition() RETURNS trigger LANGUAGE plpgsql SET search_path='' AS $$ BEGIN
  IF TG_OP='UPDATE' AND (NEW.id,NEW.text_id,NEW.text_version,NEW.test_version,NEW.definition) IS DISTINCT FROM (OLD.id,OLD.text_id,OLD.text_version,OLD.test_version,OLD.definition) THEN RAISE EXCEPTION 'immutable_pretest_definition';END IF;
@@ -64,6 +64,7 @@ DECLARE d sitov_pronunciation_private.pretest_definitions;a sitov_pronunciation_
  IF identity_private.current_profile_role() IN('teacher','admin') AND NOT sitov_access_private.staff() THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
  PERFORM pg_advisory_xact_lock(hashtextextended('sitov-pretest:'||auth.uid()::text,0));
  IF op IN('get','save','submit') THEN SELECT * INTO a FROM sitov_pronunciation_private.pretest_attempts WHERE id=p_attempt AND student_id=auth.uid() FOR UPDATE;IF NOT FOUND THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;p_text:=a.text_id;END IF;
+ IF op='get' AND a.status IN('passed','failed','outdated') THEN RETURN jsonb_build_object('ok',true,'data',sitov_pronunciation_private.attempt_response(a));END IF;
  IF p_text IS NULL OR NOT sitov_access_private.item_allowed(auth.uid(),'reading_text',p_text::text) THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
  IF op<>'get' AND p_request IS NULL THEN RETURN sitov_pronunciation_private.pretest_error('invalid_input');END IF;
  payload:=jsonb_build_object('op',op,'text',p_text,'attempt',p_attempt,'revision',p_revision,'answers',p_answers,'extension',p_extension);
@@ -127,3 +128,89 @@ CREATE OR REPLACE FUNCTION public.sitov_create_pronunciation_upload_ticket(p_tex
 DO $$ DECLARE f record;BEGIN FOR f IN SELECT p.oid::regprocedure signature FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='sitov_pronunciation_private' AND p.proname IN('pretest_hash','valid_pool','guard_definition','current_pretest','current_pass','attempt_summary','attempt_response','pretest_error','pretest_command','pretest_catalog','pretest_staff') LOOP EXECUTE format('REVOKE ALL ON FUNCTION %s FROM PUBLIC,anon,authenticated',f.signature);END LOOP;END $$;
 GRANT EXECUTE ON FUNCTION sitov_pronunciation_private.pretest_command(text,uuid,uuid,integer,jsonb,uuid,text),sitov_pronunciation_private.pretest_catalog(text),sitov_pronunciation_private.pretest_staff(uuid,uuid),sitov_pronunciation_private.current_pass(uuid) TO authenticated;
 DO $$ DECLARE f record;BEGIN FOR f IN SELECT p.oid::regprocedure signature FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='public' AND p.proname IN('sitov_get_pronunciation_pretests','sitov_start_pronunciation_pretest','sitov_get_pronunciation_pretest_attempt','sitov_save_pronunciation_pretest_answers','sitov_submit_pronunciation_pretest','sitov_get_pronunciation_pretest_staff','sitov_create_pronunciation_upload_ticket') LOOP EXECUTE format('REVOKE ALL ON FUNCTION %s FROM PUBLIC,anon',f.signature);EXECUTE format('GRANT EXECUTE ON FUNCTION %s TO authenticated',f.signature);END LOOP;END $$;
+
+-- Preserve exact prior definitions for a coordinated, non-destructive rollback.
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_legacy_functions(signature text PRIMARY KEY,definition text NOT NULL);
+REVOKE ALL ON sitov_pronunciation_private.pretest_legacy_functions FROM PUBLIC,anon,authenticated;
+ALTER TABLE sitov_pronunciation_private.pretest_legacy_functions ENABLE ROW LEVEL SECURITY;
+INSERT INTO sitov_pronunciation_private.pretest_legacy_functions SELECT signature,pg_get_functiondef(signature::regprocedure) FROM unnest(ARRAY[
+ 'sitov_pronunciation_private.text_allowed(uuid)','sitov_pronunciation_private.guard_submission()',
+ 'sitov_pronunciation_private.can_record()','pronunciation_private.create_submission(uuid,text)',
+ 'pronunciation_private.can_access_submission(uuid)']) signature ON CONFLICT DO NOTHING;
+ALTER TABLE sitov_pronunciation_private.upload_tickets ALTER COLUMN text_id DROP NOT NULL;
+ALTER TABLE sitov_pronunciation_private.upload_tickets ALTER COLUMN definition_id DROP NOT NULL;
+ALTER TABLE sitov_pronunciation_private.upload_tickets ADD COLUMN IF NOT EXISTS purpose text NOT NULL DEFAULT 'target' CHECK(purpose IN('target','reply'));
+ALTER TABLE sitov_pronunciation_private.upload_tickets ADD COLUMN IF NOT EXISTS submission_id uuid REFERENCES public.submissions(id);
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.text_allowed(p_prompt uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT sitov_pronunciation_private.current_pass(p_prompt) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.staff_preview() RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT sitov_access_private.staff() $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.staff_preview() FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION sitov_pronunciation_private.staff_preview() TO authenticated;
+DROP POLICY IF EXISTS sitov_pronunciation_readiness_bounds ON public.learning_reading_texts;
+CREATE POLICY sitov_pronunciation_readiness_bounds ON public.learning_reading_texts AS RESTRICTIVE FOR SELECT TO authenticated USING(sitov_pronunciation_private.staff_preview() OR sitov_pronunciation_private.current_pass(id));
+-- Historical submissions and saved text snapshots do not grant any target rights.
+CREATE OR REPLACE FUNCTION pronunciation_private.can_access_submission(p_id uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND EXISTS(SELECT 1 FROM public.submissions s WHERE s.id=p_id AND s.type='audio' AND (s.auth_user_id=auth.uid() OR sitov_access_private.staff())) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.ticket_upload_allowed(p_path text) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND EXISTS(SELECT 1 FROM sitov_pronunciation_private.upload_tickets t WHERE t.student_id=auth.uid() AND t.path=p_path AND t.consumed_at IS NULL AND t.expires_at>clock_timestamp() AND (
+ (t.purpose='target' AND t.submission_id IS NULL AND t.definition_id=(sitov_pronunciation_private.current_pretest(t.text_id)).id AND sitov_pronunciation_private.current_pass(t.text_id)) OR
+ (t.purpose='reply' AND t.text_id IS NULL AND t.definition_id IS NULL AND pronunciation_private.can_access_submission(t.submission_id)))) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.can_record() RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM sitov_pronunciation_private.upload_tickets t WHERE t.student_id=auth.uid() AND sitov_pronunciation_private.ticket_upload_allowed(t.path)) $$;
+DROP POLICY IF EXISTS sitov_pronunciation_ready_upload ON storage.objects;
+CREATE POLICY sitov_pronunciation_ready_upload ON storage.objects AS RESTRICTIVE FOR INSERT TO authenticated WITH CHECK(bucket_id NOT IN('pronunciation_audio','audio_submissions') OR bucket_id='pronunciation_audio' AND sitov_pronunciation_private.ticket_upload_allowed(name));
+DROP POLICY IF EXISTS sitov_pronunciation_owned_upload ON storage.objects;
+CREATE POLICY sitov_pronunciation_owned_upload ON storage.objects FOR INSERT TO authenticated WITH CHECK(bucket_id='pronunciation_audio' AND sitov_pronunciation_private.ticket_upload_allowed(name));
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.guard_submission() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE ticket sitov_pronunciation_private.upload_tickets;source_text text;BEGIN
+ IF auth.uid() IS NULL OR NEW.type<>'audio' OR NEW.prompt_id IS NULL THEN RETURN NEW;END IF;
+ IF TG_OP='UPDATE' AND (NEW.prompt_id,NEW.content_url,NEW.auth_user_id) IS NOT DISTINCT FROM (OLD.prompt_id,OLD.content_url,OLD.auth_user_id) THEN RETURN NEW;END IF;
+ SELECT r.sentence_de INTO source_text FROM public.learning_reading_texts r WHERE r.id=NEW.prompt_id FOR SHARE;
+ IF NEW.content_url IS NULL OR NEW.content_url NOT LIKE 'storage://pronunciation_audio/'||auth.uid()::text||'/%' OR NEW.auth_user_id<>auth.uid() OR NOT sitov_pronunciation_private.current_pass(NEW.prompt_id) THEN RAISE EXCEPTION 'test_required' USING ERRCODE='42501';END IF;
+ SELECT * INTO ticket FROM sitov_pronunciation_private.upload_tickets t WHERE t.path=replace(NEW.content_url,'storage://pronunciation_audio/','') AND t.student_id=auth.uid() FOR UPDATE;
+ IF ticket.id IS NULL OR ticket.purpose<>'target' OR ticket.text_id<>NEW.prompt_id OR NOT sitov_pronunciation_private.ticket_upload_allowed(ticket.path) OR NOT EXISTS(SELECT 1 FROM storage.objects o WHERE o.bucket_id='pronunciation_audio' AND o.name=ticket.path) THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
+ NEW.text_content:=source_text;
+ UPDATE sitov_pronunciation_private.upload_tickets SET consumed_at=clock_timestamp() WHERE id=ticket.id;RETURN NEW;END $$;
+-- Ownership reassignment cannot bypass new-reading authorization.
+DROP TRIGGER IF EXISTS sitov_pronunciation_ready_submission ON public.submissions;
+CREATE TRIGGER sitov_pronunciation_ready_submission BEFORE INSERT OR UPDATE OF prompt_id,content_url,auth_user_id ON public.submissions FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_submission();
+CREATE OR REPLACE FUNCTION pronunciation_private.create_submission(p_prompt_id uuid,p_audio_path text) RETURNS uuid LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE result uuid;level text;BEGIN
+ IF NOT sitov_pronunciation_private.current_pass(p_prompt_id) THEN RAISE EXCEPTION 'test_required' USING ERRCODE='42501';END IF;
+ IF p_audio_path NOT LIKE 'storage://pronunciation_audio/'||auth.uid()::text||'/%' THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
+ SELECT u.level INTO level FROM public.learning_reading_texts r JOIN public.learning_units u ON u.id=r.unit_id WHERE r.id=p_prompt_id;
+ INSERT INTO public.submissions(auth_user_id,type,content_url,status,level,prompt_id) VALUES(auth.uid(),'audio',p_audio_path,'pending',level,p_prompt_id) RETURNING id INTO result;RETURN result;END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.reply_ticket(p_submission uuid,p_request uuid,p_extension text) RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE payload jsonb;receipt record;id uuid;path text;expires timestamptz;response jsonb;BEGIN
+ IF auth.uid() IS NULL THEN RETURN sitov_pronunciation_private.pretest_error('authentication_required');END IF;
+ IF NOT pronunciation_private.can_access_submission(p_submission) THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
+ IF p_request IS NULL OR p_extension IS NULL OR p_extension NOT IN('webm','mp4','ogg','wav','mp3') THEN RETURN sitov_pronunciation_private.pretest_error('invalid_input');END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('sitov-pretest:'||auth.uid()::text,0));payload:=jsonb_build_object('op','reply','submission',p_submission,'extension',p_extension);
+ SELECT * INTO receipt FROM sitov_pronunciation_private.pretest_receipts WHERE student_id=auth.uid() AND request_id=p_request;
+ IF FOUND THEN IF receipt.payload<>payload THEN RETURN sitov_pronunciation_private.pretest_error('request_conflict');END IF;RETURN receipt.response;END IF;
+ id:=gen_random_uuid();path:=auth.uid()::text||'/'||id::text||'.'||p_extension;expires:=clock_timestamp()+interval '10 minutes';
+ INSERT INTO sitov_pronunciation_private.upload_tickets(id,student_id,purpose,submission_id,path,expires_at) VALUES(id,auth.uid(),'reply',p_submission,path,expires);
+ response:=jsonb_build_object('ok',true,'data',jsonb_build_object('ticketId',id,'path',path,'expiresAt',expires,'submissionId',p_submission,'purpose','reply'));
+ INSERT INTO sitov_pronunciation_private.pretest_receipts VALUES(auth.uid(),p_request,payload,response);RETURN response;END $$;
+CREATE OR REPLACE FUNCTION public.sitov_create_pronunciation_reply_upload_ticket(p_submission_id uuid,p_request_id uuid,p_extension text) RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT sitov_pronunciation_private.reply_ticket(p_submission_id,p_request_id,p_extension) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.consume_reply_ticket() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE t sitov_pronunciation_private.upload_tickets;BEGIN
+ IF NEW.audio_path IS NULL THEN RETURN NEW;END IF;
+ SELECT * INTO t FROM sitov_pronunciation_private.upload_tickets WHERE path=replace(NEW.audio_path,'storage://pronunciation_audio/','') AND student_id=auth.uid() FOR UPDATE;
+ IF t.id IS NULL OR t.purpose<>'reply' OR t.submission_id<>NEW.submission_id OR NOT sitov_pronunciation_private.ticket_upload_allowed(t.path) OR NEW.sender_id<>auth.uid() OR NOT EXISTS(SELECT 1 FROM storage.objects o WHERE o.bucket_id='pronunciation_audio' AND o.name=t.path) THEN RAISE EXCEPTION 'invalid_reply_ticket' USING ERRCODE='42501';END IF;
+ UPDATE sitov_pronunciation_private.upload_tickets SET consumed_at=clock_timestamp() WHERE id=t.id;RETURN NEW;END $$;
+DROP TRIGGER IF EXISTS sitov_pretest_reply_ticket ON public.pronunciation_messages;
+CREATE TRIGGER sitov_pretest_reply_ticket BEFORE INSERT ON public.pronunciation_messages FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.consume_reply_ticket();
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.ticket_upload_allowed(text),sitov_pronunciation_private.reply_ticket(uuid,uuid,text),sitov_pronunciation_private.consume_reply_ticket() FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION sitov_pronunciation_private.ticket_upload_allowed(text),sitov_pronunciation_private.reply_ticket(uuid,uuid,text) TO authenticated;
+REVOKE ALL ON FUNCTION public.sitov_create_pronunciation_reply_upload_ticket(uuid,uuid,text) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.sitov_create_pronunciation_reply_upload_ticket(uuid,uuid,text) TO authenticated;
+-- Exact selected-item commercial rights need a new permissive port as well as
+-- restrictive bounds; the older unit-only release policy cannot grant this path.
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.unit_has_current_pass(p_unit uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT auth.uid() IS NOT NULL AND EXISTS(SELECT 1 FROM public.learning_reading_texts r WHERE r.unit_id=p_unit AND sitov_pronunciation_private.current_pass(r.id)) $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.unit_has_current_pass(uuid) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION sitov_pronunciation_private.unit_has_current_pass(uuid) TO authenticated;
+DROP POLICY IF EXISTS sitov_pretest_released_read ON public.learning_reading_texts;
+CREATE POLICY sitov_pretest_released_read ON public.learning_reading_texts FOR SELECT TO authenticated USING(sitov_pronunciation_private.current_pass(id) AND learning_private.german_text_allowed(sentence_de) AND learning_private.german_text_allowed(focus));
+DROP POLICY IF EXISTS sitov_pretest_released_unit ON public.learning_units;
+CREATE POLICY sitov_pretest_released_unit ON public.learning_units FOR SELECT TO authenticated USING(trainer='pronunciation' AND sitov_pronunciation_private.unit_has_current_pass(id));

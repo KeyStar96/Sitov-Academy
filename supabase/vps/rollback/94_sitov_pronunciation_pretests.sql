@@ -9,3 +9,10 @@ REVOKE EXECUTE ON FUNCTION public.sitov_get_pronunciation_pretests(text),
 REVOKE EXECUTE ON FUNCTION sitov_pronunciation_private.pretest_command(text,uuid,uuid,integer,jsonb,uuid,text),
  sitov_pronunciation_private.pretest_catalog(text),sitov_pronunciation_private.pretest_staff(uuid,uuid),
  sitov_pronunciation_private.current_pass(uuid) FROM authenticated;
+-- Freeze new target/reply writes even for existing ticket holders; history is retained.
+REVOKE EXECUTE ON FUNCTION public.sitov_create_pronunciation_reply_upload_ticket(uuid,uuid,text),
+ sitov_pronunciation_private.reply_ticket(uuid,uuid,text) FROM authenticated;
+DROP POLICY IF EXISTS sitov_pretest_released_read ON public.learning_reading_texts;
+DROP POLICY IF EXISTS sitov_pretest_released_unit ON public.learning_units;
+DROP POLICY IF EXISTS sitov_pronunciation_ready_upload ON storage.objects;
+CREATE POLICY sitov_pronunciation_ready_upload ON storage.objects AS RESTRICTIVE FOR INSERT TO authenticated WITH CHECK(bucket_id NOT IN('pronunciation_audio','audio_submissions'));
