@@ -1,5 +1,7 @@
 -- Sitov Academy fail-closed API rollback; retain all definitions/attempts/proofs/receipts/tickets.
 -- Deploy together with matched application release; does not restore/bypass any learner gate.
+-- Freeze first: trigger checks execute even inside existing SECURITY DEFINER wrappers.
+UPDATE sitov_pronunciation_private.write_control SET enabled=false WHERE singleton;
 REVOKE EXECUTE ON FUNCTION public.sitov_get_pronunciation_pretests(text),
  public.sitov_start_pronunciation_pretest(uuid,uuid),public.sitov_get_pronunciation_pretest_attempt(uuid),
  public.sitov_save_pronunciation_pretest_answers(uuid,integer,jsonb,uuid),

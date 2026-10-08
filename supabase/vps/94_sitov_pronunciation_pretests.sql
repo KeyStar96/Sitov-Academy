@@ -230,3 +230,32 @@ DROP POLICY IF EXISTS sitov_pretest_released_read ON public.learning_reading_tex
 CREATE POLICY sitov_pretest_released_read ON public.learning_reading_texts FOR SELECT TO authenticated USING(sitov_pronunciation_private.current_pass(id) AND learning_private.german_text_allowed(sentence_de) AND learning_private.german_text_allowed(focus));
 DROP POLICY IF EXISTS sitov_pretest_released_unit ON public.learning_units;
 CREATE POLICY sitov_pretest_released_unit ON public.learning_units FOR SELECT TO authenticated USING(trainer='pronunciation' AND sitov_pronunciation_private.unit_has_current_pass(id));
+
+-- Operational rollback switch applies inside triggers, including old SECURITY DEFINER wrappers.
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.write_control(singleton boolean PRIMARY KEY DEFAULT true CHECK(singleton),enabled boolean NOT NULL DEFAULT false);
+REVOKE ALL ON sitov_pronunciation_private.write_control FROM PUBLIC,anon,authenticated;
+ALTER TABLE sitov_pronunciation_private.write_control ENABLE ROW LEVEL SECURITY;
+INSERT INTO sitov_pronunciation_private.write_control(singleton,enabled) VALUES(true,false) ON CONFLICT DO NOTHING;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.writes_enabled() RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT coalesce((SELECT enabled FROM sitov_pronunciation_private.write_control WHERE singleton),false) $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.guard_writes() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE protected boolean;BEGIN
+ IF TG_TABLE_NAME='submissions' THEN
+  IF TG_OP='DELETE' THEN protected:=OLD.type='audio';ELSIF TG_OP='UPDATE' THEN protected:=OLD.type='audio' OR NEW.type='audio';ELSE protected:=NEW.type='audio';END IF;
+ ELSIF TG_TABLE_NAME='objects' THEN
+  IF TG_OP='DELETE' THEN protected:=OLD.bucket_id IN('pronunciation_audio','audio_submissions');ELSIF TG_OP='UPDATE' THEN protected:=OLD.bucket_id IN('pronunciation_audio','audio_submissions') OR NEW.bucket_id IN('pronunciation_audio','audio_submissions');ELSE protected:=NEW.bucket_id IN('pronunciation_audio','audio_submissions');END IF;
+ ELSE protected:=true;END IF;
+ IF protected AND auth.uid() IS NOT NULL AND NOT sitov_pronunciation_private.writes_enabled() THEN RAISE EXCEPTION 'pronunciation_writes_frozen' USING ERRCODE='42501';END IF;
+ IF TG_OP='DELETE' THEN RETURN OLD;END IF;RETURN NEW;END $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.writes_enabled(),sitov_pronunciation_private.guard_writes() FROM PUBLIC,anon,authenticated;
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON public.submissions;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON public.submissions FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON public.pronunciation_messages;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON public.pronunciation_messages FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON storage.objects;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON storage.objects FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON pronunciation_private.staff_hidden_messages;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON pronunciation_private.staff_hidden_messages FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+DROP TRIGGER IF EXISTS sitov_pretest_write_freeze ON pronunciation_private.staff_hidden_submissions;
+CREATE TRIGGER sitov_pretest_write_freeze BEFORE INSERT OR UPDATE OR DELETE ON pronunciation_private.staff_hidden_submissions FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_writes();
+-- Re-enable only after the exact current forward gates and APIs have been restored.
+UPDATE sitov_pronunciation_private.write_control SET enabled=true WHERE singleton;
