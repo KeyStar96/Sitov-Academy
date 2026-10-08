@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { getMyLearningProgress } from '@/app/actions/learning-progress'
 import { getDictionary } from '@/lib/dictionary'
 import { requestSession } from '@/lib/request-session'
+import { sitovLearningSourceLocale } from '@/lib/access/sitov-learning-source'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { ACCESS_LEVELS, hasLevelAccess, hasTrainerAccess } from '@/lib/access/levels'
 import { loadLastActiveLevel } from '@/lib/last-active-level'
@@ -24,8 +25,8 @@ export default async function ProgressPage({ params }: { params: Promise<{ lang:
     getMyLearningProgress({ level: null, days: 30 }),
   ])
   const levels = ACCESS_LEVELS.filter(level => hasLevelAccess(access, level))
-  // Problemwörter gehören zum Vokabeltrainer; der braucht eine andere Oberflächensprache als Deutsch.
-  const focusLevels = lang === 'de' ? [] : levels.filter(level => hasTrainerAccess(access, level, 'vocabulary'))
+  const focusLevels = sitovLearningSourceLocale(lang, access?.native_language)
+    ? levels.filter(level => hasTrainerAccess(access, level, 'vocabulary')) : []
   const focusLevel = focusLevels.find(level => level === lastActive?.level) ?? focusLevels[0] ?? null
   const exam = levels.some(level => level.startsWith('B1.')) ? await Promise.all([getExamState(),getPublicExamCatalog()]).catch(()=>null) : null
   return <div className="space-y-6">
