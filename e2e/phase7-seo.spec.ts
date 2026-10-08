@@ -40,12 +40,16 @@ test.describe('Consent und Meta-Pixel', () => {
     expect(metaRequests).toEqual([])
   })
 
-  test('nach „Alle akzeptieren“ lädt das Pixel (afterInteractive)', async ({ page }) => {
+  test('nach „Alle akzeptieren“ sendet die öffentliche Seite ein explizites PageView-Bild', async ({ page }) => {
     const metaRequests = trackMetaRequests(page)
     await page.goto('/de')
     await page.getByRole('button', { name: de.consent.accept_all }).click()
-    await expect.poll(() => metaRequests.some(url => url.startsWith('https://connect.facebook.net/'))).toBe(true)
-    await expect(page.locator('script#meta-pixel')).toHaveCount(1)
+    await expect.poll(() => metaRequests.some(url => {
+      const pixel = new URL(url)
+      return pixel.hostname === 'www.facebook.com' && pixel.pathname === '/tr' && pixel.searchParams.get('ev') === 'PageView'
+    })).toBe(true)
+    expect(metaRequests.some(url => new URL(url).hostname === 'connect.facebook.net')).toBe(false)
+    await expect(page.locator('script#meta-pixel')).toHaveCount(0)
     await expect(page.locator('noscript img[src*="facebook.com/tr"]')).toHaveCount(0)
   })
 
@@ -89,7 +93,8 @@ test.describe('Crawling und Indexierung', () => {
     expect(xml).toContain('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')
     expect(xml).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"')
     const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(match => match[1])
-    expect(entries).toHaveLength(6 * LOCALES.length)
+    expect(entries).toHaveLength(8 * LOCALES.length)
+    expect(xml).not.toContain('<lastmod>')
     for (const entry of entries) {
       const loc = /<loc>([^<]+)<\/loc>/.exec(entry)?.[1] ?? ''
       expect(loc.startsWith(`${CANONICAL}/`)).toBe(true)
@@ -97,6 +102,8 @@ test.describe('Crawling und Indexierung', () => {
       expect(entry).toContain(`hreflang="x-default" href="${CANONICAL}/de`)
     }
     expect(xml).toContain(`<loc>${CANONICAL}/de/registration</loc>`)
+    expect(xml).toContain(`<loc>${CANONICAL}/de/deutschkurse-hannover</loc>`)
+    expect(xml).toContain(`<loc>${CANONICAL}/de/deutschkurse-online</loc>`)
   })
 
   test('robots.txt ist erreichbar und blockiert keine öffentliche Seite', async ({ request }) => {
@@ -120,7 +127,7 @@ test.describe('Crawling und Indexierung', () => {
     expect(response.headers()['content-type']).toBe('image/jpeg')
   })
 
-  for (const [route, pagePath] of [['/de', ''], ['/uk/registration', '/registration'], ['/tr/agb', '/agb'], ['/ru/privacy', '/privacy'], ['/en/imprint', '/imprint'], ['/de/cancellation', '/cancellation']] as const) {
+  for (const [route, pagePath] of [['/de', ''], ['/uk/registration', '/registration'], ['/en/deutschkurse-hannover', '/deutschkurse-hannover'], ['/ru/deutschkurse-online', '/deutschkurse-online'], ['/tr/agb', '/agb'], ['/ru/privacy', '/privacy'], ['/en/imprint', '/imprint'], ['/de/cancellation', '/cancellation']] as const) {
     test(`${route}: canonical und hreflang inkl. x-default im <head>`, async ({ page }) => {
       await page.goto(route)
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${CANONICAL}${route}`)
@@ -131,7 +138,25 @@ test.describe('Crawling und Indexierung', () => {
         ...Object.fromEntries(LOCALES.map(locale => [locale, `${CANONICAL}/${locale}${pagePath}`])),
       })
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
+      const googleBot = await page.locator('meta[name="googlebot"]').getAttribute('content')
+      expect(googleBot).toContain('max-image-preview:large')
+      expect(googleBot).toContain('max-snippet:-1')
       expect(await page.title()).not.toMatch(/Sitov Academy.*\|\s*Sitov Academy/)
+    })
+  }
+
+  for (const locale of LOCALES) {
+    test(`${locale}: Layout-Fallback ist übersetzt und Kontoseiten bleiben noindex`, async ({ request }) => {
+      const dict = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'dictionaries', `${locale}.json`), 'utf-8'))
+      const response = await request.get(`/${locale}/login`)
+      expect(response.status()).toBe(200)
+      const html = await response.text()
+      // Der robots-Wert der privaten Seite ersetzt die öffentlichen Einstellungen.
+      expect(html).toContain('<meta name="robots" content="noindex, nofollow"')
+      expect(html).not.toContain('<meta name="googlebot"')
+      const description = /<meta name="description" content="([^"]*)"/.exec(html)?.[1]
+      const escapedDescription = dict.meta.description.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      expect(description).toBe(escapedDescription)
     })
   }
 
@@ -146,6 +171,27 @@ test.describe('Crawling und Indexierung', () => {
     const response = await request.get('/', { maxRedirects: 0 })
     expect(response.status()).toBe(301)
     expect(new URL(response.headers().location, 'http://base.invalid').pathname).toBe('/de')
+  })
+
+  test('alte Seitenlinks behalten die richtige Seite, Sprache und Kampagnenparameter', async ({ request }) => {
+    for (const [source, destination] of [
+      ['/impressum?lang=en&utm_source=google', '/en/imprint?utm_source=google'],
+      ['/AGB.html?lang=uk', '/uk/agb'],
+      ['/registration?lang=ru&courseId=test&trial=1', '/ru/registration?courseId=test&trial=1'],
+    ]) {
+      const response = await request.get(source, { maxRedirects: 0 })
+      expect(response.status()).toBe(301)
+      const location = new URL(response.headers().location, 'http://base.invalid')
+      expect(location.pathname + location.search).toBe(destination)
+    }
+  })
+
+  test('unbekannte alte Sprachlinks liefern weiterhin 404 und keine Startseitenkopie', async ({ request }) => {
+    const response = await request.get('/sitov-missing-seo-page?lang=tr&utm_source=test', { maxRedirects: 0 })
+    expect(response.status()).toBe(301)
+    const target = new URL(response.headers().location, 'http://base.invalid')
+    expect(target.pathname + target.search).toBe('/tr/sitov-missing-seo-page?utm_source=test')
+    expect((await request.get(target.pathname + target.search)).status()).toBe(404)
   })
 })
 

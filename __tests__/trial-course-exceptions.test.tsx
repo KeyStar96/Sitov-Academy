@@ -25,7 +25,7 @@ const serverTime=new Date('2026-09-13T10:00:00Z').getTime()
 const goToDates=()=>fireEvent.click(screen.getByRole('button',{name:'Weiter'}))
 
 it('excludes global and own-course cancellations before filling eight trial dates, but keeps other-course cancellations',()=>{
- render(<EnrollmentTerminal dictionary={de} lang="de" courses={[course]} serverTime={serverTime} exceptions={[
+ render(<EnrollmentTerminal dictionary={de} lang="de" isTrial initialCourseId={course.id} courses={[course]} serverTime={serverTime} exceptions={[
   {date:'2026-09-14',reason:'All courses cancelled'},
   {date:'2026-09-21',reason:'This course cancelled',courseIds:[course.id]},
   {date:'2026-09-28',reason:'Another course cancelled',courseIds:['00000000-0000-4000-8000-000000000002']},
@@ -40,14 +40,14 @@ it('excludes global and own-course cancellations before filling eight trial date
 
 it('respects the course period and clears a selected trial when its date becomes cancelled',()=>{
  const courses=[{...course,startDate:'2026-09-21',endDate:'2026-09-28'}]
- const {rerender}=render(<EnrollmentTerminal dictionary={de} lang="de" courses={courses} serverTime={serverTime}/>);
+ const {rerender}=render(<EnrollmentTerminal dictionary={de} lang="de" isTrial initialCourseId={course.id} courses={courses} serverTime={serverTime}/>);
  goToDates()
  expect(screen.queryByRole('radio',{name:/14\. September/})).not.toBeInTheDocument()
  expect(screen.queryByRole('radio',{name:/5\. Oktober/})).not.toBeInTheDocument()
  fireEvent.click(screen.getByRole('radio',{name:/21\. September/}))
  const receipt=screen.getByRole('complementary')
  expect(receipt).toHaveTextContent('Termin: Montag, 21. September')
- rerender(<EnrollmentTerminal dictionary={de} lang="de" courses={courses} serverTime={serverTime} exceptions={[{date:'2026-09-21',reason:'Cancelled'}]}/>);
+ rerender(<EnrollmentTerminal dictionary={de} lang="de" isTrial initialCourseId={course.id} courses={courses} serverTime={serverTime} exceptions={[{date:'2026-09-21',reason:'Cancelled'}]}/>);
  expect(screen.queryByRole('radio',{name:/21\. September/})).not.toBeInTheDocument()
  expect(receipt).not.toHaveTextContent('21. September')
  expect(screen.getByRole('radio',{name:/28\. September/})).not.toBeChecked()

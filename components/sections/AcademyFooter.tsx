@@ -3,12 +3,15 @@ import { ArrowUpRight, Mail, Phone } from 'lucide-react'
 import BrandLogo from '@/components/layout/BrandLogo'
 import ConsentSettingsButton from '@/components/analytics/ConsentSettingsButton'
 import type { getDictionary } from '@/lib/dictionary'
+import { getSitovCourseLinks } from '@/lib/sitov-course-seo-copy'
+import PressableCard from '@/components/motion/PressableCard'
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>
 export default function AcademyFooter({ dictionary, lang }: { dictionary: Dictionary; lang: string }) {
   const copy = dictionary.academy
   const footer = dictionary.Footer
   const { classroom, school } = footer.Addresses
+  const courseLinks = getSitovCourseLinks(lang)
 
   return (
     <footer id="location" className="academy-footer">
@@ -49,6 +52,10 @@ export default function AcademyFooter({ dictionary, lang }: { dictionary: Dictio
             <a href={`tel:${footer.Contact.phone.replace(/\s/g, '')}`}><Phone size={18} aria-hidden="true" /><span>{footer.Contact.phone}</span></a>
           </section>
         </div>
+
+        <nav aria-label={courseLinks.label} className="flex flex-wrap gap-3 pb-8">
+          {courseLinks.links.map(link => <PressableCard key={link.href} href={link.href} className="academy-button academy-button-outline max-w-full">{link.label}<ArrowUpRight size={18} aria-hidden="true" /></PressableCard>)}
+        </nav>
 
         <div className="academy-footer-bottom">
           <p>{footer.Legal.copyright}</p>

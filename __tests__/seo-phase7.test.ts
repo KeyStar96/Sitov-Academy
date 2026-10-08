@@ -36,7 +36,7 @@ const dictionaries = Object.fromEntries(LOCALES.map(locale => [
 ]))
 
 describe('hreflang und canonical', () => {
-  it.each(['', '/registration', '/agb', '/privacy', '/imprint', '/cancellation'])('baut für "%s" einen vollständigen Cluster inkl. x-default', page => {
+  it.each(seo.INDEXABLE_PAGES.map(page => page.path))('baut für "%s" einen vollständigen Cluster inkl. x-default', page => {
     const languages = seo.languageAlternates(page)
     expect(Object.keys(languages).sort()).toEqual(['de', 'en', 'ru', 'tr', 'uk', 'x-default'])
     expect(languages['x-default']).toBe(`${CANONICAL}/de${page}`)
@@ -47,7 +47,17 @@ describe('hreflang und canonical', () => {
     const metadata = seo.buildPageMetadata({ lang: 'uk', path: '/registration', title: 'T', description: 'D', imageAlt: 'A' })
     expect(metadata.alternates?.canonical).toBe(`${CANONICAL}/uk/registration`)
     expect(JSON.stringify(metadata)).not.toContain('217.154.228.254')
-    expect(metadata.robots).toEqual({ index: true, follow: true })
+    expect(metadata.robots).toEqual({
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
+    })
   })
 
   it('liefert OpenGraph und Twitter Card mit dem 1200×630-Bild', () => {
@@ -72,9 +82,37 @@ describe('sitemap.xml', () => {
   const entries = sitemap()
 
   it('enthält jede indexierbare Seite in jeder Sprache genau einmal', () => {
+    expect(entries).toHaveLength(40)
     expect(entries).toHaveLength(seo.INDEXABLE_PAGES.length * LOCALES.length)
     expect(new Set(entries.map(entry => entry.url)).size).toBe(entries.length)
     expect(entries.map(entry => entry.url)).toEqual(expect.arrayContaining([`${CANONICAL}/de`, `${CANONICAL}/tr/registration`]))
+  })
+
+  it('führt Hannover- und Online-Kurse jeweils als eigene Sprachgruppe', () => {
+    for (const pagePath of ['/deutschkurse-hannover', '/deutschkurse-online']) {
+      const courses = entries.filter(entry => new URL(entry.url).pathname.endsWith(pagePath))
+      expect(courses.map(entry => entry.url).sort()).toEqual(LOCALES.map(locale => `${CANONICAL}/${locale}${pagePath}`).sort())
+      for (const entry of courses) expect(entry.alternates?.languages).toEqual(seo.languageAlternates(pagePath))
+    }
+  })
+
+  it('bleibt bei unveränderten Inhalten über die Zeit identisch und erfindet kein Änderungsdatum', () => {
+    jest.useFakeTimers()
+    try {
+      jest.setSystemTime(new Date('2026-10-08T08:00:00Z'))
+      const first = sitemap()
+      jest.setSystemTime(new Date('2026-12-14T16:00:00Z'))
+      expect(sitemap()).toEqual(first)
+      for (const entry of first) expect(entry).not.toHaveProperty('lastModified')
+    } finally {
+      jest.useRealTimers()
+    }
+  })
+
+  it('enthält weder Konto- noch private Lern- und Verwaltungsseiten', () => {
+    for (const entry of entries) {
+      expect(new URL(entry.url).pathname).not.toMatch(/\/(?:login|register|forgot-password|reset-password|dashboard|admin|staff-security|sitov-preview)(?:\/|$)/)
+    }
   })
 
   it('führt für jeden Eintrag alle Sprachen plus x-default', () => {

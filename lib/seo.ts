@@ -24,6 +24,8 @@ export const OG_LOCALES: Readonly<Record<string, string>> = {
 /** Öffentliche, indexierbare Seiten (ohne Sprachpräfix). */
 export const INDEXABLE_PAGES = [
   { path: '', changeFrequency: 'weekly', priority: 1.0 },
+  { path: '/deutschkurse-hannover', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/deutschkurse-online', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/registration', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/agb', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/privacy', changeFrequency: 'monthly', priority: 0.4 },
@@ -72,7 +74,17 @@ export function buildPageMetadata({ lang, path, title, description, imageAlt, ab
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
+    },
     alternates: pageAlternates(lang, path),
     openGraph: {
       title: socialTitle,

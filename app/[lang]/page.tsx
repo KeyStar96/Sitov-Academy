@@ -54,9 +54,8 @@ export default async function HomePage({
         "@type": ["EducationalOrganization", "LocalBusiness"],
         "@id": `${BASE_URL}/#organization`,
         "name": "Sitov Academy",
-        "alternateName": "Sitov Academy Hannover",
         "url": BASE_URL,
-        "logo": `${BASE_URL}/Bilder/favicon.png`,
+        "logo": absoluteUrl('/_next/image?url=%2FBilder%2Ffavicon.png&w=256&q=75'),
         "image": absoluteUrl(OG_IMAGE.path),
         "description": dictionary.meta.description,
         "email": "info@sitov-academy.com",
@@ -72,19 +71,6 @@ export default async function HomePage({
           "addressRegion": "Niedersachsen",
           "addressCountry": "DE",
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 52.3975,
-          "longitude": 9.7380,
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "18:00",
-          },
-        ],
         "availableLanguage": [
           { "@type": "Language", "name": "German", "alternateName": "de" },
           { "@type": "Language", "name": "Russian", "alternateName": "ru" },

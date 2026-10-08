@@ -22,7 +22,7 @@ jest.mock('framer-motion',()=>{
 })
 const course:CourseConfig={id:'00000000-0000-4000-8000-000000000001',slug:'privatunterricht-online',title:'Privatunterricht online',description:'Termine nach Vereinbarung',category:'private',type:'online',unitPrice:25,unitMinutes:45,sessions:[],trialLessons:false}
 it('preselects online private lessons and updates the registration receipt without inventing scheduled sessions',async()=>{
- render(<EnrollmentTerminal dictionary={de} lang="de" courses={[course]} serverTime={new Date('2026-10-14T10:00:00Z').getTime()}/>)
+ render(<EnrollmentTerminal dictionary={de} lang="de" initialCourseId={course.id} courses={[course]} serverTime={new Date('2026-10-14T10:00:00Z').getTime()}/>)
  const quantity=await screen.findByRole('spinbutton',{name:'Unterrichtseinheiten'})
  expect(quantity).toHaveValue(1)
  fireEvent.change(quantity,{target:{value:'3'}})

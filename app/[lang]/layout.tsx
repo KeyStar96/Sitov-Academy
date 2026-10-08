@@ -17,27 +17,36 @@ import { CONSENT_BOOTSTRAP_SCRIPT } from "@/lib/analytics/consent";
 import { CANONICAL_SITE_URL } from "@/lib/site-url";
 import { LOCALES } from "@/lib/locale-routing";
 import AcademySkipLink from "@/components/layout/AcademySkipLink";
+import { SITE_NAME } from "@/lib/seo";
 
 /* ─── Global metadata defaults (inherited by all pages) ─── */
-export const metadata: Metadata = {
-  metadataBase: new URL(CANONICAL_SITE_URL),
-  title: {
-    template: '%s | Sitov Academy',
-    default: 'Sitov Academy — Deutschkurse in Hannover',
-  },
-  description: 'Deutschkurse in Hannover für Ukrainer & Russischsprachige. A1-B2, Online & Präsenz.',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  icons: {
-    // Use the local image optimizer: the original artwork is 3072px / 9 MB.
-    icon: '/_next/image?url=%2FBilder%2Ffavicon.png&w=64&q=75',
-    shortcut: '/_next/image?url=%2FBilder%2Ffavicon.png&w=64&q=75',
-    apple: '/_next/image?url=%2FBilder%2Ffavicon.png&w=256&q=75',
-  },
-};
+export async function generateMetadata({ params }: {
+  params: Promise<{ lang: string }>
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!(LOCALES as readonly string[]).includes(lang)) notFound();
+  const dictionary = await getDictionary(lang);
+
+  return {
+    metadataBase: new URL(CANONICAL_SITE_URL),
+    title: {
+      template: `%s | ${SITE_NAME}`,
+      default: dictionary.meta.title,
+    },
+    description: dictionary.meta.description,
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    icons: {
+      // Use the local image optimizer: the original artwork is 3072px / 9 MB.
+      icon: '/_next/image?url=%2FBilder%2Ffavicon.png&w=64&q=75',
+      shortcut: '/_next/image?url=%2FBilder%2Ffavicon.png&w=64&q=75',
+      apple: '/_next/image?url=%2FBilder%2Ffavicon.png&w=256&q=75',
+    },
+  };
+}
 
 // Inter: Variable-Font mit Kyrillisch (ru/uk) UND Latin-Extended (tr: ğ/ş/ı).
 // next/font lädt zur Build-Zeit herunter und self-hosted — kein Client-Request an Google (DSGVO).

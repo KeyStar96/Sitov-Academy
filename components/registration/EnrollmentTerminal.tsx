@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AlertCircle, ArrowLeft, ArrowRight, CalendarDays, Check, Gift, Info, Loader2, MapPin, Mic, Monitor, Send } from "lucide-react";
@@ -57,16 +56,15 @@ function focusFirst(selector: string) {
  * 1. course, 2. start date, 3. personal details, 4. check, consent and send.
  * Costs appear once a course is chosen. "Weiter" always says what is missing.
  */
-export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime, courses, exceptions = [] }: {
+export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime, courses, exceptions = [], initialCourseId, isTrial = false }: {
     dictionary: RegistrationDictionary;
     lang: string;
     serverTime?: number;
     courses: CourseConfig[];
     exceptions?: CourseException[];
+    initialCourseId?: string;
+    isTrial?: boolean;
 }) {
-    const searchParams = useSearchParams();
-    const initialCourseId = searchParams.get("courseId");
-    const isTrial = searchParams.get("trial") === "1";
     const t = dictionary.registration;
     const copy = t.flow;
 
@@ -75,7 +73,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     const referenceYear = firstIso.slice(0, 4);
 
     const [step, setStep] = useState<Step>(1);
-    const [selectedIds, setSelectedIds] = useState<string[]>([]);
+    const [selectedIds, setSelectedIds] = useState<string[]>(() => initialCourseId
+        && courses.some(course => course.id === initialCourseId && (!isTrial || course.trialLessons !== false))
+        ? [initialCourseId] : []);
     const [requestedUnits, setRequestedUnits] = useState<Record<string, number>>({});
     const [startIso, setStartIso] = useState("");
     const [consents, setConsents] = useState<Record<ConsentKey, boolean>>({ privacy: false, agb: false, revocation: false, videoRecording: false });

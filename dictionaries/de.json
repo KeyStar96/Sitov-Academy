@@ -1,7 +1,7 @@
 {
     "meta": {
-        "title": "Deutsch lernen in Hannover | Spezialisiert auf Ukrainer & Russischsprachige | Sitov Academy",
-        "description": "Deutschkurse in Hannover mit muttersprachlicher Lehrerin. Für alle, die Deutsch lernen möchten. A1-B2 Kurse, Online & Präsenz. Jetzt anmelden!",
+        "title": "Deutschkurse in Hannover & online | Sitov Academy",
+        "description": "Deutschkurse in Hannover-Vahrenwald und live online. Persönliche Begleitung, Sprechtraining und eine Lernplattform zum Üben. Entdecke Kurse und Probestunden.",
         "keywords": [
             "Deutschkurse Hannover",
             "Sprachschule Hannover",
@@ -24,7 +24,7 @@
             "Deutsch Anfänger Hannover",
             "Deutsch Konversationskurs Hannover"
         ],
-        "og_image_alt": "Sitov Academy – Deutschkurse in Hannover für Ukrainer und Russischsprachige",
+        "og_image_alt": "Sitov Academy – Deutschkurse in Hannover und online",
         "registration_title": "Kursanmeldung & kostenlose Probestunde",
         "registration_description": "Melde dich online für einen Deutschkurs der Sitov Academy in Hannover oder online an – oder frage eine kostenlose Probestunde an. Aktuelle Kurse, Termine und Preise auf einen Blick."
     },
@@ -251,8 +251,8 @@
     "registration": {
         "back_home": "Zur Startseite",
         "trial": {
-            "badge": "Kostenlose Probestunde",
             "eligibility_notice": "Jede Person kann einmal eine kostenlose Probestunde nutzen. Ob sie bereits genutzt wurde, prüfen wir beim Absenden.",
+            "badge": "Kostenlose Probestunde",
             "already_used_title": "Du hattest schon eine Probestunde",
             "already_used_message": "Die kostenlose Probestunde gibt es einmal pro Person. Du kannst dich aber gern direkt für einen Kurs anmelden."
         },

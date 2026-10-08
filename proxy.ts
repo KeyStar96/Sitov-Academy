@@ -7,10 +7,9 @@ import {
   isProtectedPath,
   localeFromAcceptLanguage,
   localeFromPathname,
-  mapLegacyLang,
-  shouldApplyLegacyLangRedirect,
   withUiLocale,
 } from '@/lib/locale-routing'
+import { sitovLegacyMarketingUrl } from '@/lib/sitov-legacy-marketing-url'
 import { updateSession } from './utils/supabase/middleware'
 
 /**
@@ -46,7 +45,6 @@ function isSitovStaffSecurityPath(pathname: string): boolean {
 
 export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
-  const searchParams = request.nextUrl.searchParams
 
   // 1. Supabase-Session aktualisieren (setzt ggf. neue Cookies)
   // Die MFA-Seite braucht frische Cookies, bleibt aber für angemeldete
@@ -61,29 +59,19 @@ export async function proxy(request: NextRequest) {
     return supabaseResponse
   }
 
-  // 3. Legacy-Redirect: alte .html-Seiten → neue Pfade
-  if (pathname === '/AGB.html') {
+  // 3. Alte Seiten-/Sprachlinks auf die entsprechende Seite umleiten.
+  //    Beispielsweise /impressum?lang=en → /en/imprint; Kursauswahl und
+  //    Kampagnenparameter bleiben erhalten, unbekannte Pfade bleiben 404.
+  const legacyTarget = sitovLegacyMarketingUrl(new URL(request.url))
+  if (legacyTarget) {
     return redirectPreservingSession(
-      new URL(`/${DEFAULT_LOCALE}/agb`, request.url),
+      legacyTarget,
       supabaseResponse,
       301
     )
   }
 
   const currentLocale = localeFromPathname(pathname)
-
-  // 4. Legacy-Redirect: `?lang=xx` → `/xx`. Bewusst nur für Pfade ohne
-  //    Sprachpräfix und nie für `/auth/*`, damit Bestätigungslinks ihre
-  //    Token behalten.
-  const legacyLang = searchParams.get('lang')
-  if (shouldApplyLegacyLangRedirect(pathname, legacyLang) && legacyLang) {
-    const mappedLang = mapLegacyLang(legacyLang)
-    return redirectPreservingSession(
-      new URL(`/${mappedLang}`, request.url),
-      supabaseResponse,
-      301
-    )
-  }
 
   // 5. Fehlt das Sprachpräfix, auf die gespeicherte Sprache, sonst auf die
   //    Handy-/Browsersprache und erst zuletzt auf Deutsch umleiten. Wer die

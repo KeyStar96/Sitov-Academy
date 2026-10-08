@@ -34,7 +34,7 @@ const serverTime = new Date('2026-09-13T10:00:00Z').getTime() // a Sunday
 const next = () => fireEvent.click(screen.getByRole('button', { name: 'Weiter' }))
 
 function renderFlow(courses:CourseConfig[]=[monday,online]) {
-  render(<EnrollmentTerminal dictionary={de} lang="de" courses={courses} serverTime={serverTime}
+  render(<EnrollmentTerminal dictionary={de} lang="de" courses={courses} serverTime={serverTime} isTrial={mockTrial}
     exceptions={[{ date: '2026-09-21', reason: 'Herbstferien', courseIds: [monday.id] }]} />)
 }
 
@@ -97,7 +97,7 @@ it('asks for the course first, in plain words, and says why "Weiter" cannot go o
 
 it.each(Object.entries({ de, en, ru, uk, tr }))('explains the one-trial rule before asking for personal data in %s', (lang, dictionary) => {
   mockTrial=true
-  render(<EnrollmentTerminal dictionary={dictionary} lang={lang} courses={[monday]} serverTime={serverTime} />)
+  render(<EnrollmentTerminal dictionary={dictionary} lang={lang} courses={[monday]} serverTime={serverTime} isTrial={mockTrial} />)
   const notice=screen.getByRole('note')
   expect(notice).toHaveTextContent(dictionary.registration.trial.eligibility_notice)
   expect(notice.querySelector('svg')).toHaveAttribute('aria-hidden','true')

@@ -5,6 +5,7 @@ import { getCourses } from "@/app/actions/get-courses";
 import { getExceptions } from "@/app/actions/get-exceptions";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
+import { sitovRegistrationQuery } from "@/lib/sitov-registration-query";
 // AppBackground removed - using global layout's background
 
 export async function generateMetadata({
@@ -26,11 +27,16 @@ export async function generateMetadata({
 
 export default async function RegistrationPage({
     params,
+    searchParams,
 }: {
     params: Promise<{ lang: string }>;
+    searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
     const { lang } = await params;
     const dictionary = await getDictionary(lang);
+    // Resolve URL state on the server so the first question and course catalog
+    // remain in the initial HTML, including links to a free trial lesson.
+    const selection = sitovRegistrationQuery(await searchParams);
 
     // Fetch courses form Supabase
     const courses = await getCourses();
@@ -53,10 +59,9 @@ export default async function RegistrationPage({
                         </div>
                     </div>
                 }>
-                    <EnrollmentTerminal dictionary={dictionary} lang={lang} serverTime={serverTime} courses={courses} exceptions={exceptions} />
+                    <EnrollmentTerminal dictionary={dictionary} lang={lang} serverTime={serverTime} courses={courses} exceptions={exceptions} {...selection} />
                 </React.Suspense>
             </div>
         </div>
     );
 }
-
