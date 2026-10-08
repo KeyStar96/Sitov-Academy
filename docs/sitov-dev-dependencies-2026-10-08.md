@@ -43,4 +43,8 @@ T8 kann erst vollständig geschlossen werden, wenn ein passender `braces`-Patch 
 - Beide npm-Audits nach der Installation erneut ausgeführt; Ergebnisse oben.
 - `git diff --check` für Lockfile und Bericht: erfolgreich.
 
-Der lokale Build meldet den bereits bestehenden Hinweis auf eigene Cache-Control-Header für `/_next/static/:path*`. Diese Änderung betrifft diesen Headervertrag nicht. Die Bildverarbeitung wurde auf dem Mac geprüft; eine separate Laufzeitprobe auf dem produktiven Linux-Host und die Bereitstellung sind noch nicht erfolgt.
+Der lokale Build meldet den bereits bestehenden Hinweis auf eigene Cache-Control-Header für `/_next/static/:path*`. Diese Änderung betrifft diesen Headervertrag nicht.
+
+## Produktive Bereitstellung
+
+Der gemeinsame Release `3e4f58087c62` ist am 8. Oktober 2026 auf dem VPS aktiv. Das Lockfile wurde dort mit `npm ci` installiert; eine echte SVG→WebP-/AVIF-Verarbeitung mit anschließendem Decodieren bestätigt `sharp` **0.35.5** und librsvg **2.63.2** unter Linux. Der abschließende Produktionsbuild mit den weiteren freigegebenen Änderungen erzeugt 303 statische Seiten. Der vollständige Jest-Lauf besteht mit **269 Suites und 3.511 Tests**; eine Suite beziehungsweise ein Test ist übersprungen. Die veraltete Buttonerwartung wurde an den vorhandenen gemeinsamen Trainertext angepasst, ohne die Oberfläche zu ändern.

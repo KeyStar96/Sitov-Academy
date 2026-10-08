@@ -1,6 +1,6 @@
 # Sitov Academy: Medienzahlen der Lernanalyse
 
-Stand: 8. Oktober 2026. T4 ist lokal umgesetzt und geprüft. Migration 91 ist für den bestehenden VPS-Migrationsrunner vorbereitet; sie wurde noch nicht produktiv angewendet.
+Stand: 8. Oktober 2026. Migration 91 wurde auf dem VPS in einer begrenzten atomaren Transaktion angewendet und mit dem nativen Smoke-Test geprüft. Der gemeinsame Anwendungsrelease `3e4f58087c62` ist produktiv aktiv.
 
 ## Korrigierte Auswertung
 
@@ -21,7 +21,9 @@ Die Kennzahl bildet die Zugriffs- und Veröffentlichungsregeln des gespeicherten
 
 Die Migration ersetzt ausschließlich den Medienabschnitt der vorhandenen RPC-Definition. Spätere Verb- und Niveauanpassungen, Besitzer, Berechtigungen, Authentifizierung und fremde Fortschrittsabschnitte bleiben erhalten. Eine Wiederholung ist wirkungslos; unerwartete Änderungen am Abfragevertrag brechen die Migration ab. Der Rückrollweg verwendet dieselben Vertragsprüfungen. Die bereits vorhandene privilegierte RPC prüft weiterhin die Identität und den Zugriff auf die angeforderte Person; es werden keine neuen öffentlichen Datenfunktionen oder Leserechte angelegt. Die expliziten Grant-Abfragen innerhalb der RPC sind notwendig, weil eine `SECURITY DEFINER`-Funktion die RLS des Aufrufers umgeht ([Supabase-Funktionsdokumentation](https://supabase.com/docs/guides/database/functions#security-definer-vs-invoker)).
 
-Die Bereitstellung folgt dem bestehenden Sicherungs- und Migrationsablauf. Nach produktiver Anwendung sind der native Smoke-Test und eine echte Fortschrittsansicht mit passenden Lern-/Lehrkraftkonten noch abzunehmen.
+Vor der Anwendung wurde die vollständige verschlüsselte Sicherung `sitov-daily-20261008T171704452497Z.age` auf dem freigegebenen WLAN zum Mac übertragen und dort entschlüsselt sowie anhand aller 21.841 Manifestdateien geprüft. Erst danach wurden App und Mail kurz angehalten, die Migration angewendet und der native Smoke-Test mit abschließendem `ROLLBACK` ausgeführt. Alle synthetischen Daten und Mail-Aufträge wurden zurückgerollt. Der installierte Migrationsrunner kennt jetzt ebenfalls Migration 91.
+
+Die angemeldete englische Fortschrittsansicht wurde in Safari nach dem Release neu geladen; die Mediathek zeigte für das überprüfte Lernkonto fehlerfrei „0 of 0“. Der native Test prüft zusätzlich Lernenden-, Lehrkraft-, Peer- und anonyme Zugriffe sowie positive Medienbestände und Rechteänderungen. Die echte Lehrkraftoberfläche mit einem Lernkonto mit sichtbaren Medien bleibt als gesonderte UI-Abnahme offen.
 
 ## Lokale Prüfung
 

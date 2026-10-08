@@ -17,7 +17,7 @@ Druckfeedback verwendet `PRESS_SCALE` und `MOTION.fast`. Die Stationssymbole tre
 - Browserabnahme im Codex In-app Browser: Desktop mit 1440 px, Handy mit 390 und 320 px; Hell, Dunkel und hoher Kontrast. In allen fünf UI-Sprachen bei 320 px kein horizontaler Dokumentüberlauf und keine überlaufende Stationskarte. Tastaturfokus und Pausieren unsichtbarer Trophäen wurden im DOM überprüft. Reduzierte Bewegung ist über die gemeinsame Motion-Test-Suite und die CSS-Regeln geprüft.
 - Vorschau mit Beispieldaten: `/de/sitov-preview/motion?view=path`. Die Entwicklungsroute bleibt in Produktion gesperrt. Die produktive Authentifizierung und ein echtes DB-Test-Durchlaufen waren nicht Bestandteil der Browserabnahme; diese Aufrufwege bleiben erhalten und sind durch die vorhandenen UI-Tests abgedeckt.
 
-Die Änderung ist lokal und wurde in diesem Auftrag nicht veröffentlicht. Die parallele Session wurde über Tätigkeit und Dateiumfang informiert.
+Die Änderung wurde zunächst lokal geprüft und über Tätigkeit sowie Dateiumfang mit der parallelen Session abgestimmt. Am 8. Oktober 2026 wurde sie im gemeinsamen Release `3e4f58087c62` auf dem VPS veröffentlicht. Die angemeldete englische A1.1-Lernpfadansicht wurde anschließend in Safari geprüft: Stationszustände und „At least 80% correct answers“ erscheinen im echten Lernkonto.
 
 ## Screenshots
 
