@@ -23,3 +23,15 @@ export type SitovPronunciationPretestFunctions = {
   sitov_create_pronunciation_upload_ticket: { Args: { p_text_id: string; p_request_id: string; p_extension: string }; Returns: Json }
   sitov_create_pronunciation_reply_upload_ticket: { Args: { p_submission_id: string; p_request_id: string; p_extension: string }; Returns: Json }
 }
+
+/** Frozen optional Special transport v1. Definitions remain private/inactive
+ * until editorial and actual prepared-audio publication guards are verified. */
+export type SitovLearningSpecialFunctions = {
+  sitov_special_operation: {
+    Args: { p_operation: string; p_node_id?: string | null; p_run_id?: string | null;
+      p_mode?: string | null; p_revision?: number | null; p_request_id?: string | null;
+      p_answers?: Json; p_locale?: string }
+    Returns: Json
+  }
+  sitov_special_staff_catalog: { Args: { p_node_id: string }; Returns: Json }
+}

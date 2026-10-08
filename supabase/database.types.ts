@@ -3,7 +3,7 @@ import type { DailyQuestTables } from './daily-quests.types'
 import type { LearningCheckpointTables } from './learning-checkpoints.types'
 import type { ExamSimulationFunctions, ExamSimulationTables } from './exam-simulation.types'
 import type { ExamPreparationTables } from './exam-preparation.types'
-import type { SitovCommercialAccessFunctions, SitovPronunciationPretestFunctions } from './sitov-night.types'
+import type { SitovCommercialAccessFunctions, SitovPronunciationPretestFunctions, SitovLearningSpecialFunctions } from './sitov-night.types'
 
 export type Json =
   | string
@@ -2330,7 +2330,7 @@ export type Database = {
     Views: {
       [_ in never]: never
     }
-    Functions: CertificateFunctions & DailyQuestFunctions & ExamSimulationFunctions & SitovCommercialAccessFunctions & SitovPronunciationPretestFunctions & {
+    Functions: CertificateFunctions & DailyQuestFunctions & ExamSimulationFunctions & SitovCommercialAccessFunctions & SitovPronunciationPretestFunctions & SitovLearningSpecialFunctions & {
       sitov_staff_mfa_status: { Args: Record<string, never>; Returns: Json }
       sitov_enable_staff_mfa: { Args: Record<string, never>; Returns: boolean }
       sitov_reserve_audio_generation: { Args: { p_user_id: string; p_characters: number }; Returns: boolean }

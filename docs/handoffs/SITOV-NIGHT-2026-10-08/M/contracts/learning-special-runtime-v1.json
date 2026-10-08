@@ -1,0 +1,64 @@
+{
+  "version": "sitov-learning-special-runtime-v1",
+  "status": "FROZEN_TRANSPORT_BY_M",
+  "frozen_at": "2026-10-08T22:45:33.101435+00:00",
+  "implementation_source": "2c855df6006c2f8d1474e0393bed0656f0036a69",
+  "implementation_integrated": "d41bf8c",
+  "extends": "sitov-learning-specials-v1",
+  "rpc": {
+    "sitov_special_operation": {
+      "args": {
+        "p_operation": "start|get|reveal|right|wrong|save|submit",
+        "p_node_id": "uuid|null optional",
+        "p_run_id": "uuid|null optional",
+        "p_mode": "learning|test|null optional",
+        "p_revision": "nonnegative integer|null optional",
+        "p_request_id": "uuid|null optional",
+        "p_answers": "selected item UUID -> existing PathAnswer|null optional",
+        "p_locale": "de|en|ru|uk|tr defaultde"
+      },
+      "returns": "strict sitovSpecialResultSchema in lib/learning/sitov-learning-specials-contract.ts"
+    },
+    "sitov_special_staff_catalog": {
+      "args": {
+        "p_node_id": "uuid"
+      },
+      "returns": "staff-only definitions and run diagnostics; strict staff DAL pending"
+    }
+  },
+  "actions": {
+    "runSitovLearningSpecial": "unknown strict validated input -> strict typed result"
+  },
+  "run_fields": [
+    "runId",
+    "nodeId",
+    "definitionVersion",
+    "mode",
+    "status",
+    "revision",
+    "selected",
+    "queue",
+    "revealed",
+    "answers",
+    "tasks",
+    "learningSolution",
+    "result"
+  ],
+  "requirements": [
+    "start requires node/mode/request; get requires run; transitions run/revision/request; save/submit valid selected answers",
+    "existing commercial exact Special/Item+completed anchor optional only; no main progress or pronunciation condition",
+    "learning intentional reveal then right-remove/wrong-end, honest selfassessment; testexact10 >=8server grade >=20allowedpool balanced disjoint previous10",
+    "DB receipt idempotency + current activation/source and commercial rights recheck before every output",
+    "only validated actual published/authored task content after editorial/audio gateway publication proof",
+    "public DTO only supported existing path MC/gap/sentence types; unsupported source formats remain blocked"
+  ],
+  "unresolved_gates": [
+    "actual immutable computed source/definition version + publication validator not just nonnullJSON",
+    "actual prepared Qwen/wordtimings/Storage-proof of every audible German source before activation",
+    "all required Special source authoring/formats/content coverage",
+    "strict staff diagnostic DAL and functional learner/teacher UI/precise path-target mapping",
+    "real HTTP/concurrent stress/browser/mobile/fullbuild"
+  ],
+  "release_ready": false,
+  "ui_binding_rule": "Transport frozen permits compiling client against stable DTO; do not activate real definitions/menus or claim functional published source until gates pass."
+}
