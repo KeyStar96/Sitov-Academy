@@ -13,6 +13,7 @@ import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
 import { toUiLocale } from '@/lib/locale-routing'
 import type { SitovVerbTrainerState } from '@/lib/verbs/contracts'
 import type { SitovVerbTense } from '@/lib/verbs/types'
+import SitovVerbLearningGuide from './SitovVerbLearningGuide'
 import styles from './VerbLearningBox.module.css'
 
 function sitovDate(value: string | null, lang: string): string | null {
@@ -128,7 +129,7 @@ export default function VerbLearningBox({ state, lang, busy, onPractice, onRemov
       <SitovTrainerHelp title={uiCopy.help} className={styles.sitovGuide}>
       <div className={styles.sitovSummary}><p>{sitovVerbBoxText(copy.formSummary, { learned: box.learnedForms, total: box.totalForms, fresh: box.freshForms })}</p>
         {nextDate && <p><Clock3 size={15} aria-hidden="true" />{copy.nextReview}: <time dateTime={box.nextReviewAt!}>{nextDate}</time></p>}</div>
-      <p>{copy.guideText}</p><p>{copy.rules}</p><p>{copy.learnedRules}</p>
+      <SitovVerbLearningGuide lang={lang} tenses={state.tenses} />
       {state.level.startsWith('A2') && <p>{getSitovVerbCopy(lang).formsHint}</p>}</SitovTrainerHelp>
     </SitovLearningBox>
     {inspector && <SitovVerbBoxInspector key={inspector.phase} phase={inspector.phase} cards={box.cards} state={state} lang={lang} busy={busy} opener={inspector.opener}
