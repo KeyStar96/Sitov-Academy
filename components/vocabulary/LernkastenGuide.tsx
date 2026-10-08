@@ -1,13 +1,14 @@
 'use client'
 
-import { useId, useState, type CSSProperties, type ReactNode } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Archive, ArrowLeftRight, CalendarCheck, Check, ChevronDown, Lightbulb, RotateCcw, Sparkles, X, type LucideIcon } from 'lucide-react'
+import { type CSSProperties, type ReactNode } from 'react'
+import { motion } from 'framer-motion'
+import { Archive, ArrowLeftRight, CalendarCheck, Check, RotateCcw, Sparkles, X, type LucideIcon } from 'lucide-react'
 import { LEITNER_PHASES, PHASE_INTERVALS_IN_DAYS } from '@/lib/leitner'
 import { phaseTone } from '@/lib/vocabulary-box'
 import type { createVocabularyTranslator } from '@/lib/vocabulary-i18n'
 import { cn } from '@/lib/utils'
 import { EASE_OUT_SOFT, MOTION, staggerDelay, useReducedMotionSafe } from '@/lib/motion'
+import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
 
 type Translator = ReturnType<typeof createVocabularyTranslator>
 type StepKey = 'new' | 'right' | 'wrong' | 'both' | 'learned'
@@ -56,73 +57,38 @@ function GuideTrack({ t }: { t: Translator }) {
 
 /**
  * „Wie funktioniert dein Lernkasten?" – aufklappbare Kurzanleitung unter der
- * Box. Zugeklappt stört sie den Start-Knopf nicht; bei einem noch leeren
- * Kasten steht sie offen, weil dann genau diese Frage ansteht.
+ * Box. Der gemeinsame Schalter zeigt zusätzliche Regeln erst auf Wunsch.
  */
 export default function LernkastenGuide({ t, defaultOpen = false, title, children }: { t: Translator; defaultOpen?: boolean; title?: string; children?: ReactNode }) {
   const reduced = useReducedMotionSafe()
-  const [open, setOpen] = useState(defaultOpen)
-  const id = useId()
-  const toggleId = `${id}-toggle`
-  const panelId = `${id}-panel`
 
   return (
-    <div className="lb-guide" data-open={open || undefined}>
-      <button
-        id={toggleId}
-        type="button"
-        className="lb-guide__toggle"
-        aria-expanded={open}
-        aria-controls={panelId}
-        onClick={() => setOpen((value) => !value)}
-      >
-        <span className="lb-guide__icon" aria-hidden="true"><Lightbulb size={22} strokeWidth={2.25} /></span>
-        <span className="min-w-0 flex-1">{title ?? t('box_guide_title')}</span>
-        <ChevronDown size={22} aria-hidden="true" className="lb-guide__chevron" />
-      </button>
-
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            id={panelId}
-            role="region"
-            aria-labelledby={toggleId}
-            className="lb-guide__panel"
-            initial={reduced ? false : { height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT }}
+    <SitovTrainerHelp title={title ?? t('box_guide_title')} defaultOpen={defaultOpen}>
+      {children}
+      <GuideTrack t={t} />
+      <ol className="lb-guide__steps">
+        {STEPS.map(({ key, icon: Icon, tone }, index) => (
+          <motion.li
+            key={key}
+            className="lb-guide__step"
+            initial={reduced ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT, delay: reduced ? 0 : staggerDelay(index) }}
           >
-            <div className="lb-guide__body">
-              {children}
-              <GuideTrack t={t} />
-              <ol className="lb-guide__steps">
-                {STEPS.map(({ key, icon: Icon, tone }, index) => (
-                  <motion.li
-                    key={key}
-                    className="lb-guide__step"
-                    initial={reduced ? false : { opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT, delay: reduced ? 0 : staggerDelay(index) }}
-                  >
-                    <span className="lb-guide__step-icon" data-tone={tone} aria-hidden="true"><Icon size={18} strokeWidth={2.5} /></span>
-                    <span><b>{t(`box_guide_${key}_label`)}:</b> {t(`box_guide_${key}`)}</span>
-                  </motion.li>
-                ))}
-              </ol>
-              <motion.p
-                className="lb-guide__tip"
-                initial={reduced ? false : { opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT, delay: reduced ? 0 : staggerDelay(STEPS.length) }}
-              >
-                <CalendarCheck size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-[var(--accent-text)]" />
-                <span>{t('box_guide_tip')}</span>
-              </motion.p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+            <span className="lb-guide__step-icon" data-tone={tone} aria-hidden="true"><Icon size={18} strokeWidth={2.5} /></span>
+            <span><b>{t(`box_guide_${key}_label`)}:</b> {t(`box_guide_${key}`)}</span>
+          </motion.li>
+        ))}
+      </ol>
+      <motion.p
+        className="lb-guide__tip"
+        initial={reduced ? false : { opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT, delay: reduced ? 0 : staggerDelay(STEPS.length) }}
+      >
+        <CalendarCheck size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-[var(--accent-text)]" />
+        <span>{t('box_guide_tip')}</span>
+      </motion.p>
+    </SitovTrainerHelp>
   )
 }

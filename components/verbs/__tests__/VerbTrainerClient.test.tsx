@@ -1,6 +1,8 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import VerbTrainerClient, { type SitovVerbTrainerActions } from '../VerbTrainerClient'
 import type { SitovVerbTrainerState, SitovVerbPublicExercise, SitovVerbReviewResult } from '@/lib/verbs/contracts'
+import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
+import { getSitovVerbCopy } from '@/lib/verbs/i18n'
 
 jest.mock('@/app/actions/verbs', () => ({ nextSitovVerbExercise: jest.fn(), setSitovVerbBox: jest.fn(), submitSitovVerbAnswer: jest.fn() }))
 jest.unmock('lucide-react')
@@ -22,17 +24,66 @@ function sitovActions(): SitovVerbTrainerActions {
   return { next: jest.fn().mockResolvedValue({ data: sitovExercise }), box: jest.fn().mockResolvedValue({ data: { selectedIds: ['sitov-fahren'] } }), answer: jest.fn().mockResolvedValue({ data: sitovReview }) }
 }
 
-function sitovHeroButton(label: string) {
-  return within(screen.getByRole('region', { name: 'Make verb forms your own.' })).getByRole('button', { name: label })
+function sitovHeroButton(label: string = sitovTrainerUiCopy('en').practice, title: string = getSitovVerbCopy('en').title) {
+  return within(screen.getByRole('region', { name: title })).getByRole('button', { name: label })
 }
 
-test('the motion card starts an adaptive round immediately even from an empty focused selection', async () => {
+test('overview puts its shared navigation before one launch widget, the learning box and profile settings', () => {
+  render(<VerbTrainerClient initialState={sitovState} lang="en" actions={sitovActions()} />)
+  const navigation = screen.getByRole('navigation', { name: 'Your verb trainer' })
+  expect(within(navigation).getAllByRole('button').map(button => button.textContent)).toEqual(['My practice', 'My verb box', 'Focused practice'])
+  const hero = screen.getByRole('region', { name: 'Make verb forms your own.' })
+  const box = screen.getByRole('region', { name: 'Your verb learning box' })
+  const settings = screen.getByRole('link', { name: 'Trainer settings' })
+  expect(navigation.compareDocumentPosition(hero) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  expect(hero.compareDocumentPosition(box) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  expect(box.compareDocumentPosition(settings) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  expect(screen.getAllByRole('button', { name: sitovTrainerUiCopy('en').practice })).toHaveLength(1)
+  expect(screen.queryByRole('button', { name: 'Start practising' })).not.toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: 'Choose verbs' })).not.toBeInTheDocument()
+  expect(screen.queryByRole('checkbox', { name: 'Present' })).not.toBeInTheDocument()
+  expect(settings).toHaveAttribute('href', '/en/dashboard/profile#trainers')
+  expect(within(box).getByText('How the learning box works')).toBeInTheDocument()
+})
+
+test('verb selection replaces the overview and preserves a clear route back to practice', () => {
+  render(<VerbTrainerClient initialState={sitovState} lang="en" actions={sitovActions()} />)
+  fireEvent.click(screen.getByRole('button', { name: 'My verb box' }))
+  expect(screen.queryByRole('region', { name: 'Make verb forms your own.' })).not.toBeInTheDocument()
+  expect(screen.queryByRole('region', { name: 'Your verb learning box' })).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Remove: fahren' })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'My verb box' })).toHaveAttribute('aria-pressed', 'true')
+  fireEvent.click(screen.getByRole('button', { name: 'My practice' }))
+  expect(sitovHeroButton()).toBeEnabled()
+  expect(screen.getByRole('region', { name: 'Your verb learning box' })).toBeInTheDocument()
+})
+
+test('focused practice puts tense choices and its single start action together and sends only selected tenses', async () => {
+  const actions = sitovActions()
+  render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Focused practice' }))
+  const hero = screen.getByRole('region', { name: 'Today, follow your focus.' })
+  fireEvent.click(within(hero).getByRole('checkbox', { name: 'Present' }))
+  expect(within(hero).getByRole('checkbox', { name: 'Perfect' })).toBeChecked()
+  expect(screen.getAllByRole('button', { name: 'Start a focused round' })).toHaveLength(1)
+  fireEvent.click(within(hero).getByRole('button', { name: 'Start a focused round' }))
+  expect(await screen.findByRole('textbox', { name: 'Your answer 1' })).toHaveFocus()
+  expect(actions.next).toHaveBeenCalledWith({ level: 'A1.2', tenses: ['perfect'], excludeVerbId: undefined }, 'en')
+  expect(screen.queryByRole('navigation', { name: 'Your verb trainer' })).not.toBeInTheDocument()
+})
+
+test('an empty focused selection cannot start, while automatic practice restores all available tenses', async () => {
   const actions = sitovActions()
   render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
   fireEvent.click(screen.getByRole('button', { name: 'Focused practice' }))
   fireEvent.click(screen.getByRole('checkbox', { name: 'Present' }))
   fireEvent.click(screen.getByRole('checkbox', { name: 'Perfect' }))
-  fireEvent.click(sitovHeroButton('Start practising'))
+  const focused = sitovHeroButton('Start a focused round', 'Today, follow your focus.')
+  expect(focused).toBeDisabled()
+  fireEvent.click(focused)
+  expect(actions.next).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: 'My practice' }))
+  fireEvent.click(sitovHeroButton())
   expect(await screen.findByRole('textbox', { name: 'Your answer 1' })).toHaveFocus()
   expect(actions.next).toHaveBeenCalledTimes(1)
   expect(actions.next).toHaveBeenCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: undefined }, 'en')
@@ -50,7 +101,7 @@ test('the hero guides an empty verb box to its selection without starting an inv
 test('passes the interface language, shows its short meaning, and saves the actual answer once', async () => {
   const actions = sitovActions()
   render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
-  fireEvent.click(sitovHeroButton('Start practising'))
+  fireEvent.click(sitovHeroButton())
   await screen.findByText('travel by vehicle')
   expect(actions.next).toHaveBeenCalledWith(expect.objectContaining({ level: 'A1.2' }), 'en')
   fireEvent.change(screen.getByRole('textbox', { name: 'Your answer 1' }), { target: { value: 'fährst' } })
@@ -65,7 +116,7 @@ test('revealing records a blank attempt, and shows the server solution', async (
   const actions = sitovActions()
   actions.answer = jest.fn().mockResolvedValue({ data: { ...sitovReview, correct: false } })
   render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
-  fireEvent.click(sitovHeroButton('Start practising'))
+  fireEvent.click(sitovHeroButton())
   fireEvent.click(await screen.findByRole('button', { name: 'Show solution' }))
   await screen.findByText('We will practise this form again.')
   expect(actions.answer).toHaveBeenCalledWith({ exerciseId: sitovExercise.exerciseId, answer: [''] })
@@ -87,7 +138,7 @@ test('a pending answer cannot be submitted a second time, and failure permits re
   const actions = sitovActions()
   actions.answer = jest.fn().mockImplementation(() => new Promise(resolve => { settle = resolve }))
   render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
-  fireEvent.click(sitovHeroButton('Start practising'))
+  fireEvent.click(sitovHeroButton())
   const input = await screen.findByRole('textbox', { name: 'Your answer 1' })
   fireEvent.change(input, { target: { value: 'fährst' } })
   const button = screen.getByRole('button', { name: 'Check answer' })
@@ -161,7 +212,7 @@ test('automatic practice after a compartment round clears the previous server bo
   await screen.findByRole('textbox', { name: 'Your answer 1' })
   fireEvent.click(screen.getByRole('button', { name: 'End round' }))
   fireEvent.click(await screen.findByRole('button', { name: 'Back to verb trainer' }))
-  fireEvent.click(sitovHeroButton('Start practising'))
+  fireEvent.click(sitovHeroButton())
   await screen.findByRole('textbox', { name: 'Your answer 1' })
   expect(actions.next).toHaveBeenLastCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: undefined }, 'en')
 })

@@ -1,10 +1,11 @@
-.sitovTrainer { --sitov-verb: #a21caf; --sitov-verb-bright: #e879f9; --sitov-verb-text: #86198f; --sitov-verb-soft: #fae8ff; --sitov-x: 70%; --sitov-y: 20%; display: grid; gap: 1.4rem; color: var(--foreground); }
+.sitovLayout { width: 100%; max-width: 64rem; margin-inline: auto; }
+.sitovTrainer { --sitov-verb: #a21caf; --sitov-verb-bright: #e879f9; --sitov-verb-text: #86198f; --sitov-verb-soft: #fae8ff; --sitov-x: 70%; --sitov-y: 20%; display: grid; gap: 1.5rem; color: var(--foreground); }
 :global(html.dark) .sitovTrainer { --sitov-verb: #a21caf; --sitov-verb-text: #f0abfc; --sitov-verb-soft: #3a1644; }
-.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]), .sitovTrainer input { -webkit-tap-highlight-color: transparent; }
-.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]) { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 46px; font-weight: 750; transition: transform .22s cubic-bezier(.22,1,.36,1), background .2s, border-color .2s, box-shadow .2s; }
-.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):disabled { opacity: .55; cursor: default; }
-.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):focus-visible, .sitovTrainer input:focus-visible, .sitovTrainer summary:focus-visible { outline: 3px solid var(--sitov-verb-text); outline-offset: 4px; }
-.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):active:not(:disabled) { transform: scale(.96); }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):not([data-sitov-trainer-tab]):not([data-sitov-trainer-help-toggle]), .sitovTrainer input { -webkit-tap-highlight-color: transparent; }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):not([data-sitov-trainer-tab]):not([data-sitov-trainer-help-toggle]) { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 46px; font-weight: 750; transition: transform .22s cubic-bezier(.22,1,.36,1), background .2s, border-color .2s, box-shadow .2s; }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):not([data-sitov-trainer-tab]):not([data-sitov-trainer-help-toggle]):disabled { opacity: .55; cursor: default; }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):not([data-sitov-trainer-tab]):not([data-sitov-trainer-help-toggle]):focus-visible, .sitovTrainer input:focus-visible, .sitovTrainer summary:focus-visible { outline: 3px solid var(--sitov-verb-text); outline-offset: 4px; }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):not([data-sitov-trainer-tab]):not([data-sitov-trainer-help-toggle]):active:not(:disabled) { transform: scale(.96); }
 .sitovSession { scroll-margin-top: 14rem; }
 .sitovEyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; color: var(--sitov-verb-text); font-size: .76rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
 .sitovEyebrow > span { border: 1px solid color-mix(in srgb,var(--sitov-verb-text) 45%,var(--border)); border-radius: 99px; padding: .15rem .6rem; letter-spacing: 0; }
@@ -26,18 +27,11 @@
 .sitovStats svg { color: var(--sitov-verb-text); }
 .sitovStats strong { font-size: 1.75rem; line-height: 1.2; font-variant-numeric: tabular-nums; animation: sitov-pop .42s cubic-bezier(.22,1,.36,1) both; }
 .sitovStats span { grid-column: 1 / -1; margin-top: .2rem; font-size: .8rem; line-height: 1.4; color: var(--muted); }
-.sitovTabs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); padding: .35rem; gap: .3rem; border: 1px solid var(--border); border-radius: 1.3rem; background: var(--surface-muted); }
-.sitovTabs button { border-radius: 1rem; padding: .8rem .6rem; color: var(--muted); font-size: .92rem; }
-.sitovTabs button[aria-pressed='true'] { color: var(--sitov-verb-text); background: var(--surface); box-shadow: var(--shadow-sm); }
-.sitovLaunch, .sitovSession, .sitovBox { border: 1px solid var(--border); border-radius: 1.75rem; background: var(--surface); }
-.sitovLaunch { position: relative; display: flex; align-items: center; flex-direction: column; overflow: hidden; padding: 2.8rem 1.5rem; text-align: center; animation: sitov-arrive .5s cubic-bezier(.22,1,.36,1) both; }
-.sitovLaunch::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--sitov-verb-bright) 9%,transparent),transparent 60%); pointer-events: none; }
-.sitovLaunchIcon { display: grid; place-items: center; width: 72px; height: 72px; margin-bottom: 1.3rem; border: 1px solid color-mix(in srgb,var(--sitov-verb-text) 35%,var(--border)); border-radius: 1.4rem; background: var(--sitov-verb-soft); color: var(--sitov-verb-text); box-shadow: 0 14px 38px -26px var(--sitov-verb); }
-.sitovLaunch h2, .sitovBox h2, .sitovEmpty h2, .sitovComplete h2 { font-weight: 850; font-size: clamp(1.45rem,3vw,2rem); line-height: 1.2; letter-spacing: -.035em; text-wrap: balance; }
-.sitovLaunch > p { margin-top: .8rem; max-width: 570px; color: var(--muted); }
-.sitovTensePills, .sitovTenses { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-top: 1.4rem; }
+.sitovSession, .sitovBox { border: 1px solid var(--border); border-radius: 1.75rem; background: var(--surface); }
+.sitovSectionHead h1, .sitovEmpty h2, .sitovComplete h2 { font-weight: 850; font-size: clamp(1.45rem,3vw,2rem); line-height: 1.2; letter-spacing: -.035em; }
+.sitovTensePills, .sitovTenses { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: .5rem; margin: 0; min-width: 0; }
 .sitovTensePills span { padding: .35rem .8rem; border: 1px solid var(--border); border-radius: 99px; color: var(--muted); font-size: .86rem; font-weight: 650; }
-.sitovTenses label { display: flex; align-items: center; gap: .65rem; padding: .75rem 1rem; min-height: 48px; border: 1px solid var(--border); border-radius: .95rem; font-weight: 700; cursor: pointer; }
+.sitovTenses label { display: flex; align-items: center; gap: .65rem; padding: .6rem .75rem; min-height: 48px; font-size: .9rem; border: 1px solid var(--border); border-radius: .95rem; font-weight: 700; cursor: pointer; }
 .sitovTenses label[data-selected='true'] { border-color: var(--sitov-verb-text); background: var(--sitov-verb-soft); color: var(--sitov-verb-text); }
 .sitovTenses input, .sitovOnly input { width: 19px; height: 19px; accent-color: var(--sitov-verb); }
 .sitovSmall { font-size: .85rem; color: var(--muted); }
@@ -46,7 +40,6 @@
 .sitovPrimary::after { content: ''; z-index: -1; position: absolute; inset: 0 auto 0 -100%; width: 60%; background: linear-gradient(90deg,transparent,#ffffff30,transparent); transform: skewX(-20deg); transition: left .75s cubic-bezier(.22,1,.36,1); }
 .sitovPrimary:hover::after, .sitovPrimary:focus-visible::after { left: 150%; }
 .sitovTrainer .sitovSecondary { border: 1px solid var(--border); border-radius: 1rem; padding: .85rem 1.1rem; background: var(--surface); color: var(--foreground); }
-.sitovLaunch[data-sitov-compact='true'] { padding: 1rem; }
 .sitovCarryover { display: flex; align-items: center; gap: 1rem; border: 1px solid var(--border); border-radius: 1.3rem; padding: 1.2rem 1.4rem; background: var(--surface-muted); }
 .sitovCarryover > svg { flex-shrink: 0; color: var(--sitov-verb-text); }
 .sitovCarryover strong { font-size: .95rem; }
@@ -101,7 +94,7 @@
 .sitovInfinitive { margin: 1.6rem 0 .3rem; font-size: clamp(2rem,5.5vw,3.4rem); line-height: 1.15; font-weight: 850; letter-spacing: -.04em; overflow-wrap: anywhere; }
 .sitovTranslation { color: var(--muted); font-size: 1.12rem; }
 .sitovPrompt { margin: 1.8rem 0 .7rem; color: var(--muted); font-size: .92rem; }
-.sitovTask .sitovTranslation, .sitovTask .sitovPrompt, .sitovTrainer .sitovLaunch > p, .sitovTrainer .sitovEmpty > p, .sitovTrainer .sitovComplete > p { text-align: center; }
+.sitovTask .sitovTranslation, .sitovTask .sitovPrompt, .sitovTrainer .sitovEmpty > p, .sitovTrainer .sitovComplete > p { text-align: center; }
 .sitovSentence { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .4rem 0; font-size: clamp(1.15rem,3vw,1.65rem); font-weight: 650; line-height: 2.5; }
 .sitovSentence > span { display: contents; }
 .sitovSentence input { display: inline-block; width: auto; max-width: 100%; min-width: 100px; border: 1px solid var(--sitov-verb-text); border-bottom-width: 3px; border-radius: .8rem; padding: .35rem .65rem; margin: 0 .35rem; background: color-mix(in srgb,var(--sitov-verb) 4%,var(--surface)); color: var(--foreground); text-align: center; line-height: 1.8; }
@@ -132,7 +125,7 @@
 .sitovError svg { flex-shrink: 0; }
 .sitovError button { flex-shrink: 0; margin-left: auto; }
 .sitovSpinner { animation: sitov-orbit 1.2s linear infinite; }
-@media (hover:hover) { .sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):hover:not(:disabled) { box-shadow: 0 5px 16px -10px var(--sitov-verb-text); border-color: var(--sitov-verb-text); } .sitovTrainer .sitovPrimary:hover:not(:disabled) { background: #86198f; } }
+@media (hover:hover) { .sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):not([data-sitov-trainer-tab]):not([data-sitov-trainer-help-toggle]):hover:not(:disabled) { box-shadow: 0 5px 16px -10px var(--sitov-verb-text); border-color: var(--sitov-verb-text); } .sitovTrainer .sitovPrimary:hover:not(:disabled) { background: #86198f; } }
 @keyframes sitov-aurora { from { transform: rotate(-12deg) scale(1); opacity: .6; } to { transform: rotate(9deg) scale(1.15); opacity: 1; } }
 @keyframes sitov-word { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-7px) rotate(1deg); } }
 @keyframes sitov-core { 0%,100% { transform: rotate(-5deg) scale(1); } 50% { transform: rotate(5deg) scale(1.045); } }
@@ -153,10 +146,9 @@
   .sitovCarryover > span { display: none; }
 }
 @media (max-width:480px) {
-  .sitovTrainer { gap: 1rem; }
+  .sitovTrainer { gap: 1.5rem; }
   .sitovIntro { font-size: .94rem; }
   .sitovStats { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .sitovTabs button { flex-direction: column; gap: .3rem; font-size: .78rem; line-height: 1.2; padding: .7rem .25rem; }
   .sitovBox { padding: 1.1rem; }
   .sitovTask { padding: 1.8rem 1rem; }
   .sitovRoundHead { padding: .65rem .8rem; }
@@ -169,11 +161,14 @@
   .sitovCarryover { padding: 1rem; align-items: flex-start; }
 }
 :global(html.high-contrast) .sitovTrainer { --sitov-verb: var(--accent-strong); --sitov-verb-text: var(--foreground); --sitov-verb-soft: var(--surface-muted); }
-:global(html.high-contrast) .sitovLaunch { background: var(--surface); }
 :global(html.high-contrast) .sitovPrimary::after, :global(html.high-contrast) .sitovCelebration { display: none; }
 :global(html.high-contrast) .sitovOrbitCore, :global(html.high-contrast) .sitovWord { box-shadow: none; }
 :global(html.high-contrast) .sitovFeedback { border-width: 2px; }
 @media (prefers-reduced-motion:reduce) {
   .sitovTrainer *, .sitovTrainer *::before, .sitovTrainer *::after { animation: none !important; transition: none !important; }
-  .sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):active:not(:disabled) { transform: none; }
+  .sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):not([data-sitov-trainer-tab]):not([data-sitov-trainer-help-toggle]):active:not(:disabled) { transform: none; }
 }
+.sitovSettings { display: flex; justify-content: flex-end; }
+.sitovSettings a { display: inline-flex; align-items: center; gap: .5rem; min-height: 48px; padding: 0 .75rem; border-radius: .75rem; color: var(--muted); font-size: .875rem; transition: color var(--motion-base); }
+.sitovSettings a:hover { color: var(--foreground); }
+.sitovSettings a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }

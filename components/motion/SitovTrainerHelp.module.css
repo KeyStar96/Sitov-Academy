@@ -1,0 +1,19 @@
+.sitovHelp { min-width: 0; width: 100%; overflow: hidden; border: 1px solid var(--border); border-radius: .75rem; background: var(--surface); transition: border-color var(--motion-base) var(--ease-out-soft), box-shadow var(--motion-base) var(--ease-out-soft); }
+.sitovHelp:hover, .sitovHelp[data-open='true'] { border-color: color-mix(in srgb, var(--accent-text) 45%, var(--border)); box-shadow: var(--shadow-sm); }
+.sitovHelp .sitovToggle { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: flex-start; gap: .6rem; padding: .6rem .75rem; border: 0; background: transparent; color: var(--foreground); font-size: .875rem; font-weight: 650; line-height: 1.35; text-align: left; cursor: pointer; touch-action: manipulation; }
+.sitovToggle:focus-visible { outline: 3px solid var(--focus-ring, var(--foreground)); outline-offset: -3px; border-radius: .75rem; }
+.sitovTitle { min-width: 0; flex: 1; overflow-wrap: anywhere; }
+.sitovIcon { display: inline-flex; width: 1.5rem; height: 1.5rem; flex-shrink: 0; align-items: center; justify-content: center; color: var(--accent-text); transition: transform var(--motion-slow) var(--ease-out-soft); }
+.sitovToggle:hover .sitovIcon, .sitovToggle:focus-visible .sitovIcon { transform: rotate(-8deg) scale(1.06); }
+.sitovChevron { flex-shrink: 0; color: var(--muted); transition: transform var(--motion-slow) var(--ease-out-soft); }
+.sitovHelp[data-open='true'] .sitovChevron { transform: rotate(180deg); }
+.sitovPanel { overflow: hidden; }
+.sitovBody { margin: 0 1rem; padding: 1.25rem 0; border-top: 1px solid var(--border); }
+.sitovHelp[data-sitov-live='false'] *, .sitovHelp[data-sitov-live='false'] *::before, .sitovHelp[data-sitov-live='false'] *::after { animation-play-state: paused !important; }
+:global(html.high-contrast) .sitovHelp { border-width: 2px; box-shadow: none; }
+:global(html.high-contrast) .sitovHelp:hover, :global(html.high-contrast) .sitovHelp[data-open='true'] { border-color: var(--foreground); }
+:global(html.high-contrast) .sitovIcon, :global(html.high-contrast) .sitovChevron { color: var(--foreground); }
+@media (prefers-reduced-motion: reduce) {
+  .sitovHelp, .sitovHelp *, .sitovHelp *::before, .sitovHelp *::after { animation: none !important; transition: none !important; }
+  .sitovToggle:hover .sitovIcon, .sitovToggle:focus-visible .sitovIcon { transform: none; }
+}

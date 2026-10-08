@@ -71,3 +71,11 @@ Vokabeln und Verben besitzen einen nativen Startbutton; bei leerer Lernbox führ
 Alle fünf Interface-Sprachen bleiben unterstützt. Deutsche Artikel und Verbformen in den Szenen erhalten `lang="de"` und `translate="no"`. Die gemeinsame `SitovMotionStage` pausiert die Choreografie bei unsichtbaren Flächen und verborgenem Dokument. Reduzierte Bewegung zeigt dieselben Bedienelemente und eine statische Szene; hoher Kontrast entfernt Glanz und Schatten.
 
 [Abnahme und Screenshots](sitov-trainer-heroes/README.md): 106 gezielte Tests in neun Suites, TypeScript und ESLint ohne Fehler; lokale Browserprüfung mit Beispieldaten bei 320, 390 und 1440 px, Hell/Dunkel, hohem Kontrast sowie Tastaturstart des Verbtrainers. Keine neue Datenbankmigration, keine neuen Lerninhalte oder Audios.
+
+## Gemeinsame Navigation und Hilfe im Trainer
+
+Vokabel- und Verbtrainer verwenden `SitovTrainerTabs` direkt vor dem Einstiegswidget. `SlidingPill` verbindet den Wechsel zwischen Üben, Auswahl und Fokus; `PressableCard` gibt der jeweils nativen Link- oder Buttonaktion unmittelbares Druckfeedback. Die Auswahl bleibt zusätzlich über `aria-current` beziehungsweise `aria-pressed` erkennbar. Mindesthöhe, Abstände und Fokus folgen derselben Komponente.
+
+`SitovTrainerHelp` vereinheitlicht die zunächst geschlossene Hilfe unter der Fachverteilung. Der native 48-px-Button zeigt Glühbirne, Titel und Chevron; Öffnen und Schließen verwenden die gemeinsamen Zeitwerte aus `lib/motion.ts`. Ein schließendes Panel wird sofort für Fokus und assistive Technik verborgen, während der Übergang ausläuft. Bei reduzierter Bewegung wechseln die Zustände unmittelbar. Die umgebende `SitovMotionStage` pausiert vorhandene dekorative Anleitungsszenen außerhalb des Sichtbereichs und bei verborgenem Dokument; fachliche Regeln und die Vokabel-Mini-Box bleiben unverändert.
+
+Aufbau und lokale Vergleichsbilder stehen im [Layout-Abgleich](sitov-trainer-layout/README.md); die verbindliche Reihenfolge ist in den [gemeinsamen Trainerregeln](sitov-trainer-design.md#gleicher-aufbau-für-vokabeln-und-verben) festgelegt.

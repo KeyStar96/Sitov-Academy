@@ -1,0 +1,24 @@
+.sitovTabs { --sitov-tabs-color: var(--mode-vocabulary-text); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .25rem; width: 100%; max-width: 64rem; min-width: 0; margin: 0 auto 1.25rem; padding: .3rem; border: 1px solid var(--border); border-radius: 1.3rem; background: var(--surface-muted); }
+.sitovTabs[data-sitov-trainer-tabs='verbs'] { --sitov-tabs-color: var(--mode-verbs-text); }
+.sitovTab { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3rem; min-width: 0; min-height: 48px; padding: .45rem .35rem; border: 0; border-radius: 1rem; background: transparent; color: var(--muted); font-size: .84rem; line-height: 1.25; font-weight: 750; text-align: center; text-decoration: none; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; transition: color var(--motion-fast), background var(--motion-fast); }
+.sitovTab[aria-current='page'], .sitovTab[aria-pressed='true'] { color: var(--sitov-tabs-color); }
+.sitovTab:hover:not(:disabled) { color: var(--foreground); }
+.sitovTab:focus-visible { outline: 3px solid var(--sitov-tabs-color); outline-offset: 3px; }
+.sitovTab:disabled { opacity: .55; cursor: default; }
+.sitovIcon { flex-shrink: 0; }
+.sitovLabel { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.sitovPill { position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: var(--surface); box-shadow: var(--shadow-sm); pointer-events: none; }
+@media (min-width: 640px) {
+  .sitovTab { flex-direction: row; gap: .5rem; padding: .6rem .75rem; font-size: .95rem; }
+}
+@media (max-width: 639px) {
+  :global(.academy-student-content):has(:global(.learning-screen)[data-presentation='embedded']) .sitovTabs[data-sitov-trainer-tabs='vocabulary'] { display: none; }
+}
+@media (max-width: 360px) {
+  .sitovTab { padding-inline: .2rem; font-size: .78rem; }
+}
+:global(html.high-contrast) .sitovTabs { --sitov-tabs-color: var(--foreground); border-width: 2px; background: var(--surface-muted); }
+:global(html.high-contrast) .sitovPill { border: 2px solid var(--foreground); box-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  .sitovTab, .sitovPill { transition: none; }
+}

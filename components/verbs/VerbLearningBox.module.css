@@ -1,12 +1,8 @@
 .sitovSummary { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .65rem 1.2rem; color: var(--muted); font-size: .88rem; }
 .sitovSummary p { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
 .sitovSummary svg { flex-shrink: 0; }
-.sitovGuide { margin-top: 1rem; color: var(--muted); font-size: .88rem; }
-.sitovGuide summary { cursor: pointer; width: fit-content; color: var(--foreground); font-weight: 650; min-height: 48px; padding: .7rem 0; }
+.sitovGuide { color: var(--muted); font-size: .88rem; }
 .sitovGuide p { margin: .7rem 0; max-width: 85ch; }
-.sitovGuide summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: .35rem; }
-.sitovManage { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .65rem 1rem; border-radius: .85rem; border: 1px solid var(--border); color: var(--foreground); background: var(--surface); font-weight: 700; transition: transform var(--motion-fast) var(--ease-out-soft), border-color var(--motion-base); }
-.sitovManage:active { transform: scale(.97); }
 .sitovInspector { --sitov-box-color: #86198f; --sitov-box-soft: #fae8ff; width: min(900px, calc(100% - 2rem)); max-height: min(850px, calc(100dvh - 3rem)); padding: 0; border: 1px solid var(--border); border-radius: 1.65rem; color: var(--foreground); background: var(--surface); box-shadow: var(--shadow-lg); overflow: hidden; animation: sitov-box-open var(--motion-slow) var(--ease-out-soft) both; }
 :global(html.dark) .sitovInspector { --sitov-box-color: #f0abfc; --sitov-box-soft: #3a1644; }
 .sitovInspector::backdrop { background: #0b10246e; backdrop-filter: blur(7px); }
@@ -18,7 +14,7 @@
 .sitovIconButton { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; border: 1px solid var(--border); border-radius: .85rem; background: var(--surface); color: var(--muted); transition: transform var(--motion-fast) var(--ease-out-soft), color var(--motion-base), border-color var(--motion-base); }
 .sitovInspector button:active:not(:disabled) { transform: scale(.97); }
 .sitovInspector button:disabled { opacity: .55; cursor: default; }
-.sitovInspector button:focus-visible, .sitovInspector input:focus-visible, .sitovInspector select:focus-visible, .sitovManage:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.sitovInspector button:focus-visible, .sitovInspector input:focus-visible, .sitovInspector select:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .sitovInspectorHint { margin: 0; padding: 0 1.5rem .9rem; font-size: .88rem; color: var(--muted); }
 .sitovInspectorFilters { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; padding: .2rem 1.5rem 1rem; flex-shrink: 0; border-bottom: 1px solid var(--border); }
 .sitovSearch { flex: 1 1 300px; display: flex; align-items: center; gap: .55rem; padding: .7rem .8rem; border: 1px solid var(--border); border-radius: .8rem; color: var(--muted); background: var(--surface); min-width: 0; }
@@ -52,7 +48,7 @@
 .sitovInspectorFooter { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: .8rem; padding: 1rem 1.5rem; flex-shrink: 0; border-top: 1px solid var(--border); background: var(--surface); }
 .sitovInspectorFooter p { font-size: .75rem; color: var(--muted); }
 .sitovPractice { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 48px; border: 1px solid var(--accent-strong); border-radius: .85rem; padding: .7rem 1rem; background: var(--accent-strong); color: var(--accent-foreground, #fff); font-weight: 750; font-size: .88rem; transition: transform var(--motion-fast) var(--ease-out-soft); }
-@media (hover: hover) { .sitovIconButton:hover { border-color: var(--sitov-box-color); color: var(--sitov-box-color); } .sitovManage:hover { border-color: var(--accent); } }
+@media (hover: hover) { .sitovIconButton:hover { border-color: var(--sitov-box-color); color: var(--sitov-box-color); } }
 @media (max-width: 600px) {
   .sitovInspector { width: calc(100% - 1rem); max-height: calc(100dvh - 1rem); border-radius: 1.3rem; }
   .sitovPanel { max-height: calc(100dvh - 1rem); }
@@ -69,4 +65,4 @@
 :global(html.high-contrast) .sitovInspector { --sitov-box-color: var(--foreground); --sitov-box-soft: var(--surface-muted); box-shadow: none; border-width: 2px; }
 :global(html.high-contrast) .sitovInspector::backdrop { backdrop-filter: none; background: #000b; }
 @keyframes sitov-box-open { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .sitovInspector, .sitovInspector *, .sitovManage { animation: none !important; transition: none !important; } .sitovInspector button:active:not(:disabled), .sitovManage:active { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .sitovInspector, .sitovInspector * { animation: none !important; transition: none !important; } .sitovInspector button:active:not(:disabled) { transform: none; } }

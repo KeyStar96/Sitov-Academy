@@ -23,6 +23,8 @@
 .sitovAction:focus-visible { outline: 3px solid var(--sitov-hero-text); outline-offset: 4px; }
 .sitovAction:disabled, .sitovAction[aria-disabled='true'] { cursor: default; opacity: .6; }
 .sitovDetails { width: 100%; min-width: 0; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+.sitovOptions { grid-area: options; width: 100%; min-width: 0; }
+.sitovHero[data-sitov-has-options='true'] { grid-template-areas: 'text graphic' 'options graphic' 'controls graphic'; }
 .sitovGraphic { grid-area: graphic; position: relative; align-self: center; display: grid; place-items: center; width: 100%; min-width: 0; height: 16rem; pointer-events: none; }
 .sitovGraphic > * { width: 100%; max-width: 100%; }
 .sitovSpinner { animation: sitov-hero-spin 1.1s linear infinite; }
@@ -39,6 +41,7 @@
   .sitovGraphic { height: auto; aspect-ratio: 1.05; }
   .sitovControls { align-self: center; }
   .sitovDescription { max-width: none; }
+  .sitovHero[data-sitov-has-options='true'] { grid-template-areas: 'text text' 'options options' 'controls graphic'; }
 }
 @media (max-width: 480px) {
   .sitovHero { grid-template-columns: minmax(0, 1fr) 6rem; padding: 1.2rem; border-radius: 1.6rem; gap: .9rem .6rem; }

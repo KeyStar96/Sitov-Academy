@@ -16,6 +16,7 @@ export interface SitovTrainerHeroProps {
   description?: ReactNode
   graphic?: ReactNode
   action?: { label: string; onClick?: () => void; href?: string; disabled?: boolean; busy?: boolean }
+  options?: ReactNode
   children?: ReactNode
   compact?: boolean
   testId?: string
@@ -25,7 +26,7 @@ export interface SitovTrainerHeroProps {
 const sitovIcons = { vocabulary: BookOpen, verbs: Sparkles, path: Route, media: Clapperboard }
 
 /** A shared entry with a real action and a reserved, decorative scene. */
-export default function SitovTrainerHero({ mode, eyebrow, level, title, headingLevel = 1, description, graphic, action, children, compact = false, testId, className }: SitovTrainerHeroProps) {
+export default function SitovTrainerHero({ mode, eyebrow, level, title, headingLevel = 1, description, graphic, action, options, children, compact = false, testId, className }: SitovTrainerHeroProps) {
   const sitovId = useId()
   const SitovHeading = headingLevel === 2 ? 'h2' : 'h1'
   const SitovIcon = sitovIcons[mode]
@@ -37,6 +38,7 @@ export default function SitovTrainerHero({ mode, eyebrow, level, title, headingL
 
   return <SitovMotionStage className={`${styles.sitovHero}${className ? ` ${className}` : ''}`}
     data-sitov-trainer-hero={mode} data-sitov-surface="" data-sitov-compact={compact || undefined}
+    data-sitov-has-options={Boolean(options) || undefined}
     data-sitov-has-graphic={Boolean(graphic && !compact) || undefined} data-testid={testId}
     role="region" aria-labelledby={`${sitovId}-title`}>
     <div className={styles.sitovText}>
@@ -44,6 +46,7 @@ export default function SitovTrainerHero({ mode, eyebrow, level, title, headingL
       <SitovHeading id={`${sitovId}-title`} className={styles.sitovTitle}>{title}</SitovHeading>
       {description && <div className={styles.sitovDescription}>{description}</div>}
     </div>
+    {options && <div className={styles.sitovOptions}>{options}</div>}
     {(action || children) && <div className={styles.sitovControls}>
       {action && (action.href
         ? <PressableCard href={action.href} className={styles.sitovAction} data-sitov-hero-action="" aria-disabled={unavailable || undefined} aria-busy={action.busy || undefined}

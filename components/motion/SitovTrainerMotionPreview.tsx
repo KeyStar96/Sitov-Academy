@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import SitovPreviewAppearance from '@/components/dashboard/SitovPreviewAppearance'
 import VocabTrainerPageClient from '@/components/vocabulary/VocabTrainerPageClient'
+import VocabularyTabs from '@/components/vocabulary/VocabularyTabs'
 import PronunciationStudio from '@/components/audio/PronunciationStudio'
 import LearningPathClient from '@/components/learning-path/LearningPathClient'
 import RuleCard from '@/components/learning-path/RuleCard'
@@ -61,8 +62,11 @@ export default function SitovTrainerMotionPreview({ lang, initialView = 'vocabul
         className="st-button st-button--quiet" onClick={() => { setView(item); setSubmitted(false) }}>{item === 'vocabulary' ? 'Lernbox' : item === 'path' ? 'Lernpfad' : 'Aussprache'}</button>)}
       <label className="flex min-h-12 items-center gap-2"><input type="checkbox" checked={empty} onChange={event => setEmpty(event.target.checked)} />Leerzustand</label>
     </div>
-    {view === 'vocabulary' && <VocabTrainerPageClient key={String(empty)} learnerId={sitovId(1)} initialCards={empty ? [] : sitovCards}
-      boxSummary={empty ? summarizeBox([]) : sitovSummary} translations={vocabularyTranslations} lang={lang} level="A1.1" />}
+    {view === 'vocabulary' && <div className="academy-student-content">
+      <VocabularyTabs lang={lang} level="A1.1" sitovPreviewPathname={`/${lang}/dashboard/level/A1.1/vocabulary`} />
+      <VocabTrainerPageClient key={String(empty)} learnerId={sitovId(1)} initialCards={empty ? [] : sitovCards}
+      boxSummary={empty ? summarizeBox([]) : sitovSummary} translations={vocabularyTranslations} lang={lang} level="A1.1" />
+    </div>}
     {view === 'path' && <>
       <LearningPathClient initialPath={empty ? { ...sitovMap, paths: [] } : sitovMap} lang={lang} level="A1.1" />
       {!empty && <div className={pathStyles.root}><SitovMotionStage className={pathStyles.sitovView}>

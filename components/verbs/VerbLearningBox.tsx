@@ -2,12 +2,14 @@
 
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { ArrowRight, Check, Clock3, Layers3, Search, Trash2, X } from 'lucide-react'
+import { ArrowRight, Check, Clock3, Search, Trash2, X } from 'lucide-react'
 import SitovLearningBox, { type SitovLearningBoxBucket } from '@/components/learning/SitovLearningBox'
+import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
 import { useScrollLock } from '@/components/ui/useScrollLock'
 import { buildSitovVerbLearningBox, SITOV_VERB_REVIEW_DAYS, sitovVerbBoxValue, type SitovVerbBoxCard, type SitovVerbBoxKey } from '@/lib/verbs/learning-box'
 import { getSitovVerbBoxCopy, sitovVerbBoxText } from '@/lib/verbs/learning-box-i18n'
 import { getSitovVerbCopy } from '@/lib/verbs/i18n'
+import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
 import { toUiLocale } from '@/lib/locale-routing'
 import type { SitovVerbTrainerState } from '@/lib/verbs/contracts'
 import type { SitovVerbTense } from '@/lib/verbs/types'
@@ -100,12 +102,12 @@ function SitovVerbBoxInspector({ phase, cards, state, lang, busy, opener, onClos
   </dialog>, document.body)
 }
 
-export default function VerbLearningBox({ state, lang, busy, onPractice, onManage, onRemove }: {
+export default function VerbLearningBox({ state, lang, busy, onPractice, onRemove }: {
   state: SitovVerbTrainerState; lang: string; busy: boolean; onPractice: (phase: SitovVerbBoxKey) => void;
-  onManage: () => void; onRemove: (id: string) => Promise<boolean>
+  onRemove: (id: string) => Promise<boolean>
 }) {
   const copy = getSitovVerbBoxCopy(lang)
-  const trainerCopy = getSitovVerbCopy(lang)
+  const uiCopy = sitovTrainerUiCopy(lang)
   const box = useMemo(() => buildSitovVerbLearningBox(state), [state])
   const [inspector, setInspector] = useState<{ phase: SitovVerbBoxKey; opener: HTMLElement } | null>(null)
   const phase = inspector?.phase ?? null
@@ -122,12 +124,12 @@ export default function VerbLearningBox({ state, lang, busy, onPractice, onManag
     <SitovLearningBox title={copy.title} intro={copy.intro} scopeLabel={copy.scope} progressLabel={copy.progress} percent={box.progressPercent} tapHint={copy.tap}
       selected={phase} buckets={buckets} onOpen={(key, from) => setInspector({ phase: key, opener: from })}
       stats={[{ key: 'verbs', label: copy.selected, value: box.totalVerbs }, { key: 'practiced', label: copy.practiced, value: box.practicedForms },
-        { key: 'learned', label: copy.learnedVerbs, value: box.learnedVerbs }, { key: 'due', label: copy.dueForms, value: box.dueForms }]}
-      action={<button type="button" className={styles.sitovManage} disabled={busy} onClick={onManage}><Layers3 size={17} aria-hidden="true" />{trainerCopy.manage}<ArrowRight size={17} aria-hidden="true" /></button>}>
-      <details className={styles.sitovGuide}><summary>{copy.guide}</summary>
+        { key: 'learned', label: copy.learnedVerbs, value: box.learnedVerbs }, { key: 'due', label: copy.dueForms, value: box.dueForms }]}>
+      <SitovTrainerHelp title={uiCopy.help} className={styles.sitovGuide}>
       <div className={styles.sitovSummary}><p>{sitovVerbBoxText(copy.formSummary, { learned: box.learnedForms, total: box.totalForms, fresh: box.freshForms })}</p>
         {nextDate && <p><Clock3 size={15} aria-hidden="true" />{copy.nextReview}: <time dateTime={box.nextReviewAt!}>{nextDate}</time></p>}</div>
-      <p>{copy.guideText}</p><p>{copy.rules}</p><p>{copy.learnedRules}</p></details>
+      <p>{copy.guideText}</p><p>{copy.rules}</p><p>{copy.learnedRules}</p>
+      {state.level.startsWith('A2') && <p>{getSitovVerbCopy(lang).formsHint}</p>}</SitovTrainerHelp>
     </SitovLearningBox>
     {inspector && <SitovVerbBoxInspector key={inspector.phase} phase={inspector.phase} cards={box.cards} state={state} lang={lang} busy={busy} opener={inspector.opener}
       onClose={() => setInspector(null)} onPractice={onPractice} onRemove={onRemove} />}
