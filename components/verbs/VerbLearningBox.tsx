@@ -112,7 +112,6 @@ export default function VerbLearningBox({ state, lang, busy, onPractice, onRemov
   const box = useMemo(() => buildSitovVerbLearningBox(state), [state])
   const [inspector, setInspector] = useState<{ phase: SitovVerbBoxKey; opener: HTMLElement } | null>(null)
   const phase = inspector?.phase ?? null
-  const nextDate = sitovDate(box.nextReviewAt, lang)
   const buckets: SitovLearningBoxBucket[] = box.buckets.map(bucket => {
     const label = copy.names[sitovVerbBoxValue(bucket.key) - 1]
     const days = SITOV_VERB_REVIEW_DAYS[sitovVerbBoxValue(bucket.key) - 1]
@@ -127,10 +126,8 @@ export default function VerbLearningBox({ state, lang, busy, onPractice, onRemov
       stats={[{ key: 'verbs', label: copy.selected, value: box.totalVerbs }, { key: 'practiced', label: copy.practiced, value: box.practicedForms },
         { key: 'learned', label: copy.learnedVerbs, value: box.learnedVerbs }, { key: 'due', label: copy.dueForms, value: box.dueForms }]}>
       <SitovTrainerHelp title={uiCopy.help} className={styles.sitovGuide}>
-      <div className={styles.sitovSummary}><p>{sitovVerbBoxText(copy.formSummary, { learned: box.learnedForms, total: box.totalForms, fresh: box.freshForms })}</p>
-        {nextDate && <p><Clock3 size={15} aria-hidden="true" />{copy.nextReview}: <time dateTime={box.nextReviewAt!}>{nextDate}</time></p>}</div>
       <SitovVerbLearningGuide lang={lang} tenses={state.tenses} />
-      {state.level.startsWith('A2') && <p>{getSitovVerbCopy(lang).formsHint}</p>}</SitovTrainerHelp>
+      </SitovTrainerHelp>
     </SitovLearningBox>
     {inspector && <SitovVerbBoxInspector key={inspector.phase} phase={inspector.phase} cards={box.cards} state={state} lang={lang} busy={busy} opener={inspector.opener}
       onClose={() => setInspector(null)} onPractice={onPractice} onRemove={onRemove} />}

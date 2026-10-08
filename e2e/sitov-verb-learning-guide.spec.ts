@@ -22,9 +22,14 @@ for (const lang of ['de', 'en', 'ru', 'uk', 'tr']) {
     const help = page.getByRole('region', { name: sitovTrainerUiCopy(lang).help })
     await expect(help).toBeVisible()
     await expect(help.getByText(copy.guideDemo)).toBeVisible()
-    await expect(help.getByText(copy.guideText)).toBeVisible()
-    await expect(help.getByText(copy.guideWrongText)).toBeVisible()
-    await expect(help.getByText(copy.learnedRules)).toBeVisible()
+    await expect(help.getByText(copy.guideCompactRight)).toBeVisible()
+    await expect(help.getByText(copy.guideCompactWrong)).toBeVisible()
+    await expect(help.getByText(copy.guideCompactScope)).toBeVisible()
+    await expect(help.locator('ol > li')).toHaveCount(3)
+    await expect(help.locator('time')).toHaveCount(0)
+    await expect(help.getByText(copy.guideText)).toHaveCount(0)
+    await expect(help.getByText(copy.guideTip)).toHaveCount(0)
+    await expect(help.getByText(copy.guideWrong, { exact: true })).toHaveCount(0)
     const track = help.locator('[data-sitov-verb-guide-track]')
     await expect(track).toHaveAttribute('aria-hidden', 'true')
     await expect(track.locator('[data-sitov-verb-guide-slot]')).toHaveCount(7)
@@ -62,6 +67,7 @@ for (const theme of ['light', 'dark', 'contrast-light', 'contrast-dark']) {
       await page.setViewportSize({ width, height: 1000 })
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
       const bounds = (await help.boundingBox())!
+      if (width === 390) expect(bounds.height).toBeLessThan(520)
       for (const slot of await help.locator('[data-sitov-verb-guide-slot]').all()) {
         const slotBounds = (await slot.boundingBox())!
         expect(slotBounds.x).toBeGreaterThanOrEqual(bounds.x)

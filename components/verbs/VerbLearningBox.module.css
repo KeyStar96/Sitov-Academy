@@ -1,6 +1,3 @@
-.sitovSummary { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .65rem 1.2rem; color: var(--muted); font-size: .88rem; }
-.sitovSummary p { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
-.sitovSummary svg { flex-shrink: 0; }
 .sitovGuide { color: var(--muted); font-size: .88rem; }
 .sitovGuide p { margin: .7rem 0; max-width: 85ch; }
 .sitovInspector { --sitov-box-color: #86198f; --sitov-box-soft: #fae8ff; width: min(900px, calc(100% - 2rem)); max-height: min(850px, calc(100dvh - 3rem)); padding: 0; border: 1px solid var(--border); border-radius: 1.65rem; color: var(--foreground); background: var(--surface); box-shadow: var(--shadow-lg); overflow: hidden; animation: sitov-box-open var(--motion-slow) var(--ease-out-soft) both; }

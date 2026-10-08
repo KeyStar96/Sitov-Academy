@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BadgeCheck, CalendarCheck, Check, Layers3, RotateCcw, Route, X } from 'lucide-react'
+import { Check, Layers3, RotateCcw, Route, X } from 'lucide-react'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import { EASE_OUT_SOFT, MOTION, staggerDelay, useReducedMotionSafe } from '@/lib/motion'
 import { getSitovVerbCopy } from '@/lib/verbs/i18n'
@@ -22,10 +22,9 @@ export default function SitovVerbLearningGuide({ lang, tenses }: { lang: string;
   const verbCopy = getSitovVerbCopy(lang)
   const reduced = useReducedMotionSafe()
   const steps = [
-    { key: 'new', icon: Layers3, tone: 'verb', label: copy.guideNewLabel, text: copy.guideText },
-    { key: 'right', icon: Check, tone: 'success', label: copy.guideRightLabel, text: copy.guideRightText },
-    { key: 'wrong', icon: RotateCcw, tone: 'danger', label: copy.guideWrongLabel, text: copy.guideWrongText },
-    { key: 'learned', icon: BadgeCheck, tone: 'success', label: copy.guideLearnedLabel, text: copy.learnedRules },
+    { key: 'right', icon: Check, tone: 'success', text: copy.guideCompactRight },
+    { key: 'wrong', icon: RotateCcw, tone: 'danger', text: copy.guideCompactWrong },
+    { key: 'scope', icon: Layers3, tone: 'verb', text: copy.guideCompactScope },
   ] as const
 
   return <SitovMotionStage className={styles.sitovGuide} data-sitov-verb-guide-stage data-reduced={reduced}>
@@ -52,23 +51,15 @@ export default function SitovVerbLearningGuide({ lang, tenses }: { lang: string;
       </div>
       <div className={styles.sitovDays}>{SITOV_VERB_REVIEW_DAYS.map((days, index) => <span key={index}>{days}</span>)}</div>
       <p className={styles.sitovCaption}>{copy.guideTrackCaption}</p>
-      <div className={styles.sitovLegend}>
-        <span><Check size={13} strokeWidth={3} />{copy.guideRight}<b>+1</b></span>
-        <span><RotateCcw size={13} strokeWidth={2.5} />{copy.guideWrong}<b>→ 1</b></span>
-      </div>
     </div>
 
     <ol className={styles.sitovSteps}>
-      {steps.map(({ key, icon: Icon, tone, label, text }, index) => <motion.li key={key} className={styles.sitovStep}
+      {steps.map(({ key, icon: Icon, tone, text }, index) => <motion.li key={key} className={styles.sitovStep}
         initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
         transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT, delay: reduced ? 0 : staggerDelay(index) }}>
         <span className={styles.sitovStepIcon} data-tone={tone} aria-hidden="true"><Icon size={18} strokeWidth={2.5} /></span>
-        <span><b>{label}:</b> {text}</span>
+        <span>{text}</span>
       </motion.li>)}
     </ol>
-    <motion.p className={styles.sitovTip} initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT, delay: reduced ? 0 : staggerDelay(steps.length) }}>
-      <CalendarCheck size={19} aria-hidden="true" /><span>{copy.guideTip}</span>
-    </motion.p>
   </SitovMotionStage>
 }
