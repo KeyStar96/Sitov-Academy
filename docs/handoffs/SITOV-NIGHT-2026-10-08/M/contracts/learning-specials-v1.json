@@ -1,0 +1,64 @@
+{
+  "version": "sitov-learning-specials-v1",
+  "status": "FROZEN_BY_M",
+  "frozen_at": "2026-10-08T22:01:54.411743+00:00",
+  "base_sha": "966a380f7a6118654f19750a9d62200795feb8c2",
+  "extends": "sitov-commercial-access-v1 without changing existing kinds or legacy grants",
+  "catalog_additions": {
+    "path_special": {
+      "id": "actual path_nodes.id UUID where kind=special",
+      "unit": "path_nodes.unit_id, shared with anchor by existing composite FK",
+      "trainer": "exercises",
+      "published": "node is_active AND unit is_active plus existing source publication checks"
+    },
+    "path_special_item": {
+      "id": "actual learning_exercises.id UUID whose node_id joins kind=special",
+      "unit": "learning_exercises.unit_id = node.unit_id",
+      "trainer": "exercises",
+      "published": "path_is_active AND content_status=ready AND parent published"
+    }
+  },
+  "selected_scope": "Authorize exact path_special_item for every exposed task; a selected node never implies all siblings under an item-selected trial. Entry metadata may describe a container having at least one allowed item without revealing denied IDs. Legacy/VIP/purchase retain source-local permissions. Unknown/ambiguous/foreign node-unit mapping fails closed.",
+  "branch": "Existing completed anchor governs optional Special availability; Special success never enters main required progress/stars/points/tests and never becomes pronunciation prerequisite. No parallel access unit or copied vocabulary/verb proof.",
+  "learning": {
+    "mode": "learning",
+    "account_bound": true,
+    "flow": "persist CAS queue order and explicit revealed current item; deliberate right removes, wrong appends; request-id repetition is idempotent; reload resumes exact queue; only authorized published items. Completion is self-assessed learning feedback, not server-graded test proof."
+  },
+  "test": {
+    "mode": "test",
+    "items": 10,
+    "pass_correct": 8,
+    "pool_minimum": 20,
+    "retake": "balanced 10 distinct authorized items, disjoint from immediately preceding completed 10; insufficient permitted pool yields truthful localized scope/content state while allowed learning remains usable",
+    "authority": "server private keys, current immutable definition/version, account/run binding, CAS + idempotency and rechecked commercial rights/publication on start/save/grade",
+    "grades": "7/10 fails,8/10 passes; no old Pro/free-test limit"
+  },
+  "authoring": "Source inventory is content evidence only. No active seed or publication before editorial coverage/ID preservation and imported local male Qwen audio + word timings for every audible German task. Original source family scope/level remains honest; copied Akkusativ HTMLs are one family.",
+  "teacher_menu": {
+    "route": "/{lang}/teacher/content/learning-path/specials",
+    "icon": "GitBranch",
+    "key": "sitov_learning_path_specials",
+    "labels": {
+      "de": "Lernpfad-Extras",
+      "en": "Learning path extras",
+      "ru": "Дополнения к учебному пути",
+      "uk": "Доповнення до навчального шляху",
+      "tr": "Öğrenme yolu ekleri"
+    },
+    "visibility": "add only when implemented route has complete behavior"
+  },
+  "help": "Reuse SitovTrainerHelp and short five-language help labels; no new disclosure architecture",
+  "migration": {
+    "timestamp": "20261008213200",
+    "vps": 95,
+    "slug": "sitov_learning_specials"
+  },
+  "pending_ports": [
+    "S1 implement canonical new kinds/trial validation/catalog and item predicates",
+    "S2 typed RPC/DTO names proposed in next assigned runtime unit, then M freeze signatures before client binding",
+    "M canonical snapshots and prepared audio reference adapters",
+    "S5 native/browser/full-current QA"
+  ],
+  "release_ready": false
+}
