@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "session": "S2",
+  "epoch": 2,
+  "status": "content-metadata-only; no new or changed audible tasks",
+  "utterances": [],
+  "publication": "none",
+  "existing_references": "Reading text IDs only; no audio/text change and no live import proof inferred",
+  "future_guard": "Exact reviewed utterance and source version; local sitov-qwen-male-de-v1 preparation; measured timestamps; M audited storage import proof before activation"
+}
