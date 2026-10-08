@@ -1,0 +1,86 @@
+{
+  "captured_at": "2026-10-08T23:21:06.355574+00:00",
+  "images": [
+    {
+      "requested": "supabase/postgres:15.19.0.003",
+      "id": "sha256:bce4f0725a10d80bb16e01d678db8d40dd09223d18562125902e2682dd74ecdb",
+      "arch": "amd64",
+      "user": null,
+      "env_names": [
+        "GRN_PLUGINS_DIR",
+        "LANG",
+        "LANGUAGE",
+        "LC_ALL",
+        "LOCALE_ARCHIVE",
+        "PATH",
+        "PGDATA",
+        "POSTGRES_DB",
+        "POSTGRES_HOST",
+        "POSTGRES_USER"
+      ]
+    },
+    {
+      "requested": "supabase/gotrue:v2.186.0",
+      "id": "sha256:f2112b9289422f205df4ea15b8b550d425ae42528ea54521faa32cc7b62490de",
+      "arch": "amd64",
+      "user": "supabase",
+      "env_names": [
+        "GOTRUE_DB_MIGRATIONS_PATH",
+        "PATH"
+      ]
+    },
+    {
+      "requested": "supabase/storage-api:v1.44.2",
+      "id": "sha256:4f0eb90b935c676914ed0609c2c7d47cddb3f336155726bb2d5542617d4afdfa",
+      "arch": "amd64",
+      "user": null,
+      "env_names": [
+        "NODE_VERSION",
+        "PATH",
+        "VERSION",
+        "YARN_VERSION"
+      ]
+    },
+    {
+      "requested": "postgrest/postgrest:v14.6",
+      "id": "sha256:7afcb0447b7849f6875bba4a0c603d79b1e2e44aec97af123bf9a0a2ccfeae52",
+      "arch": "amd64",
+      "user": "1000",
+      "env_names": []
+    },
+    {
+      "requested": "kong/kong:3.9.1",
+      "id": "sha256:6addf50e6bd8d578314cb9ce4f2d2d1e3781d2edecef59f707e00c6e05d384f5",
+      "arch": "amd64",
+      "user": "kong",
+      "env_names": [
+        "KONG_PREFIX",
+        "KONG_VERSION",
+        "PATH"
+      ]
+    }
+  ],
+  "memory_mib": {
+    "MemTotal": 7884,
+    "MemAvailable": 3365
+  },
+  "docker_disk_free_bytes": 204567146496,
+  "listening_tcp_ports": [
+    22,
+    25,
+    53,
+    80,
+    443,
+    2525,
+    3000,
+    5432,
+    6001,
+    6002,
+    8000,
+    8080,
+    8088,
+    8891,
+    9070,
+    9080
+  ]
+}
