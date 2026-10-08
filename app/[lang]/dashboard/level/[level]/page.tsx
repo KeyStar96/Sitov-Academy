@@ -11,7 +11,6 @@ import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/v
 import { lessonLabel } from '@/lib/vocabulary-own-words'
 import ResumeCard, { type ResumeTarget } from '@/components/dashboard/ResumeCard'
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
-import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import ExamEntry from '@/components/exam-preparation/ExamEntry'
 
 const MODE_LABELS = { vocabulary: 'area_vocabulary', path: 'area_path', pronunciation: 'area_pronunciation', media: 'area_media', verbs: 'area_verbs' } as const
@@ -49,10 +48,9 @@ export default async function LevelDashboard({ params }: {
 
   return (
     <div className="space-y-8">
-      {lang === 'de' && decodedLevel !== 'B2' && decodedLevel !== 'C1' && <TrainerLanguageRequired lang={lang} />}
       <ResumeCard lang={lang} level={decodedLevel} title={titleKey ? copy[titleKey] ?? decodedLevel : decodedLevel}
         description={descriptionKey ? copy[descriptionKey] ?? '' : decodedLevel === 'B2' || decodedLevel === 'C1' ? s('level_verbs_description') : ''} target={target} />
-      <TrainerStatusTiles lang={lang} level={decodedLevel} status={status} languageLocked={lang === 'de'} />
+      <TrainerStatusTiles lang={lang} level={decodedLevel} status={status} languageLocked={false} />
       {(decodedLevel === 'B1.1' || decodedLevel === 'B1.2') && <ExamEntry lang={lang} reference />}
     </div>
   )

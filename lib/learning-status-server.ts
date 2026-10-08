@@ -3,7 +3,7 @@ import 'server-only'
 import { cache } from 'react'
 import { getVocabularyOverview } from '@/app/actions/vocabulary'
 import { readSitovLearningPathStatistics } from '@/lib/sitov-learning-path-statistics'
-import { loadSitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness-server'
+import { sitovPronunciationPretestActionResultSchema, sitovPronunciationPretestCatalogSchema } from '@/lib/sitov-pronunciation-pretest-contract'
 import { requestSession } from '@/lib/request-session'
 import { hasConfiguredTrainerAccess, hasTrainerAccess, type LevelAccessProfile } from '@/lib/access/levels'
 import { mapVideo, videoQuery } from '@/lib/learning-catalog'
@@ -71,22 +71,23 @@ const vocabularyOverview = cache((level: string) => getVocabularyOverview(level)
 const pronunciationStatus = cache(async (userId: string, level: string) => loadPronunciation((await requestSession()).supabase, userId, level))
 
 async function loadPronunciation(supabase: Client, userId: string, level: string) {
-  const [readiness, submissions] = await Promise.all([
-    loadSitovPronunciationReadiness(supabase, level),
+  const [catalogResponse, submissions] = await Promise.all([
+    supabase.rpc('sitov_get_pronunciation_pretests', { p_level: level }),
     supabase.from('submissions').select('id,prompt_id,status,pronunciation_messages(sender_role,seen_at)')
       .eq('auth_user_id', userId).eq('level', level),
   ])
-  if (submissions.error || !readiness) throw new Error('pronunciation_readiness_unavailable')
-  const ready = readiness.texts.filter(text => text.ready)
+  const catalog = sitovPronunciationPretestActionResultSchema(sitovPronunciationPretestCatalogSchema).safeParse(catalogResponse.data)
+  if (submissions.error || catalogResponse.error || !catalog.success || catalog.data.ok === false) throw new Error('pronunciation_catalog_unavailable')
+  const texts = catalog.data.data
+  const ready = texts.filter(text => text.status === 'passed')
   const recorded = new Set((submissions.data ?? []).map(row => row.prompt_id).filter(Boolean))
   const unread = (submissions.data ?? []).reduce((sum, row) => sum + (row.pronunciation_messages ?? [])
     .filter(message => message.sender_role !== 'student' && !message.seen_at).length, 0)
   return {
-    texts: readiness.texts.length,
-    open: ready.filter(text => !recorded.has(text.id)).length,
+    texts: texts.length,
+    open: texts.filter(text => text.status !== 'locked' && !recorded.has(text.textId)).length,
     readyTexts: ready.length,
-    lockedTexts: readiness.texts.length - ready.length,
-    readinessTier: readiness.tier,
+    lockedTexts: texts.filter(text => text.status === 'locked').length,
     waiting: (submissions.data ?? []).filter(row => row.status === 'pending').length,
     unread,
   }
@@ -104,9 +105,8 @@ async function loadMedia(supabase: Client, level: string) {
 }
 
 /**
- * Lädt den Status eines Niveaus. Die Trainer außer den Videos brauchen eine
- * nicht-deutsche Oberfläche (Übersetzungen); dann sind sie gesperrt und
- * werden gar nicht erst gelesen.
+ * Lädt bestehende Lernstände mit kommerzieller Autorisierung. Die Interface-
+ * Sprache sperrt keinen Bereich; Aussprache folgt dem individuellen Vortest.
  */
 export async function loadLevelLearningStatus({ supabase, userId, profile, level, lang }: {
   supabase: Client
@@ -115,11 +115,10 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
   level: string
   lang: string
 }): Promise<LevelLearningStatus> {
-  const languageLocked = lang === 'de'
   const locked = {
-    vocabulary: languageLocked || !hasTrainerAccess(profile, level, 'vocabulary'),
-    grammar: languageLocked || !hasTrainerAccess(profile, level, 'exercises'),
-    pronunciation: languageLocked || !hasTrainerAccess(profile, level, 'pronunciation'),
+    vocabulary: !hasTrainerAccess(profile, level, 'vocabulary'),
+    grammar: !hasTrainerAccess(profile, level, 'exercises'),
+    pronunciation: !hasTrainerAccess(profile, level, 'pronunciation'),
     media: !hasConfiguredTrainerAccess(profile, level, 'videos'),
     verbs: !hasTrainerAccess(profile, level, 'verbs'),
   }
@@ -162,14 +161,12 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
 }
 
 /**
- * Warum ein Modus gesperrt ist. Die Mediathek folgt allein der
- * Niveau-Freigabe (wie ihre Route); die übrigen Modi brauchen eine nicht
- * deutsche Oberfläche und die Trainer-Freigabe der Lehrkraft.
+ * Kommerzielle Modusfreigabe, unabhängig von der Interface-Sprache.
+ * Hochgeladene Medien behalten ihre bestehende Niveau-Freigabe.
  */
-export function modeLock(profile: LevelAccessProfile | null, level: string, lang: string, mode: LearningMode): ModeLock {
+export function modeLock(profile: LevelAccessProfile | null, level: string, _lang: string, mode: LearningMode): ModeLock {
   if (mode === 'media') return hasConfiguredTrainerAccess(profile, level, 'videos') ? null : 'teacher'
   if (mode === 'verbs') return hasTrainerAccess(profile, level, 'verbs') ? null : 'teacher'
-  if (lang === 'de' || profile?.ui_language === 'de') return 'language'
   return hasTrainerAccess(profile, level, MODE_TRAINERS[mode]) ? null : 'teacher'
 }
 

@@ -81,7 +81,7 @@ export default async function DashboardPage({ params, searchParams }: {
 
   const levelBase = recommended ? levelHref(lang, recommended.id) : null
   // Problemwörter gehören zum Vokabeltrainer des empfohlenen Niveaus (nicht mit Deutsch als Oberfläche).
-  const focus = progress && recommended && lang !== 'de' && hasTrainerAccess(accessProfile, recommended.id, 'vocabulary') ? {
+  const focus = progress && recommended && hasTrainerAccess(accessProfile, recommended.id, 'vocabulary') ? {
     href: `/${lang}/dashboard/level/${encodeURIComponent(recommended.id)}/vocabulary/focus`,
     due: progress.focus.words.filter(word => word.level === recommended.id && word.due).length,
   } : null
@@ -143,7 +143,7 @@ export default async function DashboardPage({ params, searchParams }: {
       <div className={`${sitovHomeGrid.sitovColumn} ${sitovHomeGrid.sitovSecondary}`}>
         {progress && <ProgressTeaser progress={progress} lang={lang} focus={focus} />}
         <MailboxPreview summary={unseenFeedback} lang={lang} translations={dict.pronunciation as PronunciationTranslations} />
-        {recommended && <TrainerStatusTiles lang={lang} level={recommended.id} status={status} languageLocked={lang === 'de'}
+        {recommended && <TrainerStatusTiles lang={lang} level={recommended.id} status={status} languageLocked={false}
           title={s('areas_title_level', { level: recommended.id })} continueLink={areasContinue} />}
       </div>
     </div>

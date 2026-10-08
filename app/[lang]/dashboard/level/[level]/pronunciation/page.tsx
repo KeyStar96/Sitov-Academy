@@ -1,4 +1,3 @@
-import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { getPronunciationConversations } from '@/app/actions/pronunciation-conversations'
 import { getDictionary } from '@/lib/dictionary'
 import { getPronunciationTranslations } from '@/lib/pronunciation-i18n'
@@ -13,7 +12,6 @@ export default async function PronunciationDashboard({ params, searchParams }: {
   searchParams: Promise<{ tab?: string; conversation?: string }>
 }) {
   const { lang, level } = await params
-  if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const { tab, conversation } = await searchParams
   const decodedLevel = decodeURIComponent(level)
   const [dict, conversations, prompts, news, checkpoint, readiness] = await Promise.all([getDictionary(lang), getPronunciationConversations(decodedLevel), getPronunciationPrompts(decodedLevel), loadLearningNewItems(decodedLevel), loadLearningCheckpoint('pronunciation', decodedLevel), getSitovPronunciationReadiness(decodedLevel)])

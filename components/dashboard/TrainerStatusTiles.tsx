@@ -31,7 +31,7 @@ interface Tile {
  * was erledigt ist, bleibt ruhig mit Haken. Gesperrte Modi zeigen den Grund
  * und führen nirgendwohin.
  */
-export default function TrainerStatusTiles({ lang, level, status, languageLocked, heading = true, title, continueLink }: {
+export default function TrainerStatusTiles({ lang, level, status, heading = true, title, continueLink }: {
   lang: string
   level: string
   status: LevelLearningStatus | null
@@ -47,12 +47,12 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
   const t = studentTranslator(lang)
   const sitovCarouselCopy = getSitovTrainerCarouselCopy(lang)
   const sitovId = useId()
-  const lockedText = (area: 'media' | 'other') => area === 'other' && languageLocked ? t('status_language') : t('status_locked')
+  const lockedText = () => t('status_locked')
   const tiles: Tile[] = []
 
   const vocab = status?.vocabulary
   tiles.push({ id: 'vocabulary', title: 'area_vocabulary', badge: 0, ...(
-    vocab?.locked ? { text: lockedText('other'), tone: 'locked' as const }
+    vocab?.locked ? { text: lockedText(), tone: 'locked' as const }
       : !vocab ? { text: t('status_open'), tone: 'calm' as const }
         : vocab.due > 0 ? { text: t.count('status_vocab_due', vocab.due), tone: 'action' as const, badge: vocab.due }
           : vocab.activeWords + vocab.learned === 0 ? { text: t('status_vocab_setup'), tone: 'action' as const }
@@ -62,7 +62,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
   // Einstufungstest eines späteren Themas.
   const grammar = status?.grammar
   tiles.push({ id: 'path', title: 'area_path', badge: 0, ...(
-    grammar?.locked ? { text: lockedText('other'), tone: 'locked' as const }
+    grammar?.locked ? { text: lockedText(), tone: 'locked' as const }
       : !grammar ? { text: t('status_open'), tone: 'calm' as const }
         : grammar.total === 0 || grammar.topics === 0 ? { text: t('status_empty'), tone: 'calm' as const }
           : grammar.openTopics > 0 ? { text: t('status_path_position', { current: grammar.currentTopic ?? grammar.topics - grammar.openTopics + 1, total: grammar.topics }), tone: 'action' as const }
@@ -70,7 +70,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
 
   const speech = status?.pronunciation
   tiles.push({ id: 'pronunciation', title: 'area_pronunciation', badge: 0, ...(
-    speech?.locked ? { text: lockedText('other'), tone: 'locked' as const }
+    speech?.locked ? { text: lockedText(), tone: 'locked' as const }
       : !speech ? { text: t('status_open'), tone: 'calm' as const }
         : speech.unread > 0 ? { text: t.count('status_pron_unread', speech.unread), tone: 'action' as const, badge: speech.unread }
           : speech.texts === 0 ? { text: t('status_empty'), tone: 'calm' as const }
@@ -80,7 +80,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
 
   const media = status?.media
   tiles.push({ id: 'media', title: 'area_media', badge: 0, ...(
-    media?.locked ? { text: lockedText('media'), tone: 'locked' as const }
+    media?.locked ? { text: lockedText(), tone: 'locked' as const }
       : !media ? { text: t('status_open'), tone: 'calm' as const }
         : media.total === 0 ? { text: t('status_empty'), tone: 'calm' as const }
           : media.fresh > 0 ? { text: t.count('status_media_fresh', media.fresh), tone: 'action' as const, badge: media.fresh }

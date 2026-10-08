@@ -7,7 +7,8 @@ jest.mock('@/lib/request-session', () => ({ requestSession: jest.fn() }))
 jest.mock('@/lib/learning-new-server', () => ({ loadLearningNewCounts: async () => null }))
 jest.mock('@/lib/verbs/server', () => ({ loadSitovVerbTrainer: jest.fn(), sitovVerbStats: jest.fn() }))
 
-import { loadLevelLearningStatus } from '@/lib/learning-status-server'
+import { loadLevelLearningStatus, modeLock } from '@/lib/learning-status-server'
+import { requestSession } from '@/lib/request-session'
 import type { LevelAccessProfile } from '@/lib/access/levels'
 import type { createClient } from '@/utils/supabase/server'
 
@@ -50,8 +51,32 @@ it('shows unavailable path statistics as unknown, preserving other status tiles'
   expect(console.error).toHaveBeenCalledWith('[learning-status] path_unavailable')
 })
 
-it('does not query a language-locked path', async () => {
+it('loads the same authorized path in German UI', async () => {
   const { rpc, load } = sitovRead(sitovMap, null, 'de')
-  expect((await load()).grammar?.locked).toBe(true)
-  expect(rpc).not.toHaveBeenCalled()
+  expect((await load()).grammar?.locked).toBe(false)
+  expect(rpc).toHaveBeenCalledWith('get_learning_path', { p_level: 'A1.1', p_locale: 'de' })
+})
+
+it.each(['de', 'en', 'ru', 'uk', 'tr'])('keeps commercial mode scope independent of %s UI', lang => {
+  const profile = { role: 'student', ui_language: 'de', allowed_levels: ['A1.1'] }
+  for (const mode of ['vocabulary', 'path', 'pronunciation', 'media', 'verbs'] as const) {
+    expect(modeLock(profile, 'A1.1', lang, mode)).toBeNull()
+    expect(modeLock({ ...profile, allowed_levels: [] }, 'A1.1', lang, mode)).toBe('teacher')
+  }
+})
+
+it('counts available individual pretests without vocabulary, verb or path evidence', async () => {
+  const entry = { textId: sitovId(12), unitId: sitovId(13), level: 'A1.1', title: 'Ein Text', focus: null,
+    kind: 'regular', textVersion: 'a'.repeat(64), testVersion: 'b'.repeat(64), status: 'available',
+    lockedReason: null, attempt: null, proof: null, target: 'pretest' }
+  const rpc = jest.fn().mockResolvedValue({ data: { ok: true, data: [entry] }, error: null })
+  const result = Promise.resolve({ data: [], error: null })
+  const chain = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: result.then.bind(result) }
+  const supabase = { rpc, from: () => chain } as unknown as Awaited<ReturnType<typeof createClient>>
+  jest.mocked(requestSession).mockResolvedValue({ supabase, user: { id: sitovId(20) } } as Awaited<ReturnType<typeof requestSession>>)
+  const profile = { ...sitovProfile, trainer_grants: ['vocabulary', 'exercises', 'videos', 'verbs'].map(trainer => ({ level: 'A1.1', trainer, enabled: false })) }
+  const status = await loadLevelLearningStatus({ supabase, userId: sitovId(20), profile, level: 'A1.1', lang: 'de' })
+  expect(status.pronunciation).toMatchObject({ locked: false, texts: 1, open: 1, readyTexts: 0, lockedTexts: 0 })
+  expect(status.pronunciation?.readinessTier).toBeUndefined()
+  expect(rpc).toHaveBeenCalledWith('sitov_get_pronunciation_pretests', { p_level: 'A1.1' })
 })

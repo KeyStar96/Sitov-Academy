@@ -10,7 +10,6 @@ import TrainPage from '@/app/[lang]/dashboard/level/[level]/vocabulary/train/pag
 import LearningPathPage from '@/app/[lang]/dashboard/level/[level]/path/page'
 import PronunciationPage from '@/app/[lang]/dashboard/level/[level]/pronunciation/page'
 import VideosPage from '@/app/[lang]/dashboard/level/[level]/videos/page'
-import VideoPage from '@/app/[lang]/dashboard/level/[level]/videos/[id]/page'
 import TrainerAccessGuard from '@/components/dashboard/TrainerAccessGuard'
 import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { getDictionary } from '@/lib/dictionary'
@@ -42,13 +41,32 @@ const params = Promise.resolve({ lang: 'de', level: 'A1.1', id: 'video-id' })
 const cases = [
   ['vocabulary', () => VocabularyPage({ params })],
   ['learning box', () => TrainPage({ params, searchParams: Promise.resolve({}) })],
-  ['learning path', () => LearningPathPage({ params })],
-  ['pronunciation', () => PronunciationPage({ params, searchParams: Promise.resolve({}) })],
-  ['video deep link', () => VideoPage({ params })],
-  ['trainer guard', () => TrainerAccessGuard({ params, trainer: 'vocabulary', children: <p>Hidden trainer</p> })],
 ] as const
 
 beforeEach(() => jest.clearAllMocks())
+
+test('German learning path loads its authorized content', async () => {
+  jest.mocked(getLearningPath).mockResolvedValue({ data: {} } as never)
+  render(await LearningPathPage({ params }))
+  expect(getLearningPath).toHaveBeenCalledWith('A1.1', 'de')
+})
+
+test('German pronunciation route loads individually authorized prompts and preserved conversations', async () => {
+  jest.mocked(getDictionary).mockResolvedValue({ pronunciation: {} } as never)
+  jest.mocked(getPronunciationPrompts).mockResolvedValue([])
+  jest.mocked(getPronunciationConversations).mockResolvedValue([])
+  render(await PronunciationPage({ params, searchParams: Promise.resolve({}) }))
+  expect(getPronunciationPrompts).toHaveBeenCalledWith('A1.1')
+  expect(getPronunciationConversations).toHaveBeenCalledWith('A1.1')
+})
+
+test('German trainer guard checks commercial rights and admits an authorized child', async () => {
+  jest.mocked(getDictionary).mockResolvedValue({ dashboard: {} } as never)
+  jest.mocked(currentUserHasTrainerAccess).mockResolvedValue(true)
+  render(await TrainerAccessGuard({ params, trainer: 'vocabulary', children: <p>Authorized trainer</p> }))
+  expect(currentUserHasTrainerAccess).toHaveBeenCalledWith('A1.1', 'vocabulary')
+  expect(screen.getByText('Authorized trainer')).toBeInTheDocument()
+})
 
 test.each(cases)('German %s shows a language choice before loading learner data', async (_name, page) => {
   render(await page())
