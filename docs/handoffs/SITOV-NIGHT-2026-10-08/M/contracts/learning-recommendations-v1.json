@@ -1,0 +1,62 @@
+{
+  "version": "sitov-learning-recommendations-v1",
+  "status": "FROZEN_BY_M",
+  "frozen_at": "2026-10-08T22:03:33.668092+00:00",
+  "manifest": "S2 lib/learning/sitov-topic-mapping.ts content only, existing limited A1.1/A1.2 coverage explicit",
+  "server_port": "resolveSitovLearningRecommendations({topicIds,failedCompetencyIds?,locale,limit})",
+  "input": {
+    "topicIds": "1..10 known stable sitov.topic.* IDs",
+    "failedCompetencyIds": "optional <=40 known sitov.competency.* IDs",
+    "locale": [
+      "de",
+      "en",
+      "ru",
+      "uk",
+      "tr"
+    ],
+    "limit": "integer 1..3 default3",
+    "account": "session only; no client account/access/progress/URL"
+  },
+  "result": "{ok:true,data:{mappingVersion:1,items:Recommendation[]}} OR {ok:false,error:authentication_required|invalid_input|retryable_failure,retryable:boolean}",
+  "item": {
+    "kind": [
+      "vocabulary",
+      "verbs",
+      "learning_path",
+      "pronunciation"
+    ],
+    "level": "exact existing fine CEFR level",
+    "targetId": "verified stored card/node/reading UUID or sitov-verb-* catalog ID",
+    "topicId": "known stable topic",
+    "competencyId": "known stable competency",
+    "action": [
+      "practice",
+      "continue",
+      "review",
+      "pretest"
+    ],
+    "progress": "existing truthful evidence only; no derived mastery from Special/pronunciation and no invented zero on read failure",
+    "href": "server generated exact targeted relative href described below"
+  },
+  "routes": {
+    "vocabulary": "/{locale}/dashboard/level/{level}/vocabulary/train?lesson={canonicalUnitUUID}&sitov_target={cardUUID}",
+    "verbs": "/{locale}/dashboard/level/{level}/verbs?sitov_target={verbID}&tense=present",
+    "learning_path": "/{locale}/dashboard/level/{level}/path?sitov_target={resolvedNodeUUID}",
+    "pronunciation": "/{locale}/dashboard/level/{level}/pronunciation?sitov_target={readingUUID}"
+  },
+  "authorization": "Resolve DB canonical level/unit/publication; authenticated RLS and S1 currentUserHasContentAccess for each target, including level-qualified source node lookup with unit.path_source_id+node.source_id. Omit denied/missing/draft/ambiguous targets without leaking IDs. Current pronunciation pretest/catalog decides pretest vs review; learner path/vocab/verb evidence never locks a reading test. Reauthorization at destination/actions remains mandatory.",
+  "progress_sources": [
+    "existing account vocabulary state/checkpoint",
+    "existing sitov_verb_progress",
+    "existing path_node_progress/path API",
+    "current per-text pretest catalog"
+  ],
+  "ui_binding": "No visible recommendation claims or publication until exact destination query is consumed and focuses the verified target. A generic route is not a precise link. S3 remediation learningLinks use only compatible vocabulary/verbs/learning_path subset and do not invent targets.",
+  "target_ports_owners": {
+    "vocabulary": "M source locale + exact card destination",
+    "verbs": "M exact existing verb destination",
+    "learning_path": "S2 exact resolved node destination",
+    "pronunciation": "S4 individual catalog/pretest target destination"
+  },
+  "release_ready": false
+}
