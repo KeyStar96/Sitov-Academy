@@ -7,6 +7,7 @@ import type { AdminStudentRow } from '@/lib/types/admin-staff'
 import { useAdminTranslator } from './AdminI18nProvider'
 import AdminDialog from './AdminDialog'
 import LessonAccessModal from './LessonAccessModal'
+import SitovCommercialAccessPanel from './SitovCommercialAccessPanel'
 import { adminButton, adminInput } from './ui'
 
 export default function StudentAccessModal({ student, loading, message, hasError, onClose, onLevelToggle, onTrainerToggle, onLessonsUpdate }: {
@@ -22,10 +23,11 @@ export default function StudentAccessModal({ student, loading, message, hasError
   const t = useAdminTranslator()
   const [level, setLevel] = useState<SitovTrainerLevel>(ACCESS_LEVELS.find(item => student.allowed_levels?.includes(item)) ?? ACCESS_LEVELS[0])
   const [trainer, setTrainer] = useState<Trainer | null>(null)
+  const [savingCommercial, setSavingCommercial] = useState(false)
   const [savingLessons, setSavingLessons] = useState(false)
   const name = student.person?.display_name || student.person?.email || t('unknown_name')
   const levelEnabled = student.allowed_levels?.includes(level) ?? false
-  const busy = loading || savingLessons
+  const busy = loading || savingLessons || savingCommercial
 
   return (
     <AdminDialog
@@ -47,6 +49,7 @@ export default function StudentAccessModal({ student, loading, message, hasError
         />
       ) : (
         <div className="min-h-0 flex-1 space-y-5 overflow-y-auto overscroll-contain px-5 py-5 sm:px-6" data-lenis-prevent>
+          <SitovCommercialAccessPanel key={student.id} studentId={student.id} onBusyChange={setSavingCommercial} />
           <div className="flex flex-col gap-3 rounded-xl bg-[var(--surface-muted)] p-4 sm:flex-row sm:items-end">
             <label className="min-w-0 flex-1">
               <span className="mb-1.5 block text-sm font-medium">{t('access_level_select')}</span>
