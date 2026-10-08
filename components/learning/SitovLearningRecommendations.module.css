@@ -1,0 +1,9 @@
+.panel { margin-block: 1.5rem; padding: 1rem; border: 1px solid var(--border); border-radius: 1.25rem; }
+.panel h3 { font-size: 1.125rem; margin-bottom: .75rem; }
+.panel ul { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.link { min-height: 48px; display: flex; align-items: center; gap: .5rem; padding: .75rem; border-radius: .75rem; font-size: 1.125rem; overflow-wrap: anywhere; transition: transform var(--motion-fast), background var(--motion-base); }
+.link:hover { background: var(--surface-muted); }
+.link:active { transform: scale(.97); }
+.link:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 3px; }
+.link span { margin-left: auto; white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .link { transition: none; } .link:active { transform: none; } }

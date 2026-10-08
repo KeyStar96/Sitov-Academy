@@ -62,8 +62,11 @@ export async function resolveSitovLearningRecommendations(input: unknown): Promi
         let item: SitovLearningRecommendation
         if (target.kind === 'path_node_source') {
           if (!paths.has(target.level)) paths.set(target.level, pathMapSchema.parse(checked(await client.rpc('get_learning_path', { p_level: target.level, p_locale: locale }))))
-          const node = paths.get(target.level)!.paths.flatMap(path => path.nodes).find(node => node.id === id)
-          if (!node?.available) continue
+          const pathMap = paths.get(target.level)!
+          if (pathMap.level !== target.level) throw new Error('foreign_path')
+          const matches = pathMap.paths.filter(path => path.id === unitId && path.available).flatMap(path => path.nodes).filter(node => node.id === id)
+          const node = matches.length === 1 ? matches[0] : undefined
+          if (!node?.available || node.kind === 'special') continue
           const status = node.status ?? 'not_started'
           item = { ...base, kind: 'learning_path', action: status === 'completed' ? 'review' : status === 'in_progress' ? 'continue' : 'practice', progress: { source: 'learning_path', status }, href: `${prefix}/path?sitov_target=${encodeURIComponent(id)}` }
         } else if (target.kind === 'vocabulary_card') {
@@ -77,7 +80,7 @@ export async function resolveSitovLearningRecommendations(input: unknown): Promi
           }
           // Checkpoint plans contain direction-progress UUIDs, not vocabulary-card UUIDs.
           const checkpoint = rows.some(row => checkpoints.get(target.level)!.includes(row.id))
-          item = { ...base, kind: 'vocabulary', action: checkpoint ? 'continue' : rows.length === 2 && rows.every(r => r.box_number === 7) ? 'review' : 'practice', progress: { source: 'vocabulary', directions: rows.map(r => ({ direction: r.direction, box: r.box_number })), checkpoint }, href: `${prefix}/vocabulary/train?lesson=${encodeURIComponent(unitId)}&sitov_target=${encodeURIComponent(id)}` }
+          item = { ...base, kind: 'vocabulary', action: checkpoint ? 'continue' : rows.length === 2 && rows.every(r => r.box_number === 7) ? 'review' : 'practice', progress: { source: 'vocabulary', directions: rows.map(r => ({ direction: r.direction, box: r.box_number })), checkpoint }, href: `${prefix}/vocabulary/lessons?sitov_target=${encodeURIComponent(id)}` }
         } else if (target.kind === 'verb') {
           const rows = verbProgressSchema.parse(checked(await client.from('sitov_verb_progress').select('box,attempts,correct').eq('auth_user_id', actor).eq('verb_id', id).eq('tense', 'present')))
           const row = rows[0]

@@ -28,13 +28,8 @@ export const sitovLearningRecommendationSchema = z.object({
   try { url = new URL(item.href, 'https://sitov.invalid') } catch { ctx.addIssue({ code: 'custom', message: 'invalid_exact_href' }); return }
   const locale = url.pathname.split('/')[1]
   const prefix = `/${locale}/dashboard/level/${encodeURIComponent(item.level)}`
-  const routes = { vocabulary: '/vocabulary/train', verbs: '/verbs', learning_path: '/path', pronunciation: '/pronunciation' }
+  const routes = { vocabulary: '/vocabulary/lessons', verbs: '/verbs', learning_path: '/path', pronunciation: '/pronunciation' }
   const expected = new URLSearchParams()
-  if (item.kind === 'vocabulary') {
-    const lesson = url.searchParams.get('lesson')
-    if (!z.uuid().safeParse(lesson).success) ctx.addIssue({ code: 'custom', message: 'invalid_lesson' })
-    expected.set('lesson', lesson ?? '')
-  }
   expected.set('sitov_target', item.targetId)
   if (item.kind === 'verbs') expected.set('tense', 'present')
   if (!['de', 'en', 'ru', 'uk', 'tr'].includes(locale) || url.origin !== 'https://sitov.invalid' || url.hash || item.href !== `${prefix}${routes[item.kind]}?${expected.toString()}`) ctx.addIssue({ code: 'custom', message: 'invalid_exact_href' })

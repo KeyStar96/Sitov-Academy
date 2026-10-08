@@ -22,6 +22,8 @@ import PathTrail from './PathTrail'
 import TestOutcome from './TestOutcome'
 import TestReview from './TestReview'
 import styles from './learning-path.module.css'
+import SitovPathTargetChoice from './SitovPathTargetChoice'
+import SitovLearningRecommendations from '@/components/learning/SitovLearningRecommendations'
 
 type Selection = { node: PathNode; title: string; pathId: string }
 type Review = TestResult & Pick<Partial<TestReviewData>, 'completed_at'>
@@ -50,10 +52,13 @@ function GradeFeedback({ grade, solution, lang, isTest = false }: { grade: PathG
   </FeedbackMotion>
 }
 
-export default function LearningPathClient({ initialPath, initialError, lang, level, newItems }: {
+export default function LearningPathClient({ initialPath, initialError, lang, level, newItems, sitovTarget, recommendationTopicIds, recommendationAccountKey }: {
   initialPath?: PathMap; initialError?: string; lang: string; level: string
   /** Neue Pfade und Zweige (Phase 6.1); der Pfad gilt als gesehen, sobald einer seiner Knoten geöffnet wird. */
   newItems?: LearningNewItems
+  sitovTarget?: string | string[]
+  recommendationTopicIds?: string[]
+  recommendationAccountKey?: string
 }) {
   const t = pathTranslator(lang)
   const newLabel = studentTranslator(lang)('media_new')
@@ -254,6 +259,8 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       <p>{pathErrorText(lang, error)}</p>
       <button className={styles.secondary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('retry')}</button>
     </div>}
+    <SitovPathTargetChoice raw={sitovTarget} level={level} map={map} lang={lang} busy={busy}
+      onOpen={(node, title, pathId) => openNode(node, title, pathId)} onRetry={() => void perform(refreshMap)} />
     <SitovMotionStage data-testid="path-map" className={`${styles.map} ${styles.sitovMapStage}`}>
       {map?.completed && <div className={styles.card}>
         <p>{t('all_done')}</p>
@@ -268,6 +275,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
         isNewPath={id => news.isNew('path', id)} isNewBranch={id => news.isNew('special_branch', id)} newLabel={newLabel} />}
       {map && map.paths.length === 0 && <p>{t('empty')}</p>}
     </SitovMotionStage>
+    {recommendationAccountKey && <SitovLearningRecommendations topicIds={recommendationTopicIds ?? []} lang={lang} accountKey={recommendationAccountKey} />}
     <TestChoice choice={choice} lang={lang} busy={busy} onClose={() => setChoice(null)}
       onReview={target => showReview(target)} onStart={target => openNode(target.node, target.title, target.pathId, true)} />
   </section>

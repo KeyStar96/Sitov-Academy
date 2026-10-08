@@ -1,0 +1,3 @@
+.target { margin-bottom: 1rem; scroll-margin-block: 5rem; }
+.target:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 4px; }
+.action { min-height: 48px; }
