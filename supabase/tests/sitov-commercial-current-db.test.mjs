@@ -16,6 +16,30 @@ test('93 guarded source integration on isolated real normalized current92', { sk
      SET session_replication_role=replica;
      INSERT INTO learning_videos(id,unit_id,folder_id,title,storage_path,file_size) VALUES('${sitovId(351)}','${sitovId(242)}','${sitovId(350)}','Sitov QA uploaded video','A1.1/${sitovId(350)}/videos/${sitovId(351)}.mp4',100);
      SET session_replication_role=origin;`)
+    const ownFixtures = ['all', 'none', 'selected', 'disabled', 'outsider'].map((name, index) => ({ name,
+      user: sitovUsers[name], unit: sitovId(410 + index), card: sitovId(420 + index) }))
+    await db.exec(`SET session_replication_role=replica;
+      INSERT INTO cefr_levels(code) VALUES('C2') ON CONFLICT DO NOTHING;
+      INSERT INTO learning_levels(code,cefr_level,sort_order,is_active) VALUES('C2.1','C2',100,false) ON CONFLICT DO NOTHING;
+      INSERT INTO learning_units(id,level,trainer,label,is_active) VALUES('${sitovId(430)}','C2.1','vocabulary','Sitov unreleased fixture',true);
+      INSERT INTO student_level_access(auth_user_id,level) VALUES('${sitovUsers.all}','C2.1');
+      INSERT INTO learning_units(id,level,trainer,label,is_active) VALUES('${sitovId(431)}','B2','vocabulary','Sitov coarse fixture',true);
+      INSERT INTO student_level_access(auth_user_id,level) VALUES('${sitovUsers.all}','B2');
+      INSERT INTO learning_units(id,level,trainer,label,owner_auth_user_id) VALUES('${sitovId(432)}','C2.1','vocabulary','Eigene Wörter','${sitovUsers.all}');
+      SET session_replication_role=origin;`)
+    for (const own of ownFixtures) {
+      await db.exec(`INSERT INTO learning_units(id,level,trainer,label,owner_auth_user_id) VALUES('${own.unit}','A1.1','vocabulary','Eigene Wörter','${own.user}');
+        INSERT INTO learning_vocabulary_cards(id,word_de,unit_id) VALUES('${own.card}','Buch','${own.unit}');`)
+    }
+    const ownBefore = {}
+    for (const own of ownFixtures) {
+      await db.actor(own.user, 'postgres', { role: 'authenticated' })
+      ownBefore[own.name] = (await db.query(`SELECT learning_private.unit_allowed('${own.unit}') allowed`)).rows[0].allowed
+    }
+    await db.actor(sitovUsers.all, 'postgres', { role: 'authenticated' })
+    for (const denied of [430, 431, 432]) {
+      assert.equal((await db.query(`SELECT learning_private.unit_allowed('${sitovId(denied)}') allowed`)).rows[0].allowed, false, 'original current92 denies unreleased/coarse/own unit despite stored grant')
+    }
     const mediaBefore = {}
     for (const [name, user] of Object.entries(sitovUsers)) {
       await db.actor(user); mediaBefore[name] = (await db.query(`SELECT id FROM learning_videos WHERE id='${sitovId(351)}'`)).rows
@@ -47,6 +71,25 @@ test('93 guarded source integration on isolated real normalized current92', { sk
       await db.actor(sitovUsers.outsider)
       assert.equal((await db.query(`SELECT id FROM learning_vocabulary_cards WHERE id='${sitovId(301)}'`)).rows.length, 0)
     })
+    await t.test('own catalog preserves original selected/none inheritance, disabled denial and privacy; no unreleased grant expansion', async () => {
+      assert.deepEqual(ownBefore, { all: true, none: true, selected: true, disabled: false, outsider: false })
+      for (const own of ownFixtures) {
+        await db.actor(own.user)
+        const catalog = (await db.query("SELECT get_sitov_access_catalog('A1.1','vocabulary') result")).rows[0].result
+        const ids = catalog.units.flatMap(unit => unit.items.map(item => item.id))
+        assert.equal(ids.includes(own.card), ownBefore[own.name], own.name)
+        assert.ok(ownFixtures.filter(other => other.user !== own.user).every(other => !ids.includes(other.card)), 'foreign private words absent')
+        await db.actor(own.user, 'postgres', { role: 'authenticated' })
+        assert.equal((await db.query(`SELECT learning_private.unit_allowed('${own.unit}') allowed`)).rows[0].allowed, ownBefore[own.name])
+      }
+      await db.actor(sitovUsers.all, 'postgres', { role: 'authenticated' })
+      for (const denied of [430, 431, 432]) {
+        assert.equal((await db.query(`SELECT learning_private.unit_allowed('${sitovId(denied)}') allowed`)).rows[0].allowed, false)
+      }
+      await db.actor(sitovUsers.teacher)
+      const staffCatalog = (await db.query("SELECT get_sitov_access_catalog('A1.1','vocabulary') result")).rows[0].result
+      assert.ok(staffCatalog.units.flatMap(unit => unit.items).every(item => !ownFixtures.some(own => own.card === item.id)))
+    })
     await t.test('selected-item trial catalog only returns own scope; old unit-only RPC guard stays closed', async () => {
       const manifest = { version: 1, rules: [{ level: 'A1.1', trainer: 'vocabulary', unit_ids: [sitovId(211)],
         items: [{ unit_id: sitovId(211), refs: [{ kind: 'vocabulary_card', id: sitovId(301) }] }] }] }
@@ -58,6 +101,18 @@ test('93 guarded source integration on isolated real normalized current92', { sk
       await db.actor(sitovUsers.outsider, 'postgres', { role: 'authenticated' })
       assert.equal((await db.query(`SELECT learning_private.unit_allowed('${sitovId(211)}') allowed`)).rows[0].allowed, false)
       assert.equal((await db.query(`SELECT sitov_access_private.item_allowed('${sitovUsers.outsider}','vocabulary_card','${sitovId(301)}') allowed`)).rows[0].allowed, true)
+    })
+    await t.test('empty item buckets never claim a level; selected item scope does', async () => {
+      const empty = { version: 1, rules: [{ level: 'A1.1', trainer: 'vocabulary', unit_ids: [sitovId(211)], items: [{ unit_id: sitovId(211), refs: [] }] }] }
+      await db.actor(sitovUsers.teacher)
+      assert.equal((await db.query('SELECT set_sitov_student_trial($1,$2,3) result', [sitovUsers.outsider, empty])).rows[0].result.success, true)
+      await db.actor(sitovUsers.outsider, 'postgres', { role: 'authenticated' })
+      assert.equal((await db.query(`SELECT sitov_access_private.level_allowed('${sitovUsers.outsider}','A1.1') allowed`)).rows[0].allowed, false)
+      empty.rules[0].items[0].refs.push({ kind: 'vocabulary_card', id: sitovId(301) })
+      await db.actor(sitovUsers.teacher)
+      assert.equal((await db.query('SELECT set_sitov_student_trial($1,$2,4) result', [sitovUsers.outsider, empty])).rows[0].result.success, true)
+      await db.actor(sitovUsers.outsider, 'postgres', { role: 'authenticated' })
+      assert.equal((await db.query(`SELECT sitov_access_private.level_allowed('${sitovUsers.outsider}','A1.1') allowed`)).rows[0].allowed, true)
     })
     await t.test('replay preserves claims, selections, payment-off and historical state', async () => {
       const rights = await sitovRightsSnapshot(db)

@@ -258,7 +258,8 @@ LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
  SELECT EXISTS(SELECT 1 FROM public.learning_units u JOIN public.profiles p ON p.id=p_student
  LEFT JOIN public.learning_trainer_grants g ON g.auth_user_id=p.id AND g.level=u.level AND g.trainer=u.trainer
  WHERE u.id=p_unit AND (u.owner_auth_user_id IS NULL OR u.owner_auth_user_id=p.id)
- AND (p.role IN('teacher','admin') OR ((u.is_active OR u.owner_auth_user_id=p.id)
+ AND (p.role IN('teacher','admin') OR (u.level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ AND NOT(u.trainer='verbs' AND u.level IN('C1.1','C1.2')) AND (u.is_active OR u.owner_auth_user_id=p.id)
  AND EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=u.level)
  AND coalesce(g.enabled,true) AND (u.owner_auth_user_id=p.id OR g.unit_mode IS DISTINCT FROM 'selected'
  OR EXISTS(SELECT 1 FROM public.learning_unit_grants x WHERE x.auth_user_id=p.id AND x.unit_id=u.id AND x.level=u.level AND x.trainer=u.trainer)))))
@@ -286,7 +287,9 @@ LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
  OR EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=p_level)
  OR EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND (s.vip_enabled OR EXISTS(
  SELECT 1 FROM jsonb_array_elements(s.trial->'rules') r WHERE r->>'level'=p_level
- AND r->'unit_ids'<>'[]'::jsonb AND r->'items'<>'[]'::jsonb))) OR sitov_access_private.purchased(p.id,p_level)))
+ AND r->'unit_ids'<>'[]'::jsonb AND (r->'items'='null'::jsonb OR EXISTS(
+ SELECT 1 FROM jsonb_array_elements(r->'items') b WHERE (b->'refs'='null'::jsonb OR b->'refs'<>'[]'::jsonb)
+ AND (r->'unit_ids'='null'::jsonb OR r->'unit_ids' @> jsonb_build_array(b->>'unit_id'))))))) OR sitov_access_private.purchased(p.id,p_level)))
 $$;
 CREATE OR REPLACE FUNCTION trainer_access_private.allowed(p_level text,p_trainer text) RETURNS boolean
 LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
@@ -322,7 +325,7 @@ LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$ BEGIN
  UNION ALL SELECT 'path_node',id::text FROM public.path_nodes
  UNION ALL SELECT 'presentation',asset_id::text FROM public.lms_presentation_asset
  ),items AS (SELECT r.kind,r.id,i.unit_id,i.published FROM refs r CROSS JOIN LATERAL sitov_access_private.resolve_item(r.kind,r.id) i
- WHERE i.level=p_level AND i.trainer=p_trainer AND i.owner_id IS NULL AND sitov_access_private.item_allowed(auth.uid(),r.kind,r.id)),
+ WHERE i.level=p_level AND i.trainer=p_trainer AND (i.owner_id IS NULL OR i.owner_id=auth.uid()) AND sitov_access_private.item_allowed(auth.uid(),r.kind,r.id)),
  units AS (SELECT i.unit_id,coalesce(u.label,'') label,jsonb_agg(jsonb_build_object('kind',i.kind,'id',i.id,'label',coalesce(u.label,''),'published',i.published) ORDER BY i.kind,i.id) items
  FROM items i LEFT JOIN public.learning_units u ON u.id=i.unit_id GROUP BY i.unit_id,u.label)
  SELECT jsonb_build_object('version',1,'level',p_level,'trainer',p_trainer,'units',coalesce(jsonb_agg(jsonb_build_object('id',unit_id,'label',label,'items',items) ORDER BY unit_id),'[]'::jsonb)) FROM units);
