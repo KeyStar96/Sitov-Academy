@@ -1,4 +1,5 @@
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import { saveStudyMode } from '@/lib/vocabulary-lernkasten'
+import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import LessonCardsModal from '@/components/vocabulary/LessonCardsModal'
 import VocabCardSession from '@/components/vocabulary/VocabCardSession'
 import { SitovVocabularyUsage } from '@/components/vocabulary/SitovVocabularyContent'
@@ -120,7 +121,7 @@ it('reveals German usage only after turning the card and does not turn it when c
 
 it('does not expose German usage when switching to a typed prompt', () => {
   session({ contentKind: 'chunk' })
-  fireEvent.click(screen.getByRole('radio', { name: /Ausschreiben/ }))
+  act(() => saveStudyMode('typed'))
   expect(screen.getByRole('textbox')).toBeInTheDocument()
   expect(screen.queryByText('einen Termin vereinbaren')).not.toBeInTheDocument()
   expect(screen.queryByText('Paul vereinbart einen Termin.')).not.toBeInTheDocument()

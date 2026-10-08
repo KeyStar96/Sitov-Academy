@@ -1,6 +1,6 @@
 'use client'
 
-import { useId, useState, type CSSProperties } from 'react'
+import { useId, useState, type CSSProperties, type ReactNode } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Archive, ArrowLeftRight, CalendarCheck, Check, ChevronDown, Lightbulb, RotateCcw, Sparkles, X, type LucideIcon } from 'lucide-react'
 import { LEITNER_PHASES, PHASE_INTERVALS_IN_DAYS } from '@/lib/leitner'
@@ -59,7 +59,7 @@ function GuideTrack({ t }: { t: Translator }) {
  * Box. Zugeklappt stört sie den Start-Knopf nicht; bei einem noch leeren
  * Kasten steht sie offen, weil dann genau diese Frage ansteht.
  */
-export default function LernkastenGuide({ t, defaultOpen = false }: { t: Translator; defaultOpen?: boolean }) {
+export default function LernkastenGuide({ t, defaultOpen = false, title, children }: { t: Translator; defaultOpen?: boolean; title?: string; children?: ReactNode }) {
   const reduced = useReducedMotionSafe()
   const [open, setOpen] = useState(defaultOpen)
   const id = useId()
@@ -77,7 +77,7 @@ export default function LernkastenGuide({ t, defaultOpen = false }: { t: Transla
         onClick={() => setOpen((value) => !value)}
       >
         <span className="lb-guide__icon" aria-hidden="true"><Lightbulb size={22} strokeWidth={2.25} /></span>
-        <span className="min-w-0 flex-1">{t('box_guide_title')}</span>
+        <span className="min-w-0 flex-1">{title ?? t('box_guide_title')}</span>
         <ChevronDown size={22} aria-hidden="true" className="lb-guide__chevron" />
       </button>
 
@@ -94,6 +94,7 @@ export default function LernkastenGuide({ t, defaultOpen = false }: { t: Transla
             transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT }}
           >
             <div className="lb-guide__body">
+              {children}
               <GuideTrack t={t} />
               <ol className="lb-guide__steps">
                 {STEPS.map(({ key, icon: Icon, tone }, index) => (

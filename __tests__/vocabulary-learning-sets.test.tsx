@@ -51,7 +51,7 @@ it('zeigt nur noch die Lernbox: keine Lektionsliste, keine eigenen Wörter, kein
   expect(screen.queryByRole('heading', { name: de.vocabulary.own_words_title })).not.toBeInTheDocument()
   expect(screen.queryByRole('switch')).not.toBeInTheDocument()
   expect(screen.queryByText(de.vocabulary.method_title)).not.toBeInTheDocument()
-  fireEvent.click(screen.getByRole('button', { name: 'Jetzt 2 Vokabeln üben' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Начать тренировку' }))
   expect(await screen.findByText('session')).toBeInTheDocument()
 })
 

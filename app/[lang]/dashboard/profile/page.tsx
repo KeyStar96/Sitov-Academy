@@ -22,6 +22,8 @@ import { certificateStudentText } from '@/lib/certificates/student-i18n'
 import ProfileDailyQuestSettings from '@/components/dashboard/ProfileDailyQuestSettings'
 import { loadDailyQuestStatus } from '@/lib/daily-quest-server'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
+import ProfileTrainerSettings from '@/components/dashboard/ProfileTrainerSettings'
+import { getSitovTrainerSettingsCopy } from '@/lib/sitov-trainer-settings-i18n'
 
 export default async function ProfilePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: requestedLang } = await params
@@ -46,6 +48,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
   const uiLanguage = toUiLocale(profile.ui_language ?? lang)
   const dailyQuest = profile.role === 'student' ? await loadDailyQuestStatus() : null
   const dailyCopy = getDailyQuestCopy(lang)
+  const trainerCopy = getSitovTrainerSettingsCopy(lang)
 
   return (
     <ProfileSettings lang={lang}
@@ -56,6 +59,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
         {(profile.role ?? 'student') === 'student' && <ProfileDelete translations={dict.profile_delete} lang={lang} />}
       </div>}
       sections={[
+        { id: 'trainers', title: trainerCopy.title, hint: trainerCopy.hint, content: <ProfileTrainerSettings lang={lang} /> },
         ...(profile.role === 'student' ? [{ id: 'daily-quest' as const, title: dailyCopy.settingsTitle, hint: dailyCopy.settingsHint,
           content: <ProfileDailyQuestSettings lang={lang} initial={dailyQuest?.data ?? null} /> }] : []),
         { id: 'certificates', title: certificateText.title, hint: certificateText.intro,

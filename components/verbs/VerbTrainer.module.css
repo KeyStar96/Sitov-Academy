@@ -61,6 +61,7 @@
 .sitovPrimary::after { content: ''; z-index: -1; position: absolute; inset: 0 auto 0 -100%; width: 60%; background: linear-gradient(90deg,transparent,#ffffff30,transparent); transform: skewX(-20deg); transition: left .75s cubic-bezier(.22,1,.36,1); }
 .sitovPrimary:hover::after, .sitovPrimary:focus-visible::after { left: 150%; }
 .sitovTrainer .sitovSecondary { border: 1px solid var(--border); border-radius: 1rem; padding: .85rem 1.1rem; background: var(--surface); color: var(--foreground); }
+.sitovLaunch[data-sitov-compact='true'] { padding: 1rem; }
 .sitovCarryover { display: flex; align-items: center; gap: 1rem; border: 1px solid var(--border); border-radius: 1.3rem; padding: 1.2rem 1.4rem; background: var(--surface-muted); }
 .sitovCarryover > svg { flex-shrink: 0; color: var(--sitov-verb-text); }
 .sitovCarryover strong { font-size: .95rem; }

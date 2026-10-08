@@ -66,6 +66,8 @@ it('macht den Zwischenschritt „halb gewusst" an der Phase sichtbar', () => {
 
 it('zählt nicht aufgenommene Vokabeln getrennt und gewichtet den Fortschritt', () => {
   mount()
+  expect(screen.queryByText('1 noch nicht aufgenommen')).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: 'Как работает копилка' }))
   expect(screen.getByText('1 noch nicht aufgenommen')).toBeInTheDocument()
   expect(screen.getByRole('progressbar', { name: 'Fortschritt im Karteikasten' }))
     .toHaveAttribute('aria-valuenow', String(summary.percent))

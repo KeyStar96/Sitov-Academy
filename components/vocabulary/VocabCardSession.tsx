@@ -11,8 +11,9 @@ import { Info, RotateCw } from 'lucide-react'
 import { checkVocabularyRetry, finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import LearningScreen, { LearningStats, scrollLearningWorkspace } from './LearningScreen'
-import StudyModeToggle, { type StudyMode } from './StudyModeToggle'
-import { loadRoundSize, loadStudyMode, saveStudyMode } from '@/lib/vocabulary-lernkasten'
+import type { StudyMode } from './StudyModeToggle'
+import { loadRoundSize, loadStudyMode } from '@/lib/vocabulary-lernkasten'
+import { useVocabularyStudyMode } from '@/lib/sitov-trainer-preferences'
 import { countRounds, DEFAULT_ROUND_SIZE, roundLimit, takeRound, type RoundSize } from '@/lib/vocabulary-rounds'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
@@ -107,10 +108,21 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   // Gewählter Weg für Karten, bei denen beide Wege offenstehen. Der Wert kommt
   // erst nach dem Mounten aus dem localStorage – Server und erster Client-Render
   // müssen übereinstimmen.
+  const [savedStudyMode] = useVocabularyStudyMode()
   const [preferredMode, setPreferredMode] = useState<StudyMode>('flashcard')
-  useEffect(() => { setPreferredMode(loadStudyMode()) }, [])
+  const studyModeLoaded = useRef(false)
   const drafts = useRef(new Map<string, string>())
   const [answerResult, setAnswerResult] = useState<{ correct: boolean; solution: string; isAlternative: boolean; softError: SoftErrorReason | null; hint: OrthographyHint | null; feedback: ArticleFeedback | null } | null>(restored?.state.feedback ?? null)
+  useEffect(() => {
+    if (!studyModeLoaded.current) {
+      studyModeLoaded.current = true
+      setPreferredMode(restored?.state.pending?.kind === 'typed' ? 'typed'
+        : restored?.state.pending?.kind === 'self' ? 'flashcard' : loadStudyMode())
+      return
+    }
+    // A profile change in another tab must not relabel an answer already being reviewed.
+    if (!reviewPending && !answerResult && !saveFailed) setPreferredMode(savedStudyMode)
+  }, [savedStudyMode, reviewPending, answerResult, saveFailed, restored])
   const exitRequested = useRef(false)
   const finalized = useRef(false)
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
@@ -460,9 +472,6 @@ export default function VocabCardSession({ learnerId, level, cards, translations
    * Regel erneut ab (R5).
    */
   const canChooseMode = current?.mode === 'learner_choice'
-  // Keep the mode row in the same place when a round changes direction or phase.
-  // A round that only offers flashcards does not need an empty control row.
-  const reservesStudyMode = plan.cards.some(card => card.mode === 'learner_choice')
   const effectiveMode: StudyMode = canChooseMode ? preferredMode : current?.mode === 'flashcard' ? 'flashcard' : 'typed'
   const isFlashcard = effectiveMode === 'flashcard'
   // Der Wechsel des Weges deckt nichts auf: Die nächste Ansicht fängt wieder
@@ -596,12 +605,6 @@ export default function VocabCardSession({ learnerId, level, cards, translations
               { label: t('stat_card'), value: `${index + 1}/${queue.length}` }, { label: t('stat_phase'), value: `${current.phase}/6` },
             ]} />
         </div>
-        {/* Nur wo es wirklich eine Wahl gibt, steht der Umschalter. Karten mit
-            nur einem Weg bleiben ohne Erklärtext — die Karte selbst zeigt, was zu tun ist. */}
-        {reservesStudyMode && <div className="learning-session-mode-slot">
-          {!answerResult && !saveFailed && canChooseMode && <StudyModeToggle mode={preferredMode} disabled={reviewPending} t={t}
-            onChange={mode => { setPreferredMode(mode); saveStudyMode(mode) }} />}
-        </div>}
         {/* Buehnenwechsel: Karte und Aktionsflaeche blenden als ein Block ueber,
             statt dass die Karte stehen bleibt und nur die Knoepfe springen. */}
         <AnimatePresence mode="wait" initial={false}>

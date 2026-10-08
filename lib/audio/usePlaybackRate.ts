@@ -6,7 +6,7 @@ import { defaultPlaybackRate, PLAYBACK_RATES } from './playback-settings'
 export const PLAYBACK_RATE_STORAGE_KEY = 'sitov:audio:playback-rate'
 const CHANGE_EVENT = 'sitov:audio:playback-rate-changed'
 let unavailableStorageRate: number | null = null
-let failedWrite: { rate: number; previous: string | null } | null = null
+let failedWrite: { rate: number | null; previous: string | null } | null = null
 
 function validRate(value: number): boolean {
   return PLAYBACK_RATES.some(rate => rate === value)
@@ -42,13 +42,14 @@ function subscribe(onChange: () => void): () => void {
   }
 }
 
-function saveRate(rate: number): void {
-  if (!validRate(rate)) return
+function saveRate(rate: number | null): void {
+  if (rate !== null && !validRate(rate)) return
   unavailableStorageRate = rate
   let previous: string | null = null
   try {
     previous = window.localStorage.getItem(PLAYBACK_RATE_STORAGE_KEY)
-    window.localStorage.setItem(PLAYBACK_RATE_STORAGE_KEY, String(rate))
+    if (rate === null) window.localStorage.removeItem(PLAYBACK_RATE_STORAGE_KEY)
+    else window.localStorage.setItem(PLAYBACK_RATE_STORAGE_KEY, String(rate))
     failedWrite = null
   } catch {
     failedWrite = { rate, previous }
@@ -59,6 +60,12 @@ function saveRate(rate: number): void {
 
 /** Explicit choices override level defaults across cards, trainers and visits. */
 export function usePlaybackRate(level?: string): readonly [number, (rate: number) => void] {
-  const manualRate = useSyncExternalStore(subscribe, readRate, () => null)
+  const [manualRate] = usePlaybackRatePreference()
   return [manualRate ?? defaultPlaybackRate(level), saveRate]
+}
+
+/** A null preference restores automatic defaults for each trainer's own level. */
+export function usePlaybackRatePreference(): readonly [number | null, (rate: number | null) => void] {
+  const manualRate = useSyncExternalStore(subscribe, readRate, () => null)
+  return [manualRate, saveRate]
 }

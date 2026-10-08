@@ -1,3 +1,4 @@
+import { saveStudyMode } from '@/lib/vocabulary-lernkasten'
 jest.mock('@/app/actions/learning-checkpoints', () => ({
   loadLearningCheckpoint: jest.fn().mockResolvedValue({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: null }),
   saveLearningCheckpoint: jest.fn(async (_kind, _level, state, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
@@ -69,7 +70,7 @@ it.each([
 it('shows and associates the reminder when the learner switches to writing', () => {
   mount({ ...noun, mode: 'learner_choice' })
   expect(screen.queryByRole('note')).not.toBeInTheDocument()
-  fireEvent.click(screen.getByRole('radio', { name: /Ausschreiben/ }))
+  act(() => saveStudyMode('typed'))
   expect(screen.getByRole('textbox')).toHaveAttribute('aria-describedby', screen.getByRole('note').id)
   expect(screen.getByRole('textbox')).toHaveAccessibleDescription(/Schreib den Artikel mit/)
 })

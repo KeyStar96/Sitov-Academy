@@ -1,0 +1,36 @@
+.sitovSettings { display: grid; gap: 20px; min-width: 0; }
+.sitovHeader { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.sitovHeader > div { flex: 1; min-width: 0; }
+.sitovHeader h2 { margin: 0; color: var(--foreground); font-size: 1.5rem; font-weight: 800; line-height: 1.2; }
+.sitovHeader p { margin: 5px 0 0; color: var(--muted); font-size: .875rem; }
+.sitovIcon { display: grid; width: 48px; height: 48px; flex: 0 0 auto; place-items: center; border-radius: 16px; color: var(--accent-text); background: var(--surface-muted); }
+.sitovStatus { display: inline-flex; align-items: center; justify-content: flex-end; gap: 4px; width: 100px; min-height: 24px; flex: 0 0 auto; color: var(--accent-text); font-size: .8125rem; font-weight: 700; }
+.sitovCard { display: grid; gap: 22px; min-width: 0; padding: 20px; border: 1px solid var(--border); border-radius: 24px; background: var(--surface); }
+.sitovCard h3 { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--foreground); font-size: 1.125rem; font-weight: 750; }
+.sitovCard h3 svg { color: var(--muted); }
+.sitovField { display: grid; gap: 10px; min-width: 0; margin: 0; padding: 0; border: 0; color: var(--foreground); font-size: .9375rem; font-weight: 650; }
+.sitovField legend { margin-bottom: 10px; padding: 0; }
+.sitovSizes, .sitovModes { display: grid; gap: 4px; padding: 4px; border: 1px solid var(--border); border-radius: 17px; background: var(--surface-muted); }
+.sitovSizes { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.sitovModes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sitovOption { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 48px; border-radius: 12px; cursor: pointer; color: var(--muted); transition: color var(--motion-fast) var(--ease-out-soft), transform var(--motion-fast) var(--ease-out-soft); }
+.sitovOption[data-active] { color: var(--foreground); }
+.sitovOption:has(input:focus-visible) { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+.sitovOption:hover { color: var(--foreground); }
+.sitovPill { position: absolute; inset: 0; border: 1px solid var(--border); border-radius: inherit; background: var(--surface); box-shadow: 0 1px 3px rgb(0 0 0 / .07); pointer-events: none; }
+.sitovFace { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 0; padding: 8px 7px; overflow-wrap: anywhere; text-align: center; font-size: .9375rem; line-height: 1.3; }
+.sitovFace svg { flex: 0 0 auto; }
+.sitovSelect { width: 100%; min-height: 48px; padding: 10px 36px 10px 14px; border: 1px solid var(--border); border-radius: 12px; color: var(--foreground); background: var(--surface); font-size: 1rem; font-weight: 600; cursor: pointer; }
+.sitovSelect:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+:global(html[data-contrast="high"]) .sitovOption[data-active] { outline: 2px solid var(--foreground); outline-offset: -2px; }
+:global(html[data-contrast="high"]) .sitovPill { box-shadow: none; }
+@media (max-width: 420px) {
+  .sitovCard { padding: 16px; }
+  .sitovSizes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sitovModes { grid-template-columns: minmax(0, 1fr); }
+  .sitovStatus { width: 24px; }
+  .sitovStatus span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sitovOption { transition: none; }
+}

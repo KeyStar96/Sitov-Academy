@@ -67,7 +67,7 @@ function SitovVerbBoxInspector({ phase, cards, state, lang, busy, opener, onClos
           <p>{sitovVerbBoxText(members.length === 1 ? copy.verbCountOne : copy.verbCount, { count: members.length })}</p></div>
         <button ref={closeButton} type="button" onClick={onClose} className={styles.sitovIconButton} aria-label={copy.close}><X size={21} aria-hidden="true" /></button>
       </header>
-      <p id={hintId} className={styles.sitovInspectorHint}>{copy.intro}</p>
+      <p id={hintId} className="sr-only">{copy.intro}</p>
       <div className={styles.sitovInspectorFilters}>
         <label className={styles.sitovSearch}><Search size={18} aria-hidden="true" /><input value={search} onChange={event => setSearch(event.target.value)} placeholder={copy.search} aria-label={copy.search} /></label>
         <label className={styles.sitovTenseFilter}><span className="sr-only">{copy.allTenses}</span><select value={tense} onChange={event => setTense(event.target.value as SitovVerbTense | 'all')}>
@@ -124,9 +124,10 @@ export default function VerbLearningBox({ state, lang, busy, onPractice, onManag
       stats={[{ key: 'verbs', label: copy.selected, value: box.totalVerbs }, { key: 'practiced', label: copy.practiced, value: box.practicedForms },
         { key: 'learned', label: copy.learnedVerbs, value: box.learnedVerbs }, { key: 'due', label: copy.dueForms, value: box.dueForms }]}
       action={<button type="button" className={styles.sitovManage} disabled={busy} onClick={onManage}><Layers3 size={17} aria-hidden="true" />{trainerCopy.manage}<ArrowRight size={17} aria-hidden="true" /></button>}>
+      <details className={styles.sitovGuide}><summary>{copy.guide}</summary>
       <div className={styles.sitovSummary}><p>{sitovVerbBoxText(copy.formSummary, { learned: box.learnedForms, total: box.totalForms, fresh: box.freshForms })}</p>
         {nextDate && <p><Clock3 size={15} aria-hidden="true" />{copy.nextReview}: <time dateTime={box.nextReviewAt!}>{nextDate}</time></p>}</div>
-      <details className={styles.sitovGuide}><summary>{copy.guide}</summary><p>{copy.guideText}</p><p>{copy.rules}</p><p>{copy.learnedRules}</p></details>
+      <p>{copy.guideText}</p><p>{copy.rules}</p><p>{copy.learnedRules}</p></details>
     </SitovLearningBox>
     {inspector && <SitovVerbBoxInspector key={inspector.phase} phase={inspector.phase} cards={box.cards} state={state} lang={lang} busy={busy} opener={inspector.opener}
       onClose={() => setInspector(null)} onPractice={onPractice} onRemove={onRemove} />}

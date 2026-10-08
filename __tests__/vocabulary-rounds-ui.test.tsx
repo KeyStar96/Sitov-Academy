@@ -5,7 +5,7 @@ jest.mock('@/app/actions/learning-checkpoints', () => ({
 }))
 import React from 'react'
 import { randomUUID } from 'node:crypto'
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import VocabCardSession from '@/components/vocabulary/VocabCardSession'
 import VocabTrainerPageClient from '@/components/vocabulary/VocabTrainerPageClient'
 import { submitVocabularySelfRating } from '@/app/actions/vocabulary'
@@ -107,25 +107,19 @@ describe('Karten pro Runde in der Lernbox', () => {
     directions: { de_to_native: { phase: 2, isLearned: false, isDue: false, nextReviewDate: null }, native_to_de: { phase: 2, isLearned: false, isDue: false, nextReviewDate: null } } } as unknown as WordBoxState
   const mount = (count: number) => render(<VocabTrainerPageClient learnerId={learnerId} initialCards={deck(count)} boxSummary={summarizeBox([resting])} translations={v} lang="de" level="A1.1" />)
 
-  it('explains the choice, remembers it and starts the first round with that many cards', async () => {
+  it('keeps persistent options in the profile and starts with one clear action', () => {
+    localStorage.setItem('sitov_vocab_round_size', '50')
     mount(300)
-    expect(screen.getByRole('heading', { name: r.round_picker_title })).toBeInTheDocument()
-    expect(screen.getByText(r.round_picker_hint)).toBeInTheDocument()
-    expect(await screen.findByRole('radio', { name: '20 Karten pro Runde' })).toBeChecked()
-    expect(screen.getByText('300 Karten heute – 15 Runden mit je bis zu 20 Karten')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Jetzt 20 Vokabeln üben' })).toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('radio', { name: '50 Karten pro Runde' }))
+    expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
+    expect(screen.queryByText(r.round_picker_hint)).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Jetzt üben' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Trainer-Einstellungen' })).toHaveAttribute('href', '/de/dashboard/profile#trainers')
     expect(localStorage.getItem('sitov_vocab_round_size')).toBe('50')
-    expect(screen.getByText('300 Karten heute – 6 Runden mit je bis zu 50 Karten')).toBeInTheDocument()
-    fireEvent.click(screen.getByRole('radio', { name: r.round_option_all_aria }))
-    expect(screen.getByText('Alle 300 Karten in einer Runde')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Jetzt 300 Vokabeln üben' })).toBeInTheDocument()
   })
 
-  it('stays out of the way when only a few cards are due', () => {
+  it('stays compact when only a few cards are due', () => {
     mount(8)
     expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Jetzt 8 Vokabeln üben' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Jetzt üben' })).toBeInTheDocument()
   })
 })

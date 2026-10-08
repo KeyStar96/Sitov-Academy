@@ -6,6 +6,7 @@ import { phaseIntervalInDays, type BoxBucketKey } from '@/lib/vocabulary-box'
 import type { VocabularyBoxSummary, VocabularyCarryoverSummary } from '@/lib/types/vocabulary'
 import { carryoverTranslator } from '@/lib/vocabulary-carryover-i18n'
 import SitovLearningBox from '@/components/learning/SitovLearningBox'
+import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
 import LernkastenGuide from './LernkastenGuide'
 import PhaseInspector, { type InspectorOrigin } from './PhaseInspector'
 import './lernkasten.css'
@@ -65,6 +66,7 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
         openLabel: t('box_open_aria', { name: bucketName(bucket.key, t) }),
       }))}
       selected={openPhase} onOpen={open} action={action}>
+      <LernkastenGuide t={t} title={sitovTrainerUiCopy(uiLanguage).help}>
       {summary.untouched > 0 && <p className="mb-3 text-base text-[var(--muted)]">{t('box_untouched', { count: summary.untouched })}</p>}
       {carryover?.enabled && carryover.total > 0 && <div className="space-y-2 text-base text-[var(--muted)]">
         <p>{carryoverTranslator(uiLanguage)('separate', { count: carryover.total })}</p>
@@ -74,7 +76,7 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
           </li>)}
         </ul>
       </div>}
-      <LernkastenGuide t={t} defaultOpen={summary.buckets.every(bucket => bucket.count === 0)} />
+      </LernkastenGuide>
     </SitovLearningBox>
     <PhaseInspector phase={openPhase} bucket={openBucket} origin={origin} level={level} uiLanguage={uiLanguage} translations={translations} onClose={close} />
   </>

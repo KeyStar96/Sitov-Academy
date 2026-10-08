@@ -980,10 +980,10 @@ html.high-contrast .lb-cta::after { display: none; }
    Die Mini-Box nutzt dieselben Holz- und Papier-Tokens wie der große Kasten;
    alles Texttragende steht auf --surface mit den Theme-Tokens. */
 .lb-guide {
-  margin-top: 1.5rem;
+  margin-top: 0;
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 1.25rem;
+  border-radius: .75rem;
   background: var(--surface);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -997,13 +997,13 @@ html.high-contrast .lb-cta::after { display: none; }
 .lb-guide__toggle {
   display: flex;
   width: 100%;
-  min-height: 4rem;
+  min-height: 3rem;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  gap: .6rem;
+  padding: .6rem .75rem;
   background: transparent;
   color: var(--foreground);
-  font-size: 1.0625rem;
+  font-size: .875rem;
   font-weight: 650;
   line-height: 1.35;
   text-align: left;
@@ -1012,19 +1012,19 @@ html.high-contrast .lb-cta::after { display: none; }
 .lb-guide__toggle:focus-visible {
   outline: 3px solid var(--foreground);
   outline-offset: -3px;
-  border-radius: 1.25rem;
+  border-radius: .75rem;
 }
 
 .lb-guide__icon {
   position: relative;
   display: inline-flex;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
   border-radius: 0.9rem;
-  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  background: transparent;
   color: var(--accent-text);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -1036,7 +1036,7 @@ html.high-contrast .lb-cta::after { display: none; }
   inset: -3px;
   border-radius: inherit;
   box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent);
-  animation: lb-guide-glow var(--motion-slower) ease-in-out 1.2s 1;
+  animation: none;
   pointer-events: none;
 }
 

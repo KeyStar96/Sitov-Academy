@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type PointerEvent } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion, useDragControls, useReducedMotion, type PanInfo } from 'framer-motion'
-import { Check, Clock, Info, Loader2, X } from 'lucide-react'
+import { Check, Clock, Loader2, X } from 'lucide-react'
 import { getPhaseCards } from '@/app/actions/vocabulary'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { phaseTone, VOCABULARY_DIRECTIONS, type BoxBucket, type BoxBucketKey } from '@/lib/vocabulary-box'
@@ -299,10 +299,7 @@ export default function PhaseInspector({ phase, bucket = null, origin = null, le
             {/* Die einzige Scrollfläche des Blatts. Der Hinweis scrollt mit, damit
                 die Liste auf kleinen Telefonen den ganzen Platz bekommt. */}
             <div className="modal-scroll-region min-h-0 flex-1 overflow-y-auto border-t border-[var(--border)] px-5 sm:px-7" data-lenis-prevent>
-              <p className="mt-4 flex gap-3 rounded-2xl bg-[var(--surface-muted)] p-4 text-base leading-relaxed text-[var(--foreground)]">
-                <Info size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-[var(--accent-text)]" />
-                <span>{t('half_known_hint')}</span>
-              </p>
+              <p className="sr-only">{t('half_known_hint')}</p>
               {content === 'loading' && (
                 <p className="flex items-center gap-3 py-10 text-lg text-[var(--muted)]" role="status">
                   <Loader2 size={22} aria-hidden="true" className="animate-spin" />

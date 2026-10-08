@@ -14,3 +14,13 @@ Stand: 4. Oktober 2026. Diese Regeln gelten für neue und überarbeitete Lernobe
 10. **Oberflächensprache und Übung trennen.** Home-Karten, Navigation, Start-/Freigabehinweise, Bedienung, Auswertung, Review und Lehrkraftverwaltung folgen de/en/ru/uk/tr. Das gilt auch im Prüfungsbereich. Ausschließlich die tatsächlichen deutschen Aufgaben-, Quell-, Hör-, Antwort- und Lösungstexte bleiben Deutsch und erhalten eigene `lang="de"`-/`translate="no"`-Bereiche. Keine pauschale Deutsch-Schaltung des äußeren Rahmens oder versteckte Sprachwahl wegen einer Prüfungsroute; Wortlaut, IDs, Bewertung, Fortschritt und Audio bleiben erhalten. Der ausführliche Vertrag steht in [der Prüfungsdokumentation](../exam-simulation.md#oberflächensprache-und-deutsche-prüfungsinhalte).
 
 Entwicklungsvorschau für Rahmen und Darstellung: `/{lang}/sitov-preview/trainer-frame`; ausschließlich in Entwicklung erreichbar.
+
+## Weniger Text und dauerhafte Einstellungen
+
+Seit 8. Oktober 2026 steht die Lernaktion vor der Fachverteilung. Die gemeinsame Lernbox zeigt eine beschriftete Fortschrittsleiste, Gesamtzahl und vollständig gelernte Einträge; ihre sieben Fächer zeigen zunächst Namen, Anzahl und Papierstapel. Wiederholungszeiten, Abfragerichtungen und einzelne Lernstände öffnen sich im jeweiligen Fach. Ausführliche Regeln bleiben hinter einer geschlossenen Hilfe erreichbar. Bei 320 px stehen sechs Fächer in zwei Dreierreihen und das gelernte Fach darunter; größere Handys verwenden 4+3, Desktop eine Reihe.
+
+Selten geänderte Vorlieben stehen unter **Profil → Trainer** (`#trainers`): Karten pro Runde, Antworten auf Deutsch und Audiotempo einschließlich automatischem Niveauwert. Sie verwenden die bisherigen gerätegebundenen Speicherwerte. Eine laufende Antwort behält ihren Modus während Speicherung und Feedback; Änderungen aus einem zweiten Tab gelten anschließend für die nächste unbeantwortete Karte. Gelieferte Kartenmodi und serverseitige Bewertungsregeln haben weiterhin Vorrang. Die Lernrunde zeigt keine dauerhafte Einstellungsleiste mehr.
+
+Neue UI-Texte beschriften eine Handlung oder einen Zustand. Wiederholte Funktionsbeschreibungen, doppelte Zähler und umfangreiche Rundenpläne gehören nicht vor die Hauptaktion. Fachliche Aufgabenstellungen und deutsche Lerninhalte bleiben vollständig erhalten. Vorhandene Papiergrafiken, Druckfeedback und kurze Übergänge erklären die Bedienung; neue Dekoration ist dafür nicht nötig.
+
+Abnahme und Screenshots: [Trainer-Vereinfachung](sitov-trainer-simplification/README.md). Die neue Profilvorschau `/{lang}/sitov-preview/trainer-settings#trainers` ist ausschließlich in Entwicklung verfügbar.

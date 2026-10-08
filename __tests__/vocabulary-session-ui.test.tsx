@@ -342,9 +342,8 @@ it('reserves the same control and action slots when a round moves from a word to
     prompt: 'Какой у Вас номер телефона?', solution: 'Wie ist Ihre Telefonnummer?', card: { ...sentence.card, id: 'sentence-stable' } }
   const { container } = mount([choice, lockedSentence])
   const meta = container.querySelector('.learning-session-meta')!
-  const modeSlot = container.querySelector('.learning-session-mode-slot')!
   const actionSlot = container.querySelector('.learning-session-action-slot')!
-  expect(screen.getByRole('radiogroup')).toBeInTheDocument()
+  expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
   expect(container.querySelector('.learning-session-card')).toBeInTheDocument()
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
   expect(container.querySelector('.learning-session-action-slot')).toBe(actionSlot)
@@ -353,7 +352,7 @@ it('reserves the same control and action slots when a round moves from a word to
   await screen.findByRole('heading', { name: lockedSentence.prompt })
   expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
   expect(container.querySelector('.learning-session-meta')).toBe(meta)
-  expect(container.querySelector('.learning-session-mode-slot')).toBe(modeSlot)
+  expect(container.querySelector('.learning-session-mode-slot')).toBeNull()
   expect(container.querySelector('.learning-session-action-slot')).toBe(actionSlot)
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
   expect(screen.getByText(lockedSentence.solution!)).toBeInTheDocument()

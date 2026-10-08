@@ -5,20 +5,14 @@
  * Server (Schalter unter „Lektionen") und gilt so auf jedem Gerät.
  */
 
-import { DEFAULT_ROUND_SIZE, parseRoundSize, type RoundSize } from './vocabulary-rounds'
+import { parseRoundSize, type RoundSize } from './vocabulary-rounds'
 
 const AUTOSTART_KEY = 'sitov_vocab_autostart'
 const STUDY_MODE_KEY = 'sitov_vocab_study_mode'
 const ROUND_SIZE_KEY = 'sitov_vocab_round_size'
-
-function isBrowser(): boolean {
-  // Accessing the storage property itself can throw (blocked storage/sandbox).
-  try {
-    return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined'
-  } catch {
-    return false
-  }
-}
+const SITOV_PREFERENCE_EVENT = 'sitov:vocabulary:preferences-changed'
+const sitovUnavailableChoices = new Map<string, string>()
+const sitovFailedWrites = new Map<string, { value: string; previous: string | null }>()
 
 function isSessionBrowser(): boolean {
   return typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined'
@@ -33,7 +27,7 @@ export function markVocabularyAutostart(level: string): void {
 
   try {
     window.sessionStorage.setItem(AUTOSTART_KEY, level)
-  } catch (err) {
+  } catch {
     console.error("Autostart-Marke für Niveau konnte nicht gesetzt werden:")
   }
 }
@@ -43,7 +37,7 @@ export function hasVocabularyAutostart(level: string): boolean {
 
   try {
     return window.sessionStorage.getItem(AUTOSTART_KEY) === level
-  } catch (err) {
+  } catch {
     console.error("Autostart-Marke für Niveau konnte nicht gelesen werden:")
     return false
   }
@@ -57,7 +51,7 @@ export function consumeVocabularyAutostart(level: string): void {
     if (window.sessionStorage.getItem(AUTOSTART_KEY) === level) {
       window.sessionStorage.removeItem(AUTOSTART_KEY)
     }
-  } catch (err) {
+  } catch {
     console.error("Autostart-Marke für Niveau konnte nicht gelöscht werden:")
   }
 }
@@ -74,24 +68,11 @@ export function consumeVocabularyAutostart(level: string): void {
  * der Umschalter macht den aktiven Abruf jederzeit erreichbar.
  */
 export function loadStudyMode(): 'flashcard' | 'typed' {
-  if (!isBrowser()) return 'flashcard'
-
-  try {
-    return window.localStorage.getItem(STUDY_MODE_KEY) === 'typed' ? 'typed' : 'flashcard'
-  } catch (err) {
-    console.error('Abfragemodus konnte nicht geladen werden:')
-    return 'flashcard'
-  }
+  return sitovReadChoice(STUDY_MODE_KEY) === 'typed' ? 'typed' : 'flashcard'
 }
 
 export function saveStudyMode(mode: 'flashcard' | 'typed'): void {
-  if (!isBrowser()) return
-
-  try {
-    window.localStorage.setItem(STUDY_MODE_KEY, mode)
-  } catch (err) {
-    console.error('Abfragemodus konnte nicht gespeichert werden:')
-  }
+  if (mode === 'flashcard' || mode === 'typed') sitovSaveChoice(STUDY_MODE_KEY, mode)
 }
 
 /**
@@ -99,22 +80,53 @@ export function saveStudyMode(mode: 'flashcard' | 'typed'): void {
  * kein Lernstand; ohne gespeicherte Wahl gilt die kleine Standardrunde.
  */
 export function loadRoundSize(): RoundSize {
-  if (!isBrowser()) return DEFAULT_ROUND_SIZE
-
-  try {
-    return parseRoundSize(window.localStorage.getItem(ROUND_SIZE_KEY))
-  } catch (err) {
-    console.error('Rundengröße konnte nicht geladen werden:')
-    return DEFAULT_ROUND_SIZE
-  }
+  return parseRoundSize(sitovReadChoice(ROUND_SIZE_KEY))
 }
 
 export function saveRoundSize(size: RoundSize): void {
-  if (!isBrowser()) return
+  if (parseRoundSize(size) === size) sitovSaveChoice(ROUND_SIZE_KEY, String(size))
+}
 
+function sitovReadChoice(key: string): string | null {
+  if (typeof window === 'undefined') return null
   try {
-    window.localStorage.setItem(ROUND_SIZE_KEY, String(size))
-  } catch (err) {
-    console.error('Rundengröße konnte nicht gespeichert werden:')
+    const stored = window.localStorage.getItem(key)
+    const pending = sitovFailedWrites.get(key)
+    if (pending?.previous === stored) return pending.value
+    sitovFailedWrites.delete(key)
+    return stored
+  } catch {
+    return sitovUnavailableChoices.get(key) ?? null
+  }
+}
+
+function sitovSaveChoice(key: string, value: string): void {
+  if (typeof window === 'undefined') return
+  sitovUnavailableChoices.set(key, value)
+  let previous: string | null = null
+  try {
+    previous = window.localStorage.getItem(key)
+    window.localStorage.setItem(key, value)
+    sitovFailedWrites.delete(key)
+  } catch {
+    // Apply the choice in this page even when private browsing or quota blocks storage.
+    sitovFailedWrites.set(key, { value, previous })
+  }
+  window.dispatchEvent(new Event(SITOV_PREFERENCE_EVENT))
+}
+
+/** Profile controls and mounted trainers share changes in this tab and other tabs. */
+export function subscribeVocabularyPreferences(onChange: () => void): () => void {
+  const onStorage = (event: StorageEvent) => {
+    if (event.key !== STUDY_MODE_KEY && event.key !== ROUND_SIZE_KEY && event.key !== null) return
+    if (event.key === null) sitovFailedWrites.clear()
+    else sitovFailedWrites.delete(event.key)
+    onChange()
+  }
+  window.addEventListener(SITOV_PREFERENCE_EVENT, onChange)
+  window.addEventListener('storage', onStorage)
+  return () => {
+    window.removeEventListener(SITOV_PREFERENCE_EVENT, onChange)
+    window.removeEventListener('storage', onStorage)
   }
 }

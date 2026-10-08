@@ -1,3 +1,4 @@
+import { saveStudyMode } from '@/lib/vocabulary-lernkasten'
 jest.mock('@/app/actions/learning-checkpoints', () => ({
   loadLearningCheckpoint: jest.fn().mockResolvedValue({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: null }),
   saveLearningCheckpoint: jest.fn(async (_kind, _level, state, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
@@ -5,9 +6,9 @@ jest.mock('@/app/actions/learning-checkpoints', () => ({
 }))
 import React from 'react'
 import { randomUUID } from 'node:crypto'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import VocabCardSession from '@/components/vocabulary/VocabCardSession'
-import { finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
+import { submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import type { DueVocabularyCard, SubmitVocabularyAnswerResult } from '@/lib/types/vocabulary'
 import de from '@/dictionaries/de.json'
 
@@ -54,16 +55,16 @@ beforeEach(() => {
 
 it('startet in Phase 4 als Karteikarte, sobald der Lernende die Wahl hat', () => {
   // Früher entschied das Fach: ab Phase 3 wurde getippt. Jetzt entscheidet der
-  // Umschalter, und der steht standardmäßig auf Karteikarte.
+  // gespeicherte Profilwert, standardmäßig Karteikarte.
   mount([choice])
-  expect(screen.getByRole('radio', { name: /Karteikarte/ })).toHaveAttribute('aria-checked', 'true')
+  expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
   expect(screen.getByRole('button', { name: de.vocabulary.reveal_solution })).toBeInTheDocument()
   expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
 })
 
 it('wechselt auf Ausschreiben und merkt sich die Wahl fürs nächste Mal', async () => {
   const view = mount([choice])
-  fireEvent.click(screen.getByRole('radio', { name: /Ausschreiben/ }))
+  act(() => saveStudyMode('typed'))
   const field = await screen.findByRole('textbox')
   expect(field).toBeInTheDocument()
   expect(screen.queryByRole('button', { name: de.vocabulary.reveal_solution })).not.toBeInTheDocument()
@@ -71,7 +72,7 @@ it('wechselt auf Ausschreiben und merkt sich die Wahl fürs nächste Mal', async
 
   view.unmount()
   mount([choice])
-  await waitFor(() => expect(screen.getByRole('radio', { name: /Ausschreiben/ })).toHaveAttribute('aria-checked', 'true'))
+  await screen.findByRole('textbox')
 })
 
 it('bewertet im Karteikarten-Modus per Selbsteinschätzung, im Tipp-Modus per Eingabe', async () => {
@@ -83,7 +84,7 @@ it('bewertet im Karteikarten-Modus per Selbsteinschätzung, im Tipp-Modus per Ei
 
   jest.clearAllMocks()
   mount([choice])
-  fireEvent.click(screen.getByRole('radio', { name: /Ausschreiben/ }))
+  act(() => saveStudyMode('typed'))
   fireEvent.change(await screen.findByRole('textbox'), { target: { value: 'das Haus' } })
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.check_sentence }))
   await waitFor(() => expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1))
@@ -94,11 +95,36 @@ it('deckt beim Moduswechsel nichts auf', async () => {
   mount([choice])
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
   expect(screen.getByRole('button', { name: de.vocabulary.knew_it })).toBeInTheDocument()
-  fireEvent.click(screen.getByRole('radio', { name: /Ausschreiben/ }))
+  act(() => saveStudyMode('typed'))
   await screen.findByRole('textbox')
-  fireEvent.click(screen.getByRole('radio', { name: /Karteikarte/ }))
+  act(() => saveStudyMode('flashcard'))
   // Zurück auf der Vorderseite: Die Lösung muss erneut aufgedeckt werden.
   expect(await screen.findByRole('button', { name: de.vocabulary.reveal_solution })).toBeInTheDocument()
+})
+
+it('behält getipptes Fehlerfeedback bei einer Profiländerung bis zur nächsten Karte', async () => {
+  localStorage.setItem('sitov_vocab_study_mode', 'typed')
+  jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ isCorrect: false }))
+  const { container } = mount([choice])
+  fireEvent.change(await screen.findByRole('textbox'), { target: { value: 'der Haus' } })
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.check_sentence }))
+  await screen.findByText(de.vocabulary.your_answer_label)
+  act(() => saveStudyMode('flashcard'))
+  expect(screen.getByText(de.vocabulary.your_answer_label)).toBeInTheDocument()
+  expect(container.querySelector('.learning-session-action-slot')).toHaveAttribute('data-study-mode', 'typed')
+})
+
+it('stellt gespeichertes Tipp-Feedback mit der bisherigen Gerätewahl wieder her', async () => {
+  localStorage.setItem('sitov_vocab_study_mode', 'typed')
+  const { container } = render(<VocabCardSession learnerId={learnerId} cards={[choice]} translations={de.vocabulary}
+    overviewHref="/ru/dashboard" checkpoint={{ revision: 2, state: {
+      version: 1, language: 'ru', lesson: null, plan: [choice.progressId], deferredCount: 0, size: 20,
+      round: { number: 1, start: 0, length: 1 }, queue: [[0, 4, false]], index: 0, retryCount: 0,
+      moves: [], roundMovesFrom: 0, lastAnswered: null, answer: 'der Haus', pending: null,
+      feedback: { correct: false, solution: 'das Haus', isAlternative: false, softError: null, hint: null, feedback: null },
+    }, cards: [choice] }} />)
+  await screen.findByText(de.vocabulary.your_answer_label)
+  expect(container.querySelector('.learning-session-action-slot')).toHaveAttribute('data-study-mode', 'typed')
 })
 
 it('bietet keinen Umschalter und keinen Erklärtext an, wo es nur einen Weg gibt', () => {
@@ -135,12 +161,12 @@ it('dreht die Karte auch mit der Tastatur um', () => {
   expect(container.querySelector('.learning-card-flip')).toHaveClass('is-revealed')
 })
 
-it('behandelt Sätze wie Vokabeln: Umschalter, und die Rückseite zeigt den deutschen Satz', () => {
-  // Früher erzwangen Sätze das Ausschreiben. Jetzt bietet auch der Satz den
-  // Umschalter (Standard: Karteikarte), und beim Aufdecken steht die deutsche
+it('behandelt den gelieferten Kartenmodus: die Rückseite zeigt den deutschen Satz', () => {
+  // Früher erzwangen Sätze das Ausschreiben. Jetzt folgt die Vorschau dem
+  // gelieferten Kartenmodus, und beim Aufdecken steht die deutsche
   // Musterlösung auf der Rückseite.
   mount([sentence])
-  expect(screen.getByRole('radiogroup')).toBeInTheDocument()
+  expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
   expect(screen.getByText('Ich lerne Deutsch.')).toBeInTheDocument()
   expect(screen.getByRole('button', { name: de.vocabulary.knew_it })).toBeInTheDocument()
@@ -148,7 +174,7 @@ it('behandelt Sätze wie Vokabeln: Umschalter, und die Rückseite zeigt den deut
 
 it('blendet den Umschalter aus, sobald die Antwort bewertet ist', async () => {
   mount([choice])
-  fireEvent.click(screen.getByRole('radio', { name: /Ausschreiben/ }))
+  act(() => saveStudyMode('typed'))
   fireEvent.change(await screen.findByRole('textbox'), { target: { value: 'das Haus' } })
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.check_sentence }))
   await screen.findByText(de.vocabulary.answer_correct)

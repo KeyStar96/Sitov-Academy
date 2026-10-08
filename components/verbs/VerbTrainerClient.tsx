@@ -173,7 +173,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
       <div className={styles.sitovAurora} aria-hidden="true" />
       <div className={styles.sitovHeroText}>
         <p className={styles.sitovEyebrow}><Sparkles size={17} aria-hidden="true" />{copy.eyebrow}<span>{initialState.level}</span></p>
-        <h1>{copy.title}</h1>{!sessionActive && <><p className={styles.sitovIntro}>{copy.intro}</p>
+        <h1>{copy.title}</h1>{!sessionActive && <>
           <span className={styles.sitovHeroCta} aria-hidden="true">{busy ? <LoaderCircle size={19} className={styles.sitovSpinner} /> : <Zap size={19} />}{busy ? copy.loading : selectedVerbs.length ? copy.start : copy.manage}<ArrowRight size={19} /></span></>}
       </div>
       {!sessionActive && <div className={styles.sitovOrbit} aria-hidden="true">
@@ -249,9 +249,9 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
               return <span key={tense} data-tone={tone}><i aria-hidden="true" />{copy[tense]}<b>{form?.box === 7 ? boxCopy.learned : sitovVerbBoxText(boxCopy.phase, { box: form?.box ?? 1 })}</b></span>
             })}</div>}
         </li>)}</ul>
-      </section> : <section className={styles.sitovLaunch} key={view}>
-        <div className={styles.sitovLaunchIcon} aria-hidden="true">{view === 'automatic' ? <Zap size={32} /> : <Target size={32} />}</div>
-        <h2>{copy[view === 'automatic' ? 'automaticTitle' : 'targetedTitle']}</h2><p>{copy[view === 'automatic' ? 'automaticHint' : 'targetedHint']}</p>
+      </section> : <section className={styles.sitovLaunch} key={view} data-sitov-compact={view === 'automatic' || undefined} aria-label={copy[view]}>
+        {view === 'targeted' && <><div className={styles.sitovLaunchIcon} aria-hidden="true"><Target size={32} /></div>
+          <h2>{copy.targetedTitle}</h2></>}
         {view === 'targeted' ? <fieldset className={styles.sitovTenses}><legend className="sr-only">{copy.targeted}</legend>{initialState.tenses.map(tense => <label key={tense} data-selected={tenses.includes(tense)}>
           <input type="checkbox" checked={tenses.includes(tense)} onChange={() => setTenses(values => values.includes(tense) ? values.filter(value => value !== tense) : [...values, tense])} />{copy[tense]}</label>)}</fieldset>
           : <div className={styles.sitovTensePills}>{initialState.tenses.map(tense => <span key={tense}>{copy[tense]}</span>)}</div>}
@@ -261,7 +261,6 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
             <button className={styles.sitovSecondary} onClick={() => chooseView('box')}>{copy.manage}</button></div>}
         {view === 'targeted' && !tenses.length && <p role="status" className={styles.sitovSmall}>{copy.chooseTense}</p>}
       </section>}
-      <aside className={styles.sitovCarryover}><Layers3 size={25} aria-hidden="true" /><div><strong>{copy.cumulative}</strong><p>{copy.cumulativeHint}</p></div><span aria-hidden="true">A1 <ArrowRight size={15} /> C1</span></aside>
     </>}
   </SitovVerbStage>
 }
