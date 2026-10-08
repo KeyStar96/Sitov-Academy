@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "group": "SITOV-NIGHT-2026-10-08",
+  "status": "FROZEN",
+  "name": "sitov-learning-recommendation-destinations-v1",
+  "rules": [
+    "URL target is an identifier only; current learner server authorization and canonical level/parent resolution are mandatory.",
+    "Do not silently replace malformed, missing, revoked or foreign-level target with a generic target; use localized unavailable or retryable transport state.",
+    "Opening a recommendation never changes boxes, progress, streaks, checkpoints or commercial rights. Existing explicit learner actions remain authoritative.",
+    "Every actual German content subtree uses lang=de translate=no; surrounding controls use selected interface locale.",
+    "No visible recommendation links until the consumer and its secured action boundary are implemented and verified."
+  ],
+  "destinations": {
+    "vocabulary": {
+      "href": "/[locale]/dashboard/level/[level]/vocabulary/lessons?sitov_target=[cardUUID]",
+      "resolution": "RLS exact learning_vocabulary_cards ID with embedded canonical active unit, actual level, parent and current item permission. Resolve stored lesson label, never treat unit UUID as label.",
+      "consumer": "Open existing LessonCardsModal for the actual authorized lesson, visibly focus only the exact card without guessing labels; reject missing/foreign targets. Use existing explicit add/review controls. Preserve any pending global training round.",
+      "forbidden": "No automatic addCardsToTrainer/initialization or replacement of saved direction-progress plan."
+    },
+    "verbs": {
+      "href": "/[locale]/dashboard/level/[level]/verbs?sitov_target=[storedVerbID]&tense=present",
+      "resolution": "Find exact target in actual loadSitovVerbTrainer returned authorized catalog for level. Present must be supported.",
+      "consumer": "Open existing verb box with exact target selected for viewing; show real stored progress and explicit add if absent. A targeted practice action filters existing authorized/selected due exercise choice to this ID and tense while keeping spacing/receipts intact.",
+      "forbidden": "No automatic box write, invented due progress, broad sibling filtering by shared infinitive or silent level fallback."
+    },
+    "learning_path": {
+      "href": "/[locale]/dashboard/level/[level]/path?sitov_target=[nodeUUID]",
+      "resolution": "Exact actual get_learning_path node at requested level, available=true. Existing path source ID resolution remains strict unique.",
+      "consumer": "Open existing node choice or appropriate reviewed Special mode choice; never first-node substitution."
+    },
+    "pronunciation": {
+      "href": "/[locale]/dashboard/level/[level]/pronunciation?sitov_target=[textUUID]",
+      "resolution": "Exact current secured per-text pretest catalog at actual level, commercial access, current test status.",
+      "consumer": "Existing S4 implemented exact pretest/passed-text flow; only current individual test passage unlocks target."
+    }
+  },
+  "owners": {
+    "S2": "Recommendation resolver href change and path/Special target consumer; mandatory editorial topic mappings and source associations.",
+    "S4": "Only M explicitly assigned small vocabulary/verb route and existing component integrations; no new progress model.",
+    "S1": "Underlying exact commercial ports and any new navigation registration.",
+    "M": "Frozen shared contract and eventual verified integration."
+  }
+}
