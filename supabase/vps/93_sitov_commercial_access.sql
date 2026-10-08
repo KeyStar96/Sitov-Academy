@@ -79,6 +79,11 @@ LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
  SELECT 1 FROM public.lms_media_folder f JOIN public.learning_units u ON u.id=v.unit_id WHERE f.folder_id=v.folder_id AND f.level=u.level))
  UNION ALL SELECT v.unit_id,false FROM public.sitov_verb_catalog v WHERE p_kind='verb' AND v.id=p_item_id
  UNION ALL SELECT n.unit_id,false FROM public.path_nodes n WHERE p_kind='path_node' AND n.id::text=p_item_id AND n.is_active
+ UNION ALL SELECT n.unit_id,false FROM public.path_nodes n JOIN public.path_nodes anchor ON anchor.id=n.anchor_node_id AND anchor.unit_id=n.unit_id
+ WHERE p_kind='path_special' AND n.id::text=p_item_id AND n.kind='special' AND n.is_active
+ UNION ALL SELECT e.unit_id,false FROM public.learning_exercises e JOIN public.path_nodes n ON n.id=e.node_id AND n.unit_id=e.unit_id
+ JOIN public.path_nodes anchor ON anchor.id=n.anchor_node_id AND anchor.unit_id=n.unit_id
+ WHERE p_kind='path_special_item' AND e.id::text=p_item_id AND n.kind='special' AND n.is_active AND e.path_is_active AND e.content_status='ready'
  ) SELECT u.id,u.level,u.trainer::text,u.owner_auth_user_id,u.is_active,r.media FROM refs r JOIN public.learning_units u ON u.id=r.unit_id
  UNION ALL SELECT NULL::uuid,f.level,'videos',NULL::uuid,true,true FROM public.lms_presentation_asset a
  JOIN public.lms_media_folder f ON f.folder_id=a.folder_id WHERE p_kind='presentation' AND a.asset_id::text=p_item_id
@@ -105,8 +110,8 @@ RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
  EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND s.vip_enabled)
  OR sitov_access_private.purchased(p.id,i.level)
  OR (EXISTS(SELECT 1 FROM public.student_level_access l WHERE l.auth_user_id=p.id AND l.level=i.level)
- AND (i.legacy_media OR (coalesce(g.enabled,true) AND (i.owner_id=p.id OR g.unit_mode IS DISTINCT FROM 'selected'
- OR EXISTS(SELECT 1 FROM public.learning_unit_grants x WHERE x.auth_user_id=p.id AND x.level=i.level AND x.trainer::text=i.trainer AND x.unit_id=i.unit_id)))))
+ AND coalesce(g.enabled,true) AND (i.legacy_media OR i.owner_id=p.id OR g.unit_mode IS DISTINCT FROM 'selected'
+ OR EXISTS(SELECT 1 FROM public.learning_unit_grants x WHERE x.auth_user_id=p.id AND x.level=i.level AND x.trainer::text=i.trainer AND x.unit_id=i.unit_id)))
  OR (i.owner_id IS NULL AND sitov_access_private.trial_item_allowed(p.id,p_kind,p_item_id,i.unit_id,i.level,i.trainer))
  ))))
 $$;
@@ -248,7 +253,9 @@ REVOKE ALL ON sitov_access_private.guard_backups FROM PUBLIC,anon,authenticated;
 INSERT INTO sitov_access_private.guard_backups(signature,definition)
 SELECT signature,pg_get_functiondef(to_regprocedure(signature)) FROM unnest(ARRAY[
  'trainer_access_private.allowed(text,text)','trainer_access_private.unit_allowed(text,text,text)',
- 'learning_private.unit_allowed(uuid)','learning_private.allowed_unit_ids()']) signature
+ 'learning_private.unit_allowed(uuid)','learning_private.allowed_unit_ids()',
+ 'sitov_verb_private.level_allowed(uuid,text)','sitov_verb_private.verb_allowed(uuid,text)',
+ 'media_private.folder_allowed(uuid)','media_private.published_video_unit_ids()','media_private.path_allowed(text,boolean)']) signature
 WHERE to_regprocedure(signature) IS NOT NULL ON CONFLICT DO NOTHING;
 
 -- Guarded source integration. Selected-item trial cannot enter old unit-only
@@ -323,6 +330,8 @@ LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$ BEGIN
  UNION ALL SELECT 'video',id::text FROM public.learning_videos
  UNION ALL SELECT 'verb',id FROM public.sitov_verb_catalog
  UNION ALL SELECT 'path_node',id::text FROM public.path_nodes
+ UNION ALL SELECT 'path_special',id::text FROM public.path_nodes WHERE kind='special'
+ UNION ALL SELECT 'path_special_item',e.id::text FROM public.learning_exercises e JOIN public.path_nodes n ON n.id=e.node_id AND n.unit_id=e.unit_id WHERE n.kind='special'
  UNION ALL SELECT 'presentation',asset_id::text FROM public.lms_presentation_asset
  ),items AS (SELECT r.kind,r.id,i.unit_id,i.published FROM refs r CROSS JOIN LATERAL sitov_access_private.resolve_item(r.kind,r.id) i
  WHERE i.level=p_level AND i.trainer=p_trainer AND (i.owner_id IS NULL OR i.owner_id=auth.uid()) AND sitov_access_private.item_allowed(auth.uid(),r.kind,r.id)),
@@ -347,3 +356,57 @@ CREATE POLICY sitov_commercial_item_scope ON public.learning_reading_texts AS RE
 DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_videos;
 CREATE POLICY sitov_commercial_item_scope ON public.learning_videos AS RESTRICTIVE FOR SELECT TO authenticated
  USING(sitov_access_private.item_allowed(auth.uid(),'video',id::text));
+
+-- Verb RPCs already recheck verb_allowed before selection/scoring/receipt replay.
+CREATE OR REPLACE FUNCTION sitov_verb_private.level_allowed(p_user uuid,p_level text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(p_user) AND p_level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2')
+ AND EXISTS(SELECT 1 FROM public.profiles p WHERE p.id=p_user AND (p.role IN('teacher','admin')
+ OR EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND s.vip_enabled)
+ OR sitov_access_private.purchased(p.id,p_level)
+ OR (EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=p_level)
+ AND coalesce((SELECT g.enabled FROM public.learning_trainer_grants g WHERE g.auth_user_id=p.id AND g.level=p_level AND g.trainer='verbs'),true)
+ AND NOT EXISTS(SELECT 1 FROM public.learning_trainer_grants g WHERE g.auth_user_id=p.id AND g.level=p_level AND g.trainer='verbs' AND g.unit_mode='selected'
+ AND NOT EXISTS(SELECT 1 FROM public.learning_unit_grants x WHERE x.auth_user_id=p.id AND x.level=p_level AND x.trainer='verbs')))
+ OR EXISTS(SELECT 1 FROM public.sitov_verb_catalog c WHERE c.level=p_level AND sitov_access_private.item_allowed(p.id,'verb',c.id))))
+$$;
+CREATE OR REPLACE FUNCTION sitov_verb_private.verb_allowed(p_user uuid,p_verb text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.item_allowed(p_user,'verb',p_verb)
+$$;
+
+-- A trial folder is only navigation metadata for an allowed exact video.
+-- Presentations have their own restrictive predicate, preventing folder inheritance.
+CREATE OR REPLACE FUNCTION media_private.folder_allowed(p_folder_id uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(auth.uid()) AND EXISTS(SELECT 1 FROM public.lms_media_folder f WHERE f.folder_id=p_folder_id
+ AND (sitov_verb_private.media_allowed(f.level)
+ OR (f.level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2') AND (
+ EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=auth.uid() AND s.vip_enabled)
+ OR sitov_access_private.purchased(auth.uid(),f.level)
+ OR EXISTS(SELECT 1 FROM public.learning_videos v WHERE v.folder_id=f.folder_id AND sitov_access_private.item_allowed(auth.uid(),'video',v.id::text))))))
+$$;
+CREATE OR REPLACE FUNCTION media_private.published_video_unit_ids() RETURNS uuid[]
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT coalesce(array_agg(DISTINCT u.id),'{}'::uuid[]) FROM public.learning_videos v JOIN public.learning_units u ON u.id=v.unit_id
+ JOIN public.lms_media_folder f ON f.folder_id=v.folder_id AND f.level=u.level
+ WHERE v.storage_path IS NOT NULL AND u.trainer='videos' AND u.is_active AND sitov_access_private.item_allowed(auth.uid(),'video',v.id::text)
+$$;
+CREATE OR REPLACE FUNCTION media_private.path_allowed(p_name text,p_write boolean DEFAULT false) RETURNS boolean
+LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$
+DECLARE parts text[]:=string_to_array(p_name,'/');folder uuid;BEGIN
+ IF cardinality(parts)<>4 OR parts[2]!~'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+ OR parts[4]!~'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.(mp4|webm|pdf|pptx|key)$'
+ OR NOT((parts[3]='videos' AND parts[4]~'\.(mp4|webm)$') OR (parts[3]='presentations' AND parts[4]~'\.(pdf|pptx|key)$')) THEN RETURN false;END IF;
+ folder:=parts[2]::uuid;
+ IF NOT EXISTS(SELECT 1 FROM public.lms_media_folder f WHERE f.folder_id=folder AND f.level=parts[1]) THEN RETURN false;END IF;
+ IF sitov_access_private.staff() THEN RETURN true;END IF;
+ IF p_write IS DISTINCT FROM false OR NOT media_private.folder_allowed(folder) THEN RETURN false;END IF;
+ RETURN (parts[3]='videos' AND EXISTS(SELECT 1 FROM public.learning_videos v WHERE v.folder_id=folder AND v.storage_path=p_name
+ AND sitov_access_private.item_allowed(auth.uid(),'video',v.id::text)))
+ OR (parts[3]='presentations' AND EXISTS(SELECT 1 FROM public.lms_presentation_asset a WHERE a.folder_id=folder AND a.storage_path=p_name
+ AND sitov_access_private.item_allowed(auth.uid(),'presentation',a.asset_id::text)));
+END $$;
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.lms_presentation_asset;
+CREATE POLICY sitov_commercial_item_scope ON public.lms_presentation_asset AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'presentation',asset_id::text));

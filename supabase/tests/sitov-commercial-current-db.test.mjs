@@ -114,6 +114,48 @@ test('93 guarded source integration on isolated real normalized current92', { sk
       await db.actor(sitovUsers.outsider, 'postgres', { role: 'authenticated' })
       assert.equal((await db.query(`SELECT sitov_access_private.level_allowed('${sitovUsers.outsider}','A1.1') allowed`)).rows[0].allowed, true)
     })
+    const setTrial = async manifest => {
+      await db.actor(sitovUsers.teacher)
+      const revision = (await db.query('SELECT get_sitov_access_context($1) result', [sitovUsers.outsider])).rows[0].result.revision
+      assert.equal((await db.query('SELECT set_sitov_student_trial($1,$2,$3) result', [sitovUsers.outsider, manifest, revision])).rows[0].result.success, true)
+    }
+    await t.test('Special canonical joins reject malformed/inactive nodes and selected sibling tasks', async () => {
+      await db.actor(null, 'postgres')
+      await db.exec(`SET session_replication_role=replica;
+        INSERT INTO path_nodes(id,unit_id,source_id,kind,sort_order,title,topic,anchor_node_id,is_active) VALUES
+        ('${sitovId(500)}','${sitovId(221)}','sitov.qa.anchor','review',1,'Wiederholung','Wörter',NULL,true),
+        ('${sitovId(501)}','${sitovId(221)}','sitov.qa.special','special',2,'Übung','Wörter','${sitovId(500)}',true),
+        ('${sitovId(502)}','${sitovId(221)}','sitov.qa.inactive','special',3,'Übung','Wörter','${sitovId(500)}',false),
+        ('${sitovId(503)}','${sitovId(222)}','sitov.qa.foreign','special',4,'Übung','Wörter','${sitovId(500)}',true);
+        INSERT INTO learning_exercises(id,unit_id,node_id,type,topic,content) VALUES
+        ('${sitovId(504)}','${sitovId(221)}','${sitovId(501)}','multiple_choice','Wörter','{"target_form":["Haus"],"question":"Was passt?","options":["Haus","Baum"],"correct_answer":"Haus","accepted_answers":["Haus"]}'),
+        ('${sitovId(505)}','${sitovId(221)}','${sitovId(501)}','multiple_choice','Wörter','{"target_form":["Haus"],"question":"Was passt?","options":["Haus","Baum"],"correct_answer":"Haus","accepted_answers":["Haus"]}');
+        SET session_replication_role=origin;`)
+      await setTrial({version:1,rules:[{level:'A1.1',trainer:'exercises',unit_ids:[sitovId(221)],items:[{unit_id:sitovId(221),refs:[{kind:'path_special',id:sitovId(501)},{kind:'path_special_item',id:sitovId(504)}]}]}]})
+      await db.actor(sitovUsers.outsider, 'postgres', {role:'authenticated'})
+      for (const [kind,id,expected] of [['path_special',501,true],['path_special',502,false],['path_special',503,false],['path_special_item',504,true],['path_special_item',505,false]]) {
+        assert.equal((await db.query('SELECT sitov_access_private.item_allowed($1,$2,$3) allowed',[sitovUsers.outsider,kind,sitovId(id)])).rows[0].allowed,expected)
+      }
+      await db.actor(sitovUsers.outsider)
+      const catalog=(await db.query("SELECT get_sitov_access_catalog('A1.1','exercises') result")).rows[0].result
+      assert.deepEqual(catalog.units.flatMap(u=>u.items.map(i=>i.id)).sort(),[sitovId(501),sitovId(504)].sort())
+    })
+    await t.test('selected verb trial reaches exact selection RPC and denies siblings; media trial stays exact', async () => {
+      await db.actor(null,'postgres')
+      const verbs=(await db.query("SELECT id,unit_id FROM sitov_verb_catalog WHERE level='A1.1' ORDER BY id LIMIT 2")).rows
+      assert.equal(verbs.length,2)
+      await setTrial({version:1,rules:[{level:'A1.1',trainer:'verbs',unit_ids:[...new Set(verbs.map(v=>v.unit_id))],items:[{unit_id:verbs[0].unit_id,refs:[{kind:'verb',id:verbs[0].id}]}]}]})
+      await db.actor(sitovUsers.outsider)
+      assert.equal((await db.query('SELECT sitov_set_verb_box($1,ARRAY[$2],true) result',['A1.1',verbs[0].id])).rows[0].result.error,undefined)
+      assert.equal((await db.query('SELECT sitov_set_verb_box($1,ARRAY[$2],true) result',['A1.1',verbs[1].id])).rows[0].result.error,'not_authorized')
+      await setTrial({version:1,rules:[{level:'A1.1',trainer:'videos',unit_ids:[sitovId(242)],items:[{unit_id:sitovId(242),refs:[{kind:'video',id:sitovId(351)}]}]}]})
+      await db.actor(sitovUsers.outsider)
+      assert.deepEqual((await db.query('SELECT id FROM learning_videos WHERE id IN($1,$2)',[sitovId(351),sitovId(303)])).rows,[{id:sitovId(351)}])
+      assert.equal((await db.query('SELECT sitov_set_verb_box($1,ARRAY[$2],true) result',['A1.1',verbs[0].id])).rows[0].result.error,'not_authorized', 'revoked verb trial denies old selection')
+      await db.actor(sitovUsers.outsider,'postgres',{role:'authenticated'})
+      assert.equal((await db.query('SELECT media_private.path_allowed($1,false) allowed',[`A1.1/${sitovId(350)}/videos/${sitovId(351)}.mp4`])).rows[0].allowed,true)
+      assert.equal((await db.query('SELECT media_private.path_allowed($1,true) allowed',[`A1.1/${sitovId(350)}/videos/${sitovId(351)}.mp4`])).rows[0].allowed,false)
+    })
     await t.test('replay preserves claims, selections, payment-off and historical state', async () => {
       const rights = await sitovRightsSnapshot(db)
       await db.actor(null, 'postgres'); await db.exec(sql)

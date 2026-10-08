@@ -11,6 +11,7 @@ DO $$ DECLARE f record; BEGIN
  DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_exercises;
  DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_reading_texts;
  DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_videos;
+ DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.lms_presentation_asset;
  DROP FUNCTION public.get_sitov_access_catalog(text,text);
  DROP FUNCTION public.set_sitov_student_vip(uuid,boolean,bigint),public.set_sitov_student_trial(uuid,jsonb,bigint),
  public.get_sitov_access_context(uuid),public.get_sitov_billing_settings(),public.set_sitov_billing_enabled(boolean,bigint),

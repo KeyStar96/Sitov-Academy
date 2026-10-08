@@ -62,7 +62,8 @@ export async function currentUserHasContentAccess(ref: SitovContentRef): Promise
       if (data) scope = { level: data.folder.level, trainer: 'videos' }
     } else {
       const table = { vocabulary_card: 'learning_vocabulary_cards', exercise: 'learning_exercises', reading_text: 'learning_reading_texts',
-        video: 'learning_videos', verb: 'sitov_verb_catalog', path_node: 'path_nodes', path_task: 'learning_exercises' } as const
+        video: 'learning_videos', verb: 'sitov_verb_catalog', path_node: 'path_nodes', path_task: 'learning_exercises',
+        path_special: 'path_nodes', path_special_item: 'learning_exercises' } as const
       const { data } = await admin.from(table[ref.kind]).select('unit_id').eq('id', ref.id).maybeSingle()
       if (data) {
         const metadata = z.object({ unit_id: z.uuid() }).parse(data)

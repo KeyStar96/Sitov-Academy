@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { ACCESS_LEVELS, TRAINERS, sitovLevelHasTrainer, type AccessLevel, type Trainer, type LevelAccessProfile } from './levels'
 
-export const SITOV_CONTENT_KINDS = ['vocabulary_card', 'exercise', 'reading_text', 'video', 'verb', 'path_node', 'path_task', 'presentation'] as const
+export const SITOV_CONTENT_KINDS = ['vocabulary_card', 'exercise', 'reading_text', 'video', 'verb', 'path_node', 'path_task', 'presentation', 'path_special', 'path_special_item'] as const
 export type SitovContentKind = typeof SITOV_CONTENT_KINDS[number]
 export interface SitovContentRef { kind: SitovContentKind; id: string }
 const refSchema = z.object({ kind: z.enum(SITOV_CONTENT_KINDS), id: z.string().min(1).max(160) }).strict()
@@ -62,9 +62,9 @@ export function hasSitovCommercialItemAccess(context: SitovAccessContext | null,
   if (context.vip_enabled || context.purchased_levels.includes(item.level)) return true
   const legacyLevel = context.allowed_levels?.includes(item.level) ?? false
   const legacyRule = context.trainer_grants?.find(rule => rule.level === item.level && rule.trainer === item.trainer)
-  if (legacyLevel && (item.legacy_level_media || (legacyRule?.enabled !== false
-    && (item.owner_user_id === context.user_id || legacyRule?.unit_ids == null
-      || (item.unit_id !== null && legacyRule.unit_ids.includes(item.unit_id)))))) return true
+  if (legacyLevel && legacyRule?.enabled !== false
+    && (item.legacy_level_media || item.owner_user_id === context.user_id || legacyRule?.unit_ids == null
+      || (item.unit_id !== null && legacyRule.unit_ids.includes(item.unit_id)))) return true
   // Trial never opens personal words, whole folders, or unmapped catalog objects.
   if (item.owner_user_id || item.unit_id === null) return false
   const rule = context.trial.rules.find(rule => rule.level === item.level && rule.trainer === item.trainer)

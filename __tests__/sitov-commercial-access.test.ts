@@ -20,6 +20,8 @@ test('manual all/none/selected and level-only uploaded media remain distinct', (
     expect(permits({ allowed_levels: ['A1.1'], trainer_grants: [{ level: 'A1.1', trainer: 'pronunciation', enabled: true, unit_ids: unit_ids === null ? null : [...unit_ids] }] })).toBe(expected)
   }
   expect(permits({ allowed_levels: ['A1.1'], trainer_grants: [{ level: 'A1.1', trainer: 'videos', enabled: false }] },
+    { ...item, kind: 'video', trainer: 'videos', legacy_level_media: true })).toBe(false)
+  expect(permits({ allowed_levels: ['A1.1'], trainer_grants: [{ level: 'A1.1', trainer: 'videos', enabled: true, unit_ids: [] }] },
     { ...item, kind: 'video', trainer: 'videos', legacy_level_media: true })).toBe(true)
 })
 test('trial all/none/selected items never opens sibling content or private own words', () => {

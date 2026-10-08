@@ -9,7 +9,7 @@ const migration = await readFile(new URL('../vps/93_sitov_commercial_access.sql'
 // Deliberately scoped normalized catalog fixture. This is NOT the full 01–92 release proof.
 const fixture = `
  CREATE ROLE anon; CREATE ROLE authenticated;
- CREATE SCHEMA trainer_access_private;CREATE SCHEMA learning_private;CREATE SCHEMA auth; CREATE SCHEMA identity_private; CREATE SCHEMA sitov_security_private;
+ CREATE SCHEMA media_private;CREATE SCHEMA sitov_verb_private;CREATE SCHEMA trainer_access_private;CREATE SCHEMA learning_private;CREATE SCHEMA auth; CREATE SCHEMA identity_private; CREATE SCHEMA sitov_security_private;
  CREATE FUNCTION auth.uid() RETURNS uuid LANGUAGE sql AS $$ SELECT nullif(current_setting('request.jwt.claim.sub',true),'')::uuid $$;
  GRANT USAGE ON SCHEMA auth TO authenticated; GRANT EXECUTE ON FUNCTION auth.uid() TO authenticated;
  CREATE TABLE profiles(id uuid PRIMARY KEY,role text NOT NULL,ui_language text);
@@ -22,12 +22,18 @@ const fixture = `
  CREATE TABLE learning_unit_grants(auth_user_id uuid,level text,trainer text,unit_id uuid);
  CREATE TABLE learning_vocabulary_cards(id uuid PRIMARY KEY,unit_id uuid);
  CREATE TABLE learning_reading_texts(id uuid PRIMARY KEY,unit_id uuid);
- CREATE TABLE learning_exercises(id uuid PRIMARY KEY,unit_id uuid,node_id uuid,path_is_active boolean);
+ CREATE TABLE learning_exercises(id uuid PRIMARY KEY,unit_id uuid,node_id uuid,path_is_active boolean,content_status text);
  CREATE TABLE learning_videos(id uuid PRIMARY KEY,unit_id uuid,storage_path text,folder_id uuid);
- CREATE TABLE sitov_verb_catalog(id text PRIMARY KEY,unit_id uuid);
- CREATE TABLE path_nodes(id uuid PRIMARY KEY,unit_id uuid,is_active boolean);
+ CREATE TABLE sitov_verb_catalog(id text PRIMARY KEY,unit_id uuid,level text);
+ CREATE TABLE path_nodes(id uuid PRIMARY KEY,unit_id uuid,is_active boolean,anchor_node_id uuid,kind text);
  CREATE TABLE lms_media_folder(folder_id uuid PRIMARY KEY,level text);
- CREATE TABLE lms_presentation_asset(asset_id uuid PRIMARY KEY,folder_id uuid);
+ CREATE TABLE lms_presentation_asset(asset_id uuid PRIMARY KEY,folder_id uuid,storage_path text);
+ CREATE FUNCTION sitov_verb_private.media_allowed(p_level text) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
+ CREATE FUNCTION sitov_verb_private.level_allowed(p_user uuid,p_level text) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
+ CREATE FUNCTION sitov_verb_private.verb_allowed(p_user uuid,p_verb text) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
+ CREATE FUNCTION media_private.folder_allowed(p_folder_id uuid) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
+ CREATE FUNCTION media_private.published_video_unit_ids() RETURNS uuid[] LANGUAGE sql AS $$ SELECT '{}'::uuid[] $$;
+ CREATE FUNCTION media_private.path_allowed(p_name text,p_write boolean DEFAULT false) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
  CREATE FUNCTION trainer_access_private.allowed(p_level text,p_trainer text) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
  CREATE FUNCTION trainer_access_private.unit_allowed(p_level text,p_trainer text,p_unit text) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
  CREATE FUNCTION learning_private.unit_allowed(p_unit_id uuid) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
