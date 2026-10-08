@@ -85,8 +85,11 @@ export async function writeSitovStaffAccess(input: unknown): Promise<SitovStaffR
       ? await client.rpc('set_sitov_student_vip', { p_student: value.studentId, p_enabled: value.enabled, p_expected_revision: value.revision })
       : await client.rpc('set_sitov_student_trial', { p_student: value.studentId, p_manifest: value.manifest, p_expected_revision: value.revision })
     if (result.error) return { ok: false, error: 'unavailable' }
-    const saved = z.object({ success: z.literal(true), revision: revisionSchema }).strict().safeParse(result.data)
+    const saved = (value.kind === 'vip'
+      ? z.object({ success: z.literal(true), revision: revisionSchema, vip_enabled: z.boolean() }).strict()
+      : z.object({ success: z.literal(true), revision: revisionSchema }).strict()).safeParse(result.data)
     if (!saved.success || saved.data.revision !== value.revision + 1) return failure(result.data)
+    if (value.kind === 'vip' && (!('vip_enabled' in saved.data) || saved.data.vip_enabled !== value.enabled)) return { ok: false, error: 'unavailable' }
     return { ok: true, data: { revision: saved.data.revision } }
   } catch (error) { return { ok: false, error: error instanceof SitovStaffMfaRequiredError ? 'forbidden' : 'unavailable' } }
 }

@@ -25,10 +25,18 @@ it('loads a strict current DTO through verified cookies and rejects leaked field
   expect(await readSitovStaffAccess(id)).toEqual({ ok: false, error: 'unavailable' })
 })
 it('VIP revoke calls only its revision-bound RPC and does not alter role or legacy grants', async () => {
-  const client = setup({ response: { success: true, revision: 4 } })
+  const client = setup({ response: { success: true, revision: 4, vip_enabled: false } })
   expect(await writeSitovStaffAccess({ kind: 'vip', studentId: id, enabled: false, revision: 3 })).toEqual({ ok: true, data: { revision: 4 } })
   expect(client.rpc).toHaveBeenCalledWith('set_sitov_student_vip', { p_student: id, p_enabled: false, p_expected_revision: 3 })
   expect(client.from.mock.calls.every(([table]) => table === 'profiles')).toBe(true)
+})
+it('accepts the actual93 VIP acknowledgement and rejects contradictory or incomplete receipts', async () => {
+  setup({ response: { success: true, revision: 4, vip_enabled: true } })
+  expect(await writeSitovStaffAccess({ kind: 'vip', studentId: id, enabled: true, revision: 3 })).toEqual({ ok: true, data: { revision: 4 } })
+  for (const response of [{ success: true, revision: 4, vip_enabled: false }, { success: true, revision: 4 }]) {
+    setup({ response })
+    expect(await writeSitovStaffAccess({ kind: 'vip', studentId: id, enabled: true, revision: 3 })).toEqual({ ok: false, error: 'unavailable' })
+  }
 })
 it('empty selected trial is preserved exactly; CAS conflict stays explicit', async () => {
   const client = setup({ response: { error: 'revision_conflict' } })
