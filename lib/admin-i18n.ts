@@ -1,7 +1,10 @@
 import germanDictionary from '@/dictionaries/de.json'
 import { createTranslator, type Translations, type Translator } from '@/lib/i18n-runtime'
 
-export const ADMIN_FALLBACKS = germanDictionary.admin
+export const ADMIN_FALLBACKS = { ...germanDictionary.admin,
+  nav_sitov_billing_de: 'Bezahlsystem', nav_sitov_billing_en: 'Payment settings',
+  nav_sitov_billing_ru: 'Система оплаты', nav_sitov_billing_uk: 'Система оплати', nav_sitov_billing_tr: 'Ödeme ayarları',
+}
 
 export type AdminTranslationKey = Extract<keyof typeof ADMIN_FALLBACKS, string>
 
@@ -33,4 +36,15 @@ export function getSitovCommercialKindLabel(locale: unknown, kind: string): stri
     : locale === 'tr' ? ['Kelime','Alıştırma','Telaffuz metni','Video','Fiil','Yol bölümü','Yol görevi','Belge','Özel bölüm','Özel görev']
     : ['Wort','Übung','Aussprachetext','Video','Verb','Lernabschnitt','Lernaufgabe','Dokument','Special','Special-Aufgabe']
   return labels[kinds.indexOf(kind)] ?? kind
+}
+
+export const sitovBillingAdminCopy = {
+  de: { title: 'Bezahlsystem', level: 'Teilniveau', off: 'Käufe ausgeschaltet', on: 'Käufe eingeschaltet', provider: 'Zahlungsanbieter nicht konfiguriert', noPrice: 'Kein Preis festgelegt', amount: 'Preis in kleinster Währungseinheit', currency: 'Währung (ISO-Code)', save: 'Preis speichern', saved: 'Gespeichert', loading: 'Wird geladen …', error: 'Einstellungen konnten nicht geladen oder gespeichert werden.', stale: 'Die Einstellung wurde inzwischen geändert. Bitte neu laden.', retry: 'Neu laden', disable: 'Käufe ausschalten', help: 'Hilfe', info: 'Preise gelten für Einmalkäufe eines Teilniveaus. Trage Betrag und Währung ausdrücklich ein. Der Betrag ist eine ganze Zahl in der kleinsten Währungseinheit, zum Beispiel Cent. Ohne eingerichteten Zahlungsanbieter bleiben neue Käufe gesperrt. Ausschalten entfernt keine bestehenden Zugangsrechte.' },
+  en: { title: 'Payment settings', level: 'Sublevel', off: 'Purchases disabled', on: 'Purchases enabled', provider: 'Payment provider not configured', noPrice: 'No price set', amount: 'Price in the smallest currency unit', currency: 'Currency (ISO code)', save: 'Save price', saved: 'Saved', loading: 'Loading …', error: 'Settings could not be loaded or saved.', stale: 'This setting has changed. Please reload.', retry: 'Reload', disable: 'Disable purchases', help: 'Help', info: 'Prices apply to one-time purchases of a sublevel. Enter both amount and currency explicitly. The amount is an integer in the smallest currency unit, such as cents. New purchases remain blocked without a configured payment provider. Disabling purchases preserves existing access rights.' },
+  ru: { title: 'Система оплаты', level: 'Подуровень', off: 'Покупки отключены', on: 'Покупки включены', provider: 'Платёжный провайдер не настроен', noPrice: 'Цена не установлена', amount: 'Цена в минимальных денежных единицах', currency: 'Валюта (код ISO)', save: 'Сохранить цену', saved: 'Сохранено', loading: 'Загрузка …', error: 'Не удалось загрузить или сохранить настройки.', stale: 'Настройка уже изменена. Обновите данные.', retry: 'Обновить', disable: 'Отключить покупки', help: 'Помощь', info: 'Цена относится к разовой покупке подуровня. Укажите сумму и валюту. Сумма — целое число в минимальных единицах валюты, например центах. Без настроенного платёжного провайдера новые покупки заблокированы. Отключение покупок сохраняет существующие права доступа.' },
+  uk: { title: 'Система оплати', level: 'Підрівень', off: 'Покупки вимкнено', on: 'Покупки увімкнено', provider: 'Платіжного провайдера не налаштовано', noPrice: 'Ціну не встановлено', amount: 'Ціна в найменших грошових одиницях', currency: 'Валюта (код ISO)', save: 'Зберегти ціну', saved: 'Збережено', loading: 'Завантаження …', error: 'Не вдалося завантажити або зберегти налаштування.', stale: 'Налаштування вже змінено. Оновіть дані.', retry: 'Оновити', disable: 'Вимкнути покупки', help: 'Допомога', info: 'Ціна стосується разової покупки підрівня. Вкажіть суму та валюту. Сума — ціле число в найменших одиницях валюти, наприклад центах. Без налаштованого платіжного провайдера нові покупки заблоковано. Вимкнення покупок зберігає наявні права доступу.' },
+  tr: { title: 'Ödeme ayarları', level: 'Alt seviye', off: 'Satın alma kapalı', on: 'Satın alma açık', provider: 'Ödeme sağlayıcısı yapılandırılmamış', noPrice: 'Fiyat belirlenmemiş', amount: 'En küçük para biriminde fiyat', currency: 'Para birimi (ISO kodu)', save: 'Fiyatı kaydet', saved: 'Kaydedildi', loading: 'Yükleniyor …', error: 'Ayarlar yüklenemedi veya kaydedilemedi.', stale: 'Bu ayar değiştirilmiş. Yeniden yükleyin.', retry: 'Yeniden yükle', disable: 'Satın almayı kapat', help: 'Yardım', info: 'Fiyatlar bir alt seviyenin tek seferlik satın alınması içindir. Tutarı ve para birimini açıkça girin. Tutar, kuruş gibi en küçük para biriminde bir tam sayıdır. Yapılandırılmış bir ödeme sağlayıcısı olmadan yeni satın almalar engellenir. Kapatma mevcut erişim haklarını korur.' },
+} as const
+export function getSitovBillingAdminCopy(locale: unknown) {
+  return sitovBillingAdminCopy[locale === 'en' || locale === 'ru' || locale === 'uk' || locale === 'tr' ? locale : 'de']
 }

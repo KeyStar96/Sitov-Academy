@@ -1,0 +1,4 @@
+.panel { display: grid; gap: 1rem; width: 100%; max-width: 46rem; margin-inline: auto; border: 1px solid var(--admin-line); border-radius: .75rem; padding: 1.25rem; background: var(--surface); animation: sitovBillingEnter var(--motion-slow, 320ms) var(--ease-out-soft) both; }
+.panel input, .panel select { min-height: 48px; margin-top: .375rem; }
+@keyframes sitovBillingEnter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .panel { animation: none; } }

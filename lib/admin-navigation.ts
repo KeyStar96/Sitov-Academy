@@ -30,6 +30,7 @@ export type AdminNavIcon =
   | 'bookings'
   | 'certificates'
   | 'imports'
+  | 'sitovBilling'
   | 'menu'
 
 /** Zähler, die die Shell als Badge an Navigationsziele hängt. */
@@ -62,6 +63,7 @@ export interface AdminNavSection {
 /** Baut die gruppierte Navigation für eine Sprache mit vollständigen Pfaden. */
 export function buildAdminNav(lang: string): AdminNavSection[] {
   const base = `/${lang}/admin`
+  const billingKey = ({ de: 'nav_sitov_billing_de', en: 'nav_sitov_billing_en', ru: 'nav_sitov_billing_ru', uk: 'nav_sitov_billing_uk', tr: 'nav_sitov_billing_tr' } as const)[lang === 'en' || lang === 'ru' || lang === 'uk' || lang === 'tr' ? lang : 'de']
   return [
     {
       id: 'overview',
@@ -105,6 +107,7 @@ export function buildAdminNav(lang: string): AdminNavSection[] {
       id: 'administration',
       labelKey: 'group_administration',
       items: [
+        { labelKey: billingKey, href: `${base}/settings/billing`, icon: 'sitovBilling' },
         { labelKey: 'nav_finance', href: `${base}/finance`, icon: 'finance' },
         { labelKey: 'nav_registrations', href: `${base}/registrations`, icon: 'registrations' },
         { labelKey: 'nav_invoices', href: `${base}/invoices`, icon: 'invoices' },

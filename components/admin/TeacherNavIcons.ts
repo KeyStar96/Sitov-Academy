@@ -4,6 +4,7 @@ import {
   CalendarClock,
   CalendarRange,
   CalendarX2,
+  CreditCard,
   ClipboardList,
   ClipboardCheck,
   FileBadge,
@@ -42,5 +43,6 @@ export const ADMIN_NAV_ICONS: Record<AdminNavIcon, LucideIcon> = {
   bookings: CalendarClock,
   certificates: FileBadge,
   imports: FileUp,
+  sitovBilling: CreditCard,
   menu: LayoutGrid,
 }
