@@ -43,14 +43,84 @@ DECLARE c jsonb;q jsonb;n integer;BEGIN
  IF (SELECT count(DISTINCT o->>'id') FROM jsonb_array_elements(q->'options') o)<>jsonb_array_length(q->'options') OR (SELECT count(DISTINCT btrim(o->>'textDe')) FROM jsonb_array_elements(q->'options') o)<>jsonb_array_length(q->'options') THEN RETURN false;END IF;
  IF EXISTS(SELECT 1 FROM jsonb_array_elements(q->'options') o WHERE coalesce(o->>'id','') !~ '^sitov[.:-][a-zA-Z0-9._:-]{1,90}$' OR jsonb_typeof(o->'textDe') IS DISTINCT FROM 'string' OR nullif(btrim(o->>'textDe'),'') IS NULL OR length(o->>'textDe')>300) OR NOT EXISTS(SELECT 1 FROM jsonb_array_elements(q->'options') o WHERE o->>'id'=q->>'correctOptionId') THEN RETURN false;END IF;END LOOP;
  RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+-- Independent approval is private and outside definition JSON: no circular test hash.
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_approvals(
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),definition_id uuid NOT NULL REFERENCES sitov_pronunciation_private.pretest_definitions(id),
+ text_version text NOT NULL CHECK(text_version~'^[a-f0-9]{64}$'),test_version text NOT NULL CHECK(test_version~'^[a-f0-9]{64}$'),
+ author_identity text NOT NULL CHECK(length(btrim(author_identity)) BETWEEN 3 AND 200),
+ reviewer_identity text NOT NULL CHECK(length(btrim(reviewer_identity)) BETWEEN 3 AND 200 AND btrim(reviewer_identity)<>btrim(author_identity)),
+ review_status text NOT NULL CHECK(review_status='independent_approved'),reviewed_at timestamptz NOT NULL,
+ review_document_ref text NOT NULL CHECK(review_document_ref~'^sitov[.:-]editorial[.:-]review[.:-][a-zA-Z0-9._:-]+$'),
+ review_document_sha256 text NOT NULL CHECK(review_document_sha256~'^[a-f0-9]{64}$'),
+ reference_kind text NOT NULL CHECK(reference_kind IN('prepared_qwen','human_recording')),
+ reference_bucket text NOT NULL,reference_path text NOT NULL,reference_audio_sha256 text NOT NULL CHECK(reference_audio_sha256~'^[a-f0-9]{64}$'));
+ALTER TABLE sitov_pronunciation_private.pretest_approvals ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON sitov_pronunciation_private.pretest_approvals FROM PUBLIC,anon,authenticated,service_role;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.immutable_approval() RETURNS trigger LANGUAGE plpgsql SET search_path='' AS $$ BEGIN RAISE EXCEPTION 'immutable_pretest_approval';END $$;
+DROP TRIGGER IF EXISTS sitov_pretest_approval_immutable ON sitov_pronunciation_private.pretest_approvals;
+CREATE TRIGGER sitov_pretest_approval_immutable BEFORE UPDATE OR DELETE ON sitov_pronunciation_private.pretest_approvals FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.immutable_approval();
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.valid_spans(p_text text,p_spans jsonb) RETURNS boolean LANGUAGE plpgsql IMMUTABLE SET search_path='' AS $$
+DECLARE span jsonb;BEGIN
+ IF jsonb_typeof(p_spans) IS DISTINCT FROM 'array' OR jsonb_array_length(p_spans)=0 THEN RETURN false;END IF;
+ FOR span IN SELECT value FROM jsonb_array_elements(p_spans) LOOP
+  IF coalesce(span->>'start','')!~'^[0-9]+$' OR coalesce(span->>'end','')!~'^[0-9]+$' OR (span->>'end')::int<=(span->>'start')::int OR nullif(btrim(span->>'quote'),'') IS NULL OR substring(p_text FROM (span->>'start')::int+1 FOR (span->>'end')::int-(span->>'start')::int) IS DISTINCT FROM span->>'quote' THEN RETURN false;END IF;
+ END LOOP;RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.valid_authoring(p_text text,d jsonb) RETURNS boolean LANGUAGE plpgsql IMMUTABLE SET search_path='' AS $$
+#variable_conflict use_column
+DECLARE c jsonb;q jsonb;f jsonb;category text;BEGIN
+ IF NOT sitov_pronunciation_private.valid_pool(d) OR jsonb_typeof(d->'omittedCategories') IS DISTINCT FROM 'array' OR jsonb_typeof(d->'reviewForms') IS DISTINCT FROM 'array' OR jsonb_array_length(d->'reviewForms')<>2 THEN RETURN false;END IF;
+ FOR c IN SELECT value FROM jsonb_array_elements(d->'competencies') LOOP
+  IF nullif(btrim(c->>'category'),'') IS NULL OR nullif(btrim(c->>'necessityDe'),'') IS NULL OR NOT sitov_pronunciation_private.valid_spans(p_text,c->'sourceSpans') OR jsonb_typeof(c->'languageUnits') IS DISTINCT FROM 'array' OR jsonb_array_length(c->'languageUnits')<3 OR jsonb_typeof(c->'mapping') IS DISTINCT FROM 'object' THEN RETURN false;END IF;
+ END LOOP;
+ FOREACH category IN ARRAY ARRAY['vocabulary','verb_forms','syntax','nominal_forms'] LOOP
+  IF NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d->'competencies') x WHERE x->>'category'=category) AND NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d->'omittedCategories') x WHERE x->>'category'=category AND length(btrim(x->>'reasonDe'))>=20) THEN RETURN false;END IF;
+ END LOOP;
+ IF EXISTS(SELECT 1 FROM jsonb_array_elements(d->'omittedCategories') x WHERE nullif(btrim(x->>'category'),'') IS NULL OR length(btrim(coalesce(x->>'reasonDe','')))<20) THEN RETURN false;END IF;
+ FOR q IN SELECT value FROM jsonb_array_elements(d->'tasks') LOOP
+  IF NOT sitov_pronunciation_private.valid_spans(p_text,q->'sourceSpans') OR length(btrim(coalesce(q->>'rationaleDe','')))<35 OR nullif(btrim(q->>'assessmentUnit'),'') IS NULL OR nullif(btrim(q->>'equivalenceKey'),'') IS NULL THEN RETURN false;END IF;
+ END LOOP;
+ IF (SELECT count(DISTINCT (x->>'competencyId',lower(btrim(x->>'assessmentUnit')))) FROM jsonb_array_elements(d->'tasks') x)<>jsonb_array_length(d->'tasks') OR (SELECT count(DISTINCT (x->>'competencyId',lower(btrim(x->>'equivalenceKey')))) FROM jsonb_array_elements(d->'tasks') x)<>jsonb_array_length(d->'tasks') OR (SELECT count(DISTINCT lower(btrim(x->>'promptDe'))) FROM jsonb_array_elements(d->'tasks') x)<>jsonb_array_length(d->'tasks') THEN RETURN false;END IF;
+ IF EXISTS(SELECT 1 FROM jsonb_array_elements(d->'reviewForms') x WHERE jsonb_typeof(x->'questionIds') IS DISTINCT FROM 'array') THEN RETURN false;END IF;
+ IF (SELECT count(*) FROM jsonb_array_elements(d->'reviewForms') f CROSS JOIN LATERAL jsonb_array_elements_text(f->'questionIds') q)<>(SELECT count(DISTINCT q) FROM jsonb_array_elements(d->'reviewForms') f CROSS JOIN LATERAL jsonb_array_elements_text(f->'questionIds') q) THEN RETURN false;END IF;
+ FOR f IN SELECT value FROM jsonb_array_elements(d->'reviewForms') LOOP
+  IF EXISTS(SELECT 1 FROM jsonb_array_elements_text(f->'questionIds') id WHERE NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d->'tasks') q WHERE q->>'id'=id)) THEN RETURN false;END IF;
+  FOR c IN SELECT value FROM jsonb_array_elements(d->'competencies') LOOP
+   IF (SELECT count(*) FROM jsonb_array_elements_text(f->'questionIds') id JOIN LATERAL jsonb_array_elements(d->'tasks') q ON q->>'id'=id WHERE q->>'competencyId'=c->>'id')<>(c->>'itemsPerAttempt')::int THEN RETURN false;END IF;
+  END LOOP;
+ END LOOP;RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.reference_valid(p_text text,p_stored_url text,a sitov_pronunciation_private.pretest_approvals) RETURNS boolean LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path='' AS $$
+DECLARE prepared text;metadata jsonb;timings jsonb;t jsonb;spoken text;previous_end numeric:=0;BEGIN
+ SELECT user_metadata INTO metadata FROM storage.objects WHERE bucket_id=a.reference_bucket AND name=a.reference_path AND archived_at IS NULL AND NOT coalesce(is_delete_marker,false) FOR SHARE;
+ IF NOT FOUND OR metadata->>'audioSha256' IS DISTINCT FROM a.reference_audio_sha256 THEN RETURN false;END IF;
+ IF a.reference_kind='prepared_qwen' THEN
+  prepared:=vocabulary_private.sitov_prepared_german_audio_url(p_text);
+  IF a.reference_bucket<>'audio_cache' OR prepared IS DISTINCT FROM '/supabase/storage/v1/object/public/audio_cache/'||a.reference_path THEN RETURN false;END IF;
+ ELSE
+  spoken:=vocabulary_private.sitov_normalize_audio_text(p_text);
+  IF p_stored_url IS DISTINCT FROM 'storage://'||a.reference_bucket||'/'||a.reference_path OR metadata->>'origin' IS DISTINCT FROM 'human_recording' OR metadata->>'textSha256' IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(spoken) THEN RETURN false;END IF;
+ END IF;
+ spoken:=vocabulary_private.sitov_normalize_audio_text(p_text);timings:=metadata->'wordTimings';
+ IF jsonb_typeof(timings) IS DISTINCT FROM 'array' OR jsonb_array_length(timings)<>cardinality(string_to_array(spoken,' ')) THEN RETURN false;END IF;
+ FOR t IN SELECT value FROM jsonb_array_elements(timings) LOOP
+  IF jsonb_typeof(t->'start') IS DISTINCT FROM 'number' OR jsonb_typeof(t->'end') IS DISTINCT FROM 'number' OR (t->>'start')::numeric<previous_end OR (t->>'end')::numeric<=(t->>'start')::numeric OR (t->>'end')::numeric>1200 THEN RETURN false;END IF;
+  previous_end:=(t->>'end')::numeric;
+ END LOOP;RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.publication_ready(p_id uuid,p_text uuid,p_text_version text,p_test_version text,d jsonb) RETURNS boolean LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path='' AS $$
+DECLARE body text;url text;a sitov_pronunciation_private.pretest_approvals;BEGIN
+ SELECT sentence_de,audio_url INTO body,url FROM public.learning_reading_texts WHERE id=p_text;
+ IF NOT FOUND OR p_text_version IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(body) OR p_test_version IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(d::text) OR NOT sitov_pronunciation_private.valid_authoring(body,d) THEN RETURN false;END IF;
+ FOR a IN SELECT * FROM sitov_pronunciation_private.pretest_approvals WHERE definition_id=p_id AND text_version=p_text_version AND test_version=p_test_version AND review_status='independent_approved' AND reviewed_at<=clock_timestamp() LOOP
+  IF sitov_pronunciation_private.reference_valid(body,url,a) THEN RETURN true;END IF;
+ END LOOP;RETURN false;EXCEPTION WHEN others THEN RETURN false;END $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.immutable_approval(),sitov_pronunciation_private.valid_spans(text,jsonb),sitov_pronunciation_private.valid_authoring(text,jsonb),sitov_pronunciation_private.reference_valid(text,text,sitov_pronunciation_private.pretest_approvals),sitov_pronunciation_private.publication_ready(uuid,uuid,text,text,jsonb) FROM PUBLIC,anon,authenticated,service_role;
 CREATE OR REPLACE FUNCTION sitov_pronunciation_private.guard_definition() RETURNS trigger LANGUAGE plpgsql SET search_path='' AS $$ BEGIN
  IF TG_OP='UPDATE' AND (NEW.id,NEW.text_id,NEW.text_version,NEW.test_version,NEW.definition) IS DISTINCT FROM (OLD.id,OLD.text_id,OLD.text_version,OLD.test_version,OLD.definition) THEN RAISE EXCEPTION 'immutable_pretest_definition';END IF;
  NEW.test_version:=sitov_pronunciation_private.pretest_hash(NEW.definition::text);
- IF NEW.active AND NOT sitov_pronunciation_private.valid_pool(NEW.definition) THEN RAISE EXCEPTION 'invalid_pretest_definition';END IF;RETURN NEW;END $$;
+ IF NEW.active AND NOT sitov_pronunciation_private.publication_ready(NEW.id,NEW.text_id,NEW.text_version,NEW.test_version,NEW.definition) THEN RAISE EXCEPTION 'pretest_publication_proof_required';END IF;RETURN NEW;END $$;
 DROP TRIGGER IF EXISTS sitov_pretest_definition_guard ON sitov_pronunciation_private.pretest_definitions;
 CREATE TRIGGER sitov_pretest_definition_guard BEFORE INSERT OR UPDATE ON sitov_pronunciation_private.pretest_definitions FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_definition();
 CREATE OR REPLACE FUNCTION sitov_pronunciation_private.current_pretest(p_text uuid) RETURNS sitov_pronunciation_private.pretest_definitions LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
- SELECT d FROM sitov_pronunciation_private.pretest_definitions d JOIN public.learning_reading_texts r ON r.id=d.text_id WHERE d.text_id=p_text AND d.active AND d.text_version=sitov_pronunciation_private.pretest_hash(r.sentence_de) AND sitov_pronunciation_private.valid_pool(d.definition) $$;
+ SELECT d FROM sitov_pronunciation_private.pretest_definitions d JOIN public.learning_reading_texts r ON r.id=d.text_id WHERE d.text_id=p_text AND d.active AND d.text_version=sitov_pronunciation_private.pretest_hash(r.sentence_de) AND sitov_pronunciation_private.publication_ready(d.id,d.text_id,d.text_version,d.test_version,d.definition) $$;
 CREATE OR REPLACE FUNCTION sitov_pronunciation_private.current_pass(p_text uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
  SELECT auth.uid() IS NOT NULL AND sitov_access_private.item_allowed(auth.uid(),'reading_text',p_text::text) AND EXISTS(SELECT 1 FROM sitov_pronunciation_private.pretest_passes p WHERE p.student_id=auth.uid() AND p.definition_id=(sitov_pronunciation_private.current_pretest(p_text)).id) $$;
 CREATE OR REPLACE FUNCTION sitov_pronunciation_private.attempt_summary(a sitov_pronunciation_private.pretest_attempts) RETURNS jsonb LANGUAGE sql STABLE SET search_path='' AS $$

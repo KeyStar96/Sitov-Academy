@@ -197,7 +197,7 @@
               "neuter indefinite accusative",
               "plural first person referent",
               "first person pronoun",
-              "contracted temporal dative"
+              "possessive first person relation"
             ],
             "sourceSpans": [
               {
@@ -226,9 +226,9 @@
                 "quote": "Ich komme aus Polen"
               },
               {
-                "start": 179,
-                "end": 187,
-                "quote": "Am Abend"
+                "start": 128,
+                "end": 149,
+                "quote": "Mein Mann heißt Paul."
               }
             ],
             "mapping": {
@@ -981,33 +981,33 @@
             "id": "sitov.pretest.a11-01.nominal.q6",
             "competencyId": "sitov.pretest.a11-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Wörter stecken in »am Abend«?",
+            "promptDe": "Wessen Mann ist Paul in »Mein Mann heißt Paul«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "aus dem Abend"
+                "textDe": "Der Mann der sprechenden Person."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "an dem Abend"
+                "textDe": "Der Mann des Zuhörers."
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "an den Abend"
+                "textDe": "Der Mann einer anderen, nicht genannten Person."
               }
             ],
-            "correctOptionId": "sitov.option.2",
-            "assessmentUnit": "contracted temporal dative",
-            "equivalenceKey": "contracted temporal dative",
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "possessive first person relation",
+            "equivalenceKey": "possessive first person relation",
             "sourceSpans": [
               {
-                "start": 179,
-                "end": 187,
-                "quote": "Am Abend"
+                "start": 128,
+                "end": 149,
+                "quote": "Mein Mann heißt Paul."
               }
             ],
-            "rationaleDe": "am ist die Verbindung an dem; an den ist keine am-Form, aus dem hat eine andere Präposition."
+            "rationaleDe": "Mein zeigt die Beziehung zur sprechenden Person; dein würde den Zuhörer bezeichnen, sein eine andere männliche Person."
           }
         ],
         "omittedCategories": [
