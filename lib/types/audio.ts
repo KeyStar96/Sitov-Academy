@@ -1,3 +1,5 @@
+import type { SitovAudioReference } from '@/lib/audio/sitov-audio-reference'
+
 export type NeuralAudioLanguage = 'de' | 'ru' | 'uk' | 'en' | 'tr'
 export type GermanAudioVoice = 'male'
 
@@ -10,6 +12,8 @@ export interface GenerateAudioInput {
   language: NeuralAudioLanguage
   /** Only a matching German word recording may update this card's audio_url. */
   cardId?: string
+  /** Canonical authored context; German free-text requests are never sufficient. */
+  reference?: SitovAudioReference
   /** The single male Qwen profile; omission uses the same profile. */
   voice?: GermanAudioVoice
 }

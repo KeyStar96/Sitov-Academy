@@ -10,7 +10,7 @@ import { createHash } from 'node:crypto'
 import { AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE, SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS } from '@/lib/audio/neural-config'
 
 const internalAudioUrl = 'http://127.0.0.1:9080/storage/v1/object/public/audio_cache/cached.mp3'
-const audioUrl = 'https://217.154.228.254/supabase/storage/v1/object/public/audio_cache/cached.mp3'
+const privateReference = (path: string) => `storage://audio_cache/${path}`
 function storageClient() {
   const storage = {
     info: jest.fn().mockResolvedValue({ data: { id: 'object', metadata: undefined as unknown }, error: null }),
@@ -59,9 +59,10 @@ describe('neural speech language and content keys', () => {
 describe('immutable Storage cache', () => {
   it('looks up the dedicated bucket without generating on a hit', async () => {
     const { storage, from } = storageClient()
-    expect(await findCachedAudio('piper-local-v2/en/hash.mp3')).toEqual({ audioUrl })
+    expect(await findCachedAudio('piper-local-v2/en/hash.mp3')).toEqual({ audioUrl: privateReference('piper-local-v2/en/hash.mp3') })
     expect(from).toHaveBeenCalledWith(AUDIO_CACHE_BUCKET)
     expect(storage.info).toHaveBeenCalledWith('piper-local-v2/en/hash.mp3')
+    expect(storage.getPublicUrl).not.toHaveBeenCalled()
     expect(synthesizeNeuralSpeech).not.toHaveBeenCalled()
   })
   it('rejects stored legacy German assets before looking up or synthesizing a fallback', async () => {
@@ -86,7 +87,7 @@ describe('immutable Storage cache', () => {
     const { storage } = storageClient()
     const data = Buffer.from('mp3 bytes')
     jest.mocked(synthesizeNeuralSpeech).mockResolvedValue({ audio: data })
-    expect(await generateCachedAudio('Guten Tag.', 'en', 'generated.mp3')).toEqual({ audioUrl })
+    expect(await generateCachedAudio('Guten Tag.', 'en', 'generated.mp3')).toEqual({ audioUrl: privateReference('generated.mp3') })
     expect(synthesizeNeuralSpeech).toHaveBeenCalledWith('Guten Tag.', 'en')
     expect(storage.upload).toHaveBeenCalledWith('generated.mp3', data, {
       contentType: 'audio/mpeg', cacheControl: '31536000', upsert: false,
@@ -101,7 +102,7 @@ describe('immutable Storage cache', () => {
     expect(first).toBe(second)
     expect(synthesizeNeuralSpeech).toHaveBeenCalledTimes(1)
     finish(Buffer.from('audio'))
-    await expect(Promise.all([first, second])).resolves.toEqual([{ audioUrl }, { audioUrl }])
+    await expect(Promise.all([first, second])).resolves.toEqual([{ audioUrl: privateReference('parallel.mp3') }, { audioUrl: privateReference('parallel.mp3') }])
     expect(storage.upload).toHaveBeenCalledTimes(1)
     await generateCachedAudio('Hallo', 'en', 'parallel.mp3')
     expect(synthesizeNeuralSpeech).toHaveBeenCalledTimes(2)
@@ -109,7 +110,7 @@ describe('immutable Storage cache', () => {
   it('uses another worker’s winning upload without overwriting it', async () => {
     const { storage } = storageClient()
     storage.upload.mockResolvedValue({ data: null, error: { statusCode: '409' } })
-    expect(await generateCachedAudio('Hallo', 'en', 'race.mp3')).toEqual({ audioUrl })
+    expect(await generateCachedAudio('Hallo', 'en', 'race.mp3')).toEqual({ audioUrl: privateReference('race.mp3') })
     expect(storage.info).toHaveBeenCalledWith('race.mp3')
     expect(storage.upload).toHaveBeenCalledTimes(1)
   })
@@ -119,7 +120,7 @@ describe('immutable Storage cache', () => {
     storage.upload.mockResolvedValueOnce({ data: null, error })
     storage.info.mockResolvedValue({ data: null, error: { statusCode: '404' } })
     await expect(generateCachedAudio('Hallo', 'en', 'retry.mp3')).rejects.toBe(error)
-    await expect(generateCachedAudio('Hallo', 'en', 'retry.mp3')).resolves.toEqual({ audioUrl })
+    await expect(generateCachedAudio('Hallo', 'en', 'retry.mp3')).resolves.toEqual({ audioUrl: privateReference('retry.mp3') })
     expect(synthesizeNeuralSpeech).toHaveBeenCalledTimes(2)
   })
 })
@@ -133,7 +134,7 @@ it('uses only validated precomputed Qwen assets with real word timings', async (
   storage.info.mockResolvedValue({ data: { id: 'object', metadata: { wordTimings, engine: 'qwen3-tts', profileFingerprint: 'wrong' } }, error: null })
   expect(await findCachedAudio(path)).toBeNull()
   storage.info.mockResolvedValue({ data: { id: 'object', metadata: { wordTimings, engine: 'qwen3-tts', voice: 'sitov-qwen-male-de-v1', revision: 'sitov-qwen-base-bf16-v1', textSha256: createHash('sha256').update('die Tür').digest('hex'), profileFingerprint: SITOV_QWEN_PROFILE_FINGERPRINT } }, error: null })
-  expect(await findCachedAudio(path, 'die Tür')).toEqual({ audioUrl, wordTimings })
+  expect(await findCachedAudio(path, 'die Tür')).toEqual({ audioUrl: privateReference(path), wordTimings })
   expect(await findCachedAudio(path, 'falscher Text')).toBeNull()
   expect(synthesizeNeuralSpeech).not.toHaveBeenCalled()
 })

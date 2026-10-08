@@ -1,90 +1,74 @@
 'use server'
 
-import type { Tables } from '@/supabase/database.types'
-
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
-import { hasTrainerAccess } from '@/lib/access/levels'
-import { loadLevelAccessProfile } from '@/lib/access/server'
 import { rateLimit } from '@/lib/ratelimit'
 import { findCachedAudio, generateCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
-import { AUDIO_MAX_TEXT_LENGTH, normalizeAudioText, vocabularyAudioText } from '@/lib/audio/neural-config'
+import { AUDIO_MAX_TEXT_LENGTH, normalizeAudioText } from '@/lib/audio/neural-config'
+import { sitovAudioGatewayUrl, sitovAudioReferenceSchema } from '@/lib/audio/sitov-audio-reference'
+import { resolveSitovAuthoredAudio, resolveSitovVocabularyAudio } from '@/lib/audio/sitov-audio-access-server'
+import { pronunciationAudioObjectPath } from '@/lib/pronunciation-conversations'
 import type { GenerateAudioInput, GenerateAudioResult } from '@/lib/types/audio'
 
 const inputSchema = z.object({
   text: z.string().trim().min(1).max(AUDIO_MAX_TEXT_LENGTH).refine(text => !/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/u.test(text)),
   language: z.enum(['de', 'ru', 'uk', 'en', 'tr']),
   cardId: z.string().uuid().optional(),
+  reference: sitovAudioReferenceSchema.optional(),
   voice: z.literal('male').optional(),
 }).strict()
 
+/** Retrieve prepared German audio from an authorized authored identity only. */
 export async function generateAudio(input: GenerateAudioInput): Promise<GenerateAudioResult> {
   const parsed = inputSchema.safeParse(input)
   if (!parsed.success || (parsed.data.voice && parsed.data.language !== 'de')) return { success: false, error: 'invalid_input' }
+  const { language, cardId, reference, voice } = parsed.data
+  if ((!reference && !cardId) || (language !== 'de' && reference && reference.kind !== 'vocabulary_card')
+    || (reference && cardId && (reference.kind !== 'vocabulary_card' || reference.id !== cardId))) return { success: false, error: 'invalid_input' }
   try {
-    const supabase = await createClient()
-    const { data: { user }, error: authError } = await supabase.auth.getUser()
-    if (authError || !user) return { success: false, error: 'unauthorized' }
-    const profile = await loadLevelAccessProfile(supabase, user.id)
-    if (!profile || !['student', 'teacher', 'admin'].includes(profile.role ?? '')) return { success: false, error: 'forbidden' }
-
-    const { language, cardId, voice } = parsed.data
+    const client = await createClient()
+    const { data: { user }, error } = await client.auth.getUser()
+    if (error || !user) return { success: false, error: 'unauthorized' }
     const text = normalizeAudioText(parsed.data.text)
-    // Every new foreign recording must belong to an accessible authored card.
-    // Cached recordings use the same authorization, so caching is no bypass.
-    if (language !== 'de' && !cardId) return { success: false, error: 'invalid_input' }
-    let card: { id: string; word_de: string; article: Tables<'learning_vocabulary_cards'>['article']; level: string; audio_url: string | null } | null = null
-    let isGermanHeadword = false
-    if (cardId) {
-      const result = await supabase.from('learning_vocabulary_cards')
-        .select('id,word_de,article,chunk_de,audio_url,unit:learning_units!inner(level),translations:vocabulary_translations(locale,translation,chunk_translation,context_sentence)')
-        .eq('id', cardId).eq('translations.locale', language).maybeSingle()
-      if (result.error || !result.data || !hasTrainerAccess(profile, result.data.unit.level, 'vocabulary')) return { success: false, error: 'forbidden' }
-      card = { ...result.data, level: result.data.unit.level }
-      if (language === 'de') {
-        isGermanHeadword = text === vocabularyAudioText(card)
-        // The revealed card plays its stored usage chunk and German example.
-        // Foreign translations and caller-provided text never authorize these.
-        const usageTexts = [result.data.chunk_de,
-          ...(result.data.translations ?? []).filter(translation => translation.locale === 'de').map(translation => translation.context_sentence),
-        ]
-        if (!isGermanHeadword && !usageTexts.some(value => typeof value === 'string' && normalizeAudioText(value) === text)) {
-          return { success: false, error: 'invalid_input' }
-        }
-      } else {
-        const authoredTexts = (result.data.translations ?? []).filter(translation => translation.locale === language)
-          .flatMap(translation => [translation.translation, translation.chunk_translation, translation.context_sentence])
-        if (!authoredTexts.some(value => typeof value === 'string' && normalizeAudioText(value) === text)) {
-          return { success: false, error: 'invalid_input' }
-        }
-      }
-    }
+    const source = reference ? await resolveSitovAuthoredAudio(client, reference, language)
+      : await resolveSitovVocabularyAudio(client, cardId!, language, text)
+    if (!source) return { success: false, error: 'forbidden' }
+    if (source.text !== text) return { success: false, error: 'invalid_input' }
     if (!(await rateLimit(`audio-read:${user.id}`, 120, '60 s')).success) return { success: false, error: 'rate_limited' }
+    const audioUrl = sitovAudioGatewayUrl(source.reference, language, source.textSha256)
+    if (source.recording) {
+      const path = pronunciationAudioObjectPath(source.recording)
+      if (!path) return { success: false, error: 'audio_unavailable' }
+      const result = await createAdminClient().storage.from('pronunciation_audio').info(path)
+      return result.error || !result.data ? { success: false, error: 'audio_unavailable' }
+        : { success: true, audioUrl, cached: true }
+    }
     const path = voice ? neuralAudioPath(text, language, voice) : neuralAudioPath(text, language)
-    const cachedAsset = language === 'de' ? await findCachedAudio(path, text) : await findCachedAudio(path)
+    const cachedAsset = await findCachedAudio(path, language === 'de' ? text : undefined)
     let asset = cachedAsset
     if (!asset) {
-      // German audio is produced and aligned on the author's Mac before publication.
-      // Student requests must never start inference or fall back to a different voice.
+      // Inference for German is exclusively in the local, audited authoring workflow.
       if (language === 'de') return { success: false, error: 'audio_unavailable' }
       if (!(await rateLimit(`audio-generate:${user.id}`, 20, '60 s')).success) return { success: false, error: 'rate_limited' }
       const quota = await createAdminClient().rpc('sitov_reserve_audio_generation', { p_user_id: user.id, p_characters: text.length })
       if (quota.error) return { success: false, error: 'audio_unavailable' }
       if (quota.data !== true) return { success: false, error: 'rate_limited' }
-      asset = voice ? await generateCachedAudio(text, language, path, voice) : await generateCachedAudio(text, language, path)
+      asset = await generateCachedAudio(text, language, path)
     }
-    if (card && isGermanHeadword && !card.audio_url) {
-      // Guard against a concurrent content edit or teacher-supplied recording. Never overwrite either.
-      let update = createAdminClient().from('learning_vocabulary_cards').update({ audio_url: asset.audioUrl })
-        .eq('id', card.id).eq('word_de', card.word_de).is('audio_url', null)
-      update = card.article === null ? update.is('article', null) : update.eq('article', card.article)
-      const { error } = await update
-      if (error) throw error
+    if (source.reference.kind === 'vocabulary_card' && source.reference.part === 'headword' && language === 'de') {
+      const current = await client.from('learning_vocabulary_cards').select('id,word_de,article,audio_url').eq('id', source.reference.id).maybeSingle()
+      if (!current.error && current.data && !current.data.audio_url) {
+        const card = current.data
+        let update = createAdminClient().from('learning_vocabulary_cards').update({ audio_url: asset.audioUrl })
+          .eq('id', card.id).eq('word_de', card.word_de).is('audio_url', null)
+        update = card.article === null ? update.is('article', null) : update.eq('article', card.article)
+        if ((await update).error) throw new Error('audio_metadata_update_failed')
+      }
     }
-    return { success: true, ...asset, cached: Boolean(cachedAsset) }
+    return { success: true, audioUrl, cached: Boolean(cachedAsset), ...(asset.wordTimings ? { wordTimings: asset.wordTimings } : {}) }
   } catch {
-    console.error("Neural audio generation failed:")
+    console.error('Authored audio retrieval failed')
     return { success: false, error: 'audio_unavailable' }
   }
 }

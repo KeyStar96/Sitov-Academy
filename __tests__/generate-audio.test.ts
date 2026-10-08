@@ -10,11 +10,15 @@ import { rateLimit } from '@/lib/ratelimit'
 import { findCachedAudio, generateCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
 import { generateAudio } from '@/app/actions/generate-audio'
 import type { GenerateAudioInput } from '@/lib/types/audio'
+import { createHash } from 'node:crypto'
+import { sitovAudioGatewayUrl } from '@/lib/audio/sitov-audio-reference'
 import { AUDIO_MAX_TEXT_LENGTH } from '@/lib/audio/neural-config'
 
 const userId = '00000000-0000-4000-8000-000000000001'
 const cardId = '10000000-0000-4000-8000-000000000001'
-const audioUrl = 'https://project.supabase.co/storage/v1/object/public/audio_cache/audio.mp3'
+const storedAudioUrl = 'storage://audio_cache/cache-key.mp3'
+const gateway = (text: string, language: GenerateAudioInput['language'] = 'de', part = 'headword') => sitovAudioGatewayUrl({ kind: 'vocabulary_card', id: cardId, part }, language, createHash('sha256').update(text.normalize('NFC').trim().replace(/\s+/gu, ' ')).digest('hex'))
+const audioUrl = gateway('die Tür')
 const baseCard = { id: cardId, article: 'die', word_de: 'Tür', chunk_de: 'die Tür öffnen' as string | null,
   translations: [{ locale: 'de', context_sentence: 'Die Tür ist offen.' } as { locale:string; context_sentence:string; translation?:string; chunk_translation?:string },
     ...['en','ru','uk','tr'].map(locale=>({locale,translation:locale==='en'?'door':'translation',chunk_translation:'open the door',context_sentence:'The door is open.'}))],
@@ -33,12 +37,13 @@ function session(options: {
   }
   const cardChain = {
     select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(),
-    maybeSingle: jest.fn().mockResolvedValue({ data: options.card === undefined ? baseCard : options.card, error: options.cardError ? { message: 'hidden' } : null }),
+    maybeSingle: jest.fn().mockResolvedValue({ data: options.levels?.length === 0 && !['teacher','admin'].includes(options.role ?? 'student') ? null : options.card === undefined ? baseCard : options.card, error: options.cardError ? { message: 'hidden' } : null }),
   }
   const rulesResult = Promise.resolve({ data: [], error: null })
   const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
   const from = jest.fn((table: string) => table === 'profiles' ? profileChain : table === 'learning_trainer_grants' ? rules : cardChain)
   const client = {
+    rpc: jest.fn().mockResolvedValue({ data: { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 }, error: null }),
     from, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: userId } }, error: options.authError ? new Error('Expired') : null }) },
   }
   jest.mocked(createClient).mockResolvedValue(client as unknown as Awaited<ReturnType<typeof createClient>>)
@@ -52,8 +57,8 @@ function session(options: {
   jest.mocked(createAdminClient).mockReturnValue({ from: adminFrom, rpc } as unknown as ReturnType<typeof createAdminClient>)
   jest.mocked(rateLimit).mockResolvedValue(allowed)
   jest.mocked(neuralAudioPath).mockReturnValue('cache-key.mp3')
-  jest.mocked(findCachedAudio).mockResolvedValue({ audioUrl })
-  jest.mocked(generateCachedAudio).mockResolvedValue({ audioUrl })
+  jest.mocked(findCachedAudio).mockResolvedValue({ audioUrl: storedAudioUrl })
+  jest.mocked(generateCachedAudio).mockResolvedValue({ audioUrl: storedAudioUrl })
   return { from, profileChain, cardChain, update, adminFrom, updateResult, rpc }
 }
 beforeEach(() => jest.clearAllMocks())
@@ -96,13 +101,13 @@ describe('audio authorization and validation', () => {
   })
   it('rejects arbitrary German text attached to a canonical vocabulary headword', async () => {
     session()
-    expect(await generateAudio({ ...input, text: 'Ich öffne die Tür.' })).toEqual({ success: false, error: 'invalid_input' })
+    expect(await generateAudio({ ...input, text: 'Ich öffne die Tür.' })).toEqual({ success: false, error: 'forbidden' })
     expect(findCachedAudio).not.toHaveBeenCalled()
     expect(createAdminClient).not.toHaveBeenCalled()
   })
   it.each(['die Tür öffnen', 'Die Tür ist offen.'])('authorizes the accessible card\'s stored German usage text %s', async text => {
     const { cardChain } = session()
-    expect(await generateAudio({ ...input, text })).toEqual({ success: true, audioUrl, cached: true })
+    expect(await generateAudio({ ...input, text })).toEqual({ success: true, audioUrl: gateway(text, 'de', text === 'die Tür öffnen' ? 'chunk' : 'example'), cached: true })
     expect(cardChain.select).toHaveBeenCalledWith(expect.stringContaining('translations:vocabulary_translations(locale,translation,chunk_translation,context_sentence)'))
     expect(cardChain.eq).toHaveBeenCalledWith('translations.locale', 'de')
     expect(findCachedAudio).toHaveBeenCalledWith('cache-key.mp3', text)
@@ -131,7 +136,7 @@ describe('audio authorization and validation', () => {
   })
   it('never treats foreign context sentences as German card-authored speech', async () => {
     session({ card: { ...baseCard, translations: [{ locale: 'en', context_sentence: 'The door is open.' }] } })
-    expect(await generateAudio({ ...input, text: 'The door is open.' })).toEqual({ success: false, error: 'invalid_input' })
+    expect(await generateAudio({ ...input, text: 'The door is open.' })).toEqual({ success: false, error: 'forbidden' })
     expect(findCachedAudio).not.toHaveBeenCalled()
     expect(createAdminClient).not.toHaveBeenCalled()
   })
@@ -143,9 +148,9 @@ describe('audio authorization and validation', () => {
 })
 
 describe('audio cache and protected recording updates', () => {
-  it('returns a cache hit without spending a generation quota', async () => {
-    session()
-    expect(await generateAudio({ text: 'Hallo', language: 'de' })).toEqual({ success: true, audioUrl, cached: true })
+  it('returns an authored cache hit without spending a generation quota', async () => {
+    session({ card: { ...baseCard, audio_url: storedAudioUrl } })
+    expect(await generateAudio(input)).toEqual({ success: true, audioUrl, cached: true })
     expect(generateCachedAudio).not.toHaveBeenCalled()
     expect(rateLimit).toHaveBeenCalledTimes(1)
     expect(rateLimit).toHaveBeenCalledWith(`audio-read:${userId}`, 120, '60 s')
@@ -155,7 +160,7 @@ describe('audio cache and protected recording updates', () => {
     session()
     jest.mocked(findCachedAudio).mockResolvedValue(null)
     const text = '  door\n '.normalize('NFD')
-    expect(await generateAudio({ ...input, text, language: 'en' })).toEqual({ success: true, audioUrl, cached: false })
+    expect(await generateAudio({ ...input, text, language: 'en' })).toEqual({ success: true, audioUrl: gateway('door', 'en', 'translation'), cached: false })
     expect(neuralAudioPath).toHaveBeenCalledWith('door', 'en')
     expect(generateCachedAudio).toHaveBeenCalledWith('door', 'en', 'cache-key.mp3')
     expect(rateLimit).toHaveBeenCalledWith(`audio-generate:${userId}`, 20, '60 s')
@@ -167,7 +172,7 @@ describe('audio cache and protected recording updates', () => {
   })
   it.each(['die Tür öffnen', 'Die Tür ist offen.'])('preserves a teacher recording when playing prepared usage text %s', async text => {
     session({ card: { ...baseCard, audio_url: 'https://example.org/manual.mp3' } })
-    expect(await generateAudio({ ...input, text })).toMatchObject({ success: true, audioUrl })
+    expect(await generateAudio({ ...input, text })).toMatchObject({ success: true, audioUrl: gateway(text, 'de', text === 'die Tür öffnen' ? 'chunk' : 'example') })
     expect(createAdminClient).not.toHaveBeenCalled()
   })
   it.each(['die Tür öffnen', 'Die Tür ist offen.'])('fails before synthesis or URL writes when usage audio is missing: %s', async text => {
@@ -180,7 +185,7 @@ describe('audio cache and protected recording updates', () => {
   it('writes only while the canonical word, article and empty audio URL still match', async () => {
     const { update } = session()
     await generateAudio(input)
-    expect(update.update).toHaveBeenCalledWith({ audio_url: audioUrl })
+    expect(update.update).toHaveBeenCalledWith({ audio_url: storedAudioUrl })
     expect(update.eq).toHaveBeenCalledWith('id', cardId)
     expect(update.eq).toHaveBeenCalledWith('word_de', 'Tür')
     expect(update.eq).toHaveBeenCalledWith('article', 'die')
@@ -230,7 +235,7 @@ describe('authored foreign audio and persistent daily generation quotas',()=>{
   })
   it.each(['arbitrary input','die Tür','translation'])('rejects text absent from the card requested language: %s',async text=>{
     session()
-    expect(await generateAudio({...input,language:'en',text})).toEqual({success:false,error:'invalid_input'})
+    expect(await generateAudio({...input,language:'en',text})).toEqual({success:false,error:'forbidden'})
     expect(findCachedAudio).not.toHaveBeenCalled()
   })
   it.each(['door','open the door','The door is open.'])('allows only stored translation/example/chunk text: %s',async text=>{
@@ -280,3 +285,10 @@ it('returns cached word timings with the generated URL', async () => {
   jest.mocked(findCachedAudio).mockResolvedValue({ audioUrl, wordTimings })
   expect(await generateAudio(input)).toEqual({ success: true, audioUrl, wordTimings, cached: true })
 })
+
+ it('rejects arbitrary cached German text without an authored reference before storage lookup', async () => {
+  session()
+  expect(await generateAudio({ text: 'Hallo', language: 'de' })).toEqual({ success: false, error: 'invalid_input' })
+  expect(findCachedAudio).not.toHaveBeenCalled()
+  expect(createAdminClient).not.toHaveBeenCalled()
+ })

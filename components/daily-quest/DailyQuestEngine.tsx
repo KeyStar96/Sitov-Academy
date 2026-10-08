@@ -14,6 +14,7 @@ import { getSitovDailyQuestPresentation, getSitovDailyQuestFeedbackFallback } fr
 import { toUiLocale } from '@/lib/locale-routing'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
 import { neuralAudioKey, type NeuralAudioSource } from '@/lib/audio/neural-client'
+import type { SitovAudioReference } from '@/lib/audio/sitov-audio-reference'
 import { PLAYBACK_RATES } from '@/lib/audio/playback-settings'
 import { usePlaybackRate } from '@/lib/audio/usePlaybackRate'
 import { EASE_OUT_SOFT, MOTION, useReducedMotionSafe } from '@/lib/motion'
@@ -81,11 +82,14 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
   // Every character uses the trainers' default German voice and cache identity,
   // including already mounted quests whose old character metadata says female.
   // Scene speech remains independent of selectedWord and the active exercise.
-  const sceneSource: NeuralAudioSource = { text: quest.scene.audioText, language: 'de' }
+  const audioReference = (part: string): SitovAudioReference => preview
+    ? { kind: 'daily_quest_preview', id: quest.templateKey, level: quest.level, part }
+    : { kind: 'daily_quest', id: quest.id, part }
+  const sceneSource: NeuralAudioSource = { text: quest.scene.audioText, language: 'de', reference: audioReference('scene') }
   const word = step?.kind === 'discover' ? step.words.find(item => item.id === selectedWord) : undefined
-  const wordSource: NeuralAudioSource | undefined = word ? { text: word.audioText, language: 'de' } : undefined
+  const wordSource: NeuralAudioSource | undefined = word && step ? { text: word.audioText, language: 'de', reference: audioReference(`word:${step.id}:${word.id}`) } : undefined
   const exerciseSource: NeuralAudioSource | undefined = step && step.kind !== 'discover'
-    ? { text: step.audioText, language: 'de' } : undefined
+    ? { text: step.audioText, language: 'de', reference: audioReference(`step:${step.id}`) } : undefined
   const selectedSentence = step?.kind === 'sentence_build'
     ? pieces.map(id => step.pieces.find(item => item.id === id)?.text ?? '').join(' ').replace(/\s+([,.:;!?])/gu, '$1') : ''
 

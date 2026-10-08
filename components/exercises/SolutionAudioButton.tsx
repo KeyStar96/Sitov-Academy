@@ -8,6 +8,7 @@ import { requestPlaybackAudioSession } from '@/lib/audio/web-audio'
 import { currentWordIndex, PLAYBACK_RATES } from '@/lib/audio/playback-settings'
 import { usePlaybackRate } from '@/lib/audio/usePlaybackRate'
 import type { NeuralAudioLanguage } from '@/lib/types/audio'
+import type { SitovAudioReference } from '@/lib/audio/sitov-audio-reference'
 import { cn } from '@/lib/utils'
 import styles from './SolutionAudioButton.module.css'
 
@@ -17,6 +18,7 @@ interface SolutionAudioButtonProps {
   text: string
   audioUrl?: string | null
   cardId?: string
+  reference?: SitovAudioReference
   language?: NeuralAudioLanguage
   level?: string
   onWordChange?: (index: number | null) => void
@@ -51,8 +53,8 @@ export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
   const copy = useAudioFeedback()
   const [rate, setManualRate] = usePlaybackRate(props.level)
   const language = props.language ?? 'de'
-  const recording = props.audioUrl && !props.audioUrl.includes('/audio_cache/') ? props.audioUrl : null
-  const source = { text: props.text, cardId: props.cardId, language,
+  const recording = props.reference?.kind !== 'reading_text' && props.audioUrl && !props.audioUrl.includes('/audio_cache/') ? props.audioUrl : null
+  const source = { text: props.text, cardId: props.cardId, reference: props.reference, language,
     audioUrl: recording,
     aligned: Boolean(props.onWordChange && !recording) }
   return <div className={props.layout === 'reading' ? styles.sitovReadingControls : 'flex min-w-0 flex-wrap items-center justify-center gap-2'} data-card-interactive
@@ -73,9 +75,9 @@ export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
   </div>
 }
 
-function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, onSlowReplay, label, ariaLabel, variant = 'primary', onUnsupported, onProgress, onWordChange, initialProgress = 0, layout, resumeLabel, restartLabel, restartAriaLabel, controlRef }: SolutionAudioButtonProps & { language: NeuralAudioLanguage; aligned?: boolean; rate: number; onSlowReplay: () => void }) {
+function NeuralAudioPlayer({ text, audioUrl, cardId, reference, language, aligned, rate, onSlowReplay, label, ariaLabel, variant = 'primary', onUnsupported, onProgress, onWordChange, initialProgress = 0, layout, resumeLabel, restartLabel, restartAriaLabel, controlRef }: SolutionAudioButtonProps & { language: NeuralAudioLanguage; aligned?: boolean; rate: number; onSlowReplay: () => void }) {
   const copy = useAudioFeedback()
-  const source = useRef<NeuralAudioSource>({ text, audioUrl, cardId, language, aligned }).current
+  const source = useRef<NeuralAudioSource>({ text, audioUrl, cardId, reference, language, aligned }).current
   const [url, setUrl] = useState(() => cachedNeuralAudio(source))
   const [isPlaying, setIsPlaying] = useState(false)
   const [loading, setLoading] = useState(false)

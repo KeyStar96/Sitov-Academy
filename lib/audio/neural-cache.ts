@@ -1,4 +1,3 @@
-import { publicStorageUrl } from '@/lib/storage-public-url'
 import 'server-only'
 import { createHash } from 'node:crypto'
 
@@ -27,7 +26,7 @@ export async function findCachedAudio(path: string, text?: string): Promise<Neur
     || data.metadata?.revision !== SITOV_QWEN_PROFILE.revision
     || data.metadata?.profileFingerprint !== SITOV_QWEN_PROFILE_FINGERPRINT
     || (text && data.metadata?.textSha256 !== createHash('sha256').update(normalizeAudioText(text)).digest('hex')))) return null
-  return { audioUrl: publicStorageUrl(storage.getPublicUrl(path).data.publicUrl), ...(wordTimings ? { wordTimings } : {}) }
+  return { audioUrl: `storage://${AUDIO_CACHE_BUCKET}/${path}`, ...(wordTimings ? { wordTimings } : {}) }
 }
 
 // Deduplicate simultaneous requests in one worker; immutable paths handle cross-worker races.
@@ -50,7 +49,7 @@ export function generateCachedAudio(text: string, language: NeuralAudioLanguage,
       if (winner) return winner
       throw error
     }
-    return { audioUrl: publicStorageUrl(storage.getPublicUrl(path).data.publicUrl), ...(wordTimings ? { wordTimings } : {}) }
+    return { audioUrl: `storage://${AUDIO_CACHE_BUCKET}/${path}`, ...(wordTimings ? { wordTimings } : {}) }
   })().finally(() => { inFlight.delete(path) })
   inFlight.set(path, work)
   return work

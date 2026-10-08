@@ -76,9 +76,9 @@ it('renders an authored image and keeps scene speech separate from a selected wo
   expect(screen.getByRole('heading', { name: 'Wörter entdecken' })).toHaveFocus()
   fireEvent.click(screen.getByRole('button', { name: 'der Tee' }))
   fireEvent.click(screen.getByRole('button', { name: 'Wort anhören' }))
-  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith({ text: 'Der Tee. Ein Tee.', language: 'de' }, false))
+  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith(expect.objectContaining({ text: 'Der Tee. Ein Tee.', language: 'de', reference: { kind: 'daily_quest', id: quest().id, part: 'word:words:tea' } }), false))
   fireEvent.click(screen.getByRole('button', { name: 'Szene anhören' }))
-  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenLastCalledWith({ text: 'Willkommen! Was darf es sein?', language: 'de' }, false))
+  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenLastCalledWith(expect.objectContaining({ text: 'Willkommen! Was darf es sein?', language: 'de', reference: { kind: 'daily_quest', id: quest().id, part: 'scene' } }), false))
 })
 
 it('resumes the first unverified station with the trainers\' default German voice', async () => {
@@ -88,7 +88,7 @@ it('resumes the first unverified station with the trainers\' default German voic
   expect(screen.queryByRole('button', { name: 'Los geht’s' })).not.toBeInTheDocument()
   expect(screen.getByRole('heading', { name: 'Deinen Satz bauen' })).toBeInTheDocument()
   fireEvent.click(screen.getByRole('button', { name: 'Satz anhören' }))
-  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith({ text: 'Einen Tee bitte.', language: 'de' }, false))
+  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith(expect.objectContaining({ text: 'Einen Tee bitte.', language: 'de', reference: { kind: 'daily_quest', id: initial.id, part: 'step:sentence' } }), false))
 })
 
 it.each([
@@ -108,7 +108,7 @@ it.each([
     fireEvent.click(screen.getByRole('button', { name: 'der Tee' }))
   }
   fireEvent.click(screen.getByRole('button', { name: listen }))
-  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith({ text, language: 'de' }, false))
+  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith(expect.objectContaining({ text, language: 'de', reference: expect.objectContaining({ kind: 'daily_quest', id: initial.id }) }), false))
   await waitFor(() => expect(container.querySelector('audio')).toHaveAttribute('src', '/voice.wav'))
   expect(jest.mocked(cachedNeuralAudio).mock.calls.every(([source]) => source.voice === undefined)).toBe(true)
 })

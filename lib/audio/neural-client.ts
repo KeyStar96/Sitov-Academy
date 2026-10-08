@@ -3,11 +3,13 @@
 import { generateAudio } from '@/app/actions/generate-audio'
 import { normalizeAudioText } from '@/lib/audio/neural-config'
 import type { GermanAudioVoice, NeuralSpeechAsset, NeuralAudioLanguage } from '@/lib/types/audio'
+import type { SitovAudioReference } from './sitov-audio-reference'
 
 export interface NeuralAudioSource {
   text: string
   language: NeuralAudioLanguage
   cardId?: string
+  reference?: SitovAudioReference
   audioUrl?: string | null
   /** Require measured timing metadata instead of reusing an unaligned recording. */
   aligned?: boolean
@@ -22,7 +24,7 @@ const MAX_PRELOADED_AUDIO = 4
 const MAX_PREFETCH_REQUESTS = 2
 
 export function neuralAudioKey(source: NeuralAudioSource): string {
-  return JSON.stringify([source.cardId ?? null, source.language, normalizeAudioText(source.text), source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null])
+  return JSON.stringify([source.cardId ?? null, source.reference ?? null, source.language, normalizeAudioText(source.text), source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null])
 }
 
 export function cachedNeuralAudio(source: NeuralAudioSource): string | null {
@@ -30,6 +32,7 @@ export function cachedNeuralAudio(source: NeuralAudioSource): string | null {
   if (cached) return cached.audioUrl
   // Aligned playback requires prepared timing metadata.
   if (source.aligned) return null
+  if (source.reference?.kind === 'reading_text') return null
   return source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null
 }
 
@@ -53,6 +56,7 @@ export function resolveNeuralAudio(source: NeuralAudioSource, regenerate = false
       const result = await generateAudio({
         text: normalizeAudioText(source.text), language: source.language,
         ...(source.cardId ? { cardId: source.cardId } : {}),
+        ...(source.reference ? { reference: source.reference } : {}),
         ...(source.voice ? { voice: source.voice } : {}),
       })
       if (result.success === false) throw new Error(result.error)
