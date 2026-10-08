@@ -4,9 +4,9 @@ import {execFileSync} from 'node:child_process'
 import {readFile} from 'node:fs/promises'
 import {createHash} from 'node:crypto'
 import {createSitovCurrentNativeDatabase} from './helpers/sitov-night-current-native-db.mjs'
-import {sitovId as id,sitovUsers as users} from './helpers/sitov-night-current-db.mjs'
+import {sitovId as id,sitovUsers as users,sitovHistorySnapshot,sitovRightsSnapshot} from './helpers/sitov-night-current-db.mjs'
 const sql=await readFile(new URL('../vps/95_sitov_learning_specials.sql',import.meta.url),'utf8')
-test('Special learning/test private engine on canonical native PostgreSQL17 +93 +95',async()=>{
+test('Special learning/test publication, MFA and private audio compatibility on canonical native PostgreSQL17 +93 +95 +96',async()=>{
  const database=`sitov_night_s2_specials_${process.pid}`,bin='/opt/homebrew/opt/postgresql@17/bin/',args=['-h','/tmp/sitov-night-2026-10-08-pg','-p','55438']
  const env=Object.fromEntries(Object.entries(process.env).filter(([k])=>!k.startsWith('PG')))
  execFileSync(bin+'createdb',[...args,database],{env,stdio:'pipe'})
@@ -14,6 +14,7 @@ test('Special learning/test private engine on canonical native PostgreSQL17 +93 
  const db=await createSitovCurrentNativeDatabase({database});await db.exec(await readFile(new URL('../vps/93_sitov_commercial_access.sql',import.meta.url),'utf8'));await db.exec(sql)
  // Explicit synthetic Storage adapter columns required by the real prepared-audio helper.
  await db.exec('ALTER TABLE storage.objects ADD COLUMN archived_at timestamptz, ADD COLUMN is_delete_marker boolean DEFAULT false;')
+ const baselineHistory=await sitovHistorySnapshot(db)
  await db.exec(`INSERT INTO learning_units(id,level,trainer,label,sort_order,is_path,path_source_id,path_title,path_slug) VALUES('${id(600)}','A1.1','exercises','Sitov Testpfad',90,true,'SITOV-QA','Testpfad','sitov-qa');
  INSERT INTO path_objectives VALUES('${id(600)}','SITOV-QA-G1','grammar','Artikel');
  INSERT INTO path_nodes(id,unit_id,source_id,kind,sort_order,title,topic,merkkarte,goals) VALUES('${id(601)}','${id(600)}','SITOV-QA-N1','practice',1,'Artikel','Artikel','{"card":"sitov-qa","rule":"Artikel","examples":["der Tisch"],"highlight":"article"}',ARRAY['SITOV-QA-G1']);
@@ -67,6 +68,30 @@ test('Special learning/test private engine on canonical native PostgreSQL17 +93 
  let r=(await call('start',null,null,null,'learning')).data;assert.equal(r.queue.length,20);assert.equal(r.learningSolution,null);assert(!JSON.stringify(r.tasks).includes('correct_answer'))
  assert.equal((await call('right',r.runId,r.revision)).error,'reveal_required')
  const revealReq=id(++request);let flip=await call('reveal',r.runId,r.revision,null,null,revealReq);assert(flip.data.learningSolution);assert.deepEqual(await call('reveal',r.runId,r.revision,null,null,revealReq),flip)
+ // Apply actual96 after a valid95 definition and receipt already exist.
+ const rightsBefore96=await sitovRightsSnapshot(db)
+ await db.actor(null,'postgres')
+ await db.exec(await readFile(new URL('../vps/96_sitov_private_audio_delivery.sql',import.meta.url),'utf8'))
+ assert.deepEqual(await sitovRightsSnapshot(db),rightsBefore96)
+ assert.equal((await db.query("SELECT public FROM storage.buckets WHERE id='audio_cache'")).rows[0].public,false)
+ assert.equal((await db.query('SELECT vocabulary_private.sitov_prepared_german_audio_url($1) url',[texts[0].spoken])).rows[0].url,`storage://audio_cache/${audioPath}`)
+ assert.deepEqual((await db.query('SELECT audio_import_proof FROM sitov_special_private.definitions WHERE id=$1',[id(603)])).rows[0].audio_import_proof,audio)
+ const ready=async(proof)=>(await db.query(`SELECT sitov_special_private.definition_ready(jsonb_populate_record(NULL::sitov_special_private.definitions,to_jsonb(d)||jsonb_build_object('audio_import_proof',$1::jsonb))) ready FROM sitov_special_private.definitions d WHERE id=$2`,[proof,id(603)])).rows[0].ready
+ const privateProof=structuredClone(audio);for(const asset of privateProof.assets)asset.path=asset.path.replace('/supabase/storage/v1/object/public/audio_cache/','storage://audio_cache/')
+ assert.equal(await ready(privateProof),true)
+ for(const path of [`https://example.com${assets[0].path}`,`${assets[0].path}?token=anything`,assets[0].path.replace('/audio_cache/','/other_bucket/'),'storage://audio_cache/../'+audioPath]){
+  const forged=structuredClone(audio);forged.assets[0].path=path;assert.equal(await ready(forged),false)
+ }
+ await db.actor(users.all)
+ assert.deepEqual((await db.query("SELECT name FROM storage.objects WHERE bucket_id='audio_cache'")).rows,[])
+ assert.deepEqual(await call('get',flip.data.runId),flip)
+ assert.deepEqual(await call('reveal',r.runId,r.revision,null,null,revealReq),flip)
+ await db.actor(null,'postgres');await mutate(`UPDATE storage.objects SET archived_at=now() WHERE bucket_id='audio_cache' AND name=$1`,[audioPath])
+ await db.actor(users.all);assert.equal((await call('get',r.runId)).error,'version_conflict');assert.equal((await call('reveal',r.runId,r.revision,null,null,revealReq)).error,'version_conflict')
+ await db.actor(null,'postgres');await mutate(`UPDATE storage.objects SET archived_at=NULL,user_metadata=jsonb_set(user_metadata,'{audioSha256}',to_jsonb(repeat('e',64))) WHERE bucket_id='audio_cache' AND name=$1`,[audioPath])
+ await db.actor(users.all);assert.equal((await call('get',r.runId)).error,'version_conflict')
+ await db.actor(null,'postgres');await mutate(`UPDATE storage.objects SET user_metadata=jsonb_set(user_metadata,'{audioSha256}',to_jsonb(repeat('d',64))) WHERE bucket_id='audio_cache' AND name=$1`,[audioPath])
+ await db.actor(users.all);assert.deepEqual(await call('reveal',r.runId,r.revision,null,null,revealReq),flip)
  assert.equal((await call('wrong',r.runId,r.revision)).error,'revision_conflict')
  const first=flip.data.queue[0];r=(await call('wrong',r.runId,flip.data.revision)).data;assert.equal(r.queue.at(-1),first)
  r=(await call('get',r.runId)).data;assert.equal(r.queue.length,20)
@@ -90,18 +115,28 @@ test('Special learning/test private engine on canonical native PostgreSQL17 +93 
  assert.equal((await call('start',null,null,null,'test')).error,'scope_insufficient_for_test')
  let last=(await call('reveal',limited.data.runId,limited.data.revision)).data;last=(await call('right',last.runId,last.revision)).data;assert.equal(last.status,'completed');assert.deepEqual(last.queue,[]);assert.equal(last.result,null)
  await db.actor(null,'postgres')
- await db.exec(`UPDATE profiles SET sitov_mfa_required=true WHERE id='${users.teacher}';INSERT INTO auth.mfa_factors(user_id,status,factor_type) VALUES('${users.teacher}','verified','totp');`)
+ // Baseline91 intentionally preserves password-only teachers; do not change policy.
+ await db.exec(`UPDATE profiles SET sitov_mfa_required=true WHERE id='${users.teacher}'`)
+ assert.equal((await db.query('SELECT sitov_mfa_required FROM profiles WHERE id=$1',[users.teacher])).rows[0].sitov_mfa_required,false)
+ await db.actor(users.teacher,'authenticated',{aal:'aal1'})
+ assert.equal((await db.query(`SELECT sitov_special_staff_catalog('${id(602)}') data`)).rows[0].data.ok,true)
+ await db.actor(null,'postgres')
+ await db.exec(`UPDATE profiles SET role='admin',sitov_mfa_required=true WHERE id='${users.teacher}';INSERT INTO auth.mfa_factors(user_id,status,factor_type) VALUES('${users.teacher}','verified','totp');`)
  await db.actor(users.teacher,'authenticated',{aal:'aal1'})
  assert.equal((await db.query(`SELECT sitov_special_staff_catalog('${id(602)}') data`)).rows[0].data.error,'not_found')
  await db.actor(users.teacher,'authenticated',{aal:'aal2'})
  const staff=(await db.query(`SELECT sitov_special_staff_catalog('${id(602)}') data`)).rows[0].data;assert(staff.ok);assert.equal(staff.data.definitions.length,1)
+ await db.actor(null,'postgres');await db.exec(`UPDATE profiles SET role='teacher' WHERE id='${users.teacher}'`)
  await db.actor(users.teacher,'postgres',{aal:'aal2'})
  await db.exec(`UPDATE sitov_special_private.approvals SET revoked_at=now() WHERE id='${id(604)}'`)
  await db.actor(users.all);assert.equal((await call('get',r.runId)).error,'version_conflict')
- await db.actor(null,'postgres');await db.exec(`UPDATE sitov_special_private.approvals SET revoked_at=NULL WHERE id='${id(604)}'`)
+ await db.actor(null,'postgres');await db.exec(`UPDATE sitov_special_private.approvals SET revoked_at=NULL WHERE id='${id(604)}';UPDATE sitov_special_private.sources SET active=false WHERE source_ref='sitov.synthetic-fixture-only'`)
+ await db.actor(users.all);assert.equal((await call('get',r.runId)).error,'version_conflict');assert.equal((await call('reveal',r.runId,0,null,null,revealReq)).error,'version_conflict')
+ await db.actor(null,'postgres');await db.exec("UPDATE sitov_special_private.sources SET active=true WHERE source_ref='sitov.synthetic-fixture-only'")
  const saved=(await db.query('SELECT count(*)::int n FROM sitov_special_private.runs')).rows[0].n
  await db.exec(await readFile(new URL('../vps/rollback/95_sitov_learning_specials.sql',import.meta.url),'utf8'))
  assert.equal((await db.query('SELECT count(*)::int n FROM sitov_special_private.runs')).rows[0].n,saved)
+ assert.deepEqual(await sitovHistorySnapshot(db),baselineHistory)
  await db.actor(users.all);await assert.rejects(call('start',null,null,null,'learning'),/permission denied/)
  }finally{execFileSync(bin+'dropdb',[...args,database],{env,stdio:'pipe'})}
 })

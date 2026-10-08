@@ -44,7 +44,7 @@ BEGIN
 DROP TRIGGER IF EXISTS sitov_special_review_guard ON sitov_special_private.approvals;
 CREATE TRIGGER sitov_special_review_guard BEFORE INSERT ON sitov_special_private.approvals FOR EACH ROW EXECUTE FUNCTION sitov_special_private.guard_approval();
 CREATE OR REPLACE FUNCTION sitov_special_private.definition_ready(d sitov_special_private.definitions) RETURNS boolean LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$
-DECLARE text_row record;asset jsonb;expected_path text;authored jsonb;asset_count integer;
+DECLARE text_row record;asset jsonb;expected_path text;expected_object text;authored jsonb;asset_count integer;
 BEGIN
  IF NOT d.published OR d.version IS DISTINCT FROM sitov_special_private.definition_fingerprint(d.node_id,d.source_ref,d.blueprint,d.pool)
  OR NOT EXISTS(SELECT 1 FROM sitov_special_private.approvals a JOIN sitov_special_private.sources s ON s.source_ref=a.source_ref JOIN public.path_nodes n ON n.id=a.node_id JOIN public.learning_units u ON u.id=n.unit_id JOIN public.profiles reviewer ON reviewer.id=a.reviewed_by
@@ -57,9 +57,15 @@ BEGIN
  FOR text_row IN SELECT spoken FROM sitov_special_private.audible_texts(d.pool) LOOP
   expected_path:=vocabulary_private.sitov_prepared_german_audio_url(text_row.spoken);
   SELECT value INTO asset FROM jsonb_array_elements(d.audio_import_proof->'assets') WHERE value->>'textSha256'=encode(sha256(convert_to(text_row.spoken,'UTF8')),'hex');
-  IF asset IS NULL OR asset->>'path' IS DISTINCT FROM expected_path OR (SELECT count(*) FROM jsonb_array_elements(d.audio_import_proof->'assets') WHERE value->>'textSha256'=asset->>'textSha256')<>1 THEN RETURN false;END IF;
-  SELECT user_metadata INTO authored FROM storage.objects WHERE bucket_id='audio_cache' AND name=split_part(expected_path,'/audio_cache/',2) AND archived_at IS NULL AND coalesce(is_delete_marker,false)=false;
-  IF asset->>'audioSha256' IS DISTINCT FROM authored->>'audioSha256' THEN RETURN false;END IF;
+  -- The trusted helper validates the asset; normalize only its two exact references.
+  -- Published legacy proof remains immutable when 96 makes the bucket private.
+  expected_object:=CASE
+   WHEN expected_path ~ '^storage://audio_cache/sitov-qwen-v1/de/[a-f0-9]{64}\.mp3$' THEN substr(expected_path,length('storage://audio_cache/')+1)
+   WHEN expected_path ~ '^/supabase/storage/v1/object/public/audio_cache/sitov-qwen-v1/de/[a-f0-9]{64}\.mp3$' THEN substr(expected_path,length('/supabase/storage/v1/object/public/audio_cache/')+1)
+   ELSE NULL END;
+  IF expected_object IS NULL OR asset IS NULL OR NOT coalesce(asset->>'path' IN('storage://audio_cache/'||expected_object,'/supabase/storage/v1/object/public/audio_cache/'||expected_object),false) OR (SELECT count(*) FROM jsonb_array_elements(d.audio_import_proof->'assets') WHERE value->>'textSha256'=asset->>'textSha256')<>1 THEN RETURN false;END IF;
+  SELECT user_metadata INTO authored FROM storage.objects WHERE bucket_id='audio_cache' AND name=expected_object AND archived_at IS NULL AND coalesce(is_delete_marker,false)=false;
+  IF authored IS NULL OR asset->>'audioSha256' IS DISTINCT FROM authored->>'audioSha256' THEN RETURN false;END IF;
  END LOOP;
  RETURN NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d.pool) item WHERE item->'snapshot' IS DISTINCT FROM path_private.snapshot((item->>'id')::uuid) OR item->'snapshot'->>'type' NOT IN('multiple_choice','fill_in_blank','sentence_building'));
 EXCEPTION WHEN OTHERS THEN RETURN false;END $$;
