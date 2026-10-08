@@ -1,0 +1,212 @@
+{
+  "version": "sitov-pronunciation-pretest-contract-proposal-v0.1",
+  "approval": "PENDING_M",
+  "base_sha": "966a380f7a6118654f19750a9d62200795feb8c2",
+  "catalog": {
+    "fields": [
+      "textId:uuid",
+      "unitId:uuid",
+      "level:string",
+      "title:string",
+      "focus:string|null",
+      "kind:regular|bonus",
+      "textVersion:sha256",
+      "testVersion:sha256|null",
+      "status:locked|available|in_progress|passed|failed",
+      "lockedReason:authoring_not_ready|version_changed|null",
+      "attempt:AttemptSummary|null",
+      "proof:PassProof|null",
+      "target:pretest|resume_pretest|pronunciation|null"
+    ],
+    "excluded": [
+      "sentence_de",
+      "reference URL/path",
+      "answer keys",
+      "competency evidence quotations",
+      "unavailable commercial target IDs"
+    ],
+    "commercially_denied": "omit from learner catalogue; targeted requests return not_found"
+  },
+  "attempt": {
+    "fields": [
+      "id:uuid",
+      "textId:uuid",
+      "textVersion:sha256",
+      "testVersion:sha256",
+      "status:in_progress|passed|failed|outdated",
+      "revision:nonnegative integer",
+      "startedAt:ISO",
+      "updatedAt:ISO",
+      "questionIds:string[]",
+      "answers:Record<questionId,optionId>",
+      "answeredCount:integer",
+      "totalCount:integer"
+    ],
+    "identity": "server auth.uid(), never caller studentId; staff reads explicitly authorized separate endpoint",
+    "snapshot": "immutable published definition revision + immutable selected question set; never replace questions during resume"
+  },
+  "task": {
+    "fields": [
+      "id:string",
+      "competencyId:string",
+      "kind:single_choice",
+      "promptDe:string",
+      "fragmentDe:string|null",
+      "options:Array<{id:string,textDe:string}>"
+    ],
+    "excluded": [
+      "correctOptionId",
+      "solution",
+      "pool",
+      "private evidence",
+      "target text body"
+    ],
+    "language": "German content, UI labels outside DTO translated by S4"
+  },
+  "result": {
+    "fields": [
+      "attemptId:uuid",
+      "textId:uuid",
+      "textVersion:sha256",
+      "testVersion:sha256",
+      "passed:boolean",
+      "correct:integer",
+      "total:integer",
+      "competencies:Array<{id,correct,total,required,met}>",
+      "failedCompetencyIds:string[]",
+      "learningLinks:Array<{kind,level,targetId,href}>",
+      "proof:PassProof|null"
+    ],
+    "feedback": "aggregate actual error competencies, no hidden key dump; resolve S2 links against existing published commercially accessible targets"
+  },
+  "proof": {
+    "fields": [
+      "id:uuid",
+      "textId:uuid",
+      "textVersion:sha256",
+      "testVersion:sha256",
+      "passedAttemptId:uuid",
+      "passedAt:ISO",
+      "compatibilityId:uuid|null"
+    ],
+    "scope": "auth.uid + exact text version + test version only; no expiry absent changed version; commercial authorization checked independently every request"
+  },
+  "rpc": [
+    {
+      "name": "sitov_get_pronunciation_pretests",
+      "args": "p_level text",
+      "return": "Result<CatalogEntry[]>"
+    },
+    {
+      "name": "sitov_start_pronunciation_pretest",
+      "args": "p_text_id uuid, p_request_id uuid",
+      "return": "Result<AttemptWithTasks>; return same open attempt for same account/version across tabs"
+    },
+    {
+      "name": "sitov_get_pronunciation_pretest_attempt",
+      "args": "p_attempt_id uuid",
+      "return": "Result<AttemptWithTasks|CompletedAttempt>"
+    },
+    {
+      "name": "sitov_save_pronunciation_pretest_answers",
+      "args": "p_attempt_id uuid, p_revision integer, p_answers jsonb, p_request_id uuid",
+      "return": "Result<AttemptSummary>; CAS + immutable per-request receipt"
+    },
+    {
+      "name": "sitov_submit_pronunciation_pretest",
+      "args": "p_attempt_id uuid, p_revision integer, p_answers jsonb, p_request_id uuid",
+      "return": "Result<CompletedAttempt>; transactional server grade + proof + receipt"
+    },
+    {
+      "name": "sitov_get_pronunciation_pretest_staff",
+      "args": "p_text_id uuid, p_student_id uuid DEFAULT NULL",
+      "return": "Result<StaffDefinitionAndResults>; staff role verified"
+    },
+    {
+      "name": "sitov_create_pronunciation_upload_ticket",
+      "args": "p_text_id uuid, p_request_id uuid, p_extension text",
+      "return": "Result<{ticketId,path,textVersion,expiresAt}>; owned one-use path and exact current passed text"
+    }
+  ],
+  "action_exports": {
+    "file": "app/actions/sitov-pronunciation-pretests.ts",
+    "names": [
+      "getSitovPronunciationPretests",
+      "startSitovPronunciationPretest",
+      "getSitovPronunciationPretestAttempt",
+      "saveSitovPronunciationPretestAnswers",
+      "submitSitovPronunciationPretest",
+      "getSitovPronunciationPretestStaff",
+      "createSitovPronunciationUploadTicket"
+    ],
+    "result": "{ok:true,data:T}|{ok:false,error:ErrorCode,retryable:boolean}; no computed client score input"
+  },
+  "errors": [
+    "authentication_required",
+    "not_found",
+    "test_required",
+    "authoring_not_ready",
+    "version_conflict",
+    "attempt_conflict",
+    "invalid_input",
+    "invalid_answer",
+    "incomplete_attempt",
+    "request_conflict",
+    "rate_limited",
+    "retryable_failure"
+  ],
+  "grading": {
+    "policy_id": "sitov-pronunciation-language-prerequisites-v1",
+    "core_min_questions": 3,
+    "pool_min_questions_per_core": 6,
+    "rules": [
+      "Every essential actually present competency sampled at least 3 times; require ceiling(2*n/3) for EACH plus ceiling(0.75*total) overall",
+      "One item assesses exactly one declared primary competency; no double counting",
+      "Core vocabulary/inflection/syntax plus other actually necessary competencies are authored per text with source evidence; omit absent categories explicitly with reason",
+      "Six or more authored non-equivalent pool items per core allow two disjoint balanced forms; no title-only templates",
+      "No score, readiness, learning evidence, word/verb minimum, text length or historical override outside this test determines pass",
+      "No delayed retake gate; failed attempts retained, next start creates new balanced form; one active current-version attempt per account/text"
+    ],
+    "total_min_ratio": {
+      "numerator": 3,
+      "denominator": 4
+    },
+    "core_min_correct_ratio": {
+      "numerator": 2,
+      "denominator": 3
+    }
+  },
+  "version_policy": [
+    "Content version hashes exact stored German body; definition version hashes immutable matrix/pool/criteria/keys",
+    "New active text or definition requires current-version test proof; old attempt becomes outdated, remains accessible to owner/staff",
+    "Compatibility only explicit staff-reviewed immutable row binding both old/new fingerprints and unchanged competency/criteria evidence; no migration of hard/old checkpoints into proof",
+    "Definition missing/invalid closes new starts; staff diagnostics actionable; inactive drafts may save without publication"
+  ],
+  "schema": [
+    "sitov_pronunciation_private.pretest_definitions (immutable private matrix, pool, keys, policy, audio authoring proof)",
+    "sitov_pronunciation_private.pretest_attempts (account ownership, selected task IDs, frozen versions, CAS revision, terminal result)",
+    "sitov_pronunciation_private.pretest_receipts (unique account/request id and payload fingerprint)",
+    "sitov_pronunciation_private.pretest_passes (unique account/text/text-version/test-version)",
+    "sitov_pronunciation_private.pretest_compatibility (audited exact version pairs)",
+    "sitov_pronunciation_private.upload_tickets (account, exact prompt/version, owned immutable path, expiry/consumption)"
+  ],
+  "atomicity": [
+    "Advisory xact lock account/text; partial unique current open attempt; row lock/CAS answers+submit",
+    "Repeat exact request payload returns persisted receipt; reused key with different payload rejects",
+    "Complete answers only selected IDs and allowed option IDs; no extra keys, caller score, account or substituted text",
+    "Pass creation and attempt terminal result same transaction; concurrent submit sees same canonical result",
+    "Private tables RLS enabled, zero direct authenticated DML/key reads; invoker public wrappers to checked narrow private functions, search_path empty, explicit EXECUTE grants"
+  ],
+  "publication": [
+    "All active texts require validated matrix/pool/criteria and immutable text/version association",
+    "New German task prompts/options/fragments frozen in audio manifest and local Qwen imported word-timing proof even if written quiz is silent",
+    "No active definition until M provides verified audio/storage proof; secure drafts remain closed",
+    "Direct table/RPC mutations must enforce publication checks, not only Next action"
+  ],
+  "shared_blockers": [
+    "Privatize/reference-authorize audio_cache; current getPublicUrl plus arbitrary de generateAudio leaks target reference",
+    "S1 commercial unit/item authorization contract incl language-neutral access",
+    "S2 precise validated accessible mapping targets",
+    "M full normalized current-schema fixture through 92 plus 93 access before 94, no stale 01-58-only acceptance"
+  ]
+}
