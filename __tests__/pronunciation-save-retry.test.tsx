@@ -36,7 +36,12 @@ it('keeps the recording ready after a failed save and retries the same uploaded 
   expect(screen.getByRole('button', { name: labels.submit_for_review })).toBeEnabled()
   expect(screen.queryByText(labels.submitted)).not.toBeInTheDocument()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: labels.submit_for_review })))
-  expect(uploadPrivatePronunciationRecording).toHaveBeenCalledTimes(1)
+  expect(uploadPrivatePronunciationRecording).toHaveBeenCalledTimes(2)
+  const calls = jest.mocked(uploadPrivatePronunciationRecording).mock.calls
+  expect(calls[1][0]).toBe(calls[0][0])
+  expect(calls[0][1]).toEqual({ purpose: 'target', textId: 'text', textVersion: undefined })
+  expect(calls[1][1]).toEqual(calls[0][1])
+  expect(createPronunciationSubmission).toHaveBeenNthCalledWith(1, { promptId: 'text', audioPath: path })
   expect(createPronunciationSubmission).toHaveBeenNthCalledWith(2, { promptId: 'text', audioPath: path })
   expect(screen.getByText(labels.submitted)).toBeVisible()
   log.mockRestore()

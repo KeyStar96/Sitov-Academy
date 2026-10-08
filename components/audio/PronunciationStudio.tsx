@@ -66,8 +66,6 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
   learnerId?: string
   catalog?: SitovPronunciationPretestActionResult<SitovPronunciationPretestCatalogEntry[]>
   focusTextId?: string
-  /** Transitional preview compatibility only; never read or used to authorize. */
-  readiness?: unknown
 }) {
   const s = studentTranslator(lang)
   const router = useRouter()
@@ -174,7 +172,7 @@ function Studio(props: {
   })
   const actionLabel = (entry: SitovPronunciationPretestCatalogEntry) => entry.status === 'in_progress' ? copy.resume : entry.status === 'passed' ? copy.open : entry.status === 'failed' ? copy.retry : copy.start
   return <div className="space-y-5">
-    <SitovTrainerHero mode="media" eyebrow={s('area_pronunciation')} level={level} title={s('studio_tab')}
+    <SitovTrainerHero mode="pronunciation" eyebrow={s('area_pronunciation')} level={level} title={s('studio_tab')}
       description={next ? <span lang="de" translate="no">{next.title}</span> : copy.unavailable}
       graphic={<SitovPronunciationScene compact />} action={next ? { label: actionLabel(next), onClick: () => choose(next), disabled: recordingBlocked, busy } : undefined} />
     {(catalog?.ok === false || (catalog?.ok === true && !parsed?.success)) && <div role="alert"><p>{catalog.ok === false ? sitovPretestErrorCopy(lang, catalog.error) : copy.connection}</p><PressableCard onClick={() => router.refresh()}>{copy.refresh}</PressableCard></div>}

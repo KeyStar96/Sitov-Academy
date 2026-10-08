@@ -1,12 +1,12 @@
 'use client'
 
 import { useId, type ReactNode } from 'react'
-import { ArrowRight, BookOpen, Clapperboard, LoaderCircle, Route, Sparkles } from 'lucide-react'
+import { ArrowRight, BookOpen, Clapperboard, LoaderCircle, Mic, Route, Sparkles } from 'lucide-react'
 import SitovMotionStage from './SitovMotionStage'
 import PressableCard from './PressableCard'
 import styles from './SitovTrainerHero.module.css'
 
-export type SitovTrainerHeroMode = 'vocabulary' | 'verbs' | 'path' | 'media'
+export type SitovTrainerHeroMode = 'vocabulary' | 'verbs' | 'path' | 'media' | 'pronunciation'
 export interface SitovTrainerHeroProps {
   mode: SitovTrainerHeroMode
   eyebrow: string
@@ -23,7 +23,7 @@ export interface SitovTrainerHeroProps {
   className?: string
 }
 
-const sitovIcons = { vocabulary: BookOpen, verbs: Sparkles, path: Route, media: Clapperboard }
+const sitovIcons = { vocabulary: BookOpen, verbs: Sparkles, path: Route, media: Clapperboard, pronunciation: Mic }
 
 /** A shared entry with a real action and a reserved, decorative scene. */
 export default function SitovTrainerHero({ mode, eyebrow, level, title, headingLevel = 1, description, graphic, action, options, children, compact = false, testId, className }: SitovTrainerHeroProps) {
