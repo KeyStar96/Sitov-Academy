@@ -65,10 +65,10 @@ export default function PathExerciseForm({ exercise, lang, busy, onSubmit, isTes
     onSubmit={event => { event.preventDefault(); if (complete && answer && !busy) onSubmit(answer) }}>
     <div className={styles.sitovTaskHead}>
       <span className={styles.sitovTaskIcon} aria-hidden="true">{exercise.type === 'sentence_building' ? <AlignLeft size={25} /> : exercise.type === 'multiple_choice' ? <ListChecks size={25} /> : <PenLine size={25} />}</span>
-      <h3 className={styles.instruction}>{exercise.content.instruction || t(exercise.type === 'sentence_building' ? 'arrange' : exercise.type === 'multiple_choice' ? 'choose' : 'answer')}</h3>
+      <h3 className={styles.instruction} lang={exercise.content.instruction ? 'de' : undefined} translate={exercise.content.instruction ? 'no' : undefined}>{exercise.content.instruction || t(exercise.type === 'sentence_building' ? 'arrange' : exercise.type === 'multiple_choice' ? 'choose' : 'answer')}</h3>
       <span className={styles.sitovTaskLines} aria-hidden="true"><i /><i /><i /></span>
     </div>
-    {exercise.content.prompt && <p className={styles.prompt}>{exercise.content.prompt}</p>}
+    {exercise.content.prompt && <p className={styles.prompt} lang="de" translate="no">{exercise.content.prompt}</p>}
     {exercise.type === 'fill_in_blank' && <p className={styles.sentence} lang="de" translate="no" id="path-sentence">
       {exercise.content.text_before}
       <span className={styles.gap}>
@@ -88,7 +88,7 @@ export default function PathExerciseForm({ exercise, lang, busy, onSubmit, isTes
       {exercise.type === 'fill_in_blank' && <>
         <label className={styles.label} htmlFor="path-answer">{t('answer')}</label>
         {exercise.content.needs_article && <p id="path-article">{t('article')}</p>}
-        <input id="path-answer" data-testid="path-answer" lang="de" autoComplete="off" autoCapitalize="none" spellCheck={false}
+        <input id="path-answer" data-testid="path-answer" lang="de" translate="no" autoComplete="off" autoCapitalize="none" spellCheck={false}
           aria-describedby={`path-sentence${exercise.content.needs_article ? ' path-article' : ''}`} maxLength={4000}
           className={styles.input} value={text} onChange={event => setText(event.target.value)} autoFocus />
       </>}

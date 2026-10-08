@@ -6,10 +6,10 @@ import { sitovLearningTargetCopy } from '@/lib/learning/sitov-learning-target-i1
 import type { PathMap } from '@/lib/learning-path-contract'
 const id='66666666-6666-4666-8666-666666666666'
 const map: PathMap={level:'A1.1',completed:false,resume_node_id:id,next_level:null,next_level_available:false,paths:[{id:'55555555-5555-4555-8555-555555555555',source_id:'P1',title:'Pfad',sort_order:1,available:true,completed:false,nodes:[{id,kind:'practice',title:'Wie heißen Sie?',sort_order:3,available:true,status:'in_progress',stars:2,tests:[]}]}]}
-test('unknown, malformed, foreign, revoked, duplicate and Special targets have no fallback',()=>{
+test('unknown, malformed, foreign, revoked, duplicate targets have no fallback',()=>{
  for(const raw of ['', [id], '77777777-7777-4777-8777-777777777777'])expect(resolveSitovPathRecommendationTarget(raw,'A1.1',map)).toEqual({error:'unavailable'})
  expect(resolveSitovPathRecommendationTarget(id,'A1.2',map)).toEqual({error:'unavailable'})
- for(const patch of [{available:false},{kind:'special' as const}])expect(resolveSitovPathRecommendationTarget(id,'A1.1',{...map,paths:[{...map.paths[0],nodes:[{...map.paths[0].nodes[0],...patch}]}]})).toEqual({error:'unavailable'})
+ for(const patch of [{available:false}])expect(resolveSitovPathRecommendationTarget(id,'A1.1',{...map,paths:[{...map.paths[0],nodes:[{...map.paths[0].nodes[0],...patch}]}]})).toEqual({error:'unavailable'})
  expect(resolveSitovPathRecommendationTarget(id,'A1.1',{...map,paths:[map.paths[0],map.paths[0]]})).toEqual({error:'unavailable'})
  expect(resolveSitovPathRecommendationTarget(id,'A1.1')).toEqual({error:'retryable'})
 })

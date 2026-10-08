@@ -22,6 +22,7 @@ import PathTrail from './PathTrail'
 import TestOutcome from './TestOutcome'
 import TestReview from './TestReview'
 import styles from './learning-path.module.css'
+import SitovLearningSpecial from './SitovLearningSpecial'
 import SitovPathTargetChoice from './SitovPathTargetChoice'
 import SitovLearningRecommendations from '@/components/learning/SitovLearningRecommendations'
 
@@ -74,6 +75,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   const [feedback, setFeedback] = useState<PracticeResult | null>(null)
   const [testResult, setTestResult] = useState<TestResult | null>(null)
   const [review, setReview] = useState<Review | null>(null)
+  const [special, setSpecial] = useState<Selection | null>(null)
   const [choice, setChoice] = useState<Selection | null>(null)
   const [translationOpen, setTranslationOpen] = useState(false)
   const [step, setStep] = useState(0)
@@ -125,6 +127,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   }
 
   function openNode(node: PathNode, title: string, pathId: string, start = false) {
+    if (node.kind === 'special') { if (node.available) setSpecial({ node, title, pathId }); return }
     // Ein schon absolvierter Test: erst fragen — Auswertung ansehen oder erneut starten.
     if (!start && lastCompleted(node)) { setError(null); setChoice({ node, title, pathId }); return }
     setChoice(null)
@@ -204,6 +207,9 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       setTestResult(result.data)
     })
   }
+
+  if (special) return <SitovLearningSpecial nodeId={special.node.id} title={special.node.title} lang={lang}
+    accountKey={recommendationAccountKey} onClose={() => setSpecial(null)} />
 
   if (selection) {
     const done = run ? run.total - run.queue.length : test?.exercises.filter(item => item.answer !== null).length ?? 0

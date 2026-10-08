@@ -66,7 +66,7 @@ export async function resolveSitovLearningRecommendations(input: unknown): Promi
           if (pathMap.level !== target.level) throw new Error('foreign_path')
           const matches = pathMap.paths.filter(path => path.id === unitId && path.available).flatMap(path => path.nodes).filter(node => node.id === id)
           const node = matches.length === 1 ? matches[0] : undefined
-          if (!node?.available || node.kind === 'special') continue
+          if (!node?.available) continue
           const status = node.status ?? 'not_started'
           item = { ...base, kind: 'learning_path', action: status === 'completed' ? 'review' : status === 'in_progress' ? 'continue' : 'practice', progress: { source: 'learning_path', status }, href: `${prefix}/path?sitov_target=${encodeURIComponent(id)}` }
         } else if (target.kind === 'vocabulary_card') {
