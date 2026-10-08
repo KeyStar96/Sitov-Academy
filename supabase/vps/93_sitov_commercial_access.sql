@@ -1,5 +1,5 @@
 -- Sitov Academy commercial core. Additive only: no legacy grants or content rewritten.
--- DRAFT enforcement integration: existing content policies/guards are unchanged here.
+-- DRAFT partial enforcement: source/unit guards and restrictive item scopes; selected-item scoring RPC ports still gated.
 CREATE SCHEMA IF NOT EXISTS sitov_access_private;
 REVOKE ALL ON SCHEMA sitov_access_private FROM PUBLIC,anon;
 GRANT USAGE ON SCHEMA sitov_access_private TO authenticated;
@@ -241,3 +241,106 @@ REVOKE ALL ON FUNCTION public.set_sitov_student_vip(uuid,boolean,bigint),public.
 GRANT EXECUTE ON FUNCTION public.set_sitov_student_vip(uuid,boolean,bigint),public.set_sitov_student_trial(uuid,jsonb,bigint),
  public.get_sitov_access_context(uuid),public.get_sitov_billing_settings(),public.set_sitov_billing_enabled(boolean,bigint),
  public.set_sitov_product_price(text,bigint,text,bigint),public.start_sitov_checkout(text,uuid) TO authenticated;
+
+CREATE TABLE IF NOT EXISTS sitov_access_private.guard_backups(signature text PRIMARY KEY,definition text NOT NULL);
+ALTER TABLE sitov_access_private.guard_backups ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON sitov_access_private.guard_backups FROM PUBLIC,anon,authenticated;
+INSERT INTO sitov_access_private.guard_backups(signature,definition)
+SELECT signature,pg_get_functiondef(to_regprocedure(signature)) FROM unnest(ARRAY[
+ 'trainer_access_private.allowed(text,text)','trainer_access_private.unit_allowed(text,text,text)',
+ 'learning_private.unit_allowed(uuid)','learning_private.allowed_unit_ids()']) signature
+WHERE to_regprocedure(signature) IS NOT NULL ON CONFLICT DO NOTHING;
+
+-- Guarded source integration. Selected-item trial cannot enter old unit-only
+-- SECURITY DEFINER scoring RPCs until their individual item ports are wired.
+CREATE OR REPLACE FUNCTION sitov_access_private.legacy_unit_allowed(p_student uuid,p_unit uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.learning_units u JOIN public.profiles p ON p.id=p_student
+ LEFT JOIN public.learning_trainer_grants g ON g.auth_user_id=p.id AND g.level=u.level AND g.trainer=u.trainer
+ WHERE u.id=p_unit AND (u.owner_auth_user_id IS NULL OR u.owner_auth_user_id=p.id)
+ AND (p.role IN('teacher','admin') OR ((u.is_active OR u.owner_auth_user_id=p.id)
+ AND EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=u.level)
+ AND coalesce(g.enabled,true) AND (u.owner_auth_user_id=p.id OR g.unit_mode IS DISTINCT FROM 'selected'
+ OR EXISTS(SELECT 1 FROM public.learning_unit_grants x WHERE x.auth_user_id=p.id AND x.unit_id=u.id AND x.level=u.level AND x.trainer=u.trainer)))))
+$$;
+CREATE OR REPLACE FUNCTION sitov_access_private.unit_allowed(p_student uuid,p_unit uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(p_student) AND EXISTS(SELECT 1 FROM public.learning_units u JOIN public.profiles p ON p.id=p_student
+ WHERE u.id=p_unit AND (u.owner_auth_user_id IS NULL OR u.owner_auth_user_id=p.id)
+ AND (sitov_access_private.legacy_unit_allowed(p_student,p_unit)
+ OR (p.role='student' AND (u.is_active OR u.owner_auth_user_id=p.id)
+ AND u.level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ AND NOT(u.trainer='verbs' AND u.level IN('C1.1','C1.2')) AND (
+ EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND s.vip_enabled)
+ OR sitov_access_private.purchased(p.id,u.level)
+ OR (u.owner_auth_user_id IS NULL AND EXISTS(SELECT 1 FROM sitov_access_private.students s,
+ LATERAL jsonb_array_elements(s.trial->'rules') r WHERE s.student_id=p.id AND r->>'level'=u.level AND r->>'trainer'=u.trainer::text
+ AND (r->'unit_ids'='null'::jsonb OR r->'unit_ids' @> to_jsonb(ARRAY[u.id::text]))
+ AND (r->'items'='null'::jsonb OR EXISTS(SELECT 1 FROM jsonb_array_elements(r->'items') b
+ WHERE b->>'unit_id'=u.id::text AND b->'refs'='null'::jsonb))))))))
+$$;
+CREATE OR REPLACE FUNCTION sitov_access_private.level_allowed(p_student uuid,p_level text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(p_student) AND p_level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ AND EXISTS(SELECT 1 FROM public.profiles p WHERE p.id=p_student AND (p.role IN('teacher','admin')
+ OR EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=p_level)
+ OR EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND (s.vip_enabled OR EXISTS(
+ SELECT 1 FROM jsonb_array_elements(s.trial->'rules') r WHERE r->>'level'=p_level
+ AND r->'unit_ids'<>'[]'::jsonb AND r->'items'<>'[]'::jsonb))) OR sitov_access_private.purchased(p.id,p_level)))
+$$;
+CREATE OR REPLACE FUNCTION trainer_access_private.allowed(p_level text,p_trainer text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT sitov_access_private.actor_allowed(auth.uid()) AND p_level IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ AND p_trainer IN('vocabulary','exercises','pronunciation','videos','verbs') AND NOT(p_trainer='verbs' AND p_level IN('C1.1','C1.2'))
+ AND EXISTS(SELECT 1 FROM public.profiles p WHERE p.id=auth.uid() AND (p.role IN('teacher','admin')
+ OR sitov_access_private.purchased(p.id,p_level) OR EXISTS(SELECT 1 FROM sitov_access_private.students s WHERE s.student_id=p.id AND s.vip_enabled)
+ OR (EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=p.id AND a.level=p_level)
+ AND coalesce((SELECT g.enabled FROM public.learning_trainer_grants g WHERE g.auth_user_id=p.id AND g.level=p_level AND g.trainer::text=p_trainer),true))))
+$$;
+CREATE OR REPLACE FUNCTION trainer_access_private.unit_allowed(p_level text,p_trainer text,p_unit text) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.learning_units u WHERE u.id::text=p_unit AND u.level=p_level AND u.trainer::text=p_trainer
+ AND sitov_access_private.unit_allowed(auth.uid(),u.id))
+$$;
+CREATE OR REPLACE FUNCTION learning_private.unit_allowed(p_unit_id uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT sitov_access_private.unit_allowed(auth.uid(),p_unit_id) $$;
+CREATE OR REPLACE FUNCTION learning_private.allowed_unit_ids() RETURNS uuid[]
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT coalesce(array_agg(id),'{}'::uuid[]) FROM public.learning_units WHERE sitov_access_private.unit_allowed(auth.uid(),id)
+$$;
+CREATE OR REPLACE FUNCTION public.get_sitov_access_catalog(p_level text,p_trainer text) RETURNS jsonb
+LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$ BEGIN
+ IF NOT sitov_access_private.actor_allowed(auth.uid()) THEN RETURN jsonb_build_object('error','forbidden');END IF;
+ IF p_level NOT IN('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')
+ OR p_trainer NOT IN('vocabulary','exercises','pronunciation','videos','verbs') THEN RETURN jsonb_build_object('error','invalid_input');END IF;
+ RETURN (WITH refs AS (
+ SELECT 'vocabulary_card' kind,id::text id FROM public.learning_vocabulary_cards
+ UNION ALL SELECT CASE WHEN node_id IS NULL THEN 'exercise' ELSE 'path_task' END,id::text FROM public.learning_exercises
+ UNION ALL SELECT 'reading_text',id::text FROM public.learning_reading_texts
+ UNION ALL SELECT 'video',id::text FROM public.learning_videos
+ UNION ALL SELECT 'verb',id FROM public.sitov_verb_catalog
+ UNION ALL SELECT 'path_node',id::text FROM public.path_nodes
+ UNION ALL SELECT 'presentation',asset_id::text FROM public.lms_presentation_asset
+ ),items AS (SELECT r.kind,r.id,i.unit_id,i.published FROM refs r CROSS JOIN LATERAL sitov_access_private.resolve_item(r.kind,r.id) i
+ WHERE i.level=p_level AND i.trainer=p_trainer AND i.owner_id IS NULL AND sitov_access_private.item_allowed(auth.uid(),r.kind,r.id)),
+ units AS (SELECT i.unit_id,coalesce(u.label,'') label,jsonb_agg(jsonb_build_object('kind',i.kind,'id',i.id,'label',coalesce(u.label,''),'published',i.published) ORDER BY i.kind,i.id) items
+ FROM items i LEFT JOIN public.learning_units u ON u.id=i.unit_id GROUP BY i.unit_id,u.label)
+ SELECT jsonb_build_object('version',1,'level',p_level,'trainer',p_trainer,'units',coalesce(jsonb_agg(jsonb_build_object('id',unit_id,'label',label,'items',items) ORDER BY unit_id),'[]'::jsonb)) FROM units);
+END $$;
+REVOKE ALL ON FUNCTION sitov_access_private.legacy_unit_allowed(uuid,uuid),sitov_access_private.unit_allowed(uuid,uuid),sitov_access_private.level_allowed(uuid,text) FROM PUBLIC,anon,authenticated;
+REVOKE ALL ON FUNCTION public.get_sitov_access_catalog(text,text) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.get_sitov_access_catalog(text,text) TO authenticated;
+
+-- RESTRICTIVE policies compose with existing publication/pedagogy checks.
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_vocabulary_cards;
+CREATE POLICY sitov_commercial_item_scope ON public.learning_vocabulary_cards AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'vocabulary_card',id::text));
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_exercises;
+CREATE POLICY sitov_commercial_item_scope ON public.learning_exercises AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),CASE WHEN node_id IS NULL THEN 'exercise' ELSE 'path_task' END,id::text));
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_reading_texts;
+CREATE POLICY sitov_commercial_item_scope ON public.learning_reading_texts AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'reading_text',id::text));
+DROP POLICY IF EXISTS sitov_commercial_item_scope ON public.learning_videos;
+CREATE POLICY sitov_commercial_item_scope ON public.learning_videos AS RESTRICTIVE FOR SELECT TO authenticated
+ USING(sitov_access_private.item_allowed(auth.uid(),'video',id::text));

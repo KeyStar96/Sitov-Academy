@@ -9,14 +9,14 @@ const migration = await readFile(new URL('../vps/93_sitov_commercial_access.sql'
 // Deliberately scoped normalized catalog fixture. This is NOT the full 01–92 release proof.
 const fixture = `
  CREATE ROLE anon; CREATE ROLE authenticated;
- CREATE SCHEMA auth; CREATE SCHEMA identity_private; CREATE SCHEMA sitov_security_private;
+ CREATE SCHEMA trainer_access_private;CREATE SCHEMA learning_private;CREATE SCHEMA auth; CREATE SCHEMA identity_private; CREATE SCHEMA sitov_security_private;
  CREATE FUNCTION auth.uid() RETURNS uuid LANGUAGE sql AS $$ SELECT nullif(current_setting('request.jwt.claim.sub',true),'')::uuid $$;
  GRANT USAGE ON SCHEMA auth TO authenticated; GRANT EXECUTE ON FUNCTION auth.uid() TO authenticated;
  CREATE TABLE profiles(id uuid PRIMARY KEY,role text NOT NULL,ui_language text);
  CREATE FUNCTION identity_private.current_profile_role() RETURNS text LANGUAGE sql SECURITY DEFINER AS $$ SELECT role FROM public.profiles WHERE id=auth.uid() $$;
  CREATE FUNCTION sitov_security_private.sitov_staff_mfa_satisfied() RETURNS boolean LANGUAGE sql AS $$ SELECT coalesce(current_setting('sitov.test_mfa',true),'yes')<>'no' $$;
  CREATE TABLE learning_levels(code text PRIMARY KEY);
- CREATE TABLE learning_units(id uuid PRIMARY KEY,level text,trainer text,owner_auth_user_id uuid,is_active boolean NOT NULL DEFAULT true);
+ CREATE TABLE learning_units(id uuid PRIMARY KEY,level text,trainer text,owner_auth_user_id uuid,label text,is_active boolean NOT NULL DEFAULT true);
  CREATE TABLE student_level_access(auth_user_id uuid,level text,PRIMARY KEY(auth_user_id,level));
  CREATE TABLE learning_trainer_grants(auth_user_id uuid,level text,trainer text,enabled boolean,unit_mode text);
  CREATE TABLE learning_unit_grants(auth_user_id uuid,level text,trainer text,unit_id uuid);
@@ -28,6 +28,10 @@ const fixture = `
  CREATE TABLE path_nodes(id uuid PRIMARY KEY,unit_id uuid,is_active boolean);
  CREATE TABLE lms_media_folder(folder_id uuid PRIMARY KEY,level text);
  CREATE TABLE lms_presentation_asset(asset_id uuid PRIMARY KEY,folder_id uuid);
+ CREATE FUNCTION trainer_access_private.allowed(p_level text,p_trainer text) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
+ CREATE FUNCTION trainer_access_private.unit_allowed(p_level text,p_trainer text,p_unit text) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
+ CREATE FUNCTION learning_private.unit_allowed(p_unit_id uuid) RETURNS boolean LANGUAGE sql AS $$ SELECT false $$;
+ CREATE FUNCTION learning_private.allowed_unit_ids() RETURNS uuid[] LANGUAGE sql AS $$ SELECT '{}'::uuid[] $$;
  INSERT INTO learning_levels SELECT unnest(ARRAY['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2']);
  INSERT INTO profiles VALUES('${student}','student','de'),('${teacher}','teacher','de'),('${outsider}','student','ru');
  INSERT INTO learning_units(id,level,trainer) VALUES('${unit}','A1.1','pronunciation');

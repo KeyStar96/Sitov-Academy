@@ -96,6 +96,18 @@ export interface LevelAccessProfile {
   ui_language?: string | null
   allowed_levels: string[] | null
   trainer_grants?: readonly TrainerAccessRule[] | null
+  vip_enabled?: boolean
+  purchased_levels?: readonly string[]
+  trial?: import('./sitov-commercial').SitovTrialManifest
+}
+
+function sitovAdditionalLessons(profile: LevelAccessProfile, level: string, trainer: Trainer): string[] | null {
+  if (profile.role === 'student' && (profile.vip_enabled || profile.purchased_levels?.includes(level))) return null
+  const rule = profile.role === 'student' ? profile.trial?.rules.find(rule => rule.level === level && rule.trainer === trainer) : undefined
+  if (!rule) return []
+  if (rule.items === null) return rule.unit_ids
+  const units = rule.items.filter(unit => unit.refs === null || unit.refs.length > 0).map(unit => unit.unit_id)
+  return rule.unit_ids === null ? units : units.filter(unit => rule.unit_ids?.includes(unit))
 }
 
 /**
@@ -112,7 +124,10 @@ export function hasLevelAccess(
   // Only released levels: a stored grant for a level in preparation or for a coarse
   // verb context (B2, C1) never opens student navigation.
   if (!isAccessLevel(normalized)) return false
-  return (profile.allowed_levels ?? []).includes(normalized)
+  return (profile.allowed_levels ?? []).includes(normalized) || TRAINERS.some(trainer => {
+    const units = sitovAdditionalLessons(profile, normalized, trainer)
+    return units === null || units.length > 0
+  })
 }
 
 /** Ob eine Rolle grundsätzlich Vollzugriff besitzt (z. B. für UI-Hinweise). */
@@ -148,14 +163,18 @@ export function hasConfiguredTrainerAccess(profile: LevelAccessProfile | null | 
   if (!profile || !sitovLevelHasTrainer(level, trainer)) return false
   if (hasFullAccessRole(profile.role)) return true
   if (!isAccessLevel(level.trim())) return false
-  if (!hasLevelAccess(profile, level)) return false
-  return profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.enabled ?? true
+  const extra = sitovAdditionalLessons(profile, level.trim(), trainer)
+  if (extra === null || extra.length > 0) return true
+  return !!profile.allowed_levels?.includes(level.trim())
+    && (profile.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.enabled ?? true)
 }
 
 export function hasTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
   if (!sitovLevelHasTrainer(level, trainer)) return false
   if (hasFullAccessRole(profile?.role)) return true
-  if ((trainer !== 'verbs' && profile?.ui_language === 'de') || !hasConfiguredTrainerAccess(profile, level, trainer)) return false
+  if (!hasConfiguredTrainerAccess(profile, level, trainer)) return false
+  const extra = profile ? sitovAdditionalLessons(profile, level.trim(), trainer) : []
+  if (extra === null || extra.length > 0) return true
   const restriction = profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.unit_ids
   return trainer === 'videos' || restriction == null || restriction.length > 0
 }
@@ -163,9 +182,13 @@ export function hasTrainerAccess(profile: LevelAccessProfile | null | undefined,
 export function getAllowedLessons(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): string[] | null {
   if (!hasTrainerAccess(profile, level, trainer)) return []
   if (hasFullAccessRole(profile?.role)) return null // null means all lessons are allowed
+  if (!profile) return []
+  const extra = sitovAdditionalLessons(profile, level.trim(), trainer)
+  if (extra === null) return null
   const rule = profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)
+  if (!profile.allowed_levels?.includes(level.trim()) || rule?.enabled === false) return extra
   if (!rule || rule.unit_ids == null) return null
-  return rule.unit_ids
+  return [...new Set([...rule.unit_ids, ...extra])]
 }
 
 export function hasUnitAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer, unit: string): boolean {
