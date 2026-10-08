@@ -1,5 +1,8 @@
 'use client'
 
+import type { SitovTargetResult } from '@/lib/learning/sitov-learning-target-server'
+import { sitovLearningTargetCopy } from '@/lib/learning/sitov-learning-target-i18n'
+
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Check, CheckCheck, CircleHelp, Layers3, LoaderCircle, LockKeyhole, Plus, RotateCcw, Search, Settings2, Target, Trash2, X, Zap } from 'lucide-react'
@@ -15,6 +18,7 @@ import VerbLearningBox from './VerbLearningBox'
 import SitovTrainerHero from '@/components/motion/SitovTrainerHero'
 import SitovTrainerTabs from '@/components/motion/SitovTrainerTabs'
 import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
+import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import SitovVerbScene from './SitovVerbScene'
 import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
@@ -31,7 +35,8 @@ export interface SitovVerbTrainerActions {
 const sitovActions: SitovVerbTrainerActions = { next: nextSitovVerbExercise, box: setSitovVerbBox, answer: submitSitovVerbAnswer, retry: checkSitovVerbRetry }
 type View = 'automatic' | 'targeted' | 'box'
 
-export default function VerbTrainerClient({ initialState, lang, actions = sitovActions }: {
+export default function VerbTrainerClient({ initialState, lang, actions = sitovActions, sitovTarget }: {
+  sitovTarget?: SitovTargetResult<string> | null
   initialState: SitovVerbTrainerState; lang: string; actions?: SitovVerbTrainerActions
 }) {
   const copy = getSitovVerbCopy(lang)
@@ -40,7 +45,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   const locale = toUiLocale(lang)
   const [chosenRoundSize] = useVocabularyRoundSize()
   const [sitovRoundLength, setRoundLength] = useState<number>(Number(DEFAULT_ROUND_SIZE))
-  const [view, setView] = useState<View>('automatic')
+  const [view, setView] = useState<View>(sitovTarget?.target ? 'box' : 'automatic')
   const [selectedIds, setSelectedIds] = useState(initialState.selectedIds)
   const [progress, setProgress] = useState(initialState.progress)
   const [tenses, setTenses] = useState(initialState.tenses)
@@ -61,6 +66,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   const retries = useRef<SitovVerbPublicExercise[]>([])
   const sessionVerbIds = useRef<string[] | undefined>(undefined)
   const dueRoundFinished = useRef(false)
+  const sitovTargetRef = useRef<HTMLLIElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const sessionRef = useRef<HTMLElement>(null)
   const sessionActive = !!round
@@ -72,7 +78,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   const selectedVerbs = initialState.verbs.filter(verb => selected.has(verb.id))
   const boxState = useMemo(() => ({ ...initialState, selectedIds, progress }), [initialState, selectedIds, progress])
   const boxCards = useMemo(() => new Map(buildSitovVerbLearningBox(boxState).cards.map(card => [card.verb.id, card])), [boxState])
-  const visibleVerbs = initialState.verbs.filter(verb => (poolLevel === 'all' || verb.level === poolLevel)
+  const visibleVerbs = initialState.verbs.filter(verb => (!sitovTarget?.target || verb.id === sitovTarget.target) && (poolLevel === 'all' || verb.level === poolLevel)
     && (!onlySelected || selected.has(verb.id))
     && `${verb.infinitive} ${verb.translations[locale]}`.toLocaleLowerCase(locale).includes(search.toLocaleLowerCase(locale).trim()))
   const currentVerb = exercise && initialState.verbs.find(verb => verb.id === exercise.verbId)
@@ -114,7 +120,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
     lockedOperation.current = true; setBusy(true); setError(null); setNoTasks(false); setDeferredForms(false)
     try {
       const result = await actions.next({ level: initialState.level, tenses: chosen, excludeVerbId,
-        ...(box == null ? {} : { box, verbIds: sessionVerbIds.current }) }, lang)
+        ...(box == null ? {} : { box }), ...(sessionVerbIds.current ? { verbIds: sessionVerbIds.current } : {}) }, lang)
       if (result.error) { setError(result.error); return }
       setReview(null)
       if (!result.data) {
@@ -124,7 +130,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
         else {
           setNoTasks(true)
           setDeferredForms(buildSitovVerbLearningBox(boxState).cards.some(card =>
-            (box == null || sessionVerbIds.current?.includes(card.verb.id))
+            (!sessionVerbIds.current || sessionVerbIds.current.includes(card.verb.id))
             && card.forms.some(form => form.due && chosen.includes(form.tense))))
         }
         return
@@ -134,12 +140,12 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
     finally { lockedOperation.current = false; setBusy(false) }
   }
 
-  async function start(automatic = false, phase?: SitovVerbBoxKey, chosenOverride?: SitovVerbTense[]) {
+  async function start(automatic = false, phase?: SitovVerbBoxKey, chosenOverride?: SitovVerbTense[], exactVerbId?: string) {
     const chosen = chosenOverride ?? (!automatic && view === 'targeted' ? tenses : initialState.tenses)
     if (!chosen.length || !selectedVerbs.length) return
     const box = phase == null ? undefined : sitovVerbBoxValue(phase)
-    const members = buildSitovVerbLearningBox(boxState).cards.filter(card => phase == null || card.key === phase)
-    sessionVerbIds.current = phase == null ? undefined : members.map(card => card.verb.id)
+    const members = buildSitovVerbLearningBox(boxState).cards.filter(card => (!exactVerbId || card.verb.id === exactVerbId) && (phase == null || card.key === phase))
+    sessionVerbIds.current = phase == null && !exactVerbId ? undefined : members.map(card => card.verb.id)
     const dueCount = members.reduce((count, card) => count + card.forms.filter(form => form.due && chosen.includes(form.tense)).length, 0)
     setRoundLength(roundLimit(chosenRoundSize, dueCount))
     retries.current = []; dueRoundFinished.current = false; setIsRetry(false)
@@ -174,8 +180,12 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   function onSubmit(event: FormEvent) { event.preventDefault(); if (review) void next(); else void submit() }
   function chooseView(value: View) { setView(value); setError(null) }
 
-  return <div className={styles.sitovLayout}>
-    {!sessionActive && <SitovTrainerTabs label={copy.eyebrow} mode="verbs"
+  useEffect(() => {
+    if (sitovTarget?.target && view === 'box') sitovTargetRef.current?.focus({ preventScroll: true })
+  }, [sitovTarget, view])
+  if (sitovTarget?.error) return <div role="alert" data-sitov-target-view className={styles.sitovBox}><p>{sitovLearningTargetCopy(lang)[sitovTarget.error]}</p><button className={styles.sitovPrimary} onClick={() => window.location.reload()}>{sitovLearningTargetCopy(lang).retry}</button></div>
+  return <div data-sitov-target-view={sitovTarget?.target ? true : undefined} className={styles.sitovLayout}>
+    {!sessionActive && !sitovTarget?.target && <SitovTrainerTabs label={copy.eyebrow} mode="verbs"
       items={([{ id: 'automatic', icon: Zap }, { id: 'box', icon: Layers3 }, { id: 'targeted', icon: Target }] as const).map(({ id, icon }) => ({
         id, icon, label: copy[id], selected: view === id, onClick: () => chooseView(id), disabled: busy,
       }))} />}
@@ -245,6 +255,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
           </form> : <div className={styles.sitovEmpty} role="status">{busy ? <><LoaderCircle className={styles.sitovSpinner} size={30} /><p>{copy.loading}</p></> : <button className={styles.sitovPrimary} onClick={() => void loadExercise(sessionTenses, undefined, sessionBox)}>{copy.retry}</button>}</div>}
       </>}
     </section> : <>
+      {view === 'box' && sitovTarget?.target && <SitovTrainerHelp title={uiCopy.help}><p>{copy.boxHint}</p><p>{copy.retained}</p></SitovTrainerHelp>}
       {view === 'box' && <section className={styles.sitovBox}>
         <div className={styles.sitovSectionHead}><div><h1>{copy.boxTitle}</h1><p>{copy.boxHint}</p></div><span className={styles.sitovRetained}><CheckCheck size={16} />{copy.retained}</span></div>
         <div className={styles.sitovLevels} aria-label={copy.availableLevels}><button aria-pressed={poolLevel === 'all'} onClick={() => setPoolLevel('all')}>{copy.all}</button>
@@ -253,10 +264,13 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
           <label className={styles.sitovOnly}><input type="checkbox" checked={onlySelected} onChange={event => setOnlySelected(event.target.checked)} />{copy.onlySelected}</label></div>
         <div className={styles.sitovBoxToolbar}><span>{visibleVerbs.length} / {initialState.verbs.length}</span><button disabled={busy || !visibleVerbs.some(verb => !selected.has(verb.id))} onClick={() => void changeBox(visibleVerbs.filter(verb => !selected.has(verb.id)).map(verb => verb.id), true)}><Plus size={17} />{busy ? copy.saving : copy.addVisible}</button></div>
         {!visibleVerbs.length && <p className={styles.sitovEmpty}>{copy.noResults}</p>}
-        <ul className={styles.sitovVerbList}>{visibleVerbs.map(verb => <li key={verb.id} data-selected={selected.has(verb.id)}>
+        <ul className={styles.sitovVerbList}>{visibleVerbs.map(verb => <li key={verb.id} ref={verb.id === sitovTarget?.target ? sitovTargetRef : undefined} tabIndex={verb.id === sitovTarget?.target ? -1 : undefined} data-sitov-target={verb.id === sitovTarget?.target || undefined} aria-label={verb.id === sitovTarget?.target ? `${sitovLearningTargetCopy(lang).selected}: ${verb.infinitive}` : undefined} data-selected={selected.has(verb.id)}>
           <div className={styles.sitovVerbRow}><div><span className={styles.sitovLevel}>{verb.level}</span><strong lang="de" translate="no">{verb.infinitive}</strong><p>{verb.translations[locale]}</p></div>
             <button className={styles.sitovAdd} disabled={busy} aria-label={`${selected.has(verb.id) ? copy.remove : copy.add}: ${verb.infinitive}`} aria-pressed={selected.has(verb.id)} onClick={() => void changeBox([verb.id], !selected.has(verb.id))}>
               {selected.has(verb.id) ? <Trash2 size={18} /> : <Plus size={19} />}<span>{selected.has(verb.id) ? copy.added : copy.add}</span></button></div>
+          {verb.id === sitovTarget?.target && selected.has(verb.id) && (boxCards.get(verb.id)?.forms.some(form => form.tense === 'present' && form.due)
+            ? <button className={styles.sitovPrimary} disabled={busy} onClick={() => void start(false, undefined, ['present'], verb.id)}>{sitovLearningTargetCopy(lang).practice}</button>
+            : <p role="status">{sitovLearningTargetCopy(lang).noDue}</p>)}
           {selected.has(verb.id) && <div className={styles.sitovFormProgress} aria-label={copy.progress}>
             <strong>{boxCards.get(verb.id)?.key === 'learned' ? boxCopy.learned : sitovVerbBoxText(boxCopy.phase, { box: boxCards.get(verb.id)?.box ?? 1 })}</strong>
             {getSitovVerbTenses(initialState.level, verb).map(tense => {

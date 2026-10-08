@@ -1,5 +1,7 @@
 'use client'
 
+import { sitovLearningTargetCopy } from '@/lib/learning/sitov-learning-target-i18n'
+
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type FormEvent, type WheelEvent } from 'react'
 import { CloudOff, Loader2, Plus, Trash2, X } from 'lucide-react'
 import { addCardsToTrainer, addOwnWord, deleteOwnWord, getLessonCards, resetLessonProgress } from '@/app/actions/vocabulary'
@@ -33,6 +35,7 @@ type OwnMessage = { key: VocabularyTranslationKey; word?: string; tone: 'status'
  */
 export default function LessonCardsModal({
   lesson,
+  focusCardId,
   level,
   uiLanguage,
   translations = {},
@@ -42,6 +45,7 @@ export default function LessonCardsModal({
   onCardAdded,
 }: {
   lesson: string
+  focusCardId?: string
   level: string
   uiLanguage?: string
   translations?: VocabularyTranslations
@@ -54,6 +58,8 @@ export default function LessonCardsModal({
   const t = createVocabularyTranslator(translations)
   const ct = sitovVocabularyChunksTranslator(uiLanguage)
   const tabIds = useId()
+  const sitovFocusedCard = useRef<HTMLLIElement>(null)
+  const sitovFocusApplied = useRef(false)
   const dialog = useRef<HTMLDivElement>(null)
   const wordsTabId = `${tabIds}-words`
   const phasesTabId = `${tabIds}-phases`
@@ -63,6 +69,7 @@ export default function LessonCardsModal({
   const own = isOwnWordsLesson(lesson)
   const title = lessonTitle(lesson, t)
   const wordInput = useRef<HTMLInputElement>(null)
+  const [sitovReadVersion, setSitovReadVersion] = useState(0)
   const [cardsState, setCardsState] = useState<CardsState>('loading')
   const [pendingCardId, setPendingCardId] = useState<string | null>(null)
   const [addFailed, setAddFailed] = useState(false)
@@ -85,7 +92,7 @@ export default function LessonCardsModal({
       .then((cards) => {
         if (!cancelled) setCardsState(cards)
       })
-      .catch((err) => {
+      .catch(() => {
         console.error("Vokabeln der Lektion konnten nicht geladen werden:")
         if (!cancelled) setCardsState('error')
       })
@@ -93,7 +100,7 @@ export default function LessonCardsModal({
     return () => {
       cancelled = true
     }
-  }, [lesson, level, uiLanguage])
+  }, [lesson, level, uiLanguage, sitovReadVersion])
 
   useEffect(() => {
     const previousFocus = document.activeElement
@@ -126,6 +133,13 @@ export default function LessonCardsModal({
     }
   }, [])
 
+  useEffect(() => {
+    if (!focusCardId || !Array.isArray(cardsState) || sitovFocusApplied.current || !sitovFocusedCard.current) return
+    sitovFocusApplied.current = true
+    sitovFocusedCard.current?.focus({ preventScroll: true })
+    sitovFocusedCard.current?.scrollIntoView?.({ block: 'nearest', behavior: 'instant' })
+  }, [focusCardId, cardsState])
+
   const displayCards = useMemo(() => Array.isArray(cardsState) ? cardsState : [], [cardsState])
   const kindCounts = useMemo(() => sitovVocabularyKindCounts(displayCards), [displayCards])
   const visibleCards = useMemo(() => sitovFilterVocabularyCards(displayCards, kindFilter), [displayCards, kindFilter])
@@ -145,7 +159,7 @@ export default function LessonCardsModal({
           return
         }
         onCardAdded()
-      } catch (err) {
+      } catch {
         console.error("Vokabel konnte nicht manuell übernommen werden:")
         setCardsState(previousCards)
         setAddFailed(true)
@@ -227,7 +241,7 @@ export default function LessonCardsModal({
       if (!result.success) throw new Error('lesson_reset_failed')
       setShowResetConfirm(false)
       onCardAdded()
-    } catch (err) {
+    } catch {
       console.error("Lernfortschritt konnte nicht zurückgesetzt werden:")
       setCardsState(previousCards)
       setResetFailed(true)
@@ -328,9 +342,11 @@ export default function LessonCardsModal({
                 <p className="flex items-center gap-3 text-base text-[var(--muted)]">
                   <CloudOff className="h-6 w-6 shrink-0" aria-hidden="true" />
                   {t('cards_load_failed')}
+                  <button className="min-h-12 min-w-12 rounded-xl px-4 active:scale-95 motion-reduce:transform-none" onClick={() => setSitovReadVersion(value => value + 1)}>{sitovLearningTargetCopy(uiLanguage).retry}</button>
                 </p>
               )}
 
+              {focusCardId && Array.isArray(cardsState) && !cardsState.some(card => card.id === focusCardId) && <p role="alert">{sitovLearningTargetCopy(uiLanguage).unavailable}</p>}
               {Array.isArray(cardsState) && (
                 <div className="space-y-4">
                   {own && (
@@ -405,12 +421,17 @@ export default function LessonCardsModal({
                       return (
                         <li
                           key={card.id}
+                          ref={card.id === focusCardId ? sitovFocusedCard : undefined}
+                          tabIndex={card.id === focusCardId ? -1 : undefined}
+                          aria-label={card.id === focusCardId ? `${sitovLearningTargetCopy(uiLanguage).selected}: ${displayWord}` : undefined}
+                          data-sitov-target={card.id === focusCardId || undefined}
+                          style={card.id === focusCardId ? { outline: '3px solid var(--accent-strong)', outlineOffset: 3 } : undefined}
                           className="min-w-0 rounded-2xl bg-[var(--surface-muted)] p-4 shadow-sm ring-1 ring-[var(--border)]"
                         >
                           <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                           <div className="min-w-0">
                             {!own && <div className="mb-1.5"><SitovVocabularyKindBadge kind={sitovVocabularyCardKind(card)} lang={uiLanguage} /></div>}
-                            <p lang="de" className={cn('break-words text-base font-bold', articleColorClass(card.article))}>
+                            <p lang="de" translate="no" className={cn('break-words text-base font-bold', articleColorClass(card.article))}>
                               {displayWord}
                             </p>
                             <p className="break-words text-base text-[var(--muted)]">

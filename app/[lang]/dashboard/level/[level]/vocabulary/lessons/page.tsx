@@ -1,3 +1,4 @@
+import { resolveSitovVocabularyTarget } from '@/lib/learning/sitov-learning-target-server'
 import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { sitovLearningSourceLocale } from '@/lib/access/sitov-learning-source'
 import { requestSession } from '@/lib/request-session'
@@ -33,9 +34,10 @@ export default async function VocabularyLessonsPage({ params, searchParams }: {
     getDictionary(lang),
   ])
   if (profile && !sitovLearningSourceLocale(lang, profile.native_language)) return <TrainerLanguageRequired lang={lang} />
-  const [status, news] = await Promise.all([
+  const [status, news, sitovTarget] = await Promise.all([
     user ? loadLevelLearningStatus({ supabase, userId: user.id, profile, level: decodedLevel, lang }) : null,
     loadLearningNewItems(decodedLevel),
+    resolveSitovVocabularyTarget(query.sitov_target, decodedLevel, { supabase, user }, profile),
   ])
   const s = studentTranslator(lang)
   const translations = (dict.vocabulary ?? {}) as VocabularyTranslations
@@ -52,8 +54,8 @@ export default async function VocabularyLessonsPage({ params, searchParams }: {
       : null
 
   return (
-    <VocabularyLessons lang={lang} level={decodedLevel} stations={stations} next={next}
-      initialOwnWord={open ? sitovInitialWord : ''} initialOwnExample={open ? sitovInitialExample : ''}
+    <VocabularyLessons key={`${user?.id ?? 'anonymous'}:${decodedLevel}:${lang}:${query.sitov_target ?? ''}`} sitovTarget={sitovTarget} lang={lang} level={decodedLevel} stations={stations} next={next}
+      initialOwnWord={open && !sitovTarget ? sitovInitialWord : ''} initialOwnExample={open ? sitovInitialExample : ''}
       carryover={open ? status?.carryover : null} learnerId={user?.id} newItems={news.items} lessonIds={news.lessonIds}
       vocabularyHref={open ? vocabularyHref : null} vocabularyTranslations={translations}
       ownWords={open ? status?.ownWords ?? { lesson: OWN_WORDS_LESSON, total: 0, active: 0, learned: 0, untouched: 0, due: 0 } : undefined} />

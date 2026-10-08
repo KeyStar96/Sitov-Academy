@@ -1,5 +1,8 @@
 'use client'
 
+import type { SitovTargetResult, SitovVocabularyTarget } from '@/lib/learning/sitov-learning-target-server'
+import { sitovLearningTargetCopy } from '@/lib/learning/sitov-learning-target-i18n'
+
 import { useEffect, useState, useTransition, type CSSProperties } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -62,7 +65,8 @@ function BoxSwitch({ on, busy, disabled, label, hint, ariaLabel, onToggle }: {
  * „Eigene Wörter" stehen als eigene Station darunter: einschalten, eintragen,
  * löschen. Die Lernbox-Seite zeigt danach nur noch die Box selbst.
  */
-export default function VocabularyLessons({ lang, level, stations, next, vocabularyHref, vocabularyTranslations, ownWords, carryover, learnerId, newItems, lessonIds, initialOwnWord, initialOwnExample }: {
+export default function VocabularyLessons({ lang, level, stations, next, vocabularyHref, vocabularyTranslations, ownWords, carryover, learnerId, newItems, lessonIds, initialOwnWord, initialOwnExample, sitovTarget }: {
+  sitovTarget?: SitovTargetResult<SitovVocabularyTarget> | null
   lang: string
   level: string
   stations: PathStation[]
@@ -95,9 +99,9 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
   const [startOpen, setStartOpen] = useState(false)
   const [startPending, setStartPending] = useState<'assess' | 'all' | null>(null)
   const [startFailed, setStartFailed] = useState(false)
-  const [cardsFor, setCardsFor] = useState<string | null>(null)
+  const [cardsFor, setCardsFor] = useState<string | null>(sitovTarget?.target?.lesson ?? null)
   const sitovOwnLesson = ownWords?.lesson
-  useEffect(() => { if (initialOwnWord && sitovOwnLesson) setCardsFor(sitovOwnLesson) }, [initialOwnWord, sitovOwnLesson])
+  useEffect(() => { if (!sitovTarget && initialOwnWord && sitovOwnLesson) setCardsFor(sitovOwnLesson) }, [initialOwnWord, sitovOwnLesson, sitovTarget])
   // Schalterstellung sofort zeigen, bis der Server sie bestätigt hat.
   const [override, setOverride] = useState<Record<string, boolean>>({})
   const [pending, setPending] = useState<string | null>(null)
@@ -195,6 +199,7 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
 
   return (
     <div className="space-y-8">
+      {sitovTarget?.error && <div role="alert" className="rounded-2xl border border-[var(--border)] p-4"><p>{sitovLearningTargetCopy(lang)[sitovTarget.error]}</p><button className="min-h-12 min-w-12 rounded-xl px-4 active:scale-95 motion-reduce:transform-none" onClick={() => router.refresh()}>{sitovLearningTargetCopy(lang).retry}</button></div>}
       <section className="st-path-hero sl-glass sl-hero" aria-labelledby="lessons-title">
         <div className="relative">
           <p className="st-eyebrow !mt-0">{t('areas_level', { level })}</p>
@@ -352,7 +357,7 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
       </BottomSheet>
 
       {cardsFor && vocabularyTranslations && (
-        <LessonCardsModal lesson={cardsFor} level={level} uiLanguage={lang} translations={vocabularyTranslations}
+        <LessonCardsModal key={`${learnerId}:${level}:${cardsFor}:${sitovTarget?.target?.cardId ?? ''}`} focusCardId={cardsFor === sitovTarget?.target?.lesson ? sitovTarget.target.cardId : undefined} lesson={cardsFor} level={level} uiLanguage={lang} translations={vocabularyTranslations}
           initialOwnWord={initialOwnWord} initialOwnExample={initialOwnExample}
           onClose={() => setCardsFor(null)} onCardAdded={refresh} />
       )}

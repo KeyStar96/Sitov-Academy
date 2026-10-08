@@ -172,3 +172,10 @@
 .sitovSettings a { display: inline-flex; align-items: center; gap: .5rem; min-height: 48px; padding: 0 .75rem; border-radius: .75rem; color: var(--muted); font-size: .875rem; transition: color var(--motion-base); }
 .sitovSettings a:hover { color: var(--foreground); }
 .sitovSettings a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+.sitovVerbList > li[data-sitov-target] { outline: 3px solid var(--accent-strong); outline-offset: 3px; }
+.sitovVerbList > li[data-sitov-target] > button { min-height: 48px; margin: 12px 0; }
+
+.sitovLayout[data-sitov-target-view] button:not([data-sitov-trainer-help-toggle]), .sitovBox[data-sitov-target-view] button:not([data-sitov-trainer-help-toggle]) { min-height: 48px; min-width: 48px; }
+.sitovLayout[data-sitov-target-view] button:active:not(:disabled), .sitovBox[data-sitov-target-view] button:active:not(:disabled) { transform: scale(.96); }
+@media (prefers-reduced-motion: reduce) { .sitovLayout[data-sitov-target-view] button:active:not(:disabled), .sitovBox[data-sitov-target-view] button:active:not(:disabled) { transform: none; } }
