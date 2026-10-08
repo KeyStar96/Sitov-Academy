@@ -7,8 +7,8 @@
   "scope": "Repository canonical seeds and revisions; no live/custom inventory",
   "coverage": {
     "total": 60,
-    "authored": 3,
-    "pending": 57
+    "authored": 6,
+    "pending": 54
   },
   "audioStatus": "draft_only: full DB public-question/reference asset and immutable word-timing proof gate implemented; actual M local preparation, byte/timing audit, import and trusted proof insertion pending; no definitions published",
   "drafts": [
@@ -3221,6 +3221,3175 @@
           }
         ]
       }
+    },
+    {
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "unitId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "level": "A1.1",
+      "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat Quellenbelege, eindeutige Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; kein Audio-Import und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a11-04.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Wörter für Nachbarschaft, Begegnung, Begrüßung, Befinden und zeitliche Abfolge verstehen.",
+            "languageUnits": [
+              "neighbor proximity",
+              "new arrival",
+              "mutual meeting",
+              "hello greeting",
+              "well condition",
+              "later sequence"
+            ],
+            "sourceSpans": [
+              {
+                "start": 31,
+                "end": 55,
+                "quote": "Mein Nachbar heißt Leon."
+              },
+              {
+                "start": 56,
+                "end": 72,
+                "quote": "Er ist neu hier."
+              },
+              {
+                "start": 73,
+                "end": 108,
+                "quote": "Heute treffen wir uns vor dem Haus."
+              },
+              {
+                "start": 109,
+                "end": 123,
+                "quote": "Ich sage Hallo"
+              },
+              {
+                "start": 168,
+                "end": 184,
+                "quote": "Es geht ihm gut."
+              },
+              {
+                "start": 185,
+                "end": 220,
+                "quote": "Wir trinken später zusammen Kaffee."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.kennenlernen"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-04.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Die tatsächlich verwendeten Präsensformen wohnen, heißen, sein, treffen, lächeln und trinken erkennen und passenden Personen zuordnen.",
+            "languageUnits": [
+              "wohnen ich present",
+              "heissen lexical infinitive",
+              "sein third singular",
+              "treffen plural agreement",
+              "laecheln finite singular",
+              "trinken plural form"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Ich wohne in der Gartenstraße."
+              },
+              {
+                "start": 31,
+                "end": 55,
+                "quote": "Mein Nachbar heißt Leon."
+              },
+              {
+                "start": 56,
+                "end": 72,
+                "quote": "Er ist neu hier."
+              },
+              {
+                "start": 73,
+                "end": 108,
+                "quote": "Heute treffen wir uns vor dem Haus."
+              },
+              {
+                "start": 154,
+                "end": 167,
+                "quote": "Leon lächelt."
+              },
+              {
+                "start": 185,
+                "end": 220,
+                "quote": "Wir trinken später zusammen Kaffee."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.kennenlernen"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-04.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Aussagesätze, vorangestelltes Heute, eine W-Frage sowie koordinierte Tätigkeiten und ihre Angaben entschlüsseln.",
+            "languageUnits": [
+              "residence statement order",
+              "today fronted inversion",
+              "how question structure",
+              "shared subject coordination",
+              "location phrase grouping",
+              "later temporal role"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Ich wohne in der Gartenstraße."
+              },
+              {
+                "start": 73,
+                "end": 108,
+                "quote": "Heute treffen wir uns vor dem Haus."
+              },
+              {
+                "start": 135,
+                "end": 153,
+                "quote": "Wie geht es Ihnen?"
+              },
+              {
+                "start": 109,
+                "end": 133,
+                "quote": "Ich sage Hallo und frage"
+              },
+              {
+                "start": 185,
+                "end": 220,
+                "quote": "Wir trinken später zusammen Kaffee."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-04.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Possessivform, Ortsdativ, männlicher Personenbezug, reflexives uns und die Dativformen Ihnen/ihm in der echten Befindensfrage verstehen.",
+            "languageUnits": [
+              "masculine neighbor possessive",
+              "street local dative",
+              "male pronoun antecedent",
+              "reciprocal first plural uns",
+              "polite dative addressee",
+              "third masculine dative reference"
+            ],
+            "sourceSpans": [
+              {
+                "start": 31,
+                "end": 55,
+                "quote": "Mein Nachbar heißt Leon."
+              },
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Ich wohne in der Gartenstraße."
+              },
+              {
+                "start": 31,
+                "end": 72,
+                "quote": "Mein Nachbar heißt Leon. Er ist neu hier."
+              },
+              {
+                "start": 73,
+                "end": 108,
+                "quote": "Heute treffen wir uns vor dem Haus."
+              },
+              {
+                "start": 135,
+                "end": 153,
+                "quote": "Wie geht es Ihnen?"
+              },
+              {
+                "start": 154,
+                "end": 184,
+                "quote": "Leon lächelt. Es geht ihm gut."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.nominativ"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a11-04.words.q1",
+            "competencyId": "sitov.pretest.a11-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Nachbar«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Ein Mann, der in der Nähe wohnt."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Ein Mann, der eine Reise leitet."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Ein Mann, der Unterricht gibt."
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "neighbor proximity",
+            "equivalenceKey": "neighbor proximity",
+            "sourceSpans": [
+              {
+                "start": 31,
+                "end": 55,
+                "quote": "Mein Nachbar heißt Leon."
+              }
+            ],
+            "rationaleDe": "Nachbar bezeichnet hier einen räumlich nah wohnenden Mann; Reiseleitung und Unterricht sind andere Rollen."
+          },
+          {
+            "id": "sitov.pretest.a11-04.words.q2",
+            "competencyId": "sitov.pretest.a11-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Er ist neu hier«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Er lebt schon sehr lange hier."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Er ist erst seit kurzer Zeit hier."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Er ist heute nicht hier."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "new arrival",
+            "equivalenceKey": "new arrival",
+            "sourceSpans": [
+              {
+                "start": 56,
+                "end": 72,
+                "quote": "Er ist neu hier."
+              }
+            ],
+            "rationaleDe": "Neu hier bezeichnet einen erst kürzlich hinzugekommenen Mann, nicht lange Anwesenheit oder Abwesenheit."
+          },
+          {
+            "id": "sitov.pretest.a11-04.words.q3",
+            "competencyId": "sitov.pretest.a11-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »wir treffen uns«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Wir vermeiden eine Begegnung."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Wir suchen allein eine Wohnung."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Wir kommen zu einer Begegnung zusammen."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "mutual meeting",
+            "equivalenceKey": "mutual meeting",
+            "sourceSpans": [
+              {
+                "start": 73,
+                "end": 108,
+                "quote": "Heute treffen wir uns vor dem Haus."
+              }
+            ],
+            "rationaleDe": "Sich treffen bedeutet einander begegnen; vermeiden und allein suchen beschreiben keine gemeinsame Begegnung."
+          },
+          {
+            "id": "sitov.pretest.a11-04.words.q4",
+            "competencyId": "sitov.pretest.a11-04.words",
+            "kind": "single_choice",
+            "promptDe": "Wozu sagt man »Hallo«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Zur Begrüßung."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Zur Angabe einer Adresse."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Zur Beschreibung einer Uhrzeit."
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "hello greeting",
+            "equivalenceKey": "hello greeting",
+            "sourceSpans": [
+              {
+                "start": 109,
+                "end": 123,
+                "quote": "Ich sage Hallo"
+              }
+            ],
+            "rationaleDe": "Hallo ist eine Begrüßung; es nennt weder eine Adresse noch eine Uhrzeit."
+          },
+          {
+            "id": "sitov.pretest.a11-04.words.q5",
+            "competencyId": "sitov.pretest.a11-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Es geht ihm gut«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Er geht schnell zu Fuß."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Er fühlt sich wohl."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Er hat den Weg verloren."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "well condition",
+            "equivalenceKey": "well condition",
+            "sourceSpans": [
+              {
+                "start": 168,
+                "end": 184,
+                "quote": "Es geht ihm gut."
+              }
+            ],
+            "rationaleDe": "Die feste Wendung es geht jemandem gut beschreibt das Befinden, nicht Gehgeschwindigkeit oder Orientierung."
+          },
+          {
+            "id": "sitov.pretest.a11-04.words.q6",
+            "competencyId": "sitov.pretest.a11-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »später«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Zu einem früheren Zeitpunkt."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Zur gleichen Zeit wie gestern."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Zu einem Zeitpunkt danach."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "later sequence",
+            "equivalenceKey": "later sequence",
+            "sourceSpans": [
+              {
+                "start": 185,
+                "end": 220,
+                "quote": "Wir trinken später zusammen Kaffee."
+              }
+            ],
+            "rationaleDe": "Später ordnet das Kaffeetrinken zeitlich nach dem jetzigen Geschehen ein; früher bezeichnet die Gegenrichtung."
+          },
+          {
+            "id": "sitov.pretest.a11-04.verbs.q1",
+            "competencyId": "sitov.pretest.a11-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Ich ___ in der Gartenstraße.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "wohne"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "wohnst"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "wohnt"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "wohnen ich present",
+            "equivalenceKey": "wohnen ich present",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Ich wohne in der Gartenstraße."
+              }
+            ],
+            "rationaleDe": "Zum Subjekt ich gehört wohne; wohnst passt zu du, wohnt zu er oder ihr."
+          },
+          {
+            "id": "sitov.pretest.a11-04.verbs.q2",
+            "competencyId": "sitov.pretest.a11-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »heißt« in »Mein Nachbar heißt Leon«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "heizen"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "heißen"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "helfen"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "heissen lexical infinitive",
+            "equivalenceKey": "heissen lexical infinitive",
+            "sourceSpans": [
+              {
+                "start": 31,
+                "end": 55,
+                "quote": "Mein Nachbar heißt Leon."
+              }
+            ],
+            "rationaleDe": "Heißt ist die dritte Person Singular von heißen; heizen und helfen sind eigenständige andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a11-04.verbs.q3",
+            "competencyId": "sitov.pretest.a11-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Er ___ neu hier.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "bin"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "sind"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "ist"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "sein third singular",
+            "equivalenceKey": "sein third singular",
+            "sourceSpans": [
+              {
+                "start": 56,
+                "end": 72,
+                "quote": "Er ist neu hier."
+              }
+            ],
+            "rationaleDe": "Zum männlichen Singularpronomen er gehört die unregelmäßige sein-Form ist; bin gehört zu ich, sind zum Plural."
+          },
+          {
+            "id": "sitov.pretest.a11-04.verbs.q4",
+            "competencyId": "sitov.pretest.a11-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Heute ___ wir uns vor dem Haus.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "treffen"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "trifft"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "treffe"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "treffen plural agreement",
+            "equivalenceKey": "treffen plural agreement",
+            "sourceSpans": [
+              {
+                "start": 73,
+                "end": 108,
+                "quote": "Heute treffen wir uns vor dem Haus."
+              }
+            ],
+            "rationaleDe": "Wir verlangt treffen im Plural; trifft ist Singular, treffe gehört zu ich. Der Vokalwechsel tritt bei wir nicht auf."
+          },
+          {
+            "id": "sitov.pretest.a11-04.verbs.q5",
+            "competencyId": "sitov.pretest.a11-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welches Wort ist das gebeugte Verb in »Leon lächelt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Leon"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "lächelt"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "lächeln"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "laecheln finite singular",
+            "equivalenceKey": "laecheln finite singular",
+            "sourceSpans": [
+              {
+                "start": 154,
+                "end": 167,
+                "quote": "Leon lächelt."
+              }
+            ],
+            "rationaleDe": "Lächelt ist die finite Form zum Subjekt Leon; Leon ist ein Name, lächeln wäre die Grundform."
+          },
+          {
+            "id": "sitov.pretest.a11-04.verbs.q6",
+            "competencyId": "sitov.pretest.a11-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Verbform passt zu »wir« beim Verb »trinken«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "trinkt"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "trinkst"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "trinken"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "trinken plural form",
+            "equivalenceKey": "trinken plural form",
+            "sourceSpans": [
+              {
+                "start": 185,
+                "end": 220,
+                "quote": "Wir trinken später zusammen Kaffee."
+              }
+            ],
+            "rationaleDe": "Trinken stimmt mit wir überein; trinkt gehört unter anderem zu er oder ihr, trinkst nur zu du."
+          },
+          {
+            "id": "sitov.pretest.a11-04.syntax.q1",
+            "competencyId": "sitov.pretest.a11-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welcher Satz ist ein normaler Aussagesatz über den Wohnort?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Ich wohne in der Gartenstraße."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Ich in der Gartenstraße wohne."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Wohne ich in der Gartenstraße?"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "residence statement order",
+            "equivalenceKey": "residence statement order",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Ich wohne in der Gartenstraße."
+              }
+            ],
+            "rationaleDe": "Im Aussagesatz steht wohne an zweiter Satzgliedposition; die zweite Form verschiebt das Verb, die dritte ist eine Frage."
+          },
+          {
+            "id": "sitov.pretest.a11-04.syntax.q2",
+            "competencyId": "sitov.pretest.a11-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Heute ___.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "wir uns treffen vor dem Haus"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "treffen wir uns vor dem Haus"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "wir treffen uns vor dem Haus"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "today fronted inversion",
+            "equivalenceKey": "today fronted inversion",
+            "sourceSpans": [
+              {
+                "start": 73,
+                "end": 108,
+                "quote": "Heute treffen wir uns vor dem Haus."
+              }
+            ],
+            "rationaleDe": "Heute besetzt die erste Satzgliedposition; das finite Verb treffen folgt vor dem Subjekt wir."
+          },
+          {
+            "id": "sitov.pretest.a11-04.syntax.q3",
+            "competencyId": "sitov.pretest.a11-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welcher Satz ist die W-Frage nach dem Befinden?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Wie es Ihnen geht?"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Geht wie es Ihnen?"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Wie geht es Ihnen?"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "how question structure",
+            "equivalenceKey": "how question structure",
+            "sourceSpans": [
+              {
+                "start": 135,
+                "end": 153,
+                "quote": "Wie geht es Ihnen?"
+              }
+            ],
+            "rationaleDe": "Die selbstständige W-Frage beginnt mit Wie und dem finiten Verb geht; die anderen Reihenfolgen bilden diese Frage nicht korrekt."
+          },
+          {
+            "id": "sitov.pretest.a11-04.syntax.q4",
+            "competencyId": "sitov.pretest.a11-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer führt beide Tätigkeiten in »Ich sage Hallo und frage« aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Die sprechende Person."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Nur Leon."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Zwei verschiedene, nicht genannte Männer."
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "shared subject coordination",
+            "equivalenceKey": "shared subject coordination",
+            "sourceSpans": [
+              {
+                "start": 109,
+                "end": 133,
+                "quote": "Ich sage Hallo und frage"
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich gilt sowohl für sage als auch für frage; und verbindet Tätigkeiten desselben Sprechers."
+          },
+          {
+            "id": "sitov.pretest.a11-04.syntax.q5",
+            "competencyId": "sitov.pretest.a11-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe antwortet hier auf »Wo treffen wir uns?«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Heute"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "vor dem Haus"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "wir uns"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "location phrase grouping",
+            "equivalenceKey": "location phrase grouping",
+            "sourceSpans": [
+              {
+                "start": 73,
+                "end": 108,
+                "quote": "Heute treffen wir uns vor dem Haus."
+              }
+            ],
+            "rationaleDe": "Vor dem Haus bildet die Ortsangabe; Heute ist eine Zeitangabe, wir uns nennt beteiligte Personen."
+          },
+          {
+            "id": "sitov.pretest.a11-04.syntax.q6",
+            "competencyId": "sitov.pretest.a11-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Frage beantwortet »später« in diesem Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Was trinken wir?"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Mit wem trinken wir?"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Wann trinken wir?"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "later temporal role",
+            "equivalenceKey": "later temporal role",
+            "sourceSpans": [
+              {
+                "start": 185,
+                "end": 220,
+                "quote": "Wir trinken später zusammen Kaffee."
+              }
+            ],
+            "rationaleDe": "Später ist eine Zeitangabe und beantwortet wann; Kaffee beantwortet was, zusammen beschreibt das gemeinsame Handeln."
+          },
+          {
+            "id": "sitov.pretest.a11-04.nominal.q1",
+            "competencyId": "sitov.pretest.a11-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: ___ Nachbar heißt Leon.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Meine"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Meinen"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "masculine neighbor possessive",
+            "equivalenceKey": "masculine neighbor possessive",
+            "sourceSpans": [
+              {
+                "start": 31,
+                "end": 55,
+                "quote": "Mein Nachbar heißt Leon."
+              }
+            ],
+            "rationaleDe": "Nachbar ist maskulin und hier Subjekt; mein passt zum Nominativ Singular, meine und meinen nicht."
+          },
+          {
+            "id": "sitov.pretest.a11-04.nominal.q2",
+            "competencyId": "sitov.pretest.a11-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze die Ortsangabe: Ich wohne in ___ Gartenstraße.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "die"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "der"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "den"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "street local dative",
+            "equivalenceKey": "street local dative",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Ich wohne in der Gartenstraße."
+              }
+            ],
+            "rationaleDe": "Die feminine Gartenstraße steht bei der festen Ortsangabe mit in im Dativ: in der; die wäre Nominativ oder Akkusativ."
+          },
+          {
+            "id": "sitov.pretest.a11-04.nominal.q3",
+            "competencyId": "sitov.pretest.a11-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Auf wen bezieht sich »Er« nach »Mein Nachbar heißt Leon«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Auf das Haus."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Auf die Gartenstraße."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Auf Leon."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "male pronoun antecedent",
+            "equivalenceKey": "male pronoun antecedent",
+            "sourceSpans": [
+              {
+                "start": 31,
+                "end": 72,
+                "quote": "Mein Nachbar heißt Leon. Er ist neu hier."
+              }
+            ],
+            "rationaleDe": "Er nimmt den unmittelbar genannten männlichen Nachbarn Leon wieder auf; Straße ist feminin und Haus neutral."
+          },
+          {
+            "id": "sitov.pretest.a11-04.nominal.q4",
+            "competencyId": "sitov.pretest.a11-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Heute treffen wir ___ vor dem Haus.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "uns"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "mich"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "ihm"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "reciprocal first plural uns",
+            "equivalenceKey": "reciprocal first plural uns",
+            "sourceSpans": [
+              {
+                "start": 73,
+                "end": 108,
+                "quote": "Heute treffen wir uns vor dem Haus."
+              }
+            ],
+            "rationaleDe": "Zum Subjekt wir gehört hier das reflexive beziehungsweise gegenseitige uns; mich bezeichnet ich, ihm eine andere Person im Dativ."
+          },
+          {
+            "id": "sitov.pretest.a11-04.nominal.q5",
+            "competencyId": "sitov.pretest.a11-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Wer ist mit »Ihnen« in der Frage »Wie geht es Ihnen?« gemeint?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Nur der Sprecher selbst."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Die höflich angesprochene Person."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Eine Sache ohne Personenbezug."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "polite dative addressee",
+            "equivalenceKey": "polite dative addressee",
+            "sourceSpans": [
+              {
+                "start": 135,
+                "end": 153,
+                "quote": "Wie geht es Ihnen?"
+              }
+            ],
+            "rationaleDe": "Großgeschriebenes Ihnen ist hier die höfliche Dativform für den angesprochenen Nachbarn; es bezeichnet weder den Sprecher noch eine Sache."
+          },
+          {
+            "id": "sitov.pretest.a11-04.nominal.q6",
+            "competencyId": "sitov.pretest.a11-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Wen bezeichnet »ihm« nach »Leon lächelt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Die sprechende Person mit ich."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Mehrere nicht genannte Männer."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Den zuvor genannten Leon."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "third masculine dative reference",
+            "equivalenceKey": "third masculine dative reference",
+            "sourceSpans": [
+              {
+                "start": 154,
+                "end": 184,
+                "quote": "Leon lächelt. Es geht ihm gut."
+              }
+            ],
+            "rationaleDe": "Ihm ist die männliche Dativform, die Leon wieder aufnimmt; mir wäre der Sprecher, ihnen ohne Großschreibung ein Plural."
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "modal_verbs",
+            "reasonDe": "Der gespeicherte Text enthält kein Modalverb."
+          },
+          {
+            "category": "past_tenses",
+            "reasonDe": "Alle finiten Verbformen des gespeicherten Textes stehen im Präsens."
+          },
+          {
+            "category": "separable_verbs",
+            "reasonDe": "Der Text enthält kein trennbares Verb; treffen und trinken sind nicht trennbar."
+          },
+          {
+            "category": "subordinate_clauses",
+            "reasonDe": "Die Frage und alle Aussagen sind selbstständige Hauptsätze; kein Nebensatz ist vorhanden."
+          },
+          {
+            "category": "comparative",
+            "reasonDe": "Später ist hier eine feste Zeitangabe; ein produktiver Adjektivvergleich mit als oder ein Superlativ ist zum Textverständnis nicht erforderlich."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.pretest.a11-04.form1",
+            "questionIds": [
+              "sitov.pretest.a11-04.words.q1",
+              "sitov.pretest.a11-04.words.q2",
+              "sitov.pretest.a11-04.words.q3",
+              "sitov.pretest.a11-04.verbs.q1",
+              "sitov.pretest.a11-04.verbs.q2",
+              "sitov.pretest.a11-04.verbs.q3",
+              "sitov.pretest.a11-04.syntax.q1",
+              "sitov.pretest.a11-04.syntax.q2",
+              "sitov.pretest.a11-04.syntax.q3",
+              "sitov.pretest.a11-04.nominal.q1",
+              "sitov.pretest.a11-04.nominal.q2",
+              "sitov.pretest.a11-04.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.pretest.a11-04.form2",
+            "questionIds": [
+              "sitov.pretest.a11-04.words.q4",
+              "sitov.pretest.a11-04.words.q5",
+              "sitov.pretest.a11-04.words.q6",
+              "sitov.pretest.a11-04.verbs.q4",
+              "sitov.pretest.a11-04.verbs.q5",
+              "sitov.pretest.a11-04.verbs.q6",
+              "sitov.pretest.a11-04.syntax.q4",
+              "sitov.pretest.a11-04.syntax.q5",
+              "sitov.pretest.a11-04.syntax.q6",
+              "sitov.pretest.a11-04.nominal.q4",
+              "sitov.pretest.a11-04.nominal.q5",
+              "sitov.pretest.a11-04.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "unitId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "level": "A1.1",
+      "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat Quellenbelege, eindeutige Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; kein Audio-Import und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a11-05.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Samstag, Naturwörter, Sitzgelegenheit und die Tätigkeiten hören/essen in der Parksituation verstehen.",
+            "languageUnits": [
+              "saturday weekday",
+              "sun shining",
+              "tree plant",
+              "park bench",
+              "listening music",
+              "bread food"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 18,
+                "quote": "Heute ist Samstag."
+              },
+              {
+                "start": 19,
+                "end": 37,
+                "quote": "Die Sonne scheint."
+              },
+              {
+                "start": 77,
+                "end": 110,
+                "quote": "Dort sind viele Bäume und Blumen."
+              },
+              {
+                "start": 111,
+                "end": 137,
+                "quote": "Wir sitzen auf einer Bank."
+              },
+              {
+                "start": 171,
+                "end": 186,
+                "quote": "Wir hören Musik"
+              },
+              {
+                "start": 191,
+                "end": 208,
+                "quote": "essen unser Brot."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.zeit"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-05.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sein im Singular und Plural sowie die echten Präsensformen gehen, sitzen, spielen und essen unterscheiden.",
+            "languageUnits": [
+              "sein weekday singular",
+              "gehen plural compound subject",
+              "sein trees flowers plural",
+              "sitzen first plural",
+              "spielen dog singular",
+              "essen first plural coordination"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 18,
+                "quote": "Heute ist Samstag."
+              },
+              {
+                "start": 38,
+                "end": 76,
+                "quote": "Mein Freund und ich gehen in den Park."
+              },
+              {
+                "start": 77,
+                "end": 110,
+                "quote": "Dort sind viele Bäume und Blumen."
+              },
+              {
+                "start": 111,
+                "end": 137,
+                "quote": "Wir sitzen auf einer Bank."
+              },
+              {
+                "start": 138,
+                "end": 170,
+                "quote": "Ein kleiner Hund spielt im Gras."
+              },
+              {
+                "start": 171,
+                "end": 208,
+                "quote": "Wir hören Musik und essen unser Brot."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-05.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Vorangestellte Angaben, zusammengesetztes Subjekt, koordinierte Nominalgruppen und zwei Tätigkeiten mit getrennten Objekten lesen.",
+            "languageUnits": [
+              "today predicate placement",
+              "compound subject participants",
+              "there fronted inversion",
+              "sitting place constituent",
+              "adjective scope dog",
+              "music bread separate objects"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 18,
+                "quote": "Heute ist Samstag."
+              },
+              {
+                "start": 38,
+                "end": 76,
+                "quote": "Mein Freund und ich gehen in den Park."
+              },
+              {
+                "start": 77,
+                "end": 110,
+                "quote": "Dort sind viele Bäume und Blumen."
+              },
+              {
+                "start": 111,
+                "end": 137,
+                "quote": "Wir sitzen auf einer Bank."
+              },
+              {
+                "start": 138,
+                "end": 170,
+                "quote": "Ein kleiner Hund spielt im Gras."
+              },
+              {
+                "start": 171,
+                "end": 208,
+                "quote": "Wir hören Musik und essen unser Brot."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-05.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Richtungsakkusativ, Ortsdativ, Plural, attributive Form kleiner und die Possessivbezüge mein/unser im Parktext verstehen.",
+            "languageUnits": [
+              "direction masculine accusative",
+              "bench feminine local dative",
+              "tree flower plurals",
+              "dog adjective nominal ending",
+              "speaker possessive friend",
+              "first plural possessive bread"
+            ],
+            "sourceSpans": [
+              {
+                "start": 58,
+                "end": 76,
+                "quote": "gehen in den Park."
+              },
+              {
+                "start": 111,
+                "end": 137,
+                "quote": "Wir sitzen auf einer Bank."
+              },
+              {
+                "start": 77,
+                "end": 110,
+                "quote": "Dort sind viele Bäume und Blumen."
+              },
+              {
+                "start": 138,
+                "end": 170,
+                "quote": "Ein kleiner Hund spielt im Gras."
+              },
+              {
+                "start": 38,
+                "end": 76,
+                "quote": "Mein Freund und ich gehen in den Park."
+              },
+              {
+                "start": 171,
+                "end": 208,
+                "quote": "Wir hören Musik und essen unser Brot."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.akkusativ",
+                "sitov.topic.nominativ"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a11-05.words.q1",
+            "competencyId": "sitov.pretest.a11-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was bezeichnet »Samstag«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Einen Wochentag."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Einen Monat."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Eine Jahreszeit."
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "saturday weekday",
+            "equivalenceKey": "saturday weekday",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 18,
+                "quote": "Heute ist Samstag."
+              }
+            ],
+            "rationaleDe": "Samstag ist ein Wochentag; Monate und Jahreszeiten sind andere zeitliche Kategorien."
+          },
+          {
+            "id": "sitov.pretest.a11-05.words.q2",
+            "competencyId": "sitov.pretest.a11-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Die Sonne scheint«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Die Sonne ist verschwunden."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Die Sonne gibt Licht."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Es schneit stark."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "sun shining",
+            "equivalenceKey": "sun shining",
+            "sourceSpans": [
+              {
+                "start": 19,
+                "end": 37,
+                "quote": "Die Sonne scheint."
+              }
+            ],
+            "rationaleDe": "Scheinen bezeichnet hier das Leuchten der Sonne; verschwunden sein oder starker Schneefall beschreibt diese Aussage nicht."
+          },
+          {
+            "id": "sitov.pretest.a11-05.words.q3",
+            "competencyId": "sitov.pretest.a11-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Baum«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Eine Sitzgelegenheit."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Ein kleines Tier."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Eine große Pflanze mit Stamm."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "tree plant",
+            "equivalenceKey": "tree plant",
+            "sourceSpans": [
+              {
+                "start": 77,
+                "end": 110,
+                "quote": "Dort sind viele Bäume und Blumen."
+              }
+            ],
+            "rationaleDe": "Ein Baum ist eine Pflanze mit Stamm; Bank und Hund sind andere Dinge aus der Parksituation."
+          },
+          {
+            "id": "sitov.pretest.a11-05.words.q4",
+            "competencyId": "sitov.pretest.a11-05.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Bedeutung hat »Bank« in »Wir sitzen auf einer Bank«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Eine Sitzgelegenheit."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Ein Geldinstitut."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Ein Fahrzeug."
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "park bench",
+            "equivalenceKey": "park bench",
+            "sourceSpans": [
+              {
+                "start": 111,
+                "end": 137,
+                "quote": "Wir sitzen auf einer Bank."
+              }
+            ],
+            "rationaleDe": "Die Verbindung sitzen auf und die Parksituation wählen die Sitzbank; das gleichlautende Geldinstitut passt hier nicht."
+          },
+          {
+            "id": "sitov.pretest.a11-05.words.q5",
+            "competencyId": "sitov.pretest.a11-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Musik hören«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Musik mit den Augen lesen."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Musik mit den Ohren wahrnehmen."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Musik als Essen verwenden."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "listening music",
+            "equivalenceKey": "listening music",
+            "sourceSpans": [
+              {
+                "start": 171,
+                "end": 186,
+                "quote": "Wir hören Musik"
+              }
+            ],
+            "rationaleDe": "Hören bezeichnet die Wahrnehmung mit den Ohren; lesen und essen sind andere Tätigkeiten."
+          },
+          {
+            "id": "sitov.pretest.a11-05.words.q6",
+            "competencyId": "sitov.pretest.a11-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was bezeichnet »Brot«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Ein Getränk."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Ein Musikinstrument."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Ein Lebensmittel."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "bread food",
+            "equivalenceKey": "bread food",
+            "sourceSpans": [
+              {
+                "start": 191,
+                "end": 208,
+                "quote": "essen unser Brot."
+              }
+            ],
+            "rationaleDe": "Brot ist ein essbares Lebensmittel; Getränk und Musikinstrument gehören zu anderen Bedeutungsfeldern."
+          },
+          {
+            "id": "sitov.pretest.a11-05.verbs.q1",
+            "competencyId": "sitov.pretest.a11-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Heute ___ Samstag.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "ist"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "sind"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "bin"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "sein weekday singular",
+            "equivalenceKey": "sein weekday singular",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 18,
+                "quote": "Heute ist Samstag."
+              }
+            ],
+            "rationaleDe": "Bei der Aussage über den heutigen Wochentag steht ist im Singular; sind ist Plural, bin die ich-Form."
+          },
+          {
+            "id": "sitov.pretest.a11-05.verbs.q2",
+            "competencyId": "sitov.pretest.a11-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Mein Freund und ich ___ in den Park.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "geht"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "gehen"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "gehst"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "gehen plural compound subject",
+            "equivalenceKey": "gehen plural compound subject",
+            "sourceSpans": [
+              {
+                "start": 38,
+                "end": 76,
+                "quote": "Mein Freund und ich gehen in den Park."
+              }
+            ],
+            "rationaleDe": "Mein Freund und ich bilden gemeinsam ein Pluralsubjekt wie wir; deshalb gehen, nicht geht oder gehst."
+          },
+          {
+            "id": "sitov.pretest.a11-05.verbs.q3",
+            "competencyId": "sitov.pretest.a11-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Dort ___ viele Bäume und Blumen.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "ist"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "bin"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "sind"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "sein trees flowers plural",
+            "equivalenceKey": "sein trees flowers plural",
+            "sourceSpans": [
+              {
+                "start": 77,
+                "end": 110,
+                "quote": "Dort sind viele Bäume und Blumen."
+              }
+            ],
+            "rationaleDe": "Bäume und Blumen sind mehrere Dinge; die passende sein-Form ist sind, während ist Singular und bin erste Person ist."
+          },
+          {
+            "id": "sitov.pretest.a11-05.verbs.q4",
+            "competencyId": "sitov.pretest.a11-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Wir ___ auf einer Bank.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "sitzen"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "sitzt"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "sitze"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "sitzen first plural",
+            "equivalenceKey": "sitzen first plural",
+            "sourceSpans": [
+              {
+                "start": 111,
+                "end": 137,
+                "quote": "Wir sitzen auf einer Bank."
+              }
+            ],
+            "rationaleDe": "Wir verlangt die Pluralform sitzen; sitzt gehört unter anderem zu er oder ihr, sitze zu ich."
+          },
+          {
+            "id": "sitov.pretest.a11-05.verbs.q5",
+            "competencyId": "sitov.pretest.a11-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Ein kleiner Hund ___ im Gras.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "spielen"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "spielt"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "spielst"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "spielen dog singular",
+            "equivalenceKey": "spielen dog singular",
+            "sourceSpans": [
+              {
+                "start": 138,
+                "end": 170,
+                "quote": "Ein kleiner Hund spielt im Gras."
+              }
+            ],
+            "rationaleDe": "Der einzelne Hund ist dritte Person Singular; spielt passt, spielen ist Plural und spielst gehört zu du."
+          },
+          {
+            "id": "sitov.pretest.a11-05.verbs.q6",
+            "competencyId": "sitov.pretest.a11-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Wir hören Musik und ___ unser Brot.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "isst"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "esst"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "essen"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "essen first plural coordination",
+            "equivalenceKey": "essen first plural coordination",
+            "sourceSpans": [
+              {
+                "start": 171,
+                "end": 208,
+                "quote": "Wir hören Musik und essen unser Brot."
+              }
+            ],
+            "rationaleDe": "Wir ist auch das Subjekt von essen und verlangt die Pluralform essen; isst gehört zu du oder er, esst zu ihr."
+          },
+          {
+            "id": "sitov.pretest.a11-05.syntax.q1",
+            "competencyId": "sitov.pretest.a11-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welcher Satz nennt den Wochentag in normaler Aussagesatzstellung?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Heute ist Samstag."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Heute Samstag ist."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Ist heute Samstag?"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "today predicate placement",
+            "equivalenceKey": "today predicate placement",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 18,
+                "quote": "Heute ist Samstag."
+              }
+            ],
+            "rationaleDe": "Heute steht im Aussagesatz zuerst, dann das finite ist; die zweite Form verschiebt das Verb ans Ende, die dritte ist eine Ja-Nein-Frage."
+          },
+          {
+            "id": "sitov.pretest.a11-05.syntax.q2",
+            "competencyId": "sitov.pretest.a11-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer geht in »Mein Freund und ich gehen in den Park«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Nur der Freund."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Der Freund und die sprechende Person."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Nur ein anderer, ungenannter Mann."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "compound subject participants",
+            "equivalenceKey": "compound subject participants",
+            "sourceSpans": [
+              {
+                "start": 38,
+                "end": 76,
+                "quote": "Mein Freund und ich gehen in den Park."
+              }
+            ],
+            "rationaleDe": "Und verbindet Freund und ich zu einem gemeinsamen Subjekt; beide führen die Tätigkeit gehen aus."
+          },
+          {
+            "id": "sitov.pretest.a11-05.syntax.q3",
+            "competencyId": "sitov.pretest.a11-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Dort ___.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "viele Bäume und Blumen sind"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "viele sind Bäume und Blumen"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "sind viele Bäume und Blumen"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "there fronted inversion",
+            "equivalenceKey": "there fronted inversion",
+            "sourceSpans": [
+              {
+                "start": 77,
+                "end": 110,
+                "quote": "Dort sind viele Bäume und Blumen."
+              }
+            ],
+            "rationaleDe": "Nach dem vorangestellten Dort steht das finite Verb sind; die Pluralgruppe folgt als Subjekt."
+          },
+          {
+            "id": "sitov.pretest.a11-05.syntax.q4",
+            "competencyId": "sitov.pretest.a11-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe beantwortet »Wo sitzen wir?«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "auf einer Bank"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Wir"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "sitzen"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "sitting place constituent",
+            "equivalenceKey": "sitting place constituent",
+            "sourceSpans": [
+              {
+                "start": 111,
+                "end": 137,
+                "quote": "Wir sitzen auf einer Bank."
+              }
+            ],
+            "rationaleDe": "Auf einer Bank ist die zusammengehörige Ortsangabe; wir ist Subjekt und sitzen das Verb."
+          },
+          {
+            "id": "sitov.pretest.a11-05.syntax.q5",
+            "competencyId": "sitov.pretest.a11-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welches Wort wird durch »kleiner« genauer beschrieben?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Gras."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Hund."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Spielt."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "adjective scope dog",
+            "equivalenceKey": "adjective scope dog",
+            "sourceSpans": [
+              {
+                "start": 138,
+                "end": 170,
+                "quote": "Ein kleiner Hund spielt im Gras."
+              }
+            ],
+            "rationaleDe": "Kleiner steht innerhalb der Nominalgruppe ein kleiner Hund und beschreibt den Hund; Gras ist eine andere Nominalgruppe."
+          },
+          {
+            "id": "sitov.pretest.a11-05.syntax.q6",
+            "competencyId": "sitov.pretest.a11-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Zuordnung der beiden Tätigkeiten ist richtig?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Wir hören Brot und essen Musik."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Wir hören und essen nur Brot."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Wir hören Musik und essen Brot."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "music bread separate objects",
+            "equivalenceKey": "music bread separate objects",
+            "sourceSpans": [
+              {
+                "start": 171,
+                "end": 208,
+                "quote": "Wir hören Musik und essen unser Brot."
+              }
+            ],
+            "rationaleDe": "Musik gehört zum Verb hören, Brot zum Verb essen; und verbindet beide Tätigkeiten, ohne die Objekte zu vertauschen."
+          },
+          {
+            "id": "sitov.pretest.a11-05.nominal.q1",
+            "competencyId": "sitov.pretest.a11-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze die Richtung: Wir gehen in ___ Park.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "dem"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "der"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "direction masculine accusative",
+            "equivalenceKey": "direction masculine accusative",
+            "sourceSpans": [
+              {
+                "start": 58,
+                "end": 76,
+                "quote": "gehen in den Park."
+              }
+            ],
+            "rationaleDe": "Gehen in bezeichnet hier ein Ziel; der maskuline Park steht im Akkusativ mit den. Dem wäre die Ortsform im Dativ."
+          },
+          {
+            "id": "sitov.pretest.a11-05.nominal.q2",
+            "competencyId": "sitov.pretest.a11-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze die Ortsangabe: Wir sitzen auf ___ Bank.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "eine"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "einer"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "bench feminine local dative",
+            "equivalenceKey": "bench feminine local dative",
+            "sourceSpans": [
+              {
+                "start": 111,
+                "end": 137,
+                "quote": "Wir sitzen auf einer Bank."
+              }
+            ],
+            "rationaleDe": "Sitzen auf bezeichnet einen Ort; die feminine Bank steht im Dativ mit einer. Eine wäre Nominativ oder Akkusativ."
+          },
+          {
+            "id": "sitov.pretest.a11-05.nominal.q3",
+            "competencyId": "sitov.pretest.a11-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Aussage stimmt über »Bäume und Blumen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Beide Wörter stehen im Singular."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Nur Bäume steht im Plural."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Beide Wörter stehen im Plural."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "tree flower plurals",
+            "equivalenceKey": "tree flower plurals",
+            "sourceSpans": [
+              {
+                "start": 77,
+                "end": 110,
+                "quote": "Dort sind viele Bäume und Blumen."
+              }
+            ],
+            "rationaleDe": "Bäume ist der Plural von Baum und Blumen der Plural von Blume; viele und sind passen zu den Mehrzahlen."
+          },
+          {
+            "id": "sitov.pretest.a11-05.nominal.q4",
+            "competencyId": "sitov.pretest.a11-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Ein ___ Hund spielt im Gras.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "kleiner"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "kleine"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "kleinen"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "dog adjective nominal ending",
+            "equivalenceKey": "dog adjective nominal ending",
+            "sourceSpans": [
+              {
+                "start": 138,
+                "end": 170,
+                "quote": "Ein kleiner Hund spielt im Gras."
+              }
+            ],
+            "rationaleDe": "Die maskuline Subjektgruppe lautet ein kleiner Hund; nach ein trägt das Adjektiv hier die Endung er."
+          },
+          {
+            "id": "sitov.pretest.a11-05.nominal.q5",
+            "competencyId": "sitov.pretest.a11-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Wessen Freund ist mit »Mein Freund« gemeint?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Der Freund eines unbekannten Dritten."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Der Freund der sprechenden Person."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Der Freund ausschließlich des Zuhörers."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "speaker possessive friend",
+            "equivalenceKey": "speaker possessive friend",
+            "sourceSpans": [
+              {
+                "start": 38,
+                "end": 76,
+                "quote": "Mein Freund und ich gehen in den Park."
+              }
+            ],
+            "rationaleDe": "Mein ordnet den Freund dem Sprecher zu; dein würde den Zuhörer, sein einen anderen Mann bezeichnen."
+          },
+          {
+            "id": "sitov.pretest.a11-05.nominal.q6",
+            "competencyId": "sitov.pretest.a11-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Was zeigt »unser« in »unser Brot«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Das Brot gehört nur einem ungenannten Mann."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Das Brot gehört ausschließlich dem Zuhörer."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Das Brot gehört zu der Gruppe mit der sprechenden Person."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "first plural possessive bread",
+            "equivalenceKey": "first plural possessive bread",
+            "sourceSpans": [
+              {
+                "start": 171,
+                "end": 208,
+                "quote": "Wir hören Musik und essen unser Brot."
+              }
+            ],
+            "rationaleDe": "Unser bezieht sich auf wir und schließt den Sprecher ein; sein oder dein würde einen anderen Besitzerbezug ausdrücken."
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "modal_verbs",
+            "reasonDe": "Kein Modalverb steht im tatsächlichen Parktext."
+          },
+          {
+            "category": "past_tenses",
+            "reasonDe": "Der Parkbesuch wird ausschließlich mit Präsensformen erzählt."
+          },
+          {
+            "category": "separable_verbs",
+            "reasonDe": "Gehen, sitzen, spielen, hören und essen sind hier keine trennbaren Verbformen."
+          },
+          {
+            "category": "subordinate_clauses",
+            "reasonDe": "Alle Aussagen sind Hauptsätze; und verbindet gleichrangige Satzglieder oder Tätigkeiten."
+          },
+          {
+            "category": "comparative",
+            "reasonDe": "Kleiner ist nach ein eine flektierte Positivform von klein, kein Vergleich mit einem anderen Hund."
+          },
+          {
+            "category": "indirect_objects",
+            "reasonDe": "Kein verbabhängiges Dativobjekt kommt vor; die Ortsdative werden im nominalen Kern behandelt."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.pretest.a11-05.form1",
+            "questionIds": [
+              "sitov.pretest.a11-05.words.q1",
+              "sitov.pretest.a11-05.words.q2",
+              "sitov.pretest.a11-05.words.q3",
+              "sitov.pretest.a11-05.verbs.q1",
+              "sitov.pretest.a11-05.verbs.q2",
+              "sitov.pretest.a11-05.verbs.q3",
+              "sitov.pretest.a11-05.syntax.q1",
+              "sitov.pretest.a11-05.syntax.q2",
+              "sitov.pretest.a11-05.syntax.q3",
+              "sitov.pretest.a11-05.nominal.q1",
+              "sitov.pretest.a11-05.nominal.q2",
+              "sitov.pretest.a11-05.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.pretest.a11-05.form2",
+            "questionIds": [
+              "sitov.pretest.a11-05.words.q4",
+              "sitov.pretest.a11-05.words.q5",
+              "sitov.pretest.a11-05.words.q6",
+              "sitov.pretest.a11-05.verbs.q4",
+              "sitov.pretest.a11-05.verbs.q5",
+              "sitov.pretest.a11-05.verbs.q6",
+              "sitov.pretest.a11-05.syntax.q4",
+              "sitov.pretest.a11-05.syntax.q5",
+              "sitov.pretest.a11-05.syntax.q6",
+              "sitov.pretest.a11-05.nominal.q4",
+              "sitov.pretest.a11-05.nominal.q5",
+              "sitov.pretest.a11-05.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "unitId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "level": "A1.1",
+      "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat Quellenbelege, eindeutige Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; kein Audio-Import und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a11-06.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Zimmergegenstände, Raumrichtung, Farbe und positive Vorliebe im gespeicherten Zimmertext verstehen.",
+            "languageUnits": [
+              "bed furnishing",
+              "left direction",
+              "window opening",
+              "german textbook",
+              "blue color",
+              "gern preference"
+            ],
+            "sourceSpans": [
+              {
+                "start": 40,
+                "end": 62,
+                "quote": "Links steht mein Bett."
+              },
+              {
+                "start": 63,
+                "end": 90,
+                "quote": "Am Fenster steht ein Tisch."
+              },
+              {
+                "start": 91,
+                "end": 128,
+                "quote": "Auf dem Tisch liegt mein Deutschbuch."
+              },
+              {
+                "start": 129,
+                "end": 148,
+                "quote": "Der Stuhl ist blau."
+              },
+              {
+                "start": 149,
+                "end": 168,
+                "quote": "Ich lese hier gern."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-06.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Präsensformen sein/stehen/liegen/lesen/lernen und die im Text tatsächlich getrennte Form mache … an erkennen.",
+            "languageUnits": [
+              "sein room singular",
+              "stehen furniture singular",
+              "liegen lexical infinitive",
+              "lesen first singular",
+              "anmachen separable lemma",
+              "lernen coordinated ich"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 39,
+                "quote": "Mein Zimmer ist nicht groß, aber schön."
+              },
+              {
+                "start": 63,
+                "end": 90,
+                "quote": "Am Fenster steht ein Tisch."
+              },
+              {
+                "start": 91,
+                "end": 128,
+                "quote": "Auf dem Tisch liegt mein Deutschbuch."
+              },
+              {
+                "start": 149,
+                "end": 168,
+                "quote": "Ich lese hier gern."
+              },
+              {
+                "start": 169,
+                "end": 200,
+                "quote": "Am Abend mache ich die Lampe an"
+              },
+              {
+                "start": 201,
+                "end": 223,
+                "quote": "und lerne neue Wörter."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.trennbare-verben"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-06.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Negation und Gegensatz, vorangestellte Ortsangaben sowie Satzklammer und Koordination beim trennbaren Verb entschlüsseln.",
+            "languageUnits": [
+              "negated size positive beauty",
+              "left fronted inversion",
+              "window local constituent",
+              "book subject after location",
+              "separable particle position",
+              "second activity shared subject"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 39,
+                "quote": "Mein Zimmer ist nicht groß, aber schön."
+              },
+              {
+                "start": 40,
+                "end": 62,
+                "quote": "Links steht mein Bett."
+              },
+              {
+                "start": 63,
+                "end": 90,
+                "quote": "Am Fenster steht ein Tisch."
+              },
+              {
+                "start": 91,
+                "end": 128,
+                "quote": "Auf dem Tisch liegt mein Deutschbuch."
+              },
+              {
+                "start": 169,
+                "end": 200,
+                "quote": "Am Abend mache ich die Lampe an"
+              },
+              {
+                "start": 169,
+                "end": 223,
+                "quote": "Am Abend mache ich die Lampe an und lerne neue Wörter."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.trennbare-verben"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-06.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Neutrale und maskuline Nominalgruppen, Ortsdativ, maskuliner Artikel, feminines Akkusativobjekt und die echte Pluralgruppe neue Wörter lesen.",
+            "languageUnits": [
+              "neuter room possessive",
+              "table local dative",
+              "chair masculine subject article",
+              "lamp feminine accusative object",
+              "new words plural inflection",
+              "speaker book possession"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 39,
+                "quote": "Mein Zimmer ist nicht groß, aber schön."
+              },
+              {
+                "start": 91,
+                "end": 128,
+                "quote": "Auf dem Tisch liegt mein Deutschbuch."
+              },
+              {
+                "start": 129,
+                "end": 148,
+                "quote": "Der Stuhl ist blau."
+              },
+              {
+                "start": 178,
+                "end": 200,
+                "quote": "mache ich die Lampe an"
+              },
+              {
+                "start": 205,
+                "end": 223,
+                "quote": "lerne neue Wörter."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.nominativ",
+                "sitov.topic.akkusativ"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a11-06.words.q1",
+            "competencyId": "sitov.pretest.a11-06.words",
+            "kind": "single_choice",
+            "promptDe": "Wozu dient normalerweise ein »Bett«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Zum Schlafen."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Zum Autofahren."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Zum Schreiben an einer Wand."
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "bed furnishing",
+            "equivalenceKey": "bed furnishing",
+            "sourceSpans": [
+              {
+                "start": 40,
+                "end": 62,
+                "quote": "Links steht mein Bett."
+              }
+            ],
+            "rationaleDe": "Bett bezeichnet ein Möbelstück zum Schlafen; die anderen Tätigkeiten beschreiben seinen normalen Zweck nicht."
+          },
+          {
+            "id": "sitov.pretest.a11-06.words.q2",
+            "competencyId": "sitov.pretest.a11-06.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Richtung nennt »links«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Die rechte Seite."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Die linke Seite."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Die obere Seite."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "left direction",
+            "equivalenceKey": "left direction",
+            "sourceSpans": [
+              {
+                "start": 40,
+                "end": 62,
+                "quote": "Links steht mein Bett."
+              }
+            ],
+            "rationaleDe": "Links bezeichnet die linke Seite; rechts und oben nennen andere Raumrichtungen."
+          },
+          {
+            "id": "sitov.pretest.a11-06.words.q3",
+            "competencyId": "sitov.pretest.a11-06.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Fenster«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Ein Möbelstück zum Sitzen."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Eine Lampe über dem Bett."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Eine Öffnung mit Glas in der Wand."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "window opening",
+            "equivalenceKey": "window opening",
+            "sourceSpans": [
+              {
+                "start": 63,
+                "end": 90,
+                "quote": "Am Fenster steht ein Tisch."
+              }
+            ],
+            "rationaleDe": "Fenster bezeichnet hier die meist verglaste Öffnung in der Wand; Stuhl und Lampe sind andere Gegenstände."
+          },
+          {
+            "id": "sitov.pretest.a11-06.words.q4",
+            "competencyId": "sitov.pretest.a11-06.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Deutschbuch«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Ein Buch zum Lernen von Deutsch."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Ein Buch zum Kochen von Suppe."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Ein Buch nur über den Park."
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "german textbook",
+            "equivalenceKey": "german textbook",
+            "sourceSpans": [
+              {
+                "start": 91,
+                "end": 128,
+                "quote": "Auf dem Tisch liegt mein Deutschbuch."
+              }
+            ],
+            "rationaleDe": "Deutschbuch bezeichnet im Lernkontext ein Buch zum Deutschlernen; die anderen Optionen verändern seinen Zweck."
+          },
+          {
+            "id": "sitov.pretest.a11-06.words.q5",
+            "competencyId": "sitov.pretest.a11-06.words",
+            "kind": "single_choice",
+            "promptDe": "Was beschreibt »blau«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Die Größe des Stuhls."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Die Farbe des Stuhls."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Das Alter des Stuhls."
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "blue color",
+            "equivalenceKey": "blue color",
+            "sourceSpans": [
+              {
+                "start": 129,
+                "end": 148,
+                "quote": "Der Stuhl ist blau."
+              }
+            ],
+            "rationaleDe": "Blau ist eine Farbangabe; Größe und Alter werden mit anderen Wörtern beschrieben."
+          },
+          {
+            "id": "sitov.pretest.a11-06.words.q6",
+            "competencyId": "sitov.pretest.a11-06.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Ich lese hier gern«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Ich darf hier niemals lesen."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Ich lese hier nur unwillig."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Ich mag es, hier zu lesen."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "gern preference",
+            "equivalenceKey": "gern preference",
+            "sourceSpans": [
+              {
+                "start": 149,
+                "end": 168,
+                "quote": "Ich lese hier gern."
+              }
+            ],
+            "rationaleDe": "Gern beschreibt eine positive Vorliebe beim Lesen; niemals dürfen oder unwillig handeln ist etwas anderes."
+          },
+          {
+            "id": "sitov.pretest.a11-06.verbs.q1",
+            "competencyId": "sitov.pretest.a11-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Mein Zimmer ___ nicht groß.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "ist"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "sind"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "bin"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "sein room singular",
+            "equivalenceKey": "sein room singular",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 39,
+                "quote": "Mein Zimmer ist nicht groß, aber schön."
+              }
+            ],
+            "rationaleDe": "Das einzelne Zimmer ist dritte Person Singular und verlangt ist; sind ist Plural, bin gehört zu ich."
+          },
+          {
+            "id": "sitov.pretest.a11-06.verbs.q2",
+            "competencyId": "sitov.pretest.a11-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Am Fenster ___ ein Tisch.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "stehen"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "steht"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "stehst"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "stehen furniture singular",
+            "equivalenceKey": "stehen furniture singular",
+            "sourceSpans": [
+              {
+                "start": 63,
+                "end": 90,
+                "quote": "Am Fenster steht ein Tisch."
+              }
+            ],
+            "rationaleDe": "Ein Tisch ist Singular und verlangt steht; stehen ist Plural, stehst gehört zu du."
+          },
+          {
+            "id": "sitov.pretest.a11-06.verbs.q3",
+            "competencyId": "sitov.pretest.a11-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »liegt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "lesen"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "lernen"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "liegen"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "liegen lexical infinitive",
+            "equivalenceKey": "liegen lexical infinitive",
+            "sourceSpans": [
+              {
+                "start": 91,
+                "end": 128,
+                "quote": "Auf dem Tisch liegt mein Deutschbuch."
+              }
+            ],
+            "rationaleDe": "Liegt ist die dritte Person Singular von liegen; lesen und lernen bezeichnen andere Tätigkeiten."
+          },
+          {
+            "id": "sitov.pretest.a11-06.verbs.q4",
+            "competencyId": "sitov.pretest.a11-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Ich ___ hier gern.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "lese"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "liest"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "lesen"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "lesen first singular",
+            "equivalenceKey": "lesen first singular",
+            "sourceSpans": [
+              {
+                "start": 149,
+                "end": 168,
+                "quote": "Ich lese hier gern."
+              }
+            ],
+            "rationaleDe": "Zur ersten Person ich gehört lese; liest gehört zu du oder er, lesen zum Plural oder Infinitiv."
+          },
+          {
+            "id": "sitov.pretest.a11-06.verbs.q5",
+            "competencyId": "sitov.pretest.a11-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »mache … an« bei der Lampe?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "ausmachen"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "anmachen"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "aufmachen"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "anmachen separable lemma",
+            "equivalenceKey": "anmachen separable lemma",
+            "sourceSpans": [
+              {
+                "start": 169,
+                "end": 200,
+                "quote": "Am Abend mache ich die Lampe an"
+              }
+            ],
+            "rationaleDe": "Mache zusammen mit der abgetrennten Partikel an bildet anmachen; ausmachen schaltet aus und aufmachen öffnet etwas."
+          },
+          {
+            "id": "sitov.pretest.a11-06.verbs.q6",
+            "competencyId": "sitov.pretest.a11-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Ich mache die Lampe an und ___ neue Wörter.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "lernst"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "lernt"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "lerne"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "lernen coordinated ich",
+            "equivalenceKey": "lernen coordinated ich",
+            "sourceSpans": [
+              {
+                "start": 201,
+                "end": 223,
+                "quote": "und lerne neue Wörter."
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich gilt auch für das zweite Verb: lerne; lernst und lernt passen zu anderen Personen."
+          },
+          {
+            "id": "sitov.pretest.a11-06.syntax.q1",
+            "competencyId": "sitov.pretest.a11-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Aussage passt zu »nicht groß, aber schön«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Das Zimmer ist nicht groß und trotzdem schön."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Das Zimmer ist groß und nicht schön."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Das Zimmer ist weder groß noch schön."
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "negated size positive beauty",
+            "equivalenceKey": "negated size positive beauty",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 39,
+                "quote": "Mein Zimmer ist nicht groß, aber schön."
+              }
+            ],
+            "rationaleDe": "Nicht verneint hier groß; aber führt die positive Eigenschaft schön als Gegensatz hinzu, ohne sie zu verneinen."
+          },
+          {
+            "id": "sitov.pretest.a11-06.syntax.q2",
+            "competencyId": "sitov.pretest.a11-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Links ___.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "mein Bett steht"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "steht mein Bett"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "mein steht Bett"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "left fronted inversion",
+            "equivalenceKey": "left fronted inversion",
+            "sourceSpans": [
+              {
+                "start": 40,
+                "end": 62,
+                "quote": "Links steht mein Bett."
+              }
+            ],
+            "rationaleDe": "Links besetzt die erste Satzgliedposition; das finite steht folgt vor dem Subjekt mein Bett."
+          },
+          {
+            "id": "sitov.pretest.a11-06.syntax.q3",
+            "competencyId": "sitov.pretest.a11-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe beantwortet »Wo steht ein Tisch?«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "ein Tisch"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "steht"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Am Fenster"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "window local constituent",
+            "equivalenceKey": "window local constituent",
+            "sourceSpans": [
+              {
+                "start": 63,
+                "end": 90,
+                "quote": "Am Fenster steht ein Tisch."
+              }
+            ],
+            "rationaleDe": "Am Fenster ist die Ortsangabe; ein Tisch ist das Subjekt und steht das finite Verb."
+          },
+          {
+            "id": "sitov.pretest.a11-06.syntax.q4",
+            "competencyId": "sitov.pretest.a11-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was ist das Subjekt in »Auf dem Tisch liegt mein Deutschbuch«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Mein Deutschbuch."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Auf dem Tisch."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Liegt."
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "book subject after location",
+            "equivalenceKey": "book subject after location",
+            "sourceSpans": [
+              {
+                "start": 91,
+                "end": 128,
+                "quote": "Auf dem Tisch liegt mein Deutschbuch."
+              }
+            ],
+            "rationaleDe": "Das Deutschbuch ist der Gegenstand, der liegt, und damit Subjekt; auf dem Tisch ist eine Ortsangabe."
+          },
+          {
+            "id": "sitov.pretest.a11-06.syntax.q5",
+            "competencyId": "sitov.pretest.a11-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Am Abend mache ich ___.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "an die Lampe"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "die Lampe an"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "die an Lampe"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "separable particle position",
+            "equivalenceKey": "separable particle position",
+            "sourceSpans": [
+              {
+                "start": 169,
+                "end": 200,
+                "quote": "Am Abend mache ich die Lampe an"
+              }
+            ],
+            "rationaleDe": "Beim trennbaren anmachen steht mache finit und an am Ende des Teilsatzes; die Lampe steht innerhalb der Satzklammer."
+          },
+          {
+            "id": "sitov.pretest.a11-06.syntax.q6",
+            "competencyId": "sitov.pretest.a11-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer lernt in »mache ich die Lampe an und lerne neue Wörter«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Die Lampe."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Ein anderer, nicht genannter Mann."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Die sprechende Person."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "second activity shared subject",
+            "equivalenceKey": "second activity shared subject",
+            "sourceSpans": [
+              {
+                "start": 169,
+                "end": 223,
+                "quote": "Am Abend mache ich die Lampe an und lerne neue Wörter."
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich gilt auch nach und für lerne; die Lampe ist das Objekt der ersten Tätigkeit und kein Lernender."
+          },
+          {
+            "id": "sitov.pretest.a11-06.nominal.q1",
+            "competencyId": "sitov.pretest.a11-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: ___ Zimmer ist schön.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Meine"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Meinen"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "neuter room possessive",
+            "equivalenceKey": "neuter room possessive",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 39,
+                "quote": "Mein Zimmer ist nicht groß, aber schön."
+              }
+            ],
+            "rationaleDe": "Zimmer ist neutral und hier Subjekt; mein passt, meine ist feminin oder Plural, meinen wäre maskuliner Akkusativ."
+          },
+          {
+            "id": "sitov.pretest.a11-06.nominal.q2",
+            "competencyId": "sitov.pretest.a11-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze die Ortsangabe: Auf ___ Tisch liegt mein Deutschbuch.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "dem"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "der"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "table local dative",
+            "equivalenceKey": "table local dative",
+            "sourceSpans": [
+              {
+                "start": 91,
+                "end": 128,
+                "quote": "Auf dem Tisch liegt mein Deutschbuch."
+              }
+            ],
+            "rationaleDe": "Die feste Lage auf dem maskulinen Tisch verlangt Dativ dem; den würde hier eine Richtung markieren."
+          },
+          {
+            "id": "sitov.pretest.a11-06.nominal.q3",
+            "competencyId": "sitov.pretest.a11-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: ___ Stuhl ist blau.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Das"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Die"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Der"
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "chair masculine subject article",
+            "equivalenceKey": "chair masculine subject article",
+            "sourceSpans": [
+              {
+                "start": 129,
+                "end": 148,
+                "quote": "Der Stuhl ist blau."
+              }
+            ],
+            "rationaleDe": "Stuhl ist maskulin und als Subjekt im Nominativ: der; das ist neutral, die feminin oder Plural."
+          },
+          {
+            "id": "sitov.pretest.a11-06.nominal.q4",
+            "competencyId": "sitov.pretest.a11-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Ich mache ___ Lampe an.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "die"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "der"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "dem"
+              }
+            ],
+            "correctOptionId": "sitov.option.1",
+            "assessmentUnit": "lamp feminine accusative object",
+            "equivalenceKey": "lamp feminine accusative object",
+            "sourceSpans": [
+              {
+                "start": 178,
+                "end": 200,
+                "quote": "mache ich die Lampe an"
+              }
+            ],
+            "rationaleDe": "Lampe ist feminin und direktes Objekt von anmachen im Akkusativ; dafür steht die, nicht der oder dem."
+          },
+          {
+            "id": "sitov.pretest.a11-06.nominal.q5",
+            "competencyId": "sitov.pretest.a11-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ergänze: Ich lerne ___ Wörter.",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "neuer"
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "neue"
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "neues"
+              }
+            ],
+            "correctOptionId": "sitov.option.2",
+            "assessmentUnit": "new words plural inflection",
+            "equivalenceKey": "new words plural inflection",
+            "sourceSpans": [
+              {
+                "start": 205,
+                "end": 223,
+                "quote": "lerne neue Wörter."
+              }
+            ],
+            "rationaleDe": "Wörter ist Plural; ohne Artikel lautet die passende Adjektivform neue, nicht neuer oder neues."
+          },
+          {
+            "id": "sitov.pretest.a11-06.nominal.q6",
+            "competencyId": "sitov.pretest.a11-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Wem ordnet »mein Deutschbuch« das Buch zu?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.option.1",
+                "textDe": "Nur dem Zuhörer."
+              },
+              {
+                "id": "sitov.option.2",
+                "textDe": "Nur einem unbekannten Dritten."
+              },
+              {
+                "id": "sitov.option.3",
+                "textDe": "Der sprechenden Person."
+              }
+            ],
+            "correctOptionId": "sitov.option.3",
+            "assessmentUnit": "speaker book possession",
+            "equivalenceKey": "speaker book possession",
+            "sourceSpans": [
+              {
+                "start": 91,
+                "end": 128,
+                "quote": "Auf dem Tisch liegt mein Deutschbuch."
+              }
+            ],
+            "rationaleDe": "Mein bezeichnet die Besitzbeziehung zum Sprecher; dein würde den Zuhörer und sein einen anderen Mann bezeichnen."
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "modal_verbs",
+            "reasonDe": "Der gespeicherte Zimmertext enthält kein Modalverb."
+          },
+          {
+            "category": "past_tenses",
+            "reasonDe": "Alle Aussagen beschreiben Gegenwart oder Gewohnheiten mit Präsensformen."
+          },
+          {
+            "category": "subordinate_clauses",
+            "reasonDe": "Aber und und verbinden gleichrangige Aussagen beziehungsweise Tätigkeiten; kein Nebensatz liegt vor."
+          },
+          {
+            "category": "comparative",
+            "reasonDe": "Groß und schön sind einfache Eigenschaftsangaben; kein Vergleich oder Superlativ wird benötigt."
+          },
+          {
+            "category": "indirect_objects",
+            "reasonDe": "Der Text enthält kein verbabhängiges indirektes Objekt; die Ortsdative gehören zum nominalen Kern."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.pretest.a11-06.form1",
+            "questionIds": [
+              "sitov.pretest.a11-06.words.q1",
+              "sitov.pretest.a11-06.words.q2",
+              "sitov.pretest.a11-06.words.q3",
+              "sitov.pretest.a11-06.verbs.q1",
+              "sitov.pretest.a11-06.verbs.q2",
+              "sitov.pretest.a11-06.verbs.q3",
+              "sitov.pretest.a11-06.syntax.q1",
+              "sitov.pretest.a11-06.syntax.q2",
+              "sitov.pretest.a11-06.syntax.q3",
+              "sitov.pretest.a11-06.nominal.q1",
+              "sitov.pretest.a11-06.nominal.q2",
+              "sitov.pretest.a11-06.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.pretest.a11-06.form2",
+            "questionIds": [
+              "sitov.pretest.a11-06.words.q4",
+              "sitov.pretest.a11-06.words.q5",
+              "sitov.pretest.a11-06.words.q6",
+              "sitov.pretest.a11-06.verbs.q4",
+              "sitov.pretest.a11-06.verbs.q5",
+              "sitov.pretest.a11-06.verbs.q6",
+              "sitov.pretest.a11-06.syntax.q4",
+              "sitov.pretest.a11-06.syntax.q5",
+              "sitov.pretest.a11-06.syntax.q6",
+              "sitov.pretest.a11-06.nominal.q4",
+              "sitov.pretest.a11-06.nominal.q5",
+              "sitov.pretest.a11-06.nominal.q6"
+            ]
+          }
+        ]
+      }
     }
   ],
   "inventory": [
@@ -3281,7 +6450,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -3296,7 +6465,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": null,
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -3311,7 +6480,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": null,
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {

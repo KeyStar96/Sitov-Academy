@@ -42,7 +42,8 @@ export function sitovValidatePretestDrafts(manifest,sources) {
   const def=draft.definition
   if(def?.policyId!=='sitov-pronunciation-language-prerequisites-v1'||draft.policy?.minimumPerCore!==3||draft.policy?.coreFraction!=='2/3'||draft.policy?.totalFraction!=='3/4')fail(path,'policy')
   const review=draft.review
-  if(!review?.reviewer?.trim()||!review?.notesDe?.trim()||!['author_checked_teacher_review_pending','independent_approved','independent_editorial_checked_draft_only'].includes(review?.status))fail(path,'explicit review limits required')
+  if(!review?.reviewer?.trim()||!review?.notesDe?.trim()||!['author_checked_teacher_review_pending','author_checked_independent_review_pending','independent_approved','independent_editorial_checked_draft_only'].includes(review?.status))fail(path,'explicit review limits required')
+  if(review?.status==='author_checked_independent_review_pending'&&(review.authorIdentity!==review.reviewer||review.humanReview!==false||review.calibrationStatus!=='pending'))fail(path,'author-only review must retain independent/calibration limits')
   if(['independent_approved','independent_editorial_checked_draft_only'].includes(review?.status)&&(!review.authorIdentity?.trim()||review.authorIdentity===review.reviewer||review.textVersion!==draft.textVersion||review.definitionContentHash!==sitovHash(JSON.stringify(def))||!/^sitov[.:-]editorial[.:-]review[.:-]/.test(review.documentRef??'')||!/^[a-f0-9]{64}$/.test(review.documentSha256??'')||!Number.isFinite(Date.parse(review.reviewedAt))||Date.parse(review.reviewedAt)>Date.now()))fail(path,'independent exact-version review provenance required')
   if(review?.status==='independent_editorial_checked_draft_only'&&(review.reviewerKind!=='independent_agent_editorial_review'||review.humanReview!==false||review.calibrationStatus!=='pending'))fail(path,'agent review must retain honest human/calibration limits')
   const checkSpans=(spans,p)=>{if(!Array.isArray(spans)||!spans.length){fail(p,'source spans required');return}for(const span of spans)if(!Number.isInteger(span.start)||!Number.isInteger(span.end)||span.start<0||span.end<=span.start||Array.from(source.text).slice(span.start,span.end).join('')!==span.quote||!span.quote?.trim())fail(p,'exact body evidence required')}
@@ -57,16 +58,28 @@ export function sitovValidatePretestDrafts(manifest,sources) {
    if(typeof q.rationaleDe!=='string'||q.rationaleDe.length<35)fail(qp,'private rationale required')
    const options=q.options??[];if(options.length<3||options.length>5||new Set(options.map(o=>o.id)).size!==options.length||new Set(options.map(o=>norm(o.textDe??''))).size!==options.length||options.some(o=>!id.test(o.id)||typeof o.textDe!=='string'||!o.textDe.trim()||o.textDe.length>300)||options.filter(o=>o.id===q.correctOptionId).length!==1)fail(qp,'single key/distinct options')
   }
-  for(const core of cores)if(tasks.filter(q=>q.competencyId===core.id).length<2*core.itemsPerAttempt)fail(path+'.'+core.id,'two complete pools required')
+  for(const core of cores){const pool=tasks.filter(q=>q.competencyId===core.id);if(pool.length<2*core.itemsPerAttempt)fail(path+'.'+core.id,'two complete pools required');if(pool.some(q=>!core.languageUnits?.includes(q.assessmentUnit))||core.languageUnits?.some(unit=>!pool.some(q=>q.assessmentUnit===unit)))fail(path+'.'+core.id,'matrix units and assessed units must correspond')}
   const forms=def?.reviewForms??[]
   if(forms.length!==2)fail(path,'two balanced review forms required')
   const formUsed=new Set()
-  for(const form of forms){if(!Array.isArray(form.questionIds))continue;for(const qid of form.questionIds){if(!taskIds.has(qid)||formUsed.has(qid))fail(path,'foreign/shared form item');formUsed.add(qid)}for(const core of cores)if(form.questionIds.filter(id=>tasks.find(q=>q.id===id)?.competencyId===core.id).length!==core.itemsPerAttempt)fail(path,'unbalanced form')}
+  for(const form of forms){if(!Array.isArray(form.questionIds)){fail(path,'form question IDs required');continue}for(const qid of form.questionIds){if(!taskIds.has(qid)||formUsed.has(qid))fail(path,'foreign/shared form item');formUsed.add(qid)}for(const core of cores)if(form.questionIds.filter(id=>tasks.find(q=>q.id===id)?.competencyId===core.id).length!==core.itemsPerAttempt)fail(path,'unbalanced form')}
  }
  for(const row of manifest.inventory??[])if(row.coverageStatus!==(draftIds.has(row.textId)?'draft_authored':'pending'))fail('coverage.'+row.textId,'status mismatch')
  return errors
 }
+/** Only spoken public fields; keys, IDs, source spans and rationales never become audio text. */
+export function sitovPublicPretestAudioAliases(manifest) {
+ const aliases={}
+ for(const draft of manifest.drafts??[])for(const q of draft.definition?.tasks??[]){const prefix=`sitov-pretest:${draft.textId}:${q.id}`;aliases[prefix+':prompt']=q.promptDe;if(q.fragmentDe?.trim())aliases[prefix+':fragment']=q.fragmentDe;for(const option of q.options??[])aliases[prefix+':'+option.id]=option.textDe}
+ return aliases
+}
+export function sitovValidatePretestAudioAliases(manifest,aliases) {
+ const expected=sitovPublicPretestAudioAliases(manifest),errors=[]
+ for(const [key,value] of Object.entries(expected))if(aliases[key]!==value)errors.push(`audio.${key}:exact public text required`)
+ for(const key of Object.keys(aliases))if(!Object.hasOwn(expected,key))errors.push(`audio.${key}:foreign/private alias`)
+ return errors
+}
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
- const source=await sitovReadAuthoringSources(),manifest=await read('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json'),errors=sitovValidatePretestDrafts(manifest,source)
- if(errors.length){console.error(errors.join('\n'));process.exitCode=1}else console.log(`PASS: ${manifest.drafts.length}/60 private drafts; ${60-manifest.drafts.length} pending; 89 inactive legacy; no publication/audio/live DB proof.`)
+ const source=await sitovReadAuthoringSources(),manifest=await read('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json'),aliases=await read('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json'),errors=[...sitovValidatePretestDrafts(manifest,source),...sitovValidatePretestAudioAliases(manifest,aliases)]
+ if(errors.length){console.error(errors.join('\n'));process.exitCode=1}else console.log(`PASS: ${manifest.drafts.length}/60 private drafts; ${60-manifest.drafts.length} pending; ${Object.keys(aliases).length} public audio aliases; 89 inactive legacy; no publication/audio/live DB proof.`)
 }
