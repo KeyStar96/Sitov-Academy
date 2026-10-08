@@ -1,0 +1,30 @@
+{
+  "version": "sitov-pronunciation-upload-contract-v1",
+  "group": "SITOV-NIGHT-2026-10-08",
+  "target": "Existing target ticket: auth.uid/text/current definition/path/expiry, consumed transactionally with submission. New upload repeats current commercial and exact pass. Existing hard/checkpoints/history never authorize new target.",
+  "reply_rpc": {
+    "name": "sitov_create_pronunciation_reply_upload_ticket",
+    "args": {
+      "p_submission_id": "uuid",
+      "p_request_id": "uuid",
+      "p_extension": "text"
+    },
+    "returns": "ActionResult<{ticketId:uuid,path:string,expiresAt:timestamp,submissionId:uuid,purpose:reply}>"
+  },
+  "reply_policy": [
+    "Separate server-created purpose=reply and bound conversation, actor and path; cannot submit as new target",
+    "Live participant ownership or staff with existing MFA policy; preserve historical conversation/review access independently of new-target test",
+    "No caller learner ID/proof/storage path/purpose; CAS/idempotent request receipt; expiry and purpose rechecked on Storage INSERT and transactional message consume",
+    "Retain previous recordings/messages/snapshots and unsent checkpoints; no conversion to passed test"
+  ],
+  "extensions": [
+    "webm",
+    "mp4",
+    "ogg",
+    "wav",
+    "mp3"
+  ],
+  "shared_types_owner": "M",
+  "sql_and_server_owner": "S3",
+  "client_binding_owner": "S4 with M shared upload adapter"
+}
