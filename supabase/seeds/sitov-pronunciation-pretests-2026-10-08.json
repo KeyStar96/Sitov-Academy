@@ -10,7 +10,7 @@
     "authored": 3,
     "pending": 57
   },
-  "audioStatus": "draft_only: existing reading reference proof and all new German prompt/fragment/option prepared-asset and word-timing proof required before publication; no assets generated/imported",
+  "audioStatus": "draft_only: full DB public-question/reference asset and immutable word-timing proof gate implemented; actual M local preparation, byte/timing audit, import and trusted proof insertion pending; no definitions published",
   "drafts": [
     {
       "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
@@ -25,9 +25,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_teacher_review_pending",
-        "reviewer": "S3",
-        "notesDe": "Originaltext und alle 24 Aufgaben einzeln fachlich gelesen: eine richtige Alternative, erklärte Distraktoren, männliche Figuren, keine Sprechleistung oder Inhaltsgedächtnis ohne Kontext. Eigenprüfung des Autors; unabhängige Lehrkraftprüfung und Formvergleich stehen aus."
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat als unabhängiger Agent alle 72 Fragen, Optionen, Schlüssel und Quellen sowie die korrigierte Besitzbeziehung geprüft. Keine menschliche Kalibrierung oder Audio-/Veröffentlichungsfreigabe.",
+        "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+        "definitionContentHash": "93819f3dd5415fd45da126b32e1644edf70f76dbd29a2746de40e0d9705b9f8c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-first3-M",
+        "documentSha256": "fc7a020ca5a3f34de689eaeb7ecdd0531ba345677cd8027d75ff78f1073336c7",
+        "reviewedAt": "2026-10-08T23:05:20.498Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -1087,9 +1098,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_teacher_review_pending",
-        "reviewer": "S3",
-        "notesDe": "Originaltext und alle 24 Aufgaben einzeln fachlich gelesen: eine richtige Alternative, erklärte Distraktoren, männliche Figuren, keine Sprechleistung oder Inhaltsgedächtnis ohne Kontext. Eigenprüfung des Autors; unabhängige Lehrkraftprüfung und Formvergleich stehen aus."
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat als unabhängiger Agent alle 72 Fragen, Optionen, Schlüssel und Quellen sowie die korrigierte Besitzbeziehung geprüft. Keine menschliche Kalibrierung oder Audio-/Veröffentlichungsfreigabe.",
+        "textVersion": "a1e829de18793196c9b27aa5b5fe18a20ebf7a12809c5a61799fd9822f987fc0",
+        "definitionContentHash": "c59a8b687b1abd2892fc6dd833da3f5b9bab904b804afa343ad2dcae5ac2e486",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-first3-M",
+        "documentSha256": "fc7a020ca5a3f34de689eaeb7ecdd0531ba345677cd8027d75ff78f1073336c7",
+        "reviewedAt": "2026-10-08T23:05:20.498Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -2145,9 +2167,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_teacher_review_pending",
-        "reviewer": "S3",
-        "notesDe": "Originaltext und alle 24 Aufgaben einzeln fachlich gelesen: eine richtige Alternative, erklärte Distraktoren, männliche Figuren, keine Sprechleistung oder Inhaltsgedächtnis ohne Kontext. Eigenprüfung des Autors; unabhängige Lehrkraftprüfung und Formvergleich stehen aus."
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat als unabhängiger Agent alle 72 Fragen, Optionen, Schlüssel und Quellen sowie die korrigierte Besitzbeziehung geprüft. Keine menschliche Kalibrierung oder Audio-/Veröffentlichungsfreigabe.",
+        "textVersion": "1d8ea3dbd24923f3c6a3ec7c9f319d84b475802b18996a605ee447f98bc1a961",
+        "definitionContentHash": "3c502603ab177eec9489766f9cca1e392cc0f3be17dd92aacd248b658a874d9f",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-first3-M",
+        "documentSha256": "fc7a020ca5a3f34de689eaeb7ecdd0531ba345677cd8027d75ff78f1073336c7",
+        "reviewedAt": "2026-10-08T23:05:20.498Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",

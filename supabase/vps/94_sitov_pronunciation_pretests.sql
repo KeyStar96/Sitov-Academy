@@ -106,10 +106,51 @@ DECLARE prepared text;metadata jsonb;timings jsonb;t jsonb;spoken text;previous_
   IF jsonb_typeof(t->'start') IS DISTINCT FROM 'number' OR jsonb_typeof(t->'end') IS DISTINCT FROM 'number' OR (t->>'start')::numeric<previous_end OR (t->>'end')::numeric<=(t->>'start')::numeric OR (t->>'end')::numeric>1200 THEN RETURN false;END IF;
   previous_end:=(t->>'end')::numeric;
  END LOOP;RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+-- Imported asset proofs are immutable and bound to the exact frozen definition.
+CREATE TABLE IF NOT EXISTS sitov_pronunciation_private.pretest_question_audio_proofs(
+ definition_id uuid NOT NULL REFERENCES sitov_pronunciation_private.pretest_definitions(id),
+ test_version text NOT NULL CHECK(test_version~'^[a-f0-9]{64}$'),text_sha256 text NOT NULL CHECK(text_sha256~'^[a-f0-9]{64}$'),
+ path text NOT NULL CHECK(path~'^sitov-qwen-v1/de/[a-f0-9]{64}\.mp3$'),audio_sha256 text NOT NULL CHECK(audio_sha256~'^[a-f0-9]{64}$'),
+ word_timings_sha256 text NOT NULL CHECK(word_timings_sha256~'^[a-f0-9]{64}$'),recorded_at timestamptz NOT NULL DEFAULT clock_timestamp(),PRIMARY KEY(definition_id,test_version,text_sha256));
+ALTER TABLE sitov_pronunciation_private.pretest_question_audio_proofs ADD COLUMN IF NOT EXISTS word_timings_sha256 text CHECK(word_timings_sha256~'^[a-f0-9]{64}$');
+ALTER TABLE sitov_pronunciation_private.pretest_question_audio_proofs ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON sitov_pronunciation_private.pretest_question_audio_proofs FROM PUBLIC,anon,authenticated,service_role;
+DROP TRIGGER IF EXISTS sitov_pretest_question_proof_immutable ON sitov_pronunciation_private.pretest_question_audio_proofs;
+CREATE TRIGGER sitov_pretest_question_proof_immutable BEFORE UPDATE OR DELETE ON sitov_pronunciation_private.pretest_question_audio_proofs FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.immutable_approval();
+-- Whitelist only public German task text. Normalize/deduplicate shared assets;
+-- private keys, rationale, IDs and bookkeeping never become spoken input.
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.public_audio_texts(d jsonb) RETURNS SETOF text LANGUAGE sql IMMUTABLE SET search_path='' AS $$
+ SELECT DISTINCT vocabulary_private.sitov_normalize_audio_text(source_text) FROM (
+  SELECT q->>'promptDe' source_text FROM jsonb_array_elements(d->'tasks') q
+  UNION ALL SELECT q->>'fragmentDe' FROM jsonb_array_elements(d->'tasks') q
+  UNION ALL SELECT o->>'textDe' FROM jsonb_array_elements(d->'tasks') q CROSS JOIN LATERAL jsonb_array_elements(q->'options') o
+ ) spoken WHERE nullif(btrim(source_text),'') IS NOT NULL $$;
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.public_audio_ready(p_id uuid,p_test_version text,d jsonb) RETURNS boolean LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path='' AS $$
+#variable_conflict use_variable
+DECLARE spoken text;prepared text;path text;authored jsonb;timing jsonb;words text[];i integer;BEGIN
+ IF NOT sitov_pronunciation_private.valid_pool(d) THEN RETURN false;END IF;
+ FOR spoken IN SELECT * FROM sitov_pronunciation_private.public_audio_texts(d) LOOP
+  prepared:=vocabulary_private.sitov_prepared_german_audio_url(spoken);
+  IF prepared LIKE 'storage://audio_cache/%' THEN path:=substring(prepared FROM length('storage://audio_cache/')+1);
+  ELSIF prepared LIKE '/supabase/storage/v1/object/public/audio_cache/%' THEN path:=substring(prepared FROM length('/supabase/storage/v1/object/public/audio_cache/')+1);
+  ELSE RETURN false;END IF;
+  SELECT user_metadata INTO authored FROM storage.objects WHERE bucket_id='audio_cache' AND name=path AND archived_at IS NULL AND NOT coalesce(is_delete_marker,false) FOR SHARE;
+  IF NOT FOUND OR NOT EXISTS(SELECT 1 FROM sitov_pronunciation_private.pretest_question_audio_proofs proof WHERE proof.definition_id=p_id AND proof.test_version=p_test_version AND proof.text_sha256=sitov_pronunciation_private.pretest_hash(spoken) AND proof.path=path AND proof.audio_sha256=authored->>'audioSha256' AND proof.word_timings_sha256=sitov_pronunciation_private.pretest_hash((authored->'wordTimings')::text)) THEN RETURN false;END IF;
+  -- Shared validator checks model/profile/text/audio hash, size and timing range.
+  -- The stored contract contains positional {start,end} timings, not words.
+  -- Exact normalized text + timing count/hash binds their lexical positions.
+  words:=string_to_array(spoken,' ');i:=0;
+  FOR timing IN SELECT value FROM jsonb_array_elements(authored->'wordTimings') LOOP
+   i:=i+1;
+   IF (timing->>'end')::numeric<(timing->>'start')::numeric THEN RETURN false;END IF;
+  END LOOP;
+  IF i<>cardinality(words) THEN RETURN false;END IF;
+ END LOOP;RETURN true;EXCEPTION WHEN others THEN RETURN false;END $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.public_audio_texts(jsonb),sitov_pronunciation_private.public_audio_ready(uuid,text,jsonb) FROM PUBLIC,anon,authenticated,service_role;
 CREATE OR REPLACE FUNCTION sitov_pronunciation_private.publication_ready(p_id uuid,p_text uuid,p_text_version text,p_test_version text,d jsonb) RETURNS boolean LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path='' AS $$
 DECLARE body text;url text;a sitov_pronunciation_private.pretest_approvals;BEGIN
  SELECT sentence_de,audio_url INTO body,url FROM public.learning_reading_texts WHERE id=p_text;
- IF NOT FOUND OR p_text_version IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(body) OR p_test_version IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(d::text) OR NOT sitov_pronunciation_private.valid_authoring(body,d) THEN RETURN false;END IF;
+ IF NOT FOUND OR p_text_version IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(body) OR p_test_version IS DISTINCT FROM sitov_pronunciation_private.pretest_hash(d::text) OR NOT sitov_pronunciation_private.valid_authoring(body,d) OR NOT sitov_pronunciation_private.public_audio_ready(p_id,p_test_version,d) THEN RETURN false;END IF;
  FOR a IN SELECT * FROM sitov_pronunciation_private.pretest_approvals WHERE definition_id=p_id AND text_version=p_text_version AND test_version=p_test_version AND review_status='independent_approved' AND reviewed_at<=clock_timestamp() LOOP
   IF sitov_pronunciation_private.reference_valid(body,url,a) THEN RETURN true;END IF;
  END LOOP;RETURN false;EXCEPTION WHEN others THEN RETURN false;END $$;

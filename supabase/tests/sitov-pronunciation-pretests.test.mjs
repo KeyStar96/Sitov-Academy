@@ -9,6 +9,7 @@ import { sitovId, sitovUsers, sitovHistorySnapshot } from './helpers/sitov-night
 const psql='/opt/homebrew/opt/postgresql@17/bin/psql', socket='/tmp/sitov-night-2026-10-08-pg', port='55438'
 const text=sitovId(302), student=sitovUsers.german
 const sql=await readFile(new URL('../vps/94_sitov_pronunciation_pretests.sql',import.meta.url),'utf8')
+const authoredDrafts=JSON.parse(await readFile(new URL('../seeds/sitov-pronunciation-pretests-2026-10-08.json',import.meta.url),'utf8')).drafts
 const rpc=async(db,name,args=[]) => (await db.query(`SELECT ${name}(${args.map((_,i)=>`$${i+1}`).join(',')}) result`,args)).rows[0].result
 const pool={policyId:'sitov-pronunciation-language-prerequisites-v1',competencies:['words','syntax','verbs','case'].map(id=>({id:`sitov.${id}`,itemsPerAttempt:3})),tasks:[]}
 for(const core of pool.competencies)for(let i=0;i<6;i++)pool.tasks.push({id:`${core.id}.q${i}`,competencyId:core.id,kind:'single_choice',promptDe:`Wähle die passende Form für Aufgabe ${i+1}.`,fragmentDe:null,options:[{id:'sitov.a',textDe:'Paul geht.'},{id:'sitov.b',textDe:'Paul gehen.'},{id:'sitov.c',textDe:'Paul gehst.'}],correctOptionId:'sitov.a',privateEvidence:'DO NOT LEAK'})
@@ -32,7 +33,8 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
   Object.assign(definition,extra)
   const categories={words:'vocabulary',syntax:'syntax',verbs:'verb_forms',case:'nominal_forms'}
   for(const core of definition.competencies)Object.assign(core,{category:categories[core.id.split('.').at(-1)],necessityDe:'Synthetic protocol fixture: not a production didactic claim.',sourceSpans:[span],languageUnits:['synthetic.a','synthetic.b','synthetic.c'],mapping:{topicIds:[],pendingReasonDe:'Synthetic fixture has no learning target.'}})
-  for(const q of definition.tasks)Object.assign(q,{promptDe:`Technische Fixture ${q.id}: Wähle die passende Form.`,sourceSpans:[span],assessmentUnit:q.id,equivalenceKey:q.id,rationaleDe:'Synthetic permission proof tests the private grading protocol, not German teaching quality.'})
+  for(const [index,q] of definition.tasks.entries())Object.assign(q,{promptDe:authoredDrafts[0].definition.tasks[index].promptDe,sourceSpans:[span],assessmentUnit:q.id,equivalenceKey:q.id,rationaleDe:'Synthetic permission proof tests the private grading protocol, not German teaching quality.'})
+  definition.tasks[0].fragmentDe='Paul ist das Subjekt in diesem Satz.'
   definition.omittedCategories=[{category:'modal_verbs',reasonDe:'Synthetic protocol source contains no modal verb.'}]
   definition.reviewForms=[0,1].map(f=>({id:`sitov.fixture.form${f}`,questionIds:definition.competencies.flatMap(c=>definition.tasks.filter(q=>q.competencyId===c.id).slice(f*3,f*3+3).map(q=>q.id))}))
   const literal=JSON.stringify(definition).replaceAll("'","''")
@@ -42,7 +44,7 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
   const spoken=(await db.query('SELECT vocabulary_private.sitov_normalize_audio_text($1) spoken',[body])).rows[0].spoken
   const hash=x=>createHash('sha256').update(x,'utf8').digest('hex'),fingerprint='96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5'
   const path='sitov-qwen-v1/de/'+hash(JSON.stringify({text:spoken,voice:'sitov-qwen-male-de-v1',rate:'qwen-native-1-lufs-18-aligned-v1',format:'audio-24khz-48kbitrate-mono-mp3',leadIn:0.35,profile:fingerprint}))+'.mp3'
-  const metadata={engine:'qwen3-tts',voice:'sitov-qwen-male-de-v1',revision:'sitov-qwen-base-bf16-v1',profileFingerprint:fingerprint,textSha256:hash(spoken),audioSha256:'a'.repeat(64),wordTimings:spoken.split(' ').map((word,i)=>({word,start:i,end:i+0.5}))}
+  const metadata={engine:'qwen3-tts',voice:'sitov-qwen-male-de-v1',revision:'sitov-qwen-base-bf16-v1',profileFingerprint:fingerprint,textSha256:hash(spoken),audioSha256:'a'.repeat(64),wordTimings:spoken.split(' ').map((word,i)=>({start:i,end:i+0.5}))}
   await db.exec(`INSERT INTO storage.objects(bucket_id,name,metadata,user_metadata) VALUES('audio_cache','${path}','{"mimetype":"audio/mpeg","size":1000}','${JSON.stringify(metadata)}') ON CONFLICT(bucket_id,name) DO UPDATE SET metadata=excluded.metadata,user_metadata=excluded.user_metadata`)
   await assert.rejects(db.exec(`UPDATE sitov_pronunciation_private.pretest_definitions SET active=true WHERE id='${d.id}'`),/pretest_publication_proof_required/)
   const approve=(version,doc='b'.repeat(64))=>db.exec(`INSERT INTO sitov_pronunciation_private.pretest_approvals(definition_id,text_version,test_version,author_identity,reviewer_identity,review_status,reviewed_at,review_document_ref,review_document_sha256,reference_kind,reference_bucket,reference_path,reference_audio_sha256) VALUES('${d.id}','${version}','${d.test_version}','sitov.qa.synthetic.author','sitov.qa.synthetic.editor','independent_approved',now(),'sitov.editorial.review.synthetic','${doc}','prepared_qwen','audio_cache','${path}',repeat('a',64))`)
@@ -52,12 +54,22 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
   assert.equal((await db.query('SELECT sitov_pronunciation_private.valid_authoring($1,$2) value',[body,definition])).rows[0].value,true)
   assert.equal((await db.query('SELECT sitov_pronunciation_private.reference_valid($1,NULL,a) value FROM sitov_pronunciation_private.pretest_approvals a WHERE text_version=$2 AND definition_id=$3',[body,d.text_version,d.id])).rows[0].value,true)
   await assert.rejects(db.exec(`UPDATE sitov_pronunciation_private.pretest_approvals SET review_status='independent_approved' WHERE definition_id='${d.id}'`),/immutable_pretest_approval/)
+  await assert.rejects(db.exec(`UPDATE sitov_pronunciation_private.pretest_definitions SET active=true WHERE id='${d.id}'`),/pretest_publication_proof_required/)
+  const texts=(await db.query('SELECT sitov_pronunciation_private.public_audio_texts($1) spoken',[definition])).rows.map(r=>r.spoken),assets=[]
+  for(const spoken of texts){const assetPath='sitov-qwen-v1/de/'+hash(JSON.stringify({text:spoken,voice:'sitov-qwen-male-de-v1',rate:'qwen-native-1-lufs-18-aligned-v1',format:'audio-24khz-48kbitrate-mono-mp3',leadIn:0.35,profile:fingerprint}))+'.mp3',assetMeta={...metadata,textSha256:hash(spoken),wordTimings:spoken.split(' ').map((word,i)=>({start:i,end:i+0.5}))};assets.push({spoken,path:assetPath,metadata:assetMeta})}
+  const seedAssets=async list=>{const tuples=list.map(a=>`('audio_cache','${a.path}','{"mimetype":"audio/mpeg","size":1000}','${JSON.stringify(a.metadata).replaceAll("'","''")}')`);if(tuples.length)await db.exec(`INSERT INTO storage.objects(bucket_id,name,metadata,user_metadata) VALUES ${tuples.join(',')} ON CONFLICT(bucket_id,name) DO UPDATE SET metadata=excluded.metadata,user_metadata=excluded.user_metadata,archived_at=NULL`)}
+  const missing=assets.find(a=>a.spoken===definition.tasks[0].promptDe)
+  await seedAssets(assets.filter(a=>a!==missing));await assert.rejects(db.exec(`UPDATE sitov_pronunciation_private.pretest_definitions SET active=true WHERE id='${d.id}'`),/pretest_publication_proof_required/)
+  await seedAssets([missing]);await assert.rejects(db.exec(`UPDATE sitov_pronunciation_private.pretest_definitions SET active=true WHERE id='${d.id}'`),/pretest_publication_proof_required/)
+  await db.exec(`INSERT INTO sitov_pronunciation_private.pretest_question_audio_proofs(definition_id,test_version,text_sha256,path,audio_sha256,word_timings_sha256) VALUES ${assets.map(a=>`('${d.id}','${d.test_version}','${hash(a.spoken)}','${a.path}','${a.metadata.audioSha256}',(SELECT sitov_pronunciation_private.pretest_hash((user_metadata->'wordTimings')::text) FROM storage.objects WHERE bucket_id='audio_cache' AND name='${a.path}'))`).join(',')}`)
+  await assert.rejects(db.exec(`UPDATE sitov_pronunciation_private.pretest_question_audio_proofs SET audio_sha256=repeat('a',64) WHERE definition_id='${d.id}'`),/immutable_pretest_approval/)
   await db.exec(`UPDATE sitov_pronunciation_private.pretest_definitions SET active=true WHERE id='${d.id}'`)
-  return {d,path,metadata,definition}
+  return {d,path,metadata,definition,assets,seedAssets}
+
  }
 
  try{
-  await db.exec(await readFile(new URL('../vps/93_sitov_commercial_access.sql',import.meta.url),'utf8'));await db.exec('ALTER TABLE storage.objects ADD COLUMN IF NOT EXISTS archived_at timestamptz; ALTER TABLE storage.objects ADD COLUMN IF NOT EXISTS is_delete_marker boolean DEFAULT false');await db.exec(sql)
+  await db.exec(await readFile(new URL('../vps/93_sitov_commercial_access.sql',import.meta.url),'utf8'));await db.exec('ALTER TABLE storage.objects ADD COLUMN IF NOT EXISTS archived_at timestamptz; ALTER TABLE storage.objects ADD COLUMN IF NOT EXISTS is_delete_marker boolean DEFAULT false');await db.exec(sql);await db.exec(await readFile(new URL('../vps/96_sitov_private_audio_delivery.sql',import.meta.url),'utf8'))
   await t.test('migration mirrors and replays; private keys/DML and anonymous endpoints denied',async()=>{
    assert.equal(sql,await readFile(new URL('../migrations/20261008213100_sitov_pronunciation_pretests.sql',import.meta.url),'utf8'))
    await db.exec(sql);await db.actor(student)
@@ -73,10 +85,20 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
    assert.equal((await rpc(db,'sitov_get_pronunciation_pretest_staff',[text,null])).error,'not_found')
    await db.actor(student,'postgres')
    const fixture=await seedDefinition(text)
-   await db.actor(student);await assert.rejects(db.query('SELECT * FROM sitov_pronunciation_private.pretest_approvals'),/permission denied/);await assert.rejects(db.exec('INSERT INTO sitov_pronunciation_private.pretest_approvals DEFAULT VALUES'),/permission denied/);await db.actor(null,'anon');await assert.rejects(db.query('SELECT * FROM sitov_pronunciation_private.pretest_approvals'),/permission denied/);await db.actor(null,'postgres')
+   await db.actor(student);await assert.rejects(db.query('SELECT * FROM sitov_pronunciation_private.pretest_question_audio_proofs'),/permission denied/);await assert.rejects(db.exec('INSERT INTO sitov_pronunciation_private.pretest_question_audio_proofs DEFAULT VALUES'),/permission denied/);await assert.rejects(db.query('SELECT * FROM sitov_pronunciation_private.pretest_approvals'),/permission denied/);await assert.rejects(db.exec('INSERT INTO sitov_pronunciation_private.pretest_approvals DEFAULT VALUES'),/permission denied/);await db.actor(null,'anon');await assert.rejects(db.query('SELECT * FROM sitov_pronunciation_private.pretest_approvals'),/permission denied/);await db.actor(null,'postgres')
    await db.exec(`UPDATE storage.objects SET user_metadata=user_metadata||'{"wordTimings":[]}'::jsonb WHERE name='${fixture.path}'`);assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id value',[text])).rows[0].value,null)
    await db.exec(`UPDATE storage.objects SET user_metadata='${JSON.stringify(fixture.metadata)}',archived_at=now() WHERE name='${fixture.path}'`);assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id value',[text])).rows[0].value,null)
    await db.exec(`UPDATE storage.objects SET archived_at=NULL WHERE name='${fixture.path}'`)
+   // Every public field is live-rechecked after activation: prompt, fragment and option.
+   for(const spoken of [fixture.definition.tasks[0].promptDe,fixture.definition.tasks[0].fragmentDe,fixture.definition.tasks[0].options[1].textDe]){
+    const asset=fixture.assets.find(a=>a.spoken===spoken)
+    await db.exec(`UPDATE storage.objects SET archived_at=now() WHERE name='${asset.path}'`);assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id value',[text])).rows[0].value,null);await fixture.seedAssets([asset])
+    await db.exec(`UPDATE storage.objects SET user_metadata=user_metadata||'{"audioSha256":"${'c'.repeat(64)}"}'::jsonb WHERE name='${asset.path}'`);assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id value',[text])).rows[0].value,null);await fixture.seedAssets([asset])
+    await db.exec(`UPDATE storage.objects SET user_metadata=user_metadata||'{"voice":"wrong-profile"}'::jsonb WHERE name='${asset.path}'`);assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id value',[text])).rows[0].value,null);await fixture.seedAssets([asset])
+    await db.exec(`UPDATE storage.objects SET user_metadata=jsonb_set(user_metadata,'{wordTimings,0,end}','0.4'::jsonb) WHERE name='${asset.path}'`);assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id value',[text])).rows[0].value,null);await fixture.seedAssets([asset])
+    await db.exec(`UPDATE storage.objects SET user_metadata=user_metadata||'{"wordTimings":[]}'::jsonb WHERE name='${asset.path}'`);assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id value',[text])).rows[0].value,null);await fixture.seedAssets([asset])
+   }
+   await db.exec(await readFile(new URL('../vps/96_sitov_private_audio_delivery.sql',import.meta.url),'utf8'));assert.notEqual((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id value',[text])).rows[0].value,null)
   })
   await t.test('invalid policy/pools cannot activate and definitions are immutable',async()=>{
    await db.actor(student,'postgres')
@@ -89,7 +111,7 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
   await t.test('zero old evidence starts/resumes one balanced account form without keys/body leakage',async()=>{
    await db.actor(student);assert.deepEqual((await db.query('SELECT id FROM learning_reading_texts WHERE id=$1',[text])).rows,[]);const req=sitovId(seq++);const first=await rpc(db,'sitov_start_pronunciation_pretest',[text,req]);assert.equal(first.ok,true)
    assert.deepEqual(await rpc(db,'sitov_start_pronunciation_pretest',[text,req]),first)
-   current=first.data.attempt;assert.equal(first.data.tasks.length,12);assert.ok(!JSON.stringify(first).includes('DO NOT LEAK'));assert.ok(!JSON.stringify(first).includes('correctOptionId'))
+   current=first.data.attempt;assert.equal(first.data.tasks.length,12);assert.ok(!JSON.stringify(first).includes('DO NOT LEAK'));assert.ok(!JSON.stringify(first).includes('correctOptionId'));assert.ok(!JSON.stringify(first).includes('audio_cache'))
    assert.equal((await start()).data.attempt.id,current.id)
    for(const core of pool.competencies)assert.equal(first.data.tasks.filter(q=>q.competencyId===core.id).length,3)
    await db.actor(sitovUsers.explicitAll);assert.equal((await rpc(db,'sitov_get_pronunciation_pretest_attempt',[current.id])).error,'not_found')
@@ -250,6 +272,25 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
    await db.exec(`UPDATE storage.objects SET archived_at=NULL WHERE bucket_id='audio_cache' AND name='${audio.path}'`)
    assert.equal((await db.query('SELECT (sitov_pronunciation_private.current_pretest($1)).id id',[text])).rows[0].id,before)
    assert.deepEqual(await sitovHistorySnapshot(db),originalHistory)
+  })
+  await t.test('question asset revocation blocks current passage and new target writes while preserving history; bounded gate timing',async()=>{
+   await db.actor(student);const ticket=await rpc(db,'sitov_create_pronunciation_upload_ticket',[text,sitovId(seq++),'webm']);assert.equal(ticket.ok,true)
+   await db.exec(`INSERT INTO storage.objects(bucket_id,name,owner) VALUES('pronunciation_audio','${ticket.data.path}','${student}')`)
+   await db.actor(null,'postgres')
+   const row=(await db.query("SELECT d.id,d.test_version, d.definition->'tasks'->0->'options'->1->>'textDe' spoken FROM sitov_pronunciation_private.pretest_definitions d WHERE d.text_id=$1 AND d.active",[text])).rows[0]
+   const proof=(await db.query('SELECT path FROM sitov_pronunciation_private.pretest_question_audio_proofs WHERE definition_id=$1 AND test_version=$2 AND text_sha256=sitov_pronunciation_private.pretest_hash(vocabulary_private.sitov_normalize_audio_text($3))',[row.id,row.test_version,row.spoken])).rows[0]
+   await db.exec(`UPDATE storage.objects SET archived_at=now() WHERE bucket_id='audio_cache' AND name='${proof.path}'`);await db.actor(student)
+   assert.equal((await db.query('SELECT sitov_pronunciation_private.current_pass($1) value',[text])).rows[0].value,false)
+   assert.equal((await rpc(db,'sitov_create_pronunciation_upload_ticket',[text,sitovId(seq++),'webm'])).error,'authoring_not_ready')
+   assert.ok((await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+ticket.data.path])).error)
+   assert.deepEqual((await db.query('SELECT id FROM learning_reading_texts WHERE id=$1',[text])).rows,[])
+   await db.actor(null,'postgres');await db.exec(`UPDATE storage.objects SET archived_at=NULL WHERE bucket_id='audio_cache' AND name='${proof.path}'`);await db.actor(student)
+   assert.equal((await db.query('SELECT sitov_pronunciation_private.current_pass($1) value',[text])).rows[0].value,true)
+   assert.deepEqual(await sitovHistorySnapshot(db),originalHistory)
+   const normalized=(await db.query('SELECT vocabulary_private.sitov_normalize_audio_text($1) value',['  Grüße   am Abend. '])).rows[0].value
+   assert.equal(normalized,'Grüße am Abend.')
+   const output=db.raw(`SET ROLE postgres; SELECT set_config('request.jwt.claim.sub','${student}',false); CREATE FUNCTION pg_temp.sitov_gate_measure() RETURNS jsonb LANGUAGE plpgsql AS $$ DECLARE started timestamptz:=clock_timestamp();passed boolean;BEGIN FOR i IN 1..10 LOOP passed:=sitov_pronunciation_private.current_pass('${text}');IF NOT passed THEN RAISE EXCEPTION 'measurement_requires_valid_pass';END IF;END LOOP;RETURN jsonb_build_object('calls',10,'total_ms',extract(epoch FROM clock_timestamp()-started)*1000);END $$; SELECT pg_temp.sitov_gate_measure();`)
+   const measure=JSON.parse(output.split('\n').at(-1));t.diagnostic(JSON.stringify(measure));assert.equal(measure.calls,10)
   })
  }finally{await db.close();execFileSync(psql,['-X','-w','-h',socket,'-p',port,'-d','postgres','-c',`DROP DATABASE ${database} WITH (FORCE)`],{stdio:'pipe'})}
 })

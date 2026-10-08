@@ -1,0 +1,38 @@
+{
+  "reviewer": "M",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "at": "2026-10-08T23:05:20.498Z",
+  "scope": "72 actual first3 questions/options/source evidence read independently; q6 correction separately checked; no pedagogical calibration or publication/audio approval claimed",
+  "rejectedBeforeCorrection": [
+    "sitov.pretest.a11-01.nominal.q6 unnecessary contraction expansion"
+  ],
+  "approvedEditorialDrafts": [
+    {
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+      "definitionContentHash": "93819f3dd5415fd45da126b32e1644edf70f76dbd29a2746de40e0d9705b9f8c",
+      "questions": 24,
+      "status": "independent_editorial_checked_draft_only",
+      "audioPublication": "blocked_pending_new_question_assets_and_gate"
+    },
+    {
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "textVersion": "a1e829de18793196c9b27aa5b5fe18a20ebf7a12809c5a61799fd9822f987fc0",
+      "definitionContentHash": "c59a8b687b1abd2892fc6dd833da3f5b9bab904b804afa343ad2dcae5ac2e486",
+      "questions": 24,
+      "status": "independent_editorial_checked_draft_only",
+      "audioPublication": "blocked_pending_new_question_assets_and_gate"
+    },
+    {
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "textVersion": "1d8ea3dbd24923f3c6a3ec7c9f319d84b475802b18996a605ee447f98bc1a961",
+      "definitionContentHash": "3c502603ab177eec9489766f9cca1e392cc0f3be17dd92aacd248b658a874d9f",
+      "questions": 24,
+      "status": "independent_editorial_checked_draft_only",
+      "audioPublication": "blocked_pending_new_question_assets_and_gate"
+    }
+  ],
+  "authoredAudioManifest": "supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json",
+  "audioTextIds": 288
+}
