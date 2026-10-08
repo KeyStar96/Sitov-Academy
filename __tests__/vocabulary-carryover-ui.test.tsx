@@ -3,7 +3,7 @@ jest.mock('@/app/actions/learning-checkpoints', () => ({
   saveLearningCheckpoint: jest.fn(async (_kind, _level, state, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
   clearLearningCheckpoint: jest.fn(async (_kind, _level, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state: {}, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
 }))
-import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import VocabularyStartGate from '@/components/vocabulary/VocabularyStartGate'
 import VocabularyCarryoverStation from '@/components/vocabulary/VocabularyCarryoverStation'
 import VocabularyTrainingStart from '@/components/vocabulary/VocabularyTrainingStart'
@@ -15,6 +15,7 @@ import VocabularyTrainPage from '@/app/[lang]/dashboard/level/[level]/vocabulary
 import { beginVocabularyLevel, setVocabularyCarryover, getVocabularySession, getVocabularyAssessment, getVocabularyCarryover } from '@/app/actions/vocabulary'
 import { announceVocabularyCarryoverChange } from '@/lib/learning-reset-events'
 import { getDictionary } from '@/lib/dictionary'
+import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
 import { carryoverTranslator, VOCABULARY_CARRYOVER_MESSAGES } from '@/lib/vocabulary-carryover-i18n'
 import { summarizeBox, computeWordBoxState } from '@/lib/vocabulary-box'
 import type { VocabularyCarryoverSummary, DueVocabularyCard } from '@/lib/types/vocabulary'
@@ -64,7 +65,7 @@ it('does not record a learning start or ask the question while browsing the box'
 
 it('asks after starting a round, keeps decline left and accept right, then refreshes the actual queue', async () => {
   render(<VocabTrainerPageClient learnerId={learnerId} initialCards={[{ ...card, originLevel: undefined }]} boxSummary={summarizeBox([phase3])} lang="de" level="A1.2" translations={de.vocabulary} />)
-  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.lernkasten_start_count_one }))
+  fireEvent.click(screen.getByRole('button', { name: sitovTrainerUiCopy('de').practice }))
   const dialog = await screen.findByRole('dialog', { name: t('question', { count: 1, levels: 'A1.1' }) })
   expect(beginVocabularyLevel).toHaveBeenCalledWith('A1.2', learnerId)
   expect(VocabCardSession).not.toHaveBeenCalled()
@@ -174,6 +175,7 @@ it('shows a per-origin distribution and changes the preference without touching 
 it('keeps the current-level percentage and separately labels included origins', () => {
   render(<LeitnerBoxOverview summary={{ ...summarizeBox([phase3]), percent: 0 }} level="A1.2" uiLanguage="de" translations={de.vocabulary} carryover={{ ...summary, enabled: true }} />)
   expect(screen.getByRole('progressbar', { name: de.vocabulary.box_progress_label })).toHaveAttribute('aria-valuenow', '0')
+  fireEvent.click(screen.getByRole('button', { name: sitovTrainerUiCopy('de').help }))
   expect(screen.getByText(t('separate', { count: 1 }))).toBeInTheDocument()
   expect(within(screen.getByRole('list', { name: t('title') })).getByText('A1.1')).toBeInTheDocument()
 })

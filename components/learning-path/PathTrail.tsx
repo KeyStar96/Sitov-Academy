@@ -5,9 +5,11 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, Check, History, Lock, Play, Route, Sparkles, Star, Target, Trophy, BookOpen, Repeat } from 'lucide-react'
 import type { PathMap, PathNode } from '@/lib/learning-path-contract'
 import { pathTranslator } from '@/lib/learning-path-i18n'
+import { sitovTrainerHeroCopy } from '@/lib/sitov-trainer-hero-i18n'
 import { MOTION, PRESS_SCALE, useReducedMotionSafe } from '@/lib/motion'
 import NewBadge from '@/components/motion/NewBadge'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import SitovTrainerHero from '@/components/motion/SitovTrainerHero'
 import SitovPathScene from './SitovPathScene'
 import styles from './learning-path.module.css'
 
@@ -20,11 +22,12 @@ const isLesson = (node: PathNode) => node.kind === 'practice' || node.kind === '
 const isDone = (node: PathNode) => node.status === 'completed'
 
 /**
- * Der eine Halt, an dem es weitergeht: die erste offene, nicht geschaffte
- * Lektion des Niveaus, sonst der erste noch nicht bestandene Test. Extras
- * zählen nicht, sie liegen neben dem Weg.
+ * Zuerst der letzte verfügbare Server-Checkpoint, sonst die erste offene,
+ * nicht geschaffte Station. Ohne Checkpoint liegen Extras neben dem Weg.
  */
 export function currentNodeId(map: PathMap): string | null {
+  const checkpoint = map.paths.flatMap(path => path.nodes).find(node => node.id === map.resume_node_id && node.available)
+  if (checkpoint) return checkpoint.id
   for (const path of map.paths) {
     for (const node of path.nodes) {
       if (node.kind !== 'special' && node.available && !isDone(node)) return node.id
@@ -81,36 +84,41 @@ function MedalIcon({ node, state }: { node: PathNode; state: StopState }) {
   return state === 'current' ? <BookOpen size={26} strokeWidth={2.4} aria-hidden="true" /> : <>{node.sort_order}</>
 }
 
-export default function PathTrail({ map, lang, busy, onOpen, isNewPath, isNewBranch, newLabel }: {
+export default function PathTrail({ map, lang, busy, onOpen, onContinue, isNewPath, isNewBranch, newLabel }: {
   map: PathMap; lang: string; busy: boolean
   onOpen: (node: PathNode, path: Path) => void
+  onContinue?: (node: PathNode, path: Path) => void
   isNewPath: (id: string) => boolean
   isNewBranch: (id: string) => boolean
   newLabel: string
 }) {
   const t = pathTranslator(lang)
+  const heroCopy = sitovTrainerHeroCopy(lang)
   const reduced = useReducedMotionSafe()
   const currentId = currentNodeId(map)
+  const currentPath = map.paths.find(path => path.nodes.some(node => node.id === currentId))
+  const currentNode = currentPath?.nodes.find(node => node.id === currentId)
+  const hasCheckpoint = currentNode?.id === map.resume_node_id
   const lessons = map.paths.flatMap(path => path.nodes.filter(isLesson))
   const levelDone = lessons.filter(isDone).length
+  const progressLabel = t('level_progress', { done: levelDone, total: lessons.length })
 
   return <div className={styles.trailRoot}>
-    {lessons.length > 0 && <SitovMotionStage className={styles.sitovJourney} data-sitov-surface data-testid="path-level-progress">
-      <span className={styles.sitovAurora} aria-hidden="true" />
-      <div className={styles.sitovJourneyContent}>
-        <span className={styles.sitovEyebrow}><Route size={17} aria-hidden="true" />Sitov Academy<span>{map.level}</span></span>
-        <p className={styles.sitovJourneyTitle}>{t('title')}</p>
-        <p className={styles.sitovJourneyDetail}>{t('level_progress', { done: levelDone, total: lessons.length })}</p>
-        <div className={styles.meter}>
-          <div className={styles.bar} role="progressbar" aria-valuemin={0} aria-valuemax={lessons.length} aria-valuenow={levelDone}
-            aria-label={t('level_progress', { done: levelDone, total: lessons.length })}>
-            <div className={styles.barFill} style={{ '--p': String(levelDone / lessons.length) } as CSSProperties} />
-          </div>
-          <span className={styles.meterValue} aria-hidden="true">{levelDone}/{lessons.length}</span>
+    <SitovTrainerHero mode="path" eyebrow="Sitov Academy" level={map.level} title={t('title')}
+      className={styles.sitovPathHero} testId="path-level-progress"
+      graphic={<SitovPathScene nodes={map.paths.flatMap(path => path.nodes)} currentId={currentId} />}
+      action={(!map.completed || hasCheckpoint) && currentPath && currentNode ? {
+        label: heroCopy.pathAction, disabled: busy, busy,
+        onClick: () => (onContinue ?? onOpen)(currentNode, currentPath),
+      } : undefined}>
+      {lessons.length > 0 && <div className={styles.sitovHeroProgress}>
+        <div className={styles.bar} role="progressbar" aria-valuemin={0} aria-valuemax={lessons.length} aria-valuenow={levelDone}
+          aria-label={progressLabel}>
+          <div className={styles.barFill} style={{ '--p': String(levelDone / lessons.length) } as CSSProperties} />
         </div>
-      </div>
-      <SitovPathScene nodes={map.paths.flatMap(path => path.nodes)} currentId={currentId} />
-    </SitovMotionStage>}
+        <span className={styles.sitovHeroProgressLabel} aria-hidden="true">{progressLabel}</span>
+      </div>}
+    </SitovTrainerHero>
 
     {map.paths.map(path => {
       const pathLessons = path.nodes.filter(isLesson)

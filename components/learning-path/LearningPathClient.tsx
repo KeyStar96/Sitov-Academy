@@ -87,10 +87,6 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
     try { setTranslationOpen(window.localStorage.getItem(TRANSLATION_KEY) === 'open') } catch { /* nur Bequemlichkeit */ }
   }, [])
 
-  // A checkpoint offers an explicit continuation; changing modes always opens the map.
-  const resumePath = map?.paths.find(path => path.nodes.some(node => node.id === map.resume_node_id && node.available))
-  const resumeNode = resumePath?.nodes.find(node => node.id === map?.resume_node_id)
-
   function toggleTranslation() {
     setTranslationOpen(previous => {
       try { window.localStorage.setItem(TRANSLATION_KEY, previous ? 'closed' : 'open') } catch { /* nur Bequemlichkeit */ }
@@ -259,12 +255,6 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       <button className={styles.secondary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('retry')}</button>
     </div>}
     <SitovMotionStage data-testid="path-map" className={`${styles.map} ${styles.sitovMapStage}`}>
-      {resumePath && resumeNode && <button type="button" data-testid="path-resume" className={styles.resumeCard} disabled={busy}
-        onClick={() => openNode(resumeNode, resumePath.title, resumePath.id, true)}>
-        <span className={styles.resumeIcon} aria-hidden="true"><Play size={22} /></span>
-        <span><strong>{t('resume')}</strong><span className={styles.resumeTitle}>{resumeNode.title}</span></span>
-        <Play size={18} aria-hidden="true" />
-      </button>}
       {map?.completed && <div className={styles.card}>
         <p>{t('all_done')}</p>
         {map.next_level && (map.next_level_available
@@ -273,6 +263,8 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       </div>}
       {map && map.paths.length > 0 && <PathTrail map={map} lang={lang} busy={busy}
         onOpen={(node, path) => openNode(node, path.title, path.id)}
+        onContinue={(node, path) => openNode(node, path.title, path.id,
+          node.id === map.resume_node_id || node.status === 'in_progress' || node.tests.some(attempt => attempt.status === 'active'))}
         isNewPath={id => news.isNew('path', id)} isNewBranch={id => news.isNew('special_branch', id)} newLabel={newLabel} />}
       {map && map.paths.length === 0 && <p>{t('empty')}</p>}
     </SitovMotionStage>

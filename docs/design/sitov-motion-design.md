@@ -1,6 +1,6 @@
 # Sitov Academy: Motion-Design
 
-Stand: 4. Oktober 2026. Verbindliche Regel für neue und überarbeitete Oberflächen der gesamten Webseite: Die UI fühlt sich lebendig an und reagiert dynamisch auf die Menschen, die sie bedienen. Die Regel steht auch in `AGENTS.md` und ergänzt die [gemeinsamen Trainerregeln](sitov-trainer-design.md).
+Stand: 8. Oktober 2026. Verbindliche Regel für neue und überarbeitete Oberflächen der gesamten Webseite: Die UI fühlt sich lebendig an und reagiert dynamisch auf die Menschen, die sie bedienen. Die Regel steht auch in `AGENTS.md` und ergänzt die [gemeinsamen Trainerregeln](sitov-trainer-design.md).
 
 ## Bewegung mit Bedeutung
 
@@ -52,7 +52,7 @@ Die Karte ist mit Release `09452efafb1a` seit dem 4. Oktober 2026 um 17:02 Uhr C
 
 ## Lernboxen und Aussprachefortschritt
 
-Seit dem 7. Oktober 2026 teilen Vokabel- und Verbtrainer die Darstellung in `components/learning/SitovLearningBox.tsx`: Fortschrittsring, beschriftete Zähler, sechs Fächer und ein Langzeitfach. Papierstapel bilden die tatsächliche Kartenanzahl ab; leere Fächer bleiben leer. Fällige Karten bewegen sich ruhig, Pointer und Fokus heben den Stapel an, native Buttons geben beim Drücken nach. `SitovMotionStage` pausiert die dekorative Bewegung außerhalb des Sichtbereichs und bei verborgenem Dokument. Reduzierte Bewegung und Serverdarstellung zeigen sofort alle Zahlen und Aktionen. Container Queries passen die Fächer an den verfügbaren Platz an. Die Lernaktion steht vor der Fächerliste, damit sie auf dem Handy früh erreichbar ist.
+Seit dem 7. Oktober 2026 teilen Vokabel- und Verbtrainer die Darstellung in `components/learning/SitovLearningBox.tsx`: Fortschrittsbalken, beschriftete Zähler, sechs Fächer und ein Langzeitfach. Papierstapel bilden die tatsächliche Kartenanzahl ab; leere Fächer bleiben leer. Fällige Karten bewegen sich ruhig, Pointer und Fokus heben den Stapel an, native Buttons geben beim Drücken nach. `SitovMotionStage` pausiert die dekorative Bewegung außerhalb des Sichtbereichs und bei verborgenem Dokument. Reduzierte Bewegung und Serverdarstellung zeigen sofort alle Zahlen und Aktionen. Container Queries passen die Fächer an den verfügbaren Platz an. Die Lernaktion steht im gemeinsamen Einstiegswidget vor der Lernbox, damit sie auf dem Handy früh erreichbar ist.
 
 Die Trainer behalten ihre unabhängigen Daten, Aufnahmeaktionen und Wiederholungsregeln. Vokabeln liegen im Fach ihrer schwächeren Abfragerichtung; Verben im Fach ihrer schwächsten freigeschalteten Zeitform. Das Öffnen zeigt die einzelnen Lernstände. Neu aufgenommene Verben und neu freigeschaltete Zeitformen verändern keine früher gespeicherten Antworten. Das Vokabelarchiv beendet reguläre Wiederholungen; Verbformen in Fach 7 werden weiterhin nach 60 Tagen wiederholt. Der gewichtete Fortschritt und vollständig gelernte Wörter sind deshalb gesondert beschriftet.
 
@@ -61,3 +61,13 @@ Die Aussprachekarte zeigt den nächsten Lernschritt, alle drei auswählbaren Mei
 Die Datenbank entscheidet weiterhin über die Freigabe. Zusätzlich zum Lernschritt braucht jeder Text mindestens 60 Prozent bekannte Inhaltswörter; gesperrte Texte zeigen ihre eigene Abdeckung und fehlende Prozentpunkte. Das Fortschrittsring-Ergebnis ist ausschließlich die Zusammenfassung der Lernziele. Deutsche Texttitel bleiben mit `lang="de"` und `translate="no"` markiert, die Oberfläche folgt allen fünf Interface-Sprachen.
 
 Die additive VPS-Migration `90_sitov_pronunciation_recall_evidence.sql` korrigiert den bisher unerreichbaren Schreibnachweis in der Karteikartenrichtung, ohne Fortschritte, Antworten oder Aufnahmen umzuschreiben. Sie gehört zum passenden App-Release; der Smoke-Test steht in `deploy/vps/tests/sitov-pronunciation-recall-evidence.sql`. Lokale Browserabnahme: `npx playwright test -c e2e/sitov-trainer-progress.config.ts`. Datenbankregression: `node --test supabase/tests/sitov-pronunciation-recall-evidence.test.mjs supabase/tests/sitov-pronunciation-readiness.test.mjs`.
+
+## Einheitliche Einstiegswidgets für Trainer und Mediathek
+
+Seit dem 8. Oktober 2026 verwenden Vokabeltrainer, Verbtrainer, Lernpfad und Mediathek `components/motion/SitovTrainerHero.tsx`. Aufbau, Typografie, Rundung, reservierte Grafikfläche, Druckfeedback und Fokus folgen derselben Komponente; die bestehenden Modusfarben und eigenständigen Szenen bleiben erhalten. Auf dem Handy steht die Überschrift über einer kompakten Zeile mit Aktion und Grafik. Der sichtbare Text beschränkt sich auf Titel, Niveau und unmittelbar hilfreichen Zustand.
+
+Vokabeln und Verben besitzen einen nativen Startbutton; bei leerer Lernbox führt die Aktion zur passenden Auswahl. Der Lernpfad setzt zuerst den verfügbaren Server-Checkpoint fort, einschließlich laufender Prüfungen und Extras; ohne Checkpoint öffnet er die nächste verfügbare Station. Ein vollständig abgeschlossenes Niveau ohne Checkpoint bietet keinen irreführenden Weiterlernen-Button. Die Mediathek zeigt Video und Dokumente als dekorative Szene und besitzt im Einstiegswidget keinen Button; die echten Medienaktionen liegen bei den jeweiligen Inhalten.
+
+Alle fünf Interface-Sprachen bleiben unterstützt. Deutsche Artikel und Verbformen in den Szenen erhalten `lang="de"` und `translate="no"`. Die gemeinsame `SitovMotionStage` pausiert die Choreografie bei unsichtbaren Flächen und verborgenem Dokument. Reduzierte Bewegung zeigt dieselben Bedienelemente und eine statische Szene; hoher Kontrast entfernt Glanz und Schatten.
+
+[Abnahme und Screenshots](sitov-trainer-heroes/README.md): 106 gezielte Tests in neun Suites, TypeScript und ESLint ohne Fehler; lokale Browserprüfung mit Beispieldaten bei 320, 390 und 1440 px, Hell/Dunkel, hohem Kontrast sowie Tastaturstart des Verbtrainers. Keine neue Datenbankmigration, keine neuen Lerninhalte oder Audios.

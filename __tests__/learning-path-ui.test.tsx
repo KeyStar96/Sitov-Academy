@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import LearningPathClient from '@/components/learning-path/LearningPathClient'
 import PathExerciseForm from '@/components/learning-path/PathExerciseForm'
 import { getLearningPath, startLearningNode, submitLearningAnswer, startLearningTest, saveLearningTestAnswer, finishLearningTest, getLearningTestReview } from '@/app/actions/learning-path'
@@ -163,10 +163,40 @@ it('opens the map first and restores the server queue only after explicit contin
   expect(screen.getByTestId('path-map')).toBeInTheDocument()
   expect(startLearningNode).not.toHaveBeenCalled()
   expect(screen.queryByTestId('path-answer')).not.toBeInTheDocument()
-  fireEvent.click(screen.getByTestId('path-resume'))
+  fireEvent.click(within(screen.getByTestId('path-level-progress')).getByRole('button', { name: 'Continue learning' }))
   expect(await screen.findByTestId('path-answer')).toBeInTheDocument()
   expect(startLearningNode).toHaveBeenCalledWith(id, 'en')
   expect(screen.queryByTestId('path-rule-card')).not.toBeInTheDocument()
+  expect(screen.getByTestId('path-exercise')).toHaveAttribute('data-exercise-id', nextId)
+  expect(screen.getByText('1 of 2 exercises completed')).toBeInTheDocument()
+})
+
+it('the hero resumes the latest saved lesson instead of an earlier unstarted one', async () => {
+  jest.mocked(startLearningNode).mockResolvedValueOnce({ data: { ...run, node_id: nextId, queue: [nextId],
+    exercises: [{ ...run.exercises[0], id: nextId }] } })
+  render(<LearningPathClient initialPath={{ ...map, resume_node_id: nextId,
+    paths: [{ ...map.paths[0], nodes: [node, { ...node, id: nextId, status: 'in_progress', sort_order: 2 }] }] }} level="A1.1" lang="en" />)
+  const hero = screen.getByTestId('path-level-progress')
+  expect(within(hero).getAllByRole('button')).toHaveLength(1)
+  expect(startLearningNode).not.toHaveBeenCalled()
+  fireEvent.click(within(hero).getByRole('button', { name: 'Continue learning' }))
+  await screen.findByTestId('path-answer')
+  expect(startLearningNode).toHaveBeenCalledWith(nextId, 'en')
+  expect(screen.queryByTestId('path-rule-card')).not.toBeInTheDocument()
+})
+
+it('the hero continues an active test with earlier results without an extra retry choice', async () => {
+  jest.mocked(startLearningTest).mockResolvedValueOnce({ data: { attempt_id: nextId, node_id: nextId, total: 2,
+    exercises: [{ ...run.exercises[0], answer: { text: 'saved answer' } }, { ...run.exercises[0], id: nextId, answer: null }] } })
+  render(<LearningPathClient initialPath={{ ...map, resume_node_id: nextId,
+    paths: [{ ...map.paths[0], nodes: [node, { ...node, id: nextId, kind: 'test', tests: [
+      { id, status: 'completed', percentage: 50, passed: false },
+      { id: nextId, status: 'active', percentage: null, passed: null },
+    ] }] }] }} level="A1.1" lang="en" />)
+  fireEvent.click(within(screen.getByTestId('path-level-progress')).getByRole('button', { name: 'Continue learning' }))
+  await screen.findByTestId('path-answer')
+  expect(startLearningTest).toHaveBeenCalledWith(nextId, 'en')
+  expect(screen.queryByTestId('path-test-choice')).not.toBeInTheDocument()
   expect(screen.getByTestId('path-exercise')).toHaveAttribute('data-exercise-id', nextId)
   expect(screen.getByText('1 of 2 exercises completed')).toBeInTheDocument()
 })

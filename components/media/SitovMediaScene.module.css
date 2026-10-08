@@ -1,0 +1,30 @@
+.sitovScene { position: relative; width: 100%; aspect-ratio: 1.12; color: var(--sitov-hero-text, var(--accent-text)); }
+.sitovShelf { position: absolute; left: 5%; right: 2%; bottom: 9%; height: 1px; background: color-mix(in srgb, currentColor 30%, var(--border)); }
+.sitovDocument { position: absolute; z-index: 1; left: 4%; top: 17%; width: 44%; height: 65%; padding: 7%; border: 1px solid color-mix(in srgb, currentColor 38%, var(--border)); border-radius: .8rem; background: var(--surface); box-shadow: 0 12px 30px -22px currentColor; transform: rotate(-9deg); animation: sitov-media-document 7s var(--ease-out-soft) infinite; }
+.sitovDocumentHead { display: flex; align-items: center; gap: 12%; margin-bottom: 20%; }
+.sitovDocumentHead svg { width: 30%; height: auto; flex-shrink: 0; }
+.sitovDocumentHead > span { width: 50%; height: 3px; border-radius: 2px; background: currentColor; opacity: .45; }
+.sitovParagraph { display: grid; gap: .3rem; margin-bottom: 22%; }
+.sitovParagraph i { width: 100%; height: 2px; border-radius: 1rem; background: currentColor; opacity: .18; }
+.sitovParagraph i:last-child { width: 65%; }
+.sitovVideo { position: absolute; z-index: 2; right: 0; top: 13%; width: 72%; height: 60%; padding: 5%; border: 1px solid color-mix(in srgb, currentColor 42%, var(--border)); border-radius: 1rem; background: var(--surface); box-shadow: 0 15px 35px -26px currentColor; transform: rotate(5deg); animation: sitov-media-video 7s var(--ease-out-soft) -.7s infinite; }
+.sitovVideoTop { display: flex; gap: 4%; height: 11%; align-items: flex-start; }
+.sitovVideoTop i { width: 4%; aspect-ratio: 1; border-radius: 50%; background: currentColor; opacity: .3; }
+.sitovScreen { position: relative; display: grid; place-items: center; width: 100%; height: 70%; overflow: hidden; border: 1px solid color-mix(in srgb, currentColor 12%, var(--border)); border-radius: .5rem; background: var(--sitov-hero-soft, var(--surface-muted)); }
+.sitovScreenPaper { position: absolute; width: 37%; height: 64%; right: -3%; top: 24%; padding: 13% 7%; border: 1px solid color-mix(in srgb, currentColor 16%, transparent); border-radius: .4rem; background: var(--surface); transform: rotate(-17deg); opacity: .55; }
+.sitovScreenPaper i { display: block; width: 100%; height: 2px; margin-bottom: 22%; background: currentColor; opacity: .25; }
+.sitovPlay { display: grid; place-items: center; width: 34%; aspect-ratio: 1; border: 1px solid color-mix(in srgb, currentColor 24%, transparent); border-radius: 50%; background: var(--surface); box-shadow: 0 5px 15px -12px currentColor; }
+.sitovPlay svg { width: 46%; height: auto; margin-left: 5%; }
+.sitovPlayback { display: block; height: 3%; width: 100%; margin-top: 8%; overflow: hidden; border-radius: 1rem; background: color-mix(in srgb, currentColor 12%, var(--surface)); }
+.sitovPlayback i { display: block; width: 100%; height: 100%; background: currentColor; border-radius: inherit; transform-origin: left; transform: scaleX(.45); animation: sitov-media-playback 7s var(--ease-out-soft) -.7s infinite; }
+.sitovSmallPaper { position: absolute; z-index: 3; right: 7%; bottom: 7%; display: grid; align-content: center; gap: 12%; width: 26%; height: 30%; padding: 5%; border: 1px solid color-mix(in srgb, currentColor 30%, var(--border)); border-radius: .5rem; background: var(--surface); transform: rotate(13deg); box-shadow: 0 8px 20px -18px currentColor; animation: sitov-media-note 7s var(--ease-out-soft) -1.1s infinite; }
+.sitovSmallPaper i { height: 2px; width: 100%; background: currentColor; opacity: .22; }
+.sitovSmallPaper i:last-child { width: 65%; }
+:global([data-sitov-live='false']) .sitovScene *, :global([data-sitov-live='false']) .sitovScene *::before, :global([data-sitov-live='false']) .sitovScene *::after { animation-play-state: paused !important; }
+:global(html.high-contrast) .sitovScene * { box-shadow: none; }
+:global(html.high-contrast) .sitovDocument, :global(html.high-contrast) .sitovVideo, :global(html.high-contrast) .sitovSmallPaper { border-width: 2px; border-color: var(--foreground); }
+@keyframes sitov-media-document { 0%, 75%, 100% { transform: rotate(-9deg); } 35% { transform: translateY(-4px) rotate(-7deg); } }
+@keyframes sitov-media-video { 0%, 75%, 100% { transform: rotate(5deg); } 35% { transform: translateY(-4px) rotate(3deg); } }
+@keyframes sitov-media-note { 0%, 75%, 100% { transform: rotate(13deg); } 35% { transform: translateY(-3px) rotate(10deg); } }
+@keyframes sitov-media-playback { 0%, 100% { transform: scaleX(.25); } 70%, 90% { transform: scaleX(.8); } }
+@media (prefers-reduced-motion: reduce) { .sitovScene * { animation: none !important; transition: none !important; } }

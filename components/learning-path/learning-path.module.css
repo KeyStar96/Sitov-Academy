@@ -2,7 +2,7 @@
 .root h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 700; line-height: 1.25; }
 .root h3 { font-size: 22px; font-weight: 650; line-height: 1.4; }
 .root p { margin: 12px 0; }
-.root button, .root input, .root summary, .root a { min-height: 48px; font: inherit; }
+.root button:not([data-pressable]), .root input, .root summary, .root a:not([data-pressable]) { min-height: 48px; font: inherit; }
 .root button, .root a { min-width: 48px; }
 .root button:focus-visible, .root input:focus-visible, .root a:focus-visible, .root summary:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 4px; }
 .root button:disabled { cursor: default; }
@@ -11,13 +11,6 @@
 .header button { justify-self: start; }
 .header p { margin: 0; color: var(--muted); }
 .map { display: grid; gap: 24px; }
-.resumeCard { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border: 1px solid color-mix(in srgb, var(--mode-path-text) 40%, var(--border)); border-radius: 24px; background: linear-gradient(120deg, var(--mode-path-surface), var(--surface)); text-align: left; color: var(--foreground); transition: transform .25s var(--ease-out-soft), box-shadow .25s; }
-.resumeCard > span:nth-child(2) { flex: 1; min-width: 0; }
-.resumeIcon { display: grid; place-items: center; width: 48px; height: 48px; flex-shrink: 0; border-radius: 16px; background: var(--surface); color: var(--mode-path-text); }
-.resumeTitle { display: block; color: var(--muted); font-size: 16px; }
-.resumeCard:active { transform: scale(.985); }
-@media (hover: hover) { .resumeCard:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); } }
-@media (prefers-reduced-motion: reduce) { .resumeCard { transition: none; transform: none !important; } }
 .card { padding: clamp(16px, 4vw, 32px); border: 1px solid var(--border); border-radius: 24px; background: var(--surface); box-shadow: var(--shadow-sm); min-width: 0; }
 .rule { padding: clamp(16px, 4vw, 28px); border-radius: 18px; border: 1px solid var(--mode-path-text); color: var(--mode-path-text); background: var(--mode-path-surface); }
 .rule h3 { display: flex; gap: 10px; align-items: center; }
@@ -246,19 +239,12 @@
 }
 
 /* Sitov route lighting: motion supports the current step, never changes progress. */
-.sitovJourney { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr) 270px; align-items: center; gap: 16px; min-height: 244px; padding: clamp(24px, 4vw, 36px); border: 1px solid color-mix(in srgb, var(--mode-path-text) 32%, var(--border)); border-radius: 32px; overflow: hidden; background: linear-gradient(125deg, var(--surface) 15%, color-mix(in srgb, var(--mode-path-surface) 70%, var(--surface))); box-shadow: 0 20px 65px -46px var(--mode-path-text); }
-.sitovJourney::before, .banner::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(380px circle at var(--sitov-light-x, 68%) var(--sitov-light-y, 20%), color-mix(in srgb, var(--sitov-path-bright) 18%, transparent), transparent 75%); transition: opacity .5s var(--sitov-path-ease); }
-.sitovJourney[data-sitov-pointer='true']::before, .banner[data-sitov-pointer='true']::before { opacity: 1; }
-.sitovJourney::after { content: ''; position: absolute; inset: auto 10% 0; height: 2px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--mode-path-text) 45%, transparent), transparent); }
-.sitovJourneyContent { position: relative; z-index: 1; min-width: 0; }
-.sitovEyebrow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; color: var(--mode-path-text); font-size: 12px; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
-.sitovEyebrow > span { padding: 2px 9px; border: 1px solid color-mix(in srgb, var(--mode-path-text) 40%, var(--border)); border-radius: 99px; letter-spacing: 0; }
-.root .sitovJourneyTitle { margin: 16px 0 8px; font-size: clamp(30px, 5vw, 46px); font-weight: 850; line-height: 1.08; letter-spacing: -.045em; text-wrap: balance; }
-.root .sitovJourneyDetail { max-width: 28rem; margin: 0; color: var(--muted); font-size: 16px; }
-.sitovJourney .meter { max-width: 28rem; margin-top: 20px; }
-.sitovJourney .bar { height: 7px; background: color-mix(in srgb, var(--mode-path-text) 10%, var(--surface)); }
-.sitovJourney .barFill { background: linear-gradient(90deg, var(--mode-path-text), var(--sitov-path-bright)); }
-.sitovAurora { position: absolute; inset: -70% -30% -45% 15%; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 65% 50%, color-mix(in srgb, var(--sitov-path-bright) 18%, transparent), transparent 57%); animation: sitovPathAurora 13s ease-in-out infinite alternate paused; }
+.banner::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(380px circle at var(--sitov-light-x, 68%) var(--sitov-light-y, 20%), color-mix(in srgb, var(--sitov-path-bright) 18%, transparent), transparent 75%); transition: opacity .5s var(--sitov-path-ease); }
+.banner[data-sitov-pointer='true']::before { opacity: 1; }
+.sitovHeroProgress { display: grid; gap: 7px; max-width: 26rem; }
+.sitovHeroProgress .bar { height: 6px; background: color-mix(in srgb, var(--mode-path-text) 10%, var(--surface)); }
+.sitovHeroProgress .barFill { background: linear-gradient(90deg, var(--mode-path-text), var(--sitov-path-bright)); }
+.sitovHeroProgressLabel { font-size: .85rem; line-height: 1.5; }
 .sitovScene { position: relative; align-self: center; width: 100%; max-width: 310px; margin: 0 auto; pointer-events: none; }
 .sitovScene > svg { position: relative; width: 100%; height: auto; overflow: visible; }
 .sitovSceneGlow { position: absolute; inset: 5% 15% 10%; border-radius: 50%; background: radial-gradient(ellipse, color-mix(in srgb, var(--sitov-path-bright) 14%, transparent), transparent 70%); }
@@ -282,7 +268,7 @@
 .sitovScenePlay { fill: var(--accent-foreground); }
 .sitovSceneBeacon { stroke: var(--accent-strong); stroke-width: 1; opacity: .22; transform-box: fill-box; transform-origin: center; animation: sitovPathBeacon 3.8s ease-out infinite paused; }
 .sitovSceneSpark { color: var(--mode-path-text); opacity: .4; animation: sitovPathSpark 6s ease-in-out infinite paused; animation-delay: calc(var(--sitov-index) * -2s); }
-.sitovJourney[data-sitov-live='true'] .sitovAurora, .sitovJourney[data-sitov-live='true'] .sitovSceneMarker, .sitovJourney[data-sitov-live='true'] .sitovSceneBeacon, .sitovJourney[data-sitov-live='true'] .sitovSceneSpark { animation-play-state: running; }
+.sitovPathHero[data-sitov-live='true'] .sitovSceneMarker, .sitovPathHero[data-sitov-live='true'] .sitovSceneBeacon, .sitovPathHero[data-sitov-live='true'] .sitovSceneSpark { animation-play-state: running; }
 
 .trailRoot { gap: 24px; }
 .sitovPathSection { min-width: 0; }
@@ -380,7 +366,6 @@
 .root .segmented button { border-radius: 14px; transition: background .4s var(--sitov-path-ease), color .3s, box-shadow .4s var(--sitov-path-ease), transform .3s var(--sitov-path-ease); }
 .segmented button:active { transform: scale(.975); }
 
-@keyframes sitovPathAurora { from { transform: rotate(-12deg) scale(1); opacity: .65; } to { transform: rotate(8deg) scale(1.12); opacity: 1; } }
 @keyframes sitovPathMarker { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 @keyframes sitovPathBeacon { 0% { transform: scale(.9); opacity: .3; } 80%, 100% { transform: scale(1.2); opacity: 0; } }
 @keyframes sitovPathSpark { 0%, 100% { transform: scale(.8); opacity: .25; } 50% { transform: scale(1.1); opacity: .5; } }
@@ -390,13 +375,6 @@
 @keyframes sitovPathTile { from { opacity: .6; transform: translateY(4px) scale(.98); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 640px) {
-  .sitovJourney { grid-template-columns: minmax(0, 1fr) 150px; min-height: 208px; gap: 0; padding: 24px 22px; }
-  .sitovEyebrow { font-size: 10px; gap: 6px; }
-  .sitovEyebrow svg { width: 14px; }
-  .root .sitovJourneyTitle { font-size: 30px; margin: 14px 0 10px; }
-  .root .sitovJourneyDetail { font-size: 14px; }
-  .sitovJourney .meter { width: calc(100% + 85px); }
-  .sitovScene { align-self: start; margin-top: 32px; margin-right: -9px; }
   .banner { padding: 21px 22px; }
   .stopCard { padding: 16px 31px 16px 16px; }
   .stopTitle { font-size: 17px; }
@@ -411,10 +389,6 @@
   .reviewSummary { padding: 20px; gap: 13px; }
 }
 @media (max-width: 380px) {
-  .sitovJourney { grid-template-columns: minmax(0, 1fr) 114px; padding: 22px 18px; }
-  .root .sitovJourneyTitle { font-size: 26px; }
-  .sitovScene { margin-top: 45px; }
-  .sitovJourney .meter { width: calc(100% + 60px); }
   .trail { --medal: 3.8rem; --amp: 2rem; padding-left: 4px; }
   .stopTitle { font-size: 16px; }
   .stopCard { padding-left: 13px; }

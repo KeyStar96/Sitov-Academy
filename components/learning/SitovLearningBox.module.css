@@ -56,7 +56,7 @@
   .sitovStats { gap: .35rem .75rem; }
 }
 :global(html[data-contrast="high"]) .sitovShelf { border-color: var(--border); border-width: 2px; box-shadow: none; }
-@container (max-width: 340px) {
+@container (max-width: 380px) {
   .sitovShelves { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .sitovShelf, .sitovShelf:nth-child(n + 5) { grid-column: span 1; }
   .sitovShelf:last-child { grid-column: 1 / -1; min-height: 4rem; flex-direction: row; align-items: center; gap: .75rem; }

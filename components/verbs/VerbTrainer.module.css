@@ -1,41 +1,26 @@
 .sitovTrainer { --sitov-verb: #a21caf; --sitov-verb-bright: #e879f9; --sitov-verb-text: #86198f; --sitov-verb-soft: #fae8ff; --sitov-x: 70%; --sitov-y: 20%; display: grid; gap: 1.4rem; color: var(--foreground); }
 :global(html.dark) .sitovTrainer { --sitov-verb: #a21caf; --sitov-verb-text: #f0abfc; --sitov-verb-soft: #3a1644; }
-.sitovTrainer button:not([data-sitov-box-key]), .sitovTrainer input { -webkit-tap-highlight-color: transparent; }
-.sitovTrainer button:not([data-sitov-box-key]) { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 46px; font-weight: 750; transition: transform .22s cubic-bezier(.22,1,.36,1), background .2s, border-color .2s, box-shadow .2s; }
-.sitovTrainer button:not([data-sitov-box-key]):disabled { opacity: .55; cursor: default; }
-.sitovTrainer button:not([data-sitov-box-key]):focus-visible, .sitovTrainer input:focus-visible, .sitovTrainer summary:focus-visible { outline: 3px solid var(--sitov-verb-text); outline-offset: 4px; }
-.sitovTrainer button:not([data-sitov-box-key]):active:not(:disabled) { transform: scale(.96); }
-.sitovHero { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 230px; align-items: center; gap: 1rem; min-height: 270px; padding: 2rem 2.2rem; border: 1px solid color-mix(in srgb, var(--sitov-verb) 44%, var(--border)); border-radius: 2rem; overflow: hidden; background: linear-gradient(115deg,var(--surface),color-mix(in srgb,var(--sitov-verb) 9%,var(--surface))); box-shadow: 0 20px 60px -42px var(--sitov-verb); }
-.sitovTrainer .sitovHeroAction { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; border: 0; border-radius: inherit; background: transparent; cursor: pointer; }
-.sitovTrainer .sitovHeroAction:hover { box-shadow: none; }
-.sitovTrainer .sitovHeroAction:active { transform: none; }
-.sitovHero:has(.sitovHeroAction:focus-visible) { outline: 3px solid var(--sitov-verb-text); outline-offset: 4px; }
-.sitovHeroCta { display: inline-flex; align-items: center; gap: .55rem; min-height: 48px; margin-top: 1.2rem; border-radius: 1rem; border: 1px solid var(--sitov-verb); background: var(--sitov-verb); color: #fff; padding: .7rem 1.1rem; font-size: .95rem; font-weight: 750; box-shadow: 0 12px 28px -18px var(--sitov-verb); transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s; }
-.sitovHeroCta svg:last-child { margin-left: .3rem; transition: transform .3s cubic-bezier(.22,1,.36,1); }
-.sitovHero:has(.sitovHeroAction:hover) .sitovHeroCta svg:last-child, .sitovHero:has(.sitovHeroAction:focus-visible) .sitovHeroCta svg:last-child { transform: translateX(4px); }
-.sitovHero:has(.sitovHeroAction:active) .sitovHeroCta { transform: scale(.97); }
-.sitovHero[data-active='true'] { min-height: auto; grid-template-columns: 1fr; padding: 1.1rem 1.4rem; border-radius: 1.4rem; }
-.sitovHero[data-active='true'] h1 { max-width: none; font-size: 1.4rem; margin-bottom: 0; }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]), .sitovTrainer input { -webkit-tap-highlight-color: transparent; }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]) { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 46px; font-weight: 750; transition: transform .22s cubic-bezier(.22,1,.36,1), background .2s, border-color .2s, box-shadow .2s; }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):disabled { opacity: .55; cursor: default; }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):focus-visible, .sitovTrainer input:focus-visible, .sitovTrainer summary:focus-visible { outline: 3px solid var(--sitov-verb-text); outline-offset: 4px; }
+.sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):active:not(:disabled) { transform: scale(.96); }
 .sitovSession { scroll-margin-top: 14rem; }
-.sitovHero::before { position: absolute; z-index: -1; inset: 0; content: ''; opacity: 0; background: radial-gradient(500px circle at var(--sitov-x) var(--sitov-y),color-mix(in srgb,var(--sitov-verb-bright) 15%,transparent),transparent 75%); transition: opacity .4s; }
-[data-pointer='true'] .sitovHero::before { opacity: 1; }
-.sitovHero::after { content: ''; position: absolute; inset: auto 15% 0; height: 2px; background: linear-gradient(90deg,transparent,var(--sitov-verb-bright),transparent); }
-.sitovAurora { position: absolute; inset: -50% -15% -50% 20%; z-index: -1; background: radial-gradient(ellipse at 75% 45%,color-mix(in srgb,var(--sitov-verb-bright) 17%,transparent),transparent 52%); animation: sitov-aurora 10s ease-in-out infinite alternate; pointer-events: none; }
 .sitovEyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; color: var(--sitov-verb-text); font-size: .76rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
 .sitovEyebrow > span { border: 1px solid color-mix(in srgb,var(--sitov-verb-text) 45%,var(--border)); border-radius: 99px; padding: .15rem .6rem; letter-spacing: 0; }
-.sitovHero h1 { max-width: 550px; margin: .8rem 0 .65rem; font-size: clamp(1.9rem,4.2vw,3rem); line-height: 1.12; letter-spacing: -.045em; font-weight: 850; text-wrap: balance; }
 .sitovIntro { max-width: 520px; color: var(--muted); line-height: 1.6; font-size: 1.05rem; }
-.sitovOrbit { position: relative; width: 230px; height: 210px; }
-.sitovOrbitRing, .sitovOrbitRingInner { position: absolute; inset: 15px 12px; border: 1px solid color-mix(in srgb,var(--sitov-verb-text) 28%,transparent); border-radius: 50%; transform: rotate(-28deg); }
-.sitovOrbitRingInner { inset: 40px 33px; border-style: dashed; opacity: .6; transform: rotate(28deg); }
-.sitovOrbitCore { position: absolute; left: calc(50% - 31px); top: calc(50% - 31px); display: grid; place-items: center; width: 62px; height: 62px; border: 1px solid color-mix(in srgb,var(--sitov-verb-text) 40%,transparent); border-radius: 22px; background: var(--sitov-verb-soft); color: var(--sitov-verb-text); box-shadow: 0 0 35px -8px color-mix(in srgb,var(--sitov-verb-bright) 45%,transparent); animation: sitov-core 5s ease-in-out infinite; }
-.sitovWord { position: absolute; z-index: 1; border: 1px solid color-mix(in srgb,var(--sitov-verb-text) 40%,var(--border)); border-radius: .85rem; padding: .42rem .8rem; background: var(--surface); color: var(--sitov-verb-text); box-shadow: var(--shadow-sm); font-size: .9rem; font-weight: 800; animation: sitov-word 6s ease-in-out infinite; }
-.sitovWord[data-word='1'] { left: 0; top: 24px; }
-.sitovWord[data-word='2'] { right: 0; top: 82px; animation-delay: -2s; }
-.sitovWord[data-word='3'] { left: 14px; bottom: 17px; animation-delay: -4s; }
-.sitovOrbitSpark { position: absolute; inset: 15px 12px; border-radius: 50%; animation: sitov-orbit 12s linear infinite; }
+.sitovOrbit { position: relative; container-type: inline-size; width: 100%; max-width: 230px; aspect-ratio: 23 / 21; }
+.sitovOrbitRing, .sitovOrbitRingInner { position: absolute; inset: 7% 5%; border: 1px solid color-mix(in srgb,var(--sitov-verb-text) 28%,transparent); border-radius: 50%; transform: rotate(-28deg); }
+.sitovOrbitRingInner { inset: 19% 14%; border-style: dashed; opacity: .6; transform: rotate(28deg); }
+.sitovOrbitCore { position: absolute; left: 36.5%; top: 35%; display: grid; place-items: center; width: 27%; height: 30%; border: 1px solid color-mix(in srgb,var(--sitov-verb-text) 40%,transparent); border-radius: 35%; background: var(--sitov-verb-soft); color: var(--sitov-verb-text); box-shadow: 0 0 35px -8px color-mix(in srgb,var(--sitov-verb-bright) 45%,transparent); animation: sitov-core 5s ease-in-out infinite; }
+.sitovOrbitCore svg { width: 48%; height: 48%; }
+.sitovWord { position: absolute; z-index: 1; border: 1px solid color-mix(in srgb,var(--sitov-verb-text) 40%,var(--border)); border-radius: .9em; padding: .42em .8em; background: var(--surface); color: var(--sitov-verb-text); box-shadow: var(--shadow-sm); font-size: clamp(.54rem, 6.3cqw, .9rem); font-weight: 800; animation: sitov-word 6s ease-in-out infinite; }
+.sitovWord[data-word='1'] { left: 0; top: 11%; }
+.sitovWord[data-word='2'] { right: 0; top: 39%; animation-delay: -2s; }
+.sitovWord[data-word='3'] { left: 6%; bottom: 8%; animation-delay: -4s; }
+.sitovOrbitSpark { position: absolute; inset: 7% 5%; border-radius: 50%; animation: sitov-orbit 12s linear infinite; }
 .sitovOrbitSpark::after { content: ''; position: absolute; top: -3px; left: calc(50% - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--sitov-verb-text); box-shadow: 0 0 12px var(--sitov-verb-bright); }
-.sitovOrbitSpark[data-second='true'] { inset: 40px 33px; animation-duration: 9s; animation-direction: reverse; }
+.sitovOrbitSpark[data-second='true'] { inset: 19% 14%; animation-duration: 9s; animation-direction: reverse; }
 .sitovStats { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .8rem; }
 .sitovStats > div { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .15rem .55rem; padding: 1rem 1.15rem; border: 1px solid var(--border); border-radius: 1.2rem; background: var(--surface); }
 .sitovStats svg { color: var(--sitov-verb-text); }
@@ -147,7 +132,7 @@
 .sitovError svg { flex-shrink: 0; }
 .sitovError button { flex-shrink: 0; margin-left: auto; }
 .sitovSpinner { animation: sitov-orbit 1.2s linear infinite; }
-@media (hover:hover) { .sitovTrainer button:not([data-sitov-box-key]):hover:not(:disabled) { box-shadow: 0 5px 16px -10px var(--sitov-verb-text); border-color: var(--sitov-verb-text); } .sitovTrainer .sitovPrimary:hover:not(:disabled) { background: #86198f; } }
+@media (hover:hover) { .sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):hover:not(:disabled) { box-shadow: 0 5px 16px -10px var(--sitov-verb-text); border-color: var(--sitov-verb-text); } .sitovTrainer .sitovPrimary:hover:not(:disabled) { background: #86198f; } }
 @keyframes sitov-aurora { from { transform: rotate(-12deg) scale(1); opacity: .6; } to { transform: rotate(9deg) scale(1.15); opacity: 1; } }
 @keyframes sitov-word { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-7px) rotate(1deg); } }
 @keyframes sitov-core { 0%,100% { transform: rotate(-5deg) scale(1); } 50% { transform: rotate(5deg) scale(1.045); } }
@@ -157,12 +142,8 @@
 @keyframes sitov-pop { 0% { transform: scale(.85); } 60% { transform: scale(1.08); } 100% { transform: scale(1); } }
 @keyframes sitov-celebrate { 0% { opacity: 0; transform: translateY(0) scale(.5); } 20% { opacity: .8; } 100% { opacity: 0; transform: translateY(-70px) scale(1.2); } }
 @keyframes sitov-victory { from { opacity: 0; translate: 0 20px; } to { opacity: 1; translate: 0 0; } }
-[data-live='false'] .sitovAurora, [data-live='false'] .sitovWord, [data-live='false'] .sitovOrbitCore, [data-live='false'] .sitovOrbitSpark { animation-play-state: paused; }
+:global([data-sitov-trainer-hero='verbs'][data-sitov-live='false']) .sitovWord, :global([data-sitov-trainer-hero='verbs'][data-sitov-live='false']) .sitovOrbitCore, :global([data-sitov-trainer-hero='verbs'][data-sitov-live='false']) .sitovOrbitSpark { animation-play-state: paused; }
 @media (max-width:700px) {
-  .sitovHero { grid-template-columns: 1fr 155px; padding: 1.5rem; gap: .5rem; }
-  .sitovOrbit { width: 155px; height: 185px; transform: scale(.9); transform-origin: center right; }
-  .sitovWord { font-size: .76rem; padding: .35rem .5rem; }
-  .sitovWord[data-word='3'] { left: 0; }
   .sitovStats { gap: .5rem; }
   .sitovStats > div { padding: .85rem .7rem; }
   .sitovStats strong { font-size: 1.4rem; }
@@ -173,16 +154,7 @@
 }
 @media (max-width:480px) {
   .sitovTrainer { gap: 1rem; }
-  .sitovHero { grid-template-columns: 1fr; padding: 1.2rem; gap: .25rem; min-height: 0; }
-  .sitovHeroText { position: relative; z-index: 1; min-width: 0; }
-  .sitovHeroCta { font-size: .85rem; padding: .65rem .75rem; max-width: calc(100% - 3.5rem); }
-  .sitovHeroCta svg { flex-shrink: 0; }
-  .sitovHeroCta svg:first-child { display: none; }
-  .sitovHero h1 { font-size: 1.8rem; }
   .sitovIntro { font-size: .94rem; }
-  .sitovOrbit { position: absolute; right: .9rem; bottom: .8rem; width: 145px; height: 185px; transform: scale(.46); transform-origin: right bottom; opacity: .85; }
-  .sitovWord { font-size: .86rem; }
-  .sitovWord[data-word='3'] { left: 14px; }
   .sitovStats { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .sitovTabs button { flex-direction: column; gap: .3rem; font-size: .78rem; line-height: 1.2; padding: .7rem .25rem; }
   .sitovBox { padding: 1.1rem; }
@@ -197,12 +169,11 @@
   .sitovCarryover { padding: 1rem; align-items: flex-start; }
 }
 :global(html.high-contrast) .sitovTrainer { --sitov-verb: var(--accent-strong); --sitov-verb-text: var(--foreground); --sitov-verb-soft: var(--surface-muted); }
-:global(html.high-contrast) .sitovHero, :global(html.high-contrast) .sitovLaunch { background: var(--surface); }
-:global(html.high-contrast) .sitovAurora, :global(html.high-contrast) .sitovHero::before, :global(html.high-contrast) .sitovPrimary::after, :global(html.high-contrast) .sitovCelebration { display: none; }
+:global(html.high-contrast) .sitovLaunch { background: var(--surface); }
+:global(html.high-contrast) .sitovPrimary::after, :global(html.high-contrast) .sitovCelebration { display: none; }
 :global(html.high-contrast) .sitovOrbitCore, :global(html.high-contrast) .sitovWord { box-shadow: none; }
 :global(html.high-contrast) .sitovFeedback { border-width: 2px; }
 @media (prefers-reduced-motion:reduce) {
   .sitovTrainer *, .sitovTrainer *::before, .sitovTrainer *::after { animation: none !important; transition: none !important; }
-  .sitovHero::before, .sitovPrimary::after, .sitovCelebration { display: none; }
-  .sitovTrainer button:not([data-sitov-box-key]):active:not(:disabled) { transform: none; }
+  .sitovTrainer button:not([data-sitov-box-key]):not([data-sitov-hero-action]):active:not(:disabled) { transform: none; }
 }

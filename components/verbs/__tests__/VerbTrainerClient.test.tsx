@@ -22,13 +22,17 @@ function sitovActions(): SitovVerbTrainerActions {
   return { next: jest.fn().mockResolvedValue({ data: sitovExercise }), box: jest.fn().mockResolvedValue({ data: { selectedIds: ['sitov-fahren'] } }), answer: jest.fn().mockResolvedValue({ data: sitovReview }) }
 }
 
+function sitovHeroButton(label: string) {
+  return within(screen.getByRole('region', { name: 'Make verb forms your own.' })).getByRole('button', { name: label })
+}
+
 test('the motion card starts an adaptive round immediately even from an empty focused selection', async () => {
   const actions = sitovActions()
   render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
   fireEvent.click(screen.getByRole('button', { name: 'Focused practice' }))
   fireEvent.click(screen.getByRole('checkbox', { name: 'Present' }))
   fireEvent.click(screen.getByRole('checkbox', { name: 'Perfect' }))
-  fireEvent.click(screen.getByRole('button', { name: 'Make verb forms your own. Start practising' }))
+  fireEvent.click(sitovHeroButton('Start practising'))
   expect(await screen.findByRole('textbox', { name: 'Your answer 1' })).toHaveFocus()
   expect(actions.next).toHaveBeenCalledTimes(1)
   expect(actions.next).toHaveBeenCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: undefined }, 'en')
@@ -38,7 +42,7 @@ test('the motion card starts an adaptive round immediately even from an empty fo
 test('the hero guides an empty verb box to its selection without starting an invalid round', () => {
   const actions = sitovActions()
   render(<VerbTrainerClient initialState={{ ...sitovState, selectedIds: [] }} lang="en" actions={actions} />)
-  fireEvent.click(screen.getByRole('button', { name: 'Make verb forms your own. Choose verbs' }))
+  fireEvent.click(sitovHeroButton('Choose verbs'))
   expect(screen.getByRole('button', { name: 'Add: fahren' })).toBeInTheDocument()
   expect(actions.next).not.toHaveBeenCalled()
 })
@@ -46,7 +50,7 @@ test('the hero guides an empty verb box to its selection without starting an inv
 test('passes the interface language, shows its short meaning, and saves the actual answer once', async () => {
   const actions = sitovActions()
   render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
-  fireEvent.click(screen.getByRole('button', { name: 'Start practising' }))
+  fireEvent.click(sitovHeroButton('Start practising'))
   await screen.findByText('travel by vehicle')
   expect(actions.next).toHaveBeenCalledWith(expect.objectContaining({ level: 'A1.2' }), 'en')
   fireEvent.change(screen.getByRole('textbox', { name: 'Your answer 1' }), { target: { value: 'fährst' } })
@@ -61,7 +65,7 @@ test('revealing records a blank attempt, and shows the server solution', async (
   const actions = sitovActions()
   actions.answer = jest.fn().mockResolvedValue({ data: { ...sitovReview, correct: false } })
   render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
-  fireEvent.click(screen.getByRole('button', { name: 'Start practising' }))
+  fireEvent.click(sitovHeroButton('Start practising'))
   fireEvent.click(await screen.findByRole('button', { name: 'Show solution' }))
   await screen.findByText('We will practise this form again.')
   expect(actions.answer).toHaveBeenCalledWith({ exerciseId: sitovExercise.exerciseId, answer: [''] })
@@ -83,7 +87,7 @@ test('a pending answer cannot be submitted a second time, and failure permits re
   const actions = sitovActions()
   actions.answer = jest.fn().mockImplementation(() => new Promise(resolve => { settle = resolve }))
   render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
-  fireEvent.click(screen.getByRole('button', { name: 'Start practising' }))
+  fireEvent.click(sitovHeroButton('Start practising'))
   const input = await screen.findByRole('textbox', { name: 'Your answer 1' })
   fireEvent.change(input, { target: { value: 'fährst' } })
   const button = screen.getByRole('button', { name: 'Check answer' })
@@ -157,7 +161,7 @@ test('automatic practice after a compartment round clears the previous server bo
   await screen.findByRole('textbox', { name: 'Your answer 1' })
   fireEvent.click(screen.getByRole('button', { name: 'End round' }))
   fireEvent.click(await screen.findByRole('button', { name: 'Back to verb trainer' }))
-  fireEvent.click(screen.getByRole('button', { name: 'Start practising' }))
+  fireEvent.click(sitovHeroButton('Start practising'))
   await screen.findByRole('textbox', { name: 'Your answer 1' })
   expect(actions.next).toHaveBeenLastCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: undefined }, 'en')
 })

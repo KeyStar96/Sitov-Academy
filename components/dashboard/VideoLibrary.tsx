@@ -18,6 +18,9 @@ import type { LibraryGroup, LibraryLink } from '@/lib/media-library'
 import type { LearningCheckpoint } from '@/lib/learning-checkpoints'
 import { useVideoCheckpoint } from '@/lib/useVideoCheckpoint'
 import { learningCheckpointCopy } from '@/lib/learning-checkpoint-i18n'
+import SitovTrainerHero from '@/components/motion/SitovTrainerHero'
+import SitovMediaScene from '@/components/media/SitovMediaScene'
+import { sitovTrainerHeroCopy } from '@/lib/sitov-trainer-hero-i18n'
 /** Pro Medium ein ruhiger, gleichbleibender Farbton für die Vorschau. */
 function hue(id: string) {
   let value = 0
@@ -134,14 +137,10 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
 
   return (
     <div className="mx-auto max-w-6xl space-y-8 text-[var(--foreground)]">
-      <header className="st-path-hero sl-glass sl-hero">
-        <div className="relative">
-          <p className="st-eyebrow !mt-0">{s('areas_level', { level })}</p>
-          <h1 className="st-path-hero__title mt-1">{s('media_title')}</h1>
-          <p className="st-path-hero__text">{s('media_intro')}</p>
-          {(videos > 0 || documents > 0) && <p className="st-path-hero__count">{s('media_count', { videos, documents })}</p>}
-        </div>
-      </header>
+      <SitovTrainerHero mode="media" eyebrow={sitovTrainerHeroCopy(lang).mediaEyebrow} level={level}
+        title={s('media_title')} graphic={<SitovMediaScene />}>
+        {(videos > 0 || documents > 0) && <p>{s('media_count', { videos, documents })}</p>}
+      </SitovTrainerHero>
 
       {continueWatching.length > 0 && (
         <section aria-labelledby="media-continue">

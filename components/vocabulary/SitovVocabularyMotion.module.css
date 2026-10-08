@@ -4,6 +4,13 @@
   --sitov-vocab-light: color-mix(in srgb, var(--accent) 16%, transparent);
   --sitov-vocab-paper: var(--surface);
 }
+.sitovHeroGraphic { display: grid; place-items: center; width: 100%; max-width: 16rem; min-width: 0; }
+.sitovHeroGraphic .sitovDeck { width: 100%; height: auto; aspect-ratio: 12 / 11; }
+.sitovHeroGraphic .sitovDeckCard b { font-size: clamp(1rem, 2vw, 1.8rem); }
+.sitovHeroCount { display: inline-flex; align-items: baseline; gap: .4em; }
+.sitovHeroCount b { color: var(--foreground); font-weight: 800; font-variant-numeric: tabular-nums; }
+.sitovHeroRest { display: inline-flex; align-items: center; gap: .45em; color: var(--foreground); }
+.sitovHeroRest svg { flex: 0 0 auto; color: var(--success); }
 
 .sitovHeading {
   position: relative;
@@ -102,9 +109,9 @@
 .sitovCompletion > i::after { content: ''; position: absolute; top: 0; left: 50%; width: 4px; height: 4px; border-radius: 50%; background: var(--success); animation: sitov-vocab-completion-spark .9s ease-out .15s both; }
 
 /* A stage owns its animation lifecycle; neighboring trainers are unaffected. */
-:is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete)[data-sitov-live='false'] *,
-:is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete)[data-sitov-live='false'] *::before,
-:is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete)[data-sitov-live='false'] *::after { animation-play-state: paused !important; }
+:is(.sitovHero, .sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete)[data-sitov-live='false'] *,
+:is(.sitovHero, .sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete)[data-sitov-live='false'] *::before,
+:is(.sitovHero, .sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete)[data-sitov-live='false'] *::after { animation-play-state: paused !important; }
 
 @media (hover: hover) and (pointer: fine) {
   .sitovAction :global(.lb-cta:hover:not(:disabled) .lb-cta__icon) { transform: translateX(4px) rotate(-6deg); }
@@ -153,9 +160,9 @@
 :global(html.high-contrast) .sitovCardMark { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
-  :is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete) *,
-  :is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete) *::before,
-  :is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete) *::after { animation: none !important; transition: none !important; }
+  :is(.sitovHero, .sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete) *,
+  :is(.sitovHero, .sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete) *::before,
+  :is(.sitovHero, .sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete) *::after { animation: none !important; transition: none !important; }
   .sitovScene :global(.lb-cell:is(:hover, :focus-visible, [data-open]) .lb-stack) { transform: translateX(-50%) translateZ(calc(var(--u) * -2.2)); }
   .sitovScene :global(.lb-cell:is(:hover, :focus-visible, [data-open]) .lb-stack__card) { transform: rotateX(90deg) translateZ(1.5px) rotateZ(-3deg); }
   .sitovSession :global(.learning-button:is(:hover, :active):not(:disabled)),

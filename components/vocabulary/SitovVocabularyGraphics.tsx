@@ -13,7 +13,7 @@ export function SitovVocabularyDeck() {
     <span className={styles.sitovDeckShadow} />
     {(['der', 'die', 'das'] as const).map((article, index) => <span className={styles.sitovDeckCard} key={article}
       style={{ '--sitov-card-index': index } as CSSProperties} data-article={article}>
-      <b lang="de">{article}</b><i /><i />
+      <b lang="de" translate="no">{article}</b><i /><i />
     </span>)}
     <span className={styles.sitovDeckSpark} /><span className={styles.sitovDeckSpark} data-second="true" />
   </div>

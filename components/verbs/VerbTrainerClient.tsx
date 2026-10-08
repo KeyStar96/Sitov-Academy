@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from 'react'
-import { ArrowRight, Check, CheckCheck, CircleHelp, Layers3, LoaderCircle, LockKeyhole, Plus, RotateCcw, Search, Sparkles, Target, Trash2, X, Zap } from 'lucide-react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from 'react'
+import { ArrowRight, Check, CheckCheck, CircleHelp, Layers3, LoaderCircle, LockKeyhole, Plus, RotateCcw, Search, Target, Trash2, X, Zap } from 'lucide-react'
 import { nextSitovVerbExercise, setSitovVerbBox, submitSitovVerbAnswer } from '@/app/actions/verbs'
 import { getSitovVerbCopy } from '@/lib/verbs/i18n'
 import { SITOV_VERB_TRAINER_LEVELS, SITOV_VERB_REVIEW_LEVELS, type SitovVerbTense } from '@/lib/verbs/types'
@@ -11,6 +11,9 @@ import { getSitovVerbBoxCopy, sitovVerbBoxText } from '@/lib/verbs/learning-box-
 import type { SitovVerbPublicExercise, SitovVerbReviewResult, SitovVerbTrainerState } from '@/lib/verbs/contracts'
 import { toUiLocale } from '@/lib/locale-routing'
 import VerbLearningBox from './VerbLearningBox'
+import SitovTrainerHero from '@/components/motion/SitovTrainerHero'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import SitovVerbScene from './SitovVerbScene'
 import styles from './VerbTrainer.module.css'
 
 export interface SitovVerbTrainerActions {
@@ -21,42 +24,6 @@ export interface SitovVerbTrainerActions {
 const sitovActions: SitovVerbTrainerActions = { next: nextSitovVerbExercise, box: setSitovVerbBox, answer: submitSitovVerbAnswer }
 type View = 'automatic' | 'targeted' | 'box'
 const sitovRoundLength = 10
-
-/** Each continuous decoration pauses out of view, in a hidden tab, and under reduced motion. */
-function SitovVerbStage({ children, className }: { children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const stage = ref.current
-    if (!stage || !window.matchMedia || typeof IntersectionObserver === 'undefined') return
-    const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
-    let visible = true
-    let frame = 0
-    const update = () => { stage.dataset.live = String(visible && !document.hidden && !motion.matches) }
-    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update() }, { threshold: .05 })
-    observer.observe(stage.querySelector('header') ?? stage)
-    update()
-    document.addEventListener('visibilitychange', update)
-    motion.addEventListener?.('change', update)
-    const move = (event: PointerEvent) => {
-      if (event.pointerType === 'touch' || motion.matches) return
-      cancelAnimationFrame(frame)
-      frame = requestAnimationFrame(() => {
-        const bounds = stage.getBoundingClientRect()
-        stage.style.setProperty('--sitov-x', `${100 * (event.clientX - bounds.left) / bounds.width}%`)
-        stage.style.setProperty('--sitov-y', `${100 * (event.clientY - bounds.top) / bounds.height}%`)
-        stage.dataset.pointer = 'true'
-      })
-    }
-    const leave = () => { stage.dataset.pointer = 'false'; cancelAnimationFrame(frame) }
-    stage.addEventListener('pointermove', move); stage.addEventListener('pointerleave', leave)
-    return () => {
-      observer.disconnect(); cancelAnimationFrame(frame)
-      document.removeEventListener('visibilitychange', update); motion.removeEventListener?.('change', update)
-      stage.removeEventListener('pointermove', move); stage.removeEventListener('pointerleave', leave)
-    }
-  }, [])
-  return <div ref={ref} className={className}>{children}</div>
-}
 
 export default function VerbTrainerClient({ initialState, lang, actions = sitovActions }: {
   initialState: SitovVerbTrainerState; lang: string; actions?: SitovVerbTrainerActions
@@ -166,23 +133,11 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   function onSubmit(event: FormEvent) { event.preventDefault(); if (review) void next(); else void submit() }
   function chooseView(value: View) { setView(value); setError(null) }
 
-  return <SitovVerbStage className={styles.sitovTrainer}>
-    <header className={styles.sitovHero} data-active={sessionActive}>
-      {!sessionActive && <button type="button" className={styles.sitovHeroAction} disabled={busy} aria-label={`${copy.title} ${selectedVerbs.length ? copy.start : copy.manage}`}
-        onClick={() => { if (selectedVerbs.length) { setView('automatic'); void start(true) } else chooseView('box') }} />}
-      <div className={styles.sitovAurora} aria-hidden="true" />
-      <div className={styles.sitovHeroText}>
-        <p className={styles.sitovEyebrow}><Sparkles size={17} aria-hidden="true" />{copy.eyebrow}<span>{initialState.level}</span></p>
-        <h1>{copy.title}</h1>{!sessionActive && <>
-          <span className={styles.sitovHeroCta} aria-hidden="true">{busy ? <LoaderCircle size={19} className={styles.sitovSpinner} /> : <Zap size={19} />}{busy ? copy.loading : selectedVerbs.length ? copy.start : copy.manage}<ArrowRight size={19} /></span></>}
-      </div>
-      {!sessionActive && <div className={styles.sitovOrbit} aria-hidden="true">
-        <div className={styles.sitovOrbitRing} /><div className={styles.sitovOrbitRingInner} />
-        <span className={styles.sitovOrbitCore}><Zap size={30} strokeWidth={1.8} /></span>
-        <span className={styles.sitovWord} data-word="1">fahren</span><span className={styles.sitovWord} data-word="2">fährt</span><span className={styles.sitovWord} data-word="3">gefahren</span>
-        <span className={styles.sitovOrbitSpark} /><span className={styles.sitovOrbitSpark} data-second="true" />
-      </div>}
-    </header>
+  return <SitovMotionStage className={styles.sitovTrainer}>
+    <SitovTrainerHero mode="verbs" eyebrow={copy.eyebrow} level={initialState.level} title={copy.title}
+      compact={sessionActive} graphic={!sessionActive ? <SitovVerbScene /> : undefined}
+      action={!sessionActive ? { label: busy ? copy.loading : selectedVerbs.length ? copy.start : copy.manage, disabled: busy, busy,
+        onClick: () => { if (selectedVerbs.length) { setView('automatic'); void start(true) } else chooseView('box') } } : undefined} />
 
     {!sessionActive && <VerbLearningBox state={boxState} lang={lang} busy={busy} onManage={() => chooseView('box')}
       onPractice={phase => void start(true, phase)} onRemove={id => changeBox([id], false)} />}
@@ -262,5 +217,5 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
         {view === 'targeted' && !tenses.length && <p role="status" className={styles.sitovSmall}>{copy.chooseTense}</p>}
       </section>}
     </>}
-  </SitovVerbStage>
+  </SitovMotionStage>
 }

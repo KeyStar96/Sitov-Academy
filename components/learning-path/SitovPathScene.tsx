@@ -15,7 +15,7 @@ const SITOV_SEGMENTS = [
 /** An ambient miniature of the real route. Every checkpoint keeps its server state. */
 export default function SitovPathScene({ nodes, currentId }: { nodes: PathNode[]; currentId: string | null }) {
   const sitovId = useId().replace(/:/g, '')
-  const sitovRoute = nodes.filter(node => node.kind !== 'special')
+  const sitovRoute = nodes.filter(node => node.kind !== 'special' || node.id === currentId)
   const sitovCurrent = sitovRoute.findIndex(node => node.id === currentId)
   const sitovStart = Math.max(0, Math.min(sitovRoute.length - SITOV_POINTS.length, sitovCurrent - 2))
   const sitovShown = sitovRoute.slice(sitovStart, sitovStart + SITOV_POINTS.length)
