@@ -200,7 +200,7 @@
   ],
   "publication": [
     "Validated text-specific matrix/pool/criteria and immutable text/version association required for every active target",
-    "Written pretest has no audio player; content authoring review required; no unused new audio synthesis",
+    "All authored German public prompts/fragments/options require locally prepared Qwen audio and word timings before publication even without a player; exact immutable per-definition asset proofs plus independent source review; no runtime synthesis.",
     "Existing pronunciation reference must have valid prepared Qwen/timing/import proof; any actually new audible task needs M local Qwen and imported storage proof before publication",
     "Direct DB/RPC publication enforces complete definition and required actual audio proof; incomplete items remain inactive drafts"
   ],
