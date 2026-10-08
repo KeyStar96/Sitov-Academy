@@ -16,7 +16,10 @@ describe('sentence source language matrix', () => {
       })
     }
   })
-  it.each(['de', 'de', 'ru', 'tr', 'uk', 'en', null])('blocks German UI regardless of native language %s', native => {
+  it.each(['ru', 'tr', 'uk', 'en'] as const)('uses stored %s input while retaining German UI', native => {
+    expect(resolveVocabularySentenceSource(contexts, 'de', native)).toEqual({ language: native, text: contexts[`context_sentence_${native}`] })
+  })
+  it.each(['de', null, 'Russian'])('requires an explicit valid non-German source: %s', native => {
     expect(resolveVocabularySentenceSource(contexts, 'de', native)).toBeNull()
   })
   it('does not substitute a different language when the UI translation is missing', () => {
@@ -50,4 +53,11 @@ it.each(['en', 'ru', 'uk', 'tr'] as const)('uses %s UI for word prompts as well 
   expect(resolveVocabularyInterfaceTranslation(card, language)).toEqual({ language, text: card[`translation_${language}`] })
   expect(resolveVocabularyInterfaceTranslation({ ...card, [`translation_${language}`]: '' }, language)).toBeNull()
   expect(resolveVocabularyInterfaceTranslation(card, 'de')).toBeNull()
+})
+
+it('never falls back from a missing stored German-UI input to an English translation', () => {
+  const card = { translation_en: 'door', translation_ru: '', translation_tr: 'kapı' }
+  expect(resolveVocabularyInterfaceTranslation(card, 'de', 'ru')).toBeNull()
+  expect(resolveVocabularyInterfaceTranslation(card, 'de', 'tr')).toEqual({ language: 'tr', text: 'kapı' })
+  expect(resolveVocabularyInterfaceTranslation(card, 'de', null)).toBeNull()
 })
