@@ -17,8 +17,9 @@ export const sitovSpecialRunSchema=z.object({
  learningSolution:privateSolution.nullable(),result:z.object({correct:z.number().int().min(0).max(10),total:z.literal(10),passed:z.boolean(),feedback:z.array(z.object({itemId:z.uuid(),correct:z.boolean(),solution:z.record(z.string(),z.unknown()),explanation:z.string().nullable()}).strict()).length(10)}).strict().nullable(),
 }).strict().superRefine((r,ctx)=>{
  const ids=new Set(r.selected)
- if(ids.size!==r.selected.length||r.queue.some(id=>!ids.has(id))||r.tasks.length!==ids.size||r.tasks.some(t=>!ids.has(t.id))||Object.keys(r.answers).some(id=>!ids.has(id)))ctx.addIssue({code:'custom',message:'foreign_items'})
+ if(ids.size!==r.selected.length||new Set(r.queue).size!==r.queue.length||r.queue.some(id=>!ids.has(id))||r.tasks.length!==ids.size||new Set(r.tasks.map(t=>t.id)).size!==ids.size||r.tasks.some(t=>!ids.has(t.id))||Object.keys(r.answers).some(id=>!ids.has(id)))ctx.addIssue({code:'custom',message:'foreign_items'})
  if(r.mode==='test'&&(r.selected.length!==10||r.revealed||r.learningSolution||(r.status==='completed')!==Boolean(r.result)))ctx.addIssue({code:'custom',message:'invalid_test'})
+ if(r.result&&(new Set(r.result.feedback.map(f=>f.itemId)).size!==10||r.result.feedback.some(f=>!ids.has(f.itemId))||r.result.feedback.filter(f=>f.correct).length!==r.result.correct))ctx.addIssue({code:'custom',message:'invalid_feedback'})
  if(r.result&&r.result.passed!==(r.result.correct>=8))ctx.addIssue({code:'custom',message:'invalid_grade'})
  if(r.mode==='learning'&&(r.result||Boolean(r.learningSolution)!==r.revealed||(r.status==='completed')!==(r.queue.length===0)))ctx.addIssue({code:'custom',message:'invalid_learning'})
 })

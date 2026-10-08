@@ -12,3 +12,7 @@ it('rejects a learner completion represented as test passage and unrevealed solu
  expect(sitovSpecialRunSchema.safeParse({...base,learningSolution:{content:{correct_answer:'den'},explanation:null}}).success).toBe(false)
  expect(sitovSpecialRunSchema.safeParse({...base,mode:'test'}).success).toBe(false)
 })
+it('rejects duplicate queue/tasks and feedback inconsistent with selected IDs',()=>{
+ const base={runId:uid,nodeId:uid,definitionVersion:'a'.repeat(64),mode:'learning',status:'in_progress',revision:1,selected:[uid],queue:[uid,uid],revealed:false,answers:{},tasks:[{id:uid,type:'multiple_choice',content:{question:'Artikel?',options:['den','die']}}],learningSolution:null,result:null}
+ expect(sitovSpecialRunSchema.safeParse(base).success).toBe(false)
+})

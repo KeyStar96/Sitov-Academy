@@ -2,6 +2,7 @@ import {test} from 'node:test'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
 import {readFile} from 'node:fs/promises'
+import {createHash} from 'node:crypto'
 import {createSitovCurrentNativeDatabase} from './helpers/sitov-night-current-native-db.mjs'
 import {sitovId as id,sitovUsers as users} from './helpers/sitov-night-current-db.mjs'
 const sql=await readFile(new URL('../vps/95_sitov_learning_specials.sql',import.meta.url),'utf8')
@@ -11,15 +12,50 @@ test('Special learning/test private engine on canonical native PostgreSQL17 +93 
  execFileSync(bin+'createdb',[...args,database],{env,stdio:'pipe'})
  try{
  const db=await createSitovCurrentNativeDatabase({database});await db.exec(await readFile(new URL('../vps/93_sitov_commercial_access.sql',import.meta.url),'utf8'));await db.exec(sql)
+ // Explicit synthetic Storage adapter columns required by the real prepared-audio helper.
+ await db.exec('ALTER TABLE storage.objects ADD COLUMN archived_at timestamptz, ADD COLUMN is_delete_marker boolean DEFAULT false;')
  await db.exec(`INSERT INTO learning_units(id,level,trainer,label,sort_order,is_path,path_source_id,path_title,path_slug) VALUES('${id(600)}','A1.1','exercises','Sitov Testpfad',90,true,'SITOV-QA','Testpfad','sitov-qa');
  INSERT INTO path_objectives VALUES('${id(600)}','SITOV-QA-G1','grammar','Artikel');
  INSERT INTO path_nodes(id,unit_id,source_id,kind,sort_order,title,topic,merkkarte,goals) VALUES('${id(601)}','${id(600)}','SITOV-QA-N1','practice',1,'Artikel','Artikel','{"card":"sitov-qa","rule":"Artikel","examples":["der Tisch"],"highlight":"article"}',ARRAY['SITOV-QA-G1']);
  INSERT INTO path_nodes(id,unit_id,source_id,kind,sort_order,title,topic,goals,anchor_node_id) VALUES('${id(602)}','${id(600)}','SITOV-QA-S1','special',2,'Extra','Artikel',ARRAY['SITOV-QA-G1'],'${id(601)}');
  INSERT INTO learning_exercises(id,unit_id,node_id,goal_id,sort_order,topic,type,content,path_is_active)
  SELECT ('00000000-0000-4000-8000-'||lpad((700+n)::text,12,'0'))::uuid,'${id(600)}','${id(602)}','SITOV-QA-G1',n,'Artikel','multiple_choice','{"question":"Artikel?","options":["den","die","das"],"correct_answer":"den","accepted_answers":["den"],"target_form":["den"]}', true FROM generate_series(1,20)n;
- INSERT INTO sitov_special_private.definitions(id,node_id,version,source_ref,blueprint,pool,published,editorial_proof,audio_import_proof)
- SELECT '${id(603)}','${id(602)}',repeat('a',64),'sitov.synthetic-fixture-only','{"masculine":4,"feminine":3,"neuter":3}',jsonb_agg(jsonb_build_object('id',e.id,'stratum',CASE WHEN e.sort_order<=8 THEN 'masculine' WHEN e.sort_order<=14 THEN 'feminine' ELSE 'neuter' END,'snapshot',path_private.snapshot(e.id))),true,'{"synthetic":true}','{"synthetic":true}' FROM learning_exercises e WHERE node_id='${id(602)}';
- INSERT INTO sitov_special_private.activation VALUES('${id(602)}','${id(603)}');`)
+ INSERT INTO sitov_special_private.sources VALUES('sitov.synthetic-fixture-only',repeat('c',64),'A1.1','catalog:supabase/tests/sitov-learning-specials.test.mjs',true);`)
+ await db.actor(users.teacher,'postgres',{aal:'aal2'})
+ const mutate=(sql,values)=>db.exec(sql.replace(/\$(\d+)/g,(_,n)=>values[Number(n)-1]==null?'NULL':"'"+String(typeof values[Number(n)-1]==='object'?JSON.stringify(values[Number(n)-1]):values[Number(n)-1]).replaceAll("'","''")+"'"))
+ const pool=(await db.query(`SELECT jsonb_agg(jsonb_build_object('id',e.id,'stratum',CASE WHEN e.sort_order<=8 THEN 'masculine' WHEN e.sort_order<=14 THEN 'feminine' ELSE 'neuter' END,'snapshot',path_private.snapshot(e.id))) pool FROM learning_exercises e WHERE node_id='${id(602)}'`)).rows[0].pool
+ const blueprint={masculine:4,feminine:3,neuter:3}
+ const version=(await db.query(`SELECT sitov_special_private.definition_fingerprint($1,$2,$3,$4) v`,[id(602),'sitov.synthetic-fixture-only',blueprint,pool])).rows[0].v
+ await mutate(`INSERT INTO sitov_special_private.approvals(id,node_id,version,source_ref,source_sha256,reviewed_by) VALUES($1,$2,$3,$4,repeat('c',64),$5)`,[id(604),id(602),version,'sitov.synthetic-fixture-only',users.teacher])
+ const fingerprint='96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5'
+ const texts=(await db.query('SELECT spoken FROM sitov_special_private.audible_texts($1)',[pool])).rows
+ const assets=[]
+ for(const {spoken} of texts){
+  const preimage=JSON.stringify({text:spoken,voice:'sitov-qwen-male-de-v1',rate:'qwen-native-1-lufs-18-aligned-v1',format:'audio-24khz-48kbitrate-mono-mp3',leadIn:0.35,profile:fingerprint})
+  const name=`sitov-qwen-v1/de/${createHash('sha256').update(preimage).digest('hex')}.mp3`
+  const textSha256=createHash('sha256').update(spoken).digest('hex'),audioSha256='d'.repeat(64)
+  const metadata={engine:'qwen3-tts',voice:'sitov-qwen-male-de-v1',revision:'sitov-qwen-base-bf16-v1',profileFingerprint:fingerprint,textSha256,audioSha256,wordTimings:spoken.split(' ').map((word,n)=>({word,start:0.35+n*0.4,end:0.7+n*0.4}))}
+  await mutate(`INSERT INTO storage.objects(bucket_id,name,metadata,user_metadata) VALUES('audio_cache',$1,'{"mimetype":"audio/mpeg","size":1000}',$2)`,[name,metadata])
+  assert.equal((await db.query('SELECT vocabulary_private.sitov_prepared_german_audio_url($1) url',[spoken])).rows[0].url,`/supabase/storage/v1/object/public/audio_cache/${name}`)
+  assets.push({textSha256,audioSha256,path:`/supabase/storage/v1/object/public/audio_cache/${name}`})
+ }
+ const editorial={reviewId:id(604),definitionVersion:version,sourceSha256:'c'.repeat(64)},audio={definitionVersion:version,assets}
+ const insertDef=async(v=version,source='sitov.synthetic-fixture-only',bp=blueprint,ep=editorial,ap=audio,pickedPool=pool)=>mutate(`INSERT INTO sitov_special_private.definitions(id,node_id,version,source_ref,blueprint,pool,published,editorial_proof,audio_import_proof) VALUES($1,$2,$3,$4,$5,$6,true,$7,$8)`,[id(603),id(602),v,source,bp,pickedPool,ep,ap])
+ await assert.rejects(insertDef('e'.repeat(64)),/special_version_mismatch/)
+ await assert.rejects(insertDef(version,undefined,undefined,{reviewed:true}),/special_publication_proof_required/)
+ await assert.rejects(insertDef(version,undefined,undefined,undefined,{definitionVersion:version,assets:[]}),/special_publication_proof_required/)
+ await assert.rejects(insertDef(null,'sitov.missing'),/special_publication_proof_required/)
+ await assert.rejects(insertDef(null,undefined,{...blueprint,masculine:'bad'}),/invalid_special_blueprint/)
+ const audioPath=assets[0].path.split('/audio_cache/')[1]
+ await mutate(`UPDATE storage.objects SET archived_at=now() WHERE bucket_id='audio_cache' AND name=$1`,[audioPath])
+ await assert.rejects(insertDef(),/special_publication_proof_required/)
+ await mutate(`UPDATE storage.objects SET archived_at=NULL WHERE bucket_id='audio_cache' AND name=$1`,[audioPath])
+ const original=pool.find(q=>q.id===id(701)).snapshot.content
+ await mutate(`UPDATE learning_exercises SET type='transform',content=$1 WHERE id=$2`,[{source:'der Tisch',target_form:['den Tisch'],accepted_answers:['den Tisch']},id(701)])
+ const unsupported=structuredClone(pool);unsupported.find(q=>q.id===id(701)).snapshot=(await db.query('SELECT path_private.snapshot($1) s',[id(701)])).rows[0].s
+ await assert.rejects(insertDef(null,undefined,undefined,undefined,undefined,unsupported),/unsupported_special_format/)
+ await mutate(`UPDATE learning_exercises SET type='multiple_choice',content=$1 WHERE id=$2`,[original,id(701)])
+ await insertDef();await db.exec(`INSERT INTO sitov_special_private.activation VALUES('${id(602)}','${id(603)}');`)
  let request=800;let previous=[]
  const call=async(op,run=null,revision=null,answers=null,mode=null,req=id(++request))=>(await db.query(`SELECT sitov_special_operation($1,$2,$3,$4,$5,$6,$7,'de') data`,[op,id(602),run,mode,revision,req,answers])).rows[0].data
  await db.actor(users.all)
@@ -53,7 +89,17 @@ test('Special learning/test private engine on canonical native PostgreSQL17 +93 
  const limited=await call('start',null,null,null,'learning');assert(limited.ok,JSON.stringify(limited));assert.deepEqual(limited.data.selected,[id(701)]);assert.deepEqual(limited.data.tasks.map(t=>t.id),[id(701)])
  assert.equal((await call('start',null,null,null,'test')).error,'scope_insufficient_for_test')
  let last=(await call('reveal',limited.data.runId,limited.data.revision)).data;last=(await call('right',last.runId,last.revision)).data;assert.equal(last.status,'completed');assert.deepEqual(last.queue,[]);assert.equal(last.result,null)
- await db.actor(null,'postgres');const saved=(await db.query('SELECT count(*)::int n FROM sitov_special_private.runs')).rows[0].n
+ await db.actor(null,'postgres')
+ await db.exec(`UPDATE profiles SET sitov_mfa_required=true WHERE id='${users.teacher}';INSERT INTO auth.mfa_factors(user_id,status,factor_type) VALUES('${users.teacher}','verified','totp');`)
+ await db.actor(users.teacher,'authenticated',{aal:'aal1'})
+ assert.equal((await db.query(`SELECT sitov_special_staff_catalog('${id(602)}') data`)).rows[0].data.error,'not_found')
+ await db.actor(users.teacher,'authenticated',{aal:'aal2'})
+ const staff=(await db.query(`SELECT sitov_special_staff_catalog('${id(602)}') data`)).rows[0].data;assert(staff.ok);assert.equal(staff.data.definitions.length,1)
+ await db.actor(users.teacher,'postgres',{aal:'aal2'})
+ await db.exec(`UPDATE sitov_special_private.approvals SET revoked_at=now() WHERE id='${id(604)}'`)
+ await db.actor(users.all);assert.equal((await call('get',r.runId)).error,'version_conflict')
+ await db.actor(null,'postgres');await db.exec(`UPDATE sitov_special_private.approvals SET revoked_at=NULL WHERE id='${id(604)}'`)
+ const saved=(await db.query('SELECT count(*)::int n FROM sitov_special_private.runs')).rows[0].n
  await db.exec(await readFile(new URL('../vps/rollback/95_sitov_learning_specials.sql',import.meta.url),'utf8'))
  assert.equal((await db.query('SELECT count(*)::int n FROM sitov_special_private.runs')).rows[0].n,saved)
  await db.actor(users.all);await assert.rejects(call('start',null,null,null,'learning'),/permission denied/)

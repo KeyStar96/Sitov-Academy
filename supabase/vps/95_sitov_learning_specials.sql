@@ -8,15 +8,72 @@ CREATE TABLE IF NOT EXISTS sitov_special_private.definitions (
  blueprint jsonb NOT NULL,pool jsonb NOT NULL CHECK(jsonb_typeof(pool)='array'),
  published boolean NOT NULL DEFAULT false,editorial_proof jsonb,audio_import_proof jsonb,
  created_by uuid REFERENCES public.profiles(id),created_at timestamptz NOT NULL DEFAULT now(),
- UNIQUE(node_id,version),CHECK(NOT published OR (editorial_proof IS NOT NULL AND audio_import_proof IS NOT NULL))
+ UNIQUE(node_id,version),UNIQUE(node_id,id),CHECK(NOT published OR (editorial_proof IS NOT NULL AND audio_import_proof IS NOT NULL))
 );
 CREATE TABLE IF NOT EXISTS sitov_special_private.activation (
- node_id uuid PRIMARY KEY REFERENCES public.path_nodes(id),definition_id uuid NOT NULL REFERENCES sitov_special_private.definitions(id)
+ node_id uuid PRIMARY KEY REFERENCES public.path_nodes(id),definition_id uuid NOT NULL,FOREIGN KEY(node_id,definition_id) REFERENCES sitov_special_private.definitions(node_id,id)
 );
 ALTER TABLE sitov_special_private.activation ENABLE ROW LEVEL SECURITY;
-CREATE OR REPLACE FUNCTION sitov_special_private.validate_definition() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
-DECLARE v_item jsonb;part record;total integer:=0;
+CREATE TABLE IF NOT EXISTS sitov_special_private.sources (
+ source_ref text PRIMARY KEY,source_sha256 text NOT NULL CHECK(source_sha256 ~ '^[a-f0-9]{64}$'),
+ level text NOT NULL REFERENCES public.learning_levels(code),evidence_uri text NOT NULL CHECK(evidence_uri ~ '^(obsidian|catalog):.+'),active boolean NOT NULL DEFAULT false
+);
+CREATE TABLE IF NOT EXISTS sitov_special_private.approvals (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),node_id uuid NOT NULL REFERENCES public.path_nodes(id),version text NOT NULL,
+ source_ref text NOT NULL REFERENCES sitov_special_private.sources(source_ref),source_sha256 text NOT NULL,
+ reviewed_by uuid NOT NULL REFERENCES public.profiles(id),reviewed_at timestamptz NOT NULL DEFAULT now(),revoked_at timestamptz,
+ UNIQUE(node_id,version)
+);
+ALTER TABLE sitov_special_private.sources ENABLE ROW LEVEL SECURITY;
+ALTER TABLE sitov_special_private.approvals ENABLE ROW LEVEL SECURITY;
+CREATE OR REPLACE FUNCTION sitov_special_private.definition_fingerprint(p_node uuid,p_source text,p_blueprint jsonb,p_pool jsonb) RETURNS text LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT encode(sha256(convert_to(jsonb_build_object('policy','sitov-special-definition-v1','node',jsonb_build_object('id',n.id,'unitId',n.unit_id,'sourceId',n.source_id,'anchorId',n.anchor_node_id,'title',n.title,'topic',n.topic,'goals',n.goals),'sourceRef',p_source,'sourceSha256',s.source_sha256,'blueprint',p_blueprint,'pool',p_pool)::text,'UTF8')),'hex')
+ FROM public.path_nodes n LEFT JOIN sitov_special_private.sources s ON s.source_ref=p_source WHERE n.id=p_node $$;
+CREATE OR REPLACE FUNCTION sitov_special_private.audible_texts(p_pool jsonb) RETURNS TABLE(spoken text) LANGUAGE sql IMMUTABLE SET search_path='' AS $$
+ WITH q AS(SELECT value->'snapshot'->'content' c FROM jsonb_array_elements(p_pool)),texts AS(
+ SELECT c->>'question' t FROM q UNION ALL SELECT c->>'instruction' FROM q UNION ALL SELECT c->>'correct_answer' FROM q
+ UNION ALL SELECT concat_ws(' ',c->>'text_before',c->>'correct_answer',c->>'text_after') FROM q WHERE c ? 'text_before'
+ UNION ALL SELECT jsonb_array_elements_text(c->'options') FROM q WHERE jsonb_typeof(c->'options')='array'
+ UNION ALL SELECT jsonb_array_elements_text(c->'parts') FROM q WHERE jsonb_typeof(c->'parts')='array')
+ SELECT DISTINCT vocabulary_private.sitov_normalize_audio_text(t) FROM texts WHERE nullif(vocabulary_private.sitov_normalize_audio_text(t),'') IS NOT NULL $$;
+CREATE OR REPLACE FUNCTION sitov_special_private.guard_approval() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
 BEGIN
+ IF NOT sitov_access_private.staff() OR NEW.reviewed_by IS DISTINCT FROM auth.uid() OR NEW.revoked_at IS NOT NULL
+ OR NOT EXISTS(SELECT 1 FROM sitov_special_private.sources s JOIN public.path_nodes n ON n.id=NEW.node_id JOIN public.learning_units u ON u.id=n.unit_id WHERE s.source_ref=NEW.source_ref AND s.source_sha256=NEW.source_sha256 AND s.active AND s.level=u.level)
+ THEN RAISE EXCEPTION 'special_review_required';END IF;RETURN NEW;END $$;
+DROP TRIGGER IF EXISTS sitov_special_review_guard ON sitov_special_private.approvals;
+CREATE TRIGGER sitov_special_review_guard BEFORE INSERT ON sitov_special_private.approvals FOR EACH ROW EXECUTE FUNCTION sitov_special_private.guard_approval();
+CREATE OR REPLACE FUNCTION sitov_special_private.definition_ready(d sitov_special_private.definitions) RETURNS boolean LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path='' AS $$
+DECLARE text_row record;asset jsonb;expected_path text;authored jsonb;asset_count integer;
+BEGIN
+ IF NOT d.published OR d.version IS DISTINCT FROM sitov_special_private.definition_fingerprint(d.node_id,d.source_ref,d.blueprint,d.pool)
+ OR NOT EXISTS(SELECT 1 FROM sitov_special_private.approvals a JOIN sitov_special_private.sources s ON s.source_ref=a.source_ref JOIN public.path_nodes n ON n.id=a.node_id JOIN public.learning_units u ON u.id=n.unit_id JOIN public.profiles reviewer ON reviewer.id=a.reviewed_by
+ WHERE a.node_id=d.node_id AND a.version=d.version AND a.source_ref=d.source_ref AND a.source_sha256=s.source_sha256 AND s.active AND s.level=u.level AND a.revoked_at IS NULL AND reviewer.role IN('teacher','admin')
+ AND d.editorial_proof=jsonb_build_object('reviewId',a.id,'definitionVersion',a.version,'sourceSha256',a.source_sha256))
+ OR d.audio_import_proof->>'definitionVersion' IS DISTINCT FROM d.version OR jsonb_typeof(d.audio_import_proof->'assets') IS DISTINCT FROM 'array'
+ THEN RETURN false;END IF;
+ SELECT count(*) INTO asset_count FROM sitov_special_private.audible_texts(d.pool);
+ IF asset_count=0 OR jsonb_array_length(d.audio_import_proof->'assets')<>asset_count THEN RETURN false;END IF;
+ FOR text_row IN SELECT spoken FROM sitov_special_private.audible_texts(d.pool) LOOP
+  expected_path:=vocabulary_private.sitov_prepared_german_audio_url(text_row.spoken);
+  SELECT value INTO asset FROM jsonb_array_elements(d.audio_import_proof->'assets') WHERE value->>'textSha256'=encode(sha256(convert_to(text_row.spoken,'UTF8')),'hex');
+  IF asset IS NULL OR asset->>'path' IS DISTINCT FROM expected_path OR (SELECT count(*) FROM jsonb_array_elements(d.audio_import_proof->'assets') WHERE value->>'textSha256'=asset->>'textSha256')<>1 THEN RETURN false;END IF;
+  SELECT user_metadata INTO authored FROM storage.objects WHERE bucket_id='audio_cache' AND name=split_part(expected_path,'/audio_cache/',2) AND archived_at IS NULL AND coalesce(is_delete_marker,false)=false;
+  IF asset->>'audioSha256' IS DISTINCT FROM authored->>'audioSha256' THEN RETURN false;END IF;
+ END LOOP;
+ RETURN NOT EXISTS(SELECT 1 FROM jsonb_array_elements(d.pool) item WHERE item->'snapshot' IS DISTINCT FROM path_private.snapshot((item->>'id')::uuid) OR item->'snapshot'->>'type' NOT IN('multiple_choice','fill_in_blank','sentence_building'));
+EXCEPTION WHEN OTHERS THEN RETURN false;END $$;
+CREATE OR REPLACE FUNCTION sitov_special_private.guard_activation() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE d sitov_special_private.definitions;
+BEGIN SELECT * INTO d FROM sitov_special_private.definitions WHERE id=NEW.definition_id AND node_id=NEW.node_id;
+ IF d.id IS NULL OR NOT sitov_special_private.definition_ready(d) THEN RAISE EXCEPTION 'special_publication_proof_required';END IF;RETURN NEW;END $$;
+DROP TRIGGER IF EXISTS sitov_special_activation_guard ON sitov_special_private.activation;
+CREATE TRIGGER sitov_special_activation_guard BEFORE INSERT OR UPDATE ON sitov_special_private.activation FOR EACH ROW EXECUTE FUNCTION sitov_special_private.guard_activation();
+CREATE OR REPLACE FUNCTION sitov_special_private.validate_definition() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE v_item jsonb;part record;total integer:=0;fingerprint text;
+BEGIN
+ fingerprint:=sitov_special_private.definition_fingerprint(NEW.node_id,NEW.source_ref,NEW.blueprint,NEW.pool);
+ IF NEW.version IS NOT NULL AND NEW.version<>fingerprint THEN RAISE EXCEPTION 'special_version_mismatch';END IF;NEW.version:=fingerprint;
  IF NOT EXISTS(SELECT 1 FROM public.path_nodes WHERE id=NEW.node_id AND kind='special') OR jsonb_typeof(NEW.blueprint)<>'object'
  OR jsonb_array_length(NEW.pool)<>(SELECT count(DISTINCT value->>'id') FROM jsonb_array_elements(NEW.pool)) THEN RAISE EXCEPTION 'invalid_special_definition';END IF;
  FOR v_item IN SELECT value FROM jsonb_array_elements(NEW.pool) LOOP
@@ -27,7 +84,9 @@ BEGIN
   IF part.value !~ '^[1-9][0-9]?$' THEN RAISE EXCEPTION 'invalid_special_blueprint';END IF;total:=total+part.value::integer;
   IF NEW.published AND (SELECT count(*) FROM jsonb_array_elements(NEW.pool) q WHERE q->>'stratum'=part.key)<2*part.value::integer THEN RAISE EXCEPTION 'insufficient_special_stratum';END IF;
  END LOOP;
+ IF NEW.published AND EXISTS(SELECT 1 FROM jsonb_array_elements(NEW.pool) item WHERE item->'snapshot'->>'type' NOT IN('multiple_choice','fill_in_blank','sentence_building')) THEN RAISE EXCEPTION 'unsupported_special_format';END IF;
  IF NEW.published AND (total<>10 OR jsonb_array_length(NEW.pool)<20) THEN RAISE EXCEPTION 'invalid_special_pool';END IF;
+ IF NEW.published AND NOT sitov_special_private.definition_ready(NEW) THEN RAISE EXCEPTION 'special_publication_proof_required';END IF;
  RETURN NEW;
 END $$;
 DROP TRIGGER IF EXISTS sitov_special_validate ON sitov_special_private.definitions;
@@ -88,6 +147,7 @@ BEGIN
  END IF;
  IF NOT sitov_special_private.available(p_node) THEN RETURN sitov_special_private.error('not_found');END IF;
  IF d.id IS NULL THEN RETURN sitov_special_private.error('authoring_not_ready');END IF;
+ IF NOT sitov_special_private.definition_ready(d) THEN RETURN sitov_special_private.error('version_conflict');END IF;
  IF NOT d.published OR NOT EXISTS(SELECT 1 FROM sitov_special_private.activation WHERE definition_id=d.id AND node_id=p_node) THEN RETURN sitov_special_private.error('version_conflict');END IF;
  SELECT coalesce(array_agg((q->>'id')::uuid),'{}') INTO eligible FROM jsonb_array_elements(d.pool) q
  WHERE sitov_access_private.item_allowed(actor,'path_special_item',q->>'id');
