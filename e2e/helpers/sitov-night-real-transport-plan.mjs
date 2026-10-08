@@ -50,7 +50,8 @@ export function sitovComposePlan() {
  services.db.command=['postgres','-D','/etc/postgresql','-c','max_connections=40','-c','shared_buffers=64MB']
  services.storage.volumes=['files:/var/lib/storage']
  services.gateway.volumes=['./kong.json:/etc/kong/kong.json:ro']
- services.gateway.ports=[`127.0.0.1:${sitovGatewayPort}:8000`]
+ // Internal Docker bridges do not publish usable host ports. SSH forwards to
+ // the exact label/network-verified gateway private IP; no remote host binding.
  const labels={'sitov.qa.namespace':sitovNamespace}
  return {name:sitovNamespace,services,networks:{isolated:{name:`${sitovNamespace}-isolated`,internal:true,labels}},
   volumes:{pgdata:{name:`${sitovNamespace}-pgdata`,labels},files:{name:`${sitovNamespace}-files`,labels}}}
@@ -92,7 +93,7 @@ export async function sitovStagePrivate(out,facts) {
  const files={
   'compose.json':JSON.stringify(plan,null,2),
   'inspection.json':JSON.stringify(facts,null,2),'inspect.py':sitovInspectionPython,
-  'db.env':`POSTGRES_PASSWORD=${password}\nPOSTGRES_DB=postgres\nPOSTGRES_USER=postgres\nJWT_SECRET=${secret}\nJWT_EXP=172800\nPGDATA=/var/lib/postgresql/data\n`,
+  'db.env':`POSTGRES_PASSWORD=${password}\nPOSTGRES_DB=postgres\nPOSTGRES_USER=supabase_admin\nJWT_SECRET=${secret}\nJWT_EXP=172800\nPGDATA=/var/lib/postgresql/data\n`,
   'auth.env':`GOTRUE_API_HOST=0.0.0.0\nGOTRUE_API_PORT=9999\nAPI_EXTERNAL_URL=http://127.0.0.1:${sitovGatewayPort}\nGOTRUE_SITE_URL=http://127.0.0.1:3143\nGOTRUE_DB_DRIVER=postgres\nGOTRUE_DB_DATABASE_URL=postgres://supabase_auth_admin:${password}@db:5432/postgres\nGOTRUE_JWT_SECRET=${secret}\nGOTRUE_JWT_EXP=172800\nGOTRUE_JWT_AUD=authenticated\nGOTRUE_JWT_ADMIN_ROLES=service_role\nGOTRUE_JWT_DEFAULT_GROUP_NAME=authenticated\nGOTRUE_EXTERNAL_EMAIL_ENABLED=true\nGOTRUE_EXTERNAL_ANONYMOUS_USERS_ENABLED=false\nGOTRUE_MAILER_AUTOCONFIRM=true\nGOTRUE_EXTERNAL_PHONE_ENABLED=false\nGOTRUE_SMTP_HOST=\n`,
   'rest.env':`PGRST_DB_URI=postgres://authenticator:${password}@db:5432/postgres\nPGRST_DB_SCHEMAS=public\nPGRST_DB_ANON_ROLE=anon\nPGRST_JWT_SECRET=${secret}\nPGRST_DB_USE_LEGACY_GUCS=false\nPGRST_DB_POOL=5\n`,
   'storage.env':`DATABASE_URL=postgres://supabase_storage_admin:${password}@db:5432/postgres\nPOSTGREST_URL=http://rest:3000\nAUTH_JWT_SECRET=${secret}\nANON_KEY=${anon}\nSERVICE_KEY=${service}\nSTORAGE_BACKEND=file\nFILE_STORAGE_BACKEND_PATH=/var/lib/storage\nFILE_SIZE_LIMIT=5242880\nTENANT_ID=${sitovNamespace}\nREGION=local\nGLOBAL_S3_BUCKET=${sitovNamespace}\nIS_MULTITENANT=false\nDATABASE_POOL_MAX=5\nNODE_OPTIONS=--max-old-space-size=160\n`,
@@ -105,7 +106,7 @@ export async function sitovStagePrivate(out,facts) {
   'new-roles.sql':`\\set ON_ERROR_STOP on\nALTER USER authenticator WITH PASSWORD '${password}';\nALTER USER supabase_auth_admin WITH PASSWORD '${password}';\nALTER USER supabase_storage_admin WITH PASSWORD '${password}';\nGRANT anon,authenticated,service_role TO authenticator;\nALTER DATABASE postgres SET "app.settings.jwt_secret"='${secret}';\nALTER DATABASE postgres SET "app.settings.jwt_exp"='172800';\n`,
   'test-keys.json':JSON.stringify({url:`http://127.0.0.1:${sitovGatewayPort}`,anon,service,syntheticUserPassword:randomBytes(24).toString('hex')},null,2),
  }
- for(const name of ['guard.py','create.sh','cleanup.py','install-bundle.py'])
+ for(const name of ['guard.py','create.sh','cleanup.py','install-bundle.py','runtime.py'])
   files[name]=await readFile(new URL(`../sitov-night-real-transport/${name}`,import.meta.url),'utf8')
  for(const [name,content] of Object.entries(files)) await writeFile(resolve(out,name),content,{mode:0o600,flag:'wx'})
  return {directory:out,files:Object.keys(files),namespace:sitovNamespace,...sitovGuardPlan(plan),secretsPrinted:false,remoteMutation:false}

@@ -23,7 +23,7 @@ for name,s in plan['services'].items():
  assert s['networks']==['isolated'] and not s.get('network_mode') and not s.get('privileged')
  assert 0<s['mem_limit']==s['memswap_limit'] and 0<s['cpus']<=2
  assert s['env_file']==['./'+name+'.env']
- assert not s.get('ports') or name=='gateway' and s['ports']==['127.0.0.1:19483:8000']
+ assert not s.get('ports'),'internal bridge: SSH to verified gateway IP only'
  assert s.get('volumes',[])=={'db':['pgdata:/var/lib/postgresql/data'],'storage':['files:/var/lib/storage'],'gateway':['./kong.json:/etc/kong/kong.json:ro']}.get(name,[])
  assert subprocess.run(['docker','container','inspect',s['container_name']],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode!=0,'existing container: stop, never reuse'
 for kind in ['network','volume']:
@@ -34,4 +34,6 @@ for name,v in plan['volumes'].items():
  assert name in ['pgdata','files'] and v['name']==namespace+'-'+name and v['labels']['sitov.qa.namespace']==namespace and not v.get('external')
 for path in Path('.').glob('*.env'):
  assert not path.is_symlink() and path.stat().st_mode&0o077==0,'private non-symlink env files required'
+db_env=dict(line.split('=',1) for line in Path('db.env').read_text().splitlines() if '=' in line)
+assert db_env.get('POSTGRES_USER')=='supabase_admin','cached vendor migrate.sh requires supabase_admin initialization'
 print('QA preflight passed: immutable cached images; fresh headroom; exact empty namespace')

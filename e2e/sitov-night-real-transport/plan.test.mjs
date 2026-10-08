@@ -2,8 +2,9 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { sitovComposePlan,sitovGuardPlan,sitovGuardFacts,sitovImages,sitovStagePrivate } from '../helpers/sitov-night-real-transport-plan.mjs'
 const facts=()=>({captured_at:new Date().toISOString(),memory_mib:{MemAvailable:3200},docker_disk_free_bytes:10*1024**3,listening_tcp_ports:[],images:Object.values(sitovImages).map(x=>({requested:x.tag,id:x.id,arch:'amd64'}))})
-test('exact cached isolated plan is bounded to 960MiB/2CPU and loopback gateway',()=>{
+test('exact cached isolated plan is bounded to 960MiB/2CPU; remote publishes no host ports',()=>{
  assert.deepEqual(sitovGuardPlan(sitovComposePlan()),{memory_mib:960,cpus:2});sitovGuardFacts(facts())
+ assert.equal(sitovComposePlan().services.gateway.ports,undefined)
 })
 test('low/missing/stale headroom, occupied port and changed image fail closed',()=>{
  for(const mutate of [f=>f.memory_mib.MemAvailable=3071,f=>delete f.memory_mib.MemAvailable,
