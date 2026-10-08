@@ -1,21 +1,23 @@
 #!/usr/bin/env bash
-# Kopiert das neueste vollständige Tages-Backup vom VPS auf diesen Rechner
-# (Kopie außerhalb des Servers) und prüft alle SHA256-Summen.
-# Enthält personenbezogene Daten: nur auf verschlüsseltem Laufwerk (FileVault) ablegen.
-# Aufruf: scripts/pull-vps-backup.sh [Zielordner]   (Standard: ~/Sitov-Backups)
+# Verwendet ausschließlich den installierten verschlüsselten, WLAN-geschützten
+# Mac-Abruf. Ein optionaler Zielordner überschreibt dessen Standardziel.
 set -euo pipefail
-TARGET="${1:-$HOME/Sitov-Backups}"
-LATEST="$(ssh sitov-academy 'for d in /root/backups/daily/sitov-daily-*; do [ -f "$d/COMPLETE" ] && echo "$d"; done | tail -1')"
-[[ -n "$LATEST" ]] || { echo 'Kein vollständiges Backup auf dem VPS gefunden.' >&2; exit 1; }
-install -d -m 700 "$TARGET"
-rsync -a --partial "sitov-academy:$LATEST" "$TARGET/"
-python3 - "$TARGET/$(basename "$LATEST")" <<'PY'
-import hashlib, json, pathlib, sys
-root = pathlib.Path(sys.argv[1])
-expected = json.loads((root / 'sha256.json').read_text())
-for name, digest in expected.items():
-    actual = hashlib.sha256((root / name).read_bytes()).hexdigest()
-    if actual != digest:
-        sys.exit(f'Prüfsumme falsch: {name}')
-print(f'{root}: {len(expected)} Dateien, alle Prüfsummen korrekt.')
+exec python3 - "$@" <<'PY'
+from pathlib import Path
+import os, plistlib, sys
+if len(sys.argv) > 2:
+    raise SystemExit('Aufruf: scripts/pull-vps-backup.sh [Zielordner]')
+plist = Path.home() / 'Library/LaunchAgents/com.sitov.backup-pull.plist'
+if plist.is_symlink() or not plist.is_file():
+    raise SystemExit('Zuerst deploy/mac/install-backup-pull.py ausführen.')
+with plist.open('rb') as stream:
+    arguments = plistlib.load(stream).get('ProgramArguments', [])
+if not isinstance(arguments, list) or len(arguments) < 2 or not arguments[1].endswith('/sitov-pull-backups.py'):
+    raise SystemExit('Ungültiger installierter Backup-Abruf.')
+for required in ['--destination', '--identity', '--age', '--network-guard', '--allowed-wifi-config']:
+    if required not in arguments or arguments.index(required) + 1 >= len(arguments):
+        raise SystemExit('Unvollständige geschützte Backup-Konfiguration.')
+if len(sys.argv) == 2:
+    arguments[arguments.index('--destination') + 1] = str(Path(sys.argv[1]).expanduser().absolute())
+os.execv(arguments[0], arguments)
 PY

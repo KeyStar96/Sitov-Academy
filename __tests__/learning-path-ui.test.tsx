@@ -222,7 +222,7 @@ describe('always-open section tests', () => {
     render(<LearningPathClient initialPath={lockedPath} level="A1.1" lang="en" />)
     expect(screen.getByTestId(`path-node-${id}`)).toBeDisabled()
     expect(screen.getByTestId(`path-node-${testId}`)).toBeEnabled()
-    expect(screen.getByTestId(`path-node-${testId}`)).toHaveTextContent('Goal: 80%')
+    expect(screen.getByTestId(`path-node-${testId}`)).toHaveTextContent('At least 80% correct answers')
     expect(screen.getByRole('img', { name: 'Not yet available' })).toBeInTheDocument()
   })
 

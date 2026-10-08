@@ -1,0 +1,23 @@
+[Unit]
+Description=Sitov Academy passive deployment configuration drift check
+After=docker.service nginx.service sitov-app.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/sitov-ops/sitov-config-drift.py
+TimeoutStartSec=120
+Nice=10
+MemoryMax=128M
+CPUQuota=25%
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+# nginx -T opens its configured log files while testing the configuration.
+# The checker never changes nginx configuration or restarts it.
+ReadWritePaths=/var/log/nginx
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6

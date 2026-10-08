@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Install the Sitov Mac backup job with a deny-by-default Wi-Fi allowlist."""
 import argparse
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -34,8 +35,11 @@ def main():
     shutil.copy2(Path(__file__).with_name(script.name), script)
     script.chmod(0o700)
     guard = tools / 'sitov-network-guard'
-    subprocess.run(['xcrun', 'swiftc', '-parse-as-library', '-O', str(Path(__file__).with_name('sitov-network-guard.swift')), '-o', str(guard)], check=True)
-    guard.chmod(0o700)
+    permission_spec = importlib.util.spec_from_file_location('sitov_wifi_installer', Path(__file__).with_name('install-sitov-wifi-permission.py'))
+    permission_module = importlib.util.module_from_spec(permission_spec)
+    permission_spec.loader.exec_module(permission_module)
+    permission_app = permission_module.install_wifi_support(tools)
+    permission_module.refresh_wifi_agent(permission_app)
     log = config / 'sitov-backup-pull.log'
     job = {
         'Label': 'com.sitov.backup-pull',
@@ -64,6 +68,7 @@ def main():
     subprocess.run(['launchctl', 'bootout', domain + '/com.sitov.backup-pull'], capture_output=True)
     subprocess.run(['launchctl', 'bootstrap', domain, str(plist)], check=True)
     print('Installed com.sitov.backup-pull; downloads require an explicitly allowed Wi-Fi network')
+    print('Existing macOS Wi-Fi approvals are preserved; use Sitov Academy Backup-WLAN for initial setup')
 
 
 if __name__ == '__main__':

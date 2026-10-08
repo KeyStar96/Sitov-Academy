@@ -9,6 +9,7 @@ CURRENT_LINK="${SITOV_CURRENT_LINK:-/var/www/sitov-current}"
 ENV_FILE="${SITOV_ENV_FILE:-/etc/sitov-academy/app.env}"
 SYSTEMD_DIR="${SITOV_SYSTEMD_DIR:-/etc/systemd/system}"
 LOCK_FILE="${SITOV_DEPLOY_LOCK_FILE:-/var/lock/sitov-release.lock}"
+DEPLOY_TOOLS_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 # The build shares an 8 GB host without swap with Supabase, Coolify, the app and TTS.
 # An unbounded build (3 GB heap + 4 workers) froze the whole VPS on 2026-09-29.
 # npm ci/next build now run in a capped systemd scope: when memory runs out, only
@@ -159,7 +160,18 @@ activate_release() {
     exit 1
   fi
   cd "$RELEASE_DIR"
-  if ! sha256sum --check --status .sitov-prepared.sha256 || ! cmp -s .sitov-build-id .next/BUILD_ID; then
+  local verifier="$DEPLOY_TOOLS_DIR/sitov-release-cleanup.py"
+  if [[ ! -f "$verifier" && -f /opt/sitov-ops/sitov-release-cleanup.py ]]; then verifier=/opt/sitov-ops/sitov-release-cleanup.py; fi
+  local artifacts_verified=false
+  if [[ -f "$verifier" && "$(basename -- "$RELEASES_DIR")" == sitov-releases ]]; then
+    # ISR rewrites generated HTML/RSC/meta payloads in .next/server/app. Check
+    # every immutable source/runtime artifact through the shared contract.
+    if python3 "$verifier" --releases-dir "$RELEASES_DIR" --verify-release "$RELEASE_DIR"; then artifacts_verified=true; fi
+  elif sha256sum --check --status .sitov-prepared.sha256; then
+    # Older tool installations retain the stricter full-manifest check.
+    artifacts_verified=true
+  fi
+  if [[ "$artifacts_verified" != true ]] || ! cmp -s .sitov-build-id .next/BUILD_ID; then
     echo "Prepared release $REVISION failed artifact verification; refusing activation." >&2
     exit 1
   fi
@@ -186,4 +198,19 @@ activate_release() {
 }
 
 if [[ "$MODE" != activate ]]; then prepare_release; fi
-if [[ "$MODE" != prepare ]]; then activate_release; fi
+if [[ "$MODE" != prepare ]]; then
+  activate_release
+  # Only a healthy activation may prune older completed releases. Release the
+  # deployment lock before the cleanup utility reacquires the same lock and
+  # verifies the current link and live process directories itself. A racing
+  # deployment causes cleanup to refuse, without failing a healthy activation.
+  flock -u 9
+  exec 9>&-
+  if [[ -f "$DEPLOY_TOOLS_DIR/sitov-release-cleanup.py" ]]; then
+    if ! python3 "$DEPLOY_TOOLS_DIR/sitov-release-cleanup.py" --apply; then
+      echo 'Release cleanup deferred; active release remains healthy. Review sitov-release-cleanup.py --dry-run.' >&2
+    fi
+  else
+    echo 'Release cleanup utility unavailable; older builds kept.' >&2
+  fi
+fi

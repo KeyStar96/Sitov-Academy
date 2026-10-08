@@ -3,9 +3,14 @@ import { render, screen, fireEvent, waitFor, within } from '@testing-library/rea
 import EnrollmentTerminal from '@/components/registration/EnrollmentTerminal'
 import { submitEnrollment } from '@/app/actions/submit-enrollment'
 import { submitTrialLesson } from '@/app/actions/submit-trial'
+import { trialEligibilityHint } from '@/app/actions/trialEligibilityHint'
 import type { CourseConfig } from '@/lib/course-config'
 import { monthStarts, upcomingCourseDays } from '@/lib/registration-start-dates'
 import de from '@/dictionaries/de.json'
+import en from '@/dictionaries/en.json'
+import ru from '@/dictionaries/ru.json'
+import uk from '@/dictionaries/uk.json'
+import tr from '@/dictionaries/tr.json'
 
 jest.unmock('lucide-react')
 let mockTrial=false
@@ -39,7 +44,7 @@ function fill(label: string, value: string) {
   fireEvent.blur(field)
 }
 
-beforeEach(() => {mockTrial=false; jest.mocked(submitEnrollment).mockReset(); jest.mocked(submitTrialLesson).mockReset()})
+beforeEach(() => {mockTrial=false; jest.mocked(submitEnrollment).mockReset(); jest.mocked(submitTrialLesson).mockReset(); jest.mocked(trialEligibilityHint).mockClear()})
 
 async function reviewSingleCourse(course:CourseConfig,trial=false) {
   mockTrial=trial
@@ -57,6 +62,7 @@ async function reviewSingleCourse(course:CourseConfig,trial=false) {
 
 it('asks for the course first, in plain words, and says why "Weiter" cannot go on yet', () => {
   renderFlow()
+  expect(screen.queryByRole('note')).not.toBeInTheDocument()
   expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Welchen Kurs möchtest du besuchen?')
   expect(screen.getByText('Schritt 1 von 4')).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: 'Kurse vor Ort in Hannover' })).toBeInTheDocument()
@@ -87,6 +93,35 @@ it('asks for the course first, in plain words, and says why "Weiter" cannot go o
   expect(costs).toHaveTextContent('Sagt Sitov Academy weitere Termine ab, sinkt der Rechnungsbetrag entsprechend.')
   expect(costs).toHaveTextContent('Diese Monatstermine gelten bis Mittwoch, 30. September.')
   expect(screen.getByText(/kein frei einlösbares Stundenkontingent/)).toHaveTextContent('Gesetzliche Ansprüche bleiben unberührt.')
+})
+
+it.each(Object.entries({ de, en, ru, uk, tr }))('explains the one-trial rule before asking for personal data in %s', (lang, dictionary) => {
+  mockTrial=true
+  render(<EnrollmentTerminal dictionary={dictionary} lang={lang} courses={[monday]} serverTime={serverTime} />)
+  const notice=screen.getByRole('note')
+  expect(notice).toHaveTextContent(dictionary.registration.trial.eligibility_notice)
+  expect(notice.querySelector('svg')).toHaveAttribute('aria-hidden','true')
+  expect(screen.queryByLabelText(dictionary.registration.flow.fields.email)).not.toBeInTheDocument()
+  expect(trialEligibilityHint).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('radio',{name:monday.title}))
+  fireEvent.click(screen.getByRole('button',{name:dictionary.registration.flow.nav.next}))
+  expect(screen.getByRole('note')).toHaveTextContent(dictionary.registration.trial.eligibility_notice)
+})
+
+it('checks prior trial usage only when submitting and announces the atomic result', async () => {
+  jest.mocked(submitTrialLesson).mockResolvedValue({success:false,message:'trial_already_used'})
+  await reviewSingleCourse(monday,true)
+  expect(screen.getByRole('note')).toHaveTextContent(de.registration.trial.eligibility_notice)
+  expect(trialEligibilityHint).not.toHaveBeenCalled()
+  expect(submitTrialLesson).not.toHaveBeenCalled()
+  expect(screen.queryByRole('heading',{name:de.registration.trial.already_used_title})).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button',{name:de.registration.flow.consents.accept_all}))
+  fireEvent.click(screen.getByRole('button',{name:de.registration.flow.nav.submit_trial}))
+  expect(await screen.findByRole('heading',{level:1,name:de.registration.trial.already_used_title})).toHaveFocus()
+  expect(submitTrialLesson).toHaveBeenCalledTimes(1)
+  expect(screen.getByText(de.registration.trial.already_used_message)).toBeInTheDocument()
+  expect(screen.getByRole('link',{name:de.academy.book_course})).toHaveAttribute('href','/de/registration')
+  expect(trialEligibilityHint).not.toHaveBeenCalled()
 })
 
 it('offers only real lesson days as start dates and shows errors as sentences under the fields', async () => {

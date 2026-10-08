@@ -8,7 +8,7 @@ import type { GermanAudioVoice, NeuralSpeechAsset, NeuralAudioLanguage } from '@
 import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, SITOV_QWEN_PROFILE, normalizeAudioText } from './neural-config'
 import { SITOV_QWEN_PROFILE_FINGERPRINT } from './neural-identity'
 export { neuralAudioPath } from './neural-identity'
-import { synthesizeNeuralSpeech } from './edge-tts'
+import { synthesizeNeuralSpeech } from './sitov-foreign-language-tts'
 
 export async function findCachedAudio(path: string, text?: string): Promise<NeuralSpeechAsset | null> {
   // A legacy German object must never become a fallback for a new module.

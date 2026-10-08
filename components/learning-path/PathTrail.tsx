@@ -1,8 +1,9 @@
 'use client'
 
 import type { CSSProperties } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Check, History, Lock, Play, Route, Sparkles, Star, Target, Trophy, BookOpen, Repeat } from 'lucide-react'
+import { ArrowRight, Check, Flag, History, Lock, Play, Route, Sparkles, Star, Target, Trophy, BookOpen, Repeat } from 'lucide-react'
 import type { PathMap, PathNode } from '@/lib/learning-path-contract'
 import { pathTranslator } from '@/lib/learning-path-i18n'
 import { sitovTrainerHeroCopy } from '@/lib/sitov-trainer-hero-i18n'
@@ -50,23 +51,32 @@ function reached(path: Path, index: number): boolean {
   return path.nodes.slice(0, index).every(before => before.available)
 }
 
-/** Stand in Worten, nur für Screenreader; sichtbar sprechen Medaille, Sterne und Chips. */
+/** Sichtbarer Status folgt weiterhin ausschließlich dem gespeicherten Lernstand. */
 function stopStatus(node: PathNode, state: StopState, t: ReturnType<typeof pathTranslator>): string {
   if (node.kind !== 'test') return t(state === 'locked' ? 'locked' : isDone(node) ? 'completed' : node.status === 'in_progress' ? 'resume' : 'ready')
   if (isDone(node)) return t('completed')
   return node.tests.some(attempt => attempt.status === 'active') ? t('resume') : t('ready')
 }
 
-/** Kompakter Test-Chip: Ziel 80 %, letzter Versuch oder bestandenes Ergebnis (Versuche kommen neueste zuerst). */
-function TestChip({ node, t }: { node: PathNode; t: ReturnType<typeof pathTranslator> }) {
+/** Bestehensgrenze und persönliches Ergebnis sind ausdrücklich getrennt. */
+function SitovTestDetails({ node, t }: { node: PathNode; t: ReturnType<typeof pathTranslator> }) {
   const passed = node.tests.find(attempt => attempt.passed)
-  if (isDone(node)) return <span className={styles.chip} data-tone="success"><Check size={15} strokeWidth={3} aria-hidden="true" />{Math.floor(passed?.percentage ?? 100)}&thinsp;%</span>
   const last = node.tests.find(attempt => attempt.status === 'completed' && attempt.percentage !== null)
-  return <>
-    <span className={styles.chip} data-tone="gold"><Target size={15} aria-hidden="true" /><span className="sr-only">{t('goal')}</span><span aria-hidden="true">80&thinsp;%</span></span>
-    {last?.percentage != null && <span className={styles.chip} data-tone="muted"><History size={15} aria-hidden="true" />
-      <span className="sr-only">{t('test_last', { value: Math.floor(last.percentage) })}</span><span aria-hidden="true">{Math.floor(last.percentage)}&thinsp;%</span></span>}
-  </>
+  return <span className={styles.sitovTestDetails}>
+    <span className={styles.sitovTestGoal} data-testid={`sitov-test-goal-${node.id}`}>
+      <span className={styles.sitovTestGoalNumber} aria-hidden="true">80<span>%</span></span>
+      <span className={styles.sitovTestGoalCopy}>
+        <span className={styles.sitovTestGoalLabel}><Target size={15} aria-hidden="true" />{t('sitov_test_goal_label')}</span>
+        <span className={styles.sitovTestGoalText}>{t('sitov_test_goal')}</span>
+      </span>
+      <span className={styles.sitovTestGoalScale} aria-hidden="true">{Array.from({ length: 10 }, (_, index) => <span key={index} data-required={index < 8} />)}</span>
+    </span>
+    {isDone(node) ? <span className={styles.sitovTestResult} data-passed="true"><Check size={17} aria-hidden="true" />
+      {passed?.percentage != null ? t('sitov_test_passed', { value: Math.floor(passed.percentage) }) : t('passed')}
+    </span> : last?.percentage != null && <span className={styles.sitovTestResult} data-passed="false"><History size={16} aria-hidden="true" />
+      {t('sitov_test_last', { value: Math.floor(last.percentage) })}
+    </span>}
+  </span>
 }
 
 function Stars({ count, label }: { count: number; label: string }) {
@@ -75,13 +85,10 @@ function Stars({ count, label }: { count: number; label: string }) {
   </span>
 }
 
-function MedalIcon({ node, state }: { node: PathNode; state: StopState }) {
-  if (node.kind === 'test') return <Trophy size={30} strokeWidth={2.4} aria-hidden="true" />
-  if (state === 'locked') return <Lock size={node.kind === 'special' ? 18 : 24} aria-hidden="true" />
-  if (node.kind === 'special') return <Sparkles size={20} aria-hidden="true" />
-  if (state === 'completed') return <Check size={30} strokeWidth={3} aria-hidden="true" />
+function MedalIcon({ node }: { node: PathNode }) {
+  if (node.kind === 'special') return <Sparkles size={26} aria-hidden="true" />
   if (node.kind === 'review') return <Repeat size={26} strokeWidth={2.6} aria-hidden="true" />
-  return state === 'current' ? <BookOpen size={26} strokeWidth={2.4} aria-hidden="true" /> : <>{node.sort_order}</>
+  return <BookOpen size={28} strokeWidth={2.2} aria-hidden="true" />
 }
 
 export default function PathTrail({ map, lang, busy, onOpen, onContinue, isNewPath, isNewBranch, newLabel }: {
@@ -103,7 +110,7 @@ export default function PathTrail({ map, lang, busy, onOpen, onContinue, isNewPa
   const levelDone = lessons.filter(isDone).length
   const progressLabel = t('level_progress', { done: levelDone, total: lessons.length })
 
-  return <div className={styles.trailRoot}>
+  return <div className={styles.trailRoot} lang={lang} aria-busy={busy}>
     <SitovTrainerHero mode="path" eyebrow="Sitov Academy" level={map.level} title={t('title')}
       className={styles.sitovPathHero} testId="path-level-progress"
       graphic={<SitovPathScene nodes={map.paths.flatMap(path => path.nodes)} currentId={currentId} />}
@@ -136,11 +143,9 @@ export default function PathTrail({ map, lang, busy, onOpen, onContinue, isNewPa
           <h3 id={`path-title-${path.id}`} className="!mt-3 !text-2xl !font-extrabold !leading-tight">
             {path.title}{isNewPath(path.id) && <NewBadge label={newLabel} className="ml-2 align-middle" />}
           </h3>
-          {pathLessons.length > 0 && <div className={styles.meter}>
-            <div className={styles.bar} role="img" aria-label={t('path_progress', { done: pathDone, total: pathLessons.length })}>
-              <div className={styles.barFill} style={{ '--p': String(pathDone / pathLessons.length) } as CSSProperties} />
-            </div>
-            <span className={styles.meterValue} aria-hidden="true">{pathDone}/{pathLessons.length}</span>
+          {pathLessons.length > 0 && <div className={styles.sitovPathProgress}>
+            <span className={styles.sitovPathProgressLabel}>{t('sitov_stations_done', { done: pathDone, total: pathLessons.length })}</span>
+            <span className={styles.sitovPathSegments} aria-hidden="true">{pathLessons.map(lesson => <span key={lesson.id} data-completed={isDone(lesson)} />)}</span>
           </div>}
         </header>
 
@@ -149,6 +154,11 @@ export default function PathTrail({ map, lang, busy, onOpen, onContinue, isNewPa
           const wave = WAVE[index % WAVE.length]
           const previousWave = WAVE[(index + WAVE.length - 1) % WAVE.length]
           const status = stopStatus(node, state, t)
+          const test = node.kind === 'test'
+          const activeTest = node.tests.some(attempt => attempt.status === 'active')
+          const hasTestResult = node.tests.some(attempt => attempt.status === 'completed')
+          const action = test ? t(hasTestResult ? 'review_open' : activeTest ? 'sitov_test_resume' : 'sitov_test_action')
+            : t(node.status === 'in_progress' ? 'sitov_stage_continue' : isDone(node) ? 'review' : 'sitov_station_action')
           return <li key={node.id} className={styles.stop} data-state={state} data-kind={node.kind}
             style={{ '--wave': String(wave), '--i': String(index) } as CSSProperties}>
             <SitovMotionStage className={styles.sitovStopStage}>
@@ -164,26 +174,45 @@ export default function PathTrail({ map, lang, busy, onOpen, onContinue, isNewPa
                 disabled={busy || !node.available} aria-current={state === 'current' ? 'step' : undefined}
                 whileTap={reduced ? undefined : { scale: PRESS_SCALE }} transition={{ duration: reduced ? 0 : MOTION.fast }}
                 onClick={() => onOpen(node, path)}>
-                <span className={styles.medalWrap}>
-                  {state === 'current' && <span className={styles.sitovMedalOrbit} aria-hidden="true"><span /></span>}
-                  <span className={styles.medal}>
-                    <MedalIcon node={node} state={state} />
-                    {node.kind === 'test' && <span className={styles.shine} aria-hidden="true" />}
-                  </span>
-                  {node.kind === 'test' && isDone(node) && <span className={styles.badge} aria-hidden="true"><Check size={14} strokeWidth={3.5} /></span>}
+                <span className={styles.medalWrap} aria-hidden="true">
+                  {test ? <span className={styles.sitovTrophyScene}>
+                    <Image src="/Bilder/learning-path/sitov-path-trophy.webp" alt="" width={176} height={200} sizes="(max-width: 640px) 96px, 150px" className={styles.sitovTrophyImage} />
+                    <Sparkles className={styles.sitovTrophySpark} size={20} />
+                  </span> : <>
+                    {state === 'current' && <span className={styles.sitovMedalOrbit}><span /></span>}
+                    <span className={styles.medal}><MedalIcon node={node} /></span>
+                    <span className={styles.sitovMedalStatus} data-state={state}>
+                      {state === 'locked' ? <Lock size={12} strokeWidth={2.5} /> : isDone(node) ? <Check size={13} strokeWidth={3} /> : String(node.sort_order).padStart(2, '0')}
+                    </span>
+                  </>}
                 </span>
                 <span className={styles.stopCard}>
+                  <span className={styles.sitovStationEyebrow}>
+                    {test ? <><Flag size={14} aria-hidden="true" />{t('sitov_test_eyebrow')}</> : <>{t('sitov_stage', { number: String(node.sort_order).padStart(2, '0') })}<span aria-hidden="true">·</span>{t(node.kind)}</>}
+                  </span>
                   <span className={styles.stopTitle}>
                     {node.title}{isNewBranch(node.id) && <NewBadge label={newLabel} className="ml-2 align-middle" />}
                   </span>
-                  <span className="sr-only">{t(node.kind)}, {status}</span>
-                  {(state === 'current' || node.kind === 'test' || node.stars > 0) && <span className={styles.stopMeta}>
-                    {state === 'current' && <span className={styles.chip} data-tone="accent"><Play size={14} fill="currentColor" aria-hidden="true" />{t('start_here')}</span>}
-                    {node.kind === 'test' && <TestChip node={node} t={t} />}
-                    {node.stars > 0 && <Stars count={node.stars} label={t('stars', { count: node.stars })} />}
-                  </span>}
+                  {test ? <>
+                    <span className={styles.sitovStationHint}>{t('sitov_test_goal_hint')}</span>
+                    <SitovTestDetails node={node} t={t} />
+                    <span className={styles.sitovTestFooter}>
+                      <span className={styles.sitovStationAction}>{action}<ArrowRight size={17} aria-hidden="true" /></span>
+                      <span className={styles.sitovTestAvailability}>{node.available ? t('sitov_test_available') : t('locked')}</span>
+                    </span>
+                  </> : <>
+                    <span className={styles.stopMeta}>
+                      {state === 'current' ? <span className={styles.sitovCurrentLabel}><Play size={12} fill="currentColor" aria-hidden="true" />{t('start_here')}</span>
+                        : <span className={styles.sitovStationStatus} data-state={state}>
+                          {state === 'locked' ? <Lock size={13} aria-hidden="true" /> : isDone(node) ? <Check size={14} aria-hidden="true" /> : <span className={styles.sitovReadyDot} aria-hidden="true" />}{status}
+                        </span>}
+                      {node.stars > 0 && <Stars count={node.stars} label={t('stars', { count: node.stars })} />}
+                    </span>
+                    {state === 'locked' && <span className={styles.sitovStationHint}>{t('sitov_stage_locked')}</span>}
+                    {state === 'current' && <span className={styles.sitovStationAction}>{action}<ArrowRight size={17} aria-hidden="true" /></span>}
+                  </>}
                 </span>
-                {node.available && <ArrowUpRight className={styles.sitovStopArrow} size={18} aria-hidden="true" />}
+                {!test && node.available && state !== 'current' && <span className={styles.sitovStationOpen} aria-hidden="true"><ArrowRight size={18} /></span>}
               </motion.button>
             </div>
             </SitovMotionStage>

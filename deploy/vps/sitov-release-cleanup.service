@@ -1,0 +1,22 @@
+[Unit]
+Description=Sitov Academy verified application release retention
+After=sitov-app.service sitov-mail.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/sitov-ops/sitov-release-cleanup.py --apply
+TimeoutStartSec=15min
+Nice=10
+IOSchedulingClass=idle
+MemoryMax=128M
+CPUQuota=25%
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/www/sitov-releases /var/lock
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX

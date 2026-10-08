@@ -248,6 +248,7 @@
     "registration": {
         "back_home": "Ana sayfaya dön",
         "trial": {
+            "eligibility_notice": "Her kişi bir kez ücretsiz deneme dersinden yararlanabilir. Daha önce kullanılıp kullanılmadığını başvuruyu gönderdiğinizde kontrol ederiz.",
             "badge": "Ücretsiz deneme dersi",
             "already_used_title": "Deneme dersinizi zaten kullandınız",
             "already_used_message": "Ücretsiz deneme dersi kişi başına bir kez sunulur. Dilerseniz doğrudan bir kursa kaydolabilirsiniz."

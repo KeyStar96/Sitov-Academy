@@ -1,6 +1,6 @@
 /** @jest-environment node */
 jest.mock('server-only', () => ({}), { virtual: true })
-import { synthesizeNeuralAudio } from '@/lib/audio/edge-tts'
+import { synthesizeNeuralAudio } from '@/lib/audio/sitov-foreign-language-tts'
 import { AUDIO_MAX_BYTES, AUDIO_MAX_TEXT_LENGTH } from '@/lib/audio/neural-config'
 const fetchMock = jest.fn<ReturnType<typeof fetch>, Parameters<typeof fetch>>()
 const originalFetch = global.fetch
@@ -56,21 +56,21 @@ it('returns a safe error when the local service cannot be reached',async()=>{
 })
 
 it('returns genuine word timings without a selectable voice', async () => {
-  const { synthesizeNeuralSpeech } = await import('@/lib/audio/edge-tts')
+  const { synthesizeNeuralSpeech } = await import('@/lib/audio/sitov-foreign-language-tts')
   const wordTimings = [{ start: 0.05, end: 0.2 }, { start: 0.3, end: 1.1 }]
   fetchMock.mockResolvedValue(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-Word-Timings': JSON.stringify(wordTimings) } }))
   expect(await synthesizeNeuralSpeech('die Tür', 'en')).toEqual({ audio: mp3(), wordTimings })
   expect(fetchMock.mock.calls[0][1]?.body).toBe(JSON.stringify({ text: 'die Tür', language: 'en' }))
 })
 it('ignores invalid alignment rather than inventing word timings', async () => {
-  const { synthesizeNeuralSpeech } = await import('@/lib/audio/edge-tts')
+  const { synthesizeNeuralSpeech } = await import('@/lib/audio/sitov-foreign-language-tts')
   fetchMock.mockResolvedValue(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-Word-Timings': JSON.stringify([{ start: 1, end: 0 }]) } }))
   expect(await synthesizeNeuralSpeech('Tür', 'en')).toEqual({ audio: mp3() })
 })
 
 
 it('never runs German inference, including explicit male requests', async () => {
-  const { synthesizeNeuralSpeech } = await import('@/lib/audio/edge-tts')
+  const { synthesizeNeuralSpeech } = await import('@/lib/audio/sitov-foreign-language-tts')
   await expect(synthesizeNeuralSpeech('Hallo', 'de')).rejects.toThrow('requires local preparation')
   await expect(synthesizeNeuralSpeech('Hallo', 'de', 'male')).rejects.toThrow('requires local preparation')
   expect(fetchMock).not.toHaveBeenCalled()

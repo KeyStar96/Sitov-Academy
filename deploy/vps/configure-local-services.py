@@ -44,6 +44,22 @@ services['supabase-db']['command']=['postgres','-c','config_file=/etc/postgresql
 # follow the host's CPU count independently in every Erlang service.
 env_set('supabase-studio', {'NODE_OPTIONS':'--max-old-space-size=128'})
 env_set('supabase-meta', {'NODE_OPTIONS':'--max-old-space-size=128'})
+# Kong shares a 1-CPU/512-MiB cgroup. Its automatic host-CPU worker count
+# previously spawned four memory-heavy workers; pin one without reformatting
+# any other Kong environment values. Live patch: sitov-patch-kong-workers.py.
+kong=services['supabase-kong']
+kong_environment=kong.get('environment', {})
+if isinstance(kong_environment,dict):
+    kong_environment['KONG_NGINX_WORKER_PROCESSES']='1'
+elif isinstance(kong_environment,list):
+    if not all(isinstance(item,str) for item in kong_environment):
+        raise RuntimeError('Unexpected Kong environment list entry')
+    kong_environment=[item for item in kong_environment if item.split('=',1)[0] != 'KONG_NGINX_WORKER_PROCESSES']
+    kong_environment.append('KONG_NGINX_WORKER_PROCESSES=1')
+else:
+    raise RuntimeError('Unexpected Kong environment representation')
+kong['environment']=kong_environment
+kong['memswap_limit']='512m'
 for service in ('supabase-analytics','realtime-dev','supabase-supavisor'):
     env_set(service, {'ERL_AFLAGS':'+S 2:2 +SDcpu 1 +SDio 1'})
 # Caps bound exceptional load; they do not reserve memory.

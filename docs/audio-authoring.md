@@ -13,6 +13,11 @@ kein deutsches Sprachmodell. Schüler benötigen keinen eingeschalteten Mac.
 Deutsche Cache-Lücken lösen weder Live-Synthese noch Piper-, Browser- oder
 Systemstimmen aus. Es gibt keine Speech-API-Gebühren.
 
+Fremdsprachige Übersetzungen verwenden bei Cache-Lücken den serverseitigen
+Adapter `lib/audio/sitov-foreign-language-tts.ts`, der ausschließlich den lokalen
+Sprachdienst aufruft. Der Adapter lehnt deutsche Syntheseanfragen vor jedem
+Netzwerkaufruf ab; deutsche Aufnahmen folgen immer dem Vorbereitungsablauf unten.
+
 ## Lokale Umgebung
 
 Der Autor benötigt einen Apple-Silicon-Mac, ausreichend freien Speicher und

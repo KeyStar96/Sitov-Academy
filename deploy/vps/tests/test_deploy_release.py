@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -34,6 +35,9 @@ elif name=='npm':
  if args==['ci','--no-audit','--no-fund']:
   pathlib.Path('node_modules/sitov-runtime/dist').mkdir(parents=True)
   pathlib.Path('node_modules/sitov-runtime/package.json').write_text('{}')
+  pathlib.Path('node_modules/next/dist/bin').mkdir(parents=True)
+  pathlib.Path('node_modules/next/package.json').write_text('{}')
+  pathlib.Path('node_modules/next/dist/bin/next').write_text('runtime')
   pathlib.Path('node_modules/sitov-runtime/dist/index.js').write_text('module.exports = {}')
  elif args in (['run','build'],['run','build','--','--webpack']):
   if os.environ.get('MOCK_BUILD_FAIL')=='1':sys.exit(1)
@@ -41,6 +45,8 @@ elif name=='npm':
   pathlib.Path('.next/BUILD_ID').write_text('prepared-build\n')
   pathlib.Path('.next/required-server-files.json').write_text('{}')
   pathlib.Path('.next/server/main.js').write_text('built application')
+  pathlib.Path('.next/server/app').mkdir()
+  pathlib.Path('.next/server/app/de.html').write_text('initial generated HTML')
 elif name=='install':
  values=[];directory=False;mode=0o755;i=0
  while i<len(args):
@@ -110,7 +116,7 @@ class DeploymentTests(unittest.TestCase):
         self.meminfo.write_text('MemTotal:        8073216 kB\nMemAvailable:    4550000 kB\n')
         self.env = dict(os.environ, PATH=str(self.bin)+os.pathsep+os.environ['PATH'],
             MOCK_LOG=str(self.log), MOCK_SOURCE=str(self.source), MOCK_MAIL_ACTIVE='1',
-            SITOV_SOURCE_DIR=str(self.source), SITOV_RELEASES_DIR=str(self.root/'releases'),
+            SITOV_SOURCE_DIR=str(self.source), SITOV_RELEASES_DIR=str(self.root/'sitov-releases'),
             SITOV_CURRENT_LINK=str(self.current), SITOV_ENV_FILE=str(self.env_file),
             SITOV_SYSTEMD_DIR=str(self.systemd), SITOV_DEPLOY_LOCK_FILE=str(self.root/'lock'), SITOV_MEMINFO=str(self.meminfo))
         self.env.pop('SITOV_BUILD_BUNDLER', None)
@@ -124,7 +130,46 @@ class DeploymentTests(unittest.TestCase):
     def prepare(self):
         result = self.run_script('--prepare-only')
         self.assertEqual(result.returncode, 0, result.stderr)
-        return self.root/'releases'/REVISION
+        return self.root/'sitov-releases'/REVISION
+
+    def mock_cleanup_command(self):
+        # Forward every existing env-python mock to the real interpreter. Only
+        # the cleanup subprocess is recorded instead of inspecting real /proc.
+        command = self.bin / 'python3'
+        command.write_text(f'#!{sys.executable}\n' + r'''import json,os,sys
+if sys.argv[1].endswith('/sitov-release-cleanup.py') and '--verify-release' not in sys.argv[2:]:
+ with open(os.environ['MOCK_LOG'],'a') as log:log.write(json.dumps(['sitov-cleanup',*sys.argv[1:]])+'\n')
+ sys.exit(int(os.environ.get('MOCK_CLEANUP_RESULT','0')))
+os.execv(sys.executable,[sys.executable,*sys.argv[1:]])
+''')
+        command.chmod(0o755)
+
+    def test_successful_activation_cleans_only_after_app_and_mail_are_ready(self):
+        release=self.prepare(); self.log.write_text(''); self.mock_cleanup_command()
+        result=self.run_script('--activate',REVISION)
+        self.assertEqual(result.returncode,0,result.stderr)
+        calls=self.calls()
+        cleanup_index=next(index for index,call in enumerate(calls) if call[0]=='sitov-cleanup')
+        self.assertGreater(cleanup_index,calls.index(['systemctl','restart','sitov-mail']))
+        self.assertGreater(cleanup_index,calls.index(['flock','-u','9']))
+        self.assertEqual(calls[cleanup_index][-1],'--apply')
+        self.assertEqual(self.current.resolve(),release)
+
+    def test_cleanup_refusal_does_not_fail_successful_activation(self):
+        release=self.prepare(); self.log.write_text(''); self.mock_cleanup_command()
+        result=self.run_script('--activate',REVISION,MOCK_CLEANUP_RESULT='1')
+        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertIn('Release cleanup deferred',result.stderr)
+        self.assertEqual(self.current.resolve(),release)
+
+    def test_prepare_only_and_failed_activation_never_trigger_cleanup(self):
+        self.mock_cleanup_command()
+        self.prepare()
+        self.assertFalse(any(call[0]=='sitov-cleanup' for call in self.calls()))
+        self.log.write_text('')
+        result=self.run_script('--activate',REVISION,MOCK_START_FAIL='1')
+        self.assertNotEqual(result.returncode,0)
+        self.assertFalse(any(call[0]=='sitov-cleanup' for call in self.calls()))
 
     def test_prepare_is_reviewable_and_never_switches_or_restarts(self):
         release=self.prepare()
@@ -138,7 +183,7 @@ class DeploymentTests(unittest.TestCase):
             ['bash','-c','umask 077; exec bash "$@"','sitov-restrictive-caller',str(SCRIPT),'--prepare-only'],
             env=self.env,text=True,capture_output=True)
         self.assertEqual(result.returncode,0,result.stderr)
-        release=self.root/'releases'/REVISION
+        release=self.root/'sitov-releases'/REVISION
         # Root installs packages; the sitov service needs read and traversal
         # rights without owning them. Mock npm creates files under inherited mask.
         for path in (release,release/'node_modules',release/'node_modules/sitov-runtime',
@@ -169,6 +214,15 @@ class DeploymentTests(unittest.TestCase):
         self.assertEqual(self.current.resolve(),self.previous)
         self.assertFalse(any(c[0]=='systemctl' for c in self.calls()))
 
+    def test_isr_cached_payload_change_can_activate_without_restamping_manifest(self):
+        release=self.prepare(); self.log.write_text('')
+        manifest=(release/'.sitov-prepared.sha256').read_bytes()
+        (release/'.next/server/app/de.html').write_text('ISR updated generated HTML')
+        result=self.run_script('--activate',REVISION)
+        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertEqual(self.current.resolve(),release)
+        self.assertEqual((release/'.sitov-prepared.sha256').read_bytes(),manifest)
+
     def test_schema_changed_failure_stops_both_services_without_old_app_rollback(self):
         release=self.prepare(); self.log.write_text('')
         result=self.run_script('--activate',REVISION,'--schema-changed',MOCK_READY='0',MOCK_MAIL_ACTIVE='0')
@@ -188,13 +242,13 @@ class DeploymentTests(unittest.TestCase):
     def test_failed_build_does_not_publish_ready_marker(self):
         result=self.run_script('--prepare-only',MOCK_BUILD_FAIL='1')
         self.assertNotEqual(result.returncode,0)
-        self.assertFalse((self.root/'releases'/REVISION/'.sitov-prepared').exists())
+        self.assertFalse((self.root/'sitov-releases'/REVISION/'.sitov-prepared').exists())
         self.assertEqual(self.current.resolve(),self.previous)
 
     def test_failed_build_removes_incomplete_release_so_a_retry_works(self):
         result=self.run_script('--prepare-only',MOCK_BUILD_FAIL='1')
         self.assertNotEqual(result.returncode,0)
-        self.assertFalse((self.root/'releases'/REVISION).exists())
+        self.assertFalse((self.root/'sitov-releases'/REVISION).exists())
         self.assertIn('removed incomplete',result.stderr)
         self.prepare()
 
@@ -241,7 +295,7 @@ class DeploymentTests(unittest.TestCase):
         self.assertIn('MemoryMax=2560M',build_scope)
         self.assertIn('MemorySwapMax=0',build_scope)
         self.assertIn(['npm-env','--max-old-space-size=2048','1'],calls)
-        self.assertTrue((self.root/'releases'/REVISION/'.sitov-prepared').is_file())
+        self.assertTrue((self.root/'sitov-releases'/REVISION/'.sitov-prepared').is_file())
         self.assertEqual(self.current.resolve(),self.previous)
         self.assertEqual((self.source/'app.js').read_text(),'source')
         self.assertFalse(any(c[0]=='systemctl' and c[1] in ('restart','stop','daemon-reload') for c in calls))
@@ -262,7 +316,7 @@ class DeploymentTests(unittest.TestCase):
                 self.assertIn('Invalid SITOV_BUILD_BUNDLER',result.stderr)
                 self.assertFalse(self.log.exists())
                 self.assertFalse((self.root/'lock').exists())
-                self.assertFalse((self.root/'releases').exists())
+                self.assertFalse((self.root/'sitov-releases').exists())
                 self.assertEqual(self.current.resolve(),self.previous)
                 self.assertEqual((self.previous/'live.js').read_text(),'active release')
                 self.assertEqual({str(path.relative_to(self.source)):path.read_bytes() for path in self.source.rglob('*') if path.is_file()},source_before)
@@ -272,7 +326,7 @@ class DeploymentTests(unittest.TestCase):
         result=self.run_script('--prepare-only')
         self.assertNotEqual(result.returncode,0)
         self.assertIn('Nothing was changed',result.stderr)
-        self.assertFalse((self.root/'releases').exists() and any((self.root/'releases').iterdir()))
+        self.assertFalse((self.root/'sitov-releases').exists() and any((self.root/'sitov-releases').iterdir()))
         self.assertFalse(self.log.exists() and any(c[0] in ('git','npm','systemd-run') for c in self.calls()))
         self.assertEqual(self.current.resolve(),self.previous)
 

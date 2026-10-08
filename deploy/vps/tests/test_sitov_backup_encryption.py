@@ -5,7 +5,9 @@ from pathlib import Path
 import shutil
 import subprocess
 import tempfile
+from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 spec = importlib.util.spec_from_file_location('sitov_export', Path(__file__).resolve().parents[1] / 'export-encrypted-backup.py')
 module = importlib.util.module_from_spec(spec)
@@ -37,6 +39,81 @@ class BackupEncryptionTest(unittest.TestCase):
             (source / 'roles.sql').unlink()
             (source / 'roles.sql').symlink_to(source / 'postgres.dump')
             with self.assertRaises(ValueError): module.verify(source)
+
+    def test_unlisted_files_and_directory_symlinks_are_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = self.source(Path(directory))
+            extra = source / 'unlisted.txt'
+            extra.write_text('not covered by manifest')
+            with self.assertRaisesRegex(ValueError, 'Unlisted'):
+                module.verify(source)
+            extra.unlink()
+            (source / 'linked-directory').symlink_to(Path(directory))
+            with self.assertRaisesRegex(ValueError, 'member type'):
+                module.verify(source)
+
+    def test_checksum_is_published_before_ciphertext_and_existing_output_is_preserved(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.source(root)
+            output = root / 'backup.age'
+            checksum = output.with_suffix('.age.sha256')
+            real_link = os.link
+            publication = []
+            def copy_test_stream(command, stdin, stdout, **kwargs):
+                shutil.copyfileobj(stdin, stdout)
+                return SimpleNamespace(returncode=0, stderr=b'')
+            def link(first, second):
+                if second == output:
+                    self.assertTrue(checksum.is_file())
+                    self.assertFalse(output.exists())
+                publication.append(second)
+                return real_link(first, second)
+            with patch.object(module.subprocess, 'run', side_effect=copy_test_stream), patch.object(module.os, 'link', side_effect=link):
+                module.export(source, 'public recipient fixture', output)
+            self.assertEqual(publication, [checksum, output])
+            self.assertEqual(checksum.read_text().split(), [module.digest(output), output.name])
+            self.assertEqual(output.stat().st_mode & 0o777, 0o600)
+            self.assertFalse(list(root.glob('*.partial')))
+            original = output.read_bytes()
+            with self.assertRaisesRegex(ValueError, 'overwrite'):
+                module.export(source, 'public recipient fixture', output)
+            self.assertEqual(output.read_bytes(), original)
+
+    def test_failed_ciphertext_publication_removes_own_sidecar_and_partials(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.source(root)
+            output = root / 'backup.age'
+            real_link = os.link
+            def copy_test_stream(command, stdin, stdout, **kwargs):
+                shutil.copyfileobj(stdin, stdout)
+                return SimpleNamespace(returncode=0, stderr=b'')
+            def fail_final(first, second):
+                if second == output:
+                    raise OSError('simulated failed atomic publication')
+                return real_link(first, second)
+            with patch.object(module.subprocess, 'run', side_effect=copy_test_stream), patch.object(module.os, 'link', side_effect=fail_final):
+                with self.assertRaisesRegex(OSError, 'publication'):
+                    module.export(source, 'public recipient fixture', output)
+            self.assertFalse(output.exists())
+            self.assertFalse(output.with_suffix('.age.sha256').exists())
+            self.assertFalse(list(root.glob('*.partial')))
+
+    def test_existing_checksum_partial_is_never_deleted_by_failed_export(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            output = root / 'backup.age'
+            partial = root / 'backup.age.sha256.partial'
+            partial.write_text('another run owns this')
+            def copy_test_stream(command, stdin, stdout, **kwargs):
+                shutil.copyfileobj(stdin, stdout)
+                return SimpleNamespace(returncode=0, stderr=b'')
+            with patch.object(module.subprocess, 'run', side_effect=copy_test_stream):
+                with self.assertRaises(FileExistsError):
+                    module.export(self.source(root), 'public recipient fixture', output)
+            self.assertEqual(partial.read_text(), 'another run owns this')
+            self.assertFalse(output.exists())
 
     def test_real_streaming_encryption_decryption_and_tamper_detection(self):
         age = os.environ.get('SITOV_TEST_AGE_BIN') or shutil.which('age')

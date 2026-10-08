@@ -249,6 +249,7 @@
     "registration": {
         "back_home": "Back to homepage",
         "trial": {
+            "eligibility_notice": "Each person can take one free trial lesson. We check whether it has already been used when you submit your request.",
             "badge": "Free trial lesson",
             "already_used_title": "You have already had a trial lesson",
             "already_used_message": "The free trial lesson is available once per person. You are welcome to register for a course directly."

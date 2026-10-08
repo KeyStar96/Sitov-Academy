@@ -4,7 +4,7 @@ import { AUDIO_MAX_BYTES, AUDIO_MAX_TEXT_LENGTH, NEURAL_VOICES, normalizeAudioTe
 import { validWordTimings } from './playback-settings'
 import type { AudioWordTiming, GermanAudioVoice, NeuralAudioLanguage } from '@/lib/types/audio'
 
-/** Runtime synthesis is only used for non-German translations. */
+/** Local runtime synthesis for non-German translations; German audio must be prepared offline. */
 export async function synthesizeNeuralSpeech(input: string, language: NeuralAudioLanguage, voice?: GermanAudioVoice): Promise<{ audio: Buffer; wordTimings?: AudioWordTiming[] }> {
   const text = normalizeAudioText(input)
   if (!text || text.length > AUDIO_MAX_TEXT_LENGTH || !Object.hasOwn(NEURAL_VOICES, language)) throw new Error('Invalid synthesis input')

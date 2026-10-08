@@ -15,7 +15,6 @@ import { createSchema, type EnrollmentFormData } from "@/lib/registration-schema
 import { firstStartDate, isoToGerman, monthStarts, upcomingCourseDays } from "@/lib/registration-start-dates";
 import { submitEnrollment } from "@/app/actions/submit-enrollment";
 import { submitTrialLesson } from "@/app/actions/submit-trial";
-import { trialEligibilityHint } from "@/app/actions/trialEligibilityHint";
 import { trackMetaEvent } from "@/lib/analytics/meta-pixel";
 import CourseQuantityInput from "./CourseQuantityInput";
 import EnrollmentCourseCard from "./EnrollmentCourseCard";
@@ -190,13 +189,6 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     return;
                 }
                 setDetailsInvalid(false);
-                if (isTrial) {
-                    const personal = getValues("personal");
-                    try {
-                        const { eligible } = await trialEligibilityHint(personal.email, personal.firstName, personal.lastName);
-                        if (!eligible) { setTrialUsed(true); return; }
-                    } catch { /* The server checks again on submit. */ }
-                }
                 goTo(4);
             } finally {
                 setChecking(false);
@@ -302,6 +294,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     </div>
                     <h1 key={`title-${step}`} id="reg-step-title" ref={headingRef} tabIndex={-1} className="reg-title reg-enter">{title}</h1>
                     <p key={`intro-${step}`} className="reg-intro reg-enter">{intro}</p>
+                    {isTrial && <p role="note" className="sitov-registration-policy reg-enter"><Info size={22} aria-hidden="true" /><span>{t.trial.eligibility_notice}</span></p>}
                     {!isTrial && step === 1 && <p className="sitov-registration-policy"><CalendarDays size={22} aria-hidden="true" /><span><strong>{copy.hero.policy_title}</strong>{copy.hero.policy_text}</span></p>}
                 </div>
 

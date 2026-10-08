@@ -252,6 +252,7 @@
         "back_home": "Zur Startseite",
         "trial": {
             "badge": "Kostenlose Probestunde",
+            "eligibility_notice": "Jede Person kann einmal eine kostenlose Probestunde nutzen. Ob sie bereits genutzt wurde, prüfen wir beim Absenden.",
             "already_used_title": "Du hattest schon eine Probestunde",
             "already_used_message": "Die kostenlose Probestunde gibt es einmal pro Person. Du kannst dich aber gern direkt für einen Kurs anmelden."
         },

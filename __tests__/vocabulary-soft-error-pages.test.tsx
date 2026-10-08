@@ -13,6 +13,7 @@ import { getDictionary } from '@/lib/dictionary'
 import ru from '@/dictionaries/ru.json'
 import type { DueVocabularyCard } from '@/lib/types/vocabulary'
 import { summarizeBox } from '@/lib/vocabulary-box'
+import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getVocabularyOverview: jest.fn(), beginVocabularyLevel: jest.fn(), getPhaseCards: jest.fn(), initializeLesson: jest.fn() }))
@@ -37,7 +38,7 @@ it('passes the selected dictionary through the overview and session start', asyn
   const page = await VocabularyPage({ params: Promise.resolve({ lang: 'ru', level: 'A1.1' }) })
   expect(page.type).toBe(VocabTrainerPageClient)
   render(page)
-  fireEvent.click(screen.getByRole('button', { name: ru.vocabulary.lernkasten_start_count_one }))
+  fireEvent.click(screen.getByRole('button', { name: sitovTrainerUiCopy('ru').practice }))
   await waitFor(() => expect(VocabCardSession).toHaveBeenCalled())
   expect(jest.mocked(VocabCardSession).mock.calls[0][0]).toMatchObject({ softErrorTranslations: ru.exercises.soft_error, uiLanguage: 'ru', level: 'A1.1' })
 })

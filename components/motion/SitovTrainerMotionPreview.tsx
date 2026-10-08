@@ -33,8 +33,15 @@ const sitovMap: PathMap = {
   paths: [{ id: sitovId(601), source_id: 'sitov-preview', title: 'Dein erster Weg auf Deutsch', sort_order: 1, available: true, completed: false,
     nodes: ['Begrüßung', 'Sich vorstellen', 'Im Alltag', 'Wiederholen', 'Dein erster Test'].map((title, index) => ({
       id: sitovId(610 + index), title, kind: index === 3 ? 'review' : index === 4 ? 'test' : 'practice', sort_order: index + 1,
-      available: index <= 2, status: index < 2 ? 'completed' : null, stars: index < 2 ? 3 : 0, tests: [],
+      available: index <= 2 || index === 4, status: index < 2 ? 'completed' : null, stars: index < 2 ? 3 : 0, tests: [],
     })),
+  }, { id: sitovId(602), source_id: 'sitov-preview-next', title: 'Unterwegs in deiner Stadt', sort_order: 2, available: false, completed: false,
+    nodes: [
+      { id: sitovId(620), title: 'Nach dem Weg fragen', kind: 'practice', sort_order: 1, available: false, status: null, stars: 0, tests: [] },
+      { id: sitovId(621), title: 'Gemeinsam wiederholen', kind: 'review', sort_order: 2, available: false, status: null, stars: 0, tests: [] },
+      { id: sitovId(622), title: 'Dein Stadt-Test', kind: 'test', sort_order: 3, available: true, status: null, stars: 0,
+        tests: [{ id: sitovId(623), status: 'completed', percentage: 60, passed: false, completed_at: '2026-10-07T10:00:00Z' }] },
+    ],
   }],
 }
 const sitovPrompts: PronunciationPrompt[] = [

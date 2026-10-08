@@ -1,9 +1,9 @@
 jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('@/utils/supabase/admin', () => ({ createAdminClient: jest.fn() }))
-jest.mock('@/lib/audio/edge-tts', () => ({ synthesizeNeuralSpeech: jest.fn() }))
+jest.mock('@/lib/audio/sitov-foreign-language-tts', () => ({ synthesizeNeuralSpeech: jest.fn() }))
 
 import { createAdminClient } from '@/utils/supabase/admin'
-import { synthesizeNeuralSpeech } from '@/lib/audio/edge-tts'
+import { synthesizeNeuralSpeech } from '@/lib/audio/sitov-foreign-language-tts'
 import { findCachedAudio, generateCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
 import { AUDIO_CACHE_BUCKET, NEURAL_VOICES, normalizeAudioText, vocabularyAudioText } from '@/lib/audio/neural-config'
 import { createHash } from 'node:crypto'

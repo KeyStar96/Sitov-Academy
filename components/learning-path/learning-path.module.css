@@ -280,36 +280,101 @@
 .banner[data-state='locked'] .sitovBannerLine { background: var(--border); }
 .banner[data-state='completed'] .sitovBannerLine { background: var(--gold); }
 .banner .bar { height: 6px; }
-.trail { --medal: 4.25rem; margin-top: 22px; }
+.sitovPathProgress { display: grid; gap: 9px; margin-top: 18px; }
+.sitovPathProgressLabel { color: var(--muted); font-size: 12px; line-height: 1.5; font-weight: 600; }
+.sitovPathSegments { display: flex; gap: 5px; }
+.sitovPathSegments > span { flex: 1; height: 6px; min-width: 0; border: 1px solid var(--border); border-radius: 3px; background: var(--surface-muted); }
+.sitovPathSegments > span[data-completed='true'] { background: var(--mode-path-text); border-color: var(--mode-path-text); }
+/* Lernstationen: sichtbare Zustände, echte Etappen, eigenständiger Pfadabschluss. */
+.trailRoot { --sitov-current-surface: #1e3a8a; --sitov-current-text: #fff; --sitov-current-muted: #dbeafe; --sitov-test-ink: #78350f; --sitov-test-wash: #fff9ed; }
+:global(html.dark) .trailRoot { --sitov-current-surface: #172554; --sitov-test-ink: #fcd34d; --sitov-test-wash: #241c16; }
+.trail { --medal: 4.25rem; --amp: 4.5rem; margin-top: 26px; padding: 0 0 8px 8px; }
 .stop { animation: none; }
-.connector { height: 44px; }
-.connector path { stroke-width: 4; stroke-dasharray: .1 11; }
-.connector[data-reached='true'] path { stroke: color-mix(in srgb, var(--mode-path-text) 70%, var(--sitov-path-bright)); }
-.rail { width: 4px; left: calc(var(--medal) / 2 + var(--wave) * var(--amp) - 2px); background-size: 4px 12px; }
-.rail[data-reached='true'] { background: linear-gradient(var(--mode-path-text), color-mix(in srgb, var(--mode-path-text) 65%, var(--sitov-path-bright))); }
-.step { align-items: center; gap: 16px; border-radius: 23px; }
-.medalWrap { align-self: flex-start; margin-top: 5px; }
-.medal { border-width: 3px; box-shadow: 0 5px 0 var(--depth), 0 13px 25px -20px var(--mode-path-text); animation: none; transition: transform .4s var(--sitov-path-ease), box-shadow .4s var(--sitov-path-ease); }
-.stop[data-state='current'] .medal { animation: pathBreathe 3.8s ease-in-out infinite paused; }
-.stop[data-kind='test'][data-state='current'] .medal { animation: pathGlow 3.8s ease-in-out infinite paused; }
-.shine { animation-duration: 6s; animation-play-state: paused; }
-.sitovMedalOrbit { position: absolute; inset: -7px; border: 1px dashed color-mix(in srgb, var(--accent-strong) 25%, transparent); border-radius: 50%; pointer-events: none; animation: sitovPathOrbit 18s linear infinite paused; }
-.sitovMedalOrbit > span { position: absolute; top: 0; left: calc(50% - 3px); width: 6px; height: 6px; border: 2px solid var(--surface); border-radius: 50%; background: var(--accent-strong); box-shadow: 0 0 12px color-mix(in srgb, var(--accent-strong) 35%, transparent); }
-.sitovStopStage[data-sitov-live='true'] .medal, .sitovStopStage[data-sitov-live='true'] .shine, .sitovStopStage[data-sitov-live='true'] .sitovMedalOrbit { animation-play-state: running; }
-.stopCard { position: relative; isolation: isolate; overflow: hidden; margin-top: 0; padding: 18px 42px 18px 20px; border-radius: 23px; box-shadow: 0 9px 25px -24px var(--mode-path-text); transition: border-color .4s var(--sitov-path-ease), box-shadow .4s var(--sitov-path-ease), transform .4s var(--sitov-path-ease), background .4s var(--sitov-path-ease); }
-.stopCard::before { content: ''; position: absolute; z-index: -1; inset: 0; opacity: 0; background: radial-gradient(230px circle at var(--sitov-light-x, 80%) var(--sitov-light-y, 20%), color-mix(in srgb, var(--mode-path-text) 9%, transparent), transparent 75%); transition: opacity .45s var(--sitov-path-ease); }
+.connector { height: 28px; }
+.connector path { stroke-width: 3; stroke-dasharray: .1 9; }
+.connector[data-reached='true'] path { stroke: var(--mode-path-text); }
+.rail { width: 3px; left: calc(var(--medal) / 2 + var(--wave) * var(--amp) - 1.5px); background-size: 3px 9px; }
+.rail[data-reached='true'] { background: var(--mode-path-text); }
+.step { align-items: flex-start; gap: 20px; border-radius: 24px; }
+.medalWrap { align-self: flex-start; margin-top: 26px; }
+.medal { border: 1px solid color-mix(in srgb, var(--mode-path-text) 35%, var(--border)); border-radius: 22px; background: var(--mode-path-surface); box-shadow: 0 5px 0 color-mix(in srgb, var(--mode-path-text) 20%, var(--surface)), var(--shadow-sm); animation: none; transition: transform var(--motion-base) var(--ease-out-soft), box-shadow var(--motion-base) var(--ease-out-soft); }
+.stop[data-state='completed'] .medal { background: var(--mode-path-surface); color: var(--mode-path-text); }
+.stop[data-state='current'] .medal { background: var(--accent-strong); color: var(--accent-foreground); border-color: var(--accent-strong); box-shadow: 0 5px 0 var(--accent-strong-hover), 0 12px 24px -15px var(--accent-strong); animation: none; }
+.stop[data-state='locked'] .medal { border-style: solid; background: var(--surface); color: var(--muted); box-shadow: 0 4px 0 var(--surface-muted); }
+.stop[data-kind='special'] .medal { width: var(--medal); height: var(--medal); margin-top: 0; border-color: var(--mode-special-text); border-radius: 22px; color: var(--mode-special-text); background: var(--mode-special-surface); }
+.sitovMedalStatus { position: absolute; right: -5px; bottom: -7px; display: grid; place-items: center; min-width: 27px; height: 27px; padding: 0 5px; border: 3px solid var(--canvas); border-radius: 10px; color: var(--mode-path-surface); background: var(--mode-path-text); font-size: 10px; font-weight: 850; font-variant-numeric: tabular-nums; }
+.sitovMedalStatus[data-state='current'] { color: var(--accent-foreground); background: var(--accent-strong); }
+.sitovMedalStatus[data-state='locked'] { background: var(--surface-muted); color: var(--muted); }
+.sitovMedalOrbit { position: absolute; inset: -9px; border: 1px dashed color-mix(in srgb, var(--accent-strong) 40%, transparent); border-radius: 28px; pointer-events: none; animation: sitovPathStationPulse 3.8s ease-in-out infinite paused; }
+.sitovMedalOrbit > span { display: none; }
+.stopCard { position: relative; isolation: isolate; overflow: hidden; min-height: 124px; margin-top: 0; padding: 20px 58px 20px 24px; border-radius: 24px; border-color: color-mix(in srgb, var(--mode-path-text) 18%, var(--border)); background: var(--surface); box-shadow: 0 4px 0 var(--surface-muted), 0 10px 24px -22px var(--mode-path-text); transition: transform var(--motion-base) var(--ease-out-soft), border-color var(--motion-base), box-shadow var(--motion-base); }
+.stopCard::before { content: ''; position: absolute; z-index: -1; inset: 0; opacity: 0; background: radial-gradient(230px circle at var(--sitov-light-x, 80%) var(--sitov-light-y, 20%), color-mix(in srgb, var(--mode-path-text) 9%, transparent), transparent 75%); transition: opacity var(--motion-base); }
 .step[data-sitov-pointer='true'] .stopCard::before { opacity: 1; }
-.stop[data-state='current'] .stopCard { border-color: color-mix(in srgb, var(--accent-strong) 52%, var(--border)); background: linear-gradient(120deg, color-mix(in srgb, var(--accent-strong) 5%, var(--surface)), var(--surface)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent-strong) 13%, transparent), 0 14px 32px -26px var(--accent-strong); }
-.stopTitle { font-size: 19px; line-height: 1.4; }
-.stopMeta { margin-top: 9px; }
-.sitovStopArrow { position: absolute; right: 16px; top: 24px; color: var(--mode-path-text); opacity: .48; transition: transform .45s var(--sitov-path-ease), opacity .45s; }
-.stop[data-state='current'] .sitovStopArrow { color: var(--accent-text); opacity: .8; }
+.sitovStationEyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--mode-path-text); font-size: 11px; line-height: 1.45; font-weight: 800; letter-spacing: .095em; text-transform: uppercase; }
+.stopTitle { margin-top: 7px; font-size: 20px; font-weight: 800; line-height: 1.3; letter-spacing: -.025em; }
+.stopMeta { margin-top: 12px; gap: 10px 16px; font-size: 13px; }
+.sitovStationStatus, .sitovCurrentLabel { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 650; line-height: 1.4; }
+.sitovStationStatus[data-state='completed'] { color: var(--mode-path-text); }
+.sitovReadyDot { width: 6px; height: 6px; border-radius: 50%; background: var(--mode-path-text); }
+.sitovStationHint { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; line-height: 1.5; font-weight: 450; }
+.sitovStationAction { display: inline-flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 40px; margin-top: 16px; padding: 9px 14px; border-radius: 12px; background: var(--mode-path-text); color: var(--mode-path-surface); font-size: 13px; line-height: 1.4; font-weight: 750; }
+.sitovStationAction svg { flex-shrink: 0; transition: transform var(--motion-base) var(--ease-out-soft); }
+.sitovStationOpen { position: absolute; display: grid; place-items: center; right: 17px; top: 46px; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 11px; color: var(--mode-path-text); background: var(--surface); transition: transform var(--motion-base); }
+.stop[data-state='completed'] .stopCard { border-color: color-mix(in srgb, var(--mode-path-text) 28%, var(--border)); }
+.stop[data-state='locked'] .stopCard { background: var(--surface-muted); border-color: var(--border); box-shadow: none; }
+.stop[data-state='locked'] .sitovStationEyebrow { color: var(--muted); }
+.stop[data-state='current']:not([data-kind='test']) .stopCard { padding-right: 24px; color: var(--sitov-current-text); border-color: #3b65bc; background: var(--sitov-current-surface); box-shadow: 0 5px 0 #142b68, 0 16px 30px -22px #1e3a8a; }
+.stop[data-state='current']:not([data-kind='test']) .stopTitle { color: var(--sitov-current-text); font-size: 24px; }
+.stop[data-state='current']:not([data-kind='test']) .sitovStationEyebrow { color: var(--sitov-current-muted); }
+.stop[data-state='current']:not([data-kind='test']) .stopCard::before { background: radial-gradient(230px circle at var(--sitov-light-x, 80%) var(--sitov-light-y, 20%), #ffffff12, transparent 75%); }
+.sitovCurrentLabel { color: var(--sitov-current-muted); }
+.stop[data-state='current']:not([data-kind='test']) .sitovStationAction { background: #fff; color: #1e3a8a; }
+.stop[data-state='current']:not([data-kind='test']) .stars { color: #fde68a; }
+
+/* Die goldene Karte erklärt eine Anforderung; die Skala ist kein persönlicher Fortschritt. */
+.stop[data-kind='test'] .row { padding-left: 0; }
+.stop[data-kind='test'] .step { display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 18px; padding: 26px; border: 1px solid color-mix(in srgb, var(--gold-to) 70%, var(--border)); border-radius: 28px; background: var(--sitov-test-wash); color: var(--foreground); box-shadow: 0 5px 0 color-mix(in srgb, var(--gold-to) 17%, var(--surface)), 0 16px 30px -27px var(--gold-to); transition: transform var(--motion-base) var(--ease-out-soft), border-color var(--motion-base), box-shadow var(--motion-base); }
+.stop[data-kind='test'] .medalWrap { width: 136px; height: 168px; margin: 0; align-self: center; }
+.sitovTrophyScene { position: relative; display: grid; place-items: center; width: 100%; height: 100%; transform: translate(calc(var(--sitov-pointer-x, 0) * 3px), calc(var(--sitov-pointer-y, 0) * 2px)); transition: transform var(--motion-base) var(--ease-out-soft); }
+.sitovTrophyImage { width: 150px; max-width: none; height: auto; pointer-events: none; transform: rotate(-5deg); animation: sitovPathTrophyFloat 6s ease-in-out infinite paused; }
+.sitovTrophySpark { position: absolute; right: -2px; top: 8px; color: var(--sitov-test-ink); opacity: .6; animation: sitovPathSpark 4s ease-in-out infinite paused; }
+.stop[data-kind='test'] .stopCard { display: grid; grid-template-columns: minmax(0, 1fr) 220px; align-items: start; column-gap: 22px; min-height: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; overflow: visible; }
+.stop[data-kind='test'] .stopCard::before { display: none; }
+.stop[data-kind='test'] .sitovStationEyebrow { grid-column: 1; color: var(--sitov-test-ink); }
+.stop[data-kind='test'] .stopTitle { grid-column: 1; margin-top: 9px; font-size: 25px; line-height: 1.2; }
+.stop[data-kind='test'] .sitovStationHint { grid-column: 1; margin-top: 10px; font-size: 13px; }
+.sitovTestDetails { grid-column: 2; grid-row: 1 / span 3; display: grid; gap: 10px; min-width: 0; }
+.sitovTestGoal { display: grid; grid-template-columns: 1fr; gap: 7px; padding: 15px 17px; border: 1px solid color-mix(in srgb, var(--sitov-test-ink) 25%, var(--border)); border-radius: 18px; color: var(--sitov-test-ink); background: var(--surface); }
+.sitovTestGoalNumber { font-size: 40px; font-weight: 850; line-height: 1; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.sitovTestGoalNumber > span { margin-left: 3px; font-size: 21px; }
+.sitovTestGoalCopy { display: grid; gap: 4px; }
+.sitovTestGoalLabel { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 800; line-height: 1.4; letter-spacing: .07em; text-transform: uppercase; }
+.sitovTestGoalText { color: var(--foreground); font-size: 12px; font-weight: 600; line-height: 1.4; }
+.sitovTestGoalScale { display: flex; gap: 3px; margin-top: 3px; }
+.sitovTestGoalScale > span { height: 5px; flex: 1; border-radius: 2px; background: var(--surface-muted); border: 1px solid var(--border); }
+.sitovTestGoalScale > span[data-required='true'] { background: var(--sitov-test-ink); border-color: var(--sitov-test-ink); }
+.sitovTestResult { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12px; line-height: 1.5; font-weight: 650; }
+.sitovTestResult svg { flex-shrink: 0; }
+.sitovTestResult[data-passed='true'] { color: var(--success); }
+.sitovTestFooter { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; grid-column: 1 / -1; margin-top: 14px; padding-top: 14px; border-top: 1px solid color-mix(in srgb, var(--sitov-test-ink) 18%, var(--border)); }
+.sitovTestFooter .sitovStationAction { margin-top: 0; background: var(--sitov-test-ink); color: var(--surface); }
+:global(html.dark) .sitovTestFooter .sitovStationAction { color: #241c16; }
+.sitovTestAvailability { flex: 1 1 150px; color: var(--muted); font-size: 11px; line-height: 1.5; font-weight: 450; }
+.sitovStopStage[data-sitov-live='true'] .sitovMedalOrbit, .sitovStopStage[data-sitov-live='true'] .sitovTrophyImage, .sitovStopStage[data-sitov-live='true'] .sitovTrophySpark { animation-play-state: running; }
+.sitovStopStage[data-sitov-live='true'] .medal { animation: sitovPathTile var(--motion-slow) var(--ease-out-soft) both; }
 @media (hover: hover) {
-  .step:not(:disabled):hover .stopCard { transform: translateY(-3px); box-shadow: 0 15px 30px -26px var(--mode-path-text); }
+  .step:not(:disabled):hover .stopCard { transform: translateY(-3px); box-shadow: 0 7px 0 var(--surface-muted), 0 17px 30px -24px var(--mode-path-text); }
   .step:not(:disabled):hover .medal { transform: translateY(-2px) rotate(-4deg); }
-  .step:not(:disabled):hover .sitovStopArrow { transform: translate(2px, -2px); opacity: 1; }
+  .step:not(:disabled):hover .sitovStationOpen { transform: translateX(3px); }
+  .step:not(:disabled):hover .sitovStationAction svg { transform: translateX(3px); }
+  .stop[data-kind='test'] .step:not(:disabled):hover { transform: translateY(-3px); box-shadow: 0 7px 0 color-mix(in srgb, var(--gold-to) 17%, var(--surface)), 0 18px 35px -26px var(--gold-to); }
+  .stop[data-kind='test'] .step:not(:disabled):hover .stopCard { transform: none; box-shadow: none; }
 }
 .step:not(:disabled):active .stopCard { transform: translateY(1px); }
+.step:focus-visible .sitovStationAction svg { transform: translateX(3px); }
+.step:focus-visible .sitovTrophyScene { transform: translateY(-3px) rotate(-2deg); }
+@keyframes sitovPathStationPulse { 0%, 100% { transform: scale(1); opacity: .6; } 50% { transform: scale(1.08); opacity: .25; } }
+@keyframes sitovPathTrophyFloat { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-5px) rotate(-2deg); } }
 
 /* A focused step opens like a light paper surface; controls keep their native focus. */
 .sitovView { position: relative; animation: sitovPathArrive .5s var(--sitov-path-ease) both; }
@@ -376,10 +441,39 @@
 
 @media (max-width: 640px) {
   .banner { padding: 21px 22px; }
-  .stopCard { padding: 16px 31px 16px 16px; }
+  .trail { --amp: 1.25rem; --medal: 3rem; margin-top: 22px; padding-left: 3px; }
+  .medalWrap { margin-top: 24px; }
+  .medal, .stop[data-kind='special'] .medal { border-radius: 16px; }
+  .medal svg { width: 23px; height: 23px; }
+  .sitovMedalOrbit { inset: -6px; border-radius: 22px; }
+  .sitovMedalStatus { right: -3px; bottom: -5px; min-width: 24px; height: 24px; border-radius: 9px; }
+  .stopCard { padding: 17px 42px 17px 16px; border-radius: 20px; min-height: 120px; }
   .stopTitle { font-size: 17px; }
-  .sitovStopArrow { right: 11px; width: 15px; }
-  .step { gap: 11px; }
+  .stop[data-state='current']:not([data-kind='test']) .stopTitle { font-size: 21px; }
+  .stop[data-state='current']:not([data-kind='test']) .stopCard { padding-right: 16px; }
+  .sitovStationEyebrow { gap: 5px; font-size: 9px; letter-spacing: .06em; }
+  .sitovStationHint { font-size: 11px; }
+  .sitovStationOpen { right: 11px; top: 44px; width: 25px; height: 28px; border-radius: 9px; }
+  .sitovStationOpen svg { width: 15px; height: 15px; }
+  .step { gap: 12px; }
+  .stopMeta { gap: 7px 10px; }
+  .sitovStationAction { min-height: 40px; font-size: 12px; }
+  .stop[data-kind='test'] .step { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; padding: 20px 16px; border-radius: 24px; }
+  .stop[data-kind='test'] .medalWrap { grid-column: 1; grid-row: 1 / span 3; width: 76px; height: 105px; align-self: center; margin-top: 0; }
+  .sitovTrophyImage { width: 84px; }
+  .sitovTrophySpark { width: 15px; right: -4px; }
+  .stop[data-kind='test'] .stopCard { display: contents; }
+  .stop[data-kind='test'] .sitovStationEyebrow { grid-column: 2; grid-row: 1; }
+  .stop[data-kind='test'] .stopTitle { grid-column: 2; grid-row: 2; margin-top: 0; font-size: 23px; }
+  .stop[data-kind='test'] .sitovStationHint { grid-column: 2; grid-row: 3; margin-top: 0; font-size: 12px; }
+  .sitovTestDetails { grid-column: 1 / -1; grid-row: 4; margin-top: 3px; }
+  .sitovTestGoal { grid-template-columns: auto minmax(0, 1fr); gap: 9px 12px; padding: 12px; border-radius: 14px; }
+  .sitovTestGoalNumber { font-size: 34px; align-self: center; }
+  .sitovTestGoalNumber > span { font-size: 17px; }
+  .sitovTestGoalScale { grid-column: 1 / -1; }
+  .sitovTestGoalLabel { font-size: 9px; }
+  .sitovTestGoalText { font-size: 11px; }
+  .sitovTestFooter { grid-column: 1 / -1; grid-row: 5; gap: 10px; margin-top: 3px; }
   .rule { padding: 22px; }
   .rule > p { font-size: 19px; }
   .sitovRuleScene { right: 14px; }
@@ -389,16 +483,39 @@
   .reviewSummary { padding: 20px; gap: 13px; }
 }
 @media (max-width: 380px) {
-  .trail { --medal: 3.8rem; --amp: 2rem; padding-left: 4px; }
+  .trail { --amp: 0rem; }
   .stopTitle { font-size: 16px; }
-  .stopCard { padding-left: 13px; }
+  .stopCard { padding-left: 13px; padding-right: 35px; }
+  .stop[data-kind='test'] .step { grid-template-columns: 58px minmax(0, 1fr); gap: 10px; padding: 17px 13px; }
+  .stop[data-kind='test'] .medalWrap { width: 58px; height: 84px; }
+  .sitovTrophyImage { width: 66px; }
+  .sitovTestGoalNumber { font-size: 32px; }
   .rule h3 { font-size: 20px; padding-right: 82px; }
 }
+@media (min-width: 641px) and (max-width: 850px) {
+  .stop[data-kind='test'] .stopCard { grid-template-columns: minmax(0, 1fr); }
+  .sitovTestDetails { grid-column: 1; grid-row: auto; margin-top: 15px; }
+  .sitovTestFooter { grid-column: 1; }
+}
+:global(html.high-contrast) .stopCard, :global(html.high-contrast) .stop[data-kind='test'] .step { border: 2px solid var(--foreground); box-shadow: none; }
+:global(html.high-contrast) .medal { border: 2px solid var(--foreground); box-shadow: none; }
+:global(html.high-contrast) .step:not(:disabled):hover .stopCard, :global(html.high-contrast) .stop[data-kind='test'] .step:not(:disabled):hover { box-shadow: none; }
+:global(html.high-contrast) .stop[data-state='current']:not([data-kind='test']) .stopCard { border-color: var(--mode-path-text); box-shadow: none; }
+:global(html.high-contrast) .stop[data-kind='test'] .stopCard { border: 0; }
+:global(html.high-contrast) .stopCard::before, :global(html.high-contrast) .sitovMedalOrbit, :global(html.high-contrast) .sitovTrophySpark { display: none; }
+@media (forced-colors: active) {
+  .stopCard, .medal, .stop[data-kind='test'] .step, .sitovTestGoal { border: 2px solid CanvasText; box-shadow: none; }
+  .sitovTestGoalScale > span[data-required='true'], .sitovPathSegments > span[data-completed='true'] { background: Highlight; forced-color-adjust: none; }
+  .sitovStationAction { border: 1px solid ButtonText; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .root *, .root *::before, .root *::after { animation: none !important; transition: none !important; }
+  .root *, .root *::before, .root *::after, .trailRoot *, .trailRoot *::before, .trailRoot *::after { animation: none !important; transition: none !important; }
   .sitovMedalOrbit { display: none; }
   .step:not(:disabled):hover .stopCard, .step:not(:disabled):hover .medal, .step:not(:disabled):active .stopCard, .step:not(:disabled):active .medal,
   .step:not(:disabled):hover .sitovStopArrow, .primary:not(:disabled):hover, .secondary:not(:disabled):hover,
   .primary:not(:disabled):active, .secondary:not(:disabled):active, .choice:not(:disabled):hover, .choice:not(:disabled):active,
   .fields:not(:disabled) .option:hover, .segmented button:active { transform: none; }
+  .sitovTrophyImage, .sitovTrophyScene, .step:focus-visible .sitovTrophyScene { transform: none; }
+  .stop[data-kind='test'] .step:not(:disabled):hover, .step:not(:disabled):hover .sitovStationOpen,
+  .step:not(:disabled):hover .sitovStationAction svg, .step:focus-visible .sitovStationAction svg { transform: none; }
 }
