@@ -141,6 +141,8 @@ ALTER TABLE sitov_pronunciation_private.upload_tickets ALTER COLUMN text_id DROP
 ALTER TABLE sitov_pronunciation_private.upload_tickets ALTER COLUMN definition_id DROP NOT NULL;
 ALTER TABLE sitov_pronunciation_private.upload_tickets ADD COLUMN IF NOT EXISTS purpose text NOT NULL DEFAULT 'target' CHECK(purpose IN('target','reply'));
 ALTER TABLE sitov_pronunciation_private.upload_tickets ADD COLUMN IF NOT EXISTS submission_id uuid REFERENCES public.submissions(id);
+-- The BEFORE INSERT guard binds NEW.id atomically before the submission exists.
+ALTER TABLE sitov_pronunciation_private.upload_tickets ALTER CONSTRAINT upload_tickets_submission_id_fkey DEFERRABLE INITIALLY DEFERRED;
 CREATE OR REPLACE FUNCTION sitov_pronunciation_private.text_allowed(p_prompt uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT sitov_pronunciation_private.current_pass(p_prompt) $$;
 CREATE OR REPLACE FUNCTION sitov_pronunciation_private.staff_preview() RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT sitov_access_private.staff() $$;
 REVOKE ALL ON FUNCTION sitov_pronunciation_private.staff_preview() FROM PUBLIC,anon;
@@ -164,19 +166,33 @@ CREATE OR REPLACE FUNCTION sitov_pronunciation_private.guard_submission() RETURN
 DECLARE ticket sitov_pronunciation_private.upload_tickets;source_text text;BEGIN
  IF auth.uid() IS NULL OR NEW.type<>'audio' OR NEW.prompt_id IS NULL THEN RETURN NEW;END IF;
  IF TG_OP='UPDATE' AND (NEW.prompt_id,NEW.content_url,NEW.auth_user_id) IS NOT DISTINCT FROM (OLD.prompt_id,OLD.content_url,OLD.auth_user_id) THEN RETURN NEW;END IF;
- SELECT r.sentence_de INTO source_text FROM public.learning_reading_texts r WHERE r.id=NEW.prompt_id FOR SHARE;
- IF NEW.content_url IS NULL OR NEW.content_url NOT LIKE 'storage://pronunciation_audio/'||auth.uid()::text||'/%' OR NEW.auth_user_id<>auth.uid() OR NOT sitov_pronunciation_private.current_pass(NEW.prompt_id) THEN RAISE EXCEPTION 'test_required' USING ERRCODE='42501';END IF;
+ IF NEW.content_url IS NULL OR NEW.content_url NOT LIKE 'storage://pronunciation_audio/'||auth.uid()::text||'/%' OR NEW.auth_user_id<>auth.uid() THEN RAISE EXCEPTION 'test_required' USING ERRCODE='42501';END IF;
  SELECT * INTO ticket FROM sitov_pronunciation_private.upload_tickets t WHERE t.path=replace(NEW.content_url,'storage://pronunciation_audio/','') AND t.student_id=auth.uid() FOR UPDATE;
+ SELECT r.sentence_de INTO source_text FROM public.learning_reading_texts r WHERE r.id=NEW.prompt_id FOR SHARE;
+ PERFORM 1 FROM sitov_pronunciation_private.pretest_definitions d WHERE d.id=ticket.definition_id FOR SHARE;
  IF ticket.id IS NULL OR ticket.purpose<>'target' OR ticket.text_id<>NEW.prompt_id OR NOT sitov_pronunciation_private.ticket_upload_allowed(ticket.path) OR NOT EXISTS(SELECT 1 FROM storage.objects o WHERE o.bucket_id='pronunciation_audio' AND o.name=ticket.path) THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
  NEW.text_content:=source_text;
- UPDATE sitov_pronunciation_private.upload_tickets SET consumed_at=clock_timestamp() WHERE id=ticket.id;RETURN NEW;END $$;
+ UPDATE sitov_pronunciation_private.upload_tickets SET consumed_at=clock_timestamp(),submission_id=NEW.id WHERE id=ticket.id;RETURN NEW;END $$;
 -- Ownership reassignment cannot bypass new-reading authorization.
 DROP TRIGGER IF EXISTS sitov_pronunciation_ready_submission ON public.submissions;
 CREATE TRIGGER sitov_pronunciation_ready_submission BEFORE INSERT OR UPDATE OF prompt_id,content_url,auth_user_id ON public.submissions FOR EACH ROW EXECUTE FUNCTION sitov_pronunciation_private.guard_submission();
 CREATE OR REPLACE FUNCTION pronunciation_private.create_submission(p_prompt_id uuid,p_audio_path text) RETURNS uuid LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
-DECLARE result uuid;level text;BEGIN
+DECLARE result uuid;level text;ticket sitov_pronunciation_private.upload_tickets;BEGIN
+ IF auth.uid() IS NULL OR p_audio_path IS NULL OR p_audio_path NOT LIKE 'storage://pronunciation_audio/'||auth.uid()::text||'/%' THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
+ SELECT * INTO ticket FROM sitov_pronunciation_private.upload_tickets t WHERE 'storage://pronunciation_audio/'||t.path=p_audio_path AND t.student_id=auth.uid() FOR UPDATE;
+ IF ticket.id IS NULL OR ticket.purpose<>'target' OR ticket.text_id IS DISTINCT FROM p_prompt_id THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
+ IF ticket.consumed_at IS NOT NULL THEN
+  -- Exact historical receipt only: no current body/reference or new authorization.
+  SELECT s.id INTO result FROM public.submissions s WHERE s.id=ticket.submission_id AND s.auth_user_id=auth.uid() AND s.type='audio' AND s.prompt_id=p_prompt_id AND s.content_url=p_audio_path;
+  IF result IS NULL AND ticket.submission_id IS NULL THEN
+   -- Older consumed tickets predate the explicit submission binding. Match one
+   -- exact owned row only; ambiguous or foreign matches remain denied.
+   SELECT min(s.id::text)::uuid INTO result FROM public.submissions s WHERE s.auth_user_id=auth.uid() AND s.type='audio' AND s.prompt_id=p_prompt_id AND s.content_url=p_audio_path HAVING count(*)=1;
+  END IF;
+  IF result IS NULL THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
+  RETURN result;
+ END IF;
  IF NOT sitov_pronunciation_private.current_pass(p_prompt_id) THEN RAISE EXCEPTION 'test_required' USING ERRCODE='42501';END IF;
- IF p_audio_path NOT LIKE 'storage://pronunciation_audio/'||auth.uid()::text||'/%' THEN RAISE EXCEPTION 'invalid_upload_ticket' USING ERRCODE='42501';END IF;
  SELECT u.level INTO level FROM public.learning_reading_texts r JOIN public.learning_units u ON u.id=r.unit_id WHERE r.id=p_prompt_id;
  INSERT INTO public.submissions(auth_user_id,type,content_url,status,level,prompt_id) VALUES(auth.uid(),'audio',p_audio_path,'pending',level,p_prompt_id) RETURNING id INTO result;RETURN result;END $$;
 CREATE OR REPLACE FUNCTION sitov_pronunciation_private.reply_ticket(p_submission uuid,p_request uuid,p_extension text) RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$

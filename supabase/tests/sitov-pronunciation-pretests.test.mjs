@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { execFileSync, execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import { createSitovCurrentNativeDatabase } from './helpers/sitov-night-current-native-db.mjs'
-import { sitovId, sitovUsers } from './helpers/sitov-night-current-db.mjs'
+import { sitovId, sitovUsers, sitovHistorySnapshot } from './helpers/sitov-night-current-db.mjs'
 const psql='/opt/homebrew/opt/postgresql@17/bin/psql', socket='/tmp/sitov-night-2026-10-08-pg', port='55438'
 const text=sitovId(302), student=sitovUsers.german
 const sql=await readFile(new URL('../vps/94_sitov_pronunciation_pretests.sql',import.meta.url),'utf8')
@@ -15,7 +15,9 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
  const database=`sitov_night_s3_${process.pid}_${Date.now()}`
  execFileSync(psql,['-X','-w','-h',socket,'-p',port,'-d','postgres','-v','ON_ERROR_STOP=1','-c',`CREATE DATABASE ${database}`],{stdio:'pipe'})
  const db=await createSitovCurrentNativeDatabase({database})
+ const originalHistory=await sitovHistorySnapshot(db)
  let seq=9000, current
+ const nativeCall=async query=>{const {stdout}=await promisify(execFile)(psql,['-X','-w','-qAt','-h',socket,'-p',port,'-d',database,'-v','ON_ERROR_STOP=1','-c',query],{env:Object.fromEntries(Object.entries(process.env).filter(([k])=>!k.startsWith('PG')))});return JSON.parse(stdout.trim().split('\n').at(-1))}
  const start=()=>rpc(db,'sitov_start_pronunciation_pretest',[text,sitovId(seq++)])
  const submit=(a,answers,request=sitovId(seq++),revision=a.revision)=>rpc(db,'sitov_submit_pronunciation_pretest',[a.id,revision,answers,request])
  const answers=a=>Object.fromEntries(a.questionIds.map(id=>[id,'sitov.a']))
@@ -79,6 +81,18 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
    assert.equal((await db.query('SELECT sitov_pronunciation_private.current_pass($1) value',[text])).rows[0].value,true)
    assert.equal((await rpc(db,'sitov_get_pronunciation_pretests',['A1.1'])).data[0].status,'passed')
    const ticket=await rpc(db,'sitov_create_pronunciation_upload_ticket',[text,sitovId(seq++),'webm']);assert.equal(ticket.ok,true);assert.ok(ticket.data.path.startsWith(student+'/'))
+   // Two independently passed texts still cannot share upload tickets.
+   const other=sitovId(303)
+   await db.actor(null,'postgres');await db.exec(`INSERT INTO learning_reading_texts(id,unit_id,sentence_de,focus) SELECT '${other}','${sitovId(232)}'::uuid,'Paul lernt Deutsch.',focus FROM learning_reading_texts WHERE id='${text}'; INSERT INTO sitov_pronunciation_private.pretest_definitions(text_id,text_version,test_version,definition,active) SELECT '${other}',sitov_pronunciation_private.pretest_hash(sentence_de),repeat('b',64),'${JSON.stringify(pool).replaceAll("'","''")}'::jsonb,true FROM learning_reading_texts WHERE id='${other}'`);await db.actor(student)
+   const otherAttempt=(await rpc(db,'sitov_start_pronunciation_pretest',[other,sitovId(seq++)])).data.attempt
+   assert.equal((await submit(otherAttempt,answers(otherAttempt))).data.result.passed,true)
+   assert.equal((await db.query('SELECT sitov_pronunciation_private.current_pass($1) value',[other])).rows[0].value,true)
+   assert.ok((await rpc(db,'create_pronunciation_submission',[other,'storage://pronunciation_audio/'+ticket.data.path])).error)
+   const otherTicket=await rpc(db,'sitov_create_pronunciation_upload_ticket',[other,sitovId(seq++),'webm']);assert.equal(otherTicket.ok,true)
+   await db.exec(`INSERT INTO storage.objects(bucket_id,name,owner,metadata) VALUES('pronunciation_audio','${otherTicket.data.path}','${student}','{"size":1000,"mimetype":"audio/webm"}')`)
+   await db.actor(null,'postgres');await db.exec(`UPDATE sitov_pronunciation_private.pretest_definitions SET active=false WHERE text_id='${other}'; INSERT INTO sitov_pronunciation_private.pretest_definitions(text_id,text_version,test_version,definition,active) SELECT text_id,text_version,repeat('c',64),definition||'{"authorRevision":"sitov.synthetic.v2"}'::jsonb,true FROM sitov_pronunciation_private.pretest_definitions WHERE text_id='${other}'`);await db.actor(student)
+   assert.ok((await rpc(db,'create_pronunciation_submission',[other,'storage://pronunciation_audio/'+otherTicket.data.path])).error)
+   assert.equal((await db.query('SELECT count(*)::int n FROM submissions WHERE prompt_id=$1',[other])).rows[0].n,0)
    // Isolate a trial granting only this item: unit-wide guards deliberately deny it.
    await db.actor(null,'postgres');await db.exec(`DELETE FROM student_level_access WHERE auth_user_id='${student}'; INSERT INTO sitov_access_private.students(student_id,trial) VALUES('${student}','{"version":1,"rules":[{"level":"A1.1","trainer":"pronunciation","unit_ids":["${sitovId(231)}"],"items":[{"unit_id":"${sitovId(231)}","refs":[{"kind":"reading_text","id":"${text}"}]}]}]}') ON CONFLICT(student_id) DO UPDATE SET trial=excluded.trial`);await db.actor(student)
    await db.actor(sitovUsers.explicitAll);assert.equal((await rpc(db,'sitov_create_pronunciation_upload_ticket',[text,sitovId(seq++),'webm'])).error,'test_required');await db.actor(student)
@@ -89,23 +103,44 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
    await db.actor(sitovUsers.explicitAll);await assert.rejects(upload(ticket.data.path),/row-level security/);await db.actor(student)
    await upload(ticket.data.path)
    assert.ok((await rpc(db,'create_pronunciation_submission',[sitovId(99999),'storage://pronunciation_audio/'+ticket.data.path])).error)
-   const submission=await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+ticket.data.path]);assert.equal(typeof submission,'string')
+   const submitSql=`SET ROLE authenticated; SELECT set_config('request.jwt.claim.sub','${student}',false); SELECT create_pronunciation_submission('${text}','storage://pronunciation_audio/${ticket.data.path}');`
+   const concurrent=await Promise.all([nativeCall(submitSql),nativeCall(submitSql)])
+   const submission=concurrent[0];assert.equal(typeof submission,'string',JSON.stringify(concurrent));assert.equal(concurrent[1],submission)
+   assert.equal((await db.query('SELECT count(*)::int n FROM submissions WHERE content_url=$1',['storage://pronunciation_audio/'+ticket.data.path])).rows[0].n,1)
+   await db.actor(student,'postgres');await assert.rejects(db.exec(`INSERT INTO submissions(auth_user_id,type,content_url,status,level,prompt_id) VALUES('${student}','audio','storage://pronunciation_audio/${ticket.data.path}','pending','A1.1','${text}')`),/invalid_upload_ticket/);await db.actor(student)
    assert.equal((await db.query('SELECT text_content FROM submissions WHERE id=$1',[submission])).rows[0].text_content,'Paul geht nach Hause.')
-   assert.ok((await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+ticket.data.path])).error)
+   assert.equal(await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+ticket.data.path]),submission)
+   const direct=await rpc(db,'sitov_create_pronunciation_upload_ticket',[text,sitovId(seq++),'webm']);await upload(direct.data.path)
+   // Native owner exercises the trigger with learner claims; API roles have no table INSERT grant.
+   await db.actor(student,'postgres');await db.exec(`INSERT INTO submissions(auth_user_id,type,content_url,status,level,prompt_id) VALUES('${student}','audio','storage://pronunciation_audio/${direct.data.path}','pending','A1.1','${text}')`);await db.actor(student)
+   const directId=(await db.query('SELECT id FROM submissions WHERE content_url=$1',['storage://pronunciation_audio/'+direct.data.path])).rows[0].id
+   assert.equal(await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+direct.data.path]),directId)
    const expired=await rpc(db,'sitov_create_pronunciation_upload_ticket',[text,sitovId(seq++),'webm']);await db.actor(null,'postgres');await db.exec(`UPDATE sitov_pronunciation_private.upload_tickets SET expires_at=now()-interval '1 minute' WHERE id='${expired.data.ticketId}'`);await db.actor(student);await assert.rejects(upload(expired.data.path),/row-level security/)
    const revoked=await rpc(db,'sitov_create_pronunciation_upload_ticket',[text,sitovId(seq++),'webm']);await db.actor(null,'postgres');await db.exec(`DELETE FROM student_level_access WHERE auth_user_id='${student}'; UPDATE sitov_access_private.students SET trial='{"version":1,"rules":[]}' WHERE student_id='${student}'`);await db.actor(student)
    await assert.rejects(upload(revoked.data.path),/row-level security/);assert.deepEqual((await db.query('SELECT id FROM learning_reading_texts WHERE id=$1',[text])).rows,[])
    assert.equal((await rpc(db,'sitov_get_pronunciation_pretest_attempt',[current.id])).data.result.passed,true)
    assert.equal((await db.query('SELECT id FROM submissions WHERE id=$1',[submission])).rows[0].id,submission)
+   assert.equal(await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+ticket.data.path]),submission)
+   await db.actor(sitovUsers.explicitAll);assert.ok((await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+ticket.data.path])).error);await db.actor(student)
    const reply=await rpc(db,'sitov_create_pronunciation_reply_upload_ticket',[submission,sitovId(seq++),'webm']);assert.equal(reply.ok,true);await upload(reply.data.path)
    await db.exec(`INSERT INTO pronunciation_messages(submission_id,sender_id,text_content,audio_path) VALUES('${submission}','${student}','Danke!','storage://pronunciation_audio/${reply.data.path}')`)
    await assert.rejects(db.exec(`INSERT INTO pronunciation_messages(submission_id,sender_id,text_content,audio_path) VALUES('${submission}','${student}','Noch einmal','storage://pronunciation_audio/${reply.data.path}')`),/invalid_reply_ticket/)
    await db.actor(null,'postgres');await db.exec(`INSERT INTO student_level_access(auth_user_id,level) VALUES('${student}','A1.1')`);await db.actor(student)
    assert.ok((await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+reply.data.path])).error)
-   await db.actor(student,'postgres');await db.exec(`UPDATE learning_reading_texts SET sentence_de='Paul fährt nach Hause.' WHERE id='${text}'`);await db.actor(student)
+   const racing=await rpc(db,'sitov_create_pronunciation_upload_ticket',[text,sitovId(seq++),'webm']);await upload(racing.data.path)
+   const editor=nativeCall(`/*sitov-s3-content-race*/ BEGIN; UPDATE learning_reading_texts SET sentence_de='Paul fährt nach Hause.' WHERE id='${text}'; SELECT pg_sleep(0.5); COMMIT; SELECT '{}'::jsonb;`)
+   await db.actor(null,'postgres')
+   let editLocked=false
+   for(let i=0;i<20&&!editLocked;i++)editLocked=(await db.query("SELECT EXISTS(SELECT 1 FROM pg_stat_activity WHERE datname=current_database() AND query LIKE '/*sitov-s3-content-race*/%' AND wait_event='PgSleep') value")).rows[0].value
+   assert.equal(editLocked,true,'editor must hold the actual text row lock before submission')
+   const blockedSubmission=nativeCall(`SET ROLE authenticated; SELECT set_config('request.jwt.claim.sub','${student}',false); SELECT create_pronunciation_submission('${text}','storage://pronunciation_audio/${racing.data.path}');`)
+   await editor;assert.ok((await blockedSubmission).error);await db.actor(student)
+   assert.equal((await db.query('SELECT count(*)::int n FROM submissions WHERE content_url=$1',['storage://pronunciation_audio/'+racing.data.path])).rows[0].n,0)
    assert.equal((await db.query('SELECT sitov_pronunciation_private.current_pass($1) value',[text])).rows[0].value,false)
    assert.equal((await start()).error,'authoring_not_ready');assert.equal((await submit(current,input)).error,'version_conflict')
    assert.equal((await rpc(db,'sitov_get_pronunciation_pretests',['A1.1'])).data[0].lockedReason,'version_changed')
+   assert.equal(await rpc(db,'create_pronunciation_submission',[text,'storage://pronunciation_audio/'+ticket.data.path]),submission)
+   assert.equal((await db.query('SELECT text_content FROM submissions WHERE id=$1',[submission])).rows[0].text_content,'Paul geht nach Hause.')
    const history=await rpc(db,'sitov_get_pronunciation_pretest_attempt',[current.id]);assert.equal(history.data.result.passed,true)
   })
   await t.test('admin requires verified TOTP/AAL2 under existing password-only teacher policy',async()=>{
@@ -114,6 +149,9 @@ test('94 private pretest core on native full92+93 synthetic PostgreSQL',async t=
    await db.actor(sitovUsers.teacher,'postgres');await db.exec(`INSERT INTO auth.mfa_factors(user_id,status,factor_type) VALUES('${sitovUsers.teacher}','verified','totp')`)
    await db.actor(sitovUsers.teacher,'authenticated',{aal:'aal2'});const staff=await rpc(db,'sitov_get_pronunciation_pretest_staff',[text,student]);assert.equal(staff.ok,true);assert.equal(staff.data.definitions.length,1)
    assert.equal((await rpc(db,'sitov_get_pronunciation_pretest_staff',[text,sitovUsers.outsider])).data.attempts.length,0)
+  })
+  await t.test('old access evidence, unsent checkpoint and historical conversation are unchanged',async()=>{
+   assert.deepEqual(await sitovHistorySnapshot(db),originalHistory);await db.actor(student)
   })
   await t.test('rollback revokes APIs without deleting results; replay restores API only',async()=>{
    await db.actor(student,'postgres')
