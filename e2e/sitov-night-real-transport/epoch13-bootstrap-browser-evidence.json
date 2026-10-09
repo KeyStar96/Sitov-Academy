@@ -1,0 +1,64 @@
+{
+  "target": "ae79722ee1c85405339bb2c9991e9467c69dea92",
+  "freshTab": true,
+  "actualFormLogin": true,
+  "initialSavedLocale": "tr",
+  "switches": [
+    {
+      "from": "tr",
+      "to": "ru",
+      "routePreserved": true,
+      "newIssueBadge": 1
+    },
+    {
+      "from": "ru",
+      "to": "de",
+      "routePreserved": true,
+      "afterFreshReload": true,
+      "newIssueBadge": 1,
+      "exactDialogReopened": false
+    },
+    {
+      "from": "de",
+      "to": "en",
+      "routePreserved": true,
+      "issueBadge": 1,
+      "newDistinctIssueProven": false
+    }
+  ],
+  "issues": [
+    {
+      "fresh": true,
+      "severity": "Console Error",
+      "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead.",
+      "component": "RootLayout",
+      "source": "app/[lang]/layout.tsx:132:9",
+      "markedSource": "Script id=\"sitov-theme-bootstrap\" strategy=\"beforeInteractive\"",
+      "trigger": "TR to RU client language switch",
+      "notOldToolbarHistory": true
+    }
+  ],
+  "unverified": [
+    "theme/consent script byte equivalence and build are M-provided, not rerun",
+    "new learner/studio help flows",
+    "full accessibility/motion/viewport/regression",
+    "actual dark/high-contrast switching and bootstrap/consent execution; panel controls only inspected"
+  ],
+  "englishTitleProtected": {
+    "outer": "en",
+    "protectedGermanTitle": true
+  },
+  "appearance": {
+    "panelOpened": true,
+    "lightSelected": true,
+    "darkAvailable": true,
+    "highContrastAvailable": true,
+    "highContrastSelected": false,
+    "togglesExercised": false
+  },
+  "normalUILogoutConfirmed": true,
+  "logoutPath": "/en/login?status=logout_success",
+  "result": "FAIL: fresh script-render Console Error recurs with current next/script source",
+  "noConsentDecision": true,
+  "noWriteControlsClicked": true
+}

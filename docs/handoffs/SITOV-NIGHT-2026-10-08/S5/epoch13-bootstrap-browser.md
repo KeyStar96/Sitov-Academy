@@ -1,0 +1,13 @@
+# S5 epoch13: Bootstrap-Korrektur im echten Browser
+
+Sauberer eigener Ausgangsstand `ae79722ee1c85405339bb2c9991e9467c69dea92`, Branch `codex/sitov-night-s5-bootstrap-browser`. Leaseende 2026-10-09 06:42:29 Europe/Berlin. Build-/Skriptinhaltgleichheit ist M-Nachweis, S5 führt keine Builds/Tests aus.
+
+**FAIL: der Script-Console-Fehler tritt erneut auf.** Neuer eigener IAB-Tab, echter frischer Seitenbesuch und Formularlogin derselben ausdrücklich freigegebenen synthetischen M-Lehrkraft. Gespeicherte UI-Sprache zunächst TR. Frische Staffseite ohne Issues-Badge, dann sichtbarer TR→RU-Sprachwechsel: neue 1-Issue-Badge, tatsächlich geöffneter Console-Error-Dialog. Meldung: „Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead.“ Stack RootLayout, `app/[lang]/layout.tsx:132:9`; markierte aktuelle Zeile `<Script id="sitov-theme-bootstrap" strategy="beforeInteractive" ...>`, Folgezeile `sitov-consent-bootstrap`. Die aktuelle korrigierte Quellzeile im Dialog und der frische Tab belegen ein neues Ereignis statt alter Toolbarhistorie. Screenshot `fresh-next-script-console-error.png`.
+
+Nach tatsächlichem RU-Reload ohne Badge: echter RU→DE-Wechsel erneut mit neuer 1-Issue-Badge. DE→EN erfolgreich; verbleibende 1-Badge ist bereits vorhandene Historie, kein Beleg eines weiteren unterschiedlichen Fehlers. Der Dialog wurde nach DE nicht erneut aufgeklappt. Alle Wechsel erhalten den Staffroutepfad. Route weiterhin bedienbar.
+
+**PASS:** englischer Außenrahmen und sichtbarer deutscher kanonischer Titel mit `lang="de" translate="no"`. Tatsächliches Darstellungsfenster geöffnet: Hell gewählt, Dunkel verfügbar, Hoher Kontrast verfügbar/aus. Screenshot `english-appearance-controls.png`. Kein Theme-/Kontrasttoggle und keine Consententscheidung; deren Laufzeit-/Bootstrapfunktion bleibt UNGETESTET.
+
+**PASS:** normale UI-Abmeldung, sichtbare Erfolgsmeldung und `/en/login?status=logout_success`. Keine neuen Konten, Cookies/JWT-Injektion, versteckte Browserdaten, fachliche DB-/Storage-/Create-/Save-/Publish-/Aufnahmeaktionen, Produkt-/SQL-/Audio-/Runtimeänderung. Natürliche Authsitzung und UI-Sprachpräferenz wurden durch die autorisierten UI-Aktionen geändert.
+
+Evidenz: `e2e/sitov-night-real-transport/epoch13-bootstrap-browser-evidence.json` und zwei Screenshots in `epoch13-bootstrap-screenshots/`. Credential-/Actor-Abwesenheit, JSON-Flow-/Logoutinvarianten und Git-Diffcheck geprüft. Neue Lernpfad-/Studiobrowserhilfe, vollständige Regression/a11y/motion bleiben eigene offene Abnahmen. **WAIT mit reproduziertem Befund**, keine RELEASE_READY-Freigabe.
