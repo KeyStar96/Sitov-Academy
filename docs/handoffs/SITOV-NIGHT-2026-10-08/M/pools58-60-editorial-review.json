@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools58-60-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T20:21:35.491Z",
+  "sourceCommit": "4c5c5467e5311eceef2c5ba44d26aaa1deb34b1a",
+  "scope": "M independently read all72 prompts/216options/keys/rationales,12six-unitcores and3fullcanonical B1.2sort8-10 sources. Bewertungen: actual reflexive/Perfekt/Modal/trennbaresVerb, bevor/ob/denn/wenn/deshalb/comparative and fullnominalcases; Fortgeschrittene is properly inflected substantivized adjective. Barrierefreiheit: genuine past/participle/infinitive/present, relative/indirect/dass/comparative and explicitdirection/location/case premises; no copy cue in Gehweg task. Lernerfolg: actual hättegemessen pastcounterfactual, modal/zu/trennbareforms, V2/modalverbfinal/concession/pronominaldem/goalinfinitive/contrast and Dativ/Genitiv/Akkusativ/nächstes superlativeofnah. Explicit instruction disambiguates tense and case; realforms and spokenprompts. All57previous including genuine jemandDativrepair and A11quality71/A12quality31 exact. All72 newlyreviewed questions accepted unchanged; no newaudioalias edit. Mapping gaps explicit, no fictional targets or extra pronunciation gate. No human listening/calibration/CEFR certification claim.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "063aafff7d1c427a1a84d1515dcd6c0e1ccd904626de22ad4aa32b327d0c5d72",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "5dc0cf34-6f7c-5e67-9728-22bbe90c5dc7",
+      "textVersion": "d550ac12f9b5113443bdf1591b579ef42b00d5012cc387347780aad2db4a2d31",
+      "definitionContentHash": "e293b514e3bf3de37ecdc433eec9c2672789af56f2d3ac5f81badf66f88bbaf2",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "d550ac12f9b5113443bdf1591b579ef42b00d5012cc387347780aad2db4a2d31",
+        "definitionContentHash": "e293b514e3bf3de37ecdc433eec9c2672789af56f2d3ac5f81badf66f88bbaf2"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-08.words.q1",
+          "correctTextDe": "Einschätzungen seiner Qualität."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.words.q2",
+          "correctTextDe": "Bestimmte Dinge, die man im Kurs selbst erlebt hat."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.words.q3",
+          "correctTextDe": "Meine Vorstellungen davon, was der Kurs bieten soll."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.words.q4",
+          "correctTextDe": "Menschen, die gerade erst anfangen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.words.q5",
+          "correctTextDe": "Lernende, die bereits über grundlegende Kenntnisse hinaus sind."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.words.q6",
+          "correctTextDe": "Sie helfen mir, Möglichkeiten zunächst einzuschätzen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.verbs.q1",
+          "correctTextDe": "buche"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.verbs.q2",
+          "correctTextDe": "sich"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.verbs.q3",
+          "correctTextDe": "orientiert"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.verbs.q4",
+          "correctTextDe": "beschreibt"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.verbs.q5",
+          "correctTextDe": "verändern"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.verbs.q6",
+          "correctTextDe": "frage"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.syntax.q1",
+          "correctTextDe": "Ich lese die Bewertungen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.syntax.q2",
+          "correctTextDe": "jemand konkrete Erfahrungen beschreibt"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.syntax.q3",
+          "correctTextDe": "Angebote können sich verändern"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.syntax.q4",
+          "correctTextDe": "Eine wichtige Entscheidung ist der Anlass für die weitere Suche."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.syntax.q5",
+          "correctTextDe": "Eine Folge der zuvor genannten Gründe."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.syntax.q6",
+          "correctTextDe": "Komparativ."
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.nominal.q1",
+          "correctTextDe": "einen Kurs"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.nominal.q2",
+          "correctTextDe": "der Sterne"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.nominal.q3",
+          "correctTextDe": "meinen eigenen Erwartungen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.nominal.q4",
+          "correctTextDe": "Anfänger"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.nominal.q5",
+          "correctTextDe": "Fortgeschrittene"
+        },
+        {
+          "questionId": "sitov.pretest.b12-08.nominal.q6",
+          "correctTextDe": "dem Anbieter"
+        }
+      ]
+    },
+    {
+      "textId": "8cf76d58-8428-59ef-b449-4301051413ba",
+      "textVersion": "11b17419c05951456cecfa3a95c9975a856189a34dfcca6d94b900bca0ecab3c",
+      "definitionContentHash": "10cde53b35d5778bd28e3497122e14c6c597a26764d4632f0d89d0e796e7260e",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "11b17419c05951456cecfa3a95c9975a856189a34dfcca6d94b900bca0ecab3c",
+        "definitionContentHash": "10cde53b35d5778bd28e3497122e14c6c597a26764d4632f0d89d0e796e7260e"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-09.words.q1",
+          "correctTextDe": "Der erhöhte Rand zwischen Gehweg und Fahrbahn."
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.words.q2",
+          "correctTextDe": "Dinge, die das Weiterkommen erschweren."
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.words.q3",
+          "correctTextDe": "Ich handle, ohne vorher nachzufragen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.words.q4",
+          "correctTextDe": "Alle können den Ort erreichen und betreten."
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.words.q5",
+          "correctTextDe": "Gute Ziele, die jemand mit seinem Handeln verfolgt."
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.words.q6",
+          "correctTextDe": "Bestimmte Änderungen, die den Zugang leichter machen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.verbs.q1",
+          "correctTextDe": "gemacht"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.verbs.q2",
+          "correctTextDe": "wollten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.verbs.q3",
+          "correctTextDe": "fiel"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.verbs.q4",
+          "correctTextDe": "übersehen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.verbs.q5",
+          "correctTextDe": "übernehme"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.verbs.q6",
+          "correctTextDe": "verändert"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.syntax.q1",
+          "correctTextDe": "der einen Rollstuhl benutzt"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.syntax.q2",
+          "correctTextDe": "ich sonst übersehe"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.syntax.q3",
+          "correctTextDe": "welche Wege gut funktionieren"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.syntax.q4",
+          "correctTextDe": "ich alles ungefragt für ihn übernehme"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.syntax.q5",
+          "correctTextDe": "Orte für alle zugänglich sind"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.syntax.q6",
+          "correctTextDe": "Komparativ."
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.nominal.q1",
+          "correctTextDe": "einem Bekannten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.nominal.q2",
+          "correctTextDe": "einen Rollstuhl"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.nominal.q3",
+          "correctTextDe": "die Bibliothek"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.nominal.q4",
+          "correctTextDe": "dem Gehweg"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.nominal.q5",
+          "correctTextDe": "ihn"
+        },
+        {
+          "questionId": "sitov.pretest.b12-09.nominal.q6",
+          "correctTextDe": "alle"
+        }
+      ]
+    },
+    {
+      "textId": "6e667abd-3011-597c-9cf9-0c20c2c30e2d",
+      "textVersion": "4dadb55d852f8f3d18d93552ecee032215bb3f36ecf5cc7542cb0fcd19457e4a",
+      "definitionContentHash": "4d2e5ebb2b119a632971df58c637b1f0cfea985931bb378219ff41321d6d1ca7",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "4dadb55d852f8f3d18d93552ecee032215bb3f36ecf5cc7542cb0fcd19457e4a",
+        "definitionContentHash": "4d2e5ebb2b119a632971df58c637b1f0cfea985931bb378219ff41321d6d1ca7"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-10.words.q1",
+          "correctTextDe": "Das Erreichen eines angestrebten Lernziels."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.words.q2",
+          "correctTextDe": "Eine Bewertung der Leistung in einer Prüfung."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.words.q3",
+          "correctTextDe": "Ein Telefonat, dessen Inhalt man gut verstehen kann."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.words.q4",
+          "correctTextDe": "Meine Entwicklung zu besseren Kenntnissen und Fähigkeiten."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.words.q5",
+          "correctTextDe": "Ein Gespräch, in dem Beteiligte ein Thema gemeinsam erörtern."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.words.q6",
+          "correctTextDe": "Ein Schritt, der für meinen Alltag wichtig ist."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.verbs.q1",
+          "correctTextDe": "hätte"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.verbs.q2",
+          "correctTextDe": "gemessen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.verbs.q3",
+          "correctTextDe": "nutzen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.verbs.q4",
+          "correctTextDe": "vergleichen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.verbs.q5",
+          "correctTextDe": "bringt"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.verbs.q6",
+          "correctTextDe": "erklären"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.syntax.q1",
+          "correctTextDe": "denke ich auch an kleine Situationen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.syntax.q2",
+          "correctTextDe": "ich die Sprache tatsächlich nutzen kann"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.syntax.q3",
+          "correctTextDe": "Das Verbesserungsziel führt nicht zu ständigem Vergleichen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.syntax.q4",
+          "correctTextDe": "Auf den Fortschritt anderer Menschen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.syntax.q5",
+          "correctTextDe": "Den Inhalt des Ziels."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.syntax.q6",
+          "correctTextDe": "Geringe Größe und große persönliche Bedeutung stehen nebeneinander."
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.nominal.q1",
+          "correctTextDe": "einer guten Prüfungsnote"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.nominal.q2",
+          "correctTextDe": "meines Sohnes"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.nominal.q3",
+          "correctTextDe": "anderer Menschen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.nominal.q4",
+          "correctTextDe": "einer Besprechung"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.nominal.q5",
+          "correctTextDe": "meinen Alltag"
+        },
+        {
+          "questionId": "sitov.pretest.b12-10.nominal.q6",
+          "correctTextDe": "Superlativ von nah."
+        }
+      ]
+    }
+  ]
+}
