@@ -7,8 +7,8 @@
   "scope": "Repository canonical seeds and revisions; no live/custom inventory",
   "coverage": {
     "total": 60,
-    "authored": 6,
-    "pending": 54
+    "authored": 9,
+    "pending": 51
   },
   "audioStatus": "draft_only: full DB public-question/reference asset and immutable word-timing proof gate implemented; actual M local preparation, byte/timing audit, import and trusted proof insertion pending; no definitions published",
   "drafts": [
@@ -6390,6 +6390,3133 @@
           }
         ]
       }
+    },
+    {
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "unitId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "level": "A1.1",
+      "textVersion": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a11-07.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Einkaufsort, Waren, Mengen und Zustandswörter des gespeicherten Ladentextes unterscheiden.",
+            "languageUnits": [
+              "Laden als Einkaufsort",
+              "Milch als Getränk",
+              "Brot als Backware",
+              "drei als Anzahl",
+              "freundlich als Umgang",
+              "volle Tasche als Zustand"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 17,
+                "quote": "Ich bin im Laden."
+              },
+              {
+                "start": 18,
+                "end": 57,
+                "quote": "Ich brauche Milch, Brot und drei Äpfel."
+              },
+              {
+                "start": 46,
+                "end": 56,
+                "quote": "drei Äpfel"
+              },
+              {
+                "start": 58,
+                "end": 87,
+                "quote": "Der Verkäufer ist freundlich."
+              },
+              {
+                "start": 188,
+                "end": 216,
+                "quote": "Meine Tasche ist jetzt voll."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Präsensformen und Grundformen beim Sein, Brauchen, Zeigen, Kosten, Nehmen und Bezahlen dem genannten Subjekt zuordnen.",
+            "languageUnits": [
+              "sein erste Person Laden",
+              "brauchen erste Person",
+              "zeigen dritte Person",
+              "kosten Singular Brot",
+              "nehmen erste Person",
+              "bezahlen gemeinsame Ichform"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 17,
+                "quote": "Ich bin im Laden."
+              },
+              {
+                "start": 18,
+                "end": 57,
+                "quote": "Ich brauche Milch, Brot und drei Äpfel."
+              },
+              {
+                "start": 88,
+                "end": 110,
+                "quote": "Er zeigt mir das Brot."
+              },
+              {
+                "start": 111,
+                "end": 131,
+                "quote": "Es kostet zwei Euro."
+              },
+              {
+                "start": 132,
+                "end": 154,
+                "quote": "Ich nehme auch Wasser."
+              },
+              {
+                "start": 155,
+                "end": 187,
+                "quote": "Dann bezahle ich und sage danke."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Warenliste, Handelnden und Empfänger, Preis, Ergänzung mit auch sowie vorangestelltes Dann und gemeinsame Handlungen verstehen.",
+            "languageUnits": [
+              "Einkaufsliste koordinierte Gegenstände",
+              "zeigen Handelnder und Empfänger",
+              "Preis Aussage",
+              "auch ergänzt Warenliste",
+              "Dann Satzstellung",
+              "zwei Handlungen gleicher Sprecher"
+            ],
+            "sourceSpans": [
+              {
+                "start": 18,
+                "end": 57,
+                "quote": "Ich brauche Milch, Brot und drei Äpfel."
+              },
+              {
+                "start": 58,
+                "end": 110,
+                "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+              },
+              {
+                "start": 111,
+                "end": 131,
+                "quote": "Es kostet zwei Euro."
+              },
+              {
+                "start": 132,
+                "end": 154,
+                "quote": "Ich nehme auch Wasser."
+              },
+              {
+                "start": 155,
+                "end": 171,
+                "quote": "Dann bezahle ich"
+              },
+              {
+                "start": 155,
+                "end": 187,
+                "quote": "Dann bezahle ich und sage danke."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Lokalen Dativ, Apfelplural, maskulinen Verkäuferbezug, Dativpronomen mir und Besitzform meine im Ladentext entschlüsseln.",
+            "languageUnits": [
+              "im Dativ Kontraktion",
+              "Äpfel Plural",
+              "Verkäufer maskuliner Artikel",
+              "Er Bezug Verkäufer",
+              "mir Dativ Empfänger",
+              "Meine Tasche Besitzform"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 17,
+                "quote": "Ich bin im Laden."
+              },
+              {
+                "start": 46,
+                "end": 56,
+                "quote": "drei Äpfel"
+              },
+              {
+                "start": 58,
+                "end": 87,
+                "quote": "Der Verkäufer ist freundlich."
+              },
+              {
+                "start": 58,
+                "end": 110,
+                "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+              },
+              {
+                "start": 88,
+                "end": 110,
+                "quote": "Er zeigt mir das Brot."
+              },
+              {
+                "start": 188,
+                "end": 216,
+                "quote": "Meine Tasche ist jetzt voll."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a11-07.words.q1",
+            "competencyId": "sitov.pretest.a11-07.words",
+            "kind": "single_choice",
+            "promptDe": "Wo befindet sich der Sprecher mit »im Laden«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.words.q1.a",
+                "textDe": "In einem Unterrichtsraum."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q1.b",
+                "textDe": "In einer Wohnung."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q1.c",
+                "textDe": "In einem Geschäft."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.words.q1.c",
+            "assessmentUnit": "Laden als Einkaufsort",
+            "equivalenceKey": "sitov:a11-07-words-Laden als Einkaufsort",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 17,
+                "quote": "Ich bin im Laden."
+              }
+            ],
+            "rationaleDe": "Ein Laden ist hier ein Geschäft zum Einkaufen; Wohnung und Unterrichtsraum bezeichnen andere Orte."
+          },
+          {
+            "id": "sitov.pretest.a11-07.words.q2",
+            "competencyId": "sitov.pretest.a11-07.words",
+            "kind": "single_choice",
+            "promptDe": "Welches Getränk bezeichnet »Milch«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.words.q2.a",
+                "textDe": "Ein Getränk aus ausgepressten Äpfeln."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q2.b",
+                "textDe": "Ein schwarzes Getränk aus Kaffeebohnen."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q2.c",
+                "textDe": "Ein weißes Getränk, das üblicherweise von Kühen kommt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.words.q2.c",
+            "assessmentUnit": "Milch als Getränk",
+            "equivalenceKey": "sitov:a11-07-words-Milch als Getränk",
+            "sourceSpans": [
+              {
+                "start": 18,
+                "end": 57,
+                "quote": "Ich brauche Milch, Brot und drei Äpfel."
+              }
+            ],
+            "rationaleDe": "Milch wird von Apfelsaft und Kaffee unterschieden; die beiden anderen Beschreibungen nennen andere Getränke."
+          },
+          {
+            "id": "sitov.pretest.a11-07.words.q3",
+            "competencyId": "sitov.pretest.a11-07.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist »Brot« in der Einkaufsliste?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.words.q3.a",
+                "textDe": "Ein Getränk, das man aus einer Flasche trinkt."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q3.b",
+                "textDe": "Ein gebackenes Lebensmittel, das man in Scheiben essen kann."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q3.c",
+                "textDe": "Ein rundes Obst, das an einem Baum wächst."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.words.q3.b",
+            "assessmentUnit": "Brot als Backware",
+            "equivalenceKey": "sitov:a11-07-words-Brot als Backware",
+            "sourceSpans": [
+              {
+                "start": 18,
+                "end": 57,
+                "quote": "Ich brauche Milch, Brot und drei Äpfel."
+              }
+            ],
+            "rationaleDe": "Brot ist eine Backware; das Getränk und das Obst passen nicht zur Bedeutung dieses Lebensmittels."
+          },
+          {
+            "id": "sitov.pretest.a11-07.words.q4",
+            "competencyId": "sitov.pretest.a11-07.words",
+            "kind": "single_choice",
+            "promptDe": "Wie viele Äpfel braucht der Sprecher?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.words.q4.a",
+                "textDe": "Zwei Äpfel."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q4.b",
+                "textDe": "Drei Äpfel."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q4.c",
+                "textDe": "Einen Apfel."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.words.q4.b",
+            "assessmentUnit": "drei als Anzahl",
+            "equivalenceKey": "sitov:a11-07-words-drei als Anzahl",
+            "sourceSpans": [
+              {
+                "start": 46,
+                "end": 56,
+                "quote": "drei Äpfel"
+              }
+            ],
+            "rationaleDe": "Die Zahl drei nennt die Menge der Äpfel; zwei bezieht sich später auf Euro und eins steht nicht in der Liste."
+          },
+          {
+            "id": "sitov.pretest.a11-07.words.q5",
+            "competencyId": "sitov.pretest.a11-07.words",
+            "kind": "single_choice",
+            "promptDe": "Wie verhält sich ein »freundlicher« Verkäufer?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.words.q5.a",
+                "textDe": "Er ist mit dem Kunden verwandt."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q5.b",
+                "textDe": "Er behandelt den Kunden unhöflich."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q5.c",
+                "textDe": "Er geht nett mit dem Kunden um."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.words.q5.c",
+            "assessmentUnit": "freundlich als Umgang",
+            "equivalenceKey": "sitov:a11-07-words-freundlich als Umgang",
+            "sourceSpans": [
+              {
+                "start": 58,
+                "end": 87,
+                "quote": "Der Verkäufer ist freundlich."
+              }
+            ],
+            "rationaleDe": "Freundlich beschreibt einen netten Umgang, keine Unhöflichkeit und keine familiäre Beziehung."
+          },
+          {
+            "id": "sitov.pretest.a11-07.words.q6",
+            "competencyId": "sitov.pretest.a11-07.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Meine Tasche ist jetzt voll«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.words.q6.a",
+                "textDe": "Die Tasche ist verschwunden."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q6.b",
+                "textDe": "In der Tasche ist noch gar nichts."
+              },
+              {
+                "id": "sitov.pretest.a11-07.words.q6.c",
+                "textDe": "In der Tasche ist kein freier Platz mehr."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.words.q6.c",
+            "assessmentUnit": "volle Tasche als Zustand",
+            "equivalenceKey": "sitov:a11-07-words-volle Tasche als Zustand",
+            "sourceSpans": [
+              {
+                "start": 188,
+                "end": 216,
+                "quote": "Meine Tasche ist jetzt voll."
+              }
+            ],
+            "rationaleDe": "Voll beschreibt den gefüllten Zustand der Tasche; leer oder verschwunden bedeutet etwas anderes."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q1",
+            "competencyId": "sitov.pretest.a11-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »bin« im Satz über den Laden?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.verbs.q1.a",
+                "textDe": "brauchen"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q1.b",
+                "textDe": "sein"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q1.c",
+                "textDe": "nehmen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.verbs.q1.b",
+            "assessmentUnit": "sein erste Person Laden",
+            "equivalenceKey": "sitov:a11-07-verbs-sein erste Person Laden",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 17,
+                "quote": "Ich bin im Laden."
+              }
+            ],
+            "rationaleDe": "Bin ist die Präsensform von sein für ich; brauchen und nehmen benennen andere Handlungen."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q2",
+            "competencyId": "sitov.pretest.a11-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Verbform vervollständigt »Ich … Milch, Brot und drei Äpfel«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.verbs.q2.a",
+                "textDe": "brauchen"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q2.b",
+                "textDe": "brauche"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q2.c",
+                "textDe": "brauchst"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.verbs.q2.b",
+            "assessmentUnit": "brauchen erste Person",
+            "equivalenceKey": "sitov:a11-07-verbs-brauchen erste Person",
+            "sourceSpans": [
+              {
+                "start": 18,
+                "end": 57,
+                "quote": "Ich brauche Milch, Brot und drei Äpfel."
+              }
+            ],
+            "rationaleDe": "Zum Subjekt ich gehört brauche; brauchst gehört zu du und brauchen ist hier keine passende ich-Form."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q3",
+            "competencyId": "sitov.pretest.a11-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »zeigt« bei dem Verkäufer?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.verbs.q3.a",
+                "textDe": "zeigen"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q3.b",
+                "textDe": "ziehen"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q3.c",
+                "textDe": "zahlen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.verbs.q3.a",
+            "assessmentUnit": "zeigen dritte Person",
+            "equivalenceKey": "sitov:a11-07-verbs-zeigen dritte Person",
+            "sourceSpans": [
+              {
+                "start": 88,
+                "end": 110,
+                "quote": "Er zeigt mir das Brot."
+              }
+            ],
+            "rationaleDe": "Zeigt gehört zum Verb zeigen und beschreibt das Vorführen des Brotes; zahlen und ziehen sind andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q4",
+            "competencyId": "sitov.pretest.a11-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Verbform passt zu »Es … zwei Euro«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.verbs.q4.a",
+                "textDe": "kostet"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q4.b",
+                "textDe": "koste"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q4.c",
+                "textDe": "kosten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.verbs.q4.a",
+            "assessmentUnit": "kosten Singular Brot",
+            "equivalenceKey": "sitov:a11-07-verbs-kosten Singular Brot",
+            "sourceSpans": [
+              {
+                "start": 111,
+                "end": 131,
+                "quote": "Es kostet zwei Euro."
+              }
+            ],
+            "rationaleDe": "Es ist dritte Person Singular und verlangt kostet; kosten und koste passen nicht zu diesem Subjekt."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q5",
+            "competencyId": "sitov.pretest.a11-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform hat das Verb in »Ich nehme auch Wasser«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.verbs.q5.a",
+                "textDe": "nennen"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q5.b",
+                "textDe": "nähen"
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q5.c",
+                "textDe": "nehmen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.verbs.q5.c",
+            "assessmentUnit": "nehmen erste Person",
+            "equivalenceKey": "sitov:a11-07-verbs-nehmen erste Person",
+            "sourceSpans": [
+              {
+                "start": 132,
+                "end": 154,
+                "quote": "Ich nehme auch Wasser."
+              }
+            ],
+            "rationaleDe": "Nehme ist die ich-Form von nehmen; nennen und nähen haben andere Bedeutungen und andere Formen."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q6",
+            "competencyId": "sitov.pretest.a11-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Person gehört zur Form »bezahle« in diesem Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.verbs.q6.a",
+                "textDe": "Die dritte Person Plural: sie."
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q6.b",
+                "textDe": "Die zweite Person Singular: du."
+              },
+              {
+                "id": "sitov.pretest.a11-07.verbs.q6.c",
+                "textDe": "Die erste Person Singular: ich."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.verbs.q6.c",
+            "assessmentUnit": "bezahlen gemeinsame Ichform",
+            "equivalenceKey": "sitov:a11-07-verbs-bezahlen gemeinsame Ichform",
+            "sourceSpans": [
+              {
+                "start": 155,
+                "end": 187,
+                "quote": "Dann bezahle ich und sage danke."
+              }
+            ],
+            "rationaleDe": "Das ausdrücklich genannte ich ist Subjekt von bezahle; du und sie sind hier keine handelnden Personen."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q1",
+            "competencyId": "sitov.pretest.a11-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Dinge verbindet »und« in der Einkaufsliste?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.syntax.q1.a",
+                "textDe": "Milch, Brot und drei Äpfel werden alle gebraucht."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q1.b",
+                "textDe": "Es wird nur Milch und kein Brot gebraucht."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q1.c",
+                "textDe": "Milch und Brot werden gegen Äpfel getauscht."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.syntax.q1.a",
+            "assessmentUnit": "Einkaufsliste koordinierte Gegenstände",
+            "equivalenceKey": "sitov:a11-07-syntax-Einkaufsliste koordinierte Gegenstände",
+            "sourceSpans": [
+              {
+                "start": 18,
+                "end": 57,
+                "quote": "Ich brauche Milch, Brot und drei Äpfel."
+              }
+            ],
+            "rationaleDe": "Die Aufzählung verbindet alle drei benötigten Produkte; sie schließt Brot nicht aus und beschreibt keinen Tausch."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q2",
+            "competencyId": "sitov.pretest.a11-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer zeigt wem etwas im Satz »Er zeigt mir das Brot«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.syntax.q2.a",
+                "textDe": "Der Sprecher zeigt dem Verkäufer das Brot."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q2.b",
+                "textDe": "Der Verkäufer zeigt dem Sprecher das Brot."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q2.c",
+                "textDe": "Das Brot zeigt dem Verkäufer den Sprecher."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.syntax.q2.b",
+            "assessmentUnit": "zeigen Handelnder und Empfänger",
+            "equivalenceKey": "sitov:a11-07-syntax-zeigen Handelnder und Empfänger",
+            "sourceSpans": [
+              {
+                "start": 58,
+                "end": 110,
+                "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+              }
+            ],
+            "rationaleDe": "Er nimmt den Verkäufer wieder auf und mir bezeichnet den Sprecher als Empfänger; die anderen Antworten vertauschen die Rollen."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q3",
+            "competencyId": "sitov.pretest.a11-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was wird mit »Es kostet zwei Euro« ausgesagt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.syntax.q3.a",
+                "textDe": "Der Sprecher hat drei Euro bezahlt."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q3.b",
+                "textDe": "Der Verkäufer kauft zwei Brote."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q3.c",
+                "textDe": "Der Preis des Brotes beträgt zwei Euro."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.syntax.q3.c",
+            "assessmentUnit": "Preis Aussage",
+            "equivalenceKey": "sitov:a11-07-syntax-Preis Aussage",
+            "sourceSpans": [
+              {
+                "start": 111,
+                "end": 131,
+                "quote": "Es kostet zwei Euro."
+              }
+            ],
+            "rationaleDe": "Kostet mit der Geldangabe nennt den Preis des zuvor gezeigten Brotes; Anzahl und schon geleistete Zahlung sind andere Aussagen."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q4",
+            "competencyId": "sitov.pretest.a11-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was drückt »auch« beim Wasser aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.syntax.q4.a",
+                "textDe": "Wasser wird ausdrücklich nicht genommen."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q4.b",
+                "textDe": "Wasser ersetzt alle vorher genannten Produkte."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q4.c",
+                "textDe": "Wasser kommt zusätzlich zu anderen Einkäufen dazu."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.syntax.q4.c",
+            "assessmentUnit": "auch ergänzt Warenliste",
+            "equivalenceKey": "sitov:a11-07-syntax-auch ergänzt Warenliste",
+            "sourceSpans": [
+              {
+                "start": 132,
+                "end": 154,
+                "quote": "Ich nehme auch Wasser."
+              }
+            ],
+            "rationaleDe": "Auch ergänzt die bisherige Auswahl um Wasser; es bedeutet weder einen vollständigen Ersatz noch eine Verneinung."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q5",
+            "competencyId": "sitov.pretest.a11-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welches Wort steht nach »Dann« im gespeicherten Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.syntax.q5.a",
+                "textDe": "bezahle"
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q5.b",
+                "textDe": "danke"
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q5.c",
+                "textDe": "ich"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.syntax.q5.a",
+            "assessmentUnit": "Dann Satzstellung",
+            "equivalenceKey": "sitov:a11-07-syntax-Dann Satzstellung",
+            "sourceSpans": [
+              {
+                "start": 155,
+                "end": 171,
+                "quote": "Dann bezahle ich"
+              }
+            ],
+            "rationaleDe": "Die Zeitangabe Dann steht vorn, danach folgt das finite Verb bezahle; ich folgt erst hinter dem Verb."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q6",
+            "competencyId": "sitov.pretest.a11-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer bezahlt und sagt anschließend danke?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.syntax.q6.a",
+                "textDe": "Der Sprecher bezahlt, aber das Brot sagt danke."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q6.b",
+                "textDe": "Nur der Verkäufer führt beide Handlungen aus."
+              },
+              {
+                "id": "sitov.pretest.a11-07.syntax.q6.c",
+                "textDe": "Der Sprecher führt beide Handlungen aus."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.syntax.q6.c",
+            "assessmentUnit": "zwei Handlungen gleicher Sprecher",
+            "equivalenceKey": "sitov:a11-07-syntax-zwei Handlungen gleicher Sprecher",
+            "sourceSpans": [
+              {
+                "start": 155,
+                "end": 187,
+                "quote": "Dann bezahle ich und sage danke."
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich gilt auch für den verbundenen Teil sage danke; es wechselt nicht zum Verkäufer oder zum Brot."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q1",
+            "competencyId": "sitov.pretest.a11-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche zwei Wörter stecken hier in »im Laden«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.nominal.q1.a",
+                "textDe": "in dem Laden"
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q1.b",
+                "textDe": "in der Laden"
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q1.c",
+                "textDe": "in den Laden"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.nominal.q1.a",
+            "assessmentUnit": "im Dativ Kontraktion",
+            "equivalenceKey": "sitov:a11-07-nominal-im Dativ Kontraktion",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 17,
+                "quote": "Ich bin im Laden."
+              }
+            ],
+            "rationaleDe": "Im ist die Verbindung von in und dem; im Satz bezeichnet sie den Aufenthaltsort im maskulinen Laden."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q2",
+            "competencyId": "sitov.pretest.a11-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Einzahl gehört zu »Äpfel«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.nominal.q2.a",
+                "textDe": "der Eimer"
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q2.b",
+                "textDe": "das Ei"
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q2.c",
+                "textDe": "der Apfel"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.nominal.q2.c",
+            "assessmentUnit": "Äpfel Plural",
+            "equivalenceKey": "sitov:a11-07-nominal-Äpfel Plural",
+            "sourceSpans": [
+              {
+                "start": 46,
+                "end": 56,
+                "quote": "drei Äpfel"
+              }
+            ],
+            "rationaleDe": "Äpfel ist der Plural von Apfel; Ei und Eimer sind andere Wörter und keine Einzahl dieser Form."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q3",
+            "competencyId": "sitov.pretest.a11-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welcher Artikel gehört im Satz zum männlichen Verkäufer?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.nominal.q3.a",
+                "textDe": "das"
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q3.b",
+                "textDe": "die"
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q3.c",
+                "textDe": "der"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.nominal.q3.c",
+            "assessmentUnit": "Verkäufer maskuliner Artikel",
+            "equivalenceKey": "sitov:a11-07-nominal-Verkäufer maskuliner Artikel",
+            "sourceSpans": [
+              {
+                "start": 58,
+                "end": 87,
+                "quote": "Der Verkäufer ist freundlich."
+              }
+            ],
+            "rationaleDe": "Der maskuline Verkäufer steht als Subjekt mit der; das und die sind hier nicht die gespeicherte Artikelform."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q4",
+            "competencyId": "sitov.pretest.a11-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Wen bezeichnet »Er« direkt nach dem Satz über den Verkäufer?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.nominal.q4.a",
+                "textDe": "Die Tasche."
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q4.b",
+                "textDe": "Den Verkäufer."
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q4.c",
+                "textDe": "Das Brot."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.nominal.q4.b",
+            "assessmentUnit": "Er Bezug Verkäufer",
+            "equivalenceKey": "sitov:a11-07-nominal-Er Bezug Verkäufer",
+            "sourceSpans": [
+              {
+                "start": 58,
+                "end": 110,
+                "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+              }
+            ],
+            "rationaleDe": "Er nimmt den männlichen Verkäufer wieder auf; das neutrale Brot und die feminine Tasche sind nicht dieser Bezug."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q5",
+            "competencyId": "sitov.pretest.a11-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Person bezeichnet »mir« beim Zeigen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.nominal.q5.a",
+                "textDe": "Den Sprecher, dem das Brot gezeigt wird."
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q5.b",
+                "textDe": "Eine dritte, neu eingeführte Person."
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q5.c",
+                "textDe": "Den Verkäufer, der das Brot zeigt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.nominal.q5.a",
+            "assessmentUnit": "mir Dativ Empfänger",
+            "equivalenceKey": "sitov:a11-07-nominal-mir Dativ Empfänger",
+            "sourceSpans": [
+              {
+                "start": 88,
+                "end": 110,
+                "quote": "Er zeigt mir das Brot."
+              }
+            ],
+            "rationaleDe": "Mir ist die Dativform von ich und nennt den Sprecher als Empfänger; der Verkäufer ist bereits durch er bezeichnet."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q6",
+            "competencyId": "sitov.pretest.a11-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt den Satz »… Tasche ist jetzt voll« für den Sprecher?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-07.nominal.q6.a",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q6.b",
+                "textDe": "Meinen"
+              },
+              {
+                "id": "sitov.pretest.a11-07.nominal.q6.c",
+                "textDe": "Meine"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-07.nominal.q6.c",
+            "assessmentUnit": "Meine Tasche Besitzform",
+            "equivalenceKey": "sitov:a11-07-nominal-Meine Tasche Besitzform",
+            "sourceSpans": [
+              {
+                "start": 188,
+                "end": 216,
+                "quote": "Meine Tasche ist jetzt voll."
+              }
+            ],
+            "rationaleDe": "Tasche ist feminin und steht hier als Subjekt; deshalb lautet die Besitzform meine, nicht mein oder meinen."
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "past_tenses",
+            "reasonDe": "Der gespeicherte Text erzählt ausschließlich im Präsens; Vergangenheitsformen sind keine Voraussetzung für seine Aussagen."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Der gespeicherte Text enthält keine Steigerungsformen; ein Vergleich von Adjektiven wäre ein zusätzliches, nicht nötiges Lernziel."
+          },
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Im gespeicherten Text stehen keine Relativsätze; diese Satzart wird für das Verstehen seiner einfachen Hauptsätze nicht benötigt."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.pretest.a11-07.form1",
+            "questionIds": [
+              "sitov.pretest.a11-07.words.q1",
+              "sitov.pretest.a11-07.words.q2",
+              "sitov.pretest.a11-07.words.q3",
+              "sitov.pretest.a11-07.verbs.q1",
+              "sitov.pretest.a11-07.verbs.q2",
+              "sitov.pretest.a11-07.verbs.q3",
+              "sitov.pretest.a11-07.syntax.q1",
+              "sitov.pretest.a11-07.syntax.q2",
+              "sitov.pretest.a11-07.syntax.q3",
+              "sitov.pretest.a11-07.nominal.q1",
+              "sitov.pretest.a11-07.nominal.q2",
+              "sitov.pretest.a11-07.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.pretest.a11-07.form2",
+            "questionIds": [
+              "sitov.pretest.a11-07.words.q4",
+              "sitov.pretest.a11-07.words.q5",
+              "sitov.pretest.a11-07.words.q6",
+              "sitov.pretest.a11-07.verbs.q4",
+              "sitov.pretest.a11-07.verbs.q5",
+              "sitov.pretest.a11-07.verbs.q6",
+              "sitov.pretest.a11-07.syntax.q4",
+              "sitov.pretest.a11-07.syntax.q5",
+              "sitov.pretest.a11-07.syntax.q6",
+              "sitov.pretest.a11-07.nominal.q4",
+              "sitov.pretest.a11-07.nominal.q5",
+              "sitov.pretest.a11-07.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "unitId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "level": "A1.1",
+      "textVersion": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a11-08.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Bild, männliche Verwandtschaftsrollen, Tätigkeiten, Alter und Häufigkeit im tatsächlichen Familientext verstehen.",
+            "languageUnits": [
+              "Foto als Bild",
+              "Onkel als Verwandter",
+              "kochen als Tätigkeit",
+              "zwanzig als Alter",
+              "oft als Häufigkeit",
+              "lachen als Tätigkeit"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 36,
+                "quote": "Das ist ein Foto von meiner Familie."
+              },
+              {
+                "start": 37,
+                "end": 59,
+                "quote": "Mein Onkel heißt Mark."
+              },
+              {
+                "start": 60,
+                "end": 74,
+                "quote": "Er kocht gern."
+              },
+              {
+                "start": 118,
+                "end": 152,
+                "quote": "Mein Bruder ist zwanzig Jahre alt."
+              },
+              {
+                "start": 179,
+                "end": 199,
+                "quote": "Wir telefonieren oft"
+              },
+              {
+                "start": 200,
+                "end": 216,
+                "quote": "und lachen viel."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Präsens und Grundformen von sein, heißen, kochen, hören, lernen und telefonieren in ihren wirklichen Personenformen erkennen.",
+            "languageUnits": [
+              "sein Foto Singular",
+              "heißen Onkel dritte Person",
+              "kochen Er dritte Person",
+              "hören lexikalische Grundform",
+              "lernen Er dritte Person",
+              "telefonieren Wir Plural"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 16,
+                "quote": "Das ist ein Foto"
+              },
+              {
+                "start": 37,
+                "end": 59,
+                "quote": "Mein Onkel heißt Mark."
+              },
+              {
+                "start": 60,
+                "end": 74,
+                "quote": "Er kocht gern."
+              },
+              {
+                "start": 98,
+                "end": 117,
+                "quote": "Er hört gern Musik."
+              },
+              {
+                "start": 153,
+                "end": 178,
+                "quote": "Er lernt Deutsch wie ich."
+              },
+              {
+                "start": 179,
+                "end": 199,
+                "quote": "Wir telefonieren oft"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Motiv und Namenszuordnung, Vorlieben, gemeinsames Deutschlernen und koordinierte Familientätigkeiten richtig zuordnen.",
+            "languageUnits": [
+              "Foto zeigt Familie",
+              "Mark Name des Onkels",
+              "gern positive Vorliebe Onkel",
+              "Vater Musik Vorliebe",
+              "wie ich gemeinsames Lernen",
+              "Wir gemeinsame Tätigkeiten"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 36,
+                "quote": "Das ist ein Foto von meiner Familie."
+              },
+              {
+                "start": 37,
+                "end": 59,
+                "quote": "Mein Onkel heißt Mark."
+              },
+              {
+                "start": 60,
+                "end": 74,
+                "quote": "Er kocht gern."
+              },
+              {
+                "start": 75,
+                "end": 117,
+                "quote": "Mein Vater heißt Oleg. Er hört gern Musik."
+              },
+              {
+                "start": 153,
+                "end": 178,
+                "quote": "Er lernt Deutsch wie ich."
+              },
+              {
+                "start": 179,
+                "end": 216,
+                "quote": "Wir telefonieren oft und lachen viel."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Neutrales Foto, Dativ nach von, maskulinen Onkel, eindeutigen lokalen Pronomenbezug, Jahreplural und Sprechergruppe verstehen.",
+            "languageUnits": [
+              "Foto neutrales unbestimmtes Artikelwort",
+              "von meiner Dativ Familie",
+              "Mein Onkel Nominativ",
+              "Er Onkel als eindeutiger Bezug",
+              "Jahre als Plural",
+              "Wir schließt Sprecher ein"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 16,
+                "quote": "Das ist ein Foto"
+              },
+              {
+                "start": 17,
+                "end": 35,
+                "quote": "von meiner Familie"
+              },
+              {
+                "start": 37,
+                "end": 59,
+                "quote": "Mein Onkel heißt Mark."
+              },
+              {
+                "start": 37,
+                "end": 74,
+                "quote": "Mein Onkel heißt Mark. Er kocht gern."
+              },
+              {
+                "start": 134,
+                "end": 151,
+                "quote": "zwanzig Jahre alt"
+              },
+              {
+                "start": 179,
+                "end": 199,
+                "quote": "Wir telefonieren oft"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a11-08.words.q1",
+            "competencyId": "sitov.pretest.a11-08.words",
+            "kind": "single_choice",
+            "promptDe": "Was bezeichnet »ein Foto« am Anfang?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.words.q1.a",
+                "textDe": "Eine gesprochene Nachricht am Telefon."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q1.b",
+                "textDe": "Ein Bild, das mit einer Kamera aufgenommen wurde."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q1.c",
+                "textDe": "Ein Lied über eine Familie."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.words.q1.b",
+            "assessmentUnit": "Foto als Bild",
+            "equivalenceKey": "sitov:a11-08-words-Foto als Bild",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 36,
+                "quote": "Das ist ein Foto von meiner Familie."
+              }
+            ],
+            "rationaleDe": "Ein Foto ist ein aufgenommenes Bild; eine Telefonnachricht und ein Lied sind andere Medien."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q2",
+            "competencyId": "sitov.pretest.a11-08.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Verwandtschaftsrolle hat Mark laut Text?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.words.q2.a",
+                "textDe": "Er ist der Vater des Sprechers."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q2.b",
+                "textDe": "Er ist der Bruder des Sprechers."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q2.c",
+                "textDe": "Er ist der Onkel des Sprechers."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.words.q2.c",
+            "assessmentUnit": "Onkel als Verwandter",
+            "equivalenceKey": "sitov:a11-08-words-Onkel als Verwandter",
+            "sourceSpans": [
+              {
+                "start": 37,
+                "end": 59,
+                "quote": "Mein Onkel heißt Mark."
+              }
+            ],
+            "rationaleDe": "Mark wird ausdrücklich als Onkel vorgestellt; Bruder und Vater sind andere im Text getrennte Rollen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q3",
+            "competencyId": "sitov.pretest.a11-08.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Tätigkeit beschreibt »kocht« beim Onkel?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.words.q3.a",
+                "textDe": "Er macht Fotos."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q3.b",
+                "textDe": "Er bereitet Essen zu."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q3.c",
+                "textDe": "Er hört Musik."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.words.q3.b",
+            "assessmentUnit": "kochen als Tätigkeit",
+            "equivalenceKey": "sitov:a11-08-words-kochen als Tätigkeit",
+            "sourceSpans": [
+              {
+                "start": 60,
+                "end": 74,
+                "quote": "Er kocht gern."
+              }
+            ],
+            "rationaleDe": "Kochen bedeutet Essen zuzubereiten; Musikhören steht später beim Vater, Fotografieren wird dem Onkel nicht zugeschrieben."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q4",
+            "competencyId": "sitov.pretest.a11-08.words",
+            "kind": "single_choice",
+            "promptDe": "Wie alt ist der Bruder nach der Zahl im Text?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.words.q4.a",
+                "textDe": "12 Jahre."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q4.b",
+                "textDe": "20 Jahre."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q4.c",
+                "textDe": "2 Jahre."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.words.q4.b",
+            "assessmentUnit": "zwanzig als Alter",
+            "equivalenceKey": "sitov:a11-08-words-zwanzig als Alter",
+            "sourceSpans": [
+              {
+                "start": 118,
+                "end": 152,
+                "quote": "Mein Bruder ist zwanzig Jahre alt."
+              }
+            ],
+            "rationaleDe": "Zwanzig bedeutet 20; zwölf und zwei sind andere Zahlen und ändern die ausdrücklich genannte Altersangabe."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q5",
+            "competencyId": "sitov.pretest.a11-08.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »oft« beim Telefonieren?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.words.q5.a",
+                "textDe": "Sie telefonieren häufig."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q5.b",
+                "textDe": "Sie telefonieren genau einmal."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q5.c",
+                "textDe": "Sie telefonieren nie."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.words.q5.a",
+            "assessmentUnit": "oft als Häufigkeit",
+            "equivalenceKey": "sitov:a11-08-words-oft als Häufigkeit",
+            "sourceSpans": [
+              {
+                "start": 179,
+                "end": 199,
+                "quote": "Wir telefonieren oft"
+              }
+            ],
+            "rationaleDe": "Oft nennt eine hohe Häufigkeit; nie und genau einmal widersprechen dieser Bedeutung."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q6",
+            "competencyId": "sitov.pretest.a11-08.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Tätigkeit bezeichnet »lachen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.words.q6.a",
+                "textDe": "Man zeigt Heiterkeit mit der Stimme und dem Gesicht."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q6.b",
+                "textDe": "Man schreibt einen Brief."
+              },
+              {
+                "id": "sitov.pretest.a11-08.words.q6.c",
+                "textDe": "Man schläft ohne Geräusch."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.words.q6.a",
+            "assessmentUnit": "lachen als Tätigkeit",
+            "equivalenceKey": "sitov:a11-08-words-lachen als Tätigkeit",
+            "sourceSpans": [
+              {
+                "start": 200,
+                "end": 216,
+                "quote": "und lachen viel."
+              }
+            ],
+            "rationaleDe": "Lachen ist ein hörbarer Ausdruck von Heiterkeit; Briefeschreiben und stilles Schlafen sind andere Tätigkeiten."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q1",
+            "competencyId": "sitov.pretest.a11-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »ist« im ersten Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.verbs.q1.a",
+                "textDe": "sehen"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q1.b",
+                "textDe": "sitzen"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q1.c",
+                "textDe": "sein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.verbs.q1.c",
+            "assessmentUnit": "sein Foto Singular",
+            "equivalenceKey": "sitov:a11-08-verbs-sein Foto Singular",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 16,
+                "quote": "Das ist ein Foto"
+              }
+            ],
+            "rationaleDe": "Ist ist eine Präsensform von sein; sehen und sitzen haben andere Grundformen und Bedeutungen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q2",
+            "competencyId": "sitov.pretest.a11-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Verbform ergänzt »Mein Onkel … Mark«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.verbs.q2.a",
+                "textDe": "heiße"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q2.b",
+                "textDe": "heißen"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q2.c",
+                "textDe": "heißt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.verbs.q2.c",
+            "assessmentUnit": "heißen Onkel dritte Person",
+            "equivalenceKey": "sitov:a11-08-verbs-heißen Onkel dritte Person",
+            "sourceSpans": [
+              {
+                "start": 37,
+                "end": 59,
+                "quote": "Mein Onkel heißt Mark."
+              }
+            ],
+            "rationaleDe": "Mein Onkel ist dritte Person Singular und verlangt heißt; heiße gehört zu ich, heißen passt hier nicht zum einzelnen Onkel."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q3",
+            "competencyId": "sitov.pretest.a11-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form passt zu »Er … gern« beim Onkel?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.verbs.q3.a",
+                "textDe": "koche"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q3.b",
+                "textDe": "kochst"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q3.c",
+                "textDe": "kocht"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.verbs.q3.c",
+            "assessmentUnit": "kochen Er dritte Person",
+            "equivalenceKey": "sitov:a11-08-verbs-kochen Er dritte Person",
+            "sourceSpans": [
+              {
+                "start": 60,
+                "end": 74,
+                "quote": "Er kocht gern."
+              }
+            ],
+            "rationaleDe": "Zum Subjekt er gehört kocht; koche ist die ich-Form und kochst gehört zu du."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q4",
+            "competencyId": "sitov.pretest.a11-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »hört« beim Vater?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.verbs.q4.a",
+                "textDe": "halten"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q4.b",
+                "textDe": "hören"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q4.c",
+                "textDe": "holen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.verbs.q4.b",
+            "assessmentUnit": "hören lexikalische Grundform",
+            "equivalenceKey": "sitov:a11-08-verbs-hören lexikalische Grundform",
+            "sourceSpans": [
+              {
+                "start": 98,
+                "end": 117,
+                "quote": "Er hört gern Musik."
+              }
+            ],
+            "rationaleDe": "Hört ist eine Form von hören und verbindet sich hier mit Musik; holen und halten benennen andere Handlungen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q5",
+            "competencyId": "sitov.pretest.a11-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Verbform ergänzt den Satz über den Bruder: »Er … Deutsch wie ich«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.verbs.q5.a",
+                "textDe": "lernt"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q5.b",
+                "textDe": "lerne"
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q5.c",
+                "textDe": "lernst"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.verbs.q5.a",
+            "assessmentUnit": "lernen Er dritte Person",
+            "equivalenceKey": "sitov:a11-08-verbs-lernen Er dritte Person",
+            "sourceSpans": [
+              {
+                "start": 153,
+                "end": 178,
+                "quote": "Er lernt Deutsch wie ich."
+              }
+            ],
+            "rationaleDe": "Er bezeichnet den Bruder als dritte Person Singular, daher lernt; lerne und lernst gehören zu anderen Personen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q6",
+            "competencyId": "sitov.pretest.a11-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Person und Zahl hat »telefonieren« in diesem Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.verbs.q6.a",
+                "textDe": "Dritte Person Singular: er."
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q6.b",
+                "textDe": "Erste Person Plural: wir."
+              },
+              {
+                "id": "sitov.pretest.a11-08.verbs.q6.c",
+                "textDe": "Erste Person Singular: ich."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.verbs.q6.b",
+            "assessmentUnit": "telefonieren Wir Plural",
+            "equivalenceKey": "sitov:a11-08-verbs-telefonieren Wir Plural",
+            "sourceSpans": [
+              {
+                "start": 179,
+                "end": 199,
+                "quote": "Wir telefonieren oft"
+              }
+            ],
+            "rationaleDe": "Das ausdrücklich genannte wir bestimmt die erste Person Plural; die gleiche Verbform wird hier nicht von ich oder er begleitet."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q1",
+            "competencyId": "sitov.pretest.a11-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was wird über das Foto ausgesagt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.syntax.q1.a",
+                "textDe": "Es zeigt nur eine unbekannte Schule."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q1.b",
+                "textDe": "Es zeigt die Familie des Sprechers."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q1.c",
+                "textDe": "Es ist eine Rechnung für Lebensmittel."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.syntax.q1.b",
+            "assessmentUnit": "Foto zeigt Familie",
+            "equivalenceKey": "sitov:a11-08-syntax-Foto zeigt Familie",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 36,
+                "quote": "Das ist ein Foto von meiner Familie."
+              }
+            ],
+            "rationaleDe": "Von meiner Familie gibt das Motiv des Fotos an; Schule und Einkaufsrechnung sind im Satz nicht genannt."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q2",
+            "competencyId": "sitov.pretest.a11-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Aussage stimmt mit dem Satz über Mark überein?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.syntax.q2.a",
+                "textDe": "Mark ist der Name des Vaters Oleg."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q2.b",
+                "textDe": "Mark ist der Name des Onkels."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q2.c",
+                "textDe": "Mark ist der Name eines Deutschkurses."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.syntax.q2.b",
+            "assessmentUnit": "Mark Name des Onkels",
+            "equivalenceKey": "sitov:a11-08-syntax-Mark Name des Onkels",
+            "sourceSpans": [
+              {
+                "start": 37,
+                "end": 59,
+                "quote": "Mein Onkel heißt Mark."
+              }
+            ],
+            "rationaleDe": "Heißt ordnet Mark dem Onkel als Namen zu; der Vater wird später Oleg genannt und ein Kurs wird hier nicht vorgestellt."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q3",
+            "competencyId": "sitov.pretest.a11-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wie steht der Onkel zum Kochen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.syntax.q3.a",
+                "textDe": "Er kann nach dem Satz gar nicht kochen."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q3.b",
+                "textDe": "Er macht es mit Freude."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q3.c",
+                "textDe": "Er macht es ausdrücklich ungern."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.syntax.q3.b",
+            "assessmentUnit": "gern positive Vorliebe Onkel",
+            "equivalenceKey": "sitov:a11-08-syntax-gern positive Vorliebe Onkel",
+            "sourceSpans": [
+              {
+                "start": 60,
+                "end": 74,
+                "quote": "Er kocht gern."
+              }
+            ],
+            "rationaleDe": "Gern drückt eine positive Vorliebe für das Kochen aus; Abneigung oder fehlende Fähigkeit wird damit nicht ausgesagt."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q4",
+            "competencyId": "sitov.pretest.a11-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer hört nach den beiden Sätzen gern Musik?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.syntax.q4.a",
+                "textDe": "Der Onkel Mark."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q4.b",
+                "textDe": "Der Vater Oleg."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q4.c",
+                "textDe": "Der Bruder als ausdrücklich genannter Musiker."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.syntax.q4.b",
+            "assessmentUnit": "Vater Musik Vorliebe",
+            "equivalenceKey": "sitov:a11-08-syntax-Vater Musik Vorliebe",
+            "sourceSpans": [
+              {
+                "start": 75,
+                "end": 117,
+                "quote": "Mein Vater heißt Oleg. Er hört gern Musik."
+              }
+            ],
+            "rationaleDe": "Er nimmt hier den unmittelbar zuvor genannten Vater Oleg auf; die Vorliebe wird nicht Mark oder dem Bruder zugeordnet."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q5",
+            "competencyId": "sitov.pretest.a11-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »wie ich« beim Deutschlernen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.syntax.q5.a",
+                "textDe": "Auch der Sprecher lernt Deutsch."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q5.b",
+                "textDe": "Der Bruder unterrichtet den Sprecher als Lehrer."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q5.c",
+                "textDe": "Der Sprecher lernt im Gegensatz zum Bruder kein Deutsch."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.syntax.q5.a",
+            "assessmentUnit": "wie ich gemeinsames Lernen",
+            "equivalenceKey": "sitov:a11-08-syntax-wie ich gemeinsames Lernen",
+            "sourceSpans": [
+              {
+                "start": 153,
+                "end": 178,
+                "quote": "Er lernt Deutsch wie ich."
+              }
+            ],
+            "rationaleDe": "Wie ich stellt die gleiche Lerntätigkeit beider Personen fest; weder ein Gegensatz noch eine Lehrerrolle wird behauptet."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q6",
+            "competencyId": "sitov.pretest.a11-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche zwei Tätigkeiten werden für »wir« verbunden?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.syntax.q6.a",
+                "textDe": "Musik hören und einkaufen."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q6.b",
+                "textDe": "Telefonieren und lachen."
+              },
+              {
+                "id": "sitov.pretest.a11-08.syntax.q6.c",
+                "textDe": "Kochen und schlafen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.syntax.q6.b",
+            "assessmentUnit": "Wir gemeinsame Tätigkeiten",
+            "equivalenceKey": "sitov:a11-08-syntax-Wir gemeinsame Tätigkeiten",
+            "sourceSpans": [
+              {
+                "start": 179,
+                "end": 216,
+                "quote": "Wir telefonieren oft und lachen viel."
+              }
+            ],
+            "rationaleDe": "Die beiden verbundenen Verben sind telefonieren und lachen; die anderen Tätigkeitspaare entsprechen diesem Satz nicht."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q1",
+            "competencyId": "sitov.pretest.a11-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welcher Artikel steht im Text direkt vor »Foto«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.nominal.q1.a",
+                "textDe": "einen"
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q1.b",
+                "textDe": "ein"
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q1.c",
+                "textDe": "eine"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.nominal.q1.b",
+            "assessmentUnit": "Foto neutrales unbestimmtes Artikelwort",
+            "equivalenceKey": "sitov:a11-08-nominal-Foto neutrales unbestimmtes Artikelwort",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 16,
+                "quote": "Das ist ein Foto"
+              }
+            ],
+            "rationaleDe": "Foto ist neutral und wird in dieser Aussage mit ein genannt; eine und einen sind hier nicht passende Formen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q2",
+            "competencyId": "sitov.pretest.a11-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt die Textstelle »von … Familie«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.nominal.q2.a",
+                "textDe": "meine"
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q2.b",
+                "textDe": "meiner"
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q2.c",
+                "textDe": "meinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.nominal.q2.b",
+            "assessmentUnit": "von meiner Dativ Familie",
+            "equivalenceKey": "sitov:a11-08-nominal-von meiner Dativ Familie",
+            "sourceSpans": [
+              {
+                "start": 17,
+                "end": 35,
+                "quote": "von meiner Familie"
+              }
+            ],
+            "rationaleDe": "Von verlangt den Dativ; bei der femininen Familie lautet das Besitzwort deshalb meiner statt meine oder meinen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q3",
+            "competencyId": "sitov.pretest.a11-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »… Onkel heißt Mark« für den Sprecher?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.nominal.q3.a",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q3.b",
+                "textDe": "Meine"
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q3.c",
+                "textDe": "Meinem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.nominal.q3.a",
+            "assessmentUnit": "Mein Onkel Nominativ",
+            "equivalenceKey": "sitov:a11-08-nominal-Mein Onkel Nominativ",
+            "sourceSpans": [
+              {
+                "start": 37,
+                "end": 59,
+                "quote": "Mein Onkel heißt Mark."
+              }
+            ],
+            "rationaleDe": "Onkel ist maskulin und Subjekt des Satzes; dafür steht mein, nicht die feminine Form meine oder der Dativ meinem."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q4",
+            "competencyId": "sitov.pretest.a11-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Wen bezeichnet »Er« im Satz unmittelbar nach »Mein Onkel heißt Mark«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.nominal.q4.a",
+                "textDe": "Den Onkel Mark."
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q4.b",
+                "textDe": "Den Vater Oleg."
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q4.c",
+                "textDe": "Den Bruder."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.nominal.q4.a",
+            "assessmentUnit": "Er Onkel als eindeutiger Bezug",
+            "equivalenceKey": "sitov:a11-08-nominal-Er Onkel als eindeutiger Bezug",
+            "sourceSpans": [
+              {
+                "start": 37,
+                "end": 74,
+                "quote": "Mein Onkel heißt Mark. Er kocht gern."
+              }
+            ],
+            "rationaleDe": "Der Bezug ist der direkt zuvor vorgestellte Onkel Mark; Vater und Bruder werden erst in späteren Sätzen eingeführt."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q5",
+            "competencyId": "sitov.pretest.a11-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Warum steht in der Altersangabe »Jahre« statt »Jahr«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.nominal.q5.a",
+                "textDe": "Jahre ist der Name des Bruders."
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q5.b",
+                "textDe": "Die Zahl zwanzig bezeichnet mehrere Jahre."
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q5.c",
+                "textDe": "Die Altersangabe bezeichnet genau ein Jahr."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.nominal.q5.b",
+            "assessmentUnit": "Jahre als Plural",
+            "equivalenceKey": "sitov:a11-08-nominal-Jahre als Plural",
+            "sourceSpans": [
+              {
+                "start": 134,
+                "end": 151,
+                "quote": "zwanzig Jahre alt"
+              }
+            ],
+            "rationaleDe": "Zwanzig verlangt hier die Mehrzahl Jahre; es ist weder ein Personenname noch eine Angabe für ein einzelnes Jahr."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q6",
+            "competencyId": "sitov.pretest.a11-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Personenrolle ist durch »wir« sicher eingeschlossen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-08.nominal.q6.a",
+                "textDe": "Der Sprecher zusammen mit mindestens einer weiteren Person."
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q6.b",
+                "textDe": "Nur Personen außerhalb der Gruppe des Sprechers."
+              },
+              {
+                "id": "sitov.pretest.a11-08.nominal.q6.c",
+                "textDe": "Nur eine einzelne Person, die nicht spricht."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-08.nominal.q6.a",
+            "assessmentUnit": "Wir schließt Sprecher ein",
+            "equivalenceKey": "sitov:a11-08-nominal-Wir schließt Sprecher ein",
+            "sourceSpans": [
+              {
+                "start": 179,
+                "end": 199,
+                "quote": "Wir telefonieren oft"
+              }
+            ],
+            "rationaleDe": "Wir ist die erste Person Plural und schließt den Sprecher ein; eine einzelne fremde Person oder eine Gruppe ohne ihn passt nicht."
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "past_tenses",
+            "reasonDe": "Der gespeicherte Text erzählt ausschließlich im Präsens; Vergangenheitsformen sind keine Voraussetzung für seine Aussagen."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Der gespeicherte Text enthält keine Steigerungsformen; ein Vergleich von Adjektiven wäre ein zusätzliches, nicht nötiges Lernziel."
+          },
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Im gespeicherten Text stehen keine Relativsätze; diese Satzart wird für das Verstehen seiner einfachen Hauptsätze nicht benötigt."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.pretest.a11-08.form1",
+            "questionIds": [
+              "sitov.pretest.a11-08.words.q1",
+              "sitov.pretest.a11-08.words.q2",
+              "sitov.pretest.a11-08.words.q3",
+              "sitov.pretest.a11-08.verbs.q1",
+              "sitov.pretest.a11-08.verbs.q2",
+              "sitov.pretest.a11-08.verbs.q3",
+              "sitov.pretest.a11-08.syntax.q1",
+              "sitov.pretest.a11-08.syntax.q2",
+              "sitov.pretest.a11-08.syntax.q3",
+              "sitov.pretest.a11-08.nominal.q1",
+              "sitov.pretest.a11-08.nominal.q2",
+              "sitov.pretest.a11-08.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.pretest.a11-08.form2",
+            "questionIds": [
+              "sitov.pretest.a11-08.words.q4",
+              "sitov.pretest.a11-08.words.q5",
+              "sitov.pretest.a11-08.words.q6",
+              "sitov.pretest.a11-08.verbs.q4",
+              "sitov.pretest.a11-08.verbs.q5",
+              "sitov.pretest.a11-08.verbs.q6",
+              "sitov.pretest.a11-08.syntax.q4",
+              "sitov.pretest.a11-08.syntax.q5",
+              "sitov.pretest.a11-08.syntax.q6",
+              "sitov.pretest.a11-08.nominal.q4",
+              "sitov.pretest.a11-08.nominal.q5",
+              "sitov.pretest.a11-08.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "unitId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "level": "A1.1",
+      "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a11-09.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Unterricht, tatsächliche Uhrzeit, Verkehrsplatz, Entfernung, Verkehrsmittel und Richtung des Wegtextes unterscheiden.",
+            "languageUnits": [
+              "Kurs als Unterricht",
+              "neun Uhr als Kurszeit",
+              "Haltestelle als Verkehrsplatz",
+              "nah als kurze Entfernung",
+              "Bus als Verkehrsmittel",
+              "rechts als Richtung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Mein Kurs beginnt um neun Uhr."
+              },
+              {
+                "start": 66,
+                "end": 90,
+                "quote": "Die Haltestelle ist nah."
+              },
+              {
+                "start": 91,
+                "end": 113,
+                "quote": "Ich fahre mit dem Bus."
+              },
+              {
+                "start": 141,
+                "end": 163,
+                "quote": "Die Schule ist rechts."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-09.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Präsensformen sowie die tatsächlich getrennte Form steige … aus in den realen Subjekten des Wegtextes erkennen.",
+            "languageUnits": [
+              "beginnen Kurs Singular",
+              "gehen erste Person",
+              "sein Haltestelle Singular",
+              "fahren lexikalische Grundform",
+              "aussteigen trennbare Grundform",
+              "warten Freund Singular"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Mein Kurs beginnt um neun Uhr."
+              },
+              {
+                "start": 31,
+                "end": 65,
+                "quote": "Ich gehe um acht Uhr aus dem Haus."
+              },
+              {
+                "start": 66,
+                "end": 90,
+                "quote": "Die Haltestelle ist nah."
+              },
+              {
+                "start": 91,
+                "end": 113,
+                "quote": "Ich fahre mit dem Bus."
+              },
+              {
+                "start": 114,
+                "end": 140,
+                "quote": "Am Bahnhof steige ich aus."
+              },
+              {
+                "start": 164,
+                "end": 195,
+                "quote": "Vor der Tür wartet mein Freund."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.trennbare-verben"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Weggeh- und Kurszeit, Herkunft, Verkehrsmittel, Ausstiegsort, nachgestelltes Subjekt und gemeinsame Bewegung nachvollziehen.",
+            "languageUnits": [
+              "Kurszeit und Weggehzeit trennen",
+              "aus dem Haus Herkunft",
+              "mit Bus Mittel",
+              "Bahnhof Ausstiegsort Satzklammer",
+              "Freund Subjekt nach Ortsangabe",
+              "zusammen hinein gemeinsame Bewegung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 65,
+                "quote": "Mein Kurs beginnt um neun Uhr. Ich gehe um acht Uhr aus dem Haus."
+              },
+              {
+                "start": 31,
+                "end": 65,
+                "quote": "Ich gehe um acht Uhr aus dem Haus."
+              },
+              {
+                "start": 91,
+                "end": 113,
+                "quote": "Ich fahre mit dem Bus."
+              },
+              {
+                "start": 114,
+                "end": 140,
+                "quote": "Am Bahnhof steige ich aus."
+              },
+              {
+                "start": 164,
+                "end": 195,
+                "quote": "Vor der Tür wartet mein Freund."
+              },
+              {
+                "start": 196,
+                "end": 222,
+                "quote": "Wir gehen zusammen hinein."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.trennbare-verben"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Maskuline Besitzform, Dativ nach aus/mit, Kontraktion am, lokalen Dativ der Tür und Sprecher-Freund-Bezug im Wegtext verstehen.",
+            "languageUnits": [
+              "Mein Kurs Besitz und Nominativ",
+              "aus dem Haus Dativ",
+              "mit dem Bus Dativ",
+              "Am Kontraktion Bahnhof",
+              "vor der Tür lokaler Dativ",
+              "Wir Sprecher und Freund"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Mein Kurs beginnt um neun Uhr."
+              },
+              {
+                "start": 52,
+                "end": 64,
+                "quote": "aus dem Haus"
+              },
+              {
+                "start": 101,
+                "end": 112,
+                "quote": "mit dem Bus"
+              },
+              {
+                "start": 114,
+                "end": 140,
+                "quote": "Am Bahnhof steige ich aus."
+              },
+              {
+                "start": 164,
+                "end": 195,
+                "quote": "Vor der Tür wartet mein Freund."
+              },
+              {
+                "start": 164,
+                "end": 222,
+                "quote": "Vor der Tür wartet mein Freund. Wir gehen zusammen hinein."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a11-09.words.q1",
+            "competencyId": "sitov.pretest.a11-09.words",
+            "kind": "single_choice",
+            "promptDe": "Was bezeichnet »Kurs« hier im Zusammenhang mit der Schule?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.words.q1.a",
+                "textDe": "Ein Geschäft für Lebensmittel."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q1.b",
+                "textDe": "Eine Fahrt als einzelnes Verkehrsmittel."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q1.c",
+                "textDe": "Eine Unterrichtsveranstaltung."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.words.q1.c",
+            "assessmentUnit": "Kurs als Unterricht",
+            "equivalenceKey": "sitov:a11-09-words-Kurs als Unterricht",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Mein Kurs beginnt um neun Uhr."
+              }
+            ],
+            "rationaleDe": "Im Schulzusammenhang bezeichnet Kurs eine Unterrichtsveranstaltung; Geschäft und Verkehrsmittel sind andere Bedeutungsbereiche."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q2",
+            "competencyId": "sitov.pretest.a11-09.words",
+            "kind": "single_choice",
+            "promptDe": "Zu welcher Uhrzeit beginnt der Kurs?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.words.q2.a",
+                "textDe": "Um 9 Uhr."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q2.b",
+                "textDe": "Um 8 Uhr."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q2.c",
+                "textDe": "Um 10 Uhr."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.words.q2.a",
+            "assessmentUnit": "neun Uhr als Kurszeit",
+            "equivalenceKey": "sitov:a11-09-words-neun Uhr als Kurszeit",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Mein Kurs beginnt um neun Uhr."
+              }
+            ],
+            "rationaleDe": "Neun entspricht 9; acht nennt später die Zeit des Weggehens, und zehn wird für den Kursbeginn nicht genannt."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q3",
+            "competencyId": "sitov.pretest.a11-09.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine »Haltestelle«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.words.q3.a",
+                "textDe": "Eine Tasche für Schulbücher."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q3.b",
+                "textDe": "Ein Raum, in dem der Kurs stattfindet."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q3.c",
+                "textDe": "Ein Ort, an dem man in einen Bus ein- oder aussteigen kann."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.words.q3.c",
+            "assessmentUnit": "Haltestelle als Verkehrsplatz",
+            "equivalenceKey": "sitov:a11-09-words-Haltestelle als Verkehrsplatz",
+            "sourceSpans": [
+              {
+                "start": 66,
+                "end": 90,
+                "quote": "Die Haltestelle ist nah."
+              }
+            ],
+            "rationaleDe": "Haltestelle bezeichnet den Halt eines Verkehrsmittels; Kursraum und Tasche sind andere Gegenstände."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q4",
+            "competencyId": "sitov.pretest.a11-09.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Entfernung drückt »nah« aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.words.q4.a",
+                "textDe": "Die Haltestelle ist sehr weit entfernt."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q4.b",
+                "textDe": "Die Haltestelle liegt immer rechts."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q4.c",
+                "textDe": "Die Haltestelle ist nicht weit entfernt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.words.q4.c",
+            "assessmentUnit": "nah als kurze Entfernung",
+            "equivalenceKey": "sitov:a11-09-words-nah als kurze Entfernung",
+            "sourceSpans": [
+              {
+                "start": 66,
+                "end": 90,
+                "quote": "Die Haltestelle ist nah."
+              }
+            ],
+            "rationaleDe": "Nah beschreibt eine kurze Entfernung; weit ist das Gegenteil, und eine Richtung wie rechts ist damit nicht festgelegt."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q5",
+            "competencyId": "sitov.pretest.a11-09.words",
+            "kind": "single_choice",
+            "promptDe": "Welches Verkehrsmittel nutzt der Sprecher?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.words.q5.a",
+                "textDe": "Ein Fahrrad."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q5.b",
+                "textDe": "Einen Bus."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q5.c",
+                "textDe": "Einen Zug."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.words.q5.b",
+            "assessmentUnit": "Bus als Verkehrsmittel",
+            "equivalenceKey": "sitov:a11-09-words-Bus als Verkehrsmittel",
+            "sourceSpans": [
+              {
+                "start": 91,
+                "end": 113,
+                "quote": "Ich fahre mit dem Bus."
+              }
+            ],
+            "rationaleDe": "Mit dem Bus nennt ausdrücklich das benutzte Verkehrsmittel; der später erwähnte Bahnhof beweist keine Fahrt mit dem Zug."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q6",
+            "competencyId": "sitov.pretest.a11-09.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Richtung bezeichnet »rechts« bei der Schule?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.words.q6.a",
+                "textDe": "Die linke Seite."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q6.b",
+                "textDe": "Die rechte Seite."
+              },
+              {
+                "id": "sitov.pretest.a11-09.words.q6.c",
+                "textDe": "Eine Uhrzeit."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.words.q6.b",
+            "assessmentUnit": "rechts als Richtung",
+            "equivalenceKey": "sitov:a11-09-words-rechts als Richtung",
+            "sourceSpans": [
+              {
+                "start": 141,
+                "end": 163,
+                "quote": "Die Schule ist rechts."
+              }
+            ],
+            "rationaleDe": "Rechts bezeichnet eine Seite beziehungsweise Richtung; links ist die Gegenseite, und eine Uhrzeit wird damit nicht angegeben."
+          },
+          {
+            "id": "sitov.pretest.a11-09.verbs.q1",
+            "competencyId": "sitov.pretest.a11-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »beginnt« beim Kurs?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.verbs.q1.a",
+                "textDe": "beginnen"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q1.b",
+                "textDe": "bringen"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q1.c",
+                "textDe": "bleiben"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.verbs.q1.a",
+            "assessmentUnit": "beginnen Kurs Singular",
+            "equivalenceKey": "sitov:a11-09-verbs-beginnen Kurs Singular",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Mein Kurs beginnt um neun Uhr."
+              }
+            ],
+            "rationaleDe": "Beginnt ist eine Präsensform von beginnen und bezeichnet den Start des Kurses; bringen und bleiben sind andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a11-09.verbs.q2",
+            "competencyId": "sitov.pretest.a11-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich … um acht Uhr aus dem Haus«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.verbs.q2.a",
+                "textDe": "gehen"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q2.b",
+                "textDe": "gehst"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q2.c",
+                "textDe": "gehe"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.verbs.q2.c",
+            "assessmentUnit": "gehen erste Person",
+            "equivalenceKey": "sitov:a11-09-verbs-gehen erste Person",
+            "sourceSpans": [
+              {
+                "start": 31,
+                "end": 65,
+                "quote": "Ich gehe um acht Uhr aus dem Haus."
+              }
+            ],
+            "rationaleDe": "Zum Subjekt ich gehört gehe; gehst gehört zu du und gehen ist hier keine passende ich-Form."
+          },
+          {
+            "id": "sitov.pretest.a11-09.verbs.q3",
+            "competencyId": "sitov.pretest.a11-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Verbform passt zu »Die Haltestelle … nah«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.verbs.q3.a",
+                "textDe": "bin"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q3.b",
+                "textDe": "ist"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q3.c",
+                "textDe": "sind"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.verbs.q3.b",
+            "assessmentUnit": "sein Haltestelle Singular",
+            "equivalenceKey": "sitov:a11-09-verbs-sein Haltestelle Singular",
+            "sourceSpans": [
+              {
+                "start": 66,
+                "end": 90,
+                "quote": "Die Haltestelle ist nah."
+              }
+            ],
+            "rationaleDe": "Die einzelne Haltestelle verlangt ist; sind bezeichnet Mehrzahl, bin gehört zur ersten Person Singular."
+          },
+          {
+            "id": "sitov.pretest.a11-09.verbs.q4",
+            "competencyId": "sitov.pretest.a11-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zum Verb in »Ich fahre mit dem Bus«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.verbs.q4.a",
+                "textDe": "fragen"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q4.b",
+                "textDe": "fahren"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q4.c",
+                "textDe": "fallen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.verbs.q4.b",
+            "assessmentUnit": "fahren lexikalische Grundform",
+            "equivalenceKey": "sitov:a11-09-verbs-fahren lexikalische Grundform",
+            "sourceSpans": [
+              {
+                "start": 91,
+                "end": 113,
+                "quote": "Ich fahre mit dem Bus."
+              }
+            ],
+            "rationaleDe": "Fahre ist die ich-Form von fahren; fragen und fallen haben andere Bedeutungen und andere Präsensformen."
+          },
+          {
+            "id": "sitov.pretest.a11-09.verbs.q5",
+            "competencyId": "sitov.pretest.a11-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »steige … aus«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.verbs.q5.a",
+                "textDe": "steigen"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q5.b",
+                "textDe": "aussteigen"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q5.c",
+                "textDe": "einsteigen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.verbs.q5.b",
+            "assessmentUnit": "aussteigen trennbare Grundform",
+            "equivalenceKey": "sitov:a11-09-verbs-aussteigen trennbare Grundform",
+            "sourceSpans": [
+              {
+                "start": 114,
+                "end": 140,
+                "quote": "Am Bahnhof steige ich aus."
+              }
+            ],
+            "rationaleDe": "Die beiden getrennten Teile bilden aussteigen; einsteigen beschreibt die Gegenrichtung und steigen allein lässt das aus weg."
+          },
+          {
+            "id": "sitov.pretest.a11-09.verbs.q6",
+            "competencyId": "sitov.pretest.a11-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Vor der Tür … mein Freund«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.verbs.q6.a",
+                "textDe": "warten"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q6.b",
+                "textDe": "warte"
+              },
+              {
+                "id": "sitov.pretest.a11-09.verbs.q6.c",
+                "textDe": "wartet"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.verbs.q6.c",
+            "assessmentUnit": "warten Freund Singular",
+            "equivalenceKey": "sitov:a11-09-verbs-warten Freund Singular",
+            "sourceSpans": [
+              {
+                "start": 164,
+                "end": 195,
+                "quote": "Vor der Tür wartet mein Freund."
+              }
+            ],
+            "rationaleDe": "Mein Freund ist ein einzelnes Subjekt in der dritten Person, daher wartet; warten und warte passen nicht zu dieser Person."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q1",
+            "competencyId": "sitov.pretest.a11-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche zeitliche Reihenfolge geben die beiden Sätze an?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.syntax.q1.a",
+                "textDe": "Der Sprecher geht erst nach dem Kursbeginn aus dem Haus."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q1.b",
+                "textDe": "Der Kurs beginnt um acht; der Sprecher geht um neun weg."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q1.c",
+                "textDe": "Der Sprecher geht um acht weg; der Kurs beginnt um neun."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.syntax.q1.c",
+            "assessmentUnit": "Kurszeit und Weggehzeit trennen",
+            "equivalenceKey": "sitov:a11-09-syntax-Kurszeit und Weggehzeit trennen",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 65,
+                "quote": "Mein Kurs beginnt um neun Uhr. Ich gehe um acht Uhr aus dem Haus."
+              }
+            ],
+            "rationaleDe": "Acht ist die Zeit des Weggehens und neun der spätere Kursbeginn; die anderen Antworten vertauschen oder verschieben diese Angaben."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q2",
+            "competencyId": "sitov.pretest.a11-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was drückt »aus dem Haus« beim Gehen aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.syntax.q2.a",
+                "textDe": "Der Sprecher geht in das Haus hinein."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q2.b",
+                "textDe": "Der Sprecher bleibt nach dem Satz im Haus."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q2.c",
+                "textDe": "Der Sprecher verlässt das Haus."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.syntax.q2.c",
+            "assessmentUnit": "aus dem Haus Herkunft",
+            "equivalenceKey": "sitov:a11-09-syntax-aus dem Haus Herkunft",
+            "sourceSpans": [
+              {
+                "start": 31,
+                "end": 65,
+                "quote": "Ich gehe um acht Uhr aus dem Haus."
+              }
+            ],
+            "rationaleDe": "Aus nennt hier die Bewegung vom Inneren nach draußen; hineingehen oder bleiben wäre eine andere Bewegungsrichtung."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q3",
+            "competencyId": "sitov.pretest.a11-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Rolle hat »mit dem Bus« im Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.syntax.q3.a",
+                "textDe": "Es nennt die Uhrzeit des Kursbeginns."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q3.b",
+                "textDe": "Es nennt den Namen des Freundes."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q3.c",
+                "textDe": "Es nennt das benutzte Verkehrsmittel."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.syntax.q3.c",
+            "assessmentUnit": "mit Bus Mittel",
+            "equivalenceKey": "sitov:a11-09-syntax-mit Bus Mittel",
+            "sourceSpans": [
+              {
+                "start": 91,
+                "end": 113,
+                "quote": "Ich fahre mit dem Bus."
+              }
+            ],
+            "rationaleDe": "Mit dem Bus beschreibt, wie der Sprecher fährt; weder eine Uhrzeit noch ein Personenname wird damit angegeben."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q4",
+            "competencyId": "sitov.pretest.a11-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wo steigt der Sprecher nach diesem Satz aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.syntax.q4.a",
+                "textDe": "Am Bahnhof."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q4.b",
+                "textDe": "Im Unterrichtsraum."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q4.c",
+                "textDe": "Vor der Haustür als ausdrücklich genannter Ausstiegsort."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.syntax.q4.a",
+            "assessmentUnit": "Bahnhof Ausstiegsort Satzklammer",
+            "equivalenceKey": "sitov:a11-09-syntax-Bahnhof Ausstiegsort Satzklammer",
+            "sourceSpans": [
+              {
+                "start": 114,
+                "end": 140,
+                "quote": "Am Bahnhof steige ich aus."
+              }
+            ],
+            "rationaleDe": "Die vorangestellte Ortsangabe Am Bahnhof gehört zum Aussteigen; Haustür und Unterrichtsraum sind hier keine Ausstiegsorte."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q5",
+            "competencyId": "sitov.pretest.a11-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer wartet vor der Tür?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.syntax.q5.a",
+                "textDe": "Die Tür selbst."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q5.b",
+                "textDe": "Der Bus als wartende Person."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q5.c",
+                "textDe": "Der Freund des Sprechers."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.syntax.q5.c",
+            "assessmentUnit": "Freund Subjekt nach Ortsangabe",
+            "equivalenceKey": "sitov:a11-09-syntax-Freund Subjekt nach Ortsangabe",
+            "sourceSpans": [
+              {
+                "start": 164,
+                "end": 195,
+                "quote": "Vor der Tür wartet mein Freund."
+              }
+            ],
+            "rationaleDe": "Mein Freund ist das Subjekt hinter dem Verb wartet; Tür bezeichnet den Ort und Bus ist nicht als handelnde Person genannt."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q6",
+            "competencyId": "sitov.pretest.a11-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was tun die mit »wir« bezeichneten Personen am Ende?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.syntax.q6.a",
+                "textDe": "Sie gehen gemeinsam nach innen."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q6.b",
+                "textDe": "Sie gehen getrennt nach draußen."
+              },
+              {
+                "id": "sitov.pretest.a11-09.syntax.q6.c",
+                "textDe": "Sie bleiben beide im Bus sitzen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.syntax.q6.a",
+            "assessmentUnit": "zusammen hinein gemeinsame Bewegung",
+            "equivalenceKey": "sitov:a11-09-syntax-zusammen hinein gemeinsame Bewegung",
+            "sourceSpans": [
+              {
+                "start": 196,
+                "end": 222,
+                "quote": "Wir gehen zusammen hinein."
+              }
+            ],
+            "rationaleDe": "Zusammen bezeichnet die gemeinsame Handlung und hinein die Bewegung nach innen; getrennt, hinaus und sitzen widersprechen dem Satz."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q1",
+            "competencyId": "sitov.pretest.a11-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Besitzform ergänzt »… Kurs beginnt um neun Uhr«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.nominal.q1.a",
+                "textDe": "Meinem"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q1.b",
+                "textDe": "Meine"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q1.c",
+                "textDe": "Mein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.nominal.q1.c",
+            "assessmentUnit": "Mein Kurs Besitz und Nominativ",
+            "equivalenceKey": "sitov:a11-09-nominal-Mein Kurs Besitz und Nominativ",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Mein Kurs beginnt um neun Uhr."
+              }
+            ],
+            "rationaleDe": "Der maskuline Kurs steht als Subjekt, deshalb mein; meine und meinem entsprechen hier nicht der Form des Textes."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q2",
+            "competencyId": "sitov.pretest.a11-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt die Textstelle »aus … Haus«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.nominal.q2.a",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q2.b",
+                "textDe": "der"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q2.c",
+                "textDe": "dem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.nominal.q2.c",
+            "assessmentUnit": "aus dem Haus Dativ",
+            "equivalenceKey": "sitov:a11-09-nominal-aus dem Haus Dativ",
+            "sourceSpans": [
+              {
+                "start": 52,
+                "end": 64,
+                "quote": "aus dem Haus"
+              }
+            ],
+            "rationaleDe": "Aus verlangt Dativ; beim neutralen Haus lautet der Artikel dem, nicht den oder der."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q3",
+            "competencyId": "sitov.pretest.a11-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form steht im Text zwischen »mit« und »Bus«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.nominal.q3.a",
+                "textDe": "das"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q3.b",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q3.c",
+                "textDe": "dem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.nominal.q3.c",
+            "assessmentUnit": "mit dem Bus Dativ",
+            "equivalenceKey": "sitov:a11-09-nominal-mit dem Bus Dativ",
+            "sourceSpans": [
+              {
+                "start": 101,
+                "end": 112,
+                "quote": "mit dem Bus"
+              }
+            ],
+            "rationaleDe": "Mit verlangt Dativ und Bus ist maskulin; deshalb steht dem statt den oder das."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q4",
+            "competencyId": "sitov.pretest.a11-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wörter stecken in »Am Bahnhof«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.nominal.q4.a",
+                "textDe": "an dem Bahnhof"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q4.b",
+                "textDe": "an den Bahnhof"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q4.c",
+                "textDe": "an der Bahnhof"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.nominal.q4.a",
+            "assessmentUnit": "Am Kontraktion Bahnhof",
+            "equivalenceKey": "sitov:a11-09-nominal-Am Kontraktion Bahnhof",
+            "sourceSpans": [
+              {
+                "start": 114,
+                "end": 140,
+                "quote": "Am Bahnhof steige ich aus."
+              }
+            ],
+            "rationaleDe": "Am verbindet an und dem und nennt hier einen Ort; an den und an der sind nicht die Auflösung dieser Form."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q5",
+            "competencyId": "sitov.pretest.a11-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt den festen Ort »Vor … Tür wartet mein Freund«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.nominal.q5.a",
+                "textDe": "der"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q5.b",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q5.c",
+                "textDe": "die"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.nominal.q5.a",
+            "assessmentUnit": "vor der Tür lokaler Dativ",
+            "equivalenceKey": "sitov:a11-09-nominal-vor der Tür lokaler Dativ",
+            "sourceSpans": [
+              {
+                "start": 164,
+                "end": 195,
+                "quote": "Vor der Tür wartet mein Freund."
+              }
+            ],
+            "rationaleDe": "Beim Warten wird ein Ort beschrieben; die feminine Tür steht nach vor im Dativ mit der, nicht die oder den."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q6",
+            "competencyId": "sitov.pretest.a11-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Wen bezeichnet »wir« im anschließenden Satz am naheliegenden Textanschluss?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-09.nominal.q6.a",
+                "textDe": "Nur den Freund ohne den Sprecher."
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q6.b",
+                "textDe": "Den Sprecher und seinen Freund gemeinsam."
+              },
+              {
+                "id": "sitov.pretest.a11-09.nominal.q6.c",
+                "textDe": "Nur den Busfahrer als einzelne Person."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-09.nominal.q6.b",
+            "assessmentUnit": "Wir Sprecher und Freund",
+            "equivalenceKey": "sitov:a11-09-nominal-Wir Sprecher und Freund",
+            "sourceSpans": [
+              {
+                "start": 164,
+                "end": 222,
+                "quote": "Vor der Tür wartet mein Freund. Wir gehen zusammen hinein."
+              }
+            ],
+            "rationaleDe": "Nach dem Treffen mit dem Freund verbindet wir beide Personen einschließlich des Sprechers; eine einzelne Person reicht dafür nicht."
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "past_tenses",
+            "reasonDe": "Der gespeicherte Text erzählt ausschließlich im Präsens; Vergangenheitsformen sind keine Voraussetzung für seine Aussagen."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Der gespeicherte Text enthält keine Steigerungsformen; ein Vergleich von Adjektiven wäre ein zusätzliches, nicht nötiges Lernziel."
+          },
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Im gespeicherten Text stehen keine Relativsätze; diese Satzart wird für das Verstehen seiner einfachen Hauptsätze nicht benötigt."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.pretest.a11-09.form1",
+            "questionIds": [
+              "sitov.pretest.a11-09.words.q1",
+              "sitov.pretest.a11-09.words.q2",
+              "sitov.pretest.a11-09.words.q3",
+              "sitov.pretest.a11-09.verbs.q1",
+              "sitov.pretest.a11-09.verbs.q2",
+              "sitov.pretest.a11-09.verbs.q3",
+              "sitov.pretest.a11-09.syntax.q1",
+              "sitov.pretest.a11-09.syntax.q2",
+              "sitov.pretest.a11-09.syntax.q3",
+              "sitov.pretest.a11-09.nominal.q1",
+              "sitov.pretest.a11-09.nominal.q2",
+              "sitov.pretest.a11-09.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.pretest.a11-09.form2",
+            "questionIds": [
+              "sitov.pretest.a11-09.words.q4",
+              "sitov.pretest.a11-09.words.q5",
+              "sitov.pretest.a11-09.words.q6",
+              "sitov.pretest.a11-09.verbs.q4",
+              "sitov.pretest.a11-09.verbs.q5",
+              "sitov.pretest.a11-09.verbs.q6",
+              "sitov.pretest.a11-09.syntax.q4",
+              "sitov.pretest.a11-09.syntax.q5",
+              "sitov.pretest.a11-09.syntax.q6",
+              "sitov.pretest.a11-09.nominal.q4",
+              "sitov.pretest.a11-09.nominal.q5",
+              "sitov.pretest.a11-09.nominal.q6"
+            ]
+          }
+        ]
+      }
     }
   ],
   "inventory": [
@@ -6495,7 +9622,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -6510,7 +9637,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -6525,7 +9652,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": null,
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
