@@ -70,6 +70,8 @@ function SitovPretestSession({ entry: rawEntry, lang, onStart, onResume, onSave,
   const result = completed?.result
   const canOpen = !blocked && (result?.passed ? Boolean(result.proof) : !completed && entry.success && entry.data.status === 'passed')
   const attemptId = open?.attempt.id ?? (entry.success ? entry.data.attempt?.id : undefined)
+  const resumeExisting = !completed && entry.success && Boolean(attemptId)
+    && (entry.data.status === 'in_progress' || entry.data.status === 'failed')
 
   async function run(operation: Operation) {
     if (!entry.success || requestBusy.current || blocked) return
@@ -157,8 +159,8 @@ function SitovPretestSession({ entry: rawEntry, lang, onStart, onResume, onSave,
       {!error.retryable && !attemptId && !blocked && <PressableCard onClick={onRefresh}>{copy.refresh}</PressableCard>}
     </div>}
     {blocked ? <PressableCard onClick={onRefresh}>{copy.refresh}</PressableCard> : !open && !error && <PressableCard ref={startAction} disabled={busy}
-      onClick={() => canOpen ? void run({ kind: 'open' }) : !completed && entry.success && entry.data.status === 'in_progress' && attemptId ? void run({ kind: 'resume', id: attemptId }) : start()}>
-      {busy ? copy.loading : canOpen ? copy.open : !completed && entry.success && entry.data.status === 'in_progress' ? copy.resume : result ? copy.retry : copy.start}
+      onClick={() => canOpen ? void run({ kind: 'open' }) : resumeExisting && attemptId ? void run({ kind: 'resume', id: attemptId }) : start()}>
+      {busy ? copy.loading : canOpen ? copy.open : resumeExisting ? copy.resume : result ? copy.retry : copy.start}
     </PressableCard>}
     <section aria-label={copy.helpTitle}><SitovTrainerHelp title={copy.help}><h3>{copy.helpTitle}</h3><p>{copy.helpBody}</p></SitovTrainerHelp></section>
   </SitovMotionStage>

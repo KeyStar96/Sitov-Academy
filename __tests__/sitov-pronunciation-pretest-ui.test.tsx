@@ -187,3 +187,60 @@ it.each(sitovLinkCases)('retains exact recommendations and explicit retake after
   expect(p.onStart).toHaveBeenCalledWith({ textId, requestId: expect.any(String) })
   expect(p.onOpenText).not.toHaveBeenCalled(); expect(p.onSave).not.toHaveBeenCalled()
 })
+
+
+it.each(['de', 'en', 'ru', 'uk', 'tr'])('loads the saved failed catalog result on autoStart in %s before any explicit retake', async lang => {
+  const p = props(), copy = sitovPronunciationPretestCopy(lang), failed = sitovFailedResult(sitovExactLinks)
+  p.entry = { ...p.entry, status: 'failed', target: 'pretest', attempt: failed.attempt }
+  ;(p.onResume as jest.Mock).mockResolvedValue({ ok: true, data: failed })
+  const view = render(<SitovPronunciationPretest {...p} lang={lang} autoStart />)
+  await screen.findByRole('heading', { name: copy.failed })
+  expect(p.onResume).toHaveBeenCalledTimes(1)
+  expect(p.onResume).toHaveBeenCalledWith(attemptId)
+  const nav = screen.getByRole('navigation', { name: copy.learning })
+  expect(within(nav).getAllByRole('link')).toHaveLength(3)
+  for (const link of sitovExactLinks) expect(within(nav).getByRole('link', { name: copy[link.kind] })).toHaveAttribute('href', link.href.replace(/^\/de\//, `/${lang}/`))
+  expect(p.onStart).not.toHaveBeenCalled(); expect(p.onSave).not.toHaveBeenCalled()
+  expect(p.onSubmit).not.toHaveBeenCalled(); expect(p.onOpenText).not.toHaveBeenCalled()
+  expect(screen.queryByRole('radio')).not.toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: copy.open })).not.toBeInTheDocument()
+  expect(view.container.querySelector('audio, video')).toBeNull()
+  view.rerender(<SitovPronunciationPretest {...p} lang={lang} autoStart />)
+  expect(p.onStart).not.toHaveBeenCalled(); expect(p.onResume).toHaveBeenCalledTimes(1)
+  fireEvent.click(screen.getByRole('button', { name: copy.retry }))
+  const question = await screen.findByText('Wähle Antwort 1.')
+  expect(question).toHaveAttribute('lang', 'de'); expect(question).toHaveAttribute('translate', 'no')
+  expect(p.onStart).toHaveBeenCalledTimes(1)
+  expect(p.onStart).toHaveBeenCalledWith({ textId, requestId: expect.any(String) })
+  expect(p.onOpenText).not.toHaveBeenCalled(); expect(p.onSave).not.toHaveBeenCalled()
+})
+it('offers the existing resume label for a failed entry and waits for a manual click when autoStart is absent', async () => {
+  const p = props(), failed = sitovFailedResult([])
+  p.entry = { ...p.entry, status: 'failed', target: 'pretest', attempt: failed.attempt }
+  ;(p.onResume as jest.Mock).mockResolvedValue({ ok: true, data: failed })
+  render(<SitovPronunciationPretest {...p} />)
+  expect(p.onResume).not.toHaveBeenCalled(); expect(p.onStart).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: 'Resume pretest' }))
+  await screen.findByRole('heading', { name: 'Not passed yet' })
+  expect(screen.getByRole('button', { name: 'Try again' })).toBeEnabled()
+  expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
+  expect(p.onResume).toHaveBeenCalledWith(attemptId); expect(p.onStart).not.toHaveBeenCalled()
+})
+it.each(['text', 'textVersion', 'testVersion', 'attempt', 'auth'] as const)('never renders a foreign result or starts a fallback after failed-entry resume %s failure', async failure => {
+  const p = props(), failed = sitovFailedResult(sitovExactLinks), response: SitovPronunciationPretestCompletedAttempt = JSON.parse(JSON.stringify(failed))
+  p.entry = { ...p.entry, status: 'failed', target: 'pretest', attempt: failed.attempt }
+  const other = '00000000-0000-4000-8000-000000000009'
+  if (failure === 'text') { response.attempt.textId = other; response.result.textId = other }
+  if (failure === 'textVersion') { response.attempt.textVersion = 'c'.repeat(64); response.result.textVersion = 'c'.repeat(64) }
+  if (failure === 'testVersion') { response.attempt.testVersion = 'c'.repeat(64); response.result.testVersion = 'c'.repeat(64) }
+  if (failure === 'attempt') { response.attempt.id = other; response.result.attemptId = other }
+  ;(p.onResume as jest.Mock).mockResolvedValue(failure === 'auth' ? { ok: false, error: 'authentication_required', retryable: false } : { ok: true, data: response })
+  render(<SitovPronunciationPretest {...p} autoStart />)
+  await screen.findByRole('alert')
+  expect(p.onResume).toHaveBeenCalledWith(attemptId)
+  expect(screen.queryByRole('heading', { name: 'Not passed yet' })).not.toBeInTheDocument()
+  expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
+  expect(screen.queryByRole('radio')).not.toBeInTheDocument()
+  expect(p.onStart).not.toHaveBeenCalled(); expect(p.onSave).not.toHaveBeenCalled()
+  expect(p.onSubmit).not.toHaveBeenCalled(); expect(p.onOpenText).not.toHaveBeenCalled()
+})
