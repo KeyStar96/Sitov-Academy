@@ -8194,7 +8194,7 @@
                 "wäre gern"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Es ist heiß. Lena … jetzt gern im Schwimmbad.",
+              "question": "Es ist heiß. Leon … jetzt gern im Schwimmbad.",
               "options": [
                 "würde",
                 "hätte",
@@ -8216,25 +8216,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
                 "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
-                "task": "It is hot. Lena would like to be at the swimming pool now."
+                "task": "It is hot. Leon would like to be at the swimming pool now."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
                 "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
-                "task": "Жарко. Lena хотела бы сейчас быть в бассейне."
+                "task": "Жарко. Leon хотел бы сейчас быть в бассейне."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
                 "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
-                "task": "Спекотно. Lena хотіла б зараз бути в басейні."
+                "task": "Спекотно. Leon хотів би зараз бути в басейні."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
                 "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
-                "task": "Hava sıcak. Lena şimdi yüzme havuzunda olmak isterdi."
+                "task": "Hava sıcak. Leon şimdi yüzme havuzunda olmak isterdi."
               }
             }
           },
@@ -11033,7 +11033,7 @@
                 "ein -es"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena kauft ein … Kleid.",
+              "question": "Leon kauft ein … Kleid.",
               "options": [
                 "roten",
                 "roter",
@@ -11055,25 +11055,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Accusative: der → einen …-en. das → ein …-es. die → eine …-e.",
                 "explanation": "In the accusative only the masculine changes: einen neuen Laden (-en). Neuter, feminine and plural stay as in the nominative: ein schönes Licht, eine schöne Wohnung, braune Möbel. After meine, keine in the plural: meine braunen Möbel. The accusative follows verbs such as haben, kaufen, suchen, brauchen, finden and the prepositions für and ohne.",
-                "task": "Lena is buying a red dress."
+                "task": "Leon is buying a red dress."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Akkusativ (кого? что?): der → einen …-en. das → ein …-es. die → eine …-e.",
                 "explanation": "В Akkusativ меняется только мужской род: einen neuen Laden (-en). Средний, женский род и множественное число остаются как в Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. После meine, keine во множественном числе: meine braunen Möbel. Akkusativ стоит после глаголов haben, kaufen, suchen, brauchen, finden и после für и ohne.",
-                "task": "Lena покупает красное платье."
+                "task": "Leon покупает красное платье."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Akkusativ (кого? що?): der → einen …-en. das → ein …-es. die → eine …-e.",
                 "explanation": "В Akkusativ змінюється лише чоловічий рід: einen neuen Laden (-en). Середній, жіночий рід і множина залишаються як у Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. Після meine, keine у множині: meine braunen Möbel. Akkusativ стоїть після дієслів haben, kaufen, suchen, brauchen, finden і після für та ohne.",
-                "task": "Lena купує червону сукню."
+                "task": "Leon купує червону сукню."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Akkusativ (kimi? neyi?): der → einen …-en. das → ein …-es. die → eine …-e.",
                 "explanation": "Akkusativ’de yalnızca eril değişir: einen neuen Laden (-en). Nötr, dişil ve çoğul Nominativ’deki gibi kalır: ein schönes Licht, eine schöne Wohnung, braune Möbel. Çoğulda meine, keine sözcüklerinden sonra: meine braunen Möbel. Akkusativ haben, kaufen, suchen, brauchen, finden gibi fiillerden ve für ile ohne edatlarından sonra gelir.",
-                "task": "Lena kırmızı bir elbise alıyor."
+                "task": "Leon kırmızı bir elbise alıyor."
               }
             }
           },
@@ -11361,7 +11361,7 @@
                 "eine -e"
               ],
               "instruction": "Ergänze das Wort mit der richtigen Endung.",
-              "text_before": "Mia trägt heute eine ",
+              "text_before": "Milan trägt heute eine ",
               "text_after": " Kette.",
               "gap_hint": "lang",
               "correct_answer": "lange",
@@ -11385,25 +11385,25 @@
                 "instruction": "Fill in the word with the correct ending.",
                 "hint": "Accusative: der → einen …-en. das → ein …-es. die → eine …-e.",
                 "explanation": "In the accusative only the masculine changes: einen neuen Laden (-en). Neuter, feminine and plural stay as in the nominative: ein schönes Licht, eine schöne Wohnung, braune Möbel. After meine, keine in the plural: meine braunen Möbel. The accusative follows verbs such as haben, kaufen, suchen, brauchen, finden and the prepositions für and ohne.",
-                "task": "Mia is wearing a long necklace today."
+                "task": "Milan is wearing a long necklace today."
               },
               "ru": {
                 "instruction": "Вставьте слово с правильным окончанием.",
                 "hint": "Akkusativ (кого? что?): der → einen …-en. das → ein …-es. die → eine …-e.",
                 "explanation": "В Akkusativ меняется только мужской род: einen neuen Laden (-en). Средний, женский род и множественное число остаются как в Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. После meine, keine во множественном числе: meine braunen Möbel. Akkusativ стоит после глаголов haben, kaufen, suchen, brauchen, finden и после für и ohne.",
-                "task": "Сегодня на Mia длинная цепочка."
+                "task": "Сегодня на Milan длинная цепочка."
               },
               "uk": {
                 "instruction": "Вставте слово з правильним закінченням.",
                 "hint": "Akkusativ (кого? що?): der → einen …-en. das → ein …-es. die → eine …-e.",
                 "explanation": "В Akkusativ змінюється лише чоловічий рід: einen neuen Laden (-en). Середній, жіночий рід і множина залишаються як у Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. Після meine, keine у множині: meine braunen Möbel. Akkusativ стоїть після дієслів haben, kaufen, suchen, brauchen, finden і після für та ohne.",
-                "task": "Сьогодні на Mia довгий ланцюжок."
+                "task": "Сьогодні на Milan довгий ланцюжок."
               },
               "tr": {
                 "instruction": "Kelimeyi doğru ekle yazın.",
                 "hint": "Akkusativ (kimi? neyi?): der → einen …-en. das → ein …-es. die → eine …-e.",
                 "explanation": "Akkusativ’de yalnızca eril değişir: einen neuen Laden (-en). Nötr, dişil ve çoğul Nominativ’deki gibi kalır: ein schönes Licht, eine schöne Wohnung, braune Möbel. Çoğulda meine, keine sözcüklerinden sonra: meine braunen Möbel. Akkusativ haben, kaufen, suchen, brauchen, finden gibi fiillerden ve für ile ohne edatlarından sonra gelir.",
-                "task": "Mia bugün uzun bir kolye takıyor."
+                "task": "Milan bugün uzun bir kolye takıyor."
               }
             }
           },
@@ -18168,7 +18168,7 @@
                 "am meisten"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena kauft sehr oft Bücher. Sie sagt: „Am … gebe ich für Bücher aus.“",
+              "question": "Leon kauft sehr oft Bücher. Er sagt: „Am … gebe ich für Bücher aus.“",
               "options": [
                 "besten",
                 "liebsten",
@@ -18190,25 +18190,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Geld ausgeben für (spend money on) + accusative. viel – mehr – am meisten. sparen = spend little money.",
                 "explanation": "Talking about shopping and money: Geld ausgeben für + accusative (spend money on) – Am meisten gebe ich für meine Miete aus. (I spend most on my rent.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (I save there.) Ich kaufe am liebsten auf dem Markt ein. (I like shopping at the market best.) Comparing: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Lena buys books very often. She says: “I spend most on books.”"
+                "task": "Leon buys books very often. He says: “I spend most on books.”"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Geld ausgeben für (тратить деньги на) + Akkusativ. viel – mehr – am meisten. sparen = тратить мало денег.",
                 "explanation": "Как говорить о покупках и деньгах: Geld ausgeben für + Akkusativ (тратить деньги на) – Am meisten gebe ich für meine Miete aus. (Больше всего я трачу на аренду.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (На этом я экономлю.) Ich kaufe am liebsten auf dem Markt ein. (Больше всего я люблю покупать на рынке.) Сравнение: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Lena очень часто покупает книги. Она говорит: «Больше всего я трачу на книги»."
+                "task": "Leon очень часто покупает книги. Он говорит: «Больше всего я трачу на книги»."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Geld ausgeben für (витрачати гроші на) + Akkusativ. viel – mehr – am meisten. sparen = витрачати мало грошей.",
                 "explanation": "Як говорити про покупки й гроші: Geld ausgeben für + Akkusativ (витрачати гроші на) – Am meisten gebe ich für meine Miete aus. (Найбільше я витрачаю на оренду.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (На цьому я заощаджую.) Ich kaufe am liebsten auf dem Markt ein. (Найбільше я люблю купувати на ринку.) Порівняння: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Lena дуже часто купує книжки. Вона каже: «Найбільше я витрачаю на книжки»."
+                "task": "Leon дуже часто купує книжки. Він каже: «Найбільше я витрачаю на книжки»."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Geld ausgeben für (… için para harcamak) + Akkusativ. viel – mehr – am meisten. sparen = az para harcamak.",
                 "explanation": "Alışveriş ve paradan söz etmek: Geld ausgeben für + Akkusativ (… için para harcamak) – Am meisten gebe ich für meine Miete aus. (En çok kiraya para harcıyorum.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (Orada tasarruf ediyorum.) Ich kaufe am liebsten auf dem Markt ein. (En çok pazardan alışveriş yapmayı severim.) Karşılaştırma: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Lena çok sık kitap alıyor. Diyor ki: “En çok kitaplara para harcıyorum.”"
+                "task": "Leon çok sık kitap alıyor. Diyor ki: “En çok kitaplara para harcıyorum.”"
               }
             }
           },
@@ -28713,7 +28713,7 @@
                 "Vielen Dank"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Hallo Mia, vielen ",
+              "text_before": "Hallo Milan, vielen ",
               "text_after": " für deine Nachricht!",
               "correct_answer": "Dank",
               "options": [
@@ -28736,28 +28736,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Es tut mir leid, dass … (verb at the end). Reason: weil … sauer = cross. Gute Besserung = for someone who is ill.",
                 "explanation": "Apologising on the phone: Es tut mir sehr leid, dass ich nicht gekommen bin. (I am very sorry that I did not come.) Entschuldigung! Entschuldige! Entschuldigen Sie! Ich konnte nicht kommen, weil ich krank war. Ich wollte anrufen, aber mein Handy war aus. Ich hoffe, du bist nicht sauer. (I hope you are not cross.) Ich melde mich wieder. (I will be in touch again.) Könnten Sie mich bitte zurückrufen? Könnten wir den Termin verschieben? (Could we postpone the appointment?) Thanks and good wishes: Vielen Dank für deine Nachricht. Alles Gute! (All the best!) Gute Besserung! (Get well soon!)",
-                "task": "Hello Mia, many thanks for your message!",
+                "task": "Hello Milan, many thanks for your message!",
                 "gap_hint": "thanks"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Es tut mir leid, dass … (глагол в конце). Причина: weil … sauer = сердитый. Gute Besserung = для больных.",
                 "explanation": "Как извиниться по телефону: Es tut mir sehr leid, dass ich nicht gekommen bin. (Мне очень жаль, что я не пришёл.) Entschuldigung! Entschuldige! Entschuldigen Sie! Ich konnte nicht kommen, weil ich krank war. Ich wollte anrufen, aber mein Handy war aus. Ich hoffe, du bist nicht sauer. (Надеюсь, ты не сердишься.) Ich melde mich wieder. (Я ещё свяжусь.) Könnten Sie mich bitte zurückrufen? Könnten wir den Termin verschieben? (Не могли бы мы перенести встречу?) Благодарность и пожелания: Vielen Dank für deine Nachricht. Alles Gute! (Всего хорошего!) Gute Besserung! (Выздоравливай!)",
-                "task": "Привет, Mia, большое спасибо за твоё сообщение!",
+                "task": "Привет, Milan, большое спасибо за твоё сообщение!",
                 "gap_hint": "благодарность (большое спасибо)"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Es tut mir leid, dass … (дієслово в кінці). Причина: weil … sauer = сердитий. Gute Besserung = для хворих.",
                 "explanation": "Як вибачитися телефоном: Es tut mir sehr leid, dass ich nicht gekommen bin. (Мені дуже шкода, що я не прийшов.) Entschuldigung! Entschuldige! Entschuldigen Sie! Ich konnte nicht kommen, weil ich krank war. Ich wollte anrufen, aber mein Handy war aus. Ich hoffe, du bist nicht sauer. (Сподіваюся, ти не сердишся.) Ich melde mich wieder. (Я ще зв’яжуся.) Könnten Sie mich bitte zurückrufen? Könnten wir den Termin verschieben? (Чи могли б ми перенести зустріч?) Подяка й побажання: Vielen Dank für deine Nachricht. Alles Gute! (Усього найкращого!) Gute Besserung! (Одужуй!)",
-                "task": "Привіт, Mia, щиро дякую за твоє повідомлення!",
+                "task": "Привіт, Milan, щиро дякую за твоє повідомлення!",
                 "gap_hint": "подяка (щиро дякую)"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Es tut mir leid, dass … (fiil sonda). Neden: weil … sauer = kızgın. Gute Besserung = hastalar için.",
                 "explanation": "Telefonda özür dilemek: Es tut mir sehr leid, dass ich nicht gekommen bin. (Gelmediğim için çok üzgünüm.) Entschuldigung! Entschuldige! Entschuldigen Sie! Ich konnte nicht kommen, weil ich krank war. Ich wollte anrufen, aber mein Handy war aus. Ich hoffe, du bist nicht sauer. (Umarım kızgın değilsindir.) Ich melde mich wieder. (Yine haber veririm.) Könnten Sie mich bitte zurückrufen? Könnten wir den Termin verschieben? (Randevuyu erteleyebilir miyiz?) Teşekkür ve iyi dilekler: Vielen Dank für deine Nachricht. Alles Gute! (Her şey gönlünce olsun!) Gute Besserung! (Geçmiş olsun!)",
-                "task": "Merhaba Mia, mesajın için çok teşekkürler!",
+                "task": "Merhaba Milan, mesajın için çok teşekkürler!",
                 "gap_hint": "teşekkür"
               }
             }
@@ -35748,8 +35748,8 @@
                 "vom Training"
               ],
               "instruction": "Ergänze die passende Präposition.",
-              "text_before": "Mia kommt gerade ",
-              "text_after": " Training. Sie ist sehr müde.",
+              "text_before": "Milan kommt gerade ",
+              "text_after": " Training. Er ist sehr müde.",
               "gap_hint": "von + dem",
               "correct_answer": "vom",
               "options": [
@@ -35772,25 +35772,25 @@
                 "instruction": "Fill in the correct preposition.",
                 "hint": "Out of a room: aus dem / aus der. From a person or an open place: vom / von der.",
                 "explanation": "Where is someone coming from? aus + dative: out of a room, a building or a vehicle – aus dem Bus, aus dem Hotel, aus der S-Bahn, aus dem Haus. von + dative: from a person, from an open place or from the water – vom Arzt (from the doctor’s), vom Fußballplatz, vom Meer, von der Tankstelle, von Patrick. von + dem = vom.",
-                "task": "Mia has just come from training. She is very tired."
+                "task": "Milan has just come from training. He is very tired."
               },
               "ru": {
                 "instruction": "Вставьте подходящий предлог.",
                 "hint": "Из помещения: aus dem / aus der. От человека или с открытого места: vom / von der.",
                 "explanation": "Откуда кто-то идёт? aus + Dativ: из помещения, здания или транспорта – aus dem Bus, aus dem Hotel, aus der S-Bahn, aus dem Haus. von + Dativ: от человека, с открытого места или от воды – vom Arzt (от врача), vom Fußballplatz, vom Meer, von der Tankstelle, von Patrick. von + dem = vom.",
-                "task": "Mia только что с тренировки. Она очень устала."
+                "task": "Milan только что с тренировки. Он очень устал."
               },
               "uk": {
                 "instruction": "Вставте відповідний прийменник.",
                 "hint": "З приміщення: aus dem / aus der. Від людини або з відкритого місця: vom / von der.",
                 "explanation": "Звідки хтось іде? aus + Dativ: із приміщення, будівлі чи транспорту – aus dem Bus, aus dem Hotel, aus der S-Bahn, aus dem Haus. von + Dativ: від людини, з відкритого місця або від води – vom Arzt (від лікаря), vom Fußballplatz, vom Meer, von der Tankstelle, von Patrick. von + dem = vom.",
-                "task": "Mia щойно з тренування. Вона дуже втомилася."
+                "task": "Milan щойно з тренування. Він дуже втомився."
               },
               "tr": {
                 "instruction": "Uygun edatı yazın.",
                 "hint": "Bir mekânın içinden: aus dem / aus der. Bir kişiden ya da açık bir yerden: vom / von der.",
                 "explanation": "Biri nereden geliyor? aus + Dativ: bir odanın, binanın ya da aracın içinden – aus dem Bus, aus dem Hotel, aus der S-Bahn, aus dem Haus. von + Dativ: bir kişiden, açık bir yerden ya da su kenarından – vom Arzt (doktordan), vom Fußballplatz, vom Meer, von der Tankstelle, von Patrick. von + dem = vom.",
-                "task": "Mia şimdi antrenmandan geliyor. Çok yorgun."
+                "task": "Milan şimdi antrenmandan geliyor. Çok yorgun."
               }
             }
           },
@@ -38687,7 +38687,7 @@
                 "auf der Insel"
               ],
               "instruction": "Ergänze die passende Präposition.",
-              "text_before": "Lena ist gerade im Urlaub ",
+              "text_before": "Leon ist gerade im Urlaub ",
               "text_after": " der Insel Sylt.",
               "gap_hint": "auf / an / in",
               "correct_answer": "auf",
@@ -38711,25 +38711,25 @@
                 "instruction": "Fill in the correct preposition.",
                 "hint": "Wo? (where?) → dative. Water: am Meer, an der Küste. auf dem Land, auf der Insel. im Gebirge, in der Wüste, in den Bergen.",
                 "explanation": "Where are you on holiday? Wo? (where?) + dative. an: am Atlantik, am Meer, am See, an der Küste (water and shores). auf: auf dem Land (in the countryside), auf der Insel. in: im Schwarzwald, im Gebirge, im Wald, in der Wüste, in den Bergen. Remember: an + dem = am, in + dem = im. In the plural the noun gets an -n: in den Bergen.",
-                "task": "Lena is on holiday on the island of Sylt at the moment."
+                "task": "Leon is on holiday on the island of Sylt at the moment."
               },
               "ru": {
                 "instruction": "Вставьте подходящий предлог.",
                 "hint": "Wo? (где?) → Dativ. Вода: am Meer, an der Küste. auf dem Land, auf der Insel. im Gebirge, in der Wüste, in den Bergen.",
                 "explanation": "Где вы в отпуске? Wo? (где?) + Dativ. an: am Atlantik, am Meer, am See, an der Küste (вода и берег). auf: auf dem Land (в деревне), auf der Insel. in: im Schwarzwald, im Gebirge, im Wald, in der Wüste, in den Bergen. Запомните: an + dem = am, in + dem = im. Во множественном числе существительное получает -n: in den Bergen.",
-                "task": "Lena сейчас в отпуске на острове Зильт."
+                "task": "Leon сейчас в отпуске на острове Зильт."
               },
               "uk": {
                 "instruction": "Вставте відповідний прийменник.",
                 "hint": "Wo? (де?) → Dativ. Вода: am Meer, an der Küste. auf dem Land, auf der Insel. im Gebirge, in der Wüste, in den Bergen.",
                 "explanation": "Де ви у відпустці? Wo? (де?) + Dativ. an: am Atlantik, am Meer, am See, an der Küste (вода й берег). auf: auf dem Land (у селі), auf der Insel. in: im Schwarzwald, im Gebirge, im Wald, in der Wüste, in den Bergen. Запам’ятайте: an + dem = am, in + dem = im. У множині іменник отримує -n: in den Bergen.",
-                "task": "Lena зараз у відпустці на острові Зильт."
+                "task": "Leon зараз у відпустці на острові Зильт."
               },
               "tr": {
                 "instruction": "Uygun edatı yazın.",
                 "hint": "Wo? (nerede?) → Dativ. Su: am Meer, an der Küste. auf dem Land, auf der Insel. im Gebirge, in der Wüste, in den Bergen.",
                 "explanation": "Tatilde neredesiniz? Wo? (nerede?) + Dativ. an: am Atlantik, am Meer, am See, an der Küste (su ve kıyı). auf: auf dem Land (kırsalda), auf der Insel. in: im Schwarzwald, im Gebirge, im Wald, in der Wüste, in den Bergen. Unutmayın: an + dem = am, in + dem = im. Çoğulda isim -n alır: in den Bergen.",
-                "task": "Lena şu an Sylt adasında tatilde."
+                "task": "Leon şu an Sylt adasında tatilde."
               }
             }
           },
@@ -47874,7 +47874,7 @@
                 "sparen"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Lena möchte ein Auto kaufen. Sie ",
+              "text_before": "Leon möchte ein Auto kaufen. Er ",
               "text_after": " jeden Monat 200 Euro.",
               "gap_hint": "sparen",
               "correct_answer": "spart",
@@ -47898,25 +47898,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "abheben = take money out of your account. einzahlen = put money into your account. überweisen = send money to another account.",
                 "explanation": "Verbs to do with money: Geld abheben (withdraw money from your account), Geld einzahlen (pay money into your account), Geld überweisen (transfer money from one account to another), ein Konto eröffnen (open an account), bar zahlen (pay in cash) or mit Karte zahlen (pay by card), Geld sparen (save money), Geld leihen (lend or borrow for a short time), Geld wechseln (change money: euros into dollars), Geld verdienen (earn money), Geld ausgeben (spend money), die Karte sperren (block the card: nobody can use it any more).",
-                "task": "Lena wants to buy a car. She saves 200 euros every month."
+                "task": "Leon wants to buy a car. He saves 200 euros every month."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "abheben = снять деньги со счёта. einzahlen = внести деньги на счёт. überweisen = отправить деньги на другой счёт.",
                 "explanation": "Глаголы о деньгах: Geld abheben (снять деньги со счёта), Geld einzahlen (внести деньги на счёт), Geld überweisen (перевести деньги со счёта на счёт), ein Konto eröffnen (открыть счёт), bar zahlen (платить наличными) или mit Karte zahlen (платить картой), Geld sparen (копить, экономить), Geld leihen (одолжить или взять в долг на короткое время), Geld wechseln (обменять деньги: евро на доллары), Geld verdienen (зарабатывать), Geld ausgeben (тратить), die Karte sperren (заблокировать карту: ею больше никто не сможет пользоваться).",
-                "task": "Lena хочет купить машину. Каждый месяц она откладывает 200 евро."
+                "task": "Leon хочет купить машину. Каждый месяц он откладывает 200 евро."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "abheben = зняти гроші з рахунку. einzahlen = внести гроші на рахунок. überweisen = надіслати гроші на інший рахунок.",
                 "explanation": "Дієслова про гроші: Geld abheben (зняти гроші з рахунку), Geld einzahlen (внести гроші на рахунок), Geld überweisen (переказати гроші з рахунку на рахунок), ein Konto eröffnen (відкрити рахунок), bar zahlen (платити готівкою) або mit Karte zahlen (платити карткою), Geld sparen (заощаджувати), Geld leihen (позичити на короткий час), Geld wechseln (обміняти гроші: євро на долари), Geld verdienen (заробляти), Geld ausgeben (витрачати), die Karte sperren (заблокувати картку: нею більше ніхто не зможе користуватися).",
-                "task": "Lena хоче купити машину. Щомісяця вона відкладає 200 євро."
+                "task": "Leon хоче купити машину. Щомісяця він відкладає 200 євро."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "abheben = hesaptan para çekmek. einzahlen = hesaba para yatırmak. überweisen = başka bir hesaba para göndermek.",
                 "explanation": "Parayla ilgili fiiller: Geld abheben (hesaptan para çekmek), Geld einzahlen (hesaba para yatırmak), Geld überweisen (bir hesaptan diğerine havale etmek), ein Konto eröffnen (hesap açmak), bar zahlen (nakit ödemek) ya da mit Karte zahlen (kartla ödemek), Geld sparen (para biriktirmek), Geld leihen (kısa süreliğine borç vermek ya da almak), Geld wechseln (para bozdurmak: avroyu dolara), Geld verdienen (para kazanmak), Geld ausgeben (para harcamak), die Karte sperren (kartı bloke etmek: artık kimse kullanamaz).",
-                "task": "Lena araba almak istiyor. Her ay 200 avro biriktiriyor."
+                "task": "Leon araba almak istiyor. Her ay 200 avro biriktiriyor."
               }
             }
           },
@@ -56518,7 +56518,7 @@
                 "studiert"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena hat in München Medizin …",
+              "question": "Leon hat in München Medizin …",
               "options": [
                 "studiert",
                 "gestudiert",
@@ -56540,25 +56540,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "ge…t / ge…en. Separable: mit-ge-kommen. Without ge-: be-, ver-, er-, -ieren. sein for movement: ist gegangen, ist umgezogen.",
                 "explanation": "Revision of the Perfekt: haben or sein + past participle at the end of the sentence. Regular: ge…t – gemacht, gelernt. Irregular: ge…en – getroffen, gegangen. Separable: prefix + ge + … – kennengelernt, mitgekommen. Without ge-: inseparable verbs (bekommen, verstanden, erlebt) and verbs ending in -ieren (telefoniert, studiert). With sein: movement from A to B and change of state (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).",
-                "task": "Lena studied medicine in Munich."
+                "task": "Leon studied medicine in Munich."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "ge…t / ge…en. Отделяемые: mit-ge-kommen. Без ge-: be-, ver-, er-, -ieren. sein при движении: ist gegangen, ist umgezogen.",
                 "explanation": "Повторение Perfekt: haben или sein + Partizip II в конце предложения. Правильные глаголы: ge…t – gemacht, gelernt. Неправильные: ge…en – getroffen, gegangen. Отделяемые: приставка + ge + … – kennengelernt, mitgekommen. Без ge-: неотделяемые глаголы (bekommen, verstanden, erlebt) и глаголы на -ieren (telefoniert, studiert). С sein: движение из точки А в точку Б и изменение состояния (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).",
-                "task": "Lena изучала медицину в Мюнхене."
+                "task": "Leon изучал медицину в Мюнхене."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "ge…t / ge…en. Відокремлювані: mit-ge-kommen. Без ge-: be-, ver-, er-, -ieren. sein під час руху: ist gegangen, ist umgezogen.",
                 "explanation": "Повторення Perfekt: haben або sein + Partizip II у кінці речення. Правильні дієслова: ge…t – gemacht, gelernt. Неправильні: ge…en – getroffen, gegangen. Відокремлювані: префікс + ge + … – kennengelernt, mitgekommen. Без ge-: невідокремлювані дієслова (bekommen, verstanden, erlebt) і дієслова на -ieren (telefoniert, studiert). Із sein: рух із точки А в точку Б і зміна стану (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).",
-                "task": "Lena вивчала медицину в Мюнхені."
+                "task": "Leon вивчав медицину в Мюнхені."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "ge…t / ge…en. Ayrılabilen: mit-ge-kommen. ge- almayanlar: be-, ver-, er-, -ieren. Harekette sein: ist gegangen, ist umgezogen.",
                 "explanation": "Perfekt tekrarı: haben ya da sein + cümlenin sonunda Partizip II. Düzenli: ge…t – gemacht, gelernt. Düzensiz: ge…en – getroffen, gegangen. Ayrılabilen: ön ek + ge + … – kennengelernt, mitgekommen. ge- almayanlar: ayrılmayan fiiller (bekommen, verstanden, erlebt) ve -ieren ile biten fiiller (telefoniert, studiert). sein ile: A’dan B’ye hareket ve durum değişikliği (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).",
-                "task": "Lena Münih’te tıp okudu."
+                "task": "Leon Münih’te tıp okudu."
               }
             }
           },
@@ -57884,7 +57884,7 @@
                 "Verb am Ende"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Mia sagt ihre Meinung.",
+              "question": "Milan sagt seine Meinung.",
               "options": [
                 "Ich finde, dass wir mehr reden sollten.",
                 "Ich finde, dass sollten wir mehr reden.",
@@ -57906,25 +57906,25 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "wenn = condition, weil = reason, dass = content. The verb goes at the end.",
                 "explanation": "Revision of subordinate clauses: after wenn, weil and dass the verb goes at the end. wenn (if, when: condition or time): Ich fühle mich unwohl, wenn ich mein Handy nicht dabeihabe. weil (because: reason): Ich fühle mich unwohl, weil ich dann nicht erreichbar bin. dass (that: after denken, glauben, finden, sagen, wissen): Ich finde, dass du recht hast. If the subordinate clause comes first, the verb follows straight away: Wenn ich Zeit habe, rufe ich dich an.",
-                "task": "Mia is giving her opinion."
+                "task": "Milan is giving his opinion."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "wenn = условие, weil = причина, dass = содержание. Глагол стоит в конце.",
                 "explanation": "Повторение придаточных предложений: после wenn, weil и dass глагол стоит в конце. wenn (если, когда: условие или время): Ich fühle mich unwohl, wenn ich mein Handy nicht dabeihabe. weil (потому что: причина): Ich fühle mich unwohl, weil ich dann nicht erreichbar bin. dass (что: после denken, glauben, finden, sagen, wissen): Ich finde, dass du recht hast. Если придаточное стоит первым, сразу за ним идёт глагол: Wenn ich Zeit habe, rufe ich dich an.",
-                "task": "Mia высказывает своё мнение."
+                "task": "Milan высказывает своё мнение."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "wenn = умова, weil = причина, dass = зміст. Дієслово стоїть у кінці.",
                 "explanation": "Повторення підрядних речень: після wenn, weil і dass дієслово стоїть у кінці. wenn (якщо, коли: умова або час): Ich fühle mich unwohl, wenn ich mein Handy nicht dabeihabe. weil (тому що: причина): Ich fühle mich unwohl, weil ich dann nicht erreichbar bin. dass (що: після denken, glauben, finden, sagen, wissen): Ich finde, dass du recht hast. Якщо підрядне речення стоїть першим, одразу за ним іде дієслово: Wenn ich Zeit habe, rufe ich dich an.",
-                "task": "Mia висловлює свою думку."
+                "task": "Milan висловлює свою думку."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "wenn = koşul, weil = neden, dass = içerik. Fiil sonda durur.",
                 "explanation": "Yan cümle tekrarı: wenn, weil ve dass’tan sonra fiil sonda durur. wenn (-se/-sa, -diğinde: koşul ya da zaman): Ich fühle mich unwohl, wenn ich mein Handy nicht dabeihabe. weil (çünkü: neden): Ich fühle mich unwohl, weil ich dann nicht erreichbar bin. dass (-diğini: denken, glauben, finden, sagen, wissen fiillerinden sonra): Ich finde, dass du recht hast. Yan cümle başta ise hemen ardından fiil gelir: Wenn ich Zeit habe, rufe ich dich an.",
-                "task": "Mia fikrini söylüyor."
+                "task": "Milan fikrini söylüyor."
               }
             }
           },
@@ -59035,7 +59035,7 @@
                 "sich"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Was wünscht … Lena zum Geburtstag? – Ein Fahrrad.",
+              "question": "Was wünscht … Leon zum Geburtstag? – Ein Fahrrad.",
               "options": [
                 "sie",
                 "ihr",
@@ -59057,25 +59057,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "sich wünschen: ich wünsche mir, du wünschst dir, er wünscht sich + accusative. Mein Traum ist … (My dream is …)",
                 "explanation": "Wishing for something and talking about dreams: Ich wünsche mir mehr Zeit für meine Familie. (I wish I had more time for my family.) Ich wünsche mir einen Hund. Ich möchte ein kleines Café eröffnen. Ich hätte gern ein Haus mit Garten. Ich wäre gern Musiker. Ich würde jetzt gern einen Spaziergang machen. Mein Traum ist eine Reise nach Australien. (My dream is a trip to Australia.) After sich wünschen you use the accusative: Ich wünsche mir einen Garten.",
-                "task": "What does Lena want for her birthday? – A bike."
+                "task": "What does Leon want for his birthday? – A bike."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "sich wünschen: ich wünsche mir, du wünschst dir, er wünscht sich + Akkusativ. Mein Traum ist … (Моя мечта – …)",
                 "explanation": "Как говорить о желаниях и мечтах: Ich wünsche mir mehr Zeit für meine Familie. (Мне хотелось бы больше времени для семьи.) Ich wünsche mir einen Hund. Ich möchte ein kleines Café eröffnen. Ich hätte gern ein Haus mit Garten. Ich wäre gern Musiker. Ich würde jetzt gern einen Spaziergang machen. Mein Traum ist eine Reise nach Australien. (Моя мечта – поездка в Австралию.) После sich wünschen стоит Akkusativ: Ich wünsche mir einen Garten.",
-                "task": "Что Lena хочет на день рождения? – Велосипед."
+                "task": "Что Leon хочет на день рождения? – Велосипед."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "sich wünschen: ich wünsche mir, du wünschst dir, er wünscht sich + Akkusativ. Mein Traum ist … (Моя мрія – …)",
                 "explanation": "Як говорити про бажання й мрії: Ich wünsche mir mehr Zeit für meine Familie. (Мені хотілося б більше часу для родини.) Ich wünsche mir einen Hund. Ich möchte ein kleines Café eröffnen. Ich hätte gern ein Haus mit Garten. Ich wäre gern Musiker. Ich würde jetzt gern einen Spaziergang machen. Mein Traum ist eine Reise nach Australien. (Моя мрія – подорож до Австралії.) Після sich wünschen стоїть Akkusativ: Ich wünsche mir einen Garten.",
-                "task": "Що Lena хоче на день народження? – Велосипед."
+                "task": "Що Leon хоче на день народження? – Велосипед."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "sich wünschen: ich wünsche mir, du wünschst dir, er wünscht sich + Akkusativ. Mein Traum ist … (Hayalim …)",
                 "explanation": "Bir şey dilemek ve hayallerden söz etmek: Ich wünsche mir mehr Zeit für meine Familie. (Aileme daha çok vakit ayırabilmeyi diliyorum.) Ich wünsche mir einen Hund. Ich möchte ein kleines Café eröffnen. Ich hätte gern ein Haus mit Garten. Ich wäre gern Musiker. Ich würde jetzt gern einen Spaziergang machen. Mein Traum ist eine Reise nach Australien. (Hayalim Avustralya’ya bir yolculuk.) sich wünschen fiilinden sonra Akkusativ gelir: Ich wünsche mir einen Garten.",
-                "task": "Lena doğum gününde ne istiyor? – Bir bisiklet."
+                "task": "Leon doğum gününde ne istiyor? – Bir bisiklet."
               }
             }
           },
@@ -64490,7 +64490,7 @@
                 "Kompromiss"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena und Tim haben eine Lösung gefunden, die für beide gut ist. Das ist ein …",
+              "question": "Leon und Tim haben eine Lösung gefunden, die für beide gut ist. Das ist ein …",
               "options": [
                 "Kompromiss",
                 "Konflikt",
@@ -64512,25 +64512,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Das stört mich = I do not like that. streiten über + accusative. Kompromiss = both get a little.",
                 "explanation": "Talking about conflicts: Warum legst du dein Handy nicht mal weg? (Why don’t you put your phone away for once?) Warum räumst du nie auf? Immer kommst du zu spät! Das stört mich. (That bothers me.) Das ärgert mich. (That annoys me.) Wir streiten oft über die Hausarbeit, über Geld oder über die Kinder. (We often argue about …) Ich bin sauer, weil du nie zuhörst. Looking for a solution: Lass uns in Ruhe darüber reden. (Let’s talk about it calmly.) Du hast recht. Es tut mir leid. Wir sollten einen Kompromiss finden. (We should find a compromise: both get a little.)",
-                "task": "Lena and Tim have found a solution that is good for both of them. That is a …"
+                "task": "Leon and Tim have found a solution that is good for both of them. That is a …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Das stört mich = мне это не нравится. streiten über + Akkusativ. Kompromiss = каждый получает понемногу.",
                 "explanation": "Как говорить о конфликтах: Warum legst du dein Handy nicht mal weg? (Почему ты хоть раз не уберёшь телефон?) Warum räumst du nie auf? Immer kommst du zu spät! Das stört mich. (Мне это мешает.) Das ärgert mich. (Меня это раздражает.) Wir streiten oft über die Hausarbeit, über Geld oder über die Kinder. (Мы часто ссоримся из-за …) Ich bin sauer, weil du nie zuhörst. Как искать решение: Lass uns in Ruhe darüber reden. (Давай спокойно об этом поговорим.) Du hast recht. Es tut mir leid. Wir sollten einen Kompromiss finden. (Нам стоит найти компромисс: каждый получает понемногу.)",
-                "task": "Lena и Tim нашли решение, которое устраивает обоих. Это …"
+                "task": "Leon и Tim нашли решение, которое устраивает обоих. Это …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Das stört mich = мені це не подобається. streiten über + Akkusativ. Kompromiss = кожен отримує потроху.",
                 "explanation": "Як говорити про конфлікти: Warum legst du dein Handy nicht mal weg? (Чому ти хоч раз не відкладеш телефон?) Warum räumst du nie auf? Immer kommst du zu spät! Das stört mich. (Мені це заважає.) Das ärgert mich. (Мене це дратує.) Wir streiten oft über die Hausarbeit, über Geld oder über die Kinder. (Ми часто сваримося через …) Ich bin sauer, weil du nie zuhörst. Як шукати розв’язання: Lass uns in Ruhe darüber reden. (Поговорімо про це спокійно.) Du hast recht. Es tut mir leid. Wir sollten einen Kompromiss finden. (Нам варто знайти компроміс: кожен отримує потроху.)",
-                "task": "Lena й Tim знайшли рішення, яке влаштовує обох. Це …"
+                "task": "Leon й Tim знайшли рішення, яке влаштовує обох. Це …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Das stört mich = bunu doğru bulmuyorum. streiten über + Akkusativ. Kompromiss = iki taraf da biraz kazanır.",
                 "explanation": "Anlaşmazlıklardan söz etmek: Warum legst du dein Handy nicht mal weg? (Telefonunu bir kere olsun neden bırakmıyorsun?) Warum räumst du nie auf? Immer kommst du zu spät! Das stört mich. (Bu beni rahatsız ediyor.) Das ärgert mich. (Bu beni kızdırıyor.) Wir streiten oft über die Hausarbeit, über Geld oder über die Kinder. (… yüzünden sık sık tartışıyoruz.) Ich bin sauer, weil du nie zuhörst. Çözüm aramak: Lass uns in Ruhe darüber reden. (Bunu sakince konuşalım.) Du hast recht. Es tut mir leid. Wir sollten einen Kompromiss finden. (Bir uzlaşma bulmalıyız: iki taraf da biraz kazanır.)",
-                "task": "Lena ile Tim ikisi için de iyi olan bir çözüm buldu. Bu bir …"
+                "task": "Leon ile Tim ikisi için de iyi olan bir çözüm buldu. Bu bir …"
               }
             }
           },

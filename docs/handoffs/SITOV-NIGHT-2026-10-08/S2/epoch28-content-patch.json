@@ -1,0 +1,477 @@
+[
+  {
+    "pointer": "path-a2.1.json/4/nodes/7/exercises/1/content/question",
+    "old": "Mia findet Tennis total langweilig. „Interessierst du dich für Tennis?“",
+    "new": "Milan findet Tennis total langweilig. „Interessierst du dich für Tennis?“"
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/7/exercises/1/translations/en/task",
+    "old": "Mia finds tennis totally boring. “Are you interested in tennis?”",
+    "new": "Milan finds tennis totally boring. “Are you interested in tennis?”"
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/7/exercises/1/translations/ru/task",
+    "old": "Mia считает теннис совершенно скучным. «Ты интересуешься теннисом?»",
+    "new": "Milan считает теннис совершенно скучным. «Ты интересуешься теннисом?»"
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/7/exercises/1/translations/uk/task",
+    "old": "Mia вважає теніс зовсім нудним. «Ти цікавишся тенісом?»",
+    "new": "Milan вважає теніс зовсім нудним. «Ти цікавишся тенісом?»"
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/7/exercises/1/translations/tr/task",
+    "old": "Mia tenisi çok sıkıcı buluyor. “Tenisle ilgileniyor musun?”",
+    "new": "Milan tenisi çok sıkıcı buluyor. “Tenisle ilgileniyor musun?”"
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/9/exercises/3/content/question",
+    "old": "Lena sagt ihre Meinung.",
+    "new": "Leon sagt seine Meinung."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/9/exercises/3/translations/en/task",
+    "old": "Lena gives her opinion.",
+    "new": "Leon gives his opinion."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/9/exercises/3/translations/ru/task",
+    "old": "Lena высказывает своё мнение.",
+    "new": "Leon высказывает своё мнение."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/9/exercises/3/translations/uk/task",
+    "old": "Lena висловлює свою думку.",
+    "new": "Leon висловлює свою думку."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/9/exercises/3/translations/tr/task",
+    "old": "Lena görüşünü söylüyor.",
+    "new": "Leon görüşünü söylüyor."
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/1/exercises/0/content/question",
+    "old": "Lena lernt drei Jahre lang den Beruf Köchin, im Restaurant und in der Berufsschule. Sie macht eine …",
+    "new": "Leon lernt drei Jahre lang den Beruf Koch, im Restaurant und in der Berufsschule. Er macht eine …"
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/1/exercises/0/translations/en/task",
+    "old": "Lena is learning to be a cook for three years, in a restaurant and at vocational school. She is doing …",
+    "new": "Leon is learning to be a cook for three years, in a restaurant and at vocational school. He is doing …"
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/1/exercises/0/translations/ru/task",
+    "old": "Lena три года осваивает профессию повара – в ресторане и в профессиональной школе. Она проходит …",
+    "new": "Leon три года осваивает профессию повара – в ресторане и в профессиональной школе. Он проходит …"
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/1/exercises/0/translations/uk/task",
+    "old": "Lena три роки опановує професію кухаря – у ресторані та в професійній школі. Вона проходить …",
+    "new": "Leon три роки опановує професію кухаря – у ресторані та в професійній школі. Він проходить …"
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/1/exercises/0/translations/tr/task",
+    "old": "Lena üç yıl boyunca restoranda ve meslek okulunda aşçılık öğreniyor. O bir … yapıyor.",
+    "new": "Leon üç yıl boyunca restoranda ve meslek okulunda aşçılık öğreniyor. O bir … yapıyor."
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/11/exercises/6/content/question",
+    "old": "Mia hatte in Englisch immer eine Eins und viel Spaß. Was sagt sie heute?",
+    "new": "Milan hatte in Englisch immer eine Eins und viel Spaß. Was sagt er heute?"
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/11/exercises/6/translations/en/task",
+    "old": "Mia always got top marks in English and enjoyed it a lot. What does she say today?",
+    "new": "Milan always got top marks in English and enjoyed it a lot. What does he say today?"
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/11/exercises/6/translations/ru/task",
+    "old": "У Mia по английскому всегда была высшая оценка, и ей было интересно. Что она говорит сегодня?",
+    "new": "У Milan по английскому всегда была высшая оценка, и ему было интересно. Что он говорит сегодня?"
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/11/exercises/6/translations/uk/task",
+    "old": "У Mia з англійської завжди була найвища оцінка, і їй було цікаво. Що вона каже сьогодні?",
+    "new": "У Milan з англійської завжди була найвища оцінка, і йому було цікаво. Що він каже сьогодні?"
+  },
+  {
+    "pointer": "path-a2.1.json/5/nodes/11/exercises/6/translations/tr/task",
+    "old": "Mia İngilizceden hep en yüksek notu alırdı ve dersi çok severdi. Bugün ne diyor?",
+    "new": "Milan İngilizceden hep en yüksek notu alırdı ve dersi çok severdi. Bugün ne diyor?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/1/exercises/3/content/question",
+    "old": "Lena zeigt … Freund die Fotos.",
+    "new": "Ergänze den Possessivartikel zu „sie (Singular)“ im Dativ: „Sie zeigt … Freund die Fotos.“"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/1/exercises/3/translations/en/task",
+    "old": "Lena is showing her boyfriend the photos.",
+    "new": "Complete the possessive article for sie (singular) in the dative: „Sie zeigt … Freund die Fotos.“"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/1/exercises/3/translations/ru/task",
+    "old": "Lena показывает своему другу фотографии.",
+    "new": "Дополните притяжательный артикль для sie (ед. число) в дательном падеже: „Sie zeigt … Freund die Fotos.“"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/1/exercises/3/translations/uk/task",
+    "old": "Lena показує своєму другові фотографії.",
+    "new": "Доповніть присвійний артикль для sie (однина) в давальному відмінку: „Sie zeigt … Freund die Fotos.“"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/1/exercises/3/translations/tr/task",
+    "old": "Lena erkek arkadaşına fotoğrafları gösteriyor.",
+    "new": "sie (tekil) için Dativ iyelik artikelini tamamlayın: „Sie zeigt … Freund die Fotos.“"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/0/content/question",
+    "old": "Nachrichten von Mia: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Die Braut ist noch nicht da! – 11.05 Uhr: Sie ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Wann beginnt die Trauung?",
+    "new": "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Wann beginnt die Trauung?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/2/content/question",
+    "old": "Nachrichten von Mia: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Die Braut ist noch nicht da! – 11.05 Uhr: Sie ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was passiert um 13 Uhr?",
+    "new": "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was passiert um 13 Uhr?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/3/content/question",
+    "old": "Nachricht von Samir an Lena: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Wo ist die Feier?",
+    "new": "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Wo ist die Feier?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/5/content/question",
+    "old": "Nachricht von Samir an Lena: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Was schickt Samir gleich?",
+    "new": "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Was schickt Samir gleich?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/13/exercises/10/content/question",
+    "old": "Von wem ist das Paket? – Von Mia und Tim. Es ist von …",
+    "new": "Von wem ist das Paket? – Von Milan und Tim. Es ist von …"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/13/exercises/10/translations/en/task",
+    "old": "Who is the parcel from? – From Mia and Tim. It is from them.",
+    "new": "Who is the parcel from? – From Milan and Tim. It is from them."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/13/exercises/10/translations/ru/task",
+    "old": "От кого посылка? – От Mia и Tim. Она от них.",
+    "new": "От кого посылка? – От Milan и Tim. Она от них."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/13/exercises/10/translations/uk/task",
+    "old": "Від кого посилка? – Від Mia і Tim. Вона від них.",
+    "new": "Від кого посилка? – Від Milan і Tim. Вона від них."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/13/exercises/10/translations/tr/task",
+    "old": "Paket kimden? – Mia ve Tim’den. Onlardan.",
+    "new": "Paket kimden? – Milan ve Tim’den. Onlardan."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/13/exercises/4/content/question",
+    "old": "Es ist heiß. Lena … jetzt gern im Schwimmbad.",
+    "new": "Es ist heiß. Leon … jetzt gern im Schwimmbad."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/13/exercises/4/translations/en/task",
+    "old": "It is hot. Lena would like to be at the swimming pool now.",
+    "new": "It is hot. Leon would like to be at the swimming pool now."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/13/exercises/4/translations/ru/task",
+    "old": "Жарко. Lena хотела бы сейчас быть в бассейне.",
+    "new": "Жарко. Leon хотел бы сейчас быть в бассейне."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/13/exercises/4/translations/uk/task",
+    "old": "Спекотно. Lena хотіла б зараз бути в басейні.",
+    "new": "Спекотно. Leon хотів би зараз бути в басейні."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/13/exercises/4/translations/tr/task",
+    "old": "Hava sıcak. Lena şimdi yüzme havuzunda olmak isterdi.",
+    "new": "Hava sıcak. Leon şimdi yüzme havuzunda olmak isterdi."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/1/content/question",
+    "old": "Lena kauft ein … Kleid.",
+    "new": "Leon kauft ein … Kleid."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/1/translations/en/task",
+    "old": "Lena is buying a red dress.",
+    "new": "Leon is buying a red dress."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/1/translations/ru/task",
+    "old": "Lena покупает красное платье.",
+    "new": "Leon покупает красное платье."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/1/translations/uk/task",
+    "old": "Lena купує червону сукню.",
+    "new": "Leon купує червону сукню."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/1/translations/tr/task",
+    "old": "Lena kırmızı bir elbise alıyor.",
+    "new": "Leon kırmızı bir elbise alıyor."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/7/content/text_before",
+    "old": "Mia trägt heute eine ",
+    "new": "Milan trägt heute eine "
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/7/translations/en/task",
+    "old": "Mia is wearing a long necklace today.",
+    "new": "Milan is wearing a long necklace today."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/7/translations/ru/task",
+    "old": "Сегодня на Mia длинная цепочка.",
+    "new": "Сегодня на Milan длинная цепочка."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/7/translations/uk/task",
+    "old": "Сьогодні на Mia довгий ланцюжок.",
+    "new": "Сьогодні на Milan довгий ланцюжок."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/2/exercises/7/translations/tr/task",
+    "old": "Mia bugün uzun bir kolye takıyor.",
+    "new": "Milan bugün uzun bir kolye takıyor."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/13/exercises/11/content/question",
+    "old": "Lena kauft sehr oft Bücher. Sie sagt: „Am … gebe ich für Bücher aus.“",
+    "new": "Leon kauft sehr oft Bücher. Er sagt: „Am … gebe ich für Bücher aus.“"
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/13/exercises/11/translations/en/task",
+    "old": "Lena buys books very often. She says: “I spend most on books.”",
+    "new": "Leon buys books very often. He says: “I spend most on books.”"
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/13/exercises/11/translations/ru/task",
+    "old": "Lena очень часто покупает книги. Она говорит: «Больше всего я трачу на книги».",
+    "new": "Leon очень часто покупает книги. Он говорит: «Больше всего я трачу на книги»."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/13/exercises/11/translations/uk/task",
+    "old": "Lena дуже часто купує книжки. Вона каже: «Найбільше я витрачаю на книжки».",
+    "new": "Leon дуже часто купує книжки. Він каже: «Найбільше я витрачаю на книжки»."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/13/exercises/11/translations/tr/task",
+    "old": "Lena çok sık kitap alıyor. Diyor ki: “En çok kitaplara para harcıyorum.”",
+    "new": "Leon çok sık kitap alıyor. Diyor ki: “En çok kitaplara para harcıyorum.”"
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/28/content/text_before",
+    "old": "Hallo Mia, vielen ",
+    "new": "Hallo Milan, vielen "
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/28/translations/en/task",
+    "old": "Hello Mia, many thanks for your message!",
+    "new": "Hello Milan, many thanks for your message!"
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/28/translations/ru/task",
+    "old": "Привет, Mia, большое спасибо за твоё сообщение!",
+    "new": "Привет, Milan, большое спасибо за твоё сообщение!"
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/28/translations/uk/task",
+    "old": "Привіт, Mia, щиро дякую за твоє повідомлення!",
+    "new": "Привіт, Milan, щиро дякую за твоє повідомлення!"
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/28/translations/tr/task",
+    "old": "Merhaba Mia, mesajın için çok teşekkürler!",
+    "new": "Merhaba Milan, mesajın için çok teşekkürler!"
+  },
+  {
+    "pointer": "path-a2.2.json/3/nodes/11/exercises/9/content/text_before",
+    "old": "Mia kommt gerade ",
+    "new": "Milan kommt gerade "
+  },
+  {
+    "pointer": "path-a2.2.json/3/nodes/11/exercises/9/content/text_after",
+    "old": " Training. Sie ist sehr müde.",
+    "new": " Training. Er ist sehr müde."
+  },
+  {
+    "pointer": "path-a2.2.json/3/nodes/11/exercises/9/translations/en/task",
+    "old": "Mia has just come from training. She is very tired.",
+    "new": "Milan has just come from training. He is very tired."
+  },
+  {
+    "pointer": "path-a2.2.json/3/nodes/11/exercises/9/translations/ru/task",
+    "old": "Mia только что с тренировки. Она очень устала.",
+    "new": "Milan только что с тренировки. Он очень устал."
+  },
+  {
+    "pointer": "path-a2.2.json/3/nodes/11/exercises/9/translations/uk/task",
+    "old": "Mia щойно з тренування. Вона дуже втомилася.",
+    "new": "Milan щойно з тренування. Він дуже втомився."
+  },
+  {
+    "pointer": "path-a2.2.json/3/nodes/11/exercises/9/translations/tr/task",
+    "old": "Mia şimdi antrenmandan geliyor. Çok yorgun.",
+    "new": "Milan şimdi antrenmandan geliyor. Çok yorgun."
+  },
+  {
+    "pointer": "path-a2.2.json/4/nodes/1/exercises/5/content/text_before",
+    "old": "Lena ist gerade im Urlaub ",
+    "new": "Leon ist gerade im Urlaub "
+  },
+  {
+    "pointer": "path-a2.2.json/4/nodes/1/exercises/5/translations/en/task",
+    "old": "Lena is on holiday on the island of Sylt at the moment.",
+    "new": "Leon is on holiday on the island of Sylt at the moment."
+  },
+  {
+    "pointer": "path-a2.2.json/4/nodes/1/exercises/5/translations/ru/task",
+    "old": "Lena сейчас в отпуске на острове Зильт.",
+    "new": "Leon сейчас в отпуске на острове Зильт."
+  },
+  {
+    "pointer": "path-a2.2.json/4/nodes/1/exercises/5/translations/uk/task",
+    "old": "Lena зараз у відпустці на острові Зильт.",
+    "new": "Leon зараз у відпустці на острові Зильт."
+  },
+  {
+    "pointer": "path-a2.2.json/4/nodes/1/exercises/5/translations/tr/task",
+    "old": "Lena şu an Sylt adasında tatilde.",
+    "new": "Leon şu an Sylt adasında tatilde."
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/1/exercises/8/content/text_before",
+    "old": "Lena möchte ein Auto kaufen. Sie ",
+    "new": "Leon möchte ein Auto kaufen. Er "
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/1/exercises/8/translations/en/task",
+    "old": "Lena wants to buy a car. She saves 200 euros every month.",
+    "new": "Leon wants to buy a car. He saves 200 euros every month."
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/1/exercises/8/translations/ru/task",
+    "old": "Lena хочет купить машину. Каждый месяц она откладывает 200 евро.",
+    "new": "Leon хочет купить машину. Каждый месяц он откладывает 200 евро."
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/1/exercises/8/translations/uk/task",
+    "old": "Lena хоче купити машину. Щомісяця вона відкладає 200 євро.",
+    "new": "Leon хоче купити машину. Щомісяця він відкладає 200 євро."
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/1/exercises/8/translations/tr/task",
+    "old": "Lena araba almak istiyor. Her ay 200 avro biriktiriyor.",
+    "new": "Leon araba almak istiyor. Her ay 200 avro biriktiriyor."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/1/exercises/1/content/question",
+    "old": "Lena hat in München Medizin …",
+    "new": "Leon hat in München Medizin …"
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/1/exercises/1/translations/en/task",
+    "old": "Lena studied medicine in Munich.",
+    "new": "Leon studied medicine in Munich."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/1/exercises/1/translations/ru/task",
+    "old": "Lena изучала медицину в Мюнхене.",
+    "new": "Leon изучал медицину в Мюнхене."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/1/exercises/1/translations/uk/task",
+    "old": "Lena вивчала медицину в Мюнхені.",
+    "new": "Leon вивчав медицину в Мюнхені."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/1/exercises/1/translations/tr/task",
+    "old": "Lena Münih’te tıp okudu.",
+    "new": "Leon Münih’te tıp okudu."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/3/exercises/4/content/question",
+    "old": "Mia sagt ihre Meinung.",
+    "new": "Milan sagt seine Meinung."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/3/exercises/4/translations/en/task",
+    "old": "Mia is giving her opinion.",
+    "new": "Milan is giving his opinion."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/3/exercises/4/translations/ru/task",
+    "old": "Mia высказывает своё мнение.",
+    "new": "Milan высказывает своё мнение."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/3/exercises/4/translations/uk/task",
+    "old": "Mia висловлює свою думку.",
+    "new": "Milan висловлює свою думку."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/3/exercises/4/translations/tr/task",
+    "old": "Mia fikrini söylüyor.",
+    "new": "Milan fikrini söylüyor."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/5/exercises/3/content/question",
+    "old": "Was wünscht … Lena zum Geburtstag? – Ein Fahrrad.",
+    "new": "Was wünscht … Leon zum Geburtstag? – Ein Fahrrad."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/5/exercises/3/translations/en/task",
+    "old": "What does Lena want for her birthday? – A bike.",
+    "new": "What does Leon want for his birthday? – A bike."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/5/exercises/3/translations/ru/task",
+    "old": "Что Lena хочет на день рождения? – Велосипед.",
+    "new": "Что Leon хочет на день рождения? – Велосипед."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/5/exercises/3/translations/uk/task",
+    "old": "Що Lena хоче на день народження? – Велосипед.",
+    "new": "Що Leon хоче на день народження? – Велосипед."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/5/exercises/3/translations/tr/task",
+    "old": "Lena doğum gününde ne istiyor? – Bir bisiklet.",
+    "new": "Leon doğum gününde ne istiyor? – Bir bisiklet."
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/13/exercises/15/content/question",
+    "old": "Lena und Tim haben eine Lösung gefunden, die für beide gut ist. Das ist ein …",
+    "new": "Leon und Tim haben eine Lösung gefunden, die für beide gut ist. Das ist ein …"
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/13/exercises/15/translations/en/task",
+    "old": "Lena and Tim have found a solution that is good for both of them. That is a …",
+    "new": "Leon and Tim have found a solution that is good for both of them. That is a …"
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/13/exercises/15/translations/ru/task",
+    "old": "Lena и Tim нашли решение, которое устраивает обоих. Это …",
+    "new": "Leon и Tim нашли решение, которое устраивает обоих. Это …"
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/13/exercises/15/translations/uk/task",
+    "old": "Lena й Tim знайшли рішення, яке влаштовує обох. Це …",
+    "new": "Leon й Tim знайшли рішення, яке влаштовує обох. Це …"
+  },
+  {
+    "pointer": "path-a2.2.json/6/nodes/13/exercises/15/translations/tr/task",
+    "old": "Lena ile Tim ikisi için de iyi olan bir çözüm buldu. Bu bir …",
+    "new": "Leon ile Tim ikisi için de iyi olan bir çözüm buldu. Bu bir …"
+  }
+]

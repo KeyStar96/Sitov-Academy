@@ -40173,7 +40173,7 @@
                 "überhaupt nicht"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Mia findet Tennis total langweilig. „Interessierst du dich für Tennis?“",
+              "question": "Milan findet Tennis total langweilig. „Interessierst du dich für Tennis?“",
               "options": [
                 "Nein, überhaupt nicht.",
                 "Ja, sehr.",
@@ -40195,25 +40195,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "From a lot to a little: sehr – eigentlich schon – eigentlich nicht – überhaupt nicht.",
                 "explanation": "Grading your answers: Interessierst du dich für Sport? Very positive: Ja, sehr. (Yes, very much.) Positive: Ja, eigentlich schon. (Yes, I suppose so.) Negative: Nein, eigentlich nicht. (No, not really.) Very negative: Nein, überhaupt nicht. (No, not at all.) Also: Es geht. (So-so.) Nicht besonders. (Not particularly.) Ein bisschen. (A little.)",
-                "task": "Mia finds tennis totally boring. “Are you interested in tennis?”"
+                "task": "Milan finds tennis totally boring. “Are you interested in tennis?”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "От большего к меньшему: sehr – eigentlich schon – eigentlich nicht – überhaupt nicht.",
                 "explanation": "Как отвечать с разной степенью: Interessierst du dich für Sport? Очень положительно: Ja, sehr. (Да, очень.) Положительно: Ja, eigentlich schon. (Да, в общем-то да.) Отрицательно: Nein, eigentlich nicht. (Нет, в общем-то нет.) Очень отрицательно: Nein, überhaupt nicht. (Нет, совсем нет.) Ещё: Es geht. (Так себе.) Nicht besonders. (Не особенно.) Ein bisschen. (Немного.)",
-                "task": "Mia считает теннис совершенно скучным. «Ты интересуешься теннисом?»"
+                "task": "Milan считает теннис совершенно скучным. «Ты интересуешься теннисом?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Від більшого до меншого: sehr – eigentlich schon – eigentlich nicht – überhaupt nicht.",
                 "explanation": "Як відповідати з різним ступенем: Interessierst du dich für Sport? Дуже позитивно: Ja, sehr. (Так, дуже.) Позитивно: Ja, eigentlich schon. (Так, загалом так.) Негативно: Nein, eigentlich nicht. (Ні, загалом ні.) Дуже негативно: Nein, überhaupt nicht. (Ні, зовсім ні.) Ще: Es geht. (Так собі.) Nicht besonders. (Не особливо.) Ein bisschen. (Трохи.)",
-                "task": "Mia вважає теніс зовсім нудним. «Ти цікавишся тенісом?»"
+                "task": "Milan вважає теніс зовсім нудним. «Ти цікавишся тенісом?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Çoktan aza: sehr – eigentlich schon – eigentlich nicht – überhaupt nicht.",
                 "explanation": "Cevapları derecelendirmek: Interessierst du dich für Sport? Çok olumlu: Ja, sehr. (Evet, çok.) Olumlu: Ja, eigentlich schon. (Evet, aslında öyle.) Olumsuz: Nein, eigentlich nicht. (Hayır, aslında değil.) Çok olumsuz: Nein, überhaupt nicht. (Hayır, hiç.) Ayrıca: Es geht. (Eh işte.) Nicht besonders. (Pek değil.) Ein bisschen. (Biraz.)",
-                "task": "Mia tenisi çok sıkıcı buluyor. “Tenisle ilgileniyor musun?”"
+                "task": "Milan tenisi çok sıkıcı buluyor. “Tenisle ilgileniyor musun?”"
               }
             }
           },
@@ -41437,7 +41437,7 @@
                 "Wenn ich ehrlich bin"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Lena sagt ihre Meinung.",
+              "question": "Leon sagt seine Meinung.",
               "options": [
                 "Wenn ich bin ehrlich, finde ich Fußball langweilig.",
                 "Wenn ich ehrlich bin, finde ich Fußball langweilig.",
@@ -41459,25 +41459,25 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "übertrieben = too much. selbstverständlich = completely normal. ehrlich gesagt = I am telling you my opinion openly.",
                 "explanation": "Giving your own opinion: Ehrlich gesagt, ich mache nicht gern Sport. (To be honest, I do not like doing sport.) Wenn ich ehrlich bin, finde ich Joggen langweilig. (If I am honest, …) Das ist doch klar. (That is obvious.) Das ist doch selbstverständlich. (That goes without saying.) Das finde ich etwas übertrieben. (I think that is a bit over the top.) Übertrieben means: it is too much. Selbstverständlich means: it is completely normal.",
-                "task": "Lena gives her opinion."
+                "task": "Leon gives his opinion."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "übertrieben = слишком. selbstverständlich = совершенно нормально. ehrlich gesagt = я открыто говорю своё мнение.",
                 "explanation": "Как высказать своё мнение: Ehrlich gesagt, ich mache nicht gern Sport. (Честно говоря, я не люблю заниматься спортом.) Wenn ich ehrlich bin, finde ich Joggen langweilig. (Если честно, …) Das ist doch klar. (Это же ясно.) Das ist doch selbstverständlich. (Это же само собой разумеется.) Das finde ich etwas übertrieben. (По-моему, это немного чересчур.) Übertrieben значит: это слишком. Selbstverständlich значит: это совершенно нормально.",
-                "task": "Lena высказывает своё мнение."
+                "task": "Leon высказывает своё мнение."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "übertrieben = занадто. selbstverständlich = цілком нормально. ehrlich gesagt = я відкрито кажу свою думку.",
                 "explanation": "Як висловити власну думку: Ehrlich gesagt, ich mache nicht gern Sport. (Чесно кажучи, я не люблю займатися спортом.) Wenn ich ehrlich bin, finde ich Joggen langweilig. (Якщо чесно, …) Das ist doch klar. (Це ж ясно.) Das ist doch selbstverständlich. (Це ж само собою зрозуміло.) Das finde ich etwas übertrieben. (На мою думку, це трохи занадто.) Übertrieben означає: це занадто. Selbstverständlich означає: це цілком нормально.",
-                "task": "Lena висловлює свою думку."
+                "task": "Leon висловлює свою думку."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "übertrieben = fazla. selbstverständlich = çok normal. ehrlich gesagt = görüşümü açıkça söylüyorum.",
                 "explanation": "Kendi görüşünü söylemek: Ehrlich gesagt, ich mache nicht gern Sport. (Açıkçası spor yapmayı sevmiyorum.) Wenn ich ehrlich bin, finde ich Joggen langweilig. (Dürüst olmam gerekirse, …) Das ist doch klar. (Bu çok açık.) Das ist doch selbstverständlich. (Bu gayet doğal.) Das finde ich etwas übertrieben. (Bunu biraz abartılı buluyorum.) Übertrieben şu demektir: Bu fazla. Selbstverständlich şu demektir: Bu çok normal.",
-                "task": "Lena görüşünü söylüyor."
+                "task": "Leon görüşünü söylüyor."
               }
             }
           },
@@ -45560,7 +45560,7 @@
                 "Ausbildung"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena lernt drei Jahre lang den Beruf Köchin, im Restaurant und in der Berufsschule. Sie macht eine …",
+              "question": "Leon lernt drei Jahre lang den Beruf Koch, im Restaurant und in der Berufsschule. Er macht eine …",
               "options": [
                 "Ausbildung",
                 "Prüfung",
@@ -45582,25 +45582,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Learning a job → Ausbildung. University → Studium. A short time in a company → Praktikum. Learning more in your job → Weiterbildung.",
                 "explanation": "After school: der Schulabschluss (school-leaving qualification), das Abitur (the highest school qualification; with it you can go to university), die Ausbildung or die Lehre (vocational training, apprenticeship: learning a job in a company and at vocational school), der Auszubildende or der Azubi (trainee, apprentice), das Studium (studying at university), das Praktikum (internship: working and learning in a company for a few weeks), die Weiterbildung (further training in your job), die Prüfung (exam), die Note (mark).",
-                "task": "Lena is learning to be a cook for three years, in a restaurant and at vocational school. She is doing …"
+                "task": "Leon is learning to be a cook for three years, in a restaurant and at vocational school. He is doing …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Освоить профессию → Ausbildung. Университет → Studium. Недолго на фирме → Praktikum. Учиться дальше, уже работая → Weiterbildung.",
                 "explanation": "После школы: der Schulabschluss (аттестат об окончании школы), das Abitur (высший школьный аттестат; с ним можно учиться в университете), die Ausbildung или die Lehre (профессиональное обучение: профессию осваивают на предприятии и в профессиональной школе), der Auszubildende или der Azubi (ученик на производстве), das Studium (учёба в университете), das Praktikum (практика, стажировка: несколько недель работы и учёбы на фирме), die Weiterbildung (повышение квалификации), die Prüfung (экзамен), die Note (оценка).",
-                "task": "Lena три года осваивает профессию повара – в ресторане и в профессиональной школе. Она проходит …"
+                "task": "Leon три года осваивает профессию повара – в ресторане и в профессиональной школе. Он проходит …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Опанувати професію → Ausbildung. Університет → Studium. Недовго на фірмі → Praktikum. Вчитися далі, уже працюючи → Weiterbildung.",
                 "explanation": "Після школи: der Schulabschluss (атестат про закінчення школи), das Abitur (найвищий шкільний атестат; з ним можна навчатися в університеті), die Ausbildung або die Lehre (професійне навчання: професію опановують на підприємстві та в професійній школі), der Auszubildende або der Azubi (учень на виробництві), das Studium (навчання в університеті), das Praktikum (практика, стажування: кілька тижнів роботи й навчання на фірмі), die Weiterbildung (підвищення кваліфікації), die Prüfung (іспит), die Note (оцінка).",
-                "task": "Lena три роки опановує професію кухаря – у ресторані та в професійній школі. Вона проходить …"
+                "task": "Leon три роки опановує професію кухаря – у ресторані та в професійній школі. Він проходить …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Meslek öğrenmek → Ausbildung. Üniversite → Studium. Bir şirkette kısa süre → Praktikum. Meslekte öğrenmeye devam → Weiterbildung.",
                 "explanation": "Okuldan sonra: der Schulabschluss (okul diploması), das Abitur (en yüksek okul diploması; onunla üniversitede okunabilir), die Ausbildung ya da die Lehre (meslek eğitimi: meslek, iş yerinde ve meslek okulunda öğrenilir), der Auszubildende ya da der Azubi (çırak, meslek eğitimi öğrencisi), das Studium (üniversite öğrenimi), das Praktikum (staj: birkaç hafta bir şirkette çalışıp öğrenmek), die Weiterbildung (meslekte ileri eğitim), die Prüfung (sınav), die Note (not).",
-                "task": "Lena üç yıl boyunca restoranda ve meslek okulunda aşçılık öğreniyor. O bir … yapıyor."
+                "task": "Leon üç yıl boyunca restoranda ve meslek okulunda aşçılık öğreniyor. O bir … yapıyor."
               }
             }
           },
@@ -51763,7 +51763,7 @@
                 "geliebt"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Mia hatte in Englisch immer eine Eins und viel Spaß. Was sagt sie heute?",
+              "question": "Milan hatte in Englisch immer eine Eins und viel Spaß. Was sagt er heute?",
               "options": [
                 "Englisch habe ich geliebt.",
                 "Englisch war langweilig.",
@@ -51785,25 +51785,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
                 "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
-                "task": "Mia always got top marks in English and enjoyed it a lot. What does she say today?"
+                "task": "Milan always got top marks in English and enjoyed it a lot. What does he say today?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
                 "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
-                "task": "У Mia по английскому всегда была высшая оценка, и ей было интересно. Что она говорит сегодня?"
+                "task": "У Milan по английскому всегда была высшая оценка, и ему было интересно. Что он говорит сегодня?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
                 "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
-                "task": "У Mia з англійської завжди була найвища оцінка, і їй було цікаво. Що вона каже сьогодні?"
+                "task": "У Milan з англійської завжди була найвища оцінка, і йому було цікаво. Що він каже сьогодні?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
                 "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
-                "task": "Mia İngilizceden hep en yüksek notu alırdı ve dersi çok severdi. Bugün ne diyor?"
+                "task": "Milan İngilizceden hep en yüksek notu alırdı ve dersi çok severdi. Bugün ne diyor?"
               }
             }
           },
@@ -54928,7 +54928,7 @@
                 "ihrem"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena zeigt … Freund die Fotos.",
+              "question": "Ergänze den Possessivartikel zu „sie (Singular)“ im Dativ: „Sie zeigt … Freund die Fotos.“",
               "options": [
                 "ihr",
                 "ihrem",
@@ -54950,25 +54950,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Wem? (to whom?) → dative. der and das → -em: meinem Bruder, einem Kind.",
                 "explanation": "The dative as an object: who gives what to whom? Ich (who?) schenke meinem Bruder (to whom?) ein Buch (what?). Dative masculine and neuter: dem, einem, meinem, deinem, seinem, ihrem, unserem. Ich schenke meinem Vater eine Uhr. Sie gibt dem Kind ein Spielzeug. Er zeigt seinem Freund das Foto. Verbs with a dative and an accusative: schenken (give as a present), geben (give), bringen (bring), kaufen (buy), zeigen (show), schicken (send), schreiben (write), empfehlen (recommend), leihen (lend), erklären (explain), wünschen (wish).",
-                "task": "Lena is showing her boyfriend the photos."
+                "task": "Complete the possessive article for sie (singular) in the dative: „Sie zeigt … Freund die Fotos.“"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Wem? (кому?) → Dativ. der и das → -em: meinem Bruder, einem Kind.",
                 "explanation": "Dativ как дополнение: кто кому что дарит? Ich (кто?) schenke meinem Bruder (кому?) ein Buch (что?). Dativ мужского и среднего рода: dem, einem, meinem, deinem, seinem, ihrem, unserem. Ich schenke meinem Vater eine Uhr. Sie gibt dem Kind ein Spielzeug. Er zeigt seinem Freund das Foto. Глаголы с Dativ и Akkusativ: schenken (дарить), geben (давать), bringen (приносить), kaufen (покупать), zeigen (показывать), schicken (отправлять), schreiben (писать), empfehlen (рекомендовать), leihen (одалживать), erklären (объяснять), wünschen (желать).",
-                "task": "Lena показывает своему другу фотографии."
+                "task": "Дополните притяжательный артикль для sie (ед. число) в дательном падеже: „Sie zeigt … Freund die Fotos.“"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Wem? (кому?) → Dativ. der і das → -em: meinem Bruder, einem Kind.",
                 "explanation": "Dativ як додаток: хто кому що дарує? Ich (хто?) schenke meinem Bruder (кому?) ein Buch (що?). Dativ чоловічого й середнього роду: dem, einem, meinem, deinem, seinem, ihrem, unserem. Ich schenke meinem Vater eine Uhr. Sie gibt dem Kind ein Spielzeug. Er zeigt seinem Freund das Foto. Дієслова з Dativ і Akkusativ: schenken (дарувати), geben (давати), bringen (приносити), kaufen (купувати), zeigen (показувати), schicken (надсилати), schreiben (писати), empfehlen (рекомендувати), leihen (позичати), erklären (пояснювати), wünschen (бажати).",
-                "task": "Lena показує своєму другові фотографії."
+                "task": "Доповніть присвійний артикль для sie (однина) в давальному відмінку: „Sie zeigt … Freund die Fotos.“"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Wem? (kime?) → Dativ. der ve das → -em: meinem Bruder, einem Kind.",
                 "explanation": "Nesne olarak Dativ: Kim kime ne hediye ediyor? Ich (kim?) schenke meinem Bruder (kime?) ein Buch (ne?). Eril ve nötr Dativ: dem, einem, meinem, deinem, seinem, ihrem, unserem. Ich schenke meinem Vater eine Uhr. Sie gibt dem Kind ein Spielzeug. Er zeigt seinem Freund das Foto. Dativ ve Akkusativ alan fiiller: schenken (hediye etmek), geben (vermek), bringen (getirmek), kaufen (satın almak), zeigen (göstermek), schicken (göndermek), schreiben (yazmak), empfehlen (tavsiye etmek), leihen (ödünç vermek), erklären (açıklamak), wünschen (dilemek).",
-                "task": "Lena erkek arkadaşına fotoğrafları gösteriyor."
+                "task": "sie (tekil) için Dativ iyelik artikelini tamamlayın: „Sie zeigt … Freund die Fotos.“"
               }
             }
           },
@@ -60800,7 +60800,7 @@
                 "Wann?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Nachrichten von Mia: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Die Braut ist noch nicht da! – 11.05 Uhr: Sie ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Wann beginnt die Trauung?",
+              "question": "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Wann beginnt die Trauung?",
               "options": [
                 "Um 10.50 Uhr.",
                 "Um 13 Uhr.",
@@ -60908,7 +60908,7 @@
                 "Was?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Nachrichten von Mia: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Die Braut ist noch nicht da! – 11.05 Uhr: Sie ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was passiert um 13 Uhr?",
+              "question": "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was passiert um 13 Uhr?",
               "options": [
                 "Die Trauung beginnt.",
                 "Alle essen die Torte.",
@@ -60962,7 +60962,7 @@
                 "Wo?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Nachricht von Samir an Lena: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Wo ist die Feier?",
+              "question": "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Wo ist die Feier?",
               "options": [
                 "Im Standesamt.",
                 "In einem Restaurant.",
@@ -61070,7 +61070,7 @@
                 "Was?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Nachricht von Samir an Lena: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Was schickt Samir gleich?",
+              "question": "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Was schickt Samir gleich?",
               "options": [
                 "Eine Einladung.",
                 "Die Torte.",
@@ -62514,7 +62514,7 @@
                 "von ihnen"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Von wem ist das Paket? – Von Mia und Tim. Es ist von …",
+              "question": "Von wem ist das Paket? – Von Milan und Tim. Es ist von …",
               "options": [
                 "sie",
                 "ihr",
@@ -62536,25 +62536,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "von + dative: von meinem (der, das), von meiner (die), von meinen (plural). Pronouns: von mir, von ihm, von ihr.",
                 "explanation": "Who is the present from? von + dative: Die Blumen sind von meinem Mann. Das Buch habe ich von meiner Schwester bekommen. Die Karte ist von meinen Kollegen. With pronouns: von mir, von dir, von ihm, von ihr, von uns, von euch, von ihnen. Some masculine nouns get an -n in the dative: der Kollege → von meinem Kollegen, der Nachbar → von meinem Nachbarn, der Herr → von Herrn Weber.",
-                "task": "Who is the parcel from? – From Mia and Tim. It is from them."
+                "task": "Who is the parcel from? – From Milan and Tim. It is from them."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "von + Dativ: von meinem (der, das), von meiner (die), von meinen (множественное число). Местоимения: von mir, von ihm, von ihr.",
                 "explanation": "От кого подарок? von + Dativ: Die Blumen sind von meinem Mann. Das Buch habe ich von meiner Schwester bekommen. Die Karte ist von meinen Kollegen. С местоимениями: von mir, von dir, von ihm, von ihr, von uns, von euch, von ihnen. Некоторые существительные мужского рода получают в Dativ -n: der Kollege → von meinem Kollegen, der Nachbar → von meinem Nachbarn, der Herr → von Herrn Weber.",
-                "task": "От кого посылка? – От Mia и Tim. Она от них."
+                "task": "От кого посылка? – От Milan и Tim. Она от них."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "von + Dativ: von meinem (der, das), von meiner (die), von meinen (множина). Займенники: von mir, von ihm, von ihr.",
                 "explanation": "Від кого подарунок? von + Dativ: Die Blumen sind von meinem Mann. Das Buch habe ich von meiner Schwester bekommen. Die Karte ist von meinen Kollegen. Із займенниками: von mir, von dir, von ihm, von ihr, von uns, von euch, von ihnen. Деякі іменники чоловічого роду отримують у Dativ -n: der Kollege → von meinem Kollegen, der Nachbar → von meinem Nachbarn, der Herr → von Herrn Weber.",
-                "task": "Від кого посилка? – Від Mia і Tim. Вона від них."
+                "task": "Від кого посилка? – Від Milan і Tim. Вона від них."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "von + Dativ: von meinem (der, das), von meiner (die), von meinen (çoğul). Zamirler: von mir, von ihm, von ihr.",
                 "explanation": "Hediye kimden? von + Dativ: Die Blumen sind von meinem Mann. Das Buch habe ich von meiner Schwester bekommen. Die Karte ist von meinen Kollegen. Zamirlerle: von mir, von dir, von ihm, von ihr, von uns, von euch, von ihnen. Bazı eril isimler Dativ’te -n alır: der Kollege → von meinem Kollegen, der Nachbar → von meinem Nachbarn, der Herr → von Herrn Weber.",
-                "task": "Paket kimden? – Mia ve Tim’den. Onlardan."
+                "task": "Paket kimden? – Milan ve Tim’den. Onlardan."
               }
             }
           },
