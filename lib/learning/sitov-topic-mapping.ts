@@ -4,6 +4,10 @@ export type SitovPathSourceTarget = {
   kind: 'path_node_source'; level: SitovMappedLevel; pathSourceId: string;
   nodeSourceId: string; evidence: string;
 }
+export type SitovSpecialSourceTarget = {
+  kind: 'path_special_source'; level: SitovMappedLevel; pathSourceId: string;
+  nodeSourceId: string; anchorSourceId: string; goalId: string; evidence: string;
+}
 export type SitovTopicTarget =
   | { kind: 'vocabulary_card'; id: string; level: SitovMappedLevel; unitId: string; evidence: string }
   | { kind: 'verb'; id: string; level: SitovMappedLevel; tense: 'present'; evidence: string }
@@ -11,6 +15,7 @@ export type SitovTopicTarget =
 export type SitovTopicMapping = {
   topicId: string; competencyId: string; level: SitovMappedLevel;
   anchors: readonly SitovPathSourceTarget[]; targets: readonly SitovTopicTarget[];
+  specialTargets?: readonly SitovSpecialSourceTarget[];
 }
 export const SITOV_TOPIC_MAPPING_VERSION = 1 as const
 // Seed source IDs are level-qualified; DB UUIDs must be resolved from stored rows.
@@ -118,6 +123,7 @@ export const SITOV_TOPIC_MAPPING: readonly SitovTopicMapping[] = [
   },
   {
     "topicId": "sitov.topic.nominativ",
+    "specialTargets": [{ "kind": "path_special_source", "level": "A1.1", "pathSourceId": "P4", "nodeSourceId": "sitov-special-a11-artikel-nominativ-v1", "anchorSourceId": "P4-N1", "goalId": "P4-G1", "evidence": "Artikel im Nominativ · vorhandenes optionales Special" }],
     "competencyId": "sitov.competency.nominativ",
     "level": "A1.1",
     "anchors": [

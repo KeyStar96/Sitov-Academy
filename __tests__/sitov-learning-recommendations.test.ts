@@ -63,16 +63,16 @@ it('can recommend individual pronunciation pretest with no vocabulary/path/verb 
 })
 it('resolves a level-qualified stored node and truthful completed review',async()=>{
  const nodeId='66666666-6666-4666-8666-666666666666';const pathUnit='55555555-5555-4555-8555-555555555555';allowed=[nodeId]
- const old=client.from.getMockImplementation()!
- client.from.mockImplementation(table=>{const query=old(table);query.then=(resolve:(v:unknown)=>void)=>resolve({error:null,data:table==='learning_units'?[{id:pathUnit,level:'A1.1',trainer:'exercises',is_path:true,is_active:true}]:table==='path_nodes'?[{id:nodeId}]:[]});return query})
  client.rpc.mockImplementation(async(name,args)=>{
   if(name==='get_sitov_access_catalog')return {error:null,data:{version:1,level:args.p_level,trainer:args.p_trainer,units:args.p_trainer==='exercises'?[{id:pathUnit,items:[{kind:'path_node',id:nodeId,published:true}]}]:[]}}
+  if(name==='sitov_get_learning_recommendation_sources')return {error:null,data:{ok:true,data:{level:args.p_level,sources:[{nodeId,unitId:pathUnit,pathSourceId:'P1',nodeSourceId:'P1-N3',kind:'practice',anchorNodeId:null,anchorSourceId:null,goals:[],anchorGoals:[]}]}}}
   if(name==='get_learning_path')return {error:null,data:{level:'A1.1',completed:false,next_level:null,next_level_available:false,paths:[{id:pathUnit,source_id:'P1',title:'Pfad',sort_order:1,available:true,completed:false,nodes:[{id:nodeId,kind:'practice',title:'Namen',sort_order:1,available:true,status:'completed',stars:2,tests:[]}]}]}}
   throw new Error('unexpected rpc')
  })
  const r=await resolveSitovLearningRecommendations(input);if(!r.ok)throw new Error('failure');expect(r.data.items).toHaveLength(1);expect(r.data.items[0]).toMatchObject({kind:'learning_path',targetId:nodeId,action:'review',progress:{status:'completed'},href:`/uk/dashboard/level/A1.1/path?sitov_target=${nodeId}`})
- expect(filters.find(f=>f.table==='learning_units')).toMatchObject({level:'A1.1',trainer:'exercises',path_source_id:'P1'})
- expect(filters.find(f=>f.table==='path_nodes')).toMatchObject({unit_id:pathUnit,source_id:'P1-N3'})
+ expect(client.rpc).toHaveBeenCalledWith('sitov_get_learning_recommendation_sources',{p_level:'A1.1',p_node_ids:[nodeId]})
+ expect(client.from).not.toHaveBeenCalled()
+ allowed=[];const revoked=await resolveSitovLearningRecommendations(input);expect(revoked).toEqual({ok:true,data:{mappingVersion:1,items:[]}})
 })
 it('treats access-catalog transport failure as retryable without returning metadata',async()=>{client.rpc.mockResolvedValue({data:null,error:{code:'offline'}});expect(await resolveSitovLearningRecommendations(input)).toEqual({ok:false,error:'retryable_failure',retryable:true})})
 it('reads checkpoints only and keeps requested source IDs intact after revocation',async()=>{

@@ -5,12 +5,11 @@ import { currentUserHasContentAccess } from '@/lib/access/server'
 import { sitovCheckpointSchema } from '@/lib/learning-checkpoints'
 import { pathMapSchema } from '@/lib/learning-path-contract'
 import { sitovPronunciationPretestCatalogSchema } from '@/lib/sitov-pronunciation-pretest-contract'
-import { SITOV_TOPIC_MAPPING, type SitovPathSourceTarget, type SitovTopicTarget } from './sitov-topic-mapping'
+import { SITOV_TOPIC_MAPPING, type SitovPathSourceTarget, type SitovSpecialSourceTarget, type SitovTopicTarget } from './sitov-topic-mapping'
+import { loadSitovLearningRecommendationSources, type SitovRecommendationSource } from './sitov-learning-recommendation-sources-server'
 import { sitovLearningRecommendationInputSchema, sitovLearningRecommendationsResultSchema, type SitovLearningRecommendation, type SitovLearningRecommendationsResult } from './sitov-learning-recommendations-contract'
 
 const accessCatalog = z.object({ version: z.literal(1), level: z.string(), trainer: z.string(), units: z.array(z.object({ id: z.uuid(), items: z.array(z.object({ kind: z.string(), id: z.string(), published: z.boolean() })) })) })
-const pathMetadata = z.array(z.object({ id: z.uuid() })).max(2)
-const unitMetadata = z.array(z.object({ id: z.uuid(), level: z.string(), trainer: z.literal('exercises'), is_path: z.literal(true), is_active: z.literal(true) })).max(2)
 const directionsSchema = z.array(z.object({ id: z.uuid(), direction: z.enum(['de_to_native', 'native_to_de']), box_number: z.number().int().min(1).max(7) })).max(2)
 const verbProgressSchema = z.array(z.object({ box: z.number().int().min(1).max(7), attempts: z.number().int().nonnegative(), correct: z.number().int().nonnegative() })).max(1)
 function checked<T>(result: { data: T; error: unknown }): T { if (result.error || result.data == null) throw new Error('recommendation_read_failed'); return result.data }
@@ -27,16 +26,19 @@ export async function resolveSitovLearningRecommendations(input: unknown): Promi
     const { locale, limit, failedCompetencyIds } = parsed.data
     const catalogs = new Map<string, z.infer<typeof accessCatalog>>()
     const paths = new Map<string, z.infer<typeof pathMapSchema>>()
+    const sources = new Map<string, SitovRecommendationSource[]>()
     const pretests = new Map<string, z.infer<typeof sitovPronunciationPretestCatalogSchema>>()
     const checkpoints = new Map<string, string[]>()
     const items: SitovLearningRecommendation[] = []
     const seen = new Set<string>()
     const topics = SITOV_TOPIC_MAPPING.filter(t => parsed.data.topicIds.includes(t.topicId) && (!failedCompetencyIds?.length || failedCompetencyIds.includes(t.competencyId)))
     for (const topic of topics) {
-      const candidates: (SitovPathSourceTarget | SitovTopicTarget)[] = [...topic.anchors, ...topic.targets]
+      // Equal-priority Nominativ practice starts with its optional Special so limit 3 can include it.
+      // The existing final action sort still puts every continue action first.
+      const candidates: (SitovPathSourceTarget | SitovSpecialSourceTarget | SitovTopicTarget)[] = [...(topic.specialTargets ?? []), ...topic.anchors, ...topic.targets]
       for (const target of candidates) {
-        const kind = target.kind === 'path_node_source' ? 'path_node' : target.kind
-        const trainer = { path_node: 'exercises', vocabulary_card: 'vocabulary', verb: 'verbs', reading_text: 'pronunciation' }[kind]
+        const kind = target.kind === 'path_node_source' ? 'path_node' : target.kind === 'path_special_source' ? 'path_special' : target.kind
+        const trainer = { path_node: 'exercises', path_special: 'exercises', vocabulary_card: 'vocabulary', verb: 'verbs', reading_text: 'pronunciation' }[kind]
         const cacheKey = `${target.level}/${trainer}`
         if (!catalogs.has(cacheKey)) {
           const result = await client.rpc('get_sitov_access_catalog', { p_level: target.level, p_trainer: trainer })
@@ -46,12 +48,16 @@ export async function resolveSitovLearningRecommendations(input: unknown): Promi
         }
         const catalog = catalogs.get(cacheKey)!
         let id: string; let unitId: string | undefined
-        if (target.kind === 'path_node_source') {
-          const units = unitMetadata.parse(checked(await client.from('learning_units').select('id,level,trainer,is_path,is_active').eq('level', target.level).eq('trainer', 'exercises').eq('is_path', true).eq('is_active', true).eq('path_source_id', target.pathSourceId).limit(2)))
-          if (units.length !== 1 || units[0].level !== target.level) continue
-          const nodes = pathMetadata.parse(checked(await client.from('path_nodes').select('id').eq('unit_id', units[0].id).eq('source_id', target.nodeSourceId).eq('is_active', true).limit(2)))
-          if (nodes.length !== 1) continue
-          id = nodes[0].id; unitId = units[0].id
+        if (target.kind === 'path_node_source' || target.kind === 'path_special_source') {
+          if (!catalog.units.some(unit => unit.items.some(item => item.kind === kind && item.published))) continue
+          if (!paths.has(target.level)) paths.set(target.level, pathMapSchema.parse(checked(await client.rpc('get_learning_path', { p_level: target.level, p_locale: locale }))))
+          const map = paths.get(target.level)!
+          if (map.level !== target.level) throw new Error('foreign_path')
+          if (!sources.has(target.level)) sources.set(target.level, await loadSitovLearningRecommendationSources(client, map))
+          const matches = sources.get(target.level)!.filter(row => row.pathSourceId === target.pathSourceId && row.nodeSourceId === target.nodeSourceId &&
+            (target.kind === 'path_special_source' ? row.kind === 'special' && row.anchorSourceId === target.anchorSourceId && row.goals.includes(target.goalId) && row.anchorGoals.includes(target.goalId) : row.kind !== 'special'))
+          if (matches.length !== 1) continue
+          id = matches[0].nodeId; unitId = matches[0].unitId
         } else { id = target.id; if (target.kind === 'vocabulary_card') unitId = target.unitId }
         const matches = catalog.units.flatMap(unit => unit.items.filter(item => item.kind === kind && item.id === id && item.published).map(() => unit.id))
         if (matches.length !== 1 || (unitId && matches[0] !== unitId) || seen.has(`${kind}/${id}`)) continue
@@ -60,7 +66,7 @@ export async function resolveSitovLearningRecommendations(input: unknown): Promi
         const base = { level: target.level, targetId: id, topicId: topic.topicId, competencyId: topic.competencyId }
         const prefix = `/${locale}/dashboard/level/${encodeURIComponent(target.level)}`
         let item: SitovLearningRecommendation
-        if (target.kind === 'path_node_source') {
+        if (target.kind === 'path_node_source' || target.kind === 'path_special_source') {
           if (!paths.has(target.level)) paths.set(target.level, pathMapSchema.parse(checked(await client.rpc('get_learning_path', { p_level: target.level, p_locale: locale }))))
           const pathMap = paths.get(target.level)!
           if (pathMap.level !== target.level) throw new Error('foreign_path')
