@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { createHash } from 'node:crypto'
-import { canonical,validateSpecialDraft,twoForms,audibleTexts } from './sitov-learning-specials-authoring.mjs'
+import { canonical,validateSpecialDraft,twoForms,audibleTexts,buildInactiveSpecialAuthorInput } from './sitov-learning-specials-authoring.mjs'
 const original=JSON.parse(readFileSync(new URL('../supabase/seeds/sitov-learning-special-pools-2026-10-08.json',import.meta.url),'utf8'))
 function edit(callback){const d=structuredClone(original);callback(d);const p=d.pools[0],body={...p};delete body.draftContentSha256;p.draftContentSha256=createHash('sha256').update(canonical(body)).digest('hex');return d}
 test('actual PDF SHA, repository anchor and actual content schema validate inactive unbound20',()=>{
@@ -20,3 +20,9 @@ const negatives=[
 for(const [name,mutate] of negatives)test(`rejects ${name}`,()=>assert.throws(()=>validateSpecialDraft(edit(mutate))))
 test('a changed original PDF byte fingerprint is rejected',()=>assert.throws(()=>validateSpecialDraft(edit(d=>{d.sources[1].sha256='e'.repeat(64)}),{verifySources:true}),/source_hash_mismatch/))
 test('changed content without updated draft hash is rejected separately from95 DB version',()=>{const d=structuredClone(original);d.pools[0].title+=' geändert';assert.throws(()=>validateSpecialDraft(d),/draft_hash_mismatch/);assert.equal(d.pools[0].binding.definitionVersion,null)})
+
+test('inactive author request uses fresh exact context and preserves new task IDs without asserting a Special node',()=>{
+ const context={unitId:'f72f211a-9d44-41a2-af18-87976effe62d',anchorNodeId:'9f92ad82-cb5c-40cf-86d3-87b17b75c5bb',sourceRef:original.sources[0].ref,sourceSha256:original.sources[0].sha256,anchorVersion:'e'.repeat(64),specialExists:false},request='00000000-0000-4000-8000-000000000001',before=JSON.stringify(original)
+ const input=buildInactiveSpecialAuthorInput(original,context,request);assert.equal(input.expectedAnchorVersion,context.anchorVersion);assert.deepEqual(input.items.map(i=>i.id),original.pools[0].items.map(i=>i.id));assert.equal(input.nodeId,undefined);assert.equal(input.published,undefined);assert.equal(input.items[0].published,undefined);assert.equal(JSON.stringify(original),before)
+ for(const bad of [{...context,specialExists:true},{...context,sourceSha256:'f'.repeat(64)},{...context,unitId:null},{...context,anchorVersion:null}])assert.throws(()=>buildInactiveSpecialAuthorInput(original,bad,request),/invalid_actual_author_context/)
+})

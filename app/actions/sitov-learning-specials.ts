@@ -5,3 +5,11 @@ export async function getSitovLearningSpecialStaff(input:unknown){
  const {loadSitovSpecialStaffCatalog}=await import('@/lib/learning/sitov-learning-specials-staff-server')
  return loadSitovSpecialStaffCatalog(input)
 }
+export async function getSitovLearningSpecialAuthorContext(input:unknown){
+ const {loadSitovSpecialAuthorContext}=await import('@/lib/learning/sitov-learning-specials-staff-server')
+ return loadSitovSpecialAuthorContext(input)
+}
+export async function createSitovLearningSpecialDraft(input:unknown){
+ const {createSitovSpecialAuthorDraft}=await import('@/lib/learning/sitov-learning-specials-staff-server')
+ return createSitovSpecialAuthorDraft(input)
+}

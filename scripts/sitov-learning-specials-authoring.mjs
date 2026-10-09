@@ -73,3 +73,11 @@ export function validateSpecialDraft(draft,{verifySources=false}={}){
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const draft=JSON.parse(readFileSync(resolve(repo,'supabase/seeds/sitov-learning-special-pools-2026-10-08.json'),'utf8'));console.log(JSON.stringify(validateSpecialDraft(draft,{verifySources:true}),null,2))
 }
+
+/** Build only an inactive CREATE request from a fresh actual staff context; never synthesize existing node IDs. */
+export function buildInactiveSpecialAuthorInput(draft,context,requestId){
+ validateSpecialDraft(draft)
+ const pool=draft.pools[0],source=draft.sources.find(s=>s.ref===pool.sourceRef)
+ if(!context||context.sourceRef!==source.ref||context.sourceSha256!==source.sha256||context.specialExists!==false||!/^[a-f0-9]{64}$/.test(context.anchorVersion)||![requestId,context.unitId,context.anchorNodeId].every(id=>/^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(id)))fail('invalid_actual_author_context')
+ return {requestId,unitId:context.unitId,anchorNodeId:context.anchorNodeId,sourceRef:source.ref,sourceSha256:source.sha256,expectedAnchorVersion:context.anchorVersion,specialSourceId:pool.specialId,title:pool.title,topic:'Artikel im Nominativ',goalId:pool.binding.candidate.goalId,blueprint:structuredClone(pool.blueprint),items:pool.items.map(item=>({id:item.id,stableId:item.stableId,stratum:item.stratum,snapshot:structuredClone(item.snapshot),sourceEvidence:structuredClone(item.sourceEvidence)}))}
+}
