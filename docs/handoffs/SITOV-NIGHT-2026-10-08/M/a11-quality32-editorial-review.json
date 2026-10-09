@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality32-M",
+  "reviewer": "sitov.agent.M",
+  "reviewerKind": "independent_agent_editorial_review",
+  "authorIdentity": "sitov.agent.S3+S4",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T19:12:48.411338+00:00",
+  "sourcePatchSha256": "7b83c2ea7b8add2a38ee774a1258bb3a11ff8a662e63a7ac9143b4d05b375d72",
+  "originalCandidateSha256": "fd194fd13d0045b5147ee6914e78c290619206c5cc2784c1060fd29c6d08a88e",
+  "MChangesRequestSha256": "e4369618c7d280c16912eaedb58e0916dba7d5efa3dc62200f38e3522bfc2608",
+  "questionsRead": 96,
+  "coresRead": 16,
+  "fullBodiesRead": 4,
+  "changedQuestions": 32,
+  "changedAudioAliases": 77,
+  "status": "INDEPENDENT_EDITORIAL_ACCEPTED_DRAFT_ONLY",
+  "scope": "M readall96 publicquestions/options/keys/rationales,16coresand4fullcanonicalA1.1sources. All32candidatechanges redactionallyacceptedafter2exactpublicpromptfixes toOnkelcaseandtimefrontedgehen. RetainsourceIDs/optionorder/keys/equivalence/history. Correctwording11exceptions explicitlyrereviewed; simplifiedmilk/uncle/laugh/course/smallbookandperson/verb/coordination/plural/sourcecontext judgments source-consistent within preciseunit. Coordination08syntax6binds bothverbs toexplicitsharedPaul+Leonsubject;10syntax4disambiguatesrealPaul/Leonverb-objectassignments withinretainedtwoactions unit. Notempiricalequivalence/CEFRorhumanreviewcertification.",
+  "correctWordingDecisions": [
+    {
+      "questionId": "sitov.pretest.a11-07.words.q2",
+      "decision": {
+        "before": "Ein weißes Getränk, das üblicherweise von Kühen kommt.",
+        "after": "Ein weißes Getränk von der Kuh.",
+        "meaningBeforeDe": "Milch wird von Apfelsaft und Kaffee unterschieden; die beiden anderen Beschreibungen nennen andere Getränke.",
+        "meaningAfterDe": "Milch ist hier das weiße Getränk von der Kuh. Apfelsaft und schwarzer Kaffee sind andere Getränke.",
+        "sourceEvidence": [
+          {
+            "start": 18,
+            "end": 57,
+            "quote": "Ich brauche Milch, Brot und drei Äpfel."
+          }
+        ],
+        "changeReasonDe": "S7: kurze Getränkebeschreibungen statt ausgepresst und üblicherweise; richtige Bedeutung vereinfacht.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.verbs.q6",
+      "decision": {
+        "before": "Die erste Person Singular: ich.",
+        "after": "ich",
+        "meaningBeforeDe": "Im ausdrücklich festgelegten Präsens Indikativ gehört bezahle zur ersten Person Singular ich; du verlangt bezahlst und die dritte Person Plural sie verlangt bezahlen.",
+        "meaningAfterDe": "Bezahle passt zu ich. Mit wir heißt es bezahlen, mit du bezahlst.",
+        "sourceEvidence": [
+          {
+            "start": 155,
+            "end": 187,
+            "quote": "Dann bezahle ich und sage danke."
+          }
+        ],
+        "changeReasonDe": "S7: sichtbarer Satz und einfache Personenwörter statt Präsens Indikativ; echte Personenübereinstimmung bleibt Ziel.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q2",
+      "decision": {
+        "before": "Einen Bruder eines Elternteils.",
+        "after": "Den Bruder von Vater oder Mutter.",
+        "meaningBeforeDe": "Ein Onkel kann ein Bruder eines Elternteils sein; der Vater der Person oder ihr eigener Bruder sind andere Verwandtschaftsrollen.",
+        "meaningAfterDe": "Ein Onkel kann der Bruder von Vater oder Mutter sein. Der eigene Vater und der eigene Bruder sind andere Familienmitglieder.",
+        "sourceEvidence": [
+          {
+            "start": 37,
+            "end": 59,
+            "quote": "Mein Onkel heißt Mark."
+          }
+        ],
+        "changeReasonDe": "S7: einfache Familienwörter statt Verwandtschaftsrolle und Elternteil; richtige Relation erhalten.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q6",
+      "decision": {
+        "before": "Man zeigt Heiterkeit mit der Stimme und dem Gesicht.",
+        "after": "Man zeigt Freude mit der Stimme und dem Gesicht.",
+        "meaningBeforeDe": "Lachen ist ein hörbarer Ausdruck von Heiterkeit; Briefeschreiben und stilles Schlafen sind andere Tätigkeiten.",
+        "meaningAfterDe": "Lachen zeigt oft Freude mit Stimme und Gesicht. Weinen oder leise sprechen sind andere Tätigkeiten.",
+        "sourceEvidence": [
+          {
+            "start": 200,
+            "end": 216,
+            "quote": "und lachen viel."
+          }
+        ],
+        "changeReasonDe": "S7: Freude statt Heiterkeit; vergleichbare menschliche Ausdrucksformen statt Brief und stillem Schlaf.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q6",
+      "decision": {
+        "before": "Telefonieren und lachen.",
+        "after": "Paul und Leon telefonieren und lachen.",
+        "meaningBeforeDe": "Die beiden sichtbaren durch und verbundenen Verben sind lachen und telefonieren; das gemeinsame Subjekt wir gilt für beide Tätigkeiten.",
+        "meaningAfterDe": "Wir meint hier Paul und Leon. Beide telefonieren und beide lachen; der Satz verteilt die Tätigkeiten nicht auf je eine Person.",
+        "sourceEvidence": [
+          {
+            "start": 179,
+            "end": 216,
+            "quote": "Wir telefonieren oft und lachen viel."
+          }
+        ],
+        "changeReasonDe": "S7: echte gemeinsame Subjektbindung statt bloßer Wiederholung zweier Tätigkeitswörter; richtiger Text wird ausdrücklich an die deklarierte Syntaxkompetenz angepasst.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q5",
+      "decision": {
+        "before": "Die Zahl zwanzig bezeichnet mehrere Jahre.",
+        "after": "Jahre",
+        "meaningBeforeDe": "Die ausdrücklich sichtbare Zahl zwanzig bezeichnet mehrere Jahre und verlangt hier den Plural Jahre; sie ist weder ein Personenname noch die Angabe eines einzelnen Jahres.",
+        "meaningAfterDe": "Nach zwanzig steht hier die Mehrzahl Jahre: zwanzig Jahre alt. Jahr ist die Einzahl; Jahren passt nicht in diese Altersangabe.",
+        "sourceEvidence": [
+          {
+            "start": 134,
+            "end": 151,
+            "quote": "zwanzig Jahre alt"
+          }
+        ],
+        "changeReasonDe": "S7: echte Auswahl der Pluralform statt Jahre als Personenname; richtige Aussage wird in eine grammatische Ergänzung überführt.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q6",
+      "decision": {
+        "before": "Der Sprecher zusammen mit mindestens einer weiteren Person.",
+        "after": "Paul und Leon.",
+        "meaningBeforeDe": "Wir ist die erste Person Plural und schließt den Sprecher ein; eine einzelne fremde Person oder eine Gruppe ohne ihn passt nicht.",
+        "meaningAfterDe": "Paul und Leon sagen wir. Wir bezeichnet beide Sprecher zusammen, nicht nur einen von ihnen.",
+        "sourceEvidence": [
+          {
+            "start": 179,
+            "end": 199,
+            "quote": "Wir telefonieren oft"
+          }
+        ],
+        "changeReasonDe": "S7: einfache benannte Sprechergruppe statt abstrakter Personenrolle; erste Person Plural erhalten.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.words.q1",
+      "decision": {
+        "before": "Eine Unterrichtsveranstaltung.",
+        "after": "Unterricht zu einem Thema.",
+        "meaningBeforeDe": "Im Schulzusammenhang bezeichnet Kurs eine Unterrichtsveranstaltung; Geschäft und Verkehrsmittel sind andere Bedeutungsbereiche.",
+        "meaningAfterDe": "Kurs heißt hier Unterricht zu einem Thema. Eine Pause oder eine Prüfung ist etwas anderes.",
+        "sourceEvidence": [
+          {
+            "start": 0,
+            "end": 30,
+            "quote": "Mein Kurs beginnt um neun Uhr."
+          }
+        ],
+        "changeReasonDe": "Zwei S7-Befunde: vergleichbare Lernereignisse und einfacher Unterricht statt Unterrichtsveranstaltung.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q3",
+      "decision": {
+        "before": "Es nennt das benutzte Verkehrsmittel.",
+        "after": "Wie fährt der Sprecher?",
+        "meaningBeforeDe": "Mit dem Bus beschreibt, wie der Sprecher fährt; weder eine Uhrzeit noch ein Personenname wird damit angegeben.",
+        "meaningAfterDe": "Mit dem Bus sagt, wie der Sprecher fährt: Er benutzt den Bus. Die Wortgruppe nennt weder eine Zeit noch ein Ziel.",
+        "sourceEvidence": [
+          {
+            "start": 91,
+            "end": 113,
+            "quote": "Ich fahre mit dem Bus."
+          }
+        ],
+        "changeReasonDe": "Zusätzlich: echte Bestimmung der adverbialen Mittelangabe durch vergleichbare Fragen statt Namen und Uhrzeiten als absurde Bedeutungen; richtiger Wortlaut explizit neu.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.words.q4",
+      "decision": {
+        "before": "Das Buch hat eine geringe Größe.",
+        "after": "Das Buch ist nicht groß.",
+        "meaningBeforeDe": "Klein beschreibt eine geringe Größe; groß ist das Gegenteil, und eine andere Gegenstandsart wird nicht genannt.",
+        "meaningAfterDe": "Klein heißt hier nicht groß. Groß ist das Gegenteil; schwer nennt das Gewicht, nicht die Größe.",
+        "sourceEvidence": [
+          {
+            "start": 79,
+            "end": 95,
+            "quote": "ein kleines Buch"
+          }
+        ],
+        "changeReasonDe": "Zwei S7-Befunde: normale Buchmerkmale statt Telefonbehauptung und kurze richtige Antwort statt geringer Größe.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.verbs.q6",
+      "decision": {
+        "before": "Zur ersten Person Singular: ich.",
+        "after": "ich",
+        "meaningBeforeDe": "Die Präsensform gehe gehört zur ersten Person Singular ich; du verlangt gehst und die dritte Person Plural sie verlangt gehen.",
+        "meaningAfterDe": "Um zehn Uhr steht am Anfang. Danach folgt gehe und dann ich: Um zehn Uhr gehe ich ins Bett. Mit wir heißt es gehen, mit du gehst.",
+        "sourceEvidence": [
+          {
+            "start": 171,
+            "end": 201,
+            "quote": "Um zehn Uhr gehe ich ins Bett."
+          }
+        ],
+        "changeReasonDe": "Zusätzlich: sichtbarer Ergänzungssatz statt isolierter Präsensform mit unnötiger Personenterminologie; echte Ich-Übereinstimmung erhalten.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      }
+    }
+  ],
+  "sourceBodies": [
+    {
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "sha256": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8"
+    },
+    {
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "sha256": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15"
+    },
+    {
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "sha256": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab"
+    },
+    {
+      "textId": "4a6f7008-9439-5c6e-9d60-113e8945f800",
+      "sha256": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561"
+    }
+  ],
+  "newImmutableVersionsAndPreparedExactAudioRequired": true,
+  "publicationAuthorized": false
+}

@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-09T19:12:48.538Z",
+  "scope": "Applied only32 independentlyMreviewed A1.1pools7–10 tasks and77 correspondingaudioaliasvalues, retainedother1048tasks andallidentities/keys/sourcebody/history, newversions/actualaudio pending. Previous45Mreviewedstate reconstructed before every immutable author/Mproof.",
+  "previousManifestByteSha256": "e563c5688dfa6f3d55de21e4cb2c9cbc0b370cbfc089ae8ebb4d2759e4a0320a",
+  "previousAudioByteSha256": "f08f393857ae68be5671b57df316fab248b50854c4c7e2f0f173352957487d7d",
+  "currentManifestByteSha256": "48c6b72631742dbd726909a8c8df03de17a1ccca0fa2637af6a5168b6480f8d9",
+  "currentAudioByteSha256": "e238583b92a10e306cc2da81a183434e9825a46f944969764f00b7b67021e054",
+  "sourcePatchSha256": "7b83c2ea7b8add2a38ee774a1258bb3a11ff8a662e63a7ac9143b4d05b375d72",
+  "reviewSha256": "28a00f2a45766293f286115e8c861acdaa22d8309100d0bb49ff5bf36a6e5a24",
+  "pools": 45,
+  "changedQuestions": 32,
+  "changedAliases": 77,
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false
+}

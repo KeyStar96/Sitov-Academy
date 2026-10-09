@@ -6457,16 +6457,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "M hat alle96 Fragen und16Kerne nach32 Reparaturen unabhängig geprüft;64 Fragen exakt erhalten. Elf richtige Antwortformulierungen und zwei ausdrücklich markierte syntaktische Prüfbetonungen redaktionell neu bewertet. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
-        "definitionContentHash": "b691b7b0554cc562278883981225bc20a97622d6b6732a017acf34d385594174",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "definitionContentHash": "6cbf3aacf7270d64e5dc0e7c442afb5abc3cb3dcc99d1575a658d51295972580",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality32-M",
+        "documentSha256": "28a00f2a45766293f286115e8c861acdaa22d8309100d0bb49ff5bf36a6e5a24",
+        "reviewedAt": "2026-10-09T19:12:48.411338+00:00",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -6720,15 +6720,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-07.words.q2.a",
-                "textDe": "Ein Getränk aus ausgepressten Äpfeln."
+                "textDe": "Ein Saft aus Äpfeln."
               },
               {
                 "id": "sitov.pretest.a11-07.words.q2.b",
-                "textDe": "Ein schwarzes Getränk aus Kaffeebohnen."
+                "textDe": "Ein schwarzer Kaffee."
               },
               {
                 "id": "sitov.pretest.a11-07.words.q2.c",
-                "textDe": "Ein weißes Getränk, das üblicherweise von Kühen kommt."
+                "textDe": "Ein weißes Getränk von der Kuh."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-07.words.q2.c",
@@ -6741,7 +6741,7 @@
                 "quote": "Ich brauche Milch, Brot und drei Äpfel."
               }
             ],
-            "rationaleDe": "Milch wird von Apfelsaft und Kaffee unterschieden; die beiden anderen Beschreibungen nennen andere Getränke."
+            "rationaleDe": "Milch ist hier das weiße Getränk von der Kuh. Apfelsaft und schwarzer Kaffee sind andere Getränke."
           },
           {
             "id": "sitov.pretest.a11-07.words.q3",
@@ -6848,7 +6848,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-07.words.q6.a",
-                "textDe": "Die Tasche ist verschwunden."
+                "textDe": "In der Tasche ist noch viel Platz."
               },
               {
                 "id": "sitov.pretest.a11-07.words.q6.b",
@@ -6869,7 +6869,7 @@
                 "quote": "Meine Tasche ist jetzt voll."
               }
             ],
-            "rationaleDe": "Voll beschreibt den gefüllten Zustand der Tasche; leer oder verschwunden bedeutet etwas anderes."
+            "rationaleDe": "Voll bedeutet: Es ist kein freier Platz mehr da. Viel freier Platz oder eine leere Tasche ist etwas anderes."
           },
           {
             "id": "sitov.pretest.a11-07.verbs.q1",
@@ -7035,20 +7035,20 @@
             "id": "sitov.pretest.a11-07.verbs.q6",
             "competencyId": "sitov.pretest.a11-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Person gehört zur Form »bezahle« im Präsens Indikativ?",
+            "promptDe": "Ergänze: »___ bezahle das Brot.«",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-07.verbs.q6.a",
-                "textDe": "Die dritte Person Plural: sie."
+                "textDe": "wir"
               },
               {
                 "id": "sitov.pretest.a11-07.verbs.q6.b",
-                "textDe": "Die zweite Person Singular: du."
+                "textDe": "du"
               },
               {
                 "id": "sitov.pretest.a11-07.verbs.q6.c",
-                "textDe": "Die erste Person Singular: ich."
+                "textDe": "ich"
               }
             ],
             "correctOptionId": "sitov.pretest.a11-07.verbs.q6.c",
@@ -7061,7 +7061,7 @@
                 "quote": "Dann bezahle ich und sage danke."
               }
             ],
-            "rationaleDe": "Im ausdrücklich festgelegten Präsens Indikativ gehört bezahle zur ersten Person Singular ich; du verlangt bezahlst und die dritte Person Plural sie verlangt bezahlen."
+            "rationaleDe": "Bezahle passt zu ich. Mit wir heißt es bezahlen, mit du bezahlst."
           },
           {
             "id": "sitov.pretest.a11-07.syntax.q1",
@@ -7099,7 +7099,7 @@
             "id": "sitov.pretest.a11-07.syntax.q2",
             "competencyId": "sitov.pretest.a11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Übung: »Ein Verkäufer kommt zu mir. Er zeigt mir das Brot.« Wer zeigt wem das Brot?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Der Verkäufer zeigt mir das Brot.« Wer zeigt wem das Brot?",
             "fragmentDe": null,
             "options": [
               {
@@ -7112,7 +7112,7 @@
               },
               {
                 "id": "sitov.pretest.a11-07.syntax.q2.c",
-                "textDe": "Das Brot zeigt dem Verkäufer den Sprecher."
+                "textDe": "Der Verkäufer zeigt Leon das Brot."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-07.syntax.q2.b",
@@ -7125,7 +7125,7 @@
                 "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
               }
             ],
-            "rationaleDe": "Er verweist im sichtbaren Kontext auf den Verkäufer als Handelnden; mir bezeichnet den Sprecher als Empfänger des Zeigens. Die anderen Optionen vertauschen diese Rollen."
+            "rationaleDe": "Der Verkäufer zeigt das Brot. Paul sagt mir und ist damit der Empfänger. Leon hört zu, wird aber nicht als Empfänger genannt."
           },
           {
             "id": "sitov.pretest.a11-07.syntax.q3",
@@ -7163,16 +7163,16 @@
             "id": "sitov.pretest.a11-07.syntax.q4",
             "competencyId": "sitov.pretest.a11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Was drückt »auch« beim Wasser aus?",
+            "promptDe": "Übung: »Ich nehme Brot. Ich nehme auch Wasser.« Was bedeutet »auch« hier?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-07.syntax.q4.a",
-                "textDe": "Wasser wird ausdrücklich nicht genommen."
+                "textDe": "Wasser wird nicht genommen."
               },
               {
                 "id": "sitov.pretest.a11-07.syntax.q4.b",
-                "textDe": "Wasser ersetzt alle vorher genannten Produkte."
+                "textDe": "Wasser ersetzt das Brot."
               },
               {
                 "id": "sitov.pretest.a11-07.syntax.q4.c",
@@ -7189,7 +7189,7 @@
                 "quote": "Ich nehme auch Wasser."
               }
             ],
-            "rationaleDe": "Auch ergänzt die bisherige Auswahl um Wasser; es bedeutet weder einen vollständigen Ersatz noch eine Verneinung."
+            "rationaleDe": "Auch ergänzt die Auswahl: Brot und Wasser werden genommen. Das Wasser ersetzt das Brot nicht."
           },
           {
             "id": "sitov.pretest.a11-07.syntax.q5",
@@ -7204,7 +7204,7 @@
               },
               {
                 "id": "sitov.pretest.a11-07.syntax.q5.b",
-                "textDe": "danke"
+                "textDe": "Dann"
               },
               {
                 "id": "sitov.pretest.a11-07.syntax.q5.c",
@@ -7221,22 +7221,22 @@
                 "quote": "Dann bezahle ich"
               }
             ],
-            "rationaleDe": "Im Aussagesatz steht das finite Verb bezahle an zweiter Position nach Dann; ich folgt hinter dem Verb. Danke ist kein gegebener Satzbaustein."
+            "rationaleDe": "Nach Dann steht im Aussagesatz das Verb bezahle: Dann bezahle ich. Alle Antworten sind jetzt vorgegebene Satzbausteine."
           },
           {
             "id": "sitov.pretest.a11-07.syntax.q6",
             "competencyId": "sitov.pretest.a11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Übung: »Ich bezahle und sage danach danke.« Wer führt beide Handlungen aus?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Ich bezahle und sage danach danke.« Wer führt beide Handlungen aus?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-07.syntax.q6.a",
-                "textDe": "Der Sprecher bezahlt, aber das Brot sagt danke."
+                "textDe": "Paul bezahlt; Leon sagt danke."
               },
               {
                 "id": "sitov.pretest.a11-07.syntax.q6.b",
-                "textDe": "Nur der Verkäufer führt beide Handlungen aus."
+                "textDe": "Leon bezahlt und sagt danke."
               },
               {
                 "id": "sitov.pretest.a11-07.syntax.q6.c",
@@ -7253,7 +7253,7 @@
                 "quote": "Dann bezahle ich und sage danke."
               }
             ],
-            "rationaleDe": "Das sichtbare Subjekt ich gilt für beide durch und verbundenen Handlungen: bezahlen und danke sagen. Es wechselt nicht zum Verkäufer oder zum Brot."
+            "rationaleDe": "Paul sagt ich. Paul bezahlt und Paul sagt danach danke. Beide Verben gehören zu Paul."
           },
           {
             "id": "sitov.pretest.a11-07.nominal.q1",
@@ -7387,7 +7387,7 @@
             "id": "sitov.pretest.a11-07.nominal.q5",
             "competencyId": "sitov.pretest.a11-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Person bezeichnet »mir« beim Zeigen?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Der Verkäufer zeigt mir das Brot.« Welche Person meint »mir«?",
             "fragmentDe": null,
             "options": [
               {
@@ -7396,7 +7396,7 @@
               },
               {
                 "id": "sitov.pretest.a11-07.nominal.q5.b",
-                "textDe": "Eine dritte, neu eingeführte Person."
+                "textDe": "Leon, der zuhört."
               },
               {
                 "id": "sitov.pretest.a11-07.nominal.q5.c",
@@ -7413,7 +7413,7 @@
                 "quote": "Er zeigt mir das Brot."
               }
             ],
-            "rationaleDe": "Mir ist die Dativform von ich und nennt den Sprecher als Empfänger; der Verkäufer ist bereits durch er bezeichnet."
+            "rationaleDe": "Paul sagt mir. Damit meint er sich selbst als Empfänger des Zeigens; Leon hört zu und der Verkäufer zeigt das Brot."
           },
           {
             "id": "sitov.pretest.a11-07.nominal.q6",
@@ -7515,16 +7515,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "M hat alle96 Fragen und16Kerne nach32 Reparaturen unabhängig geprüft;64 Fragen exakt erhalten. Elf richtige Antwortformulierungen und zwei ausdrücklich markierte syntaktische Prüfbetonungen redaktionell neu bewertet. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
-        "definitionContentHash": "8ff24cfc766fea71670c574237b5ac416effb70f978d6653f4f5522f6a3f281d",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "definitionContentHash": "2e8c5fcefb734e99ce2d54c41648e87bc0f05075af0ea156223f2fcdc37d520c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality32-M",
+        "documentSha256": "28a00f2a45766293f286115e8c861acdaa22d8309100d0bb49ff5bf36a6e5a24",
+        "reviewedAt": "2026-10-09T19:12:48.411338+00:00",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -7778,20 +7778,20 @@
             "id": "sitov.pretest.a11-08.words.q2",
             "competencyId": "sitov.pretest.a11-08.words",
             "kind": "single_choice",
-            "promptDe": "Welche Verwandtschaftsrolle kann »Onkel« bezeichnen?",
+            "promptDe": "Wen kann das Wort »Onkel« bezeichnen?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-08.words.q2.a",
-                "textDe": "Den Vater einer Person."
+                "textDe": "Den Vater."
               },
               {
                 "id": "sitov.pretest.a11-08.words.q2.b",
-                "textDe": "Einen Bruder der Person selbst."
+                "textDe": "Den eigenen Bruder."
               },
               {
                 "id": "sitov.pretest.a11-08.words.q2.c",
-                "textDe": "Einen Bruder eines Elternteils."
+                "textDe": "Den Bruder von Vater oder Mutter."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.words.q2.c",
@@ -7804,7 +7804,7 @@
                 "quote": "Mein Onkel heißt Mark."
               }
             ],
-            "rationaleDe": "Ein Onkel kann ein Bruder eines Elternteils sein; der Vater der Person oder ihr eigener Bruder sind andere Verwandtschaftsrollen."
+            "rationaleDe": "Ein Onkel kann der Bruder von Vater oder Mutter sein. Der eigene Vater und der eigene Bruder sind andere Familienmitglieder."
           },
           {
             "id": "sitov.pretest.a11-08.words.q3",
@@ -7911,15 +7911,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-08.words.q6.a",
-                "textDe": "Man zeigt Heiterkeit mit der Stimme und dem Gesicht."
+                "textDe": "Man zeigt Freude mit der Stimme und dem Gesicht."
               },
               {
                 "id": "sitov.pretest.a11-08.words.q6.b",
-                "textDe": "Man schreibt einen Brief."
+                "textDe": "Man ist traurig und weint."
               },
               {
                 "id": "sitov.pretest.a11-08.words.q6.c",
-                "textDe": "Man schläft ohne Geräusch."
+                "textDe": "Man spricht leise mit jemandem."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.words.q6.a",
@@ -7932,7 +7932,7 @@
                 "quote": "und lachen viel."
               }
             ],
-            "rationaleDe": "Lachen ist ein hörbarer Ausdruck von Heiterkeit; Briefeschreiben und stilles Schlafen sind andere Tätigkeiten."
+            "rationaleDe": "Lachen zeigt oft Freude mit Stimme und Gesicht. Weinen oder leise sprechen sind andere Tätigkeiten."
           },
           {
             "id": "sitov.pretest.a11-08.verbs.q1",
@@ -8143,7 +8143,7 @@
               },
               {
                 "id": "sitov.pretest.a11-08.syntax.q1.c",
-                "textDe": "Es ist eine Rechnung für Lebensmittel."
+                "textDe": "Es zeigt den Freund des Sprechers."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.syntax.q1.b",
@@ -8156,7 +8156,7 @@
                 "quote": "Das ist ein Foto von meiner Familie."
               }
             ],
-            "rationaleDe": "Von meiner Familie benennt im sichtbaren Satz die Familie des Sprechers als Motiv des Fotos; Schule und Einkaufsrechnung gehören nicht zu dieser Aussage."
+            "rationaleDe": "Das Foto zeigt laut Satz die Familie des Sprechers. Eine Schule oder sein Freund wird nicht als Motiv genannt."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q2",
@@ -8167,7 +8167,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-08.syntax.q2.a",
-                "textDe": "Mark ist der Name des Vaters Oleg."
+                "textDe": "Mark ist der Name des Bruders."
               },
               {
                 "id": "sitov.pretest.a11-08.syntax.q2.b",
@@ -8175,7 +8175,7 @@
               },
               {
                 "id": "sitov.pretest.a11-08.syntax.q2.c",
-                "textDe": "Mark ist der Name eines Deutschkurses."
+                "textDe": "Mark ist der Name des Sprechers."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.syntax.q2.b",
@@ -8188,7 +8188,7 @@
                 "quote": "Mein Onkel heißt Mark."
               }
             ],
-            "rationaleDe": "Das sichtbare heißt ordnet Mark dem Onkel als Namen zu; es benennt weder einen Vater Oleg noch einen Deutschkurs."
+            "rationaleDe": "Mein Onkel heißt Mark ordnet den Namen Mark dem Onkel zu, nicht dem Bruder oder dem Sprecher."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q3",
@@ -8199,7 +8199,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-08.syntax.q3.a",
-                "textDe": "Er kann nach dem Satz gar nicht kochen."
+                "textDe": "Er muss es tun."
               },
               {
                 "id": "sitov.pretest.a11-08.syntax.q3.b",
@@ -8207,7 +8207,7 @@
               },
               {
                 "id": "sitov.pretest.a11-08.syntax.q3.c",
-                "textDe": "Er macht es ausdrücklich ungern."
+                "textDe": "Er macht es nicht gern."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.syntax.q3.b",
@@ -8220,7 +8220,7 @@
                 "quote": "Er kocht gern."
               }
             ],
-            "rationaleDe": "Im sichtbaren Satz bezeichnet gern Freude am Kochen. Das Wort sagt weder fehlende Fähigkeit noch ausdrückliche Abneigung aus."
+            "rationaleDe": "Gern heißt hier: Er macht es mit Freude. Müssen nennt eine Pflicht; nicht gern bedeutet etwas anderes."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q4",
@@ -8231,7 +8231,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-08.syntax.q4.a",
-                "textDe": "Der Onkel Mark."
+                "textDe": "Die sprechende Person."
               },
               {
                 "id": "sitov.pretest.a11-08.syntax.q4.b",
@@ -8239,7 +8239,7 @@
               },
               {
                 "id": "sitov.pretest.a11-08.syntax.q4.c",
-                "textDe": "Der Bruder als ausdrücklich genannter Musiker."
+                "textDe": "Der Bruder."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.syntax.q4.b",
@@ -8252,13 +8252,13 @@
                 "quote": "Mein Vater heißt Oleg. Er hört gern Musik."
               }
             ],
-            "rationaleDe": "Er nimmt im sichtbaren Kontext den unmittelbar vorher genannten Vater Oleg wieder auf; die Vorliebe wird dadurch eindeutig Oleg zugeordnet."
+            "rationaleDe": "Er bezieht sich im sichtbaren Satz auf Oleg, den Vater. Der Sprecher und der Bruder werden nicht als Musikhörer genannt."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q5",
             "competencyId": "sitov.pretest.a11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet »wie ich« beim Deutschlernen?",
+            "promptDe": "Übung: »Mein Bruder lernt Deutsch wie ich.« Was bedeutet »wie ich«?",
             "fragmentDe": null,
             "options": [
               {
@@ -8284,26 +8284,26 @@
                 "quote": "Er lernt Deutsch wie ich."
               }
             ],
-            "rationaleDe": "Wie ich stellt die gleiche Lerntätigkeit beider Personen fest; weder ein Gegensatz noch eine Lehrerrolle wird behauptet."
+            "rationaleDe": "Wie ich sagt: Auch der Sprecher lernt Deutsch. Der Satz nennt den Bruder nicht als Lehrer und sagt nicht, dass der Sprecher kein Deutsch lernt."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q6",
             "competencyId": "sitov.pretest.a11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Übung: »Wir lachen und telefonieren.« Welche beiden Tätigkeiten werden verbunden?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Wir telefonieren oft und lachen viel.« Mit »wir« meint Paul sich und Leon. Wer telefoniert und wer lacht?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-08.syntax.q6.a",
-                "textDe": "Musik hören und einkaufen."
+                "textDe": "Paul telefoniert; Leon lacht."
               },
               {
                 "id": "sitov.pretest.a11-08.syntax.q6.b",
-                "textDe": "Telefonieren und lachen."
+                "textDe": "Paul und Leon telefonieren und lachen."
               },
               {
                 "id": "sitov.pretest.a11-08.syntax.q6.c",
-                "textDe": "Kochen und schlafen."
+                "textDe": "Leon telefoniert; Paul lacht."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.syntax.q6.b",
@@ -8316,7 +8316,7 @@
                 "quote": "Wir telefonieren oft und lachen viel."
               }
             ],
-            "rationaleDe": "Die beiden sichtbaren durch und verbundenen Verben sind lachen und telefonieren; das gemeinsame Subjekt wir gilt für beide Tätigkeiten."
+            "rationaleDe": "Wir meint hier Paul und Leon. Beide telefonieren und beide lachen; der Satz verteilt die Tätigkeiten nicht auf je eine Person."
           },
           {
             "id": "sitov.pretest.a11-08.nominal.q1",
@@ -8418,7 +8418,7 @@
             "id": "sitov.pretest.a11-08.nominal.q4",
             "competencyId": "sitov.pretest.a11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Wen bezeichnet »Er« im Satz unmittelbar nach »Mein Onkel heißt Mark«?",
+            "promptDe": "Übung: »Mein Onkel heißt Mark. Er kocht gern.« Wen meint »Er«?",
             "fragmentDe": null,
             "options": [
               {
@@ -8444,26 +8444,26 @@
                 "quote": "Mein Onkel heißt Mark. Er kocht gern."
               }
             ],
-            "rationaleDe": "Der Bezug ist der direkt zuvor vorgestellte Onkel Mark; Vater und Bruder werden erst in späteren Sätzen eingeführt."
+            "rationaleDe": "Er nimmt den direkt zuvor genannten Onkel Mark wieder auf. Der Vater und der Bruder werden in diesem Übungssatz nicht genannt."
           },
           {
             "id": "sitov.pretest.a11-08.nominal.q5",
             "competencyId": "sitov.pretest.a11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Warum steht in »zwanzig Jahre alt« die Form »Jahre« und nicht »Jahr«?",
+            "promptDe": "Ergänze: »Mein Bruder ist zwanzig ___ alt.«",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-08.nominal.q5.a",
-                "textDe": "Jahre ist der Name des Bruders."
+                "textDe": "Jahr"
               },
               {
                 "id": "sitov.pretest.a11-08.nominal.q5.b",
-                "textDe": "Die Zahl zwanzig bezeichnet mehrere Jahre."
+                "textDe": "Jahre"
               },
               {
                 "id": "sitov.pretest.a11-08.nominal.q5.c",
-                "textDe": "Die Altersangabe bezeichnet genau ein Jahr."
+                "textDe": "Jahren"
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.nominal.q5.b",
@@ -8476,26 +8476,26 @@
                 "quote": "zwanzig Jahre alt"
               }
             ],
-            "rationaleDe": "Die ausdrücklich sichtbare Zahl zwanzig bezeichnet mehrere Jahre und verlangt hier den Plural Jahre; sie ist weder ein Personenname noch die Angabe eines einzelnen Jahres."
+            "rationaleDe": "Nach zwanzig steht hier die Mehrzahl Jahre: zwanzig Jahre alt. Jahr ist die Einzahl; Jahren passt nicht in diese Altersangabe."
           },
           {
             "id": "sitov.pretest.a11-08.nominal.q6",
             "competencyId": "sitov.pretest.a11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Personenrolle ist durch »wir« sicher eingeschlossen?",
+            "promptDe": "Übung: Paul und Leon sagen: »Wir lernen Deutsch.« Wen meint »wir«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-08.nominal.q6.a",
-                "textDe": "Der Sprecher zusammen mit mindestens einer weiteren Person."
+                "textDe": "Paul und Leon."
               },
               {
                 "id": "sitov.pretest.a11-08.nominal.q6.b",
-                "textDe": "Nur Personen außerhalb der Gruppe des Sprechers."
+                "textDe": "Nur Paul."
               },
               {
                 "id": "sitov.pretest.a11-08.nominal.q6.c",
-                "textDe": "Nur eine einzelne Person, die nicht spricht."
+                "textDe": "Nur Leon."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.nominal.q6.a",
@@ -8508,7 +8508,7 @@
                 "quote": "Wir telefonieren oft"
               }
             ],
-            "rationaleDe": "Wir ist die erste Person Plural und schließt den Sprecher ein; eine einzelne fremde Person oder eine Gruppe ohne ihn passt nicht."
+            "rationaleDe": "Paul und Leon sagen wir. Wir bezeichnet beide Sprecher zusammen, nicht nur einen von ihnen."
           }
         ],
         "omittedCategories": [
@@ -8578,16 +8578,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "M hat alle96 Fragen und16Kerne nach32 Reparaturen unabhängig geprüft;64 Fragen exakt erhalten. Elf richtige Antwortformulierungen und zwei ausdrücklich markierte syntaktische Prüfbetonungen redaktionell neu bewertet. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
-        "definitionContentHash": "e190a2f9d568fe43182264ddcc5aad15e7bcdd345e340d60261a9afa292099f9",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "definitionContentHash": "10dbb3c8a11ddfac8e93456e059c8584898d86c12c3bfb678a2938b7efd74e65",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality32-M",
+        "documentSha256": "28a00f2a45766293f286115e8c861acdaa22d8309100d0bb49ff5bf36a6e5a24",
+        "reviewedAt": "2026-10-09T19:12:48.411338+00:00",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -8803,15 +8803,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-09.words.q1.a",
-                "textDe": "Ein Geschäft für Lebensmittel."
+                "textDe": "Eine Pause zwischen zwei Stunden."
               },
               {
                 "id": "sitov.pretest.a11-09.words.q1.b",
-                "textDe": "Eine Fahrt als einzelnes Verkehrsmittel."
+                "textDe": "Eine Prüfung am Ende des Lernens."
               },
               {
                 "id": "sitov.pretest.a11-09.words.q1.c",
-                "textDe": "Eine Unterrichtsveranstaltung."
+                "textDe": "Unterricht zu einem Thema."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-09.words.q1.c",
@@ -8824,7 +8824,7 @@
                 "quote": "Mein Kurs beginnt um neun Uhr."
               }
             ],
-            "rationaleDe": "Im Schulzusammenhang bezeichnet Kurs eine Unterrichtsveranstaltung; Geschäft und Verkehrsmittel sind andere Bedeutungsbereiche."
+            "rationaleDe": "Kurs heißt hier Unterricht zu einem Thema. Eine Pause oder eine Prüfung ist etwas anderes."
           },
           {
             "id": "sitov.pretest.a11-09.words.q2",
@@ -8867,11 +8867,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-09.words.q3.a",
-                "textDe": "Eine Tasche für Schulbücher."
+                "textDe": "Ein Parkplatz für Autos."
               },
               {
                 "id": "sitov.pretest.a11-09.words.q3.b",
-                "textDe": "Ein Raum, in dem der Kurs stattfindet."
+                "textDe": "Ein Ort, an dem man Autos repariert."
               },
               {
                 "id": "sitov.pretest.a11-09.words.q3.c",
@@ -8888,7 +8888,7 @@
                 "quote": "Die Haltestelle ist nah."
               }
             ],
-            "rationaleDe": "Haltestelle bezeichnet den Halt eines Verkehrsmittels; Kursraum und Tasche sind andere Gegenstände."
+            "rationaleDe": "An einer Haltestelle kann man in den Bus einsteigen oder aussteigen. Ein Parkplatz und ein Ort zum Reparieren von Autos haben andere Aufgaben."
           },
           {
             "id": "sitov.pretest.a11-09.words.q4",
@@ -8971,7 +8971,7 @@
               },
               {
                 "id": "sitov.pretest.a11-09.words.q6.c",
-                "textDe": "Eine Uhrzeit."
+                "textDe": "Die obere Seite."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-09.words.q6.b",
@@ -8984,7 +8984,7 @@
                 "quote": "Die Schule ist rechts."
               }
             ],
-            "rationaleDe": "Rechts bezeichnet eine Seite beziehungsweise Richtung; links ist die Gegenseite, und eine Uhrzeit wird damit nicht angegeben."
+            "rationaleDe": "Rechts nennt die rechte Seite. Links und oben nennen andere Richtungen."
           },
           {
             "id": "sitov.pretest.a11-09.verbs.q1",
@@ -9214,7 +9214,7 @@
             "id": "sitov.pretest.a11-09.syntax.q2",
             "competencyId": "sitov.pretest.a11-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Was drückt »aus dem Haus« beim Gehen aus?",
+            "promptDe": "Übung: »Ich gehe aus dem Haus.« Was bedeutet »aus dem Haus« hier?",
             "fragmentDe": null,
             "options": [
               {
@@ -9240,26 +9240,26 @@
                 "quote": "Ich gehe um acht Uhr aus dem Haus."
               }
             ],
-            "rationaleDe": "Aus nennt hier die Bewegung vom Inneren nach draußen; hineingehen oder bleiben wäre eine andere Bewegungsrichtung."
+            "rationaleDe": "Aus dem Haus bedeutet hier: Der Sprecher geht von innen nach draußen. Er geht nicht hinein und bleibt nicht im Haus."
           },
           {
             "id": "sitov.pretest.a11-09.syntax.q3",
             "competencyId": "sitov.pretest.a11-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Rolle hat »mit dem Bus« im Satz?",
+            "promptDe": "Übung: »Ich fahre mit dem Bus.« Welche Frage beantwortet »mit dem Bus«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-09.syntax.q3.a",
-                "textDe": "Es nennt die Uhrzeit des Kursbeginns."
+                "textDe": "Wann fährt der Sprecher?"
               },
               {
                 "id": "sitov.pretest.a11-09.syntax.q3.b",
-                "textDe": "Es nennt den Namen des Freundes."
+                "textDe": "Wohin fährt der Sprecher?"
               },
               {
                 "id": "sitov.pretest.a11-09.syntax.q3.c",
-                "textDe": "Es nennt das benutzte Verkehrsmittel."
+                "textDe": "Wie fährt der Sprecher?"
               }
             ],
             "correctOptionId": "sitov.pretest.a11-09.syntax.q3.c",
@@ -9272,7 +9272,7 @@
                 "quote": "Ich fahre mit dem Bus."
               }
             ],
-            "rationaleDe": "Mit dem Bus beschreibt, wie der Sprecher fährt; weder eine Uhrzeit noch ein Personenname wird damit angegeben."
+            "rationaleDe": "Mit dem Bus sagt, wie der Sprecher fährt: Er benutzt den Bus. Die Wortgruppe nennt weder eine Zeit noch ein Ziel."
           },
           {
             "id": "sitov.pretest.a11-09.syntax.q4",
@@ -9287,11 +9287,11 @@
               },
               {
                 "id": "sitov.pretest.a11-09.syntax.q4.b",
-                "textDe": "Im Unterrichtsraum."
+                "textDe": "Vor der Schule."
               },
               {
                 "id": "sitov.pretest.a11-09.syntax.q4.c",
-                "textDe": "Vor der Haustür als ausdrücklich genannter Ausstiegsort."
+                "textDe": "Vor dem Haus."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-09.syntax.q4.a",
@@ -9304,22 +9304,22 @@
                 "quote": "Am Bahnhof steige ich aus."
               }
             ],
-            "rationaleDe": "Die sichtbare Ortsangabe am Bahnhof gehört zum Verb steige … aus; Unterrichtsraum und Haustür werden nicht als Ausstiegsorte genannt."
+            "rationaleDe": "Der sichtbare Satz nennt am Bahnhof als Ausstiegsort. Vor der Schule und vor dem Haus sind mögliche andere Orte, stehen aber nicht in diesem Satz."
           },
           {
             "id": "sitov.pretest.a11-09.syntax.q5",
             "competencyId": "sitov.pretest.a11-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Übung: »Vor der Tür wartet mein Freund.« Wer wartet dort?",
+            "promptDe": "Übung: »Mein Lehrer kommt. Vor der Tür wartet mein Freund.« Wer wartet vor der Tür?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-09.syntax.q5.a",
-                "textDe": "Die Tür selbst."
+                "textDe": "Der Lehrer."
               },
               {
                 "id": "sitov.pretest.a11-09.syntax.q5.b",
-                "textDe": "Der Bus als wartende Person."
+                "textDe": "Die sprechende Person."
               },
               {
                 "id": "sitov.pretest.a11-09.syntax.q5.c",
@@ -9336,7 +9336,7 @@
                 "quote": "Vor der Tür wartet mein Freund."
               }
             ],
-            "rationaleDe": "Mein Freund ist das sichtbare Subjekt hinter dem Verb wartet; vor der Tür bezeichnet den Ort und Bus ist nicht als handelnde Person genannt."
+            "rationaleDe": "Mein Freund ist das Subjekt von wartet. Der Lehrer kommt; vor der Tür nennt den Ort."
           },
           {
             "id": "sitov.pretest.a11-09.syntax.q6",
@@ -9547,7 +9547,7 @@
               },
               {
                 "id": "sitov.pretest.a11-09.nominal.q6.c",
-                "textDe": "Nur den Busfahrer als einzelne Person."
+                "textDe": "Nur den Sprecher ohne den Freund."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-09.nominal.q6.b",
@@ -9560,7 +9560,7 @@
                 "quote": "Vor der Tür wartet mein Freund. Wir gehen zusammen hinein."
               }
             ],
-            "rationaleDe": "Der sichtbare erste Satz nennt den Freund und den Sprecher als Gruppe; wir nimmt beide gemeinsam wieder auf und bezeichnet keine einzelne Person ohne den Sprecher."
+            "rationaleDe": "Mein Freund und ich nennt zwei Personen. Wir nimmt beide wieder auf, nicht nur den Freund oder nur den Sprecher."
           }
         ],
         "omittedCategories": [
@@ -9630,16 +9630,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "M hat alle96 Fragen und16Kerne nach32 Reparaturen unabhängig geprüft;64 Fragen exakt erhalten. Elf richtige Antwortformulierungen und zwei ausdrücklich markierte syntaktische Prüfbetonungen redaktionell neu bewertet. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561",
-        "definitionContentHash": "253d4cc1ea6388059aaf575149f185068da4af1e1a655d14007b532895713127",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "definitionContentHash": "d13d5acd097e8b19e86c7a580140d3f97011cc09473f8e0d4d404c82bd55982c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality32-M",
+        "documentSha256": "28a00f2a45766293f286115e8c861acdaa22d8309100d0bb49ff5bf36a6e5a24",
+        "reviewedAt": "2026-10-09T19:12:48.411338+00:00",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -9935,11 +9935,11 @@
               },
               {
                 "id": "sitov.pretest.a11-10.words.q3.b",
-                "textDe": "Eine Sitzgelegenheit."
+                "textDe": "Ein Fernseher."
               },
               {
                 "id": "sitov.pretest.a11-10.words.q3.c",
-                "textDe": "Ein Buch aus Papier."
+                "textDe": "Ein Radio."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-10.words.q3.a",
@@ -9952,7 +9952,7 @@
                 "quote": "Mein Handy liegt auf dem Tisch."
               }
             ],
-            "rationaleDe": "Handy ist die deutsche Bezeichnung für ein Mobiltelefon; Buch und Sitzgelegenheit sind andere Gegenstände."
+            "rationaleDe": "Handy bedeutet Mobiltelefon. Fernseher und Radio sind andere Geräte."
           },
           {
             "id": "sitov.pretest.a11-10.words.q4",
@@ -9963,15 +9963,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-10.words.q4.a",
-                "textDe": "Das Buch ist nach dem Wort zwingend ein Telefon."
+                "textDe": "Das Buch ist sehr groß."
               },
               {
                 "id": "sitov.pretest.a11-10.words.q4.b",
-                "textDe": "Das Buch hat eine geringe Größe."
+                "textDe": "Das Buch ist nicht groß."
               },
               {
                 "id": "sitov.pretest.a11-10.words.q4.c",
-                "textDe": "Das Buch hat eine besonders große Größe."
+                "textDe": "Das Buch ist schwer."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-10.words.q4.b",
@@ -9984,7 +9984,7 @@
                 "quote": "ein kleines Buch"
               }
             ],
-            "rationaleDe": "Klein beschreibt eine geringe Größe; groß ist das Gegenteil, und eine andere Gegenstandsart wird nicht genannt."
+            "rationaleDe": "Klein heißt hier nicht groß. Groß ist das Gegenteil; schwer nennt das Gewicht, nicht die Größe."
           },
           {
             "id": "sitov.pretest.a11-10.words.q5",
@@ -10214,20 +10214,20 @@
             "id": "sitov.pretest.a11-10.verbs.q6",
             "competencyId": "sitov.pretest.a11-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Zu welcher Person gehört die Präsensform »gehe«?",
+            "promptDe": "Ergänze: »Um zehn Uhr gehe ___ ins Bett.«",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-10.verbs.q6.a",
-                "textDe": "Zur ersten Person Singular: ich."
+                "textDe": "ich"
               },
               {
                 "id": "sitov.pretest.a11-10.verbs.q6.b",
-                "textDe": "Zur dritten Person Plural: sie."
+                "textDe": "wir"
               },
               {
                 "id": "sitov.pretest.a11-10.verbs.q6.c",
-                "textDe": "Zur zweiten Person Singular: du."
+                "textDe": "du"
               }
             ],
             "correctOptionId": "sitov.pretest.a11-10.verbs.q6.a",
@@ -10240,7 +10240,7 @@
                 "quote": "Um zehn Uhr gehe ich ins Bett."
               }
             ],
-            "rationaleDe": "Die Präsensform gehe gehört zur ersten Person Singular ich; du verlangt gehst und die dritte Person Plural sie verlangt gehen."
+            "rationaleDe": "Um zehn Uhr steht am Anfang. Danach folgt gehe und dann ich: Um zehn Uhr gehe ich ins Bett. Mit wir heißt es gehen, mit du gehst."
           },
           {
             "id": "sitov.pretest.a11-10.syntax.q1",
@@ -10342,12 +10342,12 @@
             "id": "sitov.pretest.a11-10.syntax.q4",
             "competencyId": "sitov.pretest.a11-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Übung: »Paul trinkt Wasser und hört Musik.« Welche beiden Handlungen gehören zu Paul?",
+            "promptDe": "Übung: »Paul trinkt Wasser und hört Musik. Leon trinkt Tee und liest ein Buch.« Welche beiden Handlungen gehören zu Paul?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-10.syntax.q4.a",
-                "textDe": "Er trinkt Musik und hört Wasser."
+                "textDe": "Er trinkt Tee und hört Musik."
               },
               {
                 "id": "sitov.pretest.a11-10.syntax.q4.b",
@@ -10355,7 +10355,7 @@
               },
               {
                 "id": "sitov.pretest.a11-10.syntax.q4.c",
-                "textDe": "Er hört Wasser und schläft."
+                "textDe": "Er trinkt Wasser und liest ein Buch."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-10.syntax.q4.b",
@@ -10368,7 +10368,7 @@
                 "quote": "Ich trinke Wasser und höre leise Musik."
               }
             ],
-            "rationaleDe": "Das sichtbare Subjekt Paul gilt für beide verbundenen Verben; Wasser gehört zu trinkt und Musik zu hört."
+            "rationaleDe": "Paul trinkt Wasser und hört Musik. Tee trinken und ein Buch lesen gehören im sichtbaren Kontext zu Leon."
           },
           {
             "id": "sitov.pretest.a11-10.syntax.q5",
@@ -10411,7 +10411,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-10.syntax.q6.a",
-                "textDe": "Als Frage nach dem Brotpreis."
+                "textDe": "Als Gruß vor dem Mittagessen."
               },
               {
                 "id": "sitov.pretest.a11-10.syntax.q6.b",
@@ -10432,7 +10432,7 @@
                 "quote": "Gute Nacht!"
               }
             ],
-            "rationaleDe": "Gute Nacht ist der Abschiedsgruß vor dem Schlafen; Preisfrage und Morgenbegrüßung haben andere Formulierungen."
+            "rationaleDe": "Gute Nacht sagt man vor dem Schlafen. Vor dem Essen sagt man zum Beispiel Guten Appetit; am Morgen Guten Morgen."
           },
           {
             "id": "sitov.pretest.a11-10.nominal.q1",
