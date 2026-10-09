@@ -487,34 +487,34 @@
             "accepted_answers": [
               "Enkelin"
             ],
-            "hint": "Überleg: Wer ist das in der Familie – Geschwister von den Eltern oder Kinder von den Geschwistern?",
+            "hint": "Überleg: Welche Beziehung besteht zwischen den Personen – zum Beispiel zwischen Großeltern und den Kindern ihrer Kinder?",
             "explanation": "Familie: Der Onkel und die Tante sind die Geschwister von Vater oder Mutter. Ihre Kinder sind der Cousin und die Cousine. Die Kinder von Bruder oder Schwester sind der Neffe und die Nichte. Der Mann von der Schwester ist der Schwager, die Frau vom Bruder ist die Schwägerin. Die Eltern von Ehemann oder Ehefrau sind die Schwiegereltern. Die Kinder von den eigenen Kindern sind die Enkel: der Enkel, die Enkelin.",
             "explanation_card": "p1_familie",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
-                "hint": "Think: who is it in the family – a brother or sister of your parents, or a child of your brother or sister?",
+                "hint": "Think about the relationship between the people, for example between grandparents and their children’s children.",
                 "explanation": "Family: der Onkel (uncle) and die Tante (aunt) are the brothers and sisters of your father or mother. Their children are der Cousin and die Cousine (cousins). The children of your brother or sister are der Neffe (nephew) and die Nichte (niece). Your sister’s husband is der Schwager (brother-in-law), your brother’s wife is die Schwägerin (sister-in-law). The parents of your husband or wife are die Schwiegereltern (parents-in-law). The children of your own children are die Enkel: der Enkel (grandson), die Enkelin (granddaughter).",
                 "task": "A son’s or daughter’s daughter is the grandparents’ …",
                 "gap_hint": "granddaughter"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
-                "hint": "Подумайте: кто это в семье – брат или сестра родителей или ребёнок брата или сестры?",
+                "hint": "Подумайте о родственной связи между людьми, например между бабушкой и дедушкой и детьми их детей.",
                 "explanation": "Семья: der Onkel (дядя) и die Tante (тётя) – братья и сёстры отца или матери. Их дети – der Cousin (двоюродный брат) и die Cousine (двоюродная сестра). Дети брата или сестры – der Neffe (племянник) и die Nichte (племянница). Муж сестры – der Schwager, жена брата – die Schwägerin. Родители мужа или жены – die Schwiegereltern (свёкор и свекровь, тесть и тёща). Дети своих детей – die Enkel: der Enkel (внук), die Enkelin (внучка).",
                 "task": "Дочь сына или дочери для бабушки и дедушки — их …",
                 "gap_hint": "внучка"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
-                "hint": "Подумайте: хто це в родині – брат чи сестра батьків або дитина брата чи сестри?",
+                "hint": "Подумайте про родинний зв’язок між людьми, наприклад між бабусею й дідусем і дітьми їхніх дітей.",
                 "explanation": "Родина: der Onkel (дядько) і die Tante (тітка) – брати й сестри батька або матері. Їхні діти – der Cousin (двоюрідний брат) і die Cousine (двоюрідна сестра). Діти брата чи сестри – der Neffe (племінник) і die Nichte (племінниця). Чоловік сестри – der Schwager, дружина брата – die Schwägerin. Батьки чоловіка або дружини – die Schwiegereltern (свекор і свекруха, тесть і теща). Діти власних дітей – die Enkel: der Enkel (онук), die Enkelin (онука).",
                 "task": "Донька сина чи доньки для бабусі й дідуся — їхня …",
                 "gap_hint": "онука"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
-                "hint": "Düşünün: Ailede bu kim – anne babanın kardeşi mi, yoksa kardeşin çocuğu mu?",
+                "hint": "Kişiler arasındaki akrabalık ilişkisini düşünün; örneğin büyükanne ve büyükbaba ile çocuklarının çocukları arasındaki ilişkiyi.",
                 "explanation": "Aile: der Onkel (amca, dayı) ve die Tante (hala, teyze) anne ya da babanın kardeşleridir. Onların çocukları der Cousin ve die Cousine’dir (kuzen). Kardeşin çocukları der Neffe (erkek yeğen) ve die Nichte’dir (kız yeğen). Kız kardeşin kocası der Schwager (enişte), erkek kardeşin karısı die Schwägerin’dir (yenge). Eşin anne babası die Schwiegereltern’dir (kayınvalide ve kayınpeder). Kendi çocuklarının çocukları die Enkel’dir: der Enkel (erkek torun), die Enkelin (kız torun).",
                 "task": "Bir oğlun ya da kızın kız çocuğu, büyükanne ve büyükbabanın … olur.",
                 "gap_hint": "kız torun"
@@ -2423,7 +2423,7 @@
           "rule": "Im weil-Satz stehen alle Verbteile am Ende. Mit Modalverb: Infinitiv + Modalverb: …, weil ich arbeiten muss. Im Perfekt: Partizip + haben oder sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Trennbare Verben schreibt man zusammen: …, weil er früh aufsteht.",
           "examples": [
             "Ich komme nicht, weil ich lernen muss.",
-            "Sie ist müde, weil sie schlecht geschlafen hat.",
+            "Er ist müde, weil er schlecht geschlafen hat.",
             "Er hat Hunger, weil er nie frühstückt."
           ],
           "highlight": "verb",
@@ -8118,7 +8118,7 @@
                 "getrennt"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Leon und Tom sind kein Paar mehr, aber sie sind noch nicht geschieden. Sie leben …",
+              "question": "Leon und Tom sind kein Paar mehr, aber sie sind noch nicht geschieden. Jeder hat eine eigene Wohnung und wohnt dort allein. Sie leben …",
               "options": [
                 "getrennt",
                 "in einer Großfamilie",
@@ -8140,25 +8140,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Marital status: ledig, verheiratet, getrennt, geschieden. Work: berufstätig, arbeitslos, in Rente.",
                 "explanation": "How people live: Ich lebe allein (alone). Ich bin Single. Wir leben als Paar zusammen (together as a couple). Ich wohne in einer Wohngemeinschaft (WG = shared flat). In a Großfamilie (extended family) grandparents, parents and children live together. Marital status: ledig (never married), verheiratet (married), getrennt (separated), geschieden (divorced). Alleinerziehend: a mother or father lives alone with the child (single parent). Work: berufstätig (working), arbeitslos (unemployed), in Rente (retired), studieren, als Koch arbeiten (work as a cook). Time: Ich lebe seit drei Jahren allein.",
-                "task": "Leon and Tom are no longer a couple, but they are not divorced yet. They live …"
+                "task": "Leon and Tom are no longer a couple, but they are not divorced yet. Each has his own flat and lives there alone. They live …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Семейное положение: ledig, verheiratet, getrennt, geschieden. Работа: berufstätig, arbeitslos, in Rente.",
                 "explanation": "Как живут люди: Ich lebe allein (один). Ich bin Single. Wir leben als Paar zusammen (вместе как пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, которую снимают вместе). В Großfamilie (большой семье) вместе живут бабушки и дедушки, родители и дети. Семейное положение: ledig (никогда не был в браке), verheiratet (в браке), getrennt (живут раздельно), geschieden (в разводе). Alleinerziehend: мать или отец живёт с ребёнком без партнёра. Работа: berufstätig (работает), arbeitslos (безработный), in Rente (на пенсии), studieren, als Koch arbeiten (работать поваром). Время: Ich lebe seit drei Jahren allein.",
-                "task": "Leon и Tom больше не пара, но ещё не развелись. Они живут …"
+                "task": "Leon и Tom больше не пара, но ещё не разведены. У каждого своя квартира, и каждый живёт в ней один. Они живут …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Сімейний стан: ledig, verheiratet, getrennt, geschieden. Робота: berufstätig, arbeitslos, in Rente.",
                 "explanation": "Як живуть люди: Ich lebe allein (сам). Ich bin Single. Wir leben als Paar zusammen (разом як пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, яку винаймають разом). У Großfamilie (великій родині) разом живуть бабусі й дідусі, батьки та діти. Сімейний стан: ledig (ніколи не був у шлюбі), verheiratet (у шлюбі), getrennt (живуть окремо), geschieden (розлучений). Alleinerziehend: мати або батько живе з дитиною без партнера. Робота: berufstätig (працює), arbeitslos (безробітний), in Rente (на пенсії), studieren, als Koch arbeiten (працювати кухарем). Час: Ich lebe seit drei Jahren allein.",
-                "task": "Leon і Tom більше не пара, але ще не розлучилися. Вони живуть …"
+                "task": "Leon і Tom більше не пара, але ще не розлучені. У кожного своя квартира, і кожен живе в ній сам. Вони живуть …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Medeni durum: ledig, verheiratet, getrennt, geschieden. İş: berufstätig, arbeitslos, in Rente.",
                 "explanation": "İnsanlar nasıl yaşar: Ich lebe allein (yalnız). Ich bin Single. Wir leben als Paar zusammen (çift olarak birlikte). Ich wohne in einer Wohngemeinschaft (WG = ortak ev). Bir Großfamilie’de (geniş aile) büyükanne ve büyükbaba, anne baba ve çocuklar birlikte yaşar. Medeni durum: ledig (hiç evlenmemiş), verheiratet (evli), getrennt (ayrı yaşayan), geschieden (boşanmış). Alleinerziehend: Anne ya da baba çocuğuyla yalnız yaşar. İş: berufstätig (çalışan), arbeitslos (işsiz), in Rente (emekli), studieren, als Koch arbeiten (aşçı olarak çalışmak). Zaman: Ich lebe seit drei Jahren allein.",
-                "task": "Leon ile Tom artık çift değil, ama henüz boşanmadılar. Onlar … yaşıyor."
+                "task": "Leon ve Tom artık bir çift değil, ama henüz boşanmadılar. Her birinin kendi evi var ve her biri evinde yalnız yaşıyor. Onlar … yaşıyor."
               }
             }
           },
@@ -45531,7 +45531,7 @@
           "examples": [
             "Nach dem Abitur habe ich eine Ausbildung gemacht.",
             "Mein Praktikum hat drei Monate gedauert.",
-            "Sie macht eine Weiterbildung am Computer."
+            "Er macht eine Weiterbildung am Computer."
           ],
           "highlight": null,
           "translations": {
@@ -47943,7 +47943,7 @@
         ],
         "merkkarte": {
           "card": "p6_schulzeit",
-          "rule": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+          "rule": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
           "examples": [
             "Ich bin mit sieben in die Schule gekommen.",
             "Englisch habe ich geliebt.",
@@ -47952,16 +47952,16 @@
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett."
+              "rule": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett."
             },
             "ru": {
-              "rule": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett."
+              "rule": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett."
             },
             "uk": {
-              "rule": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett."
+              "rule": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett."
             },
             "tr": {
-              "rule": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett."
+              "rule": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett."
             }
           }
         },
@@ -47991,31 +47991,31 @@
               "Mit sechs Jahren."
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "“When did you start school?”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "«Когда ты пошёл в школу?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "«Коли ти пішов до школи?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "“Okula ne zaman başladın?”"
               }
             }
@@ -48045,31 +48045,31 @@
               "Mathe habe ich gehasst."
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "Tom was very bad at maths and was always afraid of the lessons. What does he say today?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "У Tom было очень плохо с математикой, и он всегда боялся уроков. Что он говорит сегодня?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "У Tom було дуже погано з математикою, і він завжди боявся уроків. Що він каже сьогодні?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "Tom matematikte çok kötüydü ve dersten hep korkardı. Bugün ne diyor?"
               }
             }
@@ -48099,31 +48099,31 @@
               "streng"
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "The teacher had lots of rules. The pupils always had to be quiet. The teacher was …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "У учительницы было много правил. Ученики всегда должны были сидеть тихо. Учительница была …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "В учительки було багато правил. Учні завжди мали сидіти тихо. Учителька була …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "Öğretmenin çok kuralı vardı. Öğrenciler hep sessiz olmak zorundaydı. Öğretmen …"
               }
             }
@@ -48153,31 +48153,31 @@
               "Mein Lieblingsfach war Musik."
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "“What was your favourite subject?”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "«Какой у тебя был любимый предмет?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "«Який у тебе був улюблений предмет?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "“En sevdiğin ders neydi?”"
               }
             }
@@ -48263,31 +48263,31 @@
               "mit"
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct preposition.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "I started school at the age of seven."
               },
               "ru": {
                 "instruction": "Вставьте подходящий предлог.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "Я пошёл в школу в семь лет."
               },
               "uk": {
                 "instruction": "Вставте відповідний прийменник.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "Я пішов до школи в сім років."
               },
               "tr": {
                 "instruction": "Uygun edatı yazın.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "Yedi yaşında okula başladım."
               }
             }
@@ -48319,31 +48319,31 @@
               "geliebt"
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "Fill in the past participle.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "I loved PE. I was on the sports field every break."
               },
               "ru": {
                 "instruction": "Вставьте причастие (Partizip II).",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "Физкультуру я обожал. Каждую перемену я был на спортплощадке."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник (Partizip II).",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "Фізкультуру я обожнював. Кожну перерву я був на спортмайданчику."
               },
               "tr": {
                 "instruction": "Partizip II biçimini yazın.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "Beden eğitimini çok severdim. Her teneffüste spor sahasındaydım."
               }
             }
@@ -48374,34 +48374,34 @@
               "streng"
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "Our teacher was very strict. We were never allowed to talk.",
                 "gap_hint": "strict"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "Наш учитель был очень строгим. Нам никогда нельзя было разговаривать.",
                 "gap_hint": "строгий"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "Наш учитель був дуже суворим. Нам ніколи не можна було розмовляти.",
                 "gap_hint": "суворий"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "Öğretmenimiz çok katıydı. Hiç konuşmamıza izin yoktu.",
                 "gap_hint": "katı"
               }
@@ -48489,31 +48489,31 @@
               "Herr Weber war mein Lieblingslehrer."
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "My favourite teacher was Mr Weber."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "Моим любимым учителем был господин Weber."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "Моїм улюбленим учителем був пан Weber."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "En sevdiğim öğretmen Weber Bey’di."
               }
             }
@@ -51778,31 +51778,31 @@
               "Englisch habe ich geliebt."
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "Milan always got top marks in English and enjoyed it a lot. What does he say today?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "У Milan по английскому всегда была высшая оценка, и ему было интересно. Что он говорит сегодня?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "У Milan з англійської завжди була найвища оцінка, і йому було цікаво. Що він каже сьогодні?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "Milan İngilizceden hep en yüksek notu alırdı ve dersi çok severdi. Bugün ne diyor?"
               }
             }
@@ -53748,34 +53748,34 @@
               "gekommen"
             ],
             "hint": "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
-            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+            "explanation": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
             "explanation_card": "p6_schulzeit",
             "translations": {
               "en": {
                 "instruction": "Fill in the past participle.",
                 "hint": "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
-                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+                "explanation": "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
                 "task": "I started school at the age of six.",
                 "gap_hint": "come"
               },
               "ru": {
                 "instruction": "Вставьте причастие (Partizip II).",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
-                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+                "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
                 "task": "Я пошёл в школу в шесть лет.",
                 "gap_hint": "приходить"
               },
               "uk": {
                 "instruction": "Вставте дієприкметник (Partizip II).",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
-                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+                "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
                 "task": "Я пішов до школи в шість років.",
                 "gap_hint": "приходити"
               },
               "tr": {
                 "instruction": "Partizip II biçimini yazın.",
                 "hint": "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.",
-                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
+                "explanation": "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.",
                 "task": "Altı yaşında okula başladım.",
                 "gap_hint": "gelmek"
               }

@@ -1,0 +1,1513 @@
+{
+  "epoch": 29,
+  "existing35RefreshedDrafts": 8,
+  "additionalB11AmbiguityDrafts": 1,
+  "drafts": [
+    {
+      "sourceBase": "ac80b2750921f8c0d8c802cf94ace6a009e8007e",
+      "sourceStage": "WORKING_SOURCE_AFTER_EPOCH29_SCALAR_PATCH",
+      "file": "path-b1.1.json",
+      "id": "a8f34d4d-e7c5-5946-aa8b-79f1a03c0fac",
+      "ref": "P5-N12-E09",
+      "belongsToExisting35": false,
+      "oldCurrentExercise": {
+        "id": "a8f34d4d-e7c5-5946-aa8b-79f1a03c0fac",
+        "ref": "P5-N12-E09",
+        "goal": "P5-K3",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "tätig"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet.",
+          "options": [
+            "selbstständig",
+            "tätig",
+            "bereit"
+          ],
+          "correct_answer": "tätig",
+          "accepted_answers": [
+            "tätig"
+          ]
+        },
+        "accepted_answers": [
+          "tätig"
+        ],
+        "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig. Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+        "explanation": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+        "explanation_card": "p5_arbeit",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (worked in sales). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+            "task": "I worked in a restaurant for ten years, in the kitchen."
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (работал в продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+            "task": "Я десять лет проработал в ресторане, на кухне."
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (працював у продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+            "task": "Я десять років пропрацював у ресторані, на кухні."
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (satışta çalıştım). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+            "task": "On yıl bir restoranda görev yaptım ve orada mutfakta çalıştım."
+          }
+        }
+      },
+      "proposedNewImmutableExercise": {
+        "id": "a8f34d4d-e7c5-5946-aa8b-79f1a03c0fac",
+        "ref": "P5-N12-E09",
+        "goal": "P5-K3",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "tätig"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet.",
+          "options": [
+            "Tätigkeit",
+            "tätig",
+            "bereit"
+          ],
+          "correct_answer": "tätig",
+          "accepted_answers": [
+            "tätig"
+          ]
+        },
+        "accepted_answers": [
+          "tätig"
+        ],
+        "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig. Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+        "explanation": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+        "explanation_card": "p5_arbeit",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (worked in sales). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+            "task": "I worked in a restaurant for ten years, in the kitchen."
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (работал в продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+            "task": "Я десять лет проработал в ресторане, на кухне."
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (працював у продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+            "task": "Я десять років пропрацював у ресторані, на кухні."
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (satışta çalıştım). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+            "task": "On yıl bir restoranda görev yaptım ve orada mutfakta çalıştım."
+          }
+        }
+      },
+      "oldCurrentAssociatedCard": {
+        "card": "p5_arbeit",
+        "rule": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+        "examples": [
+          "Ich war fünf Jahre im Verkauf tätig.",
+          "Dort war ich für die Bestellungen zuständig.",
+          "Ich habe ein Praktikum bei einer Bank gemacht."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+          },
+          "ru": {
+            "rule": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+          },
+          "uk": {
+            "rule": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+          },
+          "tr": {
+            "rule": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+          }
+        }
+      },
+      "proposedAssociatedCard": {
+        "card": "p5_arbeit",
+        "rule": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+        "examples": [
+          "Ich war fünf Jahre im Verkauf tätig.",
+          "Dort war ich für die Bestellungen zuständig.",
+          "Ich habe ein Praktikum bei einer Bank gemacht."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+          },
+          "ru": {
+            "rule": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+          },
+          "uk": {
+            "rule": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+          },
+          "tr": {
+            "rule": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+          }
+        }
+      },
+      "sourceMutation": false,
+      "status": "FULL_DRAFT_NOT_INDEPENDENTLY_APPROVED_NOT_FOR_ORDINARY_IMPORT",
+      "identityNote": "Existing ID identifies the source lineage; M must assign/use an immutable revision through SQL114, never overwrite protected historic answers."
+    },
+    {
+      "sourceBase": "ac80b2750921f8c0d8c802cf94ace6a009e8007e",
+      "sourceStage": "WORKING_SOURCE_AFTER_EPOCH29_SCALAR_PATCH",
+      "file": "path-a1.1.json",
+      "id": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+      "ref": "P1-N9-E03",
+      "belongsToExisting35": true,
+      "oldCurrentExercise": {
+        "id": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+        "ref": "P1-N9-E03",
+        "goal": "P1-Z1",
+        "exercise_type": "fill_in_blank",
+        "content": {
+          "target_form": [
+            "Anmeldeformular"
+          ],
+          "instruction": "Ergänze das Formular.",
+          "text_before": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: ",
+          "text_after": "",
+          "correct_answer": "Marchenko",
+          "options": [
+            "Olena",
+            "Marchenko",
+            "Lwiw"
+          ],
+          "accepted_answers": [
+            "Marchenko"
+          ]
+        },
+        "accepted_answers": [
+          "Marchenko"
+        ],
+        "hint": "Auf Visitenkarten und Formularen stehen feste Wörter: Vorname, Familienname, Firma, Telefon.",
+        "explanation": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Olena), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+        "explanation_card": "p1_card",
+        "translations": {
+          "en": {
+            "instruction": "Complete the form.",
+            "hint": "Forms and cards use fixed words: Vorname = first name, Familienname = surname, Firma = company.",
+            "explanation": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
+            "task": "My name is Oleh Marchenko. I come from Lviv, from Ukraine. Form: surname: …"
+          },
+          "ru": {
+            "instruction": "Заполните анкету.",
+            "hint": "В анкетах и на визитках постоянные слова: Vorname – имя, Familienname – фамилия, Firma – фирма.",
+            "explanation": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
+            "task": "Меня зовут Oleh Marchenko. Я из Львова, из Украины. Анкета: фамилия: …"
+          },
+          "uk": {
+            "instruction": "Заповніть анкету.",
+            "hint": "В анкетах і на візитівках сталі слова: Vorname – ім’я, Familienname – прізвище, Firma – фірма.",
+            "explanation": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
+            "task": "Мене звати Oleh Marchenko. Я зі Львова, з України. Анкета: прізвище: …"
+          },
+          "tr": {
+            "instruction": "Formu doldurun.",
+            "hint": "Form ve kartvizitlerde sabit kelimeler vardır: Vorname = ad, Familienname = soyadı, Firma = firma.",
+            "explanation": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
+            "task": "Benim adım Oleh Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …"
+          }
+        }
+      },
+      "proposedNewImmutableExercise": {
+        "id": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+        "ref": "P1-N9-E03",
+        "goal": "P1-Z1",
+        "exercise_type": "fill_in_blank",
+        "content": {
+          "target_form": [
+            "Anmeldeformular"
+          ],
+          "instruction": "Ergänze das Formular.",
+          "text_before": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: ",
+          "text_after": "",
+          "correct_answer": "Marchenko",
+          "options": [
+            "Oleh",
+            "Marchenko",
+            "Lwiw"
+          ],
+          "accepted_answers": [
+            "Marchenko"
+          ]
+        },
+        "accepted_answers": [
+          "Marchenko"
+        ],
+        "hint": "Auf Visitenkarten und Formularen stehen feste Wörter: Vorname, Familienname, Firma, Telefon.",
+        "explanation": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Oleh), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+        "explanation_card": "p1_card",
+        "translations": {
+          "en": {
+            "instruction": "Complete the form.",
+            "hint": "Forms and cards use fixed words: Vorname = first name, Familienname = surname, Firma = company.",
+            "explanation": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Oleh), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
+            "task": "My name is Oleh Marchenko. I come from Lviv, from Ukraine. Form: surname: …"
+          },
+          "ru": {
+            "instruction": "Заполните анкету.",
+            "hint": "В анкетах и на визитках постоянные слова: Vorname – имя, Familienname – фамилия, Firma – фирма.",
+            "explanation": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Oleh), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
+            "task": "Меня зовут Oleh Marchenko. Я из Львова, из Украины. Анкета: фамилия: …"
+          },
+          "uk": {
+            "instruction": "Заповніть анкету.",
+            "hint": "В анкетах і на візитівках сталі слова: Vorname – ім’я, Familienname – прізвище, Firma – фірма.",
+            "explanation": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Oleh), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
+            "task": "Мене звати Oleh Marchenko. Я зі Львова, з України. Анкета: прізвище: …"
+          },
+          "tr": {
+            "instruction": "Formu doldurun.",
+            "hint": "Form ve kartvizitlerde sabit kelimeler vardır: Vorname = ad, Familienname = soyadı, Firma = firma.",
+            "explanation": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Oleh), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
+            "task": "Benim adım Oleh Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …"
+          }
+        }
+      },
+      "oldCurrentAssociatedCard": {
+        "card": "p1_card",
+        "rule": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Olena), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+        "examples": [
+          "Vorname: Olena",
+          "Familienname: Marchenko",
+          "Land: Ukraine",
+          "Stadt: Lwiw"
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages."
+          },
+          "ru": {
+            "rule": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки."
+          },
+          "uk": {
+            "rule": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови."
+          },
+          "tr": {
+            "rule": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller."
+          }
+        }
+      },
+      "proposedAssociatedCard": {
+        "card": "p1_card",
+        "rule": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Oleh), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+        "examples": [
+          "Vorname: Oleh",
+          "Familienname: Marchenko",
+          "Land: Ukraine",
+          "Stadt: Lwiw"
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Oleh), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages."
+          },
+          "ru": {
+            "rule": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Oleh), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки."
+          },
+          "uk": {
+            "rule": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Oleh), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови."
+          },
+          "tr": {
+            "rule": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Oleh), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller."
+          }
+        }
+      },
+      "sourceMutation": false,
+      "status": "FULL_DRAFT_NOT_INDEPENDENTLY_APPROVED_NOT_FOR_ORDINARY_IMPORT",
+      "identityNote": "Existing ID identifies the source lineage; M must assign/use an immutable revision through SQL114, never overwrite protected historic answers."
+    },
+    {
+      "sourceBase": "ac80b2750921f8c0d8c802cf94ace6a009e8007e",
+      "sourceStage": "WORKING_SOURCE_AFTER_EPOCH29_SCALAR_PATCH",
+      "file": "path-a1.1.json",
+      "id": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+      "ref": "P1-N11-E06",
+      "belongsToExisting35": true,
+      "oldCurrentExercise": {
+        "id": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+        "ref": "P1-N11-E06",
+        "goal": "P1-G4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich vorstellen"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Oleh stellt sich am Telefon vor. Was ist richtig?",
+          "options": [
+            "Mein Name ist Frau Marchenko.",
+            "Mein Name ist Marchenko.",
+            "Ich heiße Frau Olena."
+          ],
+          "correct_answer": "Mein Name ist Marchenko.",
+          "accepted_answers": [
+            "Mein Name ist Marchenko."
+          ]
+        },
+        "accepted_answers": [
+          "Mein Name ist Marchenko."
+        ],
+        "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
+        "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+        "explanation_card": "p1_name",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
+            "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+            "task": "Oleh introduces himself on the phone. What is correct?"
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
+            "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+            "task": "Oleh представляется по телефону. Что правильно?"
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
+            "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+            "task": "Oleh представляється телефоном. Що правильно?"
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
+            "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+            "task": "Oleh telefonda kendini tanıtıyor. Hangisi doğru?"
+          }
+        }
+      },
+      "proposedNewImmutableExercise": {
+        "id": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+        "ref": "P1-N11-E06",
+        "goal": "P1-G4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich vorstellen"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Oleh stellt sich am Telefon vor. Was ist richtig?",
+          "options": [
+            "Mein Name ist Herr Marchenko.",
+            "Mein Name ist Marchenko.",
+            "Ich heiße Herr Oleh."
+          ],
+          "correct_answer": "Mein Name ist Marchenko.",
+          "accepted_answers": [
+            "Mein Name ist Marchenko."
+          ]
+        },
+        "accepted_answers": [
+          "Mein Name ist Marchenko."
+        ],
+        "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
+        "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
+        "explanation_card": "p1_name",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
+            "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
+            "task": "Oleh introduces himself on the phone. What is correct?"
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
+            "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
+            "task": "Oleh представляется по телефону. Что правильно?"
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
+            "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
+            "task": "Oleh представляється телефоном. Що правильно?"
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
+            "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
+            "task": "Oleh telefonda kendini tanıtıyor. Hangisi doğru?"
+          }
+        }
+      },
+      "oldCurrentAssociatedCard": {
+        "card": "p1_name",
+        "rule": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+        "examples": [
+          "Ich heiße Emre Demir.",
+          "Frau Kaya, das ist Jonas.",
+          "Guten Tag! Mein Name ist Kasia Nowak.",
+          "Guten Tag! Wie heißen Sie?"
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya."
+          },
+          "ru": {
+            "rule": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya."
+          },
+          "uk": {
+            "rule": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya."
+          },
+          "tr": {
+            "rule": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya."
+          }
+        }
+      },
+      "proposedAssociatedCard": {
+        "card": "p1_name",
+        "rule": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
+        "examples": [
+          "Ich heiße Emre Demir.",
+          "Herr Kaya, das ist Jonas.",
+          "Guten Tag! Mein Name ist Kamil Nowak.",
+          "Guten Tag! Wie heißen Sie?"
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya."
+          },
+          "ru": {
+            "rule": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya."
+          },
+          "uk": {
+            "rule": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya."
+          },
+          "tr": {
+            "rule": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya."
+          }
+        }
+      },
+      "sourceMutation": false,
+      "status": "FULL_DRAFT_NOT_INDEPENDENTLY_APPROVED_NOT_FOR_ORDINARY_IMPORT",
+      "identityNote": "Existing ID identifies the source lineage; M must assign/use an immutable revision through SQL114, never overwrite protected historic answers."
+    },
+    {
+      "sourceBase": "ac80b2750921f8c0d8c802cf94ace6a009e8007e",
+      "sourceStage": "WORKING_SOURCE_AFTER_EPOCH29_SCALAR_PATCH",
+      "file": "path-a1.1.json",
+      "id": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+      "ref": "P1-N11-E18",
+      "belongsToExisting35": true,
+      "oldCurrentExercise": {
+        "id": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+        "ref": "P1-N11-E18",
+        "goal": "P1-K10",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich am Telefon melden"
+          ],
+          "instruction": "Was passt? Wähle die passende Reaktion.",
+          "question": "Am Telefon fragt eine Frau: „Ist Olena da?“ Du bist Olena.",
+          "options": [
+            "Ja, hier bin Olena.",
+            "Nein, ich heiße Olena.",
+            "Ja, hier ist Olena."
+          ],
+          "correct_answer": "Ja, hier ist Olena.",
+          "accepted_answers": [
+            "Ja, hier ist Olena."
+          ]
+        },
+        "accepted_answers": [
+          "Ja, hier ist Olena."
+        ],
+        "hint": "Am Telefon stellt man sich so vor: „Hier ist Olena.“ – nicht: „Hier bin …“.",
+        "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Frau Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+        "explanation_card": "p1_phone",
+        "translations": {
+          "en": {
+            "instruction": "What fits? Choose the right response.",
+            "hint": "On the phone you introduce yourself with „Hier ist Olena“ – „This is Olena“ (not „Hier bin …“).",
+            "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
+            "task": "On the phone a woman asks: “Is Olena there?” You are Olena."
+          },
+          "ru": {
+            "instruction": "Что подходит? Выберите подходящую реакцию.",
+            "hint": "По телефону представляются так: „Hier ist Olena“ – «Это Олена» (не „Hier bin …“).",
+            "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+            "task": "По телефону женщина спрашивает: «Olena на месте?» Вы и есть Olena."
+          },
+          "uk": {
+            "instruction": "Що підходить? Виберіть доречну реакцію.",
+            "hint": "Телефоном представляються так: „Hier ist Olena“ – «Це Олена» (не „Hier bin …“).",
+            "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+            "task": "Телефоном жінка запитує: «Olena на місці?» Ви і є Olena."
+          },
+          "tr": {
+            "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
+            "hint": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Olena“ = Ben Olena („Hier bin …“ denmez).",
+            "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+            "task": "Telefonda bir kadın soruyor: “Olena orada mı?” Olena sizsiniz."
+          }
+        }
+      },
+      "proposedNewImmutableExercise": {
+        "id": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+        "ref": "P1-N11-E18",
+        "goal": "P1-K10",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich am Telefon melden"
+          ],
+          "instruction": "Was passt? Wähle die passende Reaktion.",
+          "question": "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh.",
+          "options": [
+            "Ja, hier bin Oleh.",
+            "Nein, ich heiße Oleh.",
+            "Ja, hier ist Oleh."
+          ],
+          "correct_answer": "Ja, hier ist Oleh.",
+          "accepted_answers": [
+            "Ja, hier ist Oleh."
+          ]
+        },
+        "accepted_answers": [
+          "Ja, hier ist Oleh."
+        ],
+        "hint": "Am Telefon stellt man sich so vor: „Hier ist Oleh.“ – nicht: „Hier bin …“.",
+        "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+        "explanation_card": "p1_phone",
+        "translations": {
+          "en": {
+            "instruction": "What fits? Choose the right response.",
+            "hint": "On the phone you introduce yourself with „Hier ist Oleh“ – „This is Oleh“ (not „Hier bin …“).",
+            "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Herr Lindner da?“ (Is Mr Lindner there?) At the end: „Auf Wiederhören!“",
+            "task": "On the phone a man asks: “Is Oleh there?” You are Oleh."
+          },
+          "ru": {
+            "instruction": "Что подходит? Выберите подходящую реакцию.",
+            "hint": "По телефону представляются так: „Hier ist Oleh“ – «Это Олег» (не „Hier bin …“).",
+            "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Herr Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+            "task": "По телефону мужчина спрашивает: «Oleh на месте?» Вы и есть Oleh."
+          },
+          "uk": {
+            "instruction": "Що підходить? Виберіть доречну реакцію.",
+            "hint": "Телефоном представляються так: „Hier ist Oleh“ – «Це Олег» (не „Hier bin …“).",
+            "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Herr Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+            "task": "Телефоном чоловік запитує: «Oleh на місці?» Ви і є Oleh."
+          },
+          "tr": {
+            "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
+            "hint": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Oleh“ = Ben Oleh („Hier bin …“ denmez).",
+            "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+            "task": "Telefonda bir adam soruyor: “Oleh orada mı?” Oleh sizsiniz."
+          }
+        }
+      },
+      "oldCurrentAssociatedCard": null,
+      "proposedAssociatedCard": null,
+      "sourceMutation": false,
+      "status": "FULL_DRAFT_NOT_INDEPENDENTLY_APPROVED_NOT_FOR_ORDINARY_IMPORT",
+      "identityNote": "Existing ID identifies the source lineage; M must assign/use an immutable revision through SQL114, never overwrite protected historic answers."
+    },
+    {
+      "sourceBase": "ac80b2750921f8c0d8c802cf94ace6a009e8007e",
+      "sourceStage": "WORKING_SOURCE_AFTER_EPOCH29_SCALAR_PATCH",
+      "file": "path-a1.1.json",
+      "id": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+      "ref": "P2-N9-E01",
+      "belongsToExisting35": true,
+      "oldCurrentExercise": {
+        "id": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+        "ref": "P2-N9-E01",
+        "goal": "P2-K4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Familienstand"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Olena ist 29 Jahre alt. Sie ist nicht verheiratet und nicht geschieden. Sie hat keine Kinder. Was ist richtig?",
+          "options": [
+            "Olena ist verheiratet.",
+            "Olena ist verwitwet.",
+            "Olena ist ledig."
+          ],
+          "correct_answer": "Olena ist ledig.",
+          "accepted_answers": [
+            "Olena ist ledig."
+          ]
+        },
+        "accepted_answers": [
+          "Olena ist ledig."
+        ],
+        "hint": "Such die Information im Text: Wer? Woher? Wo? Wie alt?",
+        "explanation": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
+        "explanation_card": "p2_status",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Find the key information in the text: who, where from, where, how old?",
+            "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
+            "task": "What is correct?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите в тексте нужную информацию: кто? откуда? где? сколько лет?",
+            "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
+            "task": "Что правильно?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть у тексті потрібну інформацію: хто? звідки? де? скільки років?",
+            "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
+            "task": "Що правильно?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Metinde bilgiyi bulun: Kim? Nereden? Nerede? Kaç yaşında?",
+            "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
+            "task": "Hangisi doğru?"
+          }
+        }
+      },
+      "proposedNewImmutableExercise": {
+        "id": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+        "ref": "P2-N9-E01",
+        "goal": "P2-K4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Familienstand"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig?",
+          "options": [
+            "Oleh ist verheiratet.",
+            "Oleh ist verwitwet.",
+            "Oleh ist ledig."
+          ],
+          "correct_answer": "Oleh ist ledig.",
+          "accepted_answers": [
+            "Oleh ist ledig."
+          ]
+        },
+        "accepted_answers": [
+          "Oleh ist ledig."
+        ],
+        "hint": "Such die Information im Text: Wer? Woher? Wo? Wie alt?",
+        "explanation": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
+        "explanation_card": "p2_status",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Find the key information in the text: who, where from, where, how old?",
+            "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
+            "task": "Oleh is 29 years old. He has never been married. He has no children. What is correct?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите в тексте нужную информацию: кто? откуда? где? сколько лет?",
+            "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
+            "task": "Oleh 29 лет. Он никогда не был женат. У него нет детей. Что правильно?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть у тексті потрібну інформацію: хто? звідки? де? скільки років?",
+            "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
+            "task": "Oleh 29 років. Він ніколи не був одружений. У нього немає дітей. Що правильно?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Metinde bilgiyi bulun: Kim? Nereden? Nerede? Kaç yaşında?",
+            "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
+            "task": "Oleh 29 yaşında. Hiç evlenmedi. Çocuğu yok. Hangisi doğru?"
+          }
+        }
+      },
+      "oldCurrentAssociatedCard": {
+        "card": "p2_status",
+        "rule": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
+        "examples": [
+          "Olena ist ledig.",
+          "Kasia und Piotr sind ein Ehepaar. Kasia ist verheiratet.",
+          "Samir und seine Frau sind nicht mehr zusammen. Er ist geschieden.",
+          "Deniz ist acht Jahre alt."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“"
+          },
+          "ru": {
+            "rule": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“"
+          },
+          "uk": {
+            "rule": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“"
+          },
+          "tr": {
+            "rule": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“"
+          }
+        }
+      },
+      "proposedAssociatedCard": {
+        "card": "p2_status",
+        "rule": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
+        "examples": [
+          "Oleh ist ledig.",
+          "Kamil und Piotr sind ein Ehepaar. Kamil ist verheiratet.",
+          "Samir und sein Mann sind nicht mehr zusammen. Er ist geschieden.",
+          "Deniz ist acht Jahre alt."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“"
+          },
+          "ru": {
+            "rule": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“"
+          },
+          "uk": {
+            "rule": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“"
+          },
+          "tr": {
+            "rule": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“"
+          }
+        }
+      },
+      "sourceMutation": false,
+      "status": "FULL_DRAFT_NOT_INDEPENDENTLY_APPROVED_NOT_FOR_ORDINARY_IMPORT",
+      "identityNote": "Existing ID identifies the source lineage; M must assign/use an immutable revision through SQL114, never overwrite protected historic answers."
+    },
+    {
+      "sourceBase": "ac80b2750921f8c0d8c802cf94ace6a009e8007e",
+      "sourceStage": "WORKING_SOURCE_AFTER_EPOCH29_SCALAR_PATCH",
+      "file": "path-a1.1.json",
+      "id": "465e830d-bd8b-59b3-a979-965ca0399531",
+      "ref": "P5-N10-E02",
+      "belongsToExisting35": true,
+      "oldCurrentExercise": {
+        "id": "465e830d-bd8b-59b3-a979-965ca0399531",
+        "ref": "P5-N10-E02",
+        "goal": "P5-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Lesetext"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Was macht Olena am Nachmittag?",
+          "options": [
+            "Sie arbeitet im Krankenhaus.",
+            "Sie kauft ein und kocht.",
+            "Sie ruft ihre Mutter an."
+          ],
+          "correct_answer": "Sie kauft ein und kocht.",
+          "accepted_answers": [
+            "Sie kauft ein und kocht."
+          ]
+        },
+        "accepted_answers": [
+          "Sie kauft ein und kocht."
+        ],
+        "hint": "Such im Text die Uhrzeiten und die Verben.",
+        "explanation": "Über den eigenen Tag sprechen: Aktivitäten mit Uhrzeiten verbinden: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Reihenfolge: zuerst, dann, danach.",
+        "explanation_card": "p5_routine",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the times and the verbs in the text.",
+            "explanation": "Talking about your day: link activities with times: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Order words: zuerst (first), dann (then), danach (after that).",
+            "task": "What does Olena do in the afternoon?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите в тексте время и глаголы.",
+            "explanation": "Рассказ о своём дне: связывайте действия со временем: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (сначала), dann (потом), danach (после этого).",
+            "task": "Что Olena делает после обеда?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть у тексті час і дієслова.",
+            "explanation": "Розповідь про свій день: пов’язуйте дії з часом: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (спочатку), dann (потім), danach (після цього).",
+            "task": "Що Olena робить після обіду?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Metinde saatleri ve fiilleri bulun.",
+            "explanation": "Kendi gününüzü anlatma: Etkinlikleri saatlerle bağlayın: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Sıra: zuerst (önce), dann (sonra), danach (ondan sonra).",
+            "task": "Olena öğleden sonra ne yapıyor?"
+          }
+        }
+      },
+      "proposedNewImmutableExercise": {
+        "id": "465e830d-bd8b-59b3-a979-965ca0399531",
+        "ref": "P5-N10-E02",
+        "goal": "P5-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Lesetext"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Nach der Arbeit kauft er am Nachmittag ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag nach der Arbeit?",
+          "options": [
+            "Er arbeitet im Krankenhaus.",
+            "Er kauft ein und kocht.",
+            "Er ruft seinen Vater an."
+          ],
+          "correct_answer": "Er kauft ein und kocht.",
+          "accepted_answers": [
+            "Er kauft ein und kocht."
+          ]
+        },
+        "accepted_answers": [
+          "Er kauft ein und kocht."
+        ],
+        "hint": "Such im Text die Uhrzeiten und die Verben.",
+        "explanation": "Über den eigenen Tag sprechen: Aktivitäten mit Uhrzeiten verbinden: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Reihenfolge: zuerst, dann, danach.",
+        "explanation_card": "p5_routine",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the times and the verbs in the text.",
+            "explanation": "Talking about your day: link activities with times: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Order words: zuerst (first), dann (then), danach (after that).",
+            "task": "What does Oleh do in the afternoon after work?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите в тексте время и глаголы.",
+            "explanation": "Рассказ о своём дне: связывайте действия со временем: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (сначала), dann (потом), danach (после этого).",
+            "task": "Что Oleh делает после обеда, когда заканчивает работу?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть у тексті час і дієслова.",
+            "explanation": "Розповідь про свій день: пов’язуйте дії з часом: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (спочатку), dann (потім), danach (після цього).",
+            "task": "Що Oleh робить після обіду, коли закінчує роботу?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Metinde saatleri ve fiilleri bulun.",
+            "explanation": "Kendi gününüzü anlatma: Etkinlikleri saatlerle bağlayın: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Sıra: zuerst (önce), dann (sonra), danach (ondan sonra).",
+            "task": "Oleh öğleden sonra işten sonra ne yapıyor?"
+          }
+        }
+      },
+      "oldCurrentAssociatedCard": {
+        "card": "p5_routine",
+        "rule": "Über den eigenen Tag sprechen: Aktivitäten mit Uhrzeiten verbinden: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Reihenfolge: zuerst, dann, danach.",
+        "examples": [
+          "Er kauft ein und kocht.",
+          "Um sechs Uhr stehe ich auf. Dann frühstücke ich.",
+          "Am Abend koche ich und dann sehe ich fern.",
+          "Von acht bis vier arbeite ich."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Talking about your day: link activities with times: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Order words: zuerst (first), dann (then), danach (after that)."
+          },
+          "ru": {
+            "rule": "Рассказ о своём дне: связывайте действия со временем: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (сначала), dann (потом), danach (после этого)."
+          },
+          "uk": {
+            "rule": "Розповідь про свій день: пов’язуйте дії з часом: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (спочатку), dann (потім), danach (після цього)."
+          },
+          "tr": {
+            "rule": "Kendi gününüzü anlatma: Etkinlikleri saatlerle bağlayın: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Sıra: zuerst (önce), dann (sonra), danach (ondan sonra)."
+          }
+        }
+      },
+      "proposedAssociatedCard": {
+        "card": "p5_routine",
+        "rule": "Über den eigenen Tag sprechen: Aktivitäten mit Uhrzeiten verbinden: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Reihenfolge: zuerst, dann, danach.",
+        "examples": [
+          "Er kauft ein und kocht.",
+          "Um sechs Uhr stehe ich auf. Dann frühstücke ich.",
+          "Am Abend koche ich und dann sehe ich fern.",
+          "Von acht bis vier arbeite ich."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Talking about your day: link activities with times: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Order words: zuerst (first), dann (then), danach (after that)."
+          },
+          "ru": {
+            "rule": "Рассказ о своём дне: связывайте действия со временем: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (сначала), dann (потом), danach (после этого)."
+          },
+          "uk": {
+            "rule": "Розповідь про свій день: пов’язуйте дії з часом: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (спочатку), dann (потім), danach (після цього)."
+          },
+          "tr": {
+            "rule": "Kendi gününüzü anlatma: Etkinlikleri saatlerle bağlayın: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Sıra: zuerst (önce), dann (sonra), danach (ondan sonra)."
+          }
+        }
+      },
+      "sourceMutation": false,
+      "status": "FULL_DRAFT_NOT_INDEPENDENTLY_APPROVED_NOT_FOR_ORDINARY_IMPORT",
+      "identityNote": "Existing ID identifies the source lineage; M must assign/use an immutable revision through SQL114, never overwrite protected historic answers."
+    },
+    {
+      "sourceBase": "ac80b2750921f8c0d8c802cf94ace6a009e8007e",
+      "sourceStage": "WORKING_SOURCE_AFTER_EPOCH29_SCALAR_PATCH",
+      "file": "path-a1.1.json",
+      "id": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+      "ref": "P7-N8-E03",
+      "belongsToExisting35": true,
+      "oldCurrentExercise": {
+        "id": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+        "ref": "P7-N8-E03",
+        "goal": "P7-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "von der Vergangenheit erzählen"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht?",
+          "options": [
+            "Selin",
+            "Emre",
+            "Deniz"
+          ],
+          "correct_answer": "Selin",
+          "accepted_answers": [
+            "Selin"
+          ]
+        },
+        "accepted_answers": [
+          "Selin"
+        ],
+        "hint": "Such die Zeitwörter (gestern, am Samstag) und die Partizipien.",
+        "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "explanation_card": "p7_past",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the time words (gestern, am Samstag) and the participles.",
+            "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Who cooked on Sunday?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите слова времени (gestern, am Samstag) и причастия.",
+            "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Кто готовил в воскресенье?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть слова часу (gestern, am Samstag) і дієприкметники.",
+            "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Хто готував у неділю?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Zaman kelimelerini (gestern, am Samstag) ve ortaçları bulun.",
+            "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Pazar günü kim yemek yaptı?"
+          }
+        }
+      },
+      "proposedNewImmutableExercise": {
+        "id": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+        "ref": "P7-N8-E03",
+        "goal": "P7-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "von der Vergangenheit erzählen"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht?",
+          "options": [
+            "Selim",
+            "Emre",
+            "Deniz"
+          ],
+          "correct_answer": "Selim",
+          "accepted_answers": [
+            "Selim"
+          ]
+        },
+        "accepted_answers": [
+          "Selim"
+        ],
+        "hint": "Such die Zeitwörter (gestern, am Samstag) und die Partizipien.",
+        "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "explanation_card": "p7_past",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the time words (gestern, am Samstag) and the participles.",
+            "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Who cooked on Sunday?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите слова времени (gestern, am Samstag) и причастия.",
+            "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Кто готовил в воскресенье?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть слова часу (gestern, am Samstag) і дієприкметники.",
+            "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Хто готував у неділю?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Zaman kelimelerini (gestern, am Samstag) ve ortaçları bulun.",
+            "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Pazar günü kim yemek yaptı?"
+          }
+        }
+      },
+      "oldCurrentAssociatedCard": {
+        "card": "p7_past",
+        "rule": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "examples": [
+          "Er hat lange geschlafen.",
+          "Gestern habe ich meinen Freund getroffen.",
+          "Ich bin schwimmen gegangen.",
+          "Früher habe ich in Charkiw gewohnt, jetzt wohne ich in Leipzig."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "ru": {
+            "rule": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "uk": {
+            "rule": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "tr": {
+            "rule": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          }
+        }
+      },
+      "proposedAssociatedCard": {
+        "card": "p7_past",
+        "rule": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "examples": [
+          "Er hat lange geschlafen.",
+          "Gestern habe ich meinen Freund getroffen.",
+          "Ich bin schwimmen gegangen.",
+          "Früher habe ich in Charkiw gewohnt, jetzt wohne ich in Leipzig."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "ru": {
+            "rule": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "uk": {
+            "rule": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "tr": {
+            "rule": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          }
+        }
+      },
+      "sourceMutation": false,
+      "status": "FULL_DRAFT_NOT_INDEPENDENTLY_APPROVED_NOT_FOR_ORDINARY_IMPORT",
+      "identityNote": "Existing ID identifies the source lineage; M must assign/use an immutable revision through SQL114, never overwrite protected historic answers."
+    },
+    {
+      "sourceBase": "ac80b2750921f8c0d8c802cf94ace6a009e8007e",
+      "sourceStage": "WORKING_SOURCE_AFTER_EPOCH29_SCALAR_PATCH",
+      "file": "path-a1.1.json",
+      "id": "53e0e382-9f60-5574-a29d-01727939ac9a",
+      "ref": "P7-N12-E08",
+      "belongsToExisting35": true,
+      "oldCurrentExercise": {
+        "id": "53e0e382-9f60-5574-a29d-01727939ac9a",
+        "ref": "P7-N12-E08",
+        "goal": "P7-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "von der Vergangenheit erzählen"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Kasia erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meine Schwester getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kasia in Warschau gemacht?",
+          "options": [
+            "Sie hat gearbeitet.",
+            "Sie hat Fußball gespielt.",
+            "Sie hat ihre Schwester getroffen."
+          ],
+          "correct_answer": "Sie hat ihre Schwester getroffen.",
+          "accepted_answers": [
+            "Sie hat ihre Schwester getroffen."
+          ]
+        },
+        "accepted_answers": [
+          "Sie hat ihre Schwester getroffen."
+        ],
+        "hint": "Such die Zeitwörter (gestern, am Samstag) und die Partizipien.",
+        "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "explanation_card": "p7_past",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the time words (gestern, am Samstag) and the participles.",
+            "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "What did Kasia do in Warsaw?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите слова времени (gestern, am Samstag) и причастия.",
+            "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Что Kasia делала в Варшаве?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть слова часу (gestern, am Samstag) і дієприкметники.",
+            "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Що Kasia робила у Варшаві?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Zaman kelimelerini (gestern, am Samstag) ve ortaçları bulun.",
+            "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Kasia Varşova’da ne yaptı?"
+          }
+        }
+      },
+      "proposedNewImmutableExercise": {
+        "id": "53e0e382-9f60-5574-a29d-01727939ac9a",
+        "ref": "P7-N12-E08",
+        "goal": "P7-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "von der Vergangenheit erzählen"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Kamil erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meinen Bruder getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kamil in Warschau gemacht?",
+          "options": [
+            "Er hat gearbeitet.",
+            "Er hat Fußball gespielt.",
+            "Er hat seinen Bruder getroffen."
+          ],
+          "correct_answer": "Er hat seinen Bruder getroffen.",
+          "accepted_answers": [
+            "Er hat seinen Bruder getroffen."
+          ]
+        },
+        "accepted_answers": [
+          "Er hat seinen Bruder getroffen."
+        ],
+        "hint": "Such die Zeitwörter (gestern, am Samstag) und die Partizipien.",
+        "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "explanation_card": "p7_past",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the time words (gestern, am Samstag) and the participles.",
+            "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "What did Kamil do in Warsaw?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите слова времени (gestern, am Samstag) и причастия.",
+            "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Что Kamil делал в Варшаве?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть слова часу (gestern, am Samstag) і дієприкметники.",
+            "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Що Kamil робив у Варшаві?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Zaman kelimelerini (gestern, am Samstag) ve ortaçları bulun.",
+            "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Kamil Varşova’da ne yaptı?"
+          }
+        }
+      },
+      "oldCurrentAssociatedCard": {
+        "card": "p7_past",
+        "rule": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "examples": [
+          "Er hat lange geschlafen.",
+          "Gestern habe ich meinen Freund getroffen.",
+          "Ich bin schwimmen gegangen.",
+          "Früher habe ich in Charkiw gewohnt, jetzt wohne ich in Leipzig."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "ru": {
+            "rule": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "uk": {
+            "rule": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "tr": {
+            "rule": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          }
+        }
+      },
+      "proposedAssociatedCard": {
+        "card": "p7_past",
+        "rule": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "examples": [
+          "Er hat lange geschlafen.",
+          "Gestern habe ich meinen Freund getroffen.",
+          "Ich bin schwimmen gegangen.",
+          "Früher habe ich in Charkiw gewohnt, jetzt wohne ich in Leipzig."
+        ],
+        "highlight": null,
+        "translations": {
+          "en": {
+            "rule": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "ru": {
+            "rule": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "uk": {
+            "rule": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          },
+          "tr": {
+            "rule": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren."
+          }
+        }
+      },
+      "sourceMutation": false,
+      "status": "FULL_DRAFT_NOT_INDEPENDENTLY_APPROVED_NOT_FOR_ORDINARY_IMPORT",
+      "identityNote": "Existing ID identifies the source lineage; M must assign/use an immutable revision through SQL114, never overwrite protected historic answers."
+    },
+    {
+      "sourceBase": "ac80b2750921f8c0d8c802cf94ace6a009e8007e",
+      "sourceStage": "WORKING_SOURCE_AFTER_EPOCH29_SCALAR_PATCH",
+      "file": "path-a2.1.json",
+      "id": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+      "ref": "P1-N6-E04",
+      "belongsToExisting35": true,
+      "oldCurrentExercise": {
+        "id": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+        "ref": "P1-N6-E04",
+        "goal": "P1-G2",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "kennenlernen"
+          ],
+          "instruction": "Welcher Satz ist richtig?",
+          "question": "Olga erzählt von einer neuen Freundin.",
+          "options": [
+            "Wir haben Lena in Köln gekennenlernt.",
+            "Wir haben Lena in Köln kennengelernt.",
+            "Wir sind Lena in Köln kennengelernt."
+          ],
+          "correct_answer": "Wir haben Lena in Köln kennengelernt.",
+          "accepted_answers": [
+            "Wir haben Lena in Köln kennengelernt."
+          ]
+        },
+        "accepted_answers": [
+          "Wir haben Lena in Köln kennengelernt."
+        ],
+        "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+        "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+        "explanation_card": "p1_trennbar",
+        "translations": {
+          "en": {
+            "instruction": "Which sentence is correct?",
+            "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+            "task": "Olga is talking about a new friend."
+          },
+          "ru": {
+            "instruction": "Какое предложение правильное?",
+            "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+            "task": "Olga рассказывает о новой подруге."
+          },
+          "uk": {
+            "instruction": "Яке речення правильне?",
+            "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+            "task": "Olga розповідає про нову подругу."
+          },
+          "tr": {
+            "instruction": "Hangi cümle doğru?",
+            "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+            "task": "Olga yeni bir arkadaşından söz ediyor."
+          }
+        }
+      },
+      "proposedNewImmutableExercise": {
+        "id": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+        "ref": "P1-N6-E04",
+        "goal": "P1-G2",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "kennenlernen"
+          ],
+          "instruction": "Welcher Satz ist richtig?",
+          "question": "Oleg erzählt von einem neuen Freund.",
+          "options": [
+            "Wir haben Leon in Köln gekennenlernt.",
+            "Wir haben Leon in Köln kennengelernt.",
+            "Wir sind Leon in Köln kennengelernt."
+          ],
+          "correct_answer": "Wir haben Leon in Köln kennengelernt.",
+          "accepted_answers": [
+            "Wir haben Leon in Köln kennengelernt."
+          ]
+        },
+        "accepted_answers": [
+          "Wir haben Leon in Köln kennengelernt."
+        ],
+        "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+        "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+        "explanation_card": "p1_trennbar",
+        "translations": {
+          "en": {
+            "instruction": "Which sentence is correct?",
+            "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+            "task": "Oleg is talking about a new male friend."
+          },
+          "ru": {
+            "instruction": "Какое предложение правильное?",
+            "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+            "task": "Oleg рассказывает о новом друге."
+          },
+          "uk": {
+            "instruction": "Яке речення правильне?",
+            "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+            "task": "Oleg розповідає про нового друга."
+          },
+          "tr": {
+            "instruction": "Hangi cümle doğru?",
+            "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+            "task": "Oleg yeni bir erkek arkadaşından söz ediyor."
+          }
+        }
+      },
+      "oldCurrentAssociatedCard": {
+        "card": "p1_trennbar",
+        "rule": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+        "examples": [
+          "Ich habe gestern meine Tante angerufen.",
+          "Wir haben im Kurs viele Leute kennengelernt.",
+          "Heute bin ich zu spät aufgestanden."
+        ],
+        "highlight": "verb",
+        "translations": {
+          "en": {
+            "rule": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft."
+          },
+          "ru": {
+            "rule": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft."
+          },
+          "uk": {
+            "rule": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft."
+          },
+          "tr": {
+            "rule": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft."
+          }
+        }
+      },
+      "proposedAssociatedCard": {
+        "card": "p1_trennbar",
+        "rule": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+        "examples": [
+          "Ich habe gestern meinen Onkel angerufen.",
+          "Wir haben im Kurs viele Leute kennengelernt.",
+          "Heute bin ich zu spät aufgestanden."
+        ],
+        "highlight": "verb",
+        "translations": {
+          "en": {
+            "rule": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft."
+          },
+          "ru": {
+            "rule": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft."
+          },
+          "uk": {
+            "rule": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft."
+          },
+          "tr": {
+            "rule": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft."
+          }
+        }
+      },
+      "sourceMutation": false,
+      "status": "FULL_DRAFT_NOT_INDEPENDENTLY_APPROVED_NOT_FOR_ORDINARY_IMPORT",
+      "identityNote": "Existing ID identifies the source lineage; M must assign/use an immutable revision through SQL114, never overwrite protected historic answers."
+    }
+  ],
+  "remainingExisting35ExactIds": [
+    "422ceede-aabe-5361-aa27-2e7678dfc2a0",
+    "fef593e4-cb75-5ca2-a274-dce04ec8ef91",
+    "85b19e5c-99e3-52a6-a943-e17c16f479c8",
+    "773da752-f9bf-5044-a948-92b396ebd16e",
+    "d4fa715e-799f-58cf-a0e1-c1798e8b08ea",
+    "b088b06b-6140-520c-a242-1ff5689c4688",
+    "a1f73c83-e017-5cff-ac44-d761c66f746e",
+    "380353bb-aae1-5746-ab83-8eba1d0cd61f",
+    "948fdca0-e443-5184-a1bb-8bd02b9a4bfe",
+    "a054896c-401c-551d-a610-78838cc07a1c",
+    "b19c26ba-95e9-57d1-aeb6-56b014d795a4",
+    "72fd90d9-19f1-52b5-af30-93a51ec820d8",
+    "b034ca7d-7550-5ff9-a250-4f1291df8eb4",
+    "553ab5fa-06d0-5455-add7-6a22f02eab50",
+    "4f4896ac-70ce-5b30-a924-1db0cc362611",
+    "4e624c26-42a9-50bd-acd0-c1d30325cb8b",
+    "76ea54c1-c380-5b3a-a898-6a2039353f38",
+    "46a8c3ac-1525-50c6-ad75-8f4d184e4bfc",
+    "b5cca977-3fc3-5584-a793-2cf08a293936",
+    "5b165ca8-75bc-5a9b-a94b-00eb3e4f1c4c",
+    "cd68cc99-87df-578a-a5b2-7b3a9d6c1af7",
+    "deff0ba9-9c0d-503c-ac49-6875aeb3d5d6",
+    "e6cd7bdb-266e-5f8a-a4a1-cc0efdca6e85",
+    "50234931-131f-5d43-abdd-12d5f11434b2",
+    "b850f71b-d97f-517d-a125-2bf9614b38fd",
+    "0ec0675a-35b4-52bc-a135-e06164302163",
+    "33caadca-d684-50f1-a6ac-a21cffb316af"
+  ],
+  "all35Complete": false,
+  "notes": [
+    "Nine selected whole current/future snapshots; all options, both accepted-answer lists, four tasks and resolved associated cards included.",
+    "Current/future exercise hints and explanations included in full, with selected secondary-role repairs; independent whole-context review remains required.",
+    "Remaining 27 prior cases retain prior proposal state; no full completion claim."
+  ]
+}

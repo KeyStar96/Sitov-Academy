@@ -1931,7 +1931,7 @@
         ],
         "merkkarte": {
           "card": "p1_wunsch",
-          "rule": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+          "rule": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
           "examples": [
             "Ich wäre jetzt gern im Urlaub.",
             "Mia hätte gern eine Katze.",
@@ -1940,16 +1940,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)"
+              "rule": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)"
             },
             "ru": {
-              "rule": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)"
+              "rule": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)"
             },
             "uk": {
-              "rule": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)"
+              "rule": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)"
             },
             "tr": {
-              "rule": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)"
+              "rule": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)"
             }
           }
         },
@@ -1979,31 +1979,31 @@
               "wäre"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "I am at the office. I would like to be by the lake now."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Я в офисе. Я хотел бы сейчас быть у озера."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Я в офісі. Я хотів би зараз бути біля озера."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Ofisteyim. Şimdi göl kenarında olmak isterdim."
               }
             }
@@ -2033,31 +2033,31 @@
               "hätte"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "Emre has no bike. He would like to have a bike."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "У Emre нет велосипеда. Он хотел бы иметь велосипед."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "У Emre немає велосипеда. Він хотів би мати велосипед."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Emre’nin bisikleti yok. Bir bisikleti olsun isterdi."
               }
             }
@@ -2087,31 +2087,31 @@
               "würde"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "Dilara cannot dance. She would like to learn to dance."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Dilara не умеет танцевать. Она хотела бы научиться танцевать."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Dilara не вміє танцювати. Вона хотіла б навчитися танцювати."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Dilara dans edemiyor. Dans etmeyi öğrenmek isterdi."
               }
             }
@@ -2141,31 +2141,31 @@
               "Er hätte gern mehr Freizeit."
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Which sentence is correct?",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "Tom has little free time. What does he wish for?"
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "У Tom мало свободного времени. Чего он хочет?"
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "У Tom мало вільного часу. Чого він хоче?"
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Tom’un boş zamanı az. Ne diliyor?"
               }
             }
@@ -2195,31 +2195,31 @@
               "würde"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "I am so tired. Most of all I would like to go to bed now."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Я так устал. Больше всего мне сейчас хотелось бы лечь спать."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Я такий утомлений. Найбільше мені зараз хотілося б лягти спати."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Çok yorgunum. En çok şimdi yatmak isterdim."
               }
             }
@@ -2251,31 +2251,31 @@
               "hätten"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "We live on the fourth floor. We would like to have a balcony."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Мы живём на пятом этаже. Мы хотели бы иметь балкон."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Ми живемо на п’ятому поверсі. Ми хотіли б мати балкон."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Dördüncü katta oturuyoruz. Bir balkonumuz olsun isterdik."
               }
             }
@@ -2307,31 +2307,31 @@
               "wäre"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "Olga is ill. She would like to be well again."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Olga больна. Она хотела бы снова быть здоровой."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Olga хвора. Вона хотіла б знову бути здоровою."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Olga hasta. Yeniden sağlıklı olmak isterdi."
               }
             }
@@ -2363,31 +2363,31 @@
               "würde"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "I have to work. I would rather celebrate with you."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Мне нужно работать. Я бы лучше праздновал с вами."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Мені треба працювати. Я б краще святкував із вами."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Çalışmak zorundayım. Sizinle kutlamayı tercih ederdim."
               }
             }
@@ -2418,34 +2418,34 @@
               "gern"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "Samir would like a new mobile. That is his wish.",
                 "gap_hint": "gladly (would like)"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Samir хотел бы новый телефон. Это его желание.",
                 "gap_hint": "охотно (хотел бы)"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Samir хотів би новий телефон. Це його бажання.",
                 "gap_hint": "охоче (хотів би)"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Samir yeni bir cep telefonu isterdi. Bu onun dileği.",
                 "gap_hint": "seve seve (isterdi)"
               }
@@ -2480,31 +2480,31 @@
               "Gern wären wir im Urlaub."
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "We would like to be on holiday."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Мы хотели бы быть в отпуске."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Ми хотіли б бути у відпустці."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Tatilde olmak isterdik."
               }
             }
@@ -7348,31 +7348,31 @@
               "hätte"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "Samir has no garden. He would like to have a garden."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "У Samir нет сада. Он хотел бы иметь сад."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "У Samir немає саду. Він хотів би мати сад."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Samir’in bahçesi yok. Bir bahçesi olsun isterdi."
               }
             }
@@ -8209,31 +8209,31 @@
               "wäre"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "It is hot. Leon would like to be at the swimming pool now."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Жарко. Leon хотел бы сейчас быть в бассейне."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Спекотно. Leon хотів би зараз бути в басейні."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Hava sıcak. Leon şimdi yüzme havuzunda olmak isterdi."
               }
             }
@@ -8263,31 +8263,31 @@
               "würde"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "I cannot cook. I would like to do a cookery course."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Я не умею готовить. Я хотел бы пойти на кулинарные курсы."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Я не вмію готувати. Я хотів би піти на кулінарні курси."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Yemek yapmayı bilmiyorum. Bir yemek kursuna gitmek isterdim."
               }
             }
@@ -9253,31 +9253,31 @@
               "hätten"
             ],
             "hint": "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
-            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+            "explanation": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
-                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+                "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "Our flat is small. We would like to have one more room."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
-                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+                "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Наша квартира маленькая. Мы хотели бы иметь ещё одну комнату."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
-                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+                "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Наша квартира маленька. Ми хотіли б мати ще одну кімнату."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
-                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
+                "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Dairemiz küçük. Bir odamız daha olsun isterdik."
               }
             }
@@ -10949,7 +10949,7 @@
           "rule": "Im Akkusativ ändert sich nur maskulin: einen neuen Laden (-en). Neutral, feminin und Plural bleiben wie im Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. Nach meine, keine im Plural: meine braunen Möbel. Der Akkusativ steht nach Verben wie haben, kaufen, suchen, brauchen, finden und nach für und ohne.",
           "examples": [
             "Ich suche einen warmen Pullover.",
-            "Sie kauft ein neues Handy.",
+            "Er kauft ein neues Handy.",
             "Wir haben eine kleine Küche."
           ],
           "highlight": null,
@@ -15768,7 +15768,7 @@
           "card": "p2_gegenstand",
           "rule": "Von einem Gegenstand erzählen: Diesen Ring habe ich von meiner Oma bekommen. Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. Er/Es/Sie ist mir besonders wichtig, weil … Er gefällt mir so gut, denn er ist sehr alt. Im Akkusativ: diesen (der), dieses (das), diese (die).",
           "examples": [
-            "Diesen Schal hat mir meine Tante geschenkt.",
+            "Diesen Schal hat mir mein Onkel geschenkt.",
             "Dieses Bild habe ich auf dem Flohmarkt gekauft.",
             "Die Uhr ist mir besonders wichtig, weil sie von meinem Opa ist."
           ],
@@ -18168,7 +18168,7 @@
                 "am meisten"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Leon kauft sehr oft Bücher. Er sagt: „Am … gebe ich für Bücher aus.“",
+              "question": "Für Bücher gibt Leon mehr Geld aus als für seine anderen Hobbys. Er sagt: „Am … gebe ich für Bücher aus.“",
               "options": [
                 "besten",
                 "liebsten",
@@ -18190,25 +18190,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Geld ausgeben für (spend money on) + accusative. viel – mehr – am meisten. sparen = spend little money.",
                 "explanation": "Talking about shopping and money: Geld ausgeben für + accusative (spend money on) – Am meisten gebe ich für meine Miete aus. (I spend most on my rent.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (I save there.) Ich kaufe am liebsten auf dem Markt ein. (I like shopping at the market best.) Comparing: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Leon buys books very often. He says: “I spend most on books.”"
+                "task": "Leon spends more money on books than on his other hobbies. He says: “I spend most on books.”"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Geld ausgeben für (тратить деньги на) + Akkusativ. viel – mehr – am meisten. sparen = тратить мало денег.",
                 "explanation": "Как говорить о покупках и деньгах: Geld ausgeben für + Akkusativ (тратить деньги на) – Am meisten gebe ich für meine Miete aus. (Больше всего я трачу на аренду.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (На этом я экономлю.) Ich kaufe am liebsten auf dem Markt ein. (Больше всего я люблю покупать на рынке.) Сравнение: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Leon очень часто покупает книги. Он говорит: «Больше всего я трачу на книги»."
+                "task": "Leon тратит на книги больше денег, чем на другие свои увлечения. Он говорит: «Больше всего я трачу на книги»."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Geld ausgeben für (витрачати гроші на) + Akkusativ. viel – mehr – am meisten. sparen = витрачати мало грошей.",
                 "explanation": "Як говорити про покупки й гроші: Geld ausgeben für + Akkusativ (витрачати гроші на) – Am meisten gebe ich für meine Miete aus. (Найбільше я витрачаю на оренду.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (На цьому я заощаджую.) Ich kaufe am liebsten auf dem Markt ein. (Найбільше я люблю купувати на ринку.) Порівняння: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Leon дуже часто купує книжки. Він каже: «Найбільше я витрачаю на книжки»."
+                "task": "Leon витрачає на книжки більше грошей, ніж на інші свої захоплення. Він каже: «Найбільше я витрачаю на книжки»."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Geld ausgeben für (… için para harcamak) + Akkusativ. viel – mehr – am meisten. sparen = az para harcamak.",
                 "explanation": "Alışveriş ve paradan söz etmek: Geld ausgeben für + Akkusativ (… için para harcamak) – Am meisten gebe ich für meine Miete aus. (En çok kiraya para harcıyorum.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (Orada tasarruf ediyorum.) Ich kaufe am liebsten auf dem Markt ein. (En çok pazardan alışveriş yapmayı severim.) Karşılaştırma: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Leon çok sık kitap alıyor. Diyor ki: “En çok kitaplara para harcıyorum.”"
+                "task": "Leon kitaplara diğer hobilerinden daha fazla para harcıyor. Diyor ki: “En çok kitaplara para harcıyorum.”"
               }
             }
           },
@@ -50418,7 +50418,7 @@
         ],
         "merkkarte": {
           "card": "p6_lassen",
-          "rule": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+          "rule": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
           "examples": [
             "Ich lasse mein Fahrrad reparieren.",
             "Lässt du deine Haare schneiden?",
@@ -50427,16 +50427,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)"
+              "rule": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)"
             },
             "ru": {
-              "rule": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)"
+              "rule": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)"
             },
             "uk": {
-              "rule": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)"
+              "rule": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)"
             },
             "tr": {
-              "rule": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)"
+              "rule": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)"
             }
           }
         },
@@ -50466,31 +50466,31 @@
               "lässt"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "Mia is having her car repaired at the garage."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Mia ремонтирует машину в автосервисе."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Mia ремонтує машину в автосервісі."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Mia arabasını serviste tamir ettiriyor."
               }
             }
@@ -50520,31 +50520,31 @@
               "lassen"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "We are having the windows cleaned."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Нам моют окна (мы это заказали)."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Нам миють вікна (ми це замовили)."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Camları sildiriyoruz."
               }
             }
@@ -50574,31 +50574,31 @@
               "Lässt"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "Do you have your hair cut at the hairdresser’s?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Ты стрижёшься у парикмахера?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Ти стрижешся в перукаря?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Saçını kuaförde mi kestiriyorsun?"
               }
             }
@@ -50628,31 +50628,31 @@
               "Eine andere Person repariert mein Fahrrad."
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "What does “Ich lasse mein Fahrrad reparieren” mean?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Что значит «Ich lasse mein Fahrrad reparieren»?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Що означає «Ich lasse mein Fahrrad reparieren»?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "“Ich lasse mein Fahrrad reparieren” ne demek?"
               }
             }
@@ -50682,31 +50682,31 @@
               "Lasst"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "Are you (plural) having your passports renewed?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Вы продлеваете свои паспорта?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Ви продовжуєте свої паспорти?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Pasaportlarınızı uzattırıyor musunuz?"
               }
             }
@@ -50738,31 +50738,31 @@
               "lasse"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "I am having my blouse cleaned."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Я отдаю блузку в чистку."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Я віддаю блузку в чистку."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Bluzumu temizletiyorum."
               }
             }
@@ -50794,31 +50794,31 @@
               "lässt"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "Mr Kaya is having his account checked."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Господин Kaya просит проверить его счёт."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Пан Kaya просить перевірити його рахунок."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Kaya Bey hesabını kontrol ettiriyor."
               }
             }
@@ -50850,31 +50850,31 @@
               "lassen"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "My parents are having the roof repaired."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Мои родители ремонтируют крышу (её чинят мастера)."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Мої батьки ремонтують дах (його лагодять майстри)."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Annemle babam çatıyı tamir ettiriyor."
               }
             }
@@ -50906,31 +50906,31 @@
               "lasst"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "You (plural) are having the pizza delivered, aren’t you?"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Вы заказываете пиццу на дом, да?"
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Ви замовляєте піцу додому, так?"
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Pizzayı eve getirtiyorsunuz, değil mi?"
               }
             }
@@ -50962,31 +50962,31 @@
               "Mein Fahrrad lasse ich reparieren."
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "I am having my bike repaired."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Я отдаю велосипед в ремонт."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Я віддаю велосипед у ремонт."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Bisikletimi tamir ettiriyorum."
               }
             }
@@ -53861,31 +53861,31 @@
               "lässt"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "My sister is having her hair dyed."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Моя сестра красит волосы в салоне."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Моя сестра фарбує волосся в салоні."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Kız kardeşim saçını boyatıyor."
               }
             }
@@ -54389,31 +54389,31 @@
               "lassen"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "We have our car checked once a year."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Раз в год мы отдаём машину на проверку."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Раз на рік ми віддаємо машину на перевірку."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Arabamızı yılda bir kez kontrol ettiriyoruz."
               }
             }
@@ -54443,31 +54443,31 @@
               "lässt"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "He is having a suit made."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Он шьёт себе костюм на заказ."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Він шиє собі костюм на замовлення."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Kendine bir takım elbise diktiriyor."
               }
             }
@@ -55266,31 +55266,31 @@
               "Lässt"
             ],
             "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
-            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.",
+            "explanation": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
             "explanation_card": "p6_lassen",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
-                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)",
+                "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
                 "task": "Are you having your hair cut? – Yes, tomorrow."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
-                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)",
+                "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
                 "task": "Ты идёшь стричься? – Да, завтра."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
-                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)",
+                "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
                 "task": "Ти йдеш стригтися? – Так, завтра."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
-                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)",
+                "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
                 "task": "Saçını kestiriyor musun? – Evet, yarın."
               }
             }
@@ -56435,7 +56435,7 @@
           "examples": [
             "Ich habe meinen Mann in Berlin kennengelernt.",
             "Wir sind 2019 nach Köln umgezogen.",
-            "Sie hat drei Jahre in Wien studiert."
+            "Er hat drei Jahre in Wien studiert."
           ],
           "highlight": "verb",
           "translations": {
@@ -59034,7 +59034,7 @@
               "target_form": [
                 "sich"
               ],
-              "instruction": "Wähle die richtige Antwort.",
+              "instruction": "Wähle das passende Reflexivpronomen.",
               "question": "Was wünscht … Leon zum Geburtstag? – Ein Fahrrad.",
               "options": [
                 "sie",
@@ -59054,25 +59054,25 @@
             "explanation_card": "p7_wuensche",
             "translations": {
               "en": {
-                "instruction": "Choose the correct answer.",
+                "instruction": "Choose the correct reflexive pronoun.",
                 "hint": "sich wünschen: ich wünsche mir, du wünschst dir, er wünscht sich + accusative. Mein Traum ist … (My dream is …)",
                 "explanation": "Wishing for something and talking about dreams: Ich wünsche mir mehr Zeit für meine Familie. (I wish I had more time for my family.) Ich wünsche mir einen Hund. Ich möchte ein kleines Café eröffnen. Ich hätte gern ein Haus mit Garten. Ich wäre gern Musiker. Ich würde jetzt gern einen Spaziergang machen. Mein Traum ist eine Reise nach Australien. (My dream is a trip to Australia.) After sich wünschen you use the accusative: Ich wünsche mir einen Garten.",
                 "task": "What does Leon want for his birthday? – A bike."
               },
               "ru": {
-                "instruction": "Выберите правильный ответ.",
+                "instruction": "Выберите подходящее возвратное местоимение.",
                 "hint": "sich wünschen: ich wünsche mir, du wünschst dir, er wünscht sich + Akkusativ. Mein Traum ist … (Моя мечта – …)",
                 "explanation": "Как говорить о желаниях и мечтах: Ich wünsche mir mehr Zeit für meine Familie. (Мне хотелось бы больше времени для семьи.) Ich wünsche mir einen Hund. Ich möchte ein kleines Café eröffnen. Ich hätte gern ein Haus mit Garten. Ich wäre gern Musiker. Ich würde jetzt gern einen Spaziergang machen. Mein Traum ist eine Reise nach Australien. (Моя мечта – поездка в Австралию.) После sich wünschen стоит Akkusativ: Ich wünsche mir einen Garten.",
                 "task": "Что Leon хочет на день рождения? – Велосипед."
               },
               "uk": {
-                "instruction": "Виберіть правильну відповідь.",
+                "instruction": "Виберіть відповідний зворотний займенник.",
                 "hint": "sich wünschen: ich wünsche mir, du wünschst dir, er wünscht sich + Akkusativ. Mein Traum ist … (Моя мрія – …)",
                 "explanation": "Як говорити про бажання й мрії: Ich wünsche mir mehr Zeit für meine Familie. (Мені хотілося б більше часу для родини.) Ich wünsche mir einen Hund. Ich möchte ein kleines Café eröffnen. Ich hätte gern ein Haus mit Garten. Ich wäre gern Musiker. Ich würde jetzt gern einen Spaziergang machen. Mein Traum ist eine Reise nach Australien. (Моя мрія – подорож до Австралії.) Після sich wünschen стоїть Akkusativ: Ich wünsche mir einen Garten.",
                 "task": "Що Leon хоче на день народження? – Велосипед."
               },
               "tr": {
-                "instruction": "Doğru cevabı seçin.",
+                "instruction": "Uygun dönüşlülük zamirini seçin.",
                 "hint": "sich wünschen: ich wünsche mir, du wünschst dir, er wünscht sich + Akkusativ. Mein Traum ist … (Hayalim …)",
                 "explanation": "Bir şey dilemek ve hayallerden söz etmek: Ich wünsche mir mehr Zeit für meine Familie. (Aileme daha çok vakit ayırabilmeyi diliyorum.) Ich wünsche mir einen Hund. Ich möchte ein kleines Café eröffnen. Ich hätte gern ein Haus mit Garten. Ich wäre gern Musiker. Ich würde jetzt gern einen Spaziergang machen. Mein Traum ist eine Reise nach Australien. (Hayalim Avustralya’ya bir yolculuk.) sich wünschen fiilinden sonra Akkusativ gelir: Ich wünsche mir einen Garten.",
                 "task": "Leon doğum gününde ne istiyor? – Bir bisiklet."

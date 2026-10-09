@@ -7800,7 +7800,7 @@
           "rule": "Familie: der Vater und die Mutter = die Eltern. Der Sohn und die Tochter = die Kinder. Der Bruder und die Schwester = die Geschwister. Der Mann und die Frau = das Ehepaar.",
           "examples": [
             "Mein Vater und meine Mutter sind meine Eltern.",
-            "Emre ist der Vater von Deniz und Elif. Elif ist die Tochter von Emre.",
+            "Mit „Tochter“ bezeichnet man ein weibliches Kind im Verhältnis zu seinen Eltern.",
             "Das sind Samir und Lina.",
             "Das ist Selim. Er kommt aus der Türkei."
           ],
@@ -11256,7 +11256,7 @@
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
+                "hint": "Türkçede iyelik ekleri ismin dil bilgisel cinsiyetine göre değişmez. Almancada ise mein/meine biçimi ismin cinsiyetine ve sayısına bağlıdır.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
                 "task": "Oleh bir fotoğraf gösteriyor: “Bu da benim annem.”"
               }
@@ -30658,7 +30658,7 @@
           "card": "p5_routine",
           "rule": "Über den eigenen Tag sprechen: Aktivitäten mit Uhrzeiten verbinden: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Reihenfolge: zuerst, dann, danach.",
           "examples": [
-            "Sie kauft ein und kocht.",
+            "Er kauft ein und kocht.",
             "Um sechs Uhr stehe ich auf. Dann frühstücke ich.",
             "Am Abend koche ich und dann sehe ich fern.",
             "Von acht bis vier arbeite ich."
@@ -34804,7 +34804,7 @@
           "rule": "Akkusativ mit kein: maskulin keinen, neutral kein, feminin keine, Plural keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
           "examples": [
             "Ich habe keinen Hunger.",
-            "Sie trinkt kein Bier.",
+            "Er trinkt kein Bier.",
             "Wir haben heute keine Zeit.",
             "Ich mag keine Krimis."
           ],
@@ -34875,7 +34875,7 @@
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "kein, ein gibi çekilir: eril keinen, nötr kein, dişil ve çoğul keine.",
                 "explanation": "kein ile Akkusativ: eril keinen, nötr kein, dişil keine, çoğul keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
-                "task": "Oleh hep otobüse biniyor. Onun … bisikleti."
+                "task": "Oleh hep otobüse biniyor. Onun bisikleti yok."
               }
             }
           },
@@ -41499,7 +41499,7 @@
         ],
         "merkkarte": {
           "card": "p7_bracket",
-          "rule": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, der zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
+          "rule": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, das zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
           "examples": [
             "Ich will heute Pizza essen.",
             "Oleh kann sehr gut tanzen.",
@@ -41548,7 +41548,7 @@
               "Ich will heute Pizza essen."
             ],
             "hint": "Das Modalverb steht auf Position 2, das zweite Verb im Infinitiv ganz am Ende.",
-            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, der zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
+            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, das zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
             "explanation_card": "p7_bracket",
             "translations": {
               "en": {
@@ -41604,7 +41604,7 @@
               "tanzen"
             ],
             "hint": "Das Modalverb steht auf Position 2, das zweite Verb im Infinitiv ganz am Ende.",
-            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, der zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
+            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, das zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
             "explanation_card": "p7_bracket",
             "translations": {
               "en": {
@@ -41714,7 +41714,7 @@
               "Ich kann gut kochen."
             ],
             "hint": "Das Modalverb steht auf Position 2, das zweite Verb im Infinitiv ganz am Ende.",
-            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, der zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
+            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, das zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
             "explanation_card": "p7_bracket",
             "translations": {
               "en": {
@@ -41768,7 +41768,7 @@
               "Kannst du Schach spielen?"
             ],
             "hint": "Das Modalverb steht auf Position 2, das zweite Verb im Infinitiv ganz am Ende.",
-            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, der zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
+            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, das zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
             "explanation_card": "p7_bracket",
             "translations": {
               "en": {
@@ -42536,7 +42536,7 @@
             "Ich habe Kamil im Café getroffen.",
             "Wir haben zusammen Tee getrunken.",
             "Oleh hat lange mit seinem Vater gesprochen.",
-            "Ich habe eine E-Mail an die Lehrerin geschrieben."
+            "Ich habe eine E-Mail an den Lehrer geschrieben."
           ],
           "highlight": "verb",
           "translations": {
@@ -45593,7 +45593,7 @@
               "Als Koch will ich arbeiten."
             ],
             "hint": "Das Modalverb steht auf Position 2, das zweite Verb im Infinitiv ganz am Ende.",
-            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, der zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
+            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, das zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
             "explanation_card": "p7_bracket",
             "translations": {
               "en": {
@@ -45740,7 +45740,7 @@
               "Wir wollen morgen einkaufen."
             ],
             "hint": "Das Modalverb steht auf Position 2, das zweite Verb im Infinitiv ganz am Ende.",
-            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, der zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
+            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, das zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
             "explanation_card": "p7_bracket",
             "translations": {
               "en": {
@@ -47167,7 +47167,7 @@
               "Emre kann Gitarre spielen."
             ],
             "hint": "Das Modalverb steht auf Position 2, das zweite Verb im Infinitiv ganz am Ende.",
-            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, der zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
+            "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, das zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
             "explanation_card": "p7_bracket",
             "translations": {
               "en": {
