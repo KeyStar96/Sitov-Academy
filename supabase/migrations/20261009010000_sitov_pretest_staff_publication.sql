@@ -29,6 +29,11 @@ BEGIN
  ELSE SELECT sentence_de INTO body FROM public.learning_reading_texts WHERE id=p_text;END IF;
  IF NOT FOUND THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
  IF p_publish THEN
+  PERFORM 1 FROM public.profiles WHERE id=auth.uid() FOR SHARE;
+  PERFORM 1 FROM auth.mfa_factors WHERE user_id=auth.uid() FOR SHARE;
+  IF NOT sitov_access_private.staff() THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
+ END IF;
+ IF p_publish THEN
   SELECT * INTO d FROM sitov_pronunciation_private.pretest_definitions WHERE id=p_definition AND text_id=p_text FOR UPDATE;
  ELSE SELECT * INTO d FROM sitov_pronunciation_private.pretest_definitions WHERE id=p_definition AND text_id=p_text;END IF;
  IF NOT FOUND THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
@@ -45,6 +50,7 @@ BEGIN
  ready:=sitov_pronunciation_private.staff_publication_proven(d);
  data:=jsonb_build_object('definitionId',d.id,'textId',d.text_id,'textVersion',d.text_version,'testVersion',d.test_version,'activeDefinitionId',current_active);
  IF NOT p_publish THEN RETURN jsonb_build_object('ok',true,'data',data||jsonb_build_object('ready',ready));END IF;
+ IF NOT sitov_access_private.staff() THEN RETURN sitov_pronunciation_private.pretest_error('not_found');END IF;
  IF NOT ready THEN RETURN sitov_pronunciation_private.pretest_error('authoring_not_ready');END IF;
  IF saved IS NULL THEN
   UPDATE sitov_pronunciation_private.pretest_definitions SET active=false WHERE id=current_active;
