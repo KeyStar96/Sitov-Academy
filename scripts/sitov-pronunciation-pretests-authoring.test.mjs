@@ -2,7 +2,11 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sources=await sitovReadAuthoringSources(),sitovActualManifest46=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sources=await sitovReadAuthoringSources(),sitovLatestMReviewed33=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovMReview33Raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/pools31-33-editorial-review.json','utf8'),sitovMReview33=JSON.parse(sitovMReview33Raw)
+// Restore exact author reviews before epoch46 full-task reconstruction, epoch45 and all older proofs.
+const sitovActualManifest46=structuredClone(sitovLatestMReviewed33)
+for(const r of sitovMReview33.approvedEditorialDrafts)sitovActualManifest46.drafts.find(d=>d.textId===r.textId).review=r.previousReview
 const sitovDelta46=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch46-a22-distractor-quality-delta.json','utf8'))
 // Restore every full prior task/review BEFORE immutable epoch45 and all older proofs.
 const sitovActualManifest45=structuredClone(sitovActualManifest46)
@@ -940,7 +944,7 @@ test('actual33 guards reject false evidence, repeated units/forms, crosslevel ta
 test('epoch46 exact full-task/review/alias delta preserves immutable45 bytes, old30 and every correct answer/id/source/matrix/form',async()=>{
  assert.equal(sitovDelta46.questions.length,38);assert.equal(sitovDelta46.reviewedQuestionCount,72);assert.equal(sitovDelta46.changedAliases.length,76);assert.equal(sitovDelta46.publicPromptChangeCount,2)
  for(const[value,hash,bytes]of [[sitovActualManifest45,sitovDelta46.previousManifestContentHash,sitovDelta46.previousManifestByteSha256],[sitovActualManifest46,sitovDelta46.currentManifestContentHash,sitovDelta46.currentManifestByteSha256],[sitovActualAudio45,sitovDelta46.previousAudioContentHash,sitovDelta46.previousAudioByteSha256],[sitovActualAudio46,sitovDelta46.currentAudioContentHash,sitovDelta46.currentAudioByteSha256]]){assert.equal(sitovHash(JSON.stringify(value)),hash);assert.equal(sitovHash(JSON.stringify(value,null,2)+'\n'),bytes)}
- assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovDelta46.currentManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovActualManifest46,null,2)+'\n'),sitovDelta46.currentManifestByteSha256)
  assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovDelta46.currentAudioByteSha256)
  assert.deepEqual(sitovActualManifest46.drafts.slice(0,30),sitovActualManifest45.drafts.slice(0,30));assert.equal(sitovHash(JSON.stringify(sitovActualManifest46.drafts.slice(0,30))),sitovDelta46.original30ContentHash)
  assert.deepEqual(Object.entries(sitovActualAudio46).slice(0,2880),Object.entries(sitovActualAudio45).slice(0,2880));assert.equal(sitovHash(JSON.stringify(Object.fromEntries(Object.entries(sitovActualAudio46).slice(0,2880)))),sitovDelta46.original2880AliasContentHash)
@@ -964,4 +968,10 @@ test('repaired A2.2 distractors stay within lexical/modal/temporal/causal/refere
 test('actual repaired33/3168 validate and all72 current private/public audit records bind honest new pending reviews',()=>{
  assert.equal(sitovActualManifest46.drafts.length,33);assert.equal(Object.keys(sitovActualAudio46).length,3168);assert.deepEqual(sitovValidatePretestDrafts(sitovActualManifest46,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovActualManifest46,sitovActualAudio46),[])
  for(const p of sitovDelta46.reviewedCurrentPools){const d=sitovActualManifest46.drafts.find(d=>d.textId===p.textId);assert.equal(d.active,false);assert.equal(d.review.status,'author_checked_independent_review_pending');assert.equal(d.review.authorIdentity,d.review.reviewer);assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(p.definitionContentHash,d.review.definitionContentHash);assert.equal(p.questions.length,24);for(const[j,q]of d.definition.tasks.entries()){const a=p.questions[j];assert.equal(a.questionId,q.id);assert.equal(a.publicPromptDe,q.promptDe);assert.deepEqual(a.publicOptions,q.options);assert.equal(a.correctOptionId,q.correctOptionId);assert.equal(a.correctAnswerTextDe,q.options.find(o=>o.id===q.correctOptionId).textDe);assert.equal(a.rationaleDe,q.rationaleDe);assert.equal(a.assessmentUnit,q.assessmentUnit);assert.deepEqual(a.sourceSpans,q.sourceSpans)}}
+})
+
+test('actual all33 M-reviewed pools retain all prior proofs and exact repaired semantic distractors',()=>{
+ assert.equal(sitovLatestMReviewed33.drafts.length,33);assert.deepEqual(sitovValidatePretestDrafts(sitovLatestMReviewed33,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovLatestMReviewed33,sitovActualAudio46),[])
+ for(const d of sitovLatestMReviewed33.drafts){assert.equal(d.active,false);assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.status,'independent_editorial_checked_draft_only');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending')}
+ for(const r of sitovMReview33.approvedEditorialDrafts){const d=sitovLatestMReviewed33.drafts.find(d=>d.textId===r.textId);assert.equal(d.review.documentSha256,sitovHash(sitovMReview33Raw));assert.equal(d.review.documentRef,sitovMReview33.documentRef);assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.textVersion,r.textVersion);assert.deepEqual(d.definition.tasks.map(q=>({questionId:q.id,correctTextDe:q.options.find(o=>o.id===q.correctOptionId).textDe})),r.correctAnswerTexts)}
 })

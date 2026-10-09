@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools31-33-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T17:30:19.064Z",
+  "sourceCommit": "b1f72231f0ae2a1baabea13aa0f8e4adb7546329",
+  "scope": "M independently read all72 public questions/options/keys/rationales, all3 complete actual canonical A2.2 bodies and12 core source/mapping records. Initial absurd semantic distractors rejected. All38 changed tasks and their76 changed audio aliases re-reviewed after repair: plausible field-specific lexical, modal, causal, temporal, referential contrasts replace unrelated objects. Two publicly clarified pronoun contexts preserve unique answers. Remaining34 keys, source wording,24-per-pool forms, core units and first30 definitions unchanged. No empirical difficulty/discrimination or human listening claim. Genuine missing same-level learning targets stay explicit; do not treat metadata as access/mastery.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "changedQuestionsRereviewed": 38,
+  "authorAudit45Sha256": "9a67ed7995d50da43201a2c428536a9bfb60cbb75f20c00e655a75551efa8860",
+  "qualityDelta46Sha256": "f3ce053665f916fc22873da2ad79eb62ff225c5f0ad1f31c1c9f8f6a5a4d7646",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "bea3e65f-1668-5539-a4c3-ce044fe067e1",
+      "textVersion": "1b5528f6e4495967dafbb7616d771f0290f3d1bcbca65da8908551163e06d596",
+      "definitionContentHash": "edf7265614b3988ecb570172eaacc86f3682b46b441928dcd1d04be6f4f3cfa5",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 erneute Autorenprüfung aller72 Fragen der drei A2.2-Pools: plausible feldnahe Distraktoren, eindeutige öffentliche Prämissen und unveränderte korrekte Antworttexte/IDs; zwei sichtbare Pronomenkontexte präzisiert. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend.",
+        "textVersion": "1b5528f6e4495967dafbb7616d771f0290f3d1bcbca65da8908551163e06d596",
+        "definitionContentHash": "edf7265614b3988ecb570172eaacc86f3682b46b441928dcd1d04be6f4f3cfa5"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-01.words.q1",
+          "correctTextDe": "Der Zug kommt oder fährt später als vorgesehen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.words.q2",
+          "correctTextDe": "Der Bereich am Gleis, an dem Fahrgäste ein- und aussteigen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.words.q3",
+          "correctTextDe": "Eine meist über Lautsprecher mitgeteilte Information."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.words.q4",
+          "correctTextDe": "Den bisherigen Zug verlassen und einen anderen nehmen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.words.q5",
+          "correctTextDe": "Ein anderer Mensch, der ebenfalls mitreist."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.words.q6",
+          "correctTextDe": "Der Schienenweg, auf dem ein Zug fährt oder steht."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.verbs.q1",
+          "correctTextDe": "wollen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.verbs.q2",
+          "correctTextDe": "Eine Möglichkeit in der Vergangenheit."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.verbs.q3",
+          "correctTextDe": "umsteigen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.verbs.q4",
+          "correctTextDe": "ankommen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.verbs.q5",
+          "correctTextDe": "Plusquamperfekt (Vorvergangenheit)."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.verbs.q6",
+          "correctTextDe": "werden"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.syntax.q1",
+          "correctTextDe": "Die Verspätung steht dem frühen Reiseplan entgegen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.syntax.q2",
+          "correctTextDe": "wir einen anderen Zug nehmen konnten"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.syntax.q3",
+          "correctTextDe": "Weil die Gruppe in einer fremden Stadt umsteigen musste."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.syntax.q4",
+          "correctTextDe": "wir in einer fremden Stadt umsteigen mussten"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.syntax.q5",
+          "correctTextDe": "Die tatsächliche und die geplante Ankunftszeit."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.syntax.q6",
+          "correctTextDe": "Der Abend wurde ungeachtet der langen Fahrt schön."
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.nominal.q1",
+          "correctTextDe": "meinen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.nominal.q2",
+          "correctTextDe": "dem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.nominal.q3",
+          "correctTextDe": "anderen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.nominal.q4",
+          "correctTextDe": "fremden"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.nominal.q5",
+          "correctTextDe": "uns"
+        },
+        {
+          "questionId": "sitov.pretest.a22-01.nominal.q6",
+          "correctTextDe": "langen"
+        }
+      ]
+    },
+    {
+      "textId": "3243b764-4bfc-5fc6-8c24-1a49962988ff",
+      "textVersion": "a368e2f752bf04554f9a87a44ffca1ba94f8fada5515dd94ed05c8d788523717",
+      "definitionContentHash": "b02a05e7786b32fb5ed97b212e395dafb50e66c19fb471735b067b8130bb896a",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 erneute Autorenprüfung aller72 Fragen der drei A2.2-Pools: plausible feldnahe Distraktoren, eindeutige öffentliche Prämissen und unveränderte korrekte Antworttexte/IDs; zwei sichtbare Pronomenkontexte präzisiert. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend.",
+        "textVersion": "a368e2f752bf04554f9a87a44ffca1ba94f8fada5515dd94ed05c8d788523717",
+        "definitionContentHash": "b02a05e7786b32fb5ed97b212e395dafb50e66c19fb471735b067b8130bb896a"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-02.words.q1",
+          "correctTextDe": "Die Zeiten, zu denen jemand arbeitet."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.words.q2",
+          "correctTextDe": "Das gewöhnliche tägliche Leben."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.words.q3",
+          "correctTextDe": "Ein Austausch durch gemeinsames Sprechen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.words.q4",
+          "correctTextDe": "Eine Idee für eine mögliche Lösung."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.words.q5",
+          "correctTextDe": "Eine festgelegte oder vereinbarte Ordnung der Arbeitszeit."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.words.q6",
+          "correctTextDe": "Das Problem ehrlich und direkt ansprechen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.verbs.q1",
+          "correctTextDe": "gebeten"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.verbs.q2",
+          "correctTextDe": "erklärt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.verbs.q3",
+          "correctTextDe": "Es ist für den Sprecher notwendig."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.verbs.q4",
+          "correctTextDe": "Eine mögliche, vorsichtig formulierte Lösung."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.verbs.q5",
+          "correctTextDe": "zugestimmt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.verbs.q6",
+          "correctTextDe": "ausprobieren"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.syntax.q1",
+          "correctTextDe": "Der Schulbeginn markiert den Beginn der neuen Situation."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.syntax.q2",
+          "correctTextDe": "Das unpassende Arbeitszeitmodell ist der Grund für die Bitte."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.syntax.q3",
+          "correctTextDe": "ich am Nachmittag zu Hause sein muss"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.syntax.q4",
+          "correctTextDe": "Morgens früher anzufangen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.syntax.q5",
+          "correctTextDe": "Der Beginn liegt eine Stunde vor dem bisherigen Beginn."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.syntax.q6",
+          "correctTextDe": "Einen Monat."
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.nominal.q1",
+          "correctTextDe": "Mein"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.nominal.q2",
+          "correctTextDe": "unserem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.nominal.q3",
+          "correctTextDe": "meinen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.nominal.q4",
+          "correctTextDe": "ein"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.nominal.q5",
+          "correctTextDe": "meinem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-02.nominal.q6",
+          "correctTextDe": "einen"
+        }
+      ]
+    },
+    {
+      "textId": "51347d93-a3a8-50aa-811e-4ea2816386f9",
+      "textVersion": "1607dcecc5c6175d72bdc6c9d5bff4260132e341189499e30f49ff814fa46ced",
+      "definitionContentHash": "f7406cf06ef107c62a3bbe7a069a529f0eac52bdeb0f0d6c7e1e4b9338781ce4",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 erneute Autorenprüfung aller72 Fragen der drei A2.2-Pools: plausible feldnahe Distraktoren, eindeutige öffentliche Prämissen und unveränderte korrekte Antworttexte/IDs; zwei sichtbare Pronomenkontexte präzisiert. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend.",
+        "textVersion": "1607dcecc5c6175d72bdc6c9d5bff4260132e341189499e30f49ff814fa46ced",
+        "definitionContentHash": "f7406cf06ef107c62a3bbe7a069a529f0eac52bdeb0f0d6c7e1e4b9338781ce4"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-03.words.q1",
+          "correctTextDe": "Ein offener Hof innerhalb oder zwischen Gebäudeteilen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.words.q2",
+          "correctTextDe": "Der Hof wirkte wenig angenehm oder einladend."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.words.q3",
+          "correctTextDe": "Den Hof anders gestalten als vorher."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.words.q4",
+          "correctTextDe": "Blumen in die Erde einsetzen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.words.q5",
+          "correctTextDe": "Die Gruppe hat den Plan zusammen gemacht."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.words.q6",
+          "correctTextDe": "Jeder hat die Verantwortung für eine Aufgabe angenommen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.verbs.q1",
+          "correctTextDe": "wollten"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.verbs.q2",
+          "correctTextDe": "sich"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.verbs.q3",
+          "correctTextDe": "Plusquamperfekt (Vorvergangenheit)."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.verbs.q4",
+          "correctTextDe": "übernommen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.verbs.q5",
+          "correctTextDe": "ist"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.verbs.q6",
+          "correctTextDe": "Die Nachbarn kennen einander."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.syntax.q1",
+          "correctTextDe": "wir den Hof verändern könnten"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.syntax.q2",
+          "correctTextDe": "Auf den Innenhof."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.syntax.q3",
+          "correctTextDe": "Die Zustimmung des Vermieters."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.syntax.q4",
+          "correctTextDe": "er zugestimmt hatte"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.syntax.q5",
+          "correctTextDe": "Die frühere und die jetzige Schönheit des Hofs."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.syntax.q6",
+          "correctTextDe": "Die Nachbarn sind jetzt stärker miteinander vertraut."
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.nominal.q1",
+          "correctTextDe": "unseres"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.nominal.q2",
+          "correctTextDe": "einem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.nominal.q3",
+          "correctTextDe": "eine"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.nominal.q4",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.nominal.q5",
+          "correctTextDe": "bei dem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-03.nominal.q6",
+          "correctTextDe": "kleine"
+        }
+      ]
+    }
+  ]
+}

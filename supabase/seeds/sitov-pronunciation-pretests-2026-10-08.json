@@ -31743,14 +31743,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 erneute Autorenprüfung aller72 Fragen der drei A2.2-Pools: plausible feldnahe Distraktoren, eindeutige öffentliche Prämissen und unveränderte korrekte Antworttexte/IDs; zwei sichtbare Pronomenkontexte präzisiert. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend.",
+        "notesDe": "M hat alle72 Fragen und drei vollständige Quellen unabhängig geprüft.38 schwache Aufgaben wurden vor Audioerzeugung mit plausiblen fachlichen Distraktoren nachgebessert und erneut geprüft; zwei Pronomenkontexte öffentlich eindeutig. Echte Lernziel-Lücken, menschliche Kalibrierung und endgültige Audio-/Versionsbindung bleiben separat.",
         "textVersion": "1b5528f6e4495967dafbb7616d771f0290f3d1bcbca65da8908551163e06d596",
-        "definitionContentHash": "edf7265614b3988ecb570172eaacc86f3682b46b441928dcd1d04be6f4f3cfa5"
+        "definitionContentHash": "edf7265614b3988ecb570172eaacc86f3682b46b441928dcd1d04be6f4f3cfa5",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools31-33-M",
+        "documentSha256": "65a03a15c0b833e433a610fa0a241d08317f54a778b19b5a3a6909e47bae0fd3",
+        "reviewedAt": "2026-10-09T17:30:19.064Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -32783,14 +32788,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 erneute Autorenprüfung aller72 Fragen der drei A2.2-Pools: plausible feldnahe Distraktoren, eindeutige öffentliche Prämissen und unveränderte korrekte Antworttexte/IDs; zwei sichtbare Pronomenkontexte präzisiert. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend.",
+        "notesDe": "M hat alle72 Fragen und drei vollständige Quellen unabhängig geprüft.38 schwache Aufgaben wurden vor Audioerzeugung mit plausiblen fachlichen Distraktoren nachgebessert und erneut geprüft; zwei Pronomenkontexte öffentlich eindeutig. Echte Lernziel-Lücken, menschliche Kalibrierung und endgültige Audio-/Versionsbindung bleiben separat.",
         "textVersion": "a368e2f752bf04554f9a87a44ffca1ba94f8fada5515dd94ed05c8d788523717",
-        "definitionContentHash": "b02a05e7786b32fb5ed97b212e395dafb50e66c19fb471735b067b8130bb896a"
+        "definitionContentHash": "b02a05e7786b32fb5ed97b212e395dafb50e66c19fb471735b067b8130bb896a",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools31-33-M",
+        "documentSha256": "65a03a15c0b833e433a610fa0a241d08317f54a778b19b5a3a6909e47bae0fd3",
+        "reviewedAt": "2026-10-09T17:30:19.064Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -33825,14 +33835,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 erneute Autorenprüfung aller72 Fragen der drei A2.2-Pools: plausible feldnahe Distraktoren, eindeutige öffentliche Prämissen und unveränderte korrekte Antworttexte/IDs; zwei sichtbare Pronomenkontexte präzisiert. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend.",
+        "notesDe": "M hat alle72 Fragen und drei vollständige Quellen unabhängig geprüft.38 schwache Aufgaben wurden vor Audioerzeugung mit plausiblen fachlichen Distraktoren nachgebessert und erneut geprüft; zwei Pronomenkontexte öffentlich eindeutig. Echte Lernziel-Lücken, menschliche Kalibrierung und endgültige Audio-/Versionsbindung bleiben separat.",
         "textVersion": "1607dcecc5c6175d72bdc6c9d5bff4260132e341189499e30f49ff814fa46ced",
-        "definitionContentHash": "f7406cf06ef107c62a3bbe7a069a529f0eac52bdeb0f0d6c7e1e4b9338781ce4"
+        "definitionContentHash": "f7406cf06ef107c62a3bbe7a069a529f0eac52bdeb0f0d6c7e1e4b9338781ce4",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools31-33-M",
+        "documentSha256": "65a03a15c0b833e433a610fa0a241d08317f54a778b19b5a3a6909e47bae0fd3",
+        "reviewedAt": "2026-10-09T17:30:19.064Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
