@@ -2331,6 +2331,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: CertificateFunctions & DailyQuestFunctions & ExamSimulationFunctions & SitovCommercialAccessFunctions & SitovPronunciationPretestFunctions & SitovLearningSpecialFunctions & {
+      sitov_revise_path_content: { Args: { p_request_id: string; p_items: Json }; Returns: Json }
       sitov_staff_mfa_status: { Args: Record<string, never>; Returns: Json }
       sitov_enable_staff_mfa: { Args: Record<string, never>; Returns: boolean }
       sitov_reserve_audio_generation: { Args: { p_user_id: string; p_characters: number }; Returns: boolean }

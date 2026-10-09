@@ -21,6 +21,7 @@ ORDER.append('110_sitov_storage_definer_execution.sql')
 ORDER.append('111_sitov_commercial_definer_execution.sql')
 ORDER.append('112_sitov_legacy_metadata_performance.sql')
 ORDER.append('113_sitov_staff_legacy_verb_scope.sql')
+ORDER.append('114_sitov_path_content_revisions.sql')
 AUTOCOMMIT={'08_performance_indexes.sql'}
 
 def run(args,**kwargs):
