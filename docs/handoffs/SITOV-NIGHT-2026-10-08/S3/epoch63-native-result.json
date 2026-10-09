@@ -1,0 +1,71 @@
+{
+  "beforeRawSha256": "210afd659f71e17de29719d75ce5f624ad330df72a0ec2393a2a15bcfd2f0b08",
+  "afterRawSha256": "210afd659f71e17de29719d75ce5f624ad330df72a0ec2393a2a15bcfd2f0b08",
+  "rawExact": true,
+  "logicalMetadataExact": true,
+  "rows": 5222,
+  "protected185QA188StreamNotRun": true,
+  "nativeAssertions": 42,
+  "priorMAssertionsRetained": 31,
+  "newCardAssertions": 11,
+  "expectedErrorStatements": 25,
+  "deferredNegativeStatements": 9,
+  "staticTests": 6,
+  "fixtureSha256": "c3379e6dc200a841c2b34e5822cabfc90f7c2b65f816d3c49c2483f9784881a6",
+  "migrationSha256": "45c03b30a075920e53d15e4e311e229262f63a19d7016f9c4b21d98efd0d379a",
+  "MFixtureSourceSha256": "829c413b4b337db8b6c928f5c68fae147e773761e935bf0f9f220e994a75a968",
+  "contractSha256": "d928eb2188dc25d2eab2b2db24b8ed2da790da4c9875a31cbb9bd5a0a4f1d912",
+  "priorBaselineDelta": [
+    {
+      "kind": "relation",
+      "changedKeys": [
+        "relminmxid"
+      ]
+    }
+  ],
+  "healthThree200": true,
+  "memoryMiB": 2363,
+  "scopedQueries": 0,
+  "sourceApplied": false,
+  "productionWrite": false,
+  "sharedQAWrite": false,
+  "releaseReady": false,
+  "fourFuturePointerProposals": [
+    {
+      "id": "422ceede-aabe-5361-aa27-2e7678dfc2a0",
+      "ref": "P1-N1-E03",
+      "oldPointer": "p1_bye",
+      "newPointer": "p1_greet",
+      "repositorySamePathActivePracticeMatches": [
+        "P1-N1"
+      ]
+    },
+    {
+      "id": "5df3a866-867b-5221-a586-6aa88b8c9cda",
+      "ref": "P2-N3-E02",
+      "oldPointer": "p2_introduce",
+      "newPointer": "p2_family",
+      "repositorySamePathActivePracticeMatches": [
+        "P2-N3"
+      ]
+    },
+    {
+      "id": "b088b06b-6140-520c-a242-1ff5689c4688",
+      "ref": "P7-N12-E28",
+      "oldPointer": "p7_bracket_perfekt",
+      "newPointer": "p7_perfekt_t",
+      "repositorySamePathActivePracticeMatches": [
+        "P7-N5"
+      ]
+    },
+    {
+      "id": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+      "ref": "P1-N11-E18",
+      "oldPointer": "p1_phone",
+      "newPointer": "p1_strategy",
+      "repositorySamePathActivePracticeMatches": [
+        "P1-N8"
+      ]
+    }
+  ]
+}
