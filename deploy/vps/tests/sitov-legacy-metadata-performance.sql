@@ -58,6 +58,16 @@ BEGIN
 END
 $sitov$;
 DO $sitov$ BEGIN
+ -- Existing teacher MFA exemption deliberately resets a true flag to false.
+ IF NOT sitov_access_private.staff() OR sitov_security_private.sitov_staff_mfa_required()
+  OR EXISTS(SELECT 1 FROM public.profiles WHERE id=auth.uid() AND sitov_mfa_required)
+ THEN RAISE EXCEPTION 'sitov_fixture_teacher_exemption';END IF;
+ -- Promotion to admin must enable MFA, with no aal2/factor in these claims.
+ UPDATE public.profiles SET role='admin' WHERE id=auth.uid();
+END $sitov$;
+DO $sitov$ BEGIN
+ IF NOT sitov_security_private.sitov_staff_mfa_required()
+ THEN RAISE EXCEPTION 'sitov_fixture_admin_mfa_required';END IF;
  IF sitov_access_private.staff() THEN RAISE EXCEPTION 'sitov_fixture_staff_without_mfa';END IF;
 END $sitov$;
 SELECT 'sitov_legacy_metadata_fixture_ok';
