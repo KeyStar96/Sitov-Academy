@@ -17,6 +17,7 @@ export type SitovPronunciationPretestFunctions = {
   sitov_get_pronunciation_pretests: { Args: { p_level: string }; Returns: Json }
   sitov_start_pronunciation_pretest: { Args: { p_text_id: string; p_request_id: string }; Returns: Json }
   sitov_get_pronunciation_pretest_attempt: { Args: { p_attempt_id: string }; Returns: Json }
+  sitov_get_pronunciation_pretest_learning_topics: { Args: { p_attempt_id: string }; Returns: Json }
   sitov_save_pronunciation_pretest_answers: { Args: { p_attempt_id: string; p_revision: number; p_answers: Json; p_request_id: string }; Returns: Json }
   sitov_submit_pronunciation_pretest: { Args: { p_attempt_id: string; p_revision: number; p_answers: Json; p_request_id: string }; Returns: Json }
   sitov_get_pronunciation_pretest_staff: { Args: { p_text_id: string; p_student_id?: string | null }; Returns: Json }
