@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools46-48-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T19:24:34.357Z",
+  "sourceCommit": "024affddc009499d4b8ec74b71a3de54a93086c9",
+  "scope": "M independently read all72 public prompts, all216 options, keys and rationales, all3 full actual canonical B1.1sort6–8 sources and12cores. Travel tests genuine untrennbaresPartizip, Plusquamperfekt, strongPräteritum, trennbarerInfinitiv and reflexiveAkkusativ; relative/indirect/modal/Infinitiv clauses, contrast and frontedV2. Homeoffice tests true conjugation/strong and weakpast, real consequence/contrast, objectfronting and Modalklammer plus genuine adverbialKomparativ. Event tests actual subjectverb/Partizip/reflexivekümmern/modalinfinitive, indirectPerfekt/modalclauses, Negationsbereich and coordinatedPartizipien; unsgegenseitig is reciprocal use of the reflexivepronoun, not self-directed help. Public tablelocation, pluralJungen and possessionpremises keep case/number keys unambiguous. All12six-unitcores and exact canonicalspans checked; samefieldlearnererrors/distractors align with assessment. Existingfull45including71A11repairs and4320aliases unchanged. No human/listening/empiricalcalibration/CEFRcertificationclaim.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "f4bc0d15e1c0d52ec5d2938e1ddcd26a5a3e4210ee1f681cd9c447b51ced2b3b",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "2824e504-aef5-5a89-9290-aa72f1d42342",
+      "textVersion": "73d4a51db9105270a896a87c99e1b971807c3dbc685644794461dbcd26e0bff6",
+      "definitionContentHash": "c7dff65cb2fe1118eb8c46ac3d2beb0c9461abb0a142b3ad5701597e260dac21",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "73d4a51db9105270a896a87c99e1b971807c3dbc685644794461dbcd26e0bff6",
+        "definitionContentHash": "c7dff65cb2fe1118eb8c46ac3d2beb0c9461abb0a142b3ad5701597e260dac21"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-06.words.q1",
+          "correctTextDe": "Für das Wochenende an einen anderen Ort reisen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q2",
+          "correctTextDe": "Man kann mit dem Zug gut in die Stadt gelangen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q3",
+          "correctTextDe": "Diese Situation war mir noch nicht vertraut."
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q4",
+          "correctTextDe": "Man wählt zwischen Möglichkeiten."
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q5",
+          "correctTextDe": "Eigene Entscheidungen ohne Abstimmung mit Mitreisenden treffen zu können."
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q6",
+          "correctTextDe": "Beide setzen ihre Reise getrennt voneinander fort."
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q1",
+          "correctTextDe": "verreist"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q2",
+          "correctTextDe": "Plusquamperfekt."
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q3",
+          "correctTextDe": "fand"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q4",
+          "correctTextDe": "begann"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q5",
+          "correctTextDe": "austauschen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q6",
+          "correctTextDe": "mich"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q1",
+          "correctTextDe": "die gut mit dem Zug erreichbar war"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q2",
+          "correctTextDe": "wir essen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q3",
+          "correctTextDe": "welches Museum wir besuchen wollten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q4",
+          "correctTextDe": "diese Freiheit zu genießen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q5",
+          "correctTextDe": "Die Freude auf die Familie schließt den Wunsch nach einer weiteren Alleinreise nicht aus."
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q6",
+          "correctTextDe": "begann ich, diese Freiheit zu genießen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q1",
+          "correctTextDe": "ein"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q2",
+          "correctTextDe": "kleine"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q3",
+          "correctTextDe": "dem"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q4",
+          "correctTextDe": "alle"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q5",
+          "correctTextDe": "anderen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q6",
+          "correctTextDe": "solche"
+        }
+      ]
+    },
+    {
+      "textId": "92818a0b-1e3d-5f69-b023-f61637d49279",
+      "textVersion": "33692f0ad6e25f4080374ce9667ef9f6c24403df0d599bd3ee41eab4f6018a0e",
+      "definitionContentHash": "74de4434b7fea8cf8e518d0c040c60364ceceb1d0b787e15692fe0b4d88cb26e",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "33692f0ad6e25f4080374ce9667ef9f6c24403df0d599bd3ee41eab4f6018a0e",
+        "definitionContentHash": "74de4434b7fea8cf8e518d0c040c60364ceceb1d0b787e15692fe0b4d88cb26e"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-07.words.q1",
+          "correctTextDe": "Der Weg zwischen Wohnort und Arbeitsplatz."
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q2",
+          "correctTextDe": "Nach dem Ende der täglichen Arbeitszeit."
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q3",
+          "correctTextDe": "Ein bestimmter Ort, an dem man regelmäßig arbeitet."
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q4",
+          "correctTextDe": "Wann die Arbeit beginnt und endet."
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q5",
+          "correctTextDe": "Ein Verhalten, das man regelmäßig wiederholt."
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q6",
+          "correctTextDe": "Den regelmäßigen Austausch mit ihnen nicht mehr aufrechterhalten."
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q1",
+          "correctTextDe": "arbeite"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q2",
+          "correctTextDe": "kann"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q3",
+          "correctTextDe": "stand"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q4",
+          "correctTextDe": "beantwortete"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q5",
+          "correctTextDe": "ausschalten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q6",
+          "correctTextDe": "verlieren"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q1",
+          "correctTextDe": "Das Arbeiten zu Hause führt dazu, dass der Arbeitsweg entfällt."
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q2",
+          "correctTextDe": "Ein Vorteil wird durch eine anfängliche Schwierigkeit ergänzt."
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q3",
+          "correctTextDe": "schalte ich den Computer aus"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q4",
+          "correctTextDe": "Arbeit und Freizeit zu trennen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q5",
+          "correctTextDe": "möchte ich trotzdem nicht verlieren"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q6",
+          "correctTextDe": "Der gewünschte Kontakt ist ein Grund für die regelmäßigen Bürobesuche."
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q1",
+          "correctTextDe": "Tagen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q2",
+          "correctTextDe": "den"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q3",
+          "correctTextDe": "dem"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q4",
+          "correctTextDe": "festen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q5",
+          "correctTextDe": "ruhiger"
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q6",
+          "correctTextDe": "meinen"
+        }
+      ]
+    },
+    {
+      "textId": "d0e1136a-e6ee-5b28-b3b8-37c744be5528",
+      "textVersion": "25ab86cb8f7e81b744c51fc53c15b07fc0076f632cf724893a7f5f48c3c7ac04",
+      "definitionContentHash": "58c00ff5725ab3c2745846a17f5da73731f33098dd217739330e3b2eece2d7af",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "25ab86cb8f7e81b744c51fc53c15b07fc0076f632cf724893a7f5f48c3c7ac04",
+        "definitionContentHash": "58c00ff5725ab3c2745846a17f5da73731f33098dd217739330e3b2eece2d7af"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-08.words.q1",
+          "correctTextDe": "Ich bin für diese Aufgabe verantwortlich."
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q2",
+          "correctTextDe": "Eine Bitte oder Aufforderung, an der Veranstaltung teilzunehmen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q3",
+          "correctTextDe": "Jeder hilft dem anderen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q4",
+          "correctTextDe": "Aufgaben und Ablauf im Voraus vorbereiten."
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q5",
+          "correctTextDe": "Das Miteinandersprechen ist besonders wichtig für das Gelingen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q6",
+          "correctTextDe": "Den Text verständlicher oder sprachlich besser machen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q1",
+          "correctTextDe": "organisiert"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q2",
+          "correctTextDe": "vorbereiten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q3",
+          "correctTextDe": "sich"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q4",
+          "correctTextDe": "helfen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q5",
+          "correctTextDe": "gelesen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q6",
+          "correctTextDe": "verbessert"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q1",
+          "correctTextDe": "was wir in den letzten Monaten gelernt haben"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q2",
+          "correctTextDe": "dabei Fehler zu machen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q3",
+          "correctTextDe": "wir uns gegenseitig helfen sollen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q4",
+          "correctTextDe": "wie viel man mit Deutsch schon erreichen kann"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q5",
+          "correctTextDe": "Das Warten auf den perfekten Satz."
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q6",
+          "correctTextDe": "haben wir den Text gelesen und verbessert"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q1",
+          "correctTextDe": "kleinen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q2",
+          "correctTextDe": "letzten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q3",
+          "correctTextDe": "kurze"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q4",
+          "correctTextDe": "die"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q5",
+          "correctTextDe": "die"
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q6",
+          "correctTextDe": "perfekten"
+        }
+      ]
+    }
+  ]
+}
