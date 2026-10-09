@@ -1,5 +1,15 @@
 # Sitov Academy – Nachtlauf-Übergabe 2026-10-08
 
+## Aktueller Auftrag — 09.10.2026, 19:24 CEST
+
+**OPEN / NOT_RELEASE_READY.** Der Nutzer hat die Arbeit wieder aufgenommen und heute ausdrücklich das abschließende VPS-Deployment autorisiert: **AUTO_DEPLOY**, ausschließlich M nach sämtlichen Pflichtprüfungen, Backup, isolierter Migrationsprobe und Aktivierung der exakt vorbereiteten Revision. Vorherige COMMIT_AND_HANDOFF- und BUDGET_STOP-Angaben unten sind historisch. Genau ein vorhandener kostenloser Reset wird erst bei frisch verifiziertem einem Prozent Restlimit mit gespeichertem Idempotenzschlüssel eingelöst; bislang noch nicht eingelöst. Keine kostenpflichtigen APIs.
+
+Vollständige lokale deutsche Audioerzeugung auf diesem Apple-Silicon-Mac ist priorisiert. Ein frischer schreibgeschützter Produktionskatalog bestätigt235 fehlende Bestandsaufnahmen; deren Offline-Qwen-Lauf ist gestartet. Drei neue A2.2-Pools sind technisch geprüft, benötigen vor Audioerzeugung eine von M verlangte Verbesserung der semantischen Distraktoren.30 Pools bleiben unabhängig geprüft,27 noch unverfasst. Neuer registrierter S7-Audit-Chat ergänzt die vorhandenen Sessions; maximal zwei gleichzeitige Workerfreigaben bleiben verbindlich.
+
+Alle bestätigten Ergebnisse und der tatsächliche Releasezustand werden in Obsidian dokumentiert, damit Claude ab morgen nachvollziehbar weiterarbeiten kann. Heutige Umsetzung und Deployment bleiben bei M. [Aktuelle Restarbeiten und Abnahme](sitov-night-2026-10-08-remaining-work.md). Keine Produktionsfreigabe allein aufgrund technischer Strukturtests.
+
+## Historische Nachweise und frühere Zwischenstände
+
 ## Wiederaufnahme nach ausdrücklicher Budgetfreigabe
 
 09.10.2026: Nutzer erlaubt das gesamte Restbudget bis 1 Prozent. Frühere 30/25/18/15-Grenzen aufgehoben; Abschluss wird ab 3 Prozent gesichert. Bestehende S1–S6, höchstens zwei Worker und zehn Minuten Lease, gleiche Daten-/Audio-/Qualitätsregeln sowie COMMIT_AND_HANDOFF bleiben verbindlich. Wiedervorlage im selben Master-Chat wieder ACTIVE bestätigt. Produktionsreife noch nicht bestätigt. Konkrete offene Arbeiten: `sitov-night-2026-10-08-remaining-work.md`.
