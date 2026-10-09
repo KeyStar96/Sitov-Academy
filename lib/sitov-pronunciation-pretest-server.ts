@@ -2,6 +2,7 @@ import 'server-only'
 import { z } from 'zod'
 import { requestSession } from '@/lib/request-session'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
+import { enrichSitovPronunciationPretestLearningLinks } from './sitov-pronunciation-pretest-learning-links'
 import {
   sitovPronunciationPretestActionResultSchema as responseSchema,
   sitovPronunciationPretestCatalogSchema as catalogSchema,
@@ -48,7 +49,9 @@ export async function startSitovPronunciationPretestServer(input: unknown) {
 }
 export async function loadSitovPronunciationPretestAttempt(attemptId: string) {
   if (!z.uuid().safeParse(attemptId).success) return fail('invalid_input')
-  return run(attemptSchema, client => client.rpc('sitov_get_pronunciation_pretest_attempt', { p_attempt_id: attemptId }))
+  const result = await run(attemptSchema, client => client.rpc('sitov_get_pronunciation_pretest_attempt', { p_attempt_id: attemptId }))
+  if (!result.ok || !('result' in result.data)) return result
+  return { ...result, data: await enrichSitovPronunciationPretestLearningLinks(result.data) }
 }
 export async function saveSitovPronunciationPretestAnswersServer(input: unknown) {
   const parsed = answersSchema.safeParse(input)
@@ -60,7 +63,9 @@ export async function submitSitovPronunciationPretestServer(input: unknown) {
   const parsed = answersSchema.safeParse(input)
   if (!parsed.success) return fail('invalid_input')
   const value = parsed.data
-  return run(completedSchema, client => client.rpc('sitov_submit_pronunciation_pretest', { p_attempt_id: value.attemptId, p_revision: value.revision, p_answers: value.answers, p_request_id: value.requestId }))
+  const result = await run(completedSchema, client => client.rpc('sitov_submit_pronunciation_pretest', { p_attempt_id: value.attemptId, p_revision: value.revision, p_answers: value.answers, p_request_id: value.requestId }))
+  if (!result.ok) return result
+  return { ...result, data: await enrichSitovPronunciationPretestLearningLinks(result.data) }
 }
 const uploadInput = z.object({ textId: z.uuid(), requestId: z.uuid(), extension: z.enum(['webm', 'mp4', 'ogg', 'wav', 'mp3']) }).strict()
 export async function createSitovPronunciationUploadTicketServer(input: unknown) {
