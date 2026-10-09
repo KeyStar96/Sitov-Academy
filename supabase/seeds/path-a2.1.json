@@ -472,7 +472,7 @@
                 "Enkelin"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Die weibliche Form von „Enkel“ heißt ",
+              "text_before": "Die Tochter eines Sohnes oder einer Tochter ist für die Großeltern ihre ",
               "text_after": ".",
               "correct_answer": "Enkelin",
               "options": [
@@ -495,28 +495,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Think: who is it in the family – a brother or sister of your parents, or a child of your brother or sister?",
                 "explanation": "Family: der Onkel (uncle) and die Tante (aunt) are the brothers and sisters of your father or mother. Their children are der Cousin and die Cousine (cousins). The children of your brother or sister are der Neffe (nephew) and die Nichte (niece). Your sister’s husband is der Schwager (brother-in-law), your brother’s wife is die Schwägerin (sister-in-law). The parents of your husband or wife are die Schwiegereltern (parents-in-law). The children of your own children are die Enkel: der Enkel (grandson), die Enkelin (granddaughter).",
-                "task": "The feminine form of Enkel is …",
+                "task": "A son’s or daughter’s daughter is the grandparents’ …",
                 "gap_hint": "granddaughter"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Подумайте: кто это в семье – брат или сестра родителей или ребёнок брата или сестры?",
                 "explanation": "Семья: der Onkel (дядя) и die Tante (тётя) – братья и сёстры отца или матери. Их дети – der Cousin (двоюродный брат) и die Cousine (двоюродная сестра). Дети брата или сестры – der Neffe (племянник) и die Nichte (племянница). Муж сестры – der Schwager, жена брата – die Schwägerin. Родители мужа или жены – die Schwiegereltern (свёкор и свекровь, тесть и тёща). Дети своих детей – die Enkel: der Enkel (внук), die Enkelin (внучка).",
-                "task": "Женская форма слова Enkel — …",
+                "task": "Дочь сына или дочери для бабушки и дедушки — их …",
                 "gap_hint": "внучка"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Подумайте: хто це в родині – брат чи сестра батьків або дитина брата чи сестри?",
                 "explanation": "Родина: der Onkel (дядько) і die Tante (тітка) – брати й сестри батька або матері. Їхні діти – der Cousin (двоюрідний брат) і die Cousine (двоюрідна сестра). Діти брата чи сестри – der Neffe (племінник) і die Nichte (племінниця). Чоловік сестри – der Schwager, дружина брата – die Schwägerin. Батьки чоловіка або дружини – die Schwiegereltern (свекор і свекруха, тесть і теща). Діти власних дітей – die Enkel: der Enkel (онук), die Enkelin (онука).",
-                "task": "Жіноча форма слова Enkel — …",
+                "task": "Донька сина чи доньки для бабусі й дідуся — їхня …",
                 "gap_hint": "онука"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Düşünün: Ailede bu kim – anne babanın kardeşi mi, yoksa kardeşin çocuğu mu?",
                 "explanation": "Aile: der Onkel (amca, dayı) ve die Tante (hala, teyze) anne ya da babanın kardeşleridir. Onların çocukları der Cousin ve die Cousine’dir (kuzen). Kardeşin çocukları der Neffe (erkek yeğen) ve die Nichte’dir (kız yeğen). Kız kardeşin kocası der Schwager (enişte), erkek kardeşin karısı die Schwägerin’dir (yenge). Eşin anne babası die Schwiegereltern’dir (kayınvalide ve kayınpeder). Kendi çocuklarının çocukları die Enkel’dir: der Enkel (erkek torun), die Enkelin (kız torun).",
-                "task": "Enkel sözcüğünün kadın biçimi …",
+                "task": "Bir oğlun ya da kızın kız çocuğu, büyükanne ve büyükbabanın … olur.",
                 "gap_hint": "kız torun"
               }
             }

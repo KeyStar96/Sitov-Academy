@@ -1,0 +1,747 @@
+[
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/0/content/question",
+    "old": "Selin Demir ist 34 Jahre alt. Sie ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Sie ist verheiratet und hat zwei Kinder. Wie alt ist Selin?",
+    "new": "Selim Demir ist 34 Jahre alt. Er ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Er ist verheiratet und hat zwei Kinder. Wie alt ist Selim?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/0/translations/en/task",
+    "old": "How old is Selin?",
+    "new": "How old is Selim?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/0/translations/ru/task",
+    "old": "Сколько лет Selin?",
+    "new": "Сколько лет Selim?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/0/translations/uk/task",
+    "old": "Скільки років Selin?",
+    "new": "Скільки років Selim?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/0/translations/tr/task",
+    "old": "Selin kaç yaşında?",
+    "new": "Selim kaç yaşında?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/1/content/question",
+    "old": "Taras ist der Bruder von Olena. Er lebt in Kyjiw und arbeitet als Koch. Er hat eine Frau und ein Kind. Was ist richtig?",
+    "new": "Taras ist der Bruder von Oleh. Er lebt in Kyjiw und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/5/content/text_before",
+    "old": "Selin Demir ist 34 Jahre alt. Sie ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Sie ist verheiratet und hat zwei Kinder. Formular: Geburtsort: ",
+    "new": "Selim Demir ist 34 Jahre alt. Er ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Er ist verheiratet und hat zwei Kinder. Formular: Geburtsort: "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/5/translations/en/task",
+    "old": "Selin Demir is 34 years old. She was born in Ankara and now lives in Kassel, at Goethestraße 7. She is married and has two children. Form: place of birth: …",
+    "new": "Selim Demir is 34 years old. He was born in Ankara and now lives in Kassel, at Goethestraße 7. He is married and has two children. Form: place of birth: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/5/translations/ru/task",
+    "old": "Selin Demir 34 года. Она родилась в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Она замужем, у неё двое детей. Анкета: место рождения: …",
+    "new": "Selim Demir 34 года. Он родился в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Он женат, у него двое детей. Анкета: место рождения: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/5/translations/uk/task",
+    "old": "Selin Demir 34 роки. Вона народилася в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Вона заміжня, має двох дітей. Анкета: місце народження: …",
+    "new": "Selim Demir 34 роки. Він народився в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Він одружений, має двох дітей. Анкета: місце народження: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/5/translations/tr/task",
+    "old": "Selin Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: doğum yeri: …",
+    "new": "Selim Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: doğum yeri: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/6/content/text_before",
+    "old": "Selin Demir ist 34 Jahre alt. Sie ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Sie ist verheiratet und hat zwei Kinder. Formular: Wohnort: ",
+    "new": "Selim Demir ist 34 Jahre alt. Er ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Er ist verheiratet und hat zwei Kinder. Formular: Wohnort: "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/6/translations/en/task",
+    "old": "Selin Demir is 34 years old. She was born in Ankara and now lives in Kassel, at Goethestraße 7. She is married and has two children. Form: place of residence: …",
+    "new": "Selim Demir is 34 years old. He was born in Ankara and now lives in Kassel, at Goethestraße 7. He is married and has two children. Form: place of residence: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/6/translations/ru/task",
+    "old": "Selin Demir 34 года. Она родилась в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Она замужем, у неё двое детей. Анкета: место жительства: …",
+    "new": "Selim Demir 34 года. Он родился в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Он женат, у него двое детей. Анкета: место жительства: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/6/translations/uk/task",
+    "old": "Selin Demir 34 роки. Вона народилася в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Вона заміжня, має двох дітей. Анкета: місце проживання: …",
+    "new": "Selim Demir 34 роки. Він народився в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Він одружений, має двох дітей. Анкета: місце проживання: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/6/translations/tr/task",
+    "old": "Selin Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: ikamet yeri: …",
+    "new": "Selim Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: ikamet yeri: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/7/content/text_before",
+    "old": "Selin Demir ist 34 Jahre alt. Sie ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Sie ist verheiratet und hat zwei Kinder. Formular: Familienstand: ",
+    "new": "Selim Demir ist 34 Jahre alt. Er ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Er ist verheiratet und hat zwei Kinder. Formular: Familienstand: "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/7/translations/en/task",
+    "old": "Selin Demir is 34 years old. She was born in Ankara and now lives in Kassel, at Goethestraße 7. She is married and has two children. Form: marital status: …",
+    "new": "Selim Demir is 34 years old. He was born in Ankara and now lives in Kassel, at Goethestraße 7. He is married and has two children. Form: marital status: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/7/translations/ru/task",
+    "old": "Selin Demir 34 года. Она родилась в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Она замужем, у неё двое детей. Анкета: семейное положение: …",
+    "new": "Selim Demir 34 года. Он родился в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Он женат, у него двое детей. Анкета: семейное положение: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/7/translations/uk/task",
+    "old": "Selin Demir 34 роки. Вона народилася в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Вона заміжня, має двох дітей. Анкета: сімейний стан: …",
+    "new": "Selim Demir 34 роки. Він народився в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Він одружений, має двох дітей. Анкета: сімейний стан: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/7/translations/tr/task",
+    "old": "Selin Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: medeni durum: …",
+    "new": "Selim Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: medeni durum: …"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/3/exercises/5/explanation",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/merkkarte/rule",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/explanation",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/1/explanation",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/2/explanation",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/3/explanation",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/4/explanation",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/2/explanation",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/1/explanation",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/6/content/question",
+    "old": "Kasia ist in der Bäckerei. Die Verkäuferin fragt: „Was möchten Sie?“",
+    "new": "Kamil ist in der Bäckerei. Der Verkäufer fragt: „Was möchten Sie?“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/6/explanation",
+    "old": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+    "new": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/6/translations/en/task",
+    "old": "Kasia is at the bakery. The shop assistant asks: “What would you like?”",
+    "new": "Kamil is at the bakery. The shop assistant asks: “What would you like?”"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/6/translations/ru/task",
+    "old": "Kasia в пекарне. Продавщица спрашивает: «Что вы желаете?»",
+    "new": "Kamil в пекарне. Продавец спрашивает: «Что вы желаете?»"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/6/translations/uk/task",
+    "old": "Kasia в пекарні. Продавчиня запитує: «Що ви бажаєте?»",
+    "new": "Kamil в пекарні. Продавець запитує: «Що ви бажаєте?»"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/6/translations/tr/task",
+    "old": "Kasia fırında. Satıcı soruyor: “Ne istersiniz?”",
+    "new": "Kamil fırında. Satıcı soruyor: “Ne istersiniz?”"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/7/content/question",
+    "old": "Die Verkäuferin fragt: „Möchten Sie eine Tüte?“ Kasia hat eine Tasche und braucht keine Tüte.",
+    "new": "Der Verkäufer fragt: „Möchten Sie eine Tüte?“ Kamil hat eine Tasche und braucht keine Tüte."
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/7/translations/en/task",
+    "old": "The shop assistant asks: “Would you like a bag?” Kasia has a bag with her and doesn’t need a plastic bag.",
+    "new": "The shop assistant asks: “Would you like a bag?” Kamil has a bag with him and doesn’t need a plastic bag."
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/7/translations/ru/task",
+    "old": "Продавщица спрашивает: «Вам нужен пакет?» У Kasia есть сумка, пакет ей не нужен.",
+    "new": "Продавец спрашивает: «Вам нужен пакет?» У Kamil есть сумка, пакет ему не нужен."
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/7/translations/uk/task",
+    "old": "Продавчиня запитує: «Вам потрібен пакет?» У Kasia є сумка, пакет їй не потрібен.",
+    "new": "Продавець запитує: «Вам потрібен пакет?» У Kamil є сумка, пакет йому не потрібен."
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/7/translations/tr/task",
+    "old": "Satıcı soruyor: “Poşet ister misiniz?” Kasia’nın çantası var, poşete ihtiyacı yok.",
+    "new": "Satıcı soruyor: “Poşet ister misiniz?” Kamil’in çantası var, poşete ihtiyacı yok."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/0/content/question",
+    "old": "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Wann steht Olena auf?",
+    "new": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Wann steht Oleh auf?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/0/translations/en/task",
+    "old": "When does Olena get up?",
+    "new": "When does Oleh get up?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/0/translations/ru/task",
+    "old": "Когда Olena встаёт?",
+    "new": "Когда Oleh встаёт?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/0/translations/uk/task",
+    "old": "Коли Olena встає?",
+    "new": "Коли Oleh встає?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/0/translations/tr/task",
+    "old": "Olena ne zaman kalkıyor?",
+    "new": "Oleh ne zaman kalkıyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/2/content/question",
+    "old": "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Wie lange arbeitet Olena?",
+    "new": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Wie lange arbeitet Oleh?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/2/translations/en/task",
+    "old": "How long does Olena work?",
+    "new": "How long does Oleh work?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/2/translations/ru/task",
+    "old": "Сколько времени работает Olena?",
+    "new": "Сколько времени работает Oleh?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/2/translations/uk/task",
+    "old": "Скільки часу працює Olena?",
+    "new": "Скільки часу працює Oleh?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/2/translations/tr/task",
+    "old": "Olena ne kadar süre çalışıyor?",
+    "new": "Oleh ne kadar süre çalışıyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/4/exercises/0/content/question",
+    "old": "Olena fährt immer Bus. Sie hat … Fahrrad.",
+    "new": "Oleh fährt immer Bus. Er hat … Fahrrad."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/4/exercises/0/translations/en/task",
+    "old": "Olena always takes the bus. She has … bike.",
+    "new": "Oleh always takes the bus. He has … bike."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/4/exercises/0/translations/ru/task",
+    "old": "Olena всегда ездит на автобусе. У неё … велосипеда.",
+    "new": "Oleh всегда ездит на автобусе. У него … велосипеда."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/4/exercises/0/translations/uk/task",
+    "old": "Olena завжди їздить автобусом. У неї … велосипеда.",
+    "new": "Oleh завжди їздить автобусом. У нього … велосипеда."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/4/exercises/0/translations/tr/task",
+    "old": "Olena hep otobüse biniyor. Onun … bisikleti.",
+    "new": "Oleh hep otobüse biniyor. Onun … bisikleti."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/9/content/question",
+    "old": "Kasia findet Lesen super. Was sagt sie?",
+    "new": "Kamil findet Lesen super. Was sagt er?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/9/translations/en/task",
+    "old": "Kasia thinks reading is super. What does she say?",
+    "new": "Kamil thinks reading is super. What does he say?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/9/translations/ru/task",
+    "old": "Kasia считает, что читать — это супер. Что она говорит?",
+    "new": "Kamil считает, что читать — это супер. Что он говорит?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/9/translations/uk/task",
+    "old": "Kasia вважає, що читати — це супер. Що вона каже?",
+    "new": "Kamil вважає, що читати — це супер. Що він каже?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/9/translations/tr/task",
+    "old": "Kasia okumayı süper buluyor. Ne diyor?",
+    "new": "Kamil okumayı süper buluyor. Ne diyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/16/content/question",
+    "old": "Porträt: „Selin Demir, 34, wohnt in Kassel. Sie spielt Volleyball und fotografiert gern. Fernsehen findet sie langweilig.“ Was macht Selin nicht gern?",
+    "new": "Porträt: „Selim Demir, 34, wohnt in Kassel. Er spielt Volleyball und fotografiert gern. Fernsehen findet er langweilig.“ Was macht Selim nicht gern?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/16/translations/en/task",
+    "old": "What does Selin not like doing?",
+    "new": "What does Selim not like doing?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/16/translations/ru/task",
+    "old": "Что Selin не любит делать?",
+    "new": "Что Selim не любит делать?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/16/translations/uk/task",
+    "old": "Що Selin не любить робити?",
+    "new": "Що Selim не любить робити?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/16/translations/tr/task",
+    "old": "Selin neyi yapmayı sevmiyor?",
+    "new": "Selim neyi yapmayı sevmiyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/23/content/text_before",
+    "old": "Kasia ",
+    "new": "Kamil "
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/23/content/text_after",
+    "old": " heute ihre Schwester.",
+    "new": " heute seinen Bruder."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/23/translations/en/task",
+    "old": "Kasia is meeting her sister today.",
+    "new": "Kamil is meeting his brother today."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/23/translations/ru/task",
+    "old": "Kasia сегодня встречается с сестрой.",
+    "new": "Kamil сегодня встречается с братом."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/23/translations/uk/task",
+    "old": "Kasia сьогодні зустрічається із сестрою.",
+    "new": "Kamil сьогодні зустрічається з братом."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/13/exercises/23/translations/tr/task",
+    "old": "Kasia bugün kız kardeşiyle buluşuyor.",
+    "new": "Kamil bugün erkek kardeşiyle buluşuyor."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/1/exercises/3/content/question",
+    "old": "Kasia schwimmt nie. Sie hat Schwimmen nicht gelernt. Was sagt sie?",
+    "new": "Kamil schwimmt nie. Er hat Schwimmen nicht gelernt. Was sagt er?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/1/exercises/3/translations/en/task",
+    "old": "Kasia never swims. She hasn’t learned to swim. What does she say?",
+    "new": "Kamil never swims. He hasn’t learned to swim. What does he say?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/1/exercises/3/translations/ru/task",
+    "old": "Kasia никогда не плавает. Она не научилась плавать. Что она говорит?",
+    "new": "Kamil никогда не плавает. Он не научился плавать. Что он говорит?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/1/exercises/3/translations/uk/task",
+    "old": "Kasia ніколи не плаває. Вона не навчилася плавати. Що вона каже?",
+    "new": "Kamil ніколи не плаває. Він не навчився плавати. Що він каже?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/1/exercises/3/translations/tr/task",
+    "old": "Kasia hiç yüzmüyor. Yüzmeyi öğrenmemiş. Ne diyor?",
+    "new": "Kamil hiç yüzmüyor. Yüzmeyi öğrenmemiş. Ne diyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/2/merkkarte/examples/1",
+    "old": "Olena kann sehr gut tanzen.",
+    "new": "Oleh kann sehr gut tanzen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/2/exercises/1/content/text_before",
+    "old": "Olena kann sehr gut ",
+    "new": "Oleh kann sehr gut "
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/2/exercises/1/translations/en/task",
+    "old": "Olena can dance very well.",
+    "new": "Oleh can dance very well."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/2/exercises/1/translations/ru/task",
+    "old": "Olena очень хорошо умеет танцевать.",
+    "new": "Oleh очень хорошо умеет танцевать."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/2/exercises/1/translations/uk/task",
+    "old": "Olena дуже добре вміє танцювати.",
+    "new": "Oleh дуже добре вміє танцювати."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/2/exercises/1/translations/tr/task",
+    "old": "Olena çok iyi dans edebiliyor.",
+    "new": "Oleh çok iyi dans edebiliyor."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/0/content/question",
+    "old": "Du möchtest mit Kasia ins Kino gehen.",
+    "new": "Du möchtest mit Kamil ins Kino gehen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/0/translations/en/task",
+    "old": "You would like to go to the cinema with Kasia.",
+    "new": "You would like to go to the cinema with Kamil."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/0/translations/ru/task",
+    "old": "Вы хотите пойти с Kasia в кино.",
+    "new": "Вы хотите пойти с Kamil в кино."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/0/translations/uk/task",
+    "old": "Ви хочете піти з Kasia в кіно.",
+    "new": "Ви хочете піти з Kamil в кіно."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/0/translations/tr/task",
+    "old": "Kasia ile sinemaya gitmek istiyorsunuz.",
+    "new": "Kamil ile sinemaya gitmek istiyorsunuz."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/1/content/question",
+    "old": "Kasia fragt: „Wollen wir Rad fahren?“ Du findest die Idee toll.",
+    "new": "Kamil fragt: „Wollen wir Rad fahren?“ Du findest die Idee toll."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/1/translations/en/task",
+    "old": "Kasia asks: “Shall we go cycling?” You think the idea is great.",
+    "new": "Kamil asks: “Shall we go cycling?” You think the idea is great."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/1/translations/ru/task",
+    "old": "Kasia спрашивает: «Покатаемся на велосипеде?» Вам идея очень нравится.",
+    "new": "Kamil спрашивает: «Покатаемся на велосипеде?» Вам идея очень нравится."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/1/translations/uk/task",
+    "old": "Kasia запитує: «Покатаємося на велосипеді?» Вам ідея дуже подобається.",
+    "new": "Kamil запитує: «Покатаємося на велосипеді?» Вам ідея дуже подобається."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/1/translations/tr/task",
+    "old": "Kasia soruyor: “Bisiklete binelim mi?” Fikri harika buluyorsunuz.",
+    "new": "Kamil soruyor: “Bisiklete binelim mi?” Fikri harika buluyorsunuz."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/3/content/question",
+    "old": "Olena sagt: „Ich kann am Samstag leider nicht kommen.“",
+    "new": "Oleh sagt: „Ich kann am Samstag leider nicht kommen.“"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/3/translations/en/task",
+    "old": "Olena says: “Unfortunately I can’t come on Saturday.”",
+    "new": "Oleh says: “Unfortunately I can’t come on Saturday.”"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/3/translations/ru/task",
+    "old": "Olena говорит: «К сожалению, в субботу я не смогу прийти».",
+    "new": "Oleh говорит: «К сожалению, в субботу я не смогу прийти»."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/3/translations/uk/task",
+    "old": "Olena каже: «На жаль, у суботу я не зможу прийти».",
+    "new": "Oleh каже: «На жаль, у суботу я не зможу прийти»."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/3/exercises/3/translations/tr/task",
+    "old": "Olena diyor ki: “Maalesef cumartesi gelemiyorum.”",
+    "new": "Oleh diyor ki: “Maalesef cumartesi gelemiyorum.”"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/merkkarte/examples/0",
+    "old": "Ich habe Kasia im Café getroffen.",
+    "new": "Ich habe Kamil im Café getroffen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/merkkarte/examples/2",
+    "old": "Olena hat lange mit ihrer Mutter gesprochen.",
+    "new": "Oleh hat lange mit seinem Vater gesprochen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/1/content/text_before",
+    "old": "Ich habe Kasia im Café ",
+    "new": "Ich habe Kamil im Café "
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/1/translations/en/task",
+    "old": "I met Kasia at the café.",
+    "new": "I met Kamil at the café."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/1/translations/ru/task",
+    "old": "Я встретил(а) Kasia в кафе.",
+    "new": "Я встретил(а) Kamil в кафе."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/1/translations/uk/task",
+    "old": "Я зустрів (зустріла) Kasia в кафе.",
+    "new": "Я зустрів (зустріла) Kamil в кафе."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/1/translations/tr/task",
+    "old": "Kasia ile kafede buluştum.",
+    "new": "Kamil ile kafede buluştum."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/3/content/text_before",
+    "old": "Olena hat lange mit ihrer Mutter ",
+    "new": "Oleh hat lange mit seinem Vater "
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/3/translations/en/task",
+    "old": "Olena talked with her mother for a long time.",
+    "new": "Oleh talked with his father for a long time."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/3/translations/ru/task",
+    "old": "Olena долго разговаривала с мамой.",
+    "new": "Oleh долго разговаривал с отцом."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/3/translations/uk/task",
+    "old": "Olena довго розмовляла з мамою.",
+    "new": "Oleh довго розмовляв з батьком."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/5/exercises/3/translations/tr/task",
+    "old": "Olena annesiyle uzun uzun konuştu.",
+    "new": "Oleh babasıyla uzun uzun konuştu."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/6/merkkarte/examples/2",
+    "old": "Olena ist am Samstag nach Dresden gefahren.",
+    "new": "Oleh ist am Samstag nach Dresden gefahren."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/6/exercises/3/content/text_before",
+    "old": "Olena ",
+    "new": "Oleh "
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/6/exercises/3/translations/en/task",
+    "old": "Olena went to Dresden on Saturday.",
+    "new": "Oleh went to Dresden on Saturday."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/6/exercises/3/translations/ru/task",
+    "old": "В субботу Olena поехала в Дрезден.",
+    "new": "В субботу Oleh поехал в Дрезден."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/6/exercises/3/translations/uk/task",
+    "old": "У суботу Olena поїхала до Дрездена.",
+    "new": "У суботу Oleh поїхав до Дрездена."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/6/exercises/3/translations/tr/task",
+    "old": "Olena cumartesi Dresden’e gitti.",
+    "new": "Oleh cumartesi Dresden’e gitti."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/7/merkkarte/examples/1",
+    "old": "Gestern habe ich meine Freundin getroffen.",
+    "new": "Gestern habe ich meinen Freund getroffen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/7/exercises/0/content/question",
+    "old": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Was hat Emre am Samstagmorgen gemacht?",
+    "new": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Was hat Emre am Samstagmorgen gemacht?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/7/exercises/1/content/question",
+    "old": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Wohin ist die Familie am Samstagnachmittag gefahren?",
+    "new": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wohin ist die Familie am Samstagnachmittag gefahren?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/0/content/question",
+    "old": "Olena fragt: „Wollen wir am Sonntag wandern?“ Du möchtest gern mitkommen.",
+    "new": "Oleh fragt: „Wollen wir am Sonntag wandern?“ Du möchtest gern mitkommen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/0/translations/en/task",
+    "old": "Olena asks: “Shall we go hiking on Sunday?” You would like to come along.",
+    "new": "Oleh asks: “Shall we go hiking on Sunday?” You would like to come along."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/0/translations/ru/task",
+    "old": "Olena спрашивает: «Пойдём в воскресенье в поход?» Вы с удовольствием пойдёте.",
+    "new": "Oleh спрашивает: «Пойдём в воскресенье в поход?» Вы с удовольствием пойдёте."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/0/translations/uk/task",
+    "old": "Olena запитує: «Підемо в неділю в похід?» Ви залюбки підете.",
+    "new": "Oleh запитує: «Підемо в неділю в похід?» Ви залюбки підете."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/0/translations/tr/task",
+    "old": "Olena soruyor: “Pazar günü doğa yürüyüşüne çıkalım mı?” Seve seve katılmak istiyorsunuz.",
+    "new": "Oleh soruyor: “Pazar günü doğa yürüyüşüne çıkalım mı?” Seve seve katılmak istiyorsunuz."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/3/content/question",
+    "old": "Olena tanzt nicht so gut. Was sagt sie?",
+    "new": "Oleh tanzt nicht so gut. Was sagt er?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/3/translations/en/task",
+    "old": "Olena doesn’t dance very well. What does she say?",
+    "new": "Oleh doesn’t dance very well. What does he say?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/3/translations/ru/task",
+    "old": "Olena не очень хорошо танцует. Что она говорит?",
+    "new": "Oleh не очень хорошо танцует. Что он говорит?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/3/translations/uk/task",
+    "old": "Olena не дуже добре танцює. Що вона каже?",
+    "new": "Oleh не дуже добре танцює. Що він каже?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/3/translations/tr/task",
+    "old": "Olena pek iyi dans edemiyor. Ne diyor?",
+    "new": "Oleh pek iyi dans edemiyor. Ne diyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/8/content/text_before",
+    "old": "Kasia ",
+    "new": "Kamil "
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/8/translations/en/task",
+    "old": "Kasia went to Poland.",
+    "new": "Kamil went to Poland."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/8/translations/ru/task",
+    "old": "Kasia поехала в Польшу.",
+    "new": "Kamil поехал в Польшу."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/8/translations/uk/task",
+    "old": "Kasia поїхала до Польщі.",
+    "new": "Kamil поїхав до Польщі."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/10/exercises/8/translations/tr/task",
+    "old": "Kasia Polonya’ya gitti.",
+    "new": "Kamil Polonya’ya gitti."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/11/content/question",
+    "old": "Kasia möchte sehr, sehr gern ihre Enkelin in Krakau sehen. Was sagt sie?",
+    "new": "Kamil möchte sehr, sehr gern seinen Enkel in Krakau sehen. Was sagt er?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/11/translations/en/task",
+    "old": "Kasia would very, very much like to see her granddaughter in Kraków. What does she say?",
+    "new": "Kamil would very, very much like to see his grandson in Kraków. What does he say?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/11/translations/ru/task",
+    "old": "Kasia очень-очень хочет увидеть внучку в Кракове. Что она говорит?",
+    "new": "Kamil очень-очень хочет увидеть внука в Кракове. Что он говорит?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/11/translations/uk/task",
+    "old": "Kasia дуже-дуже хоче побачити онуку в Кракові. Що вона каже?",
+    "new": "Kamil дуже-дуже хоче побачити онука в Кракові. Що він каже?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/11/translations/tr/task",
+    "old": "Kasia Krakov’daki torununu çok ama çok görmek istiyor. Ne diyor?",
+    "new": "Kamil Krakov’daki erkek torununu çok ama çok görmek istiyor. Ne diyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/14/content/question",
+    "old": "Olena fragt: „Wollen wir ins Kino gehen?“ Du gehst nicht gern ins Kino.",
+    "new": "Oleh fragt: „Wollen wir ins Kino gehen?“ Du gehst nicht gern ins Kino."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/14/translations/en/task",
+    "old": "Olena asks: “Shall we go to the cinema?” You don’t like going to the cinema.",
+    "new": "Oleh asks: “Shall we go to the cinema?” You don’t like going to the cinema."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/14/translations/ru/task",
+    "old": "Olena спрашивает: «Пойдём в кино?» Вы не любите ходить в кино.",
+    "new": "Oleh спрашивает: «Пойдём в кино?» Вы не любите ходить в кино."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/14/translations/uk/task",
+    "old": "Olena запитує: «Підемо в кіно?» Ви не любите ходити в кіно.",
+    "new": "Oleh запитує: «Підемо в кіно?» Ви не любите ходити в кіно."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/14/translations/tr/task",
+    "old": "Olena soruyor: “Sinemaya gidelim mi?” Sinemaya gitmeyi sevmiyorsunuz.",
+    "new": "Oleh soruyor: “Sinemaya gidelim mi?” Sinemaya gitmeyi sevmiyorsunuz."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/content/text_before",
+    "old": "Die weibliche Form von „Enkel“ heißt ",
+    "new": "Die Tochter eines Sohnes oder einer Tochter ist für die Großeltern ihre "
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/translations/en/task",
+    "old": "The feminine form of Enkel is …",
+    "new": "A son’s or daughter’s daughter is the grandparents’ …"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/translations/ru/task",
+    "old": "Женская форма слова Enkel — …",
+    "new": "Дочь сына или дочери для бабушки и дедушки — их …"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/translations/uk/task",
+    "old": "Жіноча форма слова Enkel — …",
+    "new": "Донька сина чи доньки для бабусі й дідуся — їхня …"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/translations/tr/task",
+    "old": "Enkel sözcüğünün kadın biçimi …",
+    "new": "Bir oğlun ya da kızın kız çocuğu, büyükanne ve büyükbabanın … olur."
+  }
+]

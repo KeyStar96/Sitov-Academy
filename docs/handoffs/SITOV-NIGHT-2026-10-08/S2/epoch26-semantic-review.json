@@ -1,0 +1,928 @@
+{
+  "base": "661e35e16ebb967bd3efdf9bba93c6e6c9345c4d",
+  "remaining102": [
+    {
+      "id": "6d58afac-febb-560a-aa1a-cfb76e174fee",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E01",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E02",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "06854c0d-e295-57b8-a7f7-b70439b1c235",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E06",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "0ba71947-5c97-55e0-a395-1c9df37cd698",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E07",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "773bbf18-b10d-578a-a148-c91ece070405",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E08",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "64c4b417-52c5-5e92-a92a-d56c29b821b1",
+      "file": "path-a1.1.json",
+      "ref": "P2-N11-E04",
+      "category": "SAFE_MALE_EDIT_APPLIED"
+    },
+    {
+      "id": "edd8e808-5cad-5663-a7d0-aea8985792ea",
+      "file": "path-a1.1.json",
+      "ref": "P2-N12-E18",
+      "category": "SAFE_MALE_EDIT_APPLIED"
+    },
+    {
+      "id": "6123d110-e262-5de5-a87b-09cae7a21ff6",
+      "file": "path-a1.1.json",
+      "ref": "P3-N11-E07",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "b2cde403-9af7-5e65-a1df-01a8f5260329",
+      "file": "path-a1.1.json",
+      "ref": "P3-N11-E08",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "c4c30115-0899-5e7e-a803-f9af59b16192",
+      "file": "path-a1.1.json",
+      "ref": "P5-N9-E02",
+      "category": "SAFE_MALE_EDIT_APPLIED"
+    },
+    {
+      "id": "239aa0d4-a9f7-5055-aaee-5a81c236027d",
+      "file": "path-a1.1.json",
+      "ref": "P5-N10-E01",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "465e830d-bd8b-59b3-a979-965ca0399531",
+      "file": "path-a1.1.json",
+      "ref": "P5-N10-E02",
+      "category": "IMMUTABLE_VERSION_REQUIRED"
+    },
+    {
+      "id": "23660efb-121f-5557-a9a8-21b5a0292c87",
+      "file": "path-a1.1.json",
+      "ref": "P5-N10-E03",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "2ed87602-445a-5dec-abeb-3e2a9bc98d1d",
+      "file": "path-a1.1.json",
+      "ref": "P5-N11-E04",
+      "category": "SAFE_MALE_EDIT_APPLIED"
+    },
+    {
+      "id": "684197ef-a99f-5b6f-a620-1cf5d4888167",
+      "file": "path-a1.1.json",
+      "ref": "P5-N12-E17",
+      "category": "SAFE_MALE_EDIT_APPLIED"
+    },
+    {
+      "id": "1e2af35c-784c-592f-a93d-d89a5ec55fc6",
+      "file": "path-a1.1.json",
+      "ref": "P6-N1-E05",
+      "category": "SAFE_MALE_EDIT_APPLIED"
+    },
+    {
+      "id": "9f376699-d050-5f02-abaa-812640943f54",
+      "file": "path-a1.1.json",
+      "ref": "P6-N3-E02",
+      "category": "SAFE_MALE_EDIT_APPLIED"
+    },
+    {
+      "id": "c0ae363d-6c1f-58a7-a381-b7e206815e1f",
+      "file": "path-a1.1.json",
+      "ref": "P6-N5-E01",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "60e4d386-8f87-5f9d-a031-6029aa323f26",
+      "file": "path-a1.1.json",
+      "ref": "P6-N6-E04",
+      "category": "SAFE_MALE_EDIT_APPLIED"
+    },
+    {
+      "id": "4a8f4138-525a-5f2e-a176-bf83a75d3f11",
+      "file": "path-a1.1.json",
+      "ref": "P6-N13-E05",
+      "category": "SAFE_MALE_EDIT_APPLIED"
+    },
+    {
+      "id": "da4b9963-bee4-5774-aba6-c709025aaa2d",
+      "file": "path-a1.1.json",
+      "ref": "P6-N14-E10",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "2e4c1c55-b2c0-5cd7-a088-d7dafbadb37b",
+      "file": "path-a1.1.json",
+      "ref": "P6-N14-E17",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "4c69d90f-ad40-5ee8-a8fa-21e2d8f75c93",
+      "file": "path-a1.1.json",
+      "ref": "P6-N14-E24",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "df2f0886-6d7d-5ce8-ae23-131b2c9c9ca5",
+      "file": "path-a1.1.json",
+      "ref": "P7-N2-E04",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "506edd4c-7d3e-50db-a36f-2ba168bc24db",
+      "file": "path-a1.1.json",
+      "ref": "P7-N3-E02",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "aed1bc85-04cb-5d3a-a662-dbd7db48632c",
+      "file": "path-a1.1.json",
+      "ref": "P7-N4-E01",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "fbf8656d-ddd7-519b-af74-5c43e3f6b2f9",
+      "file": "path-a1.1.json",
+      "ref": "P7-N4-E02",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "a531a51d-4767-53ae-a5bb-7a97f3e904a9",
+      "file": "path-a1.1.json",
+      "ref": "P7-N4-E04",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "a2044b0c-ba8b-5b41-a0ed-d1895ecd3975",
+      "file": "path-a1.1.json",
+      "ref": "P7-N6-E02",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "0d6b6bc3-2af8-51a3-ae1e-d36cf4c8c35f",
+      "file": "path-a1.1.json",
+      "ref": "P7-N6-E04",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "5184208a-49c8-5df2-ab9b-274b25012d74",
+      "file": "path-a1.1.json",
+      "ref": "P7-N7-E04",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "3b6c59a2-767b-5dfa-a197-c8a8358520b6",
+      "file": "path-a1.1.json",
+      "ref": "P7-N8-E01",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "ca2c9014-f342-5c9d-a88c-b989fd4548dd",
+      "file": "path-a1.1.json",
+      "ref": "P7-N8-E02",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "23a78719-5c1a-5510-acee-ac9e9a366d3a",
+      "file": "path-a1.1.json",
+      "ref": "P7-N10-E08",
+      "category": "SEMANTICALLY_REVIEWED_EDIT_PENDING",
+      "reason": "Full excuse-note sender/addressee and shared teacher role need a coherent linked pass; source unchanged."
+    },
+    {
+      "id": "c2559b8d-cd3c-50bb-a9b8-f5944e8f8296",
+      "file": "path-a1.1.json",
+      "ref": "P7-N11-E01",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "49c4a449-ea24-54f8-a49a-bdf04c4bfde2",
+      "file": "path-a1.1.json",
+      "ref": "P7-N11-E04",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "72e175b3-062f-5650-a1bd-3f8aa99061e5",
+      "file": "path-a1.1.json",
+      "ref": "P7-N11-E09",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "53e0e382-9f60-5574-a29d-01727939ac9a",
+      "file": "path-a1.1.json",
+      "ref": "P7-N12-E08",
+      "category": "IMMUTABLE_VERSION_REQUIRED_EPOCH26"
+    },
+    {
+      "id": "f5fd9c71-7912-5277-a6cc-c0815ec92dc1",
+      "file": "path-a1.1.json",
+      "ref": "P7-N12-E12",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "de2b30e8-0050-5e8f-aefc-7afdf6fd8af3",
+      "file": "path-a1.1.json",
+      "ref": "P7-N12-E15",
+      "category": "SAFE_MALE_EDIT_APPLIED_EPOCH26"
+    },
+    {
+      "id": "b19c26ba-95e9-57d1-aeb6-56b014d795a4",
+      "file": "path-a1.2.json",
+      "ref": "P1-N5-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "531b2b91-5f5d-54f7-ae22-0b2e8ea24ecf",
+      "file": "path-a1.2.json",
+      "ref": "P1-N11-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "ecbcfc8b-fd8d-5f02-aa09-cd987dca6c13",
+      "file": "path-a1.2.json",
+      "ref": "P2-N7-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "59a3a29c-4398-54fc-a965-4d1f2677e1ed",
+      "file": "path-a1.2.json",
+      "ref": "P2-N7-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0c91a906-804e-5c15-af92-dc19da646509",
+      "file": "path-a1.2.json",
+      "ref": "P3-N4-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "b2385af4-12f5-5a82-aac7-0feb43500871",
+      "file": "path-a1.2.json",
+      "ref": "P3-N7-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "aaeb1edf-a355-5fc6-a5ba-313144fb6715",
+      "file": "path-a1.2.json",
+      "ref": "P3-N13-E03",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "72fd90d9-19f1-52b5-af30-93a51ec820d8",
+      "file": "path-a1.2.json",
+      "ref": "P3-N13-E13",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "b034ca7d-7550-5ff9-a250-4f1291df8eb4",
+      "file": "path-a1.2.json",
+      "ref": "P4-N12-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "39cd8f90-919c-5560-ab50-96ca8bb51e6a",
+      "file": "path-a1.2.json",
+      "ref": "P5-N10-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "991cac42-41d9-56f4-ace9-3c52f6ae400e",
+      "file": "path-a1.2.json",
+      "ref": "P6-N4-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "c31300cf-99ed-5217-aa58-7a82eac6f645",
+      "file": "path-a1.2.json",
+      "ref": "P7-N1-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0194e210-1b58-5cbb-acea-65e9add8d981",
+      "file": "path-a1.2.json",
+      "ref": "P7-N3-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "171d5757-55f7-5d91-aa9a-dc37ef0bdd9f",
+      "file": "path-a1.2.json",
+      "ref": "P7-N6-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "ea2009d8-cc94-51c5-afe1-67061f9fa66f",
+      "file": "path-a1.2.json",
+      "ref": "P7-N7-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "92f88f9b-be94-5d93-a3d7-652898fc58ad",
+      "file": "path-a1.2.json",
+      "ref": "P7-N9-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "553ab5fa-06d0-5455-add7-6a22f02eab50",
+      "file": "path-a1.2.json",
+      "ref": "P7-N13-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "765d3462-2aa9-5917-a16a-58ea7a9a3841",
+      "file": "path-a1.2.json",
+      "ref": "P7-N14-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "c18a60fd-01f6-567a-adea-dcdd50ae9136",
+      "file": "path-a1.2.json",
+      "ref": "P7-N14-E13",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "4f4896ac-70ce-5b30-a924-1db0cc362611",
+      "file": "path-a2.1.json",
+      "ref": "P1-N2-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "4e624c26-42a9-50bd-acd0-c1d30325cb8b",
+      "file": "path-a2.1.json",
+      "ref": "P1-N2-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "f8d11112-613b-5e4a-a2c4-8dec6deca5b7",
+      "file": "path-a2.1.json",
+      "ref": "P1-N5-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "7118d842-bba9-5b3d-a23b-ead85f63b377",
+      "file": "path-a2.1.json",
+      "ref": "P1-N5-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "76ea54c1-c380-5b3a-a898-6a2039353f38",
+      "file": "path-a2.1.json",
+      "ref": "P1-N10-E03",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "69264990-2b72-5e04-a37f-2a68234d75b1",
+      "file": "path-a2.1.json",
+      "ref": "P1-N11-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "a0550519-2d69-5b97-acc6-5f6ece56d41f",
+      "file": "path-a2.1.json",
+      "ref": "P1-N14-E11",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "56a0858a-50df-5d13-a0b7-97111223973a",
+      "file": "path-a2.1.json",
+      "ref": "P1-N14-E18",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "ae5a3641-ac44-5a38-a4dc-f2c696f5b173",
+      "file": "path-a2.1.json",
+      "ref": "P2-N10-E09",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "cc56f942-6adc-567d-adae-479439a315a7",
+      "file": "path-a2.1.json",
+      "ref": "P3-N2-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "00169836-de7a-568c-acc7-724a7c86ead3",
+      "file": "path-a2.1.json",
+      "ref": "P3-N12-E09",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "46a8c3ac-1525-50c6-ad75-8f4d184e4bfc",
+      "file": "path-a2.1.json",
+      "ref": "P5-N3-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "bce20724-a843-5a3f-a742-f548c073733f",
+      "file": "path-a2.1.json",
+      "ref": "P5-N8-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "2bd35b7d-9644-535f-aa25-23571af8f608",
+      "file": "path-a2.1.json",
+      "ref": "P5-N10-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "95c8326e-4dff-5a01-a7ad-6ed65428a9cf",
+      "file": "path-a2.1.json",
+      "ref": "P6-N2-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "dda7a7a2-ab0f-5403-ab7b-b61934093f6f",
+      "file": "path-a2.1.json",
+      "ref": "P6-N12-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "444554eb-8c8a-5259-a110-9b64a78587af",
+      "file": "path-a2.1.json",
+      "ref": "P7-N2-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0b08124a-24e9-5f90-af63-3b93e609b05f",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "b5cca977-3fc3-5584-a793-2cf08a293936",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "a936f5e6-af98-5baf-a27c-7897cce61f6c",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E03",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "2ebf559f-210c-5d52-a3ed-e7b1df5678d7",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "5b165ca8-75bc-5a9b-a94b-00eb3e4f1c4c",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "c46d0dc3-e931-555c-a6af-5e382de8b658",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "cd68cc99-87df-578a-a5b2-7b3a9d6c1af7",
+      "file": "path-a2.1.json",
+      "ref": "P7-N13-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "de4c541d-0c15-55af-ad12-849c1df6fbcf",
+      "file": "path-a2.1.json",
+      "ref": "P7-N14-E11",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "deff0ba9-9c0d-503c-ac49-6875aeb3d5d6",
+      "file": "path-a2.2.json",
+      "ref": "P1-N3-E03",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "c4db08c2-1942-5aaa-a7a1-5c8adee3420b",
+      "file": "path-a2.2.json",
+      "ref": "P1-N14-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "ed73de2b-b43c-5aa2-a585-37658f5f2702",
+      "file": "path-a2.2.json",
+      "ref": "P2-N3-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "8507cb89-e50b-5d37-ad09-7d6e437c29cc",
+      "file": "path-a2.2.json",
+      "ref": "P2-N3-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "e6cd7bdb-266e-5f8a-a4a1-cc0efdca6e85",
+      "file": "path-a2.2.json",
+      "ref": "P2-N9-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "50234931-131f-5d43-abdd-12d5f11434b2",
+      "file": "path-a2.2.json",
+      "ref": "P2-N11-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "e7661162-1cdc-5eba-a04c-e5410420ac9f",
+      "file": "path-a2.2.json",
+      "ref": "P2-N14-E12",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "b850f71b-d97f-517d-a125-2bf9614b38fd",
+      "file": "path-a2.2.json",
+      "ref": "P3-N14-E16",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0ec0675a-35b4-52bc-a135-e06164302163",
+      "file": "path-a2.2.json",
+      "ref": "P3-N14-E17",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "da379e68-499e-5717-a327-75ae25e99719",
+      "file": "path-a2.2.json",
+      "ref": "P3-N14-E29",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "50b7acd7-d091-589d-ac7e-f4c9d30ff89a",
+      "file": "path-a2.2.json",
+      "ref": "P4-N12-E10",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0633e9d3-9fc2-5f0a-a74e-7cd72f8be229",
+      "file": "path-a2.2.json",
+      "ref": "P5-N2-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "d777df1a-c2ab-50e5-a6a9-11bd1f3dc9a7",
+      "file": "path-a2.2.json",
+      "ref": "P6-N2-E09",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "33caadca-d684-50f1-a6ac-a21cffb316af",
+      "file": "path-a2.2.json",
+      "ref": "P6-N7-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "14613cdf-bb1b-59ee-ae98-d349e1cc6d97",
+      "file": "path-a2.2.json",
+      "ref": "P7-N2-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "f0e2d87f-888e-5fec-a86d-447d5008897f",
+      "file": "path-a2.2.json",
+      "ref": "P7-N4-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0cf27ee0-2a47-5d17-aea7-ba65b50f1cfc",
+      "file": "path-a2.2.json",
+      "ref": "P7-N6-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "9a14e6f7-c45b-554c-af3c-817e865cd415",
+      "file": "path-a2.2.json",
+      "ref": "P7-N14-E16",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    }
+  ],
+  "newVersionGap": {
+    "id": "465e830d-bd8b-59b3-a979-965ca0399531",
+    "file": "path-a1.1.json",
+    "ref": "P5-N10-E02",
+    "reason": "Fictional female protagonist is bound to options and correct answer; preserve old immutable task and history.",
+    "proposedNewVersion": {
+      "question": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag?",
+      "options": [
+        "Er arbeitet im Krankenhaus.",
+        "Er kauft ein und kocht.",
+        "Er ruft seinen Vater an."
+      ],
+      "correct_answer": "Er kauft ein und kocht.",
+      "accepted_answers": [
+        "Er kauft ein und kocht."
+      ]
+    }
+  },
+  "priorVersionGapCount": 14,
+  "all102FullyReviewed": false,
+  "protectedComparison": "all five seeds: identical recursive structure; id/ref/goal/type/correct/accepted/options/parts/target_form unchanged",
+  "counts": {
+    "SEMANTICALLY_REVIEWED_EDIT_PENDING": 1,
+    "IMMUTABLE_VERSION_REQUIRED_EPOCH26": 1,
+    "IMMUTABLE_VERSION_REQUIRED": 1,
+    "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE": 62,
+    "SAFE_MALE_EDIT_APPLIED": 9,
+    "SAFE_MALE_EDIT_APPLIED_EPOCH26": 28
+  },
+  "epoch26SafeEdits": [
+    "6d58afac-febb-560a-aa1a-cfb76e174fee",
+    "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+    "06854c0d-e295-57b8-a7f7-b70439b1c235",
+    "0ba71947-5c97-55e0-a395-1c9df37cd698",
+    "773bbf18-b10d-578a-a148-c91ece070405",
+    "6123d110-e262-5de5-a87b-09cae7a21ff6",
+    "b2cde403-9af7-5e65-a1df-01a8f5260329",
+    "239aa0d4-a9f7-5055-aaee-5a81c236027d",
+    "23660efb-121f-5557-a9a8-21b5a0292c87",
+    "c0ae363d-6c1f-58a7-a381-b7e206815e1f",
+    "da4b9963-bee4-5774-aba6-c709025aaa2d",
+    "2e4c1c55-b2c0-5cd7-a088-d7dafbadb37b",
+    "4c69d90f-ad40-5ee8-a8fa-21e2d8f75c93",
+    "df2f0886-6d7d-5ce8-ae23-131b2c9c9ca5",
+    "506edd4c-7d3e-50db-a36f-2ba168bc24db",
+    "aed1bc85-04cb-5d3a-a662-dbd7db48632c",
+    "fbf8656d-ddd7-519b-af74-5c43e3f6b2f9",
+    "a531a51d-4767-53ae-a5bb-7a97f3e904a9",
+    "a2044b0c-ba8b-5b41-a0ed-d1895ecd3975",
+    "0d6b6bc3-2af8-51a3-ae1e-d36cf4c8c35f",
+    "5184208a-49c8-5df2-ab9b-274b25012d74",
+    "3b6c59a2-767b-5dfa-a197-c8a8358520b6",
+    "ca2c9014-f342-5c9d-a88c-b989fd4548dd",
+    "c2559b8d-cd3c-50bb-a9b8-f5944e8f8296",
+    "49c4a449-ea24-54f8-a49a-bdf04c4bfde2",
+    "72e175b3-062f-5650-a1bd-3f8aa99061e5",
+    "f5fd9c71-7912-5277-a6cc-c0815ec92dc1",
+    "de2b30e8-0050-5e8f-aefc-7afdf6fd8af3"
+  ],
+  "kinshipConstructRestored": "f30c3772-6c1e-5b19-aead-0d76a0fb3941",
+  "additionalProtectedOptionVersionGaps": [
+    {
+      "id": "S7-E9-F01",
+      "severity": "HOLD_CHANGED_CONTEXT",
+      "exerciseId": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+      "ref": "A1.1 P1-N11-E06",
+      "reason": "Oleh is male, but both title distractors still describe fictional women. This leaves the renamed profile incoherent and adds an unintended gender cue. Correct answer remains unique and unchanged.",
+      "repairs": [
+        {
+          "field": "content.options/0",
+          "old": "Mein Name ist Frau Marchenko.",
+          "new": "Mein Name ist Herr Marchenko."
+        },
+        {
+          "field": "content.options/2",
+          "old": "Ich heiße Frau Olena.",
+          "new": "Ich heiße Herr Oleh."
+        }
+      ],
+      "handling": "Options are protected. Proposal only: M must decide a separately reviewed immutable option revision; no historical overwrite.",
+      "sourceCurrentContent": {
+        "target_form": [
+          "sich vorstellen"
+        ],
+        "instruction": "Wähle die richtige Antwort.",
+        "question": "Oleh stellt sich am Telefon vor. Was ist richtig?",
+        "options": [
+          "Mein Name ist Frau Marchenko.",
+          "Mein Name ist Marchenko.",
+          "Ich heiße Frau Olena."
+        ],
+        "correct_answer": "Mein Name ist Marchenko.",
+        "accepted_answers": [
+          "Mein Name ist Marchenko."
+        ]
+      },
+      "proposedNewImmutableVersionContent": {
+        "target_form": [
+          "sich vorstellen"
+        ],
+        "instruction": "Wähle die richtige Antwort.",
+        "question": "Oleh stellt sich am Telefon vor. Was ist richtig?",
+        "options": [
+          "Mein Name ist Herr Marchenko.",
+          "Mein Name ist Marchenko.",
+          "Ich heiße Herr Oleh."
+        ],
+        "correct_answer": "Mein Name ist Marchenko.",
+        "accepted_answers": [
+          "Mein Name ist Marchenko."
+        ]
+      },
+      "sourceCurrentTranslations": {
+        "en": {
+          "instruction": "Choose the correct answer.",
+          "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
+          "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+          "task": "Oleh introduces himself on the phone. What is correct?"
+        },
+        "ru": {
+          "instruction": "Выберите правильный ответ.",
+          "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
+          "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+          "task": "Oleh представляется по телефону. Что правильно?"
+        },
+        "uk": {
+          "instruction": "Виберіть правильну відповідь.",
+          "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
+          "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+          "task": "Oleh представляється телефоном. Що правильно?"
+        },
+        "tr": {
+          "instruction": "Doğru cevabı seçin.",
+          "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
+          "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+          "task": "Oleh telefonda kendini tanıtıyor. Hangisi doğru?"
+        }
+      }
+    },
+    {
+      "id": "S7-E9-F02",
+      "severity": "HOLD_CHANGED_CONTEXT",
+      "exerciseId": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+      "ref": "A1.1 P1-N9-E03",
+      "reason": "The profile now gives Oleh Marchenko, while distractor Olena is no longer the profile given name. The old fictional female name remains and the semantic contrast surname/given name is weakened. Marchenko remains the unique key.",
+      "repairs": [
+        {
+          "field": "content.options/0",
+          "old": "Olena",
+          "new": "Oleh"
+        }
+      ],
+      "handling": "Protected option revision proposal only. Existing correct played text is unchanged by this option repair.",
+      "sourceCurrentContent": {
+        "target_form": [
+          "Anmeldeformular"
+        ],
+        "instruction": "Ergänze das Formular.",
+        "text_before": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: ",
+        "text_after": "",
+        "correct_answer": "Marchenko",
+        "options": [
+          "Olena",
+          "Marchenko",
+          "Lwiw"
+        ],
+        "accepted_answers": [
+          "Marchenko"
+        ]
+      },
+      "proposedNewImmutableVersionContent": {
+        "target_form": [
+          "Anmeldeformular"
+        ],
+        "instruction": "Ergänze das Formular.",
+        "text_before": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: ",
+        "text_after": "",
+        "correct_answer": "Marchenko",
+        "options": [
+          "Oleh",
+          "Marchenko",
+          "Lwiw"
+        ],
+        "accepted_answers": [
+          "Marchenko"
+        ]
+      },
+      "sourceCurrentTranslations": {
+        "en": {
+          "instruction": "Complete the form.",
+          "hint": "Forms and cards use fixed words: Vorname = first name, Familienname = surname, Firma = company.",
+          "explanation": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
+          "task": "My name is Oleh Marchenko. I come from Lviv, from Ukraine. Form: surname: …"
+        },
+        "ru": {
+          "instruction": "Заполните анкету.",
+          "hint": "В анкетах и на визитках постоянные слова: Vorname – имя, Familienname – фамилия, Firma – фирма.",
+          "explanation": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
+          "task": "Меня зовут Oleh Marchenko. Я из Львова, из Украины. Анкета: фамилия: …"
+        },
+        "uk": {
+          "instruction": "Заповніть анкету.",
+          "hint": "В анкетах і на візитівках сталі слова: Vorname – ім’я, Familienname – прізвище, Firma – фірма.",
+          "explanation": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
+          "task": "Мене звати Oleh Marchenko. Я зі Львова, з України. Анкета: прізвище: …"
+        },
+        "tr": {
+          "instruction": "Formu doldurun.",
+          "hint": "Form ve kartvizitlerde sabit kelimeler vardır: Vorname = ad, Familienname = soyadı, Firma = firma.",
+          "explanation": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
+          "task": "Benim adım Oleh Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …"
+        }
+      }
+    }
+  ],
+  "inheritedFindingsRecordedOnly": [
+    {
+      "id": "S7-E9-F04",
+      "severity": "FUTURE_VERSION_INHERITED_AMBIGUITY",
+      "exerciseId": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+      "ref": "A1.1 P2-N9-E01",
+      "reason": "Not currently married and not divorced does not exclude widowhood. Both ledig and verwitwet are compatible with the given biography; no children does not resolve it. This predates S2 epoch24 and is one of the untouched 14 gaps.",
+      "proposedNewRevisionQuestion": "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig?",
+      "proposedNewRevisionCorrectAnswer": "Oleh ist ledig.",
+      "handling": "Only new coherent revision with all three male options, accepted answer and translations. Historical Olena answer/results must stay intact."
+    },
+    {
+      "id": "S7-E9-F05",
+      "severity": "FUTURE_VERSION_WHOLE_CONTEXT_REQUIREMENT",
+      "reason": "Three proposed male key deltas also require secondary fictional people to change. The 14 proposals are valid gaps, but answer-only substitutions are insufficient.",
+      "contexts": [
+        {
+          "exerciseId": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+          "ref": "A1.1 P1-N11-E18",
+          "oldPrompt": "Am Telefon fragt eine Frau: „Ist Olena da?“ Du bist Olena.",
+          "newPrompt": "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh.",
+          "translationDeltas": {
+            "en": "a woman → a man; Olena → Oleh",
+            "ru": "женщина → мужчина; Olena → Oleh",
+            "uk": "жінка → чоловік; Olena → Oleh",
+            "tr": "bir kadın → bir adam; Olena → Oleh"
+          }
+        },
+        {
+          "exerciseId": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+          "ref": "A1.1 P7-N8-E03",
+          "promptDeltas": {
+            "Elif": "Emir",
+            "Selin": "Selim"
+          },
+          "reason": "Elif also appears in the football story, outside the correct answer."
+        },
+        {
+          "exerciseId": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+          "ref": "A2.1 P1-N6-E04",
+          "oldPrompt": "Olga erzählt von einer neuen Freundin.",
+          "newPrompt": "Oleg erzählt von einem neuen Freund.",
+          "optionNameDelta": "Lena → Leon in all three options",
+          "translationDeltas": {
+            "en": "Olga → Oleg; new male friend",
+            "ru": "Olga рассказывает о новой подруге. → Oleg рассказывает о новом друге.",
+            "uk": "Olga розповідає про нову подругу. → Oleg розповідає про нового друга.",
+            "tr": "Olga → Oleg; erkek arkadaş without romantic ambiguity preferred yeni bir erkek arkadaşı"
+          }
+        }
+      ],
+      "handling": "Do not apply any proposal to old snapshots; inspect every field of each new revision."
+    },
+    {
+      "id": "S7-E9-F07",
+      "severity": "INHERITED_TASK_AMBIGUITY_OUTSIDE_CHANGED_CONTENT",
+      "exerciseId": "a8f34d4d-e7c5-5946-aa8b-79f1a03c0fac",
+      "ref": "B1.1 P5-N12-E09",
+      "reason": "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet accepts tätig, but selbstständig is also grammatical and plausible for an independent restaurant worker/operator. S2 changes only explanatory prose here; no claim that this inherited task has become uniquely keyed.",
+      "handling": "Keep historic key. Future task revision should replace selbstständig with an unequivocal morphosyntactic distractor, e.g. Tätigkeit, after editorial/version review."
+    }
+  ],
+  "cumulativeVersionGaps": 18,
+  "additionalAnswerBoundGap": {
+    "id": "53e0e382-9f60-5574-a29d-01727939ac9a",
+    "ref": "P7-N12-E08",
+    "file": "path-a1.1.json",
+    "reason": "Female protagonist and sister bound to all answer choices and key; leave historic record unchanged.",
+    "proposedNewVersion": {
+      "question": "Kamil erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meinen Bruder getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kamil in Warschau gemacht?",
+      "options": [
+        "Er hat gearbeitet.",
+        "Er hat Fußball gespielt.",
+        "Er hat seinen Bruder getroffen."
+      ],
+      "correct_answer": "Er hat seinen Bruder getroffen.",
+      "accepted_answers": [
+        "Er hat seinen Bruder getroffen."
+      ],
+      "tasks": {
+        "en": "What did Kamil do in Warsaw?",
+        "ru": "Что Kamil делал в Варшаве?",
+        "uk": "Що Kamil робив у Варшаві?",
+        "tr": "Kamil Varşova’da ne yaptı?"
+      }
+    }
+  },
+  "checks": {
+    "protectedAllFiveSeeds": "PASS",
+    "jestTests": 78,
+    "authoringChecks": 23,
+    "scopedLint": "PASS",
+    "allSourceEditsApplied": true,
+    "reviewerS7Sha256": "c72f222eea85b534f615ed693222d3691ed15c529660b7aa1d4aac900845cd70"
+  }
+}

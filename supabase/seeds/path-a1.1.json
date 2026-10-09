@@ -10533,7 +10533,7 @@
                 "Personen verstehen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Selin Demir ist 34 Jahre alt. Sie ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Sie ist verheiratet und hat zwei Kinder. Wie alt ist Selin?",
+              "question": "Selim Demir ist 34 Jahre alt. Er ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Er ist verheiratet und hat zwei Kinder. Wie alt ist Selim?",
               "options": [
                 "34",
                 "43",
@@ -10555,25 +10555,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Find the key information in the text: who, where from, where, how old?",
                 "explanation": "Filling in a form: Geburtsort = place of birth. Wohnort = where you live now. Familienstand = marital status (ledig, verheiratet, geschieden, verwitwet). Phone numbers are read digit by digit or in pairs.",
-                "task": "How old is Selin?"
+                "task": "How old is Selim?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Найдите в тексте нужную информацию: кто? откуда? где? сколько лет?",
                 "explanation": "Как заполнить анкету: Geburtsort – место рождения. Wohnort – где вы живёте сейчас. Familienstand – семейное положение (ledig, verheiratet, geschieden, verwitwet). Номер телефона читают по цифрам или парами.",
-                "task": "Сколько лет Selin?"
+                "task": "Сколько лет Selim?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Знайдіть у тексті потрібну інформацію: хто? звідки? де? скільки років?",
                 "explanation": "Як заповнити анкету: Geburtsort – місце народження. Wohnort – де ви живете зараз. Familienstand – сімейний стан (ledig, verheiratet, geschieden, verwitwet). Номер телефону читають по цифрах або парами.",
-                "task": "Скільки років Selin?"
+                "task": "Скільки років Selim?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Metinde bilgiyi bulun: Kim? Nereden? Nerede? Kaç yaşında?",
                 "explanation": "Form doldurma: Geburtsort = doğum yeri. Wohnort = şimdi oturduğunuz yer. Familienstand = medeni hâl (ledig, verheiratet, geschieden, verwitwet). Telefon numaraları rakam rakam ya da ikişer ikişer okunur.",
-                "task": "Selin kaç yaşında?"
+                "task": "Selim kaç yaşında?"
               }
             }
           },
@@ -10587,7 +10587,7 @@
                 "Personen verstehen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Taras ist der Bruder von Olena. Er lebt in Kyjiw und arbeitet als Koch. Er hat eine Frau und ein Kind. Was ist richtig?",
+              "question": "Taras ist der Bruder von Oleh. Er lebt in Kyjiw und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig?",
               "options": [
                 "Taras lebt in Leipzig.",
                 "Taras ist verheiratet.",
@@ -10803,7 +10803,7 @@
                 "Formular"
               ],
               "instruction": "Ergänze das Formular.",
-              "text_before": "Selin Demir ist 34 Jahre alt. Sie ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Sie ist verheiratet und hat zwei Kinder. Formular: Geburtsort: ",
+              "text_before": "Selim Demir ist 34 Jahre alt. Er ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Er ist verheiratet und hat zwei Kinder. Formular: Geburtsort: ",
               "text_after": "",
               "correct_answer": "Ankara",
               "options": [
@@ -10826,25 +10826,25 @@
                 "instruction": "Complete the form.",
                 "hint": "Read carefully: where was the person born (Geburtsort), and where do they live now (Wohnort)?",
                 "explanation": "Filling in a form: Geburtsort = place of birth. Wohnort = where you live now. Familienstand = marital status (ledig, verheiratet, geschieden, verwitwet). Phone numbers are read digit by digit or in pairs.",
-                "task": "Selin Demir is 34 years old. She was born in Ankara and now lives in Kassel, at Goethestraße 7. She is married and has two children. Form: place of birth: …"
+                "task": "Selim Demir is 34 years old. He was born in Ankara and now lives in Kassel, at Goethestraße 7. He is married and has two children. Form: place of birth: …"
               },
               "ru": {
                 "instruction": "Заполните анкету.",
                 "hint": "Читайте внимательно: где человек родился (Geburtsort) и где живёт сейчас (Wohnort)?",
                 "explanation": "Как заполнить анкету: Geburtsort – место рождения. Wohnort – где вы живёте сейчас. Familienstand – семейное положение (ledig, verheiratet, geschieden, verwitwet). Номер телефона читают по цифрам или парами.",
-                "task": "Selin Demir 34 года. Она родилась в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Она замужем, у неё двое детей. Анкета: место рождения: …"
+                "task": "Selim Demir 34 года. Он родился в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Он женат, у него двое детей. Анкета: место рождения: …"
               },
               "uk": {
                 "instruction": "Заповніть анкету.",
                 "hint": "Читайте уважно: де людина народилася (Geburtsort) і де живе зараз (Wohnort)?",
                 "explanation": "Як заповнити анкету: Geburtsort – місце народження. Wohnort – де ви живете зараз. Familienstand – сімейний стан (ledig, verheiratet, geschieden, verwitwet). Номер телефону читають по цифрах або парами.",
-                "task": "Selin Demir 34 роки. Вона народилася в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Вона заміжня, має двох дітей. Анкета: місце народження: …"
+                "task": "Selim Demir 34 роки. Він народився в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Він одружений, має двох дітей. Анкета: місце народження: …"
               },
               "tr": {
                 "instruction": "Formu doldurun.",
                 "hint": "Dikkatle okuyun: Kişi nerede doğmuş (Geburtsort), şimdi nerede oturuyor (Wohnort)?",
                 "explanation": "Form doldurma: Geburtsort = doğum yeri. Wohnort = şimdi oturduğunuz yer. Familienstand = medeni hâl (ledig, verheiratet, geschieden, verwitwet). Telefon numaraları rakam rakam ya da ikişer ikişer okunur.",
-                "task": "Selin Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: doğum yeri: …"
+                "task": "Selim Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: doğum yeri: …"
               }
             }
           },
@@ -10858,7 +10858,7 @@
                 "Formular"
               ],
               "instruction": "Ergänze das Formular.",
-              "text_before": "Selin Demir ist 34 Jahre alt. Sie ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Sie ist verheiratet und hat zwei Kinder. Formular: Wohnort: ",
+              "text_before": "Selim Demir ist 34 Jahre alt. Er ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Er ist verheiratet und hat zwei Kinder. Formular: Wohnort: ",
               "text_after": "",
               "correct_answer": "Kassel",
               "options": [
@@ -10881,25 +10881,25 @@
                 "instruction": "Complete the form.",
                 "hint": "Read carefully: where was the person born (Geburtsort), and where do they live now (Wohnort)?",
                 "explanation": "Filling in a form: Geburtsort = place of birth. Wohnort = where you live now. Familienstand = marital status (ledig, verheiratet, geschieden, verwitwet). Phone numbers are read digit by digit or in pairs.",
-                "task": "Selin Demir is 34 years old. She was born in Ankara and now lives in Kassel, at Goethestraße 7. She is married and has two children. Form: place of residence: …"
+                "task": "Selim Demir is 34 years old. He was born in Ankara and now lives in Kassel, at Goethestraße 7. He is married and has two children. Form: place of residence: …"
               },
               "ru": {
                 "instruction": "Заполните анкету.",
                 "hint": "Читайте внимательно: где человек родился (Geburtsort) и где живёт сейчас (Wohnort)?",
                 "explanation": "Как заполнить анкету: Geburtsort – место рождения. Wohnort – где вы живёте сейчас. Familienstand – семейное положение (ledig, verheiratet, geschieden, verwitwet). Номер телефона читают по цифрам или парами.",
-                "task": "Selin Demir 34 года. Она родилась в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Она замужем, у неё двое детей. Анкета: место жительства: …"
+                "task": "Selim Demir 34 года. Он родился в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Он женат, у него двое детей. Анкета: место жительства: …"
               },
               "uk": {
                 "instruction": "Заповніть анкету.",
                 "hint": "Читайте уважно: де людина народилася (Geburtsort) і де живе зараз (Wohnort)?",
                 "explanation": "Як заповнити анкету: Geburtsort – місце народження. Wohnort – де ви живете зараз. Familienstand – сімейний стан (ledig, verheiratet, geschieden, verwitwet). Номер телефону читають по цифрах або парами.",
-                "task": "Selin Demir 34 роки. Вона народилася в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Вона заміжня, має двох дітей. Анкета: місце проживання: …"
+                "task": "Selim Demir 34 роки. Він народився в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Він одружений, має двох дітей. Анкета: місце проживання: …"
               },
               "tr": {
                 "instruction": "Formu doldurun.",
                 "hint": "Dikkatle okuyun: Kişi nerede doğmuş (Geburtsort), şimdi nerede oturuyor (Wohnort)?",
                 "explanation": "Form doldurma: Geburtsort = doğum yeri. Wohnort = şimdi oturduğunuz yer. Familienstand = medeni hâl (ledig, verheiratet, geschieden, verwitwet). Telefon numaraları rakam rakam ya da ikişer ikişer okunur.",
-                "task": "Selin Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: ikamet yeri: …"
+                "task": "Selim Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: ikamet yeri: …"
               }
             }
           },
@@ -10913,7 +10913,7 @@
                 "Formular"
               ],
               "instruction": "Ergänze das Formular.",
-              "text_before": "Selin Demir ist 34 Jahre alt. Sie ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Sie ist verheiratet und hat zwei Kinder. Formular: Familienstand: ",
+              "text_before": "Selim Demir ist 34 Jahre alt. Er ist in Ankara geboren und wohnt jetzt in Kassel, in der Goethestraße 7. Er ist verheiratet und hat zwei Kinder. Formular: Familienstand: ",
               "text_after": "",
               "correct_answer": "verheiratet",
               "options": [
@@ -10936,25 +10936,25 @@
                 "instruction": "Complete the form.",
                 "hint": "Read carefully: where was the person born (Geburtsort), and where do they live now (Wohnort)?",
                 "explanation": "Filling in a form: Geburtsort = place of birth. Wohnort = where you live now. Familienstand = marital status (ledig, verheiratet, geschieden, verwitwet). Phone numbers are read digit by digit or in pairs.",
-                "task": "Selin Demir is 34 years old. She was born in Ankara and now lives in Kassel, at Goethestraße 7. She is married and has two children. Form: marital status: …"
+                "task": "Selim Demir is 34 years old. He was born in Ankara and now lives in Kassel, at Goethestraße 7. He is married and has two children. Form: marital status: …"
               },
               "ru": {
                 "instruction": "Заполните анкету.",
                 "hint": "Читайте внимательно: где человек родился (Geburtsort) и где живёт сейчас (Wohnort)?",
                 "explanation": "Как заполнить анкету: Geburtsort – место рождения. Wohnort – где вы живёте сейчас. Familienstand – семейное положение (ledig, verheiratet, geschieden, verwitwet). Номер телефона читают по цифрам или парами.",
-                "task": "Selin Demir 34 года. Она родилась в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Она замужем, у неё двое детей. Анкета: семейное положение: …"
+                "task": "Selim Demir 34 года. Он родился в Анкаре, а сейчас живёт в Касселе, на Goethestraße, 7. Он женат, у него двое детей. Анкета: семейное положение: …"
               },
               "uk": {
                 "instruction": "Заповніть анкету.",
                 "hint": "Читайте уважно: де людина народилася (Geburtsort) і де живе зараз (Wohnort)?",
                 "explanation": "Як заповнити анкету: Geburtsort – місце народження. Wohnort – де ви живете зараз. Familienstand – сімейний стан (ledig, verheiratet, geschieden, verwitwet). Номер телефону читають по цифрах або парами.",
-                "task": "Selin Demir 34 роки. Вона народилася в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Вона заміжня, має двох дітей. Анкета: сімейний стан: …"
+                "task": "Selim Demir 34 роки. Він народився в Анкарі, а зараз живе в Касселі, на Goethestraße, 7. Він одружений, має двох дітей. Анкета: сімейний стан: …"
               },
               "tr": {
                 "instruction": "Formu doldurun.",
                 "hint": "Dikkatle okuyun: Kişi nerede doğmuş (Geburtsort), şimdi nerede oturuyor (Wohnort)?",
                 "explanation": "Form doldurma: Geburtsort = doğum yeri. Wohnort = şimdi oturduğunuz yer. Familienstand = medeni hâl (ledig, verheiratet, geschieden, verwitwet). Telefon numaraları rakam rakam ya da ikişer ikişer okunur.",
-                "task": "Selin Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: medeni durum: …"
+                "task": "Selim Demir 34 yaşında. Ankara’da doğdu, şimdi Kassel’de, Goethestraße 7’de oturuyor. Evli ve iki çocuğu var. Form: medeni durum: …"
               }
             }
           },
@@ -15010,7 +15010,7 @@
               "möchten"
             ],
             "hint": "möchte: ich möchte und er/sie möchte sind gleich. du möchtest, ihr möchtet.",
-            "explanation": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+            "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
               "en": {
@@ -15066,7 +15066,7 @@
         ],
         "merkkarte": {
           "card": "p3_shop",
-          "rule": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+          "rule": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
           "examples": [
             "Zwei Euro zwanzig.",
             "Nein, danke. Das ist alles.",
@@ -15115,7 +15115,7 @@
               "die Verkäuferin"
             ],
             "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
-            "explanation": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+            "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
               "en": {
@@ -15169,7 +15169,7 @@
               "Zwei Euro zwanzig."
             ],
             "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
-            "explanation": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+            "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
               "en": {
@@ -15223,7 +15223,7 @@
               "Nein, danke. Das ist alles."
             ],
             "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
-            "explanation": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+            "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
               "en": {
@@ -15279,7 +15279,7 @@
               "hätte"
             ],
             "hint": "„Ich hätte gern …“ ist sehr höflich – wie „Ich möchte …“.",
-            "explanation": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+            "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
               "en": {
@@ -15333,7 +15333,7 @@
               "Ich hätte gern ein Pfund Tomaten."
             ],
             "hint": "„Ich hätte gern …“ ist sehr höflich – wie „Ich möchte …“.",
-            "explanation": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+            "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
               "en": {
@@ -17390,7 +17390,7 @@
               "Ja, ich hätte gern ein Kilo Äpfel."
             ],
             "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
-            "explanation": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+            "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
               "en": {
@@ -17972,7 +17972,7 @@
               "Ja, sechs Eier, bitte."
             ],
             "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
-            "explanation": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+            "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
               "en": {
@@ -18227,7 +18227,7 @@
                 "Einkaufsgespräch"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Kasia ist in der Bäckerei. Die Verkäuferin fragt: „Was möchten Sie?“",
+              "question": "Kamil ist in der Bäckerei. Der Verkäufer fragt: „Was möchten Sie?“",
               "options": [
                 "Ich habe gern zwei Brötchen.",
                 "Das ist alles, zwei Brötchen.",
@@ -18242,32 +18242,32 @@
               "Ich hätte gern zwei Brötchen."
             ],
             "hint": "„Ich hätte gern …“ ist sehr höflich – wie „Ich möchte …“.",
-            "explanation": "Einkaufsgespräch: Verkäuferin: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
+            "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
                 "hint": "„Ich hätte gern …“ = I would like … – very polite, perfect for shops.",
                 "explanation": "Shopping dialogue: shop assistant: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – customer: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ (Anything else?) – „Nein, danke. Das ist alles.“",
-                "task": "Kasia is at the bakery. The shop assistant asks: “What would you like?”"
+                "task": "Kamil is at the bakery. The shop assistant asks: “What would you like?”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "„Ich hätte gern …“ – «Я бы хотел …», очень вежливо; идеально для магазина.",
                 "explanation": "Разговор в магазине: продавец: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупатель: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Что-нибудь ещё?») – „Nein, danke. Das ist alles.“",
-                "task": "Kasia в пекарне. Продавщица спрашивает: «Что вы желаете?»"
+                "task": "Kamil в пекарне. Продавец спрашивает: «Что вы желаете?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "„Ich hätte gern …“ – «Я б хотів …», дуже ввічливо; ідеально для магазину.",
                 "explanation": "Розмова в магазині: продавець: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупець: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Щось іще?») – „Nein, danke. Das ist alles.“",
-                "task": "Kasia в пекарні. Продавчиня запитує: «Що ви бажаєте?»"
+                "task": "Kamil в пекарні. Продавець запитує: «Що ви бажаєте?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "„Ich hätte gern …“ = … alabilir miyim; çok kibardır, alışverişte idealdir.",
                 "explanation": "Alışveriş konuşması: Satıcı: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Müşteri: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ (Başka bir şey?) – „Nein, danke. Das ist alles.“",
-                "task": "Kasia fırında. Satıcı soruyor: “Ne istersiniz?”"
+                "task": "Kamil fırında. Satıcı soruyor: “Ne istersiniz?”"
               }
             }
           },
@@ -18281,7 +18281,7 @@
                 "Strategien"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Die Verkäuferin fragt: „Möchten Sie eine Tüte?“ Kasia hat eine Tasche und braucht keine Tüte.",
+              "question": "Der Verkäufer fragt: „Möchten Sie eine Tüte?“ Kamil hat eine Tasche und braucht keine Tüte.",
               "options": [
                 "Ja, bitte.",
                 "Ja, natürlich.",
@@ -18303,25 +18303,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Is it an offer (Möchten Sie …?) – then Ja, bitte / Nein, danke. A question about goods (Haben Sie …?) – then Ja, natürlich / Nein, tut mir leid.",
                 "explanation": "Short answers: „Ja, natürlich.“ = yes, of course. „Nein, tut mir leid.“ = no, I’m sorry. To an offer: „Ja, bitte.“ (yes, please) – „Nein, danke.“ (no, thank you).",
-                "task": "The shop assistant asks: “Would you like a bag?” Kasia has a bag with her and doesn’t need a plastic bag."
+                "task": "The shop assistant asks: “Would you like a bag?” Kamil has a bag with him and doesn’t need a plastic bag."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Это предложение (Möchten Sie …?) – тогда Ja, bitte / Nein, danke. Вопрос о товаре (Haben Sie …?) – тогда Ja, natürlich / Nein, tut mir leid.",
                 "explanation": "Короткие ответы: „Ja, natürlich.“ – «да, конечно». „Nein, tut mir leid.“ – «нет, к сожалению». На предложение: „Ja, bitte.“ – «да, пожалуйста» – „Nein, danke.“ – «нет, спасибо».",
-                "task": "Продавщица спрашивает: «Вам нужен пакет?» У Kasia есть сумка, пакет ей не нужен."
+                "task": "Продавец спрашивает: «Вам нужен пакет?» У Kamil есть сумка, пакет ему не нужен."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Це пропозиція (Möchten Sie …?) – тоді Ja, bitte / Nein, danke. Запитання про товар (Haben Sie …?) – тоді Ja, natürlich / Nein, tut mir leid.",
                 "explanation": "Короткі відповіді: „Ja, natürlich.“ – «так, звичайно». „Nein, tut mir leid.“ – «ні, на жаль». На пропозицію: „Ja, bitte.“ – «так, будь ласка» – „Nein, danke.“ – «ні, дякую».",
-                "task": "Продавчиня запитує: «Вам потрібен пакет?» У Kasia є сумка, пакет їй не потрібен."
+                "task": "Продавець запитує: «Вам потрібен пакет?» У Kamil є сумка, пакет йому не потрібен."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Bu bir teklif mi (Möchten Sie …?) – o zaman Ja, bitte / Nein, danke. Ürün sorusu mu (Haben Sie …?) – o zaman Ja, natürlich / Nein, tut mir leid.",
                 "explanation": "Kısa cevaplar: „Ja, natürlich.“ = evet, tabii. „Nein, tut mir leid.“ = hayır, maalesef. Bir teklife: „Ja, bitte.“ = evet, lütfen – „Nein, danke.“ = hayır, teşekkürler.",
-                "task": "Satıcı soruyor: “Poşet ister misiniz?” Kasia’nın çantası var, poşete ihtiyacı yok."
+                "task": "Satıcı soruyor: “Poşet ister misiniz?” Kamil’in çantası var, poşete ihtiyacı yok."
               }
             }
           },
@@ -30690,7 +30690,7 @@
                 "Lesetext"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Wann steht Olena auf?",
+              "question": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Wann steht Oleh auf?",
               "options": [
                 "um 6:30 Uhr",
                 "um 5:00 Uhr",
@@ -30712,25 +30712,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Look for the times and the verbs in the text.",
                 "explanation": "Talking about your day: link activities with times: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Order words: zuerst (first), dann (then), danach (after that).",
-                "task": "When does Olena get up?"
+                "task": "When does Oleh get up?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Найдите в тексте время и глаголы.",
                 "explanation": "Рассказ о своём дне: связывайте действия со временем: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (сначала), dann (потом), danach (после этого).",
-                "task": "Когда Olena встаёт?"
+                "task": "Когда Oleh встаёт?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Знайдіть у тексті час і дієслова.",
                 "explanation": "Розповідь про свій день: пов’язуйте дії з часом: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (спочатку), dann (потім), danach (після цього).",
-                "task": "Коли Olena встає?"
+                "task": "Коли Oleh встає?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Metinde saatleri ve fiilleri bulun.",
                 "explanation": "Kendi gününüzü anlatma: Etkinlikleri saatlerle bağlayın: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Sıra: zuerst (önce), dann (sonra), danach (ondan sonra).",
-                "task": "Olena ne zaman kalkıyor?"
+                "task": "Oleh ne zaman kalkıyor?"
               }
             }
           },
@@ -30798,7 +30798,7 @@
                 "Lesetext"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Wie lange arbeitet Olena?",
+              "question": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Wie lange arbeitet Oleh?",
               "options": [
                 "sieben Stunden",
                 "fünfzehn Stunden",
@@ -30820,25 +30820,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Look for the times and the verbs in the text.",
                 "explanation": "Talking about your day: link activities with times: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Order words: zuerst (first), dann (then), danach (after that).",
-                "task": "How long does Olena work?"
+                "task": "How long does Oleh work?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Найдите в тексте время и глаголы.",
                 "explanation": "Рассказ о своём дне: связывайте действия со временем: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (сначала), dann (потом), danach (после этого).",
-                "task": "Сколько времени работает Olena?"
+                "task": "Сколько времени работает Oleh?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Знайдіть у тексті час і дієслова.",
                 "explanation": "Розповідь про свій день: пов’язуйте дії з часом: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (спочатку), dann (потім), danach (після цього).",
-                "task": "Скільки часу працює Olena?"
+                "task": "Скільки часу працює Oleh?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Metinde saatleri ve fiilleri bulun.",
                 "explanation": "Kendi gününüzü anlatma: Etkinlikleri saatlerle bağlayın: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Sıra: zuerst (önce), dann (sonra), danach (ondan sonra).",
-                "task": "Olena ne kadar süre çalışıyor?"
+                "task": "Oleh ne kadar süre çalışıyor?"
               }
             }
           },
@@ -34835,7 +34835,7 @@
                 "Akkusativ"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Olena fährt immer Bus. Sie hat … Fahrrad.",
+              "question": "Oleh fährt immer Bus. Er hat … Fahrrad.",
               "options": [
                 "keinen",
                 "keine",
@@ -34857,25 +34857,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "kein works like ein: masculine keinen, neuter kein, feminine and plural keine.",
                 "explanation": "Accusative with kein: masculine keinen, neuter kein, feminine keine, plural keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
-                "task": "Olena always takes the bus. She has … bike."
+                "task": "Oleh always takes the bus. He has … bike."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "kein изменяется как ein: мужской род keinen, средний kein, женский и мн. ч. keine.",
                 "explanation": "Винительный падеж с kein: мужской род keinen, средний kein, женский keine, мн. ч. keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
-                "task": "Olena всегда ездит на автобусе. У неё … велосипеда."
+                "task": "Oleh всегда ездит на автобусе. У него … велосипеда."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "kein змінюється як ein: чоловічий рід keinen, середній kein, жіночий і множина keine.",
                 "explanation": "Знахідний відмінок з kein: чоловічий рід keinen, середній kein, жіночий keine, множина keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
-                "task": "Olena завжди їздить автобусом. У неї … велосипеда."
+                "task": "Oleh завжди їздить автобусом. У нього … велосипеда."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "kein, ein gibi çekilir: eril keinen, nötr kein, dişil ve çoğul keine.",
                 "explanation": "kein ile Akkusativ: eril keinen, nötr kein, dişil keine, çoğul keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
-                "task": "Olena hep otobüse biniyor. Onun … bisikleti."
+                "task": "Oleh hep otobüse biniyor. Onun … bisikleti."
               }
             }
           },
@@ -39620,7 +39620,7 @@
                 "Hobbys bewerten"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Kasia findet Lesen super. Was sagt sie?",
+              "question": "Kamil findet Lesen super. Was sagt er?",
               "options": [
                 "Lesen macht mir Spaß!",
                 "Lesen ist langweilig.",
@@ -39642,25 +39642,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Positive: Das macht Spaß! (That’s fun!) / Ich finde … toll. Negative: Ich finde … langweilig.",
                 "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
-                "task": "Kasia thinks reading is super. What does she say?"
+                "task": "Kamil thinks reading is super. What does he say?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Положительно: Das macht Spaß! («Это весело!») / Ich finde … toll. Отрицательно: Ich finde … langweilig.",
                 "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
-                "task": "Kasia считает, что читать — это супер. Что она говорит?"
+                "task": "Kamil считает, что читать — это супер. Что он говорит?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Позитивно: Das macht Spaß! («Це весело!») / Ich finde … toll. Негативно: Ich finde … langweilig.",
                 "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
-                "task": "Kasia вважає, що читати — це супер. Що вона каже?"
+                "task": "Kamil вважає, що читати — це супер. Що він каже?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Olumlu: Das macht Spaß! (Eğlenceli!) / Ich finde … toll. Olumsuz: Ich finde … langweilig.",
                 "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
-                "task": "Kasia okumayı süper buluyor. Ne diyor?"
+                "task": "Kamil okumayı süper buluyor. Ne diyor?"
               }
             }
           },
@@ -39998,7 +39998,7 @@
                 "Porträt"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Porträt: „Selin Demir, 34, wohnt in Kassel. Sie spielt Volleyball und fotografiert gern. Fernsehen findet sie langweilig.“ Was macht Selin nicht gern?",
+              "question": "Porträt: „Selim Demir, 34, wohnt in Kassel. Er spielt Volleyball und fotografiert gern. Fernsehen findet er langweilig.“ Was macht Selim nicht gern?",
               "options": [
                 "fotografieren",
                 "fernsehen",
@@ -40020,25 +40020,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Look for: who? what does the person like doing? what do they think of it?",
                 "explanation": "Understanding portraits and interviews: look for name, origin, hobbies and opinions (gern, nicht gern, toll, langweilig). The interview questions help: „Was machen Sie gern in der Freizeit?“",
-                "task": "What does Selin not like doing?"
+                "task": "What does Selim not like doing?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Ищите в тексте: кто? что человек любит делать? как он это оценивает?",
                 "explanation": "Как понимать портреты и интервью: обращайте внимание на имя, происхождение, хобби и оценки (gern, nicht gern, toll, langweilig). Помогают вопросы интервью: „Was machen Sie gern in der Freizeit?“",
-                "task": "Что Selin не любит делать?"
+                "task": "Что Selim не любит делать?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Шукайте в тексті: хто? що людина любить робити? як вона це оцінює?",
                 "explanation": "Як розуміти портрети й інтерв’ю: звертайте увагу на ім’я, походження, хобі та оцінки (gern, nicht gern, toll, langweilig). Допомагають запитання інтерв’ю: „Was machen Sie gern in der Freizeit?“",
-                "task": "Що Selin не любить робити?"
+                "task": "Що Selim не любить робити?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Metinde arayın: Kim? Kişi ne yapmayı seviyor? Bunu nasıl buluyor?",
                 "explanation": "Portre ve röportajları anlama: İsim, köken, hobiler ve değerlendirmelere (gern, nicht gern, toll, langweilig) dikkat edin. Röportaj soruları yardımcı olur: „Was machen Sie gern in der Freizeit?“",
-                "task": "Selin neyi yapmayı sevmiyor?"
+                "task": "Selim neyi yapmayı sevmiyor?"
               }
             }
           },
@@ -40388,8 +40388,8 @@
                 "treffen"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Kasia ",
-              "text_after": " heute ihre Schwester.",
+              "text_before": "Kamil ",
+              "text_after": " heute seinen Bruder.",
               "gap_hint": "treffen",
               "correct_answer": "trifft",
               "options": [
@@ -40412,25 +40412,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Vowel change only with du and er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). Not with ich, wir, ihr, sie.",
                 "explanation": "Vowel change with du and er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. You already know: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Kasia is meeting her sister today."
+                "task": "Kamil is meeting his brother today."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Гласная меняется только с du и er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). С ich, wir, ihr, sie – нет.",
                 "explanation": "Смена гласной с du и er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Уже знакомо: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Kasia сегодня встречается с сестрой."
+                "task": "Kamil сегодня встречается с братом."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Голосна змінюється лише з du та er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). З ich, wir, ihr, sie – ні.",
                 "explanation": "Зміна голосної з du та er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Уже знайомо: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Kasia сьогодні зустрічається із сестрою."
+                "task": "Kamil сьогодні зустрічається з братом."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Ünlü sadece du ve er/sie/es ile değişir: e → i/ie (liest, trifft, nimmt), a → ä (fährt). ich, wir, ihr, sie ile değişmez.",
                 "explanation": "du ve er/sie/es ile ünlü değişimi: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Bildikleriniz: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Kasia bugün kız kardeşiyle buluşuyor."
+                "task": "Kamil bugün erkek kardeşiyle buluşuyor."
               }
             }
           },
@@ -41201,7 +41201,7 @@
                 "Fähigkeit"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Kasia schwimmt nie. Sie hat Schwimmen nicht gelernt. Was sagt sie?",
+              "question": "Kamil schwimmt nie. Er hat Schwimmen nicht gelernt. Was sagt er?",
               "options": [
                 "Ich kann sehr gut schwimmen.",
                 "Ich kann ein bisschen schwimmen.",
@@ -41223,25 +41223,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "The scale: sehr gut – gut – ein bisschen (a little) – nicht so gut – gar nicht (not at all).",
                 "explanation": "Abilities with a scale: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (a little) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (not at all) Ski fahren.",
-                "task": "Kasia never swims. She hasn’t learned to swim. What does she say?"
+                "task": "Kamil never swims. He hasn’t learned to swim. What does he say?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Шкала: sehr gut – gut – ein bisschen (немного) – nicht so gut – gar nicht (совсем не).",
                 "explanation": "Умения по шкале: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (немного) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (совсем не) Ski fahren.",
-                "task": "Kasia никогда не плавает. Она не научилась плавать. Что она говорит?"
+                "task": "Kamil никогда не плавает. Он не научился плавать. Что он говорит?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Шкала: sehr gut – gut – ein bisschen (трохи) – nicht so gut – gar nicht (зовсім не).",
                 "explanation": "Уміння за шкалою: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (трохи) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (зовсім не) Ski fahren.",
-                "task": "Kasia ніколи не плаває. Вона не навчилася плавати. Що вона каже?"
+                "task": "Kamil ніколи не плаває. Він не навчився плавати. Що він каже?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Sıralama: sehr gut – gut – ein bisschen (biraz) – nicht so gut – gar nicht (hiç).",
                 "explanation": "Derecelerle beceriler: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (biraz) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (hiç) Ski fahren.",
-                "task": "Kasia hiç yüzmüyor. Yüzmeyi öğrenmemiş. Ne diyor?"
+                "task": "Kamil hiç yüzmüyor. Yüzmeyi öğrenmemiş. Ne diyor?"
               }
             }
           },
@@ -41502,7 +41502,7 @@
           "rule": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, der zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
           "examples": [
             "Ich will heute Pizza essen.",
-            "Olena kann sehr gut tanzen.",
+            "Oleh kann sehr gut tanzen.",
             "Ich kann gut kochen.",
             "Kannst du Schach spielen?"
           ],
@@ -41587,7 +41587,7 @@
                 "Satzklammer"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Olena kann sehr gut ",
+              "text_before": "Oleh kann sehr gut ",
               "text_after": ".",
               "gap_hint": "tanzen",
               "correct_answer": "tanzen",
@@ -41611,25 +41611,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "The modal is in position 2; the second verb goes to the very end in the infinitive: Ich kann gut kochen.",
                 "explanation": "Sentence bracket with a modal verb: the conjugated modal is in position 2, the second verb goes to the end in the infinitive: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Question: Kannst du Gitarre spielen?",
-                "task": "Olena can dance very well."
+                "task": "Oleh can dance very well."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Модальный глагол – на 2-м месте, второй глагол в инфинитиве – в самом конце: Ich kann gut kochen.",
                 "explanation": "Рамочная конструкция с модальным глаголом: спрягаемый модальный глагол – на 2-м месте, второй глагол в инфинитиве – в конце: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Вопрос: Kannst du Gitarre spielen?",
-                "task": "Olena очень хорошо умеет танцевать."
+                "task": "Oleh очень хорошо умеет танцевать."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Модальне дієслово – на 2-му місці, друге дієслово в інфінітиві – в самому кінці: Ich kann gut kochen.",
                 "explanation": "Рамкова конструкція з модальним дієсловом: відмінюване модальне дієслово – на 2-му місці, друге дієслово в інфінітиві – у кінці: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Запитання: Kannst du Gitarre spielen?",
-                "task": "Olena дуже добре вміє танцювати."
+                "task": "Oleh дуже добре вміє танцювати."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Kip fiili 2. sırada, ikinci fiil mastar hâlinde en sondadır – Türkçedeki gibi fiil sonda: Ich kann gut kochen.",
                 "explanation": "Kip fiiliyle cümle çerçevesi: Çekimli kip fiili 2. sırada, ikinci fiil mastar hâlinde sondadır: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Soru: Kannst du Gitarre spielen?",
-                "task": "Olena çok iyi dans edebiliyor."
+                "task": "Oleh çok iyi dans edebiliyor."
               }
             }
           },
@@ -41913,7 +41913,7 @@
                 "Vorschlag"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du möchtest mit Kasia ins Kino gehen.",
+              "question": "Du möchtest mit Kamil ins Kino gehen.",
               "options": [
                 "Willst wir ins Kino gehen?",
                 "Wollen wir ins Kino gehen?",
@@ -41935,25 +41935,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "A suggestion: „Wollen wir …?“ = Shall we …?",
                 "explanation": "Making a suggestion: „Wollen wir am Samstag schwimmen gehen?“ (Shall we go swimming on Saturday?) Reactions: „Ja, super!“ / „Gute Idee!“ – „Nein, nicht so gern.“ – „Schade, da kann ich nicht.“",
-                "task": "You would like to go to the cinema with Kasia."
+                "task": "You would like to go to the cinema with Kamil."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Предложение: „Wollen wir …?“ – «Давай …?»",
                 "explanation": "Как предложить: „Wollen wir am Samstag schwimmen gehen?“ («Давай в субботу пойдём плавать?») Реакции: „Ja, super!“ / „Gute Idee!“ – „Nein, nicht so gern.“ – „Schade, da kann ich nicht.“",
-                "task": "Вы хотите пойти с Kasia в кино."
+                "task": "Вы хотите пойти с Kamil в кино."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Пропозиція: „Wollen wir …?“ – «Давай …?»",
                 "explanation": "Як запропонувати: „Wollen wir am Samstag schwimmen gehen?“ («Давай у суботу підемо плавати?») Реакції: „Ja, super!“ / „Gute Idee!“ – „Nein, nicht so gern.“ – „Schade, da kann ich nicht.“",
-                "task": "Ви хочете піти з Kasia в кіно."
+                "task": "Ви хочете піти з Kamil в кіно."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Öneri: „Wollen wir …?“ = … yapalım mı?",
                 "explanation": "Öneride bulunma: „Wollen wir am Samstag schwimmen gehen?“ (Cumartesi yüzmeye gidelim mi?) Tepkiler: „Ja, super!“ / „Gute Idee!“ – „Nein, nicht so gern.“ – „Schade, da kann ich nicht.“",
-                "task": "Kasia ile sinemaya gitmek istiyorsunuz."
+                "task": "Kamil ile sinemaya gitmek istiyorsunuz."
               }
             }
           },
@@ -41967,7 +41967,7 @@
                 "reagieren"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Kasia fragt: „Wollen wir Rad fahren?“ Du findest die Idee toll.",
+              "question": "Kamil fragt: „Wollen wir Rad fahren?“ Du findest die Idee toll.",
               "options": [
                 "Nein, nicht so gern.",
                 "Ja, super!",
@@ -41989,25 +41989,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Ja, super! = great, yes! Nein, nicht so gern. = not really. Schade! = What a pity!",
                 "explanation": "Strategies: „Ja, super!“ = Yes, great! „Nein, nicht so gern.“ = Not really. „Schade!“ = What a pity!",
-                "task": "Kasia asks: “Shall we go cycling?” You think the idea is great."
+                "task": "Kamil asks: “Shall we go cycling?” You think the idea is great."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Ja, super! – «Да, отлично!». Nein, nicht so gern. – «Не очень хочется». Schade! – «Жаль!»",
                 "explanation": "Стратегии: „Ja, super!“ – «Да, отлично!». „Nein, nicht so gern.“ – «Нет, не очень хочется». „Schade!“ – «Жаль!».",
-                "task": "Kasia спрашивает: «Покатаемся на велосипеде?» Вам идея очень нравится."
+                "task": "Kamil спрашивает: «Покатаемся на велосипеде?» Вам идея очень нравится."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Ja, super! – «Так, чудово!». Nein, nicht so gern. – «Не дуже хочеться». Schade! – «Шкода!»",
                 "explanation": "Стратегії: „Ja, super!“ – «Так, чудово!». „Nein, nicht so gern.“ – «Ні, не дуже хочеться». „Schade!“ – «Шкода!».",
-                "task": "Kasia запитує: «Покатаємося на велосипеді?» Вам ідея дуже подобається."
+                "task": "Kamil запитує: «Покатаємося на велосипеді?» Вам ідея дуже подобається."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Ja, super! = Evet, harika! Nein, nicht so gern. = Pek istemem. Schade! = Yazık!",
                 "explanation": "Stratejiler: „Ja, super!“ = Evet, harika! „Nein, nicht so gern.“ = Pek istemem. „Schade!“ = Yazık!",
-                "task": "Kasia soruyor: “Bisiklete binelim mi?” Fikri harika buluyorsunuz."
+                "task": "Kamil soruyor: “Bisiklete binelim mi?” Fikri harika buluyorsunuz."
               }
             }
           },
@@ -42075,7 +42075,7 @@
                 "reagieren"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena sagt: „Ich kann am Samstag leider nicht kommen.“",
+              "question": "Oleh sagt: „Ich kann am Samstag leider nicht kommen.“",
               "options": [
                 "Ja, super!",
                 "Schade!",
@@ -42097,25 +42097,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Ja, super! = great, yes! Nein, nicht so gern. = not really. Schade! = What a pity!",
                 "explanation": "Strategies: „Ja, super!“ = Yes, great! „Nein, nicht so gern.“ = Not really. „Schade!“ = What a pity!",
-                "task": "Olena says: “Unfortunately I can’t come on Saturday.”"
+                "task": "Oleh says: “Unfortunately I can’t come on Saturday.”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Ja, super! – «Да, отлично!». Nein, nicht so gern. – «Не очень хочется». Schade! – «Жаль!»",
                 "explanation": "Стратегии: „Ja, super!“ – «Да, отлично!». „Nein, nicht so gern.“ – «Нет, не очень хочется». „Schade!“ – «Жаль!».",
-                "task": "Olena говорит: «К сожалению, в субботу я не смогу прийти»."
+                "task": "Oleh говорит: «К сожалению, в субботу я не смогу прийти»."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Ja, super! – «Так, чудово!». Nein, nicht so gern. – «Не дуже хочеться». Schade! – «Шкода!»",
                 "explanation": "Стратегії: „Ja, super!“ – «Так, чудово!». „Nein, nicht so gern.“ – «Ні, не дуже хочеться». „Schade!“ – «Шкода!».",
-                "task": "Olena каже: «На жаль, у суботу я не зможу прийти»."
+                "task": "Oleh каже: «На жаль, у суботу я не зможу прийти»."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Ja, super! = Evet, harika! Nein, nicht so gern. = Pek istemem. Schade! = Yazık!",
                 "explanation": "Stratejiler: „Ja, super!“ = Evet, harika! „Nein, nicht so gern.“ = Pek istemem. „Schade!“ = Yazık!",
-                "task": "Olena diyor ki: “Maalesef cumartesi gelemiyorum.”"
+                "task": "Oleh diyor ki: “Maalesef cumartesi gelemiyorum.”"
               }
             }
           },
@@ -42533,9 +42533,9 @@
           "card": "p7_perfekt_en",
           "rule": "Perfekt mit haben – unregelmäßige Verben: ge + Stamm + en, oft mit Vokalwechsel: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Ohne Wechsel: lesen → gelesen, sehen → gesehen, essen → gegessen.",
           "examples": [
-            "Ich habe Kasia im Café getroffen.",
+            "Ich habe Kamil im Café getroffen.",
             "Wir haben zusammen Tee getrunken.",
-            "Olena hat lange mit ihrer Mutter gesprochen.",
+            "Oleh hat lange mit seinem Vater gesprochen.",
             "Ich habe eine E-Mail an die Lehrerin geschrieben."
           ],
           "highlight": "verb",
@@ -42619,7 +42619,7 @@
                 "treffen"
               ],
               "instruction": "Ergänze das Partizip.",
-              "text_before": "Ich habe Kasia im Café ",
+              "text_before": "Ich habe Kamil im Café ",
               "text_after": ".",
               "gap_hint": "treffen",
               "correct_answer": "getroffen",
@@ -42643,25 +42643,25 @@
                 "instruction": "Fill in the past participle.",
                 "hint": "Irregular verbs end in -en and often change their vowel – like drink → drunk: trinken → getrunken.",
                 "explanation": "Perfect tense with haben – irregular verbs: ge + stem + en, often with a vowel change: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. No change: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "I met Kasia at the café."
+                "task": "I met Kamil at the café."
               },
               "ru": {
                 "instruction": "Вставьте причастие прошедшего времени (Partizip II).",
                 "hint": "Неправильные глаголы оканчиваются на -en и часто меняют гласную: treffen → getroffen, trinken → getrunken.",
                 "explanation": "Perfekt с haben – неправильные глаголы: ge + основа + en, часто со сменой гласной: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Без смены: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Я встретил(а) Kasia в кафе."
+                "task": "Я встретил(а) Kamil в кафе."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник минулого часу (Partizip II).",
                 "hint": "Неправильні дієслова закінчуються на -en і часто змінюють голосну: treffen → getroffen, trinken → getrunken.",
                 "explanation": "Perfekt із haben – неправильні дієслова: ge + основа + en, часто зі зміною голосної: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Без зміни: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Я зустрів (зустріла) Kasia в кафе."
+                "task": "Я зустрів (зустріла) Kamil в кафе."
               },
               "tr": {
                 "instruction": "Geçmiş zaman ortacını (Partizip II) yazın.",
                 "hint": "Düzensiz fiiller -en ile biter ve sık sık ünlü değiştirir: treffen → getroffen, trinken → getrunken.",
                 "explanation": "haben ile Perfekt – düzensiz fiiller: ge + kök + en, çoğu zaman ünlü değişimiyle: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Değişimsiz: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Kasia ile kafede buluştum."
+                "task": "Kamil ile kafede buluştum."
               }
             }
           },
@@ -42731,7 +42731,7 @@
                 "sprechen"
               ],
               "instruction": "Ergänze das Partizip.",
-              "text_before": "Olena hat lange mit ihrer Mutter ",
+              "text_before": "Oleh hat lange mit seinem Vater ",
               "text_after": ".",
               "gap_hint": "sprechen",
               "correct_answer": "gesprochen",
@@ -42755,25 +42755,25 @@
                 "instruction": "Fill in the past participle.",
                 "hint": "Irregular verbs end in -en and often change their vowel – like drink → drunk: trinken → getrunken.",
                 "explanation": "Perfect tense with haben – irregular verbs: ge + stem + en, often with a vowel change: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. No change: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Olena talked with her mother for a long time."
+                "task": "Oleh talked with his father for a long time."
               },
               "ru": {
                 "instruction": "Вставьте причастие прошедшего времени (Partizip II).",
                 "hint": "Неправильные глаголы оканчиваются на -en и часто меняют гласную: treffen → getroffen, trinken → getrunken.",
                 "explanation": "Perfekt с haben – неправильные глаголы: ge + основа + en, часто со сменой гласной: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Без смены: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Olena долго разговаривала с мамой."
+                "task": "Oleh долго разговаривал с отцом."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник минулого часу (Partizip II).",
                 "hint": "Неправильні дієслова закінчуються на -en і часто змінюють голосну: treffen → getroffen, trinken → getrunken.",
                 "explanation": "Perfekt із haben – неправильні дієслова: ge + основа + en, часто зі зміною голосної: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Без зміни: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Olena довго розмовляла з мамою."
+                "task": "Oleh довго розмовляв з батьком."
               },
               "tr": {
                 "instruction": "Geçmiş zaman ortacını (Partizip II) yazın.",
                 "hint": "Düzensiz fiiller -en ile biter ve sık sık ünlü değiştirir: treffen → getroffen, trinken → getrunken.",
                 "explanation": "haben ile Perfekt – düzensiz fiiller: ge + kök + en, çoğu zaman ünlü değişimiyle: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Değişimsiz: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Olena annesiyle uzun uzun konuştu."
+                "task": "Oleh babasıyla uzun uzun konuştu."
               }
             }
           },
@@ -42921,7 +42921,7 @@
           "examples": [
             "Wir sind nach Leipzig gefahren.",
             "Ich bin mit dem Bus zur Arbeit gefahren.",
-            "Olena ist am Samstag nach Dresden gefahren.",
+            "Oleh ist am Samstag nach Dresden gefahren.",
             "Wir sind um acht Uhr nach Hause gegangen."
           ],
           "highlight": "verb",
@@ -43115,7 +43115,7 @@
                 "haben oder sein"
               ],
               "instruction": "Ergänze haben oder sein in der richtigen Form.",
-              "text_before": "Olena ",
+              "text_before": "Oleh ",
               "text_after": " am Samstag nach Dresden gefahren.",
               "gap_hint": "haben / sein",
               "correct_answer": "ist",
@@ -43139,25 +43139,25 @@
                 "instruction": "Fill in the correct form of haben or sein.",
                 "hint": "Movement from A to B (gehen, fahren, kommen) → perfect tense with sein, not haben.",
                 "explanation": "Perfect tense with sein: verbs of movement from A to B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Most other verbs use haben: Ich habe geschlafen.",
-                "task": "Olena went to Dresden on Saturday."
+                "task": "Oleh went to Dresden on Saturday."
               },
               "ru": {
                 "instruction": "Вставьте haben или sein в правильной форме.",
                 "hint": "Движение из пункта А в пункт Б (gehen, fahren, kommen) → Perfekt с sein, а не с haben.",
                 "explanation": "Perfekt с sein: глаголы движения из пункта А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Большинство других глаголов – с haben: Ich habe geschlafen.",
-                "task": "В субботу Olena поехала в Дрезден."
+                "task": "В субботу Oleh поехал в Дрезден."
               },
               "uk": {
                 "instruction": "Вставте haben або sein у правильній формі.",
                 "hint": "Рух із пункту А в пункт Б (gehen, fahren, kommen) → Perfekt із sein, а не з haben.",
                 "explanation": "Perfekt із sein: дієслова руху з пункту А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Більшість інших дієслів – із haben: Ich habe geschlafen.",
-                "task": "У суботу Olena поїхала до Дрездена."
+                "task": "У суботу Oleh поїхав до Дрездена."
               },
               "tr": {
                 "instruction": "Haben ya da sein fiilini doğru biçimde yazın.",
                 "hint": "A’dan B’ye hareket (gehen, fahren, kommen) → Perfekt haben ile değil, sein ile.",
                 "explanation": "sein ile Perfekt: A’dan B’ye hareket bildiren fiiller: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Diğer fiillerin çoğu haben ile: Ich habe geschlafen.",
-                "task": "Olena cumartesi Dresden’e gitti."
+                "task": "Oleh cumartesi Dresden’e gitti."
               }
             }
           },
@@ -43526,7 +43526,7 @@
           "rule": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
           "examples": [
             "Er hat lange geschlafen.",
-            "Gestern habe ich meine Freundin getroffen.",
+            "Gestern habe ich meinen Freund getroffen.",
             "Ich bin schwimmen gegangen.",
             "Früher habe ich in Charkiw gewohnt, jetzt wohne ich in Leipzig."
           ],
@@ -43557,7 +43557,7 @@
                 "von der Vergangenheit erzählen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Was hat Emre am Samstagmorgen gemacht?",
+              "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Was hat Emre am Samstagmorgen gemacht?",
               "options": [
                 "Er hat gekocht.",
                 "Er hat lange geschlafen.",
@@ -43611,7 +43611,7 @@
                 "von der Vergangenheit erzählen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Wohin ist die Familie am Samstagnachmittag gefahren?",
+              "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wohin ist die Familie am Samstagnachmittag gefahren?",
               "options": [
                 "in den Zoo",
                 "nach Hamburg",
@@ -44972,7 +44972,7 @@
                 "reagieren"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena fragt: „Wollen wir am Sonntag wandern?“ Du möchtest gern mitkommen.",
+              "question": "Oleh fragt: „Wollen wir am Sonntag wandern?“ Du möchtest gern mitkommen.",
               "options": [
                 "Schade!",
                 "Ja, super!",
@@ -44994,25 +44994,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Ja, super! = great, yes! Nein, nicht so gern. = not really. Schade! = What a pity!",
                 "explanation": "Strategies: „Ja, super!“ = Yes, great! „Nein, nicht so gern.“ = Not really. „Schade!“ = What a pity!",
-                "task": "Olena asks: “Shall we go hiking on Sunday?” You would like to come along."
+                "task": "Oleh asks: “Shall we go hiking on Sunday?” You would like to come along."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Ja, super! – «Да, отлично!». Nein, nicht so gern. – «Не очень хочется». Schade! – «Жаль!»",
                 "explanation": "Стратегии: „Ja, super!“ – «Да, отлично!». „Nein, nicht so gern.“ – «Нет, не очень хочется». „Schade!“ – «Жаль!».",
-                "task": "Olena спрашивает: «Пойдём в воскресенье в поход?» Вы с удовольствием пойдёте."
+                "task": "Oleh спрашивает: «Пойдём в воскресенье в поход?» Вы с удовольствием пойдёте."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Ja, super! – «Так, чудово!». Nein, nicht so gern. – «Не дуже хочеться». Schade! – «Шкода!»",
                 "explanation": "Стратегії: „Ja, super!“ – «Так, чудово!». „Nein, nicht so gern.“ – «Ні, не дуже хочеться». „Schade!“ – «Шкода!».",
-                "task": "Olena запитує: «Підемо в неділю в похід?» Ви залюбки підете."
+                "task": "Oleh запитує: «Підемо в неділю в похід?» Ви залюбки підете."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Ja, super! = Evet, harika! Nein, nicht so gern. = Pek istemem. Schade! = Yazık!",
                 "explanation": "Stratejiler: „Ja, super!“ = Evet, harika! „Nein, nicht so gern.“ = Pek istemem. „Schade!“ = Yazık!",
-                "task": "Olena soruyor: “Pazar günü doğa yürüyüşüne çıkalım mı?” Seve seve katılmak istiyorsunuz."
+                "task": "Oleh soruyor: “Pazar günü doğa yürüyüşüne çıkalım mı?” Seve seve katılmak istiyorsunuz."
               }
             }
           },
@@ -45134,7 +45134,7 @@
                 "Fähigkeit"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Olena tanzt nicht so gut. Was sagt sie?",
+              "question": "Oleh tanzt nicht so gut. Was sagt er?",
               "options": [
                 "Ich kann sehr gut tanzen.",
                 "Ich kann nicht so gut tanzen.",
@@ -45156,25 +45156,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "The scale: sehr gut – gut – ein bisschen (a little) – nicht so gut – gar nicht (not at all).",
                 "explanation": "Abilities with a scale: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (a little) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (not at all) Ski fahren.",
-                "task": "Olena doesn’t dance very well. What does she say?"
+                "task": "Oleh doesn’t dance very well. What does he say?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Шкала: sehr gut – gut – ein bisschen (немного) – nicht so gut – gar nicht (совсем не).",
                 "explanation": "Умения по шкале: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (немного) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (совсем не) Ski fahren.",
-                "task": "Olena не очень хорошо танцует. Что она говорит?"
+                "task": "Oleh не очень хорошо танцует. Что он говорит?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Шкала: sehr gut – gut – ein bisschen (трохи) – nicht so gut – gar nicht (зовсім не).",
                 "explanation": "Уміння за шкалою: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (трохи) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (зовсім не) Ski fahren.",
-                "task": "Olena не дуже добре танцює. Що вона каже?"
+                "task": "Oleh не дуже добре танцює. Що він каже?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Sıralama: sehr gut – gut – ein bisschen (biraz) – nicht so gut – gar nicht (hiç).",
                 "explanation": "Derecelerle beceriler: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (biraz) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (hiç) Ski fahren.",
-                "task": "Olena pek iyi dans edemiyor. Ne diyor?"
+                "task": "Oleh pek iyi dans edemiyor. Ne diyor?"
               }
             }
           },
@@ -45408,7 +45408,7 @@
                 "haben oder sein"
               ],
               "instruction": "Ergänze haben oder sein in der richtigen Form.",
-              "text_before": "Kasia ",
+              "text_before": "Kamil ",
               "text_after": " nach Polen gefahren.",
               "gap_hint": "haben / sein",
               "correct_answer": "ist",
@@ -45432,25 +45432,25 @@
                 "instruction": "Fill in the correct form of haben or sein.",
                 "hint": "Movement from A to B (gehen, fahren, kommen) → perfect tense with sein, not haben.",
                 "explanation": "Perfect tense with sein: verbs of movement from A to B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Most other verbs use haben: Ich habe geschlafen.",
-                "task": "Kasia went to Poland."
+                "task": "Kamil went to Poland."
               },
               "ru": {
                 "instruction": "Вставьте haben или sein в правильной форме.",
                 "hint": "Движение из пункта А в пункт Б (gehen, fahren, kommen) → Perfekt с sein, а не с haben.",
                 "explanation": "Perfekt с sein: глаголы движения из пункта А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Большинство других глаголов – с haben: Ich habe geschlafen.",
-                "task": "Kasia поехала в Польшу."
+                "task": "Kamil поехал в Польшу."
               },
               "uk": {
                 "instruction": "Вставте haben або sein у правильній формі.",
                 "hint": "Рух із пункту А в пункт Б (gehen, fahren, kommen) → Perfekt із sein, а не з haben.",
                 "explanation": "Perfekt із sein: дієслова руху з пункту А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Більшість інших дієслів – із haben: Ich habe geschlafen.",
-                "task": "Kasia поїхала до Польщі."
+                "task": "Kamil поїхав до Польщі."
               },
               "tr": {
                 "instruction": "Haben ya da sein fiilini doğru biçimde yazın.",
                 "hint": "A’dan B’ye hareket (gehen, fahren, kommen) → Perfekt haben ile değil, sein ile.",
                 "explanation": "sein ile Perfekt: A’dan B’ye hareket bildiren fiiller: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Diğer fiillerin çoğu haben ile: Ich habe geschlafen.",
-                "task": "Kasia Polonya’ya gitti."
+                "task": "Kamil Polonya’ya gitti."
               }
             }
           },
@@ -46319,7 +46319,7 @@
                 "starker Wunsch"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Kasia möchte sehr, sehr gern ihre Enkelin in Krakau sehen. Was sagt sie?",
+              "question": "Kamil möchte sehr, sehr gern seinen Enkel in Krakau sehen. Was sagt er?",
               "options": [
                 "Ich bin nach Krakau gefahren.",
                 "Ich will unbedingt nach Krakau fahren!",
@@ -46341,25 +46341,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "„Ich will …“ = I want … (a strong wish). Remember: will ≠ English „will“.",
                 "explanation": "Strong wish: „Ich will …“ (I want …) is stronger than „Ich möchte …“ (I would like …): Ich will Deutsch lernen! When you politely ask for something, „Ich möchte …“ is better. Note: ich will ≠ English „I will“.",
-                "task": "Kasia would very, very much like to see her granddaughter in Kraków. What does she say?"
+                "task": "Kamil would very, very much like to see his grandson in Kraków. What does he say?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "„Ich will …“ – сильное желание («я хочу …»). Мягче: „Ich möchte …“.",
                 "explanation": "Сильное желание: „Ich will …“ («я хочу …») сильнее, чем „Ich möchte …“ («я бы хотел …»): Ich will Deutsch lernen! Если вежливо о чём-то просите, лучше „Ich möchte …“.",
-                "task": "Kasia очень-очень хочет увидеть внучку в Кракове. Что она говорит?"
+                "task": "Kamil очень-очень хочет увидеть внука в Кракове. Что он говорит?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "„Ich will …“ – сильне бажання («я хочу …»). М’якше: „Ich möchte …“.",
                 "explanation": "Сильне бажання: „Ich will …“ («я хочу …») сильніше, ніж „Ich möchte …“ («я б хотів …»): Ich will Deutsch lernen! Якщо ввічливо про щось просите, краще „Ich möchte …“.",
-                "task": "Kasia дуже-дуже хоче побачити онуку в Кракові. Що вона каже?"
+                "task": "Kamil дуже-дуже хоче побачити онука в Кракові. Що він каже?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "„Ich will …“ = güçlü bir istek (… istiyorum). Daha kibar: „Ich möchte …“.",
                 "explanation": "Güçlü istek: „Ich will …“ (… istiyorum) „Ich möchte …“dan (… isterim) daha güçlüdür: Ich will Deutsch lernen! Kibarca bir şey isterken „Ich möchte …“ daha iyidir.",
-                "task": "Kasia Krakov’daki torununu çok ama çok görmek istiyor. Ne diyor?"
+                "task": "Kamil Krakov’daki erkek torununu çok ama çok görmek istiyor. Ne diyor?"
               }
             }
           },
@@ -46481,7 +46481,7 @@
                 "reagieren"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena fragt: „Wollen wir ins Kino gehen?“ Du gehst nicht gern ins Kino.",
+              "question": "Oleh fragt: „Wollen wir ins Kino gehen?“ Du gehst nicht gern ins Kino.",
               "options": [
                 "Ja, super!",
                 "Nein, nicht so gern.",
@@ -46503,25 +46503,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Ja, super! = great, yes! Nein, nicht so gern. = not really. Schade! = What a pity!",
                 "explanation": "Strategies: „Ja, super!“ = Yes, great! „Nein, nicht so gern.“ = Not really. „Schade!“ = What a pity!",
-                "task": "Olena asks: “Shall we go to the cinema?” You don’t like going to the cinema."
+                "task": "Oleh asks: “Shall we go to the cinema?” You don’t like going to the cinema."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Ja, super! – «Да, отлично!». Nein, nicht so gern. – «Не очень хочется». Schade! – «Жаль!»",
                 "explanation": "Стратегии: „Ja, super!“ – «Да, отлично!». „Nein, nicht so gern.“ – «Нет, не очень хочется». „Schade!“ – «Жаль!».",
-                "task": "Olena спрашивает: «Пойдём в кино?» Вы не любите ходить в кино."
+                "task": "Oleh спрашивает: «Пойдём в кино?» Вы не любите ходить в кино."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Ja, super! – «Так, чудово!». Nein, nicht so gern. – «Не дуже хочеться». Schade! – «Шкода!»",
                 "explanation": "Стратегії: „Ja, super!“ – «Так, чудово!». „Nein, nicht so gern.“ – «Ні, не дуже хочеться». „Schade!“ – «Шкода!».",
-                "task": "Olena запитує: «Підемо в кіно?» Ви не любите ходити в кіно."
+                "task": "Oleh запитує: «Підемо в кіно?» Ви не любите ходити в кіно."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Ja, super! = Evet, harika! Nein, nicht so gern. = Pek istemem. Schade! = Yazık!",
                 "explanation": "Stratejiler: „Ja, super!“ = Evet, harika! „Nein, nicht so gern.“ = Pek istemem. „Schade!“ = Yazık!",
-                "task": "Olena soruyor: “Sinemaya gidelim mi?” Sinemaya gitmeyi sevmiyorsunuz."
+                "task": "Oleh soruyor: “Sinemaya gidelim mi?” Sinemaya gitmeyi sevmiyorsunuz."
               }
             }
           },
