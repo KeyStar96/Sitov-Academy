@@ -10,6 +10,8 @@ import type { PathAnswer, PathMap, PathNode, PracticeRun, PracticeResult, PathTe
 import { pathErrorText, pathTranslator } from '@/lib/learning-path-i18n'
 import { OrthographyNote } from '@/components/exercises/SoftErrorBadge'
 import FeedbackMotion from '@/components/motion/FeedbackMotion'
+import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import { useLearningNew } from '@/components/dashboard/useLearningNew'
 import { studentTranslator } from '@/lib/student-ui-i18n'
@@ -62,6 +64,8 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   recommendationAccountKey?: string
 }) {
   const t = pathTranslator(lang)
+  const help = sitovTrainerHelpCopy(lang)
+  const contextHelp = <section aria-label={help.pathTitle} lang={lang}><SitovTrainerHelp title={help.label}><h3>{help.pathTitle}</h3><p>{help.pathBody}</p></SitovTrainerHelp></section>
   const newLabel = studentTranslator(lang)('media_new')
   const news = useLearningNew(newItems)
   const [map, setMap] = useState(initialPath)
@@ -255,6 +259,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
           </>}
           </SitovMotionStage>
         </div>
+        {contextHelp}
       </LearningScreen>
     </section>
   }
@@ -282,6 +287,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       {map && map.paths.length === 0 && <p>{t('empty')}</p>}
     </SitovMotionStage>
     {recommendationAccountKey && <SitovLearningRecommendations topicIds={recommendationTopicIds ?? []} lang={lang} accountKey={recommendationAccountKey} />}
+    {contextHelp}
     <TestChoice choice={choice} lang={lang} busy={busy} onClose={() => setChoice(null)}
       onReview={target => showReview(target)} onStart={target => openNode(target.node, target.title, target.pathId, true)} />
   </section>

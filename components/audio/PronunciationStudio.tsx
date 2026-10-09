@@ -17,6 +17,8 @@ import type { PronunciationPrompt } from '@/lib/pronunciation-prompts'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { usePronunciationCheckpoint } from '@/lib/audio/usePronunciationCheckpoint'
 import type { PronunciationCheckpointSnapshot } from '@/lib/pronunciation-checkpoint'
+import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import SitovPronunciationScene from '@/components/audio/SitovPronunciationScene'
 import { sitovReadingCopy } from '@/lib/sitov-reading-i18n'
@@ -210,6 +212,7 @@ function RecordingStudio({ prompts, statuses, level, lang, translations, onOpenM
 }) {
   const t = createPronunciationTranslator(translations)
   const readingCopy = sitovReadingCopy(lang)
+  const help = sitovTrainerHelpCopy(lang)
   const s = studentTranslator(lang)
   const news = useLearningNew(newItems)
   const reduced = useReducedMotion() ?? false
@@ -347,6 +350,7 @@ function RecordingStudio({ prompts, statuses, level, lang, translations, onOpenM
           <AudioRecorder key={selected.id} promptId={selected.id} textVersion={textVersion} level={level} translations={translations}
             onRecordingStateChange={busy => { setRecordingBusy(busy); onBusyChange(busy) }} onPhaseChange={setPhase} mobileFloating />
           <p className="px-3 text-center text-base leading-relaxed text-[var(--muted)]">{t('recording_privacy')}</p>
+          <section aria-label={help.recordingTitle} lang={lang}><SitovTrainerHelp title={help.label}><h3>{help.recordingTitle}</h3><p>{help.recordingBody}</p></SitovTrainerHelp></section>
         </div>
       </div>
     </div>
