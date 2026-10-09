@@ -39,3 +39,16 @@ export const sitovSpecialAuthorResultSchema=z.discriminatedUnion('ok',[
 ])
 export type SitovSpecialAuthorResult=z.infer<typeof sitovSpecialAuthorResultSchema>
 export type SitovSpecialAuthorContextResult=z.infer<typeof sitovSpecialAuthorContextResultSchema>
+
+export const sitovSpecialPublicationStateInputSchema=z.object({nodeId:z.uuid(),definitionId:z.uuid(),definitionVersion:hash,sourceSha256:hash,baseActiveDefinitionId:z.uuid().nullable()}).strict()
+export const sitovSpecialPublicationInputSchema=sitovSpecialPublicationStateInputSchema.extend({requestId:z.uuid()}).strict()
+const publicationFailure=z.object({ok:z.literal(false),error:z.enum(['authentication_required','invalid_input','not_found','version_conflict','request_conflict','authoring_not_ready','retryable_failure']),retryable:z.boolean()}).strict().refine(v=>v.retryable===(v.error==='retryable_failure'))
+const publicationData=z.object({nodeId:z.uuid(),definitionId:z.uuid(),definitionVersion:hash,sourceSha256:hash,activeDefinitionId:z.uuid().nullable()}).strict()
+export const sitovSpecialPublicationStateResultSchema=z.discriminatedUnion('ok',[
+ z.object({ok:z.literal(true),data:publicationData.extend({ready:z.boolean()}).strict()}).strict(),publicationFailure,
+])
+export const sitovSpecialPublicationResultSchema=z.discriminatedUnion('ok',[
+ z.object({ok:z.literal(true),data:publicationData.extend({activeDefinitionId:z.uuid(),active:z.literal(true),published:z.literal(true)}).strict()}).strict().refine(v=>v.data.activeDefinitionId===v.data.definitionId),publicationFailure,
+])
+export type SitovSpecialPublicationStateResult=z.infer<typeof sitovSpecialPublicationStateResultSchema>
+export type SitovSpecialPublicationResult=z.infer<typeof sitovSpecialPublicationResultSchema>

@@ -13,3 +13,11 @@ export async function createSitovLearningSpecialDraft(input:unknown){
  const {createSitovSpecialAuthorDraft}=await import('@/lib/learning/sitov-learning-specials-staff-server')
  return createSitovSpecialAuthorDraft(input)
 }
+export async function getSitovLearningSpecialPublication(input:unknown){
+ const {loadSitovSpecialPublicationState}=await import('@/lib/learning/sitov-learning-specials-staff-server')
+ return loadSitovSpecialPublicationState(input)
+}
+export async function publishSitovLearningSpecial(input:unknown){
+ const {publishSitovSpecial}=await import('@/lib/learning/sitov-learning-specials-staff-server')
+ return publishSitovSpecial(input)
+}
