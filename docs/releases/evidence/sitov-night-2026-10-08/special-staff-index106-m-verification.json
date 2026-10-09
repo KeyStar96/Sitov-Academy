@@ -1,0 +1,33 @@
+{
+  "group_id": "SITOV-NIGHT-2026-10-08",
+  "at": "2026-10-09T02:58:40.809615+00:00",
+  "featureIntegrationSha": "58291bd46ca8afd2abb404c149fc1733923a2074",
+  "sourceWorkerSha": "2214138d513407a311cd7f1fe9374fa0ab06f15b",
+  "migrationSha256": "a3c9c999aa5196e9dd37612f2f9cfe9781afd4ffda062d511fed40c3019e8879",
+  "canonicalSchemaSha256": "c2735b35df3d0d30fc4b5005de0f04d039161b45c780c0d0d15458588ece316b",
+  "canonicalBlockCount": 1,
+  "native": {
+    "pass": 1,
+    "fail": 0,
+    "skips": 0,
+    "scope": "Synthetic PostgreSQL17 through105+106; actualstaffroles/MFA/revoke,active/inactive,currenthash,foreign/missing/ambiguousbindings,realREADONLY,privateACL,1000stablecap,rights/history preserved; no actualStoragebytes asserted"
+  },
+  "jest": {
+    "pass": 7,
+    "scope": "Strictcookie DAL/action DTO/unknownfields/duplicates/foreignlevel/identity/auth/transport failclosed"
+  },
+  "fullTypeScript": "PASS",
+  "scopedEslint": "PASS_ZERO_WARNINGS",
+  "logs": {
+    "native": "/tmp/sitov-night-m-index106-native.log",
+    "jest": "/tmp/sitov-night-m-index106-jest.log",
+    "tsc": "/tmp/sitov-night-m-index106-tsc.log",
+    "lint": "/tmp/sitov-night-m-index106-lint.log"
+  },
+  "qaInstalledThrough": 105,
+  "realHttpIndex106": "NOT_RUN",
+  "teacherRoute": "NOT_MOUNTED",
+  "finalBuild": "PENDING",
+  "productionWrite": false,
+  "releaseReady": false
+}
