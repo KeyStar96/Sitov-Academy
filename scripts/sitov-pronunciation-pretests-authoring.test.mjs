@@ -2,7 +2,12 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sitovActualManifest51=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovLatestMReviewed45=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovMReview45Raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/pools43-45-editorial-review.json','utf8'),sitovMReview45=JSON.parse(sitovMReview45Raw)
+// Restore author51 reviews BEFORE freezing previous42 and every immutable historical proof.
+const sitovBeforeMReviewed45=structuredClone(sitovLatestMReviewed45)
+for(const r of sitovMReview45.approvedEditorialDrafts)sitovBeforeMReviewed45.drafts.find(d=>d.textId===r.textId).review=r.previousReview
+const sitovActualManifest51=structuredClone(sitovBeforeMReviewed45)
 const sitovEpoch51=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch51-pools43-45-author-review.json','utf8'))
 // Freeze exact current M-reviewed42 BEFORE M42, quality21 and every older111 proof.
 const sitovLatestMReviewed42=structuredClone(sitovActualManifest51)
@@ -1294,3 +1299,5 @@ test('actual45 negative guards reject false source/units/forms/topics/audio, hid
  for(const[i,id]of [[0,'nominal.q1'],[1,'nominal.q1'],[2,'nominal.q1'],[2,'verbs.q6']]){const ds=structuredClone(sitovActualManifest51.drafts.slice(42));ds[i].definition.tasks.find(q=>q.id.endsWith(id)).promptDe='Welche Form passt?';assert.throws(()=>sitovAssert51Keys(ds))}
  const lexical=structuredClone(sitovActualManifest51.drafts.slice(42)),q=lexical[0].definition.tasks.find(q=>q.id.endsWith('verbs.q5'));q.options.find(o=>o.id===q.correctOptionId).textDe='Ein Gespräch beginnen.';assert.throws(()=>sitovAssert51Keys(lexical))
 })
+
+test('actual45 M review binds all72 B1.1 tasks and preserves full42 before all115 immutable proofs',()=>{assert.equal(sitovLatestMReviewed45.drafts.length,45);assert.deepEqual(sitovValidatePretestDrafts(sitovLatestMReviewed45,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovLatestMReviewed45,sitovActualAudio51),[]);assert.deepEqual(sitovLatestMReviewed45.drafts.slice(0,42),sitovBeforeMReviewed45.drafts.slice(0,42));for(const r of sitovMReview45.approvedEditorialDrafts){const d=sitovLatestMReviewed45.drafts.find(d=>d.textId===r.textId);assert.equal(d.review.documentSha256,sitovHash(sitovMReview45Raw));assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false);assert.deepEqual(d.definition.tasks.map(q=>({questionId:q.id,correctTextDe:q.options.find(o=>o.id===q.correctOptionId).textDe})),r.correctAnswerTexts)}})

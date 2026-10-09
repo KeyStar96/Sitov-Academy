@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools43-45-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T19:07:00.757Z",
+  "sourceCommit": "805f92a7808641423197b1b71ead2381844e40a0",
+  "scope": "M independently read all72 public questions/options/keys/rationales, all3 full canonicalB1.1sort3–5 sources and12core records. Friendship testsactualPerfektsein,strongPräteritum,reflexivepronoun,trennbarezu,relative/dass/damit/AlsclausesandfrontedPerfekt. Houseworkincludesmodalinfinitive,reciprocalzuhören,relative/indirectquestion/stattzu/conditional/contraststructures. NewscheckincludesrealBevorchronology,reflexivehandeln,modalindirectquestionandcoordinatedpostverbalSubject. Publiccase/possession/locationpremises andcomparedforms make nominalkeysunique. Samefielddistractors andlearnerformcontrasts fit instructionalgrammar conventions; no sourcehiddenfactsrequired. Allprevious42 including separatelyMreviewedquality18andquality21/full4032aliases unchangedagainstexacte1e61828. Existingmappings honestlypending exactsamelevelunits. No humanreview/listening, empiricalcalibration,CEFR/fullmasterycertificationclaim.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "6c82bbd79afc4a2608255de6c03bdb629acf3791645042bc5a4e57ffa82e3f5e",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "f0c48467-2e7b-53ef-acde-b08564514ba9",
+      "textVersion": "ad5c6458d11f8b7110edf9767e57489a77c3a4769b8c463d0a261e62b0a07090",
+      "definitionContentHash": "3d5aed347629882a147ac9b401f0d95c7f4fd176903ddb740b2d64329defaff9",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "ad5c6458d11f8b7110edf9767e57489a77c3a4769b8c463d0a261e62b0a07090",
+        "definitionContentHash": "3d5aed347629882a147ac9b401f0d95c7f4fd176903ddb740b2d64329defaff9"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-03.words.q1",
+          "correctTextDe": "Ich empfand wenig Gesellschaft oder Nähe zu anderen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q2",
+          "correctTextDe": "Ein Kontakt zu einer Person, die man kennt, oft noch ohne enge Bindung."
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q3",
+          "correctTextDe": "Eine persönliche Beziehung mit gegenseitiger Nähe und Vertrauen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q4",
+          "correctTextDe": "Verbindungen und Austausch mit anderen Menschen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q5",
+          "correctTextDe": "Die Gespräche entstehen fast ohne gezielte Anstrengung."
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q6",
+          "correctTextDe": "Es kostete mich Mühe, mit anderen ein Gespräch zu beginnen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q1",
+          "correctTextDe": "Perfekt mit sein."
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q2",
+          "correctTextDe": "mich"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q3",
+          "correctTextDe": "vorschlagen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q4",
+          "correctTextDe": "entschied"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q5",
+          "correctTextDe": "anzusprechen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q6",
+          "correctTextDe": "geworden"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q1",
+          "correctTextDe": "ich nach Hannover gezogen bin"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q2",
+          "correctTextDe": "einen Kurs zu besuchen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q3",
+          "correctTextDe": "der nichts mit meinem Beruf zu tun hatte"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q4",
+          "correctTextDe": "Kontakte Zeit brauchen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q5",
+          "correctTextDe": "aus einem ersten Gespräch mehr entsteht"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q6",
+          "correctTextDe": "sind inzwischen Freundschaften geworden"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q1",
+          "correctTextDe": "meinem"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q2",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q3",
+          "correctTextDe": "gemeinsamen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q4",
+          "correctTextDe": "ersten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q5",
+          "correctTextDe": "die Freundschaften"
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q6",
+          "correctTextDe": "mehr"
+        }
+      ]
+    },
+    {
+      "textId": "a32ba623-4578-55b4-9b44-b717c857a46c",
+      "textVersion": "a7e24452f72bf0e76b4930469a1615bd5ee30f3ac39ad66030d87d4a4bd3298c",
+      "definitionContentHash": "d9a0f5bf801c82b8b8cef41864b6d1c8173449855037c836c94b551057f44b1f",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "a7e24452f72bf0e76b4930469a1615bd5ee30f3ac39ad66030d87d4a4bd3298c",
+        "definitionContentHash": "d9a0f5bf801c82b8b8cef41864b6d1c8173449855037c836c94b551057f44b1f"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-04.words.q1",
+          "correctTextDe": "Ein Konflikt darüber, wie die Hausarbeit erledigt wird."
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q2",
+          "correctTextDe": "Die gemeinsamen Wohnräume sauber halten."
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q3",
+          "correctTextDe": "Dass das Nichtbemerken behauptet, aber nicht als sicher bestätigt wird."
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q4",
+          "correctTextDe": "So früh informieren, dass die anderen noch planen können."
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q5",
+          "correctTextDe": "Jemanden über etwas informieren."
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q6",
+          "correctTextDe": "Gemeinsam vereinbarte Regeln dazu, wer was erledigt."
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q1",
+          "correctTextDe": "gab"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q2",
+          "correctTextDe": "putzten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q3",
+          "correctTextDe": "uns"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q4",
+          "correctTextDe": "übernehmen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q5",
+          "correctTextDe": "geholfen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q6",
+          "correctTextDe": "zuzuhören"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q1",
+          "correctTextDe": "Das gemeinsame Gespräch ersetzt das bloße Schreiben von Nachrichten."
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q2",
+          "correctTextDe": "welche Aufgaben er übernehmen konnte"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q3",
+          "correctTextDe": "der jede Woche wechselt"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q4",
+          "correctTextDe": "Fehlende Zeit ist die Bedingung für das Bescheidgeben."
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q5",
+          "correctTextDe": "Die Stimmung verbessert sich trotz weiterhin bestehender Probleme."
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q6",
+          "correctTextDe": "vereinbarten wir, rechtzeitig Bescheid zu geben"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q1",
+          "correctTextDe": "unserer"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q2",
+          "correctTextDe": "die"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q3",
+          "correctTextDe": "einfachen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q4",
+          "correctTextDe": "jede"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q5",
+          "correctTextDe": "uns"
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q6",
+          "correctTextDe": "besser"
+        }
+      ]
+    },
+    {
+      "textId": "525d59e3-5cad-543c-820a-b9316809645f",
+      "textVersion": "3213e47f04578d281902558235bf23c78c4d536b51ed7baa89d217f92f68f61f",
+      "definitionContentHash": "c651c929c28ada1f625cfe77d5a4683dc88515efb3ad133533b99bdb00f05cd0",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "3213e47f04578d281902558235bf23c78c4d536b51ed7baa89d217f92f68f61f",
+        "definitionContentHash": "c651c929c28ada1f625cfe77d5a4683dc88515efb3ad133533b99bdb00f05cd0"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-05.words.q1",
+          "correctTextDe": "Eine behauptete Änderung, deren Richtigkeit noch nicht feststeht."
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q2",
+          "correctTextDe": "Viele machten sich Sorgen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q3",
+          "correctTextDe": "Man sendet die Nachricht an weitere Empfänger."
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q4",
+          "correctTextDe": "Die Herkunft der Information."
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q5",
+          "correctTextDe": "Die Schule selbst um eine Auskunft bitten."
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q6",
+          "correctTextDe": "Die Stelle, die für diese Auskunft verantwortlich ist."
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q1",
+          "correctTextDe": "bekam"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q2",
+          "correctTextDe": "weiterleiten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q3",
+          "correctTextDe": "sich"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q4",
+          "correctTextDe": "gezeigt"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q5",
+          "correctTextDe": "entstehen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q6",
+          "correctTextDe": "helfen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q1",
+          "correctTextDe": "Zuerst prüfte ich die Webseite, danach leitete ich die Nachricht weiter."
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q2",
+          "correctTextDe": "es sich um eine alte Information handelte"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q3",
+          "correctTextDe": "wie schnell Missverständnisse entstehen können"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q4",
+          "correctTextDe": "schrieb ich eine kurze Erklärung"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q5",
+          "correctTextDe": "ich die Nachricht weiterleitete"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q6",
+          "correctTextDe": "das Datum, die Quelle und eine direkte Nachfrage"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q1",
+          "correctTextDe": "einer"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q2",
+          "correctTextDe": "eine"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q3",
+          "correctTextDe": "kurze"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q4",
+          "correctTextDe": "wichtige"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q5",
+          "correctTextDe": "zuständigen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q6",
+          "correctTextDe": "lieber"
+        }
+      ]
+    }
+  ]
+}
