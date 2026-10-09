@@ -1,0 +1,209 @@
+[
+  {
+    "locale": "de",
+    "at": "2026-10-09T10:33:38.583Z",
+    "pronunciation": {
+      "german": [
+        "Guten Tag, das bin ich",
+        "Guten Tag, das bin ich",
+        "Mein Frühstück",
+        "Unser Kursraum",
+        "Ein neuer Nachbar",
+        "Am Samstag im Park",
+        "Mein Zimmer",
+        "Im kleinen Laden",
+        "Meine Familie",
+        "Der Weg zum Kurs",
+        "Ein ruhiger Abend",
+        "Guten Tag, das bin ich"
+      ],
+      "lang": "de",
+      "links": [
+        {
+          "href": "/de/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Verbformen üben"
+        },
+        {
+          "href": "/de/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Satzübungen"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Noch nicht bestanden\n\n0 von 12 richtig\n\nVerbformen üben\nSatzübungen"
+      ],
+      "width": 390
+    },
+    "landingURL": "http://127.0.0.1:3143/de/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landing": {
+      "checked": [
+        false
+      ],
+      "fixedNavigation": [
+        {
+          "bottom": 834,
+          "label": "Hauptnavigation",
+          "top": 760.8125
+        },
+        {
+          "bottom": 171,
+          "label": "Lernbereiche von A1.1",
+          "top": 105
+        }
+      ],
+      "focus": {
+        "label": "Hinzufügen: heißen",
+        "tag": "BUTTON",
+        "text": "Hinzufügen"
+      },
+      "lang": "de",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 737.8203125,
+          "label": "Ausgewähltes Lernziel: heißen",
+          "text": "A1.1\nheißen\n\nheißen\n\nHinzufügen",
+          "top": 633.5625
+        },
+        {
+          "bottom": 696.5625,
+          "label": "Hinzufügen: heißen",
+          "text": "Hinzufügen",
+          "top": 650.5625
+        }
+      ],
+      "width": 390
+    },
+    "sourceSha": "5d665d1cd9598523f2e9df89acc6bcedef732af1",
+    "evidenceSanitization": "Broad-selector ancestor text and BODY text included scripts; omitted. Short observed German content titles, links, state, selected controls and geometry retained.",
+    "acceptance": "PASS_BOUNDED"
+  },
+  {
+    "locale": "uk",
+    "at": "2026-10-09T10:35:53.825Z",
+    "pronunciation": {
+      "german": [
+        "Guten Tag, das bin ich",
+        "Guten Tag, das bin ich",
+        "Mein Frühstück",
+        "Unser Kursraum",
+        "Ein neuer Nachbar",
+        "Am Samstag im Park",
+        "Mein Zimmer",
+        "Im kleinen Laden",
+        "Meine Familie",
+        "Der Weg zum Kurs",
+        "Ein ruhiger Abend",
+        "Guten Tag, das bin ich"
+      ],
+      "lang": "uk",
+      "links": [
+        {
+          "href": "/uk/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Повторити форми дієслів"
+        },
+        {
+          "href": "/uk/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Вправи з реченнями"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Ще не пройдено\n\nПравильно: 0 з 12\n\nПовторити форми дієслів\nВправи з реченнями"
+      ],
+      "width": 390
+    },
+    "landingError": "Не вдалося. Спробуй ще раз.",
+    "landingURL": "http://127.0.0.1:3143/uk/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landing": {
+      "checked": [],
+      "fixedNavigation": [
+        {
+          "bottom": 834,
+          "label": "Головна навігація",
+          "top": 760.8125
+        },
+        {
+          "bottom": 174.984375,
+          "label": "Навчальні розділи рівня A1.1",
+          "top": 108.984375
+        }
+      ],
+      "focus": {
+        "label": null,
+        "tag": "BODY"
+      },
+      "lang": "uk",
+      "scrollWidth": 390,
+      "selected": [],
+      "width": 390
+    },
+    "sourceSha": "5d665d1cd9598523f2e9df89acc6bcedef732af1",
+    "evidenceSanitization": "Broad-selector ancestor text and BODY text included scripts; omitted. Short observed German content titles, links, state, selected controls and geometry retained.",
+    "acceptance": "FAIL_TARGET_LOADER"
+  },
+  {
+    "locale": "tr",
+    "at": "2026-10-09T10:37:52.450Z",
+    "pronunciation": {
+      "german": [
+        "Guten Tag, das bin ich",
+        "Guten Tag, das bin ich",
+        "Mein Frühstück",
+        "Unser Kursraum",
+        "Ein neuer Nachbar",
+        "Am Samstag im Park",
+        "Mein Zimmer",
+        "Im kleinen Laden",
+        "Meine Familie",
+        "Der Weg zum Kurs",
+        "Ein ruhiger Abend",
+        "Guten Tag, das bin ich"
+      ],
+      "lang": "tr",
+      "links": [
+        {
+          "href": "/tr/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Fiil biçimlerini çalış"
+        },
+        {
+          "href": "/tr/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Cümle alıştırmaları"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Henüz geçilmedi\n\n12 sorudan 0 doğru\n\nFiil biçimlerini çalış\nCümle alıştırmaları"
+      ],
+      "width": 390
+    },
+    "landingError": "Bir sorun oluştu. Lütfen tekrar dene.",
+    "landingURL": "http://127.0.0.1:3143/tr/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landing": {
+      "checked": [],
+      "fixedNavigation": [
+        {
+          "bottom": 834,
+          "label": "Ana gezinme",
+          "top": 760.8125
+        },
+        {
+          "bottom": 174.984375,
+          "label": "A1.1 öğrenme alanları",
+          "top": 108.984375
+        }
+      ],
+      "focus": {
+        "label": null,
+        "tag": "BODY"
+      },
+      "lang": "tr",
+      "scrollWidth": 390,
+      "selected": [],
+      "width": 390
+    },
+    "sourceSha": "5d665d1cd9598523f2e9df89acc6bcedef732af1",
+    "evidenceSanitization": "Broad-selector ancestor text and BODY text included scripts; omitted. Short observed German content titles, links, state, selected controls and geometry retained.",
+    "acceptance": "FAIL_TARGET_LOADER"
+  }
+]

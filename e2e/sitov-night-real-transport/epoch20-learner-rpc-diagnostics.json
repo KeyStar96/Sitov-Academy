@@ -1,0 +1,24 @@
+[
+  {
+    "rpc": "get_learning_new_items",
+    "httpStatus": 200,
+    "responseKeys": [
+      "items",
+      "lessons",
+      "level",
+      "success"
+    ],
+    "responseType": "dict"
+  },
+  {
+    "rpc": "get_last_active_level",
+    "httpStatus": 200,
+    "responseKeys": [
+      "level",
+      "levels",
+      "mode",
+      "source"
+    ],
+    "responseType": "dict"
+  }
+]
