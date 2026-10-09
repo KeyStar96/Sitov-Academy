@@ -1,0 +1,159 @@
+{
+  "passed": false,
+  "target": "8b83a421748dce9c8a2d2e38712cb5526ad5e2bb",
+  "checks": [
+    {
+      "check": "zero old vocabulary/verb/path evidence",
+      "passed": true
+    },
+    {
+      "check": "reference target hidden before individual pass",
+      "passed": true
+    },
+    {
+      "check": "new recording ticket denied before pass",
+      "passed": true
+    },
+    {
+      "check": "zeroevidence learner starts actual current test",
+      "passed": true
+    },
+    {
+      "check": "explicit private keys absent from public DTO",
+      "passed": true
+    },
+    {
+      "check": "public option receipts opaque and unique",
+      "passed": true
+    },
+    {
+      "check": "start retry exact attempt",
+      "passed": true
+    },
+    {
+      "check": "foreign attempt denied",
+      "passed": true
+    },
+    {
+      "check": "grader uses only guarded private own-attempt answer keys",
+      "passed": true
+    },
+    {
+      "check": "stale revision denied",
+      "passed": true
+    },
+    {
+      "check": "answers saved persistently",
+      "passed": true
+    },
+    {
+      "check": "save exact retry",
+      "passed": true
+    },
+    {
+      "check": "actual persisted individual pass",
+      "passed": true
+    },
+    {
+      "check": "double submit returns exact receipt",
+      "passed": true
+    },
+    {
+      "check": "exactly passed first3 text reference unlocks",
+      "passed": true
+    },
+    {
+      "check": "real QA MP3 bytes match stored hash; synthetic recording copy",
+      "passed": true
+    },
+    {
+      "check": "anonymous direct private reference object denied",
+      "passed": true
+    },
+    {
+      "check": "learner direct private reference object denied",
+      "passed": true
+    },
+    {
+      "check": "foreign direct private reference object denied",
+      "passed": true
+    },
+    {
+      "check": "another text still test_required",
+      "passed": true
+    },
+    {
+      "check": "ticket issued after exact pass",
+      "passed": true
+    },
+    {
+      "check": "ticket retry stable",
+      "passed": true
+    },
+    {
+      "check": "foreign cannot upload owned ticket path",
+      "passed": true
+    },
+    {
+      "check": "unticketed own path denied",
+      "passed": true
+    },
+    {
+      "check": "actual ticket-authorized MP3 upload",
+      "passed": true
+    },
+    {
+      "check": "same-path byte collision denied",
+      "passed": true
+    },
+    {
+      "check": "uploaded bytes preserved",
+      "passed": true
+    },
+    {
+      "check": "wrong text submission denied",
+      "passed": true
+    },
+    {
+      "check": "actual recorded-copy submission persists",
+      "passed": true
+    },
+    {
+      "check": "submission retry identical historical receipt",
+      "passed": true
+    },
+    {
+      "check": "foreign cannot read private submission audio",
+      "passed": true
+    },
+    {
+      "check": "historical reply ticket available",
+      "passed": true
+    },
+    {
+      "check": "reply purpose cannot submit new target",
+      "passed": true
+    }
+  ],
+  "error_type": "AttributeError",
+  "failure": "sanitized protocol failure",
+  "target_diagnostics": {
+    "http_status": 200,
+    "response_type": "list",
+    "visible_row_count": 1,
+    "passed_target_visible": true,
+    "first3_visible_count": 1,
+    "private_gate_probe": {
+      "current_pass": true,
+      "item_allowed": true,
+      "unit_allowed": true
+    }
+  },
+  "nextBrowserTested": false,
+  "last_http": {
+    "status": 200,
+    "binary": false
+  },
+  "onlyOwnFixtureCleanupPassed": true,
+  "newSyntheticAccounts": 3
+}

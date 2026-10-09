@@ -1,0 +1,260 @@
+{
+  "passed": true,
+  "target": "8b83a421748dce9c8a2d2e38712cb5526ad5e2bb",
+  "checks": [
+    {
+      "check": "zero old vocabulary/verb/path evidence",
+      "passed": true
+    },
+    {
+      "check": "reference target hidden before individual pass",
+      "passed": true
+    },
+    {
+      "check": "new recording ticket denied before pass",
+      "passed": true
+    },
+    {
+      "check": "zeroevidence learner starts actual current test",
+      "passed": true
+    },
+    {
+      "check": "explicit private keys absent from public DTO",
+      "passed": true
+    },
+    {
+      "check": "public option receipts opaque and unique",
+      "passed": true
+    },
+    {
+      "check": "start retry exact attempt",
+      "passed": true
+    },
+    {
+      "check": "foreign attempt denied",
+      "passed": true
+    },
+    {
+      "check": "grader uses only guarded private own-attempt answer keys",
+      "passed": true
+    },
+    {
+      "check": "stale revision denied",
+      "passed": true
+    },
+    {
+      "check": "answers saved persistently",
+      "passed": true
+    },
+    {
+      "check": "save exact retry",
+      "passed": true
+    },
+    {
+      "check": "actual persisted individual pass",
+      "passed": true
+    },
+    {
+      "check": "double submit returns exact receipt",
+      "passed": true
+    },
+    {
+      "check": "exactly passed first3 text reference unlocks",
+      "passed": true
+    },
+    {
+      "check": "real QA MP3 bytes match stored hash; synthetic recording copy",
+      "passed": true
+    },
+    {
+      "check": "anonymous direct private reference object denied",
+      "passed": true
+    },
+    {
+      "check": "learner direct private reference object denied",
+      "passed": true
+    },
+    {
+      "check": "foreign direct private reference object denied",
+      "passed": true
+    },
+    {
+      "check": "another text still test_required",
+      "passed": true
+    },
+    {
+      "check": "ticket issued after exact pass",
+      "passed": true
+    },
+    {
+      "check": "ticket retry stable",
+      "passed": true
+    },
+    {
+      "check": "foreign cannot upload owned ticket path",
+      "passed": true
+    },
+    {
+      "check": "unticketed own path denied",
+      "passed": true
+    },
+    {
+      "check": "actual ticket-authorized MP3 upload",
+      "passed": true
+    },
+    {
+      "check": "same-path byte collision denied",
+      "passed": true
+    },
+    {
+      "check": "uploaded bytes preserved",
+      "passed": true
+    },
+    {
+      "check": "wrong text submission denied",
+      "passed": true
+    },
+    {
+      "check": "actual recorded-copy submission persists",
+      "passed": true
+    },
+    {
+      "check": "submission retry identical historical receipt",
+      "passed": true
+    },
+    {
+      "check": "foreign cannot read private submission audio",
+      "passed": true
+    },
+    {
+      "check": "historical reply ticket available",
+      "passed": true
+    },
+    {
+      "check": "reply purpose cannot submit new target",
+      "passed": true
+    },
+    {
+      "check": "own QA teacher commercially revokes pronunciation",
+      "passed": true
+    },
+    {
+      "check": "revocation closes passed target reference",
+      "passed": true
+    },
+    {
+      "check": "revocation denies new target ticket",
+      "passed": true
+    },
+    {
+      "check": "historical submission snapshot preserved after revoke",
+      "passed": true
+    },
+    {
+      "check": "historical consumed receipt retry preserved after revoke",
+      "passed": true
+    }
+  ],
+  "syntheticRecording": true,
+  "realMP3ShaChecked": true,
+  "beforeHealth": {
+    "at": "2026-10-09T00:19:29.876143+00:00",
+    "network": "sitov-night-20261008-qa-isolated",
+    "gateway_url": "http://10.0.3.3:8000",
+    "containers": [
+      {
+        "name": "/sitov-night-20261008-qa-db",
+        "image_id": "sha256:bce4f0725a10d80bb16e01d678db8d40dd09223d18562125902e2682dd74ecdb",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 402653184,
+        "nano_cpus": 750000000,
+        "hostports": {
+          "5432/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-auth",
+        "image_id": "sha256:f2112b9289422f205df4ea15b8b550d425ae42528ea54521faa32cc7b62490de",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 134217728,
+        "nano_cpus": 250000000,
+        "hostports": {}
+      },
+      {
+        "name": "/sitov-night-20261008-qa-storage",
+        "image_id": "sha256:4f0eb90b935c676914ed0609c2c7d47cddb3f336155726bb2d5542617d4afdfa",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 268435456,
+        "nano_cpus": 500000000,
+        "hostports": {
+          "5000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-rest",
+        "image_id": "sha256:7afcb0447b7849f6875bba4a0c603d79b1e2e44aec97af123bf9a0a2ccfeae52",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 67108864,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "3000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-gateway",
+        "image_id": "sha256:6addf50e6bd8d578314cb9ce4f2d2d1e3781d2edecef59f707e00c6e05d384f5",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 134217728,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "8000/tcp": null,
+          "8001/tcp": null,
+          "8002/tcp": null,
+          "8003/tcp": null,
+          "8004/tcp": null,
+          "8443/tcp": null,
+          "8444/tcp": null,
+          "8445/tcp": null,
+          "8446/tcp": null,
+          "8447/tcp": null
+        }
+      }
+    ],
+    "health": [
+      {
+        "path": "/auth/v1/health",
+        "http_status": 200
+      },
+      {
+        "path": "/rest/v1/",
+        "http_status": 200
+      },
+      {
+        "path": "/storage/v1/status",
+        "http_status": 200
+      }
+    ]
+  },
+  "nextBrowserTested": false,
+  "last_http": {
+    "status": 200,
+    "binary": false
+  },
+  "onlyOwnFixtureCleanupPassed": true,
+  "newSyntheticAccounts": 3
+}

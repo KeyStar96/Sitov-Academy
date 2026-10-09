@@ -1,24 +1,31 @@
-"""Actual frozen97 RPC/Storage protocol, guarded own .invalid fixtures only."""
-import json,sys,uuid,secrets,urllib.request,urllib.error,subprocess,hashlib,os
+"""Actual frozen99 RPC/Storage protocol, guarded own .invalid fixtures only."""
+import json,sys,uuid,secrets,urllib.request,urllib.error,subprocess,hashlib,os,re
 from pathlib import Path
 from runtime import scope,health
-TARGET='51d989a112a9c89c7f0aaa478dc082994b6a2919'
+TARGET='8b83a421748dce9c8a2d2e38712cb5526ad5e2bb'
 assert sys.argv[1:]==['--ready-target',TARGET]
 root=Path('/tmp/sitov-night-20261008-qa-master');assert root.stat().st_mode&0o077==0
-keys=json.loads((root/'test-keys.json').read_text());url,_=scope();checks=[];actors=[];uploads=[];submissions=[]
+ready=json.loads((root/'qa-overlay99-proof.json').read_text())
+assert ready['sourceIntegrationSha']==TARGET and ready['through']==99 and ready['productionWrite'] is False
+assert [(x['through'],x['sha256']) for x in ready['overlays']]==[(98,'c0068a9bb09e40d6e750e1895abae9e141e4c0f50661ed0998a86af3ec40a2fc'),(99,'a47ec93b4b27c61a6eaf4b96ac286a1f9c90e1f628e848e5f51ec98478c6bd2e')]
+keys=json.loads((root/'test-keys.json').read_text());url,_=scope();checks=[];actors=[];uploads=[];submissions=[];last_http={};http_trace=[]
 os.umask(0o077)
-ledger=root/'s5-epoch6-ledger.json'
+ledger=root/'s5-epoch7-ledger.json'
+assert not ledger.exists() or json.loads(ledger.read_text()).get('cleaned') is True
 def write_ledger():ledger.write_text(json.dumps({'target':TARGET,'actors':[{'id':x['id'],'email':x['email']} for x in actors],'uploads':uploads,'submissions':submissions},indent=2))
 def http(path,token,body=None,method=None,binary=False):
+ operation=path.split('?')[0].split('/')
+ operation='/'.join(operation[:5] if '/rpc/' in path else operation[:4])
+ request_method=method or ('POST' if body is not None else 'GET')
  req=urllib.request.Request(url+path,data=body if isinstance(body,bytes) else None if body is None else json.dumps(body).encode(),
   headers={'Authorization':'Bearer '+token,'apikey':keys['anon'],'Content-Type':'audio/mpeg' if isinstance(body,bytes) else 'application/json'},method=method or ('POST' if body is not None else 'GET'))
  try:
   with urllib.request.urlopen(req,timeout=15) as r:
-   data=r.read();return r.status,data if binary else json.loads(data or 'null')
+   data=r.read();parsed=data if binary else json.loads(data or 'null');last_http.clear();last_http.update({'status':r.status,'binary':binary});http_trace.append({'operation':operation,'method':request_method,'status':r.status,'error':parsed.get('error') if isinstance(parsed,dict) else None});return r.status,parsed
  except urllib.error.HTTPError as e:
   try:data=json.loads(e.read())
   except Exception:data={}
-  return e.code,data
+  last_http.clear();last_http.update({'status':e.code,'error':data.get('error') if isinstance(data,dict) else None});http_trace.append({'operation':operation,'method':request_method,'status':e.code,'error':data.get('error') if isinstance(data,dict) else None});return e.code,data
 def rpc(name,actor,data):return http('/rest/v1/rpc/'+name,actor['token'],data)
 def ok(name,condition):
  assert condition,'QA assertion failed: '+name
@@ -32,7 +39,7 @@ def sql(statement,owner=None):
  if p.returncode:raise RuntimeError('sanitized own-fixture SQL failure')
  return json.loads(p.stdout.strip().split('\n')[-1]) if p.stdout.strip().split('\n')[-1].startswith(('{','[')) else None
 def create(role):
- email='sitov-s5-e6-'+uuid.uuid4().hex+'@example.invalid';password=secrets.token_hex(24)
+ email='sitov-s5-e7-'+uuid.uuid4().hex+'@example.invalid';password=secrets.token_hex(24)
  status,user=http('/auth/v1/admin/users',keys['service'],{'email':email,'password':password,'email_confirm':True,'user_metadata':{'display_name':'Sitov QA Paul','native_language':'ru','ui_language':'ru'}})
  assert status==200 and user['email']==email
  actor={'id':str(uuid.UUID(user['id'])),'email':email};actors.append(actor);write_ledger()
@@ -55,6 +62,8 @@ try:
  ok('zeroevidence learner starts actual current test',status==200 and start.get('ok') is True)
  attempt=start['data']['attempt'];aid=str(uuid.UUID(attempt['id']));revision=attempt['revision']
  ok('explicit private keys absent from public DTO','correctOptionId' not in json.dumps(start) and 'rationaleDe' not in json.dumps(start))
+ option_ids=[o['id'] for t in start['data']['tasks'] for o in t['options']]
+ ok('public option receipts opaque and unique',len(set(option_ids))==len(option_ids) and all(re.fullmatch(r'sitov\.option\.[0-9a-f]{32}',o) for o in option_ids))
  status,repeat=rpc('sitov_start_pronunciation_pretest',own,start_body);ok('start retry exact attempt',repeat==start)
  status,res=rpc('sitov_get_pronunciation_pretest_attempt',foreign,{'p_attempt_id':aid});ok('foreign attempt denied',res.get('error')=='not_found')
  answers=sql("SELECT jsonb_object_agg(q->>'id',q->>'correctOptionId') FROM sitov_pronunciation_private.pretest_attempts a CROSS JOIN LATERAL jsonb_array_elements(a.tasks) q WHERE a.id='"+aid+"' AND a.student_id='"+own['id']+"';",own)
@@ -88,29 +97,33 @@ try:
  status,_=http('/storage/v1/object/pronunciation_audio/'+upload,own['token'],mp3);ok('actual ticket-authorized MP3 upload',status in [200,201]);uploads.append(upload);write_ledger()
  status,_=http('/storage/v1/object/pronunciation_audio/'+upload,own['token'],mp3+b'collision');ok('same-path byte collision denied',status in [400,403,409])
  status,back=http('/storage/v1/object/authenticated/pronunciation_audio/'+upload,keys['service'],binary=True);ok('uploaded bytes preserved',status==200 and hashlib.sha256(back).digest()==hashlib.sha256(mp3).digest())
- status,res=rpc('create_pronunciation_submission',own,{'p_prompt_id':other,'p_audio_path':'storage://pronunciation_audio/'+upload});ok('wrong text submission denied',not isinstance(res,str))
+ status,res=rpc('create_pronunciation_submission',own,{'p_prompt_id':other,'p_audio_path':'storage://pronunciation_audio/'+upload});ok('wrong text submission denied',status==200 and isinstance(res,dict) and res.get('error')=='not_authorized')
  submission_body={'p_prompt_id':text,'p_audio_path':'storage://pronunciation_audio/'+upload};status,sid=rpc('create_pronunciation_submission',own,submission_body);ok('actual recorded-copy submission persists',status==200 and isinstance(sid,str));sid=str(uuid.UUID(sid));submissions.append(sid);write_ledger()
  status,repeat=rpc('create_pronunciation_submission',own,submission_body);ok('submission retry identical historical receipt',repeat==sid)
  status,_=http('/storage/v1/object/authenticated/pronunciation_audio/'+upload,foreign['token'],binary=True);ok('foreign cannot read private submission audio',status in [400,401,403,404])
  status,reply=rpc('sitov_create_pronunciation_reply_upload_ticket',own,{'p_submission_id':sid,'p_request_id':str(uuid.uuid4()),'p_extension':'mp3'});ok('historical reply ticket available',reply.get('ok') is True)
- reply_path=reply['data']['path'];status,res=rpc('create_pronunciation_submission',own,{'p_prompt_id':text,'p_audio_path':'storage://pronunciation_audio/'+reply_path});ok('reply purpose cannot submit new target',not isinstance(res,str))
- status,revoked=rpc('set_student_trainer_access',teacher,{'p_user_id':own['id'],'p_level':'A1.1','p_trainer':'pronunciation','p_enabled':False,'p_unit_ids':None,'p_replace_units':False});ok('own QA teacher commercially revokes pronunciation',status==200 and revoked.get('success') is True)
+ reply_path=reply['data']['path'];status,res=rpc('create_pronunciation_submission',own,{'p_prompt_id':text,'p_audio_path':'storage://pronunciation_audio/'+reply_path});ok('reply purpose cannot submit new target',status==200 and isinstance(res,dict) and res.get('error')=='not_authorized')
+ status,revoked=rpc('set_student_trainer_access',teacher,{'p_user_id':own['id'],'p_level':'A1.1','p_trainer':'pronunciation','p_enabled':False,'p_unit_ids':None,'p_replace_units':False});ok('own QA teacher commercially revokes pronunciation',status==200 and revoked is None)
  status,rows=http('/rest/v1/learning_reading_texts?select=id&id=eq.'+text,own['token']);ok('revocation closes passed target reference',status==200 and rows==[])
  status,res=rpc('sitov_create_pronunciation_upload_ticket',own,{'p_text_id':text,'p_request_id':str(uuid.uuid4()),'p_extension':'mp3'});ok('revocation denies new target ticket',res.get('ok') is False)
  status,rows=http('/rest/v1/submissions?select=id,text_content&id=eq.'+sid,own['token']);ok('historical submission snapshot preserved after revoke',status==200 and len(rows)==1 and bool(rows[0]['text_content']))
  status,repeat=rpc('create_pronunciation_submission',own,submission_body);ok('historical consumed receipt retry preserved after revoke',repeat==sid)
- result={'passed':True,'target':TARGET,'checks':checks,'syntheticRecording':True,'realMP3ShaChecked':True,'beforeHealth':health_before,'nextBrowserTested':False}
+ result={'passed':True,'target':TARGET,'checks':checks,'syntheticRecording':True,'realMP3ShaChecked':True,'beforeHealth':health_before,'nextBrowserTested':False,'last_http':dict(last_http)}
 except Exception as error:
- result={'passed':False,'target':TARGET,'checks':checks,'error_type':type(error).__name__,'failure':str(error) if str(error).startswith('QA assertion failed:') else 'sanitized protocol failure','target_diagnostics':globals().get('target_diagnostics'),'nextBrowserTested':False}
+ result={'passed':False,'target':TARGET,'checks':checks,'error_type':type(error).__name__,'failure':str(error) if str(error).startswith('QA assertion failed:') else 'sanitized protocol failure','target_diagnostics':globals().get('target_diagnostics'),'beforeHealth':globals().get('health_before'),'nextBrowserTested':False,'last_http':dict(last_http)}
 finally:
+ write_ledger()
+ ledger_state=json.loads(ledger.read_text());ledger_state['protocol_result']=result;ledger.write_text(json.dumps(ledger_state))
  cleanup=[]
  for path in uploads:
   status,_=http('/storage/v1/object/pronunciation_audio',keys['service'],{'prefixes':[path]},method='DELETE');cleanup.append(status in [200,204])
  if actors:
   own=actors[0]
-  sql("DELETE FROM public.pronunciation_messages WHERE submission_id IN(SELECT id FROM public.submissions WHERE auth_user_id='"+own['id']+"'); DELETE FROM public.submissions WHERE auth_user_id='"+own['id']+"'; SELECT '{}'::json;",own)
+  sql("DELETE FROM sitov_pronunciation_private.upload_tickets WHERE student_id='"+own['id']+"'; DELETE FROM public.pronunciation_messages WHERE submission_id IN(SELECT id FROM public.submissions WHERE auth_user_id='"+own['id']+"'); DELETE FROM public.submissions WHERE auth_user_id='"+own['id']+"'; SELECT '{}'::json;",own)
  for actor in reversed(actors):
   status,_=http('/auth/v1/admin/users/'+actor['id'],keys['service'],method='DELETE');cleanup.append(status in [200,204])
+ result['http_trace']=http_trace
+ result['fixtureUploads']=len(uploads);result['fixtureSubmissions']=len(submissions)
  result['onlyOwnFixtureCleanupPassed']=all(cleanup)
  result['newSyntheticAccounts']=len(actors)
  ledger.write_text(json.dumps({'target':TARGET,'cleaned':all(cleanup),'newSyntheticAccounts':len(actors),'uploads':len(uploads),'submissions':len(submissions)}))
