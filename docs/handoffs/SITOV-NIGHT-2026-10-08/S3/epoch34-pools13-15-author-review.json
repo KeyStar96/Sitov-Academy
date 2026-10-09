@@ -1,0 +1,2063 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "dd15b891efd915119725e7b2f57657d0305c7960",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "original12ContentHash": "5c215d9dd0b3033d28b433707a61eec61a3fbed9b1cbf0a0dc6935f34f667f32",
+  "originalManifestContentHash": "d486ce3cffe434e2de6db6513d6b4bdc3d30f9778751983208ac58da1d5eb36f",
+  "original1152AliasContentHash": "83fdbe941e476a315f1445d170d5d8416a7d5efbb1456ef9463581233d09e23a",
+  "original1152AliasByteSha256": "73feb52404ba32f91dd42b9176df42ec66014ed63fa1c9c405232b9fb7604c7e",
+  "newQuestionCount": 72,
+  "newAliasCount": 288,
+  "pools": [
+    {
+      "textId": "924ee488-8b97-5070-ba23-eea0f03992e6",
+      "title": "Ein Besuch im Schwimmbad",
+      "textVersion": "50c72a0375ad6340a4e2aff62d3620f74c9fa79151a9584b44301fd233844b52",
+      "definitionContentHash": "01d2eb10418e09f0f724353910edaf2f913b0769e147037332c32b47ecd883e2",
+      "sourceBodyDe": "Mein Sohn kann schon gut schwimmen. Am Sonntag gehen wir ins Schwimmbad. Ich packe zwei Handtücher und unsere Badesachen ein. An der Kasse kaufen wir zwei Karten. Das Wasser ist angenehm warm. Mein Sohn schwimmt, und ich übe mit ihm. Nach einer Stunde machen wir eine Pause. Wir haben Hunger und essen eine Banane.",
+      "status": "author_checked_independent_review_pending",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a12-03.words.q1",
+          "publicPromptDe": "Was ist ein »Schwimmbad«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.words.q1.a",
+              "textDe": "Ein Ort mit Wasserbecken zum Schwimmen."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q1.b",
+              "textDe": "Ein Geschäft für Bücher."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q1.c",
+              "textDe": "Ein Raum zum Backen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.words.q1.a",
+          "rationaleDe": "Ein Schwimmbad dient dem Schwimmen; Bücherkauf und Backen bezeichnen andere Orte.",
+          "assessmentUnit": "Schwimmbad als Ort",
+          "sourceSpans": [
+            {
+              "start": 61,
+              "end": 71,
+              "quote": "Schwimmbad"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q2",
+          "publicPromptDe": "Wozu benutzt man ein »Handtuch« nach dem Schwimmen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.words.q2.b",
+              "textDe": "Zum Bezahlen an der Kasse."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q2.c",
+              "textDe": "Zum Schneiden von Obst."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q2.a",
+              "textDe": "Zum Abtrocknen des Körpers."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.words.q2.a",
+          "rationaleDe": "Das Handtuch trocknet den Körper ab; es ist weder Zahlungsmittel noch Schneidewerkzeug.",
+          "assessmentUnit": "Handtuch als Gegenstand",
+          "sourceSpans": [
+            {
+              "start": 83,
+              "end": 98,
+              "quote": "zwei Handtücher"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q3",
+          "publicPromptDe": "Was meint »Badesachen« beim Besuch im Schwimmbad?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.words.q3.c",
+              "textDe": "Unterlagen für einen Arzttermin."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q3.a",
+              "textDe": "Kleidung und Dinge zum Baden."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q3.b",
+              "textDe": "Werkzeuge zur Gartenarbeit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.words.q3.a",
+          "rationaleDe": "Badesachen gehören zum Baden; Gartenwerkzeuge und Arztunterlagen gehören zu anderen Tätigkeiten.",
+          "assessmentUnit": "Badesachen als Ausstattung",
+          "sourceSpans": [
+            {
+              "start": 103,
+              "end": 120,
+              "quote": "unsere Badesachen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q4",
+          "publicPromptDe": "Was macht man normalerweise »an der Kasse«, wenn man Eintrittskarten kauft?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.words.q4.a",
+              "textDe": "Man bezahlt die Karten."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q4.b",
+              "textDe": "Man schwimmt im Becken."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q4.c",
+              "textDe": "Man schläft im Bett."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.words.q4.a",
+          "rationaleDe": "Die Kasse ist die Zahlstelle; Schwimmen und Schlafen sind keine Bedeutung dieser Ortsangabe.",
+          "assessmentUnit": "Kasse als Zahlstelle",
+          "sourceSpans": [
+            {
+              "start": 126,
+              "end": 138,
+              "quote": "An der Kasse"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q5",
+          "publicPromptDe": "Was bedeutet »angenehm« in »Das Wasser ist angenehm warm«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.words.q5.b",
+              "textDe": "Die Wärme ist unerträglich."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q5.c",
+              "textDe": "Das Wasser ist gefroren."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q5.a",
+              "textDe": "Die Wärme fühlt sich gut an."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.words.q5.a",
+          "rationaleDe": "Angenehm bewertet die Wärme positiv; unerträglich ist negativ und gefroren widerspricht warm.",
+          "assessmentUnit": "angenehm als Bewertung",
+          "sourceSpans": [
+            {
+              "start": 178,
+              "end": 191,
+              "quote": "angenehm warm"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q6",
+          "publicPromptDe": "Was bedeutet »eine Pause machen« beim Üben?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.words.q6.c",
+              "textDe": "Den Eintrittspreis erhöhen."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q6.a",
+              "textDe": "Die Tätigkeit für eine Weile unterbrechen."
+            },
+            {
+              "id": "sitov.pretest.a12-03.words.q6.b",
+              "textDe": "Die Tätigkeit ohne Unterbrechung fortsetzen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.words.q6.a",
+          "rationaleDe": "Eine Pause ist eine zeitweilige Unterbrechung; Fortsetzen ohne Unterbrechung ist das Gegenteil.",
+          "assessmentUnit": "Pause als Unterbrechung",
+          "sourceSpans": [
+            {
+              "start": 263,
+              "end": 273,
+              "quote": "eine Pause"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q1",
+          "publicPromptDe": "Welche Bedeutung hat »kann« in »Mein Sohn kann schon gut schwimmen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.verbs.q1.a",
+              "textDe": "Der Sohn hat die Fähigkeit dazu."
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q1.b",
+              "textDe": "Der Sohn muss es gegen seinen Willen tun."
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q1.c",
+              "textDe": "Der Sohn darf es keinesfalls tun."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.verbs.q1.a",
+          "rationaleDe": "Können bezeichnet hier eine Fähigkeit; Zwang und Verbot werden durch diesen Satz nicht ausgedrückt.",
+          "assessmentUnit": "kann Modalbedeutung Fähigkeit",
+          "sourceSpans": [
+            {
+              "start": 10,
+              "end": 34,
+              "quote": "kann schon gut schwimmen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q2",
+          "publicPromptDe": "Welche Person und Zahl zeigt »gehen wir«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.verbs.q2.b",
+              "textDe": "Erste Person Singular."
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q2.c",
+              "textDe": "Dritte Person Singular."
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q2.a",
+              "textDe": "Erste Person Plural."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.verbs.q2.a",
+          "rationaleDe": "Wir steht für die erste Person Plural; die Endung von gehen passt zu diesem Subjekt.",
+          "assessmentUnit": "gehen wir Personenform",
+          "sourceSpans": [
+            {
+              "start": 47,
+              "end": 71,
+              "quote": "gehen wir ins Schwimmbad"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q3",
+          "publicPromptDe": "Wie lautet die Grundform von »packe … ein« in »Ich packe zwei Handtücher ein«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.verbs.q3.c",
+              "textDe": "verpacken"
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q3.a",
+              "textDe": "einpacken"
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q3.b",
+              "textDe": "auspacken"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.verbs.q3.a",
+          "rationaleDe": "Die getrennte Partikel ein gehört zum Verb packen und bildet einpacken, nicht auspacken oder verpacken.",
+          "assessmentUnit": "einpacken trennbare Grundform",
+          "sourceSpans": [
+            {
+              "start": 73,
+              "end": 125,
+              "quote": "Ich packe zwei Handtücher und unsere Badesachen ein."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »An der Kasse ___ wir zwei Karten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.verbs.q4.a",
+              "textDe": "kaufen"
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q4.b",
+              "textDe": "kauft"
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q4.c",
+              "textDe": "kaufst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.verbs.q4.a",
+          "rationaleDe": "Zum Subjekt wir gehört kaufen; kauft und kaufst stimmen in dieser Präsenskonstruktion nicht überein.",
+          "assessmentUnit": "kaufen finite Form",
+          "sourceSpans": [
+            {
+              "start": 139,
+              "end": 161,
+              "quote": "kaufen wir zwei Karten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q5",
+          "publicPromptDe": "Wie lautet die Grundform von »schwimmt« in »Mein Sohn schwimmt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.verbs.q5.b",
+              "textDe": "schweigen"
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q5.c",
+              "textDe": "schwemmen"
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q5.a",
+              "textDe": "schwimmen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.verbs.q5.a",
+          "rationaleDe": "Schwimmt ist eine Form von schwimmen; die ähnlich klingenden anderen Verben haben andere Bedeutungen.",
+          "assessmentUnit": "schwimmt Grundform",
+          "sourceSpans": [
+            {
+              "start": 193,
+              "end": 211,
+              "quote": "Mein Sohn schwimmt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q6",
+          "publicPromptDe": "Welche Form ergänzt »Ich ___ mit ihm« beim Schwimmen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.verbs.q6.c",
+              "textDe": "übst"
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q6.a",
+              "textDe": "übe"
+            },
+            {
+              "id": "sitov.pretest.a12-03.verbs.q6.b",
+              "textDe": "übt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.verbs.q6.a",
+          "rationaleDe": "Zum Subjekt ich gehört übe; übt und übst gehören zu anderen Personen.",
+          "assessmentUnit": "übe Subjektform",
+          "sourceSpans": [
+            {
+              "start": 217,
+              "end": 232,
+              "quote": "ich übe mit ihm"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q1",
+          "publicPromptDe": "Welcher Satz ist korrekt, wenn »Am Sonntag« zuerst steht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.syntax.q1.a",
+              "textDe": "Am Sonntag gehen wir ins Schwimmbad."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q1.b",
+              "textDe": "Am Sonntag wir gehen ins Schwimmbad."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q1.c",
+              "textDe": "Am Sonntag ins Schwimmbad wir gehen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.syntax.q1.a",
+          "rationaleDe": "Im deutschen Aussagesatz steht das finite Verb gehen nach dem vorangestellten Zeitglied vor wir.",
+          "assessmentUnit": "Vorfeld Sonntag Verbzweit",
+          "sourceSpans": [
+            {
+              "start": 36,
+              "end": 72,
+              "quote": "Am Sonntag gehen wir ins Schwimmbad."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q2",
+          "publicPromptDe": "Was verbindet »und« in »Ich packe zwei Handtücher und unsere Badesachen ein«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.syntax.q2.b",
+              "textDe": "Zwei verschiedene Sprecher."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q2.c",
+              "textDe": "Zwei Zeitangaben."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q2.a",
+              "textDe": "Zwei Dinge, die eingepackt werden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.syntax.q2.a",
+          "rationaleDe": "Handtücher und Badesachen sind koordinierte Objekte derselben Handlung, keine Personen oder Zeiten.",
+          "assessmentUnit": "Koordination zwei Objekte",
+          "sourceSpans": [
+            {
+              "start": 73,
+              "end": 125,
+              "quote": "Ich packe zwei Handtücher und unsere Badesachen ein."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q3",
+          "publicPromptDe": "Welche Wortgruppe nennt in »An der Kasse kaufen wir zwei Karten« den Ort?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.syntax.q3.c",
+              "textDe": "zwei Karten"
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q3.a",
+              "textDe": "An der Kasse"
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q3.b",
+              "textDe": "wir"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.syntax.q3.a",
+          "rationaleDe": "An der Kasse nennt den Ort; wir ist das Subjekt und zwei Karten bezeichnet das gekaufte Objekt.",
+          "assessmentUnit": "Ortsglied Kasse",
+          "sourceSpans": [
+            {
+              "start": 126,
+              "end": 162,
+              "quote": "An der Kasse kaufen wir zwei Karten."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q4",
+          "publicPromptDe": "Welche Eigenschaft wird in »Das Wasser ist angenehm warm« dem Wasser zugeschrieben?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.syntax.q4.a",
+              "textDe": "Es ist warm."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q4.b",
+              "textDe": "Es ist teuer."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q4.c",
+              "textDe": "Es ist tief."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.syntax.q4.a",
+          "rationaleDe": "Warm ist die ausgedrückte Eigenschaft; Preis und Tiefe werden in dieser Aussage nicht genannt.",
+          "assessmentUnit": "Prädikatives warm",
+          "sourceSpans": [
+            {
+              "start": 163,
+              "end": 192,
+              "quote": "Das Wasser ist angenehm warm."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q5",
+          "publicPromptDe": "Wer ist das Subjekt von »übe« in »Mein Sohn schwimmt, und ich übe mit ihm«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.syntax.q5.b",
+              "textDe": "Das Schwimmbad."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q5.c",
+              "textDe": "Die beiden Karten."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q5.a",
+              "textDe": "Der Sprecher, bezeichnet durch ich."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.syntax.q5.a",
+          "rationaleDe": "Das ausdrückliche ich gehört zu übe; die anderen angebotenen Gegenstände sind keine handelnden Subjekte.",
+          "assessmentUnit": "Koordinierte Subjekte unterscheiden",
+          "sourceSpans": [
+            {
+              "start": 193,
+              "end": 233,
+              "quote": "Mein Sohn schwimmt, und ich übe mit ihm."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q6",
+          "publicPromptDe": "Wann beginnt die Pause laut »Nach einer Stunde machen wir eine Pause«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.syntax.q6.c",
+              "textDe": "Genau während der ersten Sekunde."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q6.a",
+              "textDe": "Nachdem eine Stunde vergangen ist."
+            },
+            {
+              "id": "sitov.pretest.a12-03.syntax.q6.b",
+              "textDe": "Eine Stunde vor Beginn."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.syntax.q6.a",
+          "rationaleDe": "Nach einer Stunde legt die Pause zeitlich hinter das Verstreichen einer Stunde, nicht davor oder an den Anfang.",
+          "assessmentUnit": "Nach Dauer Reihenfolge",
+          "sourceSpans": [
+            {
+              "start": 234,
+              "end": 274,
+              "quote": "Nach einer Stunde machen wir eine Pause."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »___ Sohn kann schwimmen«, wenn der Sprecher seinen eigenen Sohn meint?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.nominal.q1.a",
+              "textDe": "Mein"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q1.b",
+              "textDe": "Meinen"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q1.c",
+              "textDe": "Meinem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.nominal.q1.a",
+          "rationaleDe": "Sohn ist hier maskulines Subjekt im Nominativ; mein ist die passende Possessivform.",
+          "assessmentUnit": "Mein Sohn Nominativ",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 9,
+              "quote": "Mein Sohn"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q2",
+          "publicPromptDe": "Welche Wortgruppe steckt in »ins Schwimmbad«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.nominal.q2.b",
+              "textDe": "in dem Schwimmbad"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q2.c",
+              "textDe": "an das Schwimmbad"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q2.a",
+              "textDe": "in das Schwimmbad"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.nominal.q2.a",
+          "rationaleDe": "Ins ist die Zusammenziehung von in das; der Satz beschreibt ein Bewegungsziel.",
+          "assessmentUnit": "ins Akkusativ Kontraktion",
+          "sourceSpans": [
+            {
+              "start": 57,
+              "end": 71,
+              "quote": "ins Schwimmbad"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q3",
+          "publicPromptDe": "Wie lautet der Singular von »Handtücher«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.nominal.q3.c",
+              "textDe": "die Handtücher"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q3.a",
+              "textDe": "das Handtuch"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q3.b",
+              "textDe": "der Handtuch"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.nominal.q3.a",
+          "rationaleDe": "Der Singular lautet das Handtuch; Handtücher ist die Mehrzahl und der ist hier nicht der Artikel.",
+          "assessmentUnit": "Handtücher Plural",
+          "sourceSpans": [
+            {
+              "start": 83,
+              "end": 98,
+              "quote": "zwei Handtücher"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt die Ortsangabe »Wir bezahlen an ___ Kasse«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.nominal.q4.a",
+              "textDe": "der"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q4.b",
+              "textDe": "die"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q4.c",
+              "textDe": "den"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.nominal.q4.a",
+          "rationaleDe": "Die feminine Kasse steht bei dieser Ortsangabe nach an im Dativ: an der Kasse.",
+          "assessmentUnit": "an der Kasse Dativ",
+          "sourceSpans": [
+            {
+              "start": 126,
+              "end": 138,
+              "quote": "An der Kasse"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q5",
+          "publicPromptDe": "Auf wen verweist »ihm« in »Mein Sohn schwimmt, und ich übe mit ihm«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.nominal.q5.b",
+              "textDe": "Auf das Wasser."
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q5.c",
+              "textDe": "Auf den Sonntag."
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q5.a",
+              "textDe": "Auf den Sohn."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.nominal.q5.a",
+          "rationaleDe": "Der Sohn ist der männliche Personenbezug im Satz; Wasser und Sonntag sind keine gemeinsam übenden Personen.",
+          "assessmentUnit": "ihm männlicher Sohnbezug",
+          "sourceSpans": [
+            {
+              "start": 193,
+              "end": 233,
+              "quote": "Mein Sohn schwimmt, und ich übe mit ihm."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »Wir essen ___ Banane« bei genau einem Stück Obst?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-03.nominal.q6.c",
+              "textDe": "einem"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q6.a",
+              "textDe": "eine"
+            },
+            {
+              "id": "sitov.pretest.a12-03.nominal.q6.b",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-03.nominal.q6.a",
+          "rationaleDe": "Banane ist feminin und steht hier als Akkusativobjekt; eine passt, einen und einem nicht.",
+          "assessmentUnit": "eine Banane Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 302,
+              "end": 313,
+              "quote": "eine Banane"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "6e15b015-d482-58e4-9fa2-25ba0c8dea72",
+      "title": "Die Einladung",
+      "textVersion": "af6069fdab6798f3a084ceb92d09a6a47eec2741d01b971e341f116262485848",
+      "definitionContentHash": "9bea70e939921d3797a1e4d1bbeee1919dafb497b76377075b4f4cab0f218c89",
+      "sourceBodyDe": "Nächste Woche habe ich Geburtstag. Ich möchte mit meinen Nachbarn feiern. Die Feier beginnt am Samstag um vier Uhr. Ich schreibe eine kurze Einladung und lege sie in ihre Briefkästen. Jeder kann etwas zu essen mitbringen. Ich kaufe Getränke und backe einen Kuchen. Wir können im Garten sitzen. Bei Regen feiern wir in meiner Wohnung.",
+      "status": "author_checked_independent_review_pending",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a12-04.words.q1",
+          "publicPromptDe": "Was bedeutet »Geburtstag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.words.q1.a",
+              "textDe": "Der jährlich wiederkehrende Tag der Geburt."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q1.b",
+              "textDe": "Der erste Tag jeder Woche."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q1.c",
+              "textDe": "Der Tag jedes Einkaufs."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.words.q1.a",
+          "rationaleDe": "Geburtstag bezeichnet den Jahrestag der Geburt, nicht einen regelmäßigen Wochen- oder Einkaufstag.",
+          "assessmentUnit": "Geburtstag Anlass",
+          "sourceSpans": [
+            {
+              "start": 23,
+              "end": 33,
+              "quote": "Geburtstag"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q2",
+          "publicPromptDe": "Wer sind »Nachbarn«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.words.q2.b",
+              "textDe": "Alle Menschen eines anderen Kontinents."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q2.c",
+              "textDe": "Nur die eigenen Großeltern."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q2.a",
+              "textDe": "Menschen, die in der Nähe wohnen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.words.q2.a",
+          "rationaleDe": "Nachbarn bezeichnet eine räumliche Wohnbeziehung; Herkunft oder Verwandtschaft allein macht sie nicht aus.",
+          "assessmentUnit": "Nachbarn Wohnnähe",
+          "sourceSpans": [
+            {
+              "start": 50,
+              "end": 65,
+              "quote": "meinen Nachbarn"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q3",
+          "publicPromptDe": "Wozu dient eine »Einladung« zu einer Feier?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.words.q3.c",
+              "textDe": "Man bestätigt den Kauf eines Fahrrads."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q3.a",
+              "textDe": "Man bittet jemanden, zur Feier zu kommen."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q3.b",
+              "textDe": "Man verbietet allen den Besuch."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.words.q3.a",
+          "rationaleDe": "Eine Einladung bittet um Teilnahme; Besuchsverbot und Kaufbestätigung sind andere Mitteilungen.",
+          "assessmentUnit": "Einladung Mitteilung",
+          "sourceSpans": [
+            {
+              "start": 129,
+              "end": 149,
+              "quote": "eine kurze Einladung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q4",
+          "publicPromptDe": "Wofür sind »Briefkästen« an Wohnungen da?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.words.q4.a",
+              "textDe": "Zum Empfangen von Briefen."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q4.b",
+              "textDe": "Zum Backen von Kuchen."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q4.c",
+              "textDe": "Zum Aufbewahren von Badewasser."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.words.q4.a",
+          "rationaleDe": "Briefkästen nehmen Post auf; sie sind keine Backöfen oder Behälter für Badewasser.",
+          "assessmentUnit": "Briefkästen Postbehälter",
+          "sourceSpans": [
+            {
+              "start": 166,
+              "end": 182,
+              "quote": "ihre Briefkästen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q5",
+          "publicPromptDe": "Welches Beispiel gehört zu »Getränke«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.words.q5.b",
+              "textDe": "Ein Stuhl."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q5.c",
+              "textDe": "Ein Briefkasten."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q5.a",
+              "textDe": "Wasser."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.words.q5.a",
+          "rationaleDe": "Wasser kann man trinken; Stuhl und Briefkasten sind keine Getränke.",
+          "assessmentUnit": "Getränke Kategorie",
+          "sourceSpans": [
+            {
+              "start": 232,
+              "end": 240,
+              "quote": "Getränke"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q6",
+          "publicPromptDe": "Was ist mit »Regen« gemeint?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.words.q6.c",
+              "textDe": "Eine Einladung auf Papier."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q6.a",
+              "textDe": "Wasser, das aus Wolken fällt."
+            },
+            {
+              "id": "sitov.pretest.a12-04.words.q6.b",
+              "textDe": "Ein heller Klang einer Glocke."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.words.q6.a",
+          "rationaleDe": "Regen ist Niederschlag aus Wolken; Klang und Schriftstück sind keine Wettererscheinung.",
+          "assessmentUnit": "Regen Wetter",
+          "sourceSpans": [
+            {
+              "start": 294,
+              "end": 303,
+              "quote": "Bei Regen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q1",
+          "publicPromptDe": "Wie lautet die Grundform von »habe« in »Nächste Woche habe ich Geburtstag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.verbs.q1.a",
+              "textDe": "haben"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q1.b",
+              "textDe": "heben"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q1.c",
+              "textDe": "halten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.verbs.q1.a",
+          "rationaleDe": "Habe ist die erste Person Singular von haben; heben und halten sind andere Verben.",
+          "assessmentUnit": "habe Grundform",
+          "sourceSpans": [
+            {
+              "start": 14,
+              "end": 33,
+              "quote": "habe ich Geburtstag"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q2",
+          "publicPromptDe": "Was drückt »möchte« in »Ich möchte mit meinen Nachbarn feiern« aus?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.verbs.q2.b",
+              "textDe": "Ein Verbot."
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q2.c",
+              "textDe": "Eine abgeschlossene Vergangenheit."
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q2.a",
+              "textDe": "Einen Wunsch."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.verbs.q2.a",
+          "rationaleDe": "Möchte drückt den Wunsch des Sprechers aus; Verbot und abgeschlossene Vergangenheit folgen daraus nicht.",
+          "assessmentUnit": "möchte Wunsch",
+          "sourceSpans": [
+            {
+              "start": 35,
+              "end": 73,
+              "quote": "Ich möchte mit meinen Nachbarn feiern."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Die Feier ___ am Samstag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.verbs.q3.c",
+              "textDe": "beginnst"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q3.a",
+              "textDe": "beginnt"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q3.b",
+              "textDe": "beginnen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.verbs.q3.a",
+          "rationaleDe": "Die Feier ist ein Subjekt in der dritten Person Singular und verlangt beginnt.",
+          "assessmentUnit": "beginnt Subjekt Singular",
+          "sourceSpans": [
+            {
+              "start": 74,
+              "end": 91,
+              "quote": "Die Feier beginnt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich ___ eine kurze Einladung«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.verbs.q4.a",
+              "textDe": "schreibe"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q4.b",
+              "textDe": "schreibt"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q4.c",
+              "textDe": "schreibst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.verbs.q4.a",
+          "rationaleDe": "Das Subjekt ich verlangt schreibe; die anderen Formen passen nicht zur ersten Person Singular.",
+          "assessmentUnit": "schreibe erste Person",
+          "sourceSpans": [
+            {
+              "start": 116,
+              "end": 149,
+              "quote": "Ich schreibe eine kurze Einladung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q5",
+          "publicPromptDe": "Wie heißt das Verb für »etwas mit zur Feier bringen« in »Jeder kann etwas zu essen mitbringen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.verbs.q5.b",
+              "textDe": "wegbringen"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q5.c",
+              "textDe": "verbringen"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q5.a",
+              "textDe": "mitbringen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.verbs.q5.a",
+          "rationaleDe": "Mitbringen bezeichnet das Bringen an den besuchten Ort; wegbringen bezeichnet die Gegenrichtung.",
+          "assessmentUnit": "mitbringen Grundform",
+          "sourceSpans": [
+            {
+              "start": 184,
+              "end": 221,
+              "quote": "Jeder kann etwas zu essen mitbringen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q6",
+          "publicPromptDe": "Wie lautet die Grundform von »backe« in »Ich backe einen Kuchen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.verbs.q6.c",
+              "textDe": "baden"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q6.a",
+              "textDe": "backen"
+            },
+            {
+              "id": "sitov.pretest.a12-04.verbs.q6.b",
+              "textDe": "packen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.verbs.q6.a",
+          "rationaleDe": "Backe gehört zu backen; packen und baden bezeichnen andere Handlungen.",
+          "assessmentUnit": "backe Grundform",
+          "sourceSpans": [
+            {
+              "start": 245,
+              "end": 263,
+              "quote": "backe einen Kuchen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q1",
+          "publicPromptDe": "Welche Wortgruppe nennt in »Nächste Woche habe ich Geburtstag« die Zeit?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.syntax.q1.a",
+              "textDe": "Nächste Woche"
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q1.b",
+              "textDe": "ich"
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q1.c",
+              "textDe": "Geburtstag"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.syntax.q1.a",
+          "rationaleDe": "Nächste Woche ist die Zeitangabe; ich ist das Subjekt und Geburtstag bezeichnet den Anlass.",
+          "assessmentUnit": "Zeitglied nächste Woche",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 34,
+              "quote": "Nächste Woche habe ich Geburtstag."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q2",
+          "publicPromptDe": "Wann beginnt die Feier laut »Die Feier beginnt am Samstag um vier Uhr«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.syntax.q2.b",
+              "textDe": "Am Sonntag um vier Uhr."
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q2.c",
+              "textDe": "Am Samstag um sechs Uhr."
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q2.a",
+              "textDe": "Am Samstag um vier Uhr."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.syntax.q2.a",
+          "rationaleDe": "Der öffentliche Satz nennt ausdrücklich Samstag und vier Uhr; die anderen Antworten verändern je eine Angabe.",
+          "assessmentUnit": "Wochentag und Uhrzeit",
+          "sourceSpans": [
+            {
+              "start": 74,
+              "end": 115,
+              "quote": "Die Feier beginnt am Samstag um vier Uhr."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q3",
+          "publicPromptDe": "Wer legt die Einladung in die Briefkästen laut »Ich schreibe eine Einladung und lege sie in ihre Briefkästen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.syntax.q3.c",
+              "textDe": "Die Briefkästen selbst."
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q3.a",
+              "textDe": "Der Sprecher selbst."
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q3.b",
+              "textDe": "Der Kuchen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.syntax.q3.a",
+          "rationaleDe": "Das gemeinsame Subjekt ich gilt auch für lege; weder Kuchen noch Briefkästen führen die Handlung aus.",
+          "assessmentUnit": "Gleiches Subjekt zwei Prädikate",
+          "sourceSpans": [
+            {
+              "start": 116,
+              "end": 183,
+              "quote": "Ich schreibe eine kurze Einladung und lege sie in ihre Briefkästen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q4",
+          "publicPromptDe": "Welche Satzfolge ist korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.syntax.q4.a",
+              "textDe": "Jeder kann etwas zu essen mitbringen."
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q4.b",
+              "textDe": "Jeder mitbringen kann etwas zu essen."
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q4.c",
+              "textDe": "Jeder kann mitbringt etwas zu essen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.syntax.q4.a",
+          "rationaleDe": "Beim Modalverb kann steht der Infinitiv mitbringen am Satzende; mitbringt ist hier keine passende Infinitivform.",
+          "assessmentUnit": "Modalverb Infinitiv Satzende",
+          "sourceSpans": [
+            {
+              "start": 184,
+              "end": 221,
+              "quote": "Jeder kann etwas zu essen mitbringen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q5",
+          "publicPromptDe": "Welche Wortgruppe nennt in »Wir können im Garten sitzen« den möglichen Ort?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.syntax.q5.b",
+              "textDe": "wir"
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q5.c",
+              "textDe": "können"
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q5.a",
+              "textDe": "im Garten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.syntax.q5.a",
+          "rationaleDe": "Im Garten ist eine Ortsangabe; wir nennt die Personen und können die Möglichkeit.",
+          "assessmentUnit": "Garten Ort",
+          "sourceSpans": [
+            {
+              "start": 265,
+              "end": 293,
+              "quote": "Wir können im Garten sitzen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q6",
+          "publicPromptDe": "Unter welcher Bedingung wird laut »Bei Regen feiern wir in meiner Wohnung« in der Wohnung gefeiert?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.syntax.q6.c",
+              "textDe": "Wenn es genau vier Grad warm ist."
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q6.a",
+              "textDe": "Wenn es regnet."
+            },
+            {
+              "id": "sitov.pretest.a12-04.syntax.q6.b",
+              "textDe": "Wenn die Sonne scheint."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.syntax.q6.a",
+          "rationaleDe": "Bei Regen nennt die Bedingung Regen; Sonne und eine genaue Temperatur werden nicht als Bedingung angegeben.",
+          "assessmentUnit": "Bei Regen Bedingung",
+          "sourceSpans": [
+            {
+              "start": 294,
+              "end": 333,
+              "quote": "Bei Regen feiern wir in meiner Wohnung."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich feiere mit ___ Nachbarn«, wenn es die Nachbarn des Sprechers sind?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.nominal.q1.a",
+              "textDe": "meinen"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q1.b",
+              "textDe": "meine"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q1.c",
+              "textDe": "meiner"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.nominal.q1.a",
+          "rationaleDe": "Nach mit steht der Dativ; im Plural lautet die passende Possessivform meinen.",
+          "assessmentUnit": "mit meinen Dativ Plural",
+          "sourceSpans": [
+            {
+              "start": 46,
+              "end": 65,
+              "quote": "mit meinen Nachbarn"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q2",
+          "publicPromptDe": "Welcher bestimmte Artikel gehört zu »Feier« im Nominativ Singular?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.nominal.q2.b",
+              "textDe": "der"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q2.c",
+              "textDe": "das"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q2.a",
+              "textDe": "die"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.nominal.q2.a",
+          "rationaleDe": "Feier ist ein feminines Nomen; im Nominativ Singular gehört der Artikel die dazu.",
+          "assessmentUnit": "Feier femininer Artikel",
+          "sourceSpans": [
+            {
+              "start": 74,
+              "end": 83,
+              "quote": "Die Feier"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich schreibe eine ___ Einladung«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.nominal.q3.c",
+              "textDe": "kurzem"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q3.a",
+              "textDe": "kurze"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q3.b",
+              "textDe": "kurzen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.nominal.q3.a",
+          "rationaleDe": "Im femininen Akkusativ nach eine lautet die Adjektivform kurze; kurzen und kurzem passen hier nicht.",
+          "assessmentUnit": "kurze Adjektivendung",
+          "sourceSpans": [
+            {
+              "start": 129,
+              "end": 149,
+              "quote": "eine kurze Einladung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q4",
+          "publicPromptDe": "Worauf verweist »sie« in »Ich schreibe eine Einladung und lege sie in den Briefkasten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.nominal.q4.a",
+              "textDe": "Auf die Einladung."
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q4.b",
+              "textDe": "Auf den Sprecher."
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q4.c",
+              "textDe": "Auf den Garten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.nominal.q4.a",
+          "rationaleDe": "Sie nimmt das feminine Nomen Einladung wieder auf; Sprecher und Garten sind keine passenden Bezüge.",
+          "assessmentUnit": "sie Einladung Pronomen",
+          "sourceSpans": [
+            {
+              "start": 129,
+              "end": 162,
+              "quote": "eine kurze Einladung und lege sie"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich backe ___ Kuchen«, wenn genau ein Kuchen gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.nominal.q5.b",
+              "textDe": "ein"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q5.c",
+              "textDe": "einem"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q5.a",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.nominal.q5.a",
+          "rationaleDe": "Kuchen ist maskulin und steht als Objekt im Akkusativ; daher heißt es einen Kuchen.",
+          "assessmentUnit": "einen Kuchen Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 251,
+              "end": 263,
+              "quote": "einen Kuchen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »Wir feiern in ___ Wohnung«, wenn es die Wohnung des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-04.nominal.q6.c",
+              "textDe": "meinen"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q6.a",
+              "textDe": "meiner"
+            },
+            {
+              "id": "sitov.pretest.a12-04.nominal.q6.b",
+              "textDe": "meine"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-04.nominal.q6.a",
+          "rationaleDe": "Der Aufenthalt wird mit in und Dativ bezeichnet; für die feminine Wohnung lautet die Form meiner.",
+          "assessmentUnit": "meiner Wohnung lokaler Dativ",
+          "sourceSpans": [
+            {
+              "start": 315,
+              "end": 332,
+              "quote": "in meiner Wohnung"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "93e4a1ed-cb70-5f0a-9dd2-cf6b2a9c9699",
+      "title": "Auf dem Wochenmarkt",
+      "textVersion": "4853b6164bbe3e1b7a25bba35046462505f6236bc0abab77c91749dfe455eb39",
+      "definitionContentHash": "f952f1e3673db812d582a3d9cb41c1efa8c15bf431a27299200e9e3e919cad4b",
+      "sourceBodyDe": "Am Mittwoch ist Markt auf dem großen Platz. Ich gehe mit meinem Korb dorthin. An einem Stand gibt es frische Äpfel und Birnen. Ich möchte ein Kilo Äpfel kaufen. Der Verkäufer lässt mich einen Apfel probieren. Er schmeckt süß. Am nächsten Stand kaufe ich Kartoffeln. Zum Schluss hole ich Blumen für meine Küche.",
+      "status": "author_checked_independent_review_pending",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a12-05.words.q1",
+          "publicPromptDe": "Was ist ein »Wochenmarkt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.words.q1.a",
+              "textDe": "Ein regelmäßig stattfindender Markt mit Verkaufsständen."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q1.b",
+              "textDe": "Ein privates Schlafzimmer."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q1.c",
+              "textDe": "Eine Haltestelle ohne Verkauf."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.words.q1.a",
+          "rationaleDe": "Ein Wochenmarkt ist ein wiederkehrender Verkaufsmarkt; Schlafraum und reine Haltestelle sind andere Orte.",
+          "assessmentUnit": "Markt Verkaufsort",
+          "sourceSpans": [
+            {
+              "start": 16,
+              "end": 21,
+              "quote": "Markt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q2",
+          "publicPromptDe": "Wozu dient ein »Korb« beim Einkauf?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.words.q2.b",
+              "textDe": "Zum Anzeigen der Uhrzeit."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q2.c",
+              "textDe": "Zum Braten der Kartoffeln."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q2.a",
+              "textDe": "Zum Tragen der gekauften Waren."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.words.q2.a",
+          "rationaleDe": "Der Korb ist ein Transportbehälter; Uhranzeige und Braten sind keine typische Funktion des Einkaufskorbs.",
+          "assessmentUnit": "Korb Transportbehälter",
+          "sourceSpans": [
+            {
+              "start": 57,
+              "end": 68,
+              "quote": "meinem Korb"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q3",
+          "publicPromptDe": "Was bedeutet »frisch« bei Obst auf dem Markt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.words.q3.c",
+              "textDe": "Es ist eine Mengenangabe."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q3.a",
+              "textDe": "Es ist nicht alt oder verdorben."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q3.b",
+              "textDe": "Es besteht aus Metall."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.words.q3.a",
+          "rationaleDe": "Frisch beschreibt die Qualität des Obstes, nicht Material oder Menge.",
+          "assessmentUnit": "frisch Qualität",
+          "sourceSpans": [
+            {
+              "start": 101,
+              "end": 114,
+              "quote": "frische Äpfel"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q4",
+          "publicPromptDe": "Was bezeichnet »ein Kilo« beim Kauf von Äpfeln?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.words.q4.a",
+              "textDe": "Ein Gewicht."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q4.b",
+              "textDe": "Eine Uhrzeit."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q4.c",
+              "textDe": "Eine Farbe."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.words.q4.a",
+          "rationaleDe": "Kilo ist die umgangssprachliche Bezeichnung für die Gewichtseinheit Kilogramm, keine Zeit oder Farbe.",
+          "assessmentUnit": "Kilo Gewichtseinheit",
+          "sourceSpans": [
+            {
+              "start": 138,
+              "end": 152,
+              "quote": "ein Kilo Äpfel"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q5",
+          "publicPromptDe": "Was bedeutet »einen Apfel probieren« beim Verkäufer?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.words.q5.b",
+              "textDe": "Den Apfel zeichnen, ohne ihn zu essen."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q5.c",
+              "textDe": "Den Preis auswendig aufsagen."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q5.a",
+              "textDe": "Ein Stück kosten, um den Geschmack zu prüfen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.words.q5.a",
+          "rationaleDe": "Probieren meint hier das Kosten des Apfels; Zeichnen und Preisaufsagen prüfen keinen Geschmack.",
+          "assessmentUnit": "probieren Geschmack testen",
+          "sourceSpans": [
+            {
+              "start": 198,
+              "end": 207,
+              "quote": "probieren"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q6",
+          "publicPromptDe": "Welche Bedeutung hat »süß« in »Der Apfel schmeckt süß«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.words.q6.c",
+              "textDe": "Ein sehr großes Gewicht."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q6.a",
+              "textDe": "Ein Geschmack wie bei Zucker."
+            },
+            {
+              "id": "sitov.pretest.a12-05.words.q6.b",
+              "textDe": "Eine besonders laute Stimme."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.words.q6.a",
+          "rationaleDe": "Süß beschreibt hier den Geschmack, nicht Lautstärke oder Gewicht.",
+          "assessmentUnit": "süß Geschmack",
+          "sourceSpans": [
+            {
+              "start": 221,
+              "end": 224,
+              "quote": "süß"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q1",
+          "publicPromptDe": "Wie lautet die Grundform von »ist« in »Am Mittwoch ist Markt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.verbs.q1.a",
+              "textDe": "sein"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q1.b",
+              "textDe": "essen"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q1.c",
+              "textDe": "gehen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.verbs.q1.a",
+          "rationaleDe": "Ist ist eine Präsensform von sein; essen und gehen sind andere Grundformen.",
+          "assessmentUnit": "ist dritte Person sein",
+          "sourceSpans": [
+            {
+              "start": 12,
+              "end": 21,
+              "quote": "ist Markt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich ___ mit meinem Korb zum Markt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.verbs.q2.b",
+              "textDe": "geht"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q2.c",
+              "textDe": "gehst"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q2.a",
+              "textDe": "gehe"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.verbs.q2.a",
+          "rationaleDe": "Zum Subjekt ich gehört gehe; geht und gehst sind Formen für andere Personen.",
+          "assessmentUnit": "gehe erste Person",
+          "sourceSpans": [
+            {
+              "start": 44,
+              "end": 77,
+              "quote": "Ich gehe mit meinem Korb dorthin."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q3",
+          "publicPromptDe": "Wie lautet die Grundform des Verbs in »Es gibt frische Äpfel«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.verbs.q3.c",
+              "textDe": "gelten"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q3.a",
+              "textDe": "geben"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q3.b",
+              "textDe": "gehen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.verbs.q3.a",
+          "rationaleDe": "Gibt gehört zu geben; die feste Verbindung es gibt bezeichnet hier das Vorhandensein.",
+          "assessmentUnit": "gibt es Grundform",
+          "sourceSpans": [
+            {
+              "start": 93,
+              "end": 114,
+              "quote": "gibt es frische Äpfel"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich möchte ein Kilo Äpfel ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.verbs.q4.a",
+              "textDe": "kaufen"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q4.b",
+              "textDe": "kaufe"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q4.c",
+              "textDe": "kauft"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.verbs.q4.a",
+          "rationaleDe": "Nach möchte steht hier der Infinitiv kaufen; kaufe und kauft sind finite Formen.",
+          "assessmentUnit": "möchte kaufen Modalstruktur",
+          "sourceSpans": [
+            {
+              "start": 127,
+              "end": 160,
+              "quote": "Ich möchte ein Kilo Äpfel kaufen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q5",
+          "publicPromptDe": "Wie lautet die Grundform von »lässt« in »Der Verkäufer lässt mich einen Apfel probieren«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.verbs.q5.b",
+              "textDe": "lesen"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q5.c",
+              "textDe": "laufen"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q5.a",
+              "textDe": "lassen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.verbs.q5.a",
+          "rationaleDe": "Lässt ist die dritte Person Singular von lassen; lesen und laufen sind andere Verben.",
+          "assessmentUnit": "lässt Grundform lassen",
+          "sourceSpans": [
+            {
+              "start": 175,
+              "end": 207,
+              "quote": "lässt mich einen Apfel probieren"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q6",
+          "publicPromptDe": "Wie lautet die Grundform von »schmeckt« in »Der Apfel schmeckt süß«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.verbs.q6.c",
+              "textDe": "schneiden"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q6.a",
+              "textDe": "schmecken"
+            },
+            {
+              "id": "sitov.pretest.a12-05.verbs.q6.b",
+              "textDe": "schmücken"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.verbs.q6.a",
+          "rationaleDe": "Schmeckt gehört zu schmecken und beschreibt Geschmack; die anderen Verben bezeichnen andere Handlungen.",
+          "assessmentUnit": "schmeckt Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 209,
+              "end": 225,
+              "quote": "Er schmeckt süß."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q1",
+          "publicPromptDe": "Welcher Satz ist mit vorangestelltem »Am Mittwoch« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.syntax.q1.a",
+              "textDe": "Am Mittwoch ist Markt auf dem Platz."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q1.b",
+              "textDe": "Am Mittwoch Markt ist auf dem Platz."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q1.c",
+              "textDe": "Am Mittwoch auf dem Platz Markt ist."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.syntax.q1.a",
+          "rationaleDe": "Nach der Zeitangabe steht das finite Verb ist; die anderen Satzfolgen verletzen hier die Verbzweitstellung.",
+          "assessmentUnit": "Mittwoch Vorfeld Verbzweit",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 43,
+              "quote": "Am Mittwoch ist Markt auf dem großen Platz."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q2",
+          "publicPromptDe": "Wohin verweist »dorthin« in »Auf dem Platz ist Markt. Ich gehe dorthin«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.syntax.q2.b",
+              "textDe": "Zur eigenen Küche."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q2.c",
+              "textDe": "Zu einem nicht genannten Schwimmbad."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q2.a",
+              "textDe": "Zum Markt auf dem Platz."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.syntax.q2.a",
+          "rationaleDe": "Dorthin nimmt das zuvor genannte Ziel Markt auf dem Platz wieder auf; andere Ziele nennt der öffentliche Kontext nicht.",
+          "assessmentUnit": "dorthin Zielverweis",
+          "sourceSpans": [
+            {
+              "start": 44,
+              "end": 77,
+              "quote": "Ich gehe mit meinem Korb dorthin."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q3",
+          "publicPromptDe": "Welche zwei Obstsorten nennt »An einem Stand gibt es frische Äpfel und Birnen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.syntax.q3.c",
+              "textDe": "Kartoffeln und Birnen."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q3.a",
+              "textDe": "Äpfel und Birnen."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q3.b",
+              "textDe": "Äpfel und Bananen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.syntax.q3.a",
+          "rationaleDe": "Der Satz nennt ausdrücklich Äpfel und Birnen; die anderen Antworten ersetzen eine genannte Sorte.",
+          "assessmentUnit": "Äpfel Birnen Koordination",
+          "sourceSpans": [
+            {
+              "start": 78,
+              "end": 126,
+              "quote": "An einem Stand gibt es frische Äpfel und Birnen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q4",
+          "publicPromptDe": "Wer probiert den Apfel laut »Der Verkäufer lässt mich einen Apfel probieren«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.syntax.q4.a",
+              "textDe": "Der Sprecher, bezeichnet durch mich."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q4.b",
+              "textDe": "Der Korb."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q4.c",
+              "textDe": "Der Platz."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.syntax.q4.a",
+          "rationaleDe": "Mich bezeichnet die vom Verkäufer zugelassene probierende Person; Korb und Platz können hier nicht probieren.",
+          "assessmentUnit": "Verkäufer Subjekt probierender Sprecher",
+          "sourceSpans": [
+            {
+              "start": 161,
+              "end": 208,
+              "quote": "Der Verkäufer lässt mich einen Apfel probieren."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q5",
+          "publicPromptDe": "Was bedeutet »am nächsten Stand« in »Am nächsten Stand kaufe ich Kartoffeln«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.syntax.q5.b",
+              "textDe": "Genau in der eigenen Küche."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q5.c",
+              "textDe": "Vor der Geburt des Verkäufers."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q5.a",
+              "textDe": "An einem weiteren Verkaufsstand."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.syntax.q5.a",
+          "rationaleDe": "Die Wortgruppe nennt einen weiteren Ort auf dem Markt; sie bezeichnet weder die Küche noch eine vergangene Zeit.",
+          "assessmentUnit": "nächster Stand Ortswechsel",
+          "sourceSpans": [
+            {
+              "start": 226,
+              "end": 265,
+              "quote": "Am nächsten Stand kaufe ich Kartoffeln."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q6",
+          "publicPromptDe": "Welche Stellung im Ablauf nennt »Zum Schluss« in »Zum Schluss hole ich Blumen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.syntax.q6.c",
+              "textDe": "Alle Handlungen gleichzeitig."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q6.a",
+              "textDe": "Die letzte genannte Handlung."
+            },
+            {
+              "id": "sitov.pretest.a12-05.syntax.q6.b",
+              "textDe": "Die erste Handlung vor allem anderen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.syntax.q6.a",
+          "rationaleDe": "Zum Schluss kennzeichnet die abschließende Handlung, nicht den Beginn oder Gleichzeitigkeit.",
+          "assessmentUnit": "Zum Schluss Reihenfolge",
+          "sourceSpans": [
+            {
+              "start": 266,
+              "end": 310,
+              "quote": "Zum Schluss hole ich Blumen für meine Küche."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »auf dem ___ Platz« bei einer Ortsangabe?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.nominal.q1.a",
+              "textDe": "großen"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q1.b",
+              "textDe": "große"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q1.c",
+              "textDe": "großer"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.nominal.q1.a",
+          "rationaleDe": "Nach dem bestimmten Dativartikel dem trägt das Adjektiv hier die Endung en: großen.",
+          "assessmentUnit": "großen Adjektiv Dativ",
+          "sourceSpans": [
+            {
+              "start": 22,
+              "end": 42,
+              "quote": "auf dem großen Platz"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich gehe mit ___ Korb«, wenn der Korb dem Sprecher gehört?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.nominal.q2.b",
+              "textDe": "mein"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q2.c",
+              "textDe": "meinen"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q2.a",
+              "textDe": "meinem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.nominal.q2.a",
+          "rationaleDe": "Mit verlangt Dativ; beim maskulinen Korb lautet die Possessivform meinem.",
+          "assessmentUnit": "meinem Korb Dativ",
+          "sourceSpans": [
+            {
+              "start": 53,
+              "end": 68,
+              "quote": "mit meinem Korb"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q3",
+          "publicPromptDe": "Wie lautet der Singular von »Äpfel«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.nominal.q3.c",
+              "textDe": "das Äpfel"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q3.a",
+              "textDe": "der Apfel"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q3.b",
+              "textDe": "die Apfel"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.nominal.q3.a",
+          "rationaleDe": "Der Singular ist der Apfel; Äpfel ist die Mehrzahl und die angebotenen anderen Formen passen nicht.",
+          "assessmentUnit": "Äpfel Singular",
+          "sourceSpans": [
+            {
+              "start": 101,
+              "end": 125,
+              "quote": "frische Äpfel und Birnen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Der Verkäufer lässt ___ probieren«, wenn der Sprecher selbst gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.nominal.q4.a",
+              "textDe": "mich"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q4.b",
+              "textDe": "mir"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q4.c",
+              "textDe": "ich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.nominal.q4.a",
+          "rationaleDe": "Die probierende Person steht in dieser Konstruktion im Akkusativ: mich; mir ist Dativ und ich Nominativ.",
+          "assessmentUnit": "mich Akkusativ Pronomen",
+          "sourceSpans": [
+            {
+              "start": 161,
+              "end": 185,
+              "quote": "Der Verkäufer lässt mich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q5",
+          "publicPromptDe": "Worauf verweist »Er« in »Ich probiere einen Apfel. Er schmeckt süß«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.nominal.q5.b",
+              "textDe": "Auf die Küche."
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q5.c",
+              "textDe": "Auf die Kartoffeln."
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q5.a",
+              "textDe": "Auf den Apfel."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.nominal.q5.a",
+          "rationaleDe": "Er greift im öffentlichen Kontext den maskulinen Singular Apfel auf; Küche und Kartoffeln haben unpassendes Genus oder Numerus.",
+          "assessmentUnit": "Er Apfel anaphorischer Bezug",
+          "sourceSpans": [
+            {
+              "start": 186,
+              "end": 225,
+              "quote": "einen Apfel probieren. Er schmeckt süß."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »Blumen für ___ Küche«, wenn es die Küche des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-05.nominal.q6.c",
+              "textDe": "meinem"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q6.a",
+              "textDe": "meine"
+            },
+            {
+              "id": "sitov.pretest.a12-05.nominal.q6.b",
+              "textDe": "meiner"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-05.nominal.q6.a",
+          "rationaleDe": "Für verlangt Akkusativ; für das feminine Nomen Küche lautet die Possessivform meine.",
+          "assessmentUnit": "meine Küche für Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 294,
+              "end": 309,
+              "quote": "für meine Küche"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
