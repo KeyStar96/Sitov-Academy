@@ -1,0 +1,46 @@
+{
+  "recordedAt": "2026-10-09T10:56:03.933620+00:00",
+  "provenance": "M authorized group message; M-owned private production Next log; not read by S5",
+  "observations": [
+    {
+      "marker": "[last-active-level] unavailable",
+      "failure": "sqlstate:57014",
+      "reportedCount": 3,
+      "window": "after actual S5 epoch21 login, from10:51UTC",
+      "interpretation": "query canceled; exact statement_timeout or abort trigger unresolved"
+    }
+  ],
+  "verbStageCorrelation": {
+    "provenance": "M authorized message after both actual failure notifications; ordered private production Next markers observed in the supplied windows; no per-line UTC in logger",
+    "marker": "[sitov-verbs] Request unavailable",
+    "stage": "verb_catalog",
+    "failure": "sqlstate:57014",
+    "observedFor": [
+      "uk",
+      "tr"
+    ],
+    "ukWindow": [
+      "2026-10-09T10:53:58.085Z",
+      "2026-10-09T10:54:18.209Z"
+    ],
+    "trWindow": [
+      "2026-10-09T10:56:17.669Z",
+      "2026-10-09T10:56:35.409Z"
+    ],
+    "exactPerLineTimeBinding": false,
+    "underlyingCancellationTriggerKnown": false
+  },
+  "secretsOrActorIdsRecorded": false,
+  "otherReportedMarkers": [
+    {
+      "marker": "[learning-new] items_unavailable",
+      "failure": "sqlstate:57014"
+    },
+    {
+      "marker": "[last-active-level] unavailable",
+      "failure": "sqlstate:57014"
+    }
+  ],
+  "authenticatedRoleTimeoutSecondsReportedByM": 8,
+  "timeoutAsExactRootCauseProven": false
+}

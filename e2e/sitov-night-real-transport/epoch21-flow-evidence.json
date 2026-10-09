@@ -1,0 +1,200 @@
+[
+  {
+    "locale": "uk",
+    "sourceSha": "4ce6ec9b1c458232129f0a1f8542e9e020cc9c03",
+    "resultAt": "2026-10-09T10:53:58.037Z",
+    "result": {
+      "german": [
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Frühstück",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Unser Kursraum",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein neuer Nachbar",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Am Samstag im Park",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Zimmer",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Im kleinen Laden",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Meine Familie",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Der Weg zum Kurs",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein ruhiger Abend",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        }
+      ],
+      "lang": "uk",
+      "links": [
+        {
+          "href": "/uk/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Повторити форми дієслів"
+        },
+        {
+          "href": "/uk/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Вправи з реченнями"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Ще не пройдено\n\nПравильно: 0 з 12\n\nПовторити форми дієслів\nВправи з реченнями"
+      ],
+      "width": 390
+    },
+    "targetRequestBefore": "2026-10-09T10:53:58.085Z",
+    "targetRequestAfter": "2026-10-09T10:53:58.672Z",
+    "failureObservedAt": "2026-10-09T10:54:18.209Z",
+    "landingURL": "http://127.0.0.1:3143/uk/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landingError": "Не вдалося. Спробуй ще раз.",
+    "landing": {
+      "addButtons": [],
+      "alerts": [
+        "Не вдалося. Спробуй ще раз."
+      ],
+      "lang": "uk",
+      "scrollWidth": 390,
+      "width": 390
+    }
+  },
+  {
+    "locale": "tr",
+    "sourceSha": "4ce6ec9b1c458232129f0a1f8542e9e020cc9c03",
+    "resultAt": "2026-10-09T10:56:17.621Z",
+    "result": {
+      "german": [
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Frühstück",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Unser Kursraum",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein neuer Nachbar",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Am Samstag im Park",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Zimmer",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Im kleinen Laden",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Meine Familie",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Der Weg zum Kurs",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein ruhiger Abend",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        }
+      ],
+      "lang": "tr",
+      "links": [
+        {
+          "href": "/tr/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Fiil biçimlerini çalış"
+        },
+        {
+          "href": "/tr/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Cümle alıştırmaları"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Henüz geçilmedi\n\n12 sorudan 0 doğru\n\nFiil biçimlerini çalış\nCümle alıştırmaları"
+      ],
+      "width": 390
+    },
+    "targetRequestBefore": "2026-10-09T10:56:17.669Z",
+    "targetRequestAfter": "2026-10-09T10:56:18.295Z",
+    "failureObservedAt": "2026-10-09T10:56:35.409Z",
+    "landingURL": "http://127.0.0.1:3143/tr/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landingError": "Bir sorun oluştu. Lütfen tekrar dene.",
+    "landing": {
+      "addButtons": [],
+      "alerts": [
+        "Bir sorun oluştu. Lütfen tekrar dene."
+      ],
+      "lang": "tr",
+      "scrollWidth": 390,
+      "width": 390
+    }
+  }
+]

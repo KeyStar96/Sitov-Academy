@@ -1,0 +1,90 @@
+{
+  "sourceSha": "4ce6ec9b1c458232129f0a1f8542e9e020cc9c03",
+  "oneOwnLearner": true,
+  "httpTrace": [
+    {
+      "operation": "/auth/v1/admin",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/token",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_start_pronunciation_pretest",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_submit_pronunciation_pretest",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    }
+  ],
+  "failedCompetencyIds": [
+    "sitov.pretest.a11-01.words",
+    "sitov.pretest.a11-01.nominal",
+    "sitov.pretest.a11-01.syntax",
+    "sitov.pretest.a11-01.verbs"
+  ],
+  "extraDiagnosticCalls": 0,
+  "observations": [
+    {
+      "at": "2026-10-09T10:51:35.513603+00:00",
+      "memAvailableMiB": 2570.75,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 116547584,
+      "gatewayPeakBytes": 120991744,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ]
+}
