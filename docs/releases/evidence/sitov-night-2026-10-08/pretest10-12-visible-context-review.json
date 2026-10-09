@@ -1,0 +1,211 @@
+{
+  "group_id": "SITOV-NIGHT-2026-10-08",
+  "reviewer": "sitov.agent.M",
+  "reviewerKind": "independent_agent_editorial_review",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewed_at": "2026-10-09T02:47:59.936216+00:00",
+  "source_commit": "cdd9dd870096033870e44ad4c228a6dabae67867",
+  "status": "CHANGES_REQUIRED_NO_AUDIO_PUBLICATION_APPROVAL",
+  "scope": "All72prompts/options/keys/rationales+12cores source10-12 readagainstcanonicalsource. Keys/grammar correctrelativetoprivateevidence, but16definitecontextdependenttasks askhiddenfacts withoutlearnerpremise. Structuralvalidators alonePASS doesnotestablish pedagogicalquality.",
+  "evidence_ui": "SitovPronunciationPretest.tsx renderspromptDe+fragmentDe/options; fragmentDe null; private sourceSpans neverreturned via taskDTO; targetreading/audio lockeduntilpass. Thereforehidden-sourcefactualquestion isunderdeterminedbeforetest.",
+  "items": [
+    {
+      "id": "sitov.pretest.a11-10.words.q6",
+      "promptDe": "Zu welcher Uhrzeit geht der Sprecher ins Bett?",
+      "hiddenEvidence": [
+        {
+          "start": 171,
+          "end": 201,
+          "quote": "Um zehn Uhr gehe ich ins Bett."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a11-10.syntax.q1",
+      "promptDe": "Was liegt nach diesem Satz auf dem Tisch?",
+      "hiddenEvidence": [
+        {
+          "start": 32,
+          "end": 63,
+          "quote": "Mein Handy liegt auf dem Tisch."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a11-10.syntax.q3",
+      "promptDe": "Wo schläft die Katze im Text?",
+      "hiddenEvidence": [
+        {
+          "start": 97,
+          "end": 130,
+          "quote": "Meine Katze schläft auf dem Sofa."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a11-10.syntax.q4",
+      "promptDe": "Welche beiden Handlungen führt der Sprecher in diesem Satz aus?",
+      "hiddenEvidence": [
+        {
+          "start": 131,
+          "end": 170,
+          "quote": "Ich trinke Wasser und höre leise Musik."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-01.syntax.q1",
+      "promptDe": "Seit wann bestehen die Halsschmerzen nach dem Satz?",
+      "hiddenEvidence": [
+        {
+          "start": 0,
+          "end": 31,
+          "quote": "Seit gestern tut mein Hals weh."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-01.syntax.q2",
+      "promptDe": "Welchen Wunsch verbindet der Sprecher mit seinem Anruf?",
+      "hiddenEvidence": [
+        {
+          "start": 32,
+          "end": 89,
+          "quote": "Ich rufe in der Praxis an und möchte einen Termin machen."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-01.syntax.q3",
+      "promptDe": "Nach welcher Angabe fragt der Mitarbeiter?",
+      "hiddenEvidence": [
+        {
+          "start": 90,
+          "end": 130,
+          "quote": "Der Mitarbeiter fragt nach meinem Namen."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-01.syntax.q4",
+      "promptDe": "In welchem Tagesabschnitt ist ein Termin verfügbar?",
+      "hiddenEvidence": [
+        {
+          "start": 161,
+          "end": 195,
+          "quote": "Am Nachmittag ist ein Termin frei."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-01.syntax.q6",
+      "promptDe": "Welche Handlungen nennt der Sprecher für danach?",
+      "hiddenEvidence": [
+        {
+          "start": 264,
+          "end": 313,
+          "quote": "Danach bleibe ich zu Hause und trinke warmen Tee."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-01.nominal.q5",
+      "promptDe": "Worauf bezieht sich »ihn« beim Buchstabieren?",
+      "hiddenEvidence": [
+        {
+          "start": 90,
+          "end": 160,
+          "quote": "Der Mitarbeiter fragt nach meinem Namen. Ich buchstabiere ihn langsam."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-02.syntax.q1",
+      "promptDe": "Zu wem kommen die beiden Freunde am Freitag?",
+      "hiddenEvidence": [
+        {
+          "start": 0,
+          "end": 38,
+          "quote": "Am Freitag kommen zwei Freunde zu mir."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-02.syntax.q2",
+      "promptDe": "Was planen die mit »wir« bezeichneten Personen?",
+      "hiddenEvidence": [
+        {
+          "start": 39,
+          "end": 78,
+          "quote": "Wir möchten zusammen eine Suppe kochen."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-02.syntax.q3",
+      "promptDe": "Welche Handlung steht in dieser Abfolge zuerst?",
+      "hiddenEvidence": [
+        {
+          "start": 79,
+          "end": 178,
+          "quote": "Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-02.syntax.q4",
+      "promptDe": "Welche Zuordnung passt zu den beiden Verben im Satz?",
+      "hiddenEvidence": [
+        {
+          "start": 119,
+          "end": 178,
+          "quote": "Dann waschen wir die Karotten und schneiden die Kartoffeln."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-02.syntax.q5",
+      "promptDe": "Wie werden die beiden Tätigkeiten aufgeteilt?",
+      "hiddenEvidence": [
+        {
+          "start": 179,
+          "end": 225,
+          "quote": "Mein Freund kocht Wasser. Ich decke den Tisch."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    },
+    {
+      "id": "sitov.pretest.a12-02.syntax.q6",
+      "promptDe": "Welche Handlung wird ausdrücklich für später genannt?",
+      "hiddenEvidence": [
+        {
+          "start": 280,
+          "end": 312,
+          "quote": "Später räumen wir die Küche auf."
+        }
+      ],
+      "reason": "Correctkey requires unavailablehidden-sourcefact/context, notonlythedeclaredlanguagecompetency."
+    }
+  ],
+  "required_repair": "S3 rewrite these16andreviewall72 learner-visiblepremises. Keep4source-specificcores/6non-equivalentitems each/2disjointbalanced12forms IDs/sourceversions/criteria; prompts needstandalone minimalpracticecontext orlanguageassessment tiedtorealsourceforms, no fulltargettext/audio/hiddenevidence leak and no answer-key cue. Exactpublicaudioaliases updated; no publish/guardrelax/guessing. Otherquestionsmayneedreview too;16isconfirmedminimum, notexhaustive heuristic. No TTSuntilM approves revisedfinalwording.",
+  "cross_batch": "Earlierfirst9reviews prove source/key correctness; learner-visiblecontext sufficiency not yet verified. Re-auditfirst9 beforeproductionpublication; preserve immutableactualQAhistory/olddefinitions and createcorrectedversion whenneeded. ExistingQAprotocolpasses retainedasprotocolonly, no new readyclaim.",
+  "production_write": false,
+  "audio_generation_started_for10_12": false
+}
