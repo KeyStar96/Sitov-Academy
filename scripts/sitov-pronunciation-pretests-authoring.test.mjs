@@ -2,9 +2,15 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sources=await sitovReadAuthoringSources(),currentManifest=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sources=await sitovReadAuthoringSources(),sitovActualManifest36=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovEpoch36=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch36-pools16-18-author-review.json','utf8'))
+// Preserve the exact frozen15 current-M-review state before historical epoch35/34/33 projections.
+const currentManifest=structuredClone(sitovActualManifest36)
+currentManifest.drafts=currentManifest.drafts.slice(0,15);currentManifest.coverage=sitovEpoch36.previousCoverage
+for(const row of sitovEpoch36.previousInventoryRows)currentManifest.inventory[currentManifest.inventory.findIndex(r=>r.textId===row.textId)]=row
 const sitovEpoch34=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch34-pools13-15-author-review.json','utf8'))
-const sitovAllAudio=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'))
+const sitovActualAudio36=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'))
+const sitovAllAudio=Object.fromEntries(Object.entries(sitovActualAudio36).slice(0,1440))
 const sitovFrozenAudio12=Object.fromEntries(Object.entries(sitovAllAudio).slice(0,1152))
 const sitovDelta35=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch35-option-diversity-delta.json','utf8'))
 const sitovAuthor35=structuredClone(currentManifest)
@@ -414,7 +420,7 @@ test('new option aliases follow exact bijections/order while old1152 and all Ger
  assert.equal(sitovHash(JSON.stringify(sitovBeforeAudio35)),sitovDelta35.previousAudioContentHash)
  assert.equal(sitovHash(JSON.stringify(sitovBeforeAudio35,null,2)+'\n'),sitovDelta35.previousAudioByteSha256)
  assert.equal(sitovHash(JSON.stringify(sitovAllAudio)),sitovDelta35.currentAudioContentHash)
- assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovDelta35.currentAudioByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovAllAudio,null,2)+'\n'),sitovDelta35.currentAudioByteSha256)
  assert.deepEqual(Object.values(sitovAllAudio).sort(),Object.values(sitovBeforeAudio35).sort())
  assert.equal(sitovHash(JSON.stringify(Object.values(sitovAllAudio).sort())),sitovDelta35.spokenMultisetContentHash)
  const expected={...sitovFrozenAudio12}
@@ -431,4 +437,55 @@ test('M exact independent review binds current new3 definitions without rewritin
  assert.equal(proof.optionDeltaSha256,sitovHash(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch35-option-diversity-delta.json','utf8')))
  for(const d of currentManifest.drafts.slice(12)){const r=proof.approvedEditorialDrafts.find(r=>r.textId===d.textId);assert.equal(d.active,false);assert.equal(d.review.status,'independent_editorial_checked_draft_only');assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.authorIdentity,'sitov.agent.S3');assert.equal(d.review.documentSha256,sitovHash(raw));assert.equal(d.review.textVersion,r.textVersion);assert.equal(d.review.definitionContentHash,r.definitionContentHash);assert.equal(r.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');for(const q of d.definition.tasks)assert.equal(r.correctAnswerTexts.find(r=>r.questionId===q.id).correctTextDe,q.options.find(o=>o.id===q.correctOptionId).textDe)}
  assert.deepEqual(sitovValidatePretestDrafts(currentManifest,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(currentManifest,sitovAllAudio),[])
+})
+
+
+test('current18 validate directly while exact frozen15 Mreviews and1440alias bytes reconstruct unchanged',async()=>{
+ assert.equal(sitovActualManifest36.drafts.length,18);assert.deepEqual(sitovActualManifest36.coverage,{total:60,authored:18,pending:42})
+ assert.equal(sitovHash(JSON.stringify(currentManifest.drafts)),sitovEpoch36.original15ContentHash)
+ assert.equal(sitovHash(JSON.stringify(currentManifest)),sitovEpoch36.originalManifestContentHash)
+ assert.equal(sitovHash(JSON.stringify(currentManifest,null,2)+'\n'),sitovEpoch36.originalManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovAllAudio)),sitovEpoch36.original1440AliasContentHash)
+ assert.equal(sitovHash(JSON.stringify(sitovAllAudio,null,2)+'\n'),sitovEpoch36.original1440AliasByteSha256)
+ assert.deepEqual(sitovValidatePretestDrafts(sitovActualManifest36,sources),[])
+ assert.equal(Object.keys(sitovActualAudio36).length,1728);assert.deepEqual(sitovValidatePretestAudioAliases(sitovActualManifest36,sitovActualAudio36),[])
+ assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovEpoch36.currentManifestByteSha256)
+ assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovEpoch36.currentAliasByteSha256)
+})
+test('next3 actual sources use exact body/hash, four distinct matrices, balanced disjoint forms and independently varied keys',async()=>{
+ const added=sitovActualManifest36.drafts.slice(15)
+ assert.deepEqual(sitovDiversityErrors(added),[])
+ const refs=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch36-reference-audio-candidates.json','utf8'))
+ for(const [index,draft] of added.entries()){
+  const source=sources.rows.find(r=>r.id===draft.textId),audit=sitovEpoch36.pools[index]
+  assert.equal(source.level,'A1.2');assert.equal(source.sortOrder,index+6);assert.equal(draft.textVersion,sitovHash(source.text))
+  assert.equal(audit.sourceBodyDe,source.text);assert.equal(refs['sitov-pretest-reference:'+draft.textId],source.text)
+  assert.equal(draft.active,false);assert.equal(draft.review.status,'author_checked_independent_review_pending');assert.equal(draft.review.authorIdentity,draft.review.reviewer)
+  assert.equal(draft.review.humanReview,false);assert.equal(draft.review.calibrationStatus,'pending');assert.equal(draft.review.definitionContentHash,sitovHash(JSON.stringify(draft.definition)))
+  assert.equal(audit.definitionContentHash,draft.review.definitionContentHash);assert.equal(draft.definition.tasks.length,24)
+  assert.equal(draft.definition.competencies.length,4);assert.equal(new Set(draft.definition.tasks.map(q=>q.assessmentUnit)).size,24)
+  const [a,b]=draft.definition.reviewForms;assert.equal(a.questionIds.length,12);assert.equal(b.questionIds.length,12);assert.equal(a.questionIds.some(id=>b.questionIds.includes(id)),false)
+  for(const [j,q] of draft.definition.tasks.entries()){
+   const record=audit.questions[j];assert.equal(record.questionId,q.id);assert.equal(record.publicPromptDe,q.promptDe);assert.deepEqual(record.publicOptions,q.options)
+   assert.equal(record.correctOptionId,q.correctOptionId);assert.equal(record.correctAnswerTextDe,q.options.find(o=>o.id===q.correctOptionId).textDe);assert.equal(record.rationaleDe,q.rationaleDe);assert.deepEqual(record.sourceSpans,q.sourceSpans)
+   assert.equal(q.fragmentDe,null);assert.ok(!q.promptDe.includes(source.text));assert.ok(!/\b(Frau|Mitarbeiterin|Freundin|Lehrerin|Schülerin|Nachbarin)\b/u.test(q.promptDe+' '+q.options.map(o=>o.textDe).join(' ')))
+  }
+ }
+})
+test('housing/train/library source-specific keys and public time/reference/permission contexts remain explicit',()=>{
+ const added=sitovActualManifest36.drafts.slice(15),task=(i,suffix)=>added[i].definition.tasks.find(q=>q.id.endsWith(suffix)),key=(i,suffix)=>{const q=task(i,suffix);return q.options.find(o=>o.id===q.correctOptionId).textDe}
+ assert.equal(key(0,'verbs.q3'),'ansehen');assert.equal(key(0,'nominal.q3'),'Auf die Wohnung.');assert.equal(key(0,'nominal.q5'),'dem')
+ assert.equal(key(1,'verbs.q3'),'Frühes Aufstehen ist notwendig.');assert.equal(key(1,'syntax.q2'),'Eine halbe Stunde vor zehn Uhr.');assert.equal(key(1,'nominal.q6'),'Auf den Bruder.')
+ assert.equal(key(2,'verbs.q6'),'Es ist für vier Wochen erlaubt.');assert.equal(key(2,'nominal.q5'),'Bildern');assert.equal(key(2,'nominal.q6'),'Das Buch')
+ assert.ok(task(0,'syntax.q2').promptDe.includes('Die Wohnung hat drei Zimmer und einen Balkon'))
+ assert.ok(task(1,'syntax.q4').promptDe.includes('Auf der Anzeige steht Gleis sieben'))
+ assert.ok(task(2,'syntax.q6').promptDe.includes('Das Buch darf ich vier Wochen behalten'))
+})
+test('new18 regressions reject invalid spans, repeated assessment units, shared forms, crosslevel mappings and stale audio',()=>{
+ for(const mutate of [m=>{m.drafts[15].definition.tasks[0].sourceSpans[0].start++},m=>{m.drafts[16].definition.tasks[1].assessmentUnit=m.drafts[16].definition.tasks[0].assessmentUnit},m=>{const f=m.drafts[17].definition.reviewForms;f[1].questionIds[0]=f[0].questionIds[0]},m=>{m.drafts[15].definition.competencies[0].mapping.topicIds=['sitov.topic.wohnen-a11']}]){
+  const copy=structuredClone(sitovActualManifest36);mutate(copy);assert.ok(sitovValidatePretestDrafts(copy,sources).length)
+ }
+ const missing={...sitovActualAudio36};delete missing[Object.keys(missing).at(-1)];assert.ok(sitovValidatePretestAudioAliases(sitovActualManifest36,missing).length)
+ const unbalanced=structuredClone(sitovActualManifest36.drafts.slice(15));for(const d of unbalanced)for(const q of d.definition.tasks)q.correctOptionId=q.options.find(o=>o.id.endsWith('.a')).id
+ assert.ok(sitovDiversityErrors(unbalanced).includes('unbalanced_labels'))
 })

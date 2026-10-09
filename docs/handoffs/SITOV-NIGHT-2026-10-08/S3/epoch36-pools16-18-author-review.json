@@ -1,0 +1,2193 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "cdf479971e30d2320074dfd67f14fec870095a81",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "randomnessProvenance": "OS CSPRNG secrets.SystemRandom; independently sampled balanced label and position schedules and random distractor labels/orders. Only sealed concrete authoring output stored, no seed or public answer-from-ID algorithm.",
+  "original15ContentHash": "8d3ea34a9ea10c634be527d87299a648e72abccd35a6e5f59284f42528633171",
+  "originalManifestContentHash": "cddf57d2fc803400e453b7e2c867007cd9d16c89ec2d590b76235312c90f00b8",
+  "originalManifestByteSha256": "c2dc77778ff477d1896d82836bed0a2cba87888e51e50fa2d93ab71040600bf9",
+  "original1440AliasContentHash": "e0e890bb713ae3418888ff8188aa67ddaacd299dd484dd7c432b648fdfc55e5f",
+  "original1440AliasByteSha256": "01fb33b091c9b521d73a38fa068aba599cf2fe9e42c8576a27dbe5ed14ee992c",
+  "currentManifestContentHash": "4b06f1133b221ce03ed0f8ed0c9abf9f83004322506b9e8bbc62ca06d0d46b48",
+  "currentManifestByteSha256": "d61dff37e939cdbdfb271fb483b7bff6ae2da5c4a9b110390bd0d396124b45a5",
+  "currentAliasContentHash": "de6936078679f3e917b68fe894a1eebfab529d9f8ac5d46986b104729bb1aac3",
+  "currentAliasByteSha256": "61d25c411e76707f8ad292e7477c68a3b060cd023051d662025c78f656577f52",
+  "newQuestionCount": 72,
+  "newAliasCount": 288,
+  "previousCoverage": {
+    "total": 60,
+    "authored": 15,
+    "pending": 45
+  },
+  "previousInventoryRows": [
+    {
+      "textId": "5b3316e2-4a9f-5689-ba11-e5d0dc420f2b",
+      "unitId": "5b3316e2-4a9f-5689-ba11-e5d0dc420f2b",
+      "level": "A1.2",
+      "title": "Eine Wohnung besichtigen",
+      "focus": "w und ü; sinnvolle Pausen",
+      "sortOrder": 6,
+      "active": true,
+      "textVersion": "52479a906a2ed2b673e3000ea142c0f06201136c8898cd6c45c24e1ca8376ff7",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": null,
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "00cedd4e-cf66-50ae-a181-e687d85a8379",
+      "unitId": "00cedd4e-cf66-50ae-a181-e687d85a8379",
+      "level": "A1.2",
+      "title": "Ein Ausflug mit dem Zug",
+      "focus": "z und ü; Zahlen und Uhrzeiten",
+      "sortOrder": 7,
+      "active": true,
+      "textVersion": "afb90ca92d92f558035a85d02f3117cd5e534aded0b0ff65a3dd3878a8486132",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "0022c931-279a-5050-ac2d-459c1e978cd1",
+      "unitId": "0022c931-279a-5050-ac2d-459c1e978cd1",
+      "level": "A1.2",
+      "title": "In der Bibliothek",
+      "focus": "b und ch; Fragesätze",
+      "sortOrder": 8,
+      "active": true,
+      "textVersion": "d4621e96754919e5664e2a4b50061897e47377f43d879b578ad919f3d0e06fa6",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    }
+  ],
+  "pools": [
+    {
+      "textId": "5b3316e2-4a9f-5689-ba11-e5d0dc420f2b",
+      "title": "Eine Wohnung besichtigen",
+      "textVersion": "52479a906a2ed2b673e3000ea142c0f06201136c8898cd6c45c24e1ca8376ff7",
+      "definitionContentHash": "b1be666d18cacc1a07c75240265b02181ba3eb1ad34b0ee789b2e89ca9dd1c35",
+      "sourceBodyDe": "Wir suchen eine neue Wohnung. Unsere Wohnung ist zu klein. Heute sehen wir uns eine Wohnung in der Nordstraße an. Sie hat drei Zimmer und einen Balkon. Die Küche ist hell. Neben dem Haus ist ein Spielplatz. Die Miete ist für uns etwas hoch. Wir möchten noch eine Nacht darüber schlafen und morgen anrufen.",
+      "status": "author_checked_independent_review_pending",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a12-06.words.q1",
+          "publicPromptDe": "Was bezeichnet »eine Wohnung«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.words.q1.b",
+              "textDe": "Räume, in denen man wohnt."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q1.c",
+              "textDe": "Eine Fahrkarte für die Bahn."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q1.a",
+              "textDe": "Eine Mahlzeit am Abend."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.words.q1.b",
+          "correctAnswerTextDe": "Räume, in denen man wohnt.",
+          "rationaleDe": "Eine Wohnung ist Wohnraum; Fahrkarte und Mahlzeit gehören zu anderen Bedeutungsbereichen.",
+          "assessmentUnit": "Wohnung als Wohnraum",
+          "sourceSpans": [
+            {
+              "start": 21,
+              "end": 28,
+              "quote": "Wohnung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q2",
+          "publicPromptDe": "Was ist ein »Balkon« an einer Wohnung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.words.q2.a",
+              "textDe": "Ein unterirdischer Bahnsteig."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q2.b",
+              "textDe": "Ein Schrank in der Küche."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q2.c",
+              "textDe": "Ein erhöhter Außenbereich am Gebäude."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.words.q2.c",
+          "correctAnswerTextDe": "Ein erhöhter Außenbereich am Gebäude.",
+          "rationaleDe": "Ein Balkon ist ein betretbarer Außenbereich am Gebäude, kein Bahnsteig oder Möbelstück.",
+          "assessmentUnit": "Balkon als Gebäudeteil",
+          "sourceSpans": [
+            {
+              "start": 138,
+              "end": 150,
+              "quote": "einen Balkon"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q3",
+          "publicPromptDe": "Was meint »die Miete« bei einer gemieteten Wohnung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.words.q3.c",
+              "textDe": "Die Größe eines Fensters."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q3.b",
+              "textDe": "Die Farbe einer Wand."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q3.a",
+              "textDe": "Die vereinbarte Zahlung für die Nutzung der Wohnung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.words.q3.a",
+          "correctAnswerTextDe": "Die vereinbarte Zahlung für die Nutzung der Wohnung.",
+          "rationaleDe": "Miete bezeichnet die Zahlung für die Nutzung; Fenstergröße und Wandfarbe sind andere Eigenschaften.",
+          "assessmentUnit": "Miete als Zahlung",
+          "sourceSpans": [
+            {
+              "start": 207,
+              "end": 216,
+              "quote": "Die Miete"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q4",
+          "publicPromptDe": "Wofür ist ein »Spielplatz« vorgesehen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.words.q4.a",
+              "textDe": "Nur zum Abstellen von Zügen."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q4.b",
+              "textDe": "Zum Spielen, häufig mit Spielgeräten."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q4.c",
+              "textDe": "Zum Ausstellen von Reisepässen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.words.q4.b",
+          "correctAnswerTextDe": "Zum Spielen, häufig mit Spielgeräten.",
+          "rationaleDe": "Ein Spielplatz dient dem Spielen; Zugabstellung und Passausstellung haben andere Orte.",
+          "assessmentUnit": "Spielplatz als Ort",
+          "sourceSpans": [
+            {
+              "start": 191,
+              "end": 205,
+              "quote": "ein Spielplatz"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q5",
+          "publicPromptDe": "Was bedeutet »hell« in »Die Küche ist hell«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.words.q5.a",
+              "textDe": "Es gibt viel Licht in der Küche."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q5.c",
+              "textDe": "Die Küche hat keinen Boden."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q5.b",
+              "textDe": "Die Küche ist ganz dunkel."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.words.q5.a",
+          "correctAnswerTextDe": "Es gibt viel Licht in der Küche.",
+          "rationaleDe": "Hell bezeichnet hier viel Licht; dunkel ist das Gegenteil, fehlender Boden folgt daraus nicht.",
+          "assessmentUnit": "hell als Lichtqualität",
+          "sourceSpans": [
+            {
+              "start": 152,
+              "end": 171,
+              "quote": "Die Küche ist hell."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q6",
+          "publicPromptDe": "Was bezeichnet »Nordstraße« in »eine Wohnung in der Nordstraße«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.words.q6.b",
+              "textDe": "Eine Uhrzeit."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q6.c",
+              "textDe": "Den Namen einer Straße."
+            },
+            {
+              "id": "sitov.pretest.a12-06.words.q6.a",
+              "textDe": "Den Namen eines Getränks."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.words.q6.c",
+          "correctAnswerTextDe": "Den Namen einer Straße.",
+          "rationaleDe": "Nordstraße ist im öffentlichen Ausdruck ein Straßenname, kein Getränk und keine Zeitangabe.",
+          "assessmentUnit": "Nordstraße als Straßenname",
+          "sourceSpans": [
+            {
+              "start": 92,
+              "end": 109,
+              "quote": "in der Nordstraße"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q1",
+          "publicPromptDe": "Welche Form ergänzt »Wir ___ eine neue Wohnung«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.verbs.q1.b",
+              "textDe": "suchen"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q1.c",
+              "textDe": "sucht"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q1.a",
+              "textDe": "suchst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.verbs.q1.b",
+          "correctAnswerTextDe": "suchen",
+          "rationaleDe": "Zum Subjekt wir gehört die Präsensform suchen; sucht und suchst passen zu anderen Personen.",
+          "assessmentUnit": "suchen wir Präsens Plural",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 10,
+              "quote": "Wir suchen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q2",
+          "publicPromptDe": "Wie lautet die Grundform von »ist« in »Unsere Wohnung ist zu klein«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.verbs.q2.a",
+              "textDe": "sein"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q2.b",
+              "textDe": "sehen"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q2.c",
+              "textDe": "sitzen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.verbs.q2.a",
+          "correctAnswerTextDe": "sein",
+          "rationaleDe": "Ist ist eine Form von sein; sitzen und sehen sind andere Grundformen.",
+          "assessmentUnit": "ist Grundform sein",
+          "sourceSpans": [
+            {
+              "start": 30,
+              "end": 58,
+              "quote": "Unsere Wohnung ist zu klein."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q3",
+          "publicPromptDe": "Wie lautet die Grundform von »sehen … an« in »Wir sehen uns eine Wohnung an«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.verbs.q3.c",
+              "textDe": "übersehen"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q3.a",
+              "textDe": "aussehen"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q3.b",
+              "textDe": "ansehen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.verbs.q3.b",
+          "correctAnswerTextDe": "ansehen",
+          "rationaleDe": "Die Partikel an gehört zu sehen und bildet ansehen; die anderen Präfixe ergeben andere Verben.",
+          "assessmentUnit": "ansehen trennbare Grundform",
+          "sourceSpans": [
+            {
+              "start": 65,
+              "end": 112,
+              "quote": "sehen wir uns eine Wohnung in der Nordstraße an"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Die Wohnung ___ drei Zimmer«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.verbs.q4.a",
+              "textDe": "haben"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q4.c",
+              "textDe": "hat"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q4.b",
+              "textDe": "hast"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.verbs.q4.c",
+          "correctAnswerTextDe": "hat",
+          "rationaleDe": "Die Wohnung steht in der dritten Person Singular und verlangt hat, nicht haben oder hast.",
+          "assessmentUnit": "hat dritte Person Singular",
+          "sourceSpans": [
+            {
+              "start": 114,
+              "end": 133,
+              "quote": "Sie hat drei Zimmer"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q5",
+          "publicPromptDe": "Was drückt »möchten« in »Wir möchten noch eine Nacht darüber schlafen« aus?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.verbs.q5.b",
+              "textDe": "Ein ausdrückliches Verbot."
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q5.a",
+              "textDe": "Einen Wunsch oder eine Absicht."
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q5.c",
+              "textDe": "Eine bereits abgeschlossene Handlung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.verbs.q5.a",
+          "correctAnswerTextDe": "Einen Wunsch oder eine Absicht.",
+          "rationaleDe": "Möchten drückt hier den Wunsch aus, sich Zeit zu nehmen; Verbot oder abgeschlossene Vergangenheit werden nicht bezeichnet.",
+          "assessmentUnit": "möchten Wunsch",
+          "sourceSpans": [
+            {
+              "start": 241,
+              "end": 252,
+              "quote": "Wir möchten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q6",
+          "publicPromptDe": "Welche Form ergänzt »Wir möchten morgen ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.verbs.q6.a",
+              "textDe": "rufen an"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q6.b",
+              "textDe": "angerufen"
+            },
+            {
+              "id": "sitov.pretest.a12-06.verbs.q6.c",
+              "textDe": "anrufen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.verbs.q6.c",
+          "correctAnswerTextDe": "anrufen",
+          "rationaleDe": "Nach möchten steht hier der Infinitiv anrufen; die getrennte finite Form und das Partizip passen nicht in diese Lücke.",
+          "assessmentUnit": "anrufen Infinitiv nach möchten",
+          "sourceSpans": [
+            {
+              "start": 290,
+              "end": 304,
+              "quote": "morgen anrufen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q1",
+          "publicPromptDe": "Welcher Satz ist mit vorangestelltem »Heute« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.syntax.q1.a",
+              "textDe": "Heute sehen wir uns eine Wohnung an."
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q1.b",
+              "textDe": "Heute wir sehen uns eine Wohnung an."
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q1.c",
+              "textDe": "Heute eine Wohnung wir sehen uns an."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.syntax.q1.a",
+          "correctAnswerTextDe": "Heute sehen wir uns eine Wohnung an.",
+          "rationaleDe": "Nach dem Zeitglied Heute steht das finite Verb sehen vor dem Subjekt wir; die Partikel an bleibt am Satzende.",
+          "assessmentUnit": "Heute Vorfeld Verbzweit",
+          "sourceSpans": [
+            {
+              "start": 59,
+              "end": 113,
+              "quote": "Heute sehen wir uns eine Wohnung in der Nordstraße an."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q2",
+          "publicPromptDe": "Welche Ausstattung nennt »Die Wohnung hat drei Zimmer und einen Balkon«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.syntax.q2.b",
+              "textDe": "Drei Balkone und ein Zimmer."
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q2.a",
+              "textDe": "Zwei Zimmer und keinen Balkon."
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q2.c",
+              "textDe": "Drei Zimmer und einen Balkon."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.syntax.q2.c",
+          "correctAnswerTextDe": "Drei Zimmer und einen Balkon.",
+          "rationaleDe": "Der öffentliche Satz nennt ausdrücklich drei Zimmer und einen Balkon; die anderen Antworten ändern Anzahl oder Ausstattung.",
+          "assessmentUnit": "Zimmer Balkon Objektkoordination",
+          "sourceSpans": [
+            {
+              "start": 114,
+              "end": 151,
+              "quote": "Sie hat drei Zimmer und einen Balkon."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q3",
+          "publicPromptDe": "Welches Wort ist in »Die Küche ist hell« das finite Verb?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.syntax.q3.a",
+              "textDe": "hell"
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q3.c",
+              "textDe": "ist"
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q3.b",
+              "textDe": "Küche"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.syntax.q3.c",
+          "correctAnswerTextDe": "ist",
+          "rationaleDe": "Ist ist das finite Verb; Küche ist das Subjektnomen und hell das prädikative Adjektiv.",
+          "assessmentUnit": "Küche Subjekt Prädikat",
+          "sourceSpans": [
+            {
+              "start": 152,
+              "end": 171,
+              "quote": "Die Küche ist hell."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q4",
+          "publicPromptDe": "Welche Wortgruppe nennt in »Neben dem Haus ist ein Spielplatz« den Ort?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.syntax.q4.c",
+              "textDe": "ist"
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q4.b",
+              "textDe": "Neben dem Haus"
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q4.a",
+              "textDe": "ein Spielplatz"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.syntax.q4.b",
+          "correctAnswerTextDe": "Neben dem Haus",
+          "rationaleDe": "Neben dem Haus ist die Ortsangabe; ein Spielplatz ist das Subjekt und ist das Verb.",
+          "assessmentUnit": "Neben Haus Ortsglied",
+          "sourceSpans": [
+            {
+              "start": 172,
+              "end": 206,
+              "quote": "Neben dem Haus ist ein Spielplatz."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q5",
+          "publicPromptDe": "Wessen Einschätzung nennt »für uns« in »Die Miete ist für uns etwas hoch«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.syntax.q5.b",
+              "textDe": "Die Einschätzung der Sprechergruppe."
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q5.a",
+              "textDe": "Die Größe des Balkons."
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q5.c",
+              "textDe": "Eine ausdrücklich genannte Meinung aller Menschen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.syntax.q5.b",
+          "correctAnswerTextDe": "Die Einschätzung der Sprechergruppe.",
+          "rationaleDe": "Für uns begrenzt die Einschätzung auf die Sprechergruppe; eine allgemeine Meinung oder Balkongröße wird nicht behauptet.",
+          "assessmentUnit": "für uns Perspektive",
+          "sourceSpans": [
+            {
+              "start": 207,
+              "end": 240,
+              "quote": "Die Miete ist für uns etwas hoch."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q6",
+          "publicPromptDe": "Was bedeutet die Redewendung »eine Nacht darüber schlafen«, bevor man sich entscheidet?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.syntax.q6.b",
+              "textDe": "Sofort ohne Nachdenken entscheiden."
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q6.c",
+              "textDe": "Den Gegenstand im Schlaf herstellen."
+            },
+            {
+              "id": "sitov.pretest.a12-06.syntax.q6.a",
+              "textDe": "Sich bis zum nächsten Tag Zeit zum Nachdenken nehmen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.syntax.q6.a",
+          "correctAnswerTextDe": "Sich bis zum nächsten Tag Zeit zum Nachdenken nehmen.",
+          "rationaleDe": "Die Redewendung meint das Aufschieben einer Entscheidung zum Überdenken, nicht sofortige Entscheidung oder Herstellung im Schlaf.",
+          "assessmentUnit": "darüber schlafen Entscheidungsaufschub",
+          "sourceSpans": [
+            {
+              "start": 253,
+              "end": 304,
+              "quote": "noch eine Nacht darüber schlafen und morgen anrufen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »___ Wohnung ist klein«, wenn sie der Sprechergruppe zugeordnet wird?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.nominal.q1.c",
+              "textDe": "Unserem"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q1.a",
+              "textDe": "Unsere"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q1.b",
+              "textDe": "Unseren"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.nominal.q1.a",
+          "correctAnswerTextDe": "Unsere",
+          "rationaleDe": "Wohnung ist ein feminines Subjekt im Nominativ; die passende Possessivform lautet unsere.",
+          "assessmentUnit": "Unsere Wohnung Besitz Nominativ",
+          "sourceSpans": [
+            {
+              "start": 30,
+              "end": 44,
+              "quote": "Unsere Wohnung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Wir suchen eine ___ Wohnung«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.nominal.q2.b",
+              "textDe": "neuen"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q2.a",
+              "textDe": "neuem"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q2.c",
+              "textDe": "neue"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.nominal.q2.c",
+          "correctAnswerTextDe": "neue",
+          "rationaleDe": "Im femininen Akkusativ nach eine erhält das Adjektiv die Endung e: neue Wohnung.",
+          "assessmentUnit": "neue Adjektiv Akkusativ feminin",
+          "sourceSpans": [
+            {
+              "start": 11,
+              "end": 28,
+              "quote": "eine neue Wohnung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q3",
+          "publicPromptDe": "Worauf verweist »Sie« in »Wir sehen eine Wohnung an. Sie hat drei Zimmer«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.nominal.q3.b",
+              "textDe": "Auf die Wohnung."
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q3.c",
+              "textDe": "Auf den Balkon."
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q3.a",
+              "textDe": "Auf die Sprechergruppe."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.nominal.q3.b",
+          "correctAnswerTextDe": "Auf die Wohnung.",
+          "rationaleDe": "Sie nimmt hier die feminine Wohnung wieder auf; Balkon ist maskulin, die Sprechergruppe hätte das Subjekt wir.",
+          "assessmentUnit": "Sie Wohnung Pronomenbezug",
+          "sourceSpans": [
+            {
+              "start": 114,
+              "end": 133,
+              "quote": "Sie hat drei Zimmer"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Die Wohnung hat ___ Balkon«, wenn genau ein Balkon gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.nominal.q4.b",
+              "textDe": "einem"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q4.a",
+              "textDe": "ein"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q4.c",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.nominal.q4.c",
+          "correctAnswerTextDe": "einen",
+          "rationaleDe": "Balkon ist maskulin und steht als Objekt im Akkusativ; deshalb lautet der Artikel einen.",
+          "assessmentUnit": "einen Balkon Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 138,
+              "end": 150,
+              "quote": "einen Balkon"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt die Ortsangabe »Neben ___ Haus ist ein Spielplatz«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.nominal.q5.c",
+              "textDe": "das"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q5.b",
+              "textDe": "dem"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q5.a",
+              "textDe": "den"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.nominal.q5.b",
+          "correctAnswerTextDe": "dem",
+          "rationaleDe": "Neben bezeichnet hier einen festen Ort und verlangt Dativ; das neutrale Haus steht deshalb mit dem.",
+          "assessmentUnit": "dem Haus lokaler Dativ",
+          "sourceSpans": [
+            {
+              "start": 172,
+              "end": 186,
+              "quote": "Neben dem Haus"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »Die Miete ist für ___ hoch«, wenn die Sprechergruppe gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-06.nominal.q6.a",
+              "textDe": "uns"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q6.b",
+              "textDe": "wir"
+            },
+            {
+              "id": "sitov.pretest.a12-06.nominal.q6.c",
+              "textDe": "unser"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-06.nominal.q6.a",
+          "correctAnswerTextDe": "uns",
+          "rationaleDe": "Für verlangt Akkusativ; uns ist die passende Personalpronomenform der ersten Person Plural.",
+          "assessmentUnit": "uns Akkusativ nach für",
+          "sourceSpans": [
+            {
+              "start": 221,
+              "end": 228,
+              "quote": "für uns"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "00cedd4e-cf66-50ae-a181-e687d85a8379",
+      "title": "Ein Ausflug mit dem Zug",
+      "textVersion": "afb90ca92d92f558035a85d02f3117cd5e534aded0b0ff65a3dd3878a8486132",
+      "definitionContentHash": "805b898f2b4bf909efb384477861b1575907fc10e0592f4c0fb9208770302665",
+      "sourceBodyDe": "Morgen besuchen wir meinen Bruder in Bremen. Unser Zug fährt um halb zehn. Wir müssen früh aufstehen und die Taschen packen. Am Bahnhof kaufen wir noch ein Brötchen. Auf der Anzeige steht Gleis sieben. Im Zug sitzen wir am Fenster. Mein Bruder wartet am Bahnhof auf uns. Zusammen fahren wir mit der Straßenbahn zu ihm.",
+      "status": "author_checked_independent_review_pending",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a12-07.words.q1",
+          "publicPromptDe": "Was ist ein »Zug« im Reiseverkehr?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.words.q1.b",
+              "textDe": "Ein Schienenfahrzeug zum Befördern von Personen oder Gütern."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q1.c",
+              "textDe": "Ein kleines Brot."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q1.a",
+              "textDe": "Ein Möbelstück am Fenster."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.words.q1.b",
+          "correctAnswerTextDe": "Ein Schienenfahrzeug zum Befördern von Personen oder Gütern.",
+          "rationaleDe": "Zug bezeichnet hier ein Schienenfahrzeug; Brot und Möbel gehören nicht zu diesem Verkehrsbegriff.",
+          "assessmentUnit": "Zug Verkehrsmittel",
+          "sourceSpans": [
+            {
+              "start": 45,
+              "end": 54,
+              "quote": "Unser Zug"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q2",
+          "publicPromptDe": "Was macht man typischerweise an einem »Bahnhof«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.words.q2.c",
+              "textDe": "Wohnungen streichen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q2.a",
+              "textDe": "Bücher im eigenen Schlafzimmer lesen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q2.b",
+              "textDe": "In Züge einsteigen oder aus ihnen aussteigen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.words.q2.b",
+          "correctAnswerTextDe": "In Züge einsteigen oder aus ihnen aussteigen.",
+          "rationaleDe": "Ein Bahnhof dient dem Bahnverkehr mit Ein- und Ausstieg; die anderen Tätigkeiten definieren ihn nicht.",
+          "assessmentUnit": "Bahnhof Verkehrsort",
+          "sourceSpans": [
+            {
+              "start": 125,
+              "end": 135,
+              "quote": "Am Bahnhof"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q3",
+          "publicPromptDe": "Was ist ein »Brötchen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.words.q3.c",
+              "textDe": "Eine kleine Backware aus Brotteig."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q3.b",
+              "textDe": "Ein großes Schienenfahrzeug."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q3.a",
+              "textDe": "Eine Anzeige für Abfahrten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.words.q3.c",
+          "correctAnswerTextDe": "Eine kleine Backware aus Brotteig.",
+          "rationaleDe": "Brötchen ist eine kleine Backware, kein Fahrzeug und keine technische Anzeige.",
+          "assessmentUnit": "Brötchen Backware",
+          "sourceSpans": [
+            {
+              "start": 152,
+              "end": 164,
+              "quote": "ein Brötchen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q4",
+          "publicPromptDe": "Was bezeichnet »die Anzeige« in »Auf der Anzeige steht Gleis sieben«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.words.q4.b",
+              "textDe": "Ein Sitzplatz am Fenster."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q4.c",
+              "textDe": "Eine Tasche für Kleidung."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q4.a",
+              "textDe": "Eine Darstellung mit Reiseinformationen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.words.q4.a",
+          "correctAnswerTextDe": "Eine Darstellung mit Reiseinformationen.",
+          "rationaleDe": "Die Anzeige stellt hier Reiseinformationen dar; Tasche und Sitzplatz sind keine Bedeutung dieses Wortes im Satz.",
+          "assessmentUnit": "Anzeige Informationstafel",
+          "sourceSpans": [
+            {
+              "start": 166,
+              "end": 181,
+              "quote": "Auf der Anzeige"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q5",
+          "publicPromptDe": "Was ist mit »Gleis« am Bahnhof gemeint?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.words.q5.c",
+              "textDe": "Der Name eines Familienmitglieds."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q5.a",
+              "textDe": "Der Schienenweg, an dem ein Zug fährt oder hält."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q5.b",
+              "textDe": "Die Füllung eines Brötchens."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.words.q5.a",
+          "correctAnswerTextDe": "Der Schienenweg, an dem ein Zug fährt oder hält.",
+          "rationaleDe": "Gleis bezeichnet den Schienenweg; Essen und Familienbeziehungen gehören nicht zu diesem Begriff.",
+          "assessmentUnit": "Gleis Schienenweg",
+          "sourceSpans": [
+            {
+              "start": 188,
+              "end": 200,
+              "quote": "Gleis sieben"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q6",
+          "publicPromptDe": "Was ist eine »Straßenbahn«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.words.q6.b",
+              "textDe": "Ein Raum zum Schlafen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q6.c",
+              "textDe": "Ein öffentliches Schienenfahrzeug im Stadtverkehr."
+            },
+            {
+              "id": "sitov.pretest.a12-07.words.q6.a",
+              "textDe": "Ein privates Boot auf einem See."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.words.q6.c",
+          "correctAnswerTextDe": "Ein öffentliches Schienenfahrzeug im Stadtverkehr.",
+          "rationaleDe": "Eine Straßenbahn fährt als öffentliches Verkehrsmittel auf Schienen in der Stadt, nicht auf einem See.",
+          "assessmentUnit": "Straßenbahn Stadtverkehr",
+          "sourceSpans": [
+            {
+              "start": 291,
+              "end": 310,
+              "quote": "mit der Straßenbahn"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q1",
+          "publicPromptDe": "Welche Form ergänzt »Morgen ___ wir meinen Bruder«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.verbs.q1.a",
+              "textDe": "besucht"
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q1.b",
+              "textDe": "besuchen"
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q1.c",
+              "textDe": "besuchst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.verbs.q1.b",
+          "correctAnswerTextDe": "besuchen",
+          "rationaleDe": "Zum Subjekt wir passt besuchen; besucht und besuchst passen in dieser Konstruktion nicht.",
+          "assessmentUnit": "besuchen wir Form",
+          "sourceSpans": [
+            {
+              "start": 7,
+              "end": 33,
+              "quote": "besuchen wir meinen Bruder"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q2",
+          "publicPromptDe": "Wie lautet die Grundform von »fährt« in »Unser Zug fährt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.verbs.q2.a",
+              "textDe": "feiern"
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q2.b",
+              "textDe": "führen"
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q2.c",
+              "textDe": "fahren"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.verbs.q2.c",
+          "correctAnswerTextDe": "fahren",
+          "rationaleDe": "Fährt ist eine Form von fahren mit Stammvokalwechsel; feiern und führen sind andere Verben.",
+          "assessmentUnit": "fährt Grundform fahren",
+          "sourceSpans": [
+            {
+              "start": 45,
+              "end": 60,
+              "quote": "Unser Zug fährt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q3",
+          "publicPromptDe": "Was bedeutet »müssen« in »Wir müssen früh aufstehen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.verbs.q3.b",
+              "textDe": "Frühes Aufstehen ist schon abgeschlossen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q3.c",
+              "textDe": "Frühes Aufstehen ist notwendig."
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q3.a",
+              "textDe": "Frühes Aufstehen ist verboten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.verbs.q3.c",
+          "correctAnswerTextDe": "Frühes Aufstehen ist notwendig.",
+          "rationaleDe": "Müssen drückt Notwendigkeit aus; Verbot oder abgeschlossene Vergangenheit sind keine Bedeutung dieser Form.",
+          "assessmentUnit": "müssen Notwendigkeit",
+          "sourceSpans": [
+            {
+              "start": 75,
+              "end": 100,
+              "quote": "Wir müssen früh aufstehen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q4",
+          "publicPromptDe": "Was bedeutet das Verb »aufstehen« nach dem Schlafen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.verbs.q4.b",
+              "textDe": "Das Bett verlassen und den Tag beginnen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q4.c",
+              "textDe": "Im Bett einschlafen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q4.a",
+              "textDe": "Eine Fahrkarte zerreißen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.verbs.q4.b",
+          "correctAnswerTextDe": "Das Bett verlassen und den Tag beginnen.",
+          "rationaleDe": "Aufstehen bedeutet hier, nach dem Schlafen aus dem Bett zu kommen; Einschlafen ist eine andere Handlung.",
+          "assessmentUnit": "aufstehen Tätigkeit",
+          "sourceSpans": [
+            {
+              "start": 86,
+              "end": 100,
+              "quote": "früh aufstehen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q5",
+          "publicPromptDe": "Was bedeutet »Wir kaufen ein Brötchen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.verbs.q5.c",
+              "textDe": "Wir verschenken ein Brötchen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q5.b",
+              "textDe": "Wir backen ein Brötchen selbst."
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q5.a",
+              "textDe": "Wir bekommen ein Brötchen gegen Bezahlung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.verbs.q5.a",
+          "correctAnswerTextDe": "Wir bekommen ein Brötchen gegen Bezahlung.",
+          "rationaleDe": "Kaufen bezeichnet den Erwerb gegen Bezahlung; Verschenken und eigenes Backen sind andere Handlungen.",
+          "assessmentUnit": "kaufen Erwerb gegen Bezahlung",
+          "sourceSpans": [
+            {
+              "start": 136,
+              "end": 164,
+              "quote": "kaufen wir noch ein Brötchen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q6",
+          "publicPromptDe": "Welche Form ergänzt »Mein Bruder ___ am Bahnhof«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.verbs.q6.a",
+              "textDe": "wartet"
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q6.c",
+              "textDe": "wartest"
+            },
+            {
+              "id": "sitov.pretest.a12-07.verbs.q6.b",
+              "textDe": "warten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.verbs.q6.a",
+          "correctAnswerTextDe": "wartet",
+          "rationaleDe": "Mein Bruder ist ein Subjekt in der dritten Person Singular; die passende Form lautet wartet.",
+          "assessmentUnit": "wartet dritte Person Singular",
+          "sourceSpans": [
+            {
+              "start": 232,
+              "end": 250,
+              "quote": "Mein Bruder wartet"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q1",
+          "publicPromptDe": "Welche Wortgruppe nennt in »Morgen besuchen wir meinen Bruder in Bremen« die Zeit?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.syntax.q1.b",
+              "textDe": "meinen Bruder"
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q1.a",
+              "textDe": "Morgen"
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q1.c",
+              "textDe": "in Bremen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.syntax.q1.a",
+          "correctAnswerTextDe": "Morgen",
+          "rationaleDe": "Morgen bezeichnet die Zeit; meinen Bruder ist das Besuchsobjekt und in Bremen nennt den Ort.",
+          "assessmentUnit": "Morgen Zeitglied",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 44,
+              "quote": "Morgen besuchen wir meinen Bruder in Bremen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q2",
+          "publicPromptDe": "Was bedeutet »halb zehn« unabhängig davon, ob morgens oder abends gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.syntax.q2.b",
+              "textDe": "Eine halbe Stunde nach zehn Uhr."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q2.a",
+              "textDe": "Eine halbe Stunde vor zehn Uhr."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q2.c",
+              "textDe": "Genau zehn Uhr."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.syntax.q2.a",
+          "correctAnswerTextDe": "Eine halbe Stunde vor zehn Uhr.",
+          "rationaleDe": "Halb zehn liegt dreißig Minuten vor zehn; die Tageshälfte ändert diese relative Uhrzeitbedeutung nicht.",
+          "assessmentUnit": "halb zehn Zeitverständnis",
+          "sourceSpans": [
+            {
+              "start": 61,
+              "end": 73,
+              "quote": "um halb zehn"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q3",
+          "publicPromptDe": "Welche zwei Handlungen nennt »Wir müssen früh aufstehen und die Taschen packen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.syntax.q3.c",
+              "textDe": "Aufstehen und die Taschen packen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q3.b",
+              "textDe": "Schlafen und die Taschen wegwerfen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q3.a",
+              "textDe": "Warten und die Fenster öffnen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.syntax.q3.c",
+          "correctAnswerTextDe": "Aufstehen und die Taschen packen.",
+          "rationaleDe": "Der öffentliche Satz verbindet ausdrücklich aufstehen und packen unter dem Modalverb müssen.",
+          "assessmentUnit": "zwei Infinitive Modalverb",
+          "sourceSpans": [
+            {
+              "start": 75,
+              "end": 124,
+              "quote": "Wir müssen früh aufstehen und die Taschen packen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q4",
+          "publicPromptDe": "Welches Gleis nennt »Auf der Anzeige steht Gleis sieben«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.syntax.q4.c",
+              "textDe": "Gleis zehn."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q4.a",
+              "textDe": "Gleis sechs."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q4.b",
+              "textDe": "Gleis sieben."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.syntax.q4.b",
+          "correctAnswerTextDe": "Gleis sieben.",
+          "rationaleDe": "Die öffentliche Angabe lautet sieben; die anderen Gleisnummern stehen dort nicht.",
+          "assessmentUnit": "Gleisnummer ausdrückliche Angabe",
+          "sourceSpans": [
+            {
+              "start": 166,
+              "end": 201,
+              "quote": "Auf der Anzeige steht Gleis sieben."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q5",
+          "publicPromptDe": "Auf wen wartet der Bruder laut »Mein Bruder wartet am Bahnhof auf uns«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.syntax.q5.b",
+              "textDe": "Auf die Sprechergruppe."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q5.a",
+              "textDe": "Auf ein Brötchen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q5.c",
+              "textDe": "Auf die Anzeige."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.syntax.q5.b",
+          "correctAnswerTextDe": "Auf die Sprechergruppe.",
+          "rationaleDe": "Uns bezeichnet die Sprechergruppe; Brötchen und Anzeige sind keine Bezugspersonen dieser Aussage.",
+          "assessmentUnit": "warten auf uns Rollen",
+          "sourceSpans": [
+            {
+              "start": 232,
+              "end": 270,
+              "quote": "Mein Bruder wartet am Bahnhof auf uns."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q6",
+          "publicPromptDe": "Was bedeutet »zusammen« in »Zusammen fahren wir mit der Straßenbahn«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.syntax.q6.b",
+              "textDe": "Niemand fährt."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q6.a",
+              "textDe": "Jede Person fährt ausdrücklich allein."
+            },
+            {
+              "id": "sitov.pretest.a12-07.syntax.q6.c",
+              "textDe": "Die Fahrt wird gemeinsam gemacht."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.syntax.q6.c",
+          "correctAnswerTextDe": "Die Fahrt wird gemeinsam gemacht.",
+          "rationaleDe": "Zusammen drückt gemeinsames Handeln aus; allein oder keine Fahrt widersprechen dieser Bedeutung.",
+          "assessmentUnit": "Zusammen gemeinsame Handlung",
+          "sourceSpans": [
+            {
+              "start": 271,
+              "end": 290,
+              "quote": "Zusammen fahren wir"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Wir besuchen ___ Bruder«, wenn es der Bruder des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.nominal.q1.a",
+              "textDe": "meinem"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q1.b",
+              "textDe": "meinen"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q1.c",
+              "textDe": "mein"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.nominal.q1.b",
+          "correctAnswerTextDe": "meinen",
+          "rationaleDe": "Bruder ist maskulin und steht nach besuchen als Akkusativobjekt; die Form lautet meinen.",
+          "assessmentUnit": "meinen Bruder Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 20,
+              "end": 33,
+              "quote": "meinen Bruder"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »___ Zug fährt«, wenn der Zug der Sprechergruppe zugeordnet wird?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.nominal.q2.b",
+              "textDe": "Unserem"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q2.c",
+              "textDe": "Unseren"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q2.a",
+              "textDe": "Unser"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.nominal.q2.a",
+          "correctAnswerTextDe": "Unser",
+          "rationaleDe": "Zug ist ein maskulines Subjekt im Nominativ; unser ist die passende Possessivform.",
+          "assessmentUnit": "Unser Zug Nominativ",
+          "sourceSpans": [
+            {
+              "start": 45,
+              "end": 54,
+              "quote": "Unser Zug"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q3",
+          "publicPromptDe": "Wie lautet der Singular von »Taschen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.nominal.q3.a",
+              "textDe": "die Tasche"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q3.b",
+              "textDe": "das Tasche"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q3.c",
+              "textDe": "der Taschen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.nominal.q3.a",
+          "correctAnswerTextDe": "die Tasche",
+          "rationaleDe": "Der Singular lautet die Tasche; Taschen ist die Mehrzahl und die anderen Artikel passen nicht.",
+          "assessmentUnit": "Taschen Singular",
+          "sourceSpans": [
+            {
+              "start": 105,
+              "end": 116,
+              "quote": "die Taschen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q4",
+          "publicPromptDe": "Welche Wortgruppe steckt in »im Zug«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.nominal.q4.c",
+              "textDe": "in dem Zug"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q4.b",
+              "textDe": "in den Zug"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q4.a",
+              "textDe": "an dem Zug"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.nominal.q4.c",
+          "correctAnswerTextDe": "in dem Zug",
+          "rationaleDe": "Im ist die Zusammenziehung von in dem; in den beschreibt dagegen eine andere Kasusform.",
+          "assessmentUnit": "Im in dem Kontraktion",
+          "sourceSpans": [
+            {
+              "start": 202,
+              "end": 208,
+              "quote": "Im Zug"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Wir fahren mit ___ Straßenbahn«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.nominal.q5.a",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q5.c",
+              "textDe": "der"
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q5.b",
+              "textDe": "die"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.nominal.q5.c",
+          "correctAnswerTextDe": "der",
+          "rationaleDe": "Mit verlangt Dativ; für das feminine Nomen Straßenbahn lautet der bestimmte Artikel der.",
+          "assessmentUnit": "der Straßenbahn Dativ",
+          "sourceSpans": [
+            {
+              "start": 291,
+              "end": 310,
+              "quote": "mit der Straßenbahn"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q6",
+          "publicPromptDe": "Auf wen verweist »ihm« in »Mein Bruder wartet. Wir fahren danach zu ihm«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-07.nominal.q6.a",
+              "textDe": "Auf die Straßenbahn."
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q6.c",
+              "textDe": "Auf die Taschen."
+            },
+            {
+              "id": "sitov.pretest.a12-07.nominal.q6.b",
+              "textDe": "Auf den Bruder."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-07.nominal.q6.b",
+          "correctAnswerTextDe": "Auf den Bruder.",
+          "rationaleDe": "Ihm verweist auf den männlichen Bruder; Straßenbahn und Taschen haben unpassendes Genus beziehungsweise Numerus.",
+          "assessmentUnit": "ihm Bruder Pronomenbezug",
+          "sourceSpans": [
+            {
+              "start": 232,
+              "end": 318,
+              "quote": "Mein Bruder wartet am Bahnhof auf uns. Zusammen fahren wir mit der Straßenbahn zu ihm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "0022c931-279a-5050-ac2d-459c1e978cd1",
+      "title": "In der Bibliothek",
+      "textVersion": "d4621e96754919e5664e2a4b50061897e47377f43d879b578ad919f3d0e06fa6",
+      "definitionContentHash": "142b23f43b7b2a0c43f6a2ce91d5de26558759783c7e48f74a1c68157cfe9fce",
+      "sourceBodyDe": "Ich möchte mehr auf Deutsch lesen. Deshalb gehe ich heute in die Bibliothek. Ein Mitarbeiter erklärt mir die Anmeldung. Ich brauche meinen Ausweis und bekomme eine Karte. Im ersten Stock finde ich leichte Bücher. Ich nehme eine kurze Geschichte mit vielen Bildern. Das Buch darf ich vier Wochen behalten. Nächste Woche möchte ich wiederkommen.",
+      "status": "author_checked_independent_review_pending",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a12-08.words.q1",
+          "publicPromptDe": "Was ist eine »Bibliothek«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.words.q1.b",
+              "textDe": "Eine Werkstatt nur für Züge."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q1.a",
+              "textDe": "Ein Platz zum Schwimmen."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q1.c",
+              "textDe": "Ein Ort, an dem man Bücher lesen oder ausleihen kann."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.words.q1.c",
+          "correctAnswerTextDe": "Ein Ort, an dem man Bücher lesen oder ausleihen kann.",
+          "rationaleDe": "Eine Bibliothek bietet Bücher zum Lesen oder Ausleihen; Zugwerkstatt und Schwimmplatz sind andere Einrichtungen.",
+          "assessmentUnit": "Bibliothek Bücherort",
+          "sourceSpans": [
+            {
+              "start": 65,
+              "end": 75,
+              "quote": "Bibliothek"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q2",
+          "publicPromptDe": "Was bedeutet »die Anmeldung« bei einer Bibliothek?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.words.q2.c",
+              "textDe": "Die Farbe eines Buches."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q2.b",
+              "textDe": "Die Registrierung als Nutzer."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q2.a",
+              "textDe": "Das Backen eines Kuchens."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.words.q2.b",
+          "correctAnswerTextDe": "Die Registrierung als Nutzer.",
+          "rationaleDe": "Anmeldung bezeichnet die Registrierung; Kuchenbacken und Buchfarbe sind andere Bedeutungen.",
+          "assessmentUnit": "Anmeldung Registrierung",
+          "sourceSpans": [
+            {
+              "start": 105,
+              "end": 118,
+              "quote": "die Anmeldung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q3",
+          "publicPromptDe": "Wozu dient ein »Ausweis«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.words.q3.a",
+              "textDe": "Zum Tragen großer Möbel."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q3.b",
+              "textDe": "Zum Kochen einer Suppe."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q3.c",
+              "textDe": "Zum Nachweisen der eigenen Identität."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.words.q3.c",
+          "correctAnswerTextDe": "Zum Nachweisen der eigenen Identität.",
+          "rationaleDe": "Ein Ausweis weist die Identität nach; er ist weder Transporthilfe für Möbel noch Kochgerät.",
+          "assessmentUnit": "Ausweis Identitätsdokument",
+          "sourceSpans": [
+            {
+              "start": 132,
+              "end": 146,
+              "quote": "meinen Ausweis"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q4",
+          "publicPromptDe": "Was meint »eine Karte« im Kontext »Ich melde mich in der Bibliothek an und bekomme eine Nutzerkarte«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.words.q4.c",
+              "textDe": "Ein Stück Kuchen."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q4.b",
+              "textDe": "Einen Nachweis für die Nutzung der Bibliothek."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q4.a",
+              "textDe": "Eine Straßenbahn."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.words.q4.b",
+          "correctAnswerTextDe": "Einen Nachweis für die Nutzung der Bibliothek.",
+          "rationaleDe": "Die ausdrücklich genannte Nutzerkarte gehört zur Bibliotheksnutzung; Kuchen und Fahrzeug sind andere Dinge.",
+          "assessmentUnit": "Karte Bibliotheksausweis",
+          "sourceSpans": [
+            {
+              "start": 151,
+              "end": 169,
+              "quote": "bekomme eine Karte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q5",
+          "publicPromptDe": "Was bedeutet »Stock« in »Im ersten Stock finde ich Bücher«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.words.q5.a",
+              "textDe": "Eine Etage des Gebäudes."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q5.b",
+              "textDe": "Ein dünner Ast zum Tragen."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q5.c",
+              "textDe": "Ein einzelnes geschriebenes Wort."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.words.q5.a",
+          "correctAnswerTextDe": "Eine Etage des Gebäudes.",
+          "rationaleDe": "Stock bezeichnet im öffentlichen Gebäudeausdruck eine Etage; Ast und Wort sind andere Bedeutungen.",
+          "assessmentUnit": "Stock Gebäudeebene",
+          "sourceSpans": [
+            {
+              "start": 171,
+              "end": 186,
+              "quote": "Im ersten Stock"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q6",
+          "publicPromptDe": "Was bezeichnet »eine kurze Geschichte« als Lesetext?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.words.q6.a",
+              "textDe": "Eine kurze Erzählung."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q6.c",
+              "textDe": "Eine Eintrittskarte fürs Schwimmbad."
+            },
+            {
+              "id": "sitov.pretest.a12-08.words.q6.b",
+              "textDe": "Ein Schienenweg."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.words.q6.a",
+          "correctAnswerTextDe": "Eine kurze Erzählung.",
+          "rationaleDe": "Eine Geschichte ist hier ein erzählender Text; Eintrittskarte und Gleis gehören nicht zu diesem Begriff.",
+          "assessmentUnit": "Geschichte Erzählung",
+          "sourceSpans": [
+            {
+              "start": 223,
+              "end": 244,
+              "quote": "eine kurze Geschichte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q1",
+          "publicPromptDe": "Was drückt »möchte« in »Ich möchte mehr auf Deutsch lesen« aus?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.verbs.q1.a",
+              "textDe": "Das Verbot zu lesen."
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q1.c",
+              "textDe": "Den Wunsch, mehr zu lesen."
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q1.b",
+              "textDe": "Dass alles schon gelesen wurde."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.verbs.q1.c",
+          "correctAnswerTextDe": "Den Wunsch, mehr zu lesen.",
+          "rationaleDe": "Möchte bezeichnet den Lesewunsch; ein Verbot oder abgeschlossener Lesevorgang wird nicht ausgedrückt.",
+          "assessmentUnit": "möchte Wunsch lesen",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 34,
+              "quote": "Ich möchte mehr auf Deutsch lesen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich ___ heute in die Bibliothek«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.verbs.q2.a",
+              "textDe": "geht"
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q2.c",
+              "textDe": "gehe"
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q2.b",
+              "textDe": "gehst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.verbs.q2.c",
+          "correctAnswerTextDe": "gehe",
+          "rationaleDe": "Zum Subjekt ich gehört gehe; geht und gehst passen zu anderen Personen.",
+          "assessmentUnit": "gehe ich Personenform",
+          "sourceSpans": [
+            {
+              "start": 43,
+              "end": 57,
+              "quote": "gehe ich heute"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ein Mitarbeiter ___ mir die Anmeldung«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.verbs.q3.b",
+              "textDe": "erklärt"
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q3.a",
+              "textDe": "erklärst"
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q3.c",
+              "textDe": "erklären"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.verbs.q3.b",
+          "correctAnswerTextDe": "erklärt",
+          "rationaleDe": "Ein Mitarbeiter steht in der dritten Person Singular; daher ist erklärt die passende finite Form.",
+          "assessmentUnit": "erklärt dritte Person",
+          "sourceSpans": [
+            {
+              "start": 77,
+              "end": 100,
+              "quote": "Ein Mitarbeiter erklärt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q4",
+          "publicPromptDe": "Wie lautet die Grundform von »brauche« in »Ich brauche meinen Ausweis«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.verbs.q4.b",
+              "textDe": "brauchen"
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q4.c",
+              "textDe": "bringen"
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q4.a",
+              "textDe": "brechen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.verbs.q4.b",
+          "correctAnswerTextDe": "brauchen",
+          "rationaleDe": "Brauche ist eine Form von brauchen; brechen und bringen sind eigenständige andere Verben.",
+          "assessmentUnit": "brauche Grundform",
+          "sourceSpans": [
+            {
+              "start": 120,
+              "end": 131,
+              "quote": "Ich brauche"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich ___ eine Karte«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.verbs.q5.c",
+              "textDe": "bekommst"
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q5.b",
+              "textDe": "bekommt"
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q5.a",
+              "textDe": "bekomme"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.verbs.q5.a",
+          "correctAnswerTextDe": "bekomme",
+          "rationaleDe": "Das Subjekt ich verlangt bekomme; bekommt und bekommst passen nicht zur ersten Person Singular.",
+          "assessmentUnit": "bekomme erste Person",
+          "sourceSpans": [
+            {
+              "start": 151,
+              "end": 169,
+              "quote": "bekomme eine Karte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q6",
+          "publicPromptDe": "Was bedeutet »darf« in »Das Buch darf ich vier Wochen behalten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.verbs.q6.c",
+              "textDe": "Es ist bereits zurückgegeben worden."
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q6.b",
+              "textDe": "Es ist ausdrücklich verboten."
+            },
+            {
+              "id": "sitov.pretest.a12-08.verbs.q6.a",
+              "textDe": "Es ist für vier Wochen erlaubt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.verbs.q6.a",
+          "correctAnswerTextDe": "Es ist für vier Wochen erlaubt.",
+          "rationaleDe": "Darf bezeichnet hier eine Erlaubnis; Verbot oder bereits erfolgte Rückgabe folgen daraus nicht.",
+          "assessmentUnit": "darf Erlaubnis",
+          "sourceSpans": [
+            {
+              "start": 265,
+              "end": 304,
+              "quote": "Das Buch darf ich vier Wochen behalten."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q1",
+          "publicPromptDe": "Welche Beziehung zeigt »deshalb« in »Ich möchte mehr lesen. Deshalb gehe ich in die Bibliothek«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.syntax.q1.b",
+              "textDe": "Der Besuch wird ausdrücklich verboten."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q1.c",
+              "textDe": "Die beiden Aussagen sind ausdrücklich ohne Zusammenhang."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q1.a",
+              "textDe": "Der Lesewunsch ist der Grund für den Besuch."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.syntax.q1.a",
+          "correctAnswerTextDe": "Der Lesewunsch ist der Grund für den Besuch.",
+          "rationaleDe": "Deshalb verbindet den Bibliotheksbesuch mit dem vorher genannten Lesewunsch als Grund.",
+          "assessmentUnit": "Deshalb Begründungsbezug",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 76,
+              "quote": "Ich möchte mehr auf Deutsch lesen. Deshalb gehe ich heute in die Bibliothek."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q2",
+          "publicPromptDe": "Wer erklärt laut »Ein Mitarbeiter erklärt mir die Anmeldung« die Anmeldung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.syntax.q2.c",
+              "textDe": "Der Mitarbeiter."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q2.b",
+              "textDe": "Die Karte."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q2.a",
+              "textDe": "Der Ausweis."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.syntax.q2.c",
+          "correctAnswerTextDe": "Der Mitarbeiter.",
+          "rationaleDe": "Ein Mitarbeiter ist das ausdrückliche Subjekt von erklärt; Ausweis und Karte führen die Erklärung nicht aus.",
+          "assessmentUnit": "Mitarbeiter handelndes Subjekt",
+          "sourceSpans": [
+            {
+              "start": 77,
+              "end": 119,
+              "quote": "Ein Mitarbeiter erklärt mir die Anmeldung."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q3",
+          "publicPromptDe": "Für welche beiden Verben gilt »ich« in »Ich brauche meinen Ausweis und bekomme eine Karte«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.syntax.q3.c",
+              "textDe": "Für keines der beiden Verben."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q3.a",
+              "textDe": "Nur für brauche; bekomme hat ausdrücklich ein anderes Subjekt."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q3.b",
+              "textDe": "Für brauche und bekomme."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.syntax.q3.b",
+          "correctAnswerTextDe": "Für brauche und bekomme.",
+          "rationaleDe": "Das gemeinsame Subjekt ich gehört in der Koordination zu beiden Prädikaten brauche und bekomme.",
+          "assessmentUnit": "gemeinsames Ich zwei Verben",
+          "sourceSpans": [
+            {
+              "start": 120,
+              "end": 170,
+              "quote": "Ich brauche meinen Ausweis und bekomme eine Karte."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q4",
+          "publicPromptDe": "Welche Wortgruppe nennt in »Im ersten Stock finde ich leichte Bücher« den Ort?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.syntax.q4.c",
+              "textDe": "ich"
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q4.b",
+              "textDe": "Im ersten Stock"
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q4.a",
+              "textDe": "leichte Bücher"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.syntax.q4.b",
+          "correctAnswerTextDe": "Im ersten Stock",
+          "rationaleDe": "Im ersten Stock ist die Ortsangabe; ich ist das Subjekt, leichte Bücher ist das Objekt.",
+          "assessmentUnit": "erster Stock Ortsglied",
+          "sourceSpans": [
+            {
+              "start": 171,
+              "end": 212,
+              "quote": "Im ersten Stock finde ich leichte Bücher."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q5",
+          "publicPromptDe": "Was gehört laut »Ich nehme eine Geschichte mit vielen Bildern« zur Geschichte?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.syntax.q5.b",
+              "textDe": "Viele Bahnsteige."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q5.c",
+              "textDe": "Viele Bilder."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q5.a",
+              "textDe": "Viele Schwimmbecken."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.syntax.q5.c",
+          "correctAnswerTextDe": "Viele Bilder.",
+          "rationaleDe": "Die Wortgruppe mit vielen Bildern beschreibt die Geschichte; Bahnsteige und Schwimmbecken nennt der Satz nicht.",
+          "assessmentUnit": "Bilder Zugehörigkeit",
+          "sourceSpans": [
+            {
+              "start": 223,
+              "end": 263,
+              "quote": "eine kurze Geschichte mit vielen Bildern"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q6",
+          "publicPromptDe": "Wie lange ist die Nutzung laut »Das Buch darf ich vier Wochen behalten« erlaubt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.syntax.q6.a",
+              "textDe": "Vier Wochen."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q6.c",
+              "textDe": "Vier Jahre."
+            },
+            {
+              "id": "sitov.pretest.a12-08.syntax.q6.b",
+              "textDe": "Vier Stunden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.syntax.q6.a",
+          "correctAnswerTextDe": "Vier Wochen.",
+          "rationaleDe": "Der öffentliche Satz nennt die Dauer vier Wochen; Stunden und Jahre verändern die ausdrücklich genannte Einheit.",
+          "assessmentUnit": "vier Wochen Dauer",
+          "sourceSpans": [
+            {
+              "start": 265,
+              "end": 304,
+              "quote": "Das Buch darf ich vier Wochen behalten."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Der Mitarbeiter erklärt ___ die Anmeldung«, wenn der Sprecher der Empfänger ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.nominal.q1.a",
+              "textDe": "mich"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q1.b",
+              "textDe": "ich"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q1.c",
+              "textDe": "mir"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.nominal.q1.c",
+          "correctAnswerTextDe": "mir",
+          "rationaleDe": "Die empfangende Person steht bei erklären hier im Dativ: mir; mich und ich haben andere Kasus.",
+          "assessmentUnit": "mir Dativ Empfänger",
+          "sourceSpans": [
+            {
+              "start": 93,
+              "end": 118,
+              "quote": "erklärt mir die Anmeldung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich brauche ___ Ausweis«, wenn es der Ausweis des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.nominal.q2.b",
+              "textDe": "meinen"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q2.a",
+              "textDe": "mein"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q2.c",
+              "textDe": "meinem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.nominal.q2.b",
+          "correctAnswerTextDe": "meinen",
+          "rationaleDe": "Ausweis ist maskulin und steht als Akkusativobjekt; die passende Possessivform lautet meinen.",
+          "assessmentUnit": "meinen Ausweis Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 132,
+              "end": 146,
+              "quote": "meinen Ausweis"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich bekomme ___ Karte«, wenn genau eine Karte gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.nominal.q3.c",
+              "textDe": "einem"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q3.b",
+              "textDe": "einen"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q3.a",
+              "textDe": "eine"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.nominal.q3.a",
+          "correctAnswerTextDe": "eine",
+          "rationaleDe": "Karte ist feminin und steht hier im Akkusativ; eine ist die richtige Form des unbestimmten Artikels.",
+          "assessmentUnit": "eine Karte Akkusativ feminin",
+          "sourceSpans": [
+            {
+              "start": 159,
+              "end": 169,
+              "quote": "eine Karte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »im ___ Stock«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.nominal.q4.a",
+              "textDe": "erster"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q4.c",
+              "textDe": "ersten"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q4.b",
+              "textDe": "erste"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.nominal.q4.c",
+          "correctAnswerTextDe": "ersten",
+          "rationaleDe": "Im enthält den Dativartikel dem; das Ordinaladjektiv trägt hier die Endung en: ersten.",
+          "assessmentUnit": "ersten Adjektiv Dativ",
+          "sourceSpans": [
+            {
+              "start": 171,
+              "end": 186,
+              "quote": "Im ersten Stock"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »eine Geschichte mit vielen ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.nominal.q5.a",
+              "textDe": "Bildern"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q5.c",
+              "textDe": "Bildes"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q5.b",
+              "textDe": "Bilder"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.nominal.q5.a",
+          "correctAnswerTextDe": "Bildern",
+          "rationaleDe": "Mit verlangt Dativ; im Plural erhält Bilder hier die zusätzliche Endung n: Bildern.",
+          "assessmentUnit": "Bildern Dativ Plural",
+          "sourceSpans": [
+            {
+              "start": 245,
+              "end": 263,
+              "quote": "mit vielen Bildern"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q6",
+          "publicPromptDe": "Welche Wortgruppe ist das Akkusativobjekt in »Das Buch darf ich vier Wochen behalten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-08.nominal.q6.c",
+              "textDe": "vier Wochen"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q6.b",
+              "textDe": "Das Buch"
+            },
+            {
+              "id": "sitov.pretest.a12-08.nominal.q6.a",
+              "textDe": "ich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-08.nominal.q6.b",
+          "correctAnswerTextDe": "Das Buch",
+          "rationaleDe": "Das Buch ist das Objekt von behalten; ich ist das Subjekt und vier Wochen eine Zeitangabe, kein Objekt.",
+          "assessmentUnit": "Das Buch Akkusativobjekt",
+          "sourceSpans": [
+            {
+              "start": 265,
+              "end": 304,
+              "quote": "Das Buch darf ich vier Wochen behalten."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
