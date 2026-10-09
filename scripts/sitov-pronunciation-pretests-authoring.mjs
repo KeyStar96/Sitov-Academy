@@ -25,7 +25,9 @@ export async function sitovReadAuthoringSources(root=process.cwd()) {
  for(const entry of catalog){const row=result.find(r=>r.id===entry.id);if(!row||row.text!==entry.text||row.level!==entry.level||row.title!==entry.title||row.sortOrder!==entry.sortOrder||!row.active)throw Error('Canonical reading catalog/source mismatch')}
  if(result.length!==149||catalog.length!==60||result.filter(r=>r.active).length!==60||new Set(result.map(r=>r.id)).size!==149)throw Error('Unexpected inventory; review all source changes')
  const mapping=await readFile(resolve(root,'lib/learning/sitov-topic-mapping.ts'),'utf8')
- return {rows:result,topicIds:new Set([...mapping.matchAll(/"topicId":\s*"([^"]+)"/g)].map(m=>m[1]))}
+ const topics=JSON.parse(mapping.match(/export const SITOV_TOPIC_MAPPING[^=]*=\s*(\[[\s\S]*?\n\])/u)?.[1]??'null')
+ if(!Array.isArray(topics)||!topics.length||new Set(topics.map(t=>t.topicId)).size!==topics.length||topics.some(t=>!id.test(t.topicId)||!['A1.1','A1.2'].includes(t.level)||[...(t.anchors??[]),...(t.targets??[]),...(t.specialTargets??[])].some(target=>target.level!==t.level)))throw Error('Invalid canonical topic-level evidence')
+ return {rows:result,topicIds:new Set(topics.map(t=>t.topicId)),topicLevels:new Map(topics.map(t=>[t.topicId,t.level]))}
 }
 /** Strict draft contract checks, never a semantic grader or a publication command. */
 export function sitovValidatePretestDrafts(manifest,sources) {
@@ -49,7 +51,7 @@ export function sitovValidatePretestDrafts(manifest,sources) {
   const checkSpans=(spans,p)=>{if(!Array.isArray(spans)||!spans.length){fail(p,'source spans required');return}for(const span of spans)if(!Number.isInteger(span.start)||!Number.isInteger(span.end)||span.start<0||span.end<=span.start||Array.from(source.text).slice(span.start,span.end).join('')!==span.quote||!span.quote?.trim())fail(p,'exact body evidence required')}
   const cores=def?.competencies??[],coreIds=new Set(),categories=new Set()
   if(!cores.length)fail(path,'empty matrix')
-  for(const core of cores){const cp=path+'.'+core.id;if(!id.test(core.id)||coreIds.has(core.id)||core.itemsPerAttempt!==3)fail(cp,'unique core/minimum');coreIds.add(core.id);categories.add(core.category);checkSpans(core.sourceSpans,cp);if(!core.necessityDe?.trim()||!Array.isArray(core.languageUnits)||core.languageUnits.length<3)fail(cp,'language matrix/necessity');if(!Array.isArray(core.mapping?.topicIds)||core.mapping.topicIds.some(t=>!sources.topicIds.has(t))||(!core.mapping.topicIds.length&&!core.mapping.pendingReasonDe?.trim()))fail(cp,'verified mapping or explicit gap')}
+  for(const core of cores){const cp=path+'.'+core.id;if(!id.test(core.id)||coreIds.has(core.id)||core.itemsPerAttempt!==3)fail(cp,'unique core/minimum');coreIds.add(core.id);categories.add(core.category);checkSpans(core.sourceSpans,cp);if(!core.necessityDe?.trim()||!Array.isArray(core.languageUnits)||core.languageUnits.length<3)fail(cp,'language matrix/necessity');if(!Array.isArray(core.mapping?.topicIds)||core.mapping.topicIds.some(t=>!sources.topicIds.has(t))||(!core.mapping.topicIds.length&&!core.mapping.pendingReasonDe?.trim()))fail(cp,'verified mapping or explicit gap');if(Array.isArray(core.mapping?.topicIds)&&core.mapping.topicIds.some(t=>sources.topicIds.has(t)&&sources.topicLevels?.get(t)!==draft.level))fail(cp,'same-level topic mapping required')}
   for(const c of ['vocabulary','verb_forms','syntax','nominal_forms'])if(!categories.has(c)&&!def?.omittedCategories?.some(o=>o.category===c&&typeof o.reasonDe==='string'&&Array.from(o.reasonDe.trim()).length>=20))fail(path,'missing matrix or justified absence '+c)
   if(!Array.isArray(def?.omittedCategories)||def.omittedCategories.some(c=>!c.category?.trim()||typeof c.reasonDe!=='string'||Array.from(c.reasonDe.trim()).length<20))fail(path,'absent categories need reasons')
   const taskIds=new Set(),equivalences=new Set(),prompts=new Set(),semanticUnits=new Set(),tasks=def?.tasks??[]

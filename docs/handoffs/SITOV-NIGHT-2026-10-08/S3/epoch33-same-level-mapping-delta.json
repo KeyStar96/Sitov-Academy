@@ -1,0 +1,1528 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "baseHead": "d0a5fecdda955747970bd25c69fd0a733a31df2a",
+  "sourceMapping": "lib/learning/sitov-topic-mapping.ts",
+  "sourceMappingSha256": "021536e9c908ffe51a15773b22c59ba976772c9756776ad3fad93446bcc579ef",
+  "proposalRef": "docs/handoffs/SITOV-NIGHT-2026-10-08/S2/epoch21-release-mapping.md",
+  "previousManifestContentHash": "31fea6366deb5f3ae7f37db3d950d07be234543f67b14b56b36ba41a8efe9ae0",
+  "currentManifestContentHash": "b031d1a6dfa08d5e38421296aa168b3e5bf42bc6bab03ff34f7818b7b2f070c8",
+  "previousManifestByteSha256": "f357b40eb91d543958eba702553dcc0dfa4b7e0af44b964d91bcea1e09b5118e",
+  "currentManifestByteSha256": "867ef41b943a38f2cb6d7a3ad103dfe5693904ed7d5f18728ea7382285d5f1c6",
+  "audioAliasByteSha256": "73feb52404ba32f91dd42b9176df42ec66014ed63fa1c9c405232b9fb7604c7e",
+  "audioAliasContentHash": "83fdbe941e476a315f1445d170d5d8416a7d5efbb1456ef9463581233d09e23a",
+  "spokenFieldsChanged": 0,
+  "taskIdsChanged": 0,
+  "keysChanged": 0,
+  "formsChanged": 0,
+  "changedPools": [
+    {
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "level": "A1.1",
+      "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+      "previousDefinitionContentHash": "93819f3dd5415fd45da126b32e1644edf70f76dbd29a2746de40e0d9705b9f8c",
+      "currentDefinitionContentHash": "e33ea78f9f6e845cb9acfccac23d3c3adff57ce9306355d98bdf967247a9148f",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat als unabhängiger Agent alle 72 Fragen, Optionen, Schlüssel und Quellen sowie die korrigierte Besitzbeziehung geprüft. Keine menschliche Kalibrierung oder Audio-/Veröffentlichungsfreigabe.",
+        "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+        "definitionContentHash": "93819f3dd5415fd45da126b32e1644edf70f76dbd29a2746de40e0d9705b9f8c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-first3-M",
+        "documentSha256": "fc7a020ca5a3f34de689eaeb7ecdd0531ba345677cd8027d75ff78f1073336c7",
+        "reviewedAt": "2026-10-08T23:05:20.498Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+        "definitionContentHash": "e33ea78f9f6e845cb9acfccac23d3c3adff57ce9306355d98bdf967247a9148f",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-01.words",
+          "languageUnits": [
+            "name",
+            "origin",
+            "residence",
+            "age",
+            "joint activity",
+            "evening"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.kennenlernen"
+            ],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.kennenlernen",
+              "sitov.topic.tageszeit-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Wohnort, Alter und gemeinsame Tätigkeit sind nicht vollständig lexikalisch zugeordnet. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-01.verbs",
+          "languageUnits": [
+            "heissen infinitive identity",
+            "kommen ich",
+            "wohnen finite form recognition",
+            "sein ich",
+            "lernen wir",
+            "coordinated trinken lesen infinitives"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.kennenlernen"
+            ],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.kennenlernen",
+              "sitov.topic.praesens-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. wohnen und lernen sowie jede konkrete koordinierte Form benötigen weiterhin genaue Einzelziele. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-01.syntax",
+          "languageUnits": [
+            "statement subject verb",
+            "coordinated finite clauses",
+            "age predicate",
+            "adverb first verb second",
+            "two objects shared subject",
+            "nominal subject predicative"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.satzbau-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Koordination, gemeinsames Subjekt und Altersprädikat sind nur teilweise durch allgemeine Satzbauanker abgedeckt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-01.nominal",
+          "languageUnits": [
+            "feminine possessive nominative",
+            "masculine possessive nominative",
+            "neuter indefinite accusative",
+            "plural first person referent",
+            "first person pronoun",
+            "possessive first person relation"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ",
+              "sitov.topic.familie"
+            ],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ",
+              "sitov.topic.familie",
+              "sitov.topic.akkusativ"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Possessivformen und genaue Pronomenreferenzen bleiben gegenüber den Artikelankern teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "level": "A1.1",
+      "textVersion": "a1e829de18793196c9b27aa5b5fe18a20ebf7a12809c5a61799fd9822f987fc0",
+      "previousDefinitionContentHash": "c59a8b687b1abd2892fc6dd833da3f5b9bab904b804afa343ad2dcae5ac2e486",
+      "currentDefinitionContentHash": "138d693692a655c656ddec034e3ed08cdc04d338099e85a1758e7db87ddcfcc9",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat als unabhängiger Agent alle 72 Fragen, Optionen, Schlüssel und Quellen sowie die korrigierte Besitzbeziehung geprüft. Keine menschliche Kalibrierung oder Audio-/Veröffentlichungsfreigabe.",
+        "textVersion": "a1e829de18793196c9b27aa5b5fe18a20ebf7a12809c5a61799fd9822f987fc0",
+        "definitionContentHash": "c59a8b687b1abd2892fc6dd833da3f5b9bab904b804afa343ad2dcae5ac2e486",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-first3-M",
+        "documentSha256": "fc7a020ca5a3f34de689eaeb7ecdd0531ba345677cd8027d75ff78f1073336c7",
+        "reviewedAt": "2026-10-08T23:05:20.498Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "a1e829de18793196c9b27aa5b5fe18a20ebf7a12809c5a61799fd9822f987fc0",
+        "definitionContentHash": "138d693692a655c656ddec034e3ed08cdc04d338099e85a1758e7db87ddcfcc9",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-02.words",
+          "languageUnits": [
+            "breakfast meal",
+            "kitchen place",
+            "cheese food",
+            "cup container",
+            "fresh quality",
+            "small amount"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.essen-a11",
+              "sitov.topic.wohnen-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Tasse, frisch und Mengenangaben sind nicht als genaue Einzelziele belegt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-02.verbs",
+          "languageUnits": [
+            "sitzen ich",
+            "fruehstuecken verb noun adverb distinction",
+            "stehen compound plural subject",
+            "trinken son singular",
+            "essen irregular singular",
+            "sprechen plural"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.essen-a11",
+              "sitov.topic.praesens-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. sitzen und stehen sowie jede konkrete Personenform sind nicht vollständig durch gleichstufige Verbziele belegt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-02.syntax",
+          "languageUnits": [
+            "impersonal time statement",
+            "shared ich coordination",
+            "fronted location plural inversion",
+            "list coordination grouping",
+            "subject object action",
+            "two predicates shared wir"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.satzbau-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Vorfeld, Listenkoordination und gemeinsame Prädikate bleiben nur teilweise abgedeckt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-02.nominal",
+          "languageUnits": [
+            "feminine locative dative",
+            "masculine locative dative",
+            "feminine indefinite subject",
+            "masculine indefinite accusative",
+            "male possessive subject",
+            "masculine anaphoric pronoun"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.akkusativ",
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.akkusativ",
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Lokaler Dativ und anaphorisches Pronomen bleiben ohne genaues gleichstufiges Ziel. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "level": "A1.1",
+      "textVersion": "1d8ea3dbd24923f3c6a3ec7c9f319d84b475802b18996a605ee447f98bc1a961",
+      "previousDefinitionContentHash": "3c502603ab177eec9489766f9cca1e392cc0f3be17dd92aacd248b658a874d9f",
+      "currentDefinitionContentHash": "4ed47739d1a31c885a2d5d015aa30c4ec7dc548e2fe3f91328001391741166c9",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat als unabhängiger Agent alle 72 Fragen, Optionen, Schlüssel und Quellen sowie die korrigierte Besitzbeziehung geprüft. Keine menschliche Kalibrierung oder Audio-/Veröffentlichungsfreigabe.",
+        "textVersion": "1d8ea3dbd24923f3c6a3ec7c9f319d84b475802b18996a605ee447f98bc1a961",
+        "definitionContentHash": "3c502603ab177eec9489766f9cca1e392cc0f3be17dd92aacd248b658a874d9f",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-first3-M",
+        "documentSha256": "fc7a020ca5a3f34de689eaeb7ecdd0531ba345677cd8027d75ff78f1073336c7",
+        "reviewedAt": "2026-10-08T23:05:20.498Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "1d8ea3dbd24923f3c6a3ec7c9f319d84b475802b18996a605ee447f98bc1a961",
+        "definitionContentHash": "4ed47739d1a31c885a2d5d015aa30c4ec7dc548e2fe3f91328001391741166c9",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-03.words",
+          "languageUnits": [
+            "classroom place",
+            "bright room",
+            "size adjective",
+            "chair quantity",
+            "board teaching object",
+            "exercise book object"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.wohnen-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Tafel, Heft und Mengenangaben sind nicht vollständig als Einzelziele belegt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-03.verbs",
+          "languageUnits": [
+            "sein singular predicate",
+            "stehen plural things",
+            "liegen infinitive location",
+            "kommen teacher singular",
+            "sagen finite form meaning in coordination",
+            "beginnen course singular"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.praesens-a11",
+              "sitov.topic.wohnen-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. stehen, sagen und beginnen sind nicht vollständig als gleichstufige Einzelziele belegt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-03.syntax",
+          "languageUnits": [
+            "demonstrative identification",
+            "deictic spatial reference",
+            "prepositional location role",
+            "heft subject table location",
+            "coordinated greeting same actor",
+            "time fronting course subject"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.satzbau-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Deixis, Ortssatzglieder und Koordination bleiben gegenüber allgemeinem Satzbau teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-03.nominal",
+          "languageUnits": [
+            "masculine referring pronoun",
+            "our masculine possessive",
+            "wall locative dative",
+            "feminine subject indefinite",
+            "neuter possessive subject",
+            "masculine location dative"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Keine genaue bestehende Zielzuordnung für alle Teilfertigkeiten; optionalen Resolver vor Anzeige ergänzen."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Lokaler Dativ und Possessivformen sind durch Nominativanker nicht vollständig abgedeckt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "level": "A1.1",
+      "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+      "previousDefinitionContentHash": "3acc700ac24ba272b4ad35173befbcaab3b19c63ac163077d2fef706c51a4f5d",
+      "currentDefinitionContentHash": "14468d7997240c66694d7e36bafea6f8be7042a40aab3485075dbd398cc52c8c",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+        "definitionContentHash": "3acc700ac24ba272b4ad35173befbcaab3b19c63ac163077d2fef706c51a4f5d",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+        "definitionContentHash": "14468d7997240c66694d7e36bafea6f8be7042a40aab3485075dbd398cc52c8c",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-04.words",
+          "languageUnits": [
+            "neighbor proximity",
+            "new arrival",
+            "mutual meeting",
+            "hello greeting",
+            "well condition",
+            "later sequence"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.kennenlernen"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.kennenlernen"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Nähe, neu, lächeln und spätere Reihenfolge bleiben lexikalisch teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-04.verbs",
+          "languageUnits": [
+            "wohnen ich present",
+            "heissen lexical infinitive",
+            "sein third singular",
+            "treffen plural agreement",
+            "laecheln finite singular",
+            "trinken plural form"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.kennenlernen"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.kennenlernen",
+              "sitov.topic.praesens-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. wohnen, lächeln und konkrete Formen von treffen sind nicht vollständig als Einzelziele belegt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-04.syntax",
+          "languageUnits": [
+            "residence statement order",
+            "today fronted inversion",
+            "how question structure",
+            "shared subject coordination",
+            "location phrase grouping",
+            "later temporal role"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.satzbau-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Fragebau, Gruppierung der Ortsangabe und spätere Reihenfolge bleiben nur teilweise abgedeckt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-04.nominal",
+          "languageUnits": [
+            "masculine neighbor possessive",
+            "street local dative",
+            "male pronoun antecedent",
+            "reciprocal first plural uns",
+            "polite dative addressee",
+            "third masculine dative reference"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Lokaler Dativ, uns sowie Ihnen und ihm bleiben ohne genaue gleichstufige Ziele. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "level": "A1.1",
+      "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+      "previousDefinitionContentHash": "4c228fd7de28e9ed0e4b3b864573a6ade71d4c3dd542ac8786170694cada7b26",
+      "currentDefinitionContentHash": "cf6386546fef2994b79e95e7aa8b41db4573b15bbfd3428213edff3f00356258",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+        "definitionContentHash": "4c228fd7de28e9ed0e4b3b864573a6ade71d4c3dd542ac8786170694cada7b26",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+        "definitionContentHash": "cf6386546fef2994b79e95e7aa8b41db4573b15bbfd3428213edff3f00356258",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-05.words",
+          "languageUnits": [
+            "saturday weekday",
+            "sun shining",
+            "tree plant",
+            "park bench",
+            "listening music",
+            "bread food"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.zeit"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.tageszeit-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Baum, Bank, Sonne und Musik bleiben gegenüber Wochentagen nur teilweise lexikalisch abgedeckt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-05.verbs",
+          "languageUnits": [
+            "sein weekday singular",
+            "gehen plural compound subject",
+            "sein trees flowers plural",
+            "sitzen first plural",
+            "spielen dog singular",
+            "essen first plural coordination"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.praesens-a11",
+              "sitov.topic.essen-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. gehen, sitzen und spielen sind nicht vollständig als konkrete gleichstufige Verbziele belegt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-05.syntax",
+          "languageUnits": [
+            "today predicate placement",
+            "compound subject participants",
+            "there fronted inversion",
+            "sitting place constituent",
+            "adjective scope dog",
+            "music bread separate objects"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.satzbau-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Adjektivbezug, Ortsglied und getrennte Objekte bleiben nur teilweise durch Satzbauanker abgedeckt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-05.nominal",
+          "languageUnits": [
+            "direction masculine accusative",
+            "bench feminine local dative",
+            "tree flower plurals",
+            "dog adjective nominal ending",
+            "speaker possessive friend",
+            "first plural possessive bread"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.akkusativ",
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.akkusativ",
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Lokaler Dativ, Adjektivendung, Plural und Possessivformen bleiben teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "level": "A1.1",
+      "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+      "previousDefinitionContentHash": "3ed5e3fa3c214d2d4d9717bb81d75548fa66810a76ba078abba6f6ca63126ec4",
+      "currentDefinitionContentHash": "54352973e29ac3049a679a94f0a6cff1f099141968cf37f8d253675881eb6e8c",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+        "definitionContentHash": "3ed5e3fa3c214d2d4d9717bb81d75548fa66810a76ba078abba6f6ca63126ec4",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+        "definitionContentHash": "54352973e29ac3049a679a94f0a6cff1f099141968cf37f8d253675881eb6e8c",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-06.words",
+          "languageUnits": [
+            "bed furnishing",
+            "left direction",
+            "window opening",
+            "german textbook",
+            "blue color",
+            "gern preference"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.wohnen-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. links, Fenster, Lehrbuch und gern sind durch Möbel-/Farbanker nur teilweise abgedeckt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-06.verbs",
+          "languageUnits": [
+            "sein room singular",
+            "stehen furniture singular",
+            "liegen lexical infinitive",
+            "lesen first singular",
+            "anmachen separable lemma",
+            "lernen coordinated ich"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben",
+              "sitov.topic.praesens-a11",
+              "sitov.topic.wohnen-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. stehen und anmachen sind nicht vollständig als konkrete gleichstufige Verbziele belegt; Trennbarkeit ist nur strukturelle Teilabdeckung. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-06.syntax",
+          "languageUnits": [
+            "negated size positive beauty",
+            "left fronted inversion",
+            "window local constituent",
+            "book subject after location",
+            "separable particle position",
+            "second activity shared subject"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben",
+              "sitov.topic.satzbau-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Negation, Ortsglieder und gemeinsames Subjekt bleiben gegenüber Satzbau-/Trennbarkeitsankern teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-06.nominal",
+          "languageUnits": [
+            "neuter room possessive",
+            "table local dative",
+            "chair masculine subject article",
+            "lamp feminine accusative object",
+            "new words plural inflection",
+            "speaker book possession"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ",
+              "sitov.topic.akkusativ"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ",
+              "sitov.topic.akkusativ"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Lokaler Dativ, Plural und Possessivformen bleiben gegenüber Artikelankern teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "level": "A1.1",
+      "textVersion": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+      "previousDefinitionContentHash": "6b192633e63b737a845cef7b00312e7dd5515d869b7a9fe8e97065ed0970a5c5",
+      "currentDefinitionContentHash": "b691b7b0554cc562278883981225bc20a97622d6b6732a017acf34d385594174",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+        "definitionContentHash": "6b192633e63b737a845cef7b00312e7dd5515d869b7a9fe8e97065ed0970a5c5",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+        "definitionContentHash": "b691b7b0554cc562278883981225bc20a97622d6b6732a017acf34d385594174",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-07.words",
+          "languageUnits": [
+            "Laden als Einkaufsort",
+            "Milch als Getränk",
+            "Brot als Backware",
+            "drei als Anzahl",
+            "freundlich als Umgang",
+            "volle Tasche als Zustand"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.einkaufen-a11",
+              "sitov.topic.essen-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. freundlich, voll und genaue Mengen bleiben gegenüber Einkaufsankern teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-07.verbs",
+          "languageUnits": [
+            "sein erste Person Laden",
+            "brauchen erste Person",
+            "zeigen dritte Person",
+            "kosten Singular Brot",
+            "nehmen erste Person",
+            "bezahlen gemeinsame Ichform"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.einkaufen-a11",
+              "sitov.topic.praesens-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. zeigen und sämtliche konkreten Personenformen benötigen weiterhin genaue Einzelziele. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-07.syntax",
+          "languageUnits": [
+            "Einkaufsliste koordinierte Gegenstände",
+            "zeigen Handelnder und Empfänger",
+            "Preis Aussage",
+            "auch ergänzt Warenliste",
+            "Dann Satzstellung",
+            "zwei Handlungen gleicher Sprecher"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.satzbau-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Empfängerrolle, auch und koordinierte Handlungen bleiben nur teilweise durch Satzbauanker abgedeckt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-07.nominal",
+          "languageUnits": [
+            "im Dativ Kontraktion",
+            "Äpfel Plural",
+            "Verkäufer maskuliner Artikel",
+            "Er Bezug Verkäufer",
+            "mir Dativ Empfänger",
+            "Meine Tasche Besitzform"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. im, mir, Plural, Possessivform und Pronomenbezug bleiben gegenüber Nominativankern teilweise offen. Dieser Kern fragt keine Akkusativform ab. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          },
+          "proposalDecisionDe": "Abweichung von S2: Akkusativ entfernt; im/mir sind Dativ, die übrigen Items betreffen Plural, Artikel/Subjekt, Bezug und Besitz."
+        }
+      ]
+    },
+    {
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "level": "A1.1",
+      "textVersion": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
+      "previousDefinitionContentHash": "a0d76a2c9a20bdb5c076c4764758476a8f538c134f20e31d103e08e8731d6949",
+      "currentDefinitionContentHash": "8ff24cfc766fea71670c574237b5ac416effb70f978d6653f4f5522f6a3f281d",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
+        "definitionContentHash": "a0d76a2c9a20bdb5c076c4764758476a8f538c134f20e31d103e08e8731d6949",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
+        "definitionContentHash": "8ff24cfc766fea71670c574237b5ac416effb70f978d6653f4f5522f6a3f281d",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-08.words",
+          "languageUnits": [
+            "Foto als Bild",
+            "Onkel als Verwandter",
+            "kochen als Tätigkeit",
+            "zwanzig als Alter",
+            "oft als Häufigkeit",
+            "lachen als Tätigkeit"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.familie"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Foto, Häufigkeit, Alter und Tätigkeiten bleiben durch Familienanker teilweise unerschlossen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-08.verbs",
+          "languageUnits": [
+            "sein Foto Singular",
+            "heißen Onkel dritte Person",
+            "kochen Er dritte Person",
+            "hören lexikalische Grundform",
+            "lernen Er dritte Person",
+            "telefonieren Wir Plural"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.praesens-a11",
+              "sitov.topic.kennenlernen"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. kochen, hören, lernen und telefonieren sind nicht vollständig als konkrete Einzelziele dieses Kerns belegt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-08.syntax",
+          "languageUnits": [
+            "Foto zeigt Familie",
+            "Mark Name des Onkels",
+            "gern positive Vorliebe Onkel",
+            "Vater Musik Vorliebe",
+            "wie ich gemeinsames Lernen",
+            "Wir gemeinsame Tätigkeiten"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.satzbau-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Vorlieben und Rollenbezug bleiben nur teilweise durch allgemeine Satzbauanker abgedeckt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-08.nominal",
+          "languageUnits": [
+            "Foto neutrales unbestimmtes Artikelwort",
+            "von meiner Dativ Familie",
+            "Mein Onkel Nominativ",
+            "Er Onkel als eindeutiger Bezug",
+            "Jahre als Plural",
+            "Wir schließt Sprecher ein"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.familie",
+              "sitov.topic.nominativ"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. von meiner Familie ist Dativ; dieses Teilziel wird ausdrücklich nicht durch Familie/Nominativ als vollständig gedeckt behauptet. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "level": "A1.1",
+      "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+      "previousDefinitionContentHash": "98048a069fee6e53ce82130bf5932e56f6e351aeaf46fe6261aab7521675410e",
+      "currentDefinitionContentHash": "e190a2f9d568fe43182264ddcc5aad15e7bcdd345e340d60261a9afa292099f9",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+        "definitionContentHash": "98048a069fee6e53ce82130bf5932e56f6e351aeaf46fe6261aab7521675410e",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+        "definitionContentHash": "e190a2f9d568fe43182264ddcc5aad15e7bcdd345e340d60261a9afa292099f9",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-09.words",
+          "languageUnits": [
+            "Kurs als Unterricht",
+            "neun Uhr als Kurszeit",
+            "Haltestelle als Verkehrsplatz",
+            "nah als kurze Entfernung",
+            "Bus als Verkehrsmittel",
+            "rechts als Richtung"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.tageszeit-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Haltestelle, nah, Bus und rechts bleiben lexikalisch teilweise offen. Trennbare Verben sind keine abgefragte Teilfertigkeit dieses Wortschatzkerns. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          },
+          "proposalDecisionDe": "Abweichung von S2: Trennbarkeit entfernt; die sechs lexicalen assessmentUnits enthalten keine trennbare Verbform."
+        },
+        {
+          "coreId": "sitov.pretest.a11-09.verbs",
+          "languageUnits": [
+            "beginnen Kurs Singular",
+            "gehen erste Person",
+            "sein Haltestelle Singular",
+            "fahren lexikalische Grundform",
+            "aussteigen trennbare Grundform",
+            "warten Freund Singular"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben",
+              "sitov.topic.praesens-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. beginnen, gehen, fahren und warten bleiben gegenüber den vorhandenen konkreten Verbzielen teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-09.syntax",
+          "languageUnits": [
+            "Kurszeit und Weggehzeit trennen",
+            "aus dem Haus Herkunft",
+            "mit Bus Mittel",
+            "Bahnhof Ausstiegsort Satzklammer",
+            "Freund Subjekt nach Ortsangabe",
+            "zusammen hinein gemeinsame Bewegung"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben",
+              "sitov.topic.satzbau-a11",
+              "sitov.topic.tageszeit-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Herkunft, Verkehrsmittel und Ortsrollen bleiben gegenüber Zeit-/Satzbau-/Trennbarkeitsankern teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-09.nominal",
+          "languageUnits": [
+            "Mein Kurs Besitz und Nominativ",
+            "aus dem Haus Dativ",
+            "mit dem Bus Dativ",
+            "Am Kontraktion Bahnhof",
+            "vor der Tür lokaler Dativ",
+            "Wir Sprecher und Freund"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Kein genaues gleichstufiges Ziel für aus dem Haus, mit dem Bus, am Bahnhof und vor der Tür; Dativ/Präpositionen bleiben offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "4a6f7008-9439-5c6e-9d60-113e8945f800",
+      "level": "A1.1",
+      "textVersion": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561",
+      "previousDefinitionContentHash": "d0554dc36161be56f37440c13cee95e97d92cd8142d2b004f36c4dc7722060f7",
+      "currentDefinitionContentHash": "253d4cc1ea6388059aaf575149f185068da4af1e1a655d14007b532895713127",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat alle 72 endgültigen Aufgaben, Optionen, Schlüssel, Begründungen und Quellen sowie die sichtbaren Übungskontexte unabhängig fachlich geprüft. Die Freigabe betrifft ausschließlich private Entwürfe; empirische Kalibrierung, tatsächliche Audio-/Importbelege und Veröffentlichung stehen aus. Der Kontext-Audit der ersten neun Pools ist separat zu prüfen.",
+        "textVersion": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561",
+        "definitionContentHash": "d0554dc36161be56f37440c13cee95e97d92cd8142d2b004f36c4dc7722060f7",
+        "documentRef": "sitov.editorial.review.batch10-12-final-v1",
+        "documentSha256": "4d07d5c28c675f46bdf827adc8887ef3de0e2190180922f66d1775f7129c3945",
+        "reviewedAt": "2026-10-09T03:09:22.384Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561",
+        "definitionContentHash": "253d4cc1ea6388059aaf575149f185068da4af1e1a655d14007b532895713127",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a11-10.words",
+          "languageUnits": [
+            "Abend als Tageszeit",
+            "zu Hause eigener Wohnort",
+            "Handy als Telefon",
+            "kleines Buch Größe",
+            "leise Lautstärke",
+            "zehn Uhr Zeit"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.tageszeit-a11",
+              "sitov.topic.wohnen-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Handy, leise, Größe und Wohnort bleiben gegenüber Zeit-/Wohnankern teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-10.verbs",
+          "languageUnits": [
+            "sein erste Person Aufenthalt",
+            "liegen Handy Singular",
+            "lesen erste Person Grundform",
+            "schlafen Katze Singular",
+            "trinken erste Person",
+            "gehen Ich nach Zeitangabe"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.praesens-a11",
+              "sitov.topic.essen-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. liegen, schlafen und gehen sind in den gewählten Präsens-/Essensankern nicht vollständig als konkrete Einzelziele belegt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-10.syntax",
+          "languageUnits": [
+            "Handy Ort auf Tisch",
+            "Heute vorangestelltes Feld",
+            "Katze eigener Ruheort",
+            "Wasser Musik zwei Handlungen",
+            "ins Bett als Bewegung",
+            "Gute Nacht als Abschiedsgruß"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.satzbau-a11"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Lokative, Bewegungsziel und Gruß bleiben gegenüber allgemeinen Satzbauankern teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a11-10.nominal",
+          "languageUnits": [
+            "Mein Handy neutrale Besitzform",
+            "auf dem Tisch lokaler Dativ",
+            "kleines Buch Adjektivendung",
+            "Meine Katze feminine Besitzform",
+            "ins Akkusativ Kontraktion Bett",
+            "Gute Nacht Adjektivform Gruß"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.nominativ",
+              "sitov.topic.akkusativ"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. auf dem Tisch, Adjektivendungen und Possessivformen bleiben neben Nominativ/Akkusativ teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "1b5c02d4-7217-56e0-8abb-906c20784e30",
+      "level": "A1.2",
+      "textVersion": "e5f456eec833ee2dd3e6e9da51d565a55312bc3124740451fe2479866ae262f0",
+      "previousDefinitionContentHash": "7e8baa27ec4f0f055890edd5d2436a1c878f4afa9c072f8bc7d37a703c6f89e4",
+      "currentDefinitionContentHash": "fe8ad1150a7485b0af853e8fb7664972aadbd16c4b0fd5da8af32cb95cb85ce8",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat alle 72 endgültigen Aufgaben, Optionen, Schlüssel, Begründungen und Quellen sowie die sichtbaren Übungskontexte unabhängig fachlich geprüft. Die Freigabe betrifft ausschließlich private Entwürfe; empirische Kalibrierung, tatsächliche Audio-/Importbelege und Veröffentlichung stehen aus. Der Kontext-Audit der ersten neun Pools ist separat zu prüfen.",
+        "textVersion": "e5f456eec833ee2dd3e6e9da51d565a55312bc3124740451fe2479866ae262f0",
+        "definitionContentHash": "7e8baa27ec4f0f055890edd5d2436a1c878f4afa9c072f8bc7d37a703c6f89e4",
+        "documentRef": "sitov.editorial.review.batch10-12-final-v1",
+        "documentSha256": "4d07d5c28c675f46bdf827adc8887ef3de0e2190180922f66d1775f7129c3945",
+        "reviewedAt": "2026-10-09T03:09:22.384Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "e5f456eec833ee2dd3e6e9da51d565a55312bc3124740451fe2479866ae262f0",
+        "definitionContentHash": "fe8ad1150a7485b0af853e8fb7664972aadbd16c4b0fd5da8af32cb95cb85ce8",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a12-01.words",
+          "languageUnits": [
+            "Hals als Körperbereich",
+            "Praxis als Arztarbeitsort",
+            "Termin als vereinbarte Besuchszeit",
+            "buchstabieren Name Einzelbuchstaben",
+            "frei verfügbarer Termin",
+            "Versichertenkarte als Versicherungsnachweis"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.gesundheit-a12"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. buchstabieren, frei und Versichertenkarte bleiben gegenüber Gesundheitskontext teilweise ohne genaue Einzelziele. Zeitpräpositionen werden in diesem Wortschatzkern nicht abgefragt. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          },
+          "proposalDecisionDe": "Abweichung von S2: Zeit entfernt; Hals/Praxis/Termin/buchstabieren/frei/Versichertenkarte prüfen weder seit noch vor oder Dauer."
+        },
+        {
+          "coreId": "sitov.pretest.a12-01.verbs",
+          "languageUnits": [
+            "wehtun getrennte Grundform Hals",
+            "anrufen getrennte Grundform",
+            "möchten erste Person Wunsch",
+            "können erste Person",
+            "mitnehmen getrennte Grundform Karte",
+            "bleiben erste Person"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben",
+              "sitov.topic.modalverben"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Keine genauen gleichstufigen Verbziele für wehtun, anrufen, möchten, können, mitnehmen und bleiben; müssen/dürfen sind kein Ersatz für diese Formen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a12-01.syntax",
+          "languageUnits": [
+            "Seit gestern Beginn andauernder Zustand",
+            "Anruf Zweck Besuchsvereinbarung",
+            "Mitarbeiter Nachfrage Name",
+            "Nachmittag angebotener Zeitraum",
+            "kann kommen Möglichkeit keine Ankunft",
+            "Danach gemeinsame Nachhandlungen"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.zeit",
+              "sitov.topic.ablauf-a12"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Zweck, Nachfrage, Modalbedeutung und Rollen bleiben neben seit und Reihenfolge teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a12-01.nominal",
+          "languageUnits": [
+            "mein Hals maskuliner Nominativ",
+            "einen Termin Akkusativ",
+            "in der Praxis lokaler Dativ",
+            "nach meinem Namen Dativ",
+            "ihn Bezug Name nicht Mitarbeiter",
+            "warmen Tee Adjektiv Akkusativ"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.akkusativ-a12"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Lokaler/nach-Dativ, Pronomenbezug und Adjektivendung bleiben neben Akkusativ-/Possessivankern teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    },
+    {
+      "textId": "add5b212-15af-55b5-b224-6282b5c39c13",
+      "level": "A1.2",
+      "textVersion": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
+      "previousDefinitionContentHash": "64fcc09b07fb806b48b2d901a351047d061f31c1fa422b3d0df6e9968bcaec39",
+      "currentDefinitionContentHash": "c2929dab6a04477810447f950de86875f301c6091aa7c991e381328e9eac64b4",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat alle 72 endgültigen Aufgaben, Optionen, Schlüssel, Begründungen und Quellen sowie die sichtbaren Übungskontexte unabhängig fachlich geprüft. Die Freigabe betrifft ausschließlich private Entwürfe; empirische Kalibrierung, tatsächliche Audio-/Importbelege und Veröffentlichung stehen aus. Der Kontext-Audit der ersten neun Pools ist separat zu prüfen.",
+        "textVersion": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
+        "definitionContentHash": "64fcc09b07fb806b48b2d901a351047d061f31c1fa422b3d0df6e9968bcaec39",
+        "documentRef": "sitov.editorial.review.batch10-12-final-v1",
+        "documentSha256": "4d07d5c28c675f46bdf827adc8887ef3de0e2190180922f66d1775f7129c3945",
+        "reviewedAt": "2026-10-09T03:09:22.384Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
+        "definitionContentHash": "c2929dab6a04477810447f950de86875f301c6091aa7c991e381328e9eac64b4",
+        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+      },
+      "cores": [
+        {
+          "coreId": "sitov.pretest.a12-02.words",
+          "languageUnits": [
+            "Suppe als flüssiges Gericht",
+            "Gemüse als pflanzliche Zutat",
+            "Karotten als Möhren",
+            "Kartoffeln eigene Gemüseart",
+            "Tisch decken Vorbereitung",
+            "Küche aufräumen Ordnung"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Keine genauen gleichstufigen lexikalischen Ziele für Suppe, Gemüse, Karotten, Kartoffeln, Tisch decken und Küche aufräumen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a12-02.verbs",
+          "languageUnits": [
+            "kommen Freunde Plural",
+            "möchten Wir Wunsch",
+            "kochen Freund dritte Person",
+            "waschen Grundform",
+            "schneiden Grundform",
+            "aufräumen trennbare Grundform"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.trennbare-verben"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Keine genauen gleichstufigen Verbziele für kommen, möchten, kochen, waschen, schneiden und aufräumen; A1.1-Trennbarkeit wird nicht übertragen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a12-02.syntax",
+          "languageUnits": [
+            "Freunde Ziel zu Sprecher",
+            "möchten geplante Kochhandlung",
+            "Zuerst einkaufen vor Vorbereiten",
+            "Zuordnung waschen Karotten schneiden Kartoffeln",
+            "Freund Wasser Sprecher Tisch Rollen",
+            "Später Küche Endhandlung"
+          ],
+          "previousMapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.ablauf-a12"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. Zielrichtung, Wunsch und Zuordnung der Rollen bleiben neben zuerst/dann/später teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        },
+        {
+          "coreId": "sitov.pretest.a12-02.nominal",
+          "languageUnits": [
+            "Freunde Mehrzahl nach zwei",
+            "mir Empfänger Besuch Dativ",
+            "eine Suppe feminines Objekt",
+            "auf dem Markt lokaler Dativ",
+            "Mein Freund Besitz Nominativ",
+            "den Tisch maskuliner Akkusativ"
+          ],
+          "previousMapping": {
+            "topicIds": [
+              "sitov.topic.akkusativ"
+            ],
+            "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+          },
+          "currentMapping": {
+            "topicIds": [
+              "sitov.topic.akkusativ-a12"
+            ],
+            "pendingReasonDe": "Belegte Teilabdeckung; keine vollständige Kernabdeckung. mir, lokaler Dativ, Plural und Possessivform bleiben neben gleichstufigem Akkusativ teilweise offen. Konkrete Lernziele müssen separat auf aktuellen Zugriff geprüft werden."
+          }
+        }
+      ]
+    }
+  ],
+  "immutableVersionConsequence": "All 12 definition JSON objects change. A later import must create distinct DB-computed sha256(definition::text) test versions and bind independent review/audio proof to those immutable versions. Existing attempts, passes, recordings, progress and history remain untouched; no compatibility or old-pass transfer. JSON.stringify hashes here are editorial transport hashes, not PostgreSQL JSONB testVersion claims."
+}
