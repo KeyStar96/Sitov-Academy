@@ -125,7 +125,7 @@ export default function VerbLearningBox({ state, lang, busy, onPractice, onRemov
       selected={phase} buckets={buckets} onOpen={(key, from) => setInspector({ phase: key, opener: from })}
       stats={[{ key: 'verbs', label: copy.selected, value: box.totalVerbs }, { key: 'practiced', label: copy.practiced, value: box.practicedForms },
         { key: 'learned', label: copy.learnedVerbs, value: box.learnedVerbs }, { key: 'due', label: copy.dueForms, value: box.dueForms }]}>
-      <section aria-label={help.verbs}>
+      <section aria-label={copy.guide}>
       <SitovTrainerHelp title={help.label} className={styles.sitovGuide}>
       <h3 className="font-semibold">{help.verbs}</h3>
       <SitovVerbLearningGuide lang={lang} tenses={state.tenses} />

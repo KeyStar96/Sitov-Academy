@@ -15,6 +15,7 @@ import VocabularyTrainPage from '@/app/[lang]/dashboard/level/[level]/vocabulary
 import { beginVocabularyLevel, setVocabularyCarryover, getVocabularySession, getVocabularyAssessment, getVocabularyCarryover } from '@/app/actions/vocabulary'
 import { announceVocabularyCarryoverChange } from '@/lib/learning-reset-events'
 import { getDictionary } from '@/lib/dictionary'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
 import { carryoverTranslator, VOCABULARY_CARRYOVER_MESSAGES } from '@/lib/vocabulary-carryover-i18n'
 import { summarizeBox, computeWordBoxState } from '@/lib/vocabulary-box'
@@ -175,9 +176,17 @@ it('shows a per-origin distribution and changes the preference without touching 
 it('keeps the current-level percentage and separately labels included origins', () => {
   render(<LeitnerBoxOverview summary={{ ...summarizeBox([phase3]), percent: 0 }} level="A1.2" uiLanguage="de" translations={de.vocabulary} carryover={{ ...summary, enabled: true }} />)
   expect(screen.getByRole('progressbar', { name: de.vocabulary.box_progress_label })).toHaveAttribute('aria-valuenow', '0')
-  fireEvent.click(screen.getByRole('button', { name: sitovTrainerUiCopy('de').help }))
-  expect(screen.getByText(t('separate', { count: 1 }))).toBeInTheDocument()
-  expect(within(screen.getByRole('list', { name: t('title') })).getByText('A1.1')).toBeInTheDocument()
+  const help = screen.getByRole('button', { name: sitovTrainerHelpCopy('de').label })
+  expect(help).toHaveAttribute('aria-expanded', 'false')
+  expect(screen.queryByText(t('separate', { count: 1 }))).not.toBeInTheDocument()
+  fireEvent.click(help)
+  const panel = screen.getByRole('region', { name: 'Hilfe' })
+  expect(within(panel).getByRole('heading', { name: sitovTrainerUiCopy('de').help })).toBeInTheDocument()
+  expect(panel).toHaveTextContent(t('separate', { count: 1 }))
+  expect(within(panel).getByRole('list', { name: t('title') })).toHaveTextContent('A1.1')
+  fireEvent.click(help)
+  expect(screen.queryByRole('region', { name: 'Hilfe' })).not.toBeInTheDocument()
+  expect(screen.getByRole('progressbar', { name: de.vocabulary.box_progress_label })).toHaveAttribute('aria-valuenow', '0')
 })
 
 it.each(['de', 'en', 'ru', 'uk', 'tr'] as const)('provides every carryover message in %s without unresolved placeholders', lang => {
