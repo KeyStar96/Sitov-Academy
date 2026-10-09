@@ -7897,31 +7897,31 @@
               "Das sind Samir und Lina."
             ],
             "hint": "Eine Person: Das ist … Mehrere Personen: Das sind …",
-            "explanation": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+            "explanation": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
             "explanation_card": "p2_introduce",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "One person: Das ist … Several people: Das sind … (das itself does not change).",
-                "explanation": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+                "explanation": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
                 "task": "You introduce two friends. What do you say?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Один человек: Das ist … Несколько людей: Das sind … (das не меняется).",
-                "explanation": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+                "explanation": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
                 "task": "Вы представляете двух друзей. Что вы скажете?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Одна людина: Das ist … Кілька людей: Das sind … (das не змінюється).",
-                "explanation": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+                "explanation": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
                 "task": "Ви представляєте двох друзів. Що ви скажете?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Tek kişi: Das ist … Birden fazla kişi: Das sind … (das değişmez).",
-                "explanation": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+                "explanation": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
                 "task": "İki arkadaşınızı tanıtıyorsunuz. Ne dersiniz?"
               }
             }
@@ -8071,31 +8071,31 @@
               "kommt"
             ],
             "hint": "Bei er, sie und es endet das Verb auf -t.",
-            "explanation": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+            "explanation": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
             "explanation_card": "p2_introduce",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "With er/sie/es the verb ends in -t – like the -s in „he lives“.",
-                "explanation": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+                "explanation": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
                 "task": "This is Selim. He comes from Turkey."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "С er/sie/es (он/она/оно) глагол оканчивается на -t.",
-                "explanation": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+                "explanation": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
                 "task": "Это Selim. Он из Турции."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "З er/sie/es (він/вона/воно) дієслово закінчується на -t.",
-                "explanation": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+                "explanation": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
                 "task": "Це Selim. Він з Туреччини."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "er/sie/es (o) ile fiil -t ile biter: er wohnt.",
-                "explanation": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+                "explanation": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
                 "task": "Bu Selim. Türkiye’den geliyor."
               }
             }
@@ -11216,7 +11216,7 @@
                 "mein"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Olena zeigt ein Foto: „Und das ist ",
+              "text_before": "Oleh zeigt ein Foto: „Und das ist ",
               "text_after": " Mutter.“",
               "gap_hint": "mein",
               "correct_answer": "meine",
@@ -11240,25 +11240,25 @@
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "Is the noun feminine or plural? Then add -e: meine Tochter, meine Kinder. Masculine or neuter? No -e. English „my“ never changes – German does.",
                 "explanation": "Possessives in the nominative: masculine and neuter without an ending (mein Sohn, mein Kind), feminine and plural with -e (meine Tochter, meine Kinder). The same with dein – deine, Ihr – Ihre.",
-                "task": "Olena shows a photo: “And this is my mother.”"
+                "task": "Oleh shows a photo: “And this is my mother.”"
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Как «мой/моя/моё/мои»: мужской и средний род – mein, женский род и множественное число – meine.",
                 "explanation": "Притяжательные слова в именительном падеже: мужской и средний род без окончания (mein Sohn, mein Kind), женский род и множественное число с -e (meine Tochter, meine Kinder). Так же: dein – deine, Ihr – Ihre.",
-                "task": "Olena показывает фото: «А это моя мама»."
+                "task": "Oleh показывает фото: «А это моя мама»."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Як «мій/моя/моє/мої»: чоловічий і середній рід – mein, жіночий рід і множина – meine.",
                 "explanation": "Присвійні слова в називному відмінку: чоловічий і середній рід без закінчення (mein Sohn, mein Kind), жіночий рід і множина з -e (meine Tochter, meine Kinder). Так само: dein – deine, Ihr – Ihre.",
-                "task": "Olena показує фото: «А це моя мама»."
+                "task": "Oleh показує фото: «А це моя мама»."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
-                "task": "Olena bir fotoğraf gösteriyor: “Bu da benim annem.”"
+                "task": "Oleh bir fotoğraf gösteriyor: “Bu da benim annem.”"
               }
             }
           },
@@ -11567,31 +11567,31 @@
               "kommt"
             ],
             "hint": "Bei er, sie und es endet das Verb auf -t.",
-            "explanation": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+            "explanation": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
             "explanation_card": "p2_introduce",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "With er/sie/es the verb ends in -t – like the -s in „he lives“.",
-                "explanation": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+                "explanation": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
                 "task": "This is Kofi. He comes from Ghana and lives in Bremen."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "С er/sie/es (он/она/оно) глагол оканчивается на -t.",
-                "explanation": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+                "explanation": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
                 "task": "Это Kofi. Он из Ганы и живёт в Бремене."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "З er/sie/es (він/вона/воно) дієслово закінчується на -t.",
-                "explanation": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+                "explanation": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
                 "task": "Це Kofi. Він із Гани й живе в Бремені."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "er/sie/es (o) ile fiil -t ile biter: er wohnt.",
-                "explanation": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+                "explanation": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
                 "task": "Bu Kofi. Gana’dan geliyor ve Bremen’de oturuyor."
               }
             }
@@ -12093,31 +12093,31 @@
               "Das sind meine Eltern."
             ],
             "hint": "Eine Person: Das ist … Mehrere Personen: Das sind …",
-            "explanation": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+            "explanation": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
             "explanation_card": "p2_introduce",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "One person: Das ist … Several people: Das sind … (das itself does not change).",
-                "explanation": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+                "explanation": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
                 "task": "You introduce your parents."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Один человек: Das ist … Несколько людей: Das sind … (das не меняется).",
-                "explanation": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+                "explanation": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
                 "task": "Вы представляете своих родителей."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Одна людина: Das ist … Кілька людей: Das sind … (das не змінюється).",
-                "explanation": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+                "explanation": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
                 "task": "Ви представляєте своїх батьків."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Tek kişi: Das ist … Birden fazla kişi: Das sind … (das değişmez).",
-                "explanation": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+                "explanation": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
                 "task": "Anne ve babanızı tanıtıyorsunuz."
               }
             }
@@ -12681,7 +12681,7 @@
                 "kommen"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Das sind Emre und Selin. Sie ",
+              "text_before": "Das sind Emre und Selim. Sie ",
               "text_after": " aus der Türkei und wohnen in Kassel.",
               "gap_hint": "kommen",
               "correct_answer": "kommen",
@@ -12698,32 +12698,32 @@
               "kommen"
             ],
             "hint": "Bei wir und sie/Sie (Plural) endet das Verb auf -en, wie der Infinitiv.",
-            "explanation": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+            "explanation": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
             "explanation_card": "p2_introduce",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "With wir, sie (they) and Sie the verb ends in -en, just like the infinitive.",
-                "explanation": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
-                "task": "These are Emre and Selin. They come from Turkey and live in Kassel."
+                "explanation": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+                "task": "These are Emre and Selim. They come from Turkey and live in Kassel."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "С wir, sie (они) и Sie глагол оканчивается на -en, как инфинитив.",
-                "explanation": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
-                "task": "Это Emre и Selin. Они из Турции и живут в Касселе."
+                "explanation": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+                "task": "Это Emre и Selim. Они из Турции и живут в Касселе."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "З wir, sie (вони) і Sie дієслово закінчується на -en, як інфінітив.",
-                "explanation": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
-                "task": "Це Emre та Selin. Вони з Туреччини й живуть у Касселі."
+                "explanation": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+                "task": "Це Emre та Selim. Вони з Туреччини й живуть у Касселі."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "wir, sie (onlar) ve Sie ile fiil mastar gibi -en ile biter.",
-                "explanation": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
-                "task": "Bunlar Emre ve Selin. Türkiye’den geliyorlar ve Kassel’de oturuyorlar."
+                "explanation": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+                "task": "Bunlar Emre ve Selim. Türkiye’den geliyorlar ve Kassel’de oturuyorlar."
               }
             }
           },
@@ -30357,7 +30357,7 @@
                 "Strategien"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena sagt: „Heute ist Mittwoch, oder?“ Das ist richtig.",
+              "question": "Oleh sagt: „Heute ist Mittwoch, oder?“ Das ist richtig.",
               "options": [
                 "Stimmt.",
                 "Nein, falsch.",
@@ -30379,25 +30379,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Stimmt = that’s right. Ich glaube … = I think … (not 100 % sure).",
                 "explanation": "Strategies: „Stimmt.“ = That’s right. „Ich glaube, …“ = I think … (not quite sure): „Ich glaube, der Kurs fängt um neun an.“",
-                "task": "Olena says: “Today is Wednesday, isn’t it?” That is correct."
+                "task": "Oleh says: “Today is Wednesday, isn’t it?” That is correct."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Stimmt – «верно». Ich glaube … – «думаю, …» (не на 100 % уверен).",
                 "explanation": "Стратегии: „Stimmt.“ – «Верно». „Ich glaube, …“ – «Думаю, …» (не совсем уверен): „Ich glaube, der Kurs fängt um neun an.“",
-                "task": "Olena говорит: «Сегодня среда, да?» Это правильно."
+                "task": "Oleh говорит: «Сегодня среда, да?» Это правильно."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Stimmt – «правильно». Ich glaube … – «думаю, …» (не на 100 % впевнений).",
                 "explanation": "Стратегії: „Stimmt.“ – «Правильно». „Ich glaube, …“ – «Думаю, …» (не зовсім упевнений): „Ich glaube, der Kurs fängt um neun an.“",
-                "task": "Olena каже: «Сьогодні середа, так?» Це правильно."
+                "task": "Oleh каже: «Сьогодні середа, так?» Це правильно."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Stimmt = doğru. Ich glaube … = sanırım … (tam emin değilim).",
                 "explanation": "Stratejiler: „Stimmt.“ = Doğru. „Ich glaube, …“ = Sanırım … (tam emin değilim): „Ich glaube, der Kurs fängt um neun an.“",
-                "task": "Olena diyor ki: “Bugün çarşamba, değil mi?” Bu doğru."
+                "task": "Oleh diyor ki: “Bugün çarşamba, değil mi?” Bu doğru."
               }
             }
           },
@@ -31221,7 +31221,7 @@
                 "zusagen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena fragt: „Hast du am Samstag Zeit?“ Du hast Zeit.",
+              "question": "Oleh fragt: „Hast du am Samstag Zeit?“ Du hast Zeit.",
               "options": [
                 "Nein, da habe ich keine Zeit.",
                 "Ja, das passt gut.",
@@ -31243,25 +31243,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Accept: Das passt gut (that suits me). Decline: Da habe ich keine Zeit (I’m not free then).",
                 "explanation": "Making plans: „Hast du am Samstag Zeit?“ (Are you free on Saturday?) – Accept: „Ja, das passt gut.“ / „Gern!“ – Decline: „Nein, da habe ich keine Zeit.“ / „Tut mir leid, da arbeite ich.“",
-                "task": "Olena asks: “Do you have time on Saturday?” You have time."
+                "task": "Oleh asks: “Do you have time on Saturday?” You have time."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Согласиться: Das passt gut («мне подходит»). Отказаться: Da habe ich keine Zeit («тогда у меня нет времени»).",
                 "explanation": "Договориться о встрече: „Hast du am Samstag Zeit?“ – Согласиться: „Ja, das passt gut.“ / „Gern!“ – Отказаться: „Nein, da habe ich keine Zeit.“ / „Tut mir leid, da arbeite ich.“",
-                "task": "Olena спрашивает: «У тебя есть время в субботу?» У вас есть время."
+                "task": "Oleh спрашивает: «У тебя есть время в субботу?» У вас есть время."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Погодитися: Das passt gut («мені підходить»). Відмовитися: Da habe ich keine Zeit («тоді в мене немає часу»).",
                 "explanation": "Домовитися про зустріч: „Hast du am Samstag Zeit?“ – Погодитися: „Ja, das passt gut.“ / „Gern!“ – Відмовитися: „Nein, da habe ich keine Zeit.“ / „Tut mir leid, da arbeite ich.“",
-                "task": "Olena запитує: «У тебе є час у суботу?» У вас є час."
+                "task": "Oleh запитує: «У тебе є час у суботу?» У вас є час."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Kabul: Das passt gut (uygun). Ret: Da habe ich keine Zeit (o zaman vaktim yok).",
                 "explanation": "Buluşma ayarlama: „Hast du am Samstag Zeit?“ – Kabul etmek: „Ja, das passt gut.“ / „Gern!“ – Reddetmek: „Nein, da habe ich keine Zeit.“ / „Tut mir leid, da arbeite ich.“",
-                "task": "Olena soruyor: “Cumartesi vaktin var mı?” Vaktiniz var."
+                "task": "Oleh soruyor: “Cumartesi vaktin var mı?” Vaktiniz var."
               }
             }
           },
@@ -32632,7 +32632,7 @@
                 "arbeiten"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Olena ",
+              "text_before": "Oleh ",
               "text_after": " im Krankenhaus.",
               "gap_hint": "arbeiten",
               "correct_answer": "arbeitet",
@@ -32656,25 +32656,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "If the stem ends in -t or -d, add an extra e so it can be pronounced: du arbeitest, er findet, es kostet.",
                 "explanation": "Extra e: if the stem ends in -t or -d, an e is added before -st and -t: ich arbeite, du arbeitest, er arbeitet, ihr arbeitet. The same with du findest, er findet, es kostet.",
-                "task": "Olena works at the hospital."
+                "task": "Oleh works at the hospital."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Если основа оканчивается на -t или -d, добавляется e: du arbeitest, er findet – так легче произносить.",
                 "explanation": "Вставное e: если основа оканчивается на -t или -d, перед -st и -t добавляется e: ich arbeite, du arbeitest, er arbeitet, ihr arbeitet. Так же: du findest, er findet, es kostet.",
-                "task": "Olena работает в больнице."
+                "task": "Oleh работает в больнице."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Якщо основа закінчується на -t або -d, додається e: du arbeitest, er findet – так легше вимовляти.",
                 "explanation": "Вставне e: якщо основа закінчується на -t або -d, перед -st і -t додається e: ich arbeite, du arbeitest, er arbeitet, ihr arbeitet. Так само: du findest, er findet, es kostet.",
-                "task": "Olena працює в лікарні."
+                "task": "Oleh працює в лікарні."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Kök -t ya da -d ile bitiyorsa araya e girer: du arbeitest, er findet – söylemesi kolaylaşır.",
                 "explanation": "Araya giren e: Kök -t ya da -d ile bitiyorsa -st ve -t’den önce e eklenir: ich arbeite, du arbeitest, er arbeitet, ihr arbeitet. Aynı şekilde: du findest, er findet, es kostet.",
-                "task": "Olena hastanede çalışıyor."
+                "task": "Oleh hastanede çalışıyor."
               }
             }
           },
@@ -33316,7 +33316,7 @@
             "Ich finde Kartenspielen langweilig.",
             "Das macht Spaß!",
             "Kofi spielt am Samstag Fußball.",
-            "Kasia liest gern. Sie hat viele Bücher."
+            "Kamil liest gern. Er hat viele Bücher."
           ],
           "highlight": null,
           "translations": {
@@ -33563,7 +33563,7 @@
                 "Hobbys"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Kasia liest gern. Sie hat viele ",
+              "text_before": "Kamil liest gern. Er hat viele ",
               "text_after": ".",
               "gap_hint": "Buch",
               "correct_answer": "Bücher",
@@ -33587,25 +33587,25 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "What do you do? ball → spielen (play), water → schwimmen (swim), book → lesen (read).",
                 "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
-                "task": "Kasia likes reading. She has lots of books."
+                "task": "Kamil likes reading. He has lots of books."
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Что делают? мяч → spielen (играть), вода → schwimmen (плавать), книга → lesen (читать).",
                 "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
-                "task": "Kasia любит читать. У неё много книг."
+                "task": "Kamil любит читать. У него много книг."
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Що роблять? м’яч → spielen (грати), вода → schwimmen (плавати), книжка → lesen (читати).",
                 "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
-                "task": "Kasia любить читати. У неї багато книжок."
+                "task": "Kamil любить читати. У нього багато книжок."
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Ne yapılır? top → spielen (oynamak), su → schwimmen (yüzmek), kitap → lesen (okumak).",
                 "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
-                "task": "Kasia okumayı seviyor. Çok kitabı var."
+                "task": "Kamil okumayı seviyor. Çok kitabı var."
               }
             }
           },
@@ -34147,7 +34147,7 @@
           "card": "p6_acc_def",
           "rule": "Akkusativ mit bestimmtem Artikel: Nur maskulin ändert sich: der → den. das und die bleiben gleich. Ich lese den Roman. Ich sehe das Spiel. Ich höre die Musik. Plural: Ich sehe die Filme.",
           "examples": [
-            "Ich lese den Roman von Olena.",
+            "Ich lese den Roman von Oleh.",
             "Wir sehen heute das Fußballspiel.",
             "Kofi findet die Musik im Café toll.",
             "Findest du den Film gut?"
@@ -34234,7 +34234,7 @@
               ],
               "instruction": "Ergänze den passenden Artikel.",
               "text_before": "Ich lese ",
-              "text_after": " Roman von Olena.",
+              "text_after": " Roman von Oleh.",
               "gap_hint": "der",
               "correct_answer": "den",
               "options": [
@@ -34257,25 +34257,25 @@
                 "instruction": "Fill in the correct article.",
                 "hint": "Only the masculine changes in the accusative: der → den. Ask: whom or what?",
                 "explanation": "Accusative with the definite article: only the masculine changes: der → den. das and die stay the same. Ich lese den Roman. Ich sehe das Spiel. Ich höre die Musik. Plural: Ich sehe die Filme.",
-                "task": "I am reading Olena’s novel."
+                "task": "I am reading Oleh’s novel."
               },
               "ru": {
                 "instruction": "Вставьте подходящий артикль.",
                 "hint": "В винительном падеже меняется только мужской род: der → den (вопрос «кого? что?»).",
                 "explanation": "Винительный падеж с определённым артиклем: меняется только мужской род: der → den. das и die не меняются. Ich lese den Roman. Ich sehe das Spiel. Ich höre die Musik. Мн. ч.: Ich sehe die Filme.",
-                "task": "Я читаю роман Olena."
+                "task": "Я читаю роман Oleh."
               },
               "uk": {
                 "instruction": "Вставте відповідний артикль.",
                 "hint": "У знахідному відмінку змінюється лише чоловічий рід: der → den (запитання «кого? що?»).",
                 "explanation": "Знахідний відмінок з означеним артиклем: змінюється лише чоловічий рід: der → den. das і die не змінюються. Ich lese den Roman. Ich sehe das Spiel. Ich höre die Musik. Множина: Ich sehe die Filme.",
-                "task": "Я читаю роман Olena."
+                "task": "Я читаю роман Oleh."
               },
               "tr": {
                 "instruction": "Uygun artikeli yazın.",
                 "hint": "Akkusativ’de sadece eril değişir: der → den. Sorun: kimi? neyi?",
                 "explanation": "Belirli artikelle belirtme durumu (Akkusativ): Sadece eril değişir: der → den. das ve die aynı kalır. Ich lese den Roman. Ich sehe das Spiel. Ich höre die Musik. Çoğul: Ich sehe die Filme.",
-                "task": "Olena’nın romanını okuyorum."
+                "task": "Oleh’in romanını okuyorum."
               }
             }
           },
@@ -35327,7 +35327,7 @@
                 "zustimmen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Kasia sagt: „Ich mag keinen Regen.“ Du magst Regen auch nicht.",
+              "question": "Kamil sagt: „Ich mag keinen Regen.“ Du magst Regen auch nicht.",
               "options": [
                 "Ich auch nicht.",
                 "Ich auch.",
@@ -35349,25 +35349,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "After a positive sentence: ich auch (me too) / ich nicht. After a negative one: ich auch nicht (me neither) / ich schon (I do).",
                 "explanation": "Agreeing and disagreeing: „Ich finde Kochen toll.“ – „Ich auch.“ (me too) / „Ich nicht.“ After a negative sentence: „Ich mag keinen Regen.“ – „Ich auch nicht.“ (me neither) / „Ich schon.“ (I do).",
-                "task": "Kasia says: “I don’t like rain.” You don’t like rain either."
+                "task": "Kamil says: “I don’t like rain.” You don’t like rain either."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "После утверждения: ich auch («я тоже») / ich nicht. После отрицания: ich auch nicht («я тоже нет») / ich schon («а я – да»).",
                 "explanation": "Согласие и возражение: „Ich finde Kochen toll.“ – „Ich auch.“ («я тоже») / „Ich nicht.“ После отрицания: „Ich mag keinen Regen.“ – „Ich auch nicht.“ («я тоже нет») / „Ich schon.“ («а я – да»).",
-                "task": "Kasia говорит: «Я не люблю дождь». Вы тоже не любите дождь."
+                "task": "Kamil говорит: «Я не люблю дождь». Вы тоже не любите дождь."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Після ствердження: ich auch («я теж») / ich nicht. Після заперечення: ich auch nicht («я теж ні») / ich schon («а я – так»).",
                 "explanation": "Згода й заперечення: „Ich finde Kochen toll.“ – „Ich auch.“ («я теж») / „Ich nicht.“ Після заперечення: „Ich mag keinen Regen.“ – „Ich auch nicht.“ («я теж ні») / „Ich schon.“ («а я – так»).",
-                "task": "Kasia каже: «Я не люблю дощ». Ви теж не любите дощ."
+                "task": "Kamil каже: «Я не люблю дощ». Ви теж не любите дощ."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Olumlu cümleden sonra: ich auch (ben de) / ich nicht. Olumsuz cümleden sonra: ich auch nicht (ben de değil) / ich schon (ben evet).",
                 "explanation": "Katılma ve karşı çıkma: „Ich finde Kochen toll.“ – „Ich auch.“ (ben de) / „Ich nicht.“ Olumsuz cümleden sonra: „Ich mag keinen Regen.“ – „Ich auch nicht.“ (ben de sevmem) / „Ich schon.“ (ben severim).",
-                "task": "Kasia diyor ki: “Yağmuru sevmiyorum.” Siz de yağmuru sevmiyorsunuz."
+                "task": "Kamil diyor ki: “Yağmuru sevmiyorum.” Siz de yağmuru sevmiyorsunuz."
               }
             }
           },
@@ -38597,7 +38597,7 @@
                 "zustimmen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena sagt: „Ich finde Tanzen toll.“ Du findest Tanzen auch toll.",
+              "question": "Oleh sagt: „Ich finde Tanzen toll.“ Du findest Tanzen auch toll.",
               "options": [
                 "Ich auch nicht!",
                 "Ich auch!",
@@ -38619,25 +38619,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "After a positive sentence: ich auch (me too) / ich nicht. After a negative one: ich auch nicht (me neither) / ich schon (I do).",
                 "explanation": "Agreeing and disagreeing: „Ich finde Kochen toll.“ – „Ich auch.“ (me too) / „Ich nicht.“ After a negative sentence: „Ich mag keinen Regen.“ – „Ich auch nicht.“ (me neither) / „Ich schon.“ (I do).",
-                "task": "Olena says: “I think dancing is great.” You think dancing is great too."
+                "task": "Oleh says: “I think dancing is great.” You think dancing is great too."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "После утверждения: ich auch («я тоже») / ich nicht. После отрицания: ich auch nicht («я тоже нет») / ich schon («а я – да»).",
                 "explanation": "Согласие и возражение: „Ich finde Kochen toll.“ – „Ich auch.“ («я тоже») / „Ich nicht.“ После отрицания: „Ich mag keinen Regen.“ – „Ich auch nicht.“ («я тоже нет») / „Ich schon.“ («а я – да»).",
-                "task": "Olena говорит: «Я считаю, что танцы — это здорово». Вы тоже так считаете."
+                "task": "Oleh говорит: «Я считаю, что танцы — это здорово». Вы тоже так считаете."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Після ствердження: ich auch («я теж») / ich nicht. Після заперечення: ich auch nicht («я теж ні») / ich schon («а я – так»).",
                 "explanation": "Згода й заперечення: „Ich finde Kochen toll.“ – „Ich auch.“ («я теж») / „Ich nicht.“ Після заперечення: „Ich mag keinen Regen.“ – „Ich auch nicht.“ («я теж ні») / „Ich schon.“ («а я – так»).",
-                "task": "Olena каже: «Я вважаю, що танці — це чудово». Ви теж так вважаєте."
+                "task": "Oleh каже: «Я вважаю, що танці — це чудово». Ви теж так вважаєте."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Olumlu cümleden sonra: ich auch (ben de) / ich nicht. Olumsuz cümleden sonra: ich auch nicht (ben de değil) / ich schon (ben evet).",
                 "explanation": "Katılma ve karşı çıkma: „Ich finde Kochen toll.“ – „Ich auch.“ (ben de) / „Ich nicht.“ Olumsuz cümleden sonra: „Ich mag keinen Regen.“ – „Ich auch nicht.“ (ben de sevmem) / „Ich schon.“ (ben severim).",
-                "task": "Olena diyor ki: “Dans etmeyi harika buluyorum.” Siz de dansı harika buluyorsunuz."
+                "task": "Oleh diyor ki: “Dans etmeyi harika buluyorum.” Siz de dansı harika buluyorsunuz."
               }
             }
           },

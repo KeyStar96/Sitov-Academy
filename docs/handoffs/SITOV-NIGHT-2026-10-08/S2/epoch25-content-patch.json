@@ -1,0 +1,362 @@
+[
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/explanation",
+    "old": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+    "new": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/translations/en/explanation",
+    "old": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+    "new": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/translations/ru/explanation",
+    "old": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+    "new": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/translations/uk/explanation",
+    "old": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+    "new": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/translations/tr/explanation",
+    "old": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+    "new": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/explanation",
+    "old": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+    "new": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/translations/en/explanation",
+    "old": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+    "new": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/translations/ru/explanation",
+    "old": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+    "new": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/translations/uk/explanation",
+    "old": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+    "new": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/translations/tr/explanation",
+    "old": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+    "new": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/3/content/text_before",
+    "old": "Olena zeigt ein Foto: „Und das ist ",
+    "new": "Oleh zeigt ein Foto: „Und das ist "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/3/translations/en/task",
+    "old": "Olena shows a photo: “And this is my mother.”",
+    "new": "Oleh shows a photo: “And this is my mother.”"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/3/translations/ru/task",
+    "old": "Olena показывает фото: «А это моя мама».",
+    "new": "Oleh показывает фото: «А это моя мама»."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/3/translations/uk/task",
+    "old": "Olena показує фото: «А це моя мама».",
+    "new": "Oleh показує фото: «А це моя мама»."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/3/translations/tr/task",
+    "old": "Olena bir fotoğraf gösteriyor: “Bu da benim annem.”",
+    "new": "Oleh bir fotoğraf gösteriyor: “Bu da benim annem.”"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/9/explanation",
+    "old": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+    "new": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/9/translations/en/explanation",
+    "old": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+    "new": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/9/translations/ru/explanation",
+    "old": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+    "new": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/9/translations/uk/explanation",
+    "old": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+    "new": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/9/translations/tr/explanation",
+    "old": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+    "new": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/6/explanation",
+    "old": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+    "new": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/6/translations/en/explanation",
+    "old": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+    "new": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/6/translations/ru/explanation",
+    "old": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+    "new": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/6/translations/uk/explanation",
+    "old": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+    "new": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/6/translations/tr/explanation",
+    "old": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+    "new": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/content/text_before",
+    "old": "Das sind Emre und Selin. Sie ",
+    "new": "Das sind Emre und Selim. Sie "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/explanation",
+    "old": "Andere vorstellen: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+    "new": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/translations/en/explanation",
+    "old": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
+    "new": "Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/translations/en/task",
+    "old": "These are Emre and Selin. They come from Turkey and live in Kassel.",
+    "new": "These are Emre and Selim. They come from Turkey and live in Kassel."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/translations/ru/explanation",
+    "old": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
+    "new": "Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/translations/ru/task",
+    "old": "Это Emre и Selin. Они из Турции и живут в Касселе.",
+    "new": "Это Emre и Selim. Они из Турции и живут в Касселе."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/translations/uk/explanation",
+    "old": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
+    "new": "Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/translations/uk/task",
+    "old": "Це Emre та Selin. Вони з Туреччини й живуть у Касселі.",
+    "new": "Це Emre та Selim. Вони з Туреччини й живуть у Касселі."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/translations/tr/explanation",
+    "old": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
+    "new": "Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/17/translations/tr/task",
+    "old": "Bunlar Emre ve Selin. Türkiye’den geliyorlar ve Kassel’de oturuyorlar.",
+    "new": "Bunlar Emre ve Selim. Türkiye’den geliyorlar ve Kassel’de oturuyorlar."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/8/exercises/1/content/question",
+    "old": "Olena sagt: „Heute ist Mittwoch, oder?“ Das ist richtig.",
+    "new": "Oleh sagt: „Heute ist Mittwoch, oder?“ Das ist richtig."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/8/exercises/1/translations/en/task",
+    "old": "Olena says: “Today is Wednesday, isn’t it?” That is correct.",
+    "new": "Oleh says: “Today is Wednesday, isn’t it?” That is correct."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/8/exercises/1/translations/ru/task",
+    "old": "Olena говорит: «Сегодня среда, да?» Это правильно.",
+    "new": "Oleh говорит: «Сегодня среда, да?» Это правильно."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/8/exercises/1/translations/uk/task",
+    "old": "Olena каже: «Сьогодні середа, так?» Це правильно.",
+    "new": "Oleh каже: «Сьогодні середа, так?» Це правильно."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/8/exercises/1/translations/tr/task",
+    "old": "Olena diyor ki: “Bugün çarşamba, değil mi?” Bu doğru.",
+    "new": "Oleh diyor ki: “Bugün çarşamba, değil mi?” Bu doğru."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/3/content/question",
+    "old": "Olena fragt: „Hast du am Samstag Zeit?“ Du hast Zeit.",
+    "new": "Oleh fragt: „Hast du am Samstag Zeit?“ Du hast Zeit."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/3/translations/en/task",
+    "old": "Olena asks: “Do you have time on Saturday?” You have time.",
+    "new": "Oleh asks: “Do you have time on Saturday?” You have time."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/3/translations/ru/task",
+    "old": "Olena спрашивает: «У тебя есть время в субботу?» У вас есть время.",
+    "new": "Oleh спрашивает: «У тебя есть время в субботу?» У вас есть время."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/3/translations/uk/task",
+    "old": "Olena запитує: «У тебе є час у суботу?» У вас є час.",
+    "new": "Oleh запитує: «У тебе є час у суботу?» У вас є час."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/3/translations/tr/task",
+    "old": "Olena soruyor: “Cumartesi vaktin var mı?” Vaktiniz var.",
+    "new": "Oleh soruyor: “Cumartesi vaktin var mı?” Vaktiniz var."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/16/content/text_before",
+    "old": "Olena ",
+    "new": "Oleh "
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/16/translations/en/task",
+    "old": "Olena works at the hospital.",
+    "new": "Oleh works at the hospital."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/16/translations/ru/task",
+    "old": "Olena работает в больнице.",
+    "new": "Oleh работает в больнице."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/16/translations/uk/task",
+    "old": "Olena працює в лікарні.",
+    "new": "Oleh працює в лікарні."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/16/translations/tr/task",
+    "old": "Olena hastanede çalışıyor.",
+    "new": "Oleh hastanede çalışıyor."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/0/merkkarte/examples/3",
+    "old": "Kasia liest gern. Sie hat viele Bücher.",
+    "new": "Kamil liest gern. Er hat viele Bücher."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/0/exercises/4/content/text_before",
+    "old": "Kasia liest gern. Sie hat viele ",
+    "new": "Kamil liest gern. Er hat viele "
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/0/exercises/4/translations/en/task",
+    "old": "Kasia likes reading. She has lots of books.",
+    "new": "Kamil likes reading. He has lots of books."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/0/exercises/4/translations/ru/task",
+    "old": "Kasia любит читать. У неё много книг.",
+    "new": "Kamil любит читать. У него много книг."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/0/exercises/4/translations/uk/task",
+    "old": "Kasia любить читати. У неї багато книжок.",
+    "new": "Kamil любить читати. У нього багато книжок."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/0/exercises/4/translations/tr/task",
+    "old": "Kasia okumayı seviyor. Çok kitabı var.",
+    "new": "Kamil okumayı seviyor. Çok kitabı var."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/2/merkkarte/examples/0",
+    "old": "Ich lese den Roman von Olena.",
+    "new": "Ich lese den Roman von Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/2/exercises/1/content/text_after",
+    "old": " Roman von Olena.",
+    "new": " Roman von Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/2/exercises/1/translations/en/task",
+    "old": "I am reading Olena’s novel.",
+    "new": "I am reading Oleh’s novel."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/2/exercises/1/translations/ru/task",
+    "old": "Я читаю роман Olena.",
+    "new": "Я читаю роман Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/2/exercises/1/translations/uk/task",
+    "old": "Я читаю роман Olena.",
+    "new": "Я читаю роман Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/2/exercises/1/translations/tr/task",
+    "old": "Olena’nın romanını okuyorum.",
+    "new": "Oleh’in romanını okuyorum."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/5/exercises/3/content/question",
+    "old": "Kasia sagt: „Ich mag keinen Regen.“ Du magst Regen auch nicht.",
+    "new": "Kamil sagt: „Ich mag keinen Regen.“ Du magst Regen auch nicht."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/5/exercises/3/translations/en/task",
+    "old": "Kasia says: “I don’t like rain.” You don’t like rain either.",
+    "new": "Kamil says: “I don’t like rain.” You don’t like rain either."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/5/exercises/3/translations/ru/task",
+    "old": "Kasia говорит: «Я не люблю дождь». Вы тоже не любите дождь.",
+    "new": "Kamil говорит: «Я не люблю дождь». Вы тоже не любите дождь."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/5/exercises/3/translations/uk/task",
+    "old": "Kasia каже: «Я не люблю дощ». Ви теж не любите дощ.",
+    "new": "Kamil каже: «Я не люблю дощ». Ви теж не любите дощ."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/5/exercises/3/translations/tr/task",
+    "old": "Kasia diyor ki: “Yağmuru sevmiyorum.” Siz de yağmuru sevmiyorsunuz.",
+    "new": "Kamil diyor ki: “Yağmuru sevmiyorum.” Siz de yağmuru sevmiyorsunuz."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/12/exercises/4/content/question",
+    "old": "Olena sagt: „Ich finde Tanzen toll.“ Du findest Tanzen auch toll.",
+    "new": "Oleh sagt: „Ich finde Tanzen toll.“ Du findest Tanzen auch toll."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/12/exercises/4/translations/en/task",
+    "old": "Olena says: “I think dancing is great.” You think dancing is great too.",
+    "new": "Oleh says: “I think dancing is great.” You think dancing is great too."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/12/exercises/4/translations/ru/task",
+    "old": "Olena говорит: «Я считаю, что танцы — это здорово». Вы тоже так считаете.",
+    "new": "Oleh говорит: «Я считаю, что танцы — это здорово». Вы тоже так считаете."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/12/exercises/4/translations/uk/task",
+    "old": "Olena каже: «Я вважаю, що танці — це чудово». Ви теж так вважаєте.",
+    "new": "Oleh каже: «Я вважаю, що танці — це чудово». Ви теж так вважаєте."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/12/exercises/4/translations/tr/task",
+    "old": "Olena diyor ki: “Dans etmeyi harika buluyorum.” Siz de dansı harika buluyorsunuz.",
+    "new": "Oleh diyor ki: “Dans etmeyi harika buluyorum.” Siz de dansı harika buluyorsunuz."
+  }
+]
