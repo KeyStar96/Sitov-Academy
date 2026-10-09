@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
+import { execFileSync } from 'node:child_process'
 import { sitovLoadIntegrated96, createSitovIntegrated96NativeDatabase } from './helpers/sitov-night-integrated96-native-db.mjs'
 import { sitovLoadInstallTarget, sitovVerifyPinnedContent, sitovHistorySnapshot, sitovRightsSnapshot, sitovUsers } from './helpers/sitov-night-current-db.mjs'
 import { SitovNativeDatabase } from './helpers/sitov-night-current-native-db.mjs'
@@ -10,7 +11,10 @@ test('frozen integrated96 has exact reviewed overlays and independently pinned b
  const {schema}=await sitovLoadInstallTarget({target:'baseline92'})
  const combined=schema+overlays.map((sql,index)=>`\n-- SITOV-NIGHT integrated overlay ${plan.overlays[index].name}\n${sql}`).join('')
  sitovVerifyPinnedContent(combined,plan.canonicalSha256,'combined target')
- assert.equal(await readFile(new URL('../schema.sql',import.meta.url),'utf8'),combined)
+ // The 96 installer stays pinned even after later canonical overlays are added.
+ const canonicalSourceSha='67bc5dfb711df423423d252c1b119c368616c57a'
+ const pinnedSource=execFileSync('git',['show',`${canonicalSourceSha}:supabase/schema.sql`],{encoding:'utf8',maxBuffer:4*1024*1024})
+ assert.equal(pinnedSource,combined)
  for(const [index,item] of plan.overlays.entries()){
   assert.equal(await readFile(new URL(`../migrations/${item.name}`,import.meta.url),'utf8'),overlays[index])
   assert.throws(()=>sitovVerifyPinnedContent(overlays[index]+'SELECT 97;',item.sha256,item.name),/checksum mismatch/)
