@@ -1,4 +1,4 @@
-BEGIN;SET LOCAL statement_timeout='8s';SET LOCAL lock_timeout='2s';SET LOCAL application_name='sitov_S3_epoch63_fixture';
+BEGIN;SET LOCAL statement_timeout='8s';SET LOCAL lock_timeout='2s';SET LOCAL application_name='sitov_S3_epoch64_fixture';
 -- Sitov Academy: source revisions only. No learner records are rewritten.
 -- Reserved by M; native PostgreSQL verification is required before application.
 CREATE TABLE IF NOT EXISTS path_private.sitov_content_revisions (
@@ -791,6 +791,38 @@ UNION ALL SELECT 'test',to_jsonb(x) FROM public.path_test_attempts x WHERE auth_
 UNION ALL SELECT 'answer',to_jsonb(x) FROM public.path_test_answers x WHERE attempt_id IN(SELECT id FROM public.path_test_attempts WHERE auth_user_id='00000000-0062-4000-8000-000000000001')
 UNION ALL SELECT 'receipt',to_jsonb(x) FROM path_private.answer_receipts x WHERE run_id IN(SELECT id FROM public.path_practice_runs WHERE auth_user_id='00000000-0062-4000-8000-000000000001');
 SELECT pg_temp.sitov61_assert('card_answers_runs_progress_receipts_exact',NOT EXISTS((SELECT * FROM sitov63_history_before EXCEPT SELECT * FROM sitov63_history_after)UNION ALL(SELECT * FROM sitov63_history_after EXCEPT SELECT * FROM sitov63_history_before)));
+
+CREATE TEMP TABLE sitov64_sources_before AS
+ SELECT 'exercise' tag,to_jsonb(e) row FROM public.learning_exercises e WHERE id::text LIKE '00000000-0061-%'
+ UNION ALL SELECT 'translation',to_jsonb(t) FROM public.grammar_translations t WHERE exercise_id::text LIKE '00000000-0061-%'
+ UNION ALL SELECT 'archive',to_jsonb(a) FROM path_private.sitov_content_revisions a
+ UNION ALL SELECT 'receipt',to_jsonb(r) FROM path_private.sitov_content_revision_receipts r;
+CREATE FUNCTION pg_temp.sitov64_block(label text,command text,expected_state text) RETURNS void LANGUAGE plpgsql AS $$DECLARE observed text;BEGIN
+ BEGIN EXECUTE command;SET CONSTRAINTS ALL IMMEDIATE;
+ EXCEPTION WHEN OTHERS THEN GET STACKED DIAGNOSTICS observed=RETURNED_SQLSTATE;
+  IF observed<>expected_state THEN RAISE EXCEPTION 'unexpected_state:%:% expected:%',label,observed,expected_state;END IF;
+  INSERT INTO sitov61_checks VALUES(label,true);RETURN;
+ END;
+ RAISE EXCEPTION 'required_rejection_missing:%',label;
+END$$;
+SELECT pg_temp.sitov64_block('protected_id_to_fresh_fk','UPDATE public.learning_exercises SET id=''00000000-0065-4000-8000-000000000001'' WHERE id=''00000000-0061-4000-8000-000000000004''','23503');
+SELECT pg_temp.sitov64_block('unprotected_id_to_protected_collision','UPDATE public.learning_exercises SET id=''00000000-0061-4000-8000-000000000004'' WHERE id=''00000000-0061-4000-8000-000000000003''','23505');
+SELECT pg_temp.sitov64_block('protected_id_to_existing_collision','UPDATE public.learning_exercises SET id=''00000000-0061-4000-8000-000000000003'' WHERE id=''00000000-0061-4000-8000-000000000004''','23505');
+SELECT pg_temp.sitov64_block('translation_leaves_protected_old_target','DELETE FROM public.grammar_translations WHERE exercise_id=''00000000-0061-4000-8000-000000000003'' AND locale=''en'';UPDATE public.grammar_translations SET exercise_id=''00000000-0061-4000-8000-000000000003'' WHERE exercise_id=''00000000-0061-4000-8000-000000000004'' AND locale=''en''','40001');
+SELECT pg_temp.sitov64_block('translation_enters_protected_new_target','UPDATE public.grammar_translations SET hint=''Sitov changed source'' WHERE exercise_id=''00000000-0061-4000-8000-000000000003'' AND locale=''en'';DELETE FROM public.grammar_translations WHERE exercise_id=''00000000-0061-4000-8000-000000000004'' AND locale=''en'';UPDATE public.grammar_translations SET exercise_id=''00000000-0061-4000-8000-000000000004'' WHERE exercise_id=''00000000-0061-4000-8000-000000000003'' AND locale=''en''','40001');
+SELECT pg_temp.sitov64_block('protected_exercise_sameunit_node_move','UPDATE public.learning_exercises SET node_id=(SELECT id FROM public.path_nodes WHERE source_id=''sitov-61-n0'') WHERE id=''00000000-0061-4000-8000-000000000004''','40001');
+SELECT pg_temp.sitov64_block('protected_exercise_foreign_unit_node_move','UPDATE public.learning_exercises SET unit_id=''00000000-0064-4000-8000-000000000010'',node_id=''00000000-0064-4000-8000-000000000011'' WHERE id=''00000000-0061-4000-8000-000000000004''','40001');
+SELECT pg_temp.sitov64_block('protected_parent_node_unit_move','UPDATE public.path_nodes SET unit_id=''00000000-0064-4000-8000-000000000010'' WHERE source_id=''sitov-61-n1''','23503');
+SELECT pg_temp.sitov64_block('protected_parent_unit_level_move','UPDATE public.learning_units SET level=''A1.2'' WHERE path_source_id=''sitov-s3-epoch62''','40001');
+CREATE TEMP TABLE sitov64_sources_after AS
+ SELECT 'exercise' tag,to_jsonb(e) row FROM public.learning_exercises e WHERE id::text LIKE '00000000-0061-%'
+ UNION ALL SELECT 'translation',to_jsonb(t) FROM public.grammar_translations t WHERE exercise_id::text LIKE '00000000-0061-%'
+ UNION ALL SELECT 'archive',to_jsonb(a) FROM path_private.sitov_content_revisions a
+ UNION ALL SELECT 'receipt',to_jsonb(r) FROM path_private.sitov_content_revision_receipts r;
+SELECT pg_temp.sitov61_assert('reassignment_full_source_archives_receipts_exact',NOT EXISTS((SELECT * FROM sitov64_sources_before EXCEPT SELECT * FROM sitov64_sources_after)UNION ALL(SELECT * FROM sitov64_sources_after EXCEPT SELECT * FROM sitov64_sources_before)));
+SELECT pg_temp.sitov61_assert('reassignment_old_snapshots_exact',NOT EXISTS((SELECT row FROM sitov63_old_snapshots EXCEPT (SELECT to_jsonb(i) FROM path_private.practice_items i UNION ALL SELECT to_jsonb(i) FROM path_private.test_items i)) UNION ALL ((SELECT to_jsonb(i) FROM path_private.practice_items i UNION ALL SELECT to_jsonb(i) FROM path_private.test_items i) EXCEPT SELECT row FROM sitov63_old_snapshots)));
+-- Refresh history comparison after all rejected statements; no learner record changed.
+SELECT pg_temp.sitov61_assert('reassignment_history_exact',NOT EXISTS((SELECT * FROM sitov63_history_before EXCEPT SELECT * FROM sitov63_history_after)UNION ALL(SELECT * FROM sitov63_history_after EXCEPT SELECT * FROM sitov63_history_before)));
 
 SELECT jsonb_build_object('checks',(SELECT count(*) FROM sitov61_checks),'allPassed',(SELECT bool_and(passed) FROM sitov61_checks));
 ROLLBACK;

@@ -1,0 +1,30 @@
+{
+  "epoch": 64,
+  "base": "e5911c1d37b8065e3053f1b20cf52ba8b59ee92a",
+  "nativeAssertions": 54,
+  "priorAssertionsRetained": 42,
+  "newAssertions": 12,
+  "nativeStandalonePassed": true,
+  "crossSessionProbePassed": false,
+  "crossSessionProbeAttempts": 2,
+  "crossSessionFailure": "marker_timeout:A:ROW_WAIT",
+  "crossSession114CASOrReplayProven": false,
+  "migrationSha256": "45c03b30a075920e53d15e4e311e229262f63a19d7016f9c4b21d98efd0d379a",
+  "DDLCommitted": false,
+  "contentApplied": false,
+  "productionWrite": false,
+  "sharedQAWrite": false,
+  "releaseReady": false,
+  "metadata": {
+    "rows": 5222,
+    "beforeRawSha256": "bbb05e1d2a09ff924ba4b01c1767cd7210602a884c5121930d4ab0661f3330b4",
+    "afterRawSha256": "bbb05e1d2a09ff924ba4b01c1767cd7210602a884c5121930d4ab0661f3330b4",
+    "rawExact": true
+  },
+  "staticTestsPassed": 6,
+  "healthThree200": true,
+  "memoryMiB": 2736,
+  "scopedQueries": 0,
+  "noOOM": true,
+  "openJobs": []
+}
