@@ -1,0 +1,90 @@
+{
+  "source": "ba0042bca830fc1cbd91c2f968c1048d5a067a00",
+  "actualUI": true,
+  "normalLogin": true,
+  "persistedFailedResultResumed": false,
+  "automaticallyStartedRetake": true,
+  "uiTasksCompleted": 12,
+  "uiResult": "failed",
+  "correct": 7,
+  "total": 12,
+  "recommendationLinksVisible": 0,
+  "exactDestinationClicked": false,
+  "visible": {
+    "german": [
+      "Guten Tag, das bin ich",
+      "Guten Tag, das bin ich",
+      "Mein Frühstück",
+      "Unser Kursraum",
+      "Ein neuer Nachbar",
+      "Am Samstag im Park",
+      "Mein Zimmer",
+      "Im kleinen Laden",
+      "Meine Familie",
+      "Der Weg zum Kurs",
+      "Ein ruhiger Abend",
+      "Guten Tag, das bin ich"
+    ],
+    "lang": "ru",
+    "links": [
+      {
+        "href": "#main-content",
+        "text": "Перейти к содержимому"
+      },
+      {
+        "href": "/ru/dashboard",
+        "text": "Sitov Academy"
+      },
+      {
+        "href": "/ru/dashboard/profile",
+        "text": "Профиль"
+      },
+      {
+        "href": "/ru/dashboard",
+        "text": "Главная"
+      },
+      {
+        "href": "/ru/dashboard/level/A1.1",
+        "text": "Учиться"
+      },
+      {
+        "href": "/ru/dashboard/daily-quest",
+        "text": "Путешествие"
+      },
+      {
+        "href": "/ru/dashboard/calendar",
+        "text": "Календарь"
+      },
+      {
+        "href": "/ru/dashboard",
+        "text": "Главная"
+      },
+      {
+        "href": "/ru/dashboard/level/A1.1",
+        "text": "A1.1"
+      },
+      {
+        "href": "/ru/dashboard/level/A1.1/vocabulary",
+        "text": "Слова"
+      },
+      {
+        "href": "/ru/dashboard/level/A1.1/verbs",
+        "text": "Тренажёр глаголов"
+      },
+      {
+        "href": "/ru/dashboard/level/A1.1/path",
+        "text": "Учебный путь"
+      },
+      {
+        "href": "/ru/dashboard/level/A1.1/pronunciation",
+        "text": "Произношение"
+      },
+      {
+        "href": "/ru/dashboard/level/A1.1/videos",
+        "text": "Медиатека"
+      }
+    ]
+  },
+  "normalLogout": true,
+  "logoutURL": "http://127.0.0.1:3143/ru/login?status=logout_success"
+}
