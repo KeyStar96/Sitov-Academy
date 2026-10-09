@@ -1,0 +1,9 @@
+{
+  "baselineAfterRollback": {
+    "qaActiveDefinitions": 5,
+    "qaInactiveDefinitions": 1,
+    "qaQuestionProofs": 558,
+    "productionWrite": false
+  },
+  "diagnosis": "NOTICE:  {\"textId\": \"15c29bec-e14e-5f27-8f12-ea9e45145e97\", \"validPool\": true, \"audioReady\": true, \"referenceValid\": false, \"validAuthoring\": true, \"testVersionMatches\": true}\nNOTICE:  {\"textId\": \"610e3f81-2a6f-5794-bb78-ef06cb7ece17\", \"validPool\": true, \"audioReady\": true, \"referenceValid\": true, \"validAuthoring\": true, \"testVersionMatches\": true}\nNOTICE:  {\"textId\": \"c8055fa7-7bb0-5027-9f3e-13d001eb728b\", \"validPool\": true, \"audioReady\": true, \"referenceValid\": true, \"validAuthoring\": true, \"testVersionMatches\": true}\n"
+}
