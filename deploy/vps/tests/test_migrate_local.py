@@ -195,6 +195,26 @@ class MigrationFailureTests(unittest.TestCase):
         self.assertEqual(command.count('COMMIT;'), 17)
         self.assertFalse((self.backup / 'applied.json').exists())
 
+    def test_storage_definer_delta_is_mirrored_and_uses_the_real_migrator(self):
+        name = '110_sitov_storage_definer_execution.sql'
+        source = SQL_DIR.parent / 'migrations/20261009200000_sitov_storage_definer_execution.sql'
+        content = source.read_text()
+        self.assertEqual((SQL_DIR / name).read_text(), content)
+        self.assertEqual(MIGRATION.ORDER[-1], name)
+        (self.root / name).write_text(content)
+        with patch('sys.argv', [str(SCRIPT), '--apply', name,
+                               '--sql-dir', str(self.root), '--keep-stopped']):
+            MIGRATION.main()
+        docker = next(command for command in self.commands if command[0] == 'docker')
+        self.assertEqual(docker[docker.index('-U') + 1], 'supabase_admin')
+        command = self.sql_commands[-1]
+        self.assertEqual(command.count('BEGIN;'), 1)
+        self.assertEqual(command.count('COMMIT;'), 1)
+        self.assertIn(content, command)
+        self.assertNotIn('SET ROLE', command)
+        self.assert_services_stopped()
+        self.assertIn(name, (self.backup / 'applied.json').read_text())
+
 
 if __name__ == '__main__':
     unittest.main()
