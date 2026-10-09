@@ -3,6 +3,13 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
 const sources=await sitovReadAuthoringSources(),manifest=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+// Reconstruct the exact frozen pre-repair baseline; only the explicit M-confirmed33 delta is allowed.
+const sitovRepair24=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/first9-visible-context-repair-delta-epoch24.json','utf8'))
+const sitovBeforeRepair=structuredClone(manifest)
+for(const row of sitovRepair24.changedQuestions){const draft=sitovBeforeRepair.drafts.find(d=>d.textId===row.textId),i=draft.definition.tasks.findIndex(q=>q.id===row.questionId);draft.definition.tasks[i]=row.previousTask}
+for(const pool of sitovRepair24.changedPools)sitovBeforeRepair.drafts.find(d=>d.textId===pool.textId).review=pool.previousReview
+const sitovPreviousAliases=new Map(sitovRepair24.changedAliases.map(row=>[row.key,row.previousTextDe]))
+const sitovBeforeRepairAliases=audio=>Object.fromEntries(Object.entries(audio).map(([key,value])=>[key,sitovPreviousAliases.get(key)??value]))
 const validate=mutate=>{const copy=structuredClone(manifest);mutate(copy);return sitovValidatePretestDrafts(copy,sources)}
 test('exact current repository inventory: 60 active plus 89 retained inactive; twelve actual source bodies/hashes',()=>{
  assert.equal(sources.rows.length,149);assert.equal(manifest.inventory.length,60);assert.equal(manifest.inactiveLegacy.length,89)
@@ -79,7 +86,7 @@ test('version-qualified independent review shape allowed; self-review or stale d
 test('all 1152 German audio aliases match public fields; original first288 and review remain frozen',async()=>{
  const frozen=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),extracted={}
  for(const draft of manifest.drafts)for(const q of draft.definition.tasks){const prefix=`sitov-pretest:${draft.textId}:${q.id}`;extracted[prefix+':prompt']=q.promptDe;if(q.fragmentDe?.trim())extracted[prefix+':fragment']=q.fragmentDe;for(const option of q.options)extracted[prefix+':'+option.id]=option.textDe}
- assert.equal(Object.keys(extracted).length,1152);assert.deepEqual(extracted,frozen);assert.equal(new Set(Object.values(Object.fromEntries(Object.entries(frozen).slice(0,576)))).size,486)
+ assert.equal(Object.keys(extracted).length,1152);assert.deepEqual(extracted,frozen);assert.equal(new Set(Object.values(Object.fromEntries(Object.entries(sitovBeforeRepairAliases(frozen)).slice(0,576)))).size,486)
  const first=Object.fromEntries(Object.entries(frozen).slice(0,288));assert.equal(Object.keys(first).length,288);assert.equal(new Set(Object.values(first)).size,253)
  assert.equal(sitovHash(JSON.stringify(first)),'9dbf9e8b9c3ec4b6858cfe41d7626ad145d8f57c5fef5f405fe95c6a3fa3caff')
  assert.equal(sitovHash(JSON.stringify(manifest.drafts.slice(0,3))),'64ef9ff63db660b92316c30d41b47eced8d84855e9ae3b68d071759169f75f45')
@@ -91,10 +98,10 @@ test('all 1152 German audio aliases match public fields; original first288 and r
 })
 
 
-test('first six whole draft records and576 aliases remain exact; new reference queue has actual raw bodies',async()=>{
- assert.equal(sitovHash(JSON.stringify(manifest.drafts.slice(0,6))),'52af41c01a3b588ddbcc38e7ff43d4f0b6c9b12d1debe12335e2f293f387054d')
+test('original first6 records/576aliases reconstruct exactly after authorized repairs; actual raw references retained',async()=>{
+ assert.equal(sitovHash(JSON.stringify(sitovBeforeRepair.drafts.slice(0,6))),'52af41c01a3b588ddbcc38e7ff43d4f0b6c9b12d1debe12335e2f293f387054d')
  const audio=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'))
- assert.equal(sitovHash(JSON.stringify(Object.fromEntries(Object.entries(audio).slice(0,576)))),'69fa19b3b1851f749b16f80e85f1d32aa87399095b8b79155fe42b4480519d4e')
+ assert.equal(sitovHash(JSON.stringify(Object.fromEntries(Object.entries(sitovBeforeRepairAliases(audio)).slice(0,576)))),'69fa19b3b1851f749b16f80e85f1d32aa87399095b8b79155fe42b4480519d4e')
  const references=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/batch7-9-reference-audio-input.json','utf8'));assert.equal(Object.keys(references).length,3)
  for(const d of manifest.drafts.slice(6,9)){assert.equal(references['sitov-pretest-reference:'+d.textId],sources.rows.find(r=>r.id===d.textId).text);assert.equal(sitovHash(references['sitov-pretest-reference:'+d.textId]),d.textVersion)}
 })
@@ -108,9 +115,17 @@ test('new source-specific seller/family/route keys and evidence reflect actual r
  for(const d of [shop,family,route])for(const q of d.definition.tasks)assert.ok(!q.options.some(o=>/\b(Frau|Nachbarin|Freundin|Lehrerin|Schülerin|Mutter|Schwester)\b/u.test(o.textDe)))
 })
 
-test('first9 records/864aliases frozen and new cross-level references match exact canonical bodies',async()=>{
- assert.equal(sitovHash(JSON.stringify(manifest.drafts.slice(0,9))),'6587cc7b0e0da041b3056a4636f2d40863dbf97991e830f60402286a0a1bdfd8')
- const aliases=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'));assert.equal(sitovHash(JSON.stringify(Object.fromEntries(Object.entries(aliases).slice(0,864)))),'cd43a267a98050a19e6092ba622ef0bdc14e6398c459e92bff1c0481c4828be4')
+test('only M-confirmed33 repairs change first9; original baseline and final10–12 proof remain exact',async()=>{
+ const master=JSON.parse(await readFile(sitovRepair24.masterConfirmedFindingsRef,'utf8'))
+ assert.equal(sitovHash(await readFile(sitovRepair24.masterConfirmedFindingsRef,'utf8')),sitovRepair24.masterConfirmedFindingsSha256)
+ assert.deepEqual([...sitovRepair24.changedQuestions.map(r=>r.questionId)].sort(),master.rows.filter(r=>r.result!=='M_context_only_no_additional_blocker_found').map(r=>r.questionId).sort())
+ assert.equal(sitovRepair24.changedQuestions.length,33);assert.equal(sitovRepair24.changedAliases.length,39);assert.equal(sitovRepair24.correctOptionIdsChanged,0);assert.equal(sitovRepair24.correctOptionTextsChanged,2)
+ for(const row of sitovRepair24.changedQuestions){const q=manifest.drafts.flatMap(d=>d.definition.tasks).find(q=>q.id===row.questionId);assert.deepEqual(q,row.currentTask);assert.equal(q.correctOptionId,row.previousTask.correctOptionId);assert.deepEqual({...q,promptDe:row.previousTask.promptDe,rationaleDe:row.previousTask.rationaleDe,options:row.previousTask.options},row.previousTask)}
+ for(const pool of sitovRepair24.changedPools){const d=manifest.drafts.find(d=>d.textId===pool.textId);assert.equal(sitovHash(JSON.stringify(d.definition)),pool.newDefinitionHash);assert.equal(d.review.status,'author_checked_independent_review_pending');assert.equal(d.review.reviewer,'sitov.agent.S3');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false)}
+ assert.equal(sitovHash(JSON.stringify(manifest.drafts.slice(9))),'5d1b19f3ead1bf62163e537dfd3b18d4bdaea534ded879789924d01c80acc156')
+ assert.equal(manifest.drafts[6].definition.tasks.find(q=>q.id.endsWith('verbs.q6')).promptDe,'Welche Person gehört zur Form »bezahle« im Präsens Indikativ?')
+ assert.equal(sitovHash(JSON.stringify(sitovBeforeRepair.drafts.slice(0,9))),'6587cc7b0e0da041b3056a4636f2d40863dbf97991e830f60402286a0a1bdfd8')
+ const aliases=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'));assert.equal(sitovHash(JSON.stringify(Object.fromEntries(Object.entries(sitovBeforeRepairAliases(aliases)).slice(0,864)))),'cd43a267a98050a19e6092ba622ef0bdc14e6398c459e92bff1c0481c4828be4')
  const refs=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/batch10-12-reference-audio-input.json','utf8'));assert.equal(Object.keys(refs).length,3)
  for(const d of manifest.drafts.slice(9)){assert.equal(refs['sitov-pretest-reference:'+d.textId],sources.rows.find(r=>r.id===d.textId).text);assert.equal(sitovHash(refs['sitov-pretest-reference:'+d.textId]),d.textVersion);assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.review.status,'independent_editorial_checked_draft_only');assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.reviewerKind,'independent_agent_editorial_review');assert.equal(d.review.authorIdentity,'sitov.agent.S3');assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.documentSha256,'4d07d5c28c675f46bdf827adc8887ef3de0e2190180922f66d1775f7129c3945');assert.equal(d.definition.competencies.length,4)}
  const proofRaw=await readFile('docs/releases/evidence/sitov-night-2026-10-08/pretest10-12-final-editorial-review.json','utf8'),proof=JSON.parse(proofRaw);assert.equal(sitovHash(proofRaw),'4d07d5c28c675f46bdf827adc8887ef3de0e2190180922f66d1775f7129c3945')

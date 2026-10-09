@@ -3238,7 +3238,7 @@
         "status": "author_checked_independent_review_pending",
         "reviewer": "sitov.agent.S3",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat Quellenbelege, eindeutige Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; kein Audio-Import und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
         "humanReview": false,
         "calibrationStatus": "pending"
       },
@@ -3996,7 +3996,7 @@
             "id": "sitov.pretest.a11-04.syntax.q6",
             "competencyId": "sitov.pretest.a11-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Frage beantwortet »später« in diesem Satz?",
+            "promptDe": "Übung: »Wir trinken später Kaffee.« Welche Frage beantwortet »später«?",
             "fragmentDe": null,
             "options": [
               {
@@ -4022,7 +4022,7 @@
                 "quote": "Wir trinken später zusammen Kaffee."
               }
             ],
-            "rationaleDe": "Später ist eine Zeitangabe und beantwortet wann; Kaffee beantwortet was, zusammen beschreibt das gemeinsame Handeln."
+            "rationaleDe": "Im sichtbaren Übungssatz ist später eine Zeitangabe und beantwortet Wann trinken wir; es benennt weder das Getränk noch eine mittrinkende Person."
           },
           {
             "id": "sitov.pretest.a11-04.nominal.q1",
@@ -4293,7 +4293,7 @@
         "status": "author_checked_independent_review_pending",
         "reviewer": "sitov.agent.S3",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat Quellenbelege, eindeutige Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; kein Audio-Import und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
         "humanReview": false,
         "calibrationStatus": "pending"
       },
@@ -5023,7 +5023,7 @@
             "id": "sitov.pretest.a11-05.syntax.q5",
             "competencyId": "sitov.pretest.a11-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welches Wort wird durch »kleiner« genauer beschrieben?",
+            "promptDe": "Übung: »Im Gras spielt ein kleiner Hund.« Welches Wort beschreibt »kleiner« genauer?",
             "fragmentDe": null,
             "options": [
               {
@@ -5049,13 +5049,13 @@
                 "quote": "Ein kleiner Hund spielt im Gras."
               }
             ],
-            "rationaleDe": "Kleiner steht innerhalb der Nominalgruppe ein kleiner Hund und beschreibt den Hund; Gras ist eine andere Nominalgruppe."
+            "rationaleDe": "Kleiner gehört im sichtbaren Satz zur Nominalgruppe ein kleiner Hund und beschreibt Hund; Gras bezeichnet den Spielort und spielt die Tätigkeit."
           },
           {
             "id": "sitov.pretest.a11-05.syntax.q6",
             "competencyId": "sitov.pretest.a11-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Zuordnung der beiden Tätigkeiten ist richtig?",
+            "promptDe": "Übung: »Brot essen wir und Musik hören wir.« Welche Zuordnung der Tätigkeiten gibt denselben Inhalt wieder?",
             "fragmentDe": null,
             "options": [
               {
@@ -5081,7 +5081,7 @@
                 "quote": "Wir hören Musik und essen unser Brot."
               }
             ],
-            "rationaleDe": "Musik gehört zum Verb hören, Brot zum Verb essen; und verbindet beide Tätigkeiten, ohne die Objekte zu vertauschen."
+            "rationaleDe": "Die sichtbaren vorangestellten Objekte gehören jeweils zu ihrem Verb: Brot zu essen und Musik zu hören; und verbindet beide Handlungen desselben Subjekts."
           },
           {
             "id": "sitov.pretest.a11-05.nominal.q1",
@@ -5356,7 +5356,7 @@
         "status": "author_checked_independent_review_pending",
         "reviewer": "sitov.agent.S3",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat Quellenbelege, eindeutige Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; kein Audio-Import und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
         "humanReview": false,
         "calibrationStatus": "pending"
       },
@@ -5694,7 +5694,7 @@
             "id": "sitov.pretest.a11-06.words.q5",
             "competencyId": "sitov.pretest.a11-06.words",
             "kind": "single_choice",
-            "promptDe": "Was beschreibt »blau«?",
+            "promptDe": "Übung: »Ein Stuhl ist blau.« Welche Eigenschaft des Stuhls beschreibt »blau«?",
             "fragmentDe": null,
             "options": [
               {
@@ -5720,7 +5720,7 @@
                 "quote": "Der Stuhl ist blau."
               }
             ],
-            "rationaleDe": "Blau ist eine Farbangabe; Größe und Alter werden mit anderen Wörtern beschrieben."
+            "rationaleDe": "Blau bezeichnet im sichtbaren Übungssatz die Farbe des Stuhls; Größe und Alter sind andere Eigenschaften."
           },
           {
             "id": "sitov.pretest.a11-06.words.q6",
@@ -5950,7 +5950,7 @@
             "id": "sitov.pretest.a11-06.syntax.q1",
             "competencyId": "sitov.pretest.a11-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Aussage passt zu »nicht groß, aber schön«?",
+            "promptDe": "Übung: »Das Zimmer ist nicht groß, aber schön.« Welche Aussage gibt denselben Inhalt wieder?",
             "fragmentDe": null,
             "options": [
               {
@@ -5976,7 +5976,7 @@
                 "quote": "Mein Zimmer ist nicht groß, aber schön."
               }
             ],
-            "rationaleDe": "Nicht verneint hier groß; aber führt die positive Eigenschaft schön als Gegensatz hinzu, ohne sie zu verneinen."
+            "rationaleDe": "Nicht verneint im sichtbaren Satz nur groß; aber verbindet damit die positive Eigenschaft schön, die weiterhin gilt."
           },
           {
             "id": "sitov.pretest.a11-06.syntax.q2",
@@ -6407,7 +6407,7 @@
         "status": "author_checked_independent_review_pending",
         "reviewer": "sitov.agent.S3",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
         "humanReview": false,
         "calibrationStatus": "pending"
       },
@@ -6711,20 +6711,20 @@
             "id": "sitov.pretest.a11-07.words.q4",
             "competencyId": "sitov.pretest.a11-07.words",
             "kind": "single_choice",
-            "promptDe": "Wie viele Äpfel braucht der Sprecher?",
+            "promptDe": "Welche Zahlendarstellung passt zur Menge »drei Äpfel«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-07.words.q4.a",
-                "textDe": "Zwei Äpfel."
+                "textDe": "2 Äpfel."
               },
               {
                 "id": "sitov.pretest.a11-07.words.q4.b",
-                "textDe": "Drei Äpfel."
+                "textDe": "3 Äpfel."
               },
               {
                 "id": "sitov.pretest.a11-07.words.q4.c",
-                "textDe": "Einen Apfel."
+                "textDe": "1 Apfel."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-07.words.q4.b",
@@ -6737,7 +6737,7 @@
                 "quote": "drei Äpfel"
               }
             ],
-            "rationaleDe": "Die Zahl drei nennt die Menge der Äpfel; zwei bezieht sich später auf Euro und eins steht nicht in der Liste."
+            "rationaleDe": "Das sichtbare Zahlwort drei entspricht der Ziffer 3; die Anzahl 2 oder 1 bezeichnet eine andere Menge."
           },
           {
             "id": "sitov.pretest.a11-07.words.q5",
@@ -6807,7 +6807,7 @@
             "id": "sitov.pretest.a11-07.verbs.q1",
             "competencyId": "sitov.pretest.a11-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Grundform gehört zu »bin« im Satz über den Laden?",
+            "promptDe": "Welche Grundform gehört zur Verbform »bin«?",
             "fragmentDe": null,
             "options": [
               {
@@ -6833,7 +6833,7 @@
                 "quote": "Ich bin im Laden."
               }
             ],
-            "rationaleDe": "Bin ist die Präsensform von sein für ich; brauchen und nehmen benennen andere Handlungen."
+            "rationaleDe": "Die sichtbare Verbform bin gehört zur Grundform sein; brauchen und nehmen sind andere Verben."
           },
           {
             "id": "sitov.pretest.a11-07.verbs.q2",
@@ -6967,7 +6967,7 @@
             "id": "sitov.pretest.a11-07.verbs.q6",
             "competencyId": "sitov.pretest.a11-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Person gehört zur Form »bezahle« in diesem Satz?",
+            "promptDe": "Welche Person gehört zur Form »bezahle« im Präsens Indikativ?",
             "fragmentDe": null,
             "options": [
               {
@@ -6993,13 +6993,13 @@
                 "quote": "Dann bezahle ich und sage danke."
               }
             ],
-            "rationaleDe": "Das ausdrücklich genannte ich ist Subjekt von bezahle; du und sie sind hier keine handelnden Personen."
+            "rationaleDe": "Im ausdrücklich festgelegten Präsens Indikativ gehört bezahle zur ersten Person Singular ich; du verlangt bezahlst und die dritte Person Plural sie verlangt bezahlen."
           },
           {
             "id": "sitov.pretest.a11-07.syntax.q1",
             "competencyId": "sitov.pretest.a11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Dinge verbindet »und« in der Einkaufsliste?",
+            "promptDe": "Übung: »Milch, Brot und drei Äpfel brauche ich.« Welche Dinge verbindet »und« in der Liste?",
             "fragmentDe": null,
             "options": [
               {
@@ -7025,13 +7025,13 @@
                 "quote": "Ich brauche Milch, Brot und drei Äpfel."
               }
             ],
-            "rationaleDe": "Die Aufzählung verbindet alle drei benötigten Produkte; sie schließt Brot nicht aus und beschreibt keinen Tausch."
+            "rationaleDe": "Die sichtbare Aufzählung nennt Milch, Brot und drei Äpfel als gemeinsam benötigte Produkte; sie schließt Brot nicht aus und beschreibt keinen Tausch."
           },
           {
             "id": "sitov.pretest.a11-07.syntax.q2",
             "competencyId": "sitov.pretest.a11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer zeigt wem etwas im Satz »Er zeigt mir das Brot«?",
+            "promptDe": "Übung: »Ein Verkäufer kommt zu mir. Er zeigt mir das Brot.« Wer zeigt wem das Brot?",
             "fragmentDe": null,
             "options": [
               {
@@ -7057,13 +7057,13 @@
                 "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
               }
             ],
-            "rationaleDe": "Er nimmt den Verkäufer wieder auf und mir bezeichnet den Sprecher als Empfänger; die anderen Antworten vertauschen die Rollen."
+            "rationaleDe": "Er verweist im sichtbaren Kontext auf den Verkäufer als Handelnden; mir bezeichnet den Sprecher als Empfänger des Zeigens. Die anderen Optionen vertauschen diese Rollen."
           },
           {
             "id": "sitov.pretest.a11-07.syntax.q3",
             "competencyId": "sitov.pretest.a11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Was wird mit »Es kostet zwei Euro« ausgesagt?",
+            "promptDe": "Übung: »Ich wähle ein Brot. Es kostet zwei Euro.« Welche Aussage gibt den Preis wieder?",
             "fragmentDe": null,
             "options": [
               {
@@ -7089,7 +7089,7 @@
                 "quote": "Es kostet zwei Euro."
               }
             ],
-            "rationaleDe": "Kostet mit der Geldangabe nennt den Preis des zuvor gezeigten Brotes; Anzahl und schon geleistete Zahlung sind andere Aussagen."
+            "rationaleDe": "Das sichtbare Es verweist auf das zuvor genannte Brot; kostet zwei Euro gibt dessen Preis an, nicht eine bereits geleistete Zahlung oder die Anzahl von Broten."
           },
           {
             "id": "sitov.pretest.a11-07.syntax.q4",
@@ -7127,7 +7127,7 @@
             "id": "sitov.pretest.a11-07.syntax.q5",
             "competencyId": "sitov.pretest.a11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welches Wort steht nach »Dann« im gespeicherten Satz?",
+            "promptDe": "Ordne einen Aussagesatz aus »Dann / ich / bezahle«. Welches Wort folgt auf »Dann«?",
             "fragmentDe": null,
             "options": [
               {
@@ -7153,13 +7153,13 @@
                 "quote": "Dann bezahle ich"
               }
             ],
-            "rationaleDe": "Die Zeitangabe Dann steht vorn, danach folgt das finite Verb bezahle; ich folgt erst hinter dem Verb."
+            "rationaleDe": "Im Aussagesatz steht das finite Verb bezahle an zweiter Position nach Dann; ich folgt hinter dem Verb. Danke ist kein gegebener Satzbaustein."
           },
           {
             "id": "sitov.pretest.a11-07.syntax.q6",
             "competencyId": "sitov.pretest.a11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer bezahlt und sagt anschließend danke?",
+            "promptDe": "Übung: »Ich bezahle und sage danach danke.« Wer führt beide Handlungen aus?",
             "fragmentDe": null,
             "options": [
               {
@@ -7185,7 +7185,7 @@
                 "quote": "Dann bezahle ich und sage danke."
               }
             ],
-            "rationaleDe": "Das Subjekt ich gilt auch für den verbundenen Teil sage danke; es wechselt nicht zum Verkäufer oder zum Brot."
+            "rationaleDe": "Das sichtbare Subjekt ich gilt für beide durch und verbundenen Handlungen: bezahlen und danke sagen. Es wechselt nicht zum Verkäufer oder zum Brot."
           },
           {
             "id": "sitov.pretest.a11-07.nominal.q1",
@@ -7255,7 +7255,7 @@
             "id": "sitov.pretest.a11-07.nominal.q3",
             "competencyId": "sitov.pretest.a11-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welcher Artikel gehört im Satz zum männlichen Verkäufer?",
+            "promptDe": "Ergänze den bestimmten Artikel: »… Verkäufer ist freundlich.«",
             "fragmentDe": null,
             "options": [
               {
@@ -7281,13 +7281,13 @@
                 "quote": "Der Verkäufer ist freundlich."
               }
             ],
-            "rationaleDe": "Der maskuline Verkäufer steht als Subjekt mit der; das und die sind hier nicht die gespeicherte Artikelform."
+            "rationaleDe": "Verkäufer ist maskulin und steht im sichtbaren Satz als Subjekt im Nominativ; der ist der passende bestimmte Artikel, das und die passen hier nicht."
           },
           {
             "id": "sitov.pretest.a11-07.nominal.q4",
             "competencyId": "sitov.pretest.a11-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Wen bezeichnet »Er« direkt nach dem Satz über den Verkäufer?",
+            "promptDe": "Übung: »Ein Verkäufer spricht. Er ist freundlich.« Wen bezeichnet »Er«?",
             "fragmentDe": null,
             "options": [
               {
@@ -7313,7 +7313,7 @@
                 "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
               }
             ],
-            "rationaleDe": "Er nimmt den männlichen Verkäufer wieder auf; das neutrale Brot und die feminine Tasche sind nicht dieser Bezug."
+            "rationaleDe": "Im sichtbaren Kontext nimmt Er den zuvor genannten männlichen Verkäufer wieder auf; Tasche ist feminin und Brot neutral, sodass beide nicht der passende Bezug sind."
           },
           {
             "id": "sitov.pretest.a11-07.nominal.q5",
@@ -7448,7 +7448,7 @@
         "status": "author_checked_independent_review_pending",
         "reviewer": "sitov.agent.S3",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
         "humanReview": false,
         "calibrationStatus": "pending"
       },
@@ -7693,20 +7693,20 @@
             "id": "sitov.pretest.a11-08.words.q2",
             "competencyId": "sitov.pretest.a11-08.words",
             "kind": "single_choice",
-            "promptDe": "Welche Verwandtschaftsrolle hat Mark laut Text?",
+            "promptDe": "Welche Verwandtschaftsrolle kann »Onkel« bezeichnen?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-08.words.q2.a",
-                "textDe": "Er ist der Vater des Sprechers."
+                "textDe": "Den Vater einer Person."
               },
               {
                 "id": "sitov.pretest.a11-08.words.q2.b",
-                "textDe": "Er ist der Bruder des Sprechers."
+                "textDe": "Einen Bruder der Person selbst."
               },
               {
                 "id": "sitov.pretest.a11-08.words.q2.c",
-                "textDe": "Er ist der Onkel des Sprechers."
+                "textDe": "Einen Bruder eines Elternteils."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-08.words.q2.c",
@@ -7719,7 +7719,7 @@
                 "quote": "Mein Onkel heißt Mark."
               }
             ],
-            "rationaleDe": "Mark wird ausdrücklich als Onkel vorgestellt; Bruder und Vater sind andere im Text getrennte Rollen."
+            "rationaleDe": "Ein Onkel kann ein Bruder eines Elternteils sein; der Vater der Person oder ihr eigener Bruder sind andere Verwandtschaftsrollen."
           },
           {
             "id": "sitov.pretest.a11-08.words.q3",
@@ -7757,7 +7757,7 @@
             "id": "sitov.pretest.a11-08.words.q4",
             "competencyId": "sitov.pretest.a11-08.words",
             "kind": "single_choice",
-            "promptDe": "Wie alt ist der Bruder nach der Zahl im Text?",
+            "promptDe": "Welche Zahlendarstellung passt zu »zwanzig Jahre alt«?",
             "fragmentDe": null,
             "options": [
               {
@@ -7783,7 +7783,7 @@
                 "quote": "Mein Bruder ist zwanzig Jahre alt."
               }
             ],
-            "rationaleDe": "Zwanzig bedeutet 20; zwölf und zwei sind andere Zahlen und ändern die ausdrücklich genannte Altersangabe."
+            "rationaleDe": "Das sichtbare Zahlwort zwanzig entspricht 20; zwölf und zwei sind andere Zahlen und passen nicht zur gegebenen Altersangabe."
           },
           {
             "id": "sitov.pretest.a11-08.words.q5",
@@ -8013,7 +8013,7 @@
             "id": "sitov.pretest.a11-08.verbs.q6",
             "competencyId": "sitov.pretest.a11-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Person und Zahl hat »telefonieren« in diesem Satz?",
+            "promptDe": "Übung: »Wir telefonieren.« Welche Person und Zahl gehört hier zu »telefonieren«?",
             "fragmentDe": null,
             "options": [
               {
@@ -8039,13 +8039,13 @@
                 "quote": "Wir telefonieren oft"
               }
             ],
-            "rationaleDe": "Das ausdrücklich genannte wir bestimmt die erste Person Plural; die gleiche Verbform wird hier nicht von ich oder er begleitet."
+            "rationaleDe": "Das im Übungssatz sichtbare Subjekt wir bestimmt die erste Person Plural. Er wäre dritte Person Singular mit telefoniert, ich erste Person Singular mit telefoniere."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q1",
             "competencyId": "sitov.pretest.a11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Was wird über das Foto ausgesagt?",
+            "promptDe": "Übung: »Hier ist ein Foto von meiner Familie.« Welche Aussage beschreibt das Motiv des Fotos?",
             "fragmentDe": null,
             "options": [
               {
@@ -8071,13 +8071,13 @@
                 "quote": "Das ist ein Foto von meiner Familie."
               }
             ],
-            "rationaleDe": "Von meiner Familie gibt das Motiv des Fotos an; Schule und Einkaufsrechnung sind im Satz nicht genannt."
+            "rationaleDe": "Von meiner Familie benennt im sichtbaren Satz die Familie des Sprechers als Motiv des Fotos; Schule und Einkaufsrechnung gehören nicht zu dieser Aussage."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q2",
             "competencyId": "sitov.pretest.a11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Aussage stimmt mit dem Satz über Mark überein?",
+            "promptDe": "Übung: »Mein Onkel heißt Mark.« Welche Aussage stimmt mit diesem Satz überein?",
             "fragmentDe": null,
             "options": [
               {
@@ -8103,13 +8103,13 @@
                 "quote": "Mein Onkel heißt Mark."
               }
             ],
-            "rationaleDe": "Heißt ordnet Mark dem Onkel als Namen zu; der Vater wird später Oleg genannt und ein Kurs wird hier nicht vorgestellt."
+            "rationaleDe": "Das sichtbare heißt ordnet Mark dem Onkel als Namen zu; es benennt weder einen Vater Oleg noch einen Deutschkurs."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q3",
             "competencyId": "sitov.pretest.a11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Wie steht der Onkel zum Kochen?",
+            "promptDe": "Übung: »Mein Onkel kocht gern.« Welche Vorliebe drückt »gern« aus?",
             "fragmentDe": null,
             "options": [
               {
@@ -8135,13 +8135,13 @@
                 "quote": "Er kocht gern."
               }
             ],
-            "rationaleDe": "Gern drückt eine positive Vorliebe für das Kochen aus; Abneigung oder fehlende Fähigkeit wird damit nicht ausgesagt."
+            "rationaleDe": "Im sichtbaren Satz bezeichnet gern Freude am Kochen. Das Wort sagt weder fehlende Fähigkeit noch ausdrückliche Abneigung aus."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q4",
             "competencyId": "sitov.pretest.a11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer hört nach den beiden Sätzen gern Musik?",
+            "promptDe": "Übung: »Oleg ist mein Vater. Er hört gern Musik.« Wer hört gern Musik?",
             "fragmentDe": null,
             "options": [
               {
@@ -8167,7 +8167,7 @@
                 "quote": "Mein Vater heißt Oleg. Er hört gern Musik."
               }
             ],
-            "rationaleDe": "Er nimmt hier den unmittelbar zuvor genannten Vater Oleg auf; die Vorliebe wird nicht Mark oder dem Bruder zugeordnet."
+            "rationaleDe": "Er nimmt im sichtbaren Kontext den unmittelbar vorher genannten Vater Oleg wieder auf; die Vorliebe wird dadurch eindeutig Oleg zugeordnet."
           },
           {
             "id": "sitov.pretest.a11-08.syntax.q5",
@@ -8205,7 +8205,7 @@
             "id": "sitov.pretest.a11-08.syntax.q6",
             "competencyId": "sitov.pretest.a11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche zwei Tätigkeiten werden für »wir« verbunden?",
+            "promptDe": "Übung: »Wir lachen und telefonieren.« Welche beiden Tätigkeiten werden verbunden?",
             "fragmentDe": null,
             "options": [
               {
@@ -8231,13 +8231,13 @@
                 "quote": "Wir telefonieren oft und lachen viel."
               }
             ],
-            "rationaleDe": "Die beiden verbundenen Verben sind telefonieren und lachen; die anderen Tätigkeitspaare entsprechen diesem Satz nicht."
+            "rationaleDe": "Die beiden sichtbaren durch und verbundenen Verben sind lachen und telefonieren; das gemeinsame Subjekt wir gilt für beide Tätigkeiten."
           },
           {
             "id": "sitov.pretest.a11-08.nominal.q1",
             "competencyId": "sitov.pretest.a11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welcher Artikel steht im Text direkt vor »Foto«?",
+            "promptDe": "Ergänze den unbestimmten Artikel: »Das ist … Foto.«",
             "fragmentDe": null,
             "options": [
               {
@@ -8263,7 +8263,7 @@
                 "quote": "Das ist ein Foto"
               }
             ],
-            "rationaleDe": "Foto ist neutral und wird in dieser Aussage mit ein genannt; eine und einen sind hier nicht passende Formen."
+            "rationaleDe": "Foto ist neutral; im sichtbaren Satz passt der unbestimmte Artikel ein. Eine gehört zum Femininum und einen zum maskulinen Akkusativ."
           },
           {
             "id": "sitov.pretest.a11-08.nominal.q2",
@@ -8365,7 +8365,7 @@
             "id": "sitov.pretest.a11-08.nominal.q5",
             "competencyId": "sitov.pretest.a11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Warum steht in der Altersangabe »Jahre« statt »Jahr«?",
+            "promptDe": "Warum steht in »zwanzig Jahre alt« die Form »Jahre« und nicht »Jahr«?",
             "fragmentDe": null,
             "options": [
               {
@@ -8391,7 +8391,7 @@
                 "quote": "zwanzig Jahre alt"
               }
             ],
-            "rationaleDe": "Zwanzig verlangt hier die Mehrzahl Jahre; es ist weder ein Personenname noch eine Angabe für ein einzelnes Jahr."
+            "rationaleDe": "Die ausdrücklich sichtbare Zahl zwanzig bezeichnet mehrere Jahre und verlangt hier den Plural Jahre; sie ist weder ein Personenname noch die Angabe eines einzelnen Jahres."
           },
           {
             "id": "sitov.pretest.a11-08.nominal.q6",
@@ -8494,7 +8494,7 @@
         "status": "author_checked_independent_review_pending",
         "reviewer": "sitov.agent.S3",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
         "humanReview": false,
         "calibrationStatus": "pending"
       },
@@ -8733,7 +8733,7 @@
             "id": "sitov.pretest.a11-09.words.q2",
             "competencyId": "sitov.pretest.a11-09.words",
             "kind": "single_choice",
-            "promptDe": "Zu welcher Uhrzeit beginnt der Kurs?",
+            "promptDe": "Welche Uhrzeit bezeichnet die Angabe »um neun Uhr«?",
             "fragmentDe": null,
             "options": [
               {
@@ -8759,7 +8759,7 @@
                 "quote": "Mein Kurs beginnt um neun Uhr."
               }
             ],
-            "rationaleDe": "Neun entspricht 9; acht nennt später die Zeit des Weggehens, und zehn wird für den Kursbeginn nicht genannt."
+            "rationaleDe": "Das sichtbare Zahlwort neun entspricht 9, sodass um neun Uhr die Zeitangabe um 9 Uhr bedeutet; acht und zehn sind andere Uhrzeiten."
           },
           {
             "id": "sitov.pretest.a11-09.words.q3",
@@ -8829,7 +8829,7 @@
             "id": "sitov.pretest.a11-09.words.q5",
             "competencyId": "sitov.pretest.a11-09.words",
             "kind": "single_choice",
-            "promptDe": "Welches Verkehrsmittel nutzt der Sprecher?",
+            "promptDe": "Übung: »Ich nehme den Bus.« Welches Verkehrsmittel nennt der Sprecher?",
             "fragmentDe": null,
             "options": [
               {
@@ -8855,7 +8855,7 @@
                 "quote": "Ich fahre mit dem Bus."
               }
             ],
-            "rationaleDe": "Mit dem Bus nennt ausdrücklich das benutzte Verkehrsmittel; der später erwähnte Bahnhof beweist keine Fahrt mit dem Zug."
+            "rationaleDe": "Der sichtbare Übungssatz nennt ausdrücklich den Bus als Verkehrsmittel; Fahrrad und Zug sind andere Fahrzeuge und werden nicht genannt."
           },
           {
             "id": "sitov.pretest.a11-09.words.q6",
@@ -9085,7 +9085,7 @@
             "id": "sitov.pretest.a11-09.syntax.q1",
             "competencyId": "sitov.pretest.a11-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche zeitliche Reihenfolge geben die beiden Sätze an?",
+            "promptDe": "Übung: »Ich gehe um acht Uhr aus dem Haus. Der Kurs beginnt um neun Uhr.« Welche zeitliche Reihenfolge geben die Sätze an?",
             "fragmentDe": null,
             "options": [
               {
@@ -9111,7 +9111,7 @@
                 "quote": "Mein Kurs beginnt um neun Uhr. Ich gehe um acht Uhr aus dem Haus."
               }
             ],
-            "rationaleDe": "Acht ist die Zeit des Weggehens und neun der spätere Kursbeginn; die anderen Antworten vertauschen oder verschieben diese Angaben."
+            "rationaleDe": "Im sichtbaren Kontext gehört acht Uhr zum Weggehen und neun Uhr zum späteren Kursbeginn; die anderen Optionen vertauschen die Zeiten oder die Reihenfolge."
           },
           {
             "id": "sitov.pretest.a11-09.syntax.q2",
@@ -9181,7 +9181,7 @@
             "id": "sitov.pretest.a11-09.syntax.q4",
             "competencyId": "sitov.pretest.a11-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Wo steigt der Sprecher nach diesem Satz aus?",
+            "promptDe": "Übung: »Ich steige am Bahnhof aus.« Wo erfolgt das Aussteigen?",
             "fragmentDe": null,
             "options": [
               {
@@ -9207,13 +9207,13 @@
                 "quote": "Am Bahnhof steige ich aus."
               }
             ],
-            "rationaleDe": "Die vorangestellte Ortsangabe Am Bahnhof gehört zum Aussteigen; Haustür und Unterrichtsraum sind hier keine Ausstiegsorte."
+            "rationaleDe": "Die sichtbare Ortsangabe am Bahnhof gehört zum Verb steige … aus; Unterrichtsraum und Haustür werden nicht als Ausstiegsorte genannt."
           },
           {
             "id": "sitov.pretest.a11-09.syntax.q5",
             "competencyId": "sitov.pretest.a11-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer wartet vor der Tür?",
+            "promptDe": "Übung: »Vor der Tür wartet mein Freund.« Wer wartet dort?",
             "fragmentDe": null,
             "options": [
               {
@@ -9239,13 +9239,13 @@
                 "quote": "Vor der Tür wartet mein Freund."
               }
             ],
-            "rationaleDe": "Mein Freund ist das Subjekt hinter dem Verb wartet; Tür bezeichnet den Ort und Bus ist nicht als handelnde Person genannt."
+            "rationaleDe": "Mein Freund ist das sichtbare Subjekt hinter dem Verb wartet; vor der Tür bezeichnet den Ort und Bus ist nicht als handelnde Person genannt."
           },
           {
             "id": "sitov.pretest.a11-09.syntax.q6",
             "competencyId": "sitov.pretest.a11-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Was tun die mit »wir« bezeichneten Personen am Ende?",
+            "promptDe": "Übung: »Wir gehen zusammen hinein.« Welche Bewegung beschreibt der Satz?",
             "fragmentDe": null,
             "options": [
               {
@@ -9271,7 +9271,7 @@
                 "quote": "Wir gehen zusammen hinein."
               }
             ],
-            "rationaleDe": "Zusammen bezeichnet die gemeinsame Handlung und hinein die Bewegung nach innen; getrennt, hinaus und sitzen widersprechen dem Satz."
+            "rationaleDe": "Die sichtbaren Wörter zusammen und hinein bezeichnen eine gemeinsame Bewegung nach innen; getrennt nach draußen gehen oder im Bus sitzen passt nicht dazu."
           },
           {
             "id": "sitov.pretest.a11-09.nominal.q1",
@@ -9341,7 +9341,7 @@
             "id": "sitov.pretest.a11-09.nominal.q3",
             "competencyId": "sitov.pretest.a11-09.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form steht im Text zwischen »mit« und »Bus«?",
+            "promptDe": "Ergänze den bestimmten Artikel: »Ich fahre mit … Bus.«",
             "fragmentDe": null,
             "options": [
               {
@@ -9367,7 +9367,7 @@
                 "quote": "mit dem Bus"
               }
             ],
-            "rationaleDe": "Mit verlangt Dativ und Bus ist maskulin; deshalb steht dem statt den oder das."
+            "rationaleDe": "Die sichtbare Präposition mit regiert Dativ und Bus ist maskulin; der bestimmte Artikel lautet daher dem statt den oder das."
           },
           {
             "id": "sitov.pretest.a11-09.nominal.q4",
@@ -9437,7 +9437,7 @@
             "id": "sitov.pretest.a11-09.nominal.q6",
             "competencyId": "sitov.pretest.a11-09.nominal",
             "kind": "single_choice",
-            "promptDe": "Wen bezeichnet »wir« im anschließenden Satz am naheliegenden Textanschluss?",
+            "promptDe": "Übung: »Mein Freund und ich treffen uns. Wir gehen gemeinsam hinein.« Welche Personen bezeichnet »wir« hier?",
             "fragmentDe": null,
             "options": [
               {
@@ -9463,7 +9463,7 @@
                 "quote": "Vor der Tür wartet mein Freund. Wir gehen zusammen hinein."
               }
             ],
-            "rationaleDe": "Nach dem Treffen mit dem Freund verbindet wir beide Personen einschließlich des Sprechers; eine einzelne Person reicht dafür nicht."
+            "rationaleDe": "Der sichtbare erste Satz nennt den Freund und den Sprecher als Gruppe; wir nimmt beide gemeinsam wieder auf und bezeichnet keine einzelne Person ohne den Sprecher."
           }
         ],
         "omittedCategories": [

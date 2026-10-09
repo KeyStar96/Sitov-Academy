@@ -1,0 +1,2997 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "epoch": 24,
+  "baseSha": "0b6e57e0d70170759d7b13aa961a024c8215a883",
+  "masterConfirmedFindingsRef": "docs/releases/evidence/sitov-night-2026-10-08/pretest-first9-visible-context-m-review.json",
+  "masterConfirmedFindingsSha256": "6a02ef6ab380fc6235316ddc4d2a7fe7a067c1e105f03304528481d4a4f2cd7a",
+  "author": "sitov.agent.S3",
+  "status": "author_checked_independent_review_pending",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "independentFinalReview": "pending_M",
+  "audioStatus": "HOLD_NO_SYNTHESIS_IMPORT_PUBLICATION",
+  "changedQuestions": [
+    {
+      "questionId": "sitov.pretest.a11-04.syntax.q6",
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "previousTask": {
+        "id": "sitov.pretest.a11-04.syntax.q6",
+        "competencyId": "sitov.pretest.a11-04.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welche Frage beantwortet »später« in diesem Satz?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Was trinken wir?"
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Mit wem trinken wir?"
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Wann trinken wir?"
+          }
+        ],
+        "correctOptionId": "sitov.option.3",
+        "assessmentUnit": "later temporal role",
+        "equivalenceKey": "later temporal role",
+        "sourceSpans": [
+          {
+            "start": 185,
+            "end": 220,
+            "quote": "Wir trinken später zusammen Kaffee."
+          }
+        ],
+        "rationaleDe": "Später ist eine Zeitangabe und beantwortet wann; Kaffee beantwortet was, zusammen beschreibt das gemeinsame Handeln."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-04.syntax.q6",
+        "competencyId": "sitov.pretest.a11-04.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Wir trinken später Kaffee.« Welche Frage beantwortet »später«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Was trinken wir?"
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Mit wem trinken wir?"
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Wann trinken wir?"
+          }
+        ],
+        "correctOptionId": "sitov.option.3",
+        "assessmentUnit": "later temporal role",
+        "equivalenceKey": "later temporal role",
+        "sourceSpans": [
+          {
+            "start": 185,
+            "end": 220,
+            "quote": "Wir trinken später zusammen Kaffee."
+          }
+        ],
+        "rationaleDe": "Im sichtbaren Übungssatz ist später eine Zeitangabe und beantwortet Wann trinken wir; es benennt weder das Getränk noch eine mittrinkende Person."
+      },
+      "publicPremiseSufficiencyDe": "Im sichtbaren Übungssatz ist später eine Zeitangabe und beantwortet Wann trinken wir; es benennt weder das Getränk noch eine mittrinkende Person.",
+      "assessmentUnit": "later temporal role",
+      "sourceCorrespondence": [
+        {
+          "start": 185,
+          "end": 220,
+          "quote": "Wir trinken später zusammen Kaffee."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.syntax.q5",
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "previousTask": {
+        "id": "sitov.pretest.a11-05.syntax.q5",
+        "competencyId": "sitov.pretest.a11-05.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welches Wort wird durch »kleiner« genauer beschrieben?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Gras."
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Hund."
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Spielt."
+          }
+        ],
+        "correctOptionId": "sitov.option.2",
+        "assessmentUnit": "adjective scope dog",
+        "equivalenceKey": "adjective scope dog",
+        "sourceSpans": [
+          {
+            "start": 138,
+            "end": 170,
+            "quote": "Ein kleiner Hund spielt im Gras."
+          }
+        ],
+        "rationaleDe": "Kleiner steht innerhalb der Nominalgruppe ein kleiner Hund und beschreibt den Hund; Gras ist eine andere Nominalgruppe."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-05.syntax.q5",
+        "competencyId": "sitov.pretest.a11-05.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Im Gras spielt ein kleiner Hund.« Welches Wort beschreibt »kleiner« genauer?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Gras."
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Hund."
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Spielt."
+          }
+        ],
+        "correctOptionId": "sitov.option.2",
+        "assessmentUnit": "adjective scope dog",
+        "equivalenceKey": "adjective scope dog",
+        "sourceSpans": [
+          {
+            "start": 138,
+            "end": 170,
+            "quote": "Ein kleiner Hund spielt im Gras."
+          }
+        ],
+        "rationaleDe": "Kleiner gehört im sichtbaren Satz zur Nominalgruppe ein kleiner Hund und beschreibt Hund; Gras bezeichnet den Spielort und spielt die Tätigkeit."
+      },
+      "publicPremiseSufficiencyDe": "Kleiner gehört im sichtbaren Satz zur Nominalgruppe ein kleiner Hund und beschreibt Hund; Gras bezeichnet den Spielort und spielt die Tätigkeit.",
+      "assessmentUnit": "adjective scope dog",
+      "sourceCorrespondence": [
+        {
+          "start": 138,
+          "end": 170,
+          "quote": "Ein kleiner Hund spielt im Gras."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.syntax.q6",
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "previousTask": {
+        "id": "sitov.pretest.a11-05.syntax.q6",
+        "competencyId": "sitov.pretest.a11-05.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welche Zuordnung der beiden Tätigkeiten ist richtig?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Wir hören Brot und essen Musik."
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Wir hören und essen nur Brot."
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Wir hören Musik und essen Brot."
+          }
+        ],
+        "correctOptionId": "sitov.option.3",
+        "assessmentUnit": "music bread separate objects",
+        "equivalenceKey": "music bread separate objects",
+        "sourceSpans": [
+          {
+            "start": 171,
+            "end": 208,
+            "quote": "Wir hören Musik und essen unser Brot."
+          }
+        ],
+        "rationaleDe": "Musik gehört zum Verb hören, Brot zum Verb essen; und verbindet beide Tätigkeiten, ohne die Objekte zu vertauschen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-05.syntax.q6",
+        "competencyId": "sitov.pretest.a11-05.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Brot essen wir und Musik hören wir.« Welche Zuordnung der Tätigkeiten gibt denselben Inhalt wieder?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Wir hören Brot und essen Musik."
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Wir hören und essen nur Brot."
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Wir hören Musik und essen Brot."
+          }
+        ],
+        "correctOptionId": "sitov.option.3",
+        "assessmentUnit": "music bread separate objects",
+        "equivalenceKey": "music bread separate objects",
+        "sourceSpans": [
+          {
+            "start": 171,
+            "end": 208,
+            "quote": "Wir hören Musik und essen unser Brot."
+          }
+        ],
+        "rationaleDe": "Die sichtbaren vorangestellten Objekte gehören jeweils zu ihrem Verb: Brot zu essen und Musik zu hören; und verbindet beide Handlungen desselben Subjekts."
+      },
+      "publicPremiseSufficiencyDe": "Die sichtbaren vorangestellten Objekte gehören jeweils zu ihrem Verb: Brot zu essen und Musik zu hören; und verbindet beide Handlungen desselben Subjekts.",
+      "assessmentUnit": "music bread separate objects",
+      "sourceCorrespondence": [
+        {
+          "start": 171,
+          "end": 208,
+          "quote": "Wir hören Musik und essen unser Brot."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.words.q5",
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "previousTask": {
+        "id": "sitov.pretest.a11-06.words.q5",
+        "competencyId": "sitov.pretest.a11-06.words",
+        "kind": "single_choice",
+        "promptDe": "Was beschreibt »blau«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Die Größe des Stuhls."
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Die Farbe des Stuhls."
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Das Alter des Stuhls."
+          }
+        ],
+        "correctOptionId": "sitov.option.2",
+        "assessmentUnit": "blue color",
+        "equivalenceKey": "blue color",
+        "sourceSpans": [
+          {
+            "start": 129,
+            "end": 148,
+            "quote": "Der Stuhl ist blau."
+          }
+        ],
+        "rationaleDe": "Blau ist eine Farbangabe; Größe und Alter werden mit anderen Wörtern beschrieben."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-06.words.q5",
+        "competencyId": "sitov.pretest.a11-06.words",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Ein Stuhl ist blau.« Welche Eigenschaft des Stuhls beschreibt »blau«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Die Größe des Stuhls."
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Die Farbe des Stuhls."
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Das Alter des Stuhls."
+          }
+        ],
+        "correctOptionId": "sitov.option.2",
+        "assessmentUnit": "blue color",
+        "equivalenceKey": "blue color",
+        "sourceSpans": [
+          {
+            "start": 129,
+            "end": 148,
+            "quote": "Der Stuhl ist blau."
+          }
+        ],
+        "rationaleDe": "Blau bezeichnet im sichtbaren Übungssatz die Farbe des Stuhls; Größe und Alter sind andere Eigenschaften."
+      },
+      "publicPremiseSufficiencyDe": "Blau bezeichnet im sichtbaren Übungssatz die Farbe des Stuhls; Größe und Alter sind andere Eigenschaften.",
+      "assessmentUnit": "blue color",
+      "sourceCorrespondence": [
+        {
+          "start": 129,
+          "end": 148,
+          "quote": "Der Stuhl ist blau."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.syntax.q1",
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "previousTask": {
+        "id": "sitov.pretest.a11-06.syntax.q1",
+        "competencyId": "sitov.pretest.a11-06.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welche Aussage passt zu »nicht groß, aber schön«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Das Zimmer ist nicht groß und trotzdem schön."
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Das Zimmer ist groß und nicht schön."
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Das Zimmer ist weder groß noch schön."
+          }
+        ],
+        "correctOptionId": "sitov.option.1",
+        "assessmentUnit": "negated size positive beauty",
+        "equivalenceKey": "negated size positive beauty",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 39,
+            "quote": "Mein Zimmer ist nicht groß, aber schön."
+          }
+        ],
+        "rationaleDe": "Nicht verneint hier groß; aber führt die positive Eigenschaft schön als Gegensatz hinzu, ohne sie zu verneinen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-06.syntax.q1",
+        "competencyId": "sitov.pretest.a11-06.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Das Zimmer ist nicht groß, aber schön.« Welche Aussage gibt denselben Inhalt wieder?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.option.1",
+            "textDe": "Das Zimmer ist nicht groß und trotzdem schön."
+          },
+          {
+            "id": "sitov.option.2",
+            "textDe": "Das Zimmer ist groß und nicht schön."
+          },
+          {
+            "id": "sitov.option.3",
+            "textDe": "Das Zimmer ist weder groß noch schön."
+          }
+        ],
+        "correctOptionId": "sitov.option.1",
+        "assessmentUnit": "negated size positive beauty",
+        "equivalenceKey": "negated size positive beauty",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 39,
+            "quote": "Mein Zimmer ist nicht groß, aber schön."
+          }
+        ],
+        "rationaleDe": "Nicht verneint im sichtbaren Satz nur groß; aber verbindet damit die positive Eigenschaft schön, die weiterhin gilt."
+      },
+      "publicPremiseSufficiencyDe": "Nicht verneint im sichtbaren Satz nur groß; aber verbindet damit die positive Eigenschaft schön, die weiterhin gilt.",
+      "assessmentUnit": "negated size positive beauty",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 39,
+          "quote": "Mein Zimmer ist nicht groß, aber schön."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.words.q4",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.words.q4",
+        "competencyId": "sitov.pretest.a11-07.words",
+        "kind": "single_choice",
+        "promptDe": "Wie viele Äpfel braucht der Sprecher?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.words.q4.a",
+            "textDe": "Zwei Äpfel."
+          },
+          {
+            "id": "sitov.pretest.a11-07.words.q4.b",
+            "textDe": "Drei Äpfel."
+          },
+          {
+            "id": "sitov.pretest.a11-07.words.q4.c",
+            "textDe": "Einen Apfel."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.words.q4.b",
+        "assessmentUnit": "drei als Anzahl",
+        "equivalenceKey": "sitov:a11-07-words-drei als Anzahl",
+        "sourceSpans": [
+          {
+            "start": 46,
+            "end": 56,
+            "quote": "drei Äpfel"
+          }
+        ],
+        "rationaleDe": "Die Zahl drei nennt die Menge der Äpfel; zwei bezieht sich später auf Euro und eins steht nicht in der Liste."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.words.q4",
+        "competencyId": "sitov.pretest.a11-07.words",
+        "kind": "single_choice",
+        "promptDe": "Welche Zahlendarstellung passt zur Menge »drei Äpfel«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.words.q4.a",
+            "textDe": "2 Äpfel."
+          },
+          {
+            "id": "sitov.pretest.a11-07.words.q4.b",
+            "textDe": "3 Äpfel."
+          },
+          {
+            "id": "sitov.pretest.a11-07.words.q4.c",
+            "textDe": "1 Apfel."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.words.q4.b",
+        "assessmentUnit": "drei als Anzahl",
+        "equivalenceKey": "sitov:a11-07-words-drei als Anzahl",
+        "sourceSpans": [
+          {
+            "start": 46,
+            "end": 56,
+            "quote": "drei Äpfel"
+          }
+        ],
+        "rationaleDe": "Das sichtbare Zahlwort drei entspricht der Ziffer 3; die Anzahl 2 oder 1 bezeichnet eine andere Menge."
+      },
+      "publicPremiseSufficiencyDe": "Das sichtbare Zahlwort drei entspricht der Ziffer 3; die Anzahl 2 oder 1 bezeichnet eine andere Menge.",
+      "assessmentUnit": "drei als Anzahl",
+      "sourceCorrespondence": [
+        {
+          "start": 46,
+          "end": 56,
+          "quote": "drei Äpfel"
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": true,
+      "keyTextChangeReasonDe": "Die Optionen stellen die Zahl nun in Ziffern dar, damit das sichtbare Wort drei in eine Zahlenbedeutung übertragen wird, statt denselben Wortlaut einfach zu wiederholen.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.verbs.q1",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.verbs.q1",
+        "competencyId": "sitov.pretest.a11-07.verbs",
+        "kind": "single_choice",
+        "promptDe": "Welche Grundform gehört zu »bin« im Satz über den Laden?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.verbs.q1.a",
+            "textDe": "brauchen"
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q1.b",
+            "textDe": "sein"
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q1.c",
+            "textDe": "nehmen"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.verbs.q1.b",
+        "assessmentUnit": "sein erste Person Laden",
+        "equivalenceKey": "sitov:a11-07-verbs-sein erste Person Laden",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 17,
+            "quote": "Ich bin im Laden."
+          }
+        ],
+        "rationaleDe": "Bin ist die Präsensform von sein für ich; brauchen und nehmen benennen andere Handlungen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.verbs.q1",
+        "competencyId": "sitov.pretest.a11-07.verbs",
+        "kind": "single_choice",
+        "promptDe": "Welche Grundform gehört zur Verbform »bin«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.verbs.q1.a",
+            "textDe": "brauchen"
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q1.b",
+            "textDe": "sein"
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q1.c",
+            "textDe": "nehmen"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.verbs.q1.b",
+        "assessmentUnit": "sein erste Person Laden",
+        "equivalenceKey": "sitov:a11-07-verbs-sein erste Person Laden",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 17,
+            "quote": "Ich bin im Laden."
+          }
+        ],
+        "rationaleDe": "Die sichtbare Verbform bin gehört zur Grundform sein; brauchen und nehmen sind andere Verben."
+      },
+      "publicPremiseSufficiencyDe": "Die sichtbare Verbform bin gehört zur Grundform sein; brauchen und nehmen sind andere Verben.",
+      "assessmentUnit": "sein erste Person Laden",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 17,
+          "quote": "Ich bin im Laden."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.verbs.q6",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.verbs.q6",
+        "competencyId": "sitov.pretest.a11-07.verbs",
+        "kind": "single_choice",
+        "promptDe": "Welche Person gehört zur Form »bezahle« in diesem Satz?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.verbs.q6.a",
+            "textDe": "Die dritte Person Plural: sie."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q6.b",
+            "textDe": "Die zweite Person Singular: du."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q6.c",
+            "textDe": "Die erste Person Singular: ich."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.verbs.q6.c",
+        "assessmentUnit": "bezahlen gemeinsame Ichform",
+        "equivalenceKey": "sitov:a11-07-verbs-bezahlen gemeinsame Ichform",
+        "sourceSpans": [
+          {
+            "start": 155,
+            "end": 187,
+            "quote": "Dann bezahle ich und sage danke."
+          }
+        ],
+        "rationaleDe": "Das ausdrücklich genannte ich ist Subjekt von bezahle; du und sie sind hier keine handelnden Personen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.verbs.q6",
+        "competencyId": "sitov.pretest.a11-07.verbs",
+        "kind": "single_choice",
+        "promptDe": "Welche Person gehört zur Form »bezahle« im Präsens Indikativ?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.verbs.q6.a",
+            "textDe": "Die dritte Person Plural: sie."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q6.b",
+            "textDe": "Die zweite Person Singular: du."
+          },
+          {
+            "id": "sitov.pretest.a11-07.verbs.q6.c",
+            "textDe": "Die erste Person Singular: ich."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.verbs.q6.c",
+        "assessmentUnit": "bezahlen gemeinsame Ichform",
+        "equivalenceKey": "sitov:a11-07-verbs-bezahlen gemeinsame Ichform",
+        "sourceSpans": [
+          {
+            "start": 155,
+            "end": 187,
+            "quote": "Dann bezahle ich und sage danke."
+          }
+        ],
+        "rationaleDe": "Im ausdrücklich festgelegten Präsens Indikativ gehört bezahle zur ersten Person Singular ich; du verlangt bezahlst und die dritte Person Plural sie verlangt bezahlen."
+      },
+      "publicPremiseSufficiencyDe": "Im ausdrücklich festgelegten Präsens Indikativ gehört bezahle zur ersten Person Singular ich; du verlangt bezahlst und die dritte Person Plural sie verlangt bezahlen.",
+      "assessmentUnit": "bezahlen gemeinsame Ichform",
+      "sourceCorrespondence": [
+        {
+          "start": 155,
+          "end": 187,
+          "quote": "Dann bezahle ich und sage danke."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q1",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.syntax.q1",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welche Dinge verbindet »und« in der Einkaufsliste?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q1.a",
+            "textDe": "Milch, Brot und drei Äpfel werden alle gebraucht."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q1.b",
+            "textDe": "Es wird nur Milch und kein Brot gebraucht."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q1.c",
+            "textDe": "Milch und Brot werden gegen Äpfel getauscht."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q1.a",
+        "assessmentUnit": "Einkaufsliste koordinierte Gegenstände",
+        "equivalenceKey": "sitov:a11-07-syntax-Einkaufsliste koordinierte Gegenstände",
+        "sourceSpans": [
+          {
+            "start": 18,
+            "end": 57,
+            "quote": "Ich brauche Milch, Brot und drei Äpfel."
+          }
+        ],
+        "rationaleDe": "Die Aufzählung verbindet alle drei benötigten Produkte; sie schließt Brot nicht aus und beschreibt keinen Tausch."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.syntax.q1",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Milch, Brot und drei Äpfel brauche ich.« Welche Dinge verbindet »und« in der Liste?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q1.a",
+            "textDe": "Milch, Brot und drei Äpfel werden alle gebraucht."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q1.b",
+            "textDe": "Es wird nur Milch und kein Brot gebraucht."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q1.c",
+            "textDe": "Milch und Brot werden gegen Äpfel getauscht."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q1.a",
+        "assessmentUnit": "Einkaufsliste koordinierte Gegenstände",
+        "equivalenceKey": "sitov:a11-07-syntax-Einkaufsliste koordinierte Gegenstände",
+        "sourceSpans": [
+          {
+            "start": 18,
+            "end": 57,
+            "quote": "Ich brauche Milch, Brot und drei Äpfel."
+          }
+        ],
+        "rationaleDe": "Die sichtbare Aufzählung nennt Milch, Brot und drei Äpfel als gemeinsam benötigte Produkte; sie schließt Brot nicht aus und beschreibt keinen Tausch."
+      },
+      "publicPremiseSufficiencyDe": "Die sichtbare Aufzählung nennt Milch, Brot und drei Äpfel als gemeinsam benötigte Produkte; sie schließt Brot nicht aus und beschreibt keinen Tausch.",
+      "assessmentUnit": "Einkaufsliste koordinierte Gegenstände",
+      "sourceCorrespondence": [
+        {
+          "start": 18,
+          "end": 57,
+          "quote": "Ich brauche Milch, Brot und drei Äpfel."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q2",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.syntax.q2",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Wer zeigt wem etwas im Satz »Er zeigt mir das Brot«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q2.a",
+            "textDe": "Der Sprecher zeigt dem Verkäufer das Brot."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q2.b",
+            "textDe": "Der Verkäufer zeigt dem Sprecher das Brot."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q2.c",
+            "textDe": "Das Brot zeigt dem Verkäufer den Sprecher."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q2.b",
+        "assessmentUnit": "zeigen Handelnder und Empfänger",
+        "equivalenceKey": "sitov:a11-07-syntax-zeigen Handelnder und Empfänger",
+        "sourceSpans": [
+          {
+            "start": 58,
+            "end": 110,
+            "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+          }
+        ],
+        "rationaleDe": "Er nimmt den Verkäufer wieder auf und mir bezeichnet den Sprecher als Empfänger; die anderen Antworten vertauschen die Rollen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.syntax.q2",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Ein Verkäufer kommt zu mir. Er zeigt mir das Brot.« Wer zeigt wem das Brot?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q2.a",
+            "textDe": "Der Sprecher zeigt dem Verkäufer das Brot."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q2.b",
+            "textDe": "Der Verkäufer zeigt dem Sprecher das Brot."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q2.c",
+            "textDe": "Das Brot zeigt dem Verkäufer den Sprecher."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q2.b",
+        "assessmentUnit": "zeigen Handelnder und Empfänger",
+        "equivalenceKey": "sitov:a11-07-syntax-zeigen Handelnder und Empfänger",
+        "sourceSpans": [
+          {
+            "start": 58,
+            "end": 110,
+            "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+          }
+        ],
+        "rationaleDe": "Er verweist im sichtbaren Kontext auf den Verkäufer als Handelnden; mir bezeichnet den Sprecher als Empfänger des Zeigens. Die anderen Optionen vertauschen diese Rollen."
+      },
+      "publicPremiseSufficiencyDe": "Er verweist im sichtbaren Kontext auf den Verkäufer als Handelnden; mir bezeichnet den Sprecher als Empfänger des Zeigens. Die anderen Optionen vertauschen diese Rollen.",
+      "assessmentUnit": "zeigen Handelnder und Empfänger",
+      "sourceCorrespondence": [
+        {
+          "start": 58,
+          "end": 110,
+          "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q3",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.syntax.q3",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Was wird mit »Es kostet zwei Euro« ausgesagt?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q3.a",
+            "textDe": "Der Sprecher hat drei Euro bezahlt."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q3.b",
+            "textDe": "Der Verkäufer kauft zwei Brote."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q3.c",
+            "textDe": "Der Preis des Brotes beträgt zwei Euro."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q3.c",
+        "assessmentUnit": "Preis Aussage",
+        "equivalenceKey": "sitov:a11-07-syntax-Preis Aussage",
+        "sourceSpans": [
+          {
+            "start": 111,
+            "end": 131,
+            "quote": "Es kostet zwei Euro."
+          }
+        ],
+        "rationaleDe": "Kostet mit der Geldangabe nennt den Preis des zuvor gezeigten Brotes; Anzahl und schon geleistete Zahlung sind andere Aussagen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.syntax.q3",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Ich wähle ein Brot. Es kostet zwei Euro.« Welche Aussage gibt den Preis wieder?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q3.a",
+            "textDe": "Der Sprecher hat drei Euro bezahlt."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q3.b",
+            "textDe": "Der Verkäufer kauft zwei Brote."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q3.c",
+            "textDe": "Der Preis des Brotes beträgt zwei Euro."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q3.c",
+        "assessmentUnit": "Preis Aussage",
+        "equivalenceKey": "sitov:a11-07-syntax-Preis Aussage",
+        "sourceSpans": [
+          {
+            "start": 111,
+            "end": 131,
+            "quote": "Es kostet zwei Euro."
+          }
+        ],
+        "rationaleDe": "Das sichtbare Es verweist auf das zuvor genannte Brot; kostet zwei Euro gibt dessen Preis an, nicht eine bereits geleistete Zahlung oder die Anzahl von Broten."
+      },
+      "publicPremiseSufficiencyDe": "Das sichtbare Es verweist auf das zuvor genannte Brot; kostet zwei Euro gibt dessen Preis an, nicht eine bereits geleistete Zahlung oder die Anzahl von Broten.",
+      "assessmentUnit": "Preis Aussage",
+      "sourceCorrespondence": [
+        {
+          "start": 111,
+          "end": 131,
+          "quote": "Es kostet zwei Euro."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q5",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.syntax.q5",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welches Wort steht nach »Dann« im gespeicherten Satz?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q5.a",
+            "textDe": "bezahle"
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q5.b",
+            "textDe": "danke"
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q5.c",
+            "textDe": "ich"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q5.a",
+        "assessmentUnit": "Dann Satzstellung",
+        "equivalenceKey": "sitov:a11-07-syntax-Dann Satzstellung",
+        "sourceSpans": [
+          {
+            "start": 155,
+            "end": 171,
+            "quote": "Dann bezahle ich"
+          }
+        ],
+        "rationaleDe": "Die Zeitangabe Dann steht vorn, danach folgt das finite Verb bezahle; ich folgt erst hinter dem Verb."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.syntax.q5",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Ordne einen Aussagesatz aus »Dann / ich / bezahle«. Welches Wort folgt auf »Dann«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q5.a",
+            "textDe": "bezahle"
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q5.b",
+            "textDe": "danke"
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q5.c",
+            "textDe": "ich"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q5.a",
+        "assessmentUnit": "Dann Satzstellung",
+        "equivalenceKey": "sitov:a11-07-syntax-Dann Satzstellung",
+        "sourceSpans": [
+          {
+            "start": 155,
+            "end": 171,
+            "quote": "Dann bezahle ich"
+          }
+        ],
+        "rationaleDe": "Im Aussagesatz steht das finite Verb bezahle an zweiter Position nach Dann; ich folgt hinter dem Verb. Danke ist kein gegebener Satzbaustein."
+      },
+      "publicPremiseSufficiencyDe": "Im Aussagesatz steht das finite Verb bezahle an zweiter Position nach Dann; ich folgt hinter dem Verb. Danke ist kein gegebener Satzbaustein.",
+      "assessmentUnit": "Dann Satzstellung",
+      "sourceCorrespondence": [
+        {
+          "start": 155,
+          "end": 171,
+          "quote": "Dann bezahle ich"
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q6",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.syntax.q6",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Wer bezahlt und sagt anschließend danke?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q6.a",
+            "textDe": "Der Sprecher bezahlt, aber das Brot sagt danke."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q6.b",
+            "textDe": "Nur der Verkäufer führt beide Handlungen aus."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q6.c",
+            "textDe": "Der Sprecher führt beide Handlungen aus."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q6.c",
+        "assessmentUnit": "zwei Handlungen gleicher Sprecher",
+        "equivalenceKey": "sitov:a11-07-syntax-zwei Handlungen gleicher Sprecher",
+        "sourceSpans": [
+          {
+            "start": 155,
+            "end": 187,
+            "quote": "Dann bezahle ich und sage danke."
+          }
+        ],
+        "rationaleDe": "Das Subjekt ich gilt auch für den verbundenen Teil sage danke; es wechselt nicht zum Verkäufer oder zum Brot."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.syntax.q6",
+        "competencyId": "sitov.pretest.a11-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Ich bezahle und sage danach danke.« Wer führt beide Handlungen aus?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.syntax.q6.a",
+            "textDe": "Der Sprecher bezahlt, aber das Brot sagt danke."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q6.b",
+            "textDe": "Nur der Verkäufer führt beide Handlungen aus."
+          },
+          {
+            "id": "sitov.pretest.a11-07.syntax.q6.c",
+            "textDe": "Der Sprecher führt beide Handlungen aus."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.syntax.q6.c",
+        "assessmentUnit": "zwei Handlungen gleicher Sprecher",
+        "equivalenceKey": "sitov:a11-07-syntax-zwei Handlungen gleicher Sprecher",
+        "sourceSpans": [
+          {
+            "start": 155,
+            "end": 187,
+            "quote": "Dann bezahle ich und sage danke."
+          }
+        ],
+        "rationaleDe": "Das sichtbare Subjekt ich gilt für beide durch und verbundenen Handlungen: bezahlen und danke sagen. Es wechselt nicht zum Verkäufer oder zum Brot."
+      },
+      "publicPremiseSufficiencyDe": "Das sichtbare Subjekt ich gilt für beide durch und verbundenen Handlungen: bezahlen und danke sagen. Es wechselt nicht zum Verkäufer oder zum Brot.",
+      "assessmentUnit": "zwei Handlungen gleicher Sprecher",
+      "sourceCorrespondence": [
+        {
+          "start": 155,
+          "end": 187,
+          "quote": "Dann bezahle ich und sage danke."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.nominal.q3",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.nominal.q3",
+        "competencyId": "sitov.pretest.a11-07.nominal",
+        "kind": "single_choice",
+        "promptDe": "Welcher Artikel gehört im Satz zum männlichen Verkäufer?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.nominal.q3.a",
+            "textDe": "das"
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q3.b",
+            "textDe": "die"
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q3.c",
+            "textDe": "der"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.nominal.q3.c",
+        "assessmentUnit": "Verkäufer maskuliner Artikel",
+        "equivalenceKey": "sitov:a11-07-nominal-Verkäufer maskuliner Artikel",
+        "sourceSpans": [
+          {
+            "start": 58,
+            "end": 87,
+            "quote": "Der Verkäufer ist freundlich."
+          }
+        ],
+        "rationaleDe": "Der maskuline Verkäufer steht als Subjekt mit der; das und die sind hier nicht die gespeicherte Artikelform."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.nominal.q3",
+        "competencyId": "sitov.pretest.a11-07.nominal",
+        "kind": "single_choice",
+        "promptDe": "Ergänze den bestimmten Artikel: »… Verkäufer ist freundlich.«",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.nominal.q3.a",
+            "textDe": "das"
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q3.b",
+            "textDe": "die"
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q3.c",
+            "textDe": "der"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.nominal.q3.c",
+        "assessmentUnit": "Verkäufer maskuliner Artikel",
+        "equivalenceKey": "sitov:a11-07-nominal-Verkäufer maskuliner Artikel",
+        "sourceSpans": [
+          {
+            "start": 58,
+            "end": 87,
+            "quote": "Der Verkäufer ist freundlich."
+          }
+        ],
+        "rationaleDe": "Verkäufer ist maskulin und steht im sichtbaren Satz als Subjekt im Nominativ; der ist der passende bestimmte Artikel, das und die passen hier nicht."
+      },
+      "publicPremiseSufficiencyDe": "Verkäufer ist maskulin und steht im sichtbaren Satz als Subjekt im Nominativ; der ist der passende bestimmte Artikel, das und die passen hier nicht.",
+      "assessmentUnit": "Verkäufer maskuliner Artikel",
+      "sourceCorrespondence": [
+        {
+          "start": 58,
+          "end": 87,
+          "quote": "Der Verkäufer ist freundlich."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.nominal.q4",
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "previousTask": {
+        "id": "sitov.pretest.a11-07.nominal.q4",
+        "competencyId": "sitov.pretest.a11-07.nominal",
+        "kind": "single_choice",
+        "promptDe": "Wen bezeichnet »Er« direkt nach dem Satz über den Verkäufer?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.nominal.q4.a",
+            "textDe": "Die Tasche."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q4.b",
+            "textDe": "Den Verkäufer."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q4.c",
+            "textDe": "Das Brot."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.nominal.q4.b",
+        "assessmentUnit": "Er Bezug Verkäufer",
+        "equivalenceKey": "sitov:a11-07-nominal-Er Bezug Verkäufer",
+        "sourceSpans": [
+          {
+            "start": 58,
+            "end": 110,
+            "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+          }
+        ],
+        "rationaleDe": "Er nimmt den männlichen Verkäufer wieder auf; das neutrale Brot und die feminine Tasche sind nicht dieser Bezug."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-07.nominal.q4",
+        "competencyId": "sitov.pretest.a11-07.nominal",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Ein Verkäufer spricht. Er ist freundlich.« Wen bezeichnet »Er«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-07.nominal.q4.a",
+            "textDe": "Die Tasche."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q4.b",
+            "textDe": "Den Verkäufer."
+          },
+          {
+            "id": "sitov.pretest.a11-07.nominal.q4.c",
+            "textDe": "Das Brot."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-07.nominal.q4.b",
+        "assessmentUnit": "Er Bezug Verkäufer",
+        "equivalenceKey": "sitov:a11-07-nominal-Er Bezug Verkäufer",
+        "sourceSpans": [
+          {
+            "start": 58,
+            "end": 110,
+            "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+          }
+        ],
+        "rationaleDe": "Im sichtbaren Kontext nimmt Er den zuvor genannten männlichen Verkäufer wieder auf; Tasche ist feminin und Brot neutral, sodass beide nicht der passende Bezug sind."
+      },
+      "publicPremiseSufficiencyDe": "Im sichtbaren Kontext nimmt Er den zuvor genannten männlichen Verkäufer wieder auf; Tasche ist feminin und Brot neutral, sodass beide nicht der passende Bezug sind.",
+      "assessmentUnit": "Er Bezug Verkäufer",
+      "sourceCorrespondence": [
+        {
+          "start": 58,
+          "end": 110,
+          "quote": "Der Verkäufer ist freundlich. Er zeigt mir das Brot."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q2",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.words.q2",
+        "competencyId": "sitov.pretest.a11-08.words",
+        "kind": "single_choice",
+        "promptDe": "Welche Verwandtschaftsrolle hat Mark laut Text?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.words.q2.a",
+            "textDe": "Er ist der Vater des Sprechers."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q2.b",
+            "textDe": "Er ist der Bruder des Sprechers."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q2.c",
+            "textDe": "Er ist der Onkel des Sprechers."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.words.q2.c",
+        "assessmentUnit": "Onkel als Verwandter",
+        "equivalenceKey": "sitov:a11-08-words-Onkel als Verwandter",
+        "sourceSpans": [
+          {
+            "start": 37,
+            "end": 59,
+            "quote": "Mein Onkel heißt Mark."
+          }
+        ],
+        "rationaleDe": "Mark wird ausdrücklich als Onkel vorgestellt; Bruder und Vater sind andere im Text getrennte Rollen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.words.q2",
+        "competencyId": "sitov.pretest.a11-08.words",
+        "kind": "single_choice",
+        "promptDe": "Welche Verwandtschaftsrolle kann »Onkel« bezeichnen?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.words.q2.a",
+            "textDe": "Den Vater einer Person."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q2.b",
+            "textDe": "Einen Bruder der Person selbst."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q2.c",
+            "textDe": "Einen Bruder eines Elternteils."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.words.q2.c",
+        "assessmentUnit": "Onkel als Verwandter",
+        "equivalenceKey": "sitov:a11-08-words-Onkel als Verwandter",
+        "sourceSpans": [
+          {
+            "start": 37,
+            "end": 59,
+            "quote": "Mein Onkel heißt Mark."
+          }
+        ],
+        "rationaleDe": "Ein Onkel kann ein Bruder eines Elternteils sein; der Vater der Person oder ihr eigener Bruder sind andere Verwandtschaftsrollen."
+      },
+      "publicPremiseSufficiencyDe": "Ein Onkel kann ein Bruder eines Elternteils sein; der Vater der Person oder ihr eigener Bruder sind andere Verwandtschaftsrollen.",
+      "assessmentUnit": "Onkel als Verwandter",
+      "sourceCorrespondence": [
+        {
+          "start": 37,
+          "end": 59,
+          "quote": "Mein Onkel heißt Mark."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": true,
+      "keyTextChangeReasonDe": "Die richtige Antwort erklärt jetzt die tatsächliche Wortbedeutung von Onkel, statt eine unbekannte Rolle von Mark oder das sichtbare Wort Onkel selbst zu wiederholen.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q4",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.words.q4",
+        "competencyId": "sitov.pretest.a11-08.words",
+        "kind": "single_choice",
+        "promptDe": "Wie alt ist der Bruder nach der Zahl im Text?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.words.q4.a",
+            "textDe": "12 Jahre."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q4.b",
+            "textDe": "20 Jahre."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q4.c",
+            "textDe": "2 Jahre."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.words.q4.b",
+        "assessmentUnit": "zwanzig als Alter",
+        "equivalenceKey": "sitov:a11-08-words-zwanzig als Alter",
+        "sourceSpans": [
+          {
+            "start": 118,
+            "end": 152,
+            "quote": "Mein Bruder ist zwanzig Jahre alt."
+          }
+        ],
+        "rationaleDe": "Zwanzig bedeutet 20; zwölf und zwei sind andere Zahlen und ändern die ausdrücklich genannte Altersangabe."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.words.q4",
+        "competencyId": "sitov.pretest.a11-08.words",
+        "kind": "single_choice",
+        "promptDe": "Welche Zahlendarstellung passt zu »zwanzig Jahre alt«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.words.q4.a",
+            "textDe": "12 Jahre."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q4.b",
+            "textDe": "20 Jahre."
+          },
+          {
+            "id": "sitov.pretest.a11-08.words.q4.c",
+            "textDe": "2 Jahre."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.words.q4.b",
+        "assessmentUnit": "zwanzig als Alter",
+        "equivalenceKey": "sitov:a11-08-words-zwanzig als Alter",
+        "sourceSpans": [
+          {
+            "start": 118,
+            "end": 152,
+            "quote": "Mein Bruder ist zwanzig Jahre alt."
+          }
+        ],
+        "rationaleDe": "Das sichtbare Zahlwort zwanzig entspricht 20; zwölf und zwei sind andere Zahlen und passen nicht zur gegebenen Altersangabe."
+      },
+      "publicPremiseSufficiencyDe": "Das sichtbare Zahlwort zwanzig entspricht 20; zwölf und zwei sind andere Zahlen und passen nicht zur gegebenen Altersangabe.",
+      "assessmentUnit": "zwanzig als Alter",
+      "sourceCorrespondence": [
+        {
+          "start": 118,
+          "end": 152,
+          "quote": "Mein Bruder ist zwanzig Jahre alt."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.verbs.q6",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.verbs.q6",
+        "competencyId": "sitov.pretest.a11-08.verbs",
+        "kind": "single_choice",
+        "promptDe": "Welche Person und Zahl hat »telefonieren« in diesem Satz?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.verbs.q6.a",
+            "textDe": "Dritte Person Singular: er."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q6.b",
+            "textDe": "Erste Person Plural: wir."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q6.c",
+            "textDe": "Erste Person Singular: ich."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.verbs.q6.b",
+        "assessmentUnit": "telefonieren Wir Plural",
+        "equivalenceKey": "sitov:a11-08-verbs-telefonieren Wir Plural",
+        "sourceSpans": [
+          {
+            "start": 179,
+            "end": 199,
+            "quote": "Wir telefonieren oft"
+          }
+        ],
+        "rationaleDe": "Das ausdrücklich genannte wir bestimmt die erste Person Plural; die gleiche Verbform wird hier nicht von ich oder er begleitet."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.verbs.q6",
+        "competencyId": "sitov.pretest.a11-08.verbs",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Wir telefonieren.« Welche Person und Zahl gehört hier zu »telefonieren«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.verbs.q6.a",
+            "textDe": "Dritte Person Singular: er."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q6.b",
+            "textDe": "Erste Person Plural: wir."
+          },
+          {
+            "id": "sitov.pretest.a11-08.verbs.q6.c",
+            "textDe": "Erste Person Singular: ich."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.verbs.q6.b",
+        "assessmentUnit": "telefonieren Wir Plural",
+        "equivalenceKey": "sitov:a11-08-verbs-telefonieren Wir Plural",
+        "sourceSpans": [
+          {
+            "start": 179,
+            "end": 199,
+            "quote": "Wir telefonieren oft"
+          }
+        ],
+        "rationaleDe": "Das im Übungssatz sichtbare Subjekt wir bestimmt die erste Person Plural. Er wäre dritte Person Singular mit telefoniert, ich erste Person Singular mit telefoniere."
+      },
+      "publicPremiseSufficiencyDe": "Das im Übungssatz sichtbare Subjekt wir bestimmt die erste Person Plural. Er wäre dritte Person Singular mit telefoniert, ich erste Person Singular mit telefoniere.",
+      "assessmentUnit": "telefonieren Wir Plural",
+      "sourceCorrespondence": [
+        {
+          "start": 179,
+          "end": 199,
+          "quote": "Wir telefonieren oft"
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q1",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.syntax.q1",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Was wird über das Foto ausgesagt?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q1.a",
+            "textDe": "Es zeigt nur eine unbekannte Schule."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q1.b",
+            "textDe": "Es zeigt die Familie des Sprechers."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q1.c",
+            "textDe": "Es ist eine Rechnung für Lebensmittel."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q1.b",
+        "assessmentUnit": "Foto zeigt Familie",
+        "equivalenceKey": "sitov:a11-08-syntax-Foto zeigt Familie",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 36,
+            "quote": "Das ist ein Foto von meiner Familie."
+          }
+        ],
+        "rationaleDe": "Von meiner Familie gibt das Motiv des Fotos an; Schule und Einkaufsrechnung sind im Satz nicht genannt."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.syntax.q1",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Hier ist ein Foto von meiner Familie.« Welche Aussage beschreibt das Motiv des Fotos?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q1.a",
+            "textDe": "Es zeigt nur eine unbekannte Schule."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q1.b",
+            "textDe": "Es zeigt die Familie des Sprechers."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q1.c",
+            "textDe": "Es ist eine Rechnung für Lebensmittel."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q1.b",
+        "assessmentUnit": "Foto zeigt Familie",
+        "equivalenceKey": "sitov:a11-08-syntax-Foto zeigt Familie",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 36,
+            "quote": "Das ist ein Foto von meiner Familie."
+          }
+        ],
+        "rationaleDe": "Von meiner Familie benennt im sichtbaren Satz die Familie des Sprechers als Motiv des Fotos; Schule und Einkaufsrechnung gehören nicht zu dieser Aussage."
+      },
+      "publicPremiseSufficiencyDe": "Von meiner Familie benennt im sichtbaren Satz die Familie des Sprechers als Motiv des Fotos; Schule und Einkaufsrechnung gehören nicht zu dieser Aussage.",
+      "assessmentUnit": "Foto zeigt Familie",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 36,
+          "quote": "Das ist ein Foto von meiner Familie."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q2",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.syntax.q2",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welche Aussage stimmt mit dem Satz über Mark überein?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q2.a",
+            "textDe": "Mark ist der Name des Vaters Oleg."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q2.b",
+            "textDe": "Mark ist der Name des Onkels."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q2.c",
+            "textDe": "Mark ist der Name eines Deutschkurses."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q2.b",
+        "assessmentUnit": "Mark Name des Onkels",
+        "equivalenceKey": "sitov:a11-08-syntax-Mark Name des Onkels",
+        "sourceSpans": [
+          {
+            "start": 37,
+            "end": 59,
+            "quote": "Mein Onkel heißt Mark."
+          }
+        ],
+        "rationaleDe": "Heißt ordnet Mark dem Onkel als Namen zu; der Vater wird später Oleg genannt und ein Kurs wird hier nicht vorgestellt."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.syntax.q2",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Mein Onkel heißt Mark.« Welche Aussage stimmt mit diesem Satz überein?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q2.a",
+            "textDe": "Mark ist der Name des Vaters Oleg."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q2.b",
+            "textDe": "Mark ist der Name des Onkels."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q2.c",
+            "textDe": "Mark ist der Name eines Deutschkurses."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q2.b",
+        "assessmentUnit": "Mark Name des Onkels",
+        "equivalenceKey": "sitov:a11-08-syntax-Mark Name des Onkels",
+        "sourceSpans": [
+          {
+            "start": 37,
+            "end": 59,
+            "quote": "Mein Onkel heißt Mark."
+          }
+        ],
+        "rationaleDe": "Das sichtbare heißt ordnet Mark dem Onkel als Namen zu; es benennt weder einen Vater Oleg noch einen Deutschkurs."
+      },
+      "publicPremiseSufficiencyDe": "Das sichtbare heißt ordnet Mark dem Onkel als Namen zu; es benennt weder einen Vater Oleg noch einen Deutschkurs.",
+      "assessmentUnit": "Mark Name des Onkels",
+      "sourceCorrespondence": [
+        {
+          "start": 37,
+          "end": 59,
+          "quote": "Mein Onkel heißt Mark."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q3",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.syntax.q3",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Wie steht der Onkel zum Kochen?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q3.a",
+            "textDe": "Er kann nach dem Satz gar nicht kochen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q3.b",
+            "textDe": "Er macht es mit Freude."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q3.c",
+            "textDe": "Er macht es ausdrücklich ungern."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q3.b",
+        "assessmentUnit": "gern positive Vorliebe Onkel",
+        "equivalenceKey": "sitov:a11-08-syntax-gern positive Vorliebe Onkel",
+        "sourceSpans": [
+          {
+            "start": 60,
+            "end": 74,
+            "quote": "Er kocht gern."
+          }
+        ],
+        "rationaleDe": "Gern drückt eine positive Vorliebe für das Kochen aus; Abneigung oder fehlende Fähigkeit wird damit nicht ausgesagt."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.syntax.q3",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Mein Onkel kocht gern.« Welche Vorliebe drückt »gern« aus?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q3.a",
+            "textDe": "Er kann nach dem Satz gar nicht kochen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q3.b",
+            "textDe": "Er macht es mit Freude."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q3.c",
+            "textDe": "Er macht es ausdrücklich ungern."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q3.b",
+        "assessmentUnit": "gern positive Vorliebe Onkel",
+        "equivalenceKey": "sitov:a11-08-syntax-gern positive Vorliebe Onkel",
+        "sourceSpans": [
+          {
+            "start": 60,
+            "end": 74,
+            "quote": "Er kocht gern."
+          }
+        ],
+        "rationaleDe": "Im sichtbaren Satz bezeichnet gern Freude am Kochen. Das Wort sagt weder fehlende Fähigkeit noch ausdrückliche Abneigung aus."
+      },
+      "publicPremiseSufficiencyDe": "Im sichtbaren Satz bezeichnet gern Freude am Kochen. Das Wort sagt weder fehlende Fähigkeit noch ausdrückliche Abneigung aus.",
+      "assessmentUnit": "gern positive Vorliebe Onkel",
+      "sourceCorrespondence": [
+        {
+          "start": 60,
+          "end": 74,
+          "quote": "Er kocht gern."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q4",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.syntax.q4",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Wer hört nach den beiden Sätzen gern Musik?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q4.a",
+            "textDe": "Der Onkel Mark."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q4.b",
+            "textDe": "Der Vater Oleg."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q4.c",
+            "textDe": "Der Bruder als ausdrücklich genannter Musiker."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q4.b",
+        "assessmentUnit": "Vater Musik Vorliebe",
+        "equivalenceKey": "sitov:a11-08-syntax-Vater Musik Vorliebe",
+        "sourceSpans": [
+          {
+            "start": 75,
+            "end": 117,
+            "quote": "Mein Vater heißt Oleg. Er hört gern Musik."
+          }
+        ],
+        "rationaleDe": "Er nimmt hier den unmittelbar zuvor genannten Vater Oleg auf; die Vorliebe wird nicht Mark oder dem Bruder zugeordnet."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.syntax.q4",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Oleg ist mein Vater. Er hört gern Musik.« Wer hört gern Musik?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q4.a",
+            "textDe": "Der Onkel Mark."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q4.b",
+            "textDe": "Der Vater Oleg."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q4.c",
+            "textDe": "Der Bruder als ausdrücklich genannter Musiker."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q4.b",
+        "assessmentUnit": "Vater Musik Vorliebe",
+        "equivalenceKey": "sitov:a11-08-syntax-Vater Musik Vorliebe",
+        "sourceSpans": [
+          {
+            "start": 75,
+            "end": 117,
+            "quote": "Mein Vater heißt Oleg. Er hört gern Musik."
+          }
+        ],
+        "rationaleDe": "Er nimmt im sichtbaren Kontext den unmittelbar vorher genannten Vater Oleg wieder auf; die Vorliebe wird dadurch eindeutig Oleg zugeordnet."
+      },
+      "publicPremiseSufficiencyDe": "Er nimmt im sichtbaren Kontext den unmittelbar vorher genannten Vater Oleg wieder auf; die Vorliebe wird dadurch eindeutig Oleg zugeordnet.",
+      "assessmentUnit": "Vater Musik Vorliebe",
+      "sourceCorrespondence": [
+        {
+          "start": 75,
+          "end": 117,
+          "quote": "Mein Vater heißt Oleg. Er hört gern Musik."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q6",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.syntax.q6",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welche zwei Tätigkeiten werden für »wir« verbunden?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q6.a",
+            "textDe": "Musik hören und einkaufen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q6.b",
+            "textDe": "Telefonieren und lachen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q6.c",
+            "textDe": "Kochen und schlafen."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q6.b",
+        "assessmentUnit": "Wir gemeinsame Tätigkeiten",
+        "equivalenceKey": "sitov:a11-08-syntax-Wir gemeinsame Tätigkeiten",
+        "sourceSpans": [
+          {
+            "start": 179,
+            "end": 216,
+            "quote": "Wir telefonieren oft und lachen viel."
+          }
+        ],
+        "rationaleDe": "Die beiden verbundenen Verben sind telefonieren und lachen; die anderen Tätigkeitspaare entsprechen diesem Satz nicht."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.syntax.q6",
+        "competencyId": "sitov.pretest.a11-08.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Wir lachen und telefonieren.« Welche beiden Tätigkeiten werden verbunden?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.syntax.q6.a",
+            "textDe": "Musik hören und einkaufen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q6.b",
+            "textDe": "Telefonieren und lachen."
+          },
+          {
+            "id": "sitov.pretest.a11-08.syntax.q6.c",
+            "textDe": "Kochen und schlafen."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.syntax.q6.b",
+        "assessmentUnit": "Wir gemeinsame Tätigkeiten",
+        "equivalenceKey": "sitov:a11-08-syntax-Wir gemeinsame Tätigkeiten",
+        "sourceSpans": [
+          {
+            "start": 179,
+            "end": 216,
+            "quote": "Wir telefonieren oft und lachen viel."
+          }
+        ],
+        "rationaleDe": "Die beiden sichtbaren durch und verbundenen Verben sind lachen und telefonieren; das gemeinsame Subjekt wir gilt für beide Tätigkeiten."
+      },
+      "publicPremiseSufficiencyDe": "Die beiden sichtbaren durch und verbundenen Verben sind lachen und telefonieren; das gemeinsame Subjekt wir gilt für beide Tätigkeiten.",
+      "assessmentUnit": "Wir gemeinsame Tätigkeiten",
+      "sourceCorrespondence": [
+        {
+          "start": 179,
+          "end": 216,
+          "quote": "Wir telefonieren oft und lachen viel."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q1",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.nominal.q1",
+        "competencyId": "sitov.pretest.a11-08.nominal",
+        "kind": "single_choice",
+        "promptDe": "Welcher Artikel steht im Text direkt vor »Foto«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.nominal.q1.a",
+            "textDe": "einen"
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q1.b",
+            "textDe": "ein"
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q1.c",
+            "textDe": "eine"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.nominal.q1.b",
+        "assessmentUnit": "Foto neutrales unbestimmtes Artikelwort",
+        "equivalenceKey": "sitov:a11-08-nominal-Foto neutrales unbestimmtes Artikelwort",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 16,
+            "quote": "Das ist ein Foto"
+          }
+        ],
+        "rationaleDe": "Foto ist neutral und wird in dieser Aussage mit ein genannt; eine und einen sind hier nicht passende Formen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.nominal.q1",
+        "competencyId": "sitov.pretest.a11-08.nominal",
+        "kind": "single_choice",
+        "promptDe": "Ergänze den unbestimmten Artikel: »Das ist … Foto.«",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.nominal.q1.a",
+            "textDe": "einen"
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q1.b",
+            "textDe": "ein"
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q1.c",
+            "textDe": "eine"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.nominal.q1.b",
+        "assessmentUnit": "Foto neutrales unbestimmtes Artikelwort",
+        "equivalenceKey": "sitov:a11-08-nominal-Foto neutrales unbestimmtes Artikelwort",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 16,
+            "quote": "Das ist ein Foto"
+          }
+        ],
+        "rationaleDe": "Foto ist neutral; im sichtbaren Satz passt der unbestimmte Artikel ein. Eine gehört zum Femininum und einen zum maskulinen Akkusativ."
+      },
+      "publicPremiseSufficiencyDe": "Foto ist neutral; im sichtbaren Satz passt der unbestimmte Artikel ein. Eine gehört zum Femininum und einen zum maskulinen Akkusativ.",
+      "assessmentUnit": "Foto neutrales unbestimmtes Artikelwort",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 16,
+          "quote": "Das ist ein Foto"
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q5",
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "previousTask": {
+        "id": "sitov.pretest.a11-08.nominal.q5",
+        "competencyId": "sitov.pretest.a11-08.nominal",
+        "kind": "single_choice",
+        "promptDe": "Warum steht in der Altersangabe »Jahre« statt »Jahr«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.nominal.q5.a",
+            "textDe": "Jahre ist der Name des Bruders."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q5.b",
+            "textDe": "Die Zahl zwanzig bezeichnet mehrere Jahre."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q5.c",
+            "textDe": "Die Altersangabe bezeichnet genau ein Jahr."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.nominal.q5.b",
+        "assessmentUnit": "Jahre als Plural",
+        "equivalenceKey": "sitov:a11-08-nominal-Jahre als Plural",
+        "sourceSpans": [
+          {
+            "start": 134,
+            "end": 151,
+            "quote": "zwanzig Jahre alt"
+          }
+        ],
+        "rationaleDe": "Zwanzig verlangt hier die Mehrzahl Jahre; es ist weder ein Personenname noch eine Angabe für ein einzelnes Jahr."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-08.nominal.q5",
+        "competencyId": "sitov.pretest.a11-08.nominal",
+        "kind": "single_choice",
+        "promptDe": "Warum steht in »zwanzig Jahre alt« die Form »Jahre« und nicht »Jahr«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-08.nominal.q5.a",
+            "textDe": "Jahre ist der Name des Bruders."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q5.b",
+            "textDe": "Die Zahl zwanzig bezeichnet mehrere Jahre."
+          },
+          {
+            "id": "sitov.pretest.a11-08.nominal.q5.c",
+            "textDe": "Die Altersangabe bezeichnet genau ein Jahr."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-08.nominal.q5.b",
+        "assessmentUnit": "Jahre als Plural",
+        "equivalenceKey": "sitov:a11-08-nominal-Jahre als Plural",
+        "sourceSpans": [
+          {
+            "start": 134,
+            "end": 151,
+            "quote": "zwanzig Jahre alt"
+          }
+        ],
+        "rationaleDe": "Die ausdrücklich sichtbare Zahl zwanzig bezeichnet mehrere Jahre und verlangt hier den Plural Jahre; sie ist weder ein Personenname noch die Angabe eines einzelnen Jahres."
+      },
+      "publicPremiseSufficiencyDe": "Die ausdrücklich sichtbare Zahl zwanzig bezeichnet mehrere Jahre und verlangt hier den Plural Jahre; sie ist weder ein Personenname noch die Angabe eines einzelnen Jahres.",
+      "assessmentUnit": "Jahre als Plural",
+      "sourceCorrespondence": [
+        {
+          "start": 134,
+          "end": 151,
+          "quote": "zwanzig Jahre alt"
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.words.q2",
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "previousTask": {
+        "id": "sitov.pretest.a11-09.words.q2",
+        "competencyId": "sitov.pretest.a11-09.words",
+        "kind": "single_choice",
+        "promptDe": "Zu welcher Uhrzeit beginnt der Kurs?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.words.q2.a",
+            "textDe": "Um 9 Uhr."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q2.b",
+            "textDe": "Um 8 Uhr."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q2.c",
+            "textDe": "Um 10 Uhr."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.words.q2.a",
+        "assessmentUnit": "neun Uhr als Kurszeit",
+        "equivalenceKey": "sitov:a11-09-words-neun Uhr als Kurszeit",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 30,
+            "quote": "Mein Kurs beginnt um neun Uhr."
+          }
+        ],
+        "rationaleDe": "Neun entspricht 9; acht nennt später die Zeit des Weggehens, und zehn wird für den Kursbeginn nicht genannt."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-09.words.q2",
+        "competencyId": "sitov.pretest.a11-09.words",
+        "kind": "single_choice",
+        "promptDe": "Welche Uhrzeit bezeichnet die Angabe »um neun Uhr«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.words.q2.a",
+            "textDe": "Um 9 Uhr."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q2.b",
+            "textDe": "Um 8 Uhr."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q2.c",
+            "textDe": "Um 10 Uhr."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.words.q2.a",
+        "assessmentUnit": "neun Uhr als Kurszeit",
+        "equivalenceKey": "sitov:a11-09-words-neun Uhr als Kurszeit",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 30,
+            "quote": "Mein Kurs beginnt um neun Uhr."
+          }
+        ],
+        "rationaleDe": "Das sichtbare Zahlwort neun entspricht 9, sodass um neun Uhr die Zeitangabe um 9 Uhr bedeutet; acht und zehn sind andere Uhrzeiten."
+      },
+      "publicPremiseSufficiencyDe": "Das sichtbare Zahlwort neun entspricht 9, sodass um neun Uhr die Zeitangabe um 9 Uhr bedeutet; acht und zehn sind andere Uhrzeiten.",
+      "assessmentUnit": "neun Uhr als Kurszeit",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 30,
+          "quote": "Mein Kurs beginnt um neun Uhr."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.words.q5",
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "previousTask": {
+        "id": "sitov.pretest.a11-09.words.q5",
+        "competencyId": "sitov.pretest.a11-09.words",
+        "kind": "single_choice",
+        "promptDe": "Welches Verkehrsmittel nutzt der Sprecher?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.words.q5.a",
+            "textDe": "Ein Fahrrad."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q5.b",
+            "textDe": "Einen Bus."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q5.c",
+            "textDe": "Einen Zug."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.words.q5.b",
+        "assessmentUnit": "Bus als Verkehrsmittel",
+        "equivalenceKey": "sitov:a11-09-words-Bus als Verkehrsmittel",
+        "sourceSpans": [
+          {
+            "start": 91,
+            "end": 113,
+            "quote": "Ich fahre mit dem Bus."
+          }
+        ],
+        "rationaleDe": "Mit dem Bus nennt ausdrücklich das benutzte Verkehrsmittel; der später erwähnte Bahnhof beweist keine Fahrt mit dem Zug."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-09.words.q5",
+        "competencyId": "sitov.pretest.a11-09.words",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Ich nehme den Bus.« Welches Verkehrsmittel nennt der Sprecher?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.words.q5.a",
+            "textDe": "Ein Fahrrad."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q5.b",
+            "textDe": "Einen Bus."
+          },
+          {
+            "id": "sitov.pretest.a11-09.words.q5.c",
+            "textDe": "Einen Zug."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.words.q5.b",
+        "assessmentUnit": "Bus als Verkehrsmittel",
+        "equivalenceKey": "sitov:a11-09-words-Bus als Verkehrsmittel",
+        "sourceSpans": [
+          {
+            "start": 91,
+            "end": 113,
+            "quote": "Ich fahre mit dem Bus."
+          }
+        ],
+        "rationaleDe": "Der sichtbare Übungssatz nennt ausdrücklich den Bus als Verkehrsmittel; Fahrrad und Zug sind andere Fahrzeuge und werden nicht genannt."
+      },
+      "publicPremiseSufficiencyDe": "Der sichtbare Übungssatz nennt ausdrücklich den Bus als Verkehrsmittel; Fahrrad und Zug sind andere Fahrzeuge und werden nicht genannt.",
+      "assessmentUnit": "Bus als Verkehrsmittel",
+      "sourceCorrespondence": [
+        {
+          "start": 91,
+          "end": 113,
+          "quote": "Ich fahre mit dem Bus."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q1",
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "previousTask": {
+        "id": "sitov.pretest.a11-09.syntax.q1",
+        "competencyId": "sitov.pretest.a11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welche zeitliche Reihenfolge geben die beiden Sätze an?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.syntax.q1.a",
+            "textDe": "Der Sprecher geht erst nach dem Kursbeginn aus dem Haus."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q1.b",
+            "textDe": "Der Kurs beginnt um acht; der Sprecher geht um neun weg."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q1.c",
+            "textDe": "Der Sprecher geht um acht weg; der Kurs beginnt um neun."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.syntax.q1.c",
+        "assessmentUnit": "Kurszeit und Weggehzeit trennen",
+        "equivalenceKey": "sitov:a11-09-syntax-Kurszeit und Weggehzeit trennen",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 65,
+            "quote": "Mein Kurs beginnt um neun Uhr. Ich gehe um acht Uhr aus dem Haus."
+          }
+        ],
+        "rationaleDe": "Acht ist die Zeit des Weggehens und neun der spätere Kursbeginn; die anderen Antworten vertauschen oder verschieben diese Angaben."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-09.syntax.q1",
+        "competencyId": "sitov.pretest.a11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Ich gehe um acht Uhr aus dem Haus. Der Kurs beginnt um neun Uhr.« Welche zeitliche Reihenfolge geben die Sätze an?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.syntax.q1.a",
+            "textDe": "Der Sprecher geht erst nach dem Kursbeginn aus dem Haus."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q1.b",
+            "textDe": "Der Kurs beginnt um acht; der Sprecher geht um neun weg."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q1.c",
+            "textDe": "Der Sprecher geht um acht weg; der Kurs beginnt um neun."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.syntax.q1.c",
+        "assessmentUnit": "Kurszeit und Weggehzeit trennen",
+        "equivalenceKey": "sitov:a11-09-syntax-Kurszeit und Weggehzeit trennen",
+        "sourceSpans": [
+          {
+            "start": 0,
+            "end": 65,
+            "quote": "Mein Kurs beginnt um neun Uhr. Ich gehe um acht Uhr aus dem Haus."
+          }
+        ],
+        "rationaleDe": "Im sichtbaren Kontext gehört acht Uhr zum Weggehen und neun Uhr zum späteren Kursbeginn; die anderen Optionen vertauschen die Zeiten oder die Reihenfolge."
+      },
+      "publicPremiseSufficiencyDe": "Im sichtbaren Kontext gehört acht Uhr zum Weggehen und neun Uhr zum späteren Kursbeginn; die anderen Optionen vertauschen die Zeiten oder die Reihenfolge.",
+      "assessmentUnit": "Kurszeit und Weggehzeit trennen",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 65,
+          "quote": "Mein Kurs beginnt um neun Uhr. Ich gehe um acht Uhr aus dem Haus."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q4",
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "previousTask": {
+        "id": "sitov.pretest.a11-09.syntax.q4",
+        "competencyId": "sitov.pretest.a11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Wo steigt der Sprecher nach diesem Satz aus?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.syntax.q4.a",
+            "textDe": "Am Bahnhof."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q4.b",
+            "textDe": "Im Unterrichtsraum."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q4.c",
+            "textDe": "Vor der Haustür als ausdrücklich genannter Ausstiegsort."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.syntax.q4.a",
+        "assessmentUnit": "Bahnhof Ausstiegsort Satzklammer",
+        "equivalenceKey": "sitov:a11-09-syntax-Bahnhof Ausstiegsort Satzklammer",
+        "sourceSpans": [
+          {
+            "start": 114,
+            "end": 140,
+            "quote": "Am Bahnhof steige ich aus."
+          }
+        ],
+        "rationaleDe": "Die vorangestellte Ortsangabe Am Bahnhof gehört zum Aussteigen; Haustür und Unterrichtsraum sind hier keine Ausstiegsorte."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-09.syntax.q4",
+        "competencyId": "sitov.pretest.a11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Ich steige am Bahnhof aus.« Wo erfolgt das Aussteigen?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.syntax.q4.a",
+            "textDe": "Am Bahnhof."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q4.b",
+            "textDe": "Im Unterrichtsraum."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q4.c",
+            "textDe": "Vor der Haustür als ausdrücklich genannter Ausstiegsort."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.syntax.q4.a",
+        "assessmentUnit": "Bahnhof Ausstiegsort Satzklammer",
+        "equivalenceKey": "sitov:a11-09-syntax-Bahnhof Ausstiegsort Satzklammer",
+        "sourceSpans": [
+          {
+            "start": 114,
+            "end": 140,
+            "quote": "Am Bahnhof steige ich aus."
+          }
+        ],
+        "rationaleDe": "Die sichtbare Ortsangabe am Bahnhof gehört zum Verb steige … aus; Unterrichtsraum und Haustür werden nicht als Ausstiegsorte genannt."
+      },
+      "publicPremiseSufficiencyDe": "Die sichtbare Ortsangabe am Bahnhof gehört zum Verb steige … aus; Unterrichtsraum und Haustür werden nicht als Ausstiegsorte genannt.",
+      "assessmentUnit": "Bahnhof Ausstiegsort Satzklammer",
+      "sourceCorrespondence": [
+        {
+          "start": 114,
+          "end": 140,
+          "quote": "Am Bahnhof steige ich aus."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q5",
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "previousTask": {
+        "id": "sitov.pretest.a11-09.syntax.q5",
+        "competencyId": "sitov.pretest.a11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Wer wartet vor der Tür?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.syntax.q5.a",
+            "textDe": "Die Tür selbst."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q5.b",
+            "textDe": "Der Bus als wartende Person."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q5.c",
+            "textDe": "Der Freund des Sprechers."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.syntax.q5.c",
+        "assessmentUnit": "Freund Subjekt nach Ortsangabe",
+        "equivalenceKey": "sitov:a11-09-syntax-Freund Subjekt nach Ortsangabe",
+        "sourceSpans": [
+          {
+            "start": 164,
+            "end": 195,
+            "quote": "Vor der Tür wartet mein Freund."
+          }
+        ],
+        "rationaleDe": "Mein Freund ist das Subjekt hinter dem Verb wartet; Tür bezeichnet den Ort und Bus ist nicht als handelnde Person genannt."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-09.syntax.q5",
+        "competencyId": "sitov.pretest.a11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Vor der Tür wartet mein Freund.« Wer wartet dort?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.syntax.q5.a",
+            "textDe": "Die Tür selbst."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q5.b",
+            "textDe": "Der Bus als wartende Person."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q5.c",
+            "textDe": "Der Freund des Sprechers."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.syntax.q5.c",
+        "assessmentUnit": "Freund Subjekt nach Ortsangabe",
+        "equivalenceKey": "sitov:a11-09-syntax-Freund Subjekt nach Ortsangabe",
+        "sourceSpans": [
+          {
+            "start": 164,
+            "end": 195,
+            "quote": "Vor der Tür wartet mein Freund."
+          }
+        ],
+        "rationaleDe": "Mein Freund ist das sichtbare Subjekt hinter dem Verb wartet; vor der Tür bezeichnet den Ort und Bus ist nicht als handelnde Person genannt."
+      },
+      "publicPremiseSufficiencyDe": "Mein Freund ist das sichtbare Subjekt hinter dem Verb wartet; vor der Tür bezeichnet den Ort und Bus ist nicht als handelnde Person genannt.",
+      "assessmentUnit": "Freund Subjekt nach Ortsangabe",
+      "sourceCorrespondence": [
+        {
+          "start": 164,
+          "end": 195,
+          "quote": "Vor der Tür wartet mein Freund."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q6",
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "previousTask": {
+        "id": "sitov.pretest.a11-09.syntax.q6",
+        "competencyId": "sitov.pretest.a11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Was tun die mit »wir« bezeichneten Personen am Ende?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.syntax.q6.a",
+            "textDe": "Sie gehen gemeinsam nach innen."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q6.b",
+            "textDe": "Sie gehen getrennt nach draußen."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q6.c",
+            "textDe": "Sie bleiben beide im Bus sitzen."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.syntax.q6.a",
+        "assessmentUnit": "zusammen hinein gemeinsame Bewegung",
+        "equivalenceKey": "sitov:a11-09-syntax-zusammen hinein gemeinsame Bewegung",
+        "sourceSpans": [
+          {
+            "start": 196,
+            "end": 222,
+            "quote": "Wir gehen zusammen hinein."
+          }
+        ],
+        "rationaleDe": "Zusammen bezeichnet die gemeinsame Handlung und hinein die Bewegung nach innen; getrennt, hinaus und sitzen widersprechen dem Satz."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-09.syntax.q6",
+        "competencyId": "sitov.pretest.a11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Wir gehen zusammen hinein.« Welche Bewegung beschreibt der Satz?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.syntax.q6.a",
+            "textDe": "Sie gehen gemeinsam nach innen."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q6.b",
+            "textDe": "Sie gehen getrennt nach draußen."
+          },
+          {
+            "id": "sitov.pretest.a11-09.syntax.q6.c",
+            "textDe": "Sie bleiben beide im Bus sitzen."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.syntax.q6.a",
+        "assessmentUnit": "zusammen hinein gemeinsame Bewegung",
+        "equivalenceKey": "sitov:a11-09-syntax-zusammen hinein gemeinsame Bewegung",
+        "sourceSpans": [
+          {
+            "start": 196,
+            "end": 222,
+            "quote": "Wir gehen zusammen hinein."
+          }
+        ],
+        "rationaleDe": "Die sichtbaren Wörter zusammen und hinein bezeichnen eine gemeinsame Bewegung nach innen; getrennt nach draußen gehen oder im Bus sitzen passt nicht dazu."
+      },
+      "publicPremiseSufficiencyDe": "Die sichtbaren Wörter zusammen und hinein bezeichnen eine gemeinsame Bewegung nach innen; getrennt nach draußen gehen oder im Bus sitzen passt nicht dazu.",
+      "assessmentUnit": "zusammen hinein gemeinsame Bewegung",
+      "sourceCorrespondence": [
+        {
+          "start": 196,
+          "end": 222,
+          "quote": "Wir gehen zusammen hinein."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.nominal.q3",
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "previousTask": {
+        "id": "sitov.pretest.a11-09.nominal.q3",
+        "competencyId": "sitov.pretest.a11-09.nominal",
+        "kind": "single_choice",
+        "promptDe": "Welche Form steht im Text zwischen »mit« und »Bus«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.nominal.q3.a",
+            "textDe": "das"
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q3.b",
+            "textDe": "den"
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q3.c",
+            "textDe": "dem"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.nominal.q3.c",
+        "assessmentUnit": "mit dem Bus Dativ",
+        "equivalenceKey": "sitov:a11-09-nominal-mit dem Bus Dativ",
+        "sourceSpans": [
+          {
+            "start": 101,
+            "end": 112,
+            "quote": "mit dem Bus"
+          }
+        ],
+        "rationaleDe": "Mit verlangt Dativ und Bus ist maskulin; deshalb steht dem statt den oder das."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-09.nominal.q3",
+        "competencyId": "sitov.pretest.a11-09.nominal",
+        "kind": "single_choice",
+        "promptDe": "Ergänze den bestimmten Artikel: »Ich fahre mit … Bus.«",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.nominal.q3.a",
+            "textDe": "das"
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q3.b",
+            "textDe": "den"
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q3.c",
+            "textDe": "dem"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.nominal.q3.c",
+        "assessmentUnit": "mit dem Bus Dativ",
+        "equivalenceKey": "sitov:a11-09-nominal-mit dem Bus Dativ",
+        "sourceSpans": [
+          {
+            "start": 101,
+            "end": 112,
+            "quote": "mit dem Bus"
+          }
+        ],
+        "rationaleDe": "Die sichtbare Präposition mit regiert Dativ und Bus ist maskulin; der bestimmte Artikel lautet daher dem statt den oder das."
+      },
+      "publicPremiseSufficiencyDe": "Die sichtbare Präposition mit regiert Dativ und Bus ist maskulin; der bestimmte Artikel lautet daher dem statt den oder das.",
+      "assessmentUnit": "mit dem Bus Dativ",
+      "sourceCorrespondence": [
+        {
+          "start": 101,
+          "end": 112,
+          "quote": "mit dem Bus"
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.nominal.q6",
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "previousTask": {
+        "id": "sitov.pretest.a11-09.nominal.q6",
+        "competencyId": "sitov.pretest.a11-09.nominal",
+        "kind": "single_choice",
+        "promptDe": "Wen bezeichnet »wir« im anschließenden Satz am naheliegenden Textanschluss?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.nominal.q6.a",
+            "textDe": "Nur den Freund ohne den Sprecher."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q6.b",
+            "textDe": "Den Sprecher und seinen Freund gemeinsam."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q6.c",
+            "textDe": "Nur den Busfahrer als einzelne Person."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.nominal.q6.b",
+        "assessmentUnit": "Wir Sprecher und Freund",
+        "equivalenceKey": "sitov:a11-09-nominal-Wir Sprecher und Freund",
+        "sourceSpans": [
+          {
+            "start": 164,
+            "end": 222,
+            "quote": "Vor der Tür wartet mein Freund. Wir gehen zusammen hinein."
+          }
+        ],
+        "rationaleDe": "Nach dem Treffen mit dem Freund verbindet wir beide Personen einschließlich des Sprechers; eine einzelne Person reicht dafür nicht."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-09.nominal.q6",
+        "competencyId": "sitov.pretest.a11-09.nominal",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Mein Freund und ich treffen uns. Wir gehen gemeinsam hinein.« Welche Personen bezeichnet »wir« hier?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-09.nominal.q6.a",
+            "textDe": "Nur den Freund ohne den Sprecher."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q6.b",
+            "textDe": "Den Sprecher und seinen Freund gemeinsam."
+          },
+          {
+            "id": "sitov.pretest.a11-09.nominal.q6.c",
+            "textDe": "Nur den Busfahrer als einzelne Person."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-09.nominal.q6.b",
+        "assessmentUnit": "Wir Sprecher und Freund",
+        "equivalenceKey": "sitov:a11-09-nominal-Wir Sprecher und Freund",
+        "sourceSpans": [
+          {
+            "start": 164,
+            "end": 222,
+            "quote": "Vor der Tür wartet mein Freund. Wir gehen zusammen hinein."
+          }
+        ],
+        "rationaleDe": "Der sichtbare erste Satz nennt den Freund und den Sprecher als Gruppe; wir nimmt beide gemeinsam wieder auf und bezeichnet keine einzelne Person ohne den Sprecher."
+      },
+      "publicPremiseSufficiencyDe": "Der sichtbare erste Satz nennt den Freund und den Sprecher als Gruppe; wir nimmt beide gemeinsam wieder auf und bezeichnet keine einzelne Person ohne den Sprecher.",
+      "assessmentUnit": "Wir Sprecher und Freund",
+      "sourceCorrespondence": [
+        {
+          "start": 164,
+          "end": 222,
+          "quote": "Vor der Tür wartet mein Freund. Wir gehen zusammen hinein."
+        }
+      ],
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "keyTextChangeReasonDe": "Richtige Options-ID und Antwortwortlaut unverändert; die Prämisse ist jetzt öffentlich vorhanden.",
+      "independentFinalReview": "pending_M"
+    }
+  ],
+  "changedPools": [
+    {
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat Quellenbelege, eindeutige Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; kein Audio-Import und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "newDefinitionHash": "3acc700ac24ba272b4ad35173befbcaab3b19c63ac163077d2fef706c51a4f5d",
+      "versionPolicy": "database_computes_sha256_of_jsonb_text_at_private_import; new private immutable revision on import, no old row/history updates",
+      "review": "author_checked_independent_review_pending",
+      "previousDefinitionHash": "792f3b15527ce1ec040e15afe9102fe5d345c4446ef045b777561b09b76f0bad"
+    },
+    {
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat Quellenbelege, eindeutige Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; kein Audio-Import und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "newDefinitionHash": "9821f5a3a2df430ca556eacbb5fed1b72b98f656b2c7483ef355fd9452194e86",
+      "versionPolicy": "database_computes_sha256_of_jsonb_text_at_private_import; new private immutable revision on import, no old row/history updates",
+      "review": "author_checked_independent_review_pending",
+      "previousDefinitionHash": "724bb3995b93816e94ef2e7020425350323477e4568083299774bba61b99af1f"
+    },
+    {
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat Quellenbelege, eindeutige Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; kein Audio-Import und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "newDefinitionHash": "3ed5e3fa3c214d2d4d9717bb81d75548fa66810a76ba078abba6f6ca63126ec4",
+      "versionPolicy": "database_computes_sha256_of_jsonb_text_at_private_import; new private immutable revision on import, no old row/history updates",
+      "review": "author_checked_independent_review_pending",
+      "previousDefinitionHash": "b1113b6f37a2ab91f4eb037a57ec80c3c4cde8f0b7701c0c48cab933dcb8d2d0"
+    },
+    {
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "textVersion": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "newDefinitionHash": "6b192633e63b737a845cef7b00312e7dd5515d869b7a9fe8e97065ed0970a5c5",
+      "versionPolicy": "database_computes_sha256_of_jsonb_text_at_private_import; new private immutable revision on import, no old row/history updates",
+      "review": "author_checked_independent_review_pending",
+      "previousDefinitionHash": "95ddbabf4cf21dff8ffdf924127d3bbfaaee8caa90fad110e5e30794e434651d"
+    },
+    {
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "textVersion": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "newDefinitionHash": "a0d76a2c9a20bdb5c076c4764758476a8f538c134f20e31d103e08e8731d6949",
+      "versionPolicy": "database_computes_sha256_of_jsonb_text_at_private_import; new private immutable revision on import, no old row/history updates",
+      "review": "author_checked_independent_review_pending",
+      "previousDefinitionHash": "c887747f9d141cc45b6420ee9c1d5e1109246fd7b88e86d07fb37b3b0303296a"
+    },
+    {
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "newDefinitionHash": "98048a069fee6e53ce82130bf5932e56f6e351aeaf46fe6261aab7521675410e",
+      "versionPolicy": "database_computes_sha256_of_jsonb_text_at_private_import; new private immutable revision on import, no old row/history updates",
+      "review": "author_checked_independent_review_pending",
+      "previousDefinitionHash": "a03df66f4ea73df2459d96e51498f43e9b8a2a82faedb8329de5f4e7ab27da27"
+    }
+  ],
+  "changedAliases": [
+    {
+      "key": "sitov-pretest:b73f6228-c6c7-591b-ac83-2bae82a3b163:sitov.pretest.a11-04.syntax.q6:prompt",
+      "previousTextDe": "Welche Frage beantwortet »später« in diesem Satz?",
+      "currentTextDe": "Übung: »Wir trinken später Kaffee.« Welche Frage beantwortet »später«?"
+    },
+    {
+      "key": "sitov-pretest:fd1297a1-999f-5759-b0d9-1f77c381d114:sitov.pretest.a11-05.syntax.q5:prompt",
+      "previousTextDe": "Welches Wort wird durch »kleiner« genauer beschrieben?",
+      "currentTextDe": "Übung: »Im Gras spielt ein kleiner Hund.« Welches Wort beschreibt »kleiner« genauer?"
+    },
+    {
+      "key": "sitov-pretest:fd1297a1-999f-5759-b0d9-1f77c381d114:sitov.pretest.a11-05.syntax.q6:prompt",
+      "previousTextDe": "Welche Zuordnung der beiden Tätigkeiten ist richtig?",
+      "currentTextDe": "Übung: »Brot essen wir und Musik hören wir.« Welche Zuordnung der Tätigkeiten gibt denselben Inhalt wieder?"
+    },
+    {
+      "key": "sitov-pretest:a218b88e-9369-5472-b5fe-34c99d1ced76:sitov.pretest.a11-06.words.q5:prompt",
+      "previousTextDe": "Was beschreibt »blau«?",
+      "currentTextDe": "Übung: »Ein Stuhl ist blau.« Welche Eigenschaft des Stuhls beschreibt »blau«?"
+    },
+    {
+      "key": "sitov-pretest:a218b88e-9369-5472-b5fe-34c99d1ced76:sitov.pretest.a11-06.syntax.q1:prompt",
+      "previousTextDe": "Welche Aussage passt zu »nicht groß, aber schön«?",
+      "currentTextDe": "Übung: »Das Zimmer ist nicht groß, aber schön.« Welche Aussage gibt denselben Inhalt wieder?"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.words.q4:prompt",
+      "previousTextDe": "Wie viele Äpfel braucht der Sprecher?",
+      "currentTextDe": "Welche Zahlendarstellung passt zur Menge »drei Äpfel«?"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.words.q4:sitov.pretest.a11-07.words.q4.a",
+      "previousTextDe": "Zwei Äpfel.",
+      "currentTextDe": "2 Äpfel."
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.words.q4:sitov.pretest.a11-07.words.q4.b",
+      "previousTextDe": "Drei Äpfel.",
+      "currentTextDe": "3 Äpfel."
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.words.q4:sitov.pretest.a11-07.words.q4.c",
+      "previousTextDe": "Einen Apfel.",
+      "currentTextDe": "1 Apfel."
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.verbs.q1:prompt",
+      "previousTextDe": "Welche Grundform gehört zu »bin« im Satz über den Laden?",
+      "currentTextDe": "Welche Grundform gehört zur Verbform »bin«?"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.verbs.q6:prompt",
+      "previousTextDe": "Welche Person gehört zur Form »bezahle« in diesem Satz?",
+      "currentTextDe": "Welche Person gehört zur Form »bezahle« im Präsens Indikativ?"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.syntax.q1:prompt",
+      "previousTextDe": "Welche Dinge verbindet »und« in der Einkaufsliste?",
+      "currentTextDe": "Übung: »Milch, Brot und drei Äpfel brauche ich.« Welche Dinge verbindet »und« in der Liste?"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.syntax.q2:prompt",
+      "previousTextDe": "Wer zeigt wem etwas im Satz »Er zeigt mir das Brot«?",
+      "currentTextDe": "Übung: »Ein Verkäufer kommt zu mir. Er zeigt mir das Brot.« Wer zeigt wem das Brot?"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.syntax.q3:prompt",
+      "previousTextDe": "Was wird mit »Es kostet zwei Euro« ausgesagt?",
+      "currentTextDe": "Übung: »Ich wähle ein Brot. Es kostet zwei Euro.« Welche Aussage gibt den Preis wieder?"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.syntax.q5:prompt",
+      "previousTextDe": "Welches Wort steht nach »Dann« im gespeicherten Satz?",
+      "currentTextDe": "Ordne einen Aussagesatz aus »Dann / ich / bezahle«. Welches Wort folgt auf »Dann«?"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.syntax.q6:prompt",
+      "previousTextDe": "Wer bezahlt und sagt anschließend danke?",
+      "currentTextDe": "Übung: »Ich bezahle und sage danach danke.« Wer führt beide Handlungen aus?"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.nominal.q3:prompt",
+      "previousTextDe": "Welcher Artikel gehört im Satz zum männlichen Verkäufer?",
+      "currentTextDe": "Ergänze den bestimmten Artikel: »… Verkäufer ist freundlich.«"
+    },
+    {
+      "key": "sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.nominal.q4:prompt",
+      "previousTextDe": "Wen bezeichnet »Er« direkt nach dem Satz über den Verkäufer?",
+      "currentTextDe": "Übung: »Ein Verkäufer spricht. Er ist freundlich.« Wen bezeichnet »Er«?"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.words.q2:prompt",
+      "previousTextDe": "Welche Verwandtschaftsrolle hat Mark laut Text?",
+      "currentTextDe": "Welche Verwandtschaftsrolle kann »Onkel« bezeichnen?"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.words.q2:sitov.pretest.a11-08.words.q2.a",
+      "previousTextDe": "Er ist der Vater des Sprechers.",
+      "currentTextDe": "Den Vater einer Person."
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.words.q2:sitov.pretest.a11-08.words.q2.b",
+      "previousTextDe": "Er ist der Bruder des Sprechers.",
+      "currentTextDe": "Einen Bruder der Person selbst."
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.words.q2:sitov.pretest.a11-08.words.q2.c",
+      "previousTextDe": "Er ist der Onkel des Sprechers.",
+      "currentTextDe": "Einen Bruder eines Elternteils."
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.words.q4:prompt",
+      "previousTextDe": "Wie alt ist der Bruder nach der Zahl im Text?",
+      "currentTextDe": "Welche Zahlendarstellung passt zu »zwanzig Jahre alt«?"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.verbs.q6:prompt",
+      "previousTextDe": "Welche Person und Zahl hat »telefonieren« in diesem Satz?",
+      "currentTextDe": "Übung: »Wir telefonieren.« Welche Person und Zahl gehört hier zu »telefonieren«?"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.syntax.q1:prompt",
+      "previousTextDe": "Was wird über das Foto ausgesagt?",
+      "currentTextDe": "Übung: »Hier ist ein Foto von meiner Familie.« Welche Aussage beschreibt das Motiv des Fotos?"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.syntax.q2:prompt",
+      "previousTextDe": "Welche Aussage stimmt mit dem Satz über Mark überein?",
+      "currentTextDe": "Übung: »Mein Onkel heißt Mark.« Welche Aussage stimmt mit diesem Satz überein?"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.syntax.q3:prompt",
+      "previousTextDe": "Wie steht der Onkel zum Kochen?",
+      "currentTextDe": "Übung: »Mein Onkel kocht gern.« Welche Vorliebe drückt »gern« aus?"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.syntax.q4:prompt",
+      "previousTextDe": "Wer hört nach den beiden Sätzen gern Musik?",
+      "currentTextDe": "Übung: »Oleg ist mein Vater. Er hört gern Musik.« Wer hört gern Musik?"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.syntax.q6:prompt",
+      "previousTextDe": "Welche zwei Tätigkeiten werden für »wir« verbunden?",
+      "currentTextDe": "Übung: »Wir lachen und telefonieren.« Welche beiden Tätigkeiten werden verbunden?"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.nominal.q1:prompt",
+      "previousTextDe": "Welcher Artikel steht im Text direkt vor »Foto«?",
+      "currentTextDe": "Ergänze den unbestimmten Artikel: »Das ist … Foto.«"
+    },
+    {
+      "key": "sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.nominal.q5:prompt",
+      "previousTextDe": "Warum steht in der Altersangabe »Jahre« statt »Jahr«?",
+      "currentTextDe": "Warum steht in »zwanzig Jahre alt« die Form »Jahre« und nicht »Jahr«?"
+    },
+    {
+      "key": "sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.words.q2:prompt",
+      "previousTextDe": "Zu welcher Uhrzeit beginnt der Kurs?",
+      "currentTextDe": "Welche Uhrzeit bezeichnet die Angabe »um neun Uhr«?"
+    },
+    {
+      "key": "sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.words.q5:prompt",
+      "previousTextDe": "Welches Verkehrsmittel nutzt der Sprecher?",
+      "currentTextDe": "Übung: »Ich nehme den Bus.« Welches Verkehrsmittel nennt der Sprecher?"
+    },
+    {
+      "key": "sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.syntax.q1:prompt",
+      "previousTextDe": "Welche zeitliche Reihenfolge geben die beiden Sätze an?",
+      "currentTextDe": "Übung: »Ich gehe um acht Uhr aus dem Haus. Der Kurs beginnt um neun Uhr.« Welche zeitliche Reihenfolge geben die Sätze an?"
+    },
+    {
+      "key": "sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.syntax.q4:prompt",
+      "previousTextDe": "Wo steigt der Sprecher nach diesem Satz aus?",
+      "currentTextDe": "Übung: »Ich steige am Bahnhof aus.« Wo erfolgt das Aussteigen?"
+    },
+    {
+      "key": "sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.syntax.q5:prompt",
+      "previousTextDe": "Wer wartet vor der Tür?",
+      "currentTextDe": "Übung: »Vor der Tür wartet mein Freund.« Wer wartet dort?"
+    },
+    {
+      "key": "sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.syntax.q6:prompt",
+      "previousTextDe": "Was tun die mit »wir« bezeichneten Personen am Ende?",
+      "currentTextDe": "Übung: »Wir gehen zusammen hinein.« Welche Bewegung beschreibt der Satz?"
+    },
+    {
+      "key": "sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.nominal.q3:prompt",
+      "previousTextDe": "Welche Form steht im Text zwischen »mit« und »Bus«?",
+      "currentTextDe": "Ergänze den bestimmten Artikel: »Ich fahre mit … Bus.«"
+    },
+    {
+      "key": "sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.nominal.q6:prompt",
+      "previousTextDe": "Wen bezeichnet »wir« im anschließenden Satz am naheliegenden Textanschluss?",
+      "currentTextDe": "Übung: »Mein Freund und ich treffen uns. Wir gehen gemeinsam hinein.« Welche Personen bezeichnet »wir« hier?"
+    }
+  ],
+  "aliasCount": 1152,
+  "distinctAliasStrings": 964,
+  "correctOptionIdsChanged": 0,
+  "correctOptionTextsChanged": 2,
+  "limitsDe": "Nur die unabhängig von M bestätigten 24 Kontextlücken und neun Formulierungsempfehlungen berichtigt. Vorher/Nachher-Bericht ist Autorenprüfung; M muss alle neuen Formulierungen unabhängig prüfen. Unveränderte alte QA-Definitionen, Aufnahmen und Historie wurden nicht berührt.",
+  "first3WholeRecordHash": "64ef9ff63db660b92316c30d41b47eced8d84855e9ae3b68d071759169f75f45",
+  "final10_12WholeRecordHash": "5d1b19f3ead1bf62163e537dfd3b18d4bdaea534ded879789924d01c80acc156"
+}
