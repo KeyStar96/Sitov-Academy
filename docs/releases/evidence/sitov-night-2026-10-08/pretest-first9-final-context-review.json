@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "groupId": "SITOV-NIGHT-2026-10-08",
+  "documentRef": "sitov.editorial.review.first9-final-context-v1",
+  "sourceIntegrationSha": "2b89261f161f49328abe2ae4d6ff7d468bebf826",
+  "sourceWorkerCommits": [
+    "49ac138bea0f57273f84e06c2c79fa56d4aff3db",
+    "8aeea7e6f243e1024bf5238791a6ecdbc37c9124"
+  ],
+  "reviewer": "sitov.agent.M",
+  "reviewerKind": "independent_agent_editorial_review",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T03:55:53.506Z",
+  "scope": "Independent216 visible-context review then all33 revised prompts/options/keys/rationales and finaladjective direction individually reread; exact33 changes and39aliases mechanically verified with preservedsource/matrix/forms/criteria/IDs. Context/editorial review of private drafts, no empirical/whole-platform acceptance.",
+  "result": "semantic_visible_context_review_pass_draft_only",
+  "previous216ReviewDocumentSha256": "6a02ef6ab380fc6235316ddc4d2a7fe7a067c1e105f03304528481d4a4f2cd7a",
+  "changedQuestions": 33,
+  "changedAudioAliases": 39,
+  "aliasCount": 1152,
+  "distinctAudioStrings": 964,
+  "first3AndFull10_12Preserved": true,
+  "frozen10_12AudioInputsPreserved": true,
+  "audioPreparationAuthorized": true,
+  "publicationAuthorized": false,
+  "rows": [
+    {
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+      "level": "A1.1",
+      "definitionContentHash": "3acc700ac24ba272b4ad35173befbcaab3b19c63ac163077d2fef706c51a4f5d",
+      "publicationAuthorized": false
+    },
+    {
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+      "level": "A1.1",
+      "definitionContentHash": "4c228fd7de28e9ed0e4b3b864573a6ade71d4c3dd542ac8786170694cada7b26",
+      "publicationAuthorized": false
+    },
+    {
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+      "level": "A1.1",
+      "definitionContentHash": "3ed5e3fa3c214d2d4d9717bb81d75548fa66810a76ba078abba6f6ca63126ec4",
+      "publicationAuthorized": false
+    },
+    {
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "textVersion": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+      "level": "A1.1",
+      "definitionContentHash": "6b192633e63b737a845cef7b00312e7dd5515d869b7a9fe8e97065ed0970a5c5",
+      "publicationAuthorized": false
+    },
+    {
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "textVersion": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
+      "level": "A1.1",
+      "definitionContentHash": "a0d76a2c9a20bdb5c076c4764758476a8f538c134f20e31d103e08e8731d6949",
+      "publicationAuthorized": false
+    },
+    {
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+      "level": "A1.1",
+      "definitionContentHash": "98048a069fee6e53ce82130bf5932e56f6e351aeaf46fe6261aab7521675410e",
+      "publicationAuthorized": false
+    }
+  ],
+  "remaining": "Actualfinalquestionaudio/reuse/wordtimings/import/proofs and calibration; oldQAdefinitions/attempts/pass histories unchanged and oldpasses never transfer to newtestversion."
+}
