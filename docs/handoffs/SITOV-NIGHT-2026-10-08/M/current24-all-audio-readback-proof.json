@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-09T12:38:52.877375+00:00",
+  "scope": "Actual read-only complete current24 proposed/inactive M-reviewed definitions: every unique public audio text and primary reference MP3 and metadata; subjective listening quality/human calibration not claimed. Old active legacy assets not overwritten.",
+  "uniqueTextAssets": 1918,
+  "actualByteReadbacks": 1918,
+  "lexicalAndNumericIntervals": 11066,
+  "zeroPunctuationTokens": 202,
+  "failures": [],
+  "eligibleForInactiveImport": true,
+  "sourcePayloadSha256": "2a9e67ad070691021fc2fa19716bbb4690d1ddbf676699e8290cd9afb67dc33f",
+  "qaWrite": false,
+  "productionWrite": false,
+  "privateCompleteReceiptSha256": "adf6af1e869d9bf20c87fbd9929f8adcfe58af33aebfa97587fb824d4790fd24"
+}
