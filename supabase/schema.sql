@@ -24987,7 +24987,7 @@ LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
 DECLARE role_name text:=coalesce(nullif(current_setting('role',true),'none'),session_user);
  item jsonb; e public.learning_exercises; old jsonb; candidate jsonb; before_full jsonb;
  before_hash text; after_hash text; existing path_private.sitov_content_revision_receipts;
- lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text;
+ lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text; card_count integer; card_node public.path_nodes;
 BEGIN
  IF role_name<>'service_role' THEN RAISE EXCEPTION 'not_authorized' USING ERRCODE='42501'; END IF;
  IF p_request_id IS NULL OR jsonb_typeof(p_items) IS DISTINCT FROM 'array' THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
@@ -25017,8 +25017,26 @@ BEGIN
    OR old#>>'{parent,node_unit_id}' IS DISTINCT FROM e.unit_id::text THEN RAISE EXCEPTION 'sitov_revision_parent_conflict' USING ERRCODE='40001'; END IF;
   before_hash:=path_private.sitov_revision_hash(old); after_hash:=path_private.sitov_revision_hash(candidate);
   IF item->>'expected_hash' IS DISTINCT FROM before_hash
-   OR (candidate-ARRAY['content','translations']) IS DISTINCT FROM (old-ARRAY['content','translations'])
+   OR (candidate-ARRAY['content','translations','explanation_card']) IS DISTINCT FROM (old-ARRAY['content','translations','explanation_card'])
   THEN RAISE EXCEPTION 'sitov_revision_version_conflict' USING ERRCODE='40001'; END IF;
+  -- Reviewed pointer correction is an archived source delta, never a
+  -- pre-archive patch. Lock and count every active exact same-unit binding.
+  IF candidate->'explanation_card' IS DISTINCT FROM old->'explanation_card' THEN
+   IF jsonb_typeof(candidate->'explanation_card') IS DISTINCT FROM 'string'
+    OR NOT path_private.valid_text(candidate->'explanation_card',100)
+   THEN RAISE EXCEPTION 'sitov_revision_card_binding_invalid' USING ERRCODE='23514'; END IF;
+   card_count:=0;
+   FOR card_node IN SELECT n.* FROM public.path_nodes n WHERE n.unit_id=e.unit_id
+    AND n.kind='practice' AND n.is_active AND n.merkkarte->>'card'=candidate->>'explanation_card'
+    ORDER BY n.id FOR SHARE LOOP
+    card_count:=card_count+1;
+    IF jsonb_typeof(card_node.merkkarte) IS DISTINCT FROM 'object'
+     OR NOT path_private.valid_text(card_node.merkkarte->'rule')
+     OR NOT path_private.valid_strings(card_node.merkkarte->'examples',1,false)
+    THEN RAISE EXCEPTION 'sitov_revision_card_binding_invalid' USING ERRCODE='23514'; END IF;
+   END LOOP;
+   IF card_count<>1 THEN RAISE EXCEPTION 'sitov_revision_card_binding_invalid' USING ERRCODE='23514'; END IF;
+  END IF;
   IF after_hash IS NULL OR before_hash=after_hash OR NOT path_private.valid_content(e.type,candidate->'content')
    OR jsonb_typeof(candidate->'translations') IS DISTINCT FROM 'object'
    OR NOT path_private.only_keys(candidate->'translations',ARRAY['de','en','ru','uk','tr'])
@@ -25042,7 +25060,7 @@ BEGIN
    RAISE EXCEPTION 'sitov_revision_special_dependency' USING ERRCODE='23514';
   END IF;
   before_full:=path_private.sitov_revision_full(e.id);
-  UPDATE public.learning_exercises SET content=candidate->'content' WHERE id=e.id;
+  UPDATE public.learning_exercises SET content=candidate->'content',explanation_card=candidate->>'explanation_card' WHERE id=e.id;
   FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
    t:=candidate->'translations'->lang;
    INSERT INTO public.grammar_translations(exercise_id,locale,instruction,hint,explanation,prompt,task,gap_hint)
