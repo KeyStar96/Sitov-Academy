@@ -1,0 +1,60 @@
+{
+  "target": "51d989a112a9c89c7f0aaa478dc082994b6a2919",
+  "readOnly": true,
+  "policies": [
+    {
+      "cmd": "SELECT",
+      "kind": "PERMISSIVE",
+      "qual": "(learning_private.german_text_allowed(sentence_de) AND learning_private.german_text_allowed(focus) AND learning_private.unit_allowed(unit_id))",
+      "roles": [
+        "authenticated"
+      ],
+      "policy": "released_content_read"
+    },
+    {
+      "cmd": "ALL",
+      "kind": "PERMISSIVE",
+      "qual": "(( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))",
+      "roles": [
+        "authenticated"
+      ],
+      "policy": "staff_manage"
+    },
+    {
+      "cmd": "ALL",
+      "kind": "RESTRICTIVE",
+      "qual": "( SELECT sitov_security_private.sitov_staff_mfa_satisfied() AS sitov_staff_mfa_satisfied)",
+      "roles": [
+        "authenticated"
+      ],
+      "policy": "sitov_staff_mfa"
+    },
+    {
+      "cmd": "SELECT",
+      "kind": "RESTRICTIVE",
+      "qual": "sitov_access_private.item_allowed(uid(), 'reading_text'::text, (id)::text)",
+      "roles": [
+        "authenticated"
+      ],
+      "policy": "sitov_commercial_item_scope"
+    },
+    {
+      "cmd": "SELECT",
+      "kind": "RESTRICTIVE",
+      "qual": "(sitov_pronunciation_private.staff_preview() OR sitov_pronunciation_private.current_pass(id))",
+      "roles": [
+        "authenticated"
+      ],
+      "policy": "sitov_pronunciation_readiness_bounds"
+    },
+    {
+      "cmd": "SELECT",
+      "kind": "PERMISSIVE",
+      "qual": "(sitov_pronunciation_private.current_pass(id) AND learning_private.german_text_allowed(sentence_de) AND learning_private.german_text_allowed(focus))",
+      "roles": [
+        "authenticated"
+      ],
+      "policy": "sitov_pretest_released_read"
+    }
+  ]
+}

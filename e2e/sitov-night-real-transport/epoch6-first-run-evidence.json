@@ -1,0 +1,63 @@
+{
+  "passed": false,
+  "target": "51d989a112a9c89c7f0aaa478dc082994b6a2919",
+  "checks": [
+    {
+      "check": "zero old vocabulary/verb/path evidence",
+      "passed": true
+    },
+    {
+      "check": "reference target hidden before individual pass",
+      "passed": true
+    },
+    {
+      "check": "new recording ticket denied before pass",
+      "passed": true
+    },
+    {
+      "check": "zeroevidence learner starts actual current test",
+      "passed": true
+    },
+    {
+      "check": "explicit private keys absent from public DTO",
+      "passed": true
+    },
+    {
+      "check": "start retry exact attempt",
+      "passed": true
+    },
+    {
+      "check": "foreign attempt denied",
+      "passed": true
+    },
+    {
+      "check": "grader uses only guarded private own-attempt answer keys",
+      "passed": true
+    },
+    {
+      "check": "stale revision denied",
+      "passed": true
+    },
+    {
+      "check": "answers saved persistently",
+      "passed": true
+    },
+    {
+      "check": "save exact retry",
+      "passed": true
+    },
+    {
+      "check": "actual persisted individual pass",
+      "passed": true
+    },
+    {
+      "check": "double submit returns exact receipt",
+      "passed": true
+    }
+  ],
+  "error_type": "AssertionError",
+  "failure": "QA assertion failed: exactly passed first3 text reference unlocks",
+  "nextBrowserTested": false,
+  "onlyOwnFixtureCleanupPassed": true,
+  "newSyntheticAccounts": 3
+}

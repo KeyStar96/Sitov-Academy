@@ -1,0 +1,22 @@
+{
+  "target": "51d989a112a9c89c7f0aaa478dc082994b6a2919",
+  "readOnly": true,
+  "staff_mfa": "CREATE OR REPLACE FUNCTION sitov_security_private.sitov_staff_mfa_satisfied()\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\n SELECT NOT sitov_security_private.sitov_staff_mfa_required() OR\n  (COALESCE((SELECT auth.jwt())->>'aal','')='aal2' AND EXISTS(\n   SELECT 1 FROM auth.mfa_factors WHERE user_id=(SELECT auth.uid()) AND status='verified' AND factor_type='totp'))\n$function$\n",
+  "text_checks": [
+    {
+      "focus_allowed": true,
+      "sentence_allowed": true
+    },
+    {
+      "focus_allowed": true,
+      "sentence_allowed": true
+    },
+    {
+      "focus_allowed": true,
+      "sentence_allowed": true
+    }
+  ],
+  "german_text_allowed": "CREATE OR REPLACE FUNCTION learning_private.german_text_allowed(p_text text)\n RETURNS boolean\n LANGUAGE sql\n IMMUTABLE\n SET search_path TO ''\nAS $function$\n -- NFC closes decomposed forms such as s + combining cedilla. Cyrillic blocks\n -- include supplements, combining/extended forms and Extended-D above the BMP.\n SELECT normalize(coalesce(p_text,''),NFC) !~ U&'[\\0400-\\052F\\1C80-\\1C8F\\1D2B\\1D78\\2DE0-\\2DFF\\A640-\\A69F\\+01E030-\\+01E08F\\0131\\011F\\015F\\0130\\011E\\015E]'\n$function$\n",
+  "current_pass": "CREATE OR REPLACE FUNCTION sitov_pronunciation_private.current_pass(p_text uuid)\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\n SELECT auth.uid() IS NOT NULL AND sitov_access_private.item_allowed(auth.uid(),'reading_text',p_text::text) AND EXISTS(SELECT 1 FROM sitov_pronunciation_private.pretest_passes p WHERE p.student_id=auth.uid() AND p.definition_id=(sitov_pronunciation_private.current_pretest(p_text)).id) $function$\n",
+  "staff_mfa_required": "CREATE OR REPLACE FUNCTION sitov_security_private.sitov_staff_mfa_required()\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\n SELECT EXISTS(SELECT 1 FROM public.profiles WHERE id=(SELECT auth.uid())\n  AND role='admin' AND sitov_mfa_required)\n$function$\n"
+}
