@@ -1,0 +1,15 @@
+# Sitov Academy — S3 epoch46: plausible A2.2 distractors
+
+Base: `3ac8858b89bf0445c7bd9a4dcac3e916c6fbf214`; branch: `codex/sitov-night-s3-a22-distractor-quality`.
+
+Only pools31–33 change.38 full question records have revised wrong options and rationales. The distractors now represent plausible confusions within the assessed field: punctual/early/late, platform/track/hall, announcement/display/private conversation, transfer/end of journey/seat change, possibility/duty/wish, contrast/cause/addition, arrival/departure/duration, proposal/order/decision, work/commuting/leave, start/end, planting/watering/picking, shared/separate/delegated action and prior/current/other comparison. No absurd unrelated objects or repeated ausdrücklich/ausschließlich scaffolding remain in the new pools. Appropriate case, inflection, tense and word-order distractors remain.
+
+Two public prompts are narrowly clarified so plausible pronoun alternatives are uniquely wrong: `sitov.pretest.a22-03.verbs.q6` adds gegenseitig, excluding a self-reference reading of uns; `sitov.pretest.a22-03.syntax.q2` introduces unseres Hauses and Wir Nachbarn so Haus/Nachbarn are visible genus/number alternatives to Innenhof. Original source text/spans are unchanged. Every correct answer text, correct ID, option ID/order, assessment unit, mapping, matrix, form, CSPRNG schedule and all first30 definitions/M reviews remain exact.
+
+76 public alias values change (74 wrong-option values and2 prompts); all3168 keys/order remain unchanged. The first2880 entries are exact. Audio aliases are candidate texts only and require newly bound prepared audio before publication.
+
+`epoch46-a22-distractor-quality-delta.json` records every changed complete previous/current task, both complete alias sets per changed task, every changed alias value, all three previous/current reviews and definition hashes, original/current manifest/audio content+byte hashes, frozen30/2880 hashes and a fresh full current audit of all72 questions. All72 were rechecked by S3; status remains independent-M-review-pending, humanfalse/calibrationpending.
+
+The test script restores every previous full task/review and alias value BEFORE immutable epoch45 and all older proofs; no old audit/hash is rewritten. All84 previous tests remain active. Three new tests cover exact conservation/delta/history, field-specific confusion regressions/old absurd options/necessary public reference context, and actual repaired33/3168 with all72 audit fields and honest reviews.
+
+Validation:87/87 offline tests PASS; CLI PASS33/60,27pending,3168aliases,89inactivelegacy;7/7 unchanged author-contract Jest tests PASS; git diff --check PASS. These checks are regression evidence, not a semantic grading engine or independent editorial approval. M must independently review the corrected distractors and bind new definition/audio versions. No SQL/QA/native/browser/TTS/model/audio asset generation/import/app/runtime/publication/full suite/build/deployment/reset occurred. New pools remain private/inactive; NOT_RELEASE_READY. S3 returns WAIT within the original epoch46 lease.

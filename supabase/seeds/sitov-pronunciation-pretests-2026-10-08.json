@@ -31748,9 +31748,9 @@
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "S3 erneute Autorenprüfung aller72 Fragen der drei A2.2-Pools: plausible feldnahe Distraktoren, eindeutige öffentliche Prämissen und unveränderte korrekte Antworttexte/IDs; zwei sichtbare Pronomenkontexte präzisiert. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend.",
         "textVersion": "1b5528f6e4495967dafbb7616d771f0290f3d1bcbca65da8908551163e06d596",
-        "definitionContentHash": "f283b301a81dd1cdfc75b02ab69d0a5f95d9d720a78990245225ca2ac5ebe5fd"
+        "definitionContentHash": "edf7265614b3988ecb570172eaacc86f3682b46b441928dcd1d04be6f4f3cfa5"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -31972,7 +31972,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-01.words.q1.b",
-                "textDe": "Der Zug ist ausdrücklich ein Fahrrad."
+                "textDe": "Der Zug kommt genau zur vorgesehenen Zeit."
               },
               {
                 "id": "sitov.pretest.a22-01.words.q1.a",
@@ -31980,7 +31980,7 @@
               },
               {
                 "id": "sitov.pretest.a22-01.words.q1.c",
-                "textDe": "Der Zug fährt ausdrücklich früher als vorgesehen."
+                "textDe": "Der Zug kommt früher als vorgesehen."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-01.words.q1.a",
@@ -31993,7 +31993,7 @@
                 "quote": "Verspätung"
               }
             ],
-            "rationaleDe": "Verspätung bedeutet eine Verzögerung gegenüber dem Plan; frühere Fahrt oder ein Fahrrad ist nicht gemeint."
+            "rationaleDe": "Verspätung bedeutet später als geplant; die erste Alternative beschreibt Pünktlichkeit, die zweite eine frühere Ankunft."
           },
           {
             "id": "sitov.pretest.a22-01.words.q2",
@@ -32004,11 +32004,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-01.words.q2.a",
-                "textDe": "Ein Sportplatz ausschließlich für Fußball."
+                "textDe": "Der Schienenweg, auf dem die Züge rollen."
               },
               {
                 "id": "sitov.pretest.a22-01.words.q2.c",
-                "textDe": "Eine Anleitung zum Kuchenbacken."
+                "textDe": "Die Eingangshalle, in der Reisende auf den Zugang zu den Gleisen warten."
               },
               {
                 "id": "sitov.pretest.a22-01.words.q2.b",
@@ -32025,7 +32025,7 @@
                 "quote": "Bahnsteig"
               }
             ],
-            "rationaleDe": "Ein Bahnsteig liegt am Gleis und dient dem Ein- und Aussteigen; Sportplatz und Backanleitung sind etwas anderes."
+            "rationaleDe": "Der Bahnsteig ist der Ein- und Ausstiegsbereich neben dem Gleis; Schienenweg bezeichnet das Gleis, Eingangshalle einen anderen Bahnhofsbereich."
           },
           {
             "id": "sitov.pretest.a22-01.words.q3",
@@ -32036,7 +32036,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-01.words.q3.a",
-                "textDe": "Ein Kleidungsstück für den Oberkörper."
+                "textDe": "Eine schriftliche Information auf einer Anzeigetafel."
               },
               {
                 "id": "sitov.pretest.a22-01.words.q3.c",
@@ -32044,7 +32044,7 @@
               },
               {
                 "id": "sitov.pretest.a22-01.words.q3.b",
-                "textDe": "Ein verschlossenes Heizungsbauteil."
+                "textDe": "Ein persönliches Gespräch zwischen zwei Fahrgästen ohne öffentliche Ansage."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-01.words.q3.c",
@@ -32057,7 +32057,7 @@
                 "quote": "Durchsage"
               }
             ],
-            "rationaleDe": "Eine Durchsage teilt Informationen hörbar mit, oft über Lautsprecher; Kleidung und Bauteile sind Gegenstände."
+            "rationaleDe": "Eine Durchsage ist eine hörbar mitgeteilte Information; die Anzeigetafel ist schriftlich, das private Gespräch keine öffentliche Ansage."
           },
           {
             "id": "sitov.pretest.a22-01.words.q4",
@@ -32068,11 +32068,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-01.words.q4.a",
-                "textDe": "Im selben Zug ausdrücklich sitzen bleiben."
+                "textDe": "Den Zug verlassen und die Fahrt an diesem Ort beenden."
               },
               {
                 "id": "sitov.pretest.a22-01.words.q4.b",
-                "textDe": "Den Zug ausschließlich neu anstreichen."
+                "textDe": "Im selben Zug auf einen anderen Sitzplatz wechseln."
               },
               {
                 "id": "sitov.pretest.a22-01.words.q4.c",
@@ -32089,7 +32089,7 @@
                 "quote": "umsteigen"
               }
             ],
-            "rationaleDe": "Umsteigen bedeutet den Wechsel in einen anderen Zug oder ein anderes Verkehrsmittel; sitzen bleiben oder Streichen passt nicht."
+            "rationaleDe": "Umsteigen wechselt den Zug; die erste Alternative beschreibt Aussteigen am Ziel, die zweite nur einen Sitzplatzwechsel."
           },
           {
             "id": "sitov.pretest.a22-01.words.q5",
@@ -32104,11 +32104,11 @@
               },
               {
                 "id": "sitov.pretest.a22-01.words.q5.b",
-                "textDe": "Ein einzelner leerer Koffer."
+                "textDe": "Jemand, der am Ziel auf Reisende wartet, ohne selbst mitzufahren."
               },
               {
                 "id": "sitov.pretest.a22-01.words.q5.c",
-                "textDe": "Ein Handwerker, der ausdrücklich nur zu Hause bleibt."
+                "textDe": "Jemand, der andere am Start verabschiedet und dort bleibt."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-01.words.q5.a",
@@ -32121,7 +32121,7 @@
                 "quote": "Mitreisender"
               }
             ],
-            "rationaleDe": "Ein Mitreisender reist ebenfalls mit; zu Hause bleibender Handwerker und leerer Koffer sind keine Mitreisenden."
+            "rationaleDe": "Ein Mitreisender fährt ebenfalls mit; Abholender und Zurückbleibender nehmen an dieser Fahrt nicht teil."
           },
           {
             "id": "sitov.pretest.a22-01.words.q6",
@@ -32136,11 +32136,11 @@
               },
               {
                 "id": "sitov.pretest.a22-01.words.q6.c",
-                "textDe": "Eine gedruckte Kuchenanleitung."
+                "textDe": "Der Bereich neben den Schienen, auf dem Fahrgäste auf den Zug warten."
               },
               {
                 "id": "sitov.pretest.a22-01.words.q6.a",
-                "textDe": "Ein Kleidungsstück aus Wolle."
+                "textDe": "Das ganze Bahnhofsgebäude mit seinen Räumen."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-01.words.q6.b",
@@ -32153,7 +32153,7 @@
                 "quote": "Gleis"
               }
             ],
-            "rationaleDe": "Ein Gleis ist der Schienenweg für Züge; Rezept und Wollkleidung haben andere Funktionen."
+            "rationaleDe": "Das Gleis ist der Schienenweg; die Wartefläche daneben ist der Bahnsteig, das gesamte Gebäude der Bahnhof."
           },
           {
             "id": "sitov.pretest.a22-01.verbs.q1",
@@ -32164,11 +32164,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-01.verbs.q1.c",
-                "textDe": "wohnen"
+                "textDe": "mögen"
               },
               {
                 "id": "sitov.pretest.a22-01.verbs.q1.b",
-                "textDe": "wählen"
+                "textDe": "sollen"
               },
               {
                 "id": "sitov.pretest.a22-01.verbs.q1.a",
@@ -32185,7 +32185,7 @@
                 "quote": "Wir wollten"
               }
             ],
-            "rationaleDe": "Wollten ist die Präteritumform von wollen für wir oder sie; wählen und wohnen sind andere Verben."
+            "rationaleDe": "Wollten gehört zu wollen; mögen bildet etwa mochten, sollen bildet sollten. Die drei Modalverben haben unterschiedliche Präteritumstämme."
           },
           {
             "id": "sitov.pretest.a22-01.verbs.q2",
@@ -32196,7 +32196,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-01.verbs.q2.c",
-                "textDe": "Eine ausdrücklich nie bestehende Fähigkeit."
+                "textDe": "Eine Verpflichtung in der Vergangenheit."
               },
               {
                 "id": "sitov.pretest.a22-01.verbs.q2.b",
@@ -32204,7 +32204,7 @@
               },
               {
                 "id": "sitov.pretest.a22-01.verbs.q2.a",
-                "textDe": "Ein ausdrücklich zukünftiges Verbot."
+                "textDe": "Ein Wunsch in der Vergangenheit."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-01.verbs.q2.b",
@@ -32217,7 +32217,7 @@
                 "quote": "nehmen konnten"
               }
             ],
-            "rationaleDe": "Konnten beschreibt eine vergangene Möglichkeit; zukünftiges Verbot und völliges Unvermögen widersprechen dem Satz."
+            "rationaleDe": "Konnten drückt eine vergangene Möglichkeit aus; Verpflichtung wäre mussten, ein Wunsch wollten."
           },
           {
             "id": "sitov.pretest.a22-01.verbs.q3",
@@ -32296,7 +32296,7 @@
               },
               {
                 "id": "sitov.pretest.a22-01.verbs.q5.a",
-                "textDe": "Präsens (Gegenwart)."
+                "textDe": "Präteritum (einfache Vergangenheit ohne zusammengesetzte Verbform)."
               },
               {
                 "id": "sitov.pretest.a22-01.verbs.q5.b",
@@ -32313,7 +32313,7 @@
                 "quote": "hatten das Essen warm gehalten"
               }
             ],
-            "rationaleDe": "Hatten ist das Hilfsverb im Präteritum und gehalten das Partizip; zusammen bilden sie das Plusquamperfekt."
+            "rationaleDe": "Hatten zusammen mit gehalten bildet Plusquamperfekt; Präteritum wäre eine einfache Form, Perfekt hätte haben im Präsens."
           },
           {
             "id": "sitov.pretest.a22-01.verbs.q6",
@@ -32356,7 +32356,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-01.syntax.q1.c",
-                "textDe": "Die Verspätung bestätigt ausdrücklich eine frühere Ankunft."
+                "textDe": "Die Reisenden planten die frühe Fahrt, weil der Zug Verspätung hatte."
               },
               {
                 "id": "sitov.pretest.a22-01.syntax.q1.a",
@@ -32364,7 +32364,7 @@
               },
               {
                 "id": "sitov.pretest.a22-01.syntax.q1.b",
-                "textDe": "Beide Satzteile werden ausdrücklich verneint."
+                "textDe": "Der frühe Reiseplan und die Verspätung werden ohne Gegensatz aufgezählt."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-01.syntax.q1.a",
@@ -32377,7 +32377,7 @@
                 "quote": "doch unser Zug hatte Verspätung"
               }
             ],
-            "rationaleDe": "Doch markiert einen Gegensatz zwischen dem frühen Reiseplan und der Verspätung; frühere Ankunft oder doppelte Verneinung steht nicht da."
+            "rationaleDe": "Doch markiert den Gegensatz zwischen Reiseplan und Verzögerung; es nennt weder die Verspätung als Planungsgrund noch eine neutrale Aufzählung."
           },
           {
             "id": "sitov.pretest.a22-01.syntax.q2",
@@ -32424,11 +32424,11 @@
               },
               {
                 "id": "sitov.pretest.a22-01.syntax.q3.a",
-                "textDe": "Weil der Sprecher ausdrücklich einen Kuchen backte."
+                "textDe": "Weil er unsicher war und deshalb in der Stadt umsteigen musste."
               },
               {
                 "id": "sitov.pretest.a22-01.syntax.q3.b",
-                "textDe": "Weil die Gruppe ausdrücklich zu Hause blieb."
+                "textDe": "Weil die Gruppe ohne Umsteigen direkt ans Ziel fahren konnte."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-01.syntax.q3.c",
@@ -32441,7 +32441,7 @@
                 "quote": "Weil wir in einer fremden Stadt umsteigen mussten, war ich zunächst unsicher."
               }
             ],
-            "rationaleDe": "Der öffentliche weil-Satz nennt das Umsteigen in einer fremden Stadt als Grund; Zuhausesein und Kuchenbacken sind nicht genannt."
+            "rationaleDe": "Der weil-Satz nennt das nötige Umsteigen als Grund der Unsicherheit; die erste Alternative kehrt Ursache und Folge um, die zweite verneint den genannten Umstieg."
           },
           {
             "id": "sitov.pretest.a22-01.syntax.q4",
@@ -32484,11 +32484,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-01.syntax.q5.c",
-                "textDe": "Die Körpergröße zweier Mitarbeiter."
+                "textDe": "Die tatsächliche und die geplante Abfahrtszeit."
               },
               {
                 "id": "sitov.pretest.a22-01.syntax.q5.a",
-                "textDe": "Die Farbe zweier Züge."
+                "textDe": "Die Wartezeit auf dem Bahnsteig und die reine Fahrzeit."
               },
               {
                 "id": "sitov.pretest.a22-01.syntax.q5.b",
@@ -32505,7 +32505,7 @@
                 "quote": "zwei Stunden später an als geplant"
               }
             ],
-            "rationaleDe": "Später als geplant vergleicht die Ankunftszeiten; zwei Stunden nennt die zeitliche Abweichung, nicht Körpergröße oder Farbe."
+            "rationaleDe": "Kamen an bezieht den Vergleich auf die Ankunft; weder Abfahrtszeit noch Wartezeit und Fahrtdauer werden miteinander verglichen."
           },
           {
             "id": "sitov.pretest.a22-01.syntax.q6",
@@ -32516,7 +32516,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-01.syntax.q6.a",
-                "textDe": "Es wird ausdrücklich nur die Zugfarbe verglichen."
+                "textDe": "Die lange Fahrt war der Grund dafür, dass der Abend schön wurde."
               },
               {
                 "id": "sitov.pretest.a22-01.syntax.q6.b",
@@ -32524,7 +32524,7 @@
               },
               {
                 "id": "sitov.pretest.a22-01.syntax.q6.c",
-                "textDe": "Die Fahrt verhindert ausdrücklich jeden schönen Abend."
+                "textDe": "Die lange Fahrt führte dazu, dass der Abend nicht schön wurde."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-01.syntax.q6.b",
@@ -32537,7 +32537,7 @@
                 "quote": "Trotz der langen Fahrt wurde es noch ein schöner Abend."
               }
             ],
-            "rationaleDe": "Trotz nennt einen hinderlichen Umstand, der das schöne Ergebnis nicht verhindert; Verhinderung und Farbvergleich stehen nicht da."
+            "rationaleDe": "Trotz nennt ein Hindernis, ungeachtet dessen das Ergebnis schön ist; die Alternativen lesen es fälschlich als positive Ursache oder kehren das Ergebnis um."
           },
           {
             "id": "sitov.pretest.a22-01.nominal.q1",
@@ -32788,9 +32788,9 @@
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "S3 erneute Autorenprüfung aller72 Fragen der drei A2.2-Pools: plausible feldnahe Distraktoren, eindeutige öffentliche Prämissen und unveränderte korrekte Antworttexte/IDs; zwei sichtbare Pronomenkontexte präzisiert. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend.",
         "textVersion": "a368e2f752bf04554f9a87a44ffca1ba94f8fada5515dd94ed05c8d788523717",
-        "definitionContentHash": "74bbdac4bbda5bbb0b88fc4224370f7888a165bd5a124e198820a94f5bd30923"
+        "definitionContentHash": "b02a05e7786b32fb5ed97b212e395dafb50e66c19fb471735b067b8130bb896a"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -33018,11 +33018,11 @@
               },
               {
                 "id": "sitov.pretest.a22-02.words.q1.a",
-                "textDe": "Ausschließlich die Reifen eines Zuges."
+                "textDe": "Die Zeit, die jemand für den Weg zur Arbeit braucht."
               },
               {
                 "id": "sitov.pretest.a22-02.words.q1.b",
-                "textDe": "Ausschließlich die Farben eines Hauses."
+                "textDe": "Die Anzahl der Tage, die jemand Urlaub hat."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-02.words.q1.c",
@@ -33035,7 +33035,7 @@
                 "quote": "Arbeitszeiten"
               }
             ],
-            "rationaleDe": "Arbeitszeiten nennen Zeiträume der Arbeit; Hausfarben und Zugreifen sind andere Angaben."
+            "rationaleDe": "Arbeitszeiten nennen die Zeiträume der Arbeit selbst; Arbeitsweg und Urlaub betreffen andere Zeiten rund um die Arbeit."
           },
           {
             "id": "sitov.pretest.a22-02.words.q2",
@@ -33046,11 +33046,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-02.words.q2.c",
-                "textDe": "Eine einzelne Zugdurchsage."
+                "textDe": "Nur die Stunden, in denen jemand beruflich arbeitet."
               },
               {
                 "id": "sitov.pretest.a22-02.words.q2.a",
-                "textDe": "Nur eine außergewöhnliche Feier im Jahr."
+                "textDe": "Ein besonderer Tag, der sich vom gewöhnlichen Leben abhebt."
               },
               {
                 "id": "sitov.pretest.a22-02.words.q2.b",
@@ -33067,7 +33067,7 @@
                 "quote": "Alltag"
               }
             ],
-            "rationaleDe": "Alltag bezeichnet das regelmäßige tägliche Leben; eine seltene Feier und eine einzelne Durchsage sind nicht gleichbedeutend."
+            "rationaleDe": "Alltag umfasst das gewöhnliche tägliche Leben; Arbeitsstunden sind nur ein Teil, ein besonderer Ausnahmetag steht dazu im Gegensatz."
           },
           {
             "id": "sitov.pretest.a22-02.words.q3",
@@ -33082,11 +33082,11 @@
               },
               {
                 "id": "sitov.pretest.a22-02.words.q3.c",
-                "textDe": "Ein kaputter Heizungsregler."
+                "textDe": "Eine Mitteilung, die nur schriftlich per Brief erfolgt."
               },
               {
                 "id": "sitov.pretest.a22-02.words.q3.b",
-                "textDe": "Eine Fahrt ohne jeden Kontakt."
+                "textDe": "Eine Rede ohne sprachlichen Austausch mit dem Zuhörer."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-02.words.q3.a",
@@ -33099,7 +33099,7 @@
                 "quote": "Gespräch"
               }
             ],
-            "rationaleDe": "Ein Gespräch ist ein sprachlicher Austausch; Heizungsregler und kontaktlose Fahrt bezeichnen etwas anderes."
+            "rationaleDe": "Ein Gespräch ist sprachlicher Austausch; der Brief ist schriftlich, eine Rede ohne Austausch ist kein Gespräch."
           },
           {
             "id": "sitov.pretest.a22-02.words.q4",
@@ -33110,7 +33110,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-02.words.q4.c",
-                "textDe": "Ein einzelner leerer Koffer."
+                "textDe": "Eine verbindliche Anordnung, die keine Wahl lässt."
               },
               {
                 "id": "sitov.pretest.a22-02.words.q4.a",
@@ -33118,7 +33118,7 @@
               },
               {
                 "id": "sitov.pretest.a22-02.words.q4.b",
-                "textDe": "Eine ausdrücklich bereits unveränderliche Naturregel."
+                "textDe": "Eine bereits endgültig getroffene Entscheidung."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-02.words.q4.a",
@@ -33131,7 +33131,7 @@
                 "quote": "Vorschlag"
               }
             ],
-            "rationaleDe": "Ein Vorschlag bietet eine mögliche Lösung an; unveränderliche Naturregel und Koffer haben eine andere Bedeutung."
+            "rationaleDe": "Ein Vorschlag bietet eine mögliche Lösung zur Prüfung an; eine Anordnung ist verbindlich, eine endgültige Entscheidung bereits getroffen."
           },
           {
             "id": "sitov.pretest.a22-02.words.q5",
@@ -33142,11 +33142,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-02.words.q5.a",
-                "textDe": "Ein Sitzmöbel im Park."
+                "textDe": "Eine unverbindliche Idee, über die noch nichts vereinbart wurde."
               },
               {
                 "id": "sitov.pretest.a22-02.words.q5.c",
-                "textDe": "Ein Kleidungsstück aus Wolle."
+                "textDe": "Die Zahl der bereits geleisteten Überstunden."
               },
               {
                 "id": "sitov.pretest.a22-02.words.q5.b",
@@ -33163,7 +33163,7 @@
                 "quote": "Regelung"
               }
             ],
-            "rationaleDe": "Eine Arbeitszeitregelung ordnet die Arbeitszeiten; Sitzmöbel und Wollkleidung sind keine solche Ordnung."
+            "rationaleDe": "Regelung bezeichnet eine festgelegte oder vereinbarte Ordnung; bloßer Vorschlag und gezählte Überstunden sind keine solche Regelung."
           },
           {
             "id": "sitov.pretest.a22-02.words.q6",
@@ -33174,7 +33174,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-02.words.q6.a",
-                "textDe": "Das Problem ausdrücklich vollständig verheimlichen."
+                "textDe": "Das Problem nur andeuten, ohne es klar zu benennen."
               },
               {
                 "id": "sitov.pretest.a22-02.words.q6.c",
@@ -33182,7 +33182,7 @@
               },
               {
                 "id": "sitov.pretest.a22-02.words.q6.b",
-                "textDe": "Ausschließlich ein Fenster öffnen, ohne etwas zu sagen."
+                "textDe": "Das Problem beschönigen und wichtige Schwierigkeiten verschweigen."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-02.words.q6.c",
@@ -33195,7 +33195,7 @@
                 "quote": "offen über mein Problem"
               }
             ],
-            "rationaleDe": "Offen sprechen heißt hier ehrlich ansprechen; Verheimlichen oder nur ein Fensteröffnen gibt diese Bedeutung nicht wieder."
+            "rationaleDe": "Offen sprechen heißt ehrlich und direkt ansprechen; bloßes Andeuten und Beschönigen vermeiden die offene Darstellung des Problems."
           },
           {
             "id": "sitov.pretest.a22-02.verbs.q1",
@@ -33270,7 +33270,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-02.verbs.q3.a",
-                "textDe": "Es ist ausdrücklich schon unmöglich gewesen."
+                "textDe": "Der Sprecher hat die Erlaubnis, es frei zu wählen."
               },
               {
                 "id": "sitov.pretest.a22-02.verbs.q3.b",
@@ -33278,7 +33278,7 @@
               },
               {
                 "id": "sitov.pretest.a22-02.verbs.q3.c",
-                "textDe": "Es ist ausdrücklich verboten."
+                "textDe": "Der Sprecher äußert nur einen persönlichen Wunsch."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-02.verbs.q3.b",
@@ -33291,7 +33291,7 @@
                 "quote": "zu Hause sein muss"
               }
             ],
-            "rationaleDe": "Müssen drückt hier eine Notwendigkeit aus; Verbot und vergangene Unmöglichkeit werden nicht ausgesagt."
+            "rationaleDe": "Muss nennt eine Notwendigkeit; eine freie Erlaubnis entspräche dürfen, ein bloßer Wunsch wollen oder möchten."
           },
           {
             "id": "sitov.pretest.a22-02.verbs.q4",
@@ -33302,11 +33302,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-02.verbs.q4.b",
-                "textDe": "Ein ausdrücklich unwiderrufliches Verbot."
+                "textDe": "Eine feste Zusage, morgens früher anzufangen."
               },
               {
                 "id": "sitov.pretest.a22-02.verbs.q4.a",
-                "textDe": "Eine ausdrücklich schon abgeschlossene Tat ohne Vorschlag."
+                "textDe": "Eine sichere Aussage darüber, dass er bereits früher angefangen hat."
               },
               {
                 "id": "sitov.pretest.a22-02.verbs.q4.c",
@@ -33323,7 +33323,7 @@
                 "quote": "Dafür könnte ich morgens eine Stunde früher anfangen."
               }
             ],
-            "rationaleDe": "Könnte formuliert hier eine mögliche Lösung vorsichtig; es behauptet weder ein Verbot noch eine bereits abgeschlossene Tat."
+            "rationaleDe": "Könnte bietet eine mögliche Lösung vorsichtig an; eine feste Zusage wäre verbindlich, ein Bericht über Vergangenes keine angebotene Möglichkeit."
           },
           {
             "id": "sitov.pretest.a22-02.verbs.q5",
@@ -33398,11 +33398,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-02.syntax.q1.c",
-                "textDe": "Beide Aussagen werden ausdrücklich vollständig verneint."
+                "textDe": "Der Schulbeginn beendet die Phase mit unpassenden Arbeitszeiten."
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q1.a",
-                "textDe": "Der Schulbeginn liegt ausdrücklich erst in ferner Zukunft."
+                "textDe": "Die Arbeitszeiten werden erst nach dem Schulabschluss unpassend."
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q1.b",
@@ -33419,7 +33419,7 @@
                 "quote": "Seit mein Sohn in die Schule geht"
               }
             ],
-            "rationaleDe": "Seit leitet den Beginn einer bis jetzt relevanten Situation ein; ferne Zukunft und Verneinung beider Aussagen passen nicht."
+            "rationaleDe": "Seit nennt den Schulbeginn als Anfang der neuen Situation; die erste Alternative macht ihn zum Ende, die zweite verschiebt den Beginn auf den Schulabschluss."
           },
           {
             "id": "sitov.pretest.a22-02.syntax.q2",
@@ -33430,11 +33430,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-02.syntax.q2.b",
-                "textDe": "Die Arbeitszeiten werden ausdrücklich als perfekt passend bezeichnet."
+                "textDe": "Die Bitte um ein Gespräch ist die Ursache der unpassenden Arbeitszeiten."
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q2.c",
-                "textDe": "Die Bitte wird ausdrücklich ohne Zusammenhang genannt."
+                "textDe": "Die Bitte um ein Gespräch steht im Gegensatz zu dem Problem, ohne daraus zu folgen."
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q2.a",
@@ -33451,7 +33451,7 @@
                 "quote": "Deshalb habe ich meinen Chef um ein Gespräch gebeten."
               }
             ],
-            "rationaleDe": "Deshalb nennt eine Folge des zuvor beschriebenen Problems; fehlender Zusammenhang und passende Zeiten widersprechen dem Kontext."
+            "rationaleDe": "Deshalb führt vom Problem zur Bitte als Folge; die erste Alternative vertauscht die Richtung, die zweite verwechselt Folge mit Gegensatz."
           },
           {
             "id": "sitov.pretest.a22-02.syntax.q3",
@@ -33498,11 +33498,11 @@
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q4.c",
-                "textDe": "Überhaupt nicht mehr zu arbeiten."
+                "textDe": "Morgens wie bisher zu beginnen und länger am Nachmittag zu bleiben."
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q4.b",
-                "textDe": "Morgens ausdrücklich später anzufangen."
+                "textDe": "Morgens später anzufangen, um das frühere Gehen auszugleichen."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-02.syntax.q4.a",
@@ -33515,7 +33515,7 @@
                 "quote": "Dafür könnte ich morgens eine Stunde früher anfangen."
               }
             ],
-            "rationaleDe": "Dafür verbindet das frühere Beginnen als Ausgleich mit dem früheren Gehen; späterer Beginn und Arbeitsverzicht stehen nicht da."
+            "rationaleDe": "Der sichtbare Vorschlag bietet früheren Beginn als Ausgleich für früheres Gehen; längeres Bleiben oder späterer Beginn sind andere Regelungen."
           },
           {
             "id": "sitov.pretest.a22-02.syntax.q5",
@@ -33526,7 +33526,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-02.syntax.q5.a",
-                "textDe": "Der Beginn liegt ausdrücklich eine Stunde später."
+                "textDe": "Der Beginn liegt eine Stunde nach dem bisherigen Beginn."
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q5.b",
@@ -33534,7 +33534,7 @@
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q5.c",
-                "textDe": "Der Arbeitstag wird ausdrücklich immer vollständig gestrichen."
+                "textDe": "Der Beginn bleibt gleich, das Ende liegt eine Stunde früher."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-02.syntax.q5.b",
@@ -33547,7 +33547,7 @@
                 "quote": "eine Stunde früher anfangen"
               }
             ],
-            "rationaleDe": "Früher vergleicht die Anfangszeiten und verlegt den Beginn um eine Stunde nach vorn; späterer Beginn oder Streichung passt nicht."
+            "rationaleDe": "Früher anfangen verschiebt den Beginn nach vorn; die erste Alternative kehrt die Richtung um, die zweite verschiebt stattdessen das Ende."
           },
           {
             "id": "sitov.pretest.a22-02.syntax.q6",
@@ -33562,11 +33562,11 @@
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q6.a",
-                "textDe": "Ausdrücklich nur eine Minute."
+                "textDe": "Eine Woche."
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q6.b",
-                "textDe": "Ausdrücklich zehn Jahre."
+                "textDe": "Ein Jahr."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-02.syntax.q6.c",
@@ -33579,7 +33579,7 @@
                 "quote": "zunächst für einen Monat aus"
               }
             ],
-            "rationaleDe": "Für einen Monat nennt die erste Testdauer; zehn Jahre und eine Minute widersprechen dieser öffentlichen Angabe."
+            "rationaleDe": "Für einen Monat nennt eine Monatsdauer; Woche und Jahr sind andere Zeitspannen und entsprechen nicht der öffentlichen Angabe."
           },
           {
             "id": "sitov.pretest.a22-02.nominal.q1",
@@ -33830,9 +33830,9 @@
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "S3 erneute Autorenprüfung aller72 Fragen der drei A2.2-Pools: plausible feldnahe Distraktoren, eindeutige öffentliche Prämissen und unveränderte korrekte Antworttexte/IDs; zwei sichtbare Pronomenkontexte präzisiert. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend.",
         "textVersion": "1607dcecc5c6175d72bdc6c9d5bff4260132e341189499e30f49ff814fa46ced",
-        "definitionContentHash": "9d48a5ae5014a95ec33e7ef85e576d4049bedb437907c3e7d9deff253d5302fe"
+        "definitionContentHash": "f7406cf06ef107c62a3bbe7a069a529f0eac52bdeb0f0d6c7e1e4b9338781ce4"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -34058,11 +34058,11 @@
               },
               {
                 "id": "sitov.pretest.a22-03.words.q1.b",
-                "textDe": "Eine Fahrkarte für einen Bus."
+                "textDe": "Ein Garten vor der Straßenseite eines Hauses."
               },
               {
                 "id": "sitov.pretest.a22-03.words.q1.a",
-                "textDe": "Ein Abfahrtsgleis eines Zuges."
+                "textDe": "Ein geschlossener Gemeinschaftsraum innerhalb eines Hauses."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-03.words.q1.c",
@@ -34075,7 +34075,7 @@
                 "quote": "Innenhof"
               }
             ],
-            "rationaleDe": "Ein Innenhof ist eine offene Fläche innerhalb oder zwischen Gebäudeteilen; Gleis und Fahrkarte bezeichnen andere Dinge."
+            "rationaleDe": "Innenhof bezeichnet eine offene Hoffläche im Gebäudeensemble; der Vorgarten liegt zur Straße, der Gemeinschaftsraum ist geschlossen."
           },
           {
             "id": "sitov.pretest.a22-03.words.q2",
@@ -34086,11 +34086,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-03.words.q2.c",
-                "textDe": "Der Hof war ausdrücklich besonders behaglich."
+                "textDe": "Der Hof war ohne Erlaubnis nicht zu betreten."
               },
               {
                 "id": "sitov.pretest.a22-03.words.q2.a",
-                "textDe": "Der Hof war ausdrücklich eine Uhrzeit."
+                "textDe": "Der Hof war nicht regelmäßig gepflegt worden."
               },
               {
                 "id": "sitov.pretest.a22-03.words.q2.b",
@@ -34107,7 +34107,7 @@
                 "quote": "ungemütlich"
               }
             ],
-            "rationaleDe": "Ungemütlich bedeutet wenig angenehm oder einladend; Behaglichkeit und Uhrzeit sind keine passende Bedeutung."
+            "rationaleDe": "Ungemütlich beschreibt mangelndes Wohlgefühl; Zutrittsbeschränkung und fehlende Pflege sind andere Eigenschaften und nicht die Wortbedeutung."
           },
           {
             "id": "sitov.pretest.a22-03.words.q3",
@@ -34118,7 +34118,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-03.words.q3.a",
-                "textDe": "Den Hof ausschließlich in einem Zug transportieren."
+                "textDe": "Den Hof so erhalten, wie er bisher gestaltet ist."
               },
               {
                 "id": "sitov.pretest.a22-03.words.q3.c",
@@ -34126,7 +34126,7 @@
               },
               {
                 "id": "sitov.pretest.a22-03.words.q3.b",
-                "textDe": "Den Hof ausdrücklich vollständig unverändert lassen."
+                "textDe": "Den bisherigen Zustand des Hofs beschreiben, ohne ihn zu ändern."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-03.words.q3.c",
@@ -34139,7 +34139,7 @@
                 "quote": "verändern"
               }
             ],
-            "rationaleDe": "Verändern heißt anders machen oder gestalten; unverändert lassen ist das Gegenteil, Zugtransport ist nicht gemeint."
+            "rationaleDe": "Verändern macht den Zustand anders; Erhalten bewahrt ihn, Beschreiben benennt ihn ohne Veränderung."
           },
           {
             "id": "sitov.pretest.a22-03.words.q4",
@@ -34150,7 +34150,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-03.words.q4.c",
-                "textDe": "Blumen ausschließlich als Zeitung lesen."
+                "textDe": "Blumen mit Wasser versorgen."
               },
               {
                 "id": "sitov.pretest.a22-03.words.q4.a",
@@ -34158,7 +34158,7 @@
               },
               {
                 "id": "sitov.pretest.a22-03.words.q4.b",
-                "textDe": "Blumen ausdrücklich zu Fahrkarten falten."
+                "textDe": "Blumen aus dem Beet abschneiden oder pflücken."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-03.words.q4.a",
@@ -34171,7 +34171,7 @@
                 "quote": "Blumen pflanzen"
               }
             ],
-            "rationaleDe": "Pflanzen bedeutet hier in die Erde einsetzen; Zeitunglesen und Fahrkartenfalten sind keine passende Tätigkeit."
+            "rationaleDe": "Pflanzen setzt Blumen in die Erde; Wassergeben ist Gießen, Abschneiden oder Pflücken entfernt Blumen statt sie einzusetzen."
           },
           {
             "id": "sitov.pretest.a22-03.words.q5",
@@ -34182,11 +34182,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-03.words.q5.b",
-                "textDe": "Alle haben ausdrücklich ohne jede Zusammenarbeit gehandelt."
+                "textDe": "Jeder hat für sich einen eigenen Plan gemacht."
               },
               {
                 "id": "sitov.pretest.a22-03.words.q5.c",
-                "textDe": "Der Plan wurde ausdrücklich von einem Zug geschrieben."
+                "textDe": "Ein Nachbar hat den Plan allein für die ganze Gruppe gemacht."
               },
               {
                 "id": "sitov.pretest.a22-03.words.q5.a",
@@ -34203,7 +34203,7 @@
                 "quote": "Gemeinsam"
               }
             ],
-            "rationaleDe": "Gemeinsam bedeutet zusammen; fehlende Zusammenarbeit oder ein schreibender Zug passt nicht."
+            "rationaleDe": "Gemeinsam bezieht sich auf das gemeinsame Handeln; getrennte Einzelpläne und ein allein handelnder Vertreter erfüllen diese Bedeutung nicht."
           },
           {
             "id": "sitov.pretest.a22-03.words.q6",
@@ -34218,11 +34218,11 @@
               },
               {
                 "id": "sitov.pretest.a22-03.words.q6.a",
-                "textDe": "Jeder hat ausschließlich eine Uhrzeit gelesen."
+                "textDe": "Jeder hat die eigene Aufgabe einem anderen zugeteilt."
               },
               {
                 "id": "sitov.pretest.a22-03.words.q6.c",
-                "textDe": "Jeder hat ausdrücklich jede Aufgabe abgelehnt."
+                "textDe": "Jeder hat seine Aufgabe bereits vollständig erledigt."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-03.words.q6.b",
@@ -34235,7 +34235,7 @@
                 "quote": "Aufgabe übernommen"
               }
             ],
-            "rationaleDe": "Eine Aufgabe übernehmen heißt Verantwortung dafür annehmen; Ablehnen und bloßes Uhrzeitlesen geben die Bedeutung nicht wieder."
+            "rationaleDe": "Übernehmen heißt Verantwortung annehmen; Zuteilen gibt sie weiter, Erledigen behauptet bereits den Abschluss der Aufgabe."
           },
           {
             "id": "sitov.pretest.a22-03.verbs.q1",
@@ -34314,7 +34314,7 @@
               },
               {
                 "id": "sitov.pretest.a22-03.verbs.q3.b",
-                "textDe": "Präsens (Gegenwart)."
+                "textDe": "Präteritum (einfache Vergangenheit ohne zusammengesetzte Verbform)."
               },
               {
                 "id": "sitov.pretest.a22-03.verbs.q3.a",
@@ -34331,7 +34331,7 @@
                 "quote": "zugestimmt hatte"
               }
             ],
-            "rationaleDe": "Hatte ist das Hilfsverb im Präteritum und zugestimmt das Partizip; zusammen bilden sie das Plusquamperfekt."
+            "rationaleDe": "Hatte zugestimmt ist Plusquamperfekt; die einfache Form wäre Präteritum, hat zugestimmt wäre Perfekt."
           },
           {
             "id": "sitov.pretest.a22-03.verbs.q4",
@@ -34401,12 +34401,12 @@
             "id": "sitov.pretest.a22-03.verbs.q6",
             "competencyId": "sitov.pretest.a22-03.verbs",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet »Wir Nachbarn kennen uns«?",
+            "promptDe": "Was bedeutet »Wir Nachbarn kennen uns gegenseitig«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-03.verbs.q6.c",
-                "textDe": "Die Nachbarn kennen ausdrücklich niemanden aus der Gruppe."
+                "textDe": "Jeder Nachbar kennt sich selbst, aber keinen anderen Nachbarn."
               },
               {
                 "id": "sitov.pretest.a22-03.verbs.q6.a",
@@ -34414,7 +34414,7 @@
               },
               {
                 "id": "sitov.pretest.a22-03.verbs.q6.b",
-                "textDe": "Die Nachbarn kennen ausschließlich einen leeren Koffer."
+                "textDe": "Die Nachbarn kennen dieselbe Person außerhalb ihrer Gruppe, aber nicht einander."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-03.verbs.q6.a",
@@ -34427,7 +34427,7 @@
                 "quote": "wir kennen uns"
               }
             ],
-            "rationaleDe": "Uns bezeichnet hier die wechselseitige Beziehung innerhalb der Nachbargruppe; Unkenntnis und Kofferbezug passen nicht."
+            "rationaleDe": "Gegenseitig macht den Bezug wechselseitig innerhalb der Gruppe; Selbstkenntnis und ein gemeinsam gekannter Außenstehender haben andere Bezugsrichtungen."
           },
           {
             "id": "sitov.pretest.a22-03.syntax.q1",
@@ -34465,12 +34465,12 @@
             "id": "sitov.pretest.a22-03.syntax.q2",
             "competencyId": "sitov.pretest.a22-03.syntax",
             "kind": "single_choice",
-            "promptDe": "Worauf verweist »ihn« in »Der Innenhof war leer. Wir überlegten, wie wir ihn verändern könnten«?",
+            "promptDe": "Worauf verweist »ihn« in »Der Innenhof unseres Hauses war leer. Wir Nachbarn überlegten, wie wir ihn verändern könnten«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-03.syntax.q2.a",
-                "textDe": "Auf die noch nicht genannte Bank."
+                "textDe": "Auf das Haus."
               },
               {
                 "id": "sitov.pretest.a22-03.syntax.q2.c",
@@ -34478,7 +34478,7 @@
               },
               {
                 "id": "sitov.pretest.a22-03.syntax.q2.b",
-                "textDe": "Auf die Nachbargruppe."
+                "textDe": "Auf die Nachbarn."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-03.syntax.q2.c",
@@ -34491,7 +34491,7 @@
                 "quote": "wie wir ihn verändern könnten"
               }
             ],
-            "rationaleDe": "Ihn greift den maskulinen Innenhof auf; Nachbargruppe und Bank passen nicht zu diesem Rückverweis."
+            "rationaleDe": "Ihn ist maskuliner Singular und greift den Innenhof auf; Haus wäre es, die Nachbarn als Plural wären sie."
           },
           {
             "id": "sitov.pretest.a22-03.syntax.q3",
@@ -34502,11 +34502,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-03.syntax.q3.b",
-                "textDe": "Beide Tätigkeiten werden ausdrücklich gleichzeitig begonnen."
+                "textDe": "Die Vorbereitung durch die Nachbarn."
               },
               {
                 "id": "sitov.pretest.a22-03.syntax.q3.a",
-                "textDe": "Die Vorbereitung durch die Nachbarn."
+                "textDe": "Zustimmung und Vorbereitung geschehen gleichzeitig."
               },
               {
                 "id": "sitov.pretest.a22-03.syntax.q3.c",
@@ -34523,7 +34523,7 @@
                 "quote": "Nachdem er zugestimmt hatte, haben wir an einem Samstag alles vorbereitet."
               }
             ],
-            "rationaleDe": "Nachdem ordnet die Zustimmung vor die Vorbereitung; gleichzeitiger Beginn oder umgekehrte Reihenfolge passt nicht."
+            "rationaleDe": "Nachdem macht die Zustimmung vorzeitig zur Vorbereitung; umgekehrte Reihenfolge und Gleichzeitigkeit widersprechen dieser Beziehung."
           },
           {
             "id": "sitov.pretest.a22-03.syntax.q4",
@@ -34566,7 +34566,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-03.syntax.q5.a",
-                "textDe": "Die Abfahrtszeiten zweier Züge."
+                "textDe": "Die Schönheit dieses Hofs und die Schönheit eines anderen Hofs."
               },
               {
                 "id": "sitov.pretest.a22-03.syntax.q5.b",
@@ -34574,7 +34574,7 @@
               },
               {
                 "id": "sitov.pretest.a22-03.syntax.q5.c",
-                "textDe": "Die Anzahl von Handy-Nachrichten."
+                "textDe": "Die jetzige Schönheit des Hofs ohne Vergleich mit einem früheren Zustand."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-03.syntax.q5.b",
@@ -34587,7 +34587,7 @@
                 "quote": "Der Hof ist schöner geworden"
               }
             ],
-            "rationaleDe": "Schöner vergleicht die Eigenschaft des Hofs vor und nach der Veränderung; Zugzeiten und Nachrichtenanzahl werden nicht verglichen."
+            "rationaleDe": "Als vorher legt den Vergleich mit dem früheren Zustand desselben Hofs fest; ein anderer Hof oder eine Beschreibung ohne Vergleich passt nicht."
           },
           {
             "id": "sitov.pretest.a22-03.syntax.q6",
@@ -34602,11 +34602,11 @@
               },
               {
                 "id": "sitov.pretest.a22-03.syntax.q6.c",
-                "textDe": "Nur die Körpergröße aller Nachbarn hat ausdrücklich zugenommen."
+                "textDe": "Die Nachbarn kennen jetzt mehr Personen, ohne einander näher zu kennen."
               },
               {
                 "id": "sitov.pretest.a22-03.syntax.q6.b",
-                "textDe": "Die Nachbarn kennen einander ausdrücklich weniger."
+                "textDe": "Die Nachbarn sind jetzt weniger miteinander vertraut."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-03.syntax.q6.a",
@@ -34619,7 +34619,7 @@
                 "quote": "viel besser"
               }
             ],
-            "rationaleDe": "Besser kennen bezeichnet größere gegenseitige Vertrautheit; weniger Kenntnis oder Körpergröße ist etwas anderes."
+            "rationaleDe": "Besser kennen vergleicht die Vertrautheit innerhalb derselben Gruppe; mehr Personen zählt Kontakte, weniger vertraut kehrt den Vergleich um."
           },
           {
             "id": "sitov.pretest.a22-03.nominal.q1",
