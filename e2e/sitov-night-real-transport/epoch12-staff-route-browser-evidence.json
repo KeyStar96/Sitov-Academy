@@ -1,0 +1,113 @@
+{
+  "target": "71972fc3ad62baac4956506cfe31138a21b665f3",
+  "actualFormLogin": true,
+  "commonMenuRoute": true,
+  "targetSelection": true,
+  "staff": {
+    "title": "Artikel im Nominativ · Meine Wohnung",
+    "tasks": 20,
+    "version": 1,
+    "published": true,
+    "publishButtonDisabled": true,
+    "runs": 0
+  },
+  "selectionHelpOpened": true,
+  "selectionHelpClosedWithEnter": true,
+  "publicationHelpOpened": true,
+  "languages": [
+    {
+      "lang": "ru",
+      "commonMenuLabel": "Дополнения к учебному пути",
+      "routePreserved": true,
+      "selectionHelp": true,
+      "publicationHelp": true,
+      "staffWindow": true,
+      "GermanTitleProtected": true
+    },
+    {
+      "lang": "de",
+      "commonMenuLabel": "Lernpfad-Extras",
+      "routePreserved": true,
+      "indexLocalized": true,
+      "selectionResetsOnLanguageSwitch": true
+    },
+    {
+      "lang": "en",
+      "commonMenuLabel": "Learning path extras",
+      "routePreserved": true,
+      "indexLocalized": true
+    },
+    {
+      "lang": "uk",
+      "commonMenuLabel": "Доповнення до навчального шляху",
+      "routePreserved": true,
+      "indexLocalized": true
+    },
+    {
+      "lang": "tr",
+      "commonMenuLabel": "Öğrenme yolu ekleri",
+      "routePreserved": true,
+      "indexLocalized": true
+    }
+  ],
+  "viewports": [
+    {
+      "height": 1000,
+      "outer": "ru",
+      "scrollWidth": 1440,
+      "visibleGermanTitles": [
+        "Artikel im Nominativ · Meine Wohnung",
+        "Artikel im Nominativ · Meine Wohnung"
+      ],
+      "width": 1440
+    },
+    {
+      "height": 844,
+      "outer": "en",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "height": 760,
+      "outer": "en",
+      "scrollWidth": 320,
+      "width": 320
+    }
+  ],
+  "unverified": [
+    "write/review/create/save/publish actions deliberately not exercised",
+    "motion/reduced motion/hidden window",
+    "full accessibility/screen reader/48px targets",
+    "independent database baseline recount",
+    "full Staff/publication/help matrix across all5languages; only menu/index/route switches all5, RU staff/publication and RU/EN selection help inspected",
+    "desktop1440 Staff;390 selectionhelp;320 mobilemenu scopes only"
+  ],
+  "consoleIssue": {
+    "severity": "Console Error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead.",
+    "component": "RootLayout",
+    "source": "app/[lang]/layout.tsx:131:9",
+    "visibleCount": 1,
+    "trigger": "RU to DE language switch",
+    "routeStillUsable": true
+  },
+  "trGermanTitle": {
+    "outer": "tr",
+    "visibleTitleProtected": true
+  },
+  "normalUILogoutConfirmed": true,
+  "loggedOutProtectedRouteRedirect": true,
+  "loggedOutRedirectPath": "/tr/login",
+  "viewportOverrideReset": true,
+  "noWriteControlsClicked": true,
+  "baselineCounts": {
+    "source": "M-provided, not independently recounted in browser lease",
+    "authUsers": 2,
+    "pretestDefinitions": 9,
+    "pretestActive": 5,
+    "pretestProofs": 840,
+    "assets": 819,
+    "specialActive": 1,
+    "states": 0
+  }
+}
