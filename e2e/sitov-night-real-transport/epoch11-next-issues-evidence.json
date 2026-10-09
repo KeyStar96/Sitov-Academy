@@ -1,0 +1,67 @@
+{
+  "target": "c55ae93d60770db9fa639f62d02a10dee3b47db6",
+  "scope": "read-only historical sanitized warning/component lines only",
+  "browser": {
+    "previousTabId": "4",
+    "existingHandleUnavailable": true,
+    "documentedTabInventory": [],
+    "visibleTwoIssuePanelTested": false,
+    "exactTwoIssuesIdentified": false,
+    "newTabCreated": false,
+    "newLoginOrAccount": false,
+    "cookiesOrHiddenBrowserStateRead": false,
+    "screenshotCaptured": false
+  },
+  "log": {
+    "source": "master/qa-next-private.log",
+    "linesScanned": 225,
+    "sanitizedDistinctWarningComponentLines": [
+      {
+        "text": "⚠ ./components/exercises/SoftErrorBadge.tsx",
+        "firstLine": 139,
+        "lastLine": 213,
+        "occurrences": 3
+      },
+      {
+        "text": "./components/exercises/SoftErrorBadge.tsx",
+        "firstLine": 143,
+        "lastLine": 224,
+        "occurrences": 10
+      },
+      {
+        "text": "./components/learning-path/LearningPathClient.tsx",
+        "firstLine": 144,
+        "lastLine": 225,
+        "occurrences": 7
+      },
+      {
+        "text": "[browser] ./components/exercises/SoftErrorBadge.tsx",
+        "firstLine": 152,
+        "lastLine": 205,
+        "occurrences": 3
+      },
+      {
+        "text": "Should not import the named export 'exercises'.'soft_error' (imported as 'exercises') from default-exporting module (only default export is available soon)",
+        "firstLine": 140,
+        "lastLine": 221,
+        "occurrences": 9
+      }
+    ],
+    "currentVisibleIssueCorrespondence": "unproven; historical log is not the two visible issue items"
+  },
+  "productOrRuntimeOrQAMutation": false,
+  "baselineCounts": "M-provided only; not independently rechecked in this read-only unit:2 actors,8 definitions,5 active,746 proofs,819 assets,1 Special,0 runs",
+  "classification": {
+    "historicalWarningKind": "compile/import compatibility warning: named export from default-exporting module will not be available soon",
+    "historicalComponent": "components/exercises/SoftErrorBadge.tsx",
+    "historicalImportTrace": "components/learning-path/LearningPathClient.tsx",
+    "historicalUniqueWarningMessages": 1,
+    "historicalMessageOccurrences": 9,
+    "exactVisibleIssue1": "UNTESTED",
+    "exactVisibleIssue2": "UNTESTED",
+    "visibleSeverityAndComponentStacks": "UNTESTED",
+    "currentFatalConsoleHydrationClassification": "UNTESTED",
+    "JSONModuleIdentity": "not established by this sanitized warning excerpt; prior JSON hypothesis not independently confirmed",
+    "fatalFailureProvenByThisExcerpt": false
+  }
+}
