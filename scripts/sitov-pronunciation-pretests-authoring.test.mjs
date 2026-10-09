@@ -2,7 +2,11 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sources=await sitovReadAuthoringSources(),sitovActualManifest44=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sources=await sitovReadAuthoringSources(),sitovLatestMReviewed30=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovMReview30Raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/pools25-30-editorial-review.json','utf8'),sitovMReview30=JSON.parse(sitovMReview30Raw)
+// Restore only the six preceding S3 reviews before exact epoch44/43 and all established historical proofs.
+const sitovActualManifest44=structuredClone(sitovLatestMReviewed30)
+for(const r of sitovMReview30.approvedEditorialDrafts)sitovActualManifest44.drafts.find(d=>d.textId===r.textId).review=r.previousReview
 const sitovEpoch44=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch44-pools28-30-author-review.json','utf8'))
 // Freeze exact prior27 BEFORE epoch43 metadata restoration, epoch42 and all older proofs.
 const sitovActualManifest43=structuredClone(sitovActualManifest44)
@@ -861,4 +865,12 @@ test('actual30 negative guards reject false spans, rationale/unit/form/topic/aud
  const added=sitovActualManifest44.drafts.slice(27),allA=structuredClone(added);for(const d of allA)for(const q of d.definition.tasks)q.correctOptionId=q.options.find(o=>o.id.endsWith('.a')).id;assert.ok(sitovDiversityErrors(allA).includes('unbalanced_labels'))
  for(const[i,s]of [[0,'syntax.q2'],[0,'syntax.q5'],[1,'syntax.q4'],[2,'syntax.q2'],[2,'verbs.q3']]){const wrong=structuredClone(added),q=wrong[i].definition.tasks.find(q=>q.id.endsWith(s));q.correctOptionId=q.options.find(o=>o.id!==q.correctOptionId).id;assert.throws(()=>sitovAssert44Keys(wrong))}
  const hidden=structuredClone(added);hidden[2].definition.tasks.find(q=>q.id.endsWith('words.q4')).promptDe='Was ist eine Bank?';assert.throws(()=>sitovAssert44Keys(hidden))
+})
+
+test('actual all30 M-reviewed definitions bind exact source hashes, complete answers and the corrected private mapping',()=>{
+ assert.equal(sitovLatestMReviewed30.drafts.length,30)
+ assert.deepEqual(sitovValidatePretestDrafts(sitovLatestMReviewed30,sources),[])
+ assert.deepEqual(sitovValidatePretestAudioAliases(sitovLatestMReviewed30,sitovActualAudio44),[])
+ for(const d of sitovLatestMReviewed30.drafts){assert.equal(d.review.status,'independent_editorial_checked_draft_only');assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.authorIdentity,'sitov.agent.S3');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false)}
+ for(const r of sitovMReview30.approvedEditorialDrafts){const d=sitovLatestMReviewed30.drafts.find(d=>d.textId===r.textId);assert.equal(d.review.documentSha256,sitovHash(sitovMReview30Raw));assert.equal(d.review.documentRef,sitovMReview30.documentRef);assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.textVersion,r.textVersion);assert.deepEqual(d.definition.tasks.map(q=>({questionId:q.id,correctTextDe:q.options.find(o=>o.id===q.correctOptionId).textDe})),r.correctAnswerTexts)}
 })

@@ -1,0 +1,700 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools25-30-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T13:02:38.952Z",
+  "sourceCommit": "754102d0bfbb9c6403cc54b5b1bb2be9e79abb47",
+  "scope": "M independently read all144 public prompts/options/keys/rationales, all6 complete canonical source bodies and24 cores/mappings. Standard German past/reflexive/nominal forms, temporal and quantity comparisons, obwohl/bis/dass/wenn/weil syntax have unique correct answers supported by visible premises. Private-only club missing-list repair is verified by exact old/new reconstruction; public texts, keys, audio aliases and targets unchanged. Genuine same-level mapping gaps explicitly retained. No human calibration, subjective audio-quality, activation or production claim.",
+  "questionsChecked": 144,
+  "coresChecked": 24,
+  "authorAudit42Sha256": "a262834ffc4fff43b6d1fdc78f62e99085f589e455169f1524dc40b50144c5b4",
+  "authorAudit44Sha256": "56ca0d1ba5d501c6c4c682c0830580fed3c38634407f00eac30490bff44d629e",
+  "privateMappingDeltaSha256": "4eb7341eaf6963ed6020c8ea912eab6561310efdfb46fb38db04478e7ce10368",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "3dfcf736-84e5-599d-a492-b780ffc491c4",
+      "textVersion": "07cec7487ca78c47bb1dfd12f8900f8f24ab479fdb5c73dd06222ce4b36c277c",
+      "definitionContentHash": "efa2c94cc80611c283d8035ebfdf662e9d5e97a5a227a487ef63f5d997fdf600",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "07cec7487ca78c47bb1dfd12f8900f8f24ab479fdb5c73dd06222ce4b36c277c",
+        "definitionContentHash": "efa2c94cc80611c283d8035ebfdf662e9d5e97a5a227a487ef63f5d997fdf600"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-05.words.q1",
+          "correctTextDe": "Ein angeleitetes Angebot zum gemeinsamen Sport."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.words.q2",
+          "correctTextDe": "Aufgaben oder Bewegungen zum Trainieren."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.words.q3",
+          "correctTextDe": "Die Übungen verlangen viel Kraft oder Mühe."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.words.q4",
+          "correctTextDe": "Eine Veränderung der Körperhaltung oder Körperposition."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.words.q5",
+          "correctTextDe": "Mehrere Menschen, die zusammengehören oder zusammen sind."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.words.q6",
+          "correctTextDe": "Neue Menschen kennenlernen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.verbs.q1",
+          "correctTextDe": "stattfinden"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.verbs.q2",
+          "correctTextDe": "sein"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.verbs.q3",
+          "correctTextDe": "Der Sprecher ist jetzt dazu fähig."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.verbs.q4",
+          "correctTextDe": "mitmachen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.verbs.q5",
+          "correctTextDe": "uns"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.verbs.q6",
+          "correctTextDe": "kennenlernen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.syntax.q1",
+          "correctTextDe": "Der Besuch begann vor einem Monat und dauert bis jetzt an."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.syntax.q2",
+          "correctTextDe": "Der Kurs findet regelmäßig am Mittwoch statt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.syntax.q3",
+          "correctTextDe": "Die Arbeit."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.syntax.q4",
+          "correctTextDe": "Auf die Bewegung."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.syntax.q5",
+          "correctTextDe": "Die Dauer des Mitmachens ist jetzt größer."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.syntax.q6",
+          "correctTextDe": "Beim Sport lernt der Sprecher zugleich Menschen kennen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.nominal.q1",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.nominal.q2",
+          "correctTextDe": "in dem"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.nominal.q3",
+          "correctTextDe": "meiner"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.nominal.q4",
+          "correctTextDe": "jede"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.nominal.q5",
+          "correctTextDe": "Ländern"
+        },
+        {
+          "questionId": "sitov.pretest.a21-05.nominal.q6",
+          "correctTextDe": "neue"
+        }
+      ]
+    },
+    {
+      "textId": "dbe98ecb-4d32-5767-be6c-f54728c93f7d",
+      "textVersion": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
+      "definitionContentHash": "68ae82c1a336ca88e311b8e3add943d96a488ae66c4eda56a71f206cd3a3c4e2",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
+        "definitionContentHash": "68ae82c1a336ca88e311b8e3add943d96a488ae66c4eda56a71f206cd3a3c4e2"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-06.words.q1",
+          "correctTextDe": "In einer ländlichen Umgebung wohnen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.words.q2",
+          "correctTextDe": "Eine Außenfläche mit Pflanzen oder Platz zum Pflanzen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.words.q3",
+          "correctTextDe": "Dort halten Züge und Fahrgäste steigen ein oder aus."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.words.q4",
+          "correctTextDe": "Ein Gang zu Fuß zur Erholung oder zum Vergnügen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.words.q5",
+          "correctTextDe": "Wir sitzen außerhalb eines Gebäudes."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.words.q6",
+          "correctTextDe": "Die Temperatur wurde eher niedrig."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.verbs.q1",
+          "correctTextDe": "besucht"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.verbs.q2",
+          "correctTextDe": "wohnen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.verbs.q3",
+          "correctTextDe": "sind"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.verbs.q4",
+          "correctTextDe": "abgeholt"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.verbs.q5",
+          "correctTextDe": "gesehen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.verbs.q6",
+          "correctTextDe": "wollten"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.syntax.q1",
+          "correctTextDe": "Das vergangene Wochenende."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.syntax.q2",
+          "correctTextDe": "Die Freunde."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.syntax.q3",
+          "correctTextDe": "Das Mittagessen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.syntax.q4",
+          "correctTextDe": "es kühl wurde"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.syntax.q5",
+          "correctTextDe": "Das Kühlwerden beendet den genannten Zeitraum draußen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.syntax.q6",
+          "correctTextDe": "Sie wollten überhaupt nicht nach Hause fahren."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.nominal.q1",
+          "correctTextDe": "alten"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.nominal.q2",
+          "correctTextDe": "großen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.nominal.q3",
+          "correctTextDe": "langen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.nominal.q4",
+          "correctTextDe": "Sie"
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.nominal.q5",
+          "correctTextDe": "Der Sprecher zusammen mit den anderen Besuchern."
+        },
+        {
+          "questionId": "sitov.pretest.a21-06.nominal.q6",
+          "correctTextDe": "viele"
+        }
+      ]
+    },
+    {
+      "textId": "2f3b292b-8bdb-5007-90cb-278f9c00fc02",
+      "textVersion": "e5ba8cecd0972ce4c5c1fcbae2e3c3f4af0a38b4b62277d83b7bc356594c06f5",
+      "definitionContentHash": "0d8b43046575da83f14aa52f0f6adff421b59d7bc59518e1ee4c684d911959f1",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "e5ba8cecd0972ce4c5c1fcbae2e3c3f4af0a38b4b62277d83b7bc356594c06f5",
+        "definitionContentHash": "0d8b43046575da83f14aa52f0f6adff421b59d7bc59518e1ee4c684d911959f1"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-07.words.q1",
+          "correctTextDe": "Eine organisierte Gemeinschaft mit gemeinsamem Interesse."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.words.q2",
+          "correctTextDe": "Für das Probetraining muss man nichts bezahlen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.words.q3",
+          "correctTextDe": "Man kann das Training zunächst ausprobieren."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.words.q4",
+          "correctTextDe": "Nach der Uhrzeit."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.words.q5",
+          "correctTextDe": "Schuhe für sportliche Tätigkeiten."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.words.q6",
+          "correctTextDe": "Der Freund geht zusammen mit mir zum Training."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.verbs.q1",
+          "correctTextDe": "spielen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.verbs.q2",
+          "correctTextDe": "anbieten"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.verbs.q3",
+          "correctTextDe": "informiert"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.verbs.q4",
+          "correctTextDe": "geschrieben"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.verbs.q5",
+          "correctTextDe": "mitbringen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.verbs.q6",
+          "correctTextDe": "uns"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.syntax.q1",
+          "correctTextDe": "Wann das Training am Tag stattfindet."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.syntax.q2",
+          "correctTextDe": "Der Sprecher hat die Anweisung, Sportschuhe mitzubringen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.syntax.q3",
+          "correctTextDe": "Am Donnerstag."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.syntax.q4",
+          "correctTextDe": "Der Sprecher war vorher noch nicht bei diesem Training."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.syntax.q5",
+          "correctTextDe": "er auch gern Fußball spielt"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.syntax.q6",
+          "correctTextDe": "Weil er auch gern Fußball spielt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.nominal.q1",
+          "correctTextDe": "einem"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.nominal.q2",
+          "correctTextDe": "meiner"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.nominal.q3",
+          "correctTextDe": "kostenloses"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.nominal.q4",
+          "correctTextDe": "der"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.nominal.q5",
+          "correctTextDe": "zu dem"
+        },
+        {
+          "questionId": "sitov.pretest.a21-07.nominal.q6",
+          "correctTextDe": "mich"
+        }
+      ]
+    },
+    {
+      "textId": "ad61d4d1-2223-533e-974e-51a2d97806b0",
+      "textVersion": "dfc9a7cf90c7e867c0cb8b1051a71f5cfca363ce8e42af62c7cd0c85f3f65a60",
+      "definitionContentHash": "b2194c12f130ea541767611680324b97e5b9e43754a35c55082f7b6677c0af5c",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "dfc9a7cf90c7e867c0cb8b1051a71f5cfca363ce8e42af62c7cd0c85f3f65a60",
+        "definitionContentHash": "b2194c12f130ea541767611680324b97e5b9e43754a35c55082f7b6677c0af5c"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-08.words.q1",
+          "correctTextDe": "Zum Erwärmen der Räume."
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q2",
+          "correctTextDe": "Die Person, die die Wohnung gegen Miete überlässt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q3",
+          "correctTextDe": "Er führt handwerkliche Arbeiten oder Reparaturen aus."
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q4",
+          "correctTextDe": "Ein Kleidungsstück für den Oberkörper."
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q5",
+          "correctTextDe": "Das Teil ist beschädigt oder funktioniert nicht richtig."
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q6",
+          "correctTextDe": "Er antwortet darauf oder unternimmt deswegen etwas."
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q1",
+          "correctTextDe": "sein"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q2",
+          "correctTextDe": "aufgedreht"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q3",
+          "correctTextDe": "bleiben"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q4",
+          "correctTextDe": "angerufen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q5",
+          "correctTextDe": "beschrieben"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q6",
+          "correctTextDe": "werden"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q1",
+          "correctTextDe": "Die Heizung bleibt entgegen der Erwartung kalt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q2",
+          "correctTextDe": "ich die Heizung aufgedreht habe"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q3",
+          "correctTextDe": "der Handwerker kam"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q4",
+          "correctTextDe": "Die Ankunft des Handwerkers."
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q5",
+          "correctTextDe": "der Vermieter schnell reagiert hat"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q6",
+          "correctTextDe": "Auf den Vermieter."
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q1",
+          "correctTextDe": "unserer"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q2",
+          "correctTextDe": "die"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q3",
+          "correctTextDe": "den"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q4",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q5",
+          "correctTextDe": "warme"
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q6",
+          "correctTextDe": "kleines"
+        }
+      ]
+    },
+    {
+      "textId": "c5d7b014-5b84-57f5-bfb0-67e3bcb65066",
+      "textVersion": "3a709d34efb37577692df2d799fce76748edf189eaba11df3af9337b699174ef",
+      "definitionContentHash": "b0cff1e8bbc42da4e7a3810f1db1085a8f38d6c87856524a303e91681984ffbd",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "3a709d34efb37577692df2d799fce76748edf189eaba11df3af9337b699174ef",
+        "definitionContentHash": "b0cff1e8bbc42da4e7a3810f1db1085a8f38d6c87856524a303e91681984ffbd"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-09.words.q1",
+          "correctTextDe": "Eine Überprüfung von Wissen oder Fähigkeiten."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q2",
+          "correctTextDe": "Ein Ort, an dem man Bücher lesen oder ausleihen kann."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q3",
+          "correctTextDe": "Etwas, das man bearbeiten oder lösen soll."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q4",
+          "correctTextDe": "Wir üben oder lesen die Wörter erneut."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q5",
+          "correctTextDe": "Etwas, das nicht richtig gelöst oder ausgeführt wurde."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q6",
+          "correctTextDe": "Sich wegen des Fehlers unangenehm oder peinlich berührt fühlen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q1",
+          "correctTextDe": "getroffen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q2",
+          "correctTextDe": "vorbereitet"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q3",
+          "correctTextDe": "wiederholt"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q4",
+          "correctTextDe": "geholfen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q5",
+          "correctTextDe": "müssen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q6",
+          "correctTextDe": "uns"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q1",
+          "correctTextDe": "Das Treffen zum Lernen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q2",
+          "correctTextDe": "Drei Personen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q3",
+          "correctTextDe": "Das Wiederholen der Wörter."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q4",
+          "correctTextDe": "jemand einen Fehler gemacht hat"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q5",
+          "correctTextDe": "Wenn jemand einen Fehler macht."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q6",
+          "correctTextDe": "Das Treffen soll wöchentlich wiederholt werden."
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q1",
+          "correctTextDe": "letzten"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q2",
+          "correctTextDe": "kleine"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q3",
+          "correctTextDe": "neue"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q4",
+          "correctTextDe": "kurze"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q5",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q6",
+          "correctTextDe": "einer"
+        }
+      ]
+    },
+    {
+      "textId": "99feaf25-8ae7-58f7-a492-e2aa4a501707",
+      "textVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
+      "definitionContentHash": "69c3cfd9b863668e992a25700ca15dadd773970b2f7a141c12e611b6308c1e92",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
+        "definitionContentHash": "69c3cfd9b863668e992a25700ca15dadd773970b2f7a141c12e611b6308c1e92"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-10.words.q1",
+          "correctTextDe": "Ein Mobiltelefon."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q2",
+          "correctTextDe": "Ich war nicht ruhig oder entspannt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q3",
+          "correctTextDe": "Mitteilungen, die man lesen oder erhalten kann."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q4",
+          "correctTextDe": "Ein Sitzmöbel im Park."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q5",
+          "correctTextDe": "Ein Medium mit Nachrichten und Berichten, oft auf Papier."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q6",
+          "correctTextDe": "Keine Nachricht musste sofort erledigt werden."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q1",
+          "correctTextDe": "vergessen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q2",
+          "correctTextDe": "können"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q3",
+          "correctTextDe": "gesetzt"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q4",
+          "correctTextDe": "gelesen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q5",
+          "correctTextDe": "beantwortet"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q6",
+          "correctTextDe": "lasse"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q1",
+          "correctTextDe": "Weil er seine Nachrichten nicht lesen konnte."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q2",
+          "correctTextDe": "ich meine Nachrichten nicht lesen konnte"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q3",
+          "correctTextDe": "Das Sitzen im Park."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q4",
+          "correctTextDe": "Der Sprecher hat an diesem Tag kein Handy bei sich."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q5",
+          "correctTextDe": "Dem Sprecher stand eine größere Zeitmenge zur Verfügung."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q6",
+          "correctTextDe": "Er ist eine Möglichkeit und noch nicht sicher."
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q1",
+          "correctTextDe": "mein"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q2",
+          "correctTextDe": "meine"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q3",
+          "correctTextDe": "eine"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q4",
+          "correctTextDe": "einem"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q5",
+          "correctTextDe": "eine"
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q6",
+          "correctTextDe": "nächsten"
+        }
+      ]
+    }
+  ]
+}

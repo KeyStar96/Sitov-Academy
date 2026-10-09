@@ -25453,14 +25453,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle144 öffentlichen Fragen, Optionen, Schlüssel und Begründungen, sechs vollständige Quellen und24 Kernzuordnungen unabhängig geprüft. Private Teilmapping-Lückenliste exakt korrigiert; keine geänderten öffentlichen Texte oder Antwortschlüssel. Menschliche Kalibrierung, neue Audio-/Versionsbindung und Veröffentlichung bleiben separat.",
         "textVersion": "07cec7487ca78c47bb1dfd12f8900f8f24ab479fdb5c73dd06222ce4b36c277c",
-        "definitionContentHash": "efa2c94cc80611c283d8035ebfdf662e9d5e97a5a227a487ef63f5d997fdf600"
+        "definitionContentHash": "efa2c94cc80611c283d8035ebfdf662e9d5e97a5a227a487ef63f5d997fdf600",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools25-30-M",
+        "documentSha256": "ae948855c0cbcff3e762b179630cc17953442714130ef8f9bb8d08f1d44c71fe",
+        "reviewedAt": "2026-10-09T13:02:38.952Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -26493,14 +26498,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle144 öffentlichen Fragen, Optionen, Schlüssel und Begründungen, sechs vollständige Quellen und24 Kernzuordnungen unabhängig geprüft. Private Teilmapping-Lückenliste exakt korrigiert; keine geänderten öffentlichen Texte oder Antwortschlüssel. Menschliche Kalibrierung, neue Audio-/Versionsbindung und Veröffentlichung bleiben separat.",
         "textVersion": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
-        "definitionContentHash": "68ae82c1a336ca88e311b8e3add943d96a488ae66c4eda56a71f206cd3a3c4e2"
+        "definitionContentHash": "68ae82c1a336ca88e311b8e3add943d96a488ae66c4eda56a71f206cd3a3c4e2",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools25-30-M",
+        "documentSha256": "ae948855c0cbcff3e762b179630cc17953442714130ef8f9bb8d08f1d44c71fe",
+        "reviewedAt": "2026-10-09T13:02:38.952Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -27537,14 +27547,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle144 öffentlichen Fragen, Optionen, Schlüssel und Begründungen, sechs vollständige Quellen und24 Kernzuordnungen unabhängig geprüft. Private Teilmapping-Lückenliste exakt korrigiert; keine geänderten öffentlichen Texte oder Antwortschlüssel. Menschliche Kalibrierung, neue Audio-/Versionsbindung und Veröffentlichung bleiben separat.",
         "textVersion": "e5ba8cecd0972ce4c5c1fcbae2e3c3f4af0a38b4b62277d83b7bc356594c06f5",
-        "definitionContentHash": "0d8b43046575da83f14aa52f0f6adff421b59d7bc59518e1ee4c684d911959f1"
+        "definitionContentHash": "0d8b43046575da83f14aa52f0f6adff421b59d7bc59518e1ee4c684d911959f1",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools25-30-M",
+        "documentSha256": "ae948855c0cbcff3e762b179630cc17953442714130ef8f9bb8d08f1d44c71fe",
+        "reviewedAt": "2026-10-09T13:02:38.952Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -28583,14 +28598,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle144 öffentlichen Fragen, Optionen, Schlüssel und Begründungen, sechs vollständige Quellen und24 Kernzuordnungen unabhängig geprüft. Private Teilmapping-Lückenliste exakt korrigiert; keine geänderten öffentlichen Texte oder Antwortschlüssel. Menschliche Kalibrierung, neue Audio-/Versionsbindung und Veröffentlichung bleiben separat.",
         "textVersion": "dfc9a7cf90c7e867c0cb8b1051a71f5cfca363ce8e42af62c7cd0c85f3f65a60",
-        "definitionContentHash": "b2194c12f130ea541767611680324b97e5b9e43754a35c55082f7b6677c0af5c"
+        "definitionContentHash": "b2194c12f130ea541767611680324b97e5b9e43754a35c55082f7b6677c0af5c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools25-30-M",
+        "documentSha256": "ae948855c0cbcff3e762b179630cc17953442714130ef8f9bb8d08f1d44c71fe",
+        "reviewedAt": "2026-10-09T13:02:38.952Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -29627,14 +29647,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle144 öffentlichen Fragen, Optionen, Schlüssel und Begründungen, sechs vollständige Quellen und24 Kernzuordnungen unabhängig geprüft. Private Teilmapping-Lückenliste exakt korrigiert; keine geänderten öffentlichen Texte oder Antwortschlüssel. Menschliche Kalibrierung, neue Audio-/Versionsbindung und Veröffentlichung bleiben separat.",
         "textVersion": "3a709d34efb37577692df2d799fce76748edf189eaba11df3af9337b699174ef",
-        "definitionContentHash": "b0cff1e8bbc42da4e7a3810f1db1085a8f38d6c87856524a303e91681984ffbd"
+        "definitionContentHash": "b0cff1e8bbc42da4e7a3810f1db1085a8f38d6c87856524a303e91681984ffbd",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools25-30-M",
+        "documentSha256": "ae948855c0cbcff3e762b179630cc17953442714130ef8f9bb8d08f1d44c71fe",
+        "reviewedAt": "2026-10-09T13:02:38.952Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -30671,14 +30696,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle144 öffentlichen Fragen, Optionen, Schlüssel und Begründungen, sechs vollständige Quellen und24 Kernzuordnungen unabhängig geprüft. Private Teilmapping-Lückenliste exakt korrigiert; keine geänderten öffentlichen Texte oder Antwortschlüssel. Menschliche Kalibrierung, neue Audio-/Versionsbindung und Veröffentlichung bleiben separat.",
         "textVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
-        "definitionContentHash": "69c3cfd9b863668e992a25700ca15dadd773970b2f7a141c12e611b6308c1e92"
+        "definitionContentHash": "69c3cfd9b863668e992a25700ca15dadd773970b2f7a141c12e611b6308c1e92",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools25-30-M",
+        "documentSha256": "ae948855c0cbcff3e762b179630cc17953442714130ef8f9bb8d08f1d44c71fe",
+        "reviewedAt": "2026-10-09T13:02:38.952Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
