@@ -52,3 +52,12 @@ export const sitovSpecialPublicationResultSchema=z.discriminatedUnion('ok',[
 ])
 export type SitovSpecialPublicationStateResult=z.infer<typeof sitovSpecialPublicationStateResultSchema>
 export type SitovSpecialPublicationResult=z.infer<typeof sitovSpecialPublicationResultSchema>
+
+// The RPC validates existence against the actual catalog; this bounds the wire representation.
+const targetLevel=z.string().regex(/^[A-C][12](?:\.[12])?$/)
+export const sitovSpecialStaffTargetsInputSchema=z.object({level:targetLevel.nullable().optional()}).strict()
+export const sitovSpecialStaffTargetsResultSchema=z.discriminatedUnion('ok',[
+ z.object({ok:z.literal(true),data:z.array(z.object({nodeId:z.uuid(),unitId:z.uuid(),title:z.string().min(1).max(500).refine(v=>v.trim().length>0),level:targetLevel,sourceSha256:hash,activeDefinitionId:z.uuid().nullable()}).strict()).max(1000)}).strict().refine(v=>new Set(v.data.map(t=>t.nodeId)).size===v.data.length),
+ z.object({ok:z.literal(false),error:z.enum(['authentication_required','invalid_input','not_found']),retryable:z.literal(false)}).strict(),
+])
+export type SitovSpecialStaffTargetsResult=z.infer<typeof sitovSpecialStaffTargetsResultSchema>

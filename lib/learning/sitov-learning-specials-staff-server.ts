@@ -73,3 +73,19 @@ export async function publishSitovSpecial(input:unknown):Promise<SitovSpecialPub
   return result
  }catch{return {ok:false,error:'retryable_failure',retryable:true}}
 }
+
+import {sitovSpecialStaffTargetsInputSchema,sitovSpecialStaffTargetsResultSchema,type SitovSpecialStaffTargetsResult} from './sitov-learning-specials-staff-contract'
+/** Cookie-scoped, read-only106 index. No client role or actor identifier is accepted. */
+export async function loadSitovSpecialStaffTargets(input:unknown):Promise<SitovSpecialStaffTargetsResult>{
+ const v=sitovSpecialStaffTargetsInputSchema.safeParse(input)
+ if(!v.success)return {ok:false,error:'invalid_input',retryable:false}
+ try{
+  const client=await createClient();const auth=await client.auth.getUser()
+  if(auth.error||!auth.data.user)return {ok:false,error:'authentication_required',retryable:false}
+  const {data,error}=await client.rpc('sitov_get_special_staff_targets',{p_level:v.data.level??null})
+  if(error)throw error
+  const result=sitovSpecialStaffTargetsResultSchema.parse(data)
+  if(result.ok&&v.data.level&&result.data.some(t=>t.level!==v.data.level))throw new Error('response_identity')
+  return result
+ }catch{return {ok:false,error:'not_found',retryable:false}}
+}

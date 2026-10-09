@@ -21,3 +21,8 @@ export async function publishSitovLearningSpecial(input:unknown){
  const {publishSitovSpecial}=await import('@/lib/learning/sitov-learning-specials-staff-server')
  return publishSitovSpecial(input)
 }
+
+export async function getSitovLearningSpecialStaffTargets(input:unknown){
+ const {loadSitovSpecialStaffTargets}=await import('@/lib/learning/sitov-learning-specials-staff-server')
+ return loadSitovSpecialStaffTargets(input)
+}
