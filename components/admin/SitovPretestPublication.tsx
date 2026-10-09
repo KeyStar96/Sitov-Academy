@@ -8,6 +8,7 @@ import { sitovPretestPublicationCopy } from '@/lib/sitov-pronunciation-pretest-s
 import PressableCard from '@/components/motion/PressableCard'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import styles from './SitovPretestPublication.module.css'
 
 export type SitovPublishedPretest = z.infer<typeof sitovPretestPublishedSchema>
@@ -77,6 +78,6 @@ function SitovPublicationScope({ textId, textVersion, definition, latestDefiniti
       {!reason && (state === 'readFailed' || state === 'missing') && <PressableCard onClick={() => setReadVersion(value => value + 1)}>{copy.check}</PressableCard>}
       {!reason && (state === 'conflict' || state === 'unavailable') && <PressableCard onClick={onReload}>{copy.reload}</PressableCard>}
     </div>
-    <SitovTrainerHelp title={copy.help}><p>{copy.helpBody}</p></SitovTrainerHelp>
+    <SitovTrainerHelp title={sitovTrainerHelpCopy(lang).label}><h3>{copy.help}</h3><p>{copy.helpBody}</p></SitovTrainerHelp>
   </SitovMotionStage>
 }

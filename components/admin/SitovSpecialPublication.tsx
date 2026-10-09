@@ -7,6 +7,7 @@ import {sitovSpecialStaffCopy} from '@/lib/learning/sitov-learning-specials-staf
 import PressableCard from '@/components/motion/PressableCard'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import styles from './SitovLearningSpecialStaff.module.css'
 type Ack=Extract<z.infer<typeof sitovSpecialPublicationResultSchema>,{ok:true}>['data']
 interface Props{accountKey:string;nodeId:string;definition?:{id:string;version:string;published:boolean};sourceSha256:string;latestDefinitionId:string|null;baseActiveDefinitionId:string|null;lang:string;disabled?:boolean;onPublished:(ack:Ack)=>void;onReload:()=>void}
@@ -58,6 +59,6 @@ function PublicationScope({nodeId,definition,sourceSha256,latestDefinitionId,bas
    {!reason&&state==='uncertain'&&<PressableCard className={styles.button} disabled={disabled} onClick={()=>void publish()}>{copy.retry}</PressableCard>}
    {!reason&&['readFailed','missing'].includes(state)&&<PressableCard className={styles.button} disabled={disabled} onClick={()=>setReadVersion(v=>v+1)}>{copy.check}</PressableCard>}
    {!reason&&['conflict','unavailable'].includes(state)&&<PressableCard className={styles.button} disabled={disabled} onClick={onReload}>{copy.reload}</PressableCard>}
-  </div><SitovTrainerHelp title={copy.help}><p>{copy.helpBody}</p></SitovTrainerHelp>
+  </div><SitovTrainerHelp title={sitovTrainerHelpCopy(lang).label}><h3>{copy.help}</h3><p>{copy.helpBody}</p></SitovTrainerHelp>
  </SitovMotionStage>
 }

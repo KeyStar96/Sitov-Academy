@@ -1,3 +1,4 @@
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import { randomUUID } from 'node:crypto'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { readFileSync } from 'node:fs'
@@ -23,7 +24,7 @@ it.each(['de', 'en', 'ru', 'uk', 'tr'])('honestly disables publication on missin
   const copy = sitovPretestPublicationCopy(lang)
   expect(await screen.findByText(copy.missing)).toBeInTheDocument(); expect(screen.getByRole('button', { name: copy.publish })).toBeDisabled()
   expect(getSitovPronunciationPretestPublication).toHaveBeenCalledWith(input); expect(publishSitovPronunciationPretest).not.toHaveBeenCalled()
-  expect(screen.getByRole('button', { name: copy.help })).toHaveAttribute('aria-expanded', 'false')
+  expect(screen.getByRole('button', { name: sitovTrainerHelpCopy(lang).label })).toHaveAttribute('aria-expanded', 'false')
 })
 it('uses exact source/test/base-active CAS and validates the actual active acknowledgment', async () => {
   render(<SitovPretestPublication {...props} />); fireEvent.click(await readyButton())

@@ -23,7 +23,7 @@ it.each(['de', 'en', 'ru', 'uk', 'tr'])('uses %s UI, German task content and clo
   const copy = sitovPretestStaffCopy(lang); const { container } = render(<SitovPronunciationPretestStaff {...props(lang)} />)
   expect(screen.getByText(copy.loading)).toBeInTheDocument()
   await screen.findByRole('heading', { name: 'Mein Frühstück' })
-  expect(screen.getByRole('button', { name: copy.help })).toHaveAttribute('aria-expanded', 'false')
+  screen.getAllByRole('button', { name: copy.help }).forEach(help => expect(help).toHaveAttribute('aria-expanded', 'false'))
   expect(screen.getByLabelText(copy.level)).toHaveValue('A1.1')
   const prompt = screen.getByText('Was passt zu Satz 1?'); expect(prompt).toHaveAttribute('lang', 'de'); expect(prompt).toHaveAttribute('translate', 'no')
   expect(container.textContent).not.toContain('PRIVATE_EVIDENCE_DO_NOT_RENDER'); expect(container.textContent).not.toContain('UNKNOWN_SECRET_DO_NOT_RENDER')
@@ -105,7 +105,7 @@ it('opens Help with Enter and preserves native preview disclosures under Reduced
   try {
     const user = userEvent.setup(); render(<SitovPronunciationPretestStaff {...props()} />)
     await screen.findByRole('heading', { name: 'Mein Frühstück' })
-    const help = screen.getByRole('button', { name: 'Help' }); help.focus(); await user.keyboard('{Enter}')
+    const help = screen.getAllByRole('button', { name: 'Help' })[0]; help.focus(); await user.keyboard('{Enter}')
     expect(help).toHaveAttribute('aria-expanded', 'true'); expect(screen.getByRole('region', { name: 'Help' })).toBeInTheDocument()
     const summary = screen.getByText('Was passt zu Satz 1?').closest('summary')!
     fireEvent.click(summary)

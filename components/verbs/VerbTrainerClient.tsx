@@ -19,6 +19,7 @@ import SitovTrainerHero from '@/components/motion/SitovTrainerHero'
 import SitovTrainerTabs from '@/components/motion/SitovTrainerTabs'
 import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
 import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import SitovVerbScene from './SitovVerbScene'
 import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
@@ -255,7 +256,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
           </form> : <div className={styles.sitovEmpty} role="status">{busy ? <><LoaderCircle className={styles.sitovSpinner} size={30} /><p>{copy.loading}</p></> : <button className={styles.sitovPrimary} onClick={() => void loadExercise(sessionTenses, undefined, sessionBox)}>{copy.retry}</button>}</div>}
       </>}
     </section> : <>
-      {view === 'box' && sitovTarget?.target && <SitovTrainerHelp title={uiCopy.help}><p>{copy.boxHint}</p><p>{copy.retained}</p></SitovTrainerHelp>}
+      {view === 'box' && sitovTarget?.target && <SitovTrainerHelp title={sitovTrainerHelpCopy(lang).label}><h3>{uiCopy.help}</h3><p>{copy.boxHint}</p><p>{copy.retained}</p></SitovTrainerHelp>}
       {view === 'box' && <section className={styles.sitovBox}>
         <div className={styles.sitovSectionHead}><div><h1>{copy.boxTitle}</h1><p>{copy.boxHint}</p></div><span className={styles.sitovRetained}><CheckCheck size={16} />{copy.retained}</span></div>
         <div className={styles.sitovLevels} aria-label={copy.availableLevels}><button aria-pressed={poolLevel === 'all'} onClick={() => setPoolLevel('all')}>{copy.all}</button>

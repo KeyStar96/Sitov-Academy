@@ -7,6 +7,7 @@ import SitovLearningSpecialStaff from './SitovLearningSpecialStaff'
 import PressableCard from '@/components/motion/PressableCard'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import styles from './SitovLearningSpecialStaffTargets.module.css'
 interface Props{accountKey:string;lang:string;initial:SitovSpecialStaffTargetsResult}
 const unavailable:SitovSpecialStaffTargetsResult={ok:false,error:'not_found',retryable:false}
@@ -41,7 +42,7 @@ function TargetPicker({accountKey,lang,initial,preferred,onSelect}:Props&{prefer
  return <div className={styles.root} lang={lang}>
   <SitovMotionStage className={styles.panel} aria-labelledby={`${id}-title`} aria-busy={pending}>
    <h1 id={`${id}-title`}>{copy.title}</h1><p>{copy.intro}</p>
-   <SitovTrainerHelp title={copy.targetsHelp}><p>{copy.targetsHelpBody}</p></SitovTrainerHelp>
+   <SitovTrainerHelp title={sitovTrainerHelpCopy(lang).label}><h3>{copy.targetsHelp}</h3><p>{copy.targetsHelpBody}</p></SitovTrainerHelp>
    <div className={styles.toolbar}><label className={styles.label}>{copy.level}<select className={styles.select} value={level} disabled={pending} onChange={e=>void reload(e.target.value)}><option value="">{copy.allLevels}</option>{levels.map(l=><option key={l} value={l}>{l}</option>)}</select></label><PressableCard className={styles.button} disabled={pending} onClick={()=>void reload()}>{copy.reload}</PressableCard></div>
    {pending?<p role="status">{copy.targetsLoading}</p>:result.ok===false?<p ref={message} role="alert" tabIndex={-1}>{result.error==='invalid_input'?copy.targetsError:copy.targetsDenied}</p>:!targets.length?<p role="status">{copy.targetsEmpty}</p>:<fieldset className={styles.fieldset}><legend>{copy.selectTarget}</legend><div className={styles.targets}>{targets.map(t=><PressableCard key={t.nodeId} className={styles.target} aria-pressed={selected===t.nodeId} onClick={()=>{setSelected(t.nodeId);onSelect(t.nodeId)}}><span lang="de" translate="no">{t.title}</span><span className={styles.level}>{t.level}</span></PressableCard>)}</div></fieldset>}
   </SitovMotionStage>

@@ -7,6 +7,7 @@ import { sitovPretestAuthorDefinitionSchema, sitovPretestAuthorSavedSchema, type
 import { sitovPretestEditorCopy, sitovStaffText } from '@/lib/sitov-pronunciation-pretest-staff-i18n'
 import PressableCard from '@/components/motion/PressableCard'
 import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import styles from './SitovPretestDraftEditor.module.css'
 
@@ -87,6 +88,6 @@ export default function SitovPretestDraftEditor({ textId, textVersion, sourceVer
       {state === 'uncertain' && <PressableCard onClick={() => void save()}>{copy.retry}</PressableCard>}
       {(state === 'conflict' || state === 'failed' || outdated) && <PressableCard onClick={onReload}>{copy.reload}</PressableCard>}
     </div>
-    <SitovTrainerHelp title={copy.help}><p>{copy.helpBody}</p></SitovTrainerHelp>
+    <SitovTrainerHelp title={sitovTrainerHelpCopy(lang).label}><h3>{copy.help}</h3><p>{copy.helpBody}</p></SitovTrainerHelp>
   </SitovMotionStage>
 }
