@@ -1,10 +1,11 @@
 import { randomUUID } from 'node:crypto'
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { readFileSync } from 'node:fs'
 import SitovPretestDraftEditor from '@/components/admin/SitovPretestDraftEditor'
 import { saveSitovPronunciationPretestDraft } from '@/app/actions/sitov-pronunciation-pretest'
 import { sitovPretestAuthorDefinitionSchema } from '@/lib/sitov-pronunciation-pretest-author-contract'
 import { sitovPretestEditorCopy } from '@/lib/sitov-pronunciation-pretest-staff-i18n'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 jest.unmock('lucide-react')
 beforeAll(() => { Object.defineProperty(global.crypto, 'randomUUID', { value: randomUUID, configurable: true }) })
 jest.mock('@/app/actions/sitov-pronunciation-pretest', () => ({ saveSitovPronunciationPretestDraft: jest.fn() }))
@@ -18,7 +19,17 @@ it.each(['de', 'en', 'ru', 'uk', 'tr'])('has localized fields and German content
   const copy = sitovPretestEditorCopy(lang); render(<SitovPretestDraftEditor {...props} lang={lang} />)
   expect(screen.getByRole('button', { name: copy.save })).toBeEnabled()
   expect(screen.getAllByLabelText(copy.prompt)[0]).toHaveAttribute('lang', 'de'); expect(screen.getAllByLabelText(copy.rationale)[0]).toHaveAttribute('translate', 'no')
-  expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled(); expect(screen.getByRole('button', { name: copy.help })).toHaveAttribute('aria-expanded', 'false')
+  const toggle = screen.getByRole('button', { name: sitovTrainerHelpCopy(lang).label })
+  expect(toggle).toHaveAttribute('aria-expanded', 'false'); expect(toggle).toHaveAttribute('type', 'button')
+  fireEvent.click(toggle)
+  const panel = screen.getByRole('region', { name: sitovTrainerHelpCopy(lang).label })
+  expect(within(panel).getByRole('heading', { name: copy.help })).toBeInTheDocument()
+  expect(panel).toHaveTextContent(copy.helpBody)
+  expect(toggle).toHaveAttribute('aria-controls', panel.id)
+  fireEvent.click(toggle)
+  expect(toggle).toHaveAttribute('aria-expanded', 'false')
+  expect(panel).toHaveAttribute('aria-hidden', 'true')
+  expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled()
 })
 it('edits fields, preserves exact keys/source metadata, and uses exact inactive ack', async () => {
   render(<SitovPretestDraftEditor {...props} />)
@@ -89,4 +100,84 @@ it('denial stops editing and only offers reload instead of claiming a save', asy
   await screen.findByText(sitovPretestEditorCopy('en').failed)
   expect(props.onSaved).not.toHaveBeenCalled(); expect(screen.queryByRole('button', { name: 'Check save again' })).not.toBeInTheDocument()
   expect(screen.getAllByLabelText('Question prompt')[0]).toBeDisabled()
+})
+
+
+// Component/action-port acceptance only: fixtures stay local and inactive.
+const sitovCompleteMatrix = { ...definition, omittedCategories: [] }
+function sitovAbsentNominalMatrix() {
+  const removed = definition.competencies.find(core => core.category === 'nominal_forms')!
+  const tasks = definition.tasks.filter(task => task.competencyId !== removed.id)
+  const ids = new Set(tasks.map(task => task.id))
+  return { ...definition, competencies: definition.competencies.filter(core => core.id !== removed.id), tasks,
+    reviewForms: definition.reviewForms.map(form => ({ ...form, questionIds: form.questionIds.filter(id => ids.has(id)) })), omittedCategories: [] as typeof definition.omittedCategories }
+}
+function sitovImport(raw: unknown, lang = 'en') {
+  const copy = sitovPretestEditorCopy(lang), summary = screen.getByText(copy.advanced)
+  fireEvent.click(summary)
+  expect(summary.closest('details')).toHaveAttribute('open')
+  const json = screen.getByLabelText(copy.json)
+  expect(json).toHaveAttribute('lang', 'de'); expect(json).toHaveAttribute('translate', 'no')
+  fireEvent.change(json, { target: { value: JSON.stringify(raw) } })
+  expect(screen.getByRole('button', { name: copy.save })).toBeDisabled()
+  fireEvent.click(screen.getByRole('button', { name: copy.import }))
+}
+it.each(['de', 'en', 'ru', 'uk', 'tr'])('imports a complete four-category matrix with no invented omission and saves once in %s', async lang => {
+  const copy = sitovPretestEditorCopy(lang)
+  render(<SitovPretestDraftEditor {...props} definition={undefined} lang={lang} />)
+  expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled()
+  sitovImport(sitovCompleteMatrix, lang)
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+  expect(screen.getAllByLabelText(copy.prompt)[0]).toHaveAttribute('lang', 'de')
+  expect(screen.getAllByLabelText(copy.prompt)[0]).toHaveAttribute('translate', 'no')
+  expect(screen.getByRole('button', { name: copy.save })).toBeEnabled()
+  expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: copy.save }))
+  await waitFor(() => expect(props.onSaved).toHaveBeenCalledTimes(1))
+  expect(saveSitovPronunciationPretestDraft).toHaveBeenCalledTimes(1)
+  const input = jest.mocked(saveSitovPronunciationPretestDraft).mock.calls[0][0]
+  expect(input).toEqual({ textId: props.textId, textVersion: props.textVersion, baseDefinitionId: base, definition: sitovCompleteMatrix, requestId: expect.any(String) })
+  expect(props.onSaved).toHaveBeenCalledWith(ack(input).data)
+  expect(ack(input).data.active).toBe(false)
+})
+it.each([
+  { label: 'no reason', omissions: [] },
+  { label: 'short', omissions: [{ category: 'nominal_forms', reasonDe: 'Kurz.' }] },
+  { label: 'padded', omissions: [{ category: 'nominal_forms', reasonDe: '                  Kurz.                  ' }] },
+  { label: 'ten Unicode code points', omissions: [{ category: 'nominal_forms', reasonDe: '🙂'.repeat(10) }] },
+])('rejects absent nominal forms with $label through JSON import without a save call', ({ omissions }) => {
+  render(<SitovPretestDraftEditor {...props} definition={undefined} />)
+  sitovImport({ ...sitovAbsentNominalMatrix(), omittedCategories: omissions })
+  expect(screen.getByRole('alert')).toHaveTextContent(sitovPretestEditorCopy('en').invalid)
+  const save = screen.getByRole('button', { name: sitovPretestEditorCopy('en').save })
+  expect(save).toBeDisabled(); fireEvent.click(save)
+  expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled()
+  expect(props.onSaved).not.toHaveBeenCalled()
+})
+it('imports a substantively justified absence with balanced remaining forms and saves the exact definition', async () => {
+  const absent = { ...sitovAbsentNominalMatrix(), omittedCategories: [{ category: 'nominal_forms', reasonDe: 'Diese Kategorie fehlt in diesem synthetischen Test der Importoberfläche ausdrücklich.' }] }
+  render(<SitovPretestDraftEditor {...props} definition={undefined} />)
+  sitovImport(absent)
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+  const save = screen.getByRole('button', { name: sitovPretestEditorCopy('en').save })
+  expect(save).toBeEnabled(); fireEvent.click(save)
+  await waitFor(() => expect(props.onSaved).toHaveBeenCalledTimes(1))
+  expect(saveSitovPronunciationPretestDraft).toHaveBeenCalledTimes(1)
+  expect(jest.mocked(saveSitovPronunciationPretestDraft).mock.calls[0][0].definition).toEqual(absent)
+})
+it.each(['text', 'source', 'definition'] as const)('does not accept a strict inactive ack with a foreign %s', async mismatch => {
+  jest.mocked(saveSitovPronunciationPretestDraft).mockImplementationOnce(async input => {
+    const response = ack(input)
+    if (mismatch === 'text') response.data.text_id = saved
+    if (mismatch === 'source') response.data.text_version = 'b'.repeat(64)
+    if (mismatch === 'definition') response.data.definition = { ...input.definition, omittedCategories: [{ category: 'additional', reasonDe: 'Diese zusätzliche Begründung war nicht Teil des gesendeten Entwurfs.' }] }
+    return response
+  })
+  render(<SitovPretestDraftEditor {...props} definition={undefined} />)
+  sitovImport(sitovCompleteMatrix)
+  fireEvent.click(screen.getByRole('button', { name: sitovPretestEditorCopy('en').save }))
+  await screen.findByRole('button', { name: sitovPretestEditorCopy('en').retry })
+  expect(screen.getByRole('alert')).toHaveFocus()
+  expect(props.onSaved).not.toHaveBeenCalled()
+  expect(saveSitovPronunciationPretestDraft).toHaveBeenCalledTimes(1)
 })

@@ -1,6 +1,8 @@
 import { randomUUID } from 'node:crypto'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { readFileSync } from 'node:fs'
+import { sitovPretestAuthorDefinitionSchema } from '@/lib/sitov-pronunciation-pretest-author-contract'
+import { sitovPretestEditorCopy, sitovPretestStaffCopy } from '@/lib/sitov-pronunciation-pretest-staff-i18n'
 import SitovPronunciationPretestStaff from '@/components/admin/SitovPronunciationPretestStaff'
 import { getSitovPronunciationPretestStaff, saveSitovPronunciationPretestDraft, getSitovPronunciationPretestPublication, publishSitovPronunciationPretest } from '@/app/actions/sitov-pronunciation-pretest'
 jest.unmock('lucide-react')
@@ -60,4 +62,44 @@ it('preserves database timestamp precision before applying the UUID tie break', 
   fireEvent.click(await screen.findByRole('button', { name: 'Save as a new inactive draft' }))
   await screen.findByText('New inactive draft saved.')
   expect(saveSitovPronunciationPretestDraft).toHaveBeenCalledWith(expect.objectContaining({ baseDefinitionId: low }))
+})
+
+
+it.each(['de', 'en', 'ru', 'uk', 'tr'])('selects one exact inactive ack and restores its complete JSON after mocked secured reread in %s', async lang => {
+  const editor = sitovPretestEditorCopy(lang), staff = sitovPretestStaffCopy(lang)
+  const complete = { ...sitovPretestAuthorDefinitionSchema.parse(source.definition), omittedCategories: [] }
+  const originals = [row, { ...row, id: high, active: false }]
+  const view = render(<SitovPronunciationPretestStaff {...props} lang={lang} />)
+  await screen.findByRole('button', { name: editor.save })
+  expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByText(editor.advanced))
+  const json = screen.getByLabelText(editor.json)
+  expect(json).toHaveAttribute('lang', 'de'); expect(json).toHaveAttribute('translate', 'no')
+  fireEvent.change(json, { target: { value: JSON.stringify(complete) } })
+  expect(screen.getByRole('button', { name: editor.save })).toBeDisabled()
+  fireEvent.click(screen.getByRole('button', { name: editor.import }))
+  expect(screen.getByRole('button', { name: editor.save })).toBeEnabled()
+  expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: editor.save }))
+  const notice = await screen.findByText(editor.saved)
+  expect(notice).toHaveFocus()
+  expect(saveSitovPronunciationPretestDraft).toHaveBeenCalledTimes(1)
+  const input = jest.mocked(saveSitovPronunciationPretestDraft).mock.calls[0][0]
+  expect(input).toEqual({ textId: source.textId, textVersion: source.textVersion, baseDefinitionId: high, definition: complete, requestId: expect.any(String) })
+  expect(screen.getByLabelText(staff.definition)).toHaveValue(saved)
+  expect(screen.getAllByRole('option').filter(option => [low, high, saved].includes((option as HTMLOptionElement).value))).toHaveLength(3)
+  expect(publishSitovPronunciationPretest).not.toHaveBeenCalled()
+  const acknowledged = { ...row, id: saved, active: false, definition: complete, created_at: '2026-10-09T00:01:00Z' }
+  view.unmount()
+  jest.mocked(getSitovPronunciationPretestStaff).mockResolvedValue({ ok: true, data: { definitions: [...originals, acknowledged], attempts: [] } })
+  render(<SitovPronunciationPretestStaff {...props} lang={lang} />)
+  await screen.findByRole('button', { name: editor.save })
+  fireEvent.change(screen.getByLabelText(staff.definition), { target: { value: saved } })
+  await waitFor(() => expect(screen.getByLabelText(staff.definition)).toHaveValue(saved))
+  expect(JSON.parse((screen.getByLabelText(editor.json) as HTMLTextAreaElement).value)).toEqual(complete)
+  expect(screen.getAllByLabelText(editor.prompt)[0]).toHaveAttribute('lang', 'de')
+  expect(screen.getAllByLabelText(editor.prompt)[0]).toHaveAttribute('translate', 'no')
+  expect(getSitovPronunciationPretestStaff).toHaveBeenCalledTimes(2)
+  expect(saveSitovPronunciationPretestDraft).toHaveBeenCalledTimes(1)
+  expect(publishSitovPronunciationPretest).not.toHaveBeenCalled()
 })
