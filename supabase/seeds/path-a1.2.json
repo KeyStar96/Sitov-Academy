@@ -5786,7 +5786,7 @@
                 "weibliche Form"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena kocht in einem Restaurant. Sie ist …",
+              "question": "Welche weibliche Berufsbezeichnung gehört zu „Koch“?",
               "options": [
                 "Köchin",
                 "Kochin",
@@ -5808,25 +5808,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "A woman? Then usually job + -in. Mind the umlaut: Arzt – Ärztin.",
                 "explanation": "Jobs: for women you usually add -in: der Lehrer – die Lehrerin. Often a, o, u become ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Plural: die Lehrerinnen. Watch out: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Lena cooks in a restaurant. She is a …"
+                "task": "Which feminine job title corresponds to Koch?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Женщина? Тогда обычно профессия + -in. Не забудьте умлаут: Arzt – Ärztin.",
                 "explanation": "Профессии: для женщин обычно добавляется -in: der Lehrer – die Lehrerin. Часто a, o, u меняются на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множественное число: die Lehrerinnen. Внимание: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Lena готовит в ресторане. Она …"
+                "task": "Какая женская форма профессии соответствует слову Koch?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Жінка? Тоді зазвичай професія + -in. Не забудьте умлаут: Arzt – Ärztin.",
                 "explanation": "Професії: для жінок зазвичай додається -in: der Lehrer – die Lehrerin. Часто a, o, u змінюються на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множина: die Lehrerinnen. Увага: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Lena готує в ресторані. Вона …"
+                "task": "Яка жіноча назва професії відповідає слову Koch?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kadın mı? O zaman genellikle meslek + -in. Umlaut’a dikkat: Arzt – Ärztin.",
                 "explanation": "Meslekler: Kadınlar için genellikle kelimeye -in eklenir: der Lehrer – die Lehrerin. Çoğu zaman a, o, u harfleri ä, ö, ü olur: der Arzt – die Ärztin, der Koch – die Köchin. Çoğul: die Lehrerinnen. Dikkat: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Lena bir restoranda yemek yapıyor. O bir …"
+                "task": "Koch sözcüğünün kadın meslek adı hangisidir?"
               }
             }
           },
@@ -17549,7 +17549,7 @@
                 "Akkusativ Plural"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena braucht … Tabletten.",
+              "question": "Ergänze den Possessivartikel zu „sie (Singular)“: „Sie braucht … Tabletten.“",
               "options": [
                 "ihren",
                 "ihre",
@@ -17571,25 +17571,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "der noun + accusative → -en: meinen, deinen, seinen, ihren.",
                 "explanation": "Possessives in the accusative: only masculine nouns (der) get -en: Ich suche meinen Arzt. Hast du deinen Termin? Er nimmt seinen Tee. Sie ruft ihren Chef an. Wir besuchen unseren Opa. Careful: euren (not eueren). With “das”, “die” and plural nouns the accusative looks like the nominative: mein Medikament, meine Tablette, meine Tabletten.",
-                "task": "Lena needs her tablets."
+                "task": "Complete the possessive for sie (singular): Sie braucht … Tabletten."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Слово с der + Akkusativ → -en: meinen, deinen, seinen, ihren.",
                 "explanation": "Притяжательные слова в Akkusativ: только у слов мужского рода (der) появляется -en: Ich suche meinen Arzt. Hast du deinen Termin? Er nimmt seinen Tee. Sie ruft ihren Chef an. Wir besuchen unseren Opa. Внимание: euren (не eueren). У слов с «das», «die» и во множественном числе Akkusativ совпадает с Nominativ: mein Medikament, meine Tablette, meine Tabletten.",
-                "task": "Lena нужны её таблетки."
+                "task": "Дополните притяжательный артикль для sie (ед. число): Sie braucht … Tabletten."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Слово з der + Akkusativ → -en: meinen, deinen, seinen, ihren.",
                 "explanation": "Присвійні слова в Akkusativ: лише у слів чоловічого роду (der) з’являється -en: Ich suche meinen Arzt. Hast du deinen Termin? Er nimmt seinen Tee. Sie ruft ihren Chef an. Wir besuchen unseren Opa. Увага: euren (не eueren). У слів із «das», «die» та в множині Akkusativ збігається з Nominativ: mein Medikament, meine Tablette, meine Tabletten.",
-                "task": "Lena потрібні її таблетки."
+                "task": "Доповніть присвійний артикль для sie (однина): Sie braucht … Tabletten."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "der’li isim + Akkusativ → -en: meinen, deinen, seinen, ihren.",
                 "explanation": "Akkusativ’te iyelik sözcükleri: Yalnızca eril isimlerde (der) -en gelir: Ich suche meinen Arzt. Hast du deinen Termin? Er nimmt seinen Tee. Sie ruft ihren Chef an. Wir besuchen unseren Opa. Dikkat: euren (eueren değil). “das”, “die” ve çoğulda Akkusativ, Nominativ ile aynıdır: mein Medikament, meine Tablette, meine Tabletten.",
-                "task": "Lena’nın haplarına ihtiyacı var."
+                "task": "sie (tekil) için iyelik artikelini tamamlayın: Sie braucht … Tabletten."
               }
             }
           },
@@ -41024,7 +41024,7 @@
                 "ihr"
               ],
               "instruction": "Ergänze das passende Pronomen.",
-              "text_before": "Lena probiert eine Bluse. Die Bluse gefällt ",
+              "text_before": "Ergänze das Dativpronomen zu „sie (Singular)“: Die Bluse gefällt ",
               "text_after": ".",
               "gap_hint": "sie",
               "correct_answer": "ihr",
@@ -41048,25 +41048,25 @@
                 "instruction": "Fill in the correct pronoun.",
                 "hint": "Who are you talking about? A man → ihm, a woman → ihr, several people → ihnen.",
                 "explanation": "Personal pronouns in the dative: ich → mir, du → dir, er/es → ihm, sie → ihr, wir → uns, ihr → euch, sie → ihnen, Sie → Ihnen. The question is: Wem? (to whom?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Lena is trying on a blouse. She likes the blouse."
+                "task": "Complete the dative pronoun for sie (singular): Die Bluse gefällt …"
               },
               "ru": {
                 "instruction": "Вставьте подходящее местоимение.",
                 "hint": "О ком вы говорите? Мужчина → ihm, женщина → ihr, несколько человек → ihnen.",
                 "explanation": "Личные местоимения в Dativ: ich → mir (мне), du → dir (тебе), er/es → ihm (ему), sie → ihr (ей), wir → uns (нам), ihr → euch (вам), sie → ihnen (им), Sie → Ihnen (Вам). Вопрос: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Lena примеряет блузку. Блузка ей нравится."
+                "task": "Дополните местоимение в дательном падеже для sie (ед. число): Die Bluse gefällt …"
               },
               "uk": {
                 "instruction": "Вставте відповідний займенник.",
                 "hint": "Про кого ви говорите? Чоловік → ihm, жінка → ihr, кілька людей → ihnen.",
                 "explanation": "Особові займенники в Dativ: ich → mir (мені), du → dir (тобі), er/es → ihm (йому), sie → ihr (їй), wir → uns (нам), ihr → euch (вам), sie → ihnen (їм), Sie → Ihnen (Вам). Запитання: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Lena приміряє блузку. Блузка їй подобається."
+                "task": "Доповніть займенник у давальному відмінку для sie (однина): Die Bluse gefällt …"
               },
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Kimden söz ediyorsunuz? Erkek → ihm, kadın → ihr, birden fazla kişi → ihnen.",
                 "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Lena bir bluz deniyor. Bluz hoşuna gidiyor."
+                "task": "sie (tekil) için datif zamirini tamamlayın: Die Bluse gefällt …"
               }
             }
           },

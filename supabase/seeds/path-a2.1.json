@@ -472,7 +472,7 @@
                 "Enkelin"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Oma Marta liebt Mia sehr. Mia ist die Tochter von ihrem Sohn, also ihre ",
+              "text_before": "Die weibliche Form von „Enkel“ heißt ",
               "text_after": ".",
               "correct_answer": "Enkelin",
               "options": [
@@ -495,28 +495,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Think: who is it in the family – a brother or sister of your parents, or a child of your brother or sister?",
                 "explanation": "Family: der Onkel (uncle) and die Tante (aunt) are the brothers and sisters of your father or mother. Their children are der Cousin and die Cousine (cousins). The children of your brother or sister are der Neffe (nephew) and die Nichte (niece). Your sister’s husband is der Schwager (brother-in-law), your brother’s wife is die Schwägerin (sister-in-law). The parents of your husband or wife are die Schwiegereltern (parents-in-law). The children of your own children are die Enkel: der Enkel (grandson), die Enkelin (granddaughter).",
-                "task": "Grandma Marta loves Mia very much. Mia is her son’s daughter, so she is her granddaughter.",
+                "task": "The feminine form of Enkel is …",
                 "gap_hint": "granddaughter"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Подумайте: кто это в семье – брат или сестра родителей или ребёнок брата или сестры?",
                 "explanation": "Семья: der Onkel (дядя) и die Tante (тётя) – братья и сёстры отца или матери. Их дети – der Cousin (двоюродный брат) и die Cousine (двоюродная сестра). Дети брата или сестры – der Neffe (племянник) и die Nichte (племянница). Муж сестры – der Schwager, жена брата – die Schwägerin. Родители мужа или жены – die Schwiegereltern (свёкор и свекровь, тесть и тёща). Дети своих детей – die Enkel: der Enkel (внук), die Enkelin (внучка).",
-                "task": "Бабушка Marta очень любит Mia. Mia – дочь её сына, то есть её внучка.",
+                "task": "Женская форма слова Enkel — …",
                 "gap_hint": "внучка"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Подумайте: хто це в родині – брат чи сестра батьків або дитина брата чи сестри?",
                 "explanation": "Родина: der Onkel (дядько) і die Tante (тітка) – брати й сестри батька або матері. Їхні діти – der Cousin (двоюрідний брат) і die Cousine (двоюрідна сестра). Діти брата чи сестри – der Neffe (племінник) і die Nichte (племінниця). Чоловік сестри – der Schwager, дружина брата – die Schwägerin. Батьки чоловіка або дружини – die Schwiegereltern (свекор і свекруха, тесть і теща). Діти власних дітей – die Enkel: der Enkel (онук), die Enkelin (онука).",
-                "task": "Бабуся Marta дуже любить Mia. Mia – донька її сина, тобто її онука.",
+                "task": "Жіноча форма слова Enkel — …",
                 "gap_hint": "онука"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Düşünün: Ailede bu kim – anne babanın kardeşi mi, yoksa kardeşin çocuğu mu?",
                 "explanation": "Aile: der Onkel (amca, dayı) ve die Tante (hala, teyze) anne ya da babanın kardeşleridir. Onların çocukları der Cousin ve die Cousine’dir (kuzen). Kardeşin çocukları der Neffe (erkek yeğen) ve die Nichte’dir (kız yeğen). Kız kardeşin kocası der Schwager (enişte), erkek kardeşin karısı die Schwägerin’dir (yenge). Eşin anne babası die Schwiegereltern’dir (kayınvalide ve kayınpeder). Kendi çocuklarının çocukları die Enkel’dir: der Enkel (erkek torun), die Enkelin (kız torun).",
-                "task": "Marta nine Mia’yı çok seviyor. Mia onun oğlunun kızı, yani kız torunu.",
+                "task": "Enkel sözcüğünün kadın biçimi …",
                 "gap_hint": "kız torun"
               }
             }
@@ -55750,7 +55750,7 @@
                 "ihrer"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Mia zeigt ",
+              "text_before": "Ergänze den Possessivartikel zu „sie (Singular)“: Sie zeigt ",
               "text_after": " Tante das neue Kleid.",
               "gap_hint": "ihr",
               "correct_answer": "ihrer",
@@ -55774,25 +55774,25 @@
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "die → -er: meiner Mutter. Plural → -en and noun + n: meinen Eltern, den Kindern.",
                 "explanation": "Dative feminine: der, einer, meiner, deiner, seiner, ihrer, unserer. Ich schenke meiner Mutter Blumen. Er gibt seiner Nachbarin den Schlüssel. Dative plural: den, meinen, deinen, seinen, ihren, unseren. In the plural the noun gets an -n: Ich schenke meinen Eltern einen Gutschein. Wir schreiben unseren Freunden eine Karte. Sie gibt den Kindern Schokolade.",
-                "task": "Mia is showing her aunt the new dress."
+                "task": "Complete the possessive for sie (singular): Sie zeigt … Tante das neue Kleid."
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "die → -er: meiner Mutter. Множественное число → -en и существительное + n: meinen Eltern, den Kindern.",
                 "explanation": "Dativ женского рода: der, einer, meiner, deiner, seiner, ihrer, unserer. Ich schenke meiner Mutter Blumen. Er gibt seiner Nachbarin den Schlüssel. Dativ множественного числа: den, meinen, deinen, seinen, ihren, unseren. Существительное во множественном числе получает -n: Ich schenke meinen Eltern einen Gutschein. Wir schreiben unseren Freunden eine Karte. Sie gibt den Kindern Schokolade.",
-                "task": "Mia показывает своей тёте новое платье."
+                "task": "Дополните притяжательный артикль для sie (ед. число): Sie zeigt … Tante das neue Kleid."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "die → -er: meiner Mutter. Множина → -en та іменник + n: meinen Eltern, den Kindern.",
                 "explanation": "Dativ жіночого роду: der, einer, meiner, deiner, seiner, ihrer, unserer. Ich schenke meiner Mutter Blumen. Er gibt seiner Nachbarin den Schlüssel. Dativ множини: den, meinen, deinen, seinen, ihren, unseren. Іменник у множині отримує -n: Ich schenke meinen Eltern einen Gutschein. Wir schreiben unseren Freunden eine Karte. Sie gibt den Kindern Schokolade.",
-                "task": "Mia показує своїй тітці нову сукню."
+                "task": "Доповніть присвійний артикль для sie (однина): Sie zeigt … Tante das neue Kleid."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "die → -er: meiner Mutter. Çoğul → -en ve isim + n: meinen Eltern, den Kindern.",
                 "explanation": "Dişil Dativ: der, einer, meiner, deiner, seiner, ihrer, unserer. Ich schenke meiner Mutter Blumen. Er gibt seiner Nachbarin den Schlüssel. Çoğul Dativ: den, meinen, deinen, seinen, ihren, unseren. Çoğulda isim -n alır: Ich schenke meinen Eltern einen Gutschein. Wir schreiben unseren Freunden eine Karte. Sie gibt den Kindern Schokolade.",
-                "task": "Mia teyzesine yeni elbiseyi gösteriyor."
+                "task": "sie (tekil) için iyelik artikelini tamamlayın: Sie zeigt … Tante das neue Kleid."
               }
             }
           },
@@ -57553,7 +57553,7 @@
                 "von ihr"
               ],
               "instruction": "Ergänze das passende Pronomen.",
-              "text_before": "Ist das Geschenk von Lena? – Ja, es ist von ",
+              "text_before": "Ergänze das Pronomen zu „sie (Singular)“ nach „von“: Das Geschenk ist von ",
               "text_after": ".",
               "gap_hint": "sie",
               "correct_answer": "ihr",
@@ -57577,25 +57577,25 @@
                 "instruction": "Fill in the correct pronoun.",
                 "hint": "von + dative: von meinem (der, das), von meiner (die), von meinen (plural). Pronouns: von mir, von ihm, von ihr.",
                 "explanation": "Who is the present from? von + dative: Die Blumen sind von meinem Mann. Das Buch habe ich von meiner Schwester bekommen. Die Karte ist von meinen Kollegen. With pronouns: von mir, von dir, von ihm, von ihr, von uns, von euch, von ihnen. Some masculine nouns get an -n in the dative: der Kollege → von meinem Kollegen, der Nachbar → von meinem Nachbarn, der Herr → von Herrn Weber.",
-                "task": "Is the present from Lena? – Yes, it is from her."
+                "task": "Complete the pronoun for sie (singular) after von: Das Geschenk ist von …"
               },
               "ru": {
                 "instruction": "Вставьте подходящее местоимение.",
                 "hint": "von + Dativ: von meinem (der, das), von meiner (die), von meinen (множественное число). Местоимения: von mir, von ihm, von ihr.",
                 "explanation": "От кого подарок? von + Dativ: Die Blumen sind von meinem Mann. Das Buch habe ich von meiner Schwester bekommen. Die Karte ist von meinen Kollegen. С местоимениями: von mir, von dir, von ihm, von ihr, von uns, von euch, von ihnen. Некоторые существительные мужского рода получают в Dativ -n: der Kollege → von meinem Kollegen, der Nachbar → von meinem Nachbarn, der Herr → von Herrn Weber.",
-                "task": "Подарок от Lena? – Да, он от неё."
+                "task": "Дополните местоимение для sie (ед. число) после von: Das Geschenk ist von …"
               },
               "uk": {
                 "instruction": "Вставте відповідний займенник.",
                 "hint": "von + Dativ: von meinem (der, das), von meiner (die), von meinen (множина). Займенники: von mir, von ihm, von ihr.",
                 "explanation": "Від кого подарунок? von + Dativ: Die Blumen sind von meinem Mann. Das Buch habe ich von meiner Schwester bekommen. Die Karte ist von meinen Kollegen. Із займенниками: von mir, von dir, von ihm, von ihr, von uns, von euch, von ihnen. Деякі іменники чоловічого роду отримують у Dativ -n: der Kollege → von meinem Kollegen, der Nachbar → von meinem Nachbarn, der Herr → von Herrn Weber.",
-                "task": "Подарунок від Lena? – Так, він від неї."
+                "task": "Доповніть займенник для sie (однина) після von: Das Geschenk ist von …"
               },
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "von + Dativ: von meinem (der, das), von meiner (die), von meinen (çoğul). Zamirler: von mir, von ihm, von ihr.",
                 "explanation": "Hediye kimden? von + Dativ: Die Blumen sind von meinem Mann. Das Buch habe ich von meiner Schwester bekommen. Die Karte ist von meinen Kollegen. Zamirlerle: von mir, von dir, von ihm, von ihr, von uns, von euch, von ihnen. Bazı eril isimler Dativ’te -n alır: der Kollege → von meinem Kollegen, der Nachbar → von meinem Nachbarn, der Herr → von Herrn Weber.",
-                "task": "Hediye Lena’dan mı? – Evet, ondan."
+                "task": "von sonrasında sie (tekil) zamirini tamamlayın: Das Geschenk ist von …"
               }
             }
           },

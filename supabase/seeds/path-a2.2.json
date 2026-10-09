@@ -5919,9 +5919,9 @@
                 "Subjekt nach dem Verb"
               ],
               "instruction": "Ergänze das passende Pronomen.",
-              "text_before": "Lena ist sehr müde. Trotzdem geht ",
+              "text_before": "Ergänze das Personalpronomen für „eine Frau“: Trotzdem geht ",
               "text_after": " noch ins Fitnessstudio.",
-              "gap_hint": "Lena",
+              "gap_hint": "eine Frau",
               "correct_answer": "sie",
               "options": [
                 "ihr",
@@ -5943,25 +5943,25 @@
                 "instruction": "Fill in the correct pronoun.",
                 "hint": "Trotzdem + verb + subject: Trotzdem gehe ich … Or: Ich gehe trotzdem …",
                 "explanation": "trotzdem (nevertheless, anyway) links two sentences that contrast: something speaks against it, but you do it. Es regnet. Trotzdem machen wir eine Radtour. (It is raining. We are going on a bike ride anyway.) trotzdem is in position 1, then the verb follows straight away (position 2), then the subject. trotzdem can also come after the verb: Wir machen trotzdem eine Radtour.",
-                "task": "Lena is very tired. She is still going to the gym anyway."
+                "task": "Complete the personal pronoun for eine Frau: Trotzdem geht … noch ins Fitnessstudio."
               },
               "ru": {
                 "instruction": "Вставьте подходящее местоимение.",
                 "hint": "Trotzdem + глагол + подлежащее: Trotzdem gehe ich … Или: Ich gehe trotzdem …",
                 "explanation": "trotzdem (всё равно, тем не менее) соединяет два предложения с противопоставлением: что-то мешает, но это всё равно делают. Es regnet. Trotzdem machen wir eine Radtour. (Идёт дождь. Мы всё равно едем на велопрогулку.) trotzdem стоит на первом месте, сразу за ним – глагол (второе место), затем подлежащее. trotzdem может стоять и после глагола: Wir machen trotzdem eine Radtour.",
-                "task": "Lena очень устала. Тем не менее она ещё идёт в фитнес-клуб."
+                "task": "Дополните личное местоимение для eine Frau: Trotzdem geht … noch ins Fitnessstudio."
               },
               "uk": {
                 "instruction": "Вставте відповідний займенник.",
                 "hint": "Trotzdem + дієслово + підмет: Trotzdem gehe ich … Або: Ich gehe trotzdem …",
                 "explanation": "trotzdem (все одно, попри це) поєднує два речення з протиставленням: щось заважає, але це все одно роблять. Es regnet. Trotzdem machen wir eine Radtour. (Іде дощ. Ми все одно їдемо на велопрогулянку.) trotzdem стоїть на першому місці, одразу за ним – дієслово (друге місце), потім підмет. trotzdem може стояти й після дієслова: Wir machen trotzdem eine Radtour.",
-                "task": "Lena дуже втомилася. Попри це вона ще йде до фітнес-клубу."
+                "task": "Доповніть особовий займенник для eine Frau: Trotzdem geht … noch ins Fitnessstudio."
               },
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Trotzdem + fiil + özne: Trotzdem gehe ich … Ya da: Ich gehe trotzdem …",
                 "explanation": "trotzdem (yine de) karşıtlık içeren iki cümleyi bağlar: Bir şey buna engeldir ama insan yine de yapar. Es regnet. Trotzdem machen wir eine Radtour. (Yağmur yağıyor. Yine de bisiklet turu yapıyoruz.) trotzdem birinci sırada durur, hemen ardından fiil (ikinci sıra), sonra özne gelir. trotzdem fiilden sonra da durabilir: Wir machen trotzdem eine Radtour.",
-                "task": "Lena çok yorgun. Yine de spor salonuna gidiyor."
+                "task": "eine Frau için kişi zamirini tamamlayın: Trotzdem geht … noch ins Fitnessstudio."
               }
             }
           },

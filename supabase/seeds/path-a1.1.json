@@ -1219,7 +1219,7 @@
               ],
               "instruction": "Ergänze die richtige Verbform.",
               "text_before": "Hallo, ich ",
-              "text_after": " Olena.",
+              "text_after": " Oleh.",
               "gap_hint": "heißen",
               "correct_answer": "heiße",
               "options": [
@@ -1242,25 +1242,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "With ich the verb ends in -e: ich komme, ich heiße, ich spreche.",
                 "explanation": "Present tense: ich komm-e, du komm-st, Sie komm-en. Special cases: du heißt (only -t, because the stem ends in ß) and du sprichst (e changes to i).",
-                "task": "Hello, my name is Olena."
+                "task": "Hello, my name is Oleh."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "С ich глагол оканчивается на -e: ich komme, ich heiße, ich spreche.",
                 "explanation": "Настоящее время: ich komm-e, du komm-st, Sie komm-en. Особые случаи: du heißt (только -t, так как основа оканчивается на ß) и du sprichst (e меняется на i).",
-                "task": "Привет, меня зовут Olena."
+                "task": "Привет, меня зовут Oleh."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "З ich дієслово закінчується на -e: ich komme, ich heiße, ich spreche.",
                 "explanation": "Теперішній час: ich komm-e, du komm-st, Sie komm-en. Особливі випадки: du heißt (лише -t, бо основа закінчується на ß) і du sprichst (e змінюється на i).",
-                "task": "Привіт, мене звати Olena."
+                "task": "Привіт, мене звати Oleh."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "ich ile fiil -e ile biter: ich komme, ich heiße, ich spreche.",
                 "explanation": "Şimdiki zaman: ich komm-e, du komm-st, Sie komm-en. Özel durumlar: du heißt (kök ß ile bittiği için sadece -t) ve du sprichst (e, i olur).",
-                "task": "Merhaba, benim adım Olena."
+                "task": "Merhaba, benim adım Oleh."
               }
             }
           },
@@ -1444,7 +1444,7 @@
               ],
               "instruction": "Ergänze das passende Wort.",
               "text_before": "Guten Tag! Mein ",
-              "text_after": " ist Kasia Nowak.",
+              "text_after": " ist Kamil Nowak.",
               "correct_answer": "Name",
               "options": [
                 "Frau",
@@ -1466,28 +1466,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
                 "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
-                "task": "Good day! My name is Kasia Nowak.",
+                "task": "Good day! My name is Kamil Nowak.",
                 "gap_hint": "name"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
                 "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
-                "task": "Добрый день! Меня зовут Kasia Nowak.",
+                "task": "Добрый день! Меня зовут Kamil Nowak.",
                 "gap_hint": "имя"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
                 "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
-                "task": "Добрий день! Мене звати Kasia Nowak.",
+                "task": "Добрий день! Мене звати Kamil Nowak.",
                 "gap_hint": "ім’я"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
                 "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
-                "task": "İyi günler! Benim adım Kasia Nowak.",
+                "task": "İyi günler! Benim adım Kamil Nowak.",
                 "gap_hint": "ad"
               }
             }
@@ -2105,7 +2105,7 @@
                 "Land mit Artikel"
               ],
               "instruction": "Ergänze den passenden Ausdruck.",
-              "text_before": "Olena sagt: „Ich komme aus ",
+              "text_before": "Oleh sagt: „Ich komme aus ",
               "text_after": ".“",
               "gap_hint": "die Ukraine",
               "correct_answer": "der Ukraine",
@@ -2130,25 +2130,25 @@
                 "instruction": "Fill in the right expression.",
                 "hint": "Some countries need an article: die Türkei → aus der Türkei, die Ukraine → aus der Ukraine.",
                 "explanation": "Origin: „Woher kommen Sie?“ – „Ich komme aus Polen.“ Most countries have no article. Some do: aus der Türkei, aus der Ukraine, aus der Schweiz, aus dem Irak, aus den USA.",
-                "task": "Olena says: “I come from Ukraine.”"
+                "task": "Oleh says: “I come from Ukraine.”"
               },
               "ru": {
                 "instruction": "Вставьте подходящее выражение.",
                 "hint": "Некоторые страны – с артиклем: die Ukraine → aus der Ukraine, die Türkei → aus der Türkei.",
                 "explanation": "Происхождение: „Woher kommen Sie?“ – „Ich komme aus Polen.“ Большинство стран употребляется без артикля. Но некоторые – с артиклем: aus der Türkei, aus der Ukraine, aus der Schweiz, aus dem Irak, aus den USA.",
-                "task": "Olena говорит: «Я из Украины»."
+                "task": "Oleh говорит: «Я из Украины»."
               },
               "uk": {
                 "instruction": "Вставте відповідний вислів.",
                 "hint": "Деякі країни – з артиклем: die Ukraine → aus der Ukraine, die Türkei → aus der Türkei.",
                 "explanation": "Походження: „Woher kommen Sie?“ – „Ich komme aus Polen.“ Більшість країн уживають без артикля. Але деякі – з артиклем: aus der Türkei, aus der Ukraine, aus der Schweiz, aus dem Irak, aus den USA.",
-                "task": "Olena каже: «Я з України»."
+                "task": "Oleh каже: «Я з України»."
               },
               "tr": {
                 "instruction": "Uygun ifadeyi yazın.",
                 "hint": "Bazı ülkeler artikel alır: die Türkei → aus der Türkei (Türkiye’den).",
                 "explanation": "Nereli olduğunu söyleme: „Woher kommen Sie?“ – „Ich komme aus Polen.“ Çoğu ülke adı artikelsizdir. Bazıları artikel alır: aus der Türkei, aus der Ukraine, aus der Schweiz, aus dem Irak, aus den USA.",
-                "task": "Olena diyor ki: “Ukrayna’dan geliyorum.”"
+                "task": "Oleh diyor ki: “Ukrayna’dan geliyorum.”"
               }
             }
           },
@@ -2951,7 +2951,7 @@
               ],
               "instruction": "Ergänze das passende Fragewort.",
               "text_before": "",
-              "text_after": " heißen Sie? – Marchenko, Olena Marchenko.",
+              "text_after": " heißen Sie? – Marchenko, Oleh Marchenko.",
               "correct_answer": "Wie",
               "options": [
                 "Was",
@@ -2973,28 +2973,28 @@
                 "instruction": "Fill in the correct question word.",
                 "hint": "German asks for names with wie (how): Wie heißen Sie? = What is your name?",
                 "explanation": "Question words: Wer? = who (a person). Wie? = how – also for names: Wie heißt du? = What is your name? Woher? = where … from. Was? = what (a thing).",
-                "task": "What is your name? – Marchenko, Olena Marchenko.",
+                "task": "What is your name? – Marchenko, Oleh Marchenko.",
                 "gap_hint": "how"
               },
               "ru": {
                 "instruction": "Вставьте подходящее вопросительное слово.",
                 "hint": "Об имени спрашивают с wie: Wie heißen Sie? – «Как Вас зовут?» (не was!).",
                 "explanation": "Вопросительные слова: Wer? – кто (о человеке). Wie? – как (и об имени: Wie heißt du? – Как тебя зовут?). Woher? – откуда. Was? – что (о предмете).",
-                "task": "Как вас зовут? – Marchenko, Olena Marchenko.",
+                "task": "Как вас зовут? – Marchenko, Oleh Marchenko.",
                 "gap_hint": "как"
               },
               "uk": {
                 "instruction": "Вставте відповідне питальне слово.",
                 "hint": "Про ім’я питають з wie: Wie heißen Sie? – «Як Вас звати?» (не was!).",
                 "explanation": "Питальні слова: Wer? – хто (про людину). Wie? – як (і про ім’я: Wie heißt du? – Як тебе звати?). Woher? – звідки. Was? – що (про предмет).",
-                "task": "Як вас звати? – Marchenko, Olena Marchenko.",
+                "task": "Як вас звати? – Marchenko, Oleh Marchenko.",
                 "gap_hint": "як"
               },
               "tr": {
                 "instruction": "Uygun soru kelimesini yazın.",
                 "hint": "İsim wie (nasıl) ile sorulur: Wie heißen Sie? = Adınız ne? (was değil!)",
                 "explanation": "Soru kelimeleri: Wer? = kim (kişi). Wie? = nasıl (isim için de: Wie heißt du? = Adın ne?). Woher? = nereden. Was? = ne (şey).",
-                "task": "Adınız ne? – Marchenko, Olena Marchenko.",
+                "task": "Adınız ne? – Marchenko, Oleh Marchenko.",
                 "gap_hint": "nasıl"
               }
             }
@@ -3440,7 +3440,7 @@
                 "Interesse zeigen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Kasia sagt: „Ich spreche Polnisch, Englisch und Spanisch.“ Du zeigst Interesse.",
+              "question": "Kamil sagt: „Ich spreche Polnisch, Englisch und Spanisch.“ Du zeigst Interesse.",
               "options": [
                 "Wie heißt du?",
                 "Tschüs!",
@@ -3462,25 +3462,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Didn’t understand, need time or don’t know? Use a fixed phrase: Wie bitte? – like „Sorry?“ or „Pardon?“.",
                 "explanation": "Conversation strategies: didn’t understand → „Wie bitte?“ Need time → „Moment, bitte.“ Don’t know → „Das weiß ich nicht.“ Agree → „Ja, genau.“ Show interest → „Ach so!“ or „Interessant!“",
-                "task": "Kasia says: “I speak Polish, English and Spanish.” You show interest."
+                "task": "Kamil says: “I speak Polish, English and Spanish.” You show interest."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Не поняли, нужно время или не знаете ответа? Для этого есть готовые фразы: Wie bitte? – «Простите, что?»",
                 "explanation": "Стратегии в разговоре: не поняли → „Wie bitte?“ Нужно время → „Moment, bitte.“ Не знаете ответа → „Das weiß ich nicht.“ Согласие → „Ja, genau.“ Интерес → „Ach so!“ или „Interessant!“",
-                "task": "Kasia говорит: «Я говорю по-польски, по-английски и по-испански». Вы проявляете интерес."
+                "task": "Kamil говорит: «Я говорю по-польски, по-английски и по-испански». Вы проявляете интерес."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Не зрозуміли, потрібен час або не знаєте відповіді? Для цього є сталі фрази: Wie bitte? – «Перепрошую, що?»",
                 "explanation": "Стратегії в розмові: не зрозуміли → „Wie bitte?“ Потрібен час → „Moment, bitte.“ Не знаєте відповіді → „Das weiß ich nicht.“ Згода → „Ja, genau.“ Зацікавленість → „Ach so!“ або „Interessant!“",
-                "task": "Kasia каже: «Я розмовляю польською, англійською та іспанською». Ви виявляєте інтерес."
+                "task": "Kamil каже: «Я розмовляю польською, англійською та іспанською». Ви виявляєте інтерес."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Anlamadınız mı, zaman mı lazım, cevabı bilmiyor musunuz? Bunun için kalıplar vardır: Wie bitte? = Efendim?",
                 "explanation": "Konuşma stratejileri: Anlamadınız mı? → „Wie bitte?“ Zaman mı lazım? → „Moment, bitte.“ Bilmiyor musunuz? → „Das weiß ich nicht.“ Onaylamak → „Ja, genau.“ İlgi göstermek → „Ach so!“ ya da „Interessant!“",
-                "task": "Kasia diyor ki: “Lehçe, İngilizce ve İspanyolca konuşuyorum.” İlgi gösteriyorsunuz."
+                "task": "Kamil diyor ki: “Lehçe, İngilizce ve İspanyolca konuşuyorum.” İlgi gösteriyorsunuz."
               }
             }
           },
@@ -3608,7 +3608,7 @@
               ],
               "instruction": "Ergänze das passende Wort.",
               "text_before": "„Praxis Dr. Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ",
-              "text_after": " Olena Marchenko.“",
+              "text_after": " Oleh Marchenko.“",
               "gap_hint": "sein",
               "correct_answer": "ist",
               "options": [
@@ -3631,25 +3631,25 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "On the phone you introduce yourself with „Hier ist Olena“ – „This is Olena“ (not „Hier bin …“).",
                 "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
-                "task": "“Dr Lindner’s surgery, reception, good day.” – “Good day, this is Olena Marchenko.”"
+                "task": "“Dr Lindner’s surgery, reception, good day.” – “Good day, this is Oleh Marchenko.”"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "По телефону представляются так: „Hier ist Olena“ – «Это Олена» (не „Hier bin …“).",
                 "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
-                "task": "«Практика доктора Lindner, регистратура, добрый день». – «Добрый день, это Olena Marchenko»."
+                "task": "«Практика доктора Lindner, регистратура, добрый день». – «Добрый день, это Oleh Marchenko»."
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Телефоном представляються так: „Hier ist Olena“ – «Це Олена» (не „Hier bin …“).",
                 "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
-                "task": "«Практика доктора Lindner, реєстратура, добрий день». – «Добрий день, це Olena Marchenko»."
+                "task": "«Практика доктора Lindner, реєстратура, добрий день». – «Добрий день, це Oleh Marchenko»."
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Olena“ = Ben Olena („Hier bin …“ denmez).",
                 "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
-                "task": "“Dr. Lindner muayenehanesi, danışma, iyi günler.” – “İyi günler, ben Olena Marchenko.”"
+                "task": "“Dr. Lindner muayenehanesi, danışma, iyi günler.” – “İyi günler, ben Oleh Marchenko.”"
               }
             }
           }
@@ -3822,7 +3822,7 @@
                 "Anmeldeformular"
               ],
               "instruction": "Ergänze das Formular.",
-              "text_before": "Ich heiße Olena Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: ",
+              "text_before": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: ",
               "text_after": "",
               "correct_answer": "Marchenko",
               "options": [
@@ -3845,25 +3845,25 @@
                 "instruction": "Complete the form.",
                 "hint": "Forms and cards use fixed words: Vorname = first name, Familienname = surname, Firma = company.",
                 "explanation": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
-                "task": "My name is Olena Marchenko. I come from Lviv, from Ukraine. Form: surname: …"
+                "task": "My name is Oleh Marchenko. I come from Lviv, from Ukraine. Form: surname: …"
               },
               "ru": {
                 "instruction": "Заполните анкету.",
                 "hint": "В анкетах и на визитках постоянные слова: Vorname – имя, Familienname – фамилия, Firma – фирма.",
                 "explanation": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
-                "task": "Меня зовут Olena Marchenko. Я из Львова, из Украины. Анкета: фамилия: …"
+                "task": "Меня зовут Oleh Marchenko. Я из Львова, из Украины. Анкета: фамилия: …"
               },
               "uk": {
                 "instruction": "Заповніть анкету.",
                 "hint": "В анкетах і на візитівках сталі слова: Vorname – ім’я, Familienname – прізвище, Firma – фірма.",
                 "explanation": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
-                "task": "Мене звати Olena Marchenko. Я зі Львова, з України. Анкета: прізвище: …"
+                "task": "Мене звати Oleh Marchenko. Я зі Львова, з України. Анкета: прізвище: …"
               },
               "tr": {
                 "instruction": "Formu doldurun.",
                 "hint": "Form ve kartvizitlerde sabit kelimeler vardır: Vorname = ad, Familienname = soyadı, Firma = firma.",
                 "explanation": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
-                "task": "Benim adım Olena Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …"
+                "task": "Benim adım Oleh Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …"
               }
             }
           },
@@ -3877,7 +3877,7 @@
                 "Anmeldeformular"
               ],
               "instruction": "Ergänze das Formular.",
-              "text_before": "Ich heiße Olena Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Stadt: ",
+              "text_before": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Stadt: ",
               "text_after": "",
               "correct_answer": "Lwiw",
               "options": [
@@ -3900,25 +3900,25 @@
                 "instruction": "Complete the form.",
                 "hint": "Forms and cards use fixed words: Vorname = first name, Familienname = surname, Firma = company.",
                 "explanation": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
-                "task": "My name is Olena Marchenko. I come from Lviv, from Ukraine. Form: city: …"
+                "task": "My name is Oleh Marchenko. I come from Lviv, from Ukraine. Form: city: …"
               },
               "ru": {
                 "instruction": "Заполните анкету.",
                 "hint": "В анкетах и на визитках постоянные слова: Vorname – имя, Familienname – фамилия, Firma – фирма.",
                 "explanation": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
-                "task": "Меня зовут Olena Marchenko. Я из Львова, из Украины. Анкета: город: …"
+                "task": "Меня зовут Oleh Marchenko. Я из Львова, из Украины. Анкета: город: …"
               },
               "uk": {
                 "instruction": "Заповніть анкету.",
                 "hint": "В анкетах і на візитівках сталі слова: Vorname – ім’я, Familienname – прізвище, Firma – фірма.",
                 "explanation": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
-                "task": "Мене звати Olena Marchenko. Я зі Львова, з України. Анкета: місто: …"
+                "task": "Мене звати Oleh Marchenko. Я зі Львова, з України. Анкета: місто: …"
               },
               "tr": {
                 "instruction": "Formu doldurun.",
                 "hint": "Form ve kartvizitlerde sabit kelimeler vardır: Vorname = ad, Familienname = soyadı, Firma = firma.",
                 "explanation": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
-                "task": "Benim adım Olena Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: şehir: …"
+                "task": "Benim adım Oleh Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: şehir: …"
               }
             }
           },
@@ -4190,7 +4190,7 @@
                 "jemanden vorstellen"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Olena und Emre sind im Deutschkurs. Olena stellt Emre vor.",
+              "question": "Oleh und Emre sind im Deutschkurs. Oleh stellt Emre vor.",
               "options": [
                 "Ich heiße Emre.",
                 "Das ist Emre.",
@@ -4212,25 +4212,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "To introduce someone else, say „Das ist …“ – This is …",
                 "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
-                "task": "Olena and Emre are in the German course. Olena introduces Emre."
+                "task": "Oleh and Emre are in the German course. Oleh introduces Emre."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Другого человека представляют так: „Das ist …“ – «Это …».",
                 "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
-                "task": "Olena и Emre на курсе немецкого. Olena представляет Emre."
+                "task": "Oleh и Emre на курсе немецкого. Oleh представляет Emre."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Іншу людину представляють так: „Das ist …“ – «Це …».",
                 "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
-                "task": "Olena та Emre на курсі німецької. Olena представляє Emre."
+                "task": "Oleh та Emre на курсі німецької. Oleh представляє Emre."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Başka birini „Das ist …“ ile tanıtırsınız = Bu …",
                 "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
-                "task": "Olena ve Emre Almanca kursundalar. Olena, Emre’yi tanıtıyor."
+                "task": "Oleh ve Emre Almanca kursundalar. Oleh, Emre’yi tanıtıyor."
               }
             }
           },
@@ -5276,7 +5276,7 @@
                 "sich vorstellen"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Olena stellt sich am Telefon vor. Was ist richtig?",
+              "question": "Oleh stellt sich am Telefon vor. Was ist richtig?",
               "options": [
                 "Mein Name ist Frau Marchenko.",
                 "Mein Name ist Marchenko.",
@@ -5298,25 +5298,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
                 "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
-                "task": "Olena introduces herself on the phone. What is correct?"
+                "task": "Oleh introduces himself on the phone. What is correct?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
                 "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
-                "task": "Olena представляется по телефону. Что правильно?"
+                "task": "Oleh представляется по телефону. Что правильно?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
                 "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
-                "task": "Olena представляється телефоном. Що правильно?"
+                "task": "Oleh представляється телефоном. Що правильно?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
                 "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
-                "task": "Olena telefonda kendini tanıtıyor. Hangisi doğru?"
+                "task": "Oleh telefonda kendini tanıtıyor. Hangisi doğru?"
               }
             }
           },
@@ -5600,7 +5600,7 @@
                 "Herkunft nennen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena fragt: „Woher kommen Sie?“ Du kommst aus Polen.",
+              "question": "Oleh fragt: „Woher kommen Sie?“ Du kommst aus Polen.",
               "options": [
                 "Ich komme aus Polnisch.",
                 "Ich komme aus der Polen.",
@@ -5622,25 +5622,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Some countries need an article: die Türkei → aus der Türkei, die Ukraine → aus der Ukraine.",
                 "explanation": "Origin: „Woher kommen Sie?“ – „Ich komme aus Polen.“ Most countries have no article. Some do: aus der Türkei, aus der Ukraine, aus der Schweiz, aus dem Irak, aus den USA.",
-                "task": "Olena asks: “Where are you from?” You come from Poland."
+                "task": "Oleh asks: “Where are you from?” You come from Poland."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Некоторые страны – с артиклем: die Ukraine → aus der Ukraine, die Türkei → aus der Türkei.",
                 "explanation": "Происхождение: „Woher kommen Sie?“ – „Ich komme aus Polen.“ Большинство стран употребляется без артикля. Но некоторые – с артиклем: aus der Türkei, aus der Ukraine, aus der Schweiz, aus dem Irak, aus den USA.",
-                "task": "Olena спрашивает: «Откуда вы?» Вы из Польши."
+                "task": "Oleh спрашивает: «Откуда вы?» Вы из Польши."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Деякі країни – з артиклем: die Ukraine → aus der Ukraine, die Türkei → aus der Türkei.",
                 "explanation": "Походження: „Woher kommen Sie?“ – „Ich komme aus Polen.“ Більшість країн уживають без артикля. Але деякі – з артиклем: aus der Türkei, aus der Ukraine, aus der Schweiz, aus dem Irak, aus den USA.",
-                "task": "Olena запитує: «Звідки ви?» Ви з Польщі."
+                "task": "Oleh запитує: «Звідки ви?» Ви з Польщі."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Bazı ülkeler artikel alır: die Türkei → aus der Türkei (Türkiye’den).",
                 "explanation": "Nereli olduğunu söyleme: „Woher kommen Sie?“ – „Ich komme aus Polen.“ Çoğu ülke adı artikelsizdir. Bazıları artikel alır: aus der Türkei, aus der Ukraine, aus der Schweiz, aus dem Irak, aus den USA.",
-                "task": "Olena soruyor: “Nerelisiniz?” Polonya’dan geliyorsunuz."
+                "task": "Oleh soruyor: “Nerelisiniz?” Polonya’dan geliyorsunuz."
               }
             }
           },
@@ -6306,7 +6306,7 @@
               ],
               "instruction": "Ergänze die richtige Verbform.",
               "text_before": "",
-              "text_after": " du Kasia? – Ja, genau!",
+              "text_after": " du Kamil? – Ja, genau!",
               "gap_hint": "sein",
               "correct_answer": "Bist",
               "options": [
@@ -6329,25 +6329,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "sein works like English „to be“: I am = ich bin, you are = du bist / Sie sind.",
                 "explanation": "The verb sein (to be) is irregular: ich bin (I am), du bist (you are), Sie sind (you are, polite).",
-                "task": "Are you Kasia? – Yes, exactly!"
+                "task": "Are you Kamil? – Yes, exactly!"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "В русском «быть» в настоящем времени обычно пропускают, а в немецком sein нужен всегда: ich bin, du bist, Sie sind.",
                 "explanation": "Глагол sein («быть») неправильный: ich bin, du bist, Sie sind. В немецком его нельзя пропустить: Ich bin Olena – «Я Олена».",
-                "task": "Ты Kasia? – Да, точно!"
+                "task": "Ты Kamil? – Да, точно!"
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Українською «бути» в теперішньому часі зазвичай пропускають, а в німецькій sein потрібен завжди: ich bin, du bist, Sie sind.",
                 "explanation": "Дієслово sein («бути») неправильне: ich bin, du bist, Sie sind. У німецькій його не можна пропустити: Ich bin Olena – «Я Олена».",
-                "task": "Ти Kasia? – Так, саме так!"
+                "task": "Ти Kamil? – Так, саме так!"
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Türkçede „olmak“ ek olarak gelir (-ım, -sın). Almancada ayrı bir fiil gerekir: ich bin, du bist, Sie sind.",
                 "explanation": "sein (olmak) fiili düzensizdir: ich bin, du bist, Sie sind. Almancada bu fiil atlanamaz: Ich bin Olena = Ben Olena’yım.",
-                "task": "Sen Kasia mısın? – Evet, aynen!"
+                "task": "Sen Kamil mısın? – Evet, aynen!"
               }
             }
           },
@@ -6649,7 +6649,7 @@
                 "am Telefon nach einer Person fragen"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Guten Tag, hier ist Kasia Nowak. Ist Herr Weber ",
+              "text_before": "Guten Tag, hier ist Kamil Nowak. Ist Herr Weber ",
               "text_after": "?",
               "correct_answer": "da",
               "options": [
@@ -6672,28 +6672,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Want to speak to someone on the phone? Ask: Ist … da? (Is … there?)",
                 "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
-                "task": "Good day, this is Kasia Nowak. Is Mr Weber there?",
+                "task": "Good day, this is Kamil Nowak. Is Mr Weber there?",
                 "gap_hint": "there (present)"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Хотите поговорить с человеком по телефону? Спросите: Ist … da? – «… на месте?»",
                 "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
-                "task": "Добрый день, это Kasia Nowak. Господин Weber на месте?",
+                "task": "Добрый день, это Kamil Nowak. Господин Weber на месте?",
                 "gap_hint": "на месте"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Хочете поговорити з людиною телефоном? Запитайте: Ist … da? – «… на місці?»",
                 "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
-                "task": "Добрий день, це Kasia Nowak. Пан Weber на місці?",
+                "task": "Добрий день, це Kamil Nowak. Пан Weber на місці?",
                 "gap_hint": "на місці"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Telefonda biriyle konuşmak mı istiyorsunuz? Sorun: Ist … da? = … orada mı?",
                 "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
-                "task": "İyi günler, ben Kasia Nowak. Weber Bey orada mı?",
+                "task": "İyi günler, ben Kamil Nowak. Weber Bey orada mı?",
                 "gap_hint": "orada"
               }
             }
@@ -7116,7 +7116,7 @@
                 "Befinden mit Abstufung"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena fragt: „Wie geht’s?“ Du bist krank.",
+              "question": "Oleh fragt: „Wie geht’s?“ Du bist krank.",
               "options": [
                 "Sehr gut, danke!",
                 "Freut mich!",
@@ -7138,25 +7138,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "The scale: sehr gut – gut – es geht (so-so) – nicht so gut – schlecht.",
                 "explanation": "Asking how someone is: formal „Wie geht es Ihnen?“, informal „Wie geht es dir?“ or „Wie geht’s?“. Answers: sehr gut – gut – es geht – nicht so gut – schlecht. Ask back: „Und Ihnen?“ / „Und dir?“",
-                "task": "Olena asks: “How are you?” You are ill."
+                "task": "Oleh asks: “How are you?” You are ill."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Шкала: sehr gut – gut – es geht («так себе») – nicht so gut – schlecht.",
                 "explanation": "Как спросить о самочувствии: официально „Wie geht es Ihnen?“, неформально „Wie geht es dir?“ или „Wie geht’s?“. Ответы: sehr gut – gut – es geht – nicht so gut – schlecht. Встречный вопрос: „Und Ihnen?“ / „Und dir?“",
-                "task": "Olena спрашивает: «Как дела?» Вы больны."
+                "task": "Oleh спрашивает: «Как дела?» Вы больны."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Шкала: sehr gut – gut – es geht («так собі») – nicht so gut – schlecht.",
                 "explanation": "Як запитати про самопочуття: офіційно „Wie geht es Ihnen?“, неформально „Wie geht es dir?“ або „Wie geht’s?“. Відповіді: sehr gut – gut – es geht – nicht so gut – schlecht. Зустрічне запитання: „Und Ihnen?“ / „Und dir?“",
-                "task": "Olena запитує: «Як справи?» Ви хворі."
+                "task": "Oleh запитує: «Як справи?» Ви хворі."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Sıralama: sehr gut – gut – es geht (idare eder) – nicht so gut – schlecht.",
                 "explanation": "Hal hatır sorma: resmî „Wie geht es Ihnen?“, samimi „Wie geht es dir?“ ya da „Wie geht’s?“. Cevaplar: sehr gut – gut – es geht – nicht so gut – schlecht. Karşı soru: „Und Ihnen?“ / „Und dir?“",
-                "task": "Olena soruyor: “Nasılsın?” Hastasınız."
+                "task": "Oleh soruyor: “Nasılsın?” Hastasınız."
               }
             }
           },
@@ -7280,7 +7280,7 @@
                 "nach dem Befinden fragen"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Hallo Kasia! Wie geht es ",
+              "text_before": "Hallo Kamil! Wie geht es ",
               "text_after": "?",
               "gap_hint": "du",
               "correct_answer": "dir",
@@ -7304,25 +7304,25 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Formal: Wie geht es Ihnen? Informal: Wie geht es dir? / Wie geht’s?",
                 "explanation": "Asking how someone is: formal „Wie geht es Ihnen?“, informal „Wie geht es dir?“ or „Wie geht’s?“. Answers: sehr gut – gut – es geht – nicht so gut – schlecht. Ask back: „Und Ihnen?“ / „Und dir?“",
-                "task": "Hello Kasia! How are you?"
+                "task": "Hello Kamil! How are you?"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Официально: Wie geht es Ihnen? Неформально: Wie geht es dir? / Wie geht’s? Это обычное «Как дела?».",
                 "explanation": "Как спросить о самочувствии: официально „Wie geht es Ihnen?“, неформально „Wie geht es dir?“ или „Wie geht’s?“. Ответы: sehr gut – gut – es geht – nicht so gut – schlecht. Встречный вопрос: „Und Ihnen?“ / „Und dir?“",
-                "task": "Привет, Kasia! Как у тебя дела?"
+                "task": "Привет, Kamil! Как у тебя дела?"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Офіційно: Wie geht es Ihnen? Неформально: Wie geht es dir? / Wie geht’s? Це звичайне «Як справи?».",
                 "explanation": "Як запитати про самопочуття: офіційно „Wie geht es Ihnen?“, неформально „Wie geht es dir?“ або „Wie geht’s?“. Відповіді: sehr gut – gut – es geht – nicht so gut – schlecht. Зустрічне запитання: „Und Ihnen?“ / „Und dir?“",
-                "task": "Привіт, Kasia! Як у тебе справи?"
+                "task": "Привіт, Kamil! Як у тебе справи?"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Resmî: Wie geht es Ihnen? Samimi: Wie geht es dir? / Wie geht’s? Anlamı: Nasılsınız? / Nasılsın?",
                 "explanation": "Hal hatır sorma: resmî „Wie geht es Ihnen?“, samimi „Wie geht es dir?“ ya da „Wie geht’s?“. Cevaplar: sehr gut – gut – es geht – nicht so gut – schlecht. Karşı soru: „Und Ihnen?“ / „Und dir?“",
-                "task": "Merhaba Kasia! Nasılsın?"
+                "task": "Merhaba Kamil! Nasılsın?"
               }
             }
           },
@@ -7555,7 +7555,7 @@
                 "mein"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Olena zeigt ein Foto: „Das sind ",
+              "text_before": "Oleh zeigt ein Foto: „Das sind ",
               "text_after": " Eltern.“",
               "gap_hint": "mein",
               "correct_answer": "meine",
@@ -7579,25 +7579,25 @@
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "Is the noun feminine or plural? Then add -e: meine Tochter, meine Kinder. Masculine or neuter? No -e. English „my“ never changes – German does.",
                 "explanation": "Possessives in the nominative: masculine and neuter without an ending (mein Sohn, mein Kind), feminine and plural with -e (meine Tochter, meine Kinder). The same with dein – deine, Ihr – Ihre.",
-                "task": "Olena shows a photo: “These are my parents.”"
+                "task": "Oleh shows a photo: “These are my parents.”"
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Как «мой/моя/моё/мои»: мужской и средний род – mein, женский род и множественное число – meine.",
                 "explanation": "Притяжательные слова в именительном падеже: мужской и средний род без окончания (mein Sohn, mein Kind), женский род и множественное число с -e (meine Tochter, meine Kinder). Так же: dein – deine, Ihr – Ihre.",
-                "task": "Olena показывает фото: «Это мои родители»."
+                "task": "Oleh показывает фото: «Это мои родители»."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Як «мій/моя/моє/мої»: чоловічий і середній рід – mein, жіночий рід і множина – meine.",
                 "explanation": "Присвійні слова в називному відмінку: чоловічий і середній рід без закінчення (mein Sohn, mein Kind), жіночий рід і множина з -e (meine Tochter, meine Kinder). Так само: dein – deine, Ihr – Ihre.",
-                "task": "Olena показує фото: «Це мої батьки»."
+                "task": "Oleh показує фото: «Це мої батьки»."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
-                "task": "Olena bir fotoğraf gösteriyor: “Bunlar benim annemle babam.”"
+                "task": "Oleh bir fotoğraf gösteriyor: “Bunlar benim annemle babam.”"
               }
             }
           },
@@ -7611,7 +7611,7 @@
                 "dein"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Kasia fragt Olena: „Wie heißt ",
+              "text_before": "Kamil fragt Oleh: „Wie heißt ",
               "text_after": " Bruder?“",
               "gap_hint": "dein",
               "correct_answer": "dein",
@@ -7635,25 +7635,25 @@
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "Is the noun feminine or plural? Then add -e: meine Tochter, meine Kinder. Masculine or neuter? No -e. English „my“ never changes – German does.",
                 "explanation": "Possessives in the nominative: masculine and neuter without an ending (mein Sohn, mein Kind), feminine and plural with -e (meine Tochter, meine Kinder). The same with dein – deine, Ihr – Ihre.",
-                "task": "Kasia asks Olena: “What is your brother’s name?”"
+                "task": "Kamil asks Oleh: “What is your brother’s name?”"
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Как «мой/моя/моё/мои»: мужской и средний род – mein, женский род и множественное число – meine.",
                 "explanation": "Притяжательные слова в именительном падеже: мужской и средний род без окончания (mein Sohn, mein Kind), женский род и множественное число с -e (meine Tochter, meine Kinder). Так же: dein – deine, Ihr – Ihre.",
-                "task": "Kasia спрашивает Olena: «Как зовут твоего брата?»"
+                "task": "Kamil спрашивает Oleh: «Как зовут твоего брата?»"
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Як «мій/моя/моє/мої»: чоловічий і середній рід – mein, жіночий рід і множина – meine.",
                 "explanation": "Присвійні слова в називному відмінку: чоловічий і середній рід без закінчення (mein Sohn, mein Kind), жіночий рід і множина з -e (meine Tochter, meine Kinder). Так само: dein – deine, Ihr – Ihre.",
-                "task": "Kasia запитує Olena: «Як звати твого брата?»"
+                "task": "Kamil запитує Oleh: «Як звати твого брата?»"
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
-                "task": "Kasia, Olena’ya soruyor: “Erkek kardeşinin adı ne?”"
+                "task": "Kamil, Oleh’e soruyor: “Erkek kardeşinin adı ne?”"
               }
             }
           },
@@ -8441,7 +8441,7 @@
                 "sprechen"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Selin ",
+              "text_before": "Selim ",
               "text_after": " sehr gut Englisch.",
               "gap_hint": "sprechen",
               "correct_answer": "spricht",
@@ -8465,25 +8465,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "sprechen: e changes to i with du and er/sie/es – du sprichst, er spricht.",
                 "explanation": "Special verbs: heißen → du heißt, er heißt. sprechen → du sprichst, er spricht. sein → ich bin, du bist, er ist, wir sind, ihr seid, sie/Sie sind.",
-                "task": "Selin speaks English very well."
+                "task": "Selim speaks English very well."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "sprechen: с du и er/sie/es e меняется на i – du sprichst, er spricht.",
                 "explanation": "Особые глаголы: heißen → du heißt, er heißt. sprechen → du sprichst, er spricht. sein → ich bin, du bist, er ist, wir sind, ihr seid, sie/Sie sind.",
-                "task": "Selin очень хорошо говорит по-английски."
+                "task": "Selim очень хорошо говорит по-английски."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "sprechen: з du та er/sie/es e змінюється на i – du sprichst, er spricht.",
                 "explanation": "Особливі дієслова: heißen → du heißt, er heißt. sprechen → du sprichst, er spricht. sein → ich bin, du bist, er ist, wir sind, ihr seid, sie/Sie sind.",
-                "task": "Selin дуже добре розмовляє англійською."
+                "task": "Selim дуже добре розмовляє англійською."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "sprechen: du ve er/sie/es ile e, i olur – du sprichst, er spricht.",
                 "explanation": "Özel fiiller: heißen → du heißt, er heißt. sprechen → du sprichst, er spricht. sein → ich bin, du bist, er ist, wir sind, ihr seid, sie/Sie sind.",
-                "task": "Selin çok iyi İngilizce konuşuyor."
+                "task": "Selim çok iyi İngilizce konuşuyor."
               }
             }
           }
@@ -10084,7 +10084,7 @@
                 "Familienstand"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Kasia und Piotr sind ein Ehepaar. Kasia ist ",
+              "text_before": "Kamil und Piotr sind ein Ehepaar. Kamil ist ",
               "text_after": ".",
               "correct_answer": "verheiratet",
               "options": [
@@ -10107,28 +10107,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "ledig = single, verheiratet = married, geschieden = divorced, verwitwet = widowed.",
                 "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
-                "task": "Kasia and Piotr are a married couple. Kasia is married.",
+                "task": "Kamil and Piotr are a married couple. Kamil is married.",
                 "gap_hint": "married"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "ledig – холост / не замужем, verheiratet – женат / замужем, geschieden – в разводе, verwitwet – вдовец / вдова.",
                 "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
-                "task": "Kasia и Piotr — супружеская пара. Kasia замужем.",
+                "task": "Kamil и Piotr — супружеская пара. Kamil женат.",
                 "gap_hint": "замужем / женат"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "ledig – неодружений / незаміжня, verheiratet – одружений / заміжня, geschieden – розлучений, verwitwet – вдівець / вдова.",
                 "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
-                "task": "Kasia і Piotr — подружня пара. Kasia заміжня.",
+                "task": "Kamil і Piotr — подружня пара. Kamil одружений.",
                 "gap_hint": "заміжня / одружений"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "ledig = bekâr, verheiratet = evli, geschieden = boşanmış, verwitwet = dul.",
                 "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
-                "task": "Kasia ve Piotr evli bir çift. Kasia evli.",
+                "task": "Kamil ve Piotr evli bir çift. Kamil evli.",
                 "gap_hint": "evli"
               }
             }
@@ -10695,7 +10695,7 @@
                 "Strategien"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena sagt: „Mein Bruder hat jetzt drei Kinder!“ Du bist überrascht.",
+              "question": "Oleh sagt: „Mein Bruder hat jetzt drei Kinder!“ Du bist überrascht.",
               "options": [
                 "Ach! Drei Kinder!",
                 "Nein, falsch.",
@@ -10717,25 +10717,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Which reaction fits? Unsure → Na ja. Surprised → Ach! Correct → Ja, genau. Wrong → Nein, falsch.",
                 "explanation": "Reacting in a conversation: „Na ja …“ = not so good / I’m not sure. „Ach!“ or „Ach so!“ = surprise / now I understand. „Ja, genau.“ = that’s right. „Nein, falsch.“ = that’s wrong.",
-                "task": "Olena says: “My brother has three children now!” You are surprised."
+                "task": "Oleh says: “My brother has three children now!” You are surprised."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Какая реакция подходит? Неуверенность → Na ja. Удивление → Ach! Верно → Ja, genau. Неверно → Nein, falsch.",
                 "explanation": "Реакции в разговоре: „Na ja …“ – «ну, так себе» / не уверен. „Ach!“ или „Ach so!“ – удивление / «а, понятно». „Ja, genau.“ – «да, точно». „Nein, falsch.“ – «нет, неверно».",
-                "task": "Olena говорит: «У моего брата теперь трое детей!» Вы удивлены."
+                "task": "Oleh говорит: «У моего брата теперь трое детей!» Вы удивлены."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Яка реакція підходить? Непевність → Na ja. Здивування → Ach! Правильно → Ja, genau. Неправильно → Nein, falsch.",
                 "explanation": "Реакції в розмові: „Na ja …“ – «ну, так собі» / не впевнений. „Ach!“ або „Ach so!“ – здивування / «а, зрозуміло». „Ja, genau.“ – «так, точно». „Nein, falsch.“ – «ні, неправильно».",
-                "task": "Olena каже: «У мого брата тепер троє дітей!» Ви здивовані."
+                "task": "Oleh каже: «У мого брата тепер троє дітей!» Ви здивовані."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Hangi tepki uygun? Emin değilseniz → Na ja. Şaşırdıysanız → Ach! Doğruysa → Ja, genau. Yanlışsa → Nein, falsch.",
                 "explanation": "Sohbette tepki verme: „Na ja …“ = pek iyi değil / emin değilim. „Ach!“ ya da „Ach so!“ = şaşkınlık / şimdi anladım. „Ja, genau.“ = evet, aynen. „Nein, falsch.“ = hayır, yanlış.",
-                "task": "Olena diyor ki: “Erkek kardeşimin artık üç çocuğu var!” Şaşırıyorsunuz."
+                "task": "Oleh diyor ki: “Erkek kardeşimin artık üç çocuğu var!” Şaşırıyorsunuz."
               }
             }
           },
@@ -11328,7 +11328,7 @@
                 "sein"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Taras und Olena ",
+              "text_before": "Taras und Oleh ",
               "text_after": " Geschwister.",
               "gap_hint": "sein",
               "correct_answer": "sind",
@@ -11352,25 +11352,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "sein: er ist (he is), wir sind (we are), ihr seid (you are, plural).",
                 "explanation": "Special verbs: heißen → du heißt, er heißt. sprechen → du sprichst, er spricht. sein → ich bin, du bist, er ist, wir sind, ihr seid, sie/Sie sind.",
-                "task": "Taras and Olena are brother and sister."
+                "task": "Taras and Oleh are brothers."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "sein: er ist, wir sind, ihr seid – не путайте seid (глагол) и seit (предлог «с»).",
                 "explanation": "Особые глаголы: heißen → du heißt, er heißt. sprechen → du sprichst, er spricht. sein → ich bin, du bist, er ist, wir sind, ihr seid, sie/Sie sind.",
-                "task": "Taras и Olena — брат и сестра."
+                "task": "Taras и Oleh — братья."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "sein: er ist, wir sind, ihr seid – не плутайте seid (дієслово) і seit (прийменник «з»).",
                 "explanation": "Особливі дієслова: heißen → du heißt, er heißt. sprechen → du sprichst, er spricht. sein → ich bin, du bist, er ist, wir sind, ihr seid, sie/Sie sind.",
-                "task": "Taras та Olena — брат і сестра."
+                "task": "Taras та Oleh — брати."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "sein: er ist, wir sind, ihr seid – seid (fiil) ile seit (edat) karıştırmayın.",
                 "explanation": "Özel fiiller: heißen → du heißt, er heißt. sprechen → du sprichst, er spricht. sein → ich bin, du bist, er ist, wir sind, ihr seid, sie/Sie sind.",
-                "task": "Taras ve Olena kardeş."
+                "task": "Taras ve Oleh kardeş."
               }
             }
           },
@@ -12401,7 +12401,7 @@
                 "dein"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Kasia, ist das ",
+              "text_before": "Kamil, ist das ",
               "text_after": " Mann?",
               "gap_hint": "dein",
               "correct_answer": "dein",
@@ -12425,25 +12425,25 @@
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "Is the noun feminine or plural? Then add -e: meine Tochter, meine Kinder. Masculine or neuter? No -e. English „my“ never changes – German does.",
                 "explanation": "Possessives in the nominative: masculine and neuter without an ending (mein Sohn, mein Kind), feminine and plural with -e (meine Tochter, meine Kinder). The same with dein – deine, Ihr – Ihre.",
-                "task": "Kasia, is that your husband?"
+                "task": "Kamil, is that your husband?"
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Как «мой/моя/моё/мои»: мужской и средний род – mein, женский род и множественное число – meine.",
                 "explanation": "Притяжательные слова в именительном падеже: мужской и средний род без окончания (mein Sohn, mein Kind), женский род и множественное число с -e (meine Tochter, meine Kinder). Так же: dein – deine, Ihr – Ihre.",
-                "task": "Kasia, это твой муж?"
+                "task": "Kamil, это твой муж?"
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Як «мій/моя/моє/мої»: чоловічий і середній рід – mein, жіночий рід і множина – meine.",
                 "explanation": "Присвійні слова в називному відмінку: чоловічий і середній рід без закінчення (mein Sohn, mein Kind), жіночий рід і множина з -e (meine Tochter, meine Kinder). Так само: dein – deine, Ihr – Ihre.",
-                "task": "Kasia, це твій чоловік?"
+                "task": "Kamil, це твій чоловік?"
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
-                "task": "Kasia, bu senin eşin mi?"
+                "task": "Kamil, bu senin eşin mi?"
               }
             }
           },
@@ -12788,7 +12788,7 @@
                 "Formular"
               ],
               "instruction": "Ergänze das Formular.",
-              "text_before": "Ich heiße Kasia Nowak. Ich bin in Krakau geboren und wohne in Bremen. Formular: Geburtsort: ",
+              "text_before": "Ich heiße Kamil Nowak. Ich bin in Krakau geboren und wohne in Bremen. Formular: Geburtsort: ",
               "text_after": "",
               "correct_answer": "Krakau",
               "options": [
@@ -12811,25 +12811,25 @@
                 "instruction": "Complete the form.",
                 "hint": "Read carefully: where was the person born (Geburtsort), and where do they live now (Wohnort)?",
                 "explanation": "Filling in a form: Geburtsort = place of birth. Wohnort = where you live now. Familienstand = marital status (ledig, verheiratet, geschieden, verwitwet). Phone numbers are read digit by digit or in pairs.",
-                "task": "My name is Kasia Nowak. I was born in Kraków and live in Bremen. Form: place of birth: …"
+                "task": "My name is Kamil Nowak. I was born in Kraków and live in Bremen. Form: place of birth: …"
               },
               "ru": {
                 "instruction": "Заполните анкету.",
                 "hint": "Читайте внимательно: где человек родился (Geburtsort) и где живёт сейчас (Wohnort)?",
                 "explanation": "Как заполнить анкету: Geburtsort – место рождения. Wohnort – где вы живёте сейчас. Familienstand – семейное положение (ledig, verheiratet, geschieden, verwitwet). Номер телефона читают по цифрам или парами.",
-                "task": "Меня зовут Kasia Nowak. Я родилась в Кракове и живу в Бремене. Анкета: место рождения: …"
+                "task": "Меня зовут Kamil Nowak. Я родился в Кракове и живу в Бремене. Анкета: место рождения: …"
               },
               "uk": {
                 "instruction": "Заповніть анкету.",
                 "hint": "Читайте уважно: де людина народилася (Geburtsort) і де живе зараз (Wohnort)?",
                 "explanation": "Як заповнити анкету: Geburtsort – місце народження. Wohnort – де ви живете зараз. Familienstand – сімейний стан (ledig, verheiratet, geschieden, verwitwet). Номер телефону читають по цифрах або парами.",
-                "task": "Мене звати Kasia Nowak. Я народилася в Кракові й живу в Бремені. Анкета: місце народження: …"
+                "task": "Мене звати Kamil Nowak. Я народився в Кракові й живу в Бремені. Анкета: місце народження: …"
               },
               "tr": {
                 "instruction": "Formu doldurun.",
                 "hint": "Dikkatle okuyun: Kişi nerede doğmuş (Geburtsort), şimdi nerede oturuyor (Wohnort)?",
                 "explanation": "Form doldurma: Geburtsort = doğum yeri. Wohnort = şimdi oturduğunuz yer. Familienstand = medeni hâl (ledig, verheiratet, geschieden, verwitwet). Telefon numaraları rakam rakam ya da ikişer ikişer okunur.",
-                "task": "Benim adım Kasia Nowak. Krakov’da doğdum ve Bremen’de oturuyorum. Form: doğum yeri: …"
+                "task": "Benim adım Kamil Nowak. Krakov’da doğdum ve Bremen’de oturuyorum. Form: doğum yeri: …"
               }
             }
           },
@@ -17176,7 +17176,7 @@
                 "Einkaufszettel"
               ],
               "instruction": "Ergänze das Formular.",
-              "text_before": "Olena braucht Milch: 1 Liter. Einkaufszettel: 1 ",
+              "text_before": "Oleh braucht Milch: 1 Liter. Einkaufszettel: 1 ",
               "text_after": " Milch",
               "correct_answer": "l",
               "options": [
@@ -17199,25 +17199,25 @@
                 "instruction": "Complete the form.",
                 "hint": "A shopping list is short: quantity + item, no verb. Abbreviations: g, kg, l, Pck.",
                 "explanation": "Shopping list: short notes with quantity and item, no verb: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Abbreviations: g = gram, kg = kilo, l = litre, Pck. = packet.",
-                "task": "Olena needs milk: 1 litre. Shopping list: 1 … milk"
+                "task": "Oleh needs milk: 1 litre. Shopping list: 1 … milk"
               },
               "ru": {
                 "instruction": "Заполните анкету.",
                 "hint": "В списке покупок – только количество и товар, без глаголов. Сокращения: g, kg, l, Pck.",
                 "explanation": "Список покупок: короткие записи – количество и товар, без глагола: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Сокращения: g = грамм, kg = килограмм, l = литр, Pck. = пачка.",
-                "task": "Olena нужно молоко: 1 литр. Список покупок: 1 … молока"
+                "task": "Oleh нужно молоко: 1 литр. Список покупок: 1 … молока"
               },
               "uk": {
                 "instruction": "Заповніть анкету.",
                 "hint": "У списку покупок – лише кількість і товар, без дієслів. Скорочення: g, kg, l, Pck.",
                 "explanation": "Список покупок: короткі записи – кількість і товар, без дієслова: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Скорочення: g = грам, kg = кілограм, l = літр, Pck. = пачка.",
-                "task": "Olena потрібне молоко: 1 літр. Список покупок: 1 … молока"
+                "task": "Oleh потрібне молоко: 1 літр. Список покупок: 1 … молока"
               },
               "tr": {
                 "instruction": "Formu doldurun.",
                 "hint": "Alışveriş listesinde sadece miktar ve ürün yazılır, fiil olmaz. Kısaltmalar: g, kg, l, Pck.",
                 "explanation": "Alışveriş listesi: miktar ve ürünle kısa notlar, fiil yok: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Kısaltmalar: g = gram, kg = kilo, l = litre, Pck. = paket.",
-                "task": "Olena’nın süte ihtiyacı var: 1 litre. Alışveriş listesi: 1 … süt"
+                "task": "Oleh’in süte ihtiyacı var: 1 litre. Alışveriş listesi: 1 … süt"
               }
             }
           }
@@ -17758,7 +17758,7 @@
                 "Einkaufszettel"
               ],
               "instruction": "Ergänze das Formular.",
-              "text_before": "Kasia braucht zwei Flaschen Wasser. Einkaufszettel: 2 ",
+              "text_before": "Kamil braucht zwei Flaschen Wasser. Einkaufszettel: 2 ",
               "text_after": " Wasser",
               "correct_answer": "Flaschen",
               "options": [
@@ -17781,25 +17781,25 @@
                 "instruction": "Complete the form.",
                 "hint": "A shopping list is short: quantity + item, no verb. Abbreviations: g, kg, l, Pck.",
                 "explanation": "Shopping list: short notes with quantity and item, no verb: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Abbreviations: g = gram, kg = kilo, l = litre, Pck. = packet.",
-                "task": "Kasia needs two bottles of water. Shopping list: 2 … of water"
+                "task": "Kamil needs two bottles of water. Shopping list: 2 … of water"
               },
               "ru": {
                 "instruction": "Заполните анкету.",
                 "hint": "В списке покупок – только количество и товар, без глаголов. Сокращения: g, kg, l, Pck.",
                 "explanation": "Список покупок: короткие записи – количество и товар, без глагола: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Сокращения: g = грамм, kg = килограмм, l = литр, Pck. = пачка.",
-                "task": "Kasia нужны две бутылки воды. Список покупок: 2 … воды"
+                "task": "Kamil нужны две бутылки воды. Список покупок: 2 … воды"
               },
               "uk": {
                 "instruction": "Заповніть анкету.",
                 "hint": "У списку покупок – лише кількість і товар, без дієслів. Скорочення: g, kg, l, Pck.",
                 "explanation": "Список покупок: короткі записи – кількість і товар, без дієслова: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Скорочення: g = грам, kg = кілограм, l = літр, Pck. = пачка.",
-                "task": "Kasia потрібні дві пляшки води. Список покупок: 2 … води"
+                "task": "Kamil потрібні дві пляшки води. Список покупок: 2 … води"
               },
               "tr": {
                 "instruction": "Formu doldurun.",
                 "hint": "Alışveriş listesinde sadece miktar ve ürün yazılır, fiil olmaz. Kısaltmalar: g, kg, l, Pck.",
                 "explanation": "Alışveriş listesi: miktar ve ürünle kısa notlar, fiil yok: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Kısaltmalar: g = gram, kg = kilo, l = litre, Pck. = paket.",
-                "task": "Kasia’nın iki şişe suya ihtiyacı var. Alışveriş listesi: 2 … su"
+                "task": "Kamil’in iki şişe suya ihtiyacı var. Alışveriş listesi: 2 … su"
               }
             }
           },
@@ -21064,7 +21064,7 @@
               ],
               "instruction": "Ergänze die Verneinung: nicht oder kein.",
               "text_before": "Das ist ",
-              "text_after": " der Schlüssel von Olena.",
+              "text_after": " der Schlüssel von Oleh.",
               "gap_hint": "nicht / kein",
               "correct_answer": "nicht",
               "options": [
@@ -21087,25 +21087,25 @@
                 "instruction": "Fill in the negation: nicht or kein.",
                 "hint": "Noun with ein or without an article → kein. Adjective, verb or noun with der/das/die → nicht.",
                 "explanation": "nicht or kein? kein/keine goes before nouns with ein/eine or without an article: Das ist kein Balkon. Das sind keine Stühle. nicht is used with adjectives, verbs and nouns with der/das/die: Das Zimmer ist nicht groß. Das ist nicht die Küche.",
-                "task": "That is not Olena’s key."
+                "task": "That is not Oleh’s key."
               },
               "ru": {
                 "instruction": "Вставьте отрицание: nicht или kein.",
                 "hint": "Существительное с ein или без артикля → kein. Прилагательное, глагол или существительное с der/das/die → nicht.",
                 "explanation": "nicht или kein? kein/keine – перед существительным с ein/eine или без артикля: Das ist kein Balkon. Das sind keine Stühle. nicht – с прилагательными, глаголами и существительными с der/das/die: Das Zimmer ist nicht groß. Das ist nicht die Küche.",
-                "task": "Это не ключ Olena."
+                "task": "Это не ключ Oleh."
               },
               "uk": {
                 "instruction": "Вставте заперечення: nicht або kein.",
                 "hint": "Іменник з ein або без артикля → kein. Прикметник, дієслово чи іменник з der/das/die → nicht.",
                 "explanation": "nicht чи kein? kein/keine – перед іменником з ein/eine або без артикля: Das ist kein Balkon. Das sind keine Stühle. nicht – із прикметниками, дієсловами та іменниками з der/das/die: Das Zimmer ist nicht groß. Das ist nicht die Küche.",
-                "task": "Це не ключ Olena."
+                "task": "Це не ключ Oleh."
               },
               "tr": {
                 "instruction": "Olumsuzluğu yazın: nicht ya da kein.",
                 "hint": "ein’li ya da artikelsiz isim → kein. Sıfat, fiil ya da der/das/die’li isim → nicht.",
                 "explanation": "nicht mi kein mi? kein/keine, ein/eine’li ya da artikelsiz isimlerden önce gelir: Das ist kein Balkon. Das sind keine Stühle. nicht sıfatlar, fiiller ve der/das/die’li isimlerle kullanılır: Das Zimmer ist nicht groß. Das ist nicht die Küche.",
-                "task": "Bu Olena’nın anahtarı değil."
+                "task": "Bu Oleh’in anahtarı değil."
               }
             }
           },
@@ -21280,7 +21280,7 @@
                 "Gefallen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena fragt: „Wie gefällt dir die Lampe?“ Du findest die Lampe sehr schön.",
+              "question": "Oleh fragt: „Wie gefällt dir die Lampe?“ Du findest die Lampe sehr schön.",
               "options": [
                 "Sie gefällt mir sehr gut.",
                 "Sie gefällt mir gar nicht.",
@@ -21302,25 +21302,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Singular thing → gefällt, plural → gefallen. The thing is the subject, as in „it pleases me“.",
                 "explanation": "Liking: „Wie gefällt dir/Ihnen das Sofa?“ – „Es gefällt mir (sehr) gut.“ Plural: „Wie gefallen dir die Stühle?“ – „Sie gefallen mir nicht.“ Scale: sehr gut – gut – nicht so gut – gar nicht (not at all).",
-                "task": "Olena asks: “How do you like the lamp?” You think the lamp is very beautiful."
+                "task": "Oleh asks: “How do you like the lamp?” You think the lamp is very beautiful."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Как «мне нравится»: предмет – подлежащее. Один предмет → gefällt, несколько → gefallen.",
                 "explanation": "Нравится ли: „Wie gefällt dir/Ihnen das Sofa?“ – „Es gefällt mir (sehr) gut.“ Во множественном числе: „Wie gefallen dir die Stühle?“ – „Sie gefallen mir nicht.“ Шкала: sehr gut – gut – nicht so gut – gar nicht («совсем не»).",
-                "task": "Olena спрашивает: «Как тебе лампа?» Вам лампа очень нравится."
+                "task": "Oleh спрашивает: «Как тебе лампа?» Вам лампа очень нравится."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Як «мені подобається»: предмет – підмет. Один предмет → gefällt, кілька → gefallen.",
                 "explanation": "Чи подобається: „Wie gefällt dir/Ihnen das Sofa?“ – „Es gefällt mir (sehr) gut.“ У множині: „Wie gefallen dir die Stühle?“ – „Sie gefallen mir nicht.“ Шкала: sehr gut – gut – nicht so gut – gar nicht («зовсім не»).",
-                "task": "Olena запитує: «Як тобі лампа?» Вам лампа дуже подобається."
+                "task": "Oleh запитує: «Як тобі лампа?» Вам лампа дуже подобається."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "„Hoşuma gidiyor“ gibi: beğenilen şey öznedir. Tekil → gefällt, çoğul → gefallen.",
                 "explanation": "Beğenmek: „Wie gefällt dir/Ihnen das Sofa?“ – „Es gefällt mir (sehr) gut.“ Çoğul: „Wie gefallen dir die Stühle?“ – „Sie gefallen mir nicht.“ Derece: sehr gut – gut – nicht so gut – gar nicht (hiç).",
-                "task": "Olena soruyor: “Lamba nasıl, beğendin mi?” Lambayı çok güzel buluyorsunuz."
+                "task": "Oleh soruyor: “Lamba nasıl, beğendin mi?” Lambayı çok güzel buluyorsunuz."
               }
             }
           },
@@ -22059,7 +22059,7 @@
                 "hier und dort"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Olena ruft: „Wo bist du?“ Du bist in der Küche.",
+              "question": "Oleh ruft: „Wo bist du?“ Du bist in der Küche.",
               "options": [
                 "Dort, im Bad!",
                 "Hier, in der Küche!",
@@ -22081,25 +22081,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "hier = here (near me), dort = there (further away).",
                 "explanation": "Asking where: „Wo ist …?“ – „Hier.“ (here, near me) / „Dort.“ (there, further away). „Wo ist das Bad?“ – „Dort links.“ „Die Küche ist hier.“",
-                "task": "Olena calls: “Where are you?” You are in the kitchen."
+                "task": "Oleh calls: “Where are you?” You are in the kitchen."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "hier – здесь (рядом со мной), dort – там (дальше).",
                 "explanation": "Вопрос о месте: „Wo ist …?“ – „Hier.“ (здесь, рядом) / „Dort.“ (там, дальше). „Wo ist das Bad?“ – „Dort links.“ „Die Küche ist hier.“",
-                "task": "Olena зовёт: «Ты где?» Вы на кухне."
+                "task": "Oleh зовёт: «Ты где?» Вы на кухне."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "hier – тут (поруч зі мною), dort – там (далі).",
                 "explanation": "Запитання про місце: „Wo ist …?“ – „Hier.“ (тут, поруч) / „Dort.“ (там, далі). „Wo ist das Bad?“ – „Dort links.“ „Die Küche ist hier.“",
-                "task": "Olena гукає: «Ти де?» Ви на кухні."
+                "task": "Oleh гукає: «Ти де?» Ви на кухні."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "hier = burada (yakında), dort = orada (uzakta).",
                 "explanation": "Yer sorma: „Wo ist …?“ – „Hier.“ (burada, yakında) / „Dort.“ (orada, uzakta). „Wo ist das Bad?“ – „Dort links.“ „Die Küche ist hier.“",
-                "task": "Olena sesleniyor: “Neredesin?” Mutfaktasınız."
+                "task": "Oleh sesleniyor: “Neredesin?” Mutfaktasınız."
               }
             }
           },
@@ -24930,7 +24930,7 @@
                 "Gesprächssignale"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Olena und du seid in Olenas Wohnung. Der Balkon ist sehr schön. Was sagt Olena?",
+              "question": "Oleh und du seid in Olehs Wohnung. Der Balkon ist sehr schön. Was sagt Oleh?",
               "options": [
                 "Sag mal, das ist mein Balkon!",
                 "Schau mal, das ist mein Balkon!",
@@ -24952,25 +24952,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "„Sag mal“ introduces a question (Tell me, …), „Schau mal“ points something out (Look!).",
                 "explanation": "Tag questions and signals: „…, nicht?“, „…, oder?“ or „…, richtig?“ at the end ask for agreement: „Das Zimmer ist schön, oder?“ (…, isn’t it?) „Sag mal, …“ introduces a question. „Schau mal!“ = Look!",
-                "task": "Olena and you are in Olena’s flat. The balcony is very nice. What does Olena say?"
+                "task": "Oleh and you are in Oleh’s flat. The balcony is very nice. What does Oleh say?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "„Sag mal“ вводит вопрос («Скажи-ка …»), „Schau mal“ – «Смотри!».",
                 "explanation": "Переспрос и сигналы: „…, nicht?“, „…, oder?“ или „…, richtig?“ в конце просят подтверждения: „Das Zimmer ist schön, oder?“ («…, правда?»). „Sag mal, …“ вводит вопрос. „Schau mal!“ – «Смотри!».",
-                "task": "Вы с Olena в её квартире. Балкон очень красивый. Что говорит Olena?"
+                "task": "Вы с Oleh в его квартире. Балкон очень красивый. Что говорит Oleh?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "„Sag mal“ вводить запитання («Скажи-но …»), „Schau mal“ – «Дивись!».",
                 "explanation": "Перепитування й сигнали: „…, nicht?“, „…, oder?“ або „…, richtig?“ наприкінці просять підтвердження: „Das Zimmer ist schön, oder?“ («…, правда?»). „Sag mal, …“ вводить запитання. „Schau mal!“ – «Дивись!».",
-                "task": "Ви з Olena в її квартирі. Балкон дуже гарний. Що каже Olena?"
+                "task": "Ви з Oleh в його квартирі. Балкон дуже гарний. Що каже Oleh?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "„Sag mal“ bir soruya giriştir (Söylesene …), „Schau mal“ bir şey gösterir (Baksana!).",
                 "explanation": "Onay sorma ve sinyaller: Cümle sonunda „…, nicht?“, „…, oder?“ ya da „…, richtig?“ onay ister: „Das Zimmer ist schön, oder?“ (…, değil mi?). „Sag mal, …“ bir soruya giriştir. „Schau mal!“ = Baksana!",
-                "task": "Olena ile onun dairesindesiniz. Balkon çok güzel. Olena ne diyor?"
+                "task": "Oleh ile onun dairesindesiniz. Balkon çok güzel. Oleh ne diyor?"
               }
             }
           },
@@ -27214,7 +27214,7 @@
                 "Uhrzeit ungefähr"
               ],
               "instruction": "Wie spät ist es? Wähle die richtige Antwort.",
-              "question": "Es ist 8:59. Olena sagt: „Es ist … neun.“",
+              "question": "Es ist 8:59. Oleh sagt: „Es ist … neun.“",
               "options": [
                 "gleich",
                 "halb",
@@ -27236,25 +27236,25 @@
                 "instruction": "What time is it? Choose the correct answer.",
                 "hint": "kurz vor/nach = a few minutes before/after; gleich = in a moment.",
                 "explanation": "Approximate time: kurz vor acht (just before eight, 7:58), kurz nach acht (just after eight, 8:02), gleich acht (almost eight). Remember: halb acht is 7:30.",
-                "task": "It is 8:59. Olena says: “It is … nine.”"
+                "task": "It is 8:59. Oleh says: “It is … nine.”"
               },
               "ru": {
                 "instruction": "Который час? Выберите правильный ответ.",
                 "hint": "kurz vor/nach – «без нескольких минут / несколько минут после»; gleich – «вот-вот».",
                 "explanation": "Приблизительное время: kurz vor acht (без пары минут восемь, 7:58), kurz nach acht (начало девятого, 8:02), gleich acht (скоро восемь). Помните: halb acht – это 7:30.",
-                "task": "Сейчас 8:59. Olena говорит: «Сейчас … девять»."
+                "task": "Сейчас 8:59. Oleh говорит: «Сейчас … девять»."
               },
               "uk": {
                 "instruction": "Котра година? Виберіть правильну відповідь.",
                 "hint": "kurz vor/nach – «за кілька хвилин / кілька хвилин по»; gleich – «от-от».",
                 "explanation": "Приблизний час: kurz vor acht (за кілька хвилин восьма, 7:58), kurz nach acht (на початку дев’ятої, 8:02), gleich acht (зараз восьма). Пам’ятайте: halb acht – це 7:30.",
-                "task": "Зараз 8:59. Olena каже: «Зараз … дев’ята»."
+                "task": "Зараз 8:59. Oleh каже: «Зараз … дев’ята»."
               },
               "tr": {
                 "instruction": "Saat kaç? Doğru cevabı seçin.",
                 "hint": "kurz vor/nach = birkaç dakika var / geçiyor; gleich = birazdan.",
                 "explanation": "Yaklaşık saat: kurz vor acht (sekize birkaç dakika var, 7:58), kurz nach acht (sekizi birkaç dakika geçiyor, 8:02), gleich acht (neredeyse sekiz). Unutmayın: halb acht = 7:30.",
-                "task": "Saat 8:59. Olena diyor ki: “Saat … dokuz.”"
+                "task": "Saat 8:59. Oleh diyor ki: “Saat … dokuz.”"
               }
             }
           },
@@ -29972,7 +29972,7 @@
                 "zusagen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Kasia fragt: „Gehen wir am Samstag ins Kino?“ Du hast Zeit.",
+              "question": "Kamil fragt: „Gehen wir am Samstag ins Kino?“ Du hast Zeit.",
               "options": [
                 "Nein, da habe ich keine Zeit.",
                 "Ja, das passt gut!",
@@ -29994,25 +29994,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Accept: Das passt gut (that suits me). Decline: Da habe ich keine Zeit (I’m not free then).",
                 "explanation": "Making plans: „Hast du am Samstag Zeit?“ (Are you free on Saturday?) – Accept: „Ja, das passt gut.“ / „Gern!“ – Decline: „Nein, da habe ich keine Zeit.“ / „Tut mir leid, da arbeite ich.“",
-                "task": "Kasia asks: “Shall we go to the cinema on Saturday?” You have time."
+                "task": "Kamil asks: “Shall we go to the cinema on Saturday?” You have time."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Согласиться: Das passt gut («мне подходит»). Отказаться: Da habe ich keine Zeit («тогда у меня нет времени»).",
                 "explanation": "Договориться о встрече: „Hast du am Samstag Zeit?“ – Согласиться: „Ja, das passt gut.“ / „Gern!“ – Отказаться: „Nein, da habe ich keine Zeit.“ / „Tut mir leid, da arbeite ich.“",
-                "task": "Kasia спрашивает: «Пойдём в субботу в кино?» У вас есть время."
+                "task": "Kamil спрашивает: «Пойдём в субботу в кино?» У вас есть время."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Погодитися: Das passt gut («мені підходить»). Відмовитися: Da habe ich keine Zeit («тоді в мене немає часу»).",
                 "explanation": "Домовитися про зустріч: „Hast du am Samstag Zeit?“ – Погодитися: „Ja, das passt gut.“ / „Gern!“ – Відмовитися: „Nein, da habe ich keine Zeit.“ / „Tut mir leid, da arbeite ich.“",
-                "task": "Kasia запитує: «Підемо в суботу в кіно?» У вас є час."
+                "task": "Kamil запитує: «Підемо в суботу в кіно?» У вас є час."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Kabul: Das passt gut (uygun). Ret: Da habe ich keine Zeit (o zaman vaktim yok).",
                 "explanation": "Buluşma ayarlama: „Hast du am Samstag Zeit?“ – Kabul etmek: „Ja, das passt gut.“ / „Gern!“ – Reddetmek: „Nein, da habe ich keine Zeit.“ / „Tut mir leid, da arbeite ich.“",
-                "task": "Kasia soruyor: “Cumartesi sinemaya gidelim mi?” Vaktiniz var."
+                "task": "Kamil soruyor: “Cumartesi sinemaya gidelim mi?” Vaktiniz var."
               }
             }
           },

@@ -1,0 +1,1088 @@
+{
+  "prior153": [
+    {
+      "id": "422ceede-aabe-5361-aa27-2e7678dfc2a0",
+      "file": "path-a1.1.json",
+      "ref": "P1-N1-E03",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Tschüs, Kasia!",
+      "proposedMaleCorrectAnswer": "Tschüs, Kamil!",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "d3ea94e0-46be-5e05-a04c-91a24095f492",
+      "file": "path-a1.1.json",
+      "ref": "P1-N3-E04",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "c017ed4d-4bc6-5730-abe9-80bc248b571f",
+      "file": "path-a1.1.json",
+      "ref": "P1-N3-E08",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "9f88b0ce-f176-587b-a1d1-2bebf27c2414",
+      "file": "path-a1.1.json",
+      "ref": "P1-N5-E04",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "1b35e3c9-607a-5d64-a213-16fcb77532d7",
+      "file": "path-a1.1.json",
+      "ref": "P1-N7-E06",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "f962a936-6838-5d5c-a2cf-daca5ca1875e",
+      "file": "path-a1.1.json",
+      "ref": "P1-N8-E04",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "4d943c1c-d012-5500-aafd-e2f02a26de37",
+      "file": "path-a1.1.json",
+      "ref": "P1-N8-E07",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+      "file": "path-a1.1.json",
+      "ref": "P1-N9-E03",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "72a2f572-49df-5a64-ad79-115e8e58ee9f",
+      "file": "path-a1.1.json",
+      "ref": "P1-N9-E04",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "f46c69fe-ae7d-5868-ae1b-3e7f6b99f5cf",
+      "file": "path-a1.1.json",
+      "ref": "P1-N10-E04",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+      "file": "path-a1.1.json",
+      "ref": "P1-N11-E06",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "fef593e4-cb75-5ca2-a274-dce04ec8ef91",
+      "file": "path-a1.1.json",
+      "ref": "P1-N11-E10",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Ich heiße Kasia Nowak.",
+      "proposedMaleCorrectAnswer": "Ich heiße Kamil Nowak.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "2e92c87f-7be8-5777-acea-fea7e2892e80",
+      "file": "path-a1.1.json",
+      "ref": "P1-N11-E12",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+      "file": "path-a1.1.json",
+      "ref": "P1-N11-E18",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Ja, hier ist Olena.",
+      "proposedMaleCorrectAnswer": "Ja, hier ist Oleh.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "92c0e42f-da6a-5800-ab71-f4686847f6bb",
+      "file": "path-a1.1.json",
+      "ref": "P1-N11-E25",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "de1edf3c-8c5a-5ff8-a77a-c112f507505c",
+      "file": "path-a1.1.json",
+      "ref": "P1-N11-E31",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "9b9a5f2d-587e-57b5-ad71-b3798ec286b1",
+      "file": "path-a1.1.json",
+      "ref": "P2-N1-E03",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "eb4341a1-8029-5d70-ac25-e5b4522a3138",
+      "file": "path-a1.1.json",
+      "ref": "P2-N1-E06",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "eb39e0a3-e2cd-5e43-afa6-d98974afe1b0",
+      "file": "path-a1.1.json",
+      "ref": "P2-N2-E03",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "675cf6f5-2323-54ed-a39c-a8cb2d59b84a",
+      "file": "path-a1.1.json",
+      "ref": "P2-N2-E04",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "e9e954bd-40e7-5eba-a562-95709e9bd916",
+      "file": "path-a1.1.json",
+      "ref": "P2-N4-E06",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "85b19e5c-99e3-52a6-a943-e17c16f479c8",
+      "file": "path-a1.1.json",
+      "ref": "P2-N5-E06",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Olena wohnt in Leipzig.",
+      "proposedMaleCorrectAnswer": "Oleh wohnt in Leipzig.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+      "file": "path-a1.1.json",
+      "ref": "P2-N9-E01",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Olena ist ledig.",
+      "proposedMaleCorrectAnswer": "Oleh ist ledig.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "89d752e8-b6b5-580b-a520-6602f55aa53e",
+      "file": "path-a1.1.json",
+      "ref": "P2-N9-E04",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "6d58afac-febb-560a-aa1a-cfb76e174fee",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "eac885b9-7087-5b0e-a81e-e5df1fe006bd",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E04",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "06854c0d-e295-57b8-a7f7-b70439b1c235",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0ba71947-5c97-55e0-a395-1c9df37cd698",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "773bbf18-b10d-578a-a148-c91ece070405",
+      "file": "path-a1.1.json",
+      "ref": "P2-N10-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "64c4b417-52c5-5e92-a92a-d56c29b821b1",
+      "file": "path-a1.1.json",
+      "ref": "P2-N11-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "419da395-c505-52ae-ac5f-b93837b4ead5",
+      "file": "path-a1.1.json",
+      "ref": "P2-N11-E06",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "171804c7-8c5d-5a94-acd1-911fe2511f35",
+      "file": "path-a1.1.json",
+      "ref": "P2-N12-E13",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "edd8e808-5cad-5663-a7d0-aea8985792ea",
+      "file": "path-a1.1.json",
+      "ref": "P2-N12-E18",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "3d6fe125-0766-5ec0-a10c-b5484212a51a",
+      "file": "path-a1.1.json",
+      "ref": "P2-N12-E20",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "09106034-ce64-5c70-a0a1-de6abba806e0",
+      "file": "path-a1.1.json",
+      "ref": "P3-N9-E07",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "7a3330ac-3790-5973-a402-55c953d56127",
+      "file": "path-a1.1.json",
+      "ref": "P3-N10-E10",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "6123d110-e262-5de5-a87b-09cae7a21ff6",
+      "file": "path-a1.1.json",
+      "ref": "P3-N11-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "b2cde403-9af7-5e65-a1df-01a8f5260329",
+      "file": "path-a1.1.json",
+      "ref": "P3-N11-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "f93733b4-3353-5063-a14a-8047e73871f4",
+      "file": "path-a1.1.json",
+      "ref": "P4-N4-E07",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "1b14e5c3-ecb2-5bf6-a914-0e2e302bbfd7",
+      "file": "path-a1.1.json",
+      "ref": "P4-N5-E01",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "e824a250-6cc4-5ec9-accb-0073ff53261f",
+      "file": "path-a1.1.json",
+      "ref": "P4-N7-E01",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "cf3d5152-dd57-5ecd-a9c5-2dde6c48d89e",
+      "file": "path-a1.1.json",
+      "ref": "P4-N13-E03",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "e42167d3-36c4-5270-a696-406897292843",
+      "file": "path-a1.1.json",
+      "ref": "P5-N2-E06",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "773da752-f9bf-5044-a948-92b396ebd16e",
+      "file": "path-a1.1.json",
+      "ref": "P5-N4-E04",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Rufst du Olena an?",
+      "proposedMaleCorrectAnswer": "Rufst du Oleh an?",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "d4fa715e-799f-58cf-a0e1-c1798e8b08ea",
+      "file": "path-a1.1.json",
+      "ref": "P5-N6-E09",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Um sieben Uhr frühstückt Olena.",
+      "proposedMaleCorrectAnswer": "Um sieben Uhr frühstückt Oleh.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "c1bef00d-57de-5576-aa6c-c243a5c2e55d",
+      "file": "path-a1.1.json",
+      "ref": "P5-N8-E01",
+      "category": "SAFE_MALE_RENAME_REVIEWED"
+    },
+    {
+      "id": "c4c30115-0899-5e7e-a803-f9af59b16192",
+      "file": "path-a1.1.json",
+      "ref": "P5-N9-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "239aa0d4-a9f7-5055-aaee-5a81c236027d",
+      "file": "path-a1.1.json",
+      "ref": "P5-N10-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "465e830d-bd8b-59b3-a979-965ca0399531",
+      "file": "path-a1.1.json",
+      "ref": "P5-N10-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "23660efb-121f-5557-a9a8-21b5a0292c87",
+      "file": "path-a1.1.json",
+      "ref": "P5-N10-E03",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "2ed87602-445a-5dec-abeb-3e2a9bc98d1d",
+      "file": "path-a1.1.json",
+      "ref": "P5-N11-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "684197ef-a99f-5b6f-a620-1cf5d4888167",
+      "file": "path-a1.1.json",
+      "ref": "P5-N12-E17",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "1e2af35c-784c-592f-a93d-d89a5ec55fc6",
+      "file": "path-a1.1.json",
+      "ref": "P6-N1-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "9f376699-d050-5f02-abaa-812640943f54",
+      "file": "path-a1.1.json",
+      "ref": "P6-N3-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "c0ae363d-6c1f-58a7-a381-b7e206815e1f",
+      "file": "path-a1.1.json",
+      "ref": "P6-N5-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "60e4d386-8f87-5f9d-a031-6029aa323f26",
+      "file": "path-a1.1.json",
+      "ref": "P6-N6-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "4a8f4138-525a-5f2e-a176-bf83a75d3f11",
+      "file": "path-a1.1.json",
+      "ref": "P6-N13-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "da4b9963-bee4-5774-aba6-c709025aaa2d",
+      "file": "path-a1.1.json",
+      "ref": "P6-N14-E10",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "2e4c1c55-b2c0-5cd7-a088-d7dafbadb37b",
+      "file": "path-a1.1.json",
+      "ref": "P6-N14-E17",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "4c69d90f-ad40-5ee8-a8fa-21e2d8f75c93",
+      "file": "path-a1.1.json",
+      "ref": "P6-N14-E24",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "df2f0886-6d7d-5ce8-ae23-131b2c9c9ca5",
+      "file": "path-a1.1.json",
+      "ref": "P7-N2-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "506edd4c-7d3e-50db-a36f-2ba168bc24db",
+      "file": "path-a1.1.json",
+      "ref": "P7-N3-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "aed1bc85-04cb-5d3a-a662-dbd7db48632c",
+      "file": "path-a1.1.json",
+      "ref": "P7-N4-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "fbf8656d-ddd7-519b-af74-5c43e3f6b2f9",
+      "file": "path-a1.1.json",
+      "ref": "P7-N4-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "a531a51d-4767-53ae-a5bb-7a97f3e904a9",
+      "file": "path-a1.1.json",
+      "ref": "P7-N4-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "a2044b0c-ba8b-5b41-a0ed-d1895ecd3975",
+      "file": "path-a1.1.json",
+      "ref": "P7-N6-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0d6b6bc3-2af8-51a3-ae1e-d36cf4c8c35f",
+      "file": "path-a1.1.json",
+      "ref": "P7-N6-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "5184208a-49c8-5df2-ab9b-274b25012d74",
+      "file": "path-a1.1.json",
+      "ref": "P7-N7-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "3b6c59a2-767b-5dfa-a197-c8a8358520b6",
+      "file": "path-a1.1.json",
+      "ref": "P7-N8-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "ca2c9014-f342-5c9d-a88c-b989fd4548dd",
+      "file": "path-a1.1.json",
+      "ref": "P7-N8-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+      "file": "path-a1.1.json",
+      "ref": "P7-N8-E03",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Selin",
+      "proposedMaleCorrectAnswer": "Selim",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "23a78719-5c1a-5510-acee-ac9e9a366d3a",
+      "file": "path-a1.1.json",
+      "ref": "P7-N10-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "c2559b8d-cd3c-50bb-a9b8-f5944e8f8296",
+      "file": "path-a1.1.json",
+      "ref": "P7-N11-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "49c4a449-ea24-54f8-a49a-bdf04c4bfde2",
+      "file": "path-a1.1.json",
+      "ref": "P7-N11-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "72e175b3-062f-5650-a1bd-3f8aa99061e5",
+      "file": "path-a1.1.json",
+      "ref": "P7-N11-E09",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "53e0e382-9f60-5574-a29d-01727939ac9a",
+      "file": "path-a1.1.json",
+      "ref": "P7-N12-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "f5fd9c71-7912-5277-a6cc-c0815ec92dc1",
+      "file": "path-a1.1.json",
+      "ref": "P7-N12-E12",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "de2b30e8-0050-5e8f-aefc-7afdf6fd8af3",
+      "file": "path-a1.1.json",
+      "ref": "P7-N12-E15",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "b088b06b-6140-520c-a242-1ff5689c4688",
+      "file": "path-a1.1.json",
+      "ref": "P7-N12-E28",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Olena hat am Samstag gearbeitet.",
+      "proposedMaleCorrectAnswer": "Oleh hat am Samstag gearbeitet.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "b19c26ba-95e9-57d1-aeb6-56b014d795a4",
+      "file": "path-a1.2.json",
+      "ref": "P1-N5-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "531b2b91-5f5d-54f7-ae22-0b2e8ea24ecf",
+      "file": "path-a1.2.json",
+      "ref": "P1-N11-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "86cc2103-15f2-51c9-a983-1dbc76ed99ef",
+      "file": "path-a1.2.json",
+      "ref": "P1-N12-E02",
+      "category": "NECESSARY_GRAMMATICAL_GENDER_REFRAMED"
+    },
+    {
+      "id": "ecbcfc8b-fd8d-5f02-aa09-cd987dca6c13",
+      "file": "path-a1.2.json",
+      "ref": "P2-N7-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "59a3a29c-4398-54fc-a965-4d1f2677e1ed",
+      "file": "path-a1.2.json",
+      "ref": "P2-N7-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0c91a906-804e-5c15-af92-dc19da646509",
+      "file": "path-a1.2.json",
+      "ref": "P3-N4-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "adce244a-3d95-54e9-a659-ff5bbe6d3d4a",
+      "file": "path-a1.2.json",
+      "ref": "P3-N5-E02",
+      "category": "NECESSARY_GRAMMATICAL_GENDER_REFRAMED"
+    },
+    {
+      "id": "b2385af4-12f5-5a82-aac7-0feb43500871",
+      "file": "path-a1.2.json",
+      "ref": "P3-N7-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "aaeb1edf-a355-5fc6-a5ba-313144fb6715",
+      "file": "path-a1.2.json",
+      "ref": "P3-N13-E03",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "72fd90d9-19f1-52b5-af30-93a51ec820d8",
+      "file": "path-a1.2.json",
+      "ref": "P3-N13-E13",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "b034ca7d-7550-5ff9-a250-4f1291df8eb4",
+      "file": "path-a1.2.json",
+      "ref": "P4-N12-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "39cd8f90-919c-5560-ab50-96ca8bb51e6a",
+      "file": "path-a1.2.json",
+      "ref": "P5-N10-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "191e6dc3-cd3d-5175-a909-9f3a0e1710ce",
+      "file": "path-a1.2.json",
+      "ref": "P6-N4-E05",
+      "category": "NECESSARY_GRAMMATICAL_GENDER_REFRAMED"
+    },
+    {
+      "id": "991cac42-41d9-56f4-ace9-3c52f6ae400e",
+      "file": "path-a1.2.json",
+      "ref": "P6-N4-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "c31300cf-99ed-5217-aa58-7a82eac6f645",
+      "file": "path-a1.2.json",
+      "ref": "P7-N1-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0194e210-1b58-5cbb-acea-65e9add8d981",
+      "file": "path-a1.2.json",
+      "ref": "P7-N3-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "171d5757-55f7-5d91-aa9a-dc37ef0bdd9f",
+      "file": "path-a1.2.json",
+      "ref": "P7-N6-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "a1f73c83-e017-5cff-ac44-d761c66f746e",
+      "file": "path-a1.2.json",
+      "ref": "P7-N7-E03",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Wir feiern, denn Mia wird 18.",
+      "proposedMaleCorrectAnswer": "Wir feiern, denn Milan wird 18.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "ea2009d8-cc94-51c5-afe1-67061f9fa66f",
+      "file": "path-a1.2.json",
+      "ref": "P7-N7-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "92f88f9b-be94-5d93-a3d7-652898fc58ad",
+      "file": "path-a1.2.json",
+      "ref": "P7-N9-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "553ab5fa-06d0-5455-add7-6a22f02eab50",
+      "file": "path-a1.2.json",
+      "ref": "P7-N13-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "765d3462-2aa9-5917-a16a-58ea7a9a3841",
+      "file": "path-a1.2.json",
+      "ref": "P7-N14-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "c18a60fd-01f6-567a-adea-dcdd50ae9136",
+      "file": "path-a1.2.json",
+      "ref": "P7-N14-E13",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "f30c3772-6c1e-5b19-aead-0d76a0fb3941",
+      "file": "path-a2.1.json",
+      "ref": "P1-N1-E07",
+      "category": "NECESSARY_GRAMMATICAL_GENDER_REFRAMED"
+    },
+    {
+      "id": "4f4896ac-70ce-5b30-a924-1db0cc362611",
+      "file": "path-a2.1.json",
+      "ref": "P1-N2-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "4e624c26-42a9-50bd-acd0-c1d30325cb8b",
+      "file": "path-a2.1.json",
+      "ref": "P1-N2-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "948fdca0-e443-5184-a1bb-8bd02b9a4bfe",
+      "file": "path-a2.1.json",
+      "ref": "P1-N4-E03",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION"
+    },
+    {
+      "id": "f8d11112-613b-5e4a-a2c4-8dec6deca5b7",
+      "file": "path-a2.1.json",
+      "ref": "P1-N5-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "7118d842-bba9-5b3d-a23b-ead85f63b377",
+      "file": "path-a2.1.json",
+      "ref": "P1-N5-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+      "file": "path-a2.1.json",
+      "ref": "P1-N6-E04",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Wir haben Lena in Köln kennengelernt.",
+      "proposedMaleCorrectAnswer": "Wir haben Leon in Köln kennengelernt.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "76ea54c1-c380-5b3a-a898-6a2039353f38",
+      "file": "path-a2.1.json",
+      "ref": "P1-N10-E03",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "69264990-2b72-5e04-a37f-2a68234d75b1",
+      "file": "path-a2.1.json",
+      "ref": "P1-N11-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "a0550519-2d69-5b97-acc6-5f6ece56d41f",
+      "file": "path-a2.1.json",
+      "ref": "P1-N14-E11",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "56a0858a-50df-5d13-a0b7-97111223973a",
+      "file": "path-a2.1.json",
+      "ref": "P1-N14-E18",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "ae5a3641-ac44-5a38-a4dc-f2c696f5b173",
+      "file": "path-a2.1.json",
+      "ref": "P2-N10-E09",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "cc56f942-6adc-567d-adae-479439a315a7",
+      "file": "path-a2.1.json",
+      "ref": "P3-N2-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "00169836-de7a-568c-acc7-724a7c86ead3",
+      "file": "path-a2.1.json",
+      "ref": "P3-N12-E09",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "380353bb-aae1-5746-ab83-8eba1d0cd61f",
+      "file": "path-a2.1.json",
+      "ref": "P4-N8-E05",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Guten Tag, hier ist Mia Bondar.",
+      "proposedMaleCorrectAnswer": "Guten Tag, hier ist Milan Bondar.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "46a8c3ac-1525-50c6-ad75-8f4d184e4bfc",
+      "file": "path-a2.1.json",
+      "ref": "P5-N3-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "bce20724-a843-5a3f-a742-f548c073733f",
+      "file": "path-a2.1.json",
+      "ref": "P5-N8-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "2bd35b7d-9644-535f-aa25-23571af8f608",
+      "file": "path-a2.1.json",
+      "ref": "P5-N10-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "95c8326e-4dff-5a01-a7ad-6ed65428a9cf",
+      "file": "path-a2.1.json",
+      "ref": "P6-N2-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "dda7a7a2-ab0f-5403-ab7b-b61934093f6f",
+      "file": "path-a2.1.json",
+      "ref": "P6-N12-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "444554eb-8c8a-5259-a110-9b64a78587af",
+      "file": "path-a2.1.json",
+      "ref": "P7-N2-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "455699ac-cce9-54da-a5e9-2514020e2362",
+      "file": "path-a2.1.json",
+      "ref": "P7-N3-E08",
+      "category": "NECESSARY_GRAMMATICAL_GENDER_REFRAMED"
+    },
+    {
+      "id": "1772672e-c093-5b45-a53c-de9844120bd1",
+      "file": "path-a2.1.json",
+      "ref": "P7-N6-E08",
+      "category": "NECESSARY_GRAMMATICAL_GENDER_REFRAMED"
+    },
+    {
+      "id": "0b08124a-24e9-5f90-af63-3b93e609b05f",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "b5cca977-3fc3-5584-a793-2cf08a293936",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "a936f5e6-af98-5baf-a27c-7897cce61f6c",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E03",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "2ebf559f-210c-5d52-a3ed-e7b1df5678d7",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "5b165ca8-75bc-5a9b-a94b-00eb3e4f1c4c",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "c46d0dc3-e931-555c-a6af-5e382de8b658",
+      "file": "path-a2.1.json",
+      "ref": "P7-N12-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "cd68cc99-87df-578a-a5b2-7b3a9d6c1af7",
+      "file": "path-a2.1.json",
+      "ref": "P7-N13-E07",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "de4c541d-0c15-55af-ad12-849c1df6fbcf",
+      "file": "path-a2.1.json",
+      "ref": "P7-N14-E11",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "deff0ba9-9c0d-503c-ac49-6875aeb3d5d6",
+      "file": "path-a2.2.json",
+      "ref": "P1-N3-E03",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "a4c644eb-7397-572d-a8b7-16f2b394d1d2",
+      "file": "path-a2.2.json",
+      "ref": "P1-N10-E07",
+      "category": "NECESSARY_GRAMMATICAL_GENDER_REFRAMED"
+    },
+    {
+      "id": "c4db08c2-1942-5aaa-a7a1-5c8adee3420b",
+      "file": "path-a2.2.json",
+      "ref": "P1-N14-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "ed73de2b-b43c-5aa2-a585-37658f5f2702",
+      "file": "path-a2.2.json",
+      "ref": "P2-N3-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "8507cb89-e50b-5d37-ad09-7d6e437c29cc",
+      "file": "path-a2.2.json",
+      "ref": "P2-N3-E08",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "e6cd7bdb-266e-5f8a-a4a1-cc0efdca6e85",
+      "file": "path-a2.2.json",
+      "ref": "P2-N9-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "50234931-131f-5d43-abdd-12d5f11434b2",
+      "file": "path-a2.2.json",
+      "ref": "P2-N11-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "e7661162-1cdc-5eba-a04c-e5410420ac9f",
+      "file": "path-a2.2.json",
+      "ref": "P2-N14-E12",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "b850f71b-d97f-517d-a125-2bf9614b38fd",
+      "file": "path-a2.2.json",
+      "ref": "P3-N14-E16",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0ec0675a-35b4-52bc-a135-e06164302163",
+      "file": "path-a2.2.json",
+      "ref": "P3-N14-E17",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "da379e68-499e-5717-a327-75ae25e99719",
+      "file": "path-a2.2.json",
+      "ref": "P3-N14-E29",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "50b7acd7-d091-589d-ac7e-f4c9d30ff89a",
+      "file": "path-a2.2.json",
+      "ref": "P4-N12-E10",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0633e9d3-9fc2-5f0a-a74e-7cd72f8be229",
+      "file": "path-a2.2.json",
+      "ref": "P5-N2-E06",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "d777df1a-c2ab-50e5-a6a9-11bd1f3dc9a7",
+      "file": "path-a2.2.json",
+      "ref": "P6-N2-E09",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "33caadca-d684-50f1-a6ac-a21cffb316af",
+      "file": "path-a2.2.json",
+      "ref": "P6-N7-E01",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "14613cdf-bb1b-59ee-ae98-d349e1cc6d97",
+      "file": "path-a2.2.json",
+      "ref": "P7-N2-E02",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "f0e2d87f-888e-5fec-a86d-447d5008897f",
+      "file": "path-a2.2.json",
+      "ref": "P7-N4-E05",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "0cf27ee0-2a47-5d17-aea7-ba65b50f1cfc",
+      "file": "path-a2.2.json",
+      "ref": "P7-N6-E04",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    },
+    {
+      "id": "9a14e6f7-c45b-554c-af3c-817e865cd415",
+      "file": "path-a2.2.json",
+      "ref": "P7-N14-E16",
+      "category": "NOT_SEMANTICALLY_REVIEWED_IN_THIS_LEASE"
+    }
+  ],
+  "versionGaps": [
+    {
+      "id": "422ceede-aabe-5361-aa27-2e7678dfc2a0",
+      "file": "path-a1.1.json",
+      "ref": "P1-N1-E03",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Tschüs, Kasia!",
+      "proposedMaleCorrectAnswer": "Tschüs, Kamil!",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "fef593e4-cb75-5ca2-a274-dce04ec8ef91",
+      "file": "path-a1.1.json",
+      "ref": "P1-N11-E10",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Ich heiße Kasia Nowak.",
+      "proposedMaleCorrectAnswer": "Ich heiße Kamil Nowak.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+      "file": "path-a1.1.json",
+      "ref": "P1-N11-E18",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Ja, hier ist Olena.",
+      "proposedMaleCorrectAnswer": "Ja, hier ist Oleh.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "85b19e5c-99e3-52a6-a943-e17c16f479c8",
+      "file": "path-a1.1.json",
+      "ref": "P2-N5-E06",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Olena wohnt in Leipzig.",
+      "proposedMaleCorrectAnswer": "Oleh wohnt in Leipzig.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+      "file": "path-a1.1.json",
+      "ref": "P2-N9-E01",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Olena ist ledig.",
+      "proposedMaleCorrectAnswer": "Oleh ist ledig.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "773da752-f9bf-5044-a948-92b396ebd16e",
+      "file": "path-a1.1.json",
+      "ref": "P5-N4-E04",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Rufst du Olena an?",
+      "proposedMaleCorrectAnswer": "Rufst du Oleh an?",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "d4fa715e-799f-58cf-a0e1-c1798e8b08ea",
+      "file": "path-a1.1.json",
+      "ref": "P5-N6-E09",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Um sieben Uhr frühstückt Olena.",
+      "proposedMaleCorrectAnswer": "Um sieben Uhr frühstückt Oleh.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+      "file": "path-a1.1.json",
+      "ref": "P7-N8-E03",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Selin",
+      "proposedMaleCorrectAnswer": "Selim",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "b088b06b-6140-520c-a242-1ff5689c4688",
+      "file": "path-a1.1.json",
+      "ref": "P7-N12-E28",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Olena hat am Samstag gearbeitet.",
+      "proposedMaleCorrectAnswer": "Oleh hat am Samstag gearbeitet.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "a1f73c83-e017-5cff-ac44-d761c66f746e",
+      "file": "path-a1.2.json",
+      "ref": "P7-N7-E03",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Wir feiern, denn Mia wird 18.",
+      "proposedMaleCorrectAnswer": "Wir feiern, denn Milan wird 18.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+      "file": "path-a2.1.json",
+      "ref": "P1-N6-E04",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Wir haben Lena in Köln kennengelernt.",
+      "proposedMaleCorrectAnswer": "Wir haben Leon in Köln kennengelernt.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "380353bb-aae1-5746-ab83-8eba1d0cd61f",
+      "file": "path-a2.1.json",
+      "ref": "P4-N8-E05",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Guten Tag, hier ist Mia Bondar.",
+      "proposedMaleCorrectAnswer": "Guten Tag, hier ist Milan Bondar.",
+      "historyRule": "Preserve old exercise snapshots/answers/results; separately reviewed new revision/options/answer/audio; no historic overwrite"
+    },
+    {
+      "id": "948fdca0-e443-5184-a1bb-8bd02b9a4bfe",
+      "file": "path-a2.1.json",
+      "ref": "P1-N4-E03",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "weil sie müde ist.",
+      "proposedMaleCorrectAnswer": "weil er müde ist.",
+      "historyRule": "Keep old immutable content/keys/results; new reviewed revision and exact audio required, no current edit"
+    },
+    {
+      "id": "a054896c-401c-551d-a610-78838cc07a1c",
+      "file": "path-b1.1.json",
+      "ref": "P5-N9-E04",
+      "category": "FICTIONAL_CHARACTER_REQUIRES_IMMUTABLE_VERSION",
+      "currentCorrectAnswer": "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.",
+      "proposedMaleCorrectAnswer": "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch.",
+      "historyRule": "Keep old immutable content/keys/results; new reviewed revision and exact audio required, no current edit"
+    }
+  ],
+  "b11NecessaryFeminineSalutationUnchanged": "P5-N8-E07",
+  "all153FullyReviewed": false
+}

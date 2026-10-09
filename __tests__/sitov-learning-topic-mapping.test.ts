@@ -51,3 +51,37 @@ it('updates the Selim and male friend translations without changing the answer c
  expect(friend.translations?.ru?.task).toContain('с другом')
  expect(friend.translations?.uk?.task).toContain('з другом')
 })
+
+it('keeps factual feminine grammar targets without named fictional characters',()=>{
+ for(const [level,nid,id,answer] of [
+  ['a1.2','P1-N12','86cc2103-15f2-51c9-a983-1dbc76ed99ef','Köchin'],
+  ['a1.2','P3-N5','adce244a-3d95-54e9-a659-ff5bbe6d3d4a','ihre'],
+  ['a1.2','P6-N4','191e6dc3-cd3d-5175-a909-9f3a0e1710ce','ihr'],
+  ['a2.1','P1-N1','f30c3772-6c1e-5b19-aead-0d76a0fb3941','Enkelin'],
+  ['a2.1','P7-N3','455699ac-cce9-54da-a5e9-2514020e2362','ihrer'],
+  ['a2.1','P7-N6','1772672e-c093-5b45-a53c-de9844120bd1','ihr'],
+  ['a2.2','P1-N10','a4c644eb-7397-572d-a8b7-16f2b394d1d2','sie'],
+ ]){
+  const e=exercise(level,nid,id)
+  expect(e.content.correct_answer).toBe(answer)
+  expect(e.content.options).toContain(answer)
+  expect(JSON.stringify(e.content)).not.toMatch(/Lena|Mia|Marta/)
+  expect(Object.keys(e.translations??{}).sort()).toEqual(['en','ru','tr','uk'])
+ }
+})
+it('retains historical answer-bound character and necessary feminine salutation exercises pending version review',()=>{
+ expect(exercise('a1.1','P5-N6','d4fa715e-799f-58cf-a0e1-c1798e8b08ea').content.correct_answer).toBe('Um sieben Uhr frühstückt Olena.')
+ expect(exercise('b1.1','P5-N9','a054896c-401c-551d-a610-78838cc07a1c').content.correct_answer).toBe('Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.')
+ expect(node('b1.1','P5-N8').exercises[6].content).toBeDefined()
+})
+it('preserves B1 job answers while correcting male roles and translated agreement',()=>{
+ expect(load('b1.1')).toHaveLength(7)
+ const cook=exercise('b1.1','P5-N1','15519794-cebf-5696-af58-f11f373db4cf')
+ expect(cook.content.question).toContain('als Koch')
+ expect(cook.content.correct_answer).toBe('Berufserfahrung')
+ expect(cook.translations?.ru?.task).toContain('работал')
+ expect(cook.translations?.uk?.task).toContain('кухарем')
+ expect(exercise('b1.1','P5-N9','73852697-e0f9-56a9-a260-7cab2b9da630').content.question).toContain('Friseur')
+ const surname=exercise('a1.1','P1-N11','d85bed67-a64c-54d8-a3b0-7bac16710b5b')
+ expect(surname.translations?.en?.task).toContain('himself')
+})

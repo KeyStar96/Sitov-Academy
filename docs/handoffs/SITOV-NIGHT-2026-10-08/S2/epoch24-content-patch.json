@@ -1,0 +1,1402 @@
+[
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/3/content/text_after",
+    "old": " Olena.",
+    "new": " Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/3/translations/en/task",
+    "old": "Hello, my name is Olena.",
+    "new": "Hello, my name is Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/3/translations/ru/task",
+    "old": "Привет, меня зовут Olena.",
+    "new": "Привет, меня зовут Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/3/translations/uk/task",
+    "old": "Привіт, мене звати Olena.",
+    "new": "Привіт, мене звати Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/3/translations/tr/task",
+    "old": "Merhaba, benim adım Olena.",
+    "new": "Merhaba, benim adım Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/7/content/text_after",
+    "old": " ist Kasia Nowak.",
+    "new": " ist Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/7/translations/en/task",
+    "old": "Good day! My name is Kasia Nowak.",
+    "new": "Good day! My name is Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/7/translations/ru/task",
+    "old": "Добрый день! Меня зовут Kasia Nowak.",
+    "new": "Добрый день! Меня зовут Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/7/translations/uk/task",
+    "old": "Добрий день! Мене звати Kasia Nowak.",
+    "new": "Добрий день! Мене звати Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/exercises/7/translations/tr/task",
+    "old": "İyi günler! Benim adım Kasia Nowak.",
+    "new": "İyi günler! Benim adım Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/4/exercises/3/content/text_before",
+    "old": "Olena sagt: „Ich komme aus ",
+    "new": "Oleh sagt: „Ich komme aus "
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/4/exercises/3/translations/en/task",
+    "old": "Olena says: “I come from Ukraine.”",
+    "new": "Oleh says: “I come from Ukraine.”"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/4/exercises/3/translations/ru/task",
+    "old": "Olena говорит: «Я из Украины».",
+    "new": "Oleh говорит: «Я из Украины»."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/4/exercises/3/translations/uk/task",
+    "old": "Olena каже: «Я з України».",
+    "new": "Oleh каже: «Я з України»."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/4/exercises/3/translations/tr/task",
+    "old": "Olena diyor ki: “Ukrayna’dan geliyorum.”",
+    "new": "Oleh diyor ki: “Ukrayna’dan geliyorum.”"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/6/exercises/5/content/text_after",
+    "old": " heißen Sie? – Marchenko, Olena Marchenko.",
+    "new": " heißen Sie? – Marchenko, Oleh Marchenko."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/6/exercises/5/translations/en/task",
+    "old": "What is your name? – Marchenko, Olena Marchenko.",
+    "new": "What is your name? – Marchenko, Oleh Marchenko."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/6/exercises/5/translations/ru/task",
+    "old": "Как вас зовут? – Marchenko, Olena Marchenko.",
+    "new": "Как вас зовут? – Marchenko, Oleh Marchenko."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/6/exercises/5/translations/uk/task",
+    "old": "Як вас звати? – Marchenko, Olena Marchenko.",
+    "new": "Як вас звати? – Marchenko, Oleh Marchenko."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/6/exercises/5/translations/tr/task",
+    "old": "Adınız ne? – Marchenko, Olena Marchenko.",
+    "new": "Adınız ne? – Marchenko, Oleh Marchenko."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/3/content/question",
+    "old": "Kasia sagt: „Ich spreche Polnisch, Englisch und Spanisch.“ Du zeigst Interesse.",
+    "new": "Kamil sagt: „Ich spreche Polnisch, Englisch und Spanisch.“ Du zeigst Interesse."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/3/translations/en/task",
+    "old": "Kasia says: “I speak Polish, English and Spanish.” You show interest.",
+    "new": "Kamil says: “I speak Polish, English and Spanish.” You show interest."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/3/translations/ru/task",
+    "old": "Kasia говорит: «Я говорю по-польски, по-английски и по-испански». Вы проявляете интерес.",
+    "new": "Kamil говорит: «Я говорю по-польски, по-английски и по-испански». Вы проявляете интерес."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/3/translations/uk/task",
+    "old": "Kasia каже: «Я розмовляю польською, англійською та іспанською». Ви виявляєте інтерес.",
+    "new": "Kamil каже: «Я розмовляю польською, англійською та іспанською». Ви виявляєте інтерес."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/3/translations/tr/task",
+    "old": "Kasia diyor ki: “Lehçe, İngilizce ve İspanyolca konuşuyorum.” İlgi gösteriyorsunuz.",
+    "new": "Kamil diyor ki: “Lehçe, İngilizce ve İspanyolca konuşuyorum.” İlgi gösteriyorsunuz."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/6/content/text_after",
+    "old": " Olena Marchenko.“",
+    "new": " Oleh Marchenko.“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/6/translations/en/task",
+    "old": "“Dr Lindner’s surgery, reception, good day.” – “Good day, this is Olena Marchenko.”",
+    "new": "“Dr Lindner’s surgery, reception, good day.” – “Good day, this is Oleh Marchenko.”"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/6/translations/ru/task",
+    "old": "«Практика доктора Lindner, регистратура, добрый день». – «Добрый день, это Olena Marchenko».",
+    "new": "«Практика доктора Lindner, регистратура, добрый день». – «Добрый день, это Oleh Marchenko»."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/6/translations/uk/task",
+    "old": "«Практика доктора Lindner, реєстратура, добрий день». – «Добрий день, це Olena Marchenko».",
+    "new": "«Практика доктора Lindner, реєстратура, добрий день». – «Добрий день, це Oleh Marchenko»."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/exercises/6/translations/tr/task",
+    "old": "“Dr. Lindner muayenehanesi, danışma, iyi günler.” – “İyi günler, ben Olena Marchenko.”",
+    "new": "“Dr. Lindner muayenehanesi, danışma, iyi günler.” – “İyi günler, ben Oleh Marchenko.”"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/content/text_before",
+    "old": "Ich heiße Olena Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: ",
+    "new": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: "
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/translations/en/task",
+    "old": "My name is Olena Marchenko. I come from Lviv, from Ukraine. Form: surname: …",
+    "new": "My name is Oleh Marchenko. I come from Lviv, from Ukraine. Form: surname: …"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/translations/ru/task",
+    "old": "Меня зовут Olena Marchenko. Я из Львова, из Украины. Анкета: фамилия: …",
+    "new": "Меня зовут Oleh Marchenko. Я из Львова, из Украины. Анкета: фамилия: …"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/translations/uk/task",
+    "old": "Мене звати Olena Marchenko. Я зі Львова, з України. Анкета: прізвище: …",
+    "new": "Мене звати Oleh Marchenko. Я зі Львова, з України. Анкета: прізвище: …"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/translations/tr/task",
+    "old": "Benim adım Olena Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …",
+    "new": "Benim adım Oleh Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/3/content/text_before",
+    "old": "Ich heiße Olena Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Stadt: ",
+    "new": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Stadt: "
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/3/translations/en/task",
+    "old": "My name is Olena Marchenko. I come from Lviv, from Ukraine. Form: city: …",
+    "new": "My name is Oleh Marchenko. I come from Lviv, from Ukraine. Form: city: …"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/3/translations/ru/task",
+    "old": "Меня зовут Olena Marchenko. Я из Львова, из Украины. Анкета: город: …",
+    "new": "Меня зовут Oleh Marchenko. Я из Львова, из Украины. Анкета: город: …"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/3/translations/uk/task",
+    "old": "Мене звати Olena Marchenko. Я зі Львова, з України. Анкета: місто: …",
+    "new": "Мене звати Oleh Marchenko. Я зі Львова, з України. Анкета: місто: …"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/3/translations/tr/task",
+    "old": "Benim adım Olena Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: şehir: …",
+    "new": "Benim adım Oleh Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: şehir: …"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/9/exercises/3/content/question",
+    "old": "Olena und Emre sind im Deutschkurs. Olena stellt Emre vor.",
+    "new": "Oleh und Emre sind im Deutschkurs. Oleh stellt Emre vor."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/9/exercises/3/translations/en/task",
+    "old": "Olena and Emre are in the German course. Olena introduces Emre.",
+    "new": "Oleh and Emre are in the German course. Oleh introduces Emre."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/9/exercises/3/translations/ru/task",
+    "old": "Olena и Emre на курсе немецкого. Olena представляет Emre.",
+    "new": "Oleh и Emre на курсе немецкого. Oleh представляет Emre."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/9/exercises/3/translations/uk/task",
+    "old": "Olena та Emre на курсі німецької. Olena представляє Emre.",
+    "new": "Oleh та Emre на курсі німецької. Oleh представляє Emre."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/9/exercises/3/translations/tr/task",
+    "old": "Olena ve Emre Almanca kursundalar. Olena, Emre’yi tanıtıyor.",
+    "new": "Oleh ve Emre Almanca kursundalar. Oleh, Emre’yi tanıtıyor."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/content/question",
+    "old": "Olena stellt sich am Telefon vor. Was ist richtig?",
+    "new": "Oleh stellt sich am Telefon vor. Was ist richtig?"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/translations/en/task",
+    "old": "Olena introduces herself on the phone. What is correct?",
+    "new": "Oleh introduces himself on the phone. What is correct?"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/translations/ru/task",
+    "old": "Olena представляется по телефону. Что правильно?",
+    "new": "Oleh представляется по телефону. Что правильно?"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/translations/uk/task",
+    "old": "Olena представляється телефоном. Що правильно?",
+    "new": "Oleh представляється телефоном. Що правильно?"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/translations/tr/task",
+    "old": "Olena telefonda kendini tanıtıyor. Hangisi doğru?",
+    "new": "Oleh telefonda kendini tanıtıyor. Hangisi doğru?"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/11/content/question",
+    "old": "Olena fragt: „Woher kommen Sie?“ Du kommst aus Polen.",
+    "new": "Oleh fragt: „Woher kommen Sie?“ Du kommst aus Polen."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/11/translations/en/task",
+    "old": "Olena asks: “Where are you from?” You come from Poland.",
+    "new": "Oleh asks: “Where are you from?” You come from Poland."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/11/translations/ru/task",
+    "old": "Olena спрашивает: «Откуда вы?» Вы из Польши.",
+    "new": "Oleh спрашивает: «Откуда вы?» Вы из Польши."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/11/translations/uk/task",
+    "old": "Olena запитує: «Звідки ви?» Ви з Польщі.",
+    "new": "Oleh запитує: «Звідки ви?» Ви з Польщі."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/11/translations/tr/task",
+    "old": "Olena soruyor: “Nerelisiniz?” Polonya’dan geliyorsunuz.",
+    "new": "Oleh soruyor: “Nerelisiniz?” Polonya’dan geliyorsunuz."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/24/content/text_after",
+    "old": " du Kasia? – Ja, genau!",
+    "new": " du Kamil? – Ja, genau!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/24/translations/en/task",
+    "old": "Are you Kasia? – Yes, exactly!",
+    "new": "Are you Kamil? – Yes, exactly!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/24/translations/ru/task",
+    "old": "Ты Kasia? – Да, точно!",
+    "new": "Ты Kamil? – Да, точно!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/24/translations/uk/task",
+    "old": "Ти Kasia? – Так, саме так!",
+    "new": "Ти Kamil? – Так, саме так!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/24/translations/tr/task",
+    "old": "Sen Kasia mısın? – Evet, aynen!",
+    "new": "Sen Kamil mısın? – Evet, aynen!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/30/content/text_before",
+    "old": "Guten Tag, hier ist Kasia Nowak. Ist Herr Weber ",
+    "new": "Guten Tag, hier ist Kamil Nowak. Ist Herr Weber "
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/30/translations/en/task",
+    "old": "Good day, this is Kasia Nowak. Is Mr Weber there?",
+    "new": "Good day, this is Kamil Nowak. Is Mr Weber there?"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/30/translations/ru/task",
+    "old": "Добрый день, это Kasia Nowak. Господин Weber на месте?",
+    "new": "Добрый день, это Kamil Nowak. Господин Weber на месте?"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/30/translations/uk/task",
+    "old": "Добрий день, це Kasia Nowak. Пан Weber на місці?",
+    "new": "Добрий день, це Kamil Nowak. Пан Weber на місці?"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/30/translations/tr/task",
+    "old": "İyi günler, ben Kasia Nowak. Weber Bey orada mı?",
+    "new": "İyi günler, ben Kamil Nowak. Weber Bey orada mı?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/2/content/question",
+    "old": "Olena fragt: „Wie geht’s?“ Du bist krank.",
+    "new": "Oleh fragt: „Wie geht’s?“ Du bist krank."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/2/translations/en/task",
+    "old": "Olena asks: “How are you?” You are ill.",
+    "new": "Oleh asks: “How are you?” You are ill."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/2/translations/ru/task",
+    "old": "Olena спрашивает: «Как дела?» Вы больны.",
+    "new": "Oleh спрашивает: «Как дела?» Вы больны."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/2/translations/uk/task",
+    "old": "Olena запитує: «Як справи?» Ви хворі.",
+    "new": "Oleh запитує: «Як справи?» Ви хворі."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/2/translations/tr/task",
+    "old": "Olena soruyor: “Nasılsın?” Hastasınız.",
+    "new": "Oleh soruyor: “Nasılsın?” Hastasınız."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/5/content/text_before",
+    "old": "Hallo Kasia! Wie geht es ",
+    "new": "Hallo Kamil! Wie geht es "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/5/translations/en/task",
+    "old": "Hello Kasia! How are you?",
+    "new": "Hello Kamil! How are you?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/5/translations/ru/task",
+    "old": "Привет, Kasia! Как у тебя дела?",
+    "new": "Привет, Kamil! Как у тебя дела?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/5/translations/uk/task",
+    "old": "Привіт, Kasia! Як у тебе справи?",
+    "new": "Привіт, Kamil! Як у тебе справи?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/0/exercises/5/translations/tr/task",
+    "old": "Merhaba Kasia! Nasılsın?",
+    "new": "Merhaba Kamil! Nasılsın?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/2/content/text_before",
+    "old": "Olena zeigt ein Foto: „Das sind ",
+    "new": "Oleh zeigt ein Foto: „Das sind "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/2/translations/en/task",
+    "old": "Olena shows a photo: “These are my parents.”",
+    "new": "Oleh shows a photo: “These are my parents.”"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/2/translations/ru/task",
+    "old": "Olena показывает фото: «Это мои родители».",
+    "new": "Oleh показывает фото: «Это мои родители»."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/2/translations/uk/task",
+    "old": "Olena показує фото: «Це мої батьки».",
+    "new": "Oleh показує фото: «Це мої батьки»."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/2/translations/tr/task",
+    "old": "Olena bir fotoğraf gösteriyor: “Bunlar benim annemle babam.”",
+    "new": "Oleh bir fotoğraf gösteriyor: “Bunlar benim annemle babam.”"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/3/content/text_before",
+    "old": "Kasia fragt Olena: „Wie heißt ",
+    "new": "Kamil fragt Oleh: „Wie heißt "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/3/translations/en/task",
+    "old": "Kasia asks Olena: “What is your brother’s name?”",
+    "new": "Kamil asks Oleh: “What is your brother’s name?”"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/3/translations/ru/task",
+    "old": "Kasia спрашивает Olena: «Как зовут твоего брата?»",
+    "new": "Kamil спрашивает Oleh: «Как зовут твоего брата?»"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/3/translations/uk/task",
+    "old": "Kasia запитує Olena: «Як звати твого брата?»",
+    "new": "Kamil запитує Oleh: «Як звати твого брата?»"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/1/exercises/3/translations/tr/task",
+    "old": "Kasia, Olena’ya soruyor: “Erkek kardeşinin adı ne?”",
+    "new": "Kamil, Oleh’e soruyor: “Erkek kardeşinin adı ne?”"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/3/exercises/5/content/text_before",
+    "old": "Selin ",
+    "new": "Selim "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/3/exercises/5/translations/en/task",
+    "old": "Selin speaks English very well.",
+    "new": "Selim speaks English very well."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/3/exercises/5/translations/ru/task",
+    "old": "Selin очень хорошо говорит по-английски.",
+    "new": "Selim очень хорошо говорит по-английски."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/3/exercises/5/translations/uk/task",
+    "old": "Selin дуже добре розмовляє англійською.",
+    "new": "Selim дуже добре розмовляє англійською."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/3/exercises/5/translations/tr/task",
+    "old": "Selin çok iyi İngilizce konuşuyor.",
+    "new": "Selim çok iyi İngilizce konuşuyor."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/3/content/text_before",
+    "old": "Kasia und Piotr sind ein Ehepaar. Kasia ist ",
+    "new": "Kamil und Piotr sind ein Ehepaar. Kamil ist "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/3/translations/en/task",
+    "old": "Kasia and Piotr are a married couple. Kasia is married.",
+    "new": "Kamil and Piotr are a married couple. Kamil is married."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/3/translations/ru/task",
+    "old": "Kasia и Piotr — супружеская пара. Kasia замужем.",
+    "new": "Kamil и Piotr — супружеская пара. Kamil женат."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/3/translations/uk/task",
+    "old": "Kasia і Piotr — подружня пара. Kasia заміжня.",
+    "new": "Kamil і Piotr — подружня пара. Kamil одружений."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/3/translations/tr/task",
+    "old": "Kasia ve Piotr evli bir çift. Kasia evli.",
+    "new": "Kamil ve Piotr evli bir çift. Kamil evli."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/3/content/question",
+    "old": "Olena sagt: „Mein Bruder hat jetzt drei Kinder!“ Du bist überrascht.",
+    "new": "Oleh sagt: „Mein Bruder hat jetzt drei Kinder!“ Du bist überrascht."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/3/translations/en/task",
+    "old": "Olena says: “My brother has three children now!” You are surprised.",
+    "new": "Oleh says: “My brother has three children now!” You are surprised."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/3/translations/ru/task",
+    "old": "Olena говорит: «У моего брата теперь трое детей!» Вы удивлены.",
+    "new": "Oleh говорит: «У моего брата теперь трое детей!» Вы удивлены."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/3/translations/uk/task",
+    "old": "Olena каже: «У мого брата тепер троє дітей!» Ви здивовані.",
+    "new": "Oleh каже: «У мого брата тепер троє дітей!» Ви здивовані."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/9/exercises/3/translations/tr/task",
+    "old": "Olena diyor ki: “Erkek kardeşimin artık üç çocuğu var!” Şaşırıyorsunuz.",
+    "new": "Oleh diyor ki: “Erkek kardeşimin artık üç çocuğu var!” Şaşırıyorsunuz."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/5/content/text_before",
+    "old": "Taras und Olena ",
+    "new": "Taras und Oleh "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/5/translations/en/task",
+    "old": "Taras and Olena are brother and sister.",
+    "new": "Taras and Oleh are brothers."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/5/translations/ru/task",
+    "old": "Taras и Olena — брат и сестра.",
+    "new": "Taras и Oleh — братья."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/5/translations/uk/task",
+    "old": "Taras та Olena — брат і сестра.",
+    "new": "Taras та Oleh — брати."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/10/exercises/5/translations/tr/task",
+    "old": "Taras ve Olena kardeş.",
+    "new": "Taras ve Oleh kardeş."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/12/content/text_before",
+    "old": "Kasia, ist das ",
+    "new": "Kamil, ist das "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/12/translations/en/task",
+    "old": "Kasia, is that your husband?",
+    "new": "Kamil, is that your husband?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/12/translations/ru/task",
+    "old": "Kasia, это твой муж?",
+    "new": "Kamil, это твой муж?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/12/translations/uk/task",
+    "old": "Kasia, це твій чоловік?",
+    "new": "Kamil, це твій чоловік?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/12/translations/tr/task",
+    "old": "Kasia, bu senin eşin mi?",
+    "new": "Kamil, bu senin eşin mi?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/19/content/text_before",
+    "old": "Ich heiße Kasia Nowak. Ich bin in Krakau geboren und wohne in Bremen. Formular: Geburtsort: ",
+    "new": "Ich heiße Kamil Nowak. Ich bin in Krakau geboren und wohne in Bremen. Formular: Geburtsort: "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/19/translations/en/task",
+    "old": "My name is Kasia Nowak. I was born in Kraków and live in Bremen. Form: place of birth: …",
+    "new": "My name is Kamil Nowak. I was born in Kraków and live in Bremen. Form: place of birth: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/19/translations/ru/task",
+    "old": "Меня зовут Kasia Nowak. Я родилась в Кракове и живу в Бремене. Анкета: место рождения: …",
+    "new": "Меня зовут Kamil Nowak. Я родился в Кракове и живу в Бремене. Анкета: место рождения: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/19/translations/uk/task",
+    "old": "Мене звати Kasia Nowak. Я народилася в Кракові й живу в Бремені. Анкета: місце народження: …",
+    "new": "Мене звати Kamil Nowak. Я народився в Кракові й живу в Бремені. Анкета: місце народження: …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/11/exercises/19/translations/tr/task",
+    "old": "Benim adım Kasia Nowak. Krakov’da doğdum ve Bremen’de oturuyorum. Form: doğum yeri: …",
+    "new": "Benim adım Kamil Nowak. Krakov’da doğdum ve Bremen’de oturuyorum. Form: doğum yeri: …"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/8/exercises/6/content/text_before",
+    "old": "Olena braucht Milch: 1 Liter. Einkaufszettel: 1 ",
+    "new": "Oleh braucht Milch: 1 Liter. Einkaufszettel: 1 "
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/8/exercises/6/translations/en/task",
+    "old": "Olena needs milk: 1 litre. Shopping list: 1 … milk",
+    "new": "Oleh needs milk: 1 litre. Shopping list: 1 … milk"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/8/exercises/6/translations/ru/task",
+    "old": "Olena нужно молоко: 1 литр. Список покупок: 1 … молока",
+    "new": "Oleh нужно молоко: 1 литр. Список покупок: 1 … молока"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/8/exercises/6/translations/uk/task",
+    "old": "Olena потрібне молоко: 1 літр. Список покупок: 1 … молока",
+    "new": "Oleh потрібне молоко: 1 літр. Список покупок: 1 … молока"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/8/exercises/6/translations/tr/task",
+    "old": "Olena’nın süte ihtiyacı var: 1 litre. Alışveriş listesi: 1 … süt",
+    "new": "Oleh’in süte ihtiyacı var: 1 litre. Alışveriş listesi: 1 … süt"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/9/content/text_before",
+    "old": "Kasia braucht zwei Flaschen Wasser. Einkaufszettel: 2 ",
+    "new": "Kamil braucht zwei Flaschen Wasser. Einkaufszettel: 2 "
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/9/translations/en/task",
+    "old": "Kasia needs two bottles of water. Shopping list: 2 … of water",
+    "new": "Kamil needs two bottles of water. Shopping list: 2 … of water"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/9/translations/ru/task",
+    "old": "Kasia нужны две бутылки воды. Список покупок: 2 … воды",
+    "new": "Kamil нужны две бутылки воды. Список покупок: 2 … воды"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/9/translations/uk/task",
+    "old": "Kasia потрібні дві пляшки води. Список покупок: 2 … води",
+    "new": "Kamil потрібні дві пляшки води. Список покупок: 2 … води"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/9/translations/tr/task",
+    "old": "Kasia’nın iki şişe suya ihtiyacı var. Alışveriş listesi: 2 … su",
+    "new": "Kamil’in iki şişe suya ihtiyacı var. Alışveriş listesi: 2 … su"
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/3/exercises/6/content/text_after",
+    "old": " der Schlüssel von Olena.",
+    "new": " der Schlüssel von Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/3/exercises/6/translations/en/task",
+    "old": "That is not Olena’s key.",
+    "new": "That is not Oleh’s key."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/3/exercises/6/translations/ru/task",
+    "old": "Это не ключ Olena.",
+    "new": "Это не ключ Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/3/exercises/6/translations/uk/task",
+    "old": "Це не ключ Olena.",
+    "new": "Це не ключ Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/3/exercises/6/translations/tr/task",
+    "old": "Bu Olena’nın anahtarı değil.",
+    "new": "Bu Oleh’in anahtarı değil."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/4/exercises/0/content/question",
+    "old": "Olena fragt: „Wie gefällt dir die Lampe?“ Du findest die Lampe sehr schön.",
+    "new": "Oleh fragt: „Wie gefällt dir die Lampe?“ Du findest die Lampe sehr schön."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/4/exercises/0/translations/en/task",
+    "old": "Olena asks: “How do you like the lamp?” You think the lamp is very beautiful.",
+    "new": "Oleh asks: “How do you like the lamp?” You think the lamp is very beautiful."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/4/exercises/0/translations/ru/task",
+    "old": "Olena спрашивает: «Как тебе лампа?» Вам лампа очень нравится.",
+    "new": "Oleh спрашивает: «Как тебе лампа?» Вам лампа очень нравится."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/4/exercises/0/translations/uk/task",
+    "old": "Olena запитує: «Як тобі лампа?» Вам лампа дуже подобається.",
+    "new": "Oleh запитує: «Як тобі лампа?» Вам лампа дуже подобається."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/4/exercises/0/translations/tr/task",
+    "old": "Olena soruyor: “Lamba nasıl, beğendin mi?” Lambayı çok güzel buluyorsunuz.",
+    "new": "Oleh soruyor: “Lamba nasıl, beğendin mi?” Lambayı çok güzel buluyorsunuz."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/6/exercises/0/content/question",
+    "old": "Olena ruft: „Wo bist du?“ Du bist in der Küche.",
+    "new": "Oleh ruft: „Wo bist du?“ Du bist in der Küche."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/6/exercises/0/translations/en/task",
+    "old": "Olena calls: “Where are you?” You are in the kitchen.",
+    "new": "Oleh calls: “Where are you?” You are in the kitchen."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/6/exercises/0/translations/ru/task",
+    "old": "Olena зовёт: «Ты где?» Вы на кухне.",
+    "new": "Oleh зовёт: «Ты где?» Вы на кухне."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/6/exercises/0/translations/uk/task",
+    "old": "Olena гукає: «Ти де?» Ви на кухні.",
+    "new": "Oleh гукає: «Ти де?» Ви на кухні."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/6/exercises/0/translations/tr/task",
+    "old": "Olena sesleniyor: “Neredesin?” Mutfaktasınız.",
+    "new": "Oleh sesleniyor: “Neredesin?” Mutfaktasınız."
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/12/exercises/2/content/question",
+    "old": "Olena und du seid in Olenas Wohnung. Der Balkon ist sehr schön. Was sagt Olena?",
+    "new": "Oleh und du seid in Olehs Wohnung. Der Balkon ist sehr schön. Was sagt Oleh?"
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/12/exercises/2/translations/en/task",
+    "old": "Olena and you are in Olena’s flat. The balcony is very nice. What does Olena say?",
+    "new": "Oleh and you are in Oleh’s flat. The balcony is very nice. What does Oleh say?"
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/12/exercises/2/translations/ru/task",
+    "old": "Вы с Olena в её квартире. Балкон очень красивый. Что говорит Olena?",
+    "new": "Вы с Oleh в его квартире. Балкон очень красивый. Что говорит Oleh?"
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/12/exercises/2/translations/uk/task",
+    "old": "Ви з Olena в її квартирі. Балкон дуже гарний. Що каже Olena?",
+    "new": "Ви з Oleh в його квартирі. Балкон дуже гарний. Що каже Oleh?"
+  },
+  {
+    "pointer": "path-a1.1.json/3/nodes/12/exercises/2/translations/tr/task",
+    "old": "Olena ile onun dairesindesiniz. Balkon çok güzel. Olena ne diyor?",
+    "new": "Oleh ile onun dairesindesiniz. Balkon çok güzel. Oleh ne diyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/1/exercises/5/content/question",
+    "old": "Es ist 8:59. Olena sagt: „Es ist … neun.“",
+    "new": "Es ist 8:59. Oleh sagt: „Es ist … neun.“"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/1/exercises/5/translations/en/task",
+    "old": "It is 8:59. Olena says: “It is … nine.”",
+    "new": "It is 8:59. Oleh says: “It is … nine.”"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/1/exercises/5/translations/ru/task",
+    "old": "Сейчас 8:59. Olena говорит: «Сейчас … девять».",
+    "new": "Сейчас 8:59. Oleh говорит: «Сейчас … девять»."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/1/exercises/5/translations/uk/task",
+    "old": "Зараз 8:59. Olena каже: «Зараз … дев’ята».",
+    "new": "Зараз 8:59. Oleh каже: «Зараз … дев’ята»."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/1/exercises/5/translations/tr/task",
+    "old": "Saat 8:59. Olena diyor ki: “Saat … dokuz.”",
+    "new": "Saat 8:59. Oleh diyor ki: “Saat … dokuz.”"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/7/exercises/0/content/question",
+    "old": "Kasia fragt: „Gehen wir am Samstag ins Kino?“ Du hast Zeit.",
+    "new": "Kamil fragt: „Gehen wir am Samstag ins Kino?“ Du hast Zeit."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/7/exercises/0/translations/en/task",
+    "old": "Kasia asks: “Shall we go to the cinema on Saturday?” You have time.",
+    "new": "Kamil asks: “Shall we go to the cinema on Saturday?” You have time."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/7/exercises/0/translations/ru/task",
+    "old": "Kasia спрашивает: «Пойдём в субботу в кино?» У вас есть время.",
+    "new": "Kamil спрашивает: «Пойдём в субботу в кино?» У вас есть время."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/7/exercises/0/translations/uk/task",
+    "old": "Kasia запитує: «Підемо в суботу в кіно?» У вас є час.",
+    "new": "Kamil запитує: «Підемо в суботу в кіно?» У вас є час."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/7/exercises/0/translations/tr/task",
+    "old": "Kasia soruyor: “Cumartesi sinemaya gidelim mi?” Vaktiniz var.",
+    "new": "Kamil soruyor: “Cumartesi sinemaya gidelim mi?” Vaktiniz var."
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/11/exercises/1/content/question",
+    "old": "Lena kocht in einem Restaurant. Sie ist …",
+    "new": "Welche weibliche Berufsbezeichnung gehört zu „Koch“?"
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/11/exercises/1/translations/en/task",
+    "old": "Lena cooks in a restaurant. She is a …",
+    "new": "Which feminine job title corresponds to Koch?"
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/11/exercises/1/translations/ru/task",
+    "old": "Lena готовит в ресторане. Она …",
+    "new": "Какая женская форма профессии соответствует слову Koch?"
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/11/exercises/1/translations/uk/task",
+    "old": "Lena готує в ресторані. Вона …",
+    "new": "Яка жіноча назва професії відповідає слову Koch?"
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/11/exercises/1/translations/tr/task",
+    "old": "Lena bir restoranda yemek yapıyor. O bir …",
+    "new": "Koch sözcüğünün kadın meslek adı hangisidir?"
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/4/exercises/1/content/question",
+    "old": "Lena braucht … Tabletten.",
+    "new": "Ergänze den Possessivartikel zu „sie (Singular)“: „Sie braucht … Tabletten.“"
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/4/exercises/1/translations/en/task",
+    "old": "Lena needs her tablets.",
+    "new": "Complete the possessive for sie (singular): Sie braucht … Tabletten."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/4/exercises/1/translations/ru/task",
+    "old": "Lena нужны её таблетки.",
+    "new": "Дополните притяжательный артикль для sie (ед. число): Sie braucht … Tabletten."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/4/exercises/1/translations/uk/task",
+    "old": "Lena потрібні її таблетки.",
+    "new": "Доповніть присвійний артикль для sie (однина): Sie braucht … Tabletten."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/4/exercises/1/translations/tr/task",
+    "old": "Lena’nın haplarına ihtiyacı var.",
+    "new": "sie (tekil) için iyelik artikelini tamamlayın: Sie braucht … Tabletten."
+  },
+  {
+    "pointer": "path-a1.2.json/5/nodes/3/exercises/4/content/text_before",
+    "old": "Lena probiert eine Bluse. Die Bluse gefällt ",
+    "new": "Ergänze das Dativpronomen zu „sie (Singular)“: Die Bluse gefällt "
+  },
+  {
+    "pointer": "path-a1.2.json/5/nodes/3/exercises/4/translations/en/task",
+    "old": "Lena is trying on a blouse. She likes the blouse.",
+    "new": "Complete the dative pronoun for sie (singular): Die Bluse gefällt …"
+  },
+  {
+    "pointer": "path-a1.2.json/5/nodes/3/exercises/4/translations/ru/task",
+    "old": "Lena примеряет блузку. Блузка ей нравится.",
+    "new": "Дополните местоимение в дательном падеже для sie (ед. число): Die Bluse gefällt …"
+  },
+  {
+    "pointer": "path-a1.2.json/5/nodes/3/exercises/4/translations/uk/task",
+    "old": "Lena приміряє блузку. Блузка їй подобається.",
+    "new": "Доповніть займенник у давальному відмінку для sie (однина): Die Bluse gefällt …"
+  },
+  {
+    "pointer": "path-a1.2.json/5/nodes/3/exercises/4/translations/tr/task",
+    "old": "Lena bir bluz deniyor. Bluz hoşuna gidiyor.",
+    "new": "sie (tekil) için datif zamirini tamamlayın: Die Bluse gefällt …"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/content/text_before",
+    "old": "Oma Marta liebt Mia sehr. Mia ist die Tochter von ihrem Sohn, also ihre ",
+    "new": "Die weibliche Form von „Enkel“ heißt "
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/translations/en/task",
+    "old": "Grandma Marta loves Mia very much. Mia is her son’s daughter, so she is her granddaughter.",
+    "new": "The feminine form of Enkel is …"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/translations/ru/task",
+    "old": "Бабушка Marta очень любит Mia. Mia – дочь её сына, то есть её внучка.",
+    "new": "Женская форма слова Enkel — …"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/translations/uk/task",
+    "old": "Бабуся Marta дуже любить Mia. Mia – донька її сина, тобто її онука.",
+    "new": "Жіноча форма слова Enkel — …"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/0/exercises/6/translations/tr/task",
+    "old": "Marta nine Mia’yı çok seviyor. Mia onun oğlunun kızı, yani kız torunu.",
+    "new": "Enkel sözcüğünün kadın biçimi …"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/2/exercises/7/content/text_before",
+    "old": "Mia zeigt ",
+    "new": "Ergänze den Possessivartikel zu „sie (Singular)“: Sie zeigt "
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/2/exercises/7/translations/en/task",
+    "old": "Mia is showing her aunt the new dress.",
+    "new": "Complete the possessive for sie (singular): Sie zeigt … Tante das neue Kleid."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/2/exercises/7/translations/ru/task",
+    "old": "Mia показывает своей тёте новое платье.",
+    "new": "Дополните притяжательный артикль для sie (ед. число): Sie zeigt … Tante das neue Kleid."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/2/exercises/7/translations/uk/task",
+    "old": "Mia показує своїй тітці нову сукню.",
+    "new": "Доповніть присвійний артикль для sie (однина): Sie zeigt … Tante das neue Kleid."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/2/exercises/7/translations/tr/task",
+    "old": "Mia teyzesine yeni elbiseyi gösteriyor.",
+    "new": "sie (tekil) için iyelik artikelini tamamlayın: Sie zeigt … Tante das neue Kleid."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/5/exercises/7/content/text_before",
+    "old": "Ist das Geschenk von Lena? – Ja, es ist von ",
+    "new": "Ergänze das Pronomen zu „sie (Singular)“ nach „von“: Das Geschenk ist von "
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/5/exercises/7/translations/en/task",
+    "old": "Is the present from Lena? – Yes, it is from her.",
+    "new": "Complete the pronoun for sie (singular) after von: Das Geschenk ist von …"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/5/exercises/7/translations/ru/task",
+    "old": "Подарок от Lena? – Да, он от неё.",
+    "new": "Дополните местоимение для sie (ед. число) после von: Das Geschenk ist von …"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/5/exercises/7/translations/uk/task",
+    "old": "Подарунок від Lena? – Так, він від неї.",
+    "new": "Доповніть займенник для sie (однина) після von: Das Geschenk ist von …"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/5/exercises/7/translations/tr/task",
+    "old": "Hediye Lena’dan mı? – Evet, ondan.",
+    "new": "von sonrasında sie (tekil) zamirini tamamlayın: Das Geschenk ist von …"
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/9/exercises/6/content/text_before",
+    "old": "Lena ist sehr müde. Trotzdem geht ",
+    "new": "Ergänze das Personalpronomen für „eine Frau“: Trotzdem geht "
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/9/exercises/6/content/gap_hint",
+    "old": "Lena",
+    "new": "eine Frau"
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/9/exercises/6/translations/en/task",
+    "old": "Lena is very tired. She is still going to the gym anyway.",
+    "new": "Complete the personal pronoun for eine Frau: Trotzdem geht … noch ins Fitnessstudio."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/9/exercises/6/translations/ru/task",
+    "old": "Lena очень устала. Тем не менее она ещё идёт в фитнес-клуб.",
+    "new": "Дополните личное местоимение для eine Frau: Trotzdem geht … noch ins Fitnessstudio."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/9/exercises/6/translations/uk/task",
+    "old": "Lena дуже втомилася. Попри це вона ще йде до фітнес-клубу.",
+    "new": "Доповніть особовий займенник для eine Frau: Trotzdem geht … noch ins Fitnessstudio."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/9/exercises/6/translations/tr/task",
+    "old": "Lena çok yorgun. Yine de spor salonuna gidiyor.",
+    "new": "eine Frau için kişi zamirini tamamlayın: Trotzdem geht … noch ins Fitnessstudio."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/0/exercises/2/content/question",
+    "old": "Auf Frau Okafor kann man sich immer verlassen. Sie ist sehr …",
+    "new": "Auf Herrn Okafor kann man sich immer verlassen. Er ist sehr …"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/0/exercises/2/translations/en/task",
+    "old": "You can always rely on Ms Okafor. She is very …",
+    "new": "You can always rely on Mr Okafor. He is very …"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/0/exercises/2/translations/ru/task",
+    "old": "На госпожу Okafor всегда можно положиться. Она очень …",
+    "new": "На господина Okafor всегда можно положиться. Он очень …"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/0/exercises/2/translations/uk/task",
+    "old": "На пані Okafor завжди можна покластися. Вона дуже …",
+    "new": "На пана Okafor завжди можна покластися. Він дуже …"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/0/exercises/2/translations/tr/task",
+    "old": "Bayan Okafor’a her zaman güvenilebilir. O çok …",
+    "new": "Bay Okafor’a her zaman güvenilebilir. O çok …"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/0/exercises/4/content/question",
+    "old": "Ich habe fünf Jahre als Köchin gearbeitet. Ich habe also schon viel …",
+    "new": "Ich habe fünf Jahre als Koch gearbeitet. Ich habe also schon viel …"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/0/exercises/4/translations/ru/task",
+    "old": "Я пять лет работала поваром. То есть у меня уже большой …",
+    "new": "Я пять лет работал поваром. То есть у меня уже большой …"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/0/exercises/4/translations/uk/task",
+    "old": "Я п’ять років працювала кухаркою. Тобто я вже маю великий …",
+    "new": "Я п’ять років працював кухарем. Тобто я вже маю великий …"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/6/exercises/4/content/question",
+    "old": "Es macht mir …, anderen Menschen etwas zu erklären. Vielleicht werde ich Lehrerin.",
+    "new": "Es macht mir …, anderen Menschen etwas zu erklären. Vielleicht werde ich Lehrer."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/6/exercises/4/translations/ru/task",
+    "old": "Мне нравится что-то объяснять другим людям. Может быть, я стану учительницей.",
+    "new": "Мне нравится что-то объяснять другим людям. Может быть, я стану учителем."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/6/exercises/4/translations/uk/task",
+    "old": "Мені подобається щось пояснювати іншим людям. Можливо, я стану вчителькою.",
+    "new": "Мені подобається щось пояснювати іншим людям. Можливо, я стану вчителем."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/6/exercises/7/content/text_after",
+    "old": " ist Pilotin. Davon habe ich schon als Kind geträumt.",
+    "new": " ist Pilot. Davon habe ich schon als Kind geträumt."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/6/exercises/7/translations/ru/task",
+    "old": "Профессия моей мечты – пилот. Об этом я мечтала ещё в детстве.",
+    "new": "Профессия моей мечты – пилот. Об этом я мечтал ещё в детстве."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/6/exercises/7/translations/uk/task",
+    "old": "Професія моєї мрії – пілотка. Про це я мріяла ще в дитинстві.",
+    "new": "Професія моєї мрії – пілот. Про це я мріяв ще в дитинстві."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/merkkarte/rule",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/merkkarte/translations/en/rule",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/merkkarte/translations/ru/rule",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/merkkarte/translations/uk/rule",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/merkkarte/translations/tr/rule",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/0/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/0/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/0/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/0/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/0/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/1/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/1/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/1/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/1/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/1/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/2/content/question",
+    "old": "Nach der Schule habe ich eine Ausbildung … Friseurin gemacht.",
+    "new": "Nach der Schule habe ich eine Ausbildung … Friseur gemacht."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/2/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/2/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/2/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/2/translations/ru/task",
+    "old": "После школы я выучилась на парикмахера.",
+    "new": "После школы я выучился на парикмахера."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/2/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/2/translations/uk/task",
+    "old": "Після школи я вивчилася на перукарку.",
+    "new": "Після школи я вивчився на перукаря."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/2/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/4/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/4/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/4/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/4/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/4/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/5/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/5/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/5/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/5/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/5/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/6/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/6/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/6/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/6/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/6/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/7/content/text_after",
+    "old": "? – Ich bin Elektrikerin.",
+    "new": "? – Ich bin Elektriker."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/7/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/7/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/7/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/7/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/7/translations/uk/task",
+    "old": "Хто ви за фахом? – Я електрикиня.",
+    "new": "Хто ви за фахом? – Я електрик."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/7/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/8/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/8/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/8/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/8/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/8/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/9/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/9/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/9/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/9/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/9/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/11/exercises/8/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/11/exercises/8/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/11/exercises/8/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/11/exercises/8/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/11/exercises/8/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/14/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/14/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/14/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/14/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/14/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/27/explanation",
+    "old": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/27/translations/en/explanation",
+    "old": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+    "new": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/27/translations/ru/explanation",
+    "old": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+    "new": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/27/translations/uk/explanation",
+    "old": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+    "new": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/12/exercises/27/translations/tr/explanation",
+    "old": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+    "new": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)"
+  }
+]
