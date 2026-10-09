@@ -1,0 +1,2194 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "07a6fc51e41a35f891df4cf3fefb7fc81c978676",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "randomnessProvenance": "node:crypto.randomInt OS CSPRNG;12 distinct balanced label schedules and12 distinct independent position schedules, each question index covers all3 values.",
+  "completedPools": 3,
+  "newQuestionCount": 72,
+  "newAliasCount": 288,
+  "original27ContentHash": "d5d1e069f02ca166126b6a34b3b6f23bda2711739d08ae348f62911772432932",
+  "originalManifestContentHash": "a09588361a2de98746248dc0430cd9ee4818a9a796055f9beb7037c130b63d7b",
+  "originalManifestByteSha256": "4a1313c1dc2e9db8cf9ad22b70ece0bea40e741a3491063fb99b5fb8eb46ba6f",
+  "original2592AliasContentHash": "6b8ab9f3581dfe0c372aa179c91586b175480fbd0b2f706ec3343d81a64837e3",
+  "original2592AliasByteSha256": "d9e0318c79035d61e39a33a9ccdc67b2decb8541f5f6070af775fb1e6d8acb41",
+  "currentManifestContentHash": "81eceb74421a57e2a0ab5e123c0d9df1d25604e16495d39f52925840f117d621",
+  "currentManifestByteSha256": "b586d8ac97cc55504eb2bc2382114ffa2d10ee1fb4168fde93624bf27dc6b851",
+  "currentAliasContentHash": "576033a29b97fae152a43b3efb1c9491c555c9f900fd150b1d3c0faedac85747",
+  "currentAliasByteSha256": "e68d57177c8be281fdd12750bd4a916c3c7afd708e5ac5137f2a1d4766aec3f8",
+  "previousCoverage": {
+    "total": 60,
+    "authored": 27,
+    "pending": 33
+  },
+  "previousInventoryRows": [
+    {
+      "textId": "ad61d4d1-2223-533e-974e-51a2d97806b0",
+      "unitId": "ad61d4d1-2223-533e-974e-51a2d97806b0",
+      "level": "A2.1",
+      "title": "Ein Ausfall der Heizung",
+      "focus": "h und z; Problem erklären",
+      "sortOrder": 8,
+      "active": true,
+      "textVersion": "dfc9a7cf90c7e867c0cb8b1051a71f5cfca363ce8e42af62c7cd0c85f3f65a60",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": null,
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "c5d7b014-5b84-57f5-bfb0-67e3bcb65066",
+      "unitId": "c5d7b014-5b84-57f5-bfb0-67e3bcb65066",
+      "level": "A2.1",
+      "title": "Lernen in der Gruppe",
+      "focus": "ü und gr; Betonung wichtiger Wörter",
+      "sortOrder": 9,
+      "active": true,
+      "textVersion": "3a709d34efb37577692df2d799fce76748edf189eaba11df3af9337b699174ef",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": null,
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "99feaf25-8ae7-58f7-a492-e2aa4a501707",
+      "unitId": "99feaf25-8ae7-58f7-a492-e2aa4a501707",
+      "level": "A2.1",
+      "title": "Ein Tag ohne Handy",
+      "focus": "a und ei; deutliche Satzenden",
+      "sortOrder": 10,
+      "active": true,
+      "textVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": null,
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    }
+  ],
+  "pools": [
+    {
+      "textId": "ad61d4d1-2223-533e-974e-51a2d97806b0",
+      "title": "Ein Ausfall der Heizung",
+      "level": "A2.1",
+      "textVersion": "dfc9a7cf90c7e867c0cb8b1051a71f5cfca363ce8e42af62c7cd0c85f3f65a60",
+      "definitionContentHash": "b2194c12f130ea541767611680324b97e5b9e43754a35c55082f7b6677c0af5c",
+      "sourceBodyDe": "Heute Morgen war es in unserer Wohnung sehr kalt. Obwohl ich die Heizung aufgedreht habe, blieb sie kalt. Ich habe den Vermieter angerufen und das Problem beschrieben. Er hat sofort einen Handwerker bestellt. Bis der Handwerker kam, haben wir warme Pullover angezogen und Tee getrunken. Zum Glück war nur ein kleines Teil kaputt. Am Nachmittag wurde die Wohnung wieder warm. Ich war froh, dass der Vermieter so schnell reagiert hat.",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a21-08.words.q1",
+          "publicPromptDe": "Wozu dient eine »Heizung« in einer Wohnung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.words.q1.c",
+              "textDe": "Zum Verschicken von E-Mails."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q1.b",
+              "textDe": "Zum Drucken von Zugfahrkarten."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q1.a",
+              "textDe": "Zum Erwärmen der Räume."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.words.q1.a",
+          "correctAnswerTextDe": "Zum Erwärmen der Räume.",
+          "rationaleDe": "Eine Heizung erwärmt Räume; E-Mail-Versand und Fahrkartendruck sind andere Aufgaben.",
+          "assessmentUnit": "Heizung Räume wärmen",
+          "sourceSpans": [
+            {
+              "start": 65,
+              "end": 72,
+              "quote": "Heizung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q2",
+          "publicPromptDe": "Wer ist der »Vermieter« einer Wohnung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.words.q2.b",
+              "textDe": "Ein Gast, der nur einen Kuchen probiert."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q2.a",
+              "textDe": "Die Person, die die Wohnung gegen Miete überlässt."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q2.c",
+              "textDe": "Ein Fahrgast, der nur am Bahnhof wartet."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.words.q2.a",
+          "correctAnswerTextDe": "Die Person, die die Wohnung gegen Miete überlässt.",
+          "rationaleDe": "Der Vermieter überlässt die Wohnung gegen Miete; Kuchenbesucher und Fahrgäste haben andere Rollen.",
+          "assessmentUnit": "Vermieter vermietet Wohnung",
+          "sourceSpans": [
+            {
+              "start": 119,
+              "end": 128,
+              "quote": "Vermieter"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q3",
+          "publicPromptDe": "Was macht ein »Handwerker« bei einer kaputten Heizung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.words.q3.c",
+              "textDe": "Er liest ausschließlich Nachrichten vor."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q3.b",
+              "textDe": "Er führt handwerkliche Arbeiten oder Reparaturen aus."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q3.a",
+              "textDe": "Er verteilt ausschließlich Prüfungsnoten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.words.q3.b",
+          "correctAnswerTextDe": "Er führt handwerkliche Arbeiten oder Reparaturen aus.",
+          "rationaleDe": "Ein Handwerker führt praktische Arbeiten und Reparaturen aus; Nachrichtenvorlesen und Prüfungsnoten gehören zu anderen Rollen.",
+          "assessmentUnit": "Handwerker Reparaturberuf",
+          "sourceSpans": [
+            {
+              "start": 188,
+              "end": 198,
+              "quote": "Handwerker"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q4",
+          "publicPromptDe": "Was ist ein »Pullover«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.words.q4.b",
+              "textDe": "Ein verschlossenes Paket."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q4.a",
+              "textDe": "Ein Fahrplan am Bahnhof."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q4.c",
+              "textDe": "Ein Kleidungsstück für den Oberkörper."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.words.q4.c",
+          "correctAnswerTextDe": "Ein Kleidungsstück für den Oberkörper.",
+          "rationaleDe": "Ein Pullover ist ein Oberkörperkleidungsstück; Fahrplan und Paket sind andere Gegenstände.",
+          "assessmentUnit": "Pullover Kleidungsstück",
+          "sourceSpans": [
+            {
+              "start": 249,
+              "end": 257,
+              "quote": "Pullover"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q5",
+          "publicPromptDe": "Was bedeutet »Ein Teil ist kaputt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.words.q5.c",
+              "textDe": "Das Teil ist beschädigt oder funktioniert nicht richtig."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q5.a",
+              "textDe": "Das Teil funktioniert ausdrücklich einwandfrei."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q5.b",
+              "textDe": "Das Teil ist ausdrücklich eine Uhrzeit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.words.q5.c",
+          "correctAnswerTextDe": "Das Teil ist beschädigt oder funktioniert nicht richtig.",
+          "rationaleDe": "Kaputt bezeichnet einen Schaden oder fehlende Funktion; einwandfreie Funktion und eine Uhrzeit passen nicht.",
+          "assessmentUnit": "kaputt beschädigt",
+          "sourceSpans": [
+            {
+              "start": 322,
+              "end": 328,
+              "quote": "kaputt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.words.q6",
+          "publicPromptDe": "Was bedeutet »Der Vermieter reagiert auf das Problem«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.words.q6.b",
+              "textDe": "Er antwortet darauf oder unternimmt deswegen etwas."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q6.c",
+              "textDe": "Er weiß ausdrücklich nichts davon und tut ausdrücklich nichts."
+            },
+            {
+              "id": "sitov.pretest.a21-08.words.q6.a",
+              "textDe": "Er verwandelt die Wohnung ausdrücklich in einen Zug."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.words.q6.b",
+          "correctAnswerTextDe": "Er antwortet darauf oder unternimmt deswegen etwas.",
+          "rationaleDe": "Auf ein Problem reagieren heißt darauf antworten oder handeln; völlige Untätigkeit ohne Kenntnis oder ein Zugumbau ist nicht gemeint.",
+          "assessmentUnit": "reagieren auf etwas antworten handeln",
+          "sourceSpans": [
+            {
+              "start": 419,
+              "end": 427,
+              "quote": "reagiert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q1",
+          "publicPromptDe": "Welche Grundform gehört zu »Es war kalt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.verbs.q1.c",
+              "textDe": "werden"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q1.b",
+              "textDe": "warten"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q1.a",
+              "textDe": "sein"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.verbs.q1.a",
+          "correctAnswerTextDe": "sein",
+          "rationaleDe": "War ist eine Präteritumform von sein; werden und warten sind andere Grundformen.",
+          "assessmentUnit": "war Präteritum sein",
+          "sourceSpans": [
+            {
+              "start": 13,
+              "end": 19,
+              "quote": "war es"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe die Heizung ___« zu aufdrehen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.verbs.q2.a",
+              "textDe": "aufdrehen"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q2.b",
+              "textDe": "aufgedreht"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q2.c",
+              "textDe": "geaufdreht"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.verbs.q2.b",
+          "correctAnswerTextDe": "aufgedreht",
+          "rationaleDe": "Bei aufdrehen steht ge zwischen Vorsilbe und Stamm; das Partizip lautet aufgedreht.",
+          "assessmentUnit": "aufgedreht trennbares Partizip",
+          "sourceSpans": [
+            {
+              "start": 73,
+              "end": 88,
+              "quote": "aufgedreht habe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q3",
+          "publicPromptDe": "Welche Grundform gehört zu »Die Heizung blieb kalt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.verbs.q3.b",
+              "textDe": "bleichen"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q3.c",
+              "textDe": "blühen"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q3.a",
+              "textDe": "bleiben"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.verbs.q3.a",
+          "correctAnswerTextDe": "bleiben",
+          "rationaleDe": "Blieb ist die Präteritumform von bleiben; blühen und bleichen gehören nicht zu dieser Form.",
+          "assessmentUnit": "blieb Präteritum bleiben",
+          "sourceSpans": [
+            {
+              "start": 90,
+              "end": 104,
+              "quote": "blieb sie kalt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe den Vermieter ___« zu anrufen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.verbs.q4.c",
+              "textDe": "angerufen"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q4.b",
+              "textDe": "angeruft"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q4.a",
+              "textDe": "anrufen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.verbs.q4.c",
+          "correctAnswerTextDe": "angerufen",
+          "rationaleDe": "Das starke trennbare Verb anrufen bildet das Partizip angerufen; angeruft und Infinitiv passen nicht.",
+          "assessmentUnit": "angerufen starkes trennbares Partizip",
+          "sourceSpans": [
+            {
+              "start": 119,
+              "end": 138,
+              "quote": "Vermieter angerufen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe das Problem ___« zu beschreiben?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.verbs.q5.c",
+              "textDe": "beschrieben"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q5.b",
+              "textDe": "gebeschrieben"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q5.a",
+              "textDe": "beschreiben"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.verbs.q5.c",
+          "correctAnswerTextDe": "beschrieben",
+          "rationaleDe": "Beschreiben bildet das Partizip beschrieben ohne zusätzliches ge; die beiden anderen Formen passen nicht ins Perfekt.",
+          "assessmentUnit": "beschrieben starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 147,
+              "end": 166,
+              "quote": "Problem beschrieben"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.verbs.q6",
+          "publicPromptDe": "Welche Grundform gehört zu »Die Wohnung wurde warm«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.verbs.q6.a",
+              "textDe": "wohnen"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q6.b",
+              "textDe": "werden"
+            },
+            {
+              "id": "sitov.pretest.a21-08.verbs.q6.c",
+              "textDe": "sein"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.verbs.q6.b",
+          "correctAnswerTextDe": "werden",
+          "rationaleDe": "Wurde ist eine Präteritumform von werden und nennt hier eine Veränderung; sein und wohnen sind andere Verben.",
+          "assessmentUnit": "wurde Präteritum werden",
+          "sourceSpans": [
+            {
+              "start": 344,
+              "end": 373,
+              "quote": "wurde die Wohnung wieder warm"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q1",
+          "publicPromptDe": "Welche Beziehung nennt »Obwohl ich die Heizung aufgedreht habe, blieb sie kalt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.syntax.q1.c",
+              "textDe": "Die Heizung bleibt entgegen der Erwartung kalt."
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q1.a",
+              "textDe": "Das Aufdrehen erklärt ausdrücklich, warum sie warm wurde."
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q1.b",
+              "textDe": "Beide Aussagen werden ausdrücklich verneint."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.syntax.q1.c",
+          "correctAnswerTextDe": "Die Heizung bleibt entgegen der Erwartung kalt.",
+          "rationaleDe": "Obwohl verbindet einen Umstand mit einem unerwarteten Ergebnis; warmes Ergebnis oder doppelte Verneinung steht nicht da.",
+          "assessmentUnit": "obwohl unerwarteter Gegensatz",
+          "sourceSpans": [
+            {
+              "start": 50,
+              "end": 105,
+              "quote": "Obwohl ich die Heizung aufgedreht habe, blieb sie kalt."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q2",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Obwohl …, blieb die Wohnung kalt« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.syntax.q2.a",
+              "textDe": "ich die Heizung aufgedreht habe"
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q2.c",
+              "textDe": "habe ich die Heizung aufgedreht"
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q2.b",
+              "textDe": "ich habe die Heizung aufgedreht"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.syntax.q2.a",
+          "correctAnswerTextDe": "ich die Heizung aufgedreht habe",
+          "rationaleDe": "Obwohl leitet einen Nebensatz ein; das finite Hilfsverb habe steht am Ende.",
+          "assessmentUnit": "obwohl Nebensatz Hilfsverb final",
+          "sourceSpans": [
+            {
+              "start": 50,
+              "end": 88,
+              "quote": "Obwohl ich die Heizung aufgedreht habe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q3",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Bis …, tranken wir Tee« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.syntax.q3.c",
+              "textDe": "der kam Handwerker"
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q3.b",
+              "textDe": "kam der Handwerker"
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q3.a",
+              "textDe": "der Handwerker kam"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.syntax.q3.a",
+          "correctAnswerTextDe": "der Handwerker kam",
+          "rationaleDe": "Bis leitet hier einen Nebensatz ein; das finite Verb kam folgt auf das Subjekt und steht am Ende.",
+          "assessmentUnit": "bis Nebensatz Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 209,
+              "end": 231,
+              "quote": "Bis der Handwerker kam"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q4",
+          "publicPromptDe": "Welche Zeitgrenze nennt »Bis der Handwerker kam, tranken wir Tee«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.syntax.q4.a",
+              "textDe": "Der Beginn der nächsten Prüfung."
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q4.b",
+              "textDe": "Die Ankunft des Handwerkers."
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q4.c",
+              "textDe": "Der Kauf eines Fußballvereins."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.syntax.q4.b",
+          "correctAnswerTextDe": "Die Ankunft des Handwerkers.",
+          "rationaleDe": "Bis der Handwerker kam begrenzt den genannten Zeitraum durch seine Ankunft; Prüfung und Verein werden nicht genannt.",
+          "assessmentUnit": "bis Ankunft als Zeitgrenze",
+          "sourceSpans": [
+            {
+              "start": 209,
+              "end": 286,
+              "quote": "Bis der Handwerker kam, haben wir warme Pullover angezogen und Tee getrunken."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q5",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Ich war froh, dass …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.syntax.q5.b",
+              "textDe": "hat der Vermieter schnell reagiert"
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q5.a",
+              "textDe": "der Vermieter hat schnell reagiert"
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q5.c",
+              "textDe": "der Vermieter schnell reagiert hat"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.syntax.q5.c",
+          "correctAnswerTextDe": "der Vermieter schnell reagiert hat",
+          "rationaleDe": "Dass leitet einen Nebensatz ein; das finite Hilfsverb hat steht am Ende.",
+          "assessmentUnit": "dass Nebensatz Perfekt final",
+          "sourceSpans": [
+            {
+              "start": 389,
+              "end": 431,
+              "quote": "dass der Vermieter so schnell reagiert hat"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.syntax.q6",
+          "publicPromptDe": "Auf wen verweist »Er« in »Ich habe den Vermieter angerufen. Er hat einen Handwerker bestellt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.syntax.q6.c",
+              "textDe": "Auf den später bestellten Handwerker."
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q6.b",
+              "textDe": "Auf den Vermieter."
+            },
+            {
+              "id": "sitov.pretest.a21-08.syntax.q6.a",
+              "textDe": "Auf die Heizung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.syntax.q6.b",
+          "correctAnswerTextDe": "Auf den Vermieter.",
+          "rationaleDe": "Er greift den zuvor genannten Vermieter auf; der Handwerker wird erst als bestellte Person eingeführt.",
+          "assessmentUnit": "Er Vermieter Rückverweis",
+          "sourceSpans": [
+            {
+              "start": 106,
+              "end": 208,
+              "quote": "Ich habe den Vermieter angerufen und das Problem beschrieben. Er hat sofort einen Handwerker bestellt."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Es ist in ___ Wohnung kalt«, wenn es die Wohnung unserer Gruppe ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.nominal.q1.a",
+              "textDe": "unseren"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q1.b",
+              "textDe": "unserer"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q1.c",
+              "textDe": "unsere"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.nominal.q1.b",
+          "correctAnswerTextDe": "unserer",
+          "rationaleDe": "In nennt hier den Ort im Dativ; bei der femininen Wohnung lautet die Possessivform unserer.",
+          "assessmentUnit": "unserer Wohnung Dativ",
+          "sourceSpans": [
+            {
+              "start": 20,
+              "end": 38,
+              "quote": "in unserer Wohnung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe ___ Heizung aufgedreht«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.nominal.q2.a",
+              "textDe": "die"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q2.c",
+              "textDe": "der"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q2.b",
+              "textDe": "dem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.nominal.q2.a",
+          "correctAnswerTextDe": "die",
+          "rationaleDe": "Heizung ist feminin und Akkusativobjekt; der bestimmte Artikel lautet die.",
+          "assessmentUnit": "die Heizung Akkusativ feminin",
+          "sourceSpans": [
+            {
+              "start": 61,
+              "end": 83,
+              "quote": "die Heizung aufgedreht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe ___ Vermieter angerufen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.nominal.q3.a",
+              "textDe": "dem"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q3.b",
+              "textDe": "der"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q3.c",
+              "textDe": "den"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.nominal.q3.c",
+          "correctAnswerTextDe": "den",
+          "rationaleDe": "Anrufen verlangt hier Akkusativ; beim maskulinen Vermieter lautet der bestimmte Artikel den.",
+          "assessmentUnit": "den Vermieter Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 115,
+              "end": 138,
+              "quote": "den Vermieter angerufen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Er hat ___ Handwerker bestellt«, wenn genau einer gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.nominal.q4.b",
+              "textDe": "ein"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q4.a",
+              "textDe": "einem"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q4.c",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.nominal.q4.c",
+          "correctAnswerTextDe": "einen",
+          "rationaleDe": "Handwerker ist maskulines Akkusativobjekt; der unbestimmte Artikel lautet einen.",
+          "assessmentUnit": "einen Handwerker Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 182,
+              "end": 207,
+              "quote": "einen Handwerker bestellt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Wir haben ___ Pullover angezogen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.nominal.q5.c",
+              "textDe": "warmen"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q5.b",
+              "textDe": "warme"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q5.a",
+              "textDe": "warmes"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.nominal.q5.b",
+          "correctAnswerTextDe": "warme",
+          "rationaleDe": "Pullover steht hier im Akkusativ Plural ohne Artikel; die Adjektivform lautet warme.",
+          "assessmentUnit": "warme Pullover Adjektiv Plural",
+          "sourceSpans": [
+            {
+              "start": 243,
+              "end": 257,
+              "quote": "warme Pullover"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-08.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »Nur ein ___ Teil war kaputt«, wenn das neutrale Wort das Teil gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-08.nominal.q6.a",
+              "textDe": "kleines"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q6.c",
+              "textDe": "kleinem"
+            },
+            {
+              "id": "sitov.pretest.a21-08.nominal.q6.b",
+              "textDe": "kleinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-08.nominal.q6.a",
+          "correctAnswerTextDe": "kleines",
+          "rationaleDe": "Das neutrale Teil ist hier Subjekt im Nominativ; nach ein lautet die Adjektivform kleines.",
+          "assessmentUnit": "kleines Teil neutral Nominativ",
+          "sourceSpans": [
+            {
+              "start": 305,
+              "end": 321,
+              "quote": "ein kleines Teil"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "c5d7b014-5b84-57f5-bfb0-67e3bcb65066",
+      "title": "Lernen in der Gruppe",
+      "level": "A2.1",
+      "textVersion": "3a709d34efb37577692df2d799fce76748edf189eaba11df3af9337b699174ef",
+      "definitionContentHash": "b0cff1e8bbc42da4e7a3810f1db1085a8f38d6c87856524a303e91681984ffbd",
+      "sourceBodyDe": "Vor der letzten Prüfung haben wir uns zu dritt in der Bibliothek getroffen. Jeder hat eine kleine Aufgabe vorbereitet. Zuerst haben wir neue Wörter wiederholt. Danach haben wir kurze Gespräche geübt. Wenn jemand einen Fehler gemacht hat, haben die anderen geholfen. Niemand musste sich schämen. Nach einer Stunde haben wir eine Pause gemacht. Das gemeinsame Lernen war angenehm, und wir möchten uns jetzt jede Woche treffen.",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a21-09.words.q1",
+          "publicPromptDe": "Was ist eine »Prüfung« beim Lernen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.words.q1.a",
+              "textDe": "Ein Spaziergang ohne Lernaufgabe."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q1.b",
+              "textDe": "Eine Überprüfung von Wissen oder Fähigkeiten."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q1.c",
+              "textDe": "Ein Ersatzteil für eine Heizung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.words.q1.b",
+          "correctAnswerTextDe": "Eine Überprüfung von Wissen oder Fähigkeiten.",
+          "rationaleDe": "Eine Prüfung überprüft Wissen oder Fähigkeiten; Spaziergang und Heizungsbauteil sind andere Dinge.",
+          "assessmentUnit": "Prüfung Leistungsüberprüfung",
+          "sourceSpans": [
+            {
+              "start": 16,
+              "end": 23,
+              "quote": "Prüfung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q2",
+          "publicPromptDe": "Was ist eine »Bibliothek«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.words.q2.b",
+              "textDe": "Eine Werkstatt ausschließlich für Heizungen."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q2.a",
+              "textDe": "Ein Bahnsteig ausschließlich für Züge."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q2.c",
+              "textDe": "Ein Ort, an dem man Bücher lesen oder ausleihen kann."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.words.q2.c",
+          "correctAnswerTextDe": "Ein Ort, an dem man Bücher lesen oder ausleihen kann.",
+          "rationaleDe": "Eine Bibliothek stellt Bücher zum Lesen oder Ausleihen bereit; Heizungswerkstatt und Bahnsteig haben andere Zwecke.",
+          "assessmentUnit": "Bibliothek Bücher ausleihen lesen",
+          "sourceSpans": [
+            {
+              "start": 54,
+              "end": 64,
+              "quote": "Bibliothek"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q3",
+          "publicPromptDe": "Was ist eine »Aufgabe« beim gemeinsamen Lernen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.words.q3.b",
+              "textDe": "Ein kaputter Heizungsregler."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q3.c",
+              "textDe": "Ein Kleidungsstück für den Oberkörper."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q3.a",
+              "textDe": "Etwas, das man bearbeiten oder lösen soll."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.words.q3.a",
+          "correctAnswerTextDe": "Etwas, das man bearbeiten oder lösen soll.",
+          "rationaleDe": "Eine Lernaufgabe ist ein zu bearbeitender oder zu lösender Auftrag; Kleidung und Regler sind Gegenstände.",
+          "assessmentUnit": "Aufgabe zu erledigender Auftrag",
+          "sourceSpans": [
+            {
+              "start": 98,
+              "end": 105,
+              "quote": "Aufgabe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q4",
+          "publicPromptDe": "Was bedeutet »Wir wiederholen neue Wörter«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.words.q4.b",
+              "textDe": "Wir verbieten ausdrücklich alle Wörter."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q4.c",
+              "textDe": "Wir üben oder lesen die Wörter erneut."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q4.a",
+              "textDe": "Wir vergessen die Wörter absichtlich für immer."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.words.q4.c",
+          "correctAnswerTextDe": "Wir üben oder lesen die Wörter erneut.",
+          "rationaleDe": "Wiederholen heißt erneut behandeln oder üben; verbieten und dauerhaft vergessen drücken andere Tätigkeiten aus.",
+          "assessmentUnit": "wiederholen erneut üben",
+          "sourceSpans": [
+            {
+              "start": 148,
+              "end": 158,
+              "quote": "wiederholt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q5",
+          "publicPromptDe": "Was ist ein »Fehler« in einer Übung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.words.q5.a",
+              "textDe": "Etwas, das nicht richtig gelöst oder ausgeführt wurde."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q5.c",
+              "textDe": "Ein Stück Kuchen auf einem Teller."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q5.b",
+              "textDe": "Eine ausdrücklich immer richtige Antwort."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.words.q5.a",
+          "correctAnswerTextDe": "Etwas, das nicht richtig gelöst oder ausgeführt wurde.",
+          "rationaleDe": "Ein Fehler ist eine nicht richtige Lösung oder Ausführung; stets richtige Antwort und Kuchen sind keine passende Bedeutung.",
+          "assessmentUnit": "Fehler nicht richtige Lösung",
+          "sourceSpans": [
+            {
+              "start": 218,
+              "end": 224,
+              "quote": "Fehler"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.words.q6",
+          "publicPromptDe": "Was bedeutet »sich wegen eines Fehlers schämen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.words.q6.b",
+              "textDe": "Sich wegen des Fehlers unangenehm oder peinlich berührt fühlen."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q6.c",
+              "textDe": "Den Fehler ausschließlich mit einem Fahrrad transportieren."
+            },
+            {
+              "id": "sitov.pretest.a21-09.words.q6.a",
+              "textDe": "Sich wegen des Fehlers ausdrücklich großartig fühlen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.words.q6.b",
+          "correctAnswerTextDe": "Sich wegen des Fehlers unangenehm oder peinlich berührt fühlen.",
+          "rationaleDe": "Sich schämen beschreibt ein unangenehmes Gefühl wegen des Fehlers; großes Wohlgefühl oder Transport wird nicht gemeint.",
+          "assessmentUnit": "schämen unangenehmes Gefühl",
+          "sourceSpans": [
+            {
+              "start": 286,
+              "end": 293,
+              "quote": "schämen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q1",
+          "publicPromptDe": "Welche Form ergänzt »Wir haben uns ___« zu treffen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.verbs.q1.a",
+              "textDe": "getrefft"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q1.c",
+              "textDe": "treffen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q1.b",
+              "textDe": "getroffen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.verbs.q1.b",
+          "correctAnswerTextDe": "getroffen",
+          "rationaleDe": "Das starke Verb treffen bildet das Partizip getroffen; getrefft und der Infinitiv passen nicht ins Perfekt.",
+          "assessmentUnit": "getroffen starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 65,
+              "end": 74,
+              "quote": "getroffen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Jeder hat eine Aufgabe ___« zu vorbereiten?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.verbs.q2.b",
+              "textDe": "vorbereiten"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q2.c",
+              "textDe": "vorbereitet"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q2.a",
+              "textDe": "vorgebereitet"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.verbs.q2.c",
+          "correctAnswerTextDe": "vorbereitet",
+          "rationaleDe": "Das Partizip von vorbereiten lautet vorbereitet; ein zusätzliches ge oder der Infinitiv ist hier falsch.",
+          "assessmentUnit": "vorbereitet Partizip",
+          "sourceSpans": [
+            {
+              "start": 106,
+              "end": 117,
+              "quote": "vorbereitet"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Wir haben Wörter ___«, wenn wir sie erneut geübt haben?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.verbs.q3.c",
+              "textDe": "gewiederholt"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q3.a",
+              "textDe": "wiederholen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q3.b",
+              "textDe": "wiederholt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.verbs.q3.b",
+          "correctAnswerTextDe": "wiederholt",
+          "rationaleDe": "Für erneut üben lautet das Partizip wiederholt ohne ge; die anderen Formen passen hier nicht.",
+          "assessmentUnit": "wiederholt Partizip Wiederholung",
+          "sourceSpans": [
+            {
+              "start": 141,
+              "end": 158,
+              "quote": "Wörter wiederholt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Die anderen haben ___« zu helfen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.verbs.q4.a",
+              "textDe": "geholfen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q4.b",
+              "textDe": "helfen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q4.c",
+              "textDe": "gehelft"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.verbs.q4.a",
+          "correctAnswerTextDe": "geholfen",
+          "rationaleDe": "Das starke Verb helfen bildet das Partizip geholfen; gehelft und Infinitiv passen nicht ins Perfekt.",
+          "assessmentUnit": "geholfen starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 244,
+              "end": 264,
+              "quote": "die anderen geholfen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q5",
+          "publicPromptDe": "Welche Grundform gehört zu »Niemand musste sich schämen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.verbs.q5.b",
+              "textDe": "mögen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q5.a",
+              "textDe": "müssen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q5.c",
+              "textDe": "messen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.verbs.q5.a",
+          "correctAnswerTextDe": "müssen",
+          "rationaleDe": "Musste ist die Präteritumform von müssen; messen und mögen sind andere Grundformen.",
+          "assessmentUnit": "musste Präteritum müssen",
+          "sourceSpans": [
+            {
+              "start": 266,
+              "end": 280,
+              "quote": "Niemand musste"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.verbs.q6",
+          "publicPromptDe": "Welche Form ergänzt »Wir möchten ___ treffen«, wenn wir einander treffen möchten?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.verbs.q6.c",
+              "textDe": "uns"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q6.b",
+              "textDe": "mich"
+            },
+            {
+              "id": "sitov.pretest.a21-09.verbs.q6.a",
+              "textDe": "sich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.verbs.q6.c",
+          "correctAnswerTextDe": "uns",
+          "rationaleDe": "Sich treffen verlangt bei wir das Reflexivpronomen uns; sich und mich gehören zu anderen Personen.",
+          "assessmentUnit": "uns reflexives Treffen",
+          "sourceSpans": [
+            {
+              "start": 30,
+              "end": 46,
+              "quote": "wir uns zu dritt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q1",
+          "publicPromptDe": "Was geschieht laut »Vor der Prüfung treffen wir uns zum Lernen« zuerst?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.syntax.q1.c",
+              "textDe": "Beide beginnen ausdrücklich gleichzeitig."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q1.b",
+              "textDe": "Die Prüfung."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q1.a",
+              "textDe": "Das Treffen zum Lernen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.syntax.q1.a",
+          "correctAnswerTextDe": "Das Treffen zum Lernen.",
+          "rationaleDe": "Vor der Prüfung ordnet das Treffen zeitlich vor die Prüfung; die Prüfung folgt später.",
+          "assessmentUnit": "Vor Prüfung zeitliche Reihenfolge",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 23,
+              "quote": "Vor der letzten Prüfung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q2",
+          "publicPromptDe": "Wie viele Personen treffen sich laut »Wir treffen uns zu dritt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.syntax.q2.b",
+              "textDe": "Drei Personen."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q2.c",
+              "textDe": "Vier Personen."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q2.a",
+              "textDe": "Zwei Personen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.syntax.q2.b",
+          "correctAnswerTextDe": "Drei Personen.",
+          "rationaleDe": "Zu dritt bedeutet mit drei Personen; zwei und vier entsprechen dieser Mengenangabe nicht.",
+          "assessmentUnit": "zu dritt Personenzahl",
+          "sourceSpans": [
+            {
+              "start": 38,
+              "end": 46,
+              "quote": "zu dritt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q3",
+          "publicPromptDe": "Was kommt laut »Zuerst wiederholen wir Wörter. Danach üben wir Gespräche« zuerst?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.syntax.q3.c",
+              "textDe": "Beides wird ausdrücklich ausgeschlossen."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q3.a",
+              "textDe": "Das Wiederholen der Wörter."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q3.b",
+              "textDe": "Das Üben der Gespräche."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.syntax.q3.a",
+          "correctAnswerTextDe": "Das Wiederholen der Wörter.",
+          "rationaleDe": "Zuerst kennzeichnet den ersten Schritt; danach ordnet das Üben der Gespräche als folgenden Schritt ein.",
+          "assessmentUnit": "Zuerst Danach Reihenfolge",
+          "sourceSpans": [
+            {
+              "start": 119,
+              "end": 199,
+              "quote": "Zuerst haben wir neue Wörter wiederholt. Danach haben wir kurze Gespräche geübt."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q4",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Wenn …, helfen die anderen« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.syntax.q4.b",
+              "textDe": "jemand hat einen Fehler gemacht"
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q4.c",
+              "textDe": "jemand einen Fehler gemacht hat"
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q4.a",
+              "textDe": "hat jemand einen Fehler gemacht"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.syntax.q4.c",
+          "correctAnswerTextDe": "jemand einen Fehler gemacht hat",
+          "rationaleDe": "Wenn leitet einen Nebensatz ein; das finite Hilfsverb hat steht am Ende.",
+          "assessmentUnit": "Wenn Nebensatz Perfekt final",
+          "sourceSpans": [
+            {
+              "start": 200,
+              "end": 236,
+              "quote": "Wenn jemand einen Fehler gemacht hat"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q5",
+          "publicPromptDe": "Wann helfen die anderen laut »Wenn jemand einen Fehler macht, helfen die anderen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.syntax.q5.b",
+              "textDe": "Wenn jemand einen Fehler macht."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q5.c",
+              "textDe": "Ausdrücklich nur, wenn niemand einen Fehler macht."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q5.a",
+              "textDe": "Ausschließlich beim Kaufen von Sportschuhen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.syntax.q5.b",
+          "correctAnswerTextDe": "Wenn jemand einen Fehler macht.",
+          "rationaleDe": "Der öffentliche wenn-Satz nennt einen gemachten Fehler als Anlass der Hilfe; Fehlerfreiheit und Schuhkauf passen nicht.",
+          "assessmentUnit": "Wenn Fehler Auslöser Hilfe",
+          "sourceSpans": [
+            {
+              "start": 200,
+              "end": 265,
+              "quote": "Wenn jemand einen Fehler gemacht hat, haben die anderen geholfen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.syntax.q6",
+          "publicPromptDe": "Was bedeutet »Wir möchten uns jede Woche treffen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.syntax.q6.a",
+              "textDe": "Alle künftigen Treffen werden ausdrücklich abgesagt."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q6.b",
+              "textDe": "Es soll ausdrücklich nur einmal in zehn Jahren stattfinden."
+            },
+            {
+              "id": "sitov.pretest.a21-09.syntax.q6.c",
+              "textDe": "Das Treffen soll wöchentlich wiederholt werden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.syntax.q6.c",
+          "correctAnswerTextDe": "Das Treffen soll wöchentlich wiederholt werden.",
+          "rationaleDe": "Jede Woche bezeichnet regelmäßige wöchentliche Wiederholung; zehn Jahre Abstand oder Absage ist nicht gemeint.",
+          "assessmentUnit": "jede Woche Wiederholung",
+          "sourceSpans": [
+            {
+              "start": 405,
+              "end": 423,
+              "quote": "jede Woche treffen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »vor der ___ Prüfung«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.nominal.q1.a",
+              "textDe": "letzte"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q1.b",
+              "textDe": "letzten"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q1.c",
+              "textDe": "letztem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.nominal.q1.b",
+          "correctAnswerTextDe": "letzten",
+          "rationaleDe": "Vor nennt hier einen Zeitpunkt im Dativ; nach der lautet die Adjektivform letzten Prüfung.",
+          "assessmentUnit": "letzten Prüfung Dativ",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 23,
+              "quote": "Vor der letzten Prüfung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Jeder hat eine ___ Aufgabe vorbereitet«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.nominal.q2.b",
+              "textDe": "kleinem"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q2.a",
+              "textDe": "kleine"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q2.c",
+              "textDe": "kleinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.nominal.q2.a",
+          "correctAnswerTextDe": "kleine",
+          "rationaleDe": "Aufgabe ist feminines Akkusativobjekt; nach eine lautet die Adjektivform kleine.",
+          "assessmentUnit": "kleine Aufgabe feminin Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 86,
+              "end": 105,
+              "quote": "eine kleine Aufgabe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Wir haben ___ Wörter wiederholt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.nominal.q3.b",
+              "textDe": "neue"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q3.c",
+              "textDe": "neuen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q3.a",
+              "textDe": "neuem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.nominal.q3.b",
+          "correctAnswerTextDe": "neue",
+          "rationaleDe": "Wörter steht im Akkusativ Plural ohne Artikel; die Adjektivform lautet neue.",
+          "assessmentUnit": "neue Wörter Akkusativ Plural",
+          "sourceSpans": [
+            {
+              "start": 136,
+              "end": 147,
+              "quote": "neue Wörter"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Wir haben ___ Gespräche geübt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.nominal.q4.b",
+              "textDe": "kurzem"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q4.a",
+              "textDe": "kurzen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q4.c",
+              "textDe": "kurze"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.nominal.q4.c",
+          "correctAnswerTextDe": "kurze",
+          "rationaleDe": "Gespräche steht im Akkusativ Plural ohne Artikel; die Adjektivform lautet kurze.",
+          "assessmentUnit": "kurze Gespräche Akkusativ Plural",
+          "sourceSpans": [
+            {
+              "start": 177,
+              "end": 192,
+              "quote": "kurze Gespräche"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Jemand hat ___ Fehler gemacht«, wenn genau einer gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.nominal.q5.c",
+              "textDe": "einen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q5.b",
+              "textDe": "ein"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q5.a",
+              "textDe": "einem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.nominal.q5.c",
+          "correctAnswerTextDe": "einen",
+          "rationaleDe": "Fehler ist hier maskulines Akkusativobjekt; der unbestimmte Artikel lautet einen.",
+          "assessmentUnit": "einen Fehler Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 212,
+              "end": 224,
+              "quote": "einen Fehler"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-09.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »nach ___ Stunde«, wenn genau eine gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-09.nominal.q6.c",
+              "textDe": "einen"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q6.b",
+              "textDe": "eine"
+            },
+            {
+              "id": "sitov.pretest.a21-09.nominal.q6.a",
+              "textDe": "einer"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-09.nominal.q6.a",
+          "correctAnswerTextDe": "einer",
+          "rationaleDe": "Nach verlangt Dativ; beim femininen Wort Stunde lautet der unbestimmte Artikel einer.",
+          "assessmentUnit": "einer Stunde Dativ",
+          "sourceSpans": [
+            {
+              "start": 295,
+              "end": 312,
+              "quote": "Nach einer Stunde"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "99feaf25-8ae7-58f7-a492-e2aa4a501707",
+      "title": "Ein Tag ohne Handy",
+      "level": "A2.1",
+      "textVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
+      "definitionContentHash": "69c3cfd9b863668e992a25700ca15dadd773970b2f7a141c12e611b6308c1e92",
+      "sourceBodyDe": "Am Sonntag habe ich mein Handy zu Hause vergessen. Zuerst war ich unruhig, weil ich meine Nachrichten nicht lesen konnte. Im Park habe ich mich dann auf eine Bank gesetzt und die Menschen beobachtet. Später habe ich in einem Café eine Zeitung gelesen. Ohne Handy hatte ich viel mehr Zeit. Am Abend habe ich meine Nachrichten beantwortet. Es war nichts Dringendes dabei. Vielleicht lasse ich mein Handy am nächsten Sonntag wieder zu Hause.",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a21-10.words.q1",
+          "publicPromptDe": "Was ist ein »Handy«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.words.q1.a",
+              "textDe": "Eine Heizungsreparatur."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q1.c",
+              "textDe": "Ein warmer Pullover."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q1.b",
+              "textDe": "Ein Mobiltelefon."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.words.q1.b",
+          "correctAnswerTextDe": "Ein Mobiltelefon.",
+          "rationaleDe": "Handy bezeichnet ein Mobiltelefon; Pullover und Heizungsreparatur haben eine andere Bedeutung.",
+          "assessmentUnit": "Handy Mobiltelefon",
+          "sourceSpans": [
+            {
+              "start": 25,
+              "end": 30,
+              "quote": "Handy"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q2",
+          "publicPromptDe": "Was bedeutet »Ich war unruhig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.words.q2.c",
+              "textDe": "Ich war ausdrücklich ganz gelassen."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q2.a",
+              "textDe": "Ich war ausdrücklich eine gedruckte Zeitung."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q2.b",
+              "textDe": "Ich war nicht ruhig oder entspannt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.words.q2.b",
+          "correctAnswerTextDe": "Ich war nicht ruhig oder entspannt.",
+          "rationaleDe": "Unruhig beschreibt fehlende Ruhe oder Anspannung; gelassen und eine Zeitung sind keine passende Bedeutung.",
+          "assessmentUnit": "unruhig nicht entspannt",
+          "sourceSpans": [
+            {
+              "start": 66,
+              "end": 73,
+              "quote": "unruhig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q3",
+          "publicPromptDe": "Was sind »Nachrichten« auf dem Handy?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.words.q3.c",
+              "textDe": "Mitteilungen, die man lesen oder erhalten kann."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q3.b",
+              "textDe": "Ausschließlich Teile einer Heizung."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q3.a",
+              "textDe": "Ausschließlich Schuhe zum Sport."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.words.q3.c",
+          "correctAnswerTextDe": "Mitteilungen, die man lesen oder erhalten kann.",
+          "rationaleDe": "Nachrichten sind Mitteilungen; Sportschuhe und Heizungsteile sind Gegenstände und keine Mitteilungen.",
+          "assessmentUnit": "Nachrichten Mitteilungen",
+          "sourceSpans": [
+            {
+              "start": 90,
+              "end": 101,
+              "quote": "Nachrichten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q4",
+          "publicPromptDe": "Was bezeichnet »Bank« in »Im Park setze ich mich auf eine Bank«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.words.q4.a",
+              "textDe": "Ein Sitzmöbel im Park."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q4.c",
+              "textDe": "Ein Geldinstitut, in dessen Gebäude ich ausdrücklich sitze."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q4.b",
+              "textDe": "Ein Rezept zum Backen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.words.q4.a",
+          "correctAnswerTextDe": "Ein Sitzmöbel im Park.",
+          "rationaleDe": "Der öffentliche Park- und Sitzkontext bestimmt Bank als Sitzmöbel; Geldinstitut und Rezept passen hier nicht.",
+          "assessmentUnit": "Bank Sitzmöbel im Park",
+          "sourceSpans": [
+            {
+              "start": 153,
+              "end": 170,
+              "quote": "eine Bank gesetzt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q5",
+          "publicPromptDe": "Was ist eine »Zeitung« zum Lesen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.words.q5.b",
+              "textDe": "Ein Pullover zum Anziehen."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q5.c",
+              "textDe": "Ein Medium mit Nachrichten und Berichten, oft auf Papier."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q5.a",
+              "textDe": "Eine Flasche Wasser zum Trinken."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.words.q5.c",
+          "correctAnswerTextDe": "Ein Medium mit Nachrichten und Berichten, oft auf Papier.",
+          "rationaleDe": "Eine Zeitung enthält Nachrichten und Berichte zum Lesen; Pullover und Wasser sind andere Gegenstände.",
+          "assessmentUnit": "Zeitung gedrucktes Nachrichtenmedium",
+          "sourceSpans": [
+            {
+              "start": 235,
+              "end": 242,
+              "quote": "Zeitung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.words.q6",
+          "publicPromptDe": "Was bedeutet »In den Nachrichten war nichts Dringendes«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.words.q6.b",
+              "textDe": "Jede Nachricht musste ausdrücklich sofort erledigt werden."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q6.a",
+              "textDe": "Keine Nachricht musste sofort erledigt werden."
+            },
+            {
+              "id": "sitov.pretest.a21-10.words.q6.c",
+              "textDe": "Alle Nachrichten waren ausdrücklich Sportschuhe."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.words.q6.a",
+          "correctAnswerTextDe": "Keine Nachricht musste sofort erledigt werden.",
+          "rationaleDe": "Nichts Dringendes bedeutet, dass keine sofortige Erledigung nötig war; sofortige Pflicht bei allen Nachrichten passt nicht.",
+          "assessmentUnit": "nichts Dringendes keine Eile",
+          "sourceSpans": [
+            {
+              "start": 345,
+              "end": 362,
+              "quote": "nichts Dringendes"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe mein Handy ___« zu vergessen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.verbs.q1.b",
+              "textDe": "vergessen"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q1.a",
+              "textDe": "vergesst"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q1.c",
+              "textDe": "gevergessen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.verbs.q1.b",
+          "correctAnswerTextDe": "vergessen",
+          "rationaleDe": "Das Partizip von vergessen lautet vergessen ohne zusätzliches ge; die anderen Formen passen nicht ins Perfekt.",
+          "assessmentUnit": "vergessen Partizip ohne ge",
+          "sourceSpans": [
+            {
+              "start": 25,
+              "end": 49,
+              "quote": "Handy zu Hause vergessen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q2",
+          "publicPromptDe": "Welche Grundform gehört zu »Ich konnte die Nachrichten nicht lesen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.verbs.q2.a",
+              "textDe": "kennen"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q2.b",
+              "textDe": "kommen"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q2.c",
+              "textDe": "können"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.verbs.q2.c",
+          "correctAnswerTextDe": "können",
+          "rationaleDe": "Konnte ist die Präteritumform von können; kennen und kommen sind andere Verben.",
+          "assessmentUnit": "konnte Präteritum können",
+          "sourceSpans": [
+            {
+              "start": 108,
+              "end": 120,
+              "quote": "lesen konnte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe mich auf eine Bank ___« zu setzen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.verbs.q3.a",
+              "textDe": "gesessen"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q3.c",
+              "textDe": "gesetzt"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q3.b",
+              "textDe": "setzen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.verbs.q3.c",
+          "correctAnswerTextDe": "gesetzt",
+          "rationaleDe": "Sich setzen bezeichnet die Handlung des Platznehmens und bildet das Partizip gesetzt; gesessen gehört zu sitzen.",
+          "assessmentUnit": "gesetzt Partizip setzen",
+          "sourceSpans": [
+            {
+              "start": 153,
+              "end": 170,
+              "quote": "eine Bank gesetzt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe eine Zeitung ___« zu lesen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.verbs.q4.b",
+              "textDe": "lesen"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q4.c",
+              "textDe": "gelest"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q4.a",
+              "textDe": "gelesen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.verbs.q4.a",
+          "correctAnswerTextDe": "gelesen",
+          "rationaleDe": "Das starke Verb lesen bildet das Partizip gelesen; gelest und der Infinitiv passen nicht ins Perfekt.",
+          "assessmentUnit": "gelesen starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 235,
+              "end": 250,
+              "quote": "Zeitung gelesen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe die Nachrichten ___« zu beantworten?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.verbs.q5.c",
+              "textDe": "gebeantwortet"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q5.a",
+              "textDe": "beantwortet"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q5.b",
+              "textDe": "beantworten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.verbs.q5.a",
+          "correctAnswerTextDe": "beantwortet",
+          "rationaleDe": "Beantworten bildet das Partizip beantwortet ohne ge wegen der Vorsilbe be; der Infinitiv passt ebenfalls nicht.",
+          "assessmentUnit": "beantwortet Partizip ohne ge",
+          "sourceSpans": [
+            {
+              "start": 313,
+              "end": 336,
+              "quote": "Nachrichten beantwortet"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.verbs.q6",
+          "publicPromptDe": "Welche Präsensform ergänzt »Vielleicht ___ ich mein Handy zu Hause« zu lassen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.verbs.q6.b",
+              "textDe": "lasse"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q6.a",
+              "textDe": "lasst"
+            },
+            {
+              "id": "sitov.pretest.a21-10.verbs.q6.c",
+              "textDe": "lässt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.verbs.q6.b",
+          "correctAnswerTextDe": "lasse",
+          "rationaleDe": "Das Subjekt ich verlangt im Präsens die Form lasse; lässt und lasst gehören zu anderen Personen.",
+          "assessmentUnit": "lasse erste Person Präsens",
+          "sourceSpans": [
+            {
+              "start": 381,
+              "end": 401,
+              "quote": "lasse ich mein Handy"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q1",
+          "publicPromptDe": "Warum war der Sprecher laut »Ich war unruhig, weil ich meine Nachrichten nicht lesen konnte« unruhig?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.syntax.q1.b",
+              "textDe": "Weil die Heizung ausdrücklich repariert war."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q1.c",
+              "textDe": "Weil er seine Nachrichten nicht lesen konnte."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q1.a",
+              "textDe": "Weil er ausdrücklich alle Nachrichten lesen konnte."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.syntax.q1.c",
+          "correctAnswerTextDe": "Weil er seine Nachrichten nicht lesen konnte.",
+          "rationaleDe": "Der öffentliche weil-Satz nennt das unmögliche Nachrichtenlesen als Grund; die anderen Angaben widersprechen dem Kontext oder fehlen.",
+          "assessmentUnit": "weil Begründung Unruhe",
+          "sourceSpans": [
+            {
+              "start": 51,
+              "end": 121,
+              "quote": "Zuerst war ich unruhig, weil ich meine Nachrichten nicht lesen konnte."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q2",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Ich war unruhig, weil …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.syntax.q2.a",
+              "textDe": "ich meine Nachrichten nicht lesen konnte"
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q2.b",
+              "textDe": "ich konnte meine Nachrichten nicht lesen"
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q2.c",
+              "textDe": "konnte ich meine Nachrichten nicht lesen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.syntax.q2.a",
+          "correctAnswerTextDe": "ich meine Nachrichten nicht lesen konnte",
+          "rationaleDe": "Weil leitet einen Nebensatz ein; das finite Modalverb konnte steht nach dem Infinitiv lesen am Ende.",
+          "assessmentUnit": "weil Modalverb final",
+          "sourceSpans": [
+            {
+              "start": 75,
+              "end": 120,
+              "quote": "weil ich meine Nachrichten nicht lesen konnte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q3",
+          "publicPromptDe": "Was geschieht laut »Zuerst sitze ich im Park. Später lese ich eine Zeitung« zuerst?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.syntax.q3.c",
+              "textDe": "Das Sitzen im Park."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q3.a",
+              "textDe": "Beide Tätigkeiten werden ausdrücklich verneint."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q3.b",
+              "textDe": "Das Lesen der Zeitung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.syntax.q3.c",
+          "correctAnswerTextDe": "Das Sitzen im Park.",
+          "rationaleDe": "Zuerst ordnet das Sitzen vor das spätere Zeitunglesen; eine Verneinung beider Tätigkeiten wird nicht genannt.",
+          "assessmentUnit": "Zuerst Später zeitliche Folge",
+          "sourceSpans": [
+            {
+              "start": 51,
+              "end": 73,
+              "quote": "Zuerst war ich unruhig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q4",
+          "publicPromptDe": "Was bedeutet »Ich verbringe den Tag ohne Handy«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.syntax.q4.b",
+              "textDe": "Der Sprecher trägt ausdrücklich nur Sportschuhe bei sich."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q4.a",
+              "textDe": "Der Sprecher hat an diesem Tag kein Handy bei sich."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q4.c",
+              "textDe": "Der Sprecher trägt ausdrücklich zwei Handys ständig bei sich."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.syntax.q4.a",
+          "correctAnswerTextDe": "Der Sprecher hat an diesem Tag kein Handy bei sich.",
+          "rationaleDe": "Ohne Handy nennt die Abwesenheit eines Handys; ständig mitgeführte Handys widersprechen dieser Aussage.",
+          "assessmentUnit": "ohne Handy Abwesenheit",
+          "sourceSpans": [
+            {
+              "start": 252,
+              "end": 262,
+              "quote": "Ohne Handy"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q5",
+          "publicPromptDe": "Was drückt »Ohne Handy hatte ich mehr Zeit als sonst« aus?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.syntax.q5.c",
+              "textDe": "Sein Handy wurde ausdrücklich größer."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q5.a",
+              "textDe": "Dem Sprecher stand ausdrücklich weniger Zeit zur Verfügung."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q5.b",
+              "textDe": "Dem Sprecher stand eine größere Zeitmenge zur Verfügung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.syntax.q5.b",
+          "correctAnswerTextDe": "Dem Sprecher stand eine größere Zeitmenge zur Verfügung.",
+          "rationaleDe": "Mehr vergleicht die verfügbare Zeitmenge; weniger Zeit oder die Größe des Handys ist etwas anderes.",
+          "assessmentUnit": "mehr Zeit Mengenvergleich",
+          "sourceSpans": [
+            {
+              "start": 273,
+              "end": 287,
+              "quote": "viel mehr Zeit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.syntax.q6",
+          "publicPromptDe": "Wie sicher ist der Plan in »Vielleicht lasse ich mein Handy wieder zu Hause«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.syntax.q6.c",
+              "textDe": "Er ist ausdrücklich für immer verboten."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q6.a",
+              "textDe": "Er ist ausdrücklich schon sicher durchgeführt."
+            },
+            {
+              "id": "sitov.pretest.a21-10.syntax.q6.b",
+              "textDe": "Er ist eine Möglichkeit und noch nicht sicher."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.syntax.q6.b",
+          "correctAnswerTextDe": "Er ist eine Möglichkeit und noch nicht sicher.",
+          "rationaleDe": "Vielleicht kennzeichnet eine offene Möglichkeit; sichere Durchführung und dauerhaftes Verbot werden nicht behauptet.",
+          "assessmentUnit": "Vielleicht Möglichkeit offen",
+          "sourceSpans": [
+            {
+              "start": 370,
+              "end": 401,
+              "quote": "Vielleicht lasse ich mein Handy"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe ___ Handy vergessen«, wenn es dem Sprecher gehört?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.nominal.q1.c",
+              "textDe": "meinen"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q1.a",
+              "textDe": "meinem"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q1.b",
+              "textDe": "mein"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.nominal.q1.b",
+          "correctAnswerTextDe": "mein",
+          "rationaleDe": "Handy ist neutrales Akkusativobjekt; die Possessivform lautet mein ohne Endung.",
+          "assessmentUnit": "mein Handy Akkusativ neutral",
+          "sourceSpans": [
+            {
+              "start": 20,
+              "end": 30,
+              "quote": "mein Handy"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich lese ___ Nachrichten«, wenn sie an den Sprecher gerichtet sind?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.nominal.q2.a",
+              "textDe": "meine"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q2.b",
+              "textDe": "meinem"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q2.c",
+              "textDe": "meinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.nominal.q2.a",
+          "correctAnswerTextDe": "meine",
+          "rationaleDe": "Nachrichten steht hier im Akkusativ Plural; die passende Possessivform lautet meine.",
+          "assessmentUnit": "meine Nachrichten Akkusativ Plural",
+          "sourceSpans": [
+            {
+              "start": 84,
+              "end": 101,
+              "quote": "meine Nachrichten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich setze mich auf ___ Bank«, wenn genau eine gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.nominal.q3.c",
+              "textDe": "einer"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q3.a",
+              "textDe": "eine"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q3.b",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.nominal.q3.a",
+          "correctAnswerTextDe": "eine",
+          "rationaleDe": "Sich auf eine Bank setzen nennt ein Ziel im Akkusativ; beim femininen Wort Bank lautet die Form eine.",
+          "assessmentUnit": "eine Bank Richtung Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 149,
+              "end": 170,
+              "quote": "auf eine Bank gesetzt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich lese in ___ Café«, wenn genau eines gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.nominal.q4.c",
+              "textDe": "einem"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q4.b",
+              "textDe": "einen"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q4.a",
+              "textDe": "ein"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.nominal.q4.c",
+          "correctAnswerTextDe": "einem",
+          "rationaleDe": "In nennt hier den Ort im Dativ; beim neutralen Café lautet der unbestimmte Artikel einem.",
+          "assessmentUnit": "einem Café Ort Dativ",
+          "sourceSpans": [
+            {
+              "start": 216,
+              "end": 229,
+              "quote": "in einem Café"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe ___ Zeitung gelesen«, wenn genau eine gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.nominal.q5.a",
+              "textDe": "einen"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q5.c",
+              "textDe": "eine"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q5.b",
+              "textDe": "einer"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.nominal.q5.c",
+          "correctAnswerTextDe": "eine",
+          "rationaleDe": "Zeitung ist feminines Akkusativobjekt; der unbestimmte Artikel lautet eine.",
+          "assessmentUnit": "eine Zeitung Akkusativ feminin",
+          "sourceSpans": [
+            {
+              "start": 230,
+              "end": 242,
+              "quote": "eine Zeitung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-10.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »am ___ Sonntag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-10.nominal.q6.a",
+              "textDe": "nächste"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q6.c",
+              "textDe": "nächstes"
+            },
+            {
+              "id": "sitov.pretest.a21-10.nominal.q6.b",
+              "textDe": "nächsten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-10.nominal.q6.b",
+          "correctAnswerTextDe": "nächsten",
+          "rationaleDe": "Am enthält an dem und verlangt hier Dativ; nach dem lautet die Adjektivform nächsten Sonntag.",
+          "assessmentUnit": "nächsten Sonntag Dativ am",
+          "sourceSpans": [
+            {
+              "start": 402,
+              "end": 421,
+              "quote": "am nächsten Sonntag"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
