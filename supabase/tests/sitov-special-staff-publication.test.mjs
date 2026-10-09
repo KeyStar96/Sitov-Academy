@@ -55,6 +55,37 @@ test('integrated99+100/101/102/104 actual Storage12cols: independent proof, full
  const race=request=>new Promise((resolve,reject)=>{const child=execFile(bin+'psql',['-X','-w','-qAt',...args,'-d',database,'-v','ON_ERROR_STOP=1'],{env},(e,out)=>e?reject(e):resolve(JSON.parse(out.trim().split('\n').at(-1))));child.stdin.end(`SET ROLE authenticated;SELECT set_config('request.jwt.claims',${quote({sub:users.teacher,role:'authenticated',aal:'aal2'})},false);SELECT set_config('request.jwt.claim.sub','${users.teacher}',false);SELECT sitov_publish_special('${node}','${def}','${version}',${quote(source.sha256)},NULL,'${request}');`)})
  const races=await Promise.all([race(id(915)),race(id(916))]);assert.equal(races.filter(r=>r.ok).length,1,JSON.stringify(races));assert.equal(races.find(r=>!r.ok).error,'version_conflict');const request=races[0].ok?id(915):id(916),win=races.find(r=>r.ok)
  await db.actor(users.teacher,'authenticated',{aal:'aal2'});assert.deepEqual(await call(true,request),win);assert.equal((await call(true,request,def)).error,'request_conflict')
+
+ // A changed-payload receipt request must lose authority committed while it actually waits on advisory.
+ const revokeDuringAdvisory=async(kind)=>{
+  const lockName='sitov-special-publication:'+users.teacher+':'+request,appName=`sitov_s2_receipt_wait_${process.pid}_${kind}`
+  let holder,waiter
+  const start=()=>{
+   let output='',failure=''
+   const child=execFile(bin+'psql',['-X','-w','-qAt',...args,'-d',database,'-v','ON_ERROR_STOP=1'],{env})
+   child.stdout.on('data',chunk=>{output+=chunk});child.stderr.on('data',chunk=>{failure+=chunk})
+   const done=new Promise((resolve,reject)=>{child.on('error',reject);child.on('close',code=>code===0?resolve(output):reject(new Error(failure||`psql exit ${code}`)))})
+   // Observe errors even before awaiting final output.
+   done.catch(()=>{})
+   return {child,done,output:()=>output}
+  }
+  try{
+   holder=start();holder.child.stdin.write(`BEGIN;SELECT pg_advisory_xact_lock(hashtextextended(${quote(lockName)},0));SELECT 'sitov_s2_lock_held';\n`)
+   for(let n=0;!holder.output().includes('sitov_s2_lock_held');n++){assert(n<100,'holder did not acquire advisory');await new Promise(resolve=>setTimeout(resolve,20))}
+   waiter=start();waiter.child.stdin.end(`SET application_name=${quote(appName)};SET statement_timeout='10s';SET ROLE authenticated;SELECT set_config('request.jwt.claims',${quote({sub:users.teacher,role:'authenticated',aal:'aal2'})},false);SELECT set_config('request.jwt.claim.sub','${users.teacher}',false);SELECT sitov_publish_special('${node}','${def}','${version}',${quote(source.sha256)},'${def}','${request}');`)
+   await db.actor(null,'postgres')
+   let observed=false
+   for(let n=0;n<100;n++){observed=(await db.query("SELECT EXISTS(SELECT 1 FROM pg_stat_activity WHERE application_name=$1 AND wait_event='advisory') waiting",[appName])).rows[0].waiting;if(observed)break;await new Promise(resolve=>setTimeout(resolve,20))}
+   assert(observed,'request must be observed actually waiting on advisory')
+   const revoke=kind==='role'?`UPDATE public.profiles SET role='student' WHERE id='${users.teacher}';`:`UPDATE auth.mfa_factors SET status='unverified' WHERE id='${id(914)}';`
+   holder.child.stdin.end(revoke+'COMMIT;')
+   await holder.done
+   const result=JSON.parse((await waiter.done).trim().split('\n').at(-1));assert.deepEqual(result,{ok:false,error:'not_found',retryable:false})
+   await db.exec(`UPDATE public.profiles SET role='admin' WHERE id='${users.teacher}';UPDATE auth.mfa_factors SET status='verified' WHERE id='${id(914)}';`)
+   await db.actor(users.teacher,'authenticated',{aal:'aal2'});assert.deepEqual(await call(true,request),win);assert.equal((await call(true,request,def)).error,'request_conflict')
+  }finally{holder?.child.kill();waiter?.child.kill()}
+ }
+ await revokeDuringAdvisory('role');await revokeDuringAdvisory('totp')
  await db.actor(users.teacher,'postgres');await db.exec(migration);await db.actor(users.teacher,'authenticated',{aal:'aal2'});assert.deepEqual(await call(true,request),win)
  await db.actor(users.teacher,'postgres');await assert.rejects(db.exec(`UPDATE sitov_special_private.definitions SET pool='[]' WHERE id='${def}'`),/special_definition_immutable/);await assert.rejects(db.exec(`UPDATE sitov_special_private.author_receipts SET response='{}'`),/special_definition_immutable/);await assert.rejects(db.exec(`UPDATE sitov_special_private.authored_drafts SET payload='{}'`),/special_definition_immutable/)
  await db.exec(`UPDATE profiles SET role='student' WHERE id='${reviewer}'`);await db.actor(users.teacher,'authenticated',{aal:'aal2'});assert.equal((await call(true,request)).error,'authoring_not_ready');await db.actor(users.teacher,'postgres');await db.exec(`UPDATE profiles SET role='teacher' WHERE id='${reviewer}';UPDATE path_nodes SET is_active=false WHERE id='${node}'`);await db.actor(users.teacher,'authenticated',{aal:'aal2'});assert.equal((await call(true,request)).error,'version_conflict')

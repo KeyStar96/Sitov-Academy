@@ -87,7 +87,11 @@ BEGIN
  IF p_publish THEN
   PERFORM pg_advisory_xact_lock(hashtextextended('sitov-special-publication:'||auth.uid()::text||':'||p_request::text,0));
   SELECT r.payload INTO saved FROM sitov_special_private.publication_receipts r WHERE r.actor_id=auth.uid() AND r.request_id=p_request;
-  IF FOUND AND saved IS DISTINCT FROM payload THEN RETURN sitov_special_private.error('request_conflict');END IF;
+  -- A wait may outlive the actor's authority. Check fresh rows before returning even a conflict.
+  PERFORM 1 FROM public.profiles WHERE id=auth.uid() FOR SHARE;
+  PERFORM 1 FROM auth.mfa_factors WHERE user_id=auth.uid() FOR SHARE;
+  IF NOT sitov_access_private.staff() THEN RETURN sitov_special_private.error('not_found');END IF;
+  IF saved IS NOT NULL AND saved IS DISTINCT FROM payload THEN RETURN sitov_special_private.error('request_conflict');END IF;
   SELECT * INTO n FROM public.path_nodes WHERE id=p_node FOR UPDATE;
  ELSE SELECT * INTO n FROM public.path_nodes WHERE id=p_node;END IF;
  IF n.id IS NULL OR n.kind<>'special' THEN RETURN sitov_special_private.error('not_found');END IF;
