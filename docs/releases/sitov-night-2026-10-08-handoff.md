@@ -1,5 +1,11 @@
 # Sitov Academy – Nachtlauf-Übergabe 2026-10-08
 
+## Wiederaufnahme nach ausdrücklicher Budgetfreigabe
+
+09.10.2026: Nutzer erlaubt das gesamte Restbudget bis 1 Prozent. Frühere 30/25/18/15-Grenzen aufgehoben; Abschluss wird ab 3 Prozent gesichert. Bestehende S1–S6, höchstens zwei Worker und zehn Minuten Lease, gleiche Daten-/Audio-/Qualitätsregeln sowie COMMIT_AND_HANDOFF bleiben verbindlich. Wiedervorlage im selben Master-Chat wieder ACTIVE bestätigt. Produktionsreife noch nicht bestätigt. Konkrete offene Arbeiten: `sitov-night-2026-10-08-remaining-work.md`.
+
+## Archivierter Budgetabschluss vor Wiederaufnahme
+
 Abschlussstand: 09.10.2026, 11:34 Uhr Europe/Berlin. **BUDGET_STOP / unvollständig / NOT_RELEASE_READY / COMMIT_AND_HANDOFF.** Die18-Prozent-Budgetreserve ist erreicht; verbleibende Arbeit wird nicht durch neue Features/Inhaltswellen fortgesetzt. Abschlussdokumentation ist gesichert; S1–S6 haben STOPPED_SAVED bestätigt. Die eigene Wiedervorlage wird nach der atomaren Koordinationssicherung als letzter Schritt deaktiviert. **Kein Push oder produktives Deployment.**
 
 Geprüfter Produktstand **`f6a4565cf21efecad36bacfa75405062a7f1416f`**; tatsächlicher Browser auf Source **`1b656fb52d31c13aacc8026e43aab35b9df863a5`**, Browsernachweise in **`501f1033d1a842188857d03a9ab97eecbf9dcac7`** (vollständige SHA im Git). Spätere Commits ergänzen ausschließlich Nachweise/Dokumentation; Schema bis108.

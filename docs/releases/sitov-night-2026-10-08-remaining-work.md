@@ -1,0 +1,19 @@
+# Sitov Academy – offene Arbeiten und Abnahme
+
+Stand: 09.10.2026, Wiederaufnahme nach ausdrücklicher Budgetfreigabe bis 1 Prozent. Status: **in Arbeit, vollständige Produktionsfreigabe noch nicht bestätigt**. Die frühere 18-Prozent-Reserve ist aufgehoben. Abschluss und Commit werden ab 3 Prozent gesichert; spätestens bei 1 Prozent werden Worker und Wiedervorlage gestoppt. COMMIT_AND_HANDOFF bleibt bestehen. Kein produktives Deployment.
+
+| Priorität | Offene Arbeit | Fertigkriterium / Nachweis | Zuständigkeit |
+|---|---|---|---|
+| P1 | Vollständige technische Abnahme der integrierten Kernabläufe | Aktueller individueller Texttest ohne alte Lernnachweise → gespeicherter FAIL → echte passende autorisierte Rückhilfe → expliziter Retake/PASS → exakter Text/Audio/Aufnahme/Einreichen; Historie und kommerzieller Entzug erhalten. Tatsächliche Browser-/RPC-/Storage-Prüfungen getrennt von Mocks. | S5/M |
+| P1 | Autoren-/Editier-/Veröffentlichungsablauf tatsächlich abnehmen | Bestehenden aktuellen Editor und RPC100/103/102/105 prüfen; neue inaktive immutable Version, korrekter CAS/identisches Retry, aktuelle Staff/MFA-Autorität, exakte Quell-/Audio-/Wortzeit-Proofs, sichere Veröffentlichung ohne Historienverlust. Konkrete Defekte beheben; vorhandene Funktionen nicht doppelt bauen. | S3/S4/S5/M |
+| P1 | Umfassende Oberfläche / Bedienbarkeit | de/en/ru/uk/tr, 320/390/1440 px, Hell/Dunkel/hoher Kontrast, Touch/Tastatur/Fokus, Reduced Motion und echter Mikrofonweg mit überprüfbaren Belegen. Bisher begrenzter RU-Lernlinkablauf bestanden; Gesamtmatrix offen. | S4/S5 |
+| P1 | Vollständiger Vortest-Inhalt | 12/60 private Pools vorhanden, 48 fehlen. Textbezogene Aufgaben/Schlüssel/Kompetenzabdeckung prüfen und kalibrieren. Alle tatsächlich geänderten deutschen Aufgaben lokal mit männlichem Qwen-Profil und Wortzeiten vor Publikation vorberechnen/importieren. Vorhandene inaktive QA-Versionen sind keine Produktionspublikation. | S3/M |
+| P2 | Breite Themen-/Curriculumzuordnung | Gleichstufige quellenbelegte optionale Zuordnungen mit echten gespeicherten IDs; keine erfundenen Ersatzkarten oder Fortschritte. Sieben bisherige Beispiele reichen nicht für breite Abdeckung. Elf referenzierte Vokabelkarten fehlen tatsächlich in QA. | S2 |
+| P1 | Laufzeitstabilität | Bestehende exakte QA-Laufzeit nur nach frischer Ressourcen-/Scopeprüfung wiederaufnehmen; unveränderte 960 MiB/2 CPU. Begrenzte echte Funktionsläufe ersetzen keine Dauerlastprüfung. Frühere Gateway-OOM-Ursache und Reparatur dokumentiert. | M/S5 |
+| P1 vor späterem Deployment | Migration / Bestandsschutz / Rollback | Aktuelle isolierte Schema-/App-Probe und Audio-/Wortzeit-/Version-Proofs. Effektive Rechte sämtlicher Bestandskonten unmittelbar vor/nach Produktionsmigration vergleichen; null/leer/ausgewählt-Semantik, Antworten, Fortschritt, Streaks, reale Aufnahmen und Bewertungen erhalten. Erst bei ausdrücklichem AUTO_DEPLOY über verifizierten Prepare-only-/Aktivierungsweg. | M |
+| P2 Bestand | 235 ältere Satzbauaudios | Auswirkungen und genaue fehlende Assets ausweisen. Bestehende fremde Audiobaustelle wird nicht als erledigt behauptet. | M / späterer Audioauftrag |
+| Optional | Zwei Bonusinhalte | Erst nach Pflichtumfang: A1.1-Lernreim und A1.2-Zungenbrecher einschließlich individuellem Vortest und vollständig lokal vorbereitetem Audio. Bisher zurückgestellt. | S2/S3/M |
+
+Der individuell bestandene aktuelle Texttest bleibt die einzige fachliche Aussprachevoraussetzung. Kommerzielle Autorisierung gilt separat. Payment bleibt deaktiviert. Keine Preis-, Kauf-, Readiness- oder Fortschrittsänderung zur Umgehung fehlender Abnahme.
+
+Nachweise und konkrete Commitstände: [Nachtlauf-Übergabe](sitov-night-2026-10-08-handoff.md). Diese Liste wird nach jeder bestätigten Einheit fortgeschrieben; ein grüner Build ersetzt weder vollständigen Inhalt noch Gesamtfreigabe.
