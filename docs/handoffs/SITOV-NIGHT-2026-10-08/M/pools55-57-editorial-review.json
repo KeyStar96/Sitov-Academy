@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools55-57-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T20:11:54.680Z",
+  "sourceCommit": "a2eefe70a9ded2490bc5190ca47ff1fb82b8531b",
+  "scope": "M independently read all72 prompts/216options/keys/rationales,12cores and3fullcanonical B1.2sort5-7 sources. Digitallearning tests modal/präsens/trennbarerInfinitiv/kausativeslassen, relative/indirect/dass/alternativestatt and coordinatedsubjects; fullnominalphrases makerealcaseaudible. Neighborconflict tests weakpast/reflexive/zuinfinitive/strongwissen/personalverb/Partizip, Als/wann/weil/indirectgrad/dass/comparison and properduration/place/receiver/adjectivecases. Ehrenamt tests actualpassive/zuinfinitive/strongPartizip/hypotheticalKonjunktiv/ablaut, relative/AlsPerfekt/dassPerfekt/nichtnursondernauch/Trotzdem and nominalcases/substantivizedadjective/relativeDativ/indefiniteDativ. Found genuinealternative: unflected jemand is grammatical Dativ per Duden and IDS Mannheim; replaceonlywronglyrejected jemand by trueGenitiv jemandes and explain standard variants. Correctanswer jemandem/keyID unchanged, all71otherquestions exact; onepublicalias changes, source/core/forms preserved. All54earlier inclA11quality71/A12quality31 and5184aliases exact. Realinflections/spokenprompts/explicitpremises, source-backed omissions, no inventedtopiccoverage. No human listening/calibration/CEFR certification claim.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "85829c69d0d226e075bbfbf6b5a95f62c8d3bebecdf627213d627e8baa3c5af9",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "b080a8ae-7be6-5225-af48-1d7aae6f1f6c",
+      "textVersion": "56c3df1e34bbecd183c024e54818e1ff13f1803a36f1726f05850465fcf7972c",
+      "definitionContentHash": "a9d5902bced42ace548d2fec857454249161d45d35765d8832439376a21404fe",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "56c3df1e34bbecd183c024e54818e1ff13f1803a36f1726f05850465fcf7972c",
+        "definitionContentHash": "a9d5902bced42ace548d2fec857454249161d45d35765d8832439376a21404fe"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-05.words.q1",
+          "correctTextDe": "Sie können bei einer Aufgabe helfen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q2",
+          "correctTextDe": "Die Antwort weicht von dem ab, was ich erwarte oder kenne."
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q3",
+          "correctTextDe": "Meine eigenen Umstände und Bedürfnisse."
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q4",
+          "correctTextDe": "Mit einer passenden weiteren Frage einen bestimmten Punkt klären."
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q5",
+          "correctTextDe": "Beide tragen auf unterschiedliche Weise zum Lernen bei."
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q6",
+          "correctTextDe": "Selbst mitdenken und Aufgaben bearbeiten."
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q1",
+          "correctTextDe": "können"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q2",
+          "correctTextDe": "vorlesen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q3",
+          "correctTextDe": "bieten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q4",
+          "correctTextDe": "kennt"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q5",
+          "correctTextDe": "ausdrücken"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q6",
+          "correctTextDe": "lösen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q1",
+          "correctTextDe": "Eine kurze Frage ist ein Anlass für die Nutzung."
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q2",
+          "correctTextDe": "die mir ungewöhnlich vorkommen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q3",
+          "correctTextDe": "was ich eigentlich ausdrücken möchte"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q4",
+          "correctTextDe": "ich selbst aktiv bleibe"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q5",
+          "correctTextDe": "Eigenes aktives Handeln steht anstelle vollständiger Aufgabenabgabe."
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q6",
+          "correctTextDe": "digitale Übungen und persönlicher Unterricht"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q1",
+          "correctTextDe": "verschiedenen Themen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q2",
+          "correctTextDe": "einem Lehrer"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q3",
+          "correctTextDe": "meine persönliche Situation"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q4",
+          "correctTextDe": "einem Programm"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q5",
+          "correctTextDe": "persönlicher Unterricht"
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q6",
+          "correctTextDe": "ich selbst"
+        }
+      ]
+    },
+    {
+      "textId": "2fa06ffd-6b82-5386-9c84-a4320c87bbc7",
+      "textVersion": "77e5a2e3254ec85c6c712a2a54062cd0e20468d3f8e1937ce7ab172d174c1947",
+      "definitionContentHash": "b6345af275bc71b1d897cb45259e0dc78410b3fbc6cdc40a1db08fe402cc1ca1",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "77e5a2e3254ec85c6c712a2a54062cd0e20468d3f8e1937ce7ab172d174c1947",
+        "definitionContentHash": "b6345af275bc71b1d897cb45259e0dc78410b3fbc6cdc40a1db08fe402cc1ca1"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-06.words.q1",
+          "correctTextDe": "Eine Wohnung in der unmittelbaren Wohnumgebung."
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q2",
+          "correctTextDe": "Ich achtete absichtlich darauf, ruhig zu reagieren."
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q3",
+          "correctTextDe": "Er erfuhr etwas, das er nicht erwartet hatte."
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q4",
+          "correctTextDe": "Tiefe Töne."
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q5",
+          "correctTextDe": "Um den Ton direkt an den eigenen Ohren zu hören."
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q6",
+          "correctTextDe": "Äußerungen, die jemandem ein Fehlverhalten zuschreiben."
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q1",
+          "correctTextDe": "hörte"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q2",
+          "correctTextDe": "mich"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q3",
+          "correctTextDe": "bleiben"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q4",
+          "correctTextDe": "wusste"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q5",
+          "correctTextDe": "benutzt"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q6",
+          "correctTextDe": "verbessert"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q1",
+          "correctTextDe": "ich schließlich an der Tür klingelte"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q2",
+          "correctTextDe": "wann ich schlafen muss"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q3",
+          "correctTextDe": "Sein fehlendes Wissen erklärt die Überraschung."
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q4",
+          "correctTextDe": "wie deutlich man die Bässe durch die Wand hört"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q5",
+          "correctTextDe": "er ab einer bestimmten Uhrzeit Kopfhörer benutzt"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q6",
+          "correctTextDe": "als meine stillen Vorwürfe"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q1",
+          "correctTextDe": "mehrere Wochen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q2",
+          "correctTextDe": "der Nachbarwohnung"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q3",
+          "correctTextDe": "der Tür"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q4",
+          "correctTextDe": "der anderen Person"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q5",
+          "correctTextDe": "bestimmten Uhrzeit"
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q6",
+          "correctTextDe": "meine stillen Vorwürfe"
+        }
+      ]
+    },
+    {
+      "textId": "13264420-65a8-54f1-984e-b001a5244341",
+      "textVersion": "377e6ebbf8cafa715d68dc536a5974159d1e696162ccde3dbeff85205152c3ac",
+      "definitionContentHash": "d7e57105df1fa8de03796372ae236cf6312a47c058587666642aa1d9729358eb",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "377e6ebbf8cafa715d68dc536a5974159d1e696162ccde3dbeff85205152c3ac",
+        "definitionContentHash": "727eddb8c55bc04916fc14385e0f8c62321ae6c70f08be41de381f51e5918436"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-07.words.q1",
+          "correctTextDe": "Freiwillige Tätigkeit für andere ohne reguläre Bezahlung."
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q2",
+          "correctTextDe": "Menschen, die aus eigenem Willen mithelfen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q3",
+          "correctTextDe": "Wissen und Fertigkeiten zum praktischen Herstellen oder Reparieren."
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q4",
+          "correctTextDe": "Man muss ruhig Zeit für das Verstehen lassen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q5",
+          "correctTextDe": "Ich erkenne die Wirkung direkt."
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q6",
+          "correctTextDe": "Neue Sichtweisen und Möglichkeiten, etwas zu betrachten."
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q1",
+          "correctTextDe": "Präsens im Vorgangspassiv."
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q2",
+          "correctTextDe": "reparieren"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q3",
+          "correctTextDe": "angefangen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q4",
+          "correctTextDe": "würde"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q5",
+          "correctTextDe": "verläuft"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q6",
+          "correctTextDe": "geholfen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q1",
+          "correctTextDe": "die von Freiwilligen organisiert wird"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q2",
+          "correctTextDe": "ich damit angefangen habe"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q3",
+          "correctTextDe": "denen ich sonst kaum begegnen würde"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q4",
+          "correctTextDe": "meine Zeit jemandem geholfen hat"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q5",
+          "correctTextDe": "Geben und eigener Erfahrungsgewinn ergänzen sich."
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q6",
+          "correctTextDe": "Zufriedenheit besteht trotz der Schwierigkeiten."
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q1",
+          "correctTextDe": "einer kleinen Werkstatt"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q2",
+          "correctTextDe": "Freiwilligen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q3",
+          "correctTextDe": "meine handwerklichen Kenntnisse"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q4",
+          "correctTextDe": "denen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q5",
+          "correctTextDe": "jemandem"
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q6",
+          "correctTextDe": "neue Perspektiven"
+        }
+      ]
+    }
+  ],
+  "editorialRepairs": [
+    {
+      "textId": "13264420-65a8-54f1-984e-b001a5244341",
+      "questionId": "sitov.pretest.b12-07.nominal.q5",
+      "previousTask": {
+        "id": "sitov.pretest.b12-07.nominal.q5",
+        "competencyId": "sitov.pretest.b12-07.nominal",
+        "kind": "single_choice",
+        "promptDe": "Welches Indefinitpronomen im Dativ folgt auf »Meine Zeit hat« vor »geholfen«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.b12-07.nominal.q5.b",
+            "textDe": "jemand"
+          },
+          {
+            "id": "sitov.pretest.b12-07.nominal.q5.a",
+            "textDe": "jemanden"
+          },
+          {
+            "id": "sitov.pretest.b12-07.nominal.q5.c",
+            "textDe": "jemandem"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.b12-07.nominal.q5.c",
+        "assessmentUnit": "jemandem Dativ helfen",
+        "equivalenceKey": "sitov:b12-07:nominal:5",
+        "sourceSpans": [
+          {
+            "start": 554,
+            "end": 575,
+            "quote": "jemandem geholfen hat"
+          }
+        ],
+        "rationaleDe": "Helfen verlangt Dativ; die Form lautet jemandem."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.b12-07.nominal.q5",
+        "competencyId": "sitov.pretest.b12-07.nominal",
+        "kind": "single_choice",
+        "promptDe": "Welches Indefinitpronomen im Dativ folgt auf »Meine Zeit hat« vor »geholfen«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.b12-07.nominal.q5.b",
+            "textDe": "jemandes"
+          },
+          {
+            "id": "sitov.pretest.b12-07.nominal.q5.a",
+            "textDe": "jemanden"
+          },
+          {
+            "id": "sitov.pretest.b12-07.nominal.q5.c",
+            "textDe": "jemandem"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.b12-07.nominal.q5.c",
+        "assessmentUnit": "jemandem Dativ helfen",
+        "equivalenceKey": "sitov:b12-07:nominal:5",
+        "sourceSpans": [
+          {
+            "start": 554,
+            "end": 575,
+            "quote": "jemandem geholfen hat"
+          }
+        ],
+        "rationaleDe": "Hier passt die Dativform jemandem. Jemandes ist Genitiv, jemanden ist Akkusativ; die ebenfalls mögliche unflektierte Dativform jemand wird nicht als falsche Antwort angeboten."
+      },
+      "reasonDe": "Unflektiertes jemand ist auch Dativ; es darf nicht als grammatisch falscher Distraktor angeboten werden.",
+      "authorityUrls": [
+        "https://www.duden.de/rechtschreibung/jemand",
+        "https://grammis.ids-mannheim.de/progr@mm/4062"
+      ]
+    }
+  ],
+  "audioAliasRepairs": [
+    {
+      "key": "sitov-pretest:13264420-65a8-54f1-984e-b001a5244341:sitov.pretest.b12-07.nominal.q5:sitov.pretest.b12-07.nominal.q5.b",
+      "previousTextDe": "jemand",
+      "currentTextDe": "jemandes"
+    }
+  ]
+}

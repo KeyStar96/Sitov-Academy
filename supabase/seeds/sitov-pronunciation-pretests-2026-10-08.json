@@ -56810,14 +56810,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle72 Fragen,216 Optionen, Schlüssel und Begründungen,12 Kerne und drei vollständige Quellen unabhängig geprüft. Tatsächliche Formen und Satzrelationen mit sichtbaren Prämissen und sprechbaren Aufgaben sind stimmig. Exakte Audio-/Versionsbindung, Kalibrierung und Lernziel-Lücken bleiben separat.",
         "textVersion": "56c3df1e34bbecd183c024e54818e1ff13f1803a36f1726f05850465fcf7972c",
-        "definitionContentHash": "a9d5902bced42ace548d2fec857454249161d45d35765d8832439376a21404fe"
+        "definitionContentHash": "a9d5902bced42ace548d2fec857454249161d45d35765d8832439376a21404fe",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools55-57-M",
+        "documentSha256": "7e96256c0b5448008b2aa6ceaad70e9462e5385cebb0e739c066d1ae197dbb5e",
+        "reviewedAt": "2026-10-09T20:11:54.680Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -57854,14 +57859,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle72 Fragen,216 Optionen, Schlüssel und Begründungen,12 Kerne und drei vollständige Quellen unabhängig geprüft. Tatsächliche Formen und Satzrelationen mit sichtbaren Prämissen und sprechbaren Aufgaben sind stimmig. Exakte Audio-/Versionsbindung, Kalibrierung und Lernziel-Lücken bleiben separat.",
         "textVersion": "77e5a2e3254ec85c6c712a2a54062cd0e20468d3f8e1937ce7ab172d174c1947",
-        "definitionContentHash": "b6345af275bc71b1d897cb45259e0dc78410b3fbc6cdc40a1db08fe402cc1ca1"
+        "definitionContentHash": "b6345af275bc71b1d897cb45259e0dc78410b3fbc6cdc40a1db08fe402cc1ca1",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools55-57-M",
+        "documentSha256": "7e96256c0b5448008b2aa6ceaad70e9462e5385cebb0e739c066d1ae197dbb5e",
+        "reviewedAt": "2026-10-09T20:11:54.680Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -58894,14 +58904,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle72 Fragen,216 Optionen, Schlüssel und Begründungen,12 Kerne und drei vollständige Quellen unabhängig geprüft. Tatsächliche Formen und Satzrelationen mit sichtbaren Prämissen und sprechbaren Aufgaben sind stimmig. Exakte Audio-/Versionsbindung, Kalibrierung und Lernziel-Lücken bleiben separat.",
         "textVersion": "377e6ebbf8cafa715d68dc536a5974159d1e696162ccde3dbeff85205152c3ac",
-        "definitionContentHash": "727eddb8c55bc04916fc14385e0f8c62321ae6c70f08be41de381f51e5918436"
+        "definitionContentHash": "d7e57105df1fa8de03796372ae236cf6312a47c058587666642aa1d9729358eb",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools55-57-M",
+        "documentSha256": "7e96256c0b5448008b2aa6ceaad70e9462e5385cebb0e739c066d1ae197dbb5e",
+        "reviewedAt": "2026-10-09T20:11:54.680Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -59827,7 +59842,7 @@
             "options": [
               {
                 "id": "sitov.pretest.b12-07.nominal.q5.b",
-                "textDe": "jemand"
+                "textDe": "jemandes"
               },
               {
                 "id": "sitov.pretest.b12-07.nominal.q5.a",
@@ -59848,7 +59863,7 @@
                 "quote": "jemandem geholfen hat"
               }
             ],
-            "rationaleDe": "Helfen verlangt Dativ; die Form lautet jemandem."
+            "rationaleDe": "Hier passt die Dativform jemandem. Jemandes ist Genitiv, jemanden ist Akkusativ; die ebenfalls mögliche unflektierte Dativform jemand wird nicht als falsche Antwort angeboten."
           },
           {
             "id": "sitov.pretest.b12-07.nominal.q6",
