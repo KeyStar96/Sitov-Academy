@@ -9,6 +9,7 @@ import {
   ClipboardCheck,
   FileBadge,
   FileUp,
+  GitBranch,
   Languages,
   LayoutDashboard,
   LayoutGrid,
@@ -44,5 +45,6 @@ export const ADMIN_NAV_ICONS: Record<AdminNavIcon, LucideIcon> = {
   certificates: FileBadge,
   imports: FileUp,
   sitovBilling: CreditCard,
+  sitov_learning_path_specials: GitBranch,
   menu: LayoutGrid,
 }

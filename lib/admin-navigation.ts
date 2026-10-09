@@ -31,6 +31,7 @@ export type AdminNavIcon =
   | 'certificates'
   | 'imports'
   | 'sitovBilling'
+  | 'sitov_learning_path_specials'
   | 'menu'
 
 /** Zähler, die die Shell als Badge an Navigationsziele hängt. */
@@ -40,6 +41,8 @@ export type AdminNavCounts = Partial<Record<AdminNavBadge, number | null>>
 export type AdminSectionId = 'overview' | 'students' | 'exams' | 'courses' | 'content' | 'administration'
 
 export interface AdminNavItem {
+  /** Stabile Kennung für neue Navigationsziele unabhängig von der UI-Sprache. */
+  id?: string
   /** i18n-Schlüssel aus dem `admin`-Dictionary. */
   labelKey: AdminTranslationKey
   /** Kurzform für enge Unterreiter; sonst `labelKey`. */
@@ -64,6 +67,7 @@ export interface AdminNavSection {
 export function buildAdminNav(lang: string): AdminNavSection[] {
   const base = `/${lang}/admin`
   const billingKey = ({ de: 'nav_sitov_billing_de', en: 'nav_sitov_billing_en', ru: 'nav_sitov_billing_ru', uk: 'nav_sitov_billing_uk', tr: 'nav_sitov_billing_tr' } as const)[lang === 'en' || lang === 'ru' || lang === 'uk' || lang === 'tr' ? lang : 'de']
+  const specialsKey = ({ de: 'sitov_learning_path_specials_de', en: 'sitov_learning_path_specials_en', ru: 'sitov_learning_path_specials_ru', uk: 'sitov_learning_path_specials_uk', tr: 'sitov_learning_path_specials_tr' } as const)[lang === 'en' || lang === 'ru' || lang === 'uk' || lang === 'tr' ? lang : 'de']
   return [
     {
       id: 'overview',
@@ -101,6 +105,7 @@ export function buildAdminNav(lang: string): AdminNavSection[] {
         { labelKey: 'nav_vocabulary', href: `${base}/content/vocabulary`, icon: 'vocabulary' },
         { labelKey: 'nav_media', href: `${base}/content/media`, icon: 'media' },
         { labelKey: 'nav_pronunciation', href: `${base}/content/pronunciation`, icon: 'pronunciation' },
+        { id: 'sitov_learning_path_specials', labelKey: specialsKey, href: `/${lang}/teacher/content/learning-path/specials`, icon: 'sitov_learning_path_specials' },
       ],
     },
     {
