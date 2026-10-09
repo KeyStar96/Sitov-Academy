@@ -1,0 +1,76 @@
+{
+  "assignedSourceSha": "4ef3b1996a31bdfc5c3cd8ce27487227cd4199f1",
+  "builtSourceSha": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+  "normalUILogin": true,
+  "loginObservedAt": "2026-10-09T12:54:34.286Z",
+  "noMfaBypass": true,
+  "noPublishActivateApprove": true,
+  "beforeSelection": {
+    "at": "2026-10-09T12:55:31.575Z",
+    "selectedText": "Guten Tag, das bin ich",
+    "versions": [
+      {
+        "label": "ee79b43cd342 · Entwurf / inaktiv",
+        "selected": false
+      },
+      {
+        "label": "1d4179ebd769 · Aktuelle Version",
+        "selected": true
+      }
+    ]
+  },
+  "beforeEdit": {
+    "at": "2026-10-09T12:55:51.515Z",
+    "selectedVersion": "ee79b43cd342 · Entwurf / inaktiv",
+    "visibleVersionHashes": [
+      "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+      "ee79b43cd3423aea8d8a0244dacf80a3a2760c4d8fae6ad15d0ad7759f7c9f5c"
+    ],
+    "prompt": "Was bedeutet »ich heiße Leon«?"
+  },
+  "editedPrompt": "Was bedeutet »ich heiße Leon«?!",
+  "saveRequestedAt": "2026-10-09T12:55:51.691Z",
+  "saveActionAfter": "2026-10-09T12:55:52.106Z",
+  "savedObservedAt": "2026-10-09T12:56:21.366Z",
+  "saved": {
+    "selectedVersion": "371b6e9d976c · Entwurf / inaktiv",
+    "versions": [
+      {
+        "label": "371b6e9d976c · Entwurf / inaktiv",
+        "selected": true
+      },
+      {
+        "label": "ee79b43cd342 · Entwurf / inaktiv",
+        "selected": false
+      },
+      {
+        "label": "1d4179ebd769 · Aktuelle Version",
+        "selected": false
+      }
+    ],
+    "publicationDisabled": "",
+    "statuses": [
+      "Neuer inaktiver Entwurf gespeichert.",
+      "Die erforderlichen redaktionellen, Quellen- und Audio-Nachweise sind für diese Definition noch nicht vollständig."
+    ],
+    "focus": {
+      "role": "status",
+      "tag": "P",
+      "text": "Neuer inaktiver Entwurf gespeichert."
+    },
+    "prompt": {
+      "lang": "de",
+      "translate": "no",
+      "value": "Was bedeutet »ich heiße Leon«?!"
+    },
+    "visibleVersionHashes": [
+      "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+      "371b6e9d976c3efa7c502ab87c7608431874e205aba4034e7365531cd5d5c6b5"
+    ]
+  },
+  "acceptance": "PASS_BOUNDED_AUTHOR_UI",
+  "singleVisibleSave": true,
+  "noRetry": true,
+  "screenshotScope": "Version/preview only; publication disabled and missing-proofs message are retained in DOM evidence, not visible in saved screenshots.",
+  "cleanupAcceptance": "PARTIAL_SHARED_RATE_LIMIT_HASH_DIFF"
+}

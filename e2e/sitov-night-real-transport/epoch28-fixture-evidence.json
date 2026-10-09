@@ -1,0 +1,89 @@
+{
+  "assignedSourceSha": "4ef3b1996a31bdfc5c3cd8ce27487227cd4199f1",
+  "builtSourceSha": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+  "appSourceDiffExit": 0,
+  "knownCredentialsSavedBeforeCreate": true,
+  "credentialsReadbackAsserted": true,
+  "newOwnTeachers": 1,
+  "noStudentOr109Rpc": true,
+  "trace": [
+    {
+      "operation": "/auth/v1/admin",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    }
+  ],
+  "baseline": {
+    "defs": 42,
+    "users": 2,
+    "active": 5,
+    "assets": 2032,
+    "passes": 0,
+    "proofs": 3926,
+    "attempts": 0,
+    "authHash": "03cac3102379fa794264c4c1a898e54b",
+    "seenHash": "d41d8cd98f00b204e9800998ecf8427e",
+    "assetsHash": "d96595ed214bdce5fcab740f45ed406a",
+    "proofsHash": "6c3a6e6e65da3ead8c9327fa86ac4741",
+    "profileHash": "d65b2aa94875b59a45b22f8edba1a047",
+    "submissions": 0,
+    "firstVisitHash": "a826f17674ef09e3c79dfd6ea2ba9819",
+    "definitionsHash": "24c6b719fcd722ab2f78440bb41d4ff7",
+    "draftReceiptHash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "baselineFullTableCount": 188,
+  "observations": [
+    {
+      "at": "2026-10-09T12:53:40.490223+00:00",
+      "memAvailableMiB": 2445.625,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 168247296,
+      "gatewayPeakBytes": 173244416,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ]
+}
