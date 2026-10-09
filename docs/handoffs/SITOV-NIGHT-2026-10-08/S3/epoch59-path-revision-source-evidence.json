@@ -1,0 +1,2544 @@
+{
+  "brand": "Sitov Academy",
+  "epoch": 59,
+  "baseSha": "ec0760796ef01dd22e51b93e3eb9fd3869b2cf21",
+  "createdAt": "2026-10-09T21:54:00.184022+00:00",
+  "scope": "15 answer-bound revisions +2 protected-option revisions; technical source review only",
+  "counts": {
+    "cases": 17,
+    "answerRevisions": 15,
+    "optionOnlyRevisions": 2,
+    "underlyingConstructChanges": 0,
+    "outsideScopeConstructChanges": 1
+  },
+  "inputProvenance": [
+    {
+      "commit": "1f40b89682c5a8609c313de7dc3c79fe4a912c69",
+      "path": "docs/handoffs/SITOV-NIGHT-2026-10-08/S2/epoch24-semantic-review.json",
+      "sha256": "923713a7aac428723ed2bb3a00b0f54fe9cd4f5bcf8bca95c83163746f85c062",
+      "privateBytesMatchCommit": true
+    },
+    {
+      "commit": "661e35e16ebb967bd3efdf9bba93c6e6c9345c4d",
+      "path": "docs/handoffs/SITOV-NIGHT-2026-10-08/S2/epoch25-semantic-review.json",
+      "sha256": "1accaf849185c23909a32d7f42f6c4fef6d39271d3b898b4f25ce86c992742b5",
+      "privateBytesMatchCommit": true
+    }
+  ],
+  "s7Input": {
+    "sha256": "c72f222eea85b534f615ed693222d3691ed15c529660b7aa1d4aac900845cd70",
+    "findings": [
+      {
+        "id": "S7-E9-F01",
+        "severity": "HOLD_CHANGED_CONTEXT",
+        "exerciseId": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+        "ref": "A1.1 P1-N11-E06",
+        "reason": "Oleh is male, but both title distractors still describe fictional women. This leaves the renamed profile incoherent and adds an unintended gender cue. Correct answer remains unique and unchanged.",
+        "repairs": [
+          {
+            "field": "content.options/0",
+            "old": "Mein Name ist Frau Marchenko.",
+            "new": "Mein Name ist Herr Marchenko."
+          },
+          {
+            "field": "content.options/2",
+            "old": "Ich heiße Frau Olena.",
+            "new": "Ich heiße Herr Oleh."
+          }
+        ],
+        "handling": "Options are protected. Proposal only: M must decide a separately reviewed immutable option revision; no historical overwrite."
+      },
+      {
+        "id": "S7-E9-F02",
+        "severity": "HOLD_CHANGED_CONTEXT",
+        "exerciseId": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+        "ref": "A1.1 P1-N9-E03",
+        "reason": "The profile now gives Oleh Marchenko, while distractor Olena is no longer the profile given name. The old fictional female name remains and the semantic contrast surname/given name is weakened. Marchenko remains the unique key.",
+        "repairs": [
+          {
+            "field": "content.options/0",
+            "old": "Olena",
+            "new": "Oleh"
+          }
+        ],
+        "handling": "Protected option revision proposal only. Existing correct played text is unchanged by this option repair."
+      },
+      {
+        "id": "S7-E9-F03",
+        "severity": "HOLD_CONSTRUCT_REVIEW",
+        "exerciseId": "f30c3772-6c1e-5b19-aead-0d76a0fb3941",
+        "ref": "A2.1 P1-N1-E07",
+        "reason": "The former family-relation inference (son’s daughter → granddaughter) became feminine word formation Enkel → Enkelin. Correct word is grammatical and factual gender is permitted, but same key does not establish construct equivalence.",
+        "repairs": [
+          {
+            "field": "content.text_before",
+            "old": "Die weibliche Form von „Enkel“ heißt ",
+            "new": "Die Tochter eines Sohnes oder einer Tochter ist für die Großeltern ihre "
+          }
+        ],
+        "translationsTaskProposals": {
+          "en": "A son’s or daughter’s daughter is the grandparents’ …",
+          "ru": "Дочь сына или дочери для бабушки и дедушки — их …",
+          "uk": "Донька сина чи доньки для бабусі й дідуся — їхня …",
+          "tr": "Bir oğlun veya kızın kızı, büyükanne ve büyükbabanın kız …"
+        },
+        "protectedKey": "Enkelin",
+        "handling": "M decide equivalence and review Turkish rendering; regenerate exact candidate audio only after final prompt choice. No fictional named woman is needed."
+      },
+      {
+        "id": "S7-E9-F04",
+        "severity": "FUTURE_VERSION_INHERITED_AMBIGUITY",
+        "exerciseId": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+        "ref": "A1.1 P2-N9-E01",
+        "reason": "Not currently married and not divorced does not exclude widowhood. Both ledig and verwitwet are compatible with the given biography; no children does not resolve it. This predates S2 epoch24 and is one of the untouched 14 gaps.",
+        "proposedNewRevisionQuestion": "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig?",
+        "proposedNewRevisionCorrectAnswer": "Oleh ist ledig.",
+        "handling": "Only new coherent revision with all three male options, accepted answer and translations. Historical Olena answer/results must stay intact."
+      },
+      {
+        "id": "S7-E9-F05",
+        "severity": "FUTURE_VERSION_WHOLE_CONTEXT_REQUIREMENT",
+        "reason": "Three proposed male key deltas also require secondary fictional people to change. The 14 proposals are valid gaps, but answer-only substitutions are insufficient.",
+        "contexts": [
+          {
+            "exerciseId": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+            "ref": "A1.1 P1-N11-E18",
+            "oldPrompt": "Am Telefon fragt eine Frau: „Ist Olena da?“ Du bist Olena.",
+            "newPrompt": "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh.",
+            "translationDeltas": {
+              "en": "a woman → a man; Olena → Oleh",
+              "ru": "женщина → мужчина; Olena → Oleh",
+              "uk": "жінка → чоловік; Olena → Oleh",
+              "tr": "bir kadın → bir adam; Olena → Oleh"
+            }
+          },
+          {
+            "exerciseId": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+            "ref": "A1.1 P7-N8-E03",
+            "promptDeltas": {
+              "Elif": "Emir",
+              "Selin": "Selim"
+            },
+            "reason": "Elif also appears in the football story, outside the correct answer."
+          },
+          {
+            "exerciseId": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+            "ref": "A2.1 P1-N6-E04",
+            "oldPrompt": "Olga erzählt von einer neuen Freundin.",
+            "newPrompt": "Oleg erzählt von einem neuen Freund.",
+            "optionNameDelta": "Lena → Leon in all three options",
+            "translationDeltas": {
+              "en": "Olga → Oleg; new male friend",
+              "ru": "Olga рассказывает о новой подруге. → Oleg рассказывает о новом друге.",
+              "uk": "Olga розповідає про нову подругу. → Oleg розповідає про нового друга.",
+              "tr": "Olga → Oleg; erkek arkadaş without romantic ambiguity preferred yeni bir erkek arkadaşı"
+            }
+          }
+        ],
+        "handling": "Do not apply any proposal to old snapshots; inspect every field of each new revision."
+      },
+      {
+        "id": "S7-E9-F06",
+        "severity": "AUDIO_TEXT_REVIEW_NOTE",
+        "reason": "All 44 authored texts exactly match independent extraction from the immutable source. Six MC exports retain an ellipsis and append the answer after the prompt. They are faithful prompt-plus-answer texts, not completed fluent example sentences. This is inherited extraction behavior, not an S2 extraction mismatch.",
+        "refs": [
+          "A1.1 P5-N2-E06",
+          "A1.2 P3-N5-E02",
+          "B1.1 P5-N1-E03",
+          "B1.1 P5-N1-E05",
+          "B1.1 P5-N7-E05",
+          "B1.1 P5-N9-E03"
+        ],
+        "handling": "M decide intended spoken format before synthesis, and bind any normalization to the actual adapter/source contract. Verify local pronunciation of 1 l and foreign names in later audio QA. S7 did not synthesize or listen."
+      },
+      {
+        "id": "S7-E9-F07",
+        "severity": "INHERITED_TASK_AMBIGUITY_OUTSIDE_CHANGED_CONTENT",
+        "exerciseId": "a8f34d4d-e7c5-5946-aa8b-79f1a03c0fac",
+        "ref": "B1.1 P5-N12-E09",
+        "reason": "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet accepts tätig, but selbstständig is also grammatical and plausible for an independent restaurant worker/operator. S2 changes only explanatory prose here; no claim that this inherited task has become uniquely keyed.",
+        "handling": "Keep historic key. Future task revision should replace selbstständig with an unequivocal morphosyntactic distractor, e.g. Tätigkeit, after editorial/version review."
+      }
+    ]
+  },
+  "sourceFiles": [
+    {
+      "path": "app/actions/learning-path.ts",
+      "byteSha256": "164ad0440a61f6f781c691ef8906ee50daecd0f98c1b9298d378ba096244b1c1",
+      "gitBlob": "b343f540f1c0aef67bb8b4e42f951715c914ff85"
+    },
+    {
+      "path": "supabase/vps/34_path_content_contract.sql",
+      "byteSha256": "b4a23fb53028137ed52595ad9c019f5ee149f8d3d49f7798a8aca149e39e3ea0",
+      "gitBlob": "31369a3c1a4ee0df47204e44fa3e698e899109b1"
+    },
+    {
+      "path": "supabase/vps/35_path_learning.sql",
+      "byteSha256": "ef5d33b2ac86a49f31b4724a6760eff41e6cb58efd3b66c09fbe319bc9c70db6",
+      "gitBlob": "71233015f36b0f10e07f0de93227a34101cee4a3"
+    },
+    {
+      "path": "supabase/vps/36_migrate_old_grammar_progress.sql",
+      "byteSha256": "264bd5ca3f787e6123e4d03a623ca1353b08fe8e2c712dad34e34cd8bd0009a7",
+      "gitBlob": "a35227f8264afe6378e1716802b3e3b168669fdc"
+    },
+    {
+      "path": "supabase/vps/39_teacher_dashboard.sql",
+      "byteSha256": "e841b93f17638fbdf321c7d4cc59d1604a353b4c4de9c40eeded1a73f255d1ad",
+      "gitBlob": "769e08a1eabb2b7eaf315f15f063cf58d3d43fdb"
+    },
+    {
+      "path": "supabase/vps/44_path_task_help.sql",
+      "byteSha256": "e9464811ff0e086a968ed3a482ebd61856bee0d4bee5a376c84e8aa37f39cc8e",
+      "gitBlob": "af874fe503fb13162d05852eaa10591f8938f812"
+    },
+    {
+      "path": "supabase/vps/61_account_learning_checkpoints.sql",
+      "byteSha256": "a53eab331cf2a5917d61cf8516a574576634dba57ef1ce38d600b5db9b2f3bcf",
+      "gitBlob": "04347037322db20a25f7131a51a819b68dbef3ca"
+    },
+    {
+      "path": "supabase/vps/72_sitov_prepared_path_publication.sql",
+      "byteSha256": "bfd6261b4f453de77fe85a927e4ecacf5b97f9a465545de4f79d2e0dbeaa7eba",
+      "gitBlob": "530be31c7ca2197d2fe625fd5bb1cfaef9c3b282"
+    },
+    {
+      "path": "supabase/vps/95_sitov_learning_specials.sql",
+      "byteSha256": "46731b6b85663a9e8af32b245ad28f22375d52676abd2fc271298ee383762de0",
+      "gitBlob": "1ed11665879a5c2cc7608ee46b30b5e9263796d4"
+    },
+    {
+      "path": "supabase/vps/101_sitov_special_authoring.sql",
+      "byteSha256": "8dd08addeb2f68ce0a4bbe1255bde2dd21a6cbbc535dbcb95f2a6b310767bebf",
+      "gitBlob": "8f00562061b478d893c6ae63c662599197201373"
+    },
+    {
+      "path": "supabase/vps/104_sitov_special_staff_publication.sql",
+      "byteSha256": "91e8946ffc03bdb407cd4fc899ccbd2673513af9b3f97cd4627b01a9e2af614f",
+      "gitBlob": "f45cd5bd1a6ee77cd1836a4c9cfcf523cdf1795d"
+    },
+    {
+      "path": "scripts/import_learning_path.ts",
+      "byteSha256": "ecaeed9bed5583fd5f58170a7844f2a40ebf2406a53b6df117d97d5b3968661c",
+      "gitBlob": "7bbe0d3f41275fd6ccdd92a5d6c3f146ae9bee59"
+    },
+    {
+      "path": "scripts/path-seed.mjs",
+      "byteSha256": "700093ff1647cd2f12dde9784305192f61bc672654df16c41c02868834019718",
+      "gitBlob": "d0021331008cf2b517e7012d59c100f130c6d6f0"
+    },
+    {
+      "path": "supabase/tests/learning-path.test.mjs",
+      "byteSha256": "8f7c1c52f96900205ba0ecbc8a679119b361d14409c9b206cb0b235c70db7fa8",
+      "gitBlob": "679b1233ae5c16d25ff5d817a0cf595e917cd0ff"
+    },
+    {
+      "path": "supabase/tests/path-task-help.test.mjs",
+      "byteSha256": "bd1a4560f415360ddee9815bdbeeea3816bae3a19f869c42c107893b31b98eeb",
+      "gitBlob": "1df457463fd54c3b4d04b1809bf6eb5a7d086cba"
+    },
+    {
+      "path": "supabase/tests/path-account-resume.test.mjs",
+      "byteSha256": "22d04af126bb10b03c706f25a96010aad5e6961059114fc7eac39f704af1b31d",
+      "gitBlob": "56a27fea775a5603500b42eb56eeeb538d358f22"
+    },
+    {
+      "path": "docs/handoffs/SITOV-NIGHT-2026-10-08/M/contracts/learning-specials-v1.json",
+      "byteSha256": "09f5733f68f8816ff23fe35d3f5ad9683bdc09f20d53a151d0056c4b68a61c97",
+      "gitBlob": "605124c2807c5acaf468e82201fe77b5a37072c4"
+    }
+  ],
+  "cases": [
+    {
+      "exerciseId": "422ceede-aabe-5361-aa27-2e7678dfc2a0",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N1",
+        "sourceRef": "P1-N1-E03",
+        "goal": "P1-K2",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "422ceede-aabe-5361-aa27-2e7678dfc2a0",
+        "ref": "P1-N1-E03",
+        "goal": "P1-K2",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Abschied"
+          ],
+          "instruction": "Was sagst du in dieser Situation?",
+          "question": "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deiner Freundin Kasia:",
+          "options": [
+            "Tschüs, Kasia!",
+            "Auf Wiederhören, Kasia!",
+            "Guten Morgen, Kasia!"
+          ],
+          "correct_answer": "Tschüs, Kasia!",
+          "accepted_answers": [
+            "Tschüs, Kasia!"
+          ]
+        },
+        "accepted_answers": [
+          "Tschüs, Kasia!"
+        ],
+        "hint": "Freunde und Familie sprechen informell: Hallo, Tschüs, du.",
+        "explanation": "Verabschieden: Auf Wiedersehen (formell), Tschüs (informell), Gute Nacht (spät am Abend, vor dem Schlafen). Am Telefon sagt man: Auf Wiederhören.",
+        "explanation_card": "p1_bye",
+        "translations": {
+          "en": {
+            "instruction": "What do you say in this situation?",
+            "hint": "With friends and family German is informal: Hallo, Tschüs, du.",
+            "explanation": "Saying goodbye: Auf Wiedersehen (formal), Tschüs (informal), Gute Nacht (late in the evening, before bed). On the phone: Auf Wiederhören.",
+            "task": "The German course is over. You are going home and say to your friend Kasia:"
+          },
+          "ru": {
+            "instruction": "Что вы скажете в этой ситуации?",
+            "hint": "С друзьями и семьёй говорят неформально: Hallo, Tschüs, du – как на «ты».",
+            "explanation": "Прощание: Auf Wiedersehen (официально), Tschüs (неформально), Gute Nacht (поздно вечером, перед сном). По телефону говорят: Auf Wiederhören.",
+            "task": "Курс немецкого закончился. Вы идёте домой и говорите своей подруге Kasia:"
+          },
+          "uk": {
+            "instruction": "Що ви скажете в цій ситуації?",
+            "hint": "З друзями та родиною говорять неформально: Hallo, Tschüs, du – як на «ти».",
+            "explanation": "Прощання: Auf Wiedersehen (офіційно), Tschüs (неформально), Gute Nacht (пізно ввечері, перед сном). Телефоном кажуть: Auf Wiederhören.",
+            "task": "Курс німецької закінчився. Ви йдете додому й кажете своїй подрузі Kasia:"
+          },
+          "tr": {
+            "instruction": "Bu durumda ne dersiniz?",
+            "hint": "Arkadaşlar ve aileyle samimi konuşulur: Hallo, Tschüs, du – „sen“ gibi.",
+            "explanation": "Vedalaşma: Auf Wiedersehen (resmî), Tschüs (samimi), Gute Nacht (gece, uyumadan önce). Telefonda: Auf Wiederhören.",
+            "task": "Almanca kursu bitti. Eve gidiyorsunuz ve arkadaşınız Kasia’ya diyorsunuz ki:"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "422ceede-aabe-5361-aa27-2e7678dfc2a0",
+        "ref": "P1-N1-E03",
+        "goal": "P1-K2",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Abschied"
+          ],
+          "instruction": "Was sagst du in dieser Situation?",
+          "question": "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deiner Freundin Kasia:",
+          "options": [
+            "Tschüs, Kasia!",
+            "Auf Wiederhören, Kasia!",
+            "Guten Morgen, Kasia!"
+          ],
+          "correct_answer": "Tschüs, Kasia!",
+          "accepted_answers": [
+            "Tschüs, Kasia!"
+          ]
+        },
+        "accepted_answers": [
+          "Tschüs, Kasia!"
+        ],
+        "hint": "Freunde und Familie sprechen informell: Hallo, Tschüs, du.",
+        "explanation": "Verabschieden: Auf Wiedersehen (formell), Tschüs (informell), Gute Nacht (spät am Abend, vor dem Schlafen). Am Telefon sagt man: Auf Wiederhören.",
+        "explanation_card": "p1_bye",
+        "translations": {
+          "en": {
+            "instruction": "What do you say in this situation?",
+            "hint": "With friends and family German is informal: Hallo, Tschüs, du.",
+            "explanation": "Saying goodbye: Auf Wiedersehen (formal), Tschüs (informal), Gute Nacht (late in the evening, before bed). On the phone: Auf Wiederhören.",
+            "task": "The German course is over. You are going home and say to your friend Kasia:"
+          },
+          "ru": {
+            "instruction": "Что вы скажете в этой ситуации?",
+            "hint": "С друзьями и семьёй говорят неформально: Hallo, Tschüs, du – как на «ты».",
+            "explanation": "Прощание: Auf Wiedersehen (официально), Tschüs (неформально), Gute Nacht (поздно вечером, перед сном). По телефону говорят: Auf Wiederhören.",
+            "task": "Курс немецкого закончился. Вы идёте домой и говорите своей подруге Kasia:"
+          },
+          "uk": {
+            "instruction": "Що ви скажете в цій ситуації?",
+            "hint": "З друзями та родиною говорять неформально: Hallo, Tschüs, du – як на «ти».",
+            "explanation": "Прощання: Auf Wiedersehen (офіційно), Tschüs (неформально), Gute Nacht (пізно ввечері, перед сном). Телефоном кажуть: Auf Wiederhören.",
+            "task": "Курс німецької закінчився. Ви йдете додому й кажете своїй подрузі Kasia:"
+          },
+          "tr": {
+            "instruction": "Bu durumda ne dersiniz?",
+            "hint": "Arkadaşlar ve aileyle samimi konuşulur: Hallo, Tschüs, du – „sen“ gibi.",
+            "explanation": "Vedalaşma: Auf Wiedersehen (resmî), Tschüs (samimi), Gute Nacht (gece, uyumadan önce). Telefonda: Auf Wiederhören.",
+            "task": "Almanca kursu bitti. Eve gidiyorsunuz ve arkadaşınız Kasia’ya diyorsunuz ki:"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "6485ffc8d5f8ed516f723adfce5eaaf9d1be284e14a5b90300b5fe7e67d09ca2",
+      "reviewSourceExerciseEditorialSha256": "6485ffc8d5f8ed516f723adfce5eaaf9d1be284e14a5b90300b5fe7e67d09ca2",
+      "currentCorrectAnswer": "Tschüs, Kasia!",
+      "proposedCorrectAnswer": "Tschüs, Kamil!",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "fef593e4-cb75-5ca2-a274-dce04ec8ef91",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N11",
+        "sourceRef": "P1-N11-E10",
+        "goal": "P1-K3",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "fef593e4-cb75-5ca2-a274-dce04ec8ef91",
+        "ref": "P1-N11-E10",
+        "goal": "P1-K3",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Namen nennen"
+          ],
+          "instruction": "Was passt? Wähle die passende Reaktion.",
+          "question": "Du bist Kasia Nowak. Ein Mann fragt: „Wie heißen Sie?“",
+          "options": [
+            "Ich heiße Kasia Nowak.",
+            "Sie heißen Kasia Nowak.",
+            "Ich komme aus Kasia Nowak."
+          ],
+          "correct_answer": "Ich heiße Kasia Nowak.",
+          "accepted_answers": [
+            "Ich heiße Kasia Nowak."
+          ]
+        },
+        "accepted_answers": [
+          "Ich heiße Kasia Nowak."
+        ],
+        "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
+        "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+        "explanation_card": "p1_name",
+        "translations": {
+          "en": {
+            "instruction": "What fits? Choose the right response.",
+            "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
+            "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+            "task": "You are Kasia Nowak. A man asks: “What is your name?”"
+          },
+          "ru": {
+            "instruction": "Что подходит? Выберите подходящую реакцию.",
+            "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
+            "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+            "task": "Вы Kasia Nowak. Мужчина спрашивает: «Как вас зовут?»"
+          },
+          "uk": {
+            "instruction": "Що підходить? Виберіть доречну реакцію.",
+            "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
+            "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+            "task": "Ви Kasia Nowak. Чоловік запитує: «Як вас звати?»"
+          },
+          "tr": {
+            "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
+            "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
+            "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+            "task": "Siz Kasia Nowak’sınız. Bir adam soruyor: “Adınız ne?”"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "fef593e4-cb75-5ca2-a274-dce04ec8ef91",
+        "ref": "P1-N11-E10",
+        "goal": "P1-K3",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Namen nennen"
+          ],
+          "instruction": "Was passt? Wähle die passende Reaktion.",
+          "question": "Du bist Kasia Nowak. Ein Mann fragt: „Wie heißen Sie?“",
+          "options": [
+            "Ich heiße Kasia Nowak.",
+            "Sie heißen Kasia Nowak.",
+            "Ich komme aus Kasia Nowak."
+          ],
+          "correct_answer": "Ich heiße Kasia Nowak.",
+          "accepted_answers": [
+            "Ich heiße Kasia Nowak."
+          ]
+        },
+        "accepted_answers": [
+          "Ich heiße Kasia Nowak."
+        ],
+        "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
+        "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+        "explanation_card": "p1_name",
+        "translations": {
+          "en": {
+            "instruction": "What fits? Choose the right response.",
+            "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
+            "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+            "task": "You are Kasia Nowak. A man asks: “What is your name?”"
+          },
+          "ru": {
+            "instruction": "Что подходит? Выберите подходящую реакцию.",
+            "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
+            "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+            "task": "Вы Kasia Nowak. Мужчина спрашивает: «Как вас зовут?»"
+          },
+          "uk": {
+            "instruction": "Що підходить? Виберіть доречну реакцію.",
+            "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
+            "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+            "task": "Ви Kasia Nowak. Чоловік запитує: «Як вас звати?»"
+          },
+          "tr": {
+            "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
+            "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
+            "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+            "task": "Siz Kasia Nowak’sınız. Bir adam soruyor: “Adınız ne?”"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "d3b3267b242bbddadda467f0469c1bcfdd2159e47a53c4b07070188976c2bb75",
+      "reviewSourceExerciseEditorialSha256": "d3b3267b242bbddadda467f0469c1bcfdd2159e47a53c4b07070188976c2bb75",
+      "currentCorrectAnswer": "Ich heiße Kasia Nowak.",
+      "proposedCorrectAnswer": "Ich heiße Kamil Nowak.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N11",
+        "sourceRef": "P1-N11-E18",
+        "goal": "P1-K10",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+        "ref": "P1-N11-E18",
+        "goal": "P1-K10",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich am Telefon melden"
+          ],
+          "instruction": "Was passt? Wähle die passende Reaktion.",
+          "question": "Am Telefon fragt eine Frau: „Ist Olena da?“ Du bist Olena.",
+          "options": [
+            "Ja, hier bin Olena.",
+            "Nein, ich heiße Olena.",
+            "Ja, hier ist Olena."
+          ],
+          "correct_answer": "Ja, hier ist Olena.",
+          "accepted_answers": [
+            "Ja, hier ist Olena."
+          ]
+        },
+        "accepted_answers": [
+          "Ja, hier ist Olena."
+        ],
+        "hint": "Am Telefon stellt man sich so vor: „Hier ist Olena.“ – nicht: „Hier bin …“.",
+        "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Frau Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+        "explanation_card": "p1_phone",
+        "translations": {
+          "en": {
+            "instruction": "What fits? Choose the right response.",
+            "hint": "On the phone you introduce yourself with „Hier ist Olena“ – „This is Olena“ (not „Hier bin …“).",
+            "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
+            "task": "On the phone a woman asks: “Is Olena there?” You are Olena."
+          },
+          "ru": {
+            "instruction": "Что подходит? Выберите подходящую реакцию.",
+            "hint": "По телефону представляются так: „Hier ist Olena“ – «Это Олена» (не „Hier bin …“).",
+            "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+            "task": "По телефону женщина спрашивает: «Olena на месте?» Вы и есть Olena."
+          },
+          "uk": {
+            "instruction": "Що підходить? Виберіть доречну реакцію.",
+            "hint": "Телефоном представляються так: „Hier ist Olena“ – «Це Олена» (не „Hier bin …“).",
+            "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+            "task": "Телефоном жінка запитує: «Olena на місці?» Ви і є Olena."
+          },
+          "tr": {
+            "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
+            "hint": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Olena“ = Ben Olena („Hier bin …“ denmez).",
+            "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+            "task": "Telefonda bir kadın soruyor: “Olena orada mı?” Olena sizsiniz."
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+        "ref": "P1-N11-E18",
+        "goal": "P1-K10",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich am Telefon melden"
+          ],
+          "instruction": "Was passt? Wähle die passende Reaktion.",
+          "question": "Am Telefon fragt eine Frau: „Ist Olena da?“ Du bist Olena.",
+          "options": [
+            "Ja, hier bin Olena.",
+            "Nein, ich heiße Olena.",
+            "Ja, hier ist Olena."
+          ],
+          "correct_answer": "Ja, hier ist Olena.",
+          "accepted_answers": [
+            "Ja, hier ist Olena."
+          ]
+        },
+        "accepted_answers": [
+          "Ja, hier ist Olena."
+        ],
+        "hint": "Am Telefon stellt man sich so vor: „Hier ist Olena.“ – nicht: „Hier bin …“.",
+        "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Frau Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+        "explanation_card": "p1_phone",
+        "translations": {
+          "en": {
+            "instruction": "What fits? Choose the right response.",
+            "hint": "On the phone you introduce yourself with „Hier ist Olena“ – „This is Olena“ (not „Hier bin …“).",
+            "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
+            "task": "On the phone a woman asks: “Is Olena there?” You are Olena."
+          },
+          "ru": {
+            "instruction": "Что подходит? Выберите подходящую реакцию.",
+            "hint": "По телефону представляются так: „Hier ist Olena“ – «Это Олена» (не „Hier bin …“).",
+            "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+            "task": "По телефону женщина спрашивает: «Olena на месте?» Вы и есть Olena."
+          },
+          "uk": {
+            "instruction": "Що підходить? Виберіть доречну реакцію.",
+            "hint": "Телефоном представляються так: „Hier ist Olena“ – «Це Олена» (не „Hier bin …“).",
+            "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+            "task": "Телефоном жінка запитує: «Olena на місці?» Ви і є Olena."
+          },
+          "tr": {
+            "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
+            "hint": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Olena“ = Ben Olena („Hier bin …“ denmez).",
+            "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+            "task": "Telefonda bir kadın soruyor: “Olena orada mı?” Olena sizsiniz."
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "513e441abc9af06abb9954a5c24387384ced3a37e633151493ec79057babdb41",
+      "reviewSourceExerciseEditorialSha256": "513e441abc9af06abb9954a5c24387384ced3a37e633151493ec79057babdb41",
+      "currentCorrectAnswer": "Ja, hier ist Olena.",
+      "proposedCorrectAnswer": "Ja, hier ist Oleh.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [
+        "S7-E9-F05"
+      ],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "85b19e5c-99e3-52a6-a943-e17c16f479c8",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P2",
+        "nodeSourceId": "P2-N5",
+        "sourceRef": "P2-N5-E06",
+        "goal": "P2-G2",
+        "type": "sentence_building"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "85b19e5c-99e3-52a6-a943-e17c16f479c8",
+        "ref": "P2-N5-E06",
+        "goal": "P2-G2",
+        "exercise_type": "sentence_building",
+        "content": {
+          "target_form": [
+            "wohnen"
+          ],
+          "instruction": "Bring die Wörter in die richtige Reihenfolge.",
+          "parts": [
+            "in Leipzig",
+            "Olena",
+            "wohnt"
+          ],
+          "correct_answer": "Olena wohnt in Leipzig.",
+          "accepted_answers": [
+            "Olena wohnt in Leipzig.",
+            "In Leipzig wohnt Olena."
+          ]
+        },
+        "accepted_answers": [
+          "Olena wohnt in Leipzig.",
+          "In Leipzig wohnt Olena."
+        ],
+        "hint": "Bei er, sie und es endet das Verb auf -t.",
+        "explanation": "Präsens für alle Personen: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Genauso: leben, lernen, kommen.",
+        "explanation_card": "p2_present",
+        "translations": {
+          "en": {
+            "instruction": "Put the words in the correct order.",
+            "hint": "With er/sie/es the verb ends in -t – like the -s in „he lives“.",
+            "explanation": "Present tense for all persons: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. The same with leben, lernen, kommen.",
+            "task": "Olena lives in Leipzig."
+          },
+          "ru": {
+            "instruction": "Расставьте слова в правильном порядке.",
+            "hint": "С er/sie/es (он/она/оно) глагол оканчивается на -t.",
+            "explanation": "Настоящее время для всех лиц: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Так же: leben, lernen, kommen.",
+            "task": "Olena живёт в Лейпциге."
+          },
+          "uk": {
+            "instruction": "Розставте слова в правильному порядку.",
+            "hint": "З er/sie/es (він/вона/воно) дієслово закінчується на -t.",
+            "explanation": "Теперішній час для всіх осіб: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Так само: leben, lernen, kommen.",
+            "task": "Olena живе в Ляйпцигу."
+          },
+          "tr": {
+            "instruction": "Kelimeleri doğru sıraya koyun.",
+            "hint": "er/sie/es (o) ile fiil -t ile biter: er wohnt.",
+            "explanation": "Tüm kişiler için şimdiki zaman: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Aynı şekilde: leben, lernen, kommen.",
+            "task": "Olena Leipzig’de oturuyor."
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "85b19e5c-99e3-52a6-a943-e17c16f479c8",
+        "ref": "P2-N5-E06",
+        "goal": "P2-G2",
+        "exercise_type": "sentence_building",
+        "content": {
+          "target_form": [
+            "wohnen"
+          ],
+          "instruction": "Bring die Wörter in die richtige Reihenfolge.",
+          "parts": [
+            "in Leipzig",
+            "Olena",
+            "wohnt"
+          ],
+          "correct_answer": "Olena wohnt in Leipzig.",
+          "accepted_answers": [
+            "Olena wohnt in Leipzig.",
+            "In Leipzig wohnt Olena."
+          ]
+        },
+        "accepted_answers": [
+          "Olena wohnt in Leipzig.",
+          "In Leipzig wohnt Olena."
+        ],
+        "hint": "Bei er, sie und es endet das Verb auf -t.",
+        "explanation": "Präsens für alle Personen: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Genauso: leben, lernen, kommen.",
+        "explanation_card": "p2_present",
+        "translations": {
+          "en": {
+            "instruction": "Put the words in the correct order.",
+            "hint": "With er/sie/es the verb ends in -t – like the -s in „he lives“.",
+            "explanation": "Present tense for all persons: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. The same with leben, lernen, kommen.",
+            "task": "Olena lives in Leipzig."
+          },
+          "ru": {
+            "instruction": "Расставьте слова в правильном порядке.",
+            "hint": "С er/sie/es (он/она/оно) глагол оканчивается на -t.",
+            "explanation": "Настоящее время для всех лиц: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Так же: leben, lernen, kommen.",
+            "task": "Olena живёт в Лейпциге."
+          },
+          "uk": {
+            "instruction": "Розставте слова в правильному порядку.",
+            "hint": "З er/sie/es (він/вона/воно) дієслово закінчується на -t.",
+            "explanation": "Теперішній час для всіх осіб: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Так само: leben, lernen, kommen.",
+            "task": "Olena живе в Ляйпцигу."
+          },
+          "tr": {
+            "instruction": "Kelimeleri doğru sıraya koyun.",
+            "hint": "er/sie/es (o) ile fiil -t ile biter: er wohnt.",
+            "explanation": "Tüm kişiler için şimdiki zaman: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Aynı şekilde: leben, lernen, kommen.",
+            "task": "Olena Leipzig’de oturuyor."
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "871ac3d6c92feac03f9b4d31d26dc625c78025cd414cbd968c2298b1d0fbbe2a",
+      "reviewSourceExerciseEditorialSha256": "871ac3d6c92feac03f9b4d31d26dc625c78025cd414cbd968c2298b1d0fbbe2a",
+      "currentCorrectAnswer": "Olena wohnt in Leipzig.",
+      "proposedCorrectAnswer": "Oleh wohnt in Leipzig.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P2",
+        "nodeSourceId": "P2-N9",
+        "sourceRef": "P2-N9-E01",
+        "goal": "P2-K4",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+        "ref": "P2-N9-E01",
+        "goal": "P2-K4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Familienstand"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Olena ist 29 Jahre alt. Sie ist nicht verheiratet und nicht geschieden. Sie hat keine Kinder. Was ist richtig?",
+          "options": [
+            "Olena ist verheiratet.",
+            "Olena ist verwitwet.",
+            "Olena ist ledig."
+          ],
+          "correct_answer": "Olena ist ledig.",
+          "accepted_answers": [
+            "Olena ist ledig."
+          ]
+        },
+        "accepted_answers": [
+          "Olena ist ledig."
+        ],
+        "hint": "Such die Information im Text: Wer? Woher? Wo? Wie alt?",
+        "explanation": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
+        "explanation_card": "p2_status",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Find the key information in the text: who, where from, where, how old?",
+            "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
+            "task": "What is correct?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите в тексте нужную информацию: кто? откуда? где? сколько лет?",
+            "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
+            "task": "Что правильно?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть у тексті потрібну інформацію: хто? звідки? де? скільки років?",
+            "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
+            "task": "Що правильно?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Metinde bilgiyi bulun: Kim? Nereden? Nerede? Kaç yaşında?",
+            "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
+            "task": "Hangisi doğru?"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+        "ref": "P2-N9-E01",
+        "goal": "P2-K4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Familienstand"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Olena ist 29 Jahre alt. Sie ist nicht verheiratet und nicht geschieden. Sie hat keine Kinder. Was ist richtig?",
+          "options": [
+            "Olena ist verheiratet.",
+            "Olena ist verwitwet.",
+            "Olena ist ledig."
+          ],
+          "correct_answer": "Olena ist ledig.",
+          "accepted_answers": [
+            "Olena ist ledig."
+          ]
+        },
+        "accepted_answers": [
+          "Olena ist ledig."
+        ],
+        "hint": "Such die Information im Text: Wer? Woher? Wo? Wie alt?",
+        "explanation": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
+        "explanation_card": "p2_status",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Find the key information in the text: who, where from, where, how old?",
+            "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
+            "task": "What is correct?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите в тексте нужную информацию: кто? откуда? где? сколько лет?",
+            "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
+            "task": "Что правильно?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть у тексті потрібну інформацію: хто? звідки? де? скільки років?",
+            "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
+            "task": "Що правильно?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Metinde bilgiyi bulun: Kim? Nereden? Nerede? Kaç yaşında?",
+            "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
+            "task": "Hangisi doğru?"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "d98c51deb35778f80b827a0f2475c37887a5c176b1c02c81ba0e60a4db71f8af",
+      "reviewSourceExerciseEditorialSha256": "d98c51deb35778f80b827a0f2475c37887a5c176b1c02c81ba0e60a4db71f8af",
+      "currentCorrectAnswer": "Olena ist ledig.",
+      "proposedCorrectAnswer": "Oleh ist ledig.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [
+        "S7-E9-F04"
+      ],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "773da752-f9bf-5044-a948-92b396ebd16e",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N4",
+        "sourceRef": "P5-N4-E04",
+        "goal": "P5-G1",
+        "type": "sentence_building"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "773da752-f9bf-5044-a948-92b396ebd16e",
+        "ref": "P5-N4-E04",
+        "goal": "P5-G1",
+        "exercise_type": "sentence_building",
+        "content": {
+          "target_form": [
+            "anrufen"
+          ],
+          "instruction": "Bilde eine Frage aus den Wörtern.",
+          "parts": [
+            "an",
+            "Rufst",
+            "du",
+            "Olena"
+          ],
+          "correct_answer": "Rufst du Olena an?",
+          "accepted_answers": [
+            "Rufst du Olena an?"
+          ]
+        },
+        "accepted_answers": [
+          "Rufst du Olena an?"
+        ],
+        "hint": "In der Frage steht das Verb vorn oder nach dem Fragewort – der erste Teil trotzdem am Ende.",
+        "explanation": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Olena an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
+        "explanation_card": "p5_separable_q",
+        "translations": {
+          "en": {
+            "instruction": "Make a question from the words.",
+            "hint": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Olena an?",
+            "explanation": "Separable verbs in questions: yes/no question: Rufst du Olena an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
+            "task": "Are you calling Olena?"
+          },
+          "ru": {
+            "instruction": "Составьте вопрос из этих слов.",
+            "hint": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Olena an?",
+            "explanation": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Olena an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
+            "task": "Ты позвонишь Olena?"
+          },
+          "uk": {
+            "instruction": "Складіть запитання з цих слів.",
+            "hint": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Olena an?",
+            "explanation": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Olena an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
+            "task": "Ти зателефонуєш Olena?"
+          },
+          "tr": {
+            "instruction": "Bu kelimelerle bir soru oluşturun.",
+            "hint": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Olena an?",
+            "explanation": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Olena an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
+            "task": "Olena’yı arıyor musun?"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "773da752-f9bf-5044-a948-92b396ebd16e",
+        "ref": "P5-N4-E04",
+        "goal": "P5-G1",
+        "exercise_type": "sentence_building",
+        "content": {
+          "target_form": [
+            "anrufen"
+          ],
+          "instruction": "Bilde eine Frage aus den Wörtern.",
+          "parts": [
+            "an",
+            "Rufst",
+            "du",
+            "Olena"
+          ],
+          "correct_answer": "Rufst du Olena an?",
+          "accepted_answers": [
+            "Rufst du Olena an?"
+          ]
+        },
+        "accepted_answers": [
+          "Rufst du Olena an?"
+        ],
+        "hint": "In der Frage steht das Verb vorn oder nach dem Fragewort – der erste Teil trotzdem am Ende.",
+        "explanation": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Olena an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
+        "explanation_card": "p5_separable_q",
+        "translations": {
+          "en": {
+            "instruction": "Make a question from the words.",
+            "hint": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Olena an?",
+            "explanation": "Separable verbs in questions: yes/no question: Rufst du Olena an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
+            "task": "Are you calling Olena?"
+          },
+          "ru": {
+            "instruction": "Составьте вопрос из этих слов.",
+            "hint": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Olena an?",
+            "explanation": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Olena an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
+            "task": "Ты позвонишь Olena?"
+          },
+          "uk": {
+            "instruction": "Складіть запитання з цих слів.",
+            "hint": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Olena an?",
+            "explanation": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Olena an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
+            "task": "Ти зателефонуєш Olena?"
+          },
+          "tr": {
+            "instruction": "Bu kelimelerle bir soru oluşturun.",
+            "hint": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Olena an?",
+            "explanation": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Olena an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
+            "task": "Olena’yı arıyor musun?"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "591674b3955869cb836aa6b10677dcae444cf01902c868fb170a73d3aa2a1a60",
+      "reviewSourceExerciseEditorialSha256": "591674b3955869cb836aa6b10677dcae444cf01902c868fb170a73d3aa2a1a60",
+      "currentCorrectAnswer": "Rufst du Olena an?",
+      "proposedCorrectAnswer": "Rufst du Oleh an?",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "d4fa715e-799f-58cf-a0e1-c1798e8b08ea",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N6",
+        "sourceRef": "P5-N6-E09",
+        "goal": "P5-G4",
+        "type": "sentence_building"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "d4fa715e-799f-58cf-a0e1-c1798e8b08ea",
+        "ref": "P5-N6-E09",
+        "goal": "P5-G4",
+        "exercise_type": "sentence_building",
+        "content": {
+          "target_form": [
+            "Verb auf Position 2"
+          ],
+          "instruction": "Bring die Wörter in die richtige Reihenfolge.",
+          "parts": [
+            "frühstückt",
+            "Olena",
+            "Um sieben Uhr"
+          ],
+          "correct_answer": "Um sieben Uhr frühstückt Olena.",
+          "accepted_answers": [
+            "Um sieben Uhr frühstückt Olena.",
+            "Olena frühstückt um sieben Uhr."
+          ]
+        },
+        "accepted_answers": [
+          "Um sieben Uhr frühstückt Olena.",
+          "Olena frühstückt um sieben Uhr."
+        ],
+        "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
+        "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
+        "explanation_card": "p5_inversion",
+        "translations": {
+          "en": {
+            "instruction": "Put the words in the correct order.",
+            "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
+            "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
+            "task": "At seven o’clock Olena has breakfast."
+          },
+          "ru": {
+            "instruction": "Расставьте слова в правильном порядке.",
+            "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
+            "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
+            "task": "В семь часов Olena завтракает."
+          },
+          "uk": {
+            "instruction": "Розставте слова в правильному порядку.",
+            "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
+            "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
+            "task": "О сьомій годині Olena снідає."
+          },
+          "tr": {
+            "instruction": "Kelimeleri doğru sıraya koyun.",
+            "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
+            "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
+            "task": "Saat yedide Olena kahvaltı yapıyor."
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "d4fa715e-799f-58cf-a0e1-c1798e8b08ea",
+        "ref": "P5-N6-E09",
+        "goal": "P5-G4",
+        "exercise_type": "sentence_building",
+        "content": {
+          "target_form": [
+            "Verb auf Position 2"
+          ],
+          "instruction": "Bring die Wörter in die richtige Reihenfolge.",
+          "parts": [
+            "frühstückt",
+            "Olena",
+            "Um sieben Uhr"
+          ],
+          "correct_answer": "Um sieben Uhr frühstückt Olena.",
+          "accepted_answers": [
+            "Um sieben Uhr frühstückt Olena.",
+            "Olena frühstückt um sieben Uhr."
+          ]
+        },
+        "accepted_answers": [
+          "Um sieben Uhr frühstückt Olena.",
+          "Olena frühstückt um sieben Uhr."
+        ],
+        "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
+        "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
+        "explanation_card": "p5_inversion",
+        "translations": {
+          "en": {
+            "instruction": "Put the words in the correct order.",
+            "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
+            "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
+            "task": "At seven o’clock Olena has breakfast."
+          },
+          "ru": {
+            "instruction": "Расставьте слова в правильном порядке.",
+            "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
+            "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
+            "task": "В семь часов Olena завтракает."
+          },
+          "uk": {
+            "instruction": "Розставте слова в правильному порядку.",
+            "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
+            "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
+            "task": "О сьомій годині Olena снідає."
+          },
+          "tr": {
+            "instruction": "Kelimeleri doğru sıraya koyun.",
+            "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
+            "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
+            "task": "Saat yedide Olena kahvaltı yapıyor."
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "baab030dfaece6ac067e666ccd9eb8d63c8ca973c92c1031a4a0d728a3a9f3d9",
+      "reviewSourceExerciseEditorialSha256": "baab030dfaece6ac067e666ccd9eb8d63c8ca973c92c1031a4a0d728a3a9f3d9",
+      "currentCorrectAnswer": "Um sieben Uhr frühstückt Olena.",
+      "proposedCorrectAnswer": "Um sieben Uhr frühstückt Oleh.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P7",
+        "nodeSourceId": "P7-N8",
+        "sourceRef": "P7-N8-E03",
+        "goal": "P7-Z1",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+        "ref": "P7-N8-E03",
+        "goal": "P7-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "von der Vergangenheit erzählen"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht?",
+          "options": [
+            "Selin",
+            "Emre",
+            "Deniz"
+          ],
+          "correct_answer": "Selin",
+          "accepted_answers": [
+            "Selin"
+          ]
+        },
+        "accepted_answers": [
+          "Selin"
+        ],
+        "hint": "Such die Zeitwörter (gestern, am Samstag) und die Partizipien.",
+        "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "explanation_card": "p7_past",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the time words (gestern, am Samstag) and the participles.",
+            "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Who cooked on Sunday?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите слова времени (gestern, am Samstag) и причастия.",
+            "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Кто готовил в воскресенье?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть слова часу (gestern, am Samstag) і дієприкметники.",
+            "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Хто готував у неділю?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Zaman kelimelerini (gestern, am Samstag) ve ortaçları bulun.",
+            "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Pazar günü kim yemek yaptı?"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+        "ref": "P7-N8-E03",
+        "goal": "P7-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "von der Vergangenheit erzählen"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht?",
+          "options": [
+            "Selin",
+            "Emre",
+            "Deniz"
+          ],
+          "correct_answer": "Selin",
+          "accepted_answers": [
+            "Selin"
+          ]
+        },
+        "accepted_answers": [
+          "Selin"
+        ],
+        "hint": "Such die Zeitwörter (gestern, am Samstag) und die Partizipien.",
+        "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+        "explanation_card": "p7_past",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the time words (gestern, am Samstag) and the participles.",
+            "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Who cooked on Sunday?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите слова времени (gestern, am Samstag) и причастия.",
+            "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Кто готовил в воскресенье?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть слова часу (gestern, am Samstag) і дієприкметники.",
+            "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Хто готував у неділю?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Zaman kelimelerini (gestern, am Samstag) ve ortaçları bulun.",
+            "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
+            "task": "Pazar günü kim yemek yaptı?"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "404a7bf4e9428bb7ed1baa52d31772d198f03674c33585fdac1cf40d98c61d05",
+      "reviewSourceExerciseEditorialSha256": "404a7bf4e9428bb7ed1baa52d31772d198f03674c33585fdac1cf40d98c61d05",
+      "currentCorrectAnswer": "Selin",
+      "proposedCorrectAnswer": "Selim",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [
+        "S7-E9-F05"
+      ],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "b088b06b-6140-520c-a242-1ff5689c4688",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P7",
+        "nodeSourceId": "P7-N12",
+        "sourceRef": "P7-N12-E28",
+        "goal": "P7-G5",
+        "type": "sentence_building"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "b088b06b-6140-520c-a242-1ff5689c4688",
+        "ref": "P7-N12-E28",
+        "goal": "P7-G5",
+        "exercise_type": "sentence_building",
+        "content": {
+          "target_form": [
+            "Satzklammer im Perfekt"
+          ],
+          "instruction": "Bring die Wörter in die richtige Reihenfolge.",
+          "parts": [
+            "gearbeitet",
+            "Olena",
+            "hat",
+            "am Samstag"
+          ],
+          "correct_answer": "Olena hat am Samstag gearbeitet.",
+          "accepted_answers": [
+            "Olena hat am Samstag gearbeitet.",
+            "Am Samstag hat Olena gearbeitet."
+          ]
+        },
+        "accepted_answers": [
+          "Olena hat am Samstag gearbeitet.",
+          "Am Samstag hat Olena gearbeitet."
+        ],
+        "hint": "haben oder sein steht auf Position 2, das Partizip ganz am Ende.",
+        "explanation": "Satzklammer im Perfekt: haben oder sein steht auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. W-Frage: Was hast du am Wochenende gemacht? Ja-/Nein-Frage: Bist du mit dem Bus gefahren?",
+        "explanation_card": "p7_bracket_perfekt",
+        "translations": {
+          "en": {
+            "instruction": "Put the words in the correct order.",
+            "hint": "haben/sein in position 2, the participle at the very end: Ich habe gestern … gespielt.",
+            "explanation": "Sentence bracket in the perfect tense: haben or sein in position 2, the participle at the end: Ich habe gestern Fußball gespielt. Wh-question: Was hast du am Wochenende gemacht? Yes/no question: Bist du mit dem Bus gefahren?",
+            "task": "Olena worked on Saturday."
+          },
+          "ru": {
+            "instruction": "Расставьте слова в правильном порядке.",
+            "hint": "haben/sein – на 2-м месте, причастие – в самом конце: Ich habe gestern … gespielt.",
+            "explanation": "Рамочная конструкция в Perfekt: haben или sein – на 2-м месте, причастие – в конце: Ich habe gestern Fußball gespielt. Вопрос с вопросительным словом: Was hast du am Wochenende gemacht? Общий вопрос: Bist du mit dem Bus gefahren?",
+            "task": "В субботу Olena работала."
+          },
+          "uk": {
+            "instruction": "Розставте слова в правильному порядку.",
+            "hint": "haben/sein – на 2-му місці, дієприкметник – в самому кінці: Ich habe gestern … gespielt.",
+            "explanation": "Рамкова конструкція в Perfekt: haben або sein – на 2-му місці, дієприкметник – у кінці: Ich habe gestern Fußball gespielt. Запитання з питальним словом: Was hast du am Wochenende gemacht? Загальне запитання: Bist du mit dem Bus gefahren?",
+            "task": "У суботу Olena працювала."
+          },
+          "tr": {
+            "instruction": "Kelimeleri doğru sıraya koyun.",
+            "hint": "haben/sein 2. sırada, ortaç en sonda: Ich habe gestern … gespielt.",
+            "explanation": "Perfekt’te cümle çerçevesi: haben ya da sein 2. sırada, ortaç sonda: Ich habe gestern Fußball gespielt. Soru kelimeli soru: Was hast du am Wochenende gemacht? Evet/hayır sorusu: Bist du mit dem Bus gefahren?",
+            "task": "Olena cumartesi çalıştı."
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "b088b06b-6140-520c-a242-1ff5689c4688",
+        "ref": "P7-N12-E28",
+        "goal": "P7-G5",
+        "exercise_type": "sentence_building",
+        "content": {
+          "target_form": [
+            "Satzklammer im Perfekt"
+          ],
+          "instruction": "Bring die Wörter in die richtige Reihenfolge.",
+          "parts": [
+            "gearbeitet",
+            "Olena",
+            "hat",
+            "am Samstag"
+          ],
+          "correct_answer": "Olena hat am Samstag gearbeitet.",
+          "accepted_answers": [
+            "Olena hat am Samstag gearbeitet.",
+            "Am Samstag hat Olena gearbeitet."
+          ]
+        },
+        "accepted_answers": [
+          "Olena hat am Samstag gearbeitet.",
+          "Am Samstag hat Olena gearbeitet."
+        ],
+        "hint": "haben oder sein steht auf Position 2, das Partizip ganz am Ende.",
+        "explanation": "Satzklammer im Perfekt: haben oder sein steht auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. W-Frage: Was hast du am Wochenende gemacht? Ja-/Nein-Frage: Bist du mit dem Bus gefahren?",
+        "explanation_card": "p7_bracket_perfekt",
+        "translations": {
+          "en": {
+            "instruction": "Put the words in the correct order.",
+            "hint": "haben/sein in position 2, the participle at the very end: Ich habe gestern … gespielt.",
+            "explanation": "Sentence bracket in the perfect tense: haben or sein in position 2, the participle at the end: Ich habe gestern Fußball gespielt. Wh-question: Was hast du am Wochenende gemacht? Yes/no question: Bist du mit dem Bus gefahren?",
+            "task": "Olena worked on Saturday."
+          },
+          "ru": {
+            "instruction": "Расставьте слова в правильном порядке.",
+            "hint": "haben/sein – на 2-м месте, причастие – в самом конце: Ich habe gestern … gespielt.",
+            "explanation": "Рамочная конструкция в Perfekt: haben или sein – на 2-м месте, причастие – в конце: Ich habe gestern Fußball gespielt. Вопрос с вопросительным словом: Was hast du am Wochenende gemacht? Общий вопрос: Bist du mit dem Bus gefahren?",
+            "task": "В субботу Olena работала."
+          },
+          "uk": {
+            "instruction": "Розставте слова в правильному порядку.",
+            "hint": "haben/sein – на 2-му місці, дієприкметник – в самому кінці: Ich habe gestern … gespielt.",
+            "explanation": "Рамкова конструкція в Perfekt: haben або sein – на 2-му місці, дієприкметник – у кінці: Ich habe gestern Fußball gespielt. Запитання з питальним словом: Was hast du am Wochenende gemacht? Загальне запитання: Bist du mit dem Bus gefahren?",
+            "task": "У суботу Olena працювала."
+          },
+          "tr": {
+            "instruction": "Kelimeleri doğru sıraya koyun.",
+            "hint": "haben/sein 2. sırada, ortaç en sonda: Ich habe gestern … gespielt.",
+            "explanation": "Perfekt’te cümle çerçevesi: haben ya da sein 2. sırada, ortaç sonda: Ich habe gestern Fußball gespielt. Soru kelimeli soru: Was hast du am Wochenende gemacht? Evet/hayır sorusu: Bist du mit dem Bus gefahren?",
+            "task": "Olena cumartesi çalıştı."
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "df4b82ebd7d77c9f58ba2fd2332d21be2a48ea2c1261e9d10facfdb4a629a36f",
+      "reviewSourceExerciseEditorialSha256": "df4b82ebd7d77c9f58ba2fd2332d21be2a48ea2c1261e9d10facfdb4a629a36f",
+      "currentCorrectAnswer": "Olena hat am Samstag gearbeitet.",
+      "proposedCorrectAnswer": "Oleh hat am Samstag gearbeitet.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "a1f73c83-e017-5cff-ac44-d761c66f746e",
+      "canonicalIdentity": {
+        "level": "A1.2",
+        "pathSourceId": "P7",
+        "nodeSourceId": "P7-N7",
+        "sourceRef": "P7-N7-E03",
+        "goal": "P7-G4",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "a1f73c83-e017-5cff-ac44-d761c66f746e",
+        "ref": "P7-N7-E03",
+        "goal": "P7-G4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Grund nennen"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Welcher Satz nennt einen Grund?",
+          "options": [
+            "Wir feiern, denn Mia wird 18.",
+            "Wir feiern, aber Mia ist müde.",
+            "Wir feiern und Mia tanzt."
+          ],
+          "correct_answer": "Wir feiern, denn Mia wird 18.",
+          "accepted_answers": [
+            "Wir feiern, denn Mia wird 18."
+          ]
+        },
+        "accepted_answers": [
+          "Wir feiern, denn Mia wird 18."
+        ],
+        "hint": "Ein Grund → denn. Ein Gegensatz → aber. Zwei Möglichkeiten → oder.",
+        "explanation": "denn = ein Grund. denn verbindet zwei Hauptsätze. Vor denn steht ein Komma. Nach denn bleibt die Wortstellung normal: Subjekt, dann Verb. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+        "explanation_card": "p7_denn",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "A reason → denn. A contrast → aber. Two options → oder.",
+            "explanation": "denn = a reason (because). denn joins two main clauses. There is a comma before denn. After denn the word order stays normal: subject, then verb. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+            "task": "Which sentence gives a reason?"
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "Причина → denn. Противопоставление → aber. Два варианта → oder.",
+            "explanation": "denn = причина (потому что). denn соединяет два главных предложения. Перед denn ставится запятая. После denn порядок слов обычный: подлежащее, потом глагол. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+            "task": "В каком предложении названа причина?"
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Причина → denn. Протиставлення → aber. Два варіанти → oder.",
+            "explanation": "denn = причина (бо, тому що). denn з’єднує два головні речення. Перед denn ставиться кома. Після denn порядок слів звичайний: підмет, потім дієслово. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+            "task": "У якому реченні названо причину?"
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "Neden → denn. Karşıtlık → aber. İki seçenek → oder.",
+            "explanation": "denn = bir neden (çünkü). denn iki ana cümleyi bağlar. denn’den önce virgül konur. denn’den sonra kelime sırası değişmez: özne, sonra fiil. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+            "task": "Hangi cümle bir neden bildiriyor?"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "a1f73c83-e017-5cff-ac44-d761c66f746e",
+        "ref": "P7-N7-E03",
+        "goal": "P7-G4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Grund nennen"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Welcher Satz nennt einen Grund?",
+          "options": [
+            "Wir feiern, denn Mia wird 18.",
+            "Wir feiern, aber Mia ist müde.",
+            "Wir feiern und Mia tanzt."
+          ],
+          "correct_answer": "Wir feiern, denn Mia wird 18.",
+          "accepted_answers": [
+            "Wir feiern, denn Mia wird 18."
+          ]
+        },
+        "accepted_answers": [
+          "Wir feiern, denn Mia wird 18."
+        ],
+        "hint": "Ein Grund → denn. Ein Gegensatz → aber. Zwei Möglichkeiten → oder.",
+        "explanation": "denn = ein Grund. denn verbindet zwei Hauptsätze. Vor denn steht ein Komma. Nach denn bleibt die Wortstellung normal: Subjekt, dann Verb. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+        "explanation_card": "p7_denn",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "A reason → denn. A contrast → aber. Two options → oder.",
+            "explanation": "denn = a reason (because). denn joins two main clauses. There is a comma before denn. After denn the word order stays normal: subject, then verb. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+            "task": "Which sentence gives a reason?"
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "Причина → denn. Противопоставление → aber. Два варианта → oder.",
+            "explanation": "denn = причина (потому что). denn соединяет два главных предложения. Перед denn ставится запятая. После denn порядок слов обычный: подлежащее, потом глагол. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+            "task": "В каком предложении названа причина?"
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Причина → denn. Протиставлення → aber. Два варіанти → oder.",
+            "explanation": "denn = причина (бо, тому що). denn з’єднує два головні речення. Перед denn ставиться кома. Після denn порядок слів звичайний: підмет, потім дієслово. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+            "task": "У якому реченні названо причину?"
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "Neden → denn. Karşıtlık → aber. İki seçenek → oder.",
+            "explanation": "denn = bir neden (çünkü). denn iki ana cümleyi bağlar. denn’den önce virgül konur. denn’den sonra kelime sırası değişmez: özne, sonra fiil. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+            "task": "Hangi cümle bir neden bildiriyor?"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "5f41ec67423cd37287526ac39b84e025cf4bd2732f518c669710826407ae4160",
+      "reviewSourceExerciseEditorialSha256": "5f41ec67423cd37287526ac39b84e025cf4bd2732f518c669710826407ae4160",
+      "currentCorrectAnswer": "Wir feiern, denn Mia wird 18.",
+      "proposedCorrectAnswer": "Wir feiern, denn Milan wird 18.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+      "canonicalIdentity": {
+        "level": "A2.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N6",
+        "sourceRef": "P1-N6-E04",
+        "goal": "P1-G2",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+        "ref": "P1-N6-E04",
+        "goal": "P1-G2",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "kennenlernen"
+          ],
+          "instruction": "Welcher Satz ist richtig?",
+          "question": "Olga erzählt von einer neuen Freundin.",
+          "options": [
+            "Wir haben Lena in Köln gekennenlernt.",
+            "Wir haben Lena in Köln kennengelernt.",
+            "Wir sind Lena in Köln kennengelernt."
+          ],
+          "correct_answer": "Wir haben Lena in Köln kennengelernt.",
+          "accepted_answers": [
+            "Wir haben Lena in Köln kennengelernt."
+          ]
+        },
+        "accepted_answers": [
+          "Wir haben Lena in Köln kennengelernt."
+        ],
+        "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+        "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+        "explanation_card": "p1_trennbar",
+        "translations": {
+          "en": {
+            "instruction": "Which sentence is correct?",
+            "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+            "task": "Olga is talking about a new friend."
+          },
+          "ru": {
+            "instruction": "Какое предложение правильное?",
+            "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+            "task": "Olga рассказывает о новой подруге."
+          },
+          "uk": {
+            "instruction": "Яке речення правильне?",
+            "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+            "task": "Olga розповідає про нову подругу."
+          },
+          "tr": {
+            "instruction": "Hangi cümle doğru?",
+            "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+            "task": "Olga yeni bir arkadaşından söz ediyor."
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+        "ref": "P1-N6-E04",
+        "goal": "P1-G2",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "kennenlernen"
+          ],
+          "instruction": "Welcher Satz ist richtig?",
+          "question": "Olga erzählt von einer neuen Freundin.",
+          "options": [
+            "Wir haben Lena in Köln gekennenlernt.",
+            "Wir haben Lena in Köln kennengelernt.",
+            "Wir sind Lena in Köln kennengelernt."
+          ],
+          "correct_answer": "Wir haben Lena in Köln kennengelernt.",
+          "accepted_answers": [
+            "Wir haben Lena in Köln kennengelernt."
+          ]
+        },
+        "accepted_answers": [
+          "Wir haben Lena in Köln kennengelernt."
+        ],
+        "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+        "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+        "explanation_card": "p1_trennbar",
+        "translations": {
+          "en": {
+            "instruction": "Which sentence is correct?",
+            "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+            "task": "Olga is talking about a new friend."
+          },
+          "ru": {
+            "instruction": "Какое предложение правильное?",
+            "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+            "task": "Olga рассказывает о новой подруге."
+          },
+          "uk": {
+            "instruction": "Яке речення правильне?",
+            "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+            "task": "Olga розповідає про нову подругу."
+          },
+          "tr": {
+            "instruction": "Hangi cümle doğru?",
+            "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+            "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+            "task": "Olga yeni bir arkadaşından söz ediyor."
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "a3df4a9117372f41d02d2ce3d63f83f346d69eb5ac4d9012d2f6cf41cb0cf8d6",
+      "reviewSourceExerciseEditorialSha256": "a3df4a9117372f41d02d2ce3d63f83f346d69eb5ac4d9012d2f6cf41cb0cf8d6",
+      "currentCorrectAnswer": "Wir haben Lena in Köln kennengelernt.",
+      "proposedCorrectAnswer": "Wir haben Leon in Köln kennengelernt.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [
+        "S7-E9-F05"
+      ],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "380353bb-aae1-5746-ab83-8eba1d0cd61f",
+      "canonicalIdentity": {
+        "level": "A2.1",
+        "pathSourceId": "P4",
+        "nodeSourceId": "P4-N8",
+        "sourceRef": "P4-N8-E05",
+        "goal": "P4-K3",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "380353bb-aae1-5746-ab83-8eba1d0cd61f",
+        "ref": "P4-N8-E05",
+        "goal": "P4-K3",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich melden"
+          ],
+          "instruction": "Was sagst du in dieser Situation?",
+          "question": "Wie beginnst du einen Anruf in einer Firma?",
+          "options": [
+            "Auf Wiederhören.",
+            "Guten Tag, hier ist Mia Bondar.",
+            "Hallo, wer bist du?"
+          ],
+          "correct_answer": "Guten Tag, hier ist Mia Bondar.",
+          "accepted_answers": [
+            "Guten Tag, hier ist Mia Bondar."
+          ]
+        },
+        "accepted_answers": [
+          "Guten Tag, hier ist Mia Bondar."
+        ],
+        "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
+        "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+        "explanation_card": "p4_telefon",
+        "translations": {
+          "en": {
+            "instruction": "What do you say in this situation?",
+            "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
+            "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+            "task": "How do you begin a phone call to a company?"
+          },
+          "ru": {
+            "instruction": "Что вы скажете в этой ситуации?",
+            "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
+            "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+            "task": "Как вы начнёте звонок в фирму?"
+          },
+          "uk": {
+            "instruction": "Що ви скажете в цій ситуації?",
+            "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
+            "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+            "task": "Як ви почнете дзвінок у фірму?"
+          },
+          "tr": {
+            "instruction": "Bu durumda ne dersiniz?",
+            "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
+            "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+            "task": "Bir şirketi aradığınızda konuşmaya nasıl başlarsınız?"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "380353bb-aae1-5746-ab83-8eba1d0cd61f",
+        "ref": "P4-N8-E05",
+        "goal": "P4-K3",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich melden"
+          ],
+          "instruction": "Was sagst du in dieser Situation?",
+          "question": "Wie beginnst du einen Anruf in einer Firma?",
+          "options": [
+            "Auf Wiederhören.",
+            "Guten Tag, hier ist Mia Bondar.",
+            "Hallo, wer bist du?"
+          ],
+          "correct_answer": "Guten Tag, hier ist Mia Bondar.",
+          "accepted_answers": [
+            "Guten Tag, hier ist Mia Bondar."
+          ]
+        },
+        "accepted_answers": [
+          "Guten Tag, hier ist Mia Bondar."
+        ],
+        "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
+        "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+        "explanation_card": "p4_telefon",
+        "translations": {
+          "en": {
+            "instruction": "What do you say in this situation?",
+            "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
+            "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+            "task": "How do you begin a phone call to a company?"
+          },
+          "ru": {
+            "instruction": "Что вы скажете в этой ситуации?",
+            "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
+            "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+            "task": "Как вы начнёте звонок в фирму?"
+          },
+          "uk": {
+            "instruction": "Що ви скажете в цій ситуації?",
+            "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
+            "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+            "task": "Як ви почнете дзвінок у фірму?"
+          },
+          "tr": {
+            "instruction": "Bu durumda ne dersiniz?",
+            "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
+            "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+            "task": "Bir şirketi aradığınızda konuşmaya nasıl başlarsınız?"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "38799b1a6218f392a7ef7c291e6c973956e3deed42b7c2b7770627a3776a9dad",
+      "reviewSourceExerciseEditorialSha256": "38799b1a6218f392a7ef7c291e6c973956e3deed42b7c2b7770627a3776a9dad",
+      "currentCorrectAnswer": "Guten Tag, hier ist Mia Bondar.",
+      "proposedCorrectAnswer": "Guten Tag, hier ist Milan Bondar.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "948fdca0-e443-5184-a1bb-8bd02b9a4bfe",
+      "canonicalIdentity": {
+        "level": "A2.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N4",
+        "sourceRef": "P1-N4-E03",
+        "goal": "P1-G1",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "948fdca0-e443-5184-a1bb-8bd02b9a4bfe",
+        "ref": "P1-N4-E03",
+        "goal": "P1-G1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Verb am Ende"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Mia geht nicht zur Party. Sie ist müde. → Mia geht nicht zur Party, …",
+          "options": [
+            "weil sie ist müde.",
+            "weil ist sie müde.",
+            "weil sie müde ist."
+          ],
+          "correct_answer": "weil sie müde ist.",
+          "accepted_answers": [
+            "weil sie müde ist."
+          ]
+        },
+        "accepted_answers": [
+          "weil sie müde ist."
+        ],
+        "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
+        "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+        "explanation_card": "p1_weil",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
+            "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "task": "Mia is not going to the party. She is tired. → Mia is not going to the party because she is tired."
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
+            "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "task": "Mia не идёт на вечеринку. Она устала. → Mia не идёт на вечеринку, потому что устала."
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
+            "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "task": "Mia не йде на вечірку. Вона втомилася. → Mia не йде на вечірку, тому що втомилася."
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
+            "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "task": "Mia partiye gitmiyor. Yorgun. → Mia partiye gitmiyor, çünkü yorgun."
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "948fdca0-e443-5184-a1bb-8bd02b9a4bfe",
+        "ref": "P1-N4-E03",
+        "goal": "P1-G1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Verb am Ende"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Mia geht nicht zur Party. Sie ist müde. → Mia geht nicht zur Party, …",
+          "options": [
+            "weil sie ist müde.",
+            "weil ist sie müde.",
+            "weil sie müde ist."
+          ],
+          "correct_answer": "weil sie müde ist.",
+          "accepted_answers": [
+            "weil sie müde ist."
+          ]
+        },
+        "accepted_answers": [
+          "weil sie müde ist."
+        ],
+        "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
+        "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+        "explanation_card": "p1_weil",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
+            "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "task": "Mia is not going to the party. She is tired. → Mia is not going to the party because she is tired."
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
+            "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "task": "Mia не идёт на вечеринку. Она устала. → Mia не идёт на вечеринку, потому что устала."
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
+            "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "task": "Mia не йде на вечірку. Вона втомилася. → Mia не йде на вечірку, тому що втомилася."
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
+            "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "task": "Mia partiye gitmiyor. Yorgun. → Mia partiye gitmiyor, çünkü yorgun."
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "07d253c3b3cd5f43db3555c14f4516a607ab01fbd0467db48031da1f16d74078",
+      "reviewSourceExerciseEditorialSha256": "07d253c3b3cd5f43db3555c14f4516a607ab01fbd0467db48031da1f16d74078",
+      "currentCorrectAnswer": "weil sie müde ist.",
+      "proposedCorrectAnswer": "weil er müde ist.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "a054896c-401c-551d-a610-78838cc07a1c",
+      "canonicalIdentity": {
+        "level": "B1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N9",
+        "sourceRef": "P5-N9-E04",
+        "goal": "P5-K3",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "a054896c-401c-551d-a610-78838cc07a1c",
+        "ref": "P5-N9-E04",
+        "goal": "P5-K3",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Begrüßung im Gespräch"
+          ],
+          "instruction": "Was sagst du in dieser Situation?",
+          "question": "Du kommst zum Vorstellungsgespräch und begrüßt die Chefin. Was sagst du?",
+          "options": [
+            "Oh, ich muss jetzt leider los.",
+            "Hallo, wie läuft es denn so?",
+            "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+          ],
+          "correct_answer": "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.",
+          "accepted_answers": [
+            "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+          ]
+        },
+        "accepted_answers": [
+          "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+        ],
+        "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig. Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+        "explanation": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseurin gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+        "explanation_card": "p5_arbeit",
+        "translations": {
+          "en": {
+            "instruction": "What do you say in this situation?",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (worked in sales). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseurin gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+            "task": "You arrive for the job interview and greet the boss. What do you say?"
+          },
+          "ru": {
+            "instruction": "Что вы скажете в этой ситуации?",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (работал в продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseurin gemacht. (Я выучилась на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+            "task": "Вы приходите на собеседование и здороваетесь с начальницей. Что вы скажете?"
+          },
+          "uk": {
+            "instruction": "Що ви скажете в цій ситуації?",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (працював у продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseurin gemacht. (Я вивчилася на перукарку.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+            "task": "Ви приходите на співбесіду і вітаєтеся з начальницею. Що ви скажете?"
+          },
+          "tr": {
+            "instruction": "Bu durumda ne dersiniz?",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (satışta çalıştım). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseurin gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+            "task": "İş görüşmesine geliyorsunuz ve müdürü selamlıyorsunuz. Ne dersiniz?"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "a054896c-401c-551d-a610-78838cc07a1c",
+        "ref": "P5-N9-E04",
+        "goal": "P5-K3",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Begrüßung im Gespräch"
+          ],
+          "instruction": "Was sagst du in dieser Situation?",
+          "question": "Du kommst zum Vorstellungsgespräch und begrüßt die Chefin. Was sagst du?",
+          "options": [
+            "Oh, ich muss jetzt leider los.",
+            "Hallo, wie läuft es denn so?",
+            "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+          ],
+          "correct_answer": "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.",
+          "accepted_answers": [
+            "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+          ]
+        },
+        "accepted_answers": [
+          "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+        ],
+        "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig. Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+        "explanation": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
+        "explanation_card": "p5_arbeit",
+        "translations": {
+          "en": {
+            "instruction": "What do you say in this situation?",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (worked in sales). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Talking about your own work – in a job interview too: Ich bin Mechaniker von Beruf. (I am a mechanic by profession.) Ich habe eine Ausbildung als Friseur gemacht. (I trained as a hairdresser.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Before that I worked as a waiter in a hotel.) Ich war im Verkauf / im Lager tätig. (I worked in sales / in the warehouse.) Dort war ich für die Bestellungen zuständig (zuständig für + accusative: I was responsible for the orders there). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. At the start: Vielen Dank für die Einladung zum Gespräch. (Thank you very much for inviting me to the interview.)",
+            "task": "You arrive for the job interview and greet the boss. What do you say?"
+          },
+          "ru": {
+            "instruction": "Что вы скажете в этой ситуации?",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (работал в продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
+            "task": "Вы приходите на собеседование и здороваетесь с начальницей. Что вы скажете?"
+          },
+          "uk": {
+            "instruction": "Що ви скажете в цій ситуації?",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (працював у продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
+            "task": "Ви приходите на співбесіду і вітаєтеся з начальницею. Що ви скажете?"
+          },
+          "tr": {
+            "instruction": "Bu durumda ne dersiniz?",
+            "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (satışta çalıştım). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+            "explanation": "Kendi işiniz hakkında konuşmak – iş görüşmesinde de: Ich bin Mechaniker von Beruf. (Mesleğim tamircilik.) Ich habe eine Ausbildung als Friseur gemacht. (Kuaförlük eğitimi aldım.) Davor habe ich als Kellner in einem Hotel gearbeitet. (Ondan önce bir otelde garson olarak çalıştım.) Ich war im Verkauf / im Lager tätig. (Satışta / depoda çalıştım.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: orada siparişlerden sorumluydum). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Başlangıçta: Vielen Dank für die Einladung zum Gespräch. (Görüşmeye davet ettiğiniz için çok teşekkür ederim.)",
+            "task": "İş görüşmesine geliyorsunuz ve müdürü selamlıyorsunuz. Ne dersiniz?"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "8d4980438c30d63969f3751248c4ff3c8d70dbac0ba4b055b41fe3a5ccb986b9",
+      "reviewSourceExerciseEditorialSha256": "5bb233f05e60dabe4884b1abe5d02670c3f3426c2c7b68bc62565c0bddd58d11",
+      "currentCorrectAnswer": "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.",
+      "proposedCorrectAnswer": "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": null,
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "465e830d-bd8b-59b3-a979-965ca0399531",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N10",
+        "sourceRef": "P5-N10-E02",
+        "goal": "P5-Z1",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_ANSWER_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "465e830d-bd8b-59b3-a979-965ca0399531",
+        "ref": "P5-N10-E02",
+        "goal": "P5-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Lesetext"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Was macht Olena am Nachmittag?",
+          "options": [
+            "Sie arbeitet im Krankenhaus.",
+            "Sie kauft ein und kocht.",
+            "Sie ruft ihre Mutter an."
+          ],
+          "correct_answer": "Sie kauft ein und kocht.",
+          "accepted_answers": [
+            "Sie kauft ein und kocht."
+          ]
+        },
+        "accepted_answers": [
+          "Sie kauft ein und kocht."
+        ],
+        "hint": "Such im Text die Uhrzeiten und die Verben.",
+        "explanation": "Über den eigenen Tag sprechen: Aktivitäten mit Uhrzeiten verbinden: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Reihenfolge: zuerst, dann, danach.",
+        "explanation_card": "p5_routine",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the times and the verbs in the text.",
+            "explanation": "Talking about your day: link activities with times: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Order words: zuerst (first), dann (then), danach (after that).",
+            "task": "What does Olena do in the afternoon?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите в тексте время и глаголы.",
+            "explanation": "Рассказ о своём дне: связывайте действия со временем: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (сначала), dann (потом), danach (после этого).",
+            "task": "Что Olena делает после обеда?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть у тексті час і дієслова.",
+            "explanation": "Розповідь про свій день: пов’язуйте дії з часом: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (спочатку), dann (потім), danach (після цього).",
+            "task": "Що Olena робить після обіду?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Metinde saatleri ve fiilleri bulun.",
+            "explanation": "Kendi gününüzü anlatma: Etkinlikleri saatlerle bağlayın: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Sıra: zuerst (önce), dann (sonra), danach (ondan sonra).",
+            "task": "Olena öğleden sonra ne yapıyor?"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "465e830d-bd8b-59b3-a979-965ca0399531",
+        "ref": "P5-N10-E02",
+        "goal": "P5-Z1",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "Lesetext"
+          ],
+          "instruction": "Lies den Text und wähle die richtige Antwort.",
+          "question": "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Was macht Olena am Nachmittag?",
+          "options": [
+            "Sie arbeitet im Krankenhaus.",
+            "Sie kauft ein und kocht.",
+            "Sie ruft ihre Mutter an."
+          ],
+          "correct_answer": "Sie kauft ein und kocht.",
+          "accepted_answers": [
+            "Sie kauft ein und kocht."
+          ]
+        },
+        "accepted_answers": [
+          "Sie kauft ein und kocht."
+        ],
+        "hint": "Such im Text die Uhrzeiten und die Verben.",
+        "explanation": "Über den eigenen Tag sprechen: Aktivitäten mit Uhrzeiten verbinden: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Reihenfolge: zuerst, dann, danach.",
+        "explanation_card": "p5_routine",
+        "translations": {
+          "en": {
+            "instruction": "Read the text and choose the correct answer.",
+            "hint": "Look for the times and the verbs in the text.",
+            "explanation": "Talking about your day: link activities with times: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Order words: zuerst (first), dann (then), danach (after that).",
+            "task": "What does Olena do in the afternoon?"
+          },
+          "ru": {
+            "instruction": "Прочитайте текст и выберите правильный ответ.",
+            "hint": "Найдите в тексте время и глаголы.",
+            "explanation": "Рассказ о своём дне: связывайте действия со временем: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (сначала), dann (потом), danach (после этого).",
+            "task": "Что Olena делает после обеда?"
+          },
+          "uk": {
+            "instruction": "Прочитайте текст і виберіть правильну відповідь.",
+            "hint": "Знайдіть у тексті час і дієслова.",
+            "explanation": "Розповідь про свій день: пов’язуйте дії з часом: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (спочатку), dann (потім), danach (після цього).",
+            "task": "Що Olena робить після обіду?"
+          },
+          "tr": {
+            "instruction": "Metni okuyun ve doğru cevabı seçin.",
+            "hint": "Metinde saatleri ve fiilleri bulun.",
+            "explanation": "Kendi gününüzü anlatma: Etkinlikleri saatlerle bağlayın: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Sıra: zuerst (önce), dann (sonra), danach (ondan sonra).",
+            "task": "Olena öğleden sonra ne yapıyor?"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "63ef41a2ea14a285c917bb406067272672f01b36f2f77f823219476691f9064a",
+      "reviewSourceExerciseEditorialSha256": "63ef41a2ea14a285c917bb406067272672f01b36f2f77f823219476691f9064a",
+      "currentCorrectAnswer": "Sie kauft ein und kocht.",
+      "proposedCorrectAnswer": "Er kauft ein und kocht.",
+      "correctAnswerChanges": true,
+      "proposedOptionRepairs": null,
+      "fullNewVersionProposal": {
+        "question": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag?",
+        "options": [
+          "Er arbeitet im Krankenhaus.",
+          "Er kauft ein und kocht.",
+          "Er ruft seinen Vater an."
+        ],
+        "correct_answer": "Er kauft ein und kocht.",
+        "accepted_answers": [
+          "Er kauft ein und kocht."
+        ]
+      },
+      "s7Findings": [],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N11",
+        "sourceRef": "P1-N11-E06",
+        "goal": "P1-G4",
+        "type": "multiple_choice"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_PROTECTED_OPTION_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+        "ref": "P1-N11-E06",
+        "goal": "P1-G4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich vorstellen"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Olena stellt sich am Telefon vor. Was ist richtig?",
+          "options": [
+            "Mein Name ist Frau Marchenko.",
+            "Mein Name ist Marchenko.",
+            "Ich heiße Frau Olena."
+          ],
+          "correct_answer": "Mein Name ist Marchenko.",
+          "accepted_answers": [
+            "Mein Name ist Marchenko."
+          ]
+        },
+        "accepted_answers": [
+          "Mein Name ist Marchenko."
+        ],
+        "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
+        "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+        "explanation_card": "p1_name",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
+            "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+            "task": "Olena introduces herself on the phone. What is correct?"
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
+            "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+            "task": "Olena представляется по телефону. Что правильно?"
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
+            "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+            "task": "Olena представляється телефоном. Що правильно?"
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
+            "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+            "task": "Olena telefonda kendini tanıtıyor. Hangisi doğru?"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+        "ref": "P1-N11-E06",
+        "goal": "P1-G4",
+        "exercise_type": "multiple_choice",
+        "content": {
+          "target_form": [
+            "sich vorstellen"
+          ],
+          "instruction": "Wähle die richtige Antwort.",
+          "question": "Oleh stellt sich am Telefon vor. Was ist richtig?",
+          "options": [
+            "Mein Name ist Frau Marchenko.",
+            "Mein Name ist Marchenko.",
+            "Ich heiße Frau Olena."
+          ],
+          "correct_answer": "Mein Name ist Marchenko.",
+          "accepted_answers": [
+            "Mein Name ist Marchenko."
+          ]
+        },
+        "accepted_answers": [
+          "Mein Name ist Marchenko."
+        ],
+        "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
+        "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+        "explanation_card": "p1_name",
+        "translations": {
+          "en": {
+            "instruction": "Choose the correct answer.",
+            "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
+            "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+            "task": "Oleh introduces himself on the phone. What is correct?"
+          },
+          "ru": {
+            "instruction": "Выберите правильный ответ.",
+            "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
+            "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+            "task": "Oleh представляется по телефону. Что правильно?"
+          },
+          "uk": {
+            "instruction": "Виберіть правильну відповідь.",
+            "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
+            "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+            "task": "Oleh представляється телефоном. Що правильно?"
+          },
+          "tr": {
+            "instruction": "Doğru cevabı seçin.",
+            "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
+            "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+            "task": "Oleh telefonda kendini tanıtıyor. Hangisi doğru?"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "6790fafa685fbd6e5b7f274d4159264ea8b6db75b53884afd7e019ef8a0dccbd",
+      "reviewSourceExerciseEditorialSha256": "cf1e0e6cc518fa309e5961759eb793e979e0f53a7b18d7a43d30cb1cf70c0329",
+      "currentCorrectAnswer": "Mein Name ist Marchenko.",
+      "proposedCorrectAnswer": "Mein Name ist Marchenko.",
+      "correctAnswerChanges": false,
+      "proposedOptionRepairs": [
+        {
+          "field": "content.options/0",
+          "old": "Mein Name ist Frau Marchenko.",
+          "new": "Mein Name ist Herr Marchenko."
+        },
+        {
+          "field": "content.options/2",
+          "old": "Ich heiße Frau Olena.",
+          "new": "Ich heiße Herr Oleh."
+        }
+      ],
+      "fullNewVersionProposal": null,
+      "s7Findings": [
+        "S7-E9-F01"
+      ],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    },
+    {
+      "exerciseId": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+      "canonicalIdentity": {
+        "level": "A1.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N9",
+        "sourceRef": "P1-N9-E03",
+        "goal": "P1-Z1",
+        "type": "fill_in_blank"
+      },
+      "classification": "SAME_TARGET_CONTEXT_AND_PROTECTED_OPTION_RENAME",
+      "actualConstructChange": false,
+      "currentBaseExercise": {
+        "id": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+        "ref": "P1-N9-E03",
+        "goal": "P1-Z1",
+        "exercise_type": "fill_in_blank",
+        "content": {
+          "target_form": [
+            "Anmeldeformular"
+          ],
+          "instruction": "Ergänze das Formular.",
+          "text_before": "Ich heiße Olena Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: ",
+          "text_after": "",
+          "correct_answer": "Marchenko",
+          "options": [
+            "Olena",
+            "Marchenko",
+            "Lwiw"
+          ],
+          "accepted_answers": [
+            "Marchenko"
+          ]
+        },
+        "accepted_answers": [
+          "Marchenko"
+        ],
+        "hint": "Auf Visitenkarten und Formularen stehen feste Wörter: Vorname, Familienname, Firma, Telefon.",
+        "explanation": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Olena), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+        "explanation_card": "p1_card",
+        "translations": {
+          "en": {
+            "instruction": "Complete the form.",
+            "hint": "Forms and cards use fixed words: Vorname = first name, Familienname = surname, Firma = company.",
+            "explanation": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
+            "task": "My name is Olena Marchenko. I come from Lviv, from Ukraine. Form: surname: …"
+          },
+          "ru": {
+            "instruction": "Заполните анкету.",
+            "hint": "В анкетах и на визитках постоянные слова: Vorname – имя, Familienname – фамилия, Firma – фирма.",
+            "explanation": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
+            "task": "Меня зовут Olena Marchenko. Я из Львова, из Украины. Анкета: фамилия: …"
+          },
+          "uk": {
+            "instruction": "Заповніть анкету.",
+            "hint": "В анкетах і на візитівках сталі слова: Vorname – ім’я, Familienname – прізвище, Firma – фірма.",
+            "explanation": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
+            "task": "Мене звати Olena Marchenko. Я зі Львова, з України. Анкета: прізвище: …"
+          },
+          "tr": {
+            "instruction": "Formu doldurun.",
+            "hint": "Form ve kartvizitlerde sabit kelimeler vardır: Vorname = ad, Familienname = soyadı, Firma = firma.",
+            "explanation": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
+            "task": "Benim adım Olena Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …"
+          }
+        }
+      },
+      "reviewSourceExercise": {
+        "id": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+        "ref": "P1-N9-E03",
+        "goal": "P1-Z1",
+        "exercise_type": "fill_in_blank",
+        "content": {
+          "target_form": [
+            "Anmeldeformular"
+          ],
+          "instruction": "Ergänze das Formular.",
+          "text_before": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: ",
+          "text_after": "",
+          "correct_answer": "Marchenko",
+          "options": [
+            "Olena",
+            "Marchenko",
+            "Lwiw"
+          ],
+          "accepted_answers": [
+            "Marchenko"
+          ]
+        },
+        "accepted_answers": [
+          "Marchenko"
+        ],
+        "hint": "Auf Visitenkarten und Formularen stehen feste Wörter: Vorname, Familienname, Firma, Telefon.",
+        "explanation": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Olena), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+        "explanation_card": "p1_card",
+        "translations": {
+          "en": {
+            "instruction": "Complete the form.",
+            "hint": "Forms and cards use fixed words: Vorname = first name, Familienname = surname, Firma = company.",
+            "explanation": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
+            "task": "My name is Oleh Marchenko. I come from Lviv, from Ukraine. Form: surname: …"
+          },
+          "ru": {
+            "instruction": "Заполните анкету.",
+            "hint": "В анкетах и на визитках постоянные слова: Vorname – имя, Familienname – фамилия, Firma – фирма.",
+            "explanation": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
+            "task": "Меня зовут Oleh Marchenko. Я из Львова, из Украины. Анкета: фамилия: …"
+          },
+          "uk": {
+            "instruction": "Заповніть анкету.",
+            "hint": "В анкетах і на візитівках сталі слова: Vorname – ім’я, Familienname – прізвище, Firma – фірма.",
+            "explanation": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
+            "task": "Мене звати Oleh Marchenko. Я зі Львова, з України. Анкета: прізвище: …"
+          },
+          "tr": {
+            "instruction": "Formu doldurun.",
+            "hint": "Form ve kartvizitlerde sabit kelimeler vardır: Vorname = ad, Familienname = soyadı, Firma = firma.",
+            "explanation": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
+            "task": "Benim adım Oleh Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …"
+          }
+        }
+      },
+      "currentBaseExerciseEditorialSha256": "7dfb75537379b782fc5f5afdb8c541ccfc4c6d1c0827d7dada891ebdcf5cdf92",
+      "reviewSourceExerciseEditorialSha256": "b10cf266a520d8e8632cc589903ce7239e3a317a8540f772ec5b00dab8feb7f5",
+      "currentCorrectAnswer": "Marchenko",
+      "proposedCorrectAnswer": "Marchenko",
+      "correctAnswerChanges": false,
+      "proposedOptionRepairs": [
+        {
+          "field": "content.options/0",
+          "old": "Olena",
+          "new": "Oleh"
+        }
+      ],
+      "fullNewVersionProposal": null,
+      "s7Findings": [
+        "S7-E9-F02"
+      ],
+      "publicationStatus": "HOLD_REVIEW_AUDIO_ARCHIVE_CAS",
+      "note": "Same goal/type does not mean same current key/options or unchanged immutable revision. Before-images here are source evidence, not a production DB archive."
+    }
+  ],
+  "outsideScope": {
+    "constructChanged": "S7-E9-F03: granddaughter relation inference was replaced with feminine word formation; M/S2 source-faithful relation repair required. Not part of these17.",
+    "inheritedAmbiguity": "S7-E9-F07: tätig/selbstständig; future separate revision, no historic key rewrite."
+  },
+  "testEvidence": {
+    "command": "./node_modules/.bin/jest __tests__/learning-path-actions.test.ts __tests__/sitov-learning-specials-contract.test.ts --runInBand",
+    "suitesPassed": 2,
+    "testsPassed": 17,
+    "scope": "mocked action/DTO contracts only; no DB snapshot/revision/live preservation proof"
+  },
+  "databaseQueried": false,
+  "productChanged": false,
+  "migrationImplemented": false,
+  "allocationRequest": "114 requested from M ONLY for minimal append-only source revision ledger/CAS authoring guard and narrowly scoped old-help fallback guard; no learner run redesign."
+}
