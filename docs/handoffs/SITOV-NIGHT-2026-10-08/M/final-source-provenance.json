@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-09T13:30:16.268041+00:00",
+  "nonAppDeltaFiles": 109,
+  "allAppDependenciesUnchanged": true,
+  "all17CanonicalVpsDigestsMatch": true,
+  "actualTestLogDigestsMatch": true,
+  "all30MReviewedInactiveUncalibrated": true,
+  "releaseReady": false,
+  "sourceIntegrationSha": "294badb9a14b2df5773176f1c4ffc301b7fb9321"
+}

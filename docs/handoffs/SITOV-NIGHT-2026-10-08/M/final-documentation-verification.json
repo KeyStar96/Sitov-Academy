@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-09T13:33:13.060471+00:00",
+  "scope": "Independent M final readback of S6epoch14; technical candidate remains incomplete and NOT_RELEASE_READY",
+  "sourceIntegrationSha": "294badb9a14b2df5773176f1c4ffc301b7fb9321",
+  "vaultPath": "/Users/denniskostjuk/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Life-OS/01 Projects/Sitov-Academy/43_SITOV-NIGHT-2026-10-08_Integrationsstand.md",
+  "vaultBeforeSha256": "72feaf940d51c970a82e6aa7accc53876c9b24a607d83512679234446ad9ba7f",
+  "vaultAfterSha256": "6b5648eb55db61b77c12c5ecc83c6018c0a92c5cf92afa8a79526e73a9b1cd70",
+  "all8SourceFileDigestsMatch": true,
+  "allPrivateBackupPatchDigestsMatch": true,
+  "frontmatterUnchanged": true,
+  "all8WikiLinksAndTargetsPreserved": true,
+  "allPriorHistoryBytesPreservedExceptArchivedH2": true,
+  "exactPatchReplayMatchesActualNote": true,
+  "leaseOnTime": true,
+  "s6ReceiptSha256": "a2d708c7d440ff150a0da6b1a12a394f1db2bc62338334370d4c333569b2f036",
+  "sourceSnapshotSha256": "c2a06703413fb56e271afd921e0d9bbd2d564e5ddce871f2d3c8fd12457164d2",
+  "releaseReady": false,
+  "productionWrite": false
+}
