@@ -1,11 +1,11 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { randomUUID } from 'crypto'
 import SitovPronunciationPretest, { type SitovPronunciationPretestProps } from '@/components/audio/SitovPronunciationPretest'
 import LernkastenGuide from '@/components/vocabulary/LernkastenGuide'
 import { createVocabularyTranslator } from '@/lib/vocabulary-i18n'
 import { sitovPronunciationPretestCopy } from '@/lib/sitov-pronunciation-pretest-i18n'
 import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
-import type { SitovPronunciationPretestAttemptWithTasks } from '@/lib/sitov-pronunciation-pretest-contract'
+import type { SitovPronunciationPretestAttemptWithTasks, SitovPronunciationPretestCompletedAttempt, SitovPronunciationPretestLearningLink } from '@/lib/sitov-pronunciation-pretest-contract'
 
 jest.unmock('lucide-react')
 jest.unmock('framer-motion')
@@ -88,13 +88,13 @@ it.each([true, false])('renders only the server terminal result (passed=%s)', as
   const proof = { id: textId, textId, textVersion: version, testVersion, passedAttemptId: attemptId, passedAt: '2026-10-08T21:00:00Z', compatibilityId: null }
   const result = { attemptId, textId, textVersion: version, testVersion, passed, correct: passed ? 3 : 1, total: 3,
     competencies: [{ id: 'sitov.words', correct: passed ? 3 : 1, total: 3, required: 2, met: passed }], failedCompetencyIds: passed ? [] : ['sitov.words'],
-    learningLinks: passed ? [] : [{ kind: 'vocabulary', level: 'A1.1', targetId: 'sitov.words', href: '/de/dashboard/level/A1.1/vocabulary' }], proof: passed ? proof : null }
+    learningLinks: passed ? [] : [sitovExactLinks[0]], proof: passed ? proof : null }
   p.entry = { ...p.entry, status: 'in_progress', target: 'resume_pretest', attempt: open.attempt }
   ;(p.onResume as jest.Mock).mockResolvedValue({ ok: true, data: { attempt: done, result } })
   render(<SitovPronunciationPretest {...p} />); fireEvent.click(screen.getByRole('button', { name: 'Resume pretest' }))
   await screen.findByRole('heading', { name: passed ? 'Pretest passed' : 'Not passed yet' })
   if (passed) expect(screen.getByRole('button', { name: 'Open speaking text' })).toBeEnabled()
-  else { expect(screen.getByRole('link', { name: 'Practise words' })).toHaveAttribute('href', '/en/dashboard/level/A1.1/vocabulary'); expect(screen.queryByRole('button', { name: 'Open speaking text' })).not.toBeInTheDocument() }
+  else { expect(screen.getByRole('link', { name: 'Practise words' })).toHaveAttribute('href', sitovExactLinks[0].href.replace(/^\/de\//, '/en/')); expect(screen.queryByRole('button', { name: 'Open speaking text' })).not.toBeInTheDocument() }
   expect(p.onOpenText).not.toHaveBeenCalled()
 })
 it('submits the resumed revision and waits for the persisted pass before offering the exact text', async () => {
@@ -123,4 +123,67 @@ it('opens short vocabulary Help with its topic and retains the original learning
   render(<LernkastenGuide lang="en" t={createVocabularyTranslator({})} />)
   fireEvent.click(screen.getByRole('button', { name: sitovTrainerHelpCopy('en').label }))
   await waitFor(() => expect(screen.getByRole('heading', { name: 'Your vocabulary learning box' })).toBeInTheDocument())
+})
+
+
+// Exact destination fixtures use the frozen consumer routes; UUIDs are UI-port
+// fixtures, while the verb ID is an existing catalog identifier. No DB lookup.
+const sitovCardId = '00000000-0000-4000-8000-000000000003'
+const sitovNodeId = '00000000-0000-4000-8000-000000000004'
+const sitovVerbId = 'sitov-verb-abholen'
+const sitovExactLinks: SitovPronunciationPretestLearningLink[] = [
+  { kind: 'vocabulary', level: 'A1.1', targetId: sitovCardId, href: `/de/dashboard/level/A1.1/vocabulary/lessons?sitov_target=${sitovCardId}` },
+  { kind: 'verbs', level: 'A1.1', targetId: sitovVerbId, href: `/de/dashboard/level/A1.1/verbs?sitov_target=${sitovVerbId}&tense=present` },
+  { kind: 'learning_path', level: 'A1.1', targetId: sitovNodeId, href: `/de/dashboard/level/A1.1/path?sitov_target=${sitovNodeId}` },
+]
+function sitovFailedResult(learningLinks: SitovPronunciationPretestLearningLink[]): SitovPronunciationPretestCompletedAttempt {
+  const attempt = data().attempt
+  return { attempt: { ...attempt, status: 'failed', revision: 5, answeredCount: 3, answers: Object.fromEntries(attempt.questionIds.map(id => [id, 'sitov.o0'])) },
+    result: { attemptId, textId, textVersion: version, testVersion, passed: false, correct: 1, total: 3,
+      competencies: [{ id: 'sitov.words', correct: 1, total: 3, required: 2, met: false }], failedCompetencyIds: ['sitov.words'], learningLinks, proof: null } }
+}
+const sitovLinkCases = ['de', 'en', 'ru', 'uk', 'tr'].flatMap(lang => ['resume', 'submit'].map(via => ({ lang, via, links: sitovExactLinks })))
+sitovLinkCases.push(...['resume', 'submit'].map(via => ({ lang: 'en', via, links: [] })))
+it.each(sitovLinkCases)('retains exact recommendations and explicit retake after failed $via in $lang ($links.length links)', async ({ lang, via, links }) => {
+  const p = props(), copy = sitovPronunciationPretestCopy(lang), resumed = data(), failed = sitovFailedResult(links)
+  resumed.attempt.answers = { ...failed.attempt.answers }; resumed.attempt.answeredCount = 3; resumed.attempt.revision = 4
+  p.entry = { ...p.entry, status: 'in_progress', target: 'resume_pretest', attempt: resumed.attempt }
+  ;(p.onResume as jest.Mock).mockResolvedValue({ ok: true, data: via === 'resume' ? failed : resumed })
+  ;(p.onSubmit as jest.Mock).mockResolvedValue({ ok: true, data: failed })
+  const view = render(<SitovPronunciationPretest {...p} lang={lang} />)
+  fireEvent.click(screen.getByRole('button', { name: copy.resume }))
+  if (via === 'submit') {
+    const question = await screen.findByText('Wähle Antwort 3.')
+    expect(question).toHaveAttribute('lang', 'de'); expect(question).toHaveAttribute('translate', 'no')
+    fireEvent.click(screen.getByRole('button', { name: copy.submit }))
+    await waitFor(() => expect(p.onSubmit).toHaveBeenCalledWith(expect.objectContaining({ attemptId, revision: 4, answers: resumed.attempt.answers })))
+  }
+  await screen.findByRole('heading', { name: copy.failed })
+  expect(p.onResume).toHaveBeenCalledWith(attemptId)
+  expect(p.onResume).toHaveBeenCalledTimes(1)
+  expect(p.onSubmit).toHaveBeenCalledTimes(via === 'submit' ? 1 : 0)
+  if (links.length) {
+    const nav = screen.getByRole('navigation', { name: copy.learning })
+    expect(within(nav).getAllByRole('link')).toHaveLength(3)
+    for (const link of links) {
+      const displayed = within(nav).getByRole('link', { name: copy[link.kind] })
+      expect(displayed).toHaveAttribute('href', link.href.replace(/^\/de\//, `/${lang}/`))
+      const href = new URL(displayed.getAttribute('href')!, 'https://sitov.test')
+      expect(href.pathname).toBe(`/${lang}/dashboard/level/A1.1/${link.kind === 'learning_path' ? 'path' : link.kind === 'vocabulary' ? 'vocabulary/lessons' : 'verbs'}`)
+      expect(href.searchParams.get('sitov_target')).toBe(link.targetId)
+      expect(href.searchParams.get('tense')).toBe(link.kind === 'verbs' ? 'present' : null)
+    }
+  } else {
+    expect(screen.queryByRole('navigation', { name: copy.learning })).not.toBeInTheDocument()
+    expect(screen.queryByRole('link')).not.toBeInTheDocument()
+  }
+  expect(screen.queryByRole('button', { name: copy.open })).not.toBeInTheDocument()
+  expect(view.container.querySelector('audio, video')).toBeNull()
+  expect(p.onOpenText).not.toHaveBeenCalled(); expect(p.onSave).not.toHaveBeenCalled()
+  expect(p.onRefresh).not.toHaveBeenCalled(); expect(p.onStart).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: copy.retry }))
+  await screen.findByText('Wähle Antwort 1.')
+  expect(p.onStart).toHaveBeenCalledTimes(1)
+  expect(p.onStart).toHaveBeenCalledWith({ textId, requestId: expect.any(String) })
+  expect(p.onOpenText).not.toHaveBeenCalled(); expect(p.onSave).not.toHaveBeenCalled()
 })
