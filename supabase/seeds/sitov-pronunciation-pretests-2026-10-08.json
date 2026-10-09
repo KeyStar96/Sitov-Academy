@@ -53686,16 +53686,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen,216 Optionen, Schlüssel und Begründungen,12 Kerne und drei vollständige Quellen unabhängig geprüft. Tatsächliche Formen und Satzrelationen mit sichtbaren Prämissen und sprechbaren Aufgaben sind stimmig. Exakte Audio-/Versionsbindung, Kalibrierung und Lernziel-Lücken bleiben separat.",
+        "notesDe": "M hat4 B1.2-Fragen samtVollquellen unabhängig geprüft: Dativfrage ohneLösungsleck, Grundformohnezu präzisiert undDativbegründunggrammatischkorrigiert. Schlüssel/WortlautderkorrektenAntworten/Matrixerhalten. NeueunveränderlicheDefinition undexakteAudiosvorPublikation. KeineHörabnahme/Kalibrierungsbehauptung",
         "textVersion": "b5a2bf237ab09cc5e11e35b5407a4a52dae4f80f039d9676b8cc563541f3ffe0",
-        "definitionContentHash": "9dfdbd9202f9982488ad002cd8532d0d4b2de604ba01058ce56458d1931f9762",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools52-54-M",
-        "documentSha256": "1df77d08b5ce237fbd2d433836918d30897e26b123ee35391db609522ae942f8",
-        "reviewedAt": "2026-10-09T20:00:21.847Z",
+        "definitionContentHash": "b69058cc9d8866e7768949ae32d242fc3e64f3d585de2615aee607eba480746d",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b12-audit4-M",
+        "documentSha256": "73b34174cd52185458f5d1cd9ac9b8fc9686bc2afb142b92f3f9505c98fd0fa7",
+        "reviewedAt": "2026-10-09T20:59:56.228Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -54484,7 +54484,7 @@
             "id": "sitov.pretest.b12-02.nominal.q1",
             "competencyId": "sitov.pretest.b12-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Das Treffen findet auf dem Platz statt. Welcher Artikel steht nach »auf« vor »Platz« in dieser Ortsangabe?",
+            "promptDe": "Der Platz ist der Ort des Treffens. Welcher Artikel steht nach »auf« vor »Platz« in dieser Ortsangabe?",
             "fragmentDe": null,
             "options": [
               {
@@ -55771,16 +55771,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen,216 Optionen, Schlüssel und Begründungen,12 Kerne und drei vollständige Quellen unabhängig geprüft. Tatsächliche Formen und Satzrelationen mit sichtbaren Prämissen und sprechbaren Aufgaben sind stimmig. Exakte Audio-/Versionsbindung, Kalibrierung und Lernziel-Lücken bleiben separat.",
+        "notesDe": "M hat4 B1.2-Fragen samtVollquellen unabhängig geprüft: Dativfrage ohneLösungsleck, Grundformohnezu präzisiert undDativbegründunggrammatischkorrigiert. Schlüssel/WortlautderkorrektenAntworten/Matrixerhalten. NeueunveränderlicheDefinition undexakteAudiosvorPublikation. KeineHörabnahme/Kalibrierungsbehauptung",
         "textVersion": "199717546e69a3c31ed96b79781534b80b03a3bae92b83d11885cc3bcd46a16e",
-        "definitionContentHash": "3d6c72866c2957bc8cc74827f8a68c176329a828a6405564b54b536c490fa689",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools52-54-M",
-        "documentSha256": "1df77d08b5ce237fbd2d433836918d30897e26b123ee35391db609522ae942f8",
-        "reviewedAt": "2026-10-09T20:00:21.847Z",
+        "definitionContentHash": "72ea82229c051fa617b5b895582ef929fd24a5dfde3569639366ecc2f3eadc57",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b12-audit4-M",
+        "documentSha256": "73b34174cd52185458f5d1cd9ac9b8fc9686bc2afb142b92f3f9505c98fd0fa7",
+        "reviewedAt": "2026-10-09T20:59:56.228Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -56318,7 +56318,7 @@
             "id": "sitov.pretest.b12-04.verbs.q5",
             "competencyId": "sitov.pretest.b12-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Wie lautet der Infinitiv zu »Der Vorstand stellte die Ausgaben vor«?",
+            "promptDe": "Welche Grundform (Infinitiv ohne zu) gehört zu »Der Vorstand stellte die Ausgaben vor«?",
             "fragmentDe": null,
             "options": [
               {
@@ -56816,16 +56816,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen,216 Optionen, Schlüssel und Begründungen,12 Kerne und drei vollständige Quellen unabhängig geprüft. Tatsächliche Formen und Satzrelationen mit sichtbaren Prämissen und sprechbaren Aufgaben sind stimmig. Exakte Audio-/Versionsbindung, Kalibrierung und Lernziel-Lücken bleiben separat.",
+        "notesDe": "M hat4 B1.2-Fragen samtVollquellen unabhängig geprüft: Dativfrage ohneLösungsleck, Grundformohnezu präzisiert undDativbegründunggrammatischkorrigiert. Schlüssel/WortlautderkorrektenAntworten/Matrixerhalten. NeueunveränderlicheDefinition undexakteAudiosvorPublikation. KeineHörabnahme/Kalibrierungsbehauptung",
         "textVersion": "56c3df1e34bbecd183c024e54818e1ff13f1803a36f1726f05850465fcf7972c",
-        "definitionContentHash": "a9d5902bced42ace548d2fec857454249161d45d35765d8832439376a21404fe",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools55-57-M",
-        "documentSha256": "7e96256c0b5448008b2aa6ceaad70e9462e5385cebb0e739c066d1ae197dbb5e",
-        "reviewedAt": "2026-10-09T20:11:54.680Z",
+        "definitionContentHash": "585c3652e32aca0e4220b1b29c5f310be92b6f798306cd4a051d90b524f171f8",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b12-audit4-M",
+        "documentSha256": "73b34174cd52185458f5d1cd9ac9b8fc9686bc2afb142b92f3f9505c98fd0fa7",
+        "reviewedAt": "2026-10-09T20:59:56.228Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -57271,7 +57271,7 @@
             "id": "sitov.pretest.b12-05.verbs.q2",
             "competencyId": "sitov.pretest.b12-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Wie lautet der Infinitiv zu »Programme lesen Texte vor«?",
+            "promptDe": "Welche Grundform (Infinitiv ohne zu) gehört zu »Programme lesen Texte vor«?",
             "fragmentDe": null,
             "options": [
               {
@@ -57865,16 +57865,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen,216 Optionen, Schlüssel und Begründungen,12 Kerne und drei vollständige Quellen unabhängig geprüft. Tatsächliche Formen und Satzrelationen mit sichtbaren Prämissen und sprechbaren Aufgaben sind stimmig. Exakte Audio-/Versionsbindung, Kalibrierung und Lernziel-Lücken bleiben separat.",
+        "notesDe": "M hat4 B1.2-Fragen samtVollquellen unabhängig geprüft: Dativfrage ohneLösungsleck, Grundformohnezu präzisiert undDativbegründunggrammatischkorrigiert. Schlüssel/WortlautderkorrektenAntworten/Matrixerhalten. NeueunveränderlicheDefinition undexakteAudiosvorPublikation. KeineHörabnahme/Kalibrierungsbehauptung",
         "textVersion": "77e5a2e3254ec85c6c712a2a54062cd0e20468d3f8e1937ce7ab172d174c1947",
-        "definitionContentHash": "b6345af275bc71b1d897cb45259e0dc78410b3fbc6cdc40a1db08fe402cc1ca1",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools55-57-M",
-        "documentSha256": "7e96256c0b5448008b2aa6ceaad70e9462e5385cebb0e739c066d1ae197dbb5e",
-        "reviewedAt": "2026-10-09T20:11:54.680Z",
+        "definitionContentHash": "be237bb10be060ee0c630e8ad5652beee849ebb625e2114817db975cfb7f8d7a",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b12-audit4-M",
+        "documentSha256": "73b34174cd52185458f5d1cd9ac9b8fc9686bc2afb142b92f3f9505c98fd0fa7",
+        "reviewedAt": "2026-10-09T20:59:56.228Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -58790,7 +58790,7 @@
                 "quote": "der anderen Person"
               }
             ],
-            "rationaleDe": "Der Person, der etwas fehlt, steht im Dativ; Singular lautet der anderen Person."
+            "rationaleDe": "Bei fehlen steht die betroffene Person im Dativ. Im femininen Singular lautet die Wortgruppe der anderen Person."
           },
           {
             "id": "sitov.pretest.b12-06.nominal.q5",
