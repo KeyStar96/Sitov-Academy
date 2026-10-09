@@ -1,0 +1,174 @@
+{
+  "counts": {
+    "users": 2,
+    "active": 5,
+    "assets": 1575,
+    "passes": 0,
+    "proofs": 3371,
+    "attempts": 0,
+    "inactive": 31,
+    "definitions": 36
+  },
+  "publication": false,
+  "passTransfer": false,
+  "newDefinitions": [
+    {
+      "id": "01013d6f-7756-4cc6-8130-6f89dfe5c419",
+      "active": false,
+      "text_id": "0022c931-279a-5050-ac2d-459c1e978cd1",
+      "test_version": "f35132bacdae7b6ee8a5e8e4fa570fc5f1a7bf3cf50ec513493a06c22e76ddeb",
+      "text_version": "d4621e96754919e5664e2a4b50061897e47377f43d879b578ad919f3d0e06fa6",
+      "question_proofs": 94
+    },
+    {
+      "id": "21db86cd-c255-43cd-8c09-6eb7621cacbc",
+      "active": false,
+      "text_id": "00cedd4e-cf66-50ae-a181-e687d85a8379",
+      "test_version": "a7d4564d60dc686f1715ffa35955738e6f33971c8bdfb111dd5f917869dbf8f9",
+      "text_version": "afb90ca92d92f558035a85d02f3117cd5e534aded0b0ff65a3dd3878a8486132",
+      "question_proofs": 96
+    },
+    {
+      "id": "78fc9278-23ec-4556-a770-236f69d0ea9c",
+      "active": false,
+      "text_id": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "test_version": "bfdf0968377f801694fc4ffb9f06b8708dde3ce87477a27452e37979fa621975",
+      "text_version": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+      "question_proofs": 94
+    },
+    {
+      "id": "6dce236d-abf3-4f1e-9817-6d6498813559",
+      "active": false,
+      "text_id": "1b5c02d4-7217-56e0-8abb-906c20784e30",
+      "test_version": "540ccefbf14a1d9e0bbaba59d9f88c4c01733c611cbbee5b025ba6467532071c",
+      "text_version": "e5f456eec833ee2dd3e6e9da51d565a55312bc3124740451fe2479866ae262f0",
+      "question_proofs": 94
+    },
+    {
+      "id": "9e2fd823-af48-43b6-89bf-78a0d288a0be",
+      "active": false,
+      "text_id": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "test_version": "d907856c7ab2575838633fab64d84f9a7382622e5ab9237de486af5e30b5aad0",
+      "text_version": "1d8ea3dbd24923f3c6a3ec7c9f319d84b475802b18996a605ee447f98bc1a961",
+      "question_proofs": 92
+    },
+    {
+      "id": "1d571643-4978-4a92-957f-aef3cdcf112b",
+      "active": false,
+      "text_id": "4a6f7008-9439-5c6e-9d60-113e8945f800",
+      "test_version": "f5c3f26f50d003c10f59a66c228487e7b9b237813dc2ec326e7f7319e9569dd9",
+      "text_version": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561",
+      "question_proofs": 93
+    },
+    {
+      "id": "3c83e501-ea81-4894-bade-824fb7a2a6cc",
+      "active": false,
+      "text_id": "5b3316e2-4a9f-5689-ba11-e5d0dc420f2b",
+      "test_version": "30f942aeeeaa54fa60472cc7cc495d39bb8ff63291cf81d2000f5ac2bcc0386c",
+      "text_version": "52479a906a2ed2b673e3000ea142c0f06201136c8898cd6c45c24e1ca8376ff7",
+      "question_proofs": 95
+    },
+    {
+      "id": "c71fa213-2921-4877-a51a-82624dff4d86",
+      "active": false,
+      "text_id": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "test_version": "62dd830455fc03cc821773ba45031e7f34eeee98a246caeef757cb8a5bdea9cf",
+      "text_version": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
+      "question_proofs": 96
+    },
+    {
+      "id": "a41038f0-c66d-46ee-b392-223741c85413",
+      "active": false,
+      "text_id": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "test_version": "ee79b43cd3423aea8d8a0244dacf80a3a2760c4d8fae6ad15d0ad7759f7c9f5c",
+      "text_version": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+      "question_proofs": 93
+    },
+    {
+      "id": "c51d68e3-a01b-4e36-8d13-39f46b1f02d9",
+      "active": false,
+      "text_id": "6e15b015-d482-58e4-9fa2-25ba0c8dea72",
+      "test_version": "a22a25941f59a1f45f5770ee5677249755a2bf5e659873c5c55de31fbbf17734",
+      "text_version": "af6069fdab6798f3a084ceb92d09a6a47eec2741d01b971e341f116262485848",
+      "question_proofs": 93
+    },
+    {
+      "id": "b6cc0a76-b184-4f4c-b5f3-4283a6123e96",
+      "active": false,
+      "text_id": "924ee488-8b97-5070-ba23-eea0f03992e6",
+      "test_version": "4fdcc1fea6d7033f3f101c20c75af296d031c1dc1fa5e5c37ba2eaf70b00e875",
+      "text_version": "50c72a0375ad6340a4e2aff62d3620f74c9fa79151a9584b44301fd233844b52",
+      "question_proofs": 96
+    },
+    {
+      "id": "a8c4a825-f22f-47cd-8ac4-cc3fa3217a70",
+      "active": false,
+      "text_id": "93e4a1ed-cb70-5f0a-9dd2-cf6b2a9c9699",
+      "test_version": "87b23a121c06a2d5d4a92113c25a0eb2a719cf5b821b3ca24da99a8d6dfcbb36",
+      "text_version": "4853b6164bbe3e1b7a25bba35046462505f6236bc0abab77c91749dfe455eb39",
+      "question_proofs": 94
+    },
+    {
+      "id": "a24e14fb-5e95-45d7-8bc8-d170baf70100",
+      "active": false,
+      "text_id": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "test_version": "54851f466fe766a76cab06629c40af9ee697822cb17f030314a4b4aa9ceb2c5b",
+      "text_version": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+      "question_proofs": 92
+    },
+    {
+      "id": "e036c21a-b86d-4ec9-a931-618b48ec38f6",
+      "active": false,
+      "text_id": "add5b212-15af-55b5-b224-6282b5c39c13",
+      "test_version": "5e77002c1bb2ddff26e49e7e54bf25c28cda5ef909b16fc71e767529e60ab14d",
+      "text_version": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
+      "question_proofs": 94
+    },
+    {
+      "id": "30a829f8-707f-44c7-abf8-d385635a3a0e",
+      "active": false,
+      "text_id": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "test_version": "0938fae45562c1108d9e5eab1cb4851b2817e0ea822fe8ac062f74e9892a973e",
+      "text_version": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+      "question_proofs": 96
+    },
+    {
+      "id": "648df1bd-4579-4605-8560-5ddeb7b2a7d5",
+      "active": false,
+      "text_id": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "test_version": "fd3eacdbf3d25df2c882cbc41d5c96b8098a0b68e6fe74ad4305a6965fd490d5",
+      "text_version": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+      "question_proofs": 92
+    },
+    {
+      "id": "4ec69aa7-61f9-4fb6-8ae1-3fbf3391d76c",
+      "active": false,
+      "text_id": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "test_version": "9aceed736b311e4cbcfc53d33c445ebc9fa91644d83aa7acbb9356b70df8e7dc",
+      "text_version": "a1e829de18793196c9b27aa5b5fe18a20ebf7a12809c5a61799fd9822f987fc0",
+      "question_proofs": 94
+    },
+    {
+      "id": "abc76219-3506-4111-abba-87ced81ccf52",
+      "active": false,
+      "text_id": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "test_version": "e0fcd6b98a3ab2ee480ca0aac72c4768fd89128f98e91bcff2e504db89b2f8d9",
+      "text_version": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+      "question_proofs": 91
+    }
+  ],
+  "productionWrite": false,
+  "new18PublicationReadiness": true,
+  "old18ReadinessUnchangedByImport": true,
+  "old18DefinitionsApprovalsQuestionProofsUnchanged": true,
+  "at": "2026-10-09T12:09:30.564393+00:00",
+  "sourcePayloadSha256": "0a133116ec495923356c1193050228e20d47458e806eb71bc4ab4d1fabd14547",
+  "audioReadbackAuditSha256": "705f49e59aacc71c01d5623caed3464293aff7a636a03d43b1e8d29d0aebca59",
+  "humanReview": false,
+  "calibration": "pending",
+  "scope": "Exact isolated ownedQA only; technical readiness is not publication, human review, calibration or full release acceptance.",
+  "actualAudioByteReadbacks": 1461,
+  "positiveLexicalAndNumericIntervals": 8029,
+  "profilesAndAuthHashesUnchanged": true,
+  "fullOld18RowsReadbackVerified": true
+}

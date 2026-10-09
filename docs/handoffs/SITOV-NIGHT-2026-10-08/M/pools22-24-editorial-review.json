@@ -1,0 +1,360 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools22-24-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T12:23:37.626Z",
+  "sourceCommit": "bf7b0a55b356b7d9537fed9309f9eadc166ebf12",
+  "scope": "Independent M read all72 public prompts/options/keys/rationales, all3 complete sourcebodies and12 cores/mappings. Standard German past/als/dass/während/case/pronoun answers uniquely supported by visible contexts. Only two private Paket spans subsequently repaired to actual standalone occurrence; exact old/new reconstruction and Unicode wordboundary independently checked. No changed publicstrings/keys/audioaliases, previous23 definitions preserved. Empty mappings honestly enumerate missing same-level subskills.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "97c77e65003852fdc957470c17d6107f3cf4994431bf957ff6311f3cba828e46",
+  "sourceSpanDeltaSha256": "a1535af5e8805056daba936f9a6908e2156a3affb90e964038c9409051abb07a",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "acb54d47-e197-56ca-9eb7-a890abce63f6",
+      "textVersion": "7c304a43bdb047d35576e4fae98ce9c3ad221aa2729589bcad9c7b7738fd149f",
+      "definitionContentHash": "93a36a872b48a015a87cbcee0c495ecf9e6d72ac97d4f7663af69131a917d8fc",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, öffentlicher Prämissen, Vergangenheitsformen/Nebensätzen, eindeutiger Schlüssel und CSPRNG-ausgewogener Optionen. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "7c304a43bdb047d35576e4fae98ce9c3ad221aa2729589bcad9c7b7738fd149f",
+        "definitionContentHash": "93a36a872b48a015a87cbcee0c495ecf9e6d72ac97d4f7663af69131a917d8fc"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-02.words.q1",
+          "correctTextDe": "Der äußere Teil des Rades, der auf der Straße rollt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.words.q2",
+          "correctTextDe": "Ein Ort, an dem Fahrräder repariert werden."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.words.q3",
+          "correctTextDe": "Eine Öffnung in der Reifenoberfläche."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.words.q4",
+          "correctTextDe": "Es geschah unerwartet und unvermittelt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.words.q5",
+          "correctTextDe": "Beim Fahren aufmerksam sein und Risiken vermeiden."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.words.q6",
+          "correctTextDe": "Eine Mitteilung mit Informationen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.verbs.q1",
+          "correctTextDe": "ist"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.verbs.q2",
+          "correctTextDe": "sein"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.verbs.q3",
+          "correctTextDe": "geschoben"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.verbs.q4",
+          "correctTextDe": "gefunden"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.verbs.q5",
+          "correctTextDe": "Eine Möglichkeit oder Fähigkeit in der Vergangenheit."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.verbs.q6",
+          "correctTextDe": "abgeholt"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.syntax.q1",
+          "correctTextDe": "Auf dem Weg ist mein Fahrrad kaputtgegangen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.syntax.q2",
+          "correctTextDe": "Bis zur Werkstatt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.syntax.q3",
+          "correctTextDe": "Noch im gleichen Vormittag."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.syntax.q4",
+          "correctTextDe": "Aus dem vorher genannten Grund."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.syntax.q5",
+          "correctTextDe": "Der Sprecher, bezeichnet durch ich."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.syntax.q6",
+          "correctTextDe": "Fahrrad abholen und nach Hause fahren."
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.nominal.q1",
+          "correctTextDe": "Mein"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.nominal.q2",
+          "correctTextDe": "hintere"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.nominal.q3",
+          "correctTextDe": "zu der Werkstatt"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.nominal.q4",
+          "correctTextDe": "kleines"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.nominal.q5",
+          "correctTextDe": "Meinem"
+        },
+        {
+          "questionId": "sitov.pretest.a21-02.nominal.q6",
+          "correctTextDe": "Auf den Mechaniker."
+        }
+      ]
+    },
+    {
+      "textId": "2c6b8ac4-28e2-556d-950e-9937d7da0da9",
+      "textVersion": "d8ad8e2345fe88f61c26f94412f16d5827c23ba0e56eddb81b54add705534662",
+      "definitionContentHash": "93b930144b0e449d4f3093cec759be8a3032b522b718eeadf1f8fe0891b4c987",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3: Die Wortschatzfrage Paket und ihr Matrixbeleg verweisen exakt auf das eigenständige Wort in sein Paket (102–107), nicht auf den Bestandteil von Paketbote. Öffentliche Frage, Optionen, Schlüssel und Audioaliase unverändert. Unabhängige Prüfung des neuen Definitionshashs ausstehend.",
+        "textVersion": "d8ad8e2345fe88f61c26f94412f16d5827c23ba0e56eddb81b54add705534662",
+        "definitionContentHash": "93b930144b0e449d4f3093cec759be8a3032b522b718eeadf1f8fe0891b4c987"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-03.words.q1",
+          "correctTextDe": "Ein verpacktes Versandstück."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.words.q2",
+          "correctTextDe": "Er liefert Pakete aus."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.words.q3",
+          "correctTextDe": "Ein kleines Stück Papier."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.words.q4",
+          "correctTextDe": "das Buch"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.words.q5",
+          "correctTextDe": "Als Ausdruck seiner Dankbarkeit."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.words.q6",
+          "correctTextDe": "Samstag und Sonntag."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.verbs.q1",
+          "correctTextDe": "kommen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.verbs.q2",
+          "correctTextDe": "Der Paketbote klingelt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.verbs.q3",
+          "correctTextDe": "angenommen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.verbs.q4",
+          "correctTextDe": "gehängt"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.verbs.q5",
+          "correctTextDe": "stehen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.verbs.q6",
+          "correctTextDe": "eingeladen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.syntax.q1",
+          "correctTextDe": "ich gestern nach Hause kam"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.syntax.q2",
+          "correctTextDe": "klingelte der Paketbote."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.syntax.q3",
+          "correctTextDe": "Der Sprecher."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.syntax.q4",
+          "correctTextDe": "er bei mir klingeln kann."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.syntax.q5",
+          "correctTextDe": "Sein Kommen folgt nach einer Stunde."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.syntax.q6",
+          "correctTextDe": "Für den Sohn."
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.nominal.q1",
+          "correctTextDe": "sein"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.nominal.q2",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.nominal.q3",
+          "correctTextDe": "seine"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.nominal.q4",
+          "correctTextDe": "mir"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.nominal.q5",
+          "correctTextDe": "seinen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-03.nominal.q6",
+          "correctTextDe": "mich"
+        }
+      ]
+    },
+    {
+      "textId": "5ec73679-e979-5ef6-bbac-8d14af8d2651",
+      "textVersion": "0b85edef3e946ae27051f9341de774afa934dbcfdb8fc19f74cffe876b547fa8",
+      "definitionContentHash": "249d1ffb53ba4e3d0aa944bfb907655159c563c8fe051475d35c601a8e493bc0",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, öffentlicher Prämissen, Vergangenheitsformen/Nebensätzen, eindeutiger Schlüssel und CSPRNG-ausgewogener Optionen. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "0b85edef3e946ae27051f9341de774afa934dbcfdb8fc19f74cffe876b547fa8",
+        "definitionContentHash": "249d1ffb53ba4e3d0aa944bfb907655159c563c8fe051475d35c601a8e493bc0"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-04.words.q1",
+          "correctTextDe": "Eine Anleitung mit Zutaten und Zubereitung."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.words.q2",
+          "correctTextDe": "Die Lebensmittel, aus denen der Kuchen gemacht wird."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.words.q3",
+          "correctTextDe": "Die vorbereitete Masse, aus der das Gebäck entsteht."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.words.q4",
+          "correctTextDe": "Zum Erhitzen und Backen des Kuchens."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.words.q5",
+          "correctTextDe": "Man hat bisher wenig praktische Übung darin."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.words.q6",
+          "correctTextDe": "Die dunkle Farbe des Kuchens."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.verbs.q1",
+          "correctTextDe": "erklärt"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.verbs.q2",
+          "correctTextDe": "Eine Absicht oder einen Wunsch in der Vergangenheit."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.verbs.q3",
+          "correctTextDe": "haben"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.verbs.q4",
+          "correctTextDe": "aufgeschrieben"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.verbs.q5",
+          "correctTextDe": "vorbereitet"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.verbs.q6",
+          "correctTextDe": "riechen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.syntax.q1",
+          "correctTextDe": "Das Aufschreiben der Zutaten."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.syntax.q2",
+          "correctTextDe": "der Kuchen im Ofen war"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.syntax.q3",
+          "correctTextDe": "Das Aufräumen geschieht in der Zeit, in der der Kuchen im Ofen ist."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.syntax.q4",
+          "correctTextDe": "Nachdem vierzig Minuten vergangen sind."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.syntax.q5",
+          "correctTextDe": "Dunkle Farbe und guten Geschmack."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.syntax.q6",
+          "correctTextDe": "Der Sprecher, bezeichnet durch ich."
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.nominal.q1",
+          "correctTextDe": "Meinem"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.nominal.q2",
+          "correctTextDe": "einfaches"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.nominal.q3",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.nominal.q4",
+          "correctTextDe": "wenig"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.nominal.q5",
+          "correctTextDe": "die"
+        },
+        {
+          "questionId": "sitov.pretest.a21-04.nominal.q6",
+          "correctTextDe": "ein"
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,11 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sources=await sitovReadAuthoringSources(),sitovCurrentRepository24=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sources=await sitovReadAuthoringSources(),sitovLatestMReviewed24=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovMReview24Raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/pools22-24-editorial-review.json','utf8'),sitovMReview24=JSON.parse(sitovMReview24Raw)
+// Normalize only the three newly reviewed records before exact epoch41 and all earlier source proofs.
+const sitovCurrentRepository24=structuredClone(sitovLatestMReviewed24)
+for(const r of sitovMReview24.approvedEditorialDrafts)sitovCurrentRepository24.drafts.find(d=>d.textId===r.textId).review=r.previousReview
 const sitovSpan41=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch41-package-source-span-delta.json','utf8'))
 // Restore the exact pre-epoch41 spans/review BEFORE M-review normalization and all history.
 const sitovBeforeSpan41=structuredClone(sitovCurrentRepository24)
@@ -698,7 +702,7 @@ test('epoch41 actual24 source repair preserves all other23 definitions/public fi
  assert.equal(sitovHash(JSON.stringify(sitovBeforeSpan41)),sitovSpan41.previousManifestContentHash)
  assert.equal(sitovHash(JSON.stringify(sitovBeforeSpan41,null,2)+'\n'),sitovSpan41.previousManifestByteSha256)
  assert.equal(sitovHash(JSON.stringify(sitovCurrentRepository24)),sitovSpan41.currentManifestContentHash)
- assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovSpan41.currentManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovCurrentRepository24,null,2)+'\n'),sitovSpan41.currentManifestByteSha256)
  assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovSpan41.unchangedAudioByteSha256)
  const d=sitovCurrentRepository24.drafts.find(d=>d.textId===sitovSpan41.textId),restored=structuredClone(sitovCurrentRepository24)
  assert.equal(d.review.status,'author_checked_independent_review_pending');assert.equal(d.review.reviewer,'sitov.agent.S3');assert.equal(d.review.authorIdentity,d.review.reviewer);assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(Object.hasOwn(d.review,'documentRef'),false)
@@ -720,4 +724,10 @@ test('Paket question and vocabulary matrix require the standalone source lexeme;
  assert.equal(standalone({start:103,end:107,quote:'aket'}),false)
  assert.equal(standalone({start:102,end:108,quote:'Paket'}),false)
  assert.equal(standalone(core.sourceSpans[1]),true)
+})
+
+test('actual all24 independently M-reviewed definitions bind the precise repaired source and current answer texts',()=>{
+ assert.equal(sitovLatestMReviewed24.drafts.length,24);assert.deepEqual(sitovValidatePretestDrafts(sitovLatestMReviewed24,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovLatestMReviewed24,sitovActualAudio39),[])
+ for(const d of sitovLatestMReviewed24.drafts){assert.equal(d.review.status,'independent_editorial_checked_draft_only');assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.authorIdentity,'sitov.agent.S3');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false)}
+ for(const r of sitovMReview24.approvedEditorialDrafts){const d=sitovLatestMReviewed24.drafts.find(d=>d.textId===r.textId);assert.equal(d.review.documentSha256,sitovHash(sitovMReview24Raw));assert.equal(d.review.documentRef,sitovMReview24.documentRef);assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.textVersion,r.textVersion);assert.deepEqual(d.definition.tasks.map(q=>({questionId:q.id,correctTextDe:q.options.find(o=>o.id===q.correctOptionId).textDe})),r.correctAnswerTexts)}
 })
