@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-09T09:19:05.124226+00:00",
+  "sourceSha": "cb39a4b92e83dbcf4eca3de4c2aaf02baaf4d354",
+  "actualTerminalFail": true,
+  "failedCompetencyIds": [
+    "sitov.pretest.a11-01.words",
+    "sitov.pretest.a11-01.nominal",
+    "sitov.pretest.a11-01.syntax",
+    "sitov.pretest.a11-01.verbs"
+  ],
+  "topicIds": [
+    "sitov.topic.familie",
+    "sitov.topic.kennenlernen",
+    "sitov.topic.nominativ"
+  ],
+  "allElevenPortsHttp200": true,
+  "parserPassed": [
+    "map",
+    "pretests",
+    "checkpoint",
+    "catalog_exercises",
+    "catalog_vocabulary",
+    "catalog_pronunciation",
+    "vocabProgress",
+    "verbProgress"
+  ],
+  "catalogVerbUuidFailures": 113,
+  "storedUnitExample": "01da78e3-726f-a505-a9d6-fbb907ccb31f",
+  "localInstalledZodProbe": {
+    "strictUuidAccepted": false,
+    "guidAccepted": true,
+    "malformedAccepted": false
+  },
+  "readPortsStateUnchanged": true,
+  "correctedActorCleanupBaselineEqual": true,
+  "totalSequentialActors": 2,
+  "maxLiveActors": 1,
+  "knownVocabularyMappingRefsAbsent": 11,
+  "actualAppBrowser": "S5epoch17 FAIL7/12 zeroLinks; rootcause inferredfromactualportparse andsourceoutercatch; postrepairbrowserPENDING",
+  "productionWrite": false,
+  "releaseReady": false
+}

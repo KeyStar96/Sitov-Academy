@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-09T09:23:10.423632+00:00",
+  "sourceSha": "f6a4565cf21efecad36bacfa75405062a7f1416f",
+  "jest": {
+    "suites": 10,
+    "passed": 159,
+    "failed": 0,
+    "skipped": 0
+  },
+  "fullTypeScriptExit": 0,
+  "affectedEslintExit": 0,
+  "affectedEslintErrors": 0,
+  "affectedEslintInheritedWarnings": 3,
+  "warnings": "Existing unused catch variables lib/access/server.ts 44/100/111; no suppression or unrelated repair",
+  "maskedQaEnvironmentNextBuildExit": 0,
+  "buildLogPrivate": "/tmp/sitov-night-m-build-f6a4565c.log",
+  "buildMode": "webpack one worker1536MiB; productionenvkeysfullymasked onlyisolatedQAloopback",
+  "nextEnvRestoredExactBefore": true,
+  "actualPreRepairPorts": {
+    "http200Ports": 11,
+    "catalogUnits": 140,
+    "strictUuidRejected": 113,
+    "validAvailableNominativPathCandidate": true,
+    "ownActorsCleaned": 2
+  },
+  "actualPreRepairBrowser": "S5epoch17FAIL7/12 zeroLinks/automaticRetake",
+  "actualPostRepairBrowser": "PENDING",
+  "native107Tests": 8,
+  "native108Tests": 7,
+  "actualQa107": {
+    "checks": 28,
+    "httpOperations": 38,
+    "syntheticRecording": true,
+    "microphoneTested": false
+  },
+  "releaseReady": false,
+  "productionWrite": false
+}

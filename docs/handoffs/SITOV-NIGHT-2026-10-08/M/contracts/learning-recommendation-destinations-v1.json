@@ -73,5 +73,13 @@
       "Return minimal content-source metadata only; never task answers/private sources/audio keys/accountprogress. No writes, no additional progress or pronunciation prerequisite. Missing/foreign/revoked/unavailable/ambiguous rows omitted; malformed input/auth/errors explicit stable envelopes.",
       "Current source RLS blocker also affects ordinary path metadata. S2 replaces raw SELECT lookup using this port only after SQL/native proof. Public recommendations/pretestResult contracts remain unchanged."
     ]
+  },
+  "stored_unit_uuid_validation": {
+    "approved_by": "M",
+    "at": "2026-10-09T09:17:01.528192+00:00",
+    "scope": "Authoritative stored learning_units IDs in catalog unit.id and server content metadata unit_id only",
+    "representation": "PostgreSQL128bit canonical hex UUID with 8-4-4-4-12 hyphens; version/variant unrestricted. Use installed z.guid() not RFC-version-gated z.uuid().",
+    "evidence": "actualQAverbs113rejectedIDs; knownstored01da78e3-726f-a505-a9d6-fbb907ccb31f; nativeinstalledZodstrictfalse/guidtrue/badfalse",
+    "preserve": "No identity generation or DBmigration; malformedstringsstilldeny. All existing auth/catalog/currentrevocation/canonicalparent/publication/selectedrights staymandatory. No globalreplacement of actor/attempt/input/targetUUID validators."
   }
 }
