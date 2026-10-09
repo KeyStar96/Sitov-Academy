@@ -1,0 +1,2194 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "9bf053e0bc01898d1799359d0c0bd0f56513c944",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "randomnessProvenance": "node:crypto.randomInt OS CSPRNG;12 distinct balanced label schedules and12 distinct independent position schedules, each question index covers all3 values.",
+  "completedPools": 3,
+  "newQuestionCount": 72,
+  "newAliasCount": 288,
+  "original33ContentHash": "b294a23284f17049685f38434d9282a9640f9143e830d3eaa32fb7ce8776e3d0",
+  "originalManifestContentHash": "d0e7109c83555f4ff06dd1b2daa3cb2b90d08deece755fefa55e9273665a23d9",
+  "originalManifestByteSha256": "8d3ead6fd4b1d4207fb21cc00916e2aa46c354ecde8b2938d906041232afb3f8",
+  "original3168AliasContentHash": "8b5b9c7edc8c9a277c69def4e2638f8e9d5932d6c913e68c174311e4ea561040",
+  "original3168AliasByteSha256": "cd23dc3582d24592ede5ef8b853a6e8196ebe7a4bfde7b64d45bb56a4a0ba86c",
+  "currentManifestContentHash": "497e0284c8f6a90cd4d68a796cf443430259a31b33a8b144a176d14494f9dce7",
+  "currentManifestByteSha256": "550e33b89ecc6601075523efa0ec0ef829849f01f1bccf09d3be2e269dfc3603",
+  "currentAliasContentHash": "87b94f79e96dae3f222b96ef50e46e63fc6ff55a623cd91d85b340e973161bc6",
+  "currentAliasByteSha256": "79786eeede7e13c472cded9bf718dcef733d65e2e29aa7f4f99136c7f0e95af9",
+  "previousCoverage": {
+    "total": 60,
+    "authored": 33,
+    "pending": 27
+  },
+  "previousInventoryRows": [
+    {
+      "textId": "194df28b-7175-5ffa-9813-2c5967cc2cb9",
+      "unitId": "194df28b-7175-5ffa-9813-2c5967cc2cb9",
+      "level": "A2.2",
+      "title": "Eine Reklamation im Geschäft",
+      "focus": "k und r; sachlicher Ton",
+      "sortOrder": 4,
+      "active": true,
+      "textVersion": "35536c1fa317cb4ca53f739670df8c3b64cbfa0267be738a34d546e144f67798",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "cdc98a2c-2e24-505e-bcc8-a1e68bfe2553",
+      "unitId": "cdc98a2c-2e24-505e-bcc8-a1e68bfe2553",
+      "level": "A2.2",
+      "title": "Hilfe beim Deutschlernen",
+      "focus": "ch und l; indirekte Fragen",
+      "sortOrder": 5,
+      "active": true,
+      "textVersion": "5d569bf2469a3b7cb0206a010f18dae381ebaf817cc18a517db0a3a752c3b326",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": null,
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "1c914afb-1958-5045-bda2-d609de2bd365",
+      "unitId": "1c914afb-1958-5045-bda2-d609de2bd365",
+      "level": "A2.2",
+      "title": "Ein freiwilliger Einsatz",
+      "focus": "f und ei; flüssige Aufzählungen",
+      "sortOrder": 6,
+      "active": true,
+      "textVersion": "ed0acb86d3a8abd239562c11cdd425d0fe3881ccc7eb8fc9cd04a57b94ea5b0f",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    }
+  ],
+  "pools": [
+    {
+      "textId": "194df28b-7175-5ffa-9813-2c5967cc2cb9",
+      "title": "Eine Reklamation im Geschäft",
+      "level": "A2.2",
+      "textVersion": "35536c1fa317cb4ca53f739670df8c3b64cbfa0267be738a34d546e144f67798",
+      "definitionContentHash": "15a49b9ae00f5294cb605f2719915e97b1e356a8029ebe831d44d522e0fad38c",
+      "sourceBodyDe": "Vor zwei Wochen habe ich neue Schuhe gekauft. Schon nach wenigen Tagen hat sich an einem Schuh die Sohle gelöst. Deshalb bin ich mit den Schuhen und dem Kassenbon ins Geschäft gegangen. Ich habe dem Verkäufer ruhig erklärt, was passiert ist. Er hat die Schuhe geprüft und einen Kollegen dazugeholt. Leider war meine Größe nicht mehr da. Wir haben vereinbart, dass das Geschäft mich anruft, sobald ein neues Paar ankommt. Die freundliche Lösung hat mich erleichtert.",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a22-04.words.q1",
+          "publicPromptDe": "Was ist die »Sohle« eines Schuhs?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.words.q1.c",
+              "textDe": "Die untere Fläche, auf der man steht und geht."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q1.a",
+              "textDe": "Der Verschluss, mit dem man den Schuh zubindet."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q1.b",
+              "textDe": "Das obere Material über dem Fuß."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.words.q1.c",
+          "correctAnswerTextDe": "Die untere Fläche, auf der man steht und geht.",
+          "rationaleDe": "Die Sohle bildet die Unterseite; Obermaterial und Schnürverschluss sind andere Teile desselben Schuhs.",
+          "assessmentUnit": "Sohle Unterseite des Schuhs",
+          "sourceSpans": [
+            {
+              "start": 99,
+              "end": 104,
+              "quote": "Sohle"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q2",
+          "publicPromptDe": "Was ist ein »Kassenbon« aus einem Geschäft?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.words.q2.c",
+              "textDe": "Eine Liste der Dinge, die man erst kaufen möchte."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q2.b",
+              "textDe": "Ein Preisschild am Schuh, bevor man bezahlt."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q2.a",
+              "textDe": "Ein Beleg über einen bereits bezahlten Einkauf."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.words.q2.a",
+          "correctAnswerTextDe": "Ein Beleg über einen bereits bezahlten Einkauf.",
+          "rationaleDe": "Der Kassenbon bestätigt den bezahlten Einkauf; Einkaufsliste und Preisschild liegen vor dem Kauf und belegen ihn nicht.",
+          "assessmentUnit": "Kassenbon Kaufbeleg",
+          "sourceSpans": [
+            {
+              "start": 153,
+              "end": 162,
+              "quote": "Kassenbon"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q3",
+          "publicPromptDe": "Was meint »meine Größe« beim Kauf passender Schuhe?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.words.q3.a",
+              "textDe": "Die Nummer des Schuhmodells im Warenkatalog."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q3.b",
+              "textDe": "Die Schuhgröße, die zu den Füßen des Sprechers passt."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q3.c",
+              "textDe": "Die Anzahl der gekauften Schuhpaare."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.words.q3.b",
+          "correctAnswerTextDe": "Die Schuhgröße, die zu den Füßen des Sprechers passt.",
+          "rationaleDe": "Größe bezeichnet hier das passende Schuhmaß; Modellnummer und Paaranzahl sind andere Zahlenangaben beim Kauf.",
+          "assessmentUnit": "Größe Schuhmaß",
+          "sourceSpans": [
+            {
+              "start": 310,
+              "end": 321,
+              "quote": "meine Größe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q4",
+          "publicPromptDe": "Was bedeutet »Wir haben einen Anruf vereinbart«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.words.q4.b",
+              "textDe": "Die Beteiligten haben sich gemeinsam auf den Anruf verständigt."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q4.a",
+              "textDe": "Der Anruf ist bereits vollständig geführt und beendet."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q4.c",
+              "textDe": "Eine Person plant den Anruf ohne Absprache mit der anderen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.words.q4.b",
+          "correctAnswerTextDe": "Die Beteiligten haben sich gemeinsam auf den Anruf verständigt.",
+          "rationaleDe": "Vereinbaren heißt gemeinsam absprechen; ein einseitiger Plan oder ein bereits beendeter Anruf beschreibt etwas anderes.",
+          "assessmentUnit": "vereinbaren gemeinsam absprechen",
+          "sourceSpans": [
+            {
+              "start": 337,
+              "end": 357,
+              "quote": "Wir haben vereinbart"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q5",
+          "publicPromptDe": "Was bedeutet »Die Lösung hat mich erleichtert«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.words.q5.c",
+              "textDe": "Der Sprecher ist über die Lösung verärgert."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q5.a",
+              "textDe": "Der Sprecher hat durch die Lösung weniger Sorgen."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q5.b",
+              "textDe": "Der Sprecher ist wegen der Lösung stärker besorgt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.words.q5.a",
+          "correctAnswerTextDe": "Der Sprecher hat durch die Lösung weniger Sorgen.",
+          "rationaleDe": "Erleichterung vermindert die Sorge; stärkere Besorgnis und Ärger sind andere Reaktionen auf eine Lösung.",
+          "assessmentUnit": "erleichtert weniger Sorgen",
+          "sourceSpans": [
+            {
+              "start": 444,
+              "end": 464,
+              "quote": "hat mich erleichtert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q6",
+          "publicPromptDe": "Was bedeutet »Der Verkäufer hat die Schuhe geprüft«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.words.q6.a",
+              "textDe": "Er hat die Schuhe schon durch ein neues Paar ersetzt."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q6.b",
+              "textDe": "Er hat die beschädigten Schuhe bereits repariert."
+            },
+            {
+              "id": "sitov.pretest.a22-04.words.q6.c",
+              "textDe": "Er hat den Zustand der Schuhe untersucht."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.words.q6.c",
+          "correctAnswerTextDe": "Er hat den Zustand der Schuhe untersucht.",
+          "rationaleDe": "Prüfen untersucht den Zustand; Reparieren und Ersetzen sind mögliche spätere Schritte, aber nicht dieselbe Tätigkeit.",
+          "assessmentUnit": "prüfen Zustand untersuchen",
+          "sourceSpans": [
+            {
+              "start": 253,
+              "end": 267,
+              "quote": "Schuhe geprüft"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe Schuhe ___« zu kaufen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.verbs.q1.c",
+              "textDe": "gekauft"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q1.b",
+              "textDe": "kaufen"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q1.a",
+              "textDe": "gekaufen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.verbs.q1.c",
+          "correctAnswerTextDe": "gekauft",
+          "rationaleDe": "Kaufen bildet das schwache Partizip gekauft; gekaufen und der Infinitiv passen hier nicht ins Perfekt.",
+          "assessmentUnit": "gekauft schwaches Partizip",
+          "sourceSpans": [
+            {
+              "start": 30,
+              "end": 44,
+              "quote": "Schuhe gekauft"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »An einem Schuh hat ___ die Sohle gelöst«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.verbs.q2.c",
+              "textDe": "uns"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q2.a",
+              "textDe": "sich"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q2.b",
+              "textDe": "mich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.verbs.q2.a",
+          "correctAnswerTextDe": "sich",
+          "rationaleDe": "Die Sohle ist dritte Person Singular; beim reflexiven sich lösen lautet das Pronomen sich, nicht mich oder uns.",
+          "assessmentUnit": "sich gelöst reflexive dritte Person",
+          "sourceSpans": [
+            {
+              "start": 71,
+              "end": 111,
+              "quote": "hat sich an einem Schuh die Sohle gelöst"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q3",
+          "publicPromptDe": "Welches Hilfsverb ergänzt »Ich ___ ins Geschäft gegangen« im Perfekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.verbs.q3.c",
+              "textDe": "werde"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q3.a",
+              "textDe": "habe"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q3.b",
+              "textDe": "bin"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.verbs.q3.b",
+          "correctAnswerTextDe": "bin",
+          "rationaleDe": "Gehen als Ortswechsel bildet das Perfekt mit sein; bei ich lautet die Form bin.",
+          "assessmentUnit": "gegangen Perfekt sein",
+          "sourceSpans": [
+            {
+              "start": 163,
+              "end": 184,
+              "quote": "ins Geschäft gegangen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Der Verkäufer fragt, was passiert ___« im Perfekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.verbs.q4.b",
+              "textDe": "hat"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q4.a",
+              "textDe": "ist"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q4.c",
+              "textDe": "wird"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.verbs.q4.a",
+          "correctAnswerTextDe": "ist",
+          "rationaleDe": "Passieren im Sinn von geschehen bildet das Perfekt mit sein; daher lautet das Hilfsverb ist.",
+          "assessmentUnit": "passiert Perfekt sein",
+          "sourceSpans": [
+            {
+              "start": 224,
+              "end": 240,
+              "quote": "was passiert ist"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Er hat einen Kollegen ___« zu dazuholen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.verbs.q5.b",
+              "textDe": "dazuholen"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q5.a",
+              "textDe": "gedazuholt"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q5.c",
+              "textDe": "dazugeholt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.verbs.q5.c",
+          "correctAnswerTextDe": "dazugeholt",
+          "rationaleDe": "Bei dazuholen steht ge zwischen dazu und holt; das Partizip lautet dazugeholt.",
+          "assessmentUnit": "dazugeholt trennbares Partizip",
+          "sourceSpans": [
+            {
+              "start": 272,
+              "end": 297,
+              "quote": "einen Kollegen dazugeholt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q6",
+          "publicPromptDe": "Welche Grundform gehört zu »sobald ein neues Paar ankommt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.verbs.q6.b",
+              "textDe": "ankommen"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q6.c",
+              "textDe": "kommen"
+            },
+            {
+              "id": "sitov.pretest.a22-04.verbs.q6.a",
+              "textDe": "ankam"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.verbs.q6.b",
+          "correctAnswerTextDe": "ankommen",
+          "rationaleDe": "Ankommt gehört zum trennbaren Verb ankommen; kommen lässt die Vorsilbe weg, ankam ist eine finite Vergangenheitsform.",
+          "assessmentUnit": "ankommen Grundform getrenntes Verb",
+          "sourceSpans": [
+            {
+              "start": 397,
+              "end": 419,
+              "quote": "ein neues Paar ankommt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q1",
+          "publicPromptDe": "Wann liegt der Kauf laut »Vor zwei Wochen habe ich Schuhe gekauft«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.syntax.q1.b",
+              "textDe": "Der Kauf dauert seit zwei Wochen ununterbrochen an."
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q1.a",
+              "textDe": "Erst zwei Wochen nach dem Zeitpunkt des Sprechens."
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q1.c",
+              "textDe": "Zwei Wochen vor dem Zeitpunkt des Sprechens."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.syntax.q1.c",
+          "correctAnswerTextDe": "Zwei Wochen vor dem Zeitpunkt des Sprechens.",
+          "rationaleDe": "Vor zwei Wochen nennt einen vergangenen Zeitpunkt; in zwei Wochen wäre Zukunft, seit zwei Wochen ein andauernder Zeitraum.",
+          "assessmentUnit": "Vor zwei Wochen vergangener Zeitpunkt",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 15,
+              "quote": "Vor zwei Wochen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q2",
+          "publicPromptDe": "Was bedeutet »Schon nach wenigen Tagen löste sich die Sohle« nach einem Kauf?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.syntax.q2.a",
+              "textDe": "Zwischen Kauf und Schaden lagen nur wenige Tage."
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q2.b",
+              "textDe": "Der Schaden entstand wenige Tage vor dem Kauf."
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q2.c",
+              "textDe": "Der Schaden entstand erst nach mehreren Monaten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.syntax.q2.a",
+          "correctAnswerTextDe": "Zwischen Kauf und Schaden lagen nur wenige Tage.",
+          "rationaleDe": "Nach nennt den Abstand hinter dem Kauf, schon betont dessen Kürze; vorher oder mehrere Monate verschieben diese Beziehung.",
+          "assessmentUnit": "nach wenigen Tagen zeitlicher Abstand",
+          "sourceSpans": [
+            {
+              "start": 46,
+              "end": 70,
+              "quote": "Schon nach wenigen Tagen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q3",
+          "publicPromptDe": "Warum geht der Sprecher laut »Die Sohle hat sich gelöst. Deshalb gehe ich ins Geschäft« ins Geschäft?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.syntax.q3.a",
+              "textDe": "Weil sich die Sohle gelöst hat."
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q3.c",
+              "textDe": "Weil der Besuch im Geschäft die Ursache des Schadens war."
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q3.b",
+              "textDe": "Weil er im Geschäft erst noch Schuhe kaufen möchte."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.syntax.q3.a",
+          "correctAnswerTextDe": "Weil sich die Sohle gelöst hat.",
+          "rationaleDe": "Deshalb bezieht den Besuch auf den bereits genannten Schaden; Neukauf und umgekehrte Ursache werden nicht ausgesagt.",
+          "assessmentUnit": "Deshalb Schaden als Reklamationsgrund",
+          "sourceSpans": [
+            {
+              "start": 113,
+              "end": 185,
+              "quote": "Deshalb bin ich mit den Schuhen und dem Kassenbon ins Geschäft gegangen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q4",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Ich erklärte dem Verkäufer, was …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.syntax.q4.a",
+              "textDe": "mit dem Schuh ist passiert"
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q4.c",
+              "textDe": "mit dem Schuh passiert ist"
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q4.b",
+              "textDe": "ist mit dem Schuh passiert"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.syntax.q4.c",
+          "correctAnswerTextDe": "mit dem Schuh passiert ist",
+          "rationaleDe": "Was leitet hier eine indirekte Frage ein; das finite Hilfsverb ist steht nach passiert am Ende.",
+          "assessmentUnit": "was indirekte Frage Perfekt final",
+          "sourceSpans": [
+            {
+              "start": 224,
+              "end": 240,
+              "quote": "was passiert ist"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q5",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Wir vereinbaren, dass …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.syntax.q5.a",
+              "textDe": "das Geschäft ruft mich an"
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q5.c",
+              "textDe": "ruft das Geschäft mich an"
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q5.b",
+              "textDe": "das Geschäft mich anruft"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.syntax.q5.b",
+          "correctAnswerTextDe": "das Geschäft mich anruft",
+          "rationaleDe": "Dass leitet einen Nebensatz ein; das finite trennbare Verb bleibt als anruft am Ende zusammen.",
+          "assessmentUnit": "dass anruft Nebensatz",
+          "sourceSpans": [
+            {
+              "start": 359,
+              "end": 388,
+              "quote": "dass das Geschäft mich anruft"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q6",
+          "publicPromptDe": "Wann erfolgt der Anruf laut »Das Geschäft ruft mich an, sobald ein neues Paar ankommt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.syntax.q6.c",
+              "textDe": "Schon bevor das neue Paar ankommt."
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q6.b",
+              "textDe": "Wenn das neue Paar angekommen ist, ohne erst einen weiteren Anlass abzuwarten."
+            },
+            {
+              "id": "sitov.pretest.a22-04.syntax.q6.a",
+              "textDe": "Erst wenn der Sprecher das neue Paar abgeholt hat."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.syntax.q6.b",
+          "correctAnswerTextDe": "Wenn das neue Paar angekommen ist, ohne erst einen weiteren Anlass abzuwarten.",
+          "rationaleDe": "Sobald knüpft den Anruf unmittelbar an die Ankunft; vorheriger Anruf und spätere Abholung sind andere Zeitpunkte.",
+          "assessmentUnit": "sobald Ankunft als Auslöser",
+          "sourceSpans": [
+            {
+              "start": 390,
+              "end": 419,
+              "quote": "sobald ein neues Paar ankommt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »an ___ Schuh hat sich die Sohle gelöst«, wenn genau einer gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.nominal.q1.c",
+              "textDe": "ein"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q1.b",
+              "textDe": "einem"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q1.a",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.nominal.q1.b",
+          "correctAnswerTextDe": "einem",
+          "rationaleDe": "An nennt hier den Ort des Schadens im Dativ; beim maskulinen Schuh lautet der Artikel einem.",
+          "assessmentUnit": "einem Schuh Dativ Ort",
+          "sourceSpans": [
+            {
+              "start": 80,
+              "end": 94,
+              "quote": "an einem Schuh"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »mit ___ Schuhen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.nominal.q2.a",
+              "textDe": "die"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q2.b",
+              "textDe": "der"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q2.c",
+              "textDe": "den"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.nominal.q2.c",
+          "correctAnswerTextDe": "den",
+          "rationaleDe": "Mit verlangt Dativ; der bestimmte Artikel im Plural lautet den.",
+          "assessmentUnit": "den Schuhen Dativ Plural",
+          "sourceSpans": [
+            {
+              "start": 129,
+              "end": 144,
+              "quote": "mit den Schuhen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich erkläre ___ Verkäufer das Problem«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.nominal.q3.a",
+              "textDe": "dem"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q3.c",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q3.b",
+              "textDe": "der"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.nominal.q3.a",
+          "correctAnswerTextDe": "dem",
+          "rationaleDe": "Die Person, der etwas erklärt wird, steht im Dativ; beim maskulinen Verkäufer lautet der Artikel dem.",
+          "assessmentUnit": "dem Verkäufer Dativ Empfänger",
+          "sourceSpans": [
+            {
+              "start": 195,
+              "end": 208,
+              "quote": "dem Verkäufer"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »___ Größe war nicht mehr da«, wenn es die Größe des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.nominal.q4.b",
+              "textDe": "Meine"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q4.a",
+              "textDe": "Meiner"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q4.c",
+              "textDe": "Meinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.nominal.q4.b",
+          "correctAnswerTextDe": "Meine",
+          "rationaleDe": "Größe ist hier feminines Subjekt im Nominativ; die Possessivform lautet meine.",
+          "assessmentUnit": "meine Größe Nominativ feminin",
+          "sourceSpans": [
+            {
+              "start": 310,
+              "end": 321,
+              "quote": "meine Größe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ein ___ Paar kommt an«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.nominal.q5.a",
+              "textDe": "neuem"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q5.b",
+              "textDe": "neuen"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q5.c",
+              "textDe": "neues"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.nominal.q5.c",
+          "correctAnswerTextDe": "neues",
+          "rationaleDe": "Paar ist neutrales Subjekt im Nominativ; nach ein lautet die Adjektivform neues.",
+          "assessmentUnit": "neues Paar neutral Nominativ",
+          "sourceSpans": [
+            {
+              "start": 397,
+              "end": 411,
+              "quote": "ein neues Paar"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »Das Geschäft ruft ___ an«, wenn der Sprecher angerufen wird?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-04.nominal.q6.c",
+              "textDe": "mir"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q6.a",
+              "textDe": "mich"
+            },
+            {
+              "id": "sitov.pretest.a22-04.nominal.q6.b",
+              "textDe": "ich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-04.nominal.q6.a",
+          "correctAnswerTextDe": "mich",
+          "rationaleDe": "Anrufen verlangt hier ein Akkusativobjekt; für den Sprecher lautet das Pronomen mich.",
+          "assessmentUnit": "mich Akkusativ anrufen",
+          "sourceSpans": [
+            {
+              "start": 377,
+              "end": 388,
+              "quote": "mich anruft"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "cdc98a2c-2e24-505e-bcc8-a1e68bfe2553",
+      "title": "Hilfe beim Deutschlernen",
+      "level": "A2.2",
+      "textVersion": "5d569bf2469a3b7cb0206a010f18dae381ebaf817cc18a517db0a3a752c3b326",
+      "definitionContentHash": "45c3db367580a4ccffaa67b74fffa2cf79c997261114dab3e35d0f3da474dfb1",
+      "sourceBodyDe": "Mein Nachbar lernt seit Kurzem Deutsch und hat mich gefragt, wie ich zu Hause übe. Ich habe ihm gezeigt, dass ich jeden Tag nur wenige neue Wörter lerne und ältere Wörter regelmäßig wiederhole. Außerdem höre ich kurze Texte mehrmals an. Zuerst achte ich auf den Inhalt, später auf die Aussprache. Wir haben beschlossen, uns zweimal in der Woche für zwanzig Minuten zu treffen. Dabei wollen wir über Alltagsthemen sprechen. Ich kann selbst noch nicht alles richtig sagen, aber wir helfen uns gegenseitig.",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a22-05.words.q1",
+          "publicPromptDe": "Was bedeutet »Er lernt seit Kurzem Deutsch«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.words.q1.c",
+              "textDe": "Er hat erst vor kurzer Zeit angefangen und lernt weiterhin."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q1.a",
+              "textDe": "Er wird erst in einigen Wochen anfangen."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q1.b",
+              "textDe": "Er hat das Lernen vor langer Zeit vollständig beendet."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.words.q1.c",
+          "correctAnswerTextDe": "Er hat erst vor kurzer Zeit angefangen und lernt weiterhin.",
+          "rationaleDe": "Seit Kurzem nennt einen jüngsten Beginn mit Fortsetzung; zukünftiger Beginn und längst beendetes Lernen sind andere Zeitbezüge.",
+          "assessmentUnit": "seit Kurzem jüngster Beginn",
+          "sourceSpans": [
+            {
+              "start": 19,
+              "end": 30,
+              "quote": "seit Kurzem"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q2",
+          "publicPromptDe": "Was bedeutet »Wörter regelmäßig wiederholen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.words.q2.b",
+              "textDe": "Die Wörter in wiederkehrenden Abständen erneut üben."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q2.a",
+              "textDe": "Die Wörter nach dem ersten Lernen nie mehr ansehen."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q2.c",
+              "textDe": "Die Wörter nur ein einziges Mal üben."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.words.q2.b",
+          "correctAnswerTextDe": "Die Wörter in wiederkehrenden Abständen erneut üben.",
+          "rationaleDe": "Regelmäßig wiederholen verlangt wiederkehrendes Üben; einmaliges Üben oder keine Wiederholung erfüllt das nicht.",
+          "assessmentUnit": "regelmäßig wiederkehrend",
+          "sourceSpans": [
+            {
+              "start": 171,
+              "end": 181,
+              "quote": "regelmäßig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q3",
+          "publicPromptDe": "Was meint »auf den Inhalt eines Textes achten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.words.q3.a",
+              "textDe": "Nur darauf achten, wie die einzelnen Laute ausgesprochen werden."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q3.b",
+              "textDe": "Nur prüfen, ob jedes Wort in der richtigen Reihenfolge geschrieben ist."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q3.c",
+              "textDe": "Darauf achten, was der Text inhaltlich mitteilt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.words.q3.c",
+          "correctAnswerTextDe": "Darauf achten, was der Text inhaltlich mitteilt.",
+          "rationaleDe": "Inhalt betrifft die Mitteilung und Bedeutung; Lautbildung gehört zur Aussprache, Wortreihenfolge zur sprachlichen Form.",
+          "assessmentUnit": "Inhalt Textbedeutung",
+          "sourceSpans": [
+            {
+              "start": 262,
+              "end": 268,
+              "quote": "Inhalt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q4",
+          "publicPromptDe": "Was meint »auf die Aussprache achten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.words.q4.c",
+              "textDe": "Nur darauf achten, welche Informationen der Text vermittelt."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q4.a",
+              "textDe": "Darauf achten, wie Wörter und Laute gesprochen werden."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q4.b",
+              "textDe": "Nur darauf achten, wie die Wörter geschrieben werden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.words.q4.a",
+          "correctAnswerTextDe": "Darauf achten, wie Wörter und Laute gesprochen werden.",
+          "rationaleDe": "Aussprache betrifft die gesprochenen Laute; Textinformation ist Inhalt, Schreibweise ist Rechtschreibung.",
+          "assessmentUnit": "Aussprache Lautbildung",
+          "sourceSpans": [
+            {
+              "start": 285,
+              "end": 295,
+              "quote": "Aussprache"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q5",
+          "publicPromptDe": "Was sind »Alltagsthemen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.words.q5.c",
+              "textDe": "Nur seltene Festtage und einmalige Ausnahmeereignisse."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q5.a",
+              "textDe": "Nur sehr spezielle Fachfragen eines einzelnen Berufs."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q5.b",
+              "textDe": "Themen des gewöhnlichen täglichen Lebens."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.words.q5.b",
+          "correctAnswerTextDe": "Themen des gewöhnlichen täglichen Lebens.",
+          "rationaleDe": "Alltagsthemen betreffen das gewöhnliche Leben; engste Fachfragen und reine Ausnahmeereignisse grenzen andere Themenbereiche ab.",
+          "assessmentUnit": "Alltagsthemen gewöhnliches Leben",
+          "sourceSpans": [
+            {
+              "start": 399,
+              "end": 412,
+              "quote": "Alltagsthemen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q6",
+          "publicPromptDe": "Was bedeutet »Wir helfen uns gegenseitig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.words.q6.c",
+              "textDe": "Nur einer hilft dem anderen und bekommt keine Hilfe zurück."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q6.a",
+              "textDe": "Beide helfen jeweils dem anderen."
+            },
+            {
+              "id": "sitov.pretest.a22-05.words.q6.b",
+              "textDe": "Jeder hilft nur sich selbst."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.words.q6.a",
+          "correctAnswerTextDe": "Beide helfen jeweils dem anderen.",
+          "rationaleDe": "Gegenseitig macht die Hilfe wechselseitig; Selbsthilfe und Hilfe in nur einer Richtung haben andere Bezugsstrukturen.",
+          "assessmentUnit": "gegenseitig wechselseitige Hilfe",
+          "sourceSpans": [
+            {
+              "start": 491,
+              "end": 502,
+              "quote": "gegenseitig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q1",
+          "publicPromptDe": "Welche Form ergänzt »Mein Nachbar ___ Deutsch« zu lernen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.verbs.q1.b",
+              "textDe": "lernen"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q1.c",
+              "textDe": "lernt"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q1.a",
+              "textDe": "lernst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.verbs.q1.c",
+          "correctAnswerTextDe": "lernt",
+          "rationaleDe": "Mein Nachbar ist dritte Person Singular; im Präsens lautet die Form lernt.",
+          "assessmentUnit": "lernt dritte Person Singular",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 18,
+              "quote": "Mein Nachbar lernt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe ihm meine Übung ___« zu zeigen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.verbs.q2.b",
+              "textDe": "gezeigen"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q2.c",
+              "textDe": "gezeigt"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q2.a",
+              "textDe": "zeigen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.verbs.q2.c",
+          "correctAnswerTextDe": "gezeigt",
+          "rationaleDe": "Zeigen bildet das schwache Partizip gezeigt; gezeigen und der Infinitiv passen nicht ins Perfekt.",
+          "assessmentUnit": "gezeigt schwaches Partizip",
+          "sourceSpans": [
+            {
+              "start": 87,
+              "end": 103,
+              "quote": "habe ihm gezeigt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich ___ ältere Wörter« zu wiederholen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.verbs.q3.a",
+              "textDe": "wiederhole"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q3.b",
+              "textDe": "wiederholen"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q3.c",
+              "textDe": "wiederholt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.verbs.q3.a",
+          "correctAnswerTextDe": "wiederhole",
+          "rationaleDe": "Das Subjekt ich verlangt im Präsens wiederhole; wiederholt und wiederholen gehören zu anderen Formen.",
+          "assessmentUnit": "wiederhole erste Person Präsens",
+          "sourceSpans": [
+            {
+              "start": 164,
+              "end": 192,
+              "quote": "Wörter regelmäßig wiederhole"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q4",
+          "publicPromptDe": "Welche Grundform gehört zu »Ich höre kurze Texte an«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.verbs.q4.a",
+              "textDe": "anhören"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q4.b",
+              "textDe": "angehört"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q4.c",
+              "textDe": "hören"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.verbs.q4.a",
+          "correctAnswerTextDe": "anhören",
+          "rationaleDe": "Die Satzklammer höre … an gehört zu anhören; hören verliert die Vorsilbe, angehört ist das Partizip.",
+          "assessmentUnit": "anhören trennbares Verb",
+          "sourceSpans": [
+            {
+              "start": 203,
+              "end": 235,
+              "quote": "höre ich kurze Texte mehrmals an"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Wir haben ein Treffen ___« zu beschließen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.verbs.q5.c",
+              "textDe": "beschließen"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q5.a",
+              "textDe": "gebeschlossen"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q5.b",
+              "textDe": "beschlossen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.verbs.q5.b",
+          "correctAnswerTextDe": "beschlossen",
+          "rationaleDe": "Beschließen bildet das starke Partizip beschlossen ohne zusätzliches ge; die anderen Formen passen nicht ins Perfekt.",
+          "assessmentUnit": "beschlossen starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 297,
+              "end": 318,
+              "quote": "Wir haben beschlossen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q6",
+          "publicPromptDe": "Welche Form ergänzt »Wir wollen über Alltagsthemen ___« zu sprechen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.verbs.q6.a",
+              "textDe": "gesprochen"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q6.c",
+              "textDe": "spreche"
+            },
+            {
+              "id": "sitov.pretest.a22-05.verbs.q6.b",
+              "textDe": "sprechen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.verbs.q6.b",
+          "correctAnswerTextDe": "sprechen",
+          "rationaleDe": "Nach dem Modalverb wollen steht der Infinitiv sprechen; Partizip und finite erste Person passen hier nicht.",
+          "assessmentUnit": "sprechen Modalinfinitiv",
+          "sourceSpans": [
+            {
+              "start": 383,
+              "end": 421,
+              "quote": "wollen wir über Alltagsthemen sprechen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q1",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Mein Nachbar fragt, wie …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.syntax.q1.b",
+              "textDe": "übe ich zu Hause"
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q1.a",
+              "textDe": "ich zu Hause übe"
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q1.c",
+              "textDe": "ich übe zu Hause"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.syntax.q1.a",
+          "correctAnswerTextDe": "ich zu Hause übe",
+          "rationaleDe": "Wie leitet eine indirekte Frage ein; das finite Verb übe steht am Ende.",
+          "assessmentUnit": "wie indirekte Frage Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 61,
+              "end": 81,
+              "quote": "wie ich zu Hause übe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q2",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Ich zeige ihm, dass …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.syntax.q2.b",
+              "textDe": "ich lerne jeden Tag wenige Wörter"
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q2.a",
+              "textDe": "lerne ich jeden Tag wenige Wörter"
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q2.c",
+              "textDe": "ich jeden Tag wenige Wörter lerne"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.syntax.q2.c",
+          "correctAnswerTextDe": "ich jeden Tag wenige Wörter lerne",
+          "rationaleDe": "Dass leitet einen Nebensatz ein; das finite Verb lerne steht am Ende.",
+          "assessmentUnit": "dass Nebensatz Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 105,
+              "end": 152,
+              "quote": "dass ich jeden Tag nur wenige neue Wörter lerne"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q3",
+          "publicPromptDe": "Worauf achtet der Sprecher zuerst laut »Zuerst achte ich auf den Inhalt, später auf die Aussprache«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.syntax.q3.a",
+              "textDe": "Von Anfang an auf beides gleichzeitig ohne Reihenfolge."
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q3.c",
+              "textDe": "Auf die Aussprache."
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q3.b",
+              "textDe": "Auf den Inhalt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.syntax.q3.b",
+          "correctAnswerTextDe": "Auf den Inhalt.",
+          "rationaleDe": "Zuerst nennt den Inhalt als ersten Schwerpunkt, später die Aussprache als folgenden; umgekehrte oder fehlende Reihenfolge passt nicht.",
+          "assessmentUnit": "Zuerst später Aufmerksamkeitsfolge",
+          "sourceSpans": [
+            {
+              "start": 237,
+              "end": 296,
+              "quote": "Zuerst achte ich auf den Inhalt, später auf die Aussprache."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q4",
+          "publicPromptDe": "Wie oft findet das Treffen laut »Wir treffen uns zweimal in der Woche« statt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.syntax.q4.b",
+              "textDe": "Einmal alle zwei Wochen."
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q4.a",
+              "textDe": "Zweimal pro Woche."
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q4.c",
+              "textDe": "Jeden Tag zweimal."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.syntax.q4.a",
+          "correctAnswerTextDe": "Zweimal pro Woche.",
+          "rationaleDe": "Zweimal in der Woche nennt zwei Treffen je Woche; tägliche Wiederholung und zweiwöchentlicher Abstand verändern die Häufigkeit.",
+          "assessmentUnit": "zweimal pro Woche Häufigkeit",
+          "sourceSpans": [
+            {
+              "start": 324,
+              "end": 344,
+              "quote": "zweimal in der Woche"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q5",
+          "publicPromptDe": "Welche Angabe nennt die Dauer in »zweimal in der Woche für zwanzig Minuten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.syntax.q5.b",
+              "textDe": "für zwanzig Minuten"
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q5.c",
+              "textDe": "zweimal"
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q5.a",
+              "textDe": "in der Woche"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.syntax.q5.b",
+          "correctAnswerTextDe": "für zwanzig Minuten",
+          "rationaleDe": "Für zwanzig Minuten nennt die Zeitdauer; zweimal zählt die Wiederholungen, in der Woche den Bezugszeitraum.",
+          "assessmentUnit": "für zwanzig Minuten Dauer",
+          "sourceSpans": [
+            {
+              "start": 345,
+              "end": 364,
+              "quote": "für zwanzig Minuten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q6",
+          "publicPromptDe": "Welche Beziehung nennt »Ich kann nicht alles richtig sagen, aber wir helfen uns gegenseitig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.syntax.q6.c",
+              "textDe": "Trotz eigener Lücken leisten die beiden einander Hilfe."
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q6.b",
+              "textDe": "Die eigenen Fehler verhindern, dass die beiden einander helfen."
+            },
+            {
+              "id": "sitov.pretest.a22-05.syntax.q6.a",
+              "textDe": "Die gegenseitige Hilfe ist der Grund, warum der Sprecher nichts richtig sagen kann."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.syntax.q6.c",
+          "correctAnswerTextDe": "Trotz eigener Lücken leisten die beiden einander Hilfe.",
+          "rationaleDe": "Aber verbindet eigene Grenzen mit dennoch möglicher Hilfe; eine verursachte völlige Unfähigkeit oder verhinderte Hilfe steht nicht da.",
+          "assessmentUnit": "aber Hilfe trotz eigener Lücken",
+          "sourceSpans": [
+            {
+              "start": 423,
+              "end": 503,
+              "quote": "Ich kann selbst noch nicht alles richtig sagen, aber wir helfen uns gegenseitig."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »___ Nachbar lernt Deutsch«, wenn es der Nachbar des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.nominal.q1.b",
+              "textDe": "Mein"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q1.c",
+              "textDe": "Meinem"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q1.a",
+              "textDe": "Meinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.nominal.q1.b",
+          "correctAnswerTextDe": "Mein",
+          "rationaleDe": "Nachbar ist hier maskulines Subjekt im Nominativ; die Possessivform lautet mein.",
+          "assessmentUnit": "Mein Nachbar Nominativ",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 12,
+              "quote": "Mein Nachbar"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe ___ gezeigt, wie ich übe«, wenn der Nachbar der Empfänger ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.nominal.q2.a",
+              "textDe": "ihn"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q2.b",
+              "textDe": "ihm"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q2.c",
+              "textDe": "er"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.nominal.q2.b",
+          "correctAnswerTextDe": "ihm",
+          "rationaleDe": "Die empfangende Person steht bei zeigen im Dativ; für den männlichen Nachbarn lautet das Pronomen ihm.",
+          "assessmentUnit": "ihm Dativ zeigen",
+          "sourceSpans": [
+            {
+              "start": 92,
+              "end": 103,
+              "quote": "ihm gezeigt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich lerne nur ___ Wörter«, wenn die Anzahl klein ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.nominal.q3.c",
+              "textDe": "wenigem"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q3.b",
+              "textDe": "wenig"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q3.a",
+              "textDe": "wenige"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.nominal.q3.a",
+          "correctAnswerTextDe": "wenige",
+          "rationaleDe": "Wörter ist ein zählbarer Plural; eine kleine Anzahl wird hier mit wenige bezeichnet.",
+          "assessmentUnit": "wenige Wörter zählbarer Plural",
+          "sourceSpans": [
+            {
+              "start": 128,
+              "end": 146,
+              "quote": "wenige neue Wörter"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q4",
+          "publicPromptDe": "Welche Form von alt ergänzt als Vergleich zu neueren Wörtern »Ich wiederhole ___ Wörter«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.nominal.q4.a",
+              "textDe": "ältere"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q4.b",
+              "textDe": "alte"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q4.c",
+              "textDe": "älteste"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.nominal.q4.a",
+          "correctAnswerTextDe": "ältere",
+          "rationaleDe": "Ältere ist der Komparativ von alt; alte ist Positiv, älteste Superlativ und keine vergleichende Zwischenstufe.",
+          "assessmentUnit": "ältere Komparativ von alt",
+          "sourceSpans": [
+            {
+              "start": 157,
+              "end": 170,
+              "quote": "ältere Wörter"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Wir möchten ___ treffen«, wenn wir einander treffen wollen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.nominal.q5.b",
+              "textDe": "sich"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q5.a",
+              "textDe": "mich"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q5.c",
+              "textDe": "uns"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.nominal.q5.c",
+          "correctAnswerTextDe": "uns",
+          "rationaleDe": "Bei wir steht für das wechselseitige Treffen uns; sich und mich haben andere Personenbezüge.",
+          "assessmentUnit": "uns Akkusativ wechselseitig treffen",
+          "sourceSpans": [
+            {
+              "start": 320,
+              "end": 344,
+              "quote": "uns zweimal in der Woche"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »für zwanzig ___« zu Minute?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-05.nominal.q6.a",
+              "textDe": "Minute"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q6.c",
+              "textDe": "Minuten"
+            },
+            {
+              "id": "sitov.pretest.a22-05.nominal.q6.b",
+              "textDe": "Minutens"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-05.nominal.q6.c",
+          "correctAnswerTextDe": "Minuten",
+          "rationaleDe": "Nach zwanzig ist hier der Plural Minuten nötig; Minute ist Singular, Minutens keine passende Pluralform.",
+          "assessmentUnit": "Minuten Plural nach Zahl",
+          "sourceSpans": [
+            {
+              "start": 349,
+              "end": 364,
+              "quote": "zwanzig Minuten"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "1c914afb-1958-5045-bda2-d609de2bd365",
+      "title": "Ein freiwilliger Einsatz",
+      "level": "A2.2",
+      "textVersion": "ed0acb86d3a8abd239562c11cdd425d0fe3881ccc7eb8fc9cd04a57b94ea5b0f",
+      "definitionContentHash": "36a5aaac4df8514ecbc8d5bfa14f321094ea149c883afd62630f4e6bc42c8f4f",
+      "sourceBodyDe": "In unserem Stadtteil wurde am Samstag Müll gesammelt. Ich habe durch einen Aushang davon erfahren und mich angemeldet. Am Treffpunkt bekamen wir Handschuhe und große Säcke. Ein Organisator erklärte, welche Wege wir sauber machen sollten. Ich war mit einem älteren Mann in einer Gruppe. Während wir arbeiteten, erzählte er mir viel über den Stadtteil. Nach zwei Stunden waren die Wege deutlich sauberer. Zum Schluss gab es Suppe für alle. Beim nächsten Mal möchte ich wieder mithelfen.",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a22-06.words.q1",
+          "publicPromptDe": "Was ist ein »Aushang« über einen Einsatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.words.q1.b",
+              "textDe": "Ein persönlicher Anruf ohne schriftliche Mitteilung."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q1.c",
+              "textDe": "Eine nur mündlich über Lautsprecher gesprochene Nachricht."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q1.a",
+              "textDe": "Eine öffentlich aufgehängte schriftliche Mitteilung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.words.q1.a",
+          "correctAnswerTextDe": "Eine öffentlich aufgehängte schriftliche Mitteilung.",
+          "rationaleDe": "Ein Aushang ist sichtbar aufgehängte Schrift; Lautsprecherdurchsage und Telefonanruf nutzen andere Mitteilungsformen.",
+          "assessmentUnit": "Aushang öffentliche schriftliche Mitteilung",
+          "sourceSpans": [
+            {
+              "start": 75,
+              "end": 82,
+              "quote": "Aushang"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q2",
+          "publicPromptDe": "Was ist ein »Treffpunkt« für eine Gruppe?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.words.q2.c",
+              "textDe": "Der vereinbarte Ort, an dem die Gruppe zusammenkommt."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q2.a",
+              "textDe": "Der Zeitpunkt, zu dem die Arbeit endet, ohne Ortsangabe."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q2.b",
+              "textDe": "Die ganze Strecke, die die Gruppe bei der Arbeit zurücklegt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.words.q2.c",
+          "correctAnswerTextDe": "Der vereinbarte Ort, an dem die Gruppe zusammenkommt.",
+          "rationaleDe": "Treffpunkt bezeichnet einen Sammelort; Arbeitsstrecke und Endzeit sind andere Planungsangaben.",
+          "assessmentUnit": "Treffpunkt vereinbarter Sammelort",
+          "sourceSpans": [
+            {
+              "start": 122,
+              "end": 132,
+              "quote": "Treffpunkt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q3",
+          "publicPromptDe": "Wozu dienen »Handschuhe« beim Müllsammeln?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.words.q3.c",
+              "textDe": "Sie bedecken und schützen die Füße."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q3.a",
+              "textDe": "Sie sind die Behälter, in denen man den Müll sammelt."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q3.b",
+              "textDe": "Sie bedecken und schützen die Hände."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.words.q3.b",
+          "correctAnswerTextDe": "Sie bedecken und schützen die Hände.",
+          "rationaleDe": "Handschuhe schützen Hände; Fußschutz wäre Schuhwerk, Müllbehälter sind Säcke oder andere Sammelgefäße.",
+          "assessmentUnit": "Handschuhe Schutz der Hände",
+          "sourceSpans": [
+            {
+              "start": 145,
+              "end": 155,
+              "quote": "Handschuhe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q4",
+          "publicPromptDe": "Was sind »große Säcke« zum Müllsammeln?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.words.q4.b",
+              "textDe": "Starre Eimer mit einem festen Henkel."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q4.c",
+              "textDe": "Große flexible Beutel, in die man Müll füllen kann."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q4.a",
+              "textDe": "Feste Kisten mit steifen Wänden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.words.q4.c",
+          "correctAnswerTextDe": "Große flexible Beutel, in die man Müll füllen kann.",
+          "rationaleDe": "Säcke sind flexible Beutel; Eimer und Kisten sind starre Behälter desselben Sammelbereichs, aber andere Gefäßarten.",
+          "assessmentUnit": "Säcke flexible Sammelbeutel",
+          "sourceSpans": [
+            {
+              "start": 166,
+              "end": 171,
+              "quote": "Säcke"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q5",
+          "publicPromptDe": "Wer ist ein »Organisator« eines Einsatzes?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.words.q5.c",
+              "textDe": "Ein Helfer, der nur eine zugewiesene Aufgabe ausführt, ohne den Einsatz zu planen."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q5.a",
+              "textDe": "Die Person, die den Einsatz plant und koordiniert."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q5.b",
+              "textDe": "Eine Person, die nur zuschaut und keine Aufgaben übernimmt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.words.q5.a",
+          "correctAnswerTextDe": "Die Person, die den Einsatz plant und koordiniert.",
+          "rationaleDe": "Der Organisator plant und koordiniert; Zuschauer und ein nur ausführender Einzelhelfer haben andere Rollen.",
+          "assessmentUnit": "Organisator plant und koordiniert",
+          "sourceSpans": [
+            {
+              "start": 177,
+              "end": 188,
+              "quote": "Organisator"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q6",
+          "publicPromptDe": "Was bedeutet »beim Saubermachen mithelfen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.words.q6.b",
+              "textDe": "Sich an der gemeinsamen Arbeit unterstützend beteiligen."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q6.a",
+              "textDe": "Die Arbeit anderer nur beobachten, ohne sich zu beteiligen."
+            },
+            {
+              "id": "sitov.pretest.a22-06.words.q6.c",
+              "textDe": "Die gemeinsame Arbeit verhindern, statt sie zu unterstützen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.words.q6.b",
+          "correctAnswerTextDe": "Sich an der gemeinsamen Arbeit unterstützend beteiligen.",
+          "rationaleDe": "Mithelfen beteiligt sich unterstützend; bloßes Beobachten und Verhindern haben andere Beziehungen zur Arbeit.",
+          "assessmentUnit": "mithelfen an gemeinsamer Arbeit beteiligen",
+          "sourceSpans": [
+            {
+              "start": 474,
+              "end": 483,
+              "quote": "mithelfen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q1",
+          "publicPromptDe": "Welche Verbform zeigt »Müll wurde gesammelt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.verbs.q1.c",
+              "textDe": "Präteritum im Vorgangspassiv."
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q1.a",
+              "textDe": "Präteritum im Aktiv mit Müll als handelndem Subjekt."
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q1.b",
+              "textDe": "Perfekt im Vorgangspassiv mit ist und worden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.verbs.q1.c",
+          "correctAnswerTextDe": "Präteritum im Vorgangspassiv.",
+          "rationaleDe": "Wurde plus Partizip gesammelt bildet das Vorgangspassiv im Präteritum; Müll handelt nicht selbst, ein Perfekt würde ist gesammelt worden lauten.",
+          "assessmentUnit": "wurde gesammelt Präteritum Passiv",
+          "sourceSpans": [
+            {
+              "start": 21,
+              "end": 52,
+              "quote": "wurde am Samstag Müll gesammelt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe davon ___« zu erfahren?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.verbs.q2.b",
+              "textDe": "erfahren"
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q2.a",
+              "textDe": "erfahrt"
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q2.c",
+              "textDe": "geerfahren"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.verbs.q2.b",
+          "correctAnswerTextDe": "erfahren",
+          "rationaleDe": "Erfahren bildet das Partizip erfahren ohne zusätzliches ge; erfahrt ist eine finite Präsensform.",
+          "assessmentUnit": "erfahren starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 83,
+              "end": 97,
+              "quote": "davon erfahren"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe mich ___« zu anmelden?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.verbs.q3.c",
+              "textDe": "anmelden"
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q3.b",
+              "textDe": "angemeldet"
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q3.a",
+              "textDe": "geanmeldet"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.verbs.q3.b",
+          "correctAnswerTextDe": "angemeldet",
+          "rationaleDe": "Bei anmelden steht ge zwischen an und meldet; das Partizip lautet angemeldet.",
+          "assessmentUnit": "angemeldet trennbares Partizip",
+          "sourceSpans": [
+            {
+              "start": 102,
+              "end": 117,
+              "quote": "mich angemeldet"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q4",
+          "publicPromptDe": "Welche Grundform gehört zu »Wir bekamen Handschuhe«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.verbs.q4.c",
+              "textDe": "kommen"
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q4.b",
+              "textDe": "geben"
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q4.a",
+              "textDe": "bekommen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.verbs.q4.a",
+          "correctAnswerTextDe": "bekommen",
+          "rationaleDe": "Bekamen gehört zu bekommen; kommen lässt die Vorsilbe weg, geben bezeichnet die entgegengesetzte Übergaberichtung.",
+          "assessmentUnit": "bekamen Präteritum bekommen",
+          "sourceSpans": [
+            {
+              "start": 133,
+              "end": 155,
+              "quote": "bekamen wir Handschuhe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q5",
+          "publicPromptDe": "Was drückt »Wir sollten die Wege sauber machen« im berichteten Einsatzplan aus?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.verbs.q5.a",
+              "textDe": "Eine bereits abgeschlossene Reinigung ohne Auftrag."
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q5.b",
+              "textDe": "Ein damaliges Verbot, die Wege zu reinigen."
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q5.c",
+              "textDe": "Eine damals erhaltene Anweisung für die Arbeit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.verbs.q5.c",
+          "correctAnswerTextDe": "Eine damals erhaltene Anweisung für die Arbeit.",
+          "rationaleDe": "Sollten gibt hier die erhaltene Anweisung wieder; erledigte Arbeit und Reinigungsverbot haben andere Zeit- oder Modalbedeutungen.",
+          "assessmentUnit": "sollten erhaltene Arbeitsanweisung",
+          "sourceSpans": [
+            {
+              "start": 215,
+              "end": 236,
+              "quote": "sauber machen sollten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q6",
+          "publicPromptDe": "Welche Form ergänzt »Ich möchte wieder ___« zu mithelfen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.verbs.q6.c",
+              "textDe": "mitgeholfen"
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q6.a",
+              "textDe": "mithelfen"
+            },
+            {
+              "id": "sitov.pretest.a22-06.verbs.q6.b",
+              "textDe": "helfe mit"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.verbs.q6.a",
+          "correctAnswerTextDe": "mithelfen",
+          "rationaleDe": "Nach möchte steht der Infinitiv mithelfen; Partizip und getrennte finite Form passen hier nicht.",
+          "assessmentUnit": "mithelfen Modalinfinitiv",
+          "sourceSpans": [
+            {
+              "start": 456,
+              "end": 483,
+              "quote": "möchte ich wieder mithelfen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q1",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Er erklärte, welche Wege …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.syntax.q1.b",
+              "textDe": "wir sauber machen sollten"
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q1.a",
+              "textDe": "sollten wir sauber machen"
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q1.c",
+              "textDe": "wir sollten sauber machen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.syntax.q1.b",
+          "correctAnswerTextDe": "wir sauber machen sollten",
+          "rationaleDe": "Die indirekte Frage beginnt mit welche Wege; das finite Modalverb sollten steht nach sauber machen am Ende.",
+          "assessmentUnit": "welche indirekte Frage Modalverb final",
+          "sourceSpans": [
+            {
+              "start": 199,
+              "end": 236,
+              "quote": "welche Wege wir sauber machen sollten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q2",
+          "publicPromptDe": "Welche Beziehung nennt »Während wir arbeiteten, erzählte der Mann vom Stadtteil«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.syntax.q2.a",
+              "textDe": "Das Erzählen ist schon vor Beginn der Arbeit beendet."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q2.c",
+              "textDe": "Arbeiten und Erzählen finden in derselben Zeit statt."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q2.b",
+              "textDe": "Das Erzählen beginnt erst nach dem Ende der Arbeit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.syntax.q2.c",
+          "correctAnswerTextDe": "Arbeiten und Erzählen finden in derselben Zeit statt.",
+          "rationaleDe": "Während bezeichnet hier Gleichzeitigkeit; die Alternativen verlegen das Erzählen vollständig hinter oder vor die Arbeit.",
+          "assessmentUnit": "Während gleichzeitige Handlungen",
+          "sourceSpans": [
+            {
+              "start": 286,
+              "end": 350,
+              "quote": "Während wir arbeiteten, erzählte er mir viel über den Stadtteil."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q3",
+          "publicPromptDe": "Auf wen verweist »er« in »Ich war mit einem älteren Mann in einer Gruppe. Er erzählte mir vom Stadtteil«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.syntax.q3.b",
+              "textDe": "Auf den Sprecher, der mit ich bezeichnet wird."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q3.c",
+              "textDe": "Auf den älteren Mann."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q3.a",
+              "textDe": "Auf die ganze Gruppe."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.syntax.q3.c",
+          "correctAnswerTextDe": "Auf den älteren Mann.",
+          "rationaleDe": "Er greift den männlichen Dritten auf; der Sprecher ist ich, die Gruppe wäre sie und nicht er.",
+          "assessmentUnit": "er älterer Mann Rückverweis",
+          "sourceSpans": [
+            {
+              "start": 238,
+              "end": 350,
+              "quote": "Ich war mit einem älteren Mann in einer Gruppe. Während wir arbeiteten, erzählte er mir viel über den Stadtteil."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q4",
+          "publicPromptDe": "Wann sind die Wege laut »Nach zwei Stunden waren die Wege sauberer« sauberer geworden?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.syntax.q4.c",
+              "textDe": "Die Reinigung ist erst für zwei Stunden später geplant."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q4.b",
+              "textDe": "Zwei Stunden vor Beginn des genannten Zeitraums."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q4.a",
+              "textDe": "Zwei Stunden nach Beginn des genannten Zeitraums."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.syntax.q4.a",
+          "correctAnswerTextDe": "Zwei Stunden nach Beginn des genannten Zeitraums.",
+          "rationaleDe": "Nach verlegt das erreichte Ergebnis hinter den Beginn; vorher und eine bloß geplante spätere Reinigung widersprechen der Aussage waren.",
+          "assessmentUnit": "Nach zwei Stunden Ergebniszeit",
+          "sourceSpans": [
+            {
+              "start": 351,
+              "end": 402,
+              "quote": "Nach zwei Stunden waren die Wege deutlich sauberer."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q5",
+          "publicPromptDe": "Was bedeutet »Die Wege waren nach dem Einsatz sauberer als vorher«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.syntax.q5.a",
+              "textDe": "Auf den Wegen lag mehr Schmutz als vorher."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q5.c",
+              "textDe": "Die Sauberkeit war gegenüber vorher unverändert."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q5.b",
+              "textDe": "Auf den Wegen lag weniger Schmutz als vorher."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.syntax.q5.b",
+          "correctAnswerTextDe": "Auf den Wegen lag weniger Schmutz als vorher.",
+          "rationaleDe": "Sauberer vergleicht die Reinheit und nennt eine Verbesserung; mehr Schmutz oder keine Veränderung kehrt den Vergleich um oder hebt ihn auf.",
+          "assessmentUnit": "sauberer Vergleich Reinheit",
+          "sourceSpans": [
+            {
+              "start": 384,
+              "end": 401,
+              "quote": "deutlich sauberer"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q6",
+          "publicPromptDe": "Wann gibt es Suppe laut »Wir sammelten Müll. Zum Schluss gab es Suppe«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.syntax.q6.a",
+              "textDe": "Am Ende der genannten Arbeitsabfolge."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q6.c",
+              "textDe": "Während der ganzen Arbeit ohne einen abschließenden Zeitpunkt."
+            },
+            {
+              "id": "sitov.pretest.a22-06.syntax.q6.b",
+              "textDe": "Schon vor dem Beginn der Arbeitsabfolge."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.syntax.q6.a",
+          "correctAnswerTextDe": "Am Ende der genannten Arbeitsabfolge.",
+          "rationaleDe": "Zum Schluss ordnet die Suppe an das Ende; vorheriger Beginn oder ein durchgehender Vorgang ohne Abschluss passt nicht.",
+          "assessmentUnit": "Zum Schluss Ende der Abfolge",
+          "sourceSpans": [
+            {
+              "start": 403,
+              "end": 437,
+              "quote": "Zum Schluss gab es Suppe für alle."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »in ___ Stadtteil«, wenn es der Stadtteil unserer Gruppe als Ort ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.nominal.q1.b",
+              "textDe": "unserem"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q1.a",
+              "textDe": "unseren"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q1.c",
+              "textDe": "unser"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.nominal.q1.b",
+          "correctAnswerTextDe": "unserem",
+          "rationaleDe": "In nennt hier einen Ort im Dativ; beim maskulinen Stadtteil lautet die Possessivform unserem.",
+          "assessmentUnit": "unserem Stadtteil Dativ",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 20,
+              "quote": "In unserem Stadtteil"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »durch ___ Aushang«, wenn genau einer gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.nominal.q2.b",
+              "textDe": "einem"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q2.c",
+              "textDe": "ein"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q2.a",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.nominal.q2.a",
+          "correctAnswerTextDe": "einen",
+          "rationaleDe": "Durch verlangt Akkusativ; beim maskulinen Aushang lautet der unbestimmte Artikel einen.",
+          "assessmentUnit": "einen Aushang Akkusativ durch",
+          "sourceSpans": [
+            {
+              "start": 63,
+              "end": 82,
+              "quote": "durch einen Aushang"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Wir bekamen ___ Säcke«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.nominal.q3.b",
+              "textDe": "großem"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q3.c",
+              "textDe": "große"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q3.a",
+              "textDe": "großen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.nominal.q3.c",
+          "correctAnswerTextDe": "große",
+          "rationaleDe": "Säcke ist Akkusativ Plural ohne Artikel; die Adjektivform lautet große.",
+          "assessmentUnit": "große Säcke Akkusativ Plural",
+          "sourceSpans": [
+            {
+              "start": 160,
+              "end": 171,
+              "quote": "große Säcke"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »mit einem ___ Mann« als Komparativ von alt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.nominal.q4.a",
+              "textDe": "älteren"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q4.b",
+              "textDe": "älterer"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q4.c",
+              "textDe": "älteres"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.nominal.q4.a",
+          "correctAnswerTextDe": "älteren",
+          "rationaleDe": "Mit verlangt Dativ; der Komparativ älter erhält nach einem beim maskulinen Mann die Endung en.",
+          "assessmentUnit": "älteren Mann Dativ Komparativ",
+          "sourceSpans": [
+            {
+              "start": 246,
+              "end": 268,
+              "quote": "mit einem älteren Mann"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Der Mann erzählte ___ vom Stadtteil«, wenn der Sprecher der Empfänger ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.nominal.q5.a",
+              "textDe": "mich"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q5.c",
+              "textDe": "ich"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q5.b",
+              "textDe": "mir"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.nominal.q5.b",
+          "correctAnswerTextDe": "mir",
+          "rationaleDe": "Die empfangende Person steht bei erzählen im Dativ; für den Sprecher lautet das Pronomen mir.",
+          "assessmentUnit": "mir Dativ Empfänger erzählen",
+          "sourceSpans": [
+            {
+              "start": 319,
+              "end": 330,
+              "quote": "er mir viel"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »beim ___ Mal«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-06.nominal.q6.b",
+              "textDe": "nächste"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q6.c",
+              "textDe": "nächsten"
+            },
+            {
+              "id": "sitov.pretest.a22-06.nominal.q6.a",
+              "textDe": "nächstes"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-06.nominal.q6.c",
+          "correctAnswerTextDe": "nächsten",
+          "rationaleDe": "Beim enthält bei dem und verlangt Dativ; nach dem lautet die Adjektivform nächsten Mal.",
+          "assessmentUnit": "nächsten Mal Dativ",
+          "sourceSpans": [
+            {
+              "start": 438,
+              "end": 455,
+              "quote": "Beim nächsten Mal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
