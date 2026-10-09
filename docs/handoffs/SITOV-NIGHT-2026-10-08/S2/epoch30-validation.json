@@ -1,0 +1,33 @@
+{
+  "epoch": 30,
+  "sourceSha": "0eec8b7c651816a3d8d24e40fd3f5858eb09344b",
+  "time": "2026-10-09T23:05:31.822645+00:00",
+  "wholeCurrentFutureObjects": 43,
+  "all27RemainingIncluded": true,
+  "allSourceObjectsExactlyMatchFrozenBase": true,
+  "all4TasksAndAcceptedVariantsAndUniqueOptions": "PASS",
+  "all43CardBindingsResolveToActualSourceNodes": "PASS",
+  "knownUnionNotGlobalAudit": true,
+  "existing35": 35,
+  "additionalB11": 1,
+  "additionalKnownLinaElifSellerContexts": 7,
+  "sourceMutation": false,
+  "dbUuidResolution": "Not available in offline source; level/source-node/card tuples only; M resolves actual UUIDs before publication.",
+  "independentReview": "REQUIRED",
+  "releaseApproved": false,
+  "changedFutureAudioTexts": 41,
+  "sourceHashes": {
+    "path-c1.1.json": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c",
+    "path-b1.1.json": "4a558793e579fba63b8b11e768658d307e3990e25bd942d8d024f0c5fec1f432",
+    "path-a2.2.json": "b46da86fe872d1e46ef9665730f7bd7a513ea66d77095c8b9071df8ea1913bee",
+    "path-a1.1.json": "fec5e1b504ddcfe0f4bff9db512b506f652061f95c90249096e1db62c4c2c70f",
+    "path-b2.2.json": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a",
+    "path-a1.2.json": "268a6d46ae5ddef7649f5afee0637c229a7422448d30d5d27b48da8e6ba1e97c",
+    "path-b2.1.json": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665",
+    "path-b1.2.json": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5",
+    "path-a2.1.json": "1aeac6f89d1bbd45bc7919132bb013f09b6406064034c7280a56f4936ddb449e",
+    "path-c1.2.json": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5"
+  },
+  "schemaConstraint": "Tests cannot contain merkkarte; missing references rebind existing practice cards with pre-archive companion updates.",
+  "finalManifestSHA256": "3d108cf9d0819d868de8d710587367762c005d9791c79d8af08b9f5676289017"
+}
