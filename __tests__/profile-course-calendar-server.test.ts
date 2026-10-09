@@ -7,6 +7,7 @@ import type { User } from '@supabase/supabase-js'
 import { createClient } from '@/utils/supabase/server'
 import { resolveVerifiedPerson } from '@/lib/profile-person'
 import { loadProfileCourseCalendar } from '@/lib/profile-course-calendar-server'
+import { BackendError } from '@/lib/actions/backend'
 import { getProfileCourseCalendar } from '@/app/actions/profile-calendar'
 
 const user = { id: 'auth-user', email_confirmed_at: '2026-01-01' } as User
@@ -62,7 +63,9 @@ it('does not query another person or hide an ambiguous link as a successful empt
 })
 
 it('surfaces data failures instead of claiming there are no classes', async () => {
-  await expect(loadProfileCourseCalendar(setup({ code: '42501' }).db, user)).rejects.toThrow('not_authorized')
+  const result = loadProfileCourseCalendar(setup({ code: '42501' }).db, user)
+  await expect(result).rejects.toBeInstanceOf(BackendError)
+  await expect(result).rejects.toMatchObject({ code: 'not_authorized', message: 'not_authorized' })
 })
 
 it('requires a verified Auth session before the calendar action queries any data', async () => {

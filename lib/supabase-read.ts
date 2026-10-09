@@ -7,7 +7,11 @@ export async function readAllRows<T>(page: (from: number, to: number) => Promise
   for (let offset = 0; ; offset += 500) {
     let result: Awaited<ReturnType<typeof page>>
     try { result = await page(offset, offset + 499) }
-    catch (error) { throw new SitovServerReadError(error, source) }
+    catch (error) {
+      // Default callers may already translate DB failures to typed domain errors.
+      if (source === 'read') throw error
+      throw new SitovServerReadError(error, source)
+    }
     const { data, error } = result
     if (error) throw new SitovServerReadError(error, source)
     rows.push(...(data ?? []))

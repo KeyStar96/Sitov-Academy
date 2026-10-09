@@ -26,3 +26,15 @@ it('rejects a hostile database code without placing it in the thrown message', a
   await expect(readAllRows(async () => ({ data: null, error: { code: 'secret-token\n42501', message: 'private' } })))
     .rejects.toMatchObject({ source: 'read', failure: 'unknown', message: 'Database read failed' })
 })
+
+
+it.each([undefined, 'read'] as const)('preserves a default caller domain exception by identity (%s)', async source => {
+  const domainError = Object.assign(new Error('not_authorized'), { code: 'not_authorized' })
+  const page = jest.fn().mockRejectedValue(domainError)
+  await expect(readAllRows(page, source)).rejects.toBe(domainError)
+  expect(page).toHaveBeenCalledTimes(1)
+})
+it('keeps a thrown default transport exception intact rather than changing its semantics', async () => {
+  const transport = new TypeError('fetch failed')
+  await expect(readAllRows(async () => { throw transport })).rejects.toBe(transport)
+})

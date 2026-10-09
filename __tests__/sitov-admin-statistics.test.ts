@@ -5,6 +5,7 @@ jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
 jest.mock('@/utils/supabase/admin', () => ({ createAdminClient: jest.fn() }))
 jest.mock('@/lib/pronunciation-playback-server', () => ({ loadStaffPronunciationView: jest.fn() }))
 
+import { SitovServerReadError } from '@/lib/sitov-server-failure'
 import { getAdminStats } from '@/app/actions/admin'
 import { loadSitovStudentStatistics } from '@/lib/sitov-student-statistics'
 import { loadStaffPronunciationView } from '@/lib/pronunciation-playback-server'
@@ -102,7 +103,9 @@ it('reads every page beyond the API row limit and partitions the same population
 it.each([0, 500])('rejects a failed student page %s instead of displaying zero or partial counts', async failPage => {
   const db = database(Array.from({ length: 501 }, (_, n) => profile(n + 1, 'student', ['A1.1'])), { failPage })
   jest.mocked(createAdminClient).mockReturnValue(db.client)
-  await expect(getAdminStats()).rejects.toThrow('Database read failed: 57P01')
+  const result = getAdminStats()
+  await expect(result).rejects.toBeInstanceOf(SitovServerReadError)
+  await expect(result).rejects.toMatchObject({ message: 'Database read failed', source: 'read', failure: 'sqlstate:57P01' })
 })
 
 it('keeps failed correction counts visible as an error', async () => {
