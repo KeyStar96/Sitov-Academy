@@ -1,0 +1,20 @@
+{
+  "through": 108,
+  "at": "2026-10-09T08:48:51.833868+00:00",
+  "sourceIntegrationSha": "3285c27935e7c15ac9c3974c486bbddd9138ce42",
+  "validatedProductSha": "a7954d4e7735fcc1ed6b1050503120055a3b7675",
+  "migrationSha256": "8a3b6ccffc2b7e728123eaeda7625ba1c6db20acea557b79a61fc4cd9ba240fe",
+  "checks": {
+    "rpcExists": true,
+    "publicInvoker": true,
+    "privateDefiner": true,
+    "anonPublicDenied": true,
+    "authPublicExecute": true,
+    "servicePublicDenied": true
+  },
+  "snapshotTables": 128,
+  "beforeAfterRowsAndCountsEqual": true,
+  "dataSnapshotSha256": "5d8bd8fe60c64804fad18478ad54a0397242f2cede4ef0f1a7072b2c77e73799",
+  "productionWrite": false,
+  "actualLearnerHTTP": "PENDING"
+}

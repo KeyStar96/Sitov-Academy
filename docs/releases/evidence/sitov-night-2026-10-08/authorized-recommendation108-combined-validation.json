@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-09T08:50:29.319038+00:00",
+  "sourceSha": "9d6d536ec582fc6cf8d1e5d1e5e4aa15ba85018f",
+  "jest": {
+    "suites": 9,
+    "passed": 126,
+    "failed": 0,
+    "skipped": 0,
+    "scopes": [
+      "recommendation resolver/source DTO/Special/path topic",
+      "pretest UI/server/failed-links bridge",
+      "recommendation UI/path consumer"
+    ]
+  },
+  "fullTypeScriptExit": 0,
+  "affectedEslintExit": 0,
+  "maskedQaEnvironmentNextBuildExit": 0,
+  "buildLogPrivate": "/tmp/sitov-night-m-final-build-qa-env.log",
+  "buildMode": "webpack one worker 1536MiB; every repo env masked; only isolated QA loopback endpoints",
+  "nextEnvOwnGeneratedChangeRestored": false,
+  "native108": {
+    "sourceSha": "3e9120502d3049d5e58e73d41c50e710e7b7be72",
+    "passed": 7,
+    "kind": "actual native PG17 disposable fixture, synthetic Special; no HTTP/browser claim"
+  },
+  "actualQa107": {
+    "sourceSha": "454304690d380ce80973c1ee278220a1af41a41b",
+    "checks": 28,
+    "httpOperations": 38,
+    "ownFixturesCleaned": true,
+    "gatewayObservationSeconds": 207.432,
+    "protocolOperationSeconds": 6.663,
+    "browserAnd108": false
+  },
+  "actualBrowserCurrentFlow": "PENDING",
+  "releaseReady": false,
+  "productionWrite": false
+}
