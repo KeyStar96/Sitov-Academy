@@ -4,6 +4,17 @@
 
 09.10.2026: Nutzer erlaubt das gesamte Restbudget bis 1 Prozent. Frühere 30/25/18/15-Grenzen aufgehoben; Abschluss wird ab 3 Prozent gesichert. Bestehende S1–S6, höchstens zwei Worker und zehn Minuten Lease, gleiche Daten-/Audio-/Qualitätsregeln sowie COMMIT_AND_HANDOFF bleiben verbindlich. Wiedervorlage im selben Master-Chat wieder ACTIVE bestätigt. Produktionsreife noch nicht bestätigt. Konkrete offene Arbeiten: `sitov-night-2026-10-08-remaining-work.md`.
 
+## Bestätigter Fortschritt der Wiederaufnahme, 09.10. 13:26 Europe/Berlin
+
+OPEN, COMMIT_AND_HANDOFF, zuletzt zehn Prozent Restkontingent; Sicherung ab drei, STOP spätestens bei eins. Aktueller technischer Commit `1c041c6f` enthält rechteerhaltende serielle Verbkatalog-Abfragen nach stabilen IDs. Der S1-Gegenbeweis `3f61acae` → M `b289b4d7` bewahrt zulässige abweichende Katalog-/Elternniveaus; die vorgeschlagene SQL-Abkürzung wurde verworfen, Migration109 bleibt unbenutzt. Die 26 zugehörigen Server-/Action-/Autorenvertragtests, TypeScript und Lint bestehen. Der frühere vollständige cdf-Lauf hatte nur einen inzwischen korrigierten zwölf-statt-fünfzehn-Count im Autorenfixture; der aktuelle Gesamt-Jest auf `1c041c6f` besteht mit 4.237 PASS/zwei separaten Integrations-Skips, der Produktionsbuild ebenfalls.
+
+S5 `5329d51e` → M `4c0e344b` enthält tatsächliche eigene Schüler-/HTTP-/SQL-Kostenmessungen, ausdrückliches New-Items-success=true und unveränderte Hashes. S5 `c9588e17` → M `2750df13` bestätigt echte UK/TR-390-Pfade auf `cdf47997`, einschließlich unbetätigtem Hinzufügen, Tastatur, Scrollen und regulärer Abmeldung/exakter Bereinigung. Keine Freigabe der späteren ID-Version, anderer Sprachen oder Gesamtmatrix daraus ableiten. Die begrenzten Diagnosefelder wurden gegen rohe Nutzer-/Fehlerwerte getestet; kein globales Timeout-/JIT-Tuning.
+
+Achtzehn private Vortest-Pools, 42 fehlend; alle vorhandenen aktuellen Definitionen fachlich unabhängig von M geprüft, ohne erfundene menschliche Freigabe/Kalibrierung. 20 belegte Themen über sechs Teilniveaus; zwölf geänderte Matrixdefinitionen verlangen neue unveränderliche DB-Versionen und exakte Audio-/Reviewbindungen. Texte13–15: 275 lokal vollständig gebündelte männliche Qwen-Dateien, 4.101.220 Bytes, 291 Aliasse, 1.470 positive Wortintervalle; sechs zusätzliche echte MP3-Forced-Alignments, keine geschätzten Zeiten. QA-Import und spätere Publikation bleiben bis vollständigem Rücklese-/Versionsproof offen. Aktueller Restumfang und konkrete Fertigkriterien stehen im separaten [Restarbeitsdokument](sitov-night-2026-10-08-remaining-work.md). Kein Push und kein produktives Deployment.
+
+
+Texte16–18 (Wohnung, Zug, Bibliothek) sind nach unabhängiger M-Lektüre aller72 Fragen/Optionen/Schlüssel/Begründungen und drei Quellen exakt geprüft; 54 Offline- und sieben aktuelle Autorenvertragtests bestehen. Audio, exakte neue DB-Versionen und Publikation bleiben separat offen.
+
 ## Archivierter Budgetabschluss vor Wiederaufnahme
 
 Abschlussstand: 09.10.2026, 11:34 Uhr Europe/Berlin. **BUDGET_STOP / unvollständig / NOT_RELEASE_READY / COMMIT_AND_HANDOFF.** Die18-Prozent-Budgetreserve ist erreicht; verbleibende Arbeit wird nicht durch neue Features/Inhaltswellen fortgesetzt. Abschlussdokumentation ist gesichert; S1–S6 haben STOPPED_SAVED bestätigt. Die eigene Wiedervorlage wird nach der atomaren Koordinationssicherung als letzter Schritt deaktiviert. **Kein Push oder produktives Deployment.**

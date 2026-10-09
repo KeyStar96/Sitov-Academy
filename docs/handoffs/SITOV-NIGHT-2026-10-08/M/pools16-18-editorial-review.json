@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools16-18-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T11:30:32.969Z",
+  "sourceCommit": "1f1522790cf2e78d6e1d26f5086ba5a90818ec74",
+  "scope": "Independent M reading of all72 actual public prompts/options/keys/rationales, all three source bodies and matrix mappings. Train questions and housing nominal.q6 read separately after initial long output truncation. Correct answer texts unambiguous under supplied public contexts; same-level mappings partial and explicit. Existing15 exact.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "1eb81bb597ce267bef5530d1ca488ae3d2479694823ecf0eeaac09e60e7cbdb3",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "5b3316e2-4a9f-5689-ba11-e5d0dc420f2b",
+      "textVersion": "52479a906a2ed2b673e3000ea142c0f06201136c8898cd6c45c24e1ca8376ff7",
+      "definitionContentHash": "b1be666d18cacc1a07c75240265b02181ba3eb1ad34b0ee789b2e89ca9dd1c35",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung der Quellen, öffentlichen Prämissen, eindeutigen Schlüssel und CSPRNG-ausgewogenen Optionsverteilungen. Unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Import-/Publikationsfreigabe.",
+        "textVersion": "52479a906a2ed2b673e3000ea142c0f06201136c8898cd6c45c24e1ca8376ff7",
+        "definitionContentHash": "b1be666d18cacc1a07c75240265b02181ba3eb1ad34b0ee789b2e89ca9dd1c35"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a12-06.words.q1",
+          "correctTextDe": "Räume, in denen man wohnt."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q2",
+          "correctTextDe": "Ein erhöhter Außenbereich am Gebäude."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q3",
+          "correctTextDe": "Die vereinbarte Zahlung für die Nutzung der Wohnung."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q4",
+          "correctTextDe": "Zum Spielen, häufig mit Spielgeräten."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q5",
+          "correctTextDe": "Es gibt viel Licht in der Küche."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.words.q6",
+          "correctTextDe": "Den Namen einer Straße."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q1",
+          "correctTextDe": "suchen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q2",
+          "correctTextDe": "sein"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q3",
+          "correctTextDe": "ansehen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q4",
+          "correctTextDe": "hat"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q5",
+          "correctTextDe": "Einen Wunsch oder eine Absicht."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.verbs.q6",
+          "correctTextDe": "anrufen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q1",
+          "correctTextDe": "Heute sehen wir uns eine Wohnung an."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q2",
+          "correctTextDe": "Drei Zimmer und einen Balkon."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q3",
+          "correctTextDe": "ist"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q4",
+          "correctTextDe": "Neben dem Haus"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q5",
+          "correctTextDe": "Die Einschätzung der Sprechergruppe."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.syntax.q6",
+          "correctTextDe": "Sich bis zum nächsten Tag Zeit zum Nachdenken nehmen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q1",
+          "correctTextDe": "Unsere"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q2",
+          "correctTextDe": "neue"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q3",
+          "correctTextDe": "Auf die Wohnung."
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q4",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q5",
+          "correctTextDe": "dem"
+        },
+        {
+          "questionId": "sitov.pretest.a12-06.nominal.q6",
+          "correctTextDe": "uns"
+        }
+      ]
+    },
+    {
+      "textId": "00cedd4e-cf66-50ae-a181-e687d85a8379",
+      "textVersion": "afb90ca92d92f558035a85d02f3117cd5e534aded0b0ff65a3dd3878a8486132",
+      "definitionContentHash": "805b898f2b4bf909efb384477861b1575907fc10e0592f4c0fb9208770302665",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung der Quellen, öffentlichen Prämissen, eindeutigen Schlüssel und CSPRNG-ausgewogenen Optionsverteilungen. Unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Import-/Publikationsfreigabe.",
+        "textVersion": "afb90ca92d92f558035a85d02f3117cd5e534aded0b0ff65a3dd3878a8486132",
+        "definitionContentHash": "805b898f2b4bf909efb384477861b1575907fc10e0592f4c0fb9208770302665"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a12-07.words.q1",
+          "correctTextDe": "Ein Schienenfahrzeug zum Befördern von Personen oder Gütern."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q2",
+          "correctTextDe": "In Züge einsteigen oder aus ihnen aussteigen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q3",
+          "correctTextDe": "Eine kleine Backware aus Brotteig."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q4",
+          "correctTextDe": "Eine Darstellung mit Reiseinformationen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q5",
+          "correctTextDe": "Der Schienenweg, an dem ein Zug fährt oder hält."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.words.q6",
+          "correctTextDe": "Ein öffentliches Schienenfahrzeug im Stadtverkehr."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q1",
+          "correctTextDe": "besuchen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q2",
+          "correctTextDe": "fahren"
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q3",
+          "correctTextDe": "Frühes Aufstehen ist notwendig."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q4",
+          "correctTextDe": "Das Bett verlassen und den Tag beginnen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q5",
+          "correctTextDe": "Wir bekommen ein Brötchen gegen Bezahlung."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.verbs.q6",
+          "correctTextDe": "wartet"
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q1",
+          "correctTextDe": "Morgen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q2",
+          "correctTextDe": "Eine halbe Stunde vor zehn Uhr."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q3",
+          "correctTextDe": "Aufstehen und die Taschen packen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q4",
+          "correctTextDe": "Gleis sieben."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q5",
+          "correctTextDe": "Auf die Sprechergruppe."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.syntax.q6",
+          "correctTextDe": "Die Fahrt wird gemeinsam gemacht."
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q1",
+          "correctTextDe": "meinen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q2",
+          "correctTextDe": "Unser"
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q3",
+          "correctTextDe": "die Tasche"
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q4",
+          "correctTextDe": "in dem Zug"
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q5",
+          "correctTextDe": "der"
+        },
+        {
+          "questionId": "sitov.pretest.a12-07.nominal.q6",
+          "correctTextDe": "Auf den Bruder."
+        }
+      ]
+    },
+    {
+      "textId": "0022c931-279a-5050-ac2d-459c1e978cd1",
+      "textVersion": "d4621e96754919e5664e2a4b50061897e47377f43d879b578ad919f3d0e06fa6",
+      "definitionContentHash": "142b23f43b7b2a0c43f6a2ce91d5de26558759783c7e48f74a1c68157cfe9fce",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung der Quellen, öffentlichen Prämissen, eindeutigen Schlüssel und CSPRNG-ausgewogenen Optionsverteilungen. Unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Import-/Publikationsfreigabe.",
+        "textVersion": "d4621e96754919e5664e2a4b50061897e47377f43d879b578ad919f3d0e06fa6",
+        "definitionContentHash": "142b23f43b7b2a0c43f6a2ce91d5de26558759783c7e48f74a1c68157cfe9fce"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a12-08.words.q1",
+          "correctTextDe": "Ein Ort, an dem man Bücher lesen oder ausleihen kann."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q2",
+          "correctTextDe": "Die Registrierung als Nutzer."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q3",
+          "correctTextDe": "Zum Nachweisen der eigenen Identität."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q4",
+          "correctTextDe": "Einen Nachweis für die Nutzung der Bibliothek."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q5",
+          "correctTextDe": "Eine Etage des Gebäudes."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.words.q6",
+          "correctTextDe": "Eine kurze Erzählung."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q1",
+          "correctTextDe": "Den Wunsch, mehr zu lesen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q2",
+          "correctTextDe": "gehe"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q3",
+          "correctTextDe": "erklärt"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q4",
+          "correctTextDe": "brauchen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q5",
+          "correctTextDe": "bekomme"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.verbs.q6",
+          "correctTextDe": "Es ist für vier Wochen erlaubt."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q1",
+          "correctTextDe": "Der Lesewunsch ist der Grund für den Besuch."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q2",
+          "correctTextDe": "Der Mitarbeiter."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q3",
+          "correctTextDe": "Für brauche und bekomme."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q4",
+          "correctTextDe": "Im ersten Stock"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q5",
+          "correctTextDe": "Viele Bilder."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.syntax.q6",
+          "correctTextDe": "Vier Wochen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q1",
+          "correctTextDe": "mir"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q2",
+          "correctTextDe": "meinen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q3",
+          "correctTextDe": "eine"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q4",
+          "correctTextDe": "ersten"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q5",
+          "correctTextDe": "Bildern"
+        },
+        {
+          "questionId": "sitov.pretest.a12-08.nominal.q6",
+          "correctTextDe": "Das Buch"
+        }
+      ]
+    }
+  ]
+}

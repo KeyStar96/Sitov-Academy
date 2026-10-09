@@ -15975,14 +15975,18 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung der Quellen, öffentlichen Prämissen, eindeutigen Schlüssel und CSPRNG-ausgewogenen Optionsverteilungen. Unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Import-/Publikationsfreigabe.",
+        "notesDe": "M hat alle72 öffentlichen Aufgaben, richtigen Antworttexte, Begründungen und drei tatsächlichen Quelltexte unabhängig geprüft. Exakte inaktive redaktionelle Entwürfe; Audioimport, Kalibrierung und Publikation separat.",
         "textVersion": "52479a906a2ed2b673e3000ea142c0f06201136c8898cd6c45c24e1ca8376ff7",
-        "definitionContentHash": "b1be666d18cacc1a07c75240265b02181ba3eb1ad34b0ee789b2e89ca9dd1c35"
+        "definitionContentHash": "b1be666d18cacc1a07c75240265b02181ba3eb1ad34b0ee789b2e89ca9dd1c35",
+        "reviewerKind": "independent_agent_editorial_review",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools16-18-M",
+        "documentSha256": "d273f871f2921e2ab2d282e3e87520a904df8ecd79d0b5735be0392290423874",
+        "reviewedAt": "2026-10-09T11:30:32.969Z"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -17025,14 +17029,18 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung der Quellen, öffentlichen Prämissen, eindeutigen Schlüssel und CSPRNG-ausgewogenen Optionsverteilungen. Unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Import-/Publikationsfreigabe.",
+        "notesDe": "M hat alle72 öffentlichen Aufgaben, richtigen Antworttexte, Begründungen und drei tatsächlichen Quelltexte unabhängig geprüft. Exakte inaktive redaktionelle Entwürfe; Audioimport, Kalibrierung und Publikation separat.",
         "textVersion": "afb90ca92d92f558035a85d02f3117cd5e534aded0b0ff65a3dd3878a8486132",
-        "definitionContentHash": "805b898f2b4bf909efb384477861b1575907fc10e0592f4c0fb9208770302665"
+        "definitionContentHash": "805b898f2b4bf909efb384477861b1575907fc10e0592f4c0fb9208770302665",
+        "reviewerKind": "independent_agent_editorial_review",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools16-18-M",
+        "documentSha256": "d273f871f2921e2ab2d282e3e87520a904df8ecd79d0b5735be0392290423874",
+        "reviewedAt": "2026-10-09T11:30:32.969Z"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -18077,14 +18085,18 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung der Quellen, öffentlichen Prämissen, eindeutigen Schlüssel und CSPRNG-ausgewogenen Optionsverteilungen. Unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Import-/Publikationsfreigabe.",
+        "notesDe": "M hat alle72 öffentlichen Aufgaben, richtigen Antworttexte, Begründungen und drei tatsächlichen Quelltexte unabhängig geprüft. Exakte inaktive redaktionelle Entwürfe; Audioimport, Kalibrierung und Publikation separat.",
         "textVersion": "d4621e96754919e5664e2a4b50061897e47377f43d879b578ad919f3d0e06fa6",
-        "definitionContentHash": "142b23f43b7b2a0c43f6a2ce91d5de26558759783c7e48f74a1c68157cfe9fce"
+        "definitionContentHash": "142b23f43b7b2a0c43f6a2ce91d5de26558759783c7e48f74a1c68157cfe9fce",
+        "reviewerKind": "independent_agent_editorial_review",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools16-18-M",
+        "documentSha256": "d273f871f2921e2ab2d282e3e87520a904df8ecd79d0b5735be0392290423874",
+        "reviewedAt": "2026-10-09T11:30:32.969Z"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
