@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "group_id": "SITOV-NIGHT-2026-10-08",
+  "source_sha": "521ba4cb474486054e47e2b97548ec587d234b30",
+  "checked_at": "2026-10-09T06:56:09.451264+00:00",
+  "release_ready": false,
+  "release_policy": "COMMIT_AND_HANDOFF",
+  "budget_remaining_percent": 23,
+  "feature_freeze": true,
+  "M_jest": {
+    "command": "npm test -- --runInBand __tests__/sitov-pronunciation-pretest-server.test.ts __tests__/sitov-pronunciation-pretest-learning-links.test.ts __tests__/sitov-pronunciation-pretest-ui.test.tsx __tests__/sitov-learning-recommendations.test.ts",
+    "exit": 0,
+    "suites_passed": 4,
+    "tests_passed": 63,
+    "kind": "mocked server/client ports, no new HTTP/browser proof",
+    "initial_command": "preflight filename assertion failed before running tests; corrected existing recommendations suite name"
+  },
+  "M_typescript": {
+    "command": "npx tsc --noEmit --incremental false",
+    "exit": 0
+  },
+  "M_scoped_lint": {
+    "exit": 0,
+    "errors": 0,
+    "warnings": 0,
+    "max_warnings": 0
+  },
+  "M_build": {
+    "exit": 0,
+    "next_version": "16.3.8",
+    "webpack": true,
+    "worker_limit": 1,
+    "node_memory_mib": 1536,
+    "env": "all repository/service variables masked; own QA loopback only",
+    "next_env_exact_restored": true,
+    "existing_cache_control_notice": true
+  },
+  "logs": {
+    "tsc": {
+      "path": "/tmp/sitov-night-m-tsc-521ba4cb.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "jest": {
+      "path": "/tmp/sitov-night-m-jest-521ba4cb.log",
+      "sha256": "b82f7739a481cf4954fed0f10ac86ee4e972516500594b725d266dac5b2d9097"
+    },
+    "lint": {
+      "path": "/tmp/sitov-night-m-lint-521ba4cb.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build": {
+      "path": "/tmp/sitov-night-m-build-521ba4cb.log",
+      "sha256": "871c5773955b4a14e39026721ed6cf59d0a6dd18aaf56210babe822ce5cbced6"
+    }
+  },
+  "S3_native": {
+    "source_sha": "09bacfc144f6d32c9933fcbf0273b54583aea388",
+    "command": "node --test supabase/tests/sitov-pretest-learning-topics.test.mjs",
+    "tests": 8,
+    "parent": 1,
+    "subtests": 7,
+    "failed": 0,
+    "skipped": 0,
+    "engine": "nativePG17 own disposable local socket database",
+    "baseline": "frozen full normalized92+93–99 plus107",
+    "fixtures": "source-valid INACTIVE definition, synthetic owner-seeded terminal failure. Receipts/passes may be empty. No actual grading/unlock/audio/pub/HTTP claims.",
+    "checks": [
+      "exact stored definition and persisted failed-core topics; exact attempt/text/versions",
+      "auth/foreign/nonfailed/forged metadata/private reads+writes/anon+service denied",
+      "same actor current commercial revocation and restoration",
+      "actual authenticated READ ONLY",
+      "twice107 replay OID/ACL/body/STABLE emptysearchpath preserved",
+      "all existing table rows/history/effective rights exact beforeafter"
+    ]
+  },
+  "sql107_sha256": "a89c4fbc09349bc20b75f101254d697dac00cd4503f418eaf6e3d691b2d7ffa5",
+  "sql107_in_schema": true,
+  "sql107_installed_QA": false,
+  "production_mutations": false,
+  "semantics": "optional current-rights links enrich failed submit/get response only; exact stored result/grades/proofs/receipts untouched. Only existing known topics, no text-specific IDs in global competency filter. Unknown/empty or optional error safely no links; individual current passed test remains sole pedagogical gate.",
+  "actual_failed_submit_to_current_authorized_link_end_to_end": "PENDING_QA107_INSTALL_AND_FRESH_MEMORY_ADMISSION",
+  "scope_limits": [
+    "seven example topics only; Special generation/broader mapping incomplete",
+    "12/60private pools48missing, calibration/full author-edit/full acceptance incomplete",
+    "fresh QA memory2754<3072FAIL, prior durability/OOM gate retained",
+    "inherited VocabCardSession four warnings remain outside this unchanged source delta",
+    "no real browser/device/microphone/allaccountproduction rights proof"
+  ]
+}

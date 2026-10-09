@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "group_id": "SITOV-NIGHT-2026-10-08",
+  "source_sha": "0d57ae4b629c5b3e62f3b4ca6494776d201f5206",
+  "at": "2026-10-09T06:32:25.840384+00:00",
+  "private_evidence_sha256": "6dcc723ab44d42156a4890198460db6072ef7fabbb220aa113e8da7a5f827968",
+  "operations": "read-only exact owned QA scope, health and host memory; no runtime changes",
+  "scope_verified": true,
+  "all_five_running_no_oom": true,
+  "aggregate_memory_mib": 960,
+  "aggregate_cpus": 2.0,
+  "health": [
+    {
+      "path": "/auth/v1/health",
+      "http_status": 200
+    },
+    {
+      "path": "/rest/v1/",
+      "http_status": 200
+    },
+    {
+      "path": "/storage/v1/status",
+      "http_status": 200
+    }
+  ],
+  "host_mem_available_mib": 2754,
+  "host_admission_required_mib": 3072,
+  "host_admission_passed": false,
+  "next_load_or_browser_allowed": false,
+  "durability_gate": "UNPROVEN_PRIOR_GATEWAY_OOM_RETAINED",
+  "qa_next": "STOPPED",
+  "production_mutation": false
+}
