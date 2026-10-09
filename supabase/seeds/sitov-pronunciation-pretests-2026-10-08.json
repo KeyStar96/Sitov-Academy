@@ -7,8 +7,8 @@
   "scope": "Repository canonical seeds and revisions; no live/custom inventory",
   "coverage": {
     "total": 60,
-    "authored": 30,
-    "pending": 30
+    "authored": 33,
+    "pending": 27
   },
   "audioStatus": "draft_only: full DB public-question/reference asset and immutable word-timing proof gate implemented; actual M local preparation, byte/timing audit, import and trusted proof insertion pending; no definitions published",
   "drafts": [
@@ -31729,6 +31729,3128 @@
           }
         ]
       }
+    },
+    {
+      "textId": "bea3e65f-1668-5539-a4c3-ce044fe067e1",
+      "unitId": "bea3e65f-1668-5539-a4c3-ce044fe067e1",
+      "level": "A2.2",
+      "textVersion": "1b5528f6e4495967dafbb7616d771f0290f3d1bcbca65da8908551163e06d596",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "1b5528f6e4495967dafbb7616d771f0290f3d1bcbca65da8908551163e06d596",
+        "definitionContentHash": "f283b301a81dd1cdfc75b02ab69d0a5f95d9d720a78990245225ca2ac5ebe5fd"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a22-01.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Verspätung später als geplant",
+              "Bahnsteig Einsteigen am Gleis",
+              "Durchsage öffentliche Ansage",
+              "umsteigen Verkehrsmittel wechseln",
+              "Mitreisender gemeinsam Reisender",
+              "Gleis Schienenweg"
+            ],
+            "sourceSpans": [
+              {
+                "start": 74,
+                "end": 84,
+                "quote": "Verspätung"
+              },
+              {
+                "start": 94,
+                "end": 103,
+                "quote": "Bahnsteig"
+              },
+              {
+                "start": 125,
+                "end": 134,
+                "quote": "Durchsage"
+              },
+              {
+                "start": 265,
+                "end": 274,
+                "quote": "umsteigen"
+              },
+              {
+                "start": 336,
+                "end": 348,
+                "quote": "Mitreisender"
+              },
+              {
+                "start": 362,
+                "end": 367,
+                "quote": "Gleis"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Verspätung später als geplant, Bahnsteig Einsteigen am Gleis, Durchsage öffentliche Ansage, umsteigen Verkehrsmittel wechseln, Mitreisender gemeinsam Reisender, Gleis Schienenweg. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-01.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "wollten Präteritum wollen",
+              "konnten vergangene Möglichkeit",
+              "umsteigen Modalinfinitiv",
+              "kamen an Präteritum ankommen",
+              "hatten gehalten Plusquamperfekt",
+              "wurde Veränderung Präteritum"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 11,
+                "quote": "Wir wollten"
+              },
+              {
+                "start": 217,
+                "end": 231,
+                "quote": "nehmen konnten"
+              },
+              {
+                "start": 265,
+                "end": 282,
+                "quote": "umsteigen mussten"
+              },
+              {
+                "start": 369,
+                "end": 401,
+                "quote": "Wir kamen zwei Stunden später an"
+              },
+              {
+                "start": 428,
+                "end": 458,
+                "quote": "hatten das Essen warm gehalten"
+              },
+              {
+                "start": 483,
+                "end": 514,
+                "quote": "wurde es noch ein schöner Abend"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: wollten Präteritum wollen, konnten vergangene Möglichkeit, umsteigen Modalinfinitiv, kamen an Präteritum ankommen, hatten gehalten Plusquamperfekt, wurde Veränderung Präteritum. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-01.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "doch Gegensatz Plan Hindernis",
+              "dass Modalverb am Ende",
+              "weil Umsteigen als Unsicherheitsgrund",
+              "weil Modalverb final",
+              "später als Zeitvergleich",
+              "Trotz Fahrt unerwartet schöner Abend"
+            ],
+            "sourceSpans": [
+              {
+                "start": 53,
+                "end": 84,
+                "quote": "doch unser Zug hatte Verspätung"
+              },
+              {
+                "start": 190,
+                "end": 231,
+                "quote": "dass wir einen anderen Zug nehmen konnten"
+              },
+              {
+                "start": 233,
+                "end": 310,
+                "quote": "Weil wir in einer fremden Stadt umsteigen mussten, war ich zunächst unsicher."
+              },
+              {
+                "start": 233,
+                "end": 282,
+                "quote": "Weil wir in einer fremden Stadt umsteigen mussten"
+              },
+              {
+                "start": 379,
+                "end": 413,
+                "quote": "zwei Stunden später an als geplant"
+              },
+              {
+                "start": 460,
+                "end": 515,
+                "quote": "Trotz der langen Fahrt wurde es noch ein schöner Abend."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: doch Gegensatz Plan Hindernis, dass Modalverb am Ende, weil Umsteigen als Unsicherheitsgrund, weil Modalverb final, später als Zeitvergleich, Trotz Fahrt unerwartet schöner Abend. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-01.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "meinen Eltern Dativ Plural",
+              "dem Bahnsteig Dativ Ort",
+              "anderen Zug Akkusativ Adjektiv",
+              "fremden Stadt Dativ Adjektiv",
+              "uns Dativ Empfänger zeigen",
+              "langen Fahrt Genitiv Trotz"
+            ],
+            "sourceSpans": [
+              {
+                "start": 28,
+                "end": 44,
+                "quote": "zu meinen Eltern"
+              },
+              {
+                "start": 86,
+                "end": 103,
+                "quote": "Auf dem Bahnsteig"
+              },
+              {
+                "start": 199,
+                "end": 216,
+                "quote": "einen anderen Zug"
+              },
+              {
+                "start": 242,
+                "end": 264,
+                "quote": "in einer fremden Stadt"
+              },
+              {
+                "start": 321,
+                "end": 348,
+                "quote": "zeigte uns ein Mitreisender"
+              },
+              {
+                "start": 460,
+                "end": 482,
+                "quote": "Trotz der langen Fahrt"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: meinen Eltern Dativ Plural, dem Bahnsteig Dativ Ort, anderen Zug Akkusativ Adjektiv, fremden Stadt Dativ Adjektiv, uns Dativ Empfänger zeigen, langen Fahrt Genitiv Trotz. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keine Relativsatzkonstruktion; vorhandene Zeit- oder Begründungssätze werden in ihren eigenen belegten Funktionen geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a22-01.words.q1",
+            "competencyId": "sitov.pretest.a22-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Der Zug hat Verspätung«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.words.q1.b",
+                "textDe": "Der Zug ist ausdrücklich ein Fahrrad."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q1.a",
+                "textDe": "Der Zug kommt oder fährt später als vorgesehen."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q1.c",
+                "textDe": "Der Zug fährt ausdrücklich früher als vorgesehen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.words.q1.a",
+            "assessmentUnit": "Verspätung später als geplant",
+            "equivalenceKey": "sitov:a22-01:words:1",
+            "sourceSpans": [
+              {
+                "start": 74,
+                "end": 84,
+                "quote": "Verspätung"
+              }
+            ],
+            "rationaleDe": "Verspätung bedeutet eine Verzögerung gegenüber dem Plan; frühere Fahrt oder ein Fahrrad ist nicht gemeint."
+          },
+          {
+            "id": "sitov.pretest.a22-01.words.q2",
+            "competencyId": "sitov.pretest.a22-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Bahnsteig«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.words.q2.a",
+                "textDe": "Ein Sportplatz ausschließlich für Fußball."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q2.c",
+                "textDe": "Eine Anleitung zum Kuchenbacken."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q2.b",
+                "textDe": "Der Bereich am Gleis, an dem Fahrgäste ein- und aussteigen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.words.q2.b",
+            "assessmentUnit": "Bahnsteig Einsteigen am Gleis",
+            "equivalenceKey": "sitov:a22-01:words:2",
+            "sourceSpans": [
+              {
+                "start": 94,
+                "end": 103,
+                "quote": "Bahnsteig"
+              }
+            ],
+            "rationaleDe": "Ein Bahnsteig liegt am Gleis und dient dem Ein- und Aussteigen; Sportplatz und Backanleitung sind etwas anderes."
+          },
+          {
+            "id": "sitov.pretest.a22-01.words.q3",
+            "competencyId": "sitov.pretest.a22-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine »Durchsage« am Bahnhof?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.words.q3.a",
+                "textDe": "Ein Kleidungsstück für den Oberkörper."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q3.c",
+                "textDe": "Eine meist über Lautsprecher mitgeteilte Information."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q3.b",
+                "textDe": "Ein verschlossenes Heizungsbauteil."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.words.q3.c",
+            "assessmentUnit": "Durchsage öffentliche Ansage",
+            "equivalenceKey": "sitov:a22-01:words:3",
+            "sourceSpans": [
+              {
+                "start": 125,
+                "end": 134,
+                "quote": "Durchsage"
+              }
+            ],
+            "rationaleDe": "Eine Durchsage teilt Informationen hörbar mit, oft über Lautsprecher; Kleidung und Bauteile sind Gegenstände."
+          },
+          {
+            "id": "sitov.pretest.a22-01.words.q4",
+            "competencyId": "sitov.pretest.a22-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »in einen anderen Zug umsteigen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.words.q4.a",
+                "textDe": "Im selben Zug ausdrücklich sitzen bleiben."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q4.b",
+                "textDe": "Den Zug ausschließlich neu anstreichen."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q4.c",
+                "textDe": "Den bisherigen Zug verlassen und einen anderen nehmen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.words.q4.c",
+            "assessmentUnit": "umsteigen Verkehrsmittel wechseln",
+            "equivalenceKey": "sitov:a22-01:words:4",
+            "sourceSpans": [
+              {
+                "start": 265,
+                "end": 274,
+                "quote": "umsteigen"
+              }
+            ],
+            "rationaleDe": "Umsteigen bedeutet den Wechsel in einen anderen Zug oder ein anderes Verkehrsmittel; sitzen bleiben oder Streichen passt nicht."
+          },
+          {
+            "id": "sitov.pretest.a22-01.words.q5",
+            "competencyId": "sitov.pretest.a22-01.words",
+            "kind": "single_choice",
+            "promptDe": "Wer ist ein »Mitreisender« im Zug?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.words.q5.a",
+                "textDe": "Ein anderer Mensch, der ebenfalls mitreist."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q5.b",
+                "textDe": "Ein einzelner leerer Koffer."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q5.c",
+                "textDe": "Ein Handwerker, der ausdrücklich nur zu Hause bleibt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.words.q5.a",
+            "assessmentUnit": "Mitreisender gemeinsam Reisender",
+            "equivalenceKey": "sitov:a22-01:words:5",
+            "sourceSpans": [
+              {
+                "start": 336,
+                "end": 348,
+                "quote": "Mitreisender"
+              }
+            ],
+            "rationaleDe": "Ein Mitreisender reist ebenfalls mit; zu Hause bleibender Handwerker und leerer Koffer sind keine Mitreisenden."
+          },
+          {
+            "id": "sitov.pretest.a22-01.words.q6",
+            "competencyId": "sitov.pretest.a22-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Gleis« am Bahnhof?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.words.q6.b",
+                "textDe": "Der Schienenweg, auf dem ein Zug fährt oder steht."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q6.c",
+                "textDe": "Eine gedruckte Kuchenanleitung."
+              },
+              {
+                "id": "sitov.pretest.a22-01.words.q6.a",
+                "textDe": "Ein Kleidungsstück aus Wolle."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.words.q6.b",
+            "assessmentUnit": "Gleis Schienenweg",
+            "equivalenceKey": "sitov:a22-01:words:6",
+            "sourceSpans": [
+              {
+                "start": 362,
+                "end": 367,
+                "quote": "Gleis"
+              }
+            ],
+            "rationaleDe": "Ein Gleis ist der Schienenweg für Züge; Rezept und Wollkleidung haben andere Funktionen."
+          },
+          {
+            "id": "sitov.pretest.a22-01.verbs.q1",
+            "competencyId": "sitov.pretest.a22-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »Wir wollten früh fahren«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.verbs.q1.c",
+                "textDe": "wohnen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q1.b",
+                "textDe": "wählen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q1.a",
+                "textDe": "wollen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.verbs.q1.a",
+            "assessmentUnit": "wollten Präteritum wollen",
+            "equivalenceKey": "sitov:a22-01:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 11,
+                "quote": "Wir wollten"
+              }
+            ],
+            "rationaleDe": "Wollten ist die Präteritumform von wollen für wir oder sie; wählen und wohnen sind andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a22-01.verbs.q2",
+            "competencyId": "sitov.pretest.a22-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Was drückt »Wir konnten einen anderen Zug nehmen« aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.verbs.q2.c",
+                "textDe": "Eine ausdrücklich nie bestehende Fähigkeit."
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q2.b",
+                "textDe": "Eine Möglichkeit in der Vergangenheit."
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q2.a",
+                "textDe": "Ein ausdrücklich zukünftiges Verbot."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.verbs.q2.b",
+            "assessmentUnit": "konnten vergangene Möglichkeit",
+            "equivalenceKey": "sitov:a22-01:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 217,
+                "end": 231,
+                "quote": "nehmen konnten"
+              }
+            ],
+            "rationaleDe": "Konnten beschreibt eine vergangene Möglichkeit; zukünftiges Verbot und völliges Unvermögen widersprechen dem Satz."
+          },
+          {
+            "id": "sitov.pretest.a22-01.verbs.q3",
+            "competencyId": "sitov.pretest.a22-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir mussten in der Stadt ___« zu umsteigen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.verbs.q3.a",
+                "textDe": "umgestiegen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q3.b",
+                "textDe": "umsteigen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q3.c",
+                "textDe": "steigen um"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.verbs.q3.b",
+            "assessmentUnit": "umsteigen Modalinfinitiv",
+            "equivalenceKey": "sitov:a22-01:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 265,
+                "end": 282,
+                "quote": "umsteigen mussten"
+              }
+            ],
+            "rationaleDe": "Nach dem Modalverb mussten steht der Infinitiv umsteigen; Partizip und getrennte finite Form passen nicht."
+          },
+          {
+            "id": "sitov.pretest.a22-01.verbs.q4",
+            "competencyId": "sitov.pretest.a22-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »Wir kamen später an«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.verbs.q4.c",
+                "textDe": "kommen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q4.b",
+                "textDe": "ankam"
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q4.a",
+                "textDe": "ankommen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.verbs.q4.a",
+            "assessmentUnit": "kamen an Präteritum ankommen",
+            "equivalenceKey": "sitov:a22-01:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 369,
+                "end": 401,
+                "quote": "Wir kamen zwei Stunden später an"
+              }
+            ],
+            "rationaleDe": "Die Grundform des trennbaren Verbs in kamen … an lautet ankommen; kommen lässt die Vorsilbe weg und ankam ist keine Grundform."
+          },
+          {
+            "id": "sitov.pretest.a22-01.verbs.q5",
+            "competencyId": "sitov.pretest.a22-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Zeitform zeigt »Meine Eltern hatten das Essen warm gehalten«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.verbs.q5.c",
+                "textDe": "Plusquamperfekt (Vorvergangenheit)."
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q5.a",
+                "textDe": "Präsens (Gegenwart)."
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q5.b",
+                "textDe": "Perfekt mit einem Hilfsverb im Präsens."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.verbs.q5.c",
+            "assessmentUnit": "hatten gehalten Plusquamperfekt",
+            "equivalenceKey": "sitov:a22-01:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 428,
+                "end": 458,
+                "quote": "hatten das Essen warm gehalten"
+              }
+            ],
+            "rationaleDe": "Hatten ist das Hilfsverb im Präteritum und gehalten das Partizip; zusammen bilden sie das Plusquamperfekt."
+          },
+          {
+            "id": "sitov.pretest.a22-01.verbs.q6",
+            "competencyId": "sitov.pretest.a22-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »Es wurde ein schöner Abend«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.verbs.q6.c",
+                "textDe": "werden"
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q6.b",
+                "textDe": "sein"
+              },
+              {
+                "id": "sitov.pretest.a22-01.verbs.q6.a",
+                "textDe": "wollen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.verbs.q6.c",
+            "assessmentUnit": "wurde Veränderung Präteritum",
+            "equivalenceKey": "sitov:a22-01:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 483,
+                "end": 514,
+                "quote": "wurde es noch ein schöner Abend"
+              }
+            ],
+            "rationaleDe": "Wurde ist die Präteritumform von werden und nennt die Entwicklung des Abends; sein und wollen sind andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a22-01.syntax.q1",
+            "competencyId": "sitov.pretest.a22-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Beziehung nennt »Wir wollten früh fahren, doch der Zug hatte Verspätung«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.syntax.q1.c",
+                "textDe": "Die Verspätung bestätigt ausdrücklich eine frühere Ankunft."
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q1.a",
+                "textDe": "Die Verspätung steht dem frühen Reiseplan entgegen."
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q1.b",
+                "textDe": "Beide Satzteile werden ausdrücklich verneint."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.syntax.q1.a",
+            "assessmentUnit": "doch Gegensatz Plan Hindernis",
+            "equivalenceKey": "sitov:a22-01:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 53,
+                "end": 84,
+                "quote": "doch unser Zug hatte Verspätung"
+              }
+            ],
+            "rationaleDe": "Doch markiert einen Gegensatz zwischen dem frühen Reiseplan und der Verspätung; frühere Ankunft oder doppelte Verneinung steht nicht da."
+          },
+          {
+            "id": "sitov.pretest.a22-01.syntax.q2",
+            "competencyId": "sitov.pretest.a22-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt »Ein Mitarbeiter erklärte, dass …« korrekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.syntax.q2.b",
+                "textDe": "konnten wir einen anderen Zug nehmen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q2.a",
+                "textDe": "wir konnten einen anderen Zug nehmen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q2.c",
+                "textDe": "wir einen anderen Zug nehmen konnten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.syntax.q2.c",
+            "assessmentUnit": "dass Modalverb am Ende",
+            "equivalenceKey": "sitov:a22-01:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 190,
+                "end": 231,
+                "quote": "dass wir einen anderen Zug nehmen konnten"
+              }
+            ],
+            "rationaleDe": "Dass leitet einen Nebensatz ein; das finite Modalverb konnten steht nach nehmen am Ende."
+          },
+          {
+            "id": "sitov.pretest.a22-01.syntax.q3",
+            "competencyId": "sitov.pretest.a22-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Warum ist der Sprecher laut »Weil wir in einer fremden Stadt umsteigen mussten, war ich unsicher« unsicher?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.syntax.q3.c",
+                "textDe": "Weil die Gruppe in einer fremden Stadt umsteigen musste."
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q3.a",
+                "textDe": "Weil der Sprecher ausdrücklich einen Kuchen backte."
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q3.b",
+                "textDe": "Weil die Gruppe ausdrücklich zu Hause blieb."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.syntax.q3.c",
+            "assessmentUnit": "weil Umsteigen als Unsicherheitsgrund",
+            "equivalenceKey": "sitov:a22-01:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 233,
+                "end": 310,
+                "quote": "Weil wir in einer fremden Stadt umsteigen mussten, war ich zunächst unsicher."
+              }
+            ],
+            "rationaleDe": "Der öffentliche weil-Satz nennt das Umsteigen in einer fremden Stadt als Grund; Zuhausesein und Kuchenbacken sind nicht genannt."
+          },
+          {
+            "id": "sitov.pretest.a22-01.syntax.q4",
+            "competencyId": "sitov.pretest.a22-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt »Ich war unsicher, weil …« korrekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.syntax.q4.a",
+                "textDe": "wir in einer fremden Stadt umsteigen mussten"
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q4.b",
+                "textDe": "mussten wir in einer fremden Stadt umsteigen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q4.c",
+                "textDe": "wir mussten in einer fremden Stadt umsteigen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.syntax.q4.a",
+            "assessmentUnit": "weil Modalverb final",
+            "equivalenceKey": "sitov:a22-01:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 233,
+                "end": 282,
+                "quote": "Weil wir in einer fremden Stadt umsteigen mussten"
+              }
+            ],
+            "rationaleDe": "Weil leitet einen Nebensatz ein; das finite Modalverb mussten steht nach dem Infinitiv umsteigen am Ende."
+          },
+          {
+            "id": "sitov.pretest.a22-01.syntax.q5",
+            "competencyId": "sitov.pretest.a22-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was vergleicht »Wir kamen zwei Stunden später an als geplant«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.syntax.q5.c",
+                "textDe": "Die Körpergröße zweier Mitarbeiter."
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q5.a",
+                "textDe": "Die Farbe zweier Züge."
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q5.b",
+                "textDe": "Die tatsächliche und die geplante Ankunftszeit."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.syntax.q5.b",
+            "assessmentUnit": "später als Zeitvergleich",
+            "equivalenceKey": "sitov:a22-01:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 379,
+                "end": 413,
+                "quote": "zwei Stunden später an als geplant"
+              }
+            ],
+            "rationaleDe": "Später als geplant vergleicht die Ankunftszeiten; zwei Stunden nennt die zeitliche Abweichung, nicht Körpergröße oder Farbe."
+          },
+          {
+            "id": "sitov.pretest.a22-01.syntax.q6",
+            "competencyId": "sitov.pretest.a22-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Beziehung nennt »Trotz der langen Fahrt wurde es ein schöner Abend«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.syntax.q6.a",
+                "textDe": "Es wird ausdrücklich nur die Zugfarbe verglichen."
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q6.b",
+                "textDe": "Der Abend wurde ungeachtet der langen Fahrt schön."
+              },
+              {
+                "id": "sitov.pretest.a22-01.syntax.q6.c",
+                "textDe": "Die Fahrt verhindert ausdrücklich jeden schönen Abend."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.syntax.q6.b",
+            "assessmentUnit": "Trotz Fahrt unerwartet schöner Abend",
+            "equivalenceKey": "sitov:a22-01:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 460,
+                "end": 515,
+                "quote": "Trotz der langen Fahrt wurde es noch ein schöner Abend."
+              }
+            ],
+            "rationaleDe": "Trotz nennt einen hinderlichen Umstand, der das schöne Ergebnis nicht verhindert; Verhinderung und Farbvergleich stehen nicht da."
+          },
+          {
+            "id": "sitov.pretest.a22-01.nominal.q1",
+            "competencyId": "sitov.pretest.a22-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir fahren zu ___ Eltern«, wenn es die Eltern des Sprechers sind?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.nominal.q1.a",
+                "textDe": "meinen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q1.c",
+                "textDe": "meine"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q1.b",
+                "textDe": "meinem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.nominal.q1.a",
+            "assessmentUnit": "meinen Eltern Dativ Plural",
+            "equivalenceKey": "sitov:a22-01:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 28,
+                "end": 44,
+                "quote": "zu meinen Eltern"
+              }
+            ],
+            "rationaleDe": "Zu verlangt Dativ; beim Plural Eltern lautet die Possessivform meinen."
+          },
+          {
+            "id": "sitov.pretest.a22-01.nominal.q2",
+            "competencyId": "sitov.pretest.a22-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Auf ___ Bahnsteig ist es voll«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.nominal.q2.b",
+                "textDe": "der"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q2.a",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q2.c",
+                "textDe": "dem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.nominal.q2.c",
+            "assessmentUnit": "dem Bahnsteig Dativ Ort",
+            "equivalenceKey": "sitov:a22-01:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 86,
+                "end": 103,
+                "quote": "Auf dem Bahnsteig"
+              }
+            ],
+            "rationaleDe": "Auf bezeichnet hier einen Ort im Dativ; beim maskulinen Bahnsteig lautet der Artikel dem."
+          },
+          {
+            "id": "sitov.pretest.a22-01.nominal.q3",
+            "competencyId": "sitov.pretest.a22-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir nehmen einen ___ Zug«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.nominal.q3.b",
+                "textDe": "anderer"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q3.c",
+                "textDe": "anderen"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q3.a",
+                "textDe": "anderem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.nominal.q3.c",
+            "assessmentUnit": "anderen Zug Akkusativ Adjektiv",
+            "equivalenceKey": "sitov:a22-01:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 199,
+                "end": 216,
+                "quote": "einen anderen Zug"
+              }
+            ],
+            "rationaleDe": "Zug ist maskulines Akkusativobjekt; nach einen lautet die Adjektivform anderen."
+          },
+          {
+            "id": "sitov.pretest.a22-01.nominal.q4",
+            "competencyId": "sitov.pretest.a22-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir steigen in einer ___ Stadt um«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.nominal.q4.c",
+                "textDe": "fremde"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q4.b",
+                "textDe": "fremden"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q4.a",
+                "textDe": "fremdes"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.nominal.q4.b",
+            "assessmentUnit": "fremden Stadt Dativ Adjektiv",
+            "equivalenceKey": "sitov:a22-01:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 242,
+                "end": 264,
+                "quote": "in einer fremden Stadt"
+              }
+            ],
+            "rationaleDe": "In nennt den Ort im Dativ; nach einer lautet die Adjektivform fremden Stadt."
+          },
+          {
+            "id": "sitov.pretest.a22-01.nominal.q5",
+            "competencyId": "sitov.pretest.a22-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ein Mitreisender zeigte ___ das Gleis«, wenn unsere Gruppe der Empfänger ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.nominal.q5.a",
+                "textDe": "uns"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q5.b",
+                "textDe": "unser"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q5.c",
+                "textDe": "wir"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.nominal.q5.a",
+            "assessmentUnit": "uns Dativ Empfänger zeigen",
+            "equivalenceKey": "sitov:a22-01:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 321,
+                "end": 348,
+                "quote": "zeigte uns ein Mitreisender"
+              }
+            ],
+            "rationaleDe": "Der Empfänger des Zeigens steht im Dativ; für unsere Gruppe lautet das Personalpronomen uns."
+          },
+          {
+            "id": "sitov.pretest.a22-01.nominal.q6",
+            "competencyId": "sitov.pretest.a22-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt standardsprachlich »trotz der ___ Fahrt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-01.nominal.q6.c",
+                "textDe": "lange"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q6.a",
+                "textDe": "langem"
+              },
+              {
+                "id": "sitov.pretest.a22-01.nominal.q6.b",
+                "textDe": "langen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-01.nominal.q6.b",
+            "assessmentUnit": "langen Fahrt Genitiv Trotz",
+            "equivalenceKey": "sitov:a22-01:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 460,
+                "end": 482,
+                "quote": "Trotz der langen Fahrt"
+              }
+            ],
+            "rationaleDe": "Trotz steht hier mit Genitiv; nach der lautet die Adjektivform langen Fahrt."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a22-01.a",
+            "questionIds": [
+              "sitov.pretest.a22-01.words.q1",
+              "sitov.pretest.a22-01.words.q2",
+              "sitov.pretest.a22-01.words.q3",
+              "sitov.pretest.a22-01.verbs.q1",
+              "sitov.pretest.a22-01.verbs.q2",
+              "sitov.pretest.a22-01.verbs.q3",
+              "sitov.pretest.a22-01.syntax.q1",
+              "sitov.pretest.a22-01.syntax.q2",
+              "sitov.pretest.a22-01.syntax.q3",
+              "sitov.pretest.a22-01.nominal.q1",
+              "sitov.pretest.a22-01.nominal.q2",
+              "sitov.pretest.a22-01.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a22-01.b",
+            "questionIds": [
+              "sitov.pretest.a22-01.words.q4",
+              "sitov.pretest.a22-01.words.q5",
+              "sitov.pretest.a22-01.words.q6",
+              "sitov.pretest.a22-01.verbs.q4",
+              "sitov.pretest.a22-01.verbs.q5",
+              "sitov.pretest.a22-01.verbs.q6",
+              "sitov.pretest.a22-01.syntax.q4",
+              "sitov.pretest.a22-01.syntax.q5",
+              "sitov.pretest.a22-01.syntax.q6",
+              "sitov.pretest.a22-01.nominal.q4",
+              "sitov.pretest.a22-01.nominal.q5",
+              "sitov.pretest.a22-01.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "3243b764-4bfc-5fc6-8c24-1a49962988ff",
+      "unitId": "3243b764-4bfc-5fc6-8c24-1a49962988ff",
+      "level": "A2.2",
+      "textVersion": "a368e2f752bf04554f9a87a44ffca1ba94f8fada5515dd94ed05c8d788523717",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "a368e2f752bf04554f9a87a44ffca1ba94f8fada5515dd94ed05c8d788523717",
+        "definitionContentHash": "74bbdac4bbda5bbb0b88fc4224370f7888a165bd5a124e198820a94f5bd30923"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a22-02.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Arbeitszeiten Zeiten der Arbeit",
+              "Alltag gewöhnlicher Tagesablauf",
+              "Gespräch gemeinsames Sprechen",
+              "Vorschlag angebotene Idee",
+              "Regelung vereinbarte Ordnung",
+              "offen ehrlich ansprechen"
+            ],
+            "sourceSpans": [
+              {
+                "start": 48,
+                "end": 61,
+                "quote": "Arbeitszeiten"
+              },
+              {
+                "start": 88,
+                "end": 94,
+                "quote": "Alltag"
+              },
+              {
+                "start": 132,
+                "end": 140,
+                "quote": "Gespräch"
+              },
+              {
+                "start": 352,
+                "end": 361,
+                "quote": "Vorschlag"
+              },
+              {
+                "start": 397,
+                "end": 405,
+                "quote": "Regelung"
+              },
+              {
+                "start": 459,
+                "end": 482,
+                "quote": "offen über mein Problem"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Arbeitszeiten Zeiten der Arbeit, Alltag gewöhnlicher Tagesablauf, Gespräch gemeinsames Sprechen, Vorschlag angebotene Idee, Regelung vereinbarte Ordnung, offen ehrlich ansprechen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-02.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "gebeten starkes Partizip bitten",
+              "erklärt Partizip ohne ge",
+              "muss Notwendigkeit",
+              "könnte vorsichtiger Vorschlag",
+              "zugestimmt trennbares Partizip",
+              "ausprobieren trennbare Satzklammer"
+            ],
+            "sourceSpans": [
+              {
+                "start": 132,
+                "end": 148,
+                "quote": "Gespräch gebeten"
+              },
+              {
+                "start": 150,
+                "end": 166,
+                "quote": "Ich habe erklärt"
+              },
+              {
+                "start": 198,
+                "end": 216,
+                "quote": "zu Hause sein muss"
+              },
+              {
+                "start": 218,
+                "end": 271,
+                "quote": "Dafür könnte ich morgens eine Stunde früher anfangen."
+              },
+              {
+                "start": 352,
+                "end": 372,
+                "quote": "Vorschlag zugestimmt"
+              },
+              {
+                "start": 374,
+                "end": 435,
+                "quote": "Wir probieren die neue Regelung zunächst für einen Monat aus."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.vorschlaege-a22"
+              ],
+              "pendingReasonDe": "Teilbeleg ausschließlich für könnte vorsichtiger Vorschlag. Andere Einzelziele fehlen: gebeten starkes Partizip bitten, erklärt Partizip ohne ge, muss Notwendigkeit, zugestimmt trennbares Partizip, ausprobieren trennbare Satzklammer. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-02.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Seit Schulbeginn Zeitraum",
+              "Deshalb Folge Gespräch",
+              "dass Modalverb final",
+              "Dafür Gegenangebot",
+              "früher zeitlicher Vergleich",
+              "zunächst Monat Probezeit"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 33,
+                "quote": "Seit mein Sohn in die Schule geht"
+              },
+              {
+                "start": 96,
+                "end": 149,
+                "quote": "Deshalb habe ich meinen Chef um ein Gespräch gebeten."
+              },
+              {
+                "start": 168,
+                "end": 216,
+                "quote": "dass ich am Nachmittag früher zu Hause sein muss"
+              },
+              {
+                "start": 218,
+                "end": 271,
+                "quote": "Dafür könnte ich morgens eine Stunde früher anfangen."
+              },
+              {
+                "start": 243,
+                "end": 270,
+                "quote": "eine Stunde früher anfangen"
+              },
+              {
+                "start": 406,
+                "end": 434,
+                "quote": "zunächst für einen Monat aus"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Seit Schulbeginn Zeitraum, Deshalb Folge Gespräch, dass Modalverb final, Dafür Gegenangebot, früher zeitlicher Vergleich, zunächst Monat Probezeit. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-02.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "mein Sohn Nominativ",
+              "unserem Alltag Dativ",
+              "meinen Chef Akkusativ",
+              "ein Gespräch Akkusativ neutral",
+              "meinem Vorschlag Dativ",
+              "einen Monat Akkusativ Dauer"
+            ],
+            "sourceSpans": [
+              {
+                "start": 5,
+                "end": 14,
+                "quote": "mein Sohn"
+              },
+              {
+                "start": 77,
+                "end": 94,
+                "quote": "zu unserem Alltag"
+              },
+              {
+                "start": 113,
+                "end": 124,
+                "quote": "meinen Chef"
+              },
+              {
+                "start": 125,
+                "end": 140,
+                "quote": "um ein Gespräch"
+              },
+              {
+                "start": 345,
+                "end": 361,
+                "quote": "meinem Vorschlag"
+              },
+              {
+                "start": 415,
+                "end": 430,
+                "quote": "für einen Monat"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: mein Sohn Nominativ, unserem Alltag Dativ, meinen Chef Akkusativ, ein Gespräch Akkusativ neutral, meinem Vorschlag Dativ, einen Monat Akkusativ Dauer. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keine Relativsatzkonstruktion; vorhandene Zeit- oder Begründungssätze werden in ihren eigenen belegten Funktionen geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a22-02.words.q1",
+            "competencyId": "sitov.pretest.a22-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind »Arbeitszeiten«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.words.q1.c",
+                "textDe": "Die Zeiten, zu denen jemand arbeitet."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q1.a",
+                "textDe": "Ausschließlich die Reifen eines Zuges."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q1.b",
+                "textDe": "Ausschließlich die Farben eines Hauses."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.words.q1.c",
+            "assessmentUnit": "Arbeitszeiten Zeiten der Arbeit",
+            "equivalenceKey": "sitov:a22-02:words:1",
+            "sourceSpans": [
+              {
+                "start": 48,
+                "end": 61,
+                "quote": "Arbeitszeiten"
+              }
+            ],
+            "rationaleDe": "Arbeitszeiten nennen Zeiträume der Arbeit; Hausfarben und Zugreifen sind andere Angaben."
+          },
+          {
+            "id": "sitov.pretest.a22-02.words.q2",
+            "competencyId": "sitov.pretest.a22-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bezeichnet »Alltag«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.words.q2.c",
+                "textDe": "Eine einzelne Zugdurchsage."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q2.a",
+                "textDe": "Nur eine außergewöhnliche Feier im Jahr."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q2.b",
+                "textDe": "Das gewöhnliche tägliche Leben."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.words.q2.b",
+            "assessmentUnit": "Alltag gewöhnlicher Tagesablauf",
+            "equivalenceKey": "sitov:a22-02:words:2",
+            "sourceSpans": [
+              {
+                "start": 88,
+                "end": 94,
+                "quote": "Alltag"
+              }
+            ],
+            "rationaleDe": "Alltag bezeichnet das regelmäßige tägliche Leben; eine seltene Feier und eine einzelne Durchsage sind nicht gleichbedeutend."
+          },
+          {
+            "id": "sitov.pretest.a22-02.words.q3",
+            "competencyId": "sitov.pretest.a22-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Gespräch« mit dem Chef?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.words.q3.a",
+                "textDe": "Ein Austausch durch gemeinsames Sprechen."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q3.c",
+                "textDe": "Ein kaputter Heizungsregler."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q3.b",
+                "textDe": "Eine Fahrt ohne jeden Kontakt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.words.q3.a",
+            "assessmentUnit": "Gespräch gemeinsames Sprechen",
+            "equivalenceKey": "sitov:a22-02:words:3",
+            "sourceSpans": [
+              {
+                "start": 132,
+                "end": 140,
+                "quote": "Gespräch"
+              }
+            ],
+            "rationaleDe": "Ein Gespräch ist ein sprachlicher Austausch; Heizungsregler und kontaktlose Fahrt bezeichnen etwas anderes."
+          },
+          {
+            "id": "sitov.pretest.a22-02.words.q4",
+            "competencyId": "sitov.pretest.a22-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Vorschlag« zur Arbeitszeit?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.words.q4.c",
+                "textDe": "Ein einzelner leerer Koffer."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q4.a",
+                "textDe": "Eine Idee für eine mögliche Lösung."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q4.b",
+                "textDe": "Eine ausdrücklich bereits unveränderliche Naturregel."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.words.q4.a",
+            "assessmentUnit": "Vorschlag angebotene Idee",
+            "equivalenceKey": "sitov:a22-02:words:4",
+            "sourceSpans": [
+              {
+                "start": 352,
+                "end": 361,
+                "quote": "Vorschlag"
+              }
+            ],
+            "rationaleDe": "Ein Vorschlag bietet eine mögliche Lösung an; unveränderliche Naturregel und Koffer haben eine andere Bedeutung."
+          },
+          {
+            "id": "sitov.pretest.a22-02.words.q5",
+            "competencyId": "sitov.pretest.a22-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine »Regelung« der Arbeitszeit?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.words.q5.a",
+                "textDe": "Ein Sitzmöbel im Park."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q5.c",
+                "textDe": "Ein Kleidungsstück aus Wolle."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q5.b",
+                "textDe": "Eine festgelegte oder vereinbarte Ordnung der Arbeitszeit."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.words.q5.b",
+            "assessmentUnit": "Regelung vereinbarte Ordnung",
+            "equivalenceKey": "sitov:a22-02:words:5",
+            "sourceSpans": [
+              {
+                "start": 397,
+                "end": 405,
+                "quote": "Regelung"
+              }
+            ],
+            "rationaleDe": "Eine Arbeitszeitregelung ordnet die Arbeitszeiten; Sitzmöbel und Wollkleidung sind keine solche Ordnung."
+          },
+          {
+            "id": "sitov.pretest.a22-02.words.q6",
+            "competencyId": "sitov.pretest.a22-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »offen über mein Problem sprechen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.words.q6.a",
+                "textDe": "Das Problem ausdrücklich vollständig verheimlichen."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q6.c",
+                "textDe": "Das Problem ehrlich und direkt ansprechen."
+              },
+              {
+                "id": "sitov.pretest.a22-02.words.q6.b",
+                "textDe": "Ausschließlich ein Fenster öffnen, ohne etwas zu sagen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.words.q6.c",
+            "assessmentUnit": "offen ehrlich ansprechen",
+            "equivalenceKey": "sitov:a22-02:words:6",
+            "sourceSpans": [
+              {
+                "start": 459,
+                "end": 482,
+                "quote": "offen über mein Problem"
+              }
+            ],
+            "rationaleDe": "Offen sprechen heißt hier ehrlich ansprechen; Verheimlichen oder nur ein Fensteröffnen gibt diese Bedeutung nicht wieder."
+          },
+          {
+            "id": "sitov.pretest.a22-02.verbs.q1",
+            "competencyId": "sitov.pretest.a22-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe den Chef um ein Gespräch ___« zu bitten?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.verbs.q1.b",
+                "textDe": "gebeten"
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q1.c",
+                "textDe": "gebittet"
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q1.a",
+                "textDe": "bitten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.verbs.q1.b",
+            "assessmentUnit": "gebeten starkes Partizip bitten",
+            "equivalenceKey": "sitov:a22-02:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 132,
+                "end": 148,
+                "quote": "Gespräch gebeten"
+              }
+            ],
+            "rationaleDe": "Das starke Verb bitten bildet das Partizip gebeten; gebittet und Infinitiv passen nicht ins Perfekt."
+          },
+          {
+            "id": "sitov.pretest.a22-02.verbs.q2",
+            "competencyId": "sitov.pretest.a22-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe mein Problem ___« zu erklären?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.verbs.q2.b",
+                "textDe": "geerklärt"
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q2.a",
+                "textDe": "erklärt"
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q2.c",
+                "textDe": "erklären"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.verbs.q2.a",
+            "assessmentUnit": "erklärt Partizip ohne ge",
+            "equivalenceKey": "sitov:a22-02:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 150,
+                "end": 166,
+                "quote": "Ich habe erklärt"
+              }
+            ],
+            "rationaleDe": "Erklären bildet das Partizip erklärt ohne ge wegen der Vorsilbe er; die anderen Formen passen hier nicht."
+          },
+          {
+            "id": "sitov.pretest.a22-02.verbs.q3",
+            "competencyId": "sitov.pretest.a22-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Was drückt »Ich muss am Nachmittag zu Hause sein« aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.verbs.q3.a",
+                "textDe": "Es ist ausdrücklich schon unmöglich gewesen."
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q3.b",
+                "textDe": "Es ist für den Sprecher notwendig."
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q3.c",
+                "textDe": "Es ist ausdrücklich verboten."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.verbs.q3.b",
+            "assessmentUnit": "muss Notwendigkeit",
+            "equivalenceKey": "sitov:a22-02:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 198,
+                "end": 216,
+                "quote": "zu Hause sein muss"
+              }
+            ],
+            "rationaleDe": "Müssen drückt hier eine Notwendigkeit aus; Verbot und vergangene Unmöglichkeit werden nicht ausgesagt."
+          },
+          {
+            "id": "sitov.pretest.a22-02.verbs.q4",
+            "competencyId": "sitov.pretest.a22-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Was drückt »Dafür könnte ich morgens früher anfangen« als Vorschlag aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.verbs.q4.b",
+                "textDe": "Ein ausdrücklich unwiderrufliches Verbot."
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q4.a",
+                "textDe": "Eine ausdrücklich schon abgeschlossene Tat ohne Vorschlag."
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q4.c",
+                "textDe": "Eine mögliche, vorsichtig formulierte Lösung."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.verbs.q4.c",
+            "assessmentUnit": "könnte vorsichtiger Vorschlag",
+            "equivalenceKey": "sitov:a22-02:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 218,
+                "end": 271,
+                "quote": "Dafür könnte ich morgens eine Stunde früher anfangen."
+              }
+            ],
+            "rationaleDe": "Könnte formuliert hier eine mögliche Lösung vorsichtig; es behauptet weder ein Verbot noch eine bereits abgeschlossene Tat."
+          },
+          {
+            "id": "sitov.pretest.a22-02.verbs.q5",
+            "competencyId": "sitov.pretest.a22-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Er hat meinem Vorschlag ___« zu zustimmen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.verbs.q5.b",
+                "textDe": "gezustimmt"
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q5.c",
+                "textDe": "zustimmen"
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q5.a",
+                "textDe": "zugestimmt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.verbs.q5.a",
+            "assessmentUnit": "zugestimmt trennbares Partizip",
+            "equivalenceKey": "sitov:a22-02:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 352,
+                "end": 372,
+                "quote": "Vorschlag zugestimmt"
+              }
+            ],
+            "rationaleDe": "Beim trennbaren Verb zustimmen steht ge zwischen zu und stimmt; das Partizip lautet zugestimmt."
+          },
+          {
+            "id": "sitov.pretest.a22-02.verbs.q6",
+            "competencyId": "sitov.pretest.a22-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »Wir probieren die Regelung aus«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.verbs.q6.c",
+                "textDe": "ausprobieren"
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q6.a",
+                "textDe": "probieren"
+              },
+              {
+                "id": "sitov.pretest.a22-02.verbs.q6.b",
+                "textDe": "ausprobiert"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.verbs.q6.c",
+            "assessmentUnit": "ausprobieren trennbare Satzklammer",
+            "equivalenceKey": "sitov:a22-02:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 374,
+                "end": 435,
+                "quote": "Wir probieren die neue Regelung zunächst für einen Monat aus."
+              }
+            ],
+            "rationaleDe": "Das trennbare Verb ausprobieren erscheint im Hauptsatz als probieren … aus; bloßes probieren und Partizip sind nicht dieselbe Grundform."
+          },
+          {
+            "id": "sitov.pretest.a22-02.syntax.q1",
+            "competencyId": "sitov.pretest.a22-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was verbindet »Seit mein Sohn in die Schule geht, passen die Arbeitszeiten nicht mehr«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.syntax.q1.c",
+                "textDe": "Beide Aussagen werden ausdrücklich vollständig verneint."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q1.a",
+                "textDe": "Der Schulbeginn liegt ausdrücklich erst in ferner Zukunft."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q1.b",
+                "textDe": "Der Schulbeginn markiert den Beginn der neuen Situation."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.syntax.q1.b",
+            "assessmentUnit": "Seit Schulbeginn Zeitraum",
+            "equivalenceKey": "sitov:a22-02:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 33,
+                "quote": "Seit mein Sohn in die Schule geht"
+              }
+            ],
+            "rationaleDe": "Seit leitet den Beginn einer bis jetzt relevanten Situation ein; ferne Zukunft und Verneinung beider Aussagen passen nicht."
+          },
+          {
+            "id": "sitov.pretest.a22-02.syntax.q2",
+            "competencyId": "sitov.pretest.a22-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Beziehung nennt »Meine Arbeitszeiten passen nicht. Deshalb bitte ich um ein Gespräch«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.syntax.q2.b",
+                "textDe": "Die Arbeitszeiten werden ausdrücklich als perfekt passend bezeichnet."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q2.c",
+                "textDe": "Die Bitte wird ausdrücklich ohne Zusammenhang genannt."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q2.a",
+                "textDe": "Das unpassende Arbeitszeitmodell ist der Grund für die Bitte."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.syntax.q2.a",
+            "assessmentUnit": "Deshalb Folge Gespräch",
+            "equivalenceKey": "sitov:a22-02:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 96,
+                "end": 149,
+                "quote": "Deshalb habe ich meinen Chef um ein Gespräch gebeten."
+              }
+            ],
+            "rationaleDe": "Deshalb nennt eine Folge des zuvor beschriebenen Problems; fehlender Zusammenhang und passende Zeiten widersprechen dem Kontext."
+          },
+          {
+            "id": "sitov.pretest.a22-02.syntax.q3",
+            "competencyId": "sitov.pretest.a22-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt »Ich erklärte, dass …« korrekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.syntax.q3.b",
+                "textDe": "muss ich am Nachmittag zu Hause sein"
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q3.c",
+                "textDe": "ich am Nachmittag zu Hause sein muss"
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q3.a",
+                "textDe": "ich muss am Nachmittag zu Hause sein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.syntax.q3.c",
+            "assessmentUnit": "dass Modalverb final",
+            "equivalenceKey": "sitov:a22-02:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 168,
+                "end": 216,
+                "quote": "dass ich am Nachmittag früher zu Hause sein muss"
+              }
+            ],
+            "rationaleDe": "Dass leitet einen Nebensatz ein; das finite Modalverb muss steht nach dem Infinitiv sein am Ende."
+          },
+          {
+            "id": "sitov.pretest.a22-02.syntax.q4",
+            "competencyId": "sitov.pretest.a22-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was bietet der Sprecher in »Nachmittags muss ich früher gehen. Dafür könnte ich morgens früher anfangen« als Ausgleich an?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.syntax.q4.a",
+                "textDe": "Morgens früher anzufangen."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q4.c",
+                "textDe": "Überhaupt nicht mehr zu arbeiten."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q4.b",
+                "textDe": "Morgens ausdrücklich später anzufangen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.syntax.q4.a",
+            "assessmentUnit": "Dafür Gegenangebot",
+            "equivalenceKey": "sitov:a22-02:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 218,
+                "end": 271,
+                "quote": "Dafür könnte ich morgens eine Stunde früher anfangen."
+              }
+            ],
+            "rationaleDe": "Dafür verbindet das frühere Beginnen als Ausgleich mit dem früheren Gehen; späterer Beginn und Arbeitsverzicht stehen nicht da."
+          },
+          {
+            "id": "sitov.pretest.a22-02.syntax.q5",
+            "competencyId": "sitov.pretest.a22-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »eine Stunde früher anfangen als bisher«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.syntax.q5.a",
+                "textDe": "Der Beginn liegt ausdrücklich eine Stunde später."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q5.b",
+                "textDe": "Der Beginn liegt eine Stunde vor dem bisherigen Beginn."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q5.c",
+                "textDe": "Der Arbeitstag wird ausdrücklich immer vollständig gestrichen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.syntax.q5.b",
+            "assessmentUnit": "früher zeitlicher Vergleich",
+            "equivalenceKey": "sitov:a22-02:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 243,
+                "end": 270,
+                "quote": "eine Stunde früher anfangen"
+              }
+            ],
+            "rationaleDe": "Früher vergleicht die Anfangszeiten und verlegt den Beginn um eine Stunde nach vorn; späterer Beginn oder Streichung passt nicht."
+          },
+          {
+            "id": "sitov.pretest.a22-02.syntax.q6",
+            "competencyId": "sitov.pretest.a22-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wie lange wird laut »Wir probieren die Regelung zunächst für einen Monat aus« zuerst getestet?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.syntax.q6.c",
+                "textDe": "Einen Monat."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q6.a",
+                "textDe": "Ausdrücklich nur eine Minute."
+              },
+              {
+                "id": "sitov.pretest.a22-02.syntax.q6.b",
+                "textDe": "Ausdrücklich zehn Jahre."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.syntax.q6.c",
+            "assessmentUnit": "zunächst Monat Probezeit",
+            "equivalenceKey": "sitov:a22-02:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 406,
+                "end": 434,
+                "quote": "zunächst für einen Monat aus"
+              }
+            ],
+            "rationaleDe": "Für einen Monat nennt die erste Testdauer; zehn Jahre und eine Minute widersprechen dieser öffentlichen Angabe."
+          },
+          {
+            "id": "sitov.pretest.a22-02.nominal.q1",
+            "competencyId": "sitov.pretest.a22-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »___ Sohn geht in die Schule«, wenn es der Sohn des Sprechers ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.nominal.q1.b",
+                "textDe": "Meinem"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q1.c",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q1.a",
+                "textDe": "Meinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.nominal.q1.c",
+            "assessmentUnit": "mein Sohn Nominativ",
+            "equivalenceKey": "sitov:a22-02:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 5,
+                "end": 14,
+                "quote": "mein Sohn"
+              }
+            ],
+            "rationaleDe": "Sohn ist hier maskulines Subjekt im Nominativ; die Possessivform lautet mein."
+          },
+          {
+            "id": "sitov.pretest.a22-02.nominal.q2",
+            "competencyId": "sitov.pretest.a22-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Die Zeiten passen zu ___ Alltag«, wenn es der Alltag unserer Gruppe ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.nominal.q2.a",
+                "textDe": "unserem"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q2.c",
+                "textDe": "unseren"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q2.b",
+                "textDe": "unser"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.nominal.q2.a",
+            "assessmentUnit": "unserem Alltag Dativ",
+            "equivalenceKey": "sitov:a22-02:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 77,
+                "end": 94,
+                "quote": "zu unserem Alltag"
+              }
+            ],
+            "rationaleDe": "Zu verlangt Dativ; beim maskulinen Alltag lautet die Possessivform unserem."
+          },
+          {
+            "id": "sitov.pretest.a22-02.nominal.q3",
+            "competencyId": "sitov.pretest.a22-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe ___ Chef um ein Gespräch gebeten«, wenn es der Chef des Sprechers ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.nominal.q3.b",
+                "textDe": "meinen"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q3.c",
+                "textDe": "mein"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q3.a",
+                "textDe": "meinem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.nominal.q3.b",
+            "assessmentUnit": "meinen Chef Akkusativ",
+            "equivalenceKey": "sitov:a22-02:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 113,
+                "end": 124,
+                "quote": "meinen Chef"
+              }
+            ],
+            "rationaleDe": "Die gebetene Person steht hier im Akkusativ; beim maskulinen Chef lautet die Possessivform meinen."
+          },
+          {
+            "id": "sitov.pretest.a22-02.nominal.q4",
+            "competencyId": "sitov.pretest.a22-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich bitte um ___ Gespräch«, wenn genau eines gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.nominal.q4.a",
+                "textDe": "einen"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q4.c",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q4.b",
+                "textDe": "ein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.nominal.q4.b",
+            "assessmentUnit": "ein Gespräch Akkusativ neutral",
+            "equivalenceKey": "sitov:a22-02:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 125,
+                "end": 140,
+                "quote": "um ein Gespräch"
+              }
+            ],
+            "rationaleDe": "Um verlangt hier Akkusativ; beim neutralen Gespräch lautet der unbestimmte Artikel ein."
+          },
+          {
+            "id": "sitov.pretest.a22-02.nominal.q5",
+            "competencyId": "sitov.pretest.a22-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Der Chef hat ___ Vorschlag zugestimmt«, wenn es der Vorschlag des Sprechers ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.nominal.q5.a",
+                "textDe": "mein"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q5.b",
+                "textDe": "meinen"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q5.c",
+                "textDe": "meinem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.nominal.q5.c",
+            "assessmentUnit": "meinem Vorschlag Dativ",
+            "equivalenceKey": "sitov:a22-02:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 345,
+                "end": 361,
+                "quote": "meinem Vorschlag"
+              }
+            ],
+            "rationaleDe": "Zustimmen verlangt Dativ; beim maskulinen Vorschlag lautet die Possessivform meinem."
+          },
+          {
+            "id": "sitov.pretest.a22-02.nominal.q6",
+            "competencyId": "sitov.pretest.a22-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir testen die Regelung für ___ Monat«, wenn genau einer gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-02.nominal.q6.b",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q6.a",
+                "textDe": "einen"
+              },
+              {
+                "id": "sitov.pretest.a22-02.nominal.q6.c",
+                "textDe": "ein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-02.nominal.q6.a",
+            "assessmentUnit": "einen Monat Akkusativ Dauer",
+            "equivalenceKey": "sitov:a22-02:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 415,
+                "end": 430,
+                "quote": "für einen Monat"
+              }
+            ],
+            "rationaleDe": "Für verlangt Akkusativ; beim maskulinen Monat lautet der unbestimmte Artikel einen."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a22-02.a",
+            "questionIds": [
+              "sitov.pretest.a22-02.words.q1",
+              "sitov.pretest.a22-02.words.q2",
+              "sitov.pretest.a22-02.words.q3",
+              "sitov.pretest.a22-02.verbs.q1",
+              "sitov.pretest.a22-02.verbs.q2",
+              "sitov.pretest.a22-02.verbs.q3",
+              "sitov.pretest.a22-02.syntax.q1",
+              "sitov.pretest.a22-02.syntax.q2",
+              "sitov.pretest.a22-02.syntax.q3",
+              "sitov.pretest.a22-02.nominal.q1",
+              "sitov.pretest.a22-02.nominal.q2",
+              "sitov.pretest.a22-02.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a22-02.b",
+            "questionIds": [
+              "sitov.pretest.a22-02.words.q4",
+              "sitov.pretest.a22-02.words.q5",
+              "sitov.pretest.a22-02.words.q6",
+              "sitov.pretest.a22-02.verbs.q4",
+              "sitov.pretest.a22-02.verbs.q5",
+              "sitov.pretest.a22-02.verbs.q6",
+              "sitov.pretest.a22-02.syntax.q4",
+              "sitov.pretest.a22-02.syntax.q5",
+              "sitov.pretest.a22-02.syntax.q6",
+              "sitov.pretest.a22-02.nominal.q4",
+              "sitov.pretest.a22-02.nominal.q5",
+              "sitov.pretest.a22-02.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "51347d93-a3a8-50aa-811e-4ea2816386f9",
+      "unitId": "51347d93-a3a8-50aa-811e-4ea2816386f9",
+      "level": "A2.2",
+      "textVersion": "1607dcecc5c6175d72bdc6c9d5bff4260132e341189499e30f49ff814fa46ced",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "1607dcecc5c6175d72bdc6c9d5bff4260132e341189499e30f49ff814fa46ced",
+        "definitionContentHash": "9d48a5ae5014a95ec33e7ef85e576d4049bedb437907c3e7d9deff253d5302fe"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a22-03.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Innenhof Fläche im Häuserinneren",
+              "ungemütlich wenig angenehm",
+              "verändern anders machen",
+              "pflanzen in Erde setzen",
+              "Gemeinsam zusammen",
+              "Aufgabe übernehmen Verantwortung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 4,
+                "end": 12,
+                "quote": "Innenhof"
+              },
+              {
+                "start": 47,
+                "end": 58,
+                "quote": "ungemütlich"
+              },
+              {
+                "start": 119,
+                "end": 128,
+                "quote": "verändern"
+              },
+              {
+                "start": 153,
+                "end": 168,
+                "quote": "Blumen pflanzen"
+              },
+              {
+                "start": 203,
+                "end": 212,
+                "quote": "Gemeinsam"
+              },
+              {
+                "start": 371,
+                "end": 389,
+                "quote": "Aufgabe übernommen"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Innenhof Fläche im Häuserinneren, ungemütlich wenig angenehm, verändern anders machen, pflanzen in Erde setzen, Gemeinsam zusammen, Aufgabe übernehmen Verantwortung. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-03.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "wollten Präteritum Plural",
+              "wünschten sich reflexive Pluralform",
+              "zugestimmt hatte Plusquamperfekt",
+              "übernommen starkes Partizip",
+              "ist geworden Perfekt sein",
+              "kennen uns wechselseitig"
+            ],
+            "sourceSpans": [
+              {
+                "start": 138,
+                "end": 152,
+                "quote": "Einige wollten"
+              },
+              {
+                "start": 177,
+                "end": 201,
+                "quote": "wünschten sich eine Bank"
+              },
+              {
+                "start": 285,
+                "end": 301,
+                "quote": "zugestimmt hatte"
+              },
+              {
+                "start": 371,
+                "end": 389,
+                "quote": "Aufgabe übernommen"
+              },
+              {
+                "start": 436,
+                "end": 456,
+                "quote": "ist schöner geworden"
+              },
+              {
+                "start": 462,
+                "end": 476,
+                "quote": "wir kennen uns"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: wollten Präteritum Plural, wünschten sich reflexive Pluralform, zugestimmt hatte Plusquamperfekt, übernommen starkes Partizip, ist geworden Perfekt sein, kennen uns wechselseitig. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-03.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "wie indirekte Frage Modalverb final",
+              "ihn Innenhof Rückverweis",
+              "Nachdem zeitliche Vorzeitigkeit",
+              "Nachdem Plusquamperfekt Verbfinal",
+              "schöner Eigenschaftsvergleich",
+              "besser größere Vertrautheit"
+            ],
+            "sourceSpans": [
+              {
+                "start": 107,
+                "end": 136,
+                "quote": "wie wir ihn verändern könnten"
+              },
+              {
+                "start": 107,
+                "end": 136,
+                "quote": "wie wir ihn verändern könnten"
+              },
+              {
+                "start": 274,
+                "end": 348,
+                "quote": "Nachdem er zugestimmt hatte, haben wir an einem Samstag alles vorbereitet."
+              },
+              {
+                "start": 274,
+                "end": 301,
+                "quote": "Nachdem er zugestimmt hatte"
+              },
+              {
+                "start": 428,
+                "end": 456,
+                "quote": "Der Hof ist schöner geworden"
+              },
+              {
+                "start": 485,
+                "end": 496,
+                "quote": "viel besser"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: wie indirekte Frage Modalverb final, ihn Innenhof Rückverweis, Nachdem zeitliche Vorzeitigkeit, Nachdem Plusquamperfekt Verbfinal, schöner Eigenschaftsvergleich, besser größere Vertrautheit. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-03.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "unseres Hauses Genitiv",
+              "einem Treffen Dativ",
+              "eine Bank Akkusativ feminin",
+              "einen Plan Akkusativ",
+              "beim Kontraktion bei dem",
+              "kleine Aufgabe feminin Akkusativ"
+            ],
+            "sourceSpans": [
+              {
+                "start": 13,
+                "end": 27,
+                "quote": "unseres Hauses"
+              },
+              {
+                "start": 60,
+                "end": 77,
+                "quote": "Bei einem Treffen"
+              },
+              {
+                "start": 192,
+                "end": 201,
+                "quote": "eine Bank"
+              },
+              {
+                "start": 223,
+                "end": 233,
+                "quote": "einen Plan"
+              },
+              {
+                "start": 246,
+                "end": 260,
+                "quote": "beim Vermieter"
+              },
+              {
+                "start": 359,
+                "end": 378,
+                "quote": "eine kleine Aufgabe"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: unseres Hauses Genitiv, einem Treffen Dativ, eine Bank Akkusativ feminin, einen Plan Akkusativ, beim Kontraktion bei dem, kleine Aufgabe feminin Akkusativ. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keine Relativsatzkonstruktion; vorhandene Zeit- oder Begründungssätze werden in ihren eigenen belegten Funktionen geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a22-03.words.q1",
+            "competencyId": "sitov.pretest.a22-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Innenhof«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.words.q1.c",
+                "textDe": "Ein offener Hof innerhalb oder zwischen Gebäudeteilen."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q1.b",
+                "textDe": "Eine Fahrkarte für einen Bus."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q1.a",
+                "textDe": "Ein Abfahrtsgleis eines Zuges."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.words.q1.c",
+            "assessmentUnit": "Innenhof Fläche im Häuserinneren",
+            "equivalenceKey": "sitov:a22-03:words:1",
+            "sourceSpans": [
+              {
+                "start": 4,
+                "end": 12,
+                "quote": "Innenhof"
+              }
+            ],
+            "rationaleDe": "Ein Innenhof ist eine offene Fläche innerhalb oder zwischen Gebäudeteilen; Gleis und Fahrkarte bezeichnen andere Dinge."
+          },
+          {
+            "id": "sitov.pretest.a22-03.words.q2",
+            "competencyId": "sitov.pretest.a22-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Der Hof war ungemütlich«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.words.q2.c",
+                "textDe": "Der Hof war ausdrücklich besonders behaglich."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q2.a",
+                "textDe": "Der Hof war ausdrücklich eine Uhrzeit."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q2.b",
+                "textDe": "Der Hof wirkte wenig angenehm oder einladend."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.words.q2.b",
+            "assessmentUnit": "ungemütlich wenig angenehm",
+            "equivalenceKey": "sitov:a22-03:words:2",
+            "sourceSpans": [
+              {
+                "start": 47,
+                "end": 58,
+                "quote": "ungemütlich"
+              }
+            ],
+            "rationaleDe": "Ungemütlich bedeutet wenig angenehm oder einladend; Behaglichkeit und Uhrzeit sind keine passende Bedeutung."
+          },
+          {
+            "id": "sitov.pretest.a22-03.words.q3",
+            "competencyId": "sitov.pretest.a22-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »einen Hof verändern«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.words.q3.a",
+                "textDe": "Den Hof ausschließlich in einem Zug transportieren."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q3.c",
+                "textDe": "Den Hof anders gestalten als vorher."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q3.b",
+                "textDe": "Den Hof ausdrücklich vollständig unverändert lassen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.words.q3.c",
+            "assessmentUnit": "verändern anders machen",
+            "equivalenceKey": "sitov:a22-03:words:3",
+            "sourceSpans": [
+              {
+                "start": 119,
+                "end": 128,
+                "quote": "verändern"
+              }
+            ],
+            "rationaleDe": "Verändern heißt anders machen oder gestalten; unverändert lassen ist das Gegenteil, Zugtransport ist nicht gemeint."
+          },
+          {
+            "id": "sitov.pretest.a22-03.words.q4",
+            "competencyId": "sitov.pretest.a22-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Blumen pflanzen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.words.q4.c",
+                "textDe": "Blumen ausschließlich als Zeitung lesen."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q4.a",
+                "textDe": "Blumen in die Erde einsetzen."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q4.b",
+                "textDe": "Blumen ausdrücklich zu Fahrkarten falten."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.words.q4.a",
+            "assessmentUnit": "pflanzen in Erde setzen",
+            "equivalenceKey": "sitov:a22-03:words:4",
+            "sourceSpans": [
+              {
+                "start": 153,
+                "end": 168,
+                "quote": "Blumen pflanzen"
+              }
+            ],
+            "rationaleDe": "Pflanzen bedeutet hier in die Erde einsetzen; Zeitunglesen und Fahrkartenfalten sind keine passende Tätigkeit."
+          },
+          {
+            "id": "sitov.pretest.a22-03.words.q5",
+            "competencyId": "sitov.pretest.a22-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Gemeinsam haben wir einen Plan gemacht«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.words.q5.b",
+                "textDe": "Alle haben ausdrücklich ohne jede Zusammenarbeit gehandelt."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q5.c",
+                "textDe": "Der Plan wurde ausdrücklich von einem Zug geschrieben."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q5.a",
+                "textDe": "Die Gruppe hat den Plan zusammen gemacht."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.words.q5.a",
+            "assessmentUnit": "Gemeinsam zusammen",
+            "equivalenceKey": "sitov:a22-03:words:5",
+            "sourceSpans": [
+              {
+                "start": 203,
+                "end": 212,
+                "quote": "Gemeinsam"
+              }
+            ],
+            "rationaleDe": "Gemeinsam bedeutet zusammen; fehlende Zusammenarbeit oder ein schreibender Zug passt nicht."
+          },
+          {
+            "id": "sitov.pretest.a22-03.words.q6",
+            "competencyId": "sitov.pretest.a22-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Jeder hat eine Aufgabe übernommen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.words.q6.b",
+                "textDe": "Jeder hat die Verantwortung für eine Aufgabe angenommen."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q6.a",
+                "textDe": "Jeder hat ausschließlich eine Uhrzeit gelesen."
+              },
+              {
+                "id": "sitov.pretest.a22-03.words.q6.c",
+                "textDe": "Jeder hat ausdrücklich jede Aufgabe abgelehnt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.words.q6.b",
+            "assessmentUnit": "Aufgabe übernehmen Verantwortung",
+            "equivalenceKey": "sitov:a22-03:words:6",
+            "sourceSpans": [
+              {
+                "start": 371,
+                "end": 389,
+                "quote": "Aufgabe übernommen"
+              }
+            ],
+            "rationaleDe": "Eine Aufgabe übernehmen heißt Verantwortung dafür annehmen; Ablehnen und bloßes Uhrzeitlesen geben die Bedeutung nicht wieder."
+          },
+          {
+            "id": "sitov.pretest.a22-03.verbs.q1",
+            "competencyId": "sitov.pretest.a22-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt im Präteritum »Einige Nachbarn ___ Blumen pflanzen« zu wollen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.verbs.q1.b",
+                "textDe": "will"
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q1.c",
+                "textDe": "wollte"
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q1.a",
+                "textDe": "wollten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.verbs.q1.a",
+            "assessmentUnit": "wollten Präteritum Plural",
+            "equivalenceKey": "sitov:a22-03:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 138,
+                "end": 152,
+                "quote": "Einige wollten"
+              }
+            ],
+            "rationaleDe": "Einige Nachbarn ist Plural; im Präteritum von wollen lautet die Form wollten."
+          },
+          {
+            "id": "sitov.pretest.a22-03.verbs.q2",
+            "competencyId": "sitov.pretest.a22-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Die Nachbarn wünschten ___ eine Bank«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.verbs.q2.a",
+                "textDe": "mich"
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q2.c",
+                "textDe": "uns"
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q2.b",
+                "textDe": "sich"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.verbs.q2.b",
+            "assessmentUnit": "wünschten sich reflexive Pluralform",
+            "equivalenceKey": "sitov:a22-03:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 177,
+                "end": 201,
+                "quote": "wünschten sich eine Bank"
+              }
+            ],
+            "rationaleDe": "Bei die Nachbarn in der dritten Person Plural lautet das Reflexivpronomen sich; uns und mich bezeichnen andere Personen."
+          },
+          {
+            "id": "sitov.pretest.a22-03.verbs.q3",
+            "competencyId": "sitov.pretest.a22-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Zeitform zeigt »Der Vermieter hatte zugestimmt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.verbs.q3.c",
+                "textDe": "Plusquamperfekt (Vorvergangenheit)."
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q3.b",
+                "textDe": "Präsens (Gegenwart)."
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q3.a",
+                "textDe": "Perfekt mit einem Hilfsverb im Präsens."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.verbs.q3.c",
+            "assessmentUnit": "zugestimmt hatte Plusquamperfekt",
+            "equivalenceKey": "sitov:a22-03:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 285,
+                "end": 301,
+                "quote": "zugestimmt hatte"
+              }
+            ],
+            "rationaleDe": "Hatte ist das Hilfsverb im Präteritum und zugestimmt das Partizip; zusammen bilden sie das Plusquamperfekt."
+          },
+          {
+            "id": "sitov.pretest.a22-03.verbs.q4",
+            "competencyId": "sitov.pretest.a22-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Jeder hat eine Aufgabe ___« zu übernehmen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.verbs.q4.c",
+                "textDe": "übernommen"
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q4.a",
+                "textDe": "übernehmen"
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q4.b",
+                "textDe": "geübernommen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.verbs.q4.c",
+            "assessmentUnit": "übernommen starkes Partizip",
+            "equivalenceKey": "sitov:a22-03:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 371,
+                "end": 389,
+                "quote": "Aufgabe übernommen"
+              }
+            ],
+            "rationaleDe": "Das starke Verb übernehmen bildet das Partizip übernommen ohne zusätzliches ge; die anderen Formen passen nicht ins Perfekt."
+          },
+          {
+            "id": "sitov.pretest.a22-03.verbs.q5",
+            "competencyId": "sitov.pretest.a22-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welches Hilfsverb ergänzt »Der Hof ___ schöner geworden« im Perfekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.verbs.q5.c",
+                "textDe": "hat"
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q5.b",
+                "textDe": "ist"
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q5.a",
+                "textDe": "wird"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.verbs.q5.b",
+            "assessmentUnit": "ist geworden Perfekt sein",
+            "equivalenceKey": "sitov:a22-03:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 436,
+                "end": 456,
+                "quote": "ist schöner geworden"
+              }
+            ],
+            "rationaleDe": "Werden bildet dieses Perfekt mit sein; beim Subjekt der Hof lautet das Hilfsverb ist."
+          },
+          {
+            "id": "sitov.pretest.a22-03.verbs.q6",
+            "competencyId": "sitov.pretest.a22-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Wir Nachbarn kennen uns«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.verbs.q6.c",
+                "textDe": "Die Nachbarn kennen ausdrücklich niemanden aus der Gruppe."
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q6.a",
+                "textDe": "Die Nachbarn kennen einander."
+              },
+              {
+                "id": "sitov.pretest.a22-03.verbs.q6.b",
+                "textDe": "Die Nachbarn kennen ausschließlich einen leeren Koffer."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.verbs.q6.a",
+            "assessmentUnit": "kennen uns wechselseitig",
+            "equivalenceKey": "sitov:a22-03:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 462,
+                "end": 476,
+                "quote": "wir kennen uns"
+              }
+            ],
+            "rationaleDe": "Uns bezeichnet hier die wechselseitige Beziehung innerhalb der Nachbargruppe; Unkenntnis und Kofferbezug passen nicht."
+          },
+          {
+            "id": "sitov.pretest.a22-03.syntax.q1",
+            "competencyId": "sitov.pretest.a22-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt »Wir überlegten, wie …« korrekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.syntax.q1.c",
+                "textDe": "wir könnten den Hof verändern"
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q1.a",
+                "textDe": "könnten wir den Hof verändern"
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q1.b",
+                "textDe": "wir den Hof verändern könnten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.syntax.q1.b",
+            "assessmentUnit": "wie indirekte Frage Modalverb final",
+            "equivalenceKey": "sitov:a22-03:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 107,
+                "end": 136,
+                "quote": "wie wir ihn verändern könnten"
+              }
+            ],
+            "rationaleDe": "Wie leitet hier eine indirekte Frage ein; das finite Modalverb könnten steht nach verändern am Ende."
+          },
+          {
+            "id": "sitov.pretest.a22-03.syntax.q2",
+            "competencyId": "sitov.pretest.a22-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Worauf verweist »ihn« in »Der Innenhof war leer. Wir überlegten, wie wir ihn verändern könnten«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.syntax.q2.a",
+                "textDe": "Auf die noch nicht genannte Bank."
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q2.c",
+                "textDe": "Auf den Innenhof."
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q2.b",
+                "textDe": "Auf die Nachbargruppe."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.syntax.q2.c",
+            "assessmentUnit": "ihn Innenhof Rückverweis",
+            "equivalenceKey": "sitov:a22-03:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 107,
+                "end": 136,
+                "quote": "wie wir ihn verändern könnten"
+              }
+            ],
+            "rationaleDe": "Ihn greift den maskulinen Innenhof auf; Nachbargruppe und Bank passen nicht zu diesem Rückverweis."
+          },
+          {
+            "id": "sitov.pretest.a22-03.syntax.q3",
+            "competencyId": "sitov.pretest.a22-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was geschieht laut »Nachdem der Vermieter zugestimmt hatte, bereiteten wir alles vor« zuerst?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.syntax.q3.b",
+                "textDe": "Beide Tätigkeiten werden ausdrücklich gleichzeitig begonnen."
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q3.a",
+                "textDe": "Die Vorbereitung durch die Nachbarn."
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q3.c",
+                "textDe": "Die Zustimmung des Vermieters."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.syntax.q3.c",
+            "assessmentUnit": "Nachdem zeitliche Vorzeitigkeit",
+            "equivalenceKey": "sitov:a22-03:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 274,
+                "end": 348,
+                "quote": "Nachdem er zugestimmt hatte, haben wir an einem Samstag alles vorbereitet."
+              }
+            ],
+            "rationaleDe": "Nachdem ordnet die Zustimmung vor die Vorbereitung; gleichzeitiger Beginn oder umgekehrte Reihenfolge passt nicht."
+          },
+          {
+            "id": "sitov.pretest.a22-03.syntax.q4",
+            "competencyId": "sitov.pretest.a22-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt »Nachdem …, bereiteten wir alles vor« korrekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.syntax.q4.a",
+                "textDe": "er zugestimmt hatte"
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q4.b",
+                "textDe": "hatte er zugestimmt"
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q4.c",
+                "textDe": "er hatte zugestimmt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.syntax.q4.a",
+            "assessmentUnit": "Nachdem Plusquamperfekt Verbfinal",
+            "equivalenceKey": "sitov:a22-03:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 274,
+                "end": 301,
+                "quote": "Nachdem er zugestimmt hatte"
+              }
+            ],
+            "rationaleDe": "Nachdem leitet einen Nebensatz ein; das finite Hilfsverb hatte steht nach zugestimmt am Ende."
+          },
+          {
+            "id": "sitov.pretest.a22-03.syntax.q5",
+            "competencyId": "sitov.pretest.a22-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was vergleicht »Der Hof ist schöner als vorher«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.syntax.q5.a",
+                "textDe": "Die Abfahrtszeiten zweier Züge."
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q5.b",
+                "textDe": "Die frühere und die jetzige Schönheit des Hofs."
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q5.c",
+                "textDe": "Die Anzahl von Handy-Nachrichten."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.syntax.q5.b",
+            "assessmentUnit": "schöner Eigenschaftsvergleich",
+            "equivalenceKey": "sitov:a22-03:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 428,
+                "end": 456,
+                "quote": "Der Hof ist schöner geworden"
+              }
+            ],
+            "rationaleDe": "Schöner vergleicht die Eigenschaft des Hofs vor und nach der Veränderung; Zugzeiten und Nachrichtenanzahl werden nicht verglichen."
+          },
+          {
+            "id": "sitov.pretest.a22-03.syntax.q6",
+            "competencyId": "sitov.pretest.a22-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Wir Nachbarn kennen uns jetzt besser als vorher«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.syntax.q6.a",
+                "textDe": "Die Nachbarn sind jetzt stärker miteinander vertraut."
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q6.c",
+                "textDe": "Nur die Körpergröße aller Nachbarn hat ausdrücklich zugenommen."
+              },
+              {
+                "id": "sitov.pretest.a22-03.syntax.q6.b",
+                "textDe": "Die Nachbarn kennen einander ausdrücklich weniger."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.syntax.q6.a",
+            "assessmentUnit": "besser größere Vertrautheit",
+            "equivalenceKey": "sitov:a22-03:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 485,
+                "end": 496,
+                "quote": "viel besser"
+              }
+            ],
+            "rationaleDe": "Besser kennen bezeichnet größere gegenseitige Vertrautheit; weniger Kenntnis oder Körpergröße ist etwas anderes."
+          },
+          {
+            "id": "sitov.pretest.a22-03.nominal.q1",
+            "competencyId": "sitov.pretest.a22-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »der Innenhof ___ Hauses«, wenn es das Haus unserer Gruppe ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.nominal.q1.b",
+                "textDe": "unserem"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q1.c",
+                "textDe": "unseres"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q1.a",
+                "textDe": "unseren"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.nominal.q1.c",
+            "assessmentUnit": "unseres Hauses Genitiv",
+            "equivalenceKey": "sitov:a22-03:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 13,
+                "end": 27,
+                "quote": "unseres Hauses"
+              }
+            ],
+            "rationaleDe": "Hauses steht als Genitivattribut; beim neutralen Haus lautet die Possessivform unseres."
+          },
+          {
+            "id": "sitov.pretest.a22-03.nominal.q2",
+            "competencyId": "sitov.pretest.a22-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »bei ___ Treffen«, wenn genau eines gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.nominal.q2.b",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q2.a",
+                "textDe": "ein"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q2.c",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.nominal.q2.b",
+            "assessmentUnit": "einem Treffen Dativ",
+            "equivalenceKey": "sitov:a22-03:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 60,
+                "end": 77,
+                "quote": "Bei einem Treffen"
+              }
+            ],
+            "rationaleDe": "Bei verlangt Dativ; beim neutralen Treffen lautet der unbestimmte Artikel einem."
+          },
+          {
+            "id": "sitov.pretest.a22-03.nominal.q3",
+            "competencyId": "sitov.pretest.a22-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Die Nachbarn wünschen sich ___ Bank«, wenn genau eine gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.nominal.q3.b",
+                "textDe": "eine"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q3.a",
+                "textDe": "einer"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q3.c",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.nominal.q3.b",
+            "assessmentUnit": "eine Bank Akkusativ feminin",
+            "equivalenceKey": "sitov:a22-03:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 192,
+                "end": 201,
+                "quote": "eine Bank"
+              }
+            ],
+            "rationaleDe": "Bank ist feminines Akkusativobjekt; der unbestimmte Artikel lautet eine."
+          },
+          {
+            "id": "sitov.pretest.a22-03.nominal.q4",
+            "competencyId": "sitov.pretest.a22-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir haben ___ Plan gemacht«, wenn genau einer gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.nominal.q4.b",
+                "textDe": "ein"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q4.c",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q4.a",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.nominal.q4.a",
+            "assessmentUnit": "einen Plan Akkusativ",
+            "equivalenceKey": "sitov:a22-03:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 223,
+                "end": 233,
+                "quote": "einen Plan"
+              }
+            ],
+            "rationaleDe": "Plan ist maskulines Akkusativobjekt; der unbestimmte Artikel lautet einen."
+          },
+          {
+            "id": "sitov.pretest.a22-03.nominal.q5",
+            "competencyId": "sitov.pretest.a22-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wörter stecken in »beim Vermieter«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.nominal.q5.a",
+                "textDe": "bei den"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q5.c",
+                "textDe": "bei dem"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q5.b",
+                "textDe": "bei das"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.nominal.q5.c",
+            "assessmentUnit": "beim Kontraktion bei dem",
+            "equivalenceKey": "sitov:a22-03:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 246,
+                "end": 260,
+                "quote": "beim Vermieter"
+              }
+            ],
+            "rationaleDe": "Beim ist die Zusammenziehung von bei dem; bei den und bei das ergeben nicht beim."
+          },
+          {
+            "id": "sitov.pretest.a22-03.nominal.q6",
+            "competencyId": "sitov.pretest.a22-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Jeder übernimmt eine ___ Aufgabe«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-03.nominal.q6.c",
+                "textDe": "kleinen"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q6.b",
+                "textDe": "kleinem"
+              },
+              {
+                "id": "sitov.pretest.a22-03.nominal.q6.a",
+                "textDe": "kleine"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-03.nominal.q6.a",
+            "assessmentUnit": "kleine Aufgabe feminin Akkusativ",
+            "equivalenceKey": "sitov:a22-03:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 359,
+                "end": 378,
+                "quote": "eine kleine Aufgabe"
+              }
+            ],
+            "rationaleDe": "Aufgabe ist feminines Akkusativobjekt; nach eine lautet die Adjektivform kleine."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a22-03.a",
+            "questionIds": [
+              "sitov.pretest.a22-03.words.q1",
+              "sitov.pretest.a22-03.words.q2",
+              "sitov.pretest.a22-03.words.q3",
+              "sitov.pretest.a22-03.verbs.q1",
+              "sitov.pretest.a22-03.verbs.q2",
+              "sitov.pretest.a22-03.verbs.q3",
+              "sitov.pretest.a22-03.syntax.q1",
+              "sitov.pretest.a22-03.syntax.q2",
+              "sitov.pretest.a22-03.syntax.q3",
+              "sitov.pretest.a22-03.nominal.q1",
+              "sitov.pretest.a22-03.nominal.q2",
+              "sitov.pretest.a22-03.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a22-03.b",
+            "questionIds": [
+              "sitov.pretest.a22-03.words.q4",
+              "sitov.pretest.a22-03.words.q5",
+              "sitov.pretest.a22-03.words.q6",
+              "sitov.pretest.a22-03.verbs.q4",
+              "sitov.pretest.a22-03.verbs.q5",
+              "sitov.pretest.a22-03.verbs.q6",
+              "sitov.pretest.a22-03.syntax.q4",
+              "sitov.pretest.a22-03.syntax.q5",
+              "sitov.pretest.a22-03.syntax.q6",
+              "sitov.pretest.a22-03.nominal.q4",
+              "sitov.pretest.a22-03.nominal.q5",
+              "sitov.pretest.a22-03.nominal.q6"
+            ]
+          }
+        ]
+      }
     }
   ],
   "inventory": [
@@ -32194,7 +35316,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -32209,7 +35331,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -32224,7 +35346,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": null,
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
