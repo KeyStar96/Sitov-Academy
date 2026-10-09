@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-09T13:27:18.319390+00:00",
+  "qa": {
+    "at": "2026-10-09T13:26:37.402920+00:00",
+    "namespace": "sitov-night-20261008-qa",
+    "stopped": [
+      "sitov-night-20261008-qa-db",
+      "sitov-night-20261008-qa-auth",
+      "sitov-night-20261008-qa-storage",
+      "sitov-night-20261008-qa-rest",
+      "sitov-night-20261008-qa-gateway"
+    ],
+    "allStopped": true,
+    "containerIdentitiesAndImagesPreserved": true,
+    "volumesPreserved": true,
+    "networkPreserved": true,
+    "noVolumeOrNetworkDeletion": true,
+    "productionTouched": false
+  },
+  "local": {
+    "at": "2026-10-09T13:26:58.644388+00:00",
+    "scope": "Exact previouslyverified M-owned Next90707/SSH60916/nativePG61028 only",
+    "pidsStopped": [
+      90707,
+      60916,
+      61028
+    ],
+    "allStopped": true,
+    "ports3143And19483Closed": true,
+    "nativePostgresDataPreserved": true,
+    "qaContainersStoppedSeparately": true,
+    "unrelatedTcp55438Untouched": true,
+    "worktreesAndBranchesPreserved": true,
+    "productionTouched": false
+  },
+  "dataVolumesNetworkWorktreesBranchesPreserved": true,
+  "productionTouched": false
+}
