@@ -1,0 +1,1098 @@
+{
+  "base_sha": "81b05d9476f691bfde020fcb3ed1ecd802942422",
+  "fixture": "immutable normalized baseline92 +93, disposable native PostgreSQL17 only",
+  "tests_passed": 9,
+  "tests_skipped": 0,
+  "duration_ms": 19758.8775,
+  "diagnostics": [
+    {
+      "singleEvaluationPlan": {
+        "Plan": {
+          "Node Type": "Result",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 36.31,
+          "Total Cost": 36.32,
+          "Plan Rows": 1,
+          "Plan Width": 64,
+          "Actual Startup Time": 176.374,
+          "Actual Total Time": 176.375,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "Output": [
+            "(InitPlan 2).col1",
+            "(InitPlan 3).col1"
+          ],
+          "Shared Hit Blocks": 20713,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Function Scan",
+              "Parent Relationship": "InitPlan",
+              "Subplan Name": "CTE sitov_new_objects",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Function Name": "new_objects",
+              "Schema": "learning_private",
+              "Alias": "n",
+              "Startup Cost": 0.25,
+              "Total Cost": 12.75,
+              "Plan Rows": 5,
+              "Plan Width": 36,
+              "Actual Startup Time": 176.273,
+              "Actual Total Time": 176.273,
+              "Actual Rows": 4,
+              "Actual Loops": 1,
+              "Output": [
+                "n.kind",
+                "n.object_key"
+              ],
+              "Function Call": "learning_private.new_objects()",
+              "Filter": "(n.level = 'A1.1'::text)",
+              "Rows Removed by Filter": 0,
+              "Shared Hit Blocks": 20683,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0
+            },
+            {
+              "Node Type": "Aggregate",
+              "Strategy": "Plain",
+              "Partial Mode": "Simple",
+              "Parent Relationship": "InitPlan",
+              "Subplan Name": "InitPlan 2",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 0.35,
+              "Total Cost": 0.36,
+              "Plan Rows": 1,
+              "Plan Width": 32,
+              "Actual Startup Time": 176.296,
+              "Actual Total Time": 176.296,
+              "Actual Rows": 1,
+              "Actual Loops": 1,
+              "Output": [
+                "COALESCE(jsonb_object_agg(((n_1.kind)::text), (jsonb_agg(n_1.object_key ORDER BY n_1.object_key))), '{}'::jsonb)"
+              ],
+              "Shared Hit Blocks": 20697,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0,
+              "Plans": [
+                {
+                  "Node Type": "Aggregate",
+                  "Strategy": "Sorted",
+                  "Partial Mode": "Simple",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Startup Cost": 0.16,
+                  "Total Cost": 0.28,
+                  "Plan Rows": 5,
+                  "Plan Width": 68,
+                  "Actual Startup Time": 176.291,
+                  "Actual Total Time": 176.293,
+                  "Actual Rows": 3,
+                  "Actual Loops": 1,
+                  "Output": [
+                    "(n_1.kind)::text",
+                    "jsonb_agg(n_1.object_key ORDER BY n_1.object_key)",
+                    "n_1.kind"
+                  ],
+                  "Group Key": [
+                    "n_1.kind"
+                  ],
+                  "Shared Hit Blocks": 20697,
+                  "Shared Read Blocks": 0,
+                  "Shared Dirtied Blocks": 0,
+                  "Shared Written Blocks": 0,
+                  "Local Hit Blocks": 0,
+                  "Local Read Blocks": 0,
+                  "Local Dirtied Blocks": 0,
+                  "Local Written Blocks": 0,
+                  "Temp Read Blocks": 0,
+                  "Temp Written Blocks": 0,
+                  "Plans": [
+                    {
+                      "Node Type": "Sort",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Startup Cost": 0.16,
+                      "Total Cost": 0.17,
+                      "Plan Rows": 5,
+                      "Plan Width": 36,
+                      "Actual Startup Time": 176.284,
+                      "Actual Total Time": 176.284,
+                      "Actual Rows": 4,
+                      "Actual Loops": 1,
+                      "Output": [
+                        "n_1.kind",
+                        "n_1.object_key"
+                      ],
+                      "Sort Key": [
+                        "n_1.kind",
+                        "n_1.object_key"
+                      ],
+                      "Sort Method": "quicksort",
+                      "Sort Space Used": 25,
+                      "Sort Space Type": "Memory",
+                      "Shared Hit Blocks": 20691,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0,
+                      "Plans": [
+                        {
+                          "Node Type": "CTE Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "CTE Name": "sitov_new_objects",
+                          "Alias": "n_1",
+                          "Startup Cost": 0,
+                          "Total Cost": 0.1,
+                          "Plan Rows": 5,
+                          "Plan Width": 36,
+                          "Actual Startup Time": 176.274,
+                          "Actual Total Time": 176.274,
+                          "Actual Rows": 4,
+                          "Actual Loops": 1,
+                          "Output": [
+                            "n_1.kind",
+                            "n_1.object_key"
+                          ],
+                          "Shared Hit Blocks": 20683,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Node Type": "Aggregate",
+              "Strategy": "Plain",
+              "Partial Mode": "Simple",
+              "Parent Relationship": "InitPlan",
+              "Subplan Name": "InitPlan 3",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 23.19,
+              "Total Cost": 23.2,
+              "Plan Rows": 1,
+              "Plan Width": 32,
+              "Actual Startup Time": 0.077,
+              "Actual Total Time": 0.077,
+              "Actual Rows": 1,
+              "Actual Loops": 1,
+              "Output": [
+                "COALESCE(jsonb_object_agg((u.id)::text, u.label), '{}'::jsonb)"
+              ],
+              "Shared Hit Blocks": 16,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0,
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Join Type": "Semi",
+                  "Startup Cost": 0.12,
+                  "Total Cost": 23.17,
+                  "Plan Rows": 3,
+                  "Plan Width": 48,
+                  "Actual Startup Time": 0.075,
+                  "Actual Total Time": 0.076,
+                  "Actual Rows": 2,
+                  "Actual Loops": 1,
+                  "Output": [
+                    "u.id",
+                    "u.label"
+                  ],
+                  "Inner Unique": false,
+                  "Hash Cond": "((u.id)::text = n_2.object_key)",
+                  "Shared Hit Blocks": 16,
+                  "Shared Read Blocks": 0,
+                  "Shared Dirtied Blocks": 0,
+                  "Shared Written Blocks": 0,
+                  "Local Hit Blocks": 0,
+                  "Local Read Blocks": 0,
+                  "Local Dirtied Blocks": 0,
+                  "Local Written Blocks": 0,
+                  "Temp Read Blocks": 0,
+                  "Temp Written Blocks": 0,
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Relation Name": "learning_units",
+                      "Schema": "public",
+                      "Alias": "u",
+                      "Startup Cost": 0,
+                      "Total Cost": 21.44,
+                      "Plan Rows": 544,
+                      "Plan Width": 48,
+                      "Actual Startup Time": 0.001,
+                      "Actual Total Time": 0.024,
+                      "Actual Rows": 968,
+                      "Actual Loops": 1,
+                      "Output": [
+                        "u.id",
+                        "u.level",
+                        "u.trainer",
+                        "u.label",
+                        "u.sort_order",
+                        "u.is_active",
+                        "u.owner_auth_user_id",
+                        "u.is_path",
+                        "u.path_source_id",
+                        "u.path_slug",
+                        "u.path_title",
+                        "u.created_at"
+                      ],
+                      "Shared Hit Blocks": 16,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Startup Cost": 0.11,
+                      "Total Cost": 0.11,
+                      "Plan Rows": 1,
+                      "Plan Width": 32,
+                      "Actual Startup Time": 0.001,
+                      "Actual Total Time": 0.001,
+                      "Actual Rows": 2,
+                      "Actual Loops": 1,
+                      "Output": [
+                        "n_2.object_key"
+                      ],
+                      "Hash Buckets": 1024,
+                      "Original Hash Buckets": 1024,
+                      "Hash Batches": 1,
+                      "Original Hash Batches": 1,
+                      "Peak Memory Usage": 9,
+                      "Shared Hit Blocks": 0,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0,
+                      "Plans": [
+                        {
+                          "Node Type": "CTE Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "CTE Name": "sitov_new_objects",
+                          "Alias": "n_2",
+                          "Startup Cost": 0,
+                          "Total Cost": 0.11,
+                          "Plan Rows": 1,
+                          "Plan Width": 32,
+                          "Actual Startup Time": 0,
+                          "Actual Total Time": 0.001,
+                          "Actual Rows": 2,
+                          "Actual Loops": 1,
+                          "Output": [
+                            "n_2.object_key"
+                          ],
+                          "Filter": "(n_2.kind = 'vocabulary_lesson'::learning_seen_kind)",
+                          "Rows Removed by Filter": 2,
+                          "Shared Hit Blocks": 0,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Planning": {
+          "Shared Hit Blocks": 278,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.308,
+        "Triggers": [],
+        "Execution Time": 176.398
+      }
+    },
+    {
+      "timing": {
+        "original": {
+          "milliseconds": 355.24,
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8"
+        },
+        "candidate": {
+          "milliseconds": 186.42,
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8"
+        }
+      },
+      "statementTimeoutMs": 8000,
+      "clientTimeoutMs": 8500,
+      "fixedSnapshot": "REPEATABLE READ per comparison",
+      "fullJsonComparisons": 41,
+      "evidence": [
+        {
+          "case": "manual-all",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "manual-explicitAll",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "manual-none",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "manual-selected",
+          "level": "A1.1",
+          "sha256": "73c31a378e62811a96790dc2a0e7092e63a97616fc334adbe15204374d7b77a7",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "manual-disabled",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "manual-outsider",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "nonempty-lessons",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "selected-single-lesson",
+          "level": "A1.1",
+          "sha256": "73c31a378e62811a96790dc2a0e7092e63a97616fc334adbe15204374d7b77a7",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "level-validation",
+          "level": "A1.2",
+          "sha256": "a862c854dfcd9e63bdc57bec41f307b065211f0217dd096e99ba549e015d69df",
+          "result": {
+            "items": {},
+            "level": "A1.2",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "level-validation",
+          "level": "B2.2",
+          "sha256": "d2b05b2be276a2957cd2d1cfabfbc596508a2d60674f8a77545c9768faadb011",
+          "result": {
+            "items": {},
+            "level": "B2.2",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "level-validation",
+          "level": "unknown",
+          "sha256": "89c46aabae3dff3ea940d623ee23027e5c562d317a416e5af85b07ee657df2fb",
+          "result": {
+            "items": {},
+            "level": "unknown",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "level-validation",
+          "level": "",
+          "sha256": "84f0f53f12cb5a6b3f7cc3ca3226ace0fd74604c86479a1733935ed5228490b4",
+          "result": {
+            "error": "invalid_input",
+            "message": "The request contains invalid data."
+          }
+        },
+        {
+          "case": "level-validation",
+          "level": null,
+          "sha256": "84f0f53f12cb5a6b3f7cc3ca3226ace0fd74604c86479a1733935ed5228490b4",
+          "result": {
+            "error": "invalid_input",
+            "message": "The request contains invalid data."
+          }
+        },
+        {
+          "case": "level-validation",
+          "level": "xxxxxxxxxxxxxxxxxxxxx",
+          "sha256": "84f0f53f12cb5a6b3f7cc3ca3226ace0fd74604c86479a1733935ed5228490b4",
+          "result": {
+            "error": "invalid_input",
+            "message": "The request contains invalid data."
+          }
+        },
+        {
+          "case": "missing-auth",
+          "level": "A1.1",
+          "sha256": "30654e2fdbf5e99026673195ae4479a7504c6c5800cacda426c3b32b2e4ae316",
+          "result": {
+            "error": "not_authenticated",
+            "message": "Authentication is required."
+          }
+        },
+        {
+          "case": "empty-manual",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "trial-0",
+          "level": "A1.1",
+          "sha256": "7934424702108294d17716ac1686f05f59ac59b4b07f5c75647cba4e8ddb7ee9",
+          "result": {
+            "items": {
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "trial-1",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "trial-2",
+          "level": "A1.1",
+          "sha256": "2eea3529934033eb4b34c0762ef25e04e4fb4f3543d09cfea2da87a21e15387f",
+          "result": {
+            "items": {
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "trial-3",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "trial-4",
+          "level": "A1.1",
+          "sha256": "2eea3529934033eb4b34c0762ef25e04e4fb4f3543d09cfea2da87a21e15387f",
+          "result": {
+            "items": {
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "trial-5",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "trial-6",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "VIP-enabled",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "VIP-revoked-next-call",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "verified-purchase",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "purchase-revoked-next-call",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "manual-selected-plus-trial-other-unit",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "trial-revoke-retains-manual-selection",
+          "level": "A1.1",
+          "sha256": "73c31a378e62811a96790dc2a0e7092e63a97616fc334adbe15204374d7b77a7",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "seen-lesson-excluded-from-both-collections",
+          "level": "A1.1",
+          "sha256": "40d1525d13f16cbe8d83015b55b31916de19c8075df374ed15f8b2890607f48e",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "no-room-first-visit",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "stored-ui-de",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "stored-ui-en",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "stored-ui-ru",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "stored-ui-uk",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "stored-ui-tr",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "canonical-parent-mismatch-A1.1",
+          "level": "A1.1",
+          "sha256": "f44a5786f7966610eae73e532e965fd8257a4c2d478c89c9693fbf13365a36e8",
+          "result": {
+            "items": {
+              "video": [
+                "00000000-0000-4000-8000-000000000303"
+              ],
+              "vocabulary_lesson": [
+                "00000000-0000-4000-8000-000000000211",
+                "00000000-0000-4000-8000-000000000212"
+              ],
+              "pronunciation_text": [
+                "00000000-0000-4000-8000-000000000302"
+              ]
+            },
+            "level": "A1.1",
+            "lessons": {
+              "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+              "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+            },
+            "success": true
+          }
+        },
+        {
+          "case": "canonical-parent-mismatch-B2.2",
+          "level": "B2.2",
+          "sha256": "d2b05b2be276a2957cd2d1cfabfbc596508a2d60674f8a77545c9768faadb011",
+          "result": {
+            "items": {},
+            "level": "B2.2",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "staff-MFA-aal1",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "staff-MFA-aal2",
+          "level": "A1.1",
+          "sha256": "29d11130e3485795b2bcce81cd13077d62dbfdbba32741f2404620fffae2215a",
+          "result": {
+            "items": {},
+            "level": "A1.1",
+            "lessons": {},
+            "success": true
+          }
+        },
+        {
+          "case": "helper-failure-preserves-error",
+          "level": "A1.1",
+          "sha256": "cc0ddaef3324635d457f2a9385a42afa104af6d18fa4e2dc62ea0d0b53e8ef5a",
+          "result": {
+            "error": "request_failed",
+            "message": "The request could not be completed.",
+            "sqlstate": "22023"
+          }
+        }
+      ]
+    }
+  ],
+  "migration_sha256": {
+    "supabase/vps/109_sitov_new_items_single_evaluation.sql": "3958e8671249b77aadc9ad5a9eed66d458ceb55d82f720ab11733b9982562b6d",
+    "supabase/migrations/20261009122500_sitov_new_items_single_evaluation.sql": "3958e8671249b77aadc9ad5a9eed66d458ceb55d82f720ab11733b9982562b6d"
+  }
+}
