@@ -82,3 +82,51 @@ it('reads checkpoints only and keeps requested source IDs intact after revocatio
  expect(client.rpc.mock.calls.every(([name])=>['get_sitov_access_catalog','sitov_learning_checkpoint'].includes(name))).toBe(true)
  allowed=[];expect(await resolveSitovLearningRecommendations(input)).toEqual({ok:true,data:{mappingVersion:1,items:[]}})
 })
+
+describe('captured PostgreSQL catalog unit IDs',()=>{
+ const legacyUnit='01da78e3-726f-a505-a9d6-fbb907ccb31f'
+ const kommenUnit='ddcf712d-060d-0e2c-9469-1139b39bb87f'
+ const nodeId='66666666-6666-4666-8666-666666666666',pathUnit='55555555-5555-4555-8555-555555555555'
+ const verbId='sitov-verb-kommen'
+ const mappedInput={topicIds:['sitov.topic.kennenlernen','sitov.topic.nominativ'],locale:'uk',limit:3}
+ let capturedUnit:string,verbPublished:boolean
+ beforeEach(()=>{
+  capturedUnit=legacyUnit;verbPublished=true;allowed=[nodeId,verbId]
+  client.rpc.mockImplementation(async(name,args)=>{
+   if(name==='get_sitov_access_catalog')return {error:null,data:{version:1,level:args.p_level,trainer:args.p_trainer,units:args.p_trainer==='exercises'?[{id:pathUnit,items:[{kind:'path_node',id:nodeId,published:true}]}]:args.p_trainer==='verbs'?[
+    // Exact sanitized unit/item shapes captured from the actual epoch19 QA response.
+    {id:capturedUnit,label:'meinen',items:[{kind:'verb',id:'sitov-verb-meinen',label:'meinen',published:true}]},
+    {id:kommenUnit,label:'kommen',items:[{kind:'verb',id:verbId,label:'kommen',published:verbPublished}]},
+   ]:[]}}
+   if(name==='get_learning_path')return {error:null,data:{level:'A1.1',completed:false,next_level:null,next_level_available:false,paths:[{id:pathUnit,source_id:'P4',title:'Actual mapped path',sort_order:4,available:true,completed:false,nodes:[{id:nodeId,kind:'practice',title:'Actual mapped anchor',sort_order:1,available:true,status:null,stars:0,tests:[]}]}]}}
+   if(name==='sitov_get_learning_recommendation_sources')return {error:null,data:{ok:true,data:{level:'A1.1',sources:[{nodeId,unitId:pathUnit,pathSourceId:'P4',nodeSourceId:'P4-N1',kind:'practice',anchorNodeId:null,anchorSourceId:null,goals:['P4-G1'],anchorGoals:[]}]}}}
+   throw new Error('unexpected write or prerequisite')
+  })
+ })
+ it('retains an authorized path and verb beside captured version-a and version-0 units',async()=>{
+  const r=await resolveSitovLearningRecommendations(mappedInput);if(!r.ok)throw new Error('captured catalog dropped valid recommendations')
+  expect(r.data.items).toHaveLength(2)
+  expect(r.data.items).toEqual(expect.arrayContaining([
+   expect.objectContaining({kind:'learning_path',targetId:nodeId,href:`/uk/dashboard/level/A1.1/path?sitov_target=${nodeId}`}),
+   expect.objectContaining({kind:'verbs',targetId:verbId,progress:{source:'verbs',box:null,attempts:null,correct:null},href:`/uk/dashboard/level/A1.1/verbs?sitov_target=${verbId}&tense=present`}),
+  ]))
+  expect(currentUserHasContentAccess).toHaveBeenCalledWith({kind:'verb',id:verbId})
+  expect(currentUserHasContentAccess).toHaveBeenCalledWith({kind:'path_node',id:nodeId})
+  expect(filters).toEqual([{table:'sitov_verb_progress',auth_user_id:'account-a',verb_id:verbId,tense:'present'}])
+  expect(client.rpc.mock.calls.every(([name])=>['get_sitov_access_catalog','get_learning_path','sitov_get_learning_recommendation_sources'].includes(name))).toBe(true)
+ })
+ it.each(['01da78e3-726f-g505-a9d6-fbb907ccb31f','01da78e3_726f-a505-a9d6-fbb907ccb31f','01da78e3-726f-a505-a9d6-fbb907ccb31'])('rejects malformed stored catalog unit %s',async value=>{
+  capturedUnit=value
+  expect(await resolveSitovLearningRecommendations(mappedInput)).toEqual({ok:false,error:'retryable_failure',retryable:true})
+ })
+ it('keeps a valid path after current verb permission is revoked',async()=>{
+  allowed=[nodeId]
+  const r=await resolveSitovLearningRecommendations(mappedInput);if(!r.ok)throw new Error('failure')
+  expect(r.data.items.map(item=>item.targetId)).toEqual([nodeId]);expect(client.from).not.toHaveBeenCalled()
+ })
+ it('omits a revoked catalog verb without trusting a permissive guard',async()=>{
+  verbPublished=false
+  const r=await resolveSitovLearningRecommendations(mappedInput);if(!r.ok)throw new Error('failure')
+  expect(r.data.items.map(item=>item.targetId)).toEqual([nodeId]);expect(currentUserHasContentAccess).not.toHaveBeenCalledWith({kind:'verb',id:verbId});expect(client.from).not.toHaveBeenCalled()
+ })
+})

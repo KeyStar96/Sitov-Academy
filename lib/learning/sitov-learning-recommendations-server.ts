@@ -9,7 +9,7 @@ import { SITOV_TOPIC_MAPPING, type SitovPathSourceTarget, type SitovSpecialSourc
 import { loadSitovLearningRecommendationSources, type SitovRecommendationSource } from './sitov-learning-recommendation-sources-server'
 import { sitovLearningRecommendationInputSchema, sitovLearningRecommendationsResultSchema, type SitovLearningRecommendation, type SitovLearningRecommendationsResult } from './sitov-learning-recommendations-contract'
 
-const accessCatalog = z.object({ version: z.literal(1), level: z.string(), trainer: z.string(), units: z.array(z.object({ id: z.uuid(), items: z.array(z.object({ kind: z.string(), id: z.string(), published: z.boolean() })) })) })
+const accessCatalog = z.object({ version: z.literal(1), level: z.string(), trainer: z.string(), units: z.array(z.object({ id: z.guid(), items: z.array(z.object({ kind: z.string(), id: z.string(), published: z.boolean() })) })) })
 const directionsSchema = z.array(z.object({ id: z.uuid(), direction: z.enum(['de_to_native', 'native_to_de']), box_number: z.number().int().min(1).max(7) })).max(2)
 const verbProgressSchema = z.array(z.object({ box: z.number().int().min(1).max(7), attempts: z.number().int().nonnegative(), correct: z.number().int().nonnegative() })).max(1)
 function checked<T>(result: { data: T; error: unknown }): T { if (result.error || result.data == null) throw new Error('recommendation_read_failed'); return result.data }
