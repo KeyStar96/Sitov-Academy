@@ -1,6 +1,5 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
-const MIA = 'Mia schreibt: „Bei uns zu Hause gibt es zweimal pro Woche Fisch, immer dienstags und freitags. Fleisch essen wir selten, weil mein Mann Vegetarier ist.“'
 const DILARA = 'Dilara erzählt: „In meiner Familie kocht meistens mein Vater. Unter der Woche gibt es einfache Gerichte, zum Beispiel Nudeln oder Suppe. Am Sonntag kocht er zwei Stunden und die Großeltern kommen zum Essen.“'
 
 /** A2.1 · Pfad 3 · Essen und Trinken – Wiederholung und Testpool. */
@@ -22,8 +21,7 @@ const check = {
       ['In Germany people tip in restaurants. In your country people do that too. What do you say?', 'В Германии в ресторане оставляют чаевые. В вашей стране тоже так делают. Что вы скажете?', 'У Німеччині в ресторані залишають чайові. У вашій країні теж так роблять. Що ви скажете?', 'Almanya’da restoranda bahşiş verilir. Sizin ülkenizde de böyle yapılır. Ne dersiniz?']),
     mc('K7', 'süß', I.choose, 'In diesem Tee ist sehr viel Zucker. Er ist sehr …', ['süß', 'scharf', 'salzig'],
       ['There is a great deal of sugar in this tea. It is very …', 'В этом чае очень много сахара. Он очень …', 'У цьому чаї дуже багато цукру. Він дуже …', 'Bu çayda çok fazla şeker var. Çay çok …']),
-    mc('Z1', 'Wie oft?', I.read, `${MIA} Wie oft isst die Familie Fisch?`, ['Zweimal pro Woche.', 'Jeden Tag.', 'Selten.'],
-      ['How often does the family eat fish?', 'Как часто семья ест рыбу?', 'Як часто родина їсть рибу?', 'Aile ne sıklıkta balık yiyor?']),
+    mc("Z1", "Wie oft?", I.read, "Milan schreibt: „Bei uns zu Hause gibt es zweimal pro Woche Fisch, immer dienstags und freitags. Fleisch essen wir selten, weil mein Mann Vegetarier ist.“ Wie oft isst die Familie Fisch?", ["Zweimal pro Woche.","Jeden Tag.","Selten."], ["How often does the family eat fish?","Как часто семья ест рыбу?","Як часто родина їсть рибу?","Aile ne sıklıkta balık yiyor?"], {"c":"p3_lesen"}),
     gap('G1', 'eins', I.pronoun, 'Ich brauche ein Messer. – Schau mal, neben dem Teller liegt ', '.', 'eins', ['einer', 'eine'],
       ['I need a knife. – Look, there is one next to the plate.', 'Мне нужен нож. – Смотри, рядом с тарелкой лежит один.', 'Мені потрібен ніж. – Дивись, поруч із тарілкою лежить один.', 'Bir bıçağa ihtiyacım var. – Bak, tabağın yanında bir tane duruyor.'], 'das Messer'),
     gap('G1', 'keiner', I.pronoun, 'Ist noch ein Stuhl frei? – Nein, leider ist ', ' mehr frei.', 'keiner', ['keins', 'keine'],

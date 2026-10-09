@@ -1,0 +1,34 @@
+{
+  "epoch": 32,
+  "base": "d699794d362b023050fd4eb00221bd67388c3543",
+  "pathSeedTests": {
+    "pass": 88,
+    "fail": 0,
+    "fixtureLevels": 9,
+    "externalDatabaseUsed": false
+  },
+  "finalBuilderTests": {
+    "pass": 16,
+    "fail": 0,
+    "negativeAssertions": "Unknown/duplicate/missing option permutations; missing reason, null/short/empty/wrong-script/non-German overrides rejected. MC/gap order preserves authored key and accepted answers."
+  },
+  "eslint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "frozenSeedFiles": 10,
+  "schemaExercises": 9569,
+  "nativeAuthorBuildExact": 9,
+  "explicitOptionOrders": 18,
+  "hintOverrides": 3,
+  "explanationOverrides": 35,
+  "seedMutation": false,
+  "databaseMutation": false,
+  "audioMutation": false,
+  "releaseApproved": false,
+  "logs": {
+    "epoch32-path-seed.log": "e83b79d7e0607d1603ca985666949e86ee7da9526f1b878ca06e9008b85f4381",
+    "epoch32-builder-final.log": "f1ebe2a54d99ebcde933a9809d43820e62407a15256e622baac6ae4ed93695a9",
+    "epoch32-eslint-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

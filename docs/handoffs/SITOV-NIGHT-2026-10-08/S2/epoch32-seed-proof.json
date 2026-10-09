@@ -1,0 +1,128 @@
+{
+  "epoch": 32,
+  "base": "d699794d362b023050fd4eb00221bd67388c3543",
+  "rows": [
+    {
+      "level": "A1.1",
+      "file": "supabase/seeds/path-a1.1.json",
+      "beforeSha256": "23121caa03412160460ba5c72685c1baaccbe5b5fbf6d14654d6125c2110a2b3",
+      "afterSha256": "23121caa03412160460ba5c72685c1baaccbe5b5fbf6d14654d6125c2110a2b3",
+      "bytes": 3077375,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": "A1.1 has no native path-src directory or supported builder level; frozen bytes and actual import schema validated."
+    },
+    {
+      "level": "A1.2",
+      "file": "supabase/seeds/path-a1.2.json",
+      "beforeSha256": "337f4afb8c3f973de5b92d8584ab890c06d49d8537db34df149ce7d30429caff",
+      "afterSha256": "337f4afb8c3f973de5b92d8584ab890c06d49d8537db34df149ce7d30429caff",
+      "bytes": 4199731,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": true
+    },
+    {
+      "level": "A2.1",
+      "file": "supabase/seeds/path-a2.1.json",
+      "beforeSha256": "ea89868220b895ef9d73a8e511968c79b997a906d762946eda0942eb59e14feb",
+      "afterSha256": "ea89868220b895ef9d73a8e511968c79b997a906d762946eda0942eb59e14feb",
+      "bytes": 5975400,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": true
+    },
+    {
+      "level": "A2.2",
+      "file": "supabase/seeds/path-a2.2.json",
+      "beforeSha256": "a072cb88fcec4b29862ad52c121657a310dd97975496971e7c1acff664b0086f",
+      "afterSha256": "a072cb88fcec4b29862ad52c121657a310dd97975496971e7c1acff664b0086f",
+      "bytes": 6040925,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": true
+    },
+    {
+      "level": "B1.1",
+      "file": "supabase/seeds/path-b1.1.json",
+      "beforeSha256": "580f2687b29489e78fef3738eac07a704da9d4f9e6991aff3b5242a1b267bda9",
+      "afterSha256": "580f2687b29489e78fef3738eac07a704da9d4f9e6991aff3b5242a1b267bda9",
+      "bytes": 7092847,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": true
+    },
+    {
+      "level": "B1.2",
+      "file": "supabase/seeds/path-b1.2.json",
+      "beforeSha256": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5",
+      "afterSha256": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5",
+      "bytes": 6957841,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": true
+    },
+    {
+      "level": "B2.1",
+      "file": "supabase/seeds/path-b2.1.json",
+      "beforeSha256": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665",
+      "afterSha256": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665",
+      "bytes": 5768601,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": true
+    },
+    {
+      "level": "B2.2",
+      "file": "supabase/seeds/path-b2.2.json",
+      "beforeSha256": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a",
+      "afterSha256": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a",
+      "bytes": 6109418,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": true
+    },
+    {
+      "level": "C1.1",
+      "file": "supabase/seeds/path-c1.1.json",
+      "beforeSha256": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c",
+      "afterSha256": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c",
+      "bytes": 7082259,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": true
+    },
+    {
+      "level": "C1.2",
+      "file": "supabase/seeds/path-c1.2.json",
+      "beforeSha256": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5",
+      "afterSha256": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5",
+      "bytes": 7218575,
+      "seedBytesUnchanged": true,
+      "authorBuildExact": true
+    }
+  ],
+  "counts": {
+    "a1.2": {
+      "explicitOptionsOrders": 3,
+      "hintOverrides": 0,
+      "explanationOverrides": 0,
+      "allOverridesReasoned": true
+    },
+    "a2.1": {
+      "explicitOptionsOrders": 9,
+      "hintOverrides": 3,
+      "explanationOverrides": 35,
+      "allOverridesReasoned": true
+    },
+    "a2.2": {
+      "explicitOptionsOrders": 5,
+      "hintOverrides": 0,
+      "explanationOverrides": 0,
+      "allOverridesReasoned": true
+    },
+    "b1.1": {
+      "explicitOptionsOrders": 1,
+      "hintOverrides": 0,
+      "explanationOverrides": 0,
+      "allOverridesReasoned": true
+    }
+  },
+  "nativeLevels": 9,
+  "unchangedSeeds": 10,
+  "sourceSelfContained": true,
+  "privateRuntimeDependency": false,
+  "compiledSeedImport": false,
+  "schemaValidatedExercises": 9569
+}

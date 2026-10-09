@@ -108,23 +108,32 @@ const path = {
       title: 'einen neuen Laden',
       t: ['einen neuen Laden (adjective endings: accusative)', 'einen neuen Laden (окончания прилагательных: Akkusativ)', 'einen neuen Laden (закінчення прикметників: Akkusativ)', 'einen neuen Laden (sıfat ekleri: Akkusativ)'],
       card: {
-        id: 'p2_akkusativ',
-        rule: 'Im Akkusativ ändert sich nur maskulin: einen neuen Laden (-en). Neutral, feminin und Plural bleiben wie im Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. Nach meine, keine im Plural: meine braunen Möbel. Der Akkusativ steht nach Verben wie haben, kaufen, suchen, brauchen, finden und nach für und ohne.',
-        examples: ['Ich suche einen warmen Pullover.', 'Sie kauft ein neues Handy.', 'Wir haben eine kleine Küche.'],
-        highlight: null,
-        t: [
-          'In the accusative only the masculine changes: einen neuen Laden (-en). Neuter, feminine and plural stay as in the nominative: ein schönes Licht, eine schöne Wohnung, braune Möbel. After meine, keine in the plural: meine braunen Möbel. The accusative follows verbs such as haben, kaufen, suchen, brauchen, finden and the prepositions für and ohne.',
-          'В Akkusativ меняется только мужской род: einen neuen Laden (-en). Средний, женский род и множественное число остаются как в Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. После meine, keine во множественном числе: meine braunen Möbel. Akkusativ стоит после глаголов haben, kaufen, suchen, brauchen, finden и после für и ohne.',
-          'В Akkusativ змінюється лише чоловічий рід: einen neuen Laden (-en). Середній, жіночий рід і множина залишаються як у Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. Після meine, keine у множині: meine braunen Möbel. Akkusativ стоїть після дієслів haben, kaufen, suchen, brauchen, finden і після für та ohne.',
-          'Akkusativ’de yalnızca eril değişir: einen neuen Laden (-en). Nötr, dişil ve çoğul Nominativ’deki gibi kalır: ein schönes Licht, eine schöne Wohnung, braune Möbel. Çoğulda meine, keine sözcüklerinden sonra: meine braunen Möbel. Akkusativ haben, kaufen, suchen, brauchen, finden gibi fiillerden ve für ile ohne edatlarından sonra gelir.',
-        ],
-        hint: ['Akkusativ: der → einen …-en. das → ein …-es. die → eine …-e.', 'Accusative: der → einen …-en. das → ein …-es. die → eine …-e.', 'Akkusativ (кого? что?): der → einen …-en. das → ein …-es. die → eine …-e.', 'Akkusativ (кого? що?): der → einen …-en. das → ein …-es. die → eine …-e.', 'Akkusativ (kimi? neyi?): der → einen …-en. das → ein …-es. die → eine …-e.'],
-      },
+  "id": "p2_akkusativ",
+  "rule": "Im Akkusativ ändert sich nur maskulin: einen neuen Laden (-en). Neutral, feminin und Plural bleiben wie im Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. Nach meine, keine im Plural: meine braunen Möbel. Der Akkusativ steht nach Verben wie haben, kaufen, suchen, brauchen, finden und nach für und ohne.",
+  "examples": [
+    "Ich suche einen warmen Pullover.",
+    "Er kauft ein neues Handy.",
+    "Wir haben eine kleine Küche."
+  ],
+  "highlight": null,
+  "t": [
+    "In the accusative only the masculine changes: einen neuen Laden (-en). Neuter, feminine and plural stay as in the nominative: ein schönes Licht, eine schöne Wohnung, braune Möbel. After meine, keine in the plural: meine braunen Möbel. The accusative follows verbs such as haben, kaufen, suchen, brauchen, finden and the prepositions für and ohne.",
+    "В Akkusativ меняется только мужской род: einen neuen Laden (-en). Средний, женский род и множественное число остаются как в Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. После meine, keine во множественном числе: meine braunen Möbel. Akkusativ стоит после глаголов haben, kaufen, suchen, brauchen, finden и после für и ohne.",
+    "В Akkusativ змінюється лише чоловічий рід: einen neuen Laden (-en). Середній, жіночий рід і множина залишаються як у Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. Після meine, keine у множині: meine braunen Möbel. Akkusativ стоїть після дієслів haben, kaufen, suchen, brauchen, finden і після für та ohne.",
+    "Akkusativ’de yalnızca eril değişir: einen neuen Laden (-en). Nötr, dişil ve çoğul Nominativ’deki gibi kalır: ein schönes Licht, eine schöne Wohnung, braune Möbel. Çoğulda meine, keine sözcüklerinden sonra: meine braunen Möbel. Akkusativ haben, kaufen, suchen, brauchen, finden gibi fiillerden ve für ile ohne edatlarından sonra gelir."
+  ],
+  "hint": [
+    "Akkusativ: der → einen …-en. das → ein …-es. die → eine …-e.",
+    "Accusative: der → einen …-en. das → ein …-es. die → eine …-e.",
+    "Akkusativ (кого? что?): der → einen …-en. das → ein …-es. die → eine …-e.",
+    "Akkusativ (кого? що?): der → einen …-en. das → ein …-es. die → eine …-e.",
+    "Akkusativ (kimi? neyi?): der → einen …-en. das → ein …-es. die → eine …-e."
+  ]
+},
       ex: [
         mc('G2', 'einen -en', I.choose, 'Ich suche einen … Rucksack.', ['großen', 'großer', 'großes'],
           ['I am looking for a big rucksack.', 'Я ищу большой рюкзак.', 'Я шукаю великий рюкзак.', 'Büyük bir sırt çantası arıyorum.']),
-        mc('G2', 'ein -es', I.choose, 'Lena kauft ein … Kleid.', ['rotes', 'roten', 'roter'],
-          ['Lena is buying a red dress.', 'Lena покупает красное платье.', 'Lena купує червону сукню.', 'Lena kırmızı bir elbise alıyor.']),
+        mc("G2", "ein -es", I.choose, "Leon kauft ein … Kleid.", ["rotes","roten","roter"], ["Leon is buying a red dress.","Leon покупает красное платье.","Leon купує червону сукню.","Leon kırmızı bir elbise alıyor."], {"c":"p2_akkusativ"}),
         mc('G2', 'eine -e', I.choose, 'Wir brauchen eine … Schüssel.', ['neue', 'neuen', 'neues'],
           ['We need a new bowl.', 'Нам нужна новая миска.', 'Нам потрібна нова миска.', 'Yeni bir kâseye ihtiyacımız var.']),
         mc('G2', 'einen -en', I.choose, 'Emre hat … Schirm gekauft.', ['einen schwarzen', 'ein schwarzer', 'einen schwarzer'],
@@ -135,8 +144,7 @@ const path = {
           ['I would like to buy a silver ring.', 'Я хочу купить серебряное кольцо.', 'Я хочу купити срібний перстень.', 'Gümüş bir yüzük almak istiyorum.'], 'silbern'),
         gap('G2', 'ein -es', I.ending, 'Hast du ein ', ' Taschenmesser?', 'scharfes', ['scharfen', 'scharfer'],
           ['Do you have a sharp penknife?', 'У тебя есть острый перочинный нож?', 'У тебе є гострий складаний ніж?', 'Keskin bir çakın var mı?'], 'scharf'),
-        gap('G2', 'eine -e', I.ending, 'Mia trägt heute eine ', ' Kette.', 'lange', ['langen', 'langes'],
-          ['Mia is wearing a long necklace today.', 'Сегодня на Mia длинная цепочка.', 'Сьогодні на Mia довгий ланцюжок.', 'Mia bugün uzun bir kolye takıyor.'], 'lang'),
+        gap("G2", "eine -e", I.ending, "Milan trägt heute eine ", " Kette.", "lange", ["langen","langes"], ["Milan is wearing a long necklace today.","Сегодня на Milan длинная цепочка.","Сьогодні на Milan довгий ланцюжок.","Milan bugün uzun bir kolye takıyor."], "lang", {"c":"p2_akkusativ"}),
         gap('G2', 'für + Akkusativ', I.ending, 'Für meinen ', ' Bruder suche ich ein Geschenk.', 'kleinen', ['kleiner', 'kleine'],
           ['I am looking for a present for my little brother.', 'Я ищу подарок для младшего брата.', 'Я шукаю подарунок для молодшого брата.', 'Küçük erkek kardeşim için bir hediye arıyorum.'], 'klein'),
         sb('G2', 'einen -en', I.order, 'Ich / suche / einen / neuen / Schirm.',
@@ -369,8 +377,7 @@ const path = {
           ['I spend a lot of money on books.', 'Я трачу много денег на книги.', 'Я витрачаю багато грошей на книжки.', 'Kitaplara çok para harcıyorum.']),
         mc('K2', 'am liebsten', I.situation, 'Du kaufst Obst und Gemüse immer auf dem Markt. Das magst du mehr als alles andere. Was sagst du?', ['Ich kaufe am liebsten auf dem Markt ein.', 'Ich kaufe nie auf dem Markt ein.', 'Auf dem Markt spare ich nicht.'],
           ['You always buy fruit and vegetables at the market. You like that more than anything else. What do you say?', 'Вы всегда покупаете фрукты и овощи на рынке. Это нравится вам больше всего. Что вы скажете?', 'Ви завжди купуєте фрукти й овочі на ринку. Це подобається вам найбільше. Що ви скажете?', 'Meyve ve sebzeyi hep pazardan alıyorsunuz. Bunu her şeyden çok seviyorsunuz. Ne dersiniz?']),
-        mc('K2', 'praktischer als', I.choose, 'Lena findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt?', ['Sie findet Rucksäcke praktischer als Taschen.', 'Sie findet Taschen praktischer als Rucksäcke.', 'Sie findet Rucksäcke so praktisch wie Taschen.'],
-          ['Lena thinks bags are okay, but rucksacks are better. What is true?', 'Lena считает: сумки – нормально, но рюкзаки лучше. Что верно?', 'Lena вважає: сумки – нормально, але рюкзаки кращі. Що правильно?', 'Lena’ya göre çantalar fena değil ama sırt çantaları daha iyi. Hangisi doğru?']),
+        mc("K2", "praktischer als", I.choose, "Leon findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt?", ["Er findet Rucksäcke praktischer als Taschen.","Er findet Taschen praktischer als Rucksäcke.","Er findet Rucksäcke so praktisch wie Taschen."], ["Leon thinks bags are okay, but rucksacks are better. What is true?","Leon считает: сумки – нормально, но рюкзаки лучше. Что верно?","Leon вважає: сумки – нормально, але рюкзаки кращі. Що правильно?","Leon’a göre çantalar fena değil ama sırt çantaları daha iyi. Hangisi doğru?"], {"c":"p2_konsum","sitovOptionOrder":["Er findet Rucksäcke praktischer als Taschen.","Er findet Taschen praktischer als Rucksäcke.","Er findet Rucksäcke so praktisch wie Taschen."]}),
         gap('K2', 'am meisten', I.comparison, 'Am ', ' gebe ich für mein Auto aus: fast 300 Euro im Monat.', 'meisten', ['mehr', 'vielen'],
           ['I spend most on my car: almost 300 euros a month.', 'Больше всего я трачу на машину: почти 300 евро в месяц.', 'Найбільше я витрачаю на машину: майже 300 євро на місяць.', 'En çok arabama para harcıyorum: ayda neredeyse 300 avro.'], 'viel'),
         gap('K2', 'ausgeben', I.verb, 'Für Kleidung ', ' ich nicht viel Geld aus.', 'gebe', ['gibt', 'gehe'],
@@ -430,18 +437,28 @@ const path = {
       title: 'Diese Kette habe ich von …',
       t: ['I got this necklace from …', 'Эту цепочку мне подарил(а) …', 'Цей ланцюжок мені подарував / подарувала …', 'Bu kolyeyi … verdi'],
       card: {
-        id: 'p2_gegenstand',
-        rule: 'Von einem Gegenstand erzählen: Diesen Ring habe ich von meiner Oma bekommen. Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. Er/Es/Sie ist mir besonders wichtig, weil … Er gefällt mir so gut, denn er ist sehr alt. Im Akkusativ: diesen (der), dieses (das), diese (die).',
-        examples: ['Diesen Schal hat mir meine Tante geschenkt.', 'Dieses Bild habe ich auf dem Flohmarkt gekauft.', 'Die Uhr ist mir besonders wichtig, weil sie von meinem Opa ist.'],
-        highlight: null,
-        t: [
-          'Talking about an object: Diesen Ring habe ich von meiner Oma bekommen. (I got this ring from my grandma.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (My husband gave me this necklace.) Er/Es/Sie ist mir besonders wichtig, weil … (It is especially important to me because …) Er gefällt mir so gut, denn er ist sehr alt. In the accusative: diesen (der), dieses (das), diese (die).',
-          'Как рассказать о предмете: Diesen Ring habe ich von meiner Oma bekommen. (Это кольцо я получил от бабушки.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Эту цепочку мне подарил муж.) Er/Es/Sie ist mir besonders wichtig, weil … (Он/она мне особенно дорог(а), потому что …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die).',
-          'Як розповісти про предмет: Diesen Ring habe ich von meiner Oma bekommen. (Цей перстень я отримав від бабусі.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Цей ланцюжок мені подарував чоловік.) Er/Es/Sie ist mir besonders wichtig, weil … (Він/вона мені особливо дорогий/дорога, бо …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die).',
-          'Bir eşyayı anlatmak: Diesen Ring habe ich von meiner Oma bekommen. (Bu yüzüğü büyükannemden aldım.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Bu kolyeyi bana kocam hediye etti.) Er/Es/Sie ist mir besonders wichtig, weil … (Benim için özellikle önemli, çünkü …) Er gefällt mir so gut, denn er ist sehr alt. Akkusativ’de: diesen (der), dieses (das), diese (die).',
-        ],
-        hint: ['der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ: von meiner Oma, von meinem Opa.', 'der → diesen (accusative), das → dieses, die → diese. von + dative: von meiner Oma, von meinem Opa.', 'der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ (от кого): von meiner Oma, von meinem Opa.', 'der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ (від кого): von meiner Oma, von meinem Opa.', 'der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ (kimden): von meiner Oma, von meinem Opa.'],
-      },
+  "id": "p2_gegenstand",
+  "rule": "Von einem Gegenstand erzählen: Diesen Ring habe ich von meiner Oma bekommen. Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. Er/Es/Sie ist mir besonders wichtig, weil … Er gefällt mir so gut, denn er ist sehr alt. Im Akkusativ: diesen (der), dieses (das), diese (die).",
+  "examples": [
+    "Diesen Schal hat mir mein Onkel geschenkt.",
+    "Dieses Bild habe ich auf dem Flohmarkt gekauft.",
+    "Die Uhr ist mir besonders wichtig, weil sie von meinem Opa ist."
+  ],
+  "highlight": null,
+  "t": [
+    "Talking about an object: Diesen Ring habe ich von meiner Oma bekommen. (I got this ring from my grandma.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (My husband gave me this necklace.) Er/Es/Sie ist mir besonders wichtig, weil … (It is especially important to me because …) Er gefällt mir so gut, denn er ist sehr alt. In the accusative: diesen (der), dieses (das), diese (die).",
+    "Как рассказать о предмете: Diesen Ring habe ich von meiner Oma bekommen. (Это кольцо я получил от бабушки.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Эту цепочку мне подарил муж.) Er/Es/Sie ist mir besonders wichtig, weil … (Он/она мне особенно дорог(а), потому что …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die).",
+    "Як розповісти про предмет: Diesen Ring habe ich von meiner Oma bekommen. (Цей перстень я отримав від бабусі.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Цей ланцюжок мені подарував чоловік.) Er/Es/Sie ist mir besonders wichtig, weil … (Він/вона мені особливо дорогий/дорога, бо …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die).",
+    "Bir eşyayı anlatmak: Diesen Ring habe ich von meiner Oma bekommen. (Bu yüzüğü büyükannemden aldım.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Bu kolyeyi bana kocam hediye etti.) Er/Es/Sie ist mir besonders wichtig, weil … (Benim için özellikle önemli, çünkü …) Er gefällt mir so gut, denn er ist sehr alt. Akkusativ’de: diesen (der), dieses (das), diese (die)."
+  ],
+  "hint": [
+    "der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ: von meiner Oma, von meinem Opa.",
+    "der → diesen (accusative), das → dieses, die → diese. von + dative: von meiner Oma, von meinem Opa.",
+    "der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ (от кого): von meiner Oma, von meinem Opa.",
+    "der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ (від кого): von meiner Oma, von meinem Opa.",
+    "der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ (kimden): von meiner Oma, von meinem Opa."
+  ]
+},
       ex: [
         mc('K4', 'Diesen', I.choose, '… Ring habe ich von meiner Mutter bekommen.', ['Diesen', 'Dieser', 'Dieses'],
           ['I got this ring from my mother.', 'Это кольцо я получил от мамы.', 'Цей перстень я отримав від мами.', 'Bu yüzüğü annemden aldım.']),
@@ -451,8 +468,7 @@ const path = {
           ['“Where did you get this lovely knife?”', '«Откуда у тебя этот красивый нож?»', '«Звідки в тебе цей гарний ніж?»', '“Bu güzel bıçağı nereden aldın?”']),
         mc('K4', 'besonders wichtig, weil …', I.situation, 'Du zeigst eine alte Uhr von deinem Opa. Sie bedeutet dir viel. Was sagst du?', ['Diese Uhr ist mir besonders wichtig, weil sie von meinem Opa ist.', 'Diese Uhr ist mir überhaupt nicht wichtig.', 'Diese Uhr möchte ich verkaufen.'],
           ['You are showing an old watch from your grandad. It means a lot to you. What do you say?', 'Вы показываете старые часы от дедушки. Они много для вас значат. Что вы скажете?', 'Ви показуєте старий годинник від дідуся. Він багато для вас означає. Що ви скажете?', 'Dedenizden kalma eski bir saati gösteriyorsunuz. Sizin için çok şey ifade ediyor. Ne dersiniz?']),
-        mc('K4', 'Den hat mir … geschenkt.', I.sentence, 'Mia erzählt von ihrem Schal.', ['Den hat mir meine Tante geschenkt.', 'Den hat meine Tante mir geschenken.', 'Der hat mir meine Tante geschenkt.'],
-          ['Mia is talking about her scarf.', 'Mia рассказывает о своём шарфе.', 'Mia розповідає про свій шарф.', 'Mia atkısını anlatıyor.']),
+        mc("K4", "Den hat mir … geschenkt.", I.sentence, "Milan erzählt von seinem Schal.", ["Den hat mir mein Onkel geschenkt.","Der hat mir mein Onkel geschenkt.","Den hat mein Onkel mir geschenken."], ["Milan is talking about his scarf.","Milan рассказывает о своём шарфе.","Milan розповідає про свій шарф.","Milan atkısını anlatıyor."], {"c":"p2_gegenstand","sitovOptionOrder":["Der hat mir mein Onkel geschenkt.","Den hat mein Onkel mir geschenken.","Den hat mir mein Onkel geschenkt."]}),
         gap('K4', 'Diesen', I.form, '', ' Rucksack habe ich in Italien gekauft.', 'Diesen', ['Dieser', 'Dieses'],
           ['I bought this rucksack in Italy.', 'Этот рюкзак я купил в Италии.', 'Цей рюкзак я купив в Італії.', 'Bu sırt çantasını İtalya’da aldım.'], 'dieser'),
         gap('K4', 'bekommen', I.participle, 'Die Kerze habe ich von einer Freundin ', '.', 'bekommen', ['gebekommt', 'bekommt'],

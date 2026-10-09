@@ -53,19 +53,35 @@ await test('builder: derives ids, goals, cards and a shuffled option order from 
   // Review and test explain with the card of the lesson that practises the goal.
   assert.equal(path.nodes[2].exercises[0].explanation_card, 'c1')
   assert.deepEqual(buildLevelSeed(minimal()), buildLevelSeed(minimal()), 'the build is deterministic')
+  const explicit = buildLevelSeed(minimal(source => {
+    source.nodes[0].ex[0].sitovOptionOrder = ['anders', 'richtig', 'falsch']
+    source.nodes[0].ex[0].hint = ['Konkreter Tipp.', ...four('Specific hint.')]
+    source.nodes[0].ex[0].explanation = ['Konkrete Erklärung.', ...four('Specific explanation.')]
+    source.nodes[0].ex[0].overrideReason = 'Diese Aufgabe erklärt einen eigenen Kontext.'
+  }))[0].nodes[0].exercises[0]
+  assert.deepEqual(explicit.content.options, ['anders', 'richtig', 'falsch'])
+  assert.equal(explicit.content.correct_answer, 'richtig')
+  assert.deepEqual(explicit.accepted_answers, ['richtig'])
+  assert.equal(explicit.hint, 'Konkreter Tipp.')
+  assert.equal(explicit.translations.uk.explanation, 'Specific explanation. ук')
+  assert.equal(path.nodes[0].merkkarte.rule, 'Regel.')
+
 })
 
 await test('builder: sorts a lesson from recognising to writing and builds gaps and word order', () => {
   const [path] = buildLevelSeed(minimal(source => {
     source.nodes[0].ex.unshift(
       sb('G1', 'Satz', I.order, 'Ich / bin / hier.', four('I am here.'), { alt: ['Hier bin ich.'] }),
-      gap('G1', 'sein', I.verb, 'Ich ', ' hier.', 'bin', ['bist', 'ist'], four('I am here.'), 'sein'),
+      gap('G1', 'sein', I.verb, 'Ich ', ' hier.', 'bin', ['bist', 'ist'], four('I am here.'), 'sein', { sitovOptionOrder: ['ist', 'bin', 'bist'] }),
       gap('G1', 'Artikel', I.article, 'Das ist ', '.', 'der Tisch', ['die Tisch', 'das Tisch'], four('That is the table.'), four('table')))
   }))
   const tasks = path.nodes[0].exercises
   assert.deepEqual(tasks.map(task => task.exercise_type).slice(-4), ['multiple_choice', 'fill_in_blank', 'fill_in_blank', 'sentence_building'])
   const [verb, article] = tasks.filter(task => task.exercise_type === 'fill_in_blank')
   assert.equal(verb.content.gap_hint, 'sein')
+  assert.deepEqual(verb.content.options, ['ist', 'bin', 'bist'])
+  assert.equal(verb.content.correct_answer, 'bin')
+  assert.deepEqual(verb.accepted_answers, ['bin'])
   assert.equal(verb.translations.en.gap_hint, undefined)
   assert.equal(article.content.needs_article, true)
   assert.equal(article.translations.uk.gap_hint, 'table ук')
@@ -91,6 +107,17 @@ await test('builder: refuses content that breaks the path rules', () => {
   // A "wrong" form that grading cannot tell from the solution (case, punctuation, ae/oe/ue/ss).
   has(source => { source.nodes[0].ex[0] = gap('G1', 'Maß', I.word, 'Die ', ' stimmen.', 'Maße', ['Masse', 'Messe'], four('The measurements are right.'), four('measurements')) }, /„Masse“ ist nur eine andere Schreibweise der Lösung „Maße“/)
   has(source => { source.nodes[0].ex[0] = gap('G1', 'Anrede', I.pronoun, 'Wie heißen ', '?', 'Sie', ['sie.', 'du'], four('What is your name?'), four('you (formal)')) }, /„sie\.“ ist nur eine andere Schreibweise/)
+  for (const invalid of [null, [], ['richtig', 'falsch'], ['richtig', 'richtig', 'anders'], ['richtig', 'falsch', 'fremd']]) {
+    has(source => { source.nodes[0].ex[0].sitovOptionOrder = invalid }, /keine exakte Permutation/)
+  }
+  has(source => { source.nodes[0].ex[0].hint = ['Tipp.', ...four('Hint.')] }, /braucht eine Begründung/)
+  for (const field of ['hint', 'explanation']) {
+    for (const invalid of [null, [], ['Deutsch.', 'English', 'Русский', 'Український'], ['Deutsch.', 'English', 'Русский', 'Український', '']]) {
+      has(source => { source.nodes[0].ex[0][field] = invalid; source.nodes[0].ex[0].overrideReason = 'Aufgabenkontext.' }, /fünf Sprachfassungen|Hinweis/)
+    }
+    has(source => { source.nodes[0].ex[0][field] = ['Deutsch.', 'English', 'English', 'Український', 'Turkish']; source.nodes[0].ex[0].overrideReason = 'Aufgabenkontext.' }, /falsche Schrift/)
+    has(source => { source.nodes[0].ex[0][field] = ['Русский', ...four('Text.')]; source.nodes[0].ex[0].overrideReason = 'Aufgabenkontext.' }, /kein deutscher Text/)
+  }
   // Near-identical wrong forms are welcome in every node: grading never forgives them (migration 58).
   assert.deepEqual(problems(source => { source.nodes[2].ex[0] = gap('G1', 'Dativ', I.article, 'seit ', ' Jahr', 'einem', ['einen', 'einer'], four('for a year'), 'ein') }), [])
 })

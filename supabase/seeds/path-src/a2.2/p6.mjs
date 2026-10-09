@@ -104,8 +104,7 @@ const path = {
         gap('W1', 'bar', I.word, 'Zahlen Sie mit Karte oder ', '?', 'bar', ['teuer', 'billig'],
           ['Are you paying by card or in cash?', 'Вы платите картой или наличными?', 'Ви платите карткою чи готівкою?', 'Kartla mı ödüyorsunuz, nakit mi?'],
           ['in cash', 'наличными', 'готівкою', 'nakit']),
-        gap('W1', 'sparen', I.verb, 'Lena möchte ein Auto kaufen. Sie ', ' jeden Monat 200 Euro.', 'spart', ['spare', 'sparen'],
-          ['Lena wants to buy a car. She saves 200 euros every month.', 'Lena хочет купить машину. Каждый месяц она откладывает 200 евро.', 'Lena хоче купити машину. Щомісяця вона відкладає 200 євро.', 'Lena araba almak istiyor. Her ay 200 avro biriktiriyor.'], 'sparen'),
+        gap("W1", "sparen", I.verb, "Leon möchte ein Auto kaufen. Er ", " jeden Monat 200 Euro.", "spart", ["spare","sparen"], ["Leon wants to buy a car. He saves 200 euros every month.","Leon хочет купить машину. Каждый месяц он откладывает 200 евро.","Leon хоче купити машину. Щомісяця він відкладає 200 євро.","Leon araba almak istiyor. Her ay 200 avro biriktiriyor."], "sparen", {"c":"p6_geldverben"}),
         sb('W1', 'abheben', I.order, 'Ich / hebe / am Automaten / 100 Euro / ab.',
           ['I am withdrawing 100 euros from the cash machine.', 'Я снимаю в банкомате 100 евро.', 'Я знімаю в банкоматі 100 євро.', 'Bankamatikten 100 avro çekiyorum.'],
           { alt: ['Am Automaten hebe ich 100 Euro ab.', 'Ich hebe 100 Euro am Automaten ab.', '100 Euro hebe ich am Automaten ab.'] }),
@@ -272,21 +271,30 @@ const path = {
       title: 'ich lasse, du lässt',
       t: ['ich lasse, du lässt (the verb lassen)', 'ich lasse, du lässt (глагол lassen)', 'ich lasse, du lässt (дієслово lassen)', 'ich lasse, du lässt (lassen fiili)'],
       card: {
-        id: 'p6_lassen',
-        rule: 'Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden.',
-        examples: ['Ich lasse mein Fahrrad reparieren.', 'Lässt du deine Haare schneiden?', 'Wir lassen die Wohnung streichen.'],
-        highlight: 'verb',
-        t: [
-          'The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (She has her hair cut.)',
-          'Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Она стрижётся у парикмахера.)',
-          'Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Вона стрижеться в перукаря.)',
-          'lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Meine Schwester schneidet ihre Haare nicht selbst. Sie lässt ihre Haare schneiden. (Saçını kestiriyor.)',
-        ],
-        hint: ['lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.', 'lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.', 'lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.', 'lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.', 'lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.'],
-      },
+  "id": "p6_lassen",
+  "rule": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
+  "examples": [
+    "Ich lasse mein Fahrrad reparieren.",
+    "Lässt du deine Haare schneiden?",
+    "Wir lassen die Wohnung streichen."
+  ],
+  "highlight": "verb",
+  "t": [
+    "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
+    "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
+    "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
+    "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)"
+  ],
+  "hint": [
+    "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du und er: a → ä.",
+    "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
+    "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
+    "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
+    "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä."
+  ]
+},
       ex: [
-        mc('G3', 'sie lässt', I.choose, 'Mia … ihr Auto in der Werkstatt reparieren.', ['lässt', 'lasst', 'lasse'],
-          ['Mia is having her car repaired at the garage.', 'Mia ремонтирует машину в автосервисе.', 'Mia ремонтує машину в автосервісі.', 'Mia arabasını serviste tamir ettiriyor.']),
+        mc("G3", "er lässt", I.choose, "Milan … sein Auto in der Werkstatt reparieren.", ["lässt","lasst","lasse"], ["Milan is having his car repaired at the garage.","Milan ремонтирует машину в автосервисе.","Milan ремонтує машину в автосервісі.","Milan arabasını serviste tamir ettiriyor."], {"c":"p6_lassen"}),
         mc('G3', 'wir lassen', I.choose, 'Wir … die Fenster putzen.', ['lassen', 'lässt', 'lasst'],
           ['We are having the windows cleaned.', 'Нам моют окна (мы это заказали).', 'Нам миють вікна (ми це замовили).', 'Camları sildiriyoruz.']),
         mc('G3', 'du lässt', I.choose, '… du deine Haare beim Friseur schneiden?', ['Lässt', 'Lasst', 'Lasse'],

@@ -428,8 +428,7 @@ const path = {
           ['Dear Paul, how are you?', 'Дорогой Paul, как у тебя дела?', 'Дорогий Paul, як у тебе справи?', 'Sevgili Paul, nasılsın?'], 'lieb-'),
         gap('K6', 'formeller Gruß', I.form, 'Mit freundlichen ', ' Emre Demir', 'Grüßen', ['Grüße', 'Gruß'],
           ['Yours sincerely, Emre Demir', 'С уважением, Emre Demir', 'З повагою, Emre Demir', 'Saygılarımla, Emre Demir'], 'der Gruß'),
-        gap('K6', 'Viele Grüße', I.form, 'Bis bald und viele ', ' von deiner Nachbarin Mia', 'Grüße', ['Grüßen', 'Gruß'],
-          ['See you soon and best wishes from your neighbour Mia', 'До скорого и большой привет от твоей соседки Mia', 'До зустрічі й щирі вітання від твоєї сусідки Mia', 'Yakında görüşmek üzere, komşun Mia’dan selamlar'], 'der Gruß'),
+        gap("K6", "Viele Grüße", I.form, "Bis bald und viele ", " von deinem Nachbarn Milan", "Grüße", ["Grüßen","Gruß"], ["See you soon and best wishes from your neighbour Milan","До скорого и большой привет от твоего соседа Milan","До зустрічі й щирі вітання від твого сусіда Milan","Yakında görüşmek üzere, komşun Milan’dan selamlar"], "der Gruß", {"c":"p2_brief"}),
       ],
     },
     {

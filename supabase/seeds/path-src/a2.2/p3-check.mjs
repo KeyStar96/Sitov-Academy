@@ -2,7 +2,6 @@ import { I, gap, mc } from '../shared.mjs'
 
 const WERDEN = 'wird / werden'
 const ELEKTRO = 'Nachricht auf der Mailbox: „Guten Tag, Herr Kaya, hier ist die Firma Elektro Braun. Ihr Fernseher ist repariert. Sie können ihn ab morgen abholen. Wir haben von 9 bis 17 Uhr geöffnet. Auf Wiederhören!“'
-const MAMA = 'Nachricht auf der Mailbox: „Hallo Lena, hier ist Mama. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen bei der Nachbarin im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“'
 
 /** A2.2 · Pfad 3 · Post und Telefon – Wiederholung und Testpool. */
 const check = {
@@ -66,10 +65,8 @@ const check = {
       ['You want to know how your colleague keeps in touch with friends. What do you ask?', 'Вы хотите узнать, как ваш коллега поддерживает связь с друзьями. Что вы спросите?', 'Ви хочете дізнатися, як ваш колега підтримує зв’язок із друзями. Що ви запитаєте?', 'İş arkadaşınızın arkadaşlarıyla nasıl iletişimde kaldığını öğrenmek istiyorsunuz. Ne sorarsınız?']),
     mc('Z1', 'Ab wann?', I.read, `${ELEKTRO} Ab wann kann Herr Kaya den Fernseher abholen?`, ['Ab morgen.', 'Ab heute um 17 Uhr.', 'Erst nächste Woche.'],
       ['From when can Mr Kaya collect the TV?', 'С какого дня господин Kaya может забрать телевизор?', 'Від якого дня пан Kaya може забрати телевізор?', 'Kaya Bey televizyonu ne zamandan itibaren alabilir?']),
-    mc('Z1', 'Wo?', I.read, `${MAMA} Wo ist das Päckchen jetzt?`, ['Bei der Nachbarin.', 'Auf der Post.', 'Bei der Mutter.'],
-      ['Where is the packet now?', 'Где сейчас пакет?', 'Де зараз пакунок?', 'Paket şimdi nerede?']),
-    mc('Z1', 'Was tun?', I.read, `${MAMA} Was soll Lena tun?`, ['Sie soll ihre Mutter am Abend anrufen.', 'Sie soll zur Post gehen.', 'Sie soll die Tür aufmachen.'],
-      ['What should Lena do?', 'Что должна сделать Lena?', 'Що має зробити Lena?', 'Lena ne yapmalı?']),
+    mc("Z1", "Wo?", I.read, "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt?", ["Beim Nachbarn.","Auf der Post.","Beim Vater."], ["Where is the packet now?","Где сейчас пакет?","Де зараз пакунок?","Paket şimdi nerede?"], {"c":"p3_mailbox","sitovOptionOrder":["Beim Nachbarn.","Auf der Post.","Beim Vater."]}),
+    mc("Z1", "Was tun?", I.read, "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Leon tun?", ["Er soll seinen Vater am Abend anrufen.","Er soll die Tür aufmachen.","Er soll zur Post gehen."], ["What should Leon do?","Что должен сделать Leon?","Що має зробити Leon?","Leon ne yapmalı?"], {"c":"p3_mailbox","sitovOptionOrder":["Er soll die Tür aufmachen.","Er soll zur Post gehen.","Er soll seinen Vater am Abend anrufen."]}),
     gap('W1', 'Briefmarke', I.word, 'Ein Brief ins Ausland kostet mehr. Sie brauchen noch eine ', ' für 40 Cent.', 'Briefmarke', ['Postkarte', 'Verpackung'],
       ['A letter abroad costs more. You need another stamp for 40 cents.', 'Письмо за границу стоит дороже. Вам нужна ещё одна марка за 40 центов.', 'Лист за кордон коштує дорожче. Вам потрібна ще одна марка за 40 центів.', 'Yurt dışına mektup daha pahalı. 40 sentlik bir pul daha gerekiyor.'],
       ['stamp', 'почтовая марка', 'поштова марка', 'pul']),
@@ -94,9 +91,7 @@ const check = {
       ['Lots of children already have a mobile. I find that strange.', 'У многих детей уже есть мобильный телефон. По-моему, это странно.', 'Багато дітей уже мають мобільний телефон. На мою думку, це дивно.', 'Birçok çocuğun şimdiden cep telefonu var. Bunu tuhaf buluyorum.'], 'finden'),
     gap('K3', 'wollte', I.modalPast, 'Ich ', ' dich anrufen, aber mein Handy war leer.', 'wollte', ['wollten', 'will'],
       ['I wanted to call you, but my mobile was dead.', 'Я хотел тебе позвонить, но мой телефон разрядился.', 'Я хотів тобі зателефонувати, але мій телефон розрядився.', 'Seni aramak istedim ama cep telefonumun şarjı bitmişti.'], 'wollen'),
-    gap('K4', 'Vielen Dank', I.word, 'Hallo Mia, vielen ', ' für deine Nachricht!', 'Dank', ['Danke', 'Gruß'],
-      ['Hello Mia, many thanks for your message!', 'Привет, Mia, большое спасибо за твоё сообщение!', 'Привіт, Mia, щиро дякую за твоє повідомлення!', 'Merhaba Mia, mesajın için çok teşekkürler!'],
-      ['thanks', 'благодарность (большое спасибо)', 'подяка (щиро дякую)', 'teşekkür']),
+    gap("K4", "Vielen Dank", I.word, "Hallo Milan, vielen ", " für deine Nachricht!", "Dank", ["Danke","Gruß"], ["Hello Milan, many thanks for your message!","Привет, Milan, большое спасибо за твоё сообщение!","Привіт, Milan, щиро дякую за твоє повідомлення!","Merhaba Milan, mesajın için çok teşekkürler!"], ["thanks","благодарность (большое спасибо)","подяка (щиро дякую)","teşekkür"], {"c":"p3_entschuldigen"}),
     gap('K5', 'Briefe schreiben', I.verb, 'Meine Oma hat kein Handy. Sie ', ' lieber Briefe.', 'schreibt', ['schreibe', 'schreiben'],
       ['My grandma has no mobile. She prefers writing letters.', 'У моей бабушки нет мобильного телефона. Она предпочитает писать письма.', 'У моєї бабусі немає мобільного телефона. Вона воліє писати листи.', 'Büyükannemin cep telefonu yok. Mektup yazmayı tercih ediyor.'], 'schreiben'),
   ],

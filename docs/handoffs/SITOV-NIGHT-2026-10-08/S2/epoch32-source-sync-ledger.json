@@ -1,0 +1,1186 @@
+{
+  "epoch": 32,
+  "base": "d699794d362b023050fd4eb00221bd67388c3543",
+  "changedSourceFiles": [
+    {
+      "file": "scripts/build-path-seed.test.mjs",
+      "beforeSha256": "db74549dc36c2fe69e45411c6aca0604148fdc7d5c23332de4cd89442d9e56d3",
+      "afterSha256": "65e940ccaa843f5a4f01e1da25e703b1b41867c3f81f1a08ab894c222027515e"
+    },
+    {
+      "file": "scripts/lib/path-seed-builder.mjs",
+      "beforeSha256": "ad2ae49003485fc237879a92fa42491a7a0a4e9908bd150560c47b5f5c6c80d8",
+      "afterSha256": "279a03abc802980ab61cf8a40aced19fb33e56185912dc1cae560ebd72ed6dd3"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p1-check.mjs",
+      "beforeSha256": "7b27333692a2c02f8434fc93a5110b7b03ddd1e351b6ca1f377be2d1d5ae259a",
+      "afterSha256": "5c88fe123e7cb2cd566d7a546db846a8ae93ab8aca3e7c6ff4a6aed23188ac5a"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p1.mjs",
+      "beforeSha256": "95778a9c97d69a151b6cd0838242ab0c5b93194c488ca17d3b28245645ced325",
+      "afterSha256": "eda9f8e1b01bfc662a18bbae574e83fad4ee97eba7bc797b222685fc27af5212"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p2.mjs",
+      "beforeSha256": "908561253212a6a8ffde6e8f8f0fa35006bba9fcbebe4b573b169963bdc505cd",
+      "afterSha256": "6bccf83da6ecc748089fada0ec37846605cebf78a37e1af5240b33b3b44343b2"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p3-check.mjs",
+      "beforeSha256": "a09d94636fb007c491344268e683fa0a2efb7e02a32f9ff9b65ba667c0d67d0d",
+      "afterSha256": "c26140a6db7c9ff8d33ca1a00968e221e2f2b2e90d97027d528b7dd60ede4608"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p3.mjs",
+      "beforeSha256": "bf73e285392e67e4384dceb26ffcecec2f261a7fd4dccdd5db07191e6cf992b7",
+      "afterSha256": "f7d9e420623f43aaa43e8b051e7b649ca27b36b3d13c5c6563c2f7e2040b5783"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p4-check.mjs",
+      "beforeSha256": "e3ea69cbe034de87371b5d4b6f5695821c521de8282834cdf7c7f61baaa482fb",
+      "afterSha256": "0cba812360e3e78c967423b01e521bdcb958f3a5c9225bf02237de6b4b52c94f"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p4.mjs",
+      "beforeSha256": "f5e06dbf6513e1127685615f749cefaf1b743d9e585c4c6272818ffd42aaa1e6",
+      "afterSha256": "ac0e34eb3a9e6c17bc41f0784c2a50e415e86cda0d3224f73fdec08f6c26206e"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p5.mjs",
+      "beforeSha256": "52313dc7a652f36d8d66a6a6b80c359ce241cea4cb2a15c4c9eb3235b5680bc6",
+      "afterSha256": "18bf8e90eb4b87eced4c514f503ff3b638e8dc0b4dcc78765d45c13316f1bf01"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p6.mjs",
+      "beforeSha256": "c415bb53314a275e349cbd1d9da503c5e6f7903f7349c2955707916afe3af7bf",
+      "afterSha256": "6cd4739303d20a3b8a3ba1e6846791d5b3c56f08ac437759396918d6d3871c54"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p7-check.mjs",
+      "beforeSha256": "78ee5d48834cdca07f092aac767d76b508943ecbd4a2749a2e2411f84f01113d",
+      "afterSha256": "8590c7ddb930ba651881bcfd0e7efec22afd01e76d7c82bb0baa6376c1cddecf"
+    },
+    {
+      "file": "supabase/seeds/path-src/a1.2/p7.mjs",
+      "beforeSha256": "4bd7776f423abc5abba3700f5b69738f1416e8c849f979077aacfa31c49cd655",
+      "afterSha256": "4e4063d17ed743628f669de43ca12be25e4e3fb260bc1a065d89d41eb4c1e797"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p1-check.mjs",
+      "beforeSha256": "bbca8ecc75faadc01ecacb8ac29c36464ecb5457fcd55f7d5b2323ad06b1f015",
+      "afterSha256": "656c348d55ffdda2edc2a47935b0912d55cbfef6ffb52efc5fd2219b05b44ecc"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p1.mjs",
+      "beforeSha256": "33465343cf0422f23f6a7baac2facb10fd4da0fd25df12d1a08b8b10f71698d2",
+      "afterSha256": "7cd7c471b126dd1fb4f0bdc882f821f84d30b163edbfe3328210d39cc0d6f049"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p2.mjs",
+      "beforeSha256": "c8fc687a86f202ac0141972de15fd4bb9d30bed94764bb3bb0b0e95ea1b92d50",
+      "afterSha256": "dffc0b4f919d657b8371888d19e9549ed949aa11e4430b05d4f288cb5373a4c2"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p3-check.mjs",
+      "beforeSha256": "fb79d32b8bafd0f8d7348b0fb7ddef3fc290b6953287c4f01f1e7a54c1c1346f",
+      "afterSha256": "df7daf890b111de5ea730de154e875e4e8c29cdff99e5d72b9d4720051b7d5e0"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p3.mjs",
+      "beforeSha256": "54a485a34271e1c22a44c5d7bec5d391ddc0b1ac9b491fbc4c556dd40cf80e3e",
+      "afterSha256": "8016dd22328a53a4e4eed3d621838f63641e7ccb7d7bdea5ac7318681926daf7"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p4-check.mjs",
+      "beforeSha256": "5e20f4c4a3c885b51b3f41edadbef2d4bfbf168146b4d85acd2fcfb71711bbf6",
+      "afterSha256": "d6de505b1b4d79aab69f627d3d592ba4f6d861da2de7d6163df15646fdcd6e8d"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p4.mjs",
+      "beforeSha256": "57abaf9426d99e47daf8472273c238f4c2398816bf9102ae2d98a1f1d0df66c9",
+      "afterSha256": "f73827988225bf9187c962785ba6537533c164ff6c8f44d35a56f789304f6c33"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p5-check.mjs",
+      "beforeSha256": "161eb83336849c493d948e9b0b913b3154f0c8519d6d707da6299698f49129f3",
+      "afterSha256": "ab3feec38b829709bc4a04e6347a2eb1bd5ea2e3d9eb53489bb2cb186a618549"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p5.mjs",
+      "beforeSha256": "25e6f36dfbaa9506a33ebe1ff1346eb2ac194b4c436fb90e60406c793005cad8",
+      "afterSha256": "f6bb3a9fb73229be188f195067ec03ef8fd6979f8e7062a156b6590b7ecd4d98"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p6-check.mjs",
+      "beforeSha256": "176e927161f3d1658f1aa704a120cf6c93685593feede107d53bf3aee4033cf3",
+      "afterSha256": "d47267d1e05302ff8e00410cd0c197903ea1caa5ac2a52b6c610ed4dda132804"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p6.mjs",
+      "beforeSha256": "b86b9cac88335bc2adb9ef2e59f14085538928171457bc9016d8835935e34f49",
+      "afterSha256": "bdf1ca856a73c75250d22af8618c63eaadc4270cbb3bdf9a5cb35489d9862980"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p7-check.mjs",
+      "beforeSha256": "0b4f98d6c4b62bea4eca16d8b5c548fd2989a14bbe52fbcdb42f46f41bdc45a9",
+      "afterSha256": "ca3f08528af62227da727a59017f6cea9bfdd6002e5200608ecda4cfb1c697d6"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.1/p7.mjs",
+      "beforeSha256": "6ff64f7b9e8523b0f9503942ee79b9dacfa5d92f5dbb1b676b4bea8148972090",
+      "afterSha256": "9a6d8d21e716b884977e9a170229ba53232acb4e261a22de018f74370bb2bf00"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p1-check.mjs",
+      "beforeSha256": "d65b427eff92cdb25e0268fef6008c103305033e0c04fd6bf4be53d20285ccb5",
+      "afterSha256": "6690656c4683243f859e9ce4f14528acb097ff6431ce6a09ee2214fb582fee0f"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p1.mjs",
+      "beforeSha256": "4fe8e20af1e1dfa7cc71f7bb854c8b61751b13b929074deb964adde8d600f760",
+      "afterSha256": "75cb73269b1caa12825ed5a96dca7eabd5934505749c6936e47a457d2ea4264f"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p2-check.mjs",
+      "beforeSha256": "d7c9c6335ffa3f637e13273d47e17df6cd0d27d662c5cf18b94df9ffb4174f61",
+      "afterSha256": "2456e93f6ab2ca1319bc03cedadf1a0d8fa7669bc23f4e2ca4d93d3f1db4d7ae"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p2.mjs",
+      "beforeSha256": "66fcd0a8133639146764dc3ee260f0cd0759e5c064129c3efb382047b64ca968",
+      "afterSha256": "2d4d16b851b038f4c6cc362882c6ea2477bc0a98c842fae14669811303ffe9fb"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p3-check.mjs",
+      "beforeSha256": "4a0baf417d20e8ea6dad854d4105e67bab4af6ff523ff874c3b5b1a2bead924f",
+      "afterSha256": "fe048adfb62bbc20b56c54e4f87364b6482df93879bfc6b0e4bb79f7c5fcda56"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p4-check.mjs",
+      "beforeSha256": "42609970600335f728de5d2e010fa5b55c8320d0a02eca414d35d044e4920c6a",
+      "afterSha256": "63eae8889d6d2d7e5e92d5b3971831f78c49d424d3e502c7d25fccf2872f92d0"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p5.mjs",
+      "beforeSha256": "9db163448317517aa4043fa3d58d9294c76a1207eaff34a40f6740a93c6780c1",
+      "afterSha256": "3a232d21fc35153d83ae0dc2a1c56a18eab0b0d759539668033af4bab845109b"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p6.mjs",
+      "beforeSha256": "c6d8d15c9fe05cf5d26447dab7cfffa90c950abe93ef533e1eb53ebffe572918",
+      "afterSha256": "cb24d4b0ddbe961e73cf60d33f28eda87aa8f50d3f5d4601f6da682de09cb9ab"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p7-check.mjs",
+      "beforeSha256": "87438db7adbcd6f2caed01c9ac2bc5c2029d520574c93bdc913c86d03e489d6c",
+      "afterSha256": "25a6bb96143cd529579d2e42543f5f009cea966de0ae17a3ecef2027b19bb019"
+    },
+    {
+      "file": "supabase/seeds/path-src/a2.2/p7.mjs",
+      "beforeSha256": "cc8b6d3c4a421f2feb93fd3e4581f2ca146258af28ac21602ed4ecaabfc77885",
+      "afterSha256": "3ec84a1e60b9a5951426054e94888985c975b3a40e9983af2e9856a2a39ff560"
+    },
+    {
+      "file": "supabase/seeds/path-src/b1.1/p5-check.mjs",
+      "beforeSha256": "a4aac881fbfbcad058cd705246f5801fe50f7cd8a45d9bb893e9f78dab9044d4",
+      "afterSha256": "1ba89f4e9a3bc584a2533ac34ebb35b3a15149094f3541cea7da51e7ca18d45f"
+    },
+    {
+      "file": "supabase/seeds/path-src/b1.1/p5.mjs",
+      "beforeSha256": "ae3704843d86eea48b3c437a5b3334f7f4b67e15c81ca7c0cfac55997d90fb98",
+      "afterSha256": "67a096e8a24dbe4a36bc5a644337f0eb7069267cfb6d25e3b3def6e43121109d"
+    }
+  ],
+  "edits": [
+    {
+      "level": "a1.2",
+      "path": 1,
+      "card": "p1_alsbei"
+    },
+    {
+      "level": "a1.2",
+      "path": 1,
+      "card": "p1_exp"
+    },
+    {
+      "level": "a1.2",
+      "path": 3,
+      "card": "p3_weh"
+    },
+    {
+      "level": "a1.2",
+      "path": 3,
+      "card": "p3_seinihr"
+    },
+    {
+      "level": "a1.2",
+      "path": 3,
+      "card": "p3_krank"
+    },
+    {
+      "level": "a1.2",
+      "path": 4,
+      "card": "p4_woist"
+    },
+    {
+      "level": "a1.2",
+      "path": 5,
+      "card": "p5_mailbox"
+    },
+    {
+      "level": "a1.2",
+      "path": 6,
+      "card": "p6_dativ"
+    },
+    {
+      "level": "a1.2",
+      "path": 7,
+      "objective": "G4"
+    },
+    {
+      "level": "a1.2",
+      "path": 7,
+      "card": "p7_denn"
+    },
+    {
+      "level": "a1.2",
+      "path": 7,
+      "card": "p7_brief"
+    },
+    {
+      "level": "a1.2",
+      "ref": "P1-N5-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P1-N11-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P1-N12-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P2-N7-E06",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P2-N7-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P3-N4-E05",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P3-N5-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P3-N7-E05",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P3-N13-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P3-N13-E13",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P4-N12-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P5-N10-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P6-N4-E05",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P6-N4-E07",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P7-N1-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P7-N3-E05",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P7-N6-E07",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P7-N7-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P7-N7-E06",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P7-N9-E06",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P7-N13-E07",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P7-N14-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a1.2",
+      "ref": "P7-N14-E13",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "path": 1,
+      "card": "p1_genitiv"
+    },
+    {
+      "level": "a2.1",
+      "path": 1,
+      "card": "p1_weil"
+    },
+    {
+      "level": "a2.1",
+      "path": 1,
+      "card": "p1_weil2"
+    },
+    {
+      "level": "a2.1",
+      "path": 1,
+      "card": "p1_trennbar"
+    },
+    {
+      "level": "a2.1",
+      "path": 1,
+      "card": "p1_gliedern"
+    },
+    {
+      "level": "a2.1",
+      "path": 1,
+      "card": "p1_bewerten"
+    },
+    {
+      "level": "a2.1",
+      "path": 4,
+      "card": "p4_telefon"
+    },
+    {
+      "level": "a2.1",
+      "path": 5,
+      "card": "p5_reflexiv2"
+    },
+    {
+      "level": "a2.1",
+      "path": 6,
+      "card": "p6_ausbildung"
+    },
+    {
+      "level": "a2.1",
+      "path": 6,
+      "card": "p6_schulzeit"
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N1-E07",
+      "task": "gap",
+      "hintOverride": true,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E01",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E04",
+      "task": "mc",
+      "hintOverride": true,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E05",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E06",
+      "task": "gap",
+      "hintOverride": true,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E07",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E09",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N2-E10",
+      "task": "sb",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N4-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N5-E06",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N5-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N6-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N10-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N11-E07",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N13-E12",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N14-E08",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N14-E11",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N14-E18",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N14-E24",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P1-N14-E25",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P2-N10-E09",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P3-N2-E01",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P3-N12-E09",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E01",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E06",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E07",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E09",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E10",
+      "task": "sb",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N11-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N12-E14",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P4-N12-E28",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E01",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E06",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E07",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E09",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N3-E10",
+      "task": "sb",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N8-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N10-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N13-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P5-N13-E19",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": true
+    },
+    {
+      "level": "a2.1",
+      "ref": "P6-N2-E01",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P6-N12-E07",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N2-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N3-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N6-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N12-E01",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N12-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N12-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N12-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N12-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N12-E06",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N13-E07",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.1",
+      "ref": "P7-N14-E11",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "path": 1,
+      "card": "p1_wunsch"
+    },
+    {
+      "level": "a2.2",
+      "path": 2,
+      "card": "p2_akkusativ"
+    },
+    {
+      "level": "a2.2",
+      "path": 2,
+      "card": "p2_gegenstand"
+    },
+    {
+      "level": "a2.2",
+      "path": 6,
+      "card": "p6_lassen"
+    },
+    {
+      "level": "a2.2",
+      "path": 7,
+      "card": "p7_perfekt"
+    },
+    {
+      "level": "a2.2",
+      "ref": "P1-N3-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P1-N6-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P1-N7-E01",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P1-N10-E07",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P1-N14-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P2-N3-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P2-N3-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P2-N9-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P2-N11-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P2-N14-E12",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P3-N14-E16",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P3-N14-E17",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P3-N14-E29",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P4-N12-E10",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P5-N2-E06",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P6-N2-E09",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P6-N7-E01",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P7-N2-E02",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P7-N4-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P7-N6-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "a2.2",
+      "ref": "P7-N14-E16",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "b1.1",
+      "path": 5,
+      "card": "p5_arbeit"
+    },
+    {
+      "level": "b1.1",
+      "ref": "P5-N1-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "b1.1",
+      "ref": "P5-N1-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "b1.1",
+      "ref": "P5-N7-E05",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "b1.1",
+      "ref": "P5-N7-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "b1.1",
+      "ref": "P5-N9-E03",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "b1.1",
+      "ref": "P5-N9-E04",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "b1.1",
+      "ref": "P5-N9-E08",
+      "task": "gap",
+      "hintOverride": false,
+      "explanationOverride": false
+    },
+    {
+      "level": "b1.1",
+      "ref": "P5-N12-E09",
+      "task": "mc",
+      "hintOverride": false,
+      "explanationOverride": false
+    }
+  ],
+  "finalOverrides": {
+    "a1.2": {
+      "explicitOptionsOrders": 3,
+      "hintOverrides": 0,
+      "explanationOverrides": 0,
+      "allOverridesReasoned": true
+    },
+    "a2.1": {
+      "explicitOptionsOrders": 9,
+      "hintOverrides": 3,
+      "explanationOverrides": 35,
+      "allOverridesReasoned": true
+    },
+    "a2.2": {
+      "explicitOptionsOrders": 5,
+      "hintOverrides": 0,
+      "explanationOverrides": 0,
+      "allOverridesReasoned": true
+    },
+    "b1.1": {
+      "explicitOptionsOrders": 1,
+      "hintOverrides": 0,
+      "explanationOverrides": 0,
+      "allOverridesReasoned": true
+    }
+  },
+  "description": "Native authors only: 26 cards, one existing objective and 118 tasks synchronized to already frozen seed. Thirty unnecessary explicit orders removed; remaining18 are required by changed option text hashing. Three hints and35 explanations are explicit reasoned five-language task contexts."
+}

@@ -149,18 +149,28 @@ const path = {
       title: 'Wo ist …? beim, im, in der',
       t: ['Where is …? beim, im, in der', 'Где …? beim, im, in der', 'Де …? beim, im, in der', '… nerede? beim, im, in der'],
       card: {
-        id: 'p4_woist',
-        rule: 'Wo ist jemand? Person: bei + Dativ → beim Arzt, bei der Freundin, bei Walter. Haus, Ort, Geschäft: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Land und Stadt: in Österreich, in Wien, aber: in der Schweiz, in der Türkei, in den USA. Kurzformen: an + dem = am, bei + dem = beim, in + dem = im. Achtung: Ich bin zu Hause.',
-        examples: ['Emre ist beim Zahnarzt.', 'Die Kinder sind im Kindergarten.', 'Meine Schwester wohnt in der Schweiz.'],
-        highlight: null,
-        t: [
-          'Where is someone? A person: bei + dative → beim Arzt (at the doctor’s), bei der Freundin, bei Walter. Building, place, shop: in + dative → im Kindergarten, im Kino, in der Apotheke. Country and city: in Österreich, in Wien, but: in der Schweiz, in der Türkei, in den USA. Short forms: an + dem = am, bei + dem = beim, in + dem = im. Careful: Ich bin zu Hause (I am at home).',
-          'Где находится человек? У кого-то: bei + Dativ → beim Arzt (у врача), bei der Freundin, bei Walter. Здание, место, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Страна и город: in Österreich, in Wien, но: in der Schweiz, in der Türkei, in den USA. Краткие формы: an + dem = am, bei + dem = beim, in + dem = im. Внимание: Ich bin zu Hause (я дома).',
-          'Де перебуває людина? У когось: bei + Dativ → beim Arzt (у лікаря), bei der Freundin, bei Walter. Будівля, місце, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Країна й місто: in Österreich, in Wien, але: in der Schweiz, in der Türkei, in den USA. Короткі форми: an + dem = am, bei + dem = beim, in + dem = im. Увага: Ich bin zu Hause (я вдома).',
-          'Biri nerede? Kişi: bei + Dativ → beim Arzt (doktorda), bei der Freundin, bei Walter. Bina, yer, dükkân: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Ülke ve şehir: in Österreich, in Wien, ama: in der Schweiz, in der Türkei, in den USA. Kısa biçimler: an + dem = am, bei + dem = beim, in + dem = im. Dikkat: Ich bin zu Hause (evdeyim).',
-        ],
-        hint: ['Person → bei. Ort oder Haus → in. in + dem = im, bei + dem = beim.', 'Person → bei. Place or building → in. in + dem = im, bei + dem = beim.', 'Человек → bei. Место или здание → in. in + dem = im, bei + dem = beim.', 'Людина → bei. Місце або будівля → in. in + dem = im, bei + dem = beim.', 'Kişi → bei. Yer ya da bina → in. in + dem = im, bei + dem = beim.'],
-      },
+  "id": "p4_woist",
+  "rule": "Wo ist jemand? Person: bei + Dativ → beim Arzt, bei der Freundin, bei Walter. Haus, Ort, Geschäft: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Land und Stadt: in Österreich, in Wien, aber: in der Schweiz, in der Türkei, in den USA. Kurzformen: an + dem = am, bei + dem = beim, in + dem = im. Achtung: Ich bin zu Hause.",
+  "examples": [
+    "Emre ist beim Zahnarzt.",
+    "Die Kinder sind im Kindergarten.",
+    "Mein Bruder wohnt in der Schweiz."
+  ],
+  "highlight": null,
+  "t": [
+    "Where is someone? A person: bei + dative → beim Arzt (at the doctor’s), bei der Freundin, bei Walter. Building, place, shop: in + dative → im Kindergarten, im Kino, in der Apotheke. Country and city: in Österreich, in Wien, but: in der Schweiz, in der Türkei, in den USA. Short forms: an + dem = am, bei + dem = beim, in + dem = im. Careful: Ich bin zu Hause (I am at home).",
+    "Где находится человек? У кого-то: bei + Dativ → beim Arzt (у врача), bei der Freundin, bei Walter. Здание, место, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Страна и город: in Österreich, in Wien, но: in der Schweiz, in der Türkei, in den USA. Краткие формы: an + dem = am, bei + dem = beim, in + dem = im. Внимание: Ich bin zu Hause (я дома).",
+    "Де перебуває людина? У когось: bei + Dativ → beim Arzt (у лікаря), bei der Freundin, bei Walter. Будівля, місце, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Країна й місто: in Österreich, in Wien, але: in der Schweiz, in der Türkei, in den USA. Короткі форми: an + dem = am, bei + dem = beim, in + dem = im. Увага: Ich bin zu Hause (я вдома).",
+    "Biri nerede? Kişi: bei + Dativ → beim Arzt (doktorda), bei der Freundin, bei Walter. Bina, yer, dükkân: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Ülke ve şehir: in Österreich, in Wien, ama: in der Schweiz, in der Türkei, in den USA. Kısa biçimler: an + dem = am, bei + dem = beim, in + dem = im. Dikkat: Ich bin zu Hause (evdeyim)."
+  ],
+  "hint": [
+    "Person → bei. Ort oder Haus → in. in + dem = im, bei + dem = beim.",
+    "Person → bei. Place or building → in. in + dem = im, bei + dem = beim.",
+    "Человек → bei. Место или здание → in. in + dem = im, bei + dem = beim.",
+    "Людина → bei. Місце або будівля → in. in + dem = im, bei + dem = beim.",
+    "Kişi → bei. Yer ya da bina → in. in + dem = im, bei + dem = beim."
+  ]
+},
       ex: [
         mc('G3', 'beim', I.choose, 'Sofia ist krank. Sie ist … Arzt.', ['beim', 'im', 'zum'],
           ['Sofia is ill. She is at the doctor’s.', 'Sofia больна. Она у врача.', 'Sofia хвора. Вона у лікаря.', 'Sofia hasta. Doktorda.']),

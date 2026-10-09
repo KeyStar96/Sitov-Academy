@@ -105,18 +105,28 @@ const path = {
       title: 'als und bei',
       t: ['als and bei', 'als и bei', 'als і bei', 'als ve bei'],
       card: {
-        id: 'p1_alsbei',
-        rule: 'als + Beruf, bei + Firma: Ich arbeite als Verkäuferin. Ich arbeite bei der Bäckerei Sonnenkorn. Zusammen: Ich arbeite als Verkäuferin bei Sonnenkorn. Nach als steht kein Artikel.',
-        examples: ['Dilara arbeitet als Köchin.', 'Mateo arbeitet bei Elektro Brandt.', 'Ich arbeite als Fahrer bei einer Spedition.'],
-        highlight: null,
-        t: [
-          'als + job, bei + company: Ich arbeite als Verkäuferin (as a saleswoman). Ich arbeite bei der Bäckerei Sonnenkorn (at/for the bakery). Together: Ich arbeite als Verkäuferin bei Sonnenkorn. There is no article after als.',
-          'als + профессия, bei + фирма: Ich arbeite als Verkäuferin (продавцом). Ich arbeite bei der Bäckerei Sonnenkorn (в пекарне). Вместе: Ich arbeite als Verkäuferin bei Sonnenkorn. После als артикль не ставится.',
-          'als + професія, bei + фірма: Ich arbeite als Verkäuferin (продавчинею). Ich arbeite bei der Bäckerei Sonnenkorn (у пекарні). Разом: Ich arbeite als Verkäuferin bei Sonnenkorn. Після als артикль не ставиться.',
-          'als + meslek, bei + firma: Ich arbeite als Verkäuferin (satış elemanı olarak). Ich arbeite bei der Bäckerei Sonnenkorn (fırında). Birlikte: Ich arbeite als Verkäuferin bei Sonnenkorn. als’tan sonra artikel gelmez.',
-        ],
-        hint: ['Beruf → als. Firma → bei.', 'Job → als. Company → bei.', 'Профессия → als. Фирма → bei.', 'Професія → als. Фірма → bei.', 'Meslek → als. Firma → bei.'],
-      },
+  "id": "p1_alsbei",
+  "rule": "als + Beruf, bei + Firma: Ich arbeite als Verkäufer. Ich arbeite bei der Bäckerei Sonnenkorn. Zusammen: Ich arbeite als Verkäufer bei Sonnenkorn. Nach als steht kein Artikel.",
+  "examples": [
+    "Dilara arbeitet als Köchin.",
+    "Mateo arbeitet bei Elektro Brandt.",
+    "Ich arbeite als Fahrer bei einer Spedition."
+  ],
+  "highlight": null,
+  "t": [
+    "als + job, bei + company: Ich arbeite als Verkäufer (as a salesman). Ich arbeite bei der Bäckerei Sonnenkorn (at/for the bakery). Together: Ich arbeite als Verkäufer bei Sonnenkorn. There is no article after als.",
+    "als + профессия, bei + фирма: Ich arbeite als Verkäufer (продавцом). Ich arbeite bei der Bäckerei Sonnenkorn (в пекарне). Вместе: Ich arbeite als Verkäufer bei Sonnenkorn. После als артикль не ставится.",
+    "als + професія, bei + фірма: Ich arbeite als Verkäufer (продавцем). Ich arbeite bei der Bäckerei Sonnenkorn (у пекарні). Разом: Ich arbeite als Verkäufer bei Sonnenkorn. Після als артикль не ставиться.",
+    "als + meslek, bei + firma: Ich arbeite als Verkäufer (satış elemanı olarak). Ich arbeite bei der Bäckerei Sonnenkorn (fırında). Birlikte: Ich arbeite als Verkäufer bei Sonnenkorn. als’tan sonra artikel gelmez."
+  ],
+  "hint": [
+    "Beruf → als. Firma → bei.",
+    "Job → als. Company → bei.",
+    "Профессия → als. Фирма → bei.",
+    "Професія → als. Фірма → bei.",
+    "Meslek → als. Firma → bei."
+  ]
+},
       ex: [
         mc('G2', 'als und bei', I.choose, 'Pawel ist Fahrer. Seine Firma heißt Nordweg. Was sagt er?', ['Ich arbeite als Fahrer bei Nordweg.', 'Ich arbeite bei Fahrer als Nordweg.', 'Ich arbeite als Nordweg bei Fahrer.'],
           ['Pawel is a driver. His company is called Nordweg. What does he say?', 'Pawel – водитель. Его фирма называется Nordweg. Что он говорит?', 'Pawel – водій. Його фірма називається Nordweg. Що він каже?', 'Pawel şoför. Firmasının adı Nordweg. Ne diyor?']),
@@ -179,23 +189,32 @@ const path = {
       title: 'Früher und heute',
       t: ['Then and now', 'Раньше и сегодня', 'Раніше і сьогодні', 'Eskiden ve bugün'],
       card: {
-        id: 'p1_exp',
-        rule: 'Über Berufserfahrungen sprechen: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß. Der Job war nicht einfach. Die Chefin war sehr nett. Die Kollegen waren freundlich. Noch keine Erfahrung? Ich habe noch keine Berufserfahrung.',
-        examples: ['Früher war ich Taxifahrer in Izmir.', 'Die Arbeit war interessant und die Kollegen waren nett.', 'Ich hatte wenig Arbeit und keinen Spaß.'],
-        highlight: null,
-        t: [
-          'Talking about work experience: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (a lot of fun). Der Job war nicht einfach. Die Chefin war sehr nett. Die Kollegen waren freundlich. No experience yet? Ich habe noch keine Berufserfahrung.',
-          'Как говорить об опыте работы: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (много удовольствия). Der Job war nicht einfach. Die Chefin war sehr nett. Die Kollegen waren freundlich. Ещё нет опыта? Ich habe noch keine Berufserfahrung.',
-          'Як говорити про досвід роботи: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (багато задоволення). Der Job war nicht einfach. Die Chefin war sehr nett. Die Kollegen waren freundlich. Ще немає досвіду? Ich habe noch keine Berufserfahrung.',
-          'İş deneyiminden söz etme: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (çok keyif). Der Job war nicht einfach. Die Chefin war sehr nett. Die Kollegen waren freundlich. Henüz deneyim yok mu? Ich habe noch keine Berufserfahrung.',
-        ],
-        hint: ['Früher = Präteritum: war, hatte. Heute = Präsens: bin, habe.', 'Then = past: war, hatte. Now = present: bin, habe.', 'Раньше = прошедшее время: war, hatte. Сегодня = настоящее: bin, habe.', 'Раніше = минулий час: war, hatte. Сьогодні = теперішній: bin, habe.', 'Eskiden = geçmiş zaman: war, hatte. Bugün = şimdiki zaman: bin, habe.'],
-      },
+  "id": "p1_exp",
+  "rule": "Über Berufserfahrungen sprechen: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß. Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Noch keine Erfahrung? Ich habe noch keine Berufserfahrung.",
+  "examples": [
+    "Früher war ich Taxifahrer in Izmir.",
+    "Die Arbeit war interessant und die Kollegen waren nett.",
+    "Ich hatte wenig Arbeit und keinen Spaß."
+  ],
+  "highlight": null,
+  "t": [
+    "Talking about work experience: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (a lot of fun). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. No experience yet? Ich habe noch keine Berufserfahrung.",
+    "Как говорить об опыте работы: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (много удовольствия). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Ещё нет опыта? Ich habe noch keine Berufserfahrung.",
+    "Як говорити про досвід роботи: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (багато задоволення). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Ще немає досвіду? Ich habe noch keine Berufserfahrung.",
+    "İş deneyiminden söz etme: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (çok keyif). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Henüz deneyim yok mu? Ich habe noch keine Berufserfahrung."
+  ],
+  "hint": [
+    "Früher = Präteritum: war, hatte. Heute = Präsens: bin, habe.",
+    "Then = past: war, hatte. Now = present: bin, habe.",
+    "Раньше = прошедшее время: war, hatte. Сегодня = настоящее: bin, habe.",
+    "Раніше = минулий час: war, hatte. Сьогодні = теперішній: bin, habe.",
+    "Eskiden = geçmiş zaman: war, hatte. Bugün = şimdiki zaman: bin, habe."
+  ]
+},
       ex: [
         mc('K3', 'Arbeit bewerten', I.react, '„Wie war dein Job im Hotel?“', ['Er war gut, die Kollegen waren sehr nett.', 'Ich bin im Hotel.', 'Das Hotel ist groß.'],
           ['“How was your job at the hotel?”', '«Как тебе работалось в отеле?»', '«Як тобі працювалося в готелі?»', '“Oteldeki işin nasıldı?”']),
-        mc('K3', 'Berufserfahrung', I.choose, 'Lena sucht ihre erste Stelle. Was sagt sie?', ['Ich habe noch keine Berufserfahrung.', 'Ich hatte viele Jahre Arbeit.', 'Ich war zehn Jahre Chefin.'],
-          ['Lena is looking for her first job. What does she say?', 'Lena ищет свою первую работу. Что она говорит?', 'Lena шукає свою першу роботу. Що вона каже?', 'Lena ilk işini arıyor. Ne diyor?']),
+        mc("K3", "Berufserfahrung", I.choose, "Leon sucht seine erste Stelle. Was sagt er?", ["Ich habe noch keine Berufserfahrung.","Ich hatte viele Jahre Arbeit.","Ich war zehn Jahre Chef."], ["Leon is looking for his first job. What does he say?","Leon ищет свою первую работу. Что он говорит?","Leon шукає свою першу роботу. Що він каже?","Leon ilk işini arıyor. Ne diyor?"], {"c":"p1_exp"}),
         mc('K3', 'frühere Berufe', I.read, 'Tarek schreibt: „In Syrien war ich Lehrer. Die Arbeit war schön, aber ich hatte sehr viele Schüler. Jetzt arbeite ich als Busfahrer.“ Was war Tarek früher von Beruf?', ['Lehrer', 'Busfahrer', 'Schüler'],
           ['What was Tarek’s job before?', 'Кем Tarek работал раньше?', 'Ким Tarek працював раніше?', 'Tarek eskiden ne iş yapıyordu?']),
         gap('K3', 'Arbeit bewerten', I.word, 'Die Arbeit im Café war toll. Ich hatte viel ', '.', 'Spaß', ['Chef', 'Beruf'],

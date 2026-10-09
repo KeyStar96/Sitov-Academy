@@ -145,21 +145,37 @@ const path = {
       title: 'mir, dir, ihm, ihr',
       t: ['mir, dir, ihm, ihr (dative pronouns)', 'mir, dir, ihm, ihr (местоимения в Dativ)', 'mir, dir, ihm, ihr (займенники в Dativ)', 'mir, dir, ihm, ihr (Dativ zamirleri)'],
       card: {
-        id: 'p6_dativ',
-        rule: 'Personalpronomen im Dativ: ich → mir, du → dir, er/es → ihm, sie → ihr, wir → uns, ihr → euch, sie → ihnen, Sie → Ihnen. Die Frage heißt: Wem? Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.',
-        examples: ['Gefällt dir die Jacke? – Ja, sie gefällt mir.', 'Das ist Emre. Der Pullover passt ihm gut.', 'Wie geht es Ihnen, Frau Kaya?'],
-        highlight: null,
-        t: [
-          'Personal pronouns in the dative: ich → mir, du → dir, er/es → ihm, sie → ihr, wir → uns, ihr → euch, sie → ihnen, Sie → Ihnen. The question is: Wem? (to whom?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.',
-          'Личные местоимения в Dativ: ich → mir (мне), du → dir (тебе), er/es → ihm (ему), sie → ihr (ей), wir → uns (нам), ihr → euch (вам), sie → ihnen (им), Sie → Ihnen (Вам). Вопрос: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.',
-          'Особові займенники в Dativ: ich → mir (мені), du → dir (тобі), er/es → ihm (йому), sie → ihr (їй), wir → uns (нам), ihr → euch (вам), sie → ihnen (їм), Sie → Ihnen (Вам). Запитання: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.',
-          'Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.',
-        ],
-        hint: ['Wem? → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.', 'Wem? → dative: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.', 'Wem? (кому?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.', 'Wem? (кому?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.', 'Wem? (kime?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.'],
-        hints: {
-          who: ['Über wen sprichst du? Ein Mann → ihm, eine Frau → ihr, mehrere Personen → ihnen.', 'Who are you talking about? A man → ihm, a woman → ihr, several people → ihnen.', 'О ком вы говорите? Мужчина → ihm, женщина → ihr, несколько человек → ihnen.', 'Про кого ви говорите? Чоловік → ihm, жінка → ihr, кілька людей → ihnen.', 'Kimden söz ediyorsunuz? Erkek → ihm, kadın → ihr, birden fazla kişi → ihnen.'],
-        },
-      },
+  "id": "p6_dativ",
+  "rule": "Personalpronomen im Dativ: ich → mir, du → dir, er/es → ihm, sie → ihr, wir → uns, ihr → euch, sie → ihnen, Sie → Ihnen. Die Frage heißt: Wem? Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+  "examples": [
+    "Gefällt dir die Jacke? – Ja, sie gefällt mir.",
+    "Das ist Emre. Der Pullover passt ihm gut.",
+    "Wie geht es Ihnen, Herr Kaya?"
+  ],
+  "highlight": null,
+  "t": [
+    "Personal pronouns in the dative: ich → mir, du → dir, er/es → ihm, sie → ihr, wir → uns, ihr → euch, sie → ihnen, Sie → Ihnen. The question is: Wem? (to whom?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+    "Личные местоимения в Dativ: ich → mir (мне), du → dir (тебе), er/es → ihm (ему), sie → ihr (ей), wir → uns (нам), ihr → euch (вам), sie → ihnen (им), Sie → Ihnen (Вам). Вопрос: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+    "Особові займенники в Dativ: ich → mir (мені), du → dir (тобі), er/es → ihm (йому), sie → ihr (їй), wir → uns (нам), ihr → euch (вам), sie → ihnen (їм), Sie → Ihnen (Вам). Запитання: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+    "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr."
+  ],
+  "hint": [
+    "Wem? → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
+    "Wem? → dative: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
+    "Wem? (кому?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
+    "Wem? (кому?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
+    "Wem? (kime?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen."
+  ],
+  "hints": {
+    "who": [
+      "Über wen sprichst du? Ein Mann → ihm, eine Frau → ihr, mehrere Personen → ihnen.",
+      "Who are you talking about? A man → ihm, a woman → ihr, several people → ihnen.",
+      "О ком вы говорите? Мужчина → ihm, женщина → ihr, несколько человек → ihnen.",
+      "Про кого ви говорите? Чоловік → ihm, жінка → ihr, кілька людей → ihnen.",
+      "Kimden söz ediyorsunuz? Erkek → ihm, kadın → ihr, birden fazla kişi → ihnen."
+    ]
+  }
+},
       ex: [
         mc('G3', 'mir', I.choose, 'Ich finde die Schuhe toll. Sie gefallen … sehr.', ['mir', 'mich', 'ich'],
           ['I think the shoes are great. I like them a lot.', 'Мне очень нравятся эти туфли.', 'Мені дуже подобаються ці туфлі.', 'Ayakkabıları harika buluyorum. Çok hoşuma gidiyorlar.']),
@@ -169,12 +185,10 @@ const path = {
           ['Ms Aksoy, do you like the dress?', 'Госпожа Aksoy, вам нравится это платье?', 'Пані Aksoy, вам подобається ця сукня?', 'Aksoy Hanım, elbise hoşunuza gidiyor mu?']),
         gap('G3', 'dir', I.pronoun, 'Du siehst toll aus! Der Mantel steht ', ' sehr gut.', 'dir', ['dich', 'du'],
           ['You look great! The coat really suits you.', 'Ты отлично выглядишь! Пальто тебе очень идёт.', 'Ти чудово виглядаєш! Пальто тобі дуже личить.', 'Harika görünüyorsun! Palto sana çok yakışıyor.'], 'du'),
-        gap('G3', 'ihr', I.pronoun, 'Lena probiert eine Bluse. Die Bluse gefällt ', '.', 'ihr', ['ihm', 'sie'],
-          ['Lena is trying on a blouse. She likes the blouse.', 'Lena примеряет блузку. Блузка ей нравится.', 'Lena приміряє блузку. Блузка їй подобається.', 'Lena bir bluz deniyor. Bluz hoşuna gidiyor.'], 'sie', { h: 'who' }),
+        gap("G3", "ihr", I.pronoun, "Ergänze das Dativpronomen zu „sie (Singular)“: Die Bluse gefällt ", ".", "ihr", ["ihm","sie"], ["Complete the dative pronoun for sie (singular): Die Bluse gefällt …","Дополните местоимение в дательном падеже для sie (ед. число): Die Bluse gefällt …","Доповніть займенник у давальному відмінку для sie (однина): Die Bluse gefällt …","sie (tekil) için datif zamirini tamamlayın: Die Bluse gefällt …"], "sie", {"h":"who","c":"p6_dativ"}),
         gap('G3', 'uns', I.pronoun, 'Wir kaufen die Schuhe. Sie gefallen ', '.', 'uns', ['wir', 'euch'],
           ['We are buying the shoes. We like them.', 'Мы покупаем эти туфли. Они нам нравятся.', 'Ми купуємо ці туфлі. Вони нам подобаються.', 'Ayakkabıları alıyoruz. Hoşumuza gidiyorlar.'], 'wir'),
-        gap('G3', 'euch', I.pronoun, 'Tim und Mia, gefällt ', ' das Geschenk?', 'euch', ['ihr', 'uns'],
-          ['Tim and Mia, do you like the present?', 'Tim и Mia, вам нравится подарок?', 'Tim і Mia, вам подобається подарунок?', 'Tim ve Mia, hediye hoşunuza gidiyor mu?'], 'ihr'),
+        gap("G3", "euch", I.pronoun, "Tim und Milan, gefällt ", " das Geschenk?", "euch", ["uns","ihr"], ["Tim and Milan, do you like the present?","Tim и Milan, вам нравится подарок?","Tim і Milan, вам подобається подарунок?","Tim ve Milan, hediye hoşunuza gidiyor mu?"], "ihr", {"c":"p6_dativ"}),
         gap('G3', 'ihnen', I.pronoun, 'Meine Eltern mögen Fisch. Fisch schmeckt ', ' gut.', 'ihnen', ['ihm', 'sie'],
           ['My parents like fish. Fish tastes good to them.', 'Мои родители любят рыбу. Рыба им нравится.', 'Мої батьки люблять рибу. Риба їм смакує.', 'Annemle babam balığı sever. Balık onlara lezzetli geliyor.'], 'sie (Plural)', { h: 'who' }),
         gap('G3', 'ihm', I.pronoun, 'Mein Bruder ist groß. Die Hose ist ', ' zu kurz.', 'ihm', ['ihr', 'er'],

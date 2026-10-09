@@ -55,9 +55,7 @@ const path = {
         gap('W1', 'Cousin', I.word, 'Der Sohn von meinem Onkel ist mein ', '.', 'Cousin', ['Neffe', 'Enkel'],
           ['My uncle’s son is my cousin.', 'Сын моего дяди – это мой двоюродный брат.', 'Син мого дядька – це мій двоюрідний брат.', 'Amcamın oğlu benim kuzenim.'],
           ['cousin (male)', 'двоюродный брат', 'двоюрідний брат', 'kuzen (erkek)']),
-        gap('W1', 'Enkelin', I.word, 'Oma Marta liebt Mia sehr. Mia ist die Tochter von ihrem Sohn, also ihre ', '.', 'Enkelin', ['Nichte', 'Schwägerin'],
-          ['Grandma Marta loves Mia very much. Mia is her son’s daughter, so she is her granddaughter.', 'Бабушка Marta очень любит Mia. Mia – дочь её сына, то есть её внучка.', 'Бабуся Marta дуже любить Mia. Mia – донька її сина, тобто її онука.', 'Marta nine Mia’yı çok seviyor. Mia onun oğlunun kızı, yani kız torunu.'],
-          ['granddaughter', 'внучка', 'онука', 'kız torun']),
+        gap("W1", "Enkelin", I.word, "Die Tochter eines Sohnes oder einer Tochter ist für die Großeltern ihre ", ".", "Enkelin", ["Nichte","Schwägerin"], ["A son’s or daughter’s daughter is the grandparents’ …","Дочь сына или дочери для бабушки и дедушки — их …","Донька сина чи доньки для бабусі й дідуся — їхня …","Bir oğlun ya da kızın kız çocuğu, büyükanne ve büyükbabanın … olur."], ["granddaughter","внучка","онука","kız torun"], {"c":"p1_familie","hint":["Überleg: Welche Beziehung besteht zwischen den Personen – zum Beispiel zwischen Großeltern und den Kindern ihrer Kinder?","Think about the relationship between the people, for example between grandparents and their children’s children.","Подумайте о родственной связи между людьми, например между бабушкой и дедушкой и детьми их детей.","Подумайте про родинний зв’язок між людьми, наприклад між бабусею й дідусем і дітьми їхніх дітей.","Kişiler arasındaki akrabalık ilişkisini düşünün; örneğin büyükanne ve büyükbaba ile çocuklarının çocukları arasındaki ilişkiyi."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
         gap('W1', 'Schwager', I.word, 'Der Mann von meiner Schwester ist mein ', '.', 'Schwager', ['Neffe', 'Onkel'],
           ['My sister’s husband is my brother-in-law.', 'Муж моей сестры – это мой зять.', 'Чоловік моєї сестри – це мій зять.', 'Kız kardeşimin kocası benim eniştem.'],
           ['brother-in-law', 'зять (муж сестры)', 'зять (чоловік сестри)', 'enişte']),
@@ -70,42 +68,48 @@ const path = {
       title: 'Annas Mutter',
       t: ['Anna’s mother', 'Мама Анны', 'Мама Анни', 'Anna’nın annesi'],
       card: {
-        id: 'p1_genitiv',
-        rule: 'Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.',
-        examples: ['Das ist Lenas Cousin.', 'Das ist der Cousin von Lena.', 'Die Wohnung von meiner Tante ist groß.'],
-        highlight: null,
-        t: [
-          'Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.',
-          'Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.',
-          'Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.',
-          'Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.',
-        ],
-        hint: ['Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.', 'Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.', 'Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.', 'Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.', 'İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.'],
-        hints: {
-          dative: ['Nach von steht der Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.', 'von takes the dative: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.', 'После von стоит Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.', 'Після von стоїть Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.', 'von’dan sonra Dativ gelir: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.'],
-        },
-      },
+  "id": "p1_genitiv",
+  "rule": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+  "examples": [
+    "Das ist Leons Cousin.",
+    "Das ist der Cousin von Leon.",
+    "Die Wohnung von meiner Tante ist groß."
+  ],
+  "highlight": null,
+  "t": [
+    "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  ],
+  "hint": [
+    "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+    "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante."
+  ],
+  "hints": {
+    "dative": [
+      "Nach von steht der Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
+      "von takes the dative: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
+      "После von стоит Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
+      "Після von стоїть Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
+      "von’dan sonra Dativ gelir: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern."
+    ]
+  }
+},
       ex: [
-        mc('G5', 'Name + s', I.choose, 'Das ist die Mutter von Anna. = Das ist …', ['Annas Mutter', 'Anna Mutter', 'Mutters Anna'],
-          ['This is the mother of Anna. = This is …', 'Это мама Анны. = Это …', 'Це мама Анни. = Це …', 'Bu Anna’nın annesi. = Bu …']),
-        mc('G5', 'Name + s', I.choose, 'Das Auto gehört Paul. Das ist …', ['Pauls Auto', 'Paul Auto', 'Autos Paul'],
-          ['The car belongs to Paul. It is …', 'Машина принадлежит Paul. Это …', 'Машина належить Paul. Це …', 'Araba Paul’a ait. Bu …']),
-        mc('G5', 'von + Dativ', I.choose, 'Das ist das Fahrrad … meinem Bruder.', ['von', 'bei', 'aus'],
-          ['This is my brother’s bike.', 'Это велосипед моего брата.', 'Це велосипед мого брата.', 'Bu erkek kardeşimin bisikleti.'], { h: 'dative' }),
-        mc('G5', 'Name + s', I.sentence, 'Mia zeigt ein Familienfoto.', ['Das ist Lenas Onkel.', 'Das ist Lena Onkel.', 'Das ist der Lenas Onkel.'],
-          ['Mia is showing a family photo.', 'Mia показывает семейное фото.', 'Mia показує сімейне фото.', 'Mia bir aile fotoğrafı gösteriyor.']),
-        gap('G5', 'Name + s', I.form, 'Das ist der Bruder von Emre. Das ist ', ' Bruder.', 'Emres', ['Emre', 'Emren'],
-          ['This is the brother of Emre. This is Emre’s brother.', 'Это брат Emre. Скажите то же самое по-другому: имя + s.', 'Це брат Emre. Скажіть те саме по-іншому: ім’я + s.', 'Bu Emre’nin erkek kardeşi. Aynı şeyi başka biçimde söyleyin: isim + s.'], 'Emre'),
-        gap('G5', 'Name + s', I.form, 'Die Tochter von Olga heißt Mia. ', ' Tochter heißt Mia.', 'Olgas', ['Olga', 'Olgan'],
-          ['Olga’s daughter is called Mia.', 'Дочь Olga зовут Mia.', 'Доньку Olga звати Mia.', 'Olga’nın kızının adı Mia.'], 'Olga'),
-        gap('G5', 'von', I.prep, 'Das ist die Wohnung ', ' meiner Tante.', 'von', ['bei', 'mit'],
-          ['This is my aunt’s flat.', 'Это квартира моей тёти.', 'Це квартира моєї тітки.', 'Bu teyzemin dairesi.'], 'von / bei / mit', { h: 'dative' }),
-        gap('G5', 'von + Dativ', I.possessive, 'Das ist das Zimmer von ', ' Schwester.', 'meiner', ['meine', 'meinem'],
-          ['This is my sister’s room.', 'Это комната моей сестры.', 'Це кімната моєї сестри.', 'Bu kız kardeşimin odası.'], 'mein', { h: 'dative' }),
-        gap('G5', 'von + Dativ', I.possessive, 'Das sind die Kinder von ', ' Bruder.', 'meinem', ['meinen', 'meiner'],
-          ['These are my brother’s children.', 'Это дети моего брата.', 'Це діти мого брата.', 'Bunlar erkek kardeşimin çocukları.'], 'mein', { h: 'dative' }),
-        sb('G5', 'Name + s', I.order, 'Das / ist / Annas / Schwager.',
-          ['This is Anna’s brother-in-law.', 'Это зять Анны.', 'Це зять Анни.', 'Bu Anna’nın eniştesi.']),
+        mc("G5", "Name + s", I.choose, "Das ist die Mutter von Anna. = Das ist …", ["Annas Mutter","Anna Mutter","Mutters Anna"], ["This is the mother of Anna. = This is …","Это мама Анны. = Это …","Це мама Анни. = Це …","Bu Anna’nın annesi. = Bu …"], {"c":"p1_genitiv","explanation":["Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
+        mc("G5", "Name + s", I.choose, "Das Auto gehört Paul. Das ist …", ["Pauls Auto","Paul Auto","Autos Paul"], ["The car belongs to Paul. It is …","Машина принадлежит Paul. Это …","Машина належить Paul. Це …","Araba Paul’a ait. Bu …"], {"c":"p1_genitiv","explanation":["Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
+        mc("G5", "von + Dativ", I.choose, "Das ist das Fahrrad … meinem Bruder.", ["von","bei","aus"], ["This is my brother’s bike.","Это велосипед моего брата.","Це велосипед мого брата.","Bu erkek kardeşimin bisikleti."], {"h":"dative","c":"p1_genitiv","explanation":["Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
+        mc("G5", "Name + s", I.sentence, "Milan zeigt ein Familienfoto.", ["Das ist Leons Onkel.","Das ist Leon Onkel.","Das ist der Leons Onkel."], ["Milan is showing a family photo.","Milan показывает семейное фото.","Milan показує сімейне фото.","Milan bir aile fotoğrafı gösteriyor."], {"c":"p1_genitiv","hint":["Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.","Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante.","Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.","Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.","İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
+        gap("G5", "Name + s", I.form, "Das ist der Bruder von Emre. Das ist ", " Bruder.", "Emres", ["Emre","Emren"], ["This is the brother of Emre. This is Emre’s brother.","Это брат Emre. Скажите то же самое по-другому: имя + s.","Це брат Emre. Скажіть те саме по-іншому: ім’я + s.","Bu Emre’nin erkek kardeşi. Aynı şeyi başka biçimde söyleyin: isim + s."], "Emre", {"c":"p1_genitiv","explanation":["Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
+        gap("G5", "Name + s", I.form, "Der Sohn von Oleg heißt Milan. ", " Sohn heißt Milan.", "Olegs", ["Olegn","Oleg"], ["Oleg’s son is called Milan.","Сына Oleg зовут Milan.","Сина Oleg звати Milan.","Oleg’in oğlunun adı Milan."], "Oleg", {"c":"p1_genitiv","hint":["Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.","Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante.","Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.","Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.","İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext.","sitovOptionOrder":["Olegs","Olegn","Oleg"]}),
+        gap("G5", "von", I.prep, "Das ist die Wohnung ", " meiner Tante.", "von", ["bei","mit"], ["This is my aunt’s flat.","Это квартира моей тёти.","Це квартира моєї тітки.","Bu teyzemin dairesi."], "von / bei / mit", {"h":"dative","c":"p1_genitiv","explanation":["Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
+        gap("G5", "von + Dativ", I.possessive, "Das ist das Zimmer von ", " Schwester.", "meiner", ["meine","meinem"], ["This is my sister’s room.","Это комната моей сестры.","Це кімната моєї сестри.","Bu kız kardeşimin odası."], "mein", {"h":"dative","c":"p1_genitiv","explanation":["Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
+        gap("G5", "von + Dativ", I.possessive, "Das sind die Kinder von ", " Bruder.", "meinem", ["meinen","meiner"], ["These are my brother’s children.","Это дети моего брата.","Це діти мого брата.","Bunlar erkek kardeşimin çocukları."], "mein", {"h":"dative","c":"p1_genitiv","explanation":["Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
+        sb("G5", "Name + s", I.order, "Das / ist / Annas / Schwager.", ["This is Anna’s brother-in-law.","Это зять Анны.","Це зять Анни.","Bu Anna’nın eniştesi."], {"c":"p1_genitiv","explanation":["Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.","Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."],"overrideReason":"Bewahrt den freigegebenen aufgabenspezifischen Text; die gemeinsame Merkkarte hat einen anderen didaktischen Kontext."}),
       ],
     },
     {
@@ -154,25 +158,34 @@ const path = {
       title: 'weil',
       t: ['weil (because)', 'weil (потому что)', 'weil (тому що)', 'weil (çünkü)'],
       card: {
-        id: 'p1_weil',
-        rule: 'weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.',
-        examples: ['Lena lernt Deutsch, weil sie in Berlin arbeitet.', 'Ich nehme den Bus, weil mein Auto kaputt ist.', 'Warum bist du müde? – Weil ich wenig schlafe.'],
-        highlight: 'verb',
-        t: [
-          'weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.',
-          'weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.',
-          'weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.',
-          'weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.',
-        ],
-        hint: ['Nach weil steht das Verb am Ende: …, weil ich krank bin.', 'After weil the verb goes to the end: …, weil ich krank bin.', 'После weil глагол стоит в конце: …, weil ich krank bin.', 'Після weil дієслово стоїть у кінці: …, weil ich krank bin.', 'weil’den sonra fiil sonda durur: …, weil ich krank bin.'],
-      },
+  "id": "p1_weil",
+  "rule": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+  "examples": [
+    "Leon lernt Deutsch, weil er in Berlin arbeitet.",
+    "Ich nehme den Bus, weil mein Auto kaputt ist.",
+    "Warum bist du müde? – Weil ich wenig schlafe."
+  ],
+  "highlight": "verb",
+  "t": [
+    "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+    "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+    "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+    "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe."
+  ],
+  "hint": [
+    "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
+    "After weil the verb goes to the end: …, weil ich krank bin.",
+    "После weil глагол стоит в конце: …, weil ich krank bin.",
+    "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
+    "weil’den sonra fiil sonda durur: …, weil ich krank bin."
+  ]
+},
       ex: [
         mc('G1', 'Verb am Ende', I.sentence, 'Paul erklärt, warum er nichts isst.', ['Ich esse nichts, weil ich keinen Hunger habe.', 'Ich esse nichts, weil ich habe keinen Hunger.', 'Ich esse nichts, weil habe ich keinen Hunger.'],
           ['Paul explains why he is not eating anything.', 'Paul объясняет, почему он ничего не ест.', 'Paul пояснює, чому він нічого не їсть.', 'Paul neden hiçbir şey yemediğini açıklıyor.']),
         mc('G1', 'Warum? – Weil …', I.react, '„Warum lernst du Deutsch?“', ['Weil ich in Deutschland arbeite.', 'Weil ich arbeite in Deutschland.', 'Weil arbeite ich in Deutschland.'],
           ['“Why are you learning German?”', '«Почему ты учишь немецкий?»', '«Чому ти вчиш німецьку?»', '“Neden Almanca öğreniyorsun?”']),
-        mc('G1', 'Verb am Ende', I.choose, 'Mia geht nicht zur Party. Sie ist müde. → Mia geht nicht zur Party, …', ['weil sie müde ist.', 'weil sie ist müde.', 'weil ist sie müde.'],
-          ['Mia is not going to the party. She is tired. → Mia is not going to the party because she is tired.', 'Mia не идёт на вечеринку. Она устала. → Mia не идёт на вечеринку, потому что устала.', 'Mia не йде на вечірку. Вона втомилася. → Mia не йде на вечірку, тому що втомилася.', 'Mia partiye gitmiyor. Yorgun. → Mia partiye gitmiyor, çünkü yorgun.']),
+        mc("G1", "Verb am Ende", I.choose, "Milan geht nicht zur Party. Er ist müde. → Milan geht nicht zur Party, …", ["weil er müde ist.","weil er ist müde.","weil ist er müde."], ["Milan is not going to the party. He is tired. → Milan is not going to the party because he is tired.","Milan не идёт на вечеринку. Он устал. → Milan не идёт на вечеринку, потому что устал.","Milan не йде на вечірку. Він втомився. → Milan не йде на вечірку, тому що втомився.","Milan partiye gitmiyor. Yorgun. → Milan partiye gitmiyor, çünkü yorgun."], {"c":"p1_weil","sitovOptionOrder":["weil er ist müde.","weil ist er müde.","weil er müde ist."]}),
         mc('G1', 'weil', I.choose, 'Ich nehme den Bus, … mein Fahrrad kaputt ist.', ['weil', 'aber', 'und'],
           ['I am taking the bus because my bike is broken.', 'Я еду на автобусе, потому что мой велосипед сломан.', 'Я їду автобусом, тому що мій велосипед зламаний.', 'Otobüse biniyorum, çünkü bisikletim bozuk.']),
         gap('G1', 'weil', I.conjunction, 'Wir bleiben heute zu Hause, ', ' es regnet.', 'weil', ['aber', 'oder'],
@@ -192,21 +205,37 @@ const path = {
       title: 'Warum? – Weil ich arbeiten muss.',
       t: ['Why? – Because I have to work.', 'Почему? – Потому что мне нужно работать.', 'Чому? – Тому що мені треба працювати.', 'Neden? – Çünkü çalışmam gerekiyor.'],
       card: {
-        id: 'p1_weil2',
-        rule: 'Im weil-Satz stehen alle Verbteile am Ende. Mit Modalverb: Infinitiv + Modalverb: …, weil ich arbeiten muss. Im Perfekt: Partizip + haben oder sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Trennbare Verben schreibt man zusammen: …, weil er früh aufsteht.',
-        examples: ['Ich komme nicht, weil ich lernen muss.', 'Sie ist müde, weil sie schlecht geschlafen hat.', 'Er hat Hunger, weil er nie frühstückt.'],
-        highlight: 'verb',
-        t: [
-          'In a weil clause all parts of the verb go to the end. With a modal verb: infinitive + modal verb: …, weil ich arbeiten muss. In the perfect tense: participle + haben or sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Separable verbs are written as one word: …, weil er früh aufsteht.',
-          'В предложении с weil все части сказуемого стоят в конце. С модальным глаголом: инфинитив + модальный глагол: …, weil ich arbeiten muss. В Perfekt: причастие + haben или sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Глаголы с отделяемой приставкой пишутся слитно: …, weil er früh aufsteht.',
-          'У реченні з weil усі частини присудка стоять у кінці. З модальним дієсловом: інфінітив + модальне дієслово: …, weil ich arbeiten muss. У Perfekt: дієприкметник + haben або sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Дієслова з відокремлюваним префіксом пишуться разом: …, weil er früh aufsteht.',
-          'weil cümlesinde fiilin bütün parçaları sonda durur. Kip fiiliyle: mastar + kip fiili: …, weil ich arbeiten muss. Perfekt’te: Partizip + haben ya da sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Ayrılabilen fiiller bitişik yazılır: …, weil er früh aufsteht.',
-        ],
-        hint: ['Alle Verbteile ans Ende – das konjugierte Verb ganz zum Schluss: arbeiten muss, verpasst habe.', 'All verb parts go to the end – the conjugated verb comes last: arbeiten muss, verpasst habe.', 'Все части сказуемого – в конец, спрягаемый глагол самый последний: arbeiten muss, verpasst habe.', 'Усі частини присудка – в кінець, відмінюване дієслово останнє: arbeiten muss, verpasst habe.', 'Fiilin bütün parçaları sona gelir – çekimli fiil en sonda: arbeiten muss, verpasst habe.'],
-        hints: {
-          aux: ['Perfekt: Bewegung von A nach B (kommen, fahren, gehen) → sein. Sonst meistens haben.', 'Perfect tense: movement from A to B (kommen, fahren, gehen) → sein. Otherwise usually haben.', 'Perfekt: движение из A в B (kommen, fahren, gehen) → sein. В остальных случаях обычно haben.', 'Perfekt: рух з A в B (kommen, fahren, gehen) → sein. В інших випадках зазвичай haben.', 'Perfekt: A’dan B’ye hareket (kommen, fahren, gehen) → sein. Diğer durumlarda genellikle haben.'],
-        },
-      },
+  "id": "p1_weil2",
+  "rule": "Im weil-Satz stehen alle Verbteile am Ende. Mit Modalverb: Infinitiv + Modalverb: …, weil ich arbeiten muss. Im Perfekt: Partizip + haben oder sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Trennbare Verben schreibt man zusammen: …, weil er früh aufsteht.",
+  "examples": [
+    "Ich komme nicht, weil ich lernen muss.",
+    "Er ist müde, weil er schlecht geschlafen hat.",
+    "Er hat Hunger, weil er nie frühstückt."
+  ],
+  "highlight": "verb",
+  "t": [
+    "In a weil clause all parts of the verb go to the end. With a modal verb: infinitive + modal verb: …, weil ich arbeiten muss. In the perfect tense: participle + haben or sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Separable verbs are written as one word: …, weil er früh aufsteht.",
+    "В предложении с weil все части сказуемого стоят в конце. С модальным глаголом: инфинитив + модальный глагол: …, weil ich arbeiten muss. В Perfekt: причастие + haben или sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Глаголы с отделяемой приставкой пишутся слитно: …, weil er früh aufsteht.",
+    "У реченні з weil усі частини присудка стоять у кінці. З модальним дієсловом: інфінітив + модальне дієслово: …, weil ich arbeiten muss. У Perfekt: дієприкметник + haben або sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Дієслова з відокремлюваним префіксом пишуться разом: …, weil er früh aufsteht.",
+    "weil cümlesinde fiilin bütün parçaları sonda durur. Kip fiiliyle: mastar + kip fiili: …, weil ich arbeiten muss. Perfekt’te: Partizip + haben ya da sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Ayrılabilen fiiller bitişik yazılır: …, weil er früh aufsteht."
+  ],
+  "hint": [
+    "Alle Verbteile ans Ende – das konjugierte Verb ganz zum Schluss: arbeiten muss, verpasst habe.",
+    "All verb parts go to the end – the conjugated verb comes last: arbeiten muss, verpasst habe.",
+    "Все части сказуемого – в конец, спрягаемый глагол самый последний: arbeiten muss, verpasst habe.",
+    "Усі частини присудка – в кінець, відмінюване дієслово останнє: arbeiten muss, verpasst habe.",
+    "Fiilin bütün parçaları sona gelir – çekimli fiil en sonda: arbeiten muss, verpasst habe."
+  ],
+  "hints": {
+    "aux": [
+      "Perfekt: Bewegung von A nach B (kommen, fahren, gehen) → sein. Sonst meistens haben.",
+      "Perfect tense: movement from A to B (kommen, fahren, gehen) → sein. Otherwise usually haben.",
+      "Perfekt: движение из A в B (kommen, fahren, gehen) → sein. В остальных случаях обычно haben.",
+      "Perfekt: рух з A в B (kommen, fahren, gehen) → sein. В інших випадках зазвичай haben.",
+      "Perfekt: A’dan B’ye hareket (kommen, fahren, gehen) → sein. Diğer durumlarda genellikle haben."
+    ]
+  }
+},
       ex: [
         mc('G1', 'mit Modalverb', I.choose, 'Emre kann nicht kommen. Er muss arbeiten. → Emre kann nicht kommen, …', ['weil er arbeiten muss.', 'weil er muss arbeiten.', 'weil muss er arbeiten.'],
           ['Emre cannot come. He has to work. → Emre cannot come because he has to work.', 'Emre не может прийти. Ему нужно работать. → Emre не может прийти, потому что ему нужно работать.', 'Emre не може прийти. Йому треба працювати. → Emre не може прийти, тому що йому треба працювати.', 'Emre gelemiyor. Çalışması gerekiyor. → Emre gelemiyor, çünkü çalışması gerekiyor.']),
@@ -218,12 +247,10 @@ const path = {
           ['“Because I am looking for my key.”', '«Потому что я ищу свой ключ».', '«Тому що я шукаю свій ключ».', '“Çünkü anahtarımı arıyorum.”']),
         gap('G1', 'mit Modalverb', I.modal, 'Ich gehe heute früh ins Bett, weil ich morgen früh aufstehen ', '.', 'muss', ['müssen', 'musst'],
           ['I am going to bed early today because I have to get up early tomorrow.', 'Сегодня я рано ложусь спать, потому что завтра мне рано вставать.', 'Сьогодні я рано лягаю спати, тому що завтра мені рано вставати.', 'Bugün erken yatıyorum, çünkü yarın erken kalkmam gerekiyor.'], 'müssen'),
-        gap('G1', 'im Perfekt', I.auxiliary, 'Lena kommt zu spät, weil sie den Bus verpasst ', '.', 'hat', ['ist', 'haben'],
-          ['Lena is late because she missed the bus.', 'Lena опаздывает, потому что пропустила автобус.', 'Lena запізнюється, тому що пропустила автобус.', 'Lena geç kalıyor, çünkü otobüsü kaçırdı.'], AUX, { h: 'aux' }),
+        gap("G1", "im Perfekt", I.auxiliary, "Leon kommt zu spät, weil er den Bus verpasst ", ".", "hat", ["haben","ist"], ["Leon is late because he missed the bus.","Leon опаздывает, потому что пропустил автобус.","Leon запізнюється, тому що пропустив автобус.","Leon geç kalıyor, çünkü otobüsü kaçırdı."], "haben / sein", {"h":"aux","c":"p1_weil2"}),
         gap('G1', 'im Perfekt', I.auxiliary, 'Wir sind müde, weil wir gestern spät nach Hause gekommen ', '.', 'sind', ['haben', 'seid'],
           ['We are tired because we came home late yesterday.', 'Мы устали, потому что вчера поздно пришли домой.', 'Ми втомилися, тому що вчора пізно прийшли додому.', 'Yorgunuz, çünkü dün eve geç geldik.'], AUX, { h: 'aux' }),
-        gap('G1', 'trennbares Verb', I.verb, 'Mia ist nicht zu Hause, weil sie gerade im Supermarkt ', '.', 'einkauft', ['kauft ein', 'einkaufen'],
-          ['Mia is not at home because she is shopping at the supermarket right now.', 'Mia нет дома, потому что она сейчас делает покупки в супермаркете.', 'Mia немає вдома, тому що вона зараз купує продукти в супермаркеті.', 'Mia evde değil, çünkü şu anda süpermarkette alışveriş yapıyor.'], 'einkaufen'),
+        gap("G1", "trennbares Verb", I.verb, "Milan ist nicht zu Hause, weil er gerade im Supermarkt ", ".", "einkauft", ["kauft ein","einkaufen"], ["Milan is not at home because he is shopping at the supermarket right now.","Milan нет дома, потому что он сейчас делает покупки в супермаркете.","Milan немає вдома, тому що він зараз купує продукти в супермаркеті.","Milan evde değil, çünkü şu anda süpermarkette alışveriş yapıyor."], "einkaufen", {"c":"p1_weil2"}),
         sb('G1', 'mit Modalverb', I.order, 'Ich / komme / später, / weil / ich / noch / arbeiten / muss.',
           ['I am coming later because I still have to work.', 'Я приду позже, потому что мне ещё нужно поработать.', 'Я прийду пізніше, тому що мені ще треба попрацювати.', 'Daha sonra geleceğim, çünkü daha çalışmam gerekiyor.'],
           { alt: ['Weil ich noch arbeiten muss, komme ich später.'] }),
@@ -233,21 +260,37 @@ const path = {
       title: 'eingekauft, angerufen',
       t: ['eingekauft, angerufen (perfect tense of separable verbs)', 'eingekauft, angerufen (Perfekt глаголов с отделяемой приставкой)', 'eingekauft, angerufen (Perfekt дієслів із відокремлюваним префіксом)', 'eingekauft, angerufen (ayrılabilen fiillerin Perfekt’i)'],
       card: {
-        id: 'p1_trennbar',
-        rule: 'Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.',
-        examples: ['Ich habe gestern meine Tante angerufen.', 'Wir haben im Kurs viele Leute kennengelernt.', 'Heute bin ich zu spät aufgestanden.'],
-        highlight: 'verb',
-        t: [
-          'Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.',
-          'Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.',
-          'Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.',
-          'Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.',
-        ],
-        hint: ['Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.', 'Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.', 'Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.', 'Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.', 'Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.'],
-        hints: {
-          aux: ['Bewegung oder Veränderung (aufstehen, ankommen, einschlafen) → sein. Sonst → haben.', 'Movement or change (aufstehen, ankommen, einschlafen) → sein. Otherwise → haben.', 'Движение или изменение состояния (aufstehen, ankommen, einschlafen) → sein. Иначе → haben.', 'Рух або зміна стану (aufstehen, ankommen, einschlafen) → sein. Інакше → haben.', 'Hareket ya da değişim (aufstehen, ankommen, einschlafen) → sein. Diğerlerinde → haben.'],
-        },
-      },
+  "id": "p1_trennbar",
+  "rule": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+  "examples": [
+    "Ich habe gestern meinen Onkel angerufen.",
+    "Wir haben im Kurs viele Leute kennengelernt.",
+    "Heute bin ich zu spät aufgestanden."
+  ],
+  "highlight": "verb",
+  "t": [
+    "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+    "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+    "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+    "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft."
+  ],
+  "hint": [
+    "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+    "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+    "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+    "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
+    "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen."
+  ],
+  "hints": {
+    "aux": [
+      "Bewegung oder Veränderung (aufstehen, ankommen, einschlafen) → sein. Sonst → haben.",
+      "Movement or change (aufstehen, ankommen, einschlafen) → sein. Otherwise → haben.",
+      "Движение или изменение состояния (aufstehen, ankommen, einschlafen) → sein. Иначе → haben.",
+      "Рух або зміна стану (aufstehen, ankommen, einschlafen) → sein. Інакше → haben.",
+      "Hareket ya da değişim (aufstehen, ankommen, einschlafen) → sein. Diğerlerinde → haben."
+    ]
+  }
+},
       ex: [
         mc('G2', 'einkaufen', I.choose, 'Ich habe im Supermarkt …', ['eingekauft.', 'geeinkauft.', 'einkauft.'],
           ['I did the shopping at the supermarket.', 'Я сделал покупки в супермаркете.', 'Я зробив покупки в супермаркеті.', 'Süpermarkette alışveriş yaptım.']),
@@ -255,8 +298,7 @@ const path = {
           ['Have you called your mother yet?', 'Ты уже позвонил маме?', 'Ти вже зателефонував мамі?', 'Anneni aradın mı?']),
         mc('G2', 'sein oder haben', I.choose, 'Heute … ich schon um sechs Uhr aufgestanden.', ['bin', 'habe', 'hat'],
           ['Today I got up at six o’clock already.', 'Сегодня я встал уже в шесть часов.', 'Сьогодні я встав уже о шостій.', 'Bugün daha saat altıda kalktım.'], { h: 'aux' }),
-        mc('G2', 'kennenlernen', I.sentence, 'Olga erzählt von einer neuen Freundin.', ['Wir haben Lena in Köln kennengelernt.', 'Wir haben Lena in Köln gekennenlernt.', 'Wir sind Lena in Köln kennengelernt.'],
-          ['Olga is talking about a new friend.', 'Olga рассказывает о новой подруге.', 'Olga розповідає про нову подругу.', 'Olga yeni bir arkadaşından söz ediyor.']),
+        mc("G2", "kennenlernen", I.sentence, "Oleg erzählt von einem neuen Freund.", ["Wir haben Leon in Köln kennengelernt.","Wir haben Leon in Köln gekennenlernt.","Wir sind Leon in Köln kennengelernt."], ["Oleg is talking about a new male friend.","Oleg рассказывает о новом друге.","Oleg розповідає про нового друга.","Oleg yeni bir erkek arkadaşından söz ediyor."], {"c":"p1_trennbar","sitovOptionOrder":["Wir haben Leon in Köln gekennenlernt.","Wir haben Leon in Köln kennengelernt.","Wir sind Leon in Köln kennengelernt."]}),
         gap('G2', 'aufräumen', I.participle, 'Paul hat am Samstag sein Zimmer ', '.', 'aufgeräumt', ['geaufräumt', 'aufräumt'],
           ['Paul tidied up his room on Saturday.', 'В субботу Paul убрал свою комнату.', 'У суботу Paul прибрав свою кімнату.', 'Paul cumartesi günü odasını topladı.'], 'aufräumen'),
         gap('G2', 'abholen', I.participle, 'Ich habe die Kinder von der Schule ', '.', 'abgeholt', ['geabholt', 'abholt'],
@@ -392,25 +434,34 @@ const path = {
       title: 'Zuerst, dann, schließlich',
       t: ['First, then, finally', 'Сначала, потом, наконец', 'Спочатку, потім, нарешті', 'Önce, sonra, sonunda'],
       card: {
-        id: 'p1_gliedern',
-        rule: 'Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.',
-        examples: ['Zuerst habe ich verschlafen.', 'Dann habe ich den Bus verpasst.', 'Schließlich bin ich mit dem Taxi gefahren.'],
-        highlight: 'verb',
-        t: [
-          'Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.',
-          'Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.',
-          'Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.',
-          'Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.',
-        ],
-        hint: ['Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.', 'Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.', 'Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.', 'Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.', 'Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.'],
-      },
+  "id": "p1_gliedern",
+  "rule": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
+  "examples": [
+    "Zuerst habe ich verschlafen.",
+    "Dann habe ich den Bus verpasst.",
+    "Schließlich bin ich mit dem Taxi gefahren."
+  ],
+  "highlight": "verb",
+  "t": [
+    "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
+    "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
+    "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
+    "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen."
+  ],
+  "hint": [
+    "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
+    "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
+    "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
+    "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
+    "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne."
+  ]
+},
       ex: [
         mc('K4', 'Anfang', I.choose, 'Welches Wort passt am Anfang von einer Geschichte?', ['Zuerst', 'Schließlich', 'Später'],
           ['Which word fits at the beginning of a story?', 'Какое слово подходит в начале рассказа?', 'Яке слово підходить на початку розповіді?', 'Bir hikâyenin başına hangi kelime uyar?']),
         mc('K4', 'Ende', I.choose, 'Welches Wort passt am Ende von einer Geschichte?', ['Schließlich', 'Zuerst', 'Am Anfang'],
           ['Which word fits at the end of a story?', 'Какое слово подходит в конце рассказа?', 'Яке слово підходить у кінці розповіді?', 'Bir hikâyenin sonuna hangi kelime uyar?']),
-        mc('K4', 'Verb auf Position 2', I.sentence, 'Lena erzählt von ihrem Abend.', ['Dann habe ich meine Schwester angerufen.', 'Dann ich habe meine Schwester angerufen.', 'Dann meine Schwester habe ich angerufen.'],
-          ['Lena is talking about her evening.', 'Lena рассказывает о своём вечере.', 'Lena розповідає про свій вечір.', 'Lena akşamını anlatıyor.']),
+        mc("K4", "Verb auf Position 2", I.sentence, "Leon erzählt von seinem Abend.", ["Dann habe ich meinen Bruder angerufen.","Dann meinen Bruder habe ich angerufen.","Dann ich habe meinen Bruder angerufen."], ["Leon is talking about his evening.","Leon рассказывает о своём вечере.","Leon розповідає про свій вечір.","Leon akşamını anlatıyor."], {"c":"p1_gliedern","sitovOptionOrder":["Dann meinen Bruder habe ich angerufen.","Dann habe ich meinen Bruder angerufen.","Dann ich habe meinen Bruder angerufen."]}),
         mc('K4', 'Reihenfolge', I.choose, 'Was ist die richtige Reihenfolge?', ['zuerst – dann – schließlich', 'schließlich – zuerst – dann', 'dann – schließlich – zuerst'],
           ['What is the correct order?', 'Какой порядок правильный?', 'Який порядок правильний?', 'Doğru sıra hangisi?']),
         gap('K4', 'zuerst', I.word, '', ' bin ich aufgestanden, dann habe ich geduscht.', 'Zuerst', ['Schließlich', 'Später'],
@@ -433,18 +484,28 @@ const path = {
       title: 'Das gefällt ihm.',
       t: ['He likes that.', 'Ему это нравится.', 'Йому це подобається.', 'Bu onun hoşuna gidiyor.'],
       card: {
-        id: 'p1_bewerten',
-        rule: 'Sagen, wie jemand etwas findet: Das findet er toll. Das findet sie nicht so toll. Das gefällt ihm. Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (einem Mann), ihr (einer Frau), ihnen (mehreren Personen).',
-        examples: ['Lena wohnt allein. Das findet sie toll.', 'Paul steht um fünf Uhr auf. Das gefällt ihm nicht.', 'Meine Eltern leben auf dem Land. Das gefällt ihnen.'],
-        highlight: null,
-        t: [
-          'Saying what someone thinks of something: Das findet er toll. (He thinks that is great.) Das findet sie nicht so toll. Das gefällt ihm. (He likes that.) Das gefällt ihr nicht. finden + accusative: Er findet die Wohnung schön. gefallen + dative: Die Wohnung gefällt ihm (a man), ihr (a woman), ihnen (several people).',
-          'Как сказать, что человек о чём-то думает: Das findet er toll. (Он считает, что это здорово.) Das findet sie nicht so toll. Das gefällt ihm. (Ему это нравится.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (мужчине), ihr (женщине), ihnen (нескольким людям).',
-          'Як сказати, що людина про щось думає: Das findet er toll. (Він вважає, що це чудово.) Das findet sie nicht so toll. Das gefällt ihm. (Йому це подобається.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (чоловікові), ihr (жінці), ihnen (кільком людям).',
-          'Birinin bir şeyi nasıl bulduğunu söylemek: Das findet er toll. (Bunu harika buluyor.) Das findet sie nicht so toll. Das gefällt ihm. (Bu onun hoşuna gidiyor.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (bir erkeğin), ihr (bir kadının), ihnen (birkaç kişinin) hoşuna gidiyor.',
-        ],
-        hint: ['finden: er / sie + findet. gefallen: ihm (Mann), ihr (Frau), ihnen (mehrere).', 'finden: er / sie + findet. gefallen: ihm (man), ihr (woman), ihnen (several people).', 'finden: er / sie + findet. gefallen: ihm (мужчина), ihr (женщина), ihnen (несколько человек).', 'finden: er / sie + findet. gefallen: ihm (чоловік), ihr (жінка), ihnen (кілька людей).', 'finden: er / sie + findet. gefallen: ihm (erkek), ihr (kadın), ihnen (birkaç kişi).'],
-      },
+  "id": "p1_bewerten",
+  "rule": "Sagen, wie jemand etwas findet: Das findet er toll. Das findet sie nicht so toll. Das gefällt ihm. Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (einem Mann), ihr (einer Frau), ihnen (mehreren Personen).",
+  "examples": [
+    "Leon wohnt allein. Das findet er toll.",
+    "Paul steht um fünf Uhr auf. Das gefällt ihm nicht.",
+    "Meine Eltern leben auf dem Land. Das gefällt ihnen."
+  ],
+  "highlight": null,
+  "t": [
+    "Saying what someone thinks of something: Das findet er toll. (He thinks that is great.) Das findet sie nicht so toll. Das gefällt ihm. (He likes that.) Das gefällt ihr nicht. finden + accusative: Er findet die Wohnung schön. gefallen + dative: Die Wohnung gefällt ihm (a man), ihr (a woman), ihnen (several people).",
+    "Как сказать, что человек о чём-то думает: Das findet er toll. (Он считает, что это здорово.) Das findet sie nicht so toll. Das gefällt ihm. (Ему это нравится.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (мужчине), ihr (женщине), ihnen (нескольким людям).",
+    "Як сказати, що людина про щось думає: Das findet er toll. (Він вважає, що це чудово.) Das findet sie nicht so toll. Das gefällt ihm. (Йому це подобається.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (чоловікові), ihr (жінці), ihnen (кільком людям).",
+    "Birinin bir şeyi nasıl bulduğunu söylemek: Das findet er toll. (Bunu harika buluyor.) Das findet sie nicht so toll. Das gefällt ihm. (Bu onun hoşuna gidiyor.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (bir erkeğin), ihr (bir kadının), ihnen (birkaç kişinin) hoşuna gidiyor."
+  ],
+  "hint": [
+    "finden: er / sie + findet. gefallen: ihm (Mann), ihr (Frau), ihnen (mehrere).",
+    "finden: er / sie + findet. gefallen: ihm (man), ihr (woman), ihnen (several people).",
+    "finden: er / sie + findet. gefallen: ihm (мужчина), ihr (женщина), ihnen (несколько человек).",
+    "finden: er / sie + findet. gefallen: ihm (чоловік), ihr (жінка), ihnen (кілька людей).",
+    "finden: er / sie + findet. gefallen: ihm (erkek), ihr (kadın), ihnen (birkaç kişi)."
+  ]
+},
       ex: [
         mc('K3', 'positiv', I.choose, 'Emre wohnt in einer WG und hat dort viele Freunde. Wie findet er das?', ['Das findet er toll.', 'Das gefällt ihm nicht.', 'Das findet er nicht so toll.'],
           ['Emre lives in a shared flat and has many friends there. What does he think of that?', 'Emre живёт в общей квартире, там у него много друзей. Как он к этому относится?', 'Emre живе у спільній квартирі, там у нього багато друзів. Як він до цього ставиться?', 'Emre ortak bir evde oturuyor ve orada birçok arkadaşı var. Bunu nasıl buluyor?']),
@@ -458,8 +519,7 @@ const path = {
           ['Tom works at the weekend. He does not like that.', 'Tom работает по выходным. Ему это не нравится.', 'Tom працює на вихідних. Йому це не подобається.', 'Tom hafta sonu çalışıyor. Bu onun hoşuna gitmiyor.'], 'er'),
         gap('K3', 'ihnen', I.pronoun, 'Meine Großeltern wohnen mit uns zusammen. Das gefällt ', ' sehr.', 'ihnen', ['sie', 'ihr'],
           ['My grandparents live with us. They like that very much.', 'Мои бабушка и дедушка живут вместе с нами. Им это очень нравится.', 'Мої бабуся й дідусь живуть разом із нами. Їм це дуже подобається.', 'Büyükannemle büyükbabam bizimle birlikte oturuyor. Bu onların çok hoşuna gidiyor.'], 'sie (Plural)'),
-        gap('K3', 'finden', I.verb, 'Mia hat ein eigenes Zimmer. Das ', ' sie super.', 'findet', ['gefällt', 'finden'],
-          ['Mia has a room of her own. She thinks that is great.', 'У Mia есть своя комната. Она считает, что это здорово.', 'У Mia є власна кімната. Вона вважає, що це чудово.', 'Mia’nın kendi odası var. Bunu harika buluyor.'], 'finden / gefallen'),
+        gap("K3", "finden", I.verb, "Milan hat ein eigenes Zimmer. Das ", " er super.", "findet", ["gefällt","finden"], ["Milan has a room of his own. He thinks that is great.","У Milan есть своя комната. Он считает, что это здорово.","У Milan є власна кімната. Він вважає, що це чудово.","Milan’ın kendi odası var. Bunu harika buluyor."], "finden / gefallen", {"c":"p1_bewerten"}),
         gap('K3', 'gefallen', I.verb, 'Paul hat eine neue Wohnung. Die Wohnung ', ' ihm sehr gut.', 'gefällt', ['findet', 'gefallen'],
           ['Paul has a new flat. He likes the flat very much.', 'У Paul новая квартира. Квартира ему очень нравится.', 'У Paul нова квартира. Квартира йому дуже подобається.', 'Paul’un yeni bir dairesi var. Daire çok hoşuna gidiyor.'], 'finden / gefallen'),
         sb('K3', 'nicht so toll', I.order, 'Das / findet / sie / nicht so toll.',

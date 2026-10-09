@@ -1,7 +1,5 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
-const MIA = 'Nachrichten von Mia: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Die Braut ist noch nicht da! – 11.05 Uhr: Sie ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“'
-const SAMIR = 'Nachricht von Samir an Lena: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“'
 
 /** A2.1 · Pfad 7 · Feste und Geschenke – Lektionen. Wiederholung und Test: p7-check.mjs */
 const path = {
@@ -88,8 +86,7 @@ const path = {
           ['We are buying our child a toy.', 'Мы покупаем нашему ребёнку игрушку.', 'Ми купуємо нашій дитині іграшку.', 'Çocuğumuza bir oyuncak alıyoruz.']),
         mc('G1', 'Wem?', I.choose, '… schenkst du die Blumen? – Meiner Mutter.', ['Wem', 'Wen', 'Wer'],
           ['Who are you giving the flowers to? – To my mother.', 'Кому ты даришь цветы? – Моей маме.', 'Кому ти даруєш квіти? – Моїй мамі.', 'Çiçekleri kime hediye ediyorsun? – Anneme.']),
-        mc('G1', 'ihrem', I.choose, 'Lena zeigt … Freund die Fotos.', ['ihrem', 'ihren', 'ihr'],
-          ['Lena is showing her boyfriend the photos.', 'Lena показывает своему другу фотографии.', 'Lena показує своєму другові фотографії.', 'Lena erkek arkadaşına fotoğrafları gösteriyor.']),
+        mc("G1", "ihrem", I.choose, "Ergänze den Possessivartikel zu „sie (Singular)“ im Dativ: „Sie zeigt … Freund die Fotos.“", ["ihrem","ihren","ihr"], ["Complete the possessive article for sie (singular) in the dative: „Sie zeigt … Freund die Fotos.“","Дополните притяжательный артикль для sie (ед. число) в дательном падеже: „Sie zeigt … Freund die Fotos.“","Доповніть присвійний артикль для sie (однина) в давальному відмінку: „Sie zeigt … Freund die Fotos.“","sie (tekil) için Dativ iyelik artikelini tamamlayın: „Sie zeigt … Freund die Fotos.“"], {"c":"p7_dativ"}),
         mc('G1', 'dem', I.choose, 'Der Kellner bringt … Gast die Rechnung.', ['dem', 'den', 'der'],
           ['The waiter brings the guest the bill.', 'Официант приносит гостю счёт.', 'Офіціант приносить гостеві рахунок.', 'Garson misafire hesabı getiriyor.']),
         gap('G1', 'meinem', I.possessive, 'Ich gebe ', ' Bruder zehn Euro.', 'meinem', ['meinen', 'meiner'],
@@ -136,8 +133,7 @@ const path = {
           ['I am taking my neighbour a piece of cake.', 'Я несу соседке кусочек пирога.', 'Я несу сусідці шматочок пирога.', 'Komşuma bir dilim kek götürüyorum.'], 'mein'),
         gap('G1', 'deinen', I.possessive, 'Was schenkst du ', ' Eltern zu Weihnachten?', 'deinen', ['deine', 'deiner'],
           ['What are you giving your parents for Christmas?', 'Что ты подаришь родителям на Рождество?', 'Що ти подаруєш батькам на Різдво?', 'Noel’de annenle babana ne hediye edeceksin?'], 'dein'),
-        gap('G1', 'ihrer', I.possessive, 'Mia zeigt ', ' Tante das neue Kleid.', 'ihrer', ['ihre', 'ihrem'],
-          ['Mia is showing her aunt the new dress.', 'Mia показывает своей тёте новое платье.', 'Mia показує своїй тітці нову сукню.', 'Mia teyzesine yeni elbiseyi gösteriyor.'], 'ihr'),
+        gap("G1", "ihrer", I.possessive, "Ergänze den Possessivartikel zu „sie (Singular)“: Sie zeigt ", " Tante das neue Kleid.", "ihrer", ["ihre","ihrem"], ["Complete the possessive for sie (singular): Sie zeigt … Tante das neue Kleid.","Дополните притяжательный артикль для sie (ед. число): Sie zeigt … Tante das neue Kleid.","Доповніть присвійний артикль для sie (однина): Sie zeigt … Tante das neue Kleid.","sie (tekil) için iyelik artikelini tamamlayın: Sie zeigt … Tante das neue Kleid."], "ihr", {"c":"p7_dativ2"}),
         gap('G1', 'Plural + n', I.form, 'Wir wünschen den ', ' viel Glück in der Schule.', 'Kindern', ['Kinder', 'Kind'],
           ['We wish the children lots of luck at school.', 'Мы желаем детям удачи в школе.', 'Ми бажаємо дітям успіхів у школі.', 'Çocuklara okulda bol şans diliyoruz.'], 'das Kind (Plural)'),
         sb('G1', 'Dativ Plural', I.order, 'Wir / schenken / unseren Eltern / eine Reise.',
@@ -256,8 +252,7 @@ const path = {
           ['I got the ring from my husband.', 'Кольцо я получила от мужа.', 'Перстень я отримала від чоловіка.', 'Yüzüğü kocamdan aldım.'], 'mein'),
         gap('G3', 'von meinen', I.possessive, 'Das Paket ist von ', ' Großeltern.', 'meinen', ['meine', 'meiner'],
           ['The parcel is from my grandparents.', 'Посылка от моих бабушки и дедушки.', 'Посилка від моїх бабусі й дідуся.', 'Paket büyükannemle büyükbabamdan.'], 'mein'),
-        gap('G3', 'von ihr', I.pronoun, 'Ist das Geschenk von Lena? – Ja, es ist von ', '.', 'ihr', ['sie', 'ihm'],
-          ['Is the present from Lena? – Yes, it is from her.', 'Подарок от Lena? – Да, он от неё.', 'Подарунок від Lena? – Так, він від неї.', 'Hediye Lena’dan mı? – Evet, ondan.'], 'sie'),
+        gap("G3", "von ihr", I.pronoun, "Ergänze das Pronomen zu „sie (Singular)“ nach „von“: Das Geschenk ist von ", ".", "ihr", ["ihm","sie"], ["Complete the pronoun for sie (singular) after von: Das Geschenk ist von …","Дополните местоимение для sie (ед. число) после von: Das Geschenk ist von …","Доповніть займенник для sie (однина) після von: Das Geschenk ist von …","von sonrasında sie (tekil) zamirini tamamlayın: Das Geschenk ist von …"], "sie", {"c":"p7_von"}),
         gap('G3', 'Kollegen', I.form, 'Die Karte ist von meinem ', ' aus der Firma.', 'Kollegen', ['Kollege', 'Kollegin'],
           ['The card is from my colleague at work.', 'Открытка от моего коллеги по работе.', 'Листівка від мого колеги з роботи.', 'Kart şirketteki iş arkadaşımdan.'], 'der Kollege'),
         gap('G3', 'Von wem?', I.qword, 'Von ', ' ist dieser Gutschein? – Von der ganzen Familie.', 'wem', ['wen', 'wer'],
@@ -487,18 +482,12 @@ const path = {
         hint: ['gerade = jetzt. gleich = in wenigen Minuten. schon = es ist passiert. noch nicht = bis jetzt nicht.', 'gerade = now. gleich = in a few minutes. schon = it has happened. noch nicht = not so far.', 'gerade = сейчас. gleich = через несколько минут. schon = это случилось. noch nicht = пока нет.', 'gerade = зараз. gleich = за кілька хвилин. schon = це сталося. noch nicht = поки ні.', 'gerade = şimdi. gleich = birkaç dakika içinde. schon = oldu. noch nicht = şimdiye kadar olmadı.'],
       },
       ex: [
-        mc('Z1', 'Wann?', I.read, `${MIA} Wann beginnt die Trauung?`, ['Um 11 Uhr.', 'Um 10.50 Uhr.', 'Um 13 Uhr.'],
-          ['When does the wedding ceremony begin?', 'Когда начинается церемония?', 'Коли починається церемонія?', 'Nikâh töreni ne zaman başlıyor?']),
-        mc('Z1', 'Problem', I.read, `${MIA} Was ist um 10.50 Uhr das Problem?`, ['Die Braut ist noch nicht gekommen.', 'Die Torte ist nicht fertig.', 'Es gibt kein Essen.'],
-          ['What is the problem at 10.50?', 'В чём проблема в 10.50?', 'У чому проблема о 10.50?', 'Saat 10.50’de sorun ne?']),
-        mc('Z1', 'Was?', I.read, `${MIA} Was passiert um 13 Uhr?`, ['Die Gäste essen.', 'Die Trauung beginnt.', 'Alle essen die Torte.'],
-          ['What happens at 1 pm?', 'Что происходит в 13 часов?', 'Що відбувається о 13 годині?', 'Saat 13’te ne oluyor?']),
-        mc('Z1', 'Wo?', I.read, `${SAMIR} Wo ist die Feier?`, ['In einem Restaurant.', 'Im Standesamt.', 'Bei Samir zu Hause.'],
-          ['Where is the party?', 'Где проходит праздник?', 'Де відбувається свято?', 'Kutlama nerede?']),
-        mc('Z1', 'Warum?', I.read, `${SAMIR} Warum ist Lena nicht bei der Feier?`, ['Sie ist krank.', 'Sie muss arbeiten.', 'Sie mag keine Hochzeiten.'],
-          ['Why is Lena not at the party?', 'Почему Lena нет на празднике?', 'Чому Lena немає на святі?', 'Lena neden kutlamada değil?']),
-        mc('Z1', 'Was?', I.read, `${SAMIR} Was schickt Samir gleich?`, ['Fotos.', 'Die Torte.', 'Eine Einladung.'],
-          ['What is Samir going to send in a moment?', 'Что Samir сейчас отправит?', 'Що Samir зараз надішле?', 'Samir birazdan ne gönderecek?']),
+        mc("Z1", "Wann?", I.read, "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Wann beginnt die Trauung?", ["Um 11 Uhr.","Um 10.50 Uhr.","Um 13 Uhr."], ["When does the wedding ceremony begin?","Когда начинается церемония?","Коли починається церемонія?","Nikâh töreni ne zaman başlıyor?"], {"c":"p7_nachrichten"}),
+        mc("Z1", "Problem", I.read, "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem?", ["Der Bräutigam ist noch nicht gekommen.","Es gibt kein Essen.","Die Torte ist nicht fertig."], ["What is the problem at 10.50?","В чём проблема в 10.50?","У чому проблема о 10.50?","Saat 10.50’de sorun ne?"], {"c":"p7_nachrichten","sitovOptionOrder":["Es gibt kein Essen.","Die Torte ist nicht fertig.","Der Bräutigam ist noch nicht gekommen."]}),
+        mc("Z1", "Was?", I.read, "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was passiert um 13 Uhr?", ["Die Gäste essen.","Die Trauung beginnt.","Alle essen die Torte."], ["What happens at 1 pm?","Что происходит в 13 часов?","Що відбувається о 13 годині?","Saat 13’te ne oluyor?"], {"c":"p7_nachrichten"}),
+        mc("Z1", "Wo?", I.read, "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Wo ist die Feier?", ["In einem Restaurant.","Im Standesamt.","Bei Samir zu Hause."], ["Where is the party?","Где проходит праздник?","Де відбувається свято?","Kutlama nerede?"], {"c":"p7_nachrichten"}),
+        mc("Z1", "Warum?", I.read, "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Leon nicht bei der Feier?", ["Er ist krank.","Er mag keine Hochzeiten.","Er muss arbeiten."], ["Why is Leon not at the party?","Почему Leon нет на празднике?","Чому Leon немає на святі?","Leon neden kutlamada değil?"], {"c":"p7_nachrichten","sitovOptionOrder":["Er mag keine Hochzeiten.","Er muss arbeiten.","Er ist krank."]}),
+        mc("Z1", "Was?", I.read, "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Was schickt Samir gleich?", ["Fotos.","Die Torte.","Eine Einladung."], ["What is Samir going to send in a moment?","Что Samir сейчас отправит?","Що Samir зараз надішле?","Samir birazdan ne gönderecek?"], {"c":"p7_nachrichten"}),
         gap('Z1', 'gerade', I.adverb, 'Das Brautpaar ist ', ' angekommen. Jetzt, in diesem Moment, steigen sie aus dem Auto.', ['gerade', 'eben', 'soeben'], ['gleich', 'gestern'],
           ['The bride and groom have just arrived. Right now, at this moment, they are getting out of the car.', 'Жених и невеста только что приехали. Прямо сейчас они выходят из машины.', 'Наречені щойно приїхали. Саме зараз вони виходять із машини.', 'Gelin ve damat az önce geldi. Şu anda arabadan iniyorlar.'],
           ['just now', 'только что', 'щойно', 'az önce']),

@@ -33,6 +33,17 @@ const four = values => Object.fromEntries(LOCALES.map((locale, index) => [locale
 const shuffled = (values, salt) => values.map((value, index) => ({ value, key: sha(`${salt}:${index}:${value}`) }))
   .sort((a, b) => a.key < b.key ? -1 : 1).map(item => item.value)
 
+/** Explicit frozen display order; the authored key stays first in source.options. */
+function sitovOptionOrder(problems, ref, values, requested) {
+  if (requested === undefined) return shuffled(values, ref)
+  if (!Array.isArray(requested) || requested.length !== values.length ||
+      new Set(requested).size !== values.length || requested.some(value => !values.includes(value))) {
+    problems.add('choice-options', ref, 'explizite Optionsreihenfolge ist keine exakte Permutation der Antworten')
+    return shuffled(values, ref)
+  }
+  return [...requested]
+}
+
 /**
  * The key under which grading treats two typed answers as the same word: case, punctuation and
  * the ae/oe/ue/ss spelling of umlauts are ignored (learning_private.grade_answer). A stored
@@ -51,8 +62,9 @@ export const RULES = {
   'task-type': 'Aufgaben sind mc (Auswahl), gap (Lücke) oder sb (Satzbau).',
   'goal': 'Jede Aufgabe nennt ein Lernziel des Pfads; Lernziel-IDs sind G, K, Z oder W mit Nummer.',
   'card': 'Jede Lektion hat genau eine Merkkarte mit 2 bis 4 Beispielen; jede Aufgabe verweist auf eine vorhandene Karte.',
-  'hint': 'Der Hinweis einer Aufgabe steht auf ihrer Merkkarte: [de, en, ru, uk, tr].',
+  'hint': 'Der Hinweis steht auf der Merkkarte oder ist ein begründeter aufgabenspezifischer Text: [de, en, ru, uk, tr].',
   'instruction': 'Jede Aufgabe hat eine Arbeitsanweisung aus shared.mjs (I.*).',
+  'sitov-task-override': 'Aufgabenspezifische Hinweise und Erklärungen brauchen eine Begründung und fünf geprüfte Sprachfassungen.',
   'choice-options': 'Eine Auswahlaufgabe hat 3 bis 4 verschiedene Antworten; die erste ist die Lösung.',
   'gap-forms': 'Eine Lücke hat genau zwei falsche Formen, die sich von jeder Lösung unterscheiden – auch ohne Groß-/Kleinschreibung, Satzzeichen und ae/oe/ue/ss.',
   'gap-sentence': 'Eine Lücke steht in einem deutschen Satz (Text davor oder danach).',
@@ -137,8 +149,16 @@ function buildExercise(problems, ctx, source, ref) {
   const cardId = source.c ?? ctx.nodeCard ?? ctx.goalCards.get(goal)
   const card = ctx.cards.get(cardId)
   if (!card) { problems.add('card', where, `Merkkarte ${cardId ?? '(keine)'} fehlt`); return null }
-  const hint = source.h ? card.hints?.[source.h] : card.hint
-  if (!Array.isArray(hint) || hint.length !== 5) { problems.add('hint', where, `Hinweis ${source.h ?? 'der Karte'} fehlt auf Merkkarte ${cardId}`); return null }
+  const hint = source.hint !== undefined ? source.hint : (source.h ? card.hints?.[source.h] : card.hint)
+  const explanation = source.explanation !== undefined ? source.explanation : [card.rule, ...LOCALES.map(locale => card.translations[locale].rule)]
+  if ((source.hint !== undefined || source.explanation !== undefined) &&
+      (typeof source.overrideReason !== 'string' || !source.overrideReason.trim())) {
+    problems.add('sitov-task-override', where, 'Aufgabenspezifischer Text braucht eine Begründung')
+  }
+  if (!Array.isArray(explanation) || explanation.length !== 5 || explanation.some(value => typeof value !== 'string' || !value.trim())) {
+    problems.add('sitov-task-override', where, 'Erklärung braucht genau fünf Sprachfassungen'); return null
+  }
+  if (!Array.isArray(hint) || hint.length !== 5 || hint.some(value => typeof value !== 'string' || !value.trim())) { problems.add('hint', where, `Hinweis ${source.h ?? 'der Karte'} fehlt auf Merkkarte ${cardId}`); return null }
   if (!source.instr?.de) { problems.add('instruction', where, 'Arbeitsanweisung fehlt'); return null }
   const instruction = german(problems, `${where}.instruction`, source.instr.de)
   const target_form = [source.target].flat()
@@ -151,7 +171,7 @@ function buildExercise(problems, ctx, source, ref) {
     if (new Set(source.options.map(normalized)).size !== source.options.length) problems.add('choice-options', where, 'doppelte Antworten')
     source.options.forEach(option => german(problems, `${where}.options`, option))
     content = { target_form, instruction, question: german(problems, `${where}.question`, source.question),
-      options: shuffled(source.options, ref), correct_answer: correct, accepted_answers: [correct] }
+      options: sitovOptionOrder(problems, ref, source.options, source.sitovOptionOrder), correct_answer: correct, accepted_answers: [correct] }
   } else if (type === 'fill_in_blank') {
     const [correct] = source.answers
     const options = [correct, ...source.distractors]
@@ -173,7 +193,7 @@ function buildExercise(problems, ctx, source, ref) {
     // Every gap names its word, unless the task itself already shows it (e.g. a number to write out).
     if (source.gapHint == null && !source.instr.selfEvident) problems.add('gap-hint', where, 'Lücke ohne Hinweis (Grundform oder Bedeutung)')
     content = { target_form, instruction, text_before: source.before, text_after: source.after,
-      ...(hintIsGerman ? { gap_hint: source.gapHint } : {}), correct_answer: correct, options: shuffled(options, ref),
+      ...(hintIsGerman ? { gap_hint: source.gapHint } : {}), correct_answer: correct, options: sitovOptionOrder(problems, ref, options, source.sitovOptionOrder),
       accepted_answers: source.answers,
       ...(/^(der|die|das|den|dem|des) \p{Lu}/u.test(correct) ? { needs_article: true } : {}) }
   } else {
@@ -193,15 +213,16 @@ function buildExercise(problems, ctx, source, ref) {
 
   const instructions = localized(problems, `${where}.instruction`, source.instr.t, instruction)
   const hints = localized(problems, `${where}.hint`, hint.slice(1), hint[0])
+  const explanations = localized(problems, `${where}.explanation`, explanation.slice(1), explanation[0])
   const tasks = source.tr === null ? null : localized(problems, `${where}.task`, source.tr)
   if (source.tr === undefined) problems.add('task-translation', where, 'Übersetzung der Aufgabe fehlt (oder ausdrücklich null)')
   const gapHints = Array.isArray(source.gapHint) ? localized(problems, `${where}.gap_hint`, source.gapHint) : null
   return {
     id: stableId(`sitov-path:${ctx.level}:${ref}`), ref, goal, exercise_type: type, content,
     accepted_answers: content.accepted_answers,
-    hint: german(problems, `${where}.hint`, hint[0]), explanation: card.rule, explanation_card: card.id,
+    hint: german(problems, `${where}.hint`, hint[0]), explanation: german(problems, `${where}.explanation`, explanation[0]), explanation_card: card.id,
     translations: Object.fromEntries(LOCALES.map(locale => [locale, {
-      instruction: instructions[locale], hint: hints[locale], explanation: card.translations[locale].rule,
+      instruction: instructions[locale], hint: hints[locale], explanation: explanations[locale],
       ...(tasks ? { task: tasks[locale] } : {}), ...(gapHints ? { gap_hint: gapHints[locale] } : {}),
     }])),
   }

@@ -128,8 +128,7 @@ const path = {
           ['What would you like to do at the weekend?', 'Что ты хотел бы делать в выходные?', 'Що ти хотів би робити у вихідні?', 'Hafta sonu ne yapmak isterdin?']),
         mc('G2', 'wir würden', I.choose, 'Wir … gern eine Radtour machen.', ['würden', 'würdet', 'würdest'],
           ['We would like to go on a bike ride.', 'Мы хотели бы отправиться на велопрогулку.', 'Ми хотіли б вирушити на велопрогулянку.', 'Bir bisiklet turu yapmak isterdik.']),
-        mc('G2', 'Infinitiv am Ende', I.sentence, 'Lena hat heute keine Zeit für Sport.', ['Sie würde gern schwimmen gehen.', 'Sie würde gern gehen schwimmen.', 'Sie gern würde schwimmen gehen.'],
-          ['Lena has no time for sport today.', 'У Lena сегодня нет времени на спорт.', 'У Lena сьогодні немає часу на спорт.', 'Lena’nın bugün spora vakti yok.']),
+        mc("G2", "Infinitiv am Ende", I.sentence, "Leon hat heute keine Zeit für Sport.", ["Er würde gern schwimmen gehen.","Er gern würde schwimmen gehen.","Er würde gern gehen schwimmen."], ["Leon has no time for sport today.","У Leon сегодня нет времени на спорт.","У Leon сьогодні немає часу на спорт.","Leon’un bugün spora vakti yok."], {"c":"p1_wuerde","sitovOptionOrder":["Er würde gern schwimmen gehen.","Er gern würde schwimmen gehen.","Er würde gern gehen schwimmen."]}),
         mc('G2', 'Infinitiv', I.choose, 'Ich würde gern besser Deutsch …', ['sprechen', 'spreche', 'gesprochen'],
           ['I would like to speak German better.', 'Я хотел бы лучше говорить по-немецки.', 'Я хотів би краще говорити німецькою.', 'Almancayı daha iyi konuşmak isterdim.']),
         gap('G2', 'er würde', I.verb, 'Paul ', ' gern in einer Band singen.', 'würde', ['würden', 'würdest'],
@@ -152,18 +151,28 @@ const path = {
       title: 'Ich wäre gern …',
       t: ['I would like to be …', 'Я хотел бы быть …', 'Я хотів би бути …', '… olmak isterdim'],
       card: {
-        id: 'p1_wunsch',
-        rule: 'Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Sie hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.',
-        examples: ['Ich wäre jetzt gern im Urlaub.', 'Mia hätte gern eine Katze.', 'Wir würden gern länger bleiben.'],
-        highlight: 'verb',
-        t: [
-          'Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Sie hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)',
-          'Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Sie hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)',
-          'Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Sie hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)',
-          'Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Sie hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)',
-        ],
-        hint: ['Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.', 'Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.', 'Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.', 'Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.', 'Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.'],
-      },
+  "id": "p1_wunsch",
+  "rule": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+  "examples": [
+    "Ich wäre jetzt gern im Urlaub.",
+    "Mia hätte gern eine Katze.",
+    "Wir würden gern länger bleiben."
+  ],
+  "highlight": "verb",
+  "t": [
+    "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
+    "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
+    "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
+    "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)"
+  ],
+  "hint": [
+    "Ort oder Adjektiv → wäre gern. Nomen (eine Sache) → hätte gern. Verb (etwas tun) → würde gern + Infinitiv.",
+    "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
+    "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
+    "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
+    "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar."
+  ]
+},
       ex: [
         mc('G3', 'wäre gern', I.choose, 'Ich bin im Büro. Ich … jetzt gern am See.', ['wäre', 'hätte', 'würde'],
           ['I am at the office. I would like to be by the lake now.', 'Я в офисе. Я хотел бы сейчас быть у озера.', 'Я в офісі. Я хотів би зараз бути біля озера.', 'Ofisteyim. Şimdi göl kenarında olmak isterdim.']),
@@ -249,8 +258,7 @@ const path = {
           ['Are you bored? You could read a book.', 'Тебе скучно? Ты мог бы почитать книгу.', 'Тобі нудно? Ти міг би почитати книжку.', 'Canın mı sıkılıyor? Bir kitap okuyabilirsin.']),
         mc('G4', 'wir könnten', I.choose, 'Wir … am Sonntag einen Ausflug machen.', ['könnten', 'könntet', 'könntest'],
           ['We could go on a trip on Sunday.', 'В воскресенье мы могли бы поехать на экскурсию.', 'У неділю ми могли б поїхати на екскурсію.', 'Pazar günü bir gezi yapabiliriz.']),
-        mc('G4', 'Infinitiv am Ende', I.sentence, 'Mia macht einen Vorschlag für den Abend.', ['Wir könnten zusammen einen Film sehen.', 'Wir könnten zusammen sehen einen Film.', 'Wir zusammen könnten einen Film sehen.'],
-          ['Mia is making a suggestion for the evening.', 'Mia предлагает, чем заняться вечером.', 'Mia пропонує, чим зайнятися ввечері.', 'Mia akşam için bir öneride bulunuyor.']),
+        mc("G4", "Infinitiv am Ende", I.sentence, "Milan macht einen Vorschlag für den Abend.", ["Wir könnten zusammen einen Film sehen.","Wir könnten zusammen sehen einen Film.","Wir zusammen könnten einen Film sehen."], ["Milan is making a suggestion for the evening.","Milan предлагает, чем заняться вечером.","Milan пропонує, чим зайнятися ввечері.","Milan akşam için bir öneride bulunuyor."], {"c":"p1_koennte"}),
         mc('G4', 'Vorschlag', I.choose, 'Welcher Satz ist ein Vorschlag?', ['Du könntest mal wieder schwimmen gehen.', 'Du musst sofort schwimmen gehen.', 'Du bist gestern schwimmen gegangen.'],
           ['Which sentence is a suggestion?', 'В каком предложении что-то предлагают?', 'У якому реченні щось пропонують?', 'Hangi cümle bir öneridir?']),
         mc('G1', 'ihr könntet', I.choose, 'Ihr habt am Samstag Zeit? Ihr … uns besuchen.', ['könntet', 'könnten', 'könntest'],
@@ -286,8 +294,7 @@ const path = {
         hint: ['Wie wäre es mit + Dativ: mit einem Ausflug, mit einer Radtour. Hast du Lust? = Möchtest du mitmachen?', 'Wie wäre es mit (how about) + dative: mit einem Ausflug, mit einer Radtour. Hast du Lust? = would you like to join in?', 'Wie wäre es mit (как насчёт) + Dativ: mit einem Ausflug, mit einer Radtour. Hast du Lust? = хочешь присоединиться?', 'Wie wäre es mit (як щодо) + Dativ: mit einem Ausflug, mit einer Radtour. Hast du Lust? = хочеш приєднатися?', 'Wie wäre es mit (… nasıl olur) + Dativ: mit einem Ausflug, mit einer Radtour. Hast du Lust? = katılmak ister misin?'],
       },
       ex: [
-        mc('K2', 'Vorschlag machen', I.situation, 'Du möchtest am Samstag mit einer Freundin ins Museum gehen. Wie machst du einen Vorschlag?', ['Wir könnten am Samstag ins Museum gehen. Hast du Lust?', 'Ich war am Samstag im Museum.', 'Das Museum ist am Samstag geschlossen.'],
-          ['You would like to go to the museum with a friend on Saturday. How do you make a suggestion?', 'Вы хотите в субботу пойти с подругой в музей. Как вы это предложите?', 'Ви хочете в суботу піти з подругою до музею. Як ви це запропонуєте?', 'Cumartesi günü bir arkadaşınızla müzeye gitmek istiyorsunuz. Nasıl öneride bulunursunuz?']),
+        mc("K2", "Vorschlag machen", I.situation, "Du möchtest am Samstag mit einem Freund ins Museum gehen. Wie machst du einen Vorschlag?", ["Wir könnten am Samstag ins Museum gehen. Hast du Lust?","Das Museum ist am Samstag geschlossen.","Ich war am Samstag im Museum."], ["You would like to go to the museum with a friend on Saturday. How do you make a suggestion?","Вы хотите в субботу пойти с другом в музей. Как вы это предложите?","Ви хочете в суботу піти з другом до музею. Як ви це запропонуєте?","Cumartesi günü bir arkadaşınızla müzeye gitmek istiyorsunuz. Nasıl öneride bulunursunuz?"], {"c":"p1_vorschlag"}),
         mc('K2', 'mit einem', I.choose, 'Wie wäre es mit … Ausflug an den See?', ['einem', 'einen', 'ein'],
           ['How about a trip to the lake?', 'Как насчёт поездки на озеро?', 'Як щодо поїздки на озеро?', 'Göle bir gezi nasıl olur?']),
         mc('K2', 'mit einer', I.choose, 'Wie wäre es mit … Radtour?', ['einer', 'eine', 'einem'],
@@ -424,8 +431,7 @@ const path = {
           ['play', 'играть', 'гратися', 'oynamak']),
         gap('G5', 'Trotzdem', I.conjunction, 'Ich habe schon gegessen. ', ' esse ich noch ein Stück Kuchen.', 'Trotzdem', ['Weil', 'Aber'],
           ['I have already eaten. I am having another piece of cake anyway.', 'Я уже поел. Всё равно я съем ещё кусочек пирога.', 'Я вже поїв. Усе одно я з’їм іще шматочок пирога.', 'Yemek yedim bile. Yine de bir dilim kek daha yiyorum.'], 'trotzdem / weil / aber'),
-        gap('G5', 'Subjekt nach dem Verb', I.pronoun, 'Lena ist sehr müde. Trotzdem geht ', ' noch ins Fitnessstudio.', 'sie', ['ihr', 'ihn'],
-          ['Lena is very tired. She is still going to the gym anyway.', 'Lena очень устала. Тем не менее она ещё идёт в фитнес-клуб.', 'Lena дуже втомилася. Попри це вона ще йде до фітнес-клубу.', 'Lena çok yorgun. Yine de spor salonuna gidiyor.'], 'Lena'),
+        gap("G5", "Subjekt nach dem Verb", I.pronoun, "Ergänze das Personalpronomen für „eine Frau“: Trotzdem geht ", " noch ins Fitnessstudio.", "sie", ["ihr","ihn"], ["Complete the personal pronoun for eine Frau: Trotzdem geht … noch ins Fitnessstudio.","Дополните личное местоимение для eine Frau: Trotzdem geht … noch ins Fitnessstudio.","Доповніть особовий займенник для eine Frau: Trotzdem geht … noch ins Fitnessstudio.","eine Frau için kişi zamirini tamamlayın: Trotzdem geht … noch ins Fitnessstudio."], "eine Frau", {"c":"p1_trotzdem"}),
         gap('G5', 'trotzdem', I.word, 'Der Kurs ist teuer. Ich melde mich ', ' an.', 'trotzdem', ['weil', 'dass'],
           ['The course is expensive. I am signing up anyway.', 'Курс дорогой. Я всё равно записываюсь.', 'Курс дорогий. Я все одно записуюся.', 'Kurs pahalı. Yine de kaydoluyorum.'],
           ['nevertheless, anyway', 'всё равно, тем не менее', 'все одно, попри це', 'yine de']),

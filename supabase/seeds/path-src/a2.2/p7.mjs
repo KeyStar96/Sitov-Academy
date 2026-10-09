@@ -74,23 +74,32 @@ const path = {
       title: 'gemacht, getroffen, bekommen',
       t: ['gemacht, getroffen, bekommen (revision: Perfekt)', 'gemacht, getroffen, bekommen (повторение: Perfekt)', 'gemacht, getroffen, bekommen (повторення: Perfekt)', 'gemacht, getroffen, bekommen (tekrar: Perfekt)'],
       card: {
-        id: 'p7_perfekt',
-        rule: 'Wiederholung Perfekt: haben oder sein + Partizip am Satzende. Regelmäßig: ge…t – gemacht, gelernt. Unregelmäßig: ge…en – getroffen, gegangen. Trennbar: Vorsilbe + ge + … – kennengelernt, mitgekommen. Ohne ge-: nicht trennbare Verben (bekommen, verstanden, erlebt) und Verben auf -ieren (telefoniert, studiert). Mit sein: Bewegung von A nach B und Veränderung (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).',
-        examples: ['Ich habe meinen Mann in Berlin kennengelernt.', 'Wir sind 2019 nach Köln umgezogen.', 'Sie hat drei Jahre in Wien studiert.'],
-        highlight: 'verb',
-        t: [
-          'Revision of the Perfekt: haben or sein + past participle at the end of the sentence. Regular: ge…t – gemacht, gelernt. Irregular: ge…en – getroffen, gegangen. Separable: prefix + ge + … – kennengelernt, mitgekommen. Without ge-: inseparable verbs (bekommen, verstanden, erlebt) and verbs ending in -ieren (telefoniert, studiert). With sein: movement from A to B and change of state (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).',
-          'Повторение Perfekt: haben или sein + Partizip II в конце предложения. Правильные глаголы: ge…t – gemacht, gelernt. Неправильные: ge…en – getroffen, gegangen. Отделяемые: приставка + ge + … – kennengelernt, mitgekommen. Без ge-: неотделяемые глаголы (bekommen, verstanden, erlebt) и глаголы на -ieren (telefoniert, studiert). С sein: движение из точки А в точку Б и изменение состояния (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).',
-          'Повторення Perfekt: haben або sein + Partizip II у кінці речення. Правильні дієслова: ge…t – gemacht, gelernt. Неправильні: ge…en – getroffen, gegangen. Відокремлювані: префікс + ge + … – kennengelernt, mitgekommen. Без ge-: невідокремлювані дієслова (bekommen, verstanden, erlebt) і дієслова на -ieren (telefoniert, studiert). Із sein: рух із точки А в точку Б і зміна стану (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).',
-          'Perfekt tekrarı: haben ya da sein + cümlenin sonunda Partizip II. Düzenli: ge…t – gemacht, gelernt. Düzensiz: ge…en – getroffen, gegangen. Ayrılabilen: ön ek + ge + … – kennengelernt, mitgekommen. ge- almayanlar: ayrılmayan fiiller (bekommen, verstanden, erlebt) ve -ieren ile biten fiiller (telefoniert, studiert). sein ile: A’dan B’ye hareket ve durum değişikliği (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).',
-        ],
-        hint: ['ge…t / ge…en. Trennbar: mit-ge-kommen. Ohne ge-: be-, ver-, er-, -ieren. sein bei Bewegung: ist gegangen, ist umgezogen.', 'ge…t / ge…en. Separable: mit-ge-kommen. Without ge-: be-, ver-, er-, -ieren. sein for movement: ist gegangen, ist umgezogen.', 'ge…t / ge…en. Отделяемые: mit-ge-kommen. Без ge-: be-, ver-, er-, -ieren. sein при движении: ist gegangen, ist umgezogen.', 'ge…t / ge…en. Відокремлювані: mit-ge-kommen. Без ge-: be-, ver-, er-, -ieren. sein під час руху: ist gegangen, ist umgezogen.', 'ge…t / ge…en. Ayrılabilen: mit-ge-kommen. ge- almayanlar: be-, ver-, er-, -ieren. Harekette sein: ist gegangen, ist umgezogen.'],
-      },
+  "id": "p7_perfekt",
+  "rule": "Wiederholung Perfekt: haben oder sein + Partizip am Satzende. Regelmäßig: ge…t – gemacht, gelernt. Unregelmäßig: ge…en – getroffen, gegangen. Trennbar: Vorsilbe + ge + … – kennengelernt, mitgekommen. Ohne ge-: nicht trennbare Verben (bekommen, verstanden, erlebt) und Verben auf -ieren (telefoniert, studiert). Mit sein: Bewegung von A nach B und Veränderung (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).",
+  "examples": [
+    "Ich habe meinen Mann in Berlin kennengelernt.",
+    "Wir sind 2019 nach Köln umgezogen.",
+    "Er hat drei Jahre in Wien studiert."
+  ],
+  "highlight": "verb",
+  "t": [
+    "Revision of the Perfekt: haben or sein + past participle at the end of the sentence. Regular: ge…t – gemacht, gelernt. Irregular: ge…en – getroffen, gegangen. Separable: prefix + ge + … – kennengelernt, mitgekommen. Without ge-: inseparable verbs (bekommen, verstanden, erlebt) and verbs ending in -ieren (telefoniert, studiert). With sein: movement from A to B and change of state (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).",
+    "Повторение Perfekt: haben или sein + Partizip II в конце предложения. Правильные глаголы: ge…t – gemacht, gelernt. Неправильные: ge…en – getroffen, gegangen. Отделяемые: приставка + ge + … – kennengelernt, mitgekommen. Без ge-: неотделяемые глаголы (bekommen, verstanden, erlebt) и глаголы на -ieren (telefoniert, studiert). С sein: движение из точки А в точку Б и изменение состояния (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).",
+    "Повторення Perfekt: haben або sein + Partizip II у кінці речення. Правильні дієслова: ge…t – gemacht, gelernt. Неправильні: ge…en – getroffen, gegangen. Відокремлювані: префікс + ge + … – kennengelernt, mitgekommen. Без ge-: невідокремлювані дієслова (bekommen, verstanden, erlebt) і дієслова на -ieren (telefoniert, studiert). Із sein: рух із точки А в точку Б і зміна стану (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert).",
+    "Perfekt tekrarı: haben ya da sein + cümlenin sonunda Partizip II. Düzenli: ge…t – gemacht, gelernt. Düzensiz: ge…en – getroffen, gegangen. Ayrılabilen: ön ek + ge + … – kennengelernt, mitgekommen. ge- almayanlar: ayrılmayan fiiller (bekommen, verstanden, erlebt) ve -ieren ile biten fiiller (telefoniert, studiert). sein ile: A’dan B’ye hareket ve durum değişikliği (gegangen, gefahren, gekommen, umgezogen, aufgewacht, passiert)."
+  ],
+  "hint": [
+    "ge…t / ge…en. Trennbar: mit-ge-kommen. Ohne ge-: be-, ver-, er-, -ieren. sein bei Bewegung: ist gegangen, ist umgezogen.",
+    "ge…t / ge…en. Separable: mit-ge-kommen. Without ge-: be-, ver-, er-, -ieren. sein for movement: ist gegangen, ist umgezogen.",
+    "ge…t / ge…en. Отделяемые: mit-ge-kommen. Без ge-: be-, ver-, er-, -ieren. sein при движении: ist gegangen, ist umgezogen.",
+    "ge…t / ge…en. Відокремлювані: mit-ge-kommen. Без ge-: be-, ver-, er-, -ieren. sein під час руху: ist gegangen, ist umgezogen.",
+    "ge…t / ge…en. Ayrılabilen: mit-ge-kommen. ge- almayanlar: be-, ver-, er-, -ieren. Harekette sein: ist gegangen, ist umgezogen."
+  ]
+},
       ex: [
         mc('G1', 'kennengelernt', I.choose, 'Wo hast du deine Frau …?', ['kennengelernt', 'gekennenlernt', 'kennenlernt'],
           ['Where did you meet your wife?', 'Где ты познакомился со своей женой?', 'Де ти познайомився зі своєю дружиною?', 'Karınla nerede tanıştın?']),
-        mc('G1', 'studiert', I.choose, 'Lena hat in München Medizin …', ['studiert', 'gestudiert', 'studieren'],
-          ['Lena studied medicine in Munich.', 'Lena изучала медицину в Мюнхене.', 'Lena вивчала медицину в Мюнхені.', 'Lena Münih’te tıp okudu.']),
+        mc("G1", "studiert", I.choose, "Leon hat in München Medizin …", ["studiert","gestudiert","studieren"], ["Leon studied medicine in Munich.","Leon изучал медицину в Мюнхене.","Leon вивчав медицину в Мюнхені.","Leon Münih’te tıp okudu."], {"c":"p7_perfekt"}),
         mc('G1', 'sein + umgezogen', I.choose, 'Wir … letztes Jahr nach Hamburg umgezogen.', ['sind', 'haben', 'sein'],
           ['We moved to Hamburg last year.', 'В прошлом году мы переехали в Гамбург.', 'Минулого року ми переїхали до Гамбурга.', 'Geçen yıl Hamburg’a taşındık.']),
         mc('G1', 'bekommen', I.choose, 'Zum Geburtstag habe ich ein Fahrrad …', ['bekommen', 'gebekommen', 'bekommt'],
@@ -175,8 +184,7 @@ const path = {
           ['If it rains tomorrow, we will stay at home.', 'Если завтра пойдёт дождь, мы останемся дома.', 'Якщо завтра піде дощ, ми залишимося вдома.', 'Yarın yağmur yağarsa evde kalırız.']),
         mc('G3', 'Verb am Ende', I.sentence, 'Karim ruft nicht an.', ['Ich ärgere mich, weil er nie anruft.', 'Ich ärgere mich, weil er ruft nie an.', 'Ich ärgere mich, weil nie er anruft.'],
           ['Karim does not call.', 'Karim не звонит.', 'Karim не телефонує.', 'Karim aramıyor.']),
-        mc('G3', 'Verb am Ende', I.sentence, 'Mia sagt ihre Meinung.', ['Ich finde, dass wir mehr reden sollten.', 'Ich finde, dass wir sollten mehr reden.', 'Ich finde, dass sollten wir mehr reden.'],
-          ['Mia is giving her opinion.', 'Mia высказывает своё мнение.', 'Mia висловлює свою думку.', 'Mia fikrini söylüyor.']),
+        mc("G3", "Verb am Ende", I.sentence, "Milan sagt seine Meinung.", ["Ich finde, dass wir mehr reden sollten.","Ich finde, dass wir sollten mehr reden.","Ich finde, dass sollten wir mehr reden."], ["Milan is giving his opinion.","Milan высказывает своё мнение.","Milan висловлює свою думку.","Milan fikrini söylüyor."], {"c":"p7_nebensatz"}),
         gap('G3', 'dass', I.conjunction, 'Ich weiß, ', ' du viel Arbeit hast.', 'dass', ['weil', 'wenn'],
           ['I know that you have a lot of work.', 'Я знаю, что у тебя много работы.', 'Я знаю, що в тебе багато роботи.', 'Çok işin olduğunu biliyorum.'], WWD),
         gap('G3', 'wenn', I.conjunction, 'Ich nehme immer einen Schirm mit, ', ' es regnet.', 'wenn', ['dass', 'deshalb'],
@@ -253,8 +261,7 @@ const path = {
           ['I wish for a quiet evening.', 'Мне хочется спокойного вечера.', 'Мені хочеться спокійного вечора.', 'Sakin bir akşam diliyorum.']),
         mc('K3', 'Mein Traum ist …', I.situation, 'Du träumst von einer Reise nach Australien. Was sagst du?', ['Mein Traum ist eine Reise nach Australien.', 'Ich war schon in Australien.', 'Australien ist mir egal.'],
           ['You dream of a trip to Australia. What do you say?', 'Вы мечтаете о поездке в Австралию. Что вы скажете?', 'Ви мрієте про подорож до Австралії. Що ви скажете?', 'Avustralya’ya bir yolculuk hayal ediyorsunuz. Ne dersiniz?']),
-        mc('K3', 'sich', I.choose, 'Was wünscht … Lena zum Geburtstag? – Ein Fahrrad.', ['sich', 'ihr', 'sie'],
-          ['What does Lena want for her birthday? – A bike.', 'Что Lena хочет на день рождения? – Велосипед.', 'Що Lena хоче на день народження? – Велосипед.', 'Lena doğum gününde ne istiyor? – Bir bisiklet.']),
+        mc("K3", "sich", {"de":"Wähle das passende Reflexivpronomen.","t":["Choose the correct reflexive pronoun.","Выберите подходящее возвратное местоимение.","Виберіть відповідний зворотний займенник.","Uygun dönüşlülük zamirini seçin."]}, "Was wünscht … Leon zum Geburtstag? – Ein Fahrrad.", ["sich","sie","ihr"], ["What does Leon want for his birthday? – A bike.","Что Leon хочет на день рождения? – Велосипед.","Що Leon хоче на день народження? – Велосипед.","Leon doğum gününde ne istiyor? – Bir bisiklet."], {"c":"p7_wuensche"}),
         mc('K3', 'Ich würde gern …', I.situation, 'Es ist ein schöner Abend. Du hast Lust auf einen Spaziergang. Was sagst du?', ['Ich würde jetzt gern einen Spaziergang machen.', 'Ich musste einen Spaziergang machen.', 'Ich habe einen Spaziergang gemacht.'],
           ['It is a lovely evening. You feel like going for a walk. What do you say?', 'Прекрасный вечер. Вам хочется прогуляться. Что вы скажете?', 'Чудовий вечір. Вам хочеться прогулятися. Що ви скажете?', 'Güzel bir akşam. Canınız yürüyüş yapmak istiyor. Ne dersiniz?']),
         gap('K3', 'dir', I.pronoun, 'Was wünschst du ', ' zu Weihnachten?', 'dir', ['dich', 'du'],

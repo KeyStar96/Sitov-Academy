@@ -376,21 +376,37 @@ const path = {
       title: 'Die Mailbox',
       t: ['Voicemail', 'Автоответчик', 'Автовідповідач', 'Telesekreter'],
       card: {
-        id: 'p5_mailbox',
-        rule: 'Die Mailbox: Ansage hören: Hier ist der Anschluss von Familie Lindner. / Sie sind verbunden mit der Firma Nordweg. Im Moment sind wir nicht erreichbar. Bitte hinterlassen Sie eine Nachricht nach dem Ton. Wir rufen zurück. Nachricht sprechen: Hier spricht Dilara Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!',
-        examples: ['Im Moment bin ich nicht erreichbar.', 'Bitte sprechen Sie Ihren Namen und Ihre Telefonnummer nach dem Ton.', 'Hier ist Emre Demir. Bitte rufen Sie zurück.'],
-        highlight: null,
-        t: [
-          'Voicemail: hearing the announcement: Hier ist der Anschluss von Familie Lindner (this is the Lindner family’s line). / Sie sind verbunden mit der Firma Nordweg (you have reached Nordweg). Im Moment sind wir nicht erreichbar (we are not available at the moment). Bitte hinterlassen Sie eine Nachricht nach dem Ton (please leave a message after the tone). Wir rufen zurück (we will call back). Leaving a message: Hier spricht Dilara Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!',
-          'Автоответчик: что говорит запись: Hier ist der Anschluss von Familie Lindner (это номер семьи Lindner). / Sie sind verbunden mit der Firma Nordweg (вы позвонили в фирму Nordweg). Im Moment sind wir nicht erreichbar (сейчас мы не можем ответить). Bitte hinterlassen Sie eine Nachricht nach dem Ton (оставьте сообщение после сигнала). Wir rufen zurück (мы перезвоним). Как оставить сообщение: Hier spricht Dilara Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!',
-          'Автовідповідач: що каже запис: Hier ist der Anschluss von Familie Lindner (це номер родини Lindner). / Sie sind verbunden mit der Firma Nordweg (ви зателефонували до фірми Nordweg). Im Moment sind wir nicht erreichbar (зараз ми не можемо відповісти). Bitte hinterlassen Sie eine Nachricht nach dem Ton (залиште повідомлення після сигналу). Wir rufen zurück (ми передзвонимо). Як залишити повідомлення: Hier spricht Dilara Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!',
-          'Telesekreter: Anonsu dinleme: Hier ist der Anschluss von Familie Lindner (burası Lindner ailesinin hattı). / Sie sind verbunden mit der Firma Nordweg (Nordweg firmasına ulaştınız). Im Moment sind wir nicht erreichbar (şu anda cevap veremiyoruz). Bitte hinterlassen Sie eine Nachricht nach dem Ton (lütfen sinyal sesinden sonra mesaj bırakın). Wir rufen zurück (geri arayacağız). Mesaj bırakma: Hier spricht Dilara Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!',
-        ],
-        hint: ['Ansage = die Mailbox spricht. Achte auf: Wer? Erreichbar? Was soll ich tun?', 'Announcement = the voicemail speaks. Listen for: who? available? what should I do?', 'Запись = говорит автоответчик. Обратите внимание: кто? доступен ли? что мне делать?', 'Запис = говорить автовідповідач. Зверніть увагу: хто? чи доступний? що мені робити?', 'Anons = telesekreter konuşur. Şunlara dikkat edin: Kim? Ulaşılabilir mi? Ne yapmalıyım?'],
-        hints: {
-          leave: ['Auf die Mailbox sprechen: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!', 'Leaving a message: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!', 'Как оставить сообщение: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!', 'Як залишити повідомлення: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!', 'Mesaj bırakma: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!'],
-        },
-      },
+  "id": "p5_mailbox",
+  "rule": "Die Mailbox: Ansage hören: Hier ist der Anschluss von Familie Lindner. / Sie sind verbunden mit der Firma Nordweg. Im Moment sind wir nicht erreichbar. Bitte hinterlassen Sie eine Nachricht nach dem Ton. Wir rufen zurück. Nachricht sprechen: Hier spricht Dilan Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!",
+  "examples": [
+    "Im Moment bin ich nicht erreichbar.",
+    "Bitte sprechen Sie Ihren Namen und Ihre Telefonnummer nach dem Ton.",
+    "Hier ist Emre Demir. Bitte rufen Sie zurück."
+  ],
+  "highlight": null,
+  "t": [
+    "Voicemail: hearing the announcement: Hier ist der Anschluss von Familie Lindner (this is the Lindner family’s line). / Sie sind verbunden mit der Firma Nordweg (you have reached Nordweg). Im Moment sind wir nicht erreichbar (we are not available at the moment). Bitte hinterlassen Sie eine Nachricht nach dem Ton (please leave a message after the tone). Wir rufen zurück (we will call back). Leaving a message: Hier spricht Dilan Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!",
+    "Автоответчик: что говорит запись: Hier ist der Anschluss von Familie Lindner (это номер семьи Lindner). / Sie sind verbunden mit der Firma Nordweg (вы позвонили в фирму Nordweg). Im Moment sind wir nicht erreichbar (сейчас мы не можем ответить). Bitte hinterlassen Sie eine Nachricht nach dem Ton (оставьте сообщение после сигнала). Wir rufen zurück (мы перезвоним). Как оставить сообщение: Hier spricht Dilan Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!",
+    "Автовідповідач: що каже запис: Hier ist der Anschluss von Familie Lindner (це номер родини Lindner). / Sie sind verbunden mit der Firma Nordweg (ви зателефонували до фірми Nordweg). Im Moment sind wir nicht erreichbar (зараз ми не можемо відповісти). Bitte hinterlassen Sie eine Nachricht nach dem Ton (залиште повідомлення після сигналу). Wir rufen zurück (ми передзвонимо). Як залишити повідомлення: Hier spricht Dilan Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!",
+    "Telesekreter: Anonsu dinleme: Hier ist der Anschluss von Familie Lindner (burası Lindner ailesinin hattı). / Sie sind verbunden mit der Firma Nordweg (Nordweg firmasına ulaştınız). Im Moment sind wir nicht erreichbar (şu anda cevap veremiyoruz). Bitte hinterlassen Sie eine Nachricht nach dem Ton (lütfen sinyal sesinden sonra mesaj bırakın). Wir rufen zurück (geri arayacağız). Mesaj bırakma: Hier spricht Dilan Aksoy. Bitte rufen Sie zurück unter 0561 778812. Vielen Dank und auf Wiederhören!"
+  ],
+  "hint": [
+    "Ansage = die Mailbox spricht. Achte auf: Wer? Erreichbar? Was soll ich tun?",
+    "Announcement = the voicemail speaks. Listen for: who? available? what should I do?",
+    "Запись = говорит автоответчик. Обратите внимание: кто? доступен ли? что мне делать?",
+    "Запис = говорить автовідповідач. Зверніть увагу: хто? чи доступний? що мені робити?",
+    "Anons = telesekreter konuşur. Şunlara dikkat edin: Kim? Ulaşılabilir mi? Ne yapmalıyım?"
+  ],
+  "hints": {
+    "leave": [
+      "Auf die Mailbox sprechen: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!",
+      "Leaving a message: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!",
+      "Как оставить сообщение: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!",
+      "Як залишити повідомлення: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!",
+      "Mesaj bırakma: Hier ist … Bitte rufen Sie zurück unter … Auf Wiederhören!"
+    ]
+  }
+},
       ex: [
         mc('K4', 'Ansage verstehen', I.read, `${ANNOUNCEMENT} Was ist richtig?`, ['Jetzt kann niemand ans Telefon gehen.', 'Die Praxis ruft zurück.', 'Die Praxis ist am Samstag offen.'],
           ['What is correct?', 'Что правильно?', 'Що правильно?', 'Hangisi doğru?']),
@@ -407,8 +423,7 @@ const path = {
           ['tone, beep', 'сигнал', 'сигнал', 'sinyal sesi']),
         gap('K4', 'zurückrufen', I.verb, 'Im Moment sind wir nicht da. Wir ', ' zurück.', 'rufen', ['ruft', 'rufe'],
           ['We are not here at the moment. We will call back.', 'Сейчас нас нет. Мы перезвоним.', 'Зараз нас немає. Ми передзвонимо.', 'Şu anda burada değiliz. Geri arayacağız.'], 'zurückrufen'),
-        gap('K5', 'Rückruf', I.word, 'Hier ist Olena Bondar. Bitte rufen Sie zurück ', ' 0171 2233445.', 'unter', ['über', 'in'],
-          ['This is Olena Bondar. Please call back on 0171 2233445.', 'Это Olena Bondar. Пожалуйста, перезвоните по номеру 0171 2233445.', 'Це Olena Bondar. Будь ласка, передзвоніть за номером 0171 2233445.', 'Ben Olena Bondar. Lütfen 0171 2233445 numaralı telefondan geri arayın.'], 'unter / über / in', { h: 'leave' }),
+        gap("K5", "Rückruf", I.word, "Hier ist Oleh Bondar. Bitte rufen Sie zurück ", " 0171 2233445.", "unter", ["in","über"], ["This is Oleh Bondar. Please call back on 0171 2233445.","Это Oleh Bondar. Пожалуйста, перезвоните по номеру 0171 2233445.","Це Oleh Bondar. Будь ласка, передзвоніть за номером 0171 2233445.","Ben Oleh Bondar. Lütfen 0171 2233445 numaralı telefondan geri arayın."], "unter / über / in", {"h":"leave","c":"p5_mailbox"}),
         gap('K5', 'Telefonnummer', I.word, 'Bitte rufen Sie zurück. Meine ', ' ist 030 5550142.', 'Nummer', ['Nachricht', 'Mailbox'],
           ['Please call back. My number is 030 5550142.', 'Пожалуйста, перезвоните. Мой номер 030 5550142.', 'Будь ласка, передзвоніть. Мій номер 030 5550142.', 'Lütfen geri arayın. Numaram 030 5550142.'],
           ['number', 'номер', 'номер', 'numara'], { h: 'leave' }),

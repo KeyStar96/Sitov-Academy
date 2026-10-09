@@ -14,7 +14,7 @@ const path = {
     G1: 'Ordinalzahlen: bis 19. mit -te (der erste, der dritte, der siebte), ab 20. mit -ste (der zwanzigste).',
     G2: 'Das Datum nennen: Heute ist der zweite Mai. Wann? Am zweiten Mai. Vom zweiten bis zum zwanzigsten Mai.',
     G3: 'Personalpronomen im Akkusativ: mich, dich, ihn, es, sie, uns, euch, sie, Sie – auch nach „für“.',
-    G4: 'Die Konjunktion „denn“ für Gründe: Wir feiern, denn Lara hat Geburtstag.',
+    G4: "Die Konjunktion „denn“ für Gründe: Wir feiern, denn Lars hat Geburtstag.",
     G5: 'Konjugation von werden: ich werde, du wirst, er wird, wir werden, ihr werdet, sie werden – Ich werde 30.',
     K1: 'Über Geburtstage und Jahrestage sprechen: Wann hast du Geburtstag? Ich bin am 19. Januar geboren.',
     K2: 'Gratulieren und Glückwünsche aussprechen: Alles Gute! Herzlichen Glückwunsch! Frohe Weihnachten!',
@@ -58,9 +58,7 @@ const path = {
         gap('W1', 'Gäste', I.word, 'Zur Party kommen 20 ', '. Wir brauchen viele Stühle.', 'Gäste', ['Geschenke', 'Feste'],
           ['20 guests are coming to the party. We need a lot of chairs.', 'На вечеринку придут 20 гостей. Нам нужно много стульев.', 'На вечірку прийдуть 20 гостей. Нам потрібно багато стільців.', 'Partiye 20 misafir geliyor. Çok sandalyeye ihtiyacımız var.'],
           ['guests', 'гости', 'гості', 'misafirler']),
-        gap('W1', 'Einladung', I.word, 'Ich habe eine ', ' zur Hochzeit von Lena und Tom bekommen.', 'Einladung', ['Erfahrung', 'Entschuldigung'],
-          ['I have received an invitation to Lena and Tom’s wedding.', 'Я получил приглашение на свадьбу Lena и Tom.', 'Я отримав запрошення на весілля Lena і Tom.', 'Lena ve Tom’un düğününe bir davetiye aldım.'],
-          ['invitation', 'приглашение', 'запрошення', 'davetiye']),
+        gap("W1", "Einladung", I.word, "Ich habe eine ", " zur Hochzeit von Leon und Tom bekommen.", "Einladung", ["Erfahrung","Entschuldigung"], ["I have received an invitation to Leon and Tom’s wedding.","Я получил приглашение на свадьбу Leon и Tom.","Я отримав запрошення на весілля Leon і Tom.","Leon ve Tom’un düğününe bir davetiye aldım."], ["invitation","приглашение","запрошення","davetiye"], {"c":"p7_feste"}),
       ],
     },
     {
@@ -130,8 +128,7 @@ const path = {
           ['The practice is closed from 1 to 10 August.', 'Практика закрыта с первого по десятое августа.', 'Практика зачинена з першого по десяте серпня.', 'Muayenehane 1’inden 10 Ağustos’a kadar kapalı.'], { h: 'prep' }),
         gap('G2', 'am + -en', I.ordinal, 'Der Kurs beginnt am ', ' September.', 'ersten', ['erste', 'einsten'],
           ['The course starts on 1 September.', 'Курс начинается первого сентября.', 'Курс починається першого вересня.', 'Kurs 1 Eylül’de başlıyor.'], '1.'),
-        gap('G2', 'am + -en', I.ordinal, 'Lena hat am ', ' März Geburtstag.', 'dritten', ['dritte', 'dreiten'],
-          ['Lena’s birthday is on 3 March.', 'У Lena день рождения третьего марта.', 'У Lena день народження третього березня.', 'Lena’nın doğum günü 3 Mart’ta.'], '3.'),
+        gap("G2", "am + -en", I.ordinal, "Leon hat am ", " März Geburtstag.", "dritten", ["dritte","dreiten"], ["Leon’s birthday is on 3 March.","У Leon день рождения третьего марта.","У Leon день народження третього березня.","Leon’un doğum günü 3 Mart’ta."], "3.", {"c":"p7_datum"}),
         gap('G2', 'der + -e', I.ordinal, 'Heute ist der ', ' Februar.', 'vierzehnte', ['vierzehnten', 'vierzehnste'],
           ['Today is 14 February.', 'Сегодня четырнадцатое февраля.', 'Сьогодні чотирнадцяте лютого.', 'Bugün 14 Şubat.'], '14.'),
         gap('G2', 'am + -en', I.ordinal, 'Wir heiraten am ', ' Juni.', 'zwanzigsten', ['zwanzigste', 'zwanzigten'],
@@ -253,8 +250,7 @@ const path = {
           ['The flowers are lovely. I am buying them for Grandma.', 'Цветы красивые. Я покупаю их для бабушки.', 'Квіти гарні. Я купую їх для бабусі.', 'Çiçekler güzel. Onları büyükannem için alıyorum.'], 'ihn / es / sie', { h: 'thing' }),
         gap('G3', 'uns', I.pronoun, 'Wir machen eine Party. Besucht ihr ', '?', 'uns', ['wir', 'euch'],
           ['We are having a party. Are you coming to see us?', 'Мы устраиваем вечеринку. Вы к нам придёте?', 'Ми влаштовуємо вечірку. Ви до нас прийдете?', 'Bir parti veriyoruz. Bizi ziyaret eder misiniz?'], 'wir'),
-        gap('G3', 'euch', I.pronoun, 'Tim und Mia, ich lade ', ' zu meiner Party ein.', 'euch', ['ihr', 'uns'],
-          ['Tim and Mia, I am inviting you to my party.', 'Tim и Mia, я приглашаю вас на свою вечеринку.', 'Tim і Mia, я запрошую вас на свою вечірку.', 'Tim ve Mia, sizi partime davet ediyorum.'], 'ihr'),
+        gap("G3", "euch", I.pronoun, "Tim und Milan, ich lade ", " zu meiner Party ein.", "euch", ["ihr","uns"], ["Tim and Milan, I am inviting you to my party.","Tim и Milan, я приглашаю вас на свою вечеринку.","Tim і Milan, я запрошую вас на свою вечірку.","Tim ve Milan, sizi partime davet ediyorum."], "ihr", {"c":"p7_akk"}),
         gap('G3', 'es', I.pronoun, 'Das Fahrrad ist kaputt. Kannst du ', ' bitte reparieren?', 'es', ['ihn', 'sie'],
           ['The bike is broken. Can you repair it, please?', 'Велосипед сломался. Ты можешь его починить, пожалуйста?', 'Велосипед зламався. Ти можеш його полагодити, будь ласка?', 'Bisiklet bozuk. Onu tamir edebilir misin lütfen?'], 'ihn / es / sie', { h: 'thing' }),
         gap('G3', 'für + Akkusativ', I.pronoun, 'Hier ist ein Brief für ', ', Frau Kaya.', 'Sie', ['Ihnen', 'dich'],
@@ -267,34 +263,48 @@ const path = {
       title: 'denn',
       t: ['denn (because)', 'denn (потому что)', 'denn (бо, тому що)', 'denn (çünkü)'],
       card: {
-        id: 'p7_denn',
-        rule: 'denn = ein Grund. denn verbindet zwei Hauptsätze. Vor denn steht ein Komma. Nach denn bleibt die Wortstellung normal: Subjekt, dann Verb. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.',
-        examples: ['Ich komme nicht, denn ich bin krank.', 'Wir kaufen Blumen, denn Oma hat Geburtstag.', 'Er lernt viel, denn er hat morgen eine Prüfung.'],
-        highlight: null,
-        t: [
-          'denn = a reason (because). denn joins two main clauses. There is a comma before denn. After denn the word order stays normal: subject, then verb. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.',
-          'denn = причина (потому что). denn соединяет два главных предложения. Перед denn ставится запятая. После denn порядок слов обычный: подлежащее, потом глагол. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.',
-          'denn = причина (бо, тому що). denn з’єднує два головні речення. Перед denn ставиться кома. Після denn порядок слів звичайний: підмет, потім дієслово. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.',
-          'denn = bir neden (çünkü). denn iki ana cümleyi bağlar. denn’den önce virgül konur. denn’den sonra kelime sırası değişmez: özne, sonra fiil. Wir feiern. Lara hat Geburtstag. → Wir feiern, denn Lara hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.',
-        ],
-        hint: ['denn + Subjekt + Verb: …, denn ich habe keine Zeit.', 'denn + subject + verb: …, denn ich habe keine Zeit.', 'denn + подлежащее + глагол: …, denn ich habe keine Zeit.', 'denn + підмет + дієслово: …, denn ich habe keine Zeit.', 'denn + özne + fiil: …, denn ich habe keine Zeit.'],
-        hints: {
-          which: ['Ein Grund → denn. Ein Gegensatz → aber. Zwei Möglichkeiten → oder.', 'A reason → denn. A contrast → aber. Two options → oder.', 'Причина → denn. Противопоставление → aber. Два варианта → oder.', 'Причина → denn. Протиставлення → aber. Два варіанти → oder.', 'Neden → denn. Karşıtlık → aber. İki seçenek → oder.'],
-        },
-      },
+  "id": "p7_denn",
+  "rule": "denn = ein Grund. denn verbindet zwei Hauptsätze. Vor denn steht ein Komma. Nach denn bleibt die Wortstellung normal: Subjekt, dann Verb. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+  "examples": [
+    "Ich komme nicht, denn ich bin krank.",
+    "Wir kaufen Blumen, denn Opa hat Geburtstag.",
+    "Er lernt viel, denn er hat morgen eine Prüfung."
+  ],
+  "highlight": null,
+  "t": [
+    "denn = a reason (because). denn joins two main clauses. There is a comma before denn. After denn the word order stays normal: subject, then verb. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+    "denn = причина (потому что). denn соединяет два главных предложения. Перед denn ставится запятая. После denn порядок слов обычный: подлежащее, потом глагол. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+    "denn = причина (бо, тому що). denn з’єднує два головні речення. Перед denn ставиться кома. Після denn порядок слів звичайний: підмет, потім дієслово. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
+    "denn = bir neden (çünkü). denn iki ana cümleyi bağlar. denn’den önce virgül konur. denn’den sonra kelime sırası değişmez: özne, sonra fiil. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten."
+  ],
+  "hint": [
+    "denn + Subjekt + Verb: …, denn ich habe keine Zeit.",
+    "denn + subject + verb: …, denn ich habe keine Zeit.",
+    "denn + подлежащее + глагол: …, denn ich habe keine Zeit.",
+    "denn + підмет + дієслово: …, denn ich habe keine Zeit.",
+    "denn + özne + fiil: …, denn ich habe keine Zeit."
+  ],
+  "hints": {
+    "which": [
+      "Ein Grund → denn. Ein Gegensatz → aber. Zwei Möglichkeiten → oder.",
+      "A reason → denn. A contrast → aber. Two options → oder.",
+      "Причина → denn. Противопоставление → aber. Два варианта → oder.",
+      "Причина → denn. Протиставлення → aber. Два варіанти → oder.",
+      "Neden → denn. Karşıtlık → aber. İki seçenek → oder."
+    ]
+  }
+},
       ex: [
         mc('G4', 'denn', I.choose, 'Ich kann nicht zur Party kommen, … ich bin krank.', ['denn', 'oder', 'aber'],
           ['I cannot come to the party because I am ill.', 'Я не могу прийти на вечеринку, потому что я болею.', 'Я не можу прийти на вечірку, бо я хворію.', 'Partiye gelemiyorum çünkü hastayım.'], { h: 'which' }),
         mc('G4', 'Wortstellung nach denn', I.sentence, 'Emre sagt ab.', ['Ich komme nicht, denn ich muss arbeiten.', 'Ich komme nicht, denn muss ich arbeiten.', 'Ich komme nicht, denn ich arbeiten muss.'],
           ['Emre says he cannot come.', 'Emre отказывается от приглашения.', 'Emre відмовляється від запрошення.', 'Emre gelemeyeceğini söylüyor.']),
-        mc('G4', 'Grund nennen', I.choose, 'Welcher Satz nennt einen Grund?', ['Wir feiern, denn Mia wird 18.', 'Wir feiern und Mia tanzt.', 'Wir feiern, aber Mia ist müde.'],
-          ['Which sentence gives a reason?', 'В каком предложении названа причина?', 'У якому реченні названо причину?', 'Hangi cümle bir neden bildiriyor?'], { h: 'which' }),
+        mc("G4", "Grund nennen", I.choose, "Welcher Satz nennt einen Grund?", ["Wir feiern, denn Milan wird 18.","Wir feiern, aber Milan ist müde.","Wir feiern und Milan tanzt."], ["Which sentence gives a reason?","В каком предложении названа причина?","У якому реченні названо причину?","Hangi cümle bir neden bildiriyor?"], {"h":"which","c":"p7_denn","sitovOptionOrder":["Wir feiern, denn Milan wird 18.","Wir feiern, aber Milan ist müde.","Wir feiern und Milan tanzt."]}),
         gap('G4', 'denn', I.conjunction, 'Ich kaufe Blumen, ', ' meine Mutter hat Geburtstag.', 'denn', ['aber', 'oder'],
           ['I am buying flowers because it is my mother’s birthday.', 'Я покупаю цветы, потому что у моей мамы день рождения.', 'Я купую квіти, бо в моєї мами день народження.', 'Çiçek alıyorum çünkü annemin doğum günü.'], 'denn / aber / oder', { h: 'which' }),
         gap('G4', 'aber', I.conjunction, 'Ich möchte kommen, ', ' ich habe leider keine Zeit.', 'aber', ['denn', 'oder'],
           ['I would like to come, but unfortunately I have no time.', 'Я хотел бы прийти, но, к сожалению, у меня нет времени.', 'Я хотів би прийти, але, на жаль, у мене немає часу.', 'Gelmek isterim ama maalesef vaktim yok.'], 'denn / aber / oder', { h: 'which' }),
-        gap('G4', 'denn', I.conjunction, 'Lena ist glücklich, ', ' sie hat viele Geschenke bekommen.', 'denn', ['aber', 'oder'],
-          ['Lena is happy because she got lots of presents.', 'Lena счастлива, потому что получила много подарков.', 'Lena щаслива, бо отримала багато подарунків.', 'Lena mutlu çünkü çok hediye aldı.'], 'denn / aber / oder', { h: 'which' }),
+        gap("G4", "denn", I.conjunction, "Leon ist glücklich, ", " er hat viele Geschenke bekommen.", "denn", ["aber","oder"], ["Leon is happy because he got lots of presents.","Leon счастлив, потому что получил много подарков.","Leon щасливий, бо отримав багато подарунків.","Leon mutlu çünkü çok hediye aldı."], "denn / aber / oder", {"h":"which","c":"p7_denn"}),
         gap('G4', 'Wortstellung nach denn', I.verb, 'Wir bleiben zu Hause, denn es ', ' sehr kalt.', 'ist', ['sein', 'sind'],
           ['We are staying at home because it is very cold.', 'Мы остаёмся дома, потому что очень холодно.', 'Ми залишаємося вдома, бо дуже холодно.', 'Evde kalıyoruz çünkü hava çok soğuk.'], 'sein'),
         sb('G4', 'denn', I.order, 'Ich komme nicht, / denn / ich / bin / krank.',
@@ -346,18 +356,28 @@ const path = {
       title: 'Liebe Vanessa, lieber Paul',
       t: ['Dear Vanessa, dear Paul', 'Дорогая Vanessa, дорогой Paul', 'Люба Vanessa, любий Paul', 'Sevgili Vanessa, sevgili Paul'],
       card: {
-        id: 'p7_brief',
-        rule: 'Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Mia, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.',
-        examples: ['Liebe Oma, vielen Dank für das Geschenk!', 'Sehr geehrter Herr Brandt, ich lade Sie herzlich ein.', 'Viele Grüße, deine Lena'],
-        highlight: null,
-        t: [
-          'Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Mia, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.',
-          'Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Mia, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.',
-          'Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Mia, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.',
-          'Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Mia, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.',
-        ],
-        hint: ['Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.', 'Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.', 'Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.', 'Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.', 'Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.'],
-      },
+  "id": "p7_brief",
+  "rule": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+  "examples": [
+    "Liebe Oma, vielen Dank für das Geschenk!",
+    "Sehr geehrter Herr Brandt, ich lade Sie herzlich ein.",
+    "Viele Grüße, dein Leon"
+  ],
+  "highlight": null,
+  "t": [
+    "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+    "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+    "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+    "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
+  ],
+  "hint": [
+    "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
+    "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
+    "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
+    "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
+    "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen."
+  ]
+},
       ex: [
         mc('K3', 'Anrede', I.choose, 'Du schreibst eine E-Mail an deinen Freund Jonas. Wie beginnst du?', ['Lieber Jonas,', 'Liebe Jonas,', 'Sehr geehrter Herr Jonas,'],
           ['You are writing an e-mail to your friend Jonas. How do you begin?', 'Вы пишете e-mail своему другу Jonas. Как вы начнёте?', 'Ви пишете e-mail своєму другові Jonas. Як ви почнете?', 'Arkadaşınız Jonas’a bir e-posta yazıyorsunuz. Nasıl başlarsınız?']),
@@ -369,9 +389,7 @@ const path = {
           ['Dear Paul, thank you very much for your invitation!', 'Дорогой Paul, большое спасибо за приглашение!', 'Любий Paul, щиро дякую за запрошення!', 'Sevgili Paul, davetin için çok teşekkürler!'], 'lieb'),
         gap('K3', 'Liebe', I.form, '', ' Sofia, ich gratuliere dir zum Geburtstag!', 'Liebe', ['Lieber', 'Lieben'],
           ['Dear Sofia, happy birthday to you!', 'Дорогая Sofia, поздравляю тебя с днём рождения!', 'Люба Sofia, вітаю тебе з днем народження!', 'Sevgili Sofia, doğum gününü kutluyorum!'], 'lieb'),
-        gap('K3', 'Gruß informell', I.word, 'Bis bald und viele ', ', deine Mia', 'Grüße', ['Geschenke', 'Gäste'],
-          ['See you soon and best wishes, your Mia', 'До скорой встречи и большой привет, твоя Mia', 'До скорої зустрічі й щирі вітання, твоя Mia', 'Yakında görüşmek üzere, selamlar, Mia’n'],
-          ['greetings, regards', 'приветы', 'вітання', 'selamlar']),
+        gap("K3", "Gruß informell", I.word, "Bis bald und viele ", ", dein Milan", "Grüße", ["Gäste","Geschenke"], ["See you soon and best wishes, your Milan","До скорой встречи и большой привет, твой Milan","До скорої зустрічі й щирі вітання, твій Milan","Yakında görüşmek üzere, selamlar, Milan’ın"], ["greetings, regards","приветы","вітання","selamlar"], {"c":"p7_brief"}),
         gap('K3', 'Gruß formell', I.form, 'Sehr geehrte Frau Lindner, vielen Dank für Ihre E-Mail. Mit freundlichen ', ', Emre Demir', 'Grüßen', ['Grüße', 'Gruß'],
           ['Dear Ms Lindner, thank you for your e-mail. Yours sincerely, Emre Demir', 'Уважаемая госпожа Lindner, спасибо за ваш e-mail. С уважением, Emre Demir', 'Шановна пані Lindner, дякую за ваш e-mail. З повагою, Emre Demir', 'Sayın Lindner Hanım, e-postanız için teşekkürler. Saygılarımla, Emre Demir'], 'Gruß'),
       ],

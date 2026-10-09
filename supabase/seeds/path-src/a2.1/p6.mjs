@@ -70,21 +70,30 @@ const path = {
       title: 'Ausbildung und Beruf',
       t: ['Training and work', 'Образование и профессия', 'Освіта і професія', 'Meslek eğitimi ve meslek'],
       card: {
-        id: 'p6_ausbildung',
-        rule: 'Nach der Schule: der Schulabschluss (das Ende von der Schule mit Zeugnis), das Abitur (der höchste Schulabschluss, danach kann man studieren), die Ausbildung oder die Lehre (einen Beruf lernen, in der Firma und in der Berufsschule), der Auszubildende oder der Azubi, das Studium (an der Universität studieren), das Praktikum (einige Wochen in einer Firma arbeiten und lernen), die Weiterbildung (im Beruf weiterlernen), die Prüfung, die Note.',
-        examples: ['Nach dem Abitur habe ich eine Ausbildung gemacht.', 'Mein Praktikum hat drei Monate gedauert.', 'Sie macht eine Weiterbildung am Computer.'],
-        highlight: null,
-        t: [
-          'After school: der Schulabschluss (school-leaving qualification), das Abitur (the highest school qualification; with it you can go to university), die Ausbildung or die Lehre (vocational training, apprenticeship: learning a job in a company and at vocational school), der Auszubildende or der Azubi (trainee, apprentice), das Studium (studying at university), das Praktikum (internship: working and learning in a company for a few weeks), die Weiterbildung (further training in your job), die Prüfung (exam), die Note (mark).',
-          'После школы: der Schulabschluss (аттестат об окончании школы), das Abitur (высший школьный аттестат; с ним можно учиться в университете), die Ausbildung или die Lehre (профессиональное обучение: профессию осваивают на предприятии и в профессиональной школе), der Auszubildende или der Azubi (ученик на производстве), das Studium (учёба в университете), das Praktikum (практика, стажировка: несколько недель работы и учёбы на фирме), die Weiterbildung (повышение квалификации), die Prüfung (экзамен), die Note (оценка).',
-          'Після школи: der Schulabschluss (атестат про закінчення школи), das Abitur (найвищий шкільний атестат; з ним можна навчатися в університеті), die Ausbildung або die Lehre (професійне навчання: професію опановують на підприємстві та в професійній школі), der Auszubildende або der Azubi (учень на виробництві), das Studium (навчання в університеті), das Praktikum (практика, стажування: кілька тижнів роботи й навчання на фірмі), die Weiterbildung (підвищення кваліфікації), die Prüfung (іспит), die Note (оцінка).',
-          'Okuldan sonra: der Schulabschluss (okul diploması), das Abitur (en yüksek okul diploması; onunla üniversitede okunabilir), die Ausbildung ya da die Lehre (meslek eğitimi: meslek, iş yerinde ve meslek okulunda öğrenilir), der Auszubildende ya da der Azubi (çırak, meslek eğitimi öğrencisi), das Studium (üniversite öğrenimi), das Praktikum (staj: birkaç hafta bir şirkette çalışıp öğrenmek), die Weiterbildung (meslekte ileri eğitim), die Prüfung (sınav), die Note (not).',
-        ],
-        hint: ['Beruf lernen → Ausbildung. Universität → Studium. Kurze Zeit in einer Firma → Praktikum. Im Beruf weiterlernen → Weiterbildung.', 'Learning a job → Ausbildung. University → Studium. A short time in a company → Praktikum. Learning more in your job → Weiterbildung.', 'Освоить профессию → Ausbildung. Университет → Studium. Недолго на фирме → Praktikum. Учиться дальше, уже работая → Weiterbildung.', 'Опанувати професію → Ausbildung. Університет → Studium. Недовго на фірмі → Praktikum. Вчитися далі, уже працюючи → Weiterbildung.', 'Meslek öğrenmek → Ausbildung. Üniversite → Studium. Bir şirkette kısa süre → Praktikum. Meslekte öğrenmeye devam → Weiterbildung.'],
-      },
+  "id": "p6_ausbildung",
+  "rule": "Nach der Schule: der Schulabschluss (das Ende von der Schule mit Zeugnis), das Abitur (der höchste Schulabschluss, danach kann man studieren), die Ausbildung oder die Lehre (einen Beruf lernen, in der Firma und in der Berufsschule), der Auszubildende oder der Azubi, das Studium (an der Universität studieren), das Praktikum (einige Wochen in einer Firma arbeiten und lernen), die Weiterbildung (im Beruf weiterlernen), die Prüfung, die Note.",
+  "examples": [
+    "Nach dem Abitur habe ich eine Ausbildung gemacht.",
+    "Mein Praktikum hat drei Monate gedauert.",
+    "Er macht eine Weiterbildung am Computer."
+  ],
+  "highlight": null,
+  "t": [
+    "After school: der Schulabschluss (school-leaving qualification), das Abitur (the highest school qualification; with it you can go to university), die Ausbildung or die Lehre (vocational training, apprenticeship: learning a job in a company and at vocational school), der Auszubildende or der Azubi (trainee, apprentice), das Studium (studying at university), das Praktikum (internship: working and learning in a company for a few weeks), die Weiterbildung (further training in your job), die Prüfung (exam), die Note (mark).",
+    "После школы: der Schulabschluss (аттестат об окончании школы), das Abitur (высший школьный аттестат; с ним можно учиться в университете), die Ausbildung или die Lehre (профессиональное обучение: профессию осваивают на предприятии и в профессиональной школе), der Auszubildende или der Azubi (ученик на производстве), das Studium (учёба в университете), das Praktikum (практика, стажировка: несколько недель работы и учёбы на фирме), die Weiterbildung (повышение квалификации), die Prüfung (экзамен), die Note (оценка).",
+    "Після школи: der Schulabschluss (атестат про закінчення школи), das Abitur (найвищий шкільний атестат; з ним можна навчатися в університеті), die Ausbildung або die Lehre (професійне навчання: професію опановують на підприємстві та в професійній школі), der Auszubildende або der Azubi (учень на виробництві), das Studium (навчання в університеті), das Praktikum (практика, стажування: кілька тижнів роботи й навчання на фірмі), die Weiterbildung (підвищення кваліфікації), die Prüfung (іспит), die Note (оцінка).",
+    "Okuldan sonra: der Schulabschluss (okul diploması), das Abitur (en yüksek okul diploması; onunla üniversitede okunabilir), die Ausbildung ya da die Lehre (meslek eğitimi: meslek, iş yerinde ve meslek okulunda öğrenilir), der Auszubildende ya da der Azubi (çırak, meslek eğitimi öğrencisi), das Studium (üniversite öğrenimi), das Praktikum (staj: birkaç hafta bir şirkette çalışıp öğrenmek), die Weiterbildung (meslekte ileri eğitim), die Prüfung (sınav), die Note (not)."
+  ],
+  "hint": [
+    "Beruf lernen → Ausbildung. Universität → Studium. Kurze Zeit in einer Firma → Praktikum. Im Beruf weiterlernen → Weiterbildung.",
+    "Learning a job → Ausbildung. University → Studium. A short time in a company → Praktikum. Learning more in your job → Weiterbildung.",
+    "Освоить профессию → Ausbildung. Университет → Studium. Недолго на фирме → Praktikum. Учиться дальше, уже работая → Weiterbildung.",
+    "Опанувати професію → Ausbildung. Університет → Studium. Недовго на фірмі → Praktikum. Вчитися далі, уже працюючи → Weiterbildung.",
+    "Meslek öğrenmek → Ausbildung. Üniversite → Studium. Bir şirkette kısa süre → Praktikum. Meslekte öğrenmeye devam → Weiterbildung."
+  ]
+},
       ex: [
-        mc('W1', 'Ausbildung', I.choose, 'Lena lernt drei Jahre lang den Beruf Köchin, im Restaurant und in der Berufsschule. Sie macht eine …', ['Ausbildung', 'Weiterbildung', 'Prüfung'],
-          ['Lena is learning to be a cook for three years, in a restaurant and at vocational school. She is doing …', 'Lena три года осваивает профессию повара – в ресторане и в профессиональной школе. Она проходит …', 'Lena три роки опановує професію кухаря – у ресторані та в професійній школі. Вона проходить …', 'Lena üç yıl boyunca restoranda ve meslek okulunda aşçılık öğreniyor. O bir … yapıyor.']),
+        mc("W1", "Ausbildung", I.choose, "Leon lernt drei Jahre lang den Beruf Koch, im Restaurant und in der Berufsschule. Er macht eine …", ["Ausbildung","Prüfung","Weiterbildung"], ["Leon is learning to be a cook for three years, in a restaurant and at vocational school. He is doing …","Leon три года осваивает профессию повара – в ресторане и в профессиональной школе. Он проходит …","Leon три роки опановує професію кухаря – у ресторані та в професійній школі. Він проходить …","Leon üç yıl boyunca restoranda ve meslek okulunda aşçılık öğreniyor. O bir … yapıyor."], {"c":"p6_ausbildung"}),
         mc('W1', 'Abitur', I.choose, 'Mit diesem Schulabschluss kann man an der Universität studieren.', ['das Abitur', 'das Praktikum', 'die Lehre'],
           ['With this school qualification you can study at university.', 'С этим школьным аттестатом можно учиться в университете.', 'Із цим шкільним атестатом можна навчатися в університеті.', 'Bu okul diplomasıyla üniversitede okunabilir.']),
         mc('W1', 'Praktikum', I.choose, 'Tom arbeitet in den Ferien vier Wochen in einer Firma und lernt den Beruf kennen. Er macht ein …', ['Praktikum', 'Studium', 'Abitur'],
@@ -234,18 +243,28 @@ const path = {
       title: 'Meine Schulzeit',
       t: ['My school days', 'Мои школьные годы', 'Мої шкільні роки', 'Okul yıllarım'],
       card: {
-        id: 'p6_schulzeit',
-        rule: 'Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.',
-        examples: ['Ich bin mit sieben in die Schule gekommen.', 'Englisch habe ich geliebt.', 'Unsere Lehrer waren sehr streng.'],
-        highlight: null,
-        t: [
-          'Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.',
-          'Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моей любимой учительницей была …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.',
-          'Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (Моєю улюбленою вчителькою була …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.',
-          'Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Meine Lieblingslehrerin war Frau Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett.',
-        ],
-        hint: ['geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.', 'geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.', 'geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.', 'geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.', 'geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak.'],
-      },
+  "id": "p6_schulzeit",
+  "rule": "Über die Schulzeit sprechen: Ich bin mit sechs Jahren in die Schule gekommen. Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. Mathe habe ich gehasst, Sport habe ich geliebt. Schön war immer die Pause. Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. Wir durften nicht sprechen. Die Lehrer waren streng, aber auch nett.",
+  "examples": [
+    "Ich bin mit sieben in die Schule gekommen.",
+    "Englisch habe ich geliebt.",
+    "Unsere Lehrer waren sehr streng."
+  ],
+  "highlight": null,
+  "t": [
+    "Talking about your school days: Ich bin mit sechs Jahren in die Schule gekommen. (I started school at six.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (My favourite teacher was …) Mathe habe ich gehasst (hated), Sport habe ich geliebt (loved). Schön war immer die Pause. (Break was always nice.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (We had to sit still.) Wir durften nicht sprechen. Die Lehrer waren streng (strict), aber auch nett.",
+    "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
+    "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
+    "Okul yıllarından söz etmek: Ich bin mit sechs Jahren in die Schule gekommen. (Altı yaşında okula başladım.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (En sevdiğim öğretmen … idi.) Mathe habe ich gehasst (nefret ederdim), Sport habe ich geliebt (çok severdim). Schön war immer die Pause. (Teneffüs hep güzeldi.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Sessizce oturmak zorundaydık.) Wir durften nicht sprechen. Die Lehrer waren streng (katı), aber auch nett."
+  ],
+  "hint": [
+    "geliebt ↔ gehasst. streng = es gibt viele Regeln. Mit sechs Jahren in die Schule kommen.",
+    "geliebt (loved) ↔ gehasst (hated). streng = there are lots of rules. Mit sechs Jahren in die Schule kommen = to start school at six.",
+    "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
+    "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
+    "geliebt (çok sevdim) ↔ gehasst (nefret ettim). streng = çok kural var. Mit sechs Jahren in die Schule kommen = altı yaşında okula başlamak."
+  ]
+},
       ex: [
         mc('K5', 'Schulanfang', I.react, '„Wann bist du in die Schule gekommen?“', ['Mit sechs Jahren.', 'Seit sechs Jahren.', 'Für sechs Jahre.'],
           ['“When did you start school?”', '«Когда ты пошёл в школу?»', '«Коли ти пішов до школи?»', '“Okula ne zaman başladın?”']),

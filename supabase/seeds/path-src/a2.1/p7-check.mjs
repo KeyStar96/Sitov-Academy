@@ -1,6 +1,5 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
-const LENA = 'Nachricht von Lena: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“'
 const EMRE = 'Nachricht von Emre: „Die Trauung ist schon vorbei. Wir fahren gerade zum Restaurant. Die Feier beginnt um 15 Uhr. Kommst du noch?“'
 
 /** A2.1 · Pfad 7 · Feste und Geschenke – Wiederholung und Testpool. */
@@ -18,8 +17,7 @@ const check = {
       ['You do not mind about the music at a party. Only one thing counts for you: your friends are there. What do you say?', 'Музыка на празднике вам безразлична. Для вас важно только одно: чтобы были друзья. Что вы скажете?', 'Музика на святі вам байдужа. Для вас важливе лише одне: щоб були друзі. Що ви скажете?', 'Kutlamadaki müzik sizin için fark etmez. Sizin için tek bir şey önemli: Arkadaşlarınız orada. Ne dersiniz?']),
     mc('K4', 'Zu trinken gibt es …', I.react, '„Was gibt es zu trinken?“', ['Zu trinken gibt es Saft und Tee.', 'Zu essen gibt es Kuchen.', 'Wir feiern im Garten.'],
       ['“What is there to drink?”', '«Что будет из напитков?»', '«Що буде з напоїв?»', '“İçecek olarak ne var?”']),
-    mc('Z1', 'gleich', I.read, `${LENA} Was ist richtig?`, ['Die Trauung hat noch nicht begonnen.', 'Die Trauung ist schon zu Ende.', 'Lena ist noch zu Hause.'],
-      ['What is correct?', 'Что правильно?', 'Що правильно?', 'Hangisi doğru?']),
+    mc("Z1", "gleich", I.read, "Nachricht von Leon: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig?", ["Die Trauung hat noch nicht begonnen.","Leon ist noch zu Hause.","Die Trauung ist schon zu Ende."], ["What is correct?","Что правильно?","Що правильно?","Hangisi doğru?"], {"c":"p7_nachrichten","sitovOptionOrder":["Die Trauung hat noch nicht begonnen.","Leon ist noch zu Hause.","Die Trauung ist schon zu Ende."]}),
     mc('G2', 'es ihm', I.choose, 'Ich schenke meinem Bruder das Buch. = Ich schenke …', ['es ihm.', 'ihm es.', 'ihn ihm.'],
       ['I am giving my brother the book. = I am giving it to him.', 'Я дарю брату книгу. = Я дарю её ему.', 'Я дарую братові книжку. = Я дарую її йому.', 'Erkek kardeşime kitabı hediye ediyorum. = Onu ona hediye ediyorum.'], { c: 'p7_objekte2' }),
     gap('G1', 'meiner', I.possessive, 'Ich schenke ', ' Schwester einen Gutschein.', 'meiner', ['meine', 'meinem'],
@@ -56,8 +54,7 @@ const check = {
       ['Will you lend me your bike? – Yes, I will lend it to you.', 'Одолжишь мне свой велосипед? – Да, я одолжу его тебе.', 'Позичиш мені свій велосипед? – Так, я позичу його тобі.', 'Bana bisikletini ödünç verir misin? – Evet, onu sana veririm.'], { c: 'p7_objekte2' }),
     mc('G3', 'von meinem', I.choose, 'Die Uhr habe ich von … Großvater bekommen.', ['meinem', 'meinen', 'meiner'],
       ['I got the watch from my grandfather.', 'Часы я получил от дедушки.', 'Годинник я отримав від дідуся.', 'Saati büyükbabamdan aldım.']),
-    mc('G3', 'von ihnen', I.choose, 'Von wem ist das Paket? – Von Mia und Tim. Es ist von …', ['ihnen', 'sie', 'ihr'],
-      ['Who is the parcel from? – From Mia and Tim. It is from them.', 'От кого посылка? – От Mia и Tim. Она от них.', 'Від кого посилка? – Від Mia і Tim. Вона від них.', 'Paket kimden? – Mia ve Tim’den. Onlardan.']),
+    mc("G3", "von ihnen", I.choose, "Von wem ist das Paket? – Von Milan und Tim. Es ist von …", ["ihnen","sie","ihr"], ["Who is the parcel from? – From Milan and Tim. It is from them.","От кого посылка? – От Milan и Tim. Она от них.","Від кого посилка? – Від Milan і Tim. Вона від них.","Paket kimden? – Milan ve Tim’den. Onlardan."], {"c":"p7_von"}),
     mc('K1', 'empfehlen', I.react, '„Was können Sie mir empfehlen?“ – Du bist Kellner. Die Tomatensuppe ist heute besonders gut.', ['Probieren Sie doch mal die Tomatensuppe!', 'Die Tomatensuppe ist tabu.', 'Die Tomatensuppe ist mir egal.'],
       ['“What can you recommend?” – You are a waiter. The tomato soup is especially good today.', '«Что вы можете мне порекомендовать?» – Вы официант. Томатный суп сегодня особенно хорош.', '«Що ви можете мені порекомендувати?» – Ви офіціант. Томатний суп сьогодні особливо смачний.', '“Bana ne tavsiye edersiniz?” – Garsonsunuz. Bugün domates çorbası özellikle güzel.']),
     mc('K2', 'tabu', I.situation, 'Bei euch schenkt man niemals weiße Blumen. Was sagst du?', ['Weiße Blumen sind bei uns tabu.', 'Weiße Blumen schenke ich am liebsten.', 'Weiße Blumen sind die Hauptsache.'],

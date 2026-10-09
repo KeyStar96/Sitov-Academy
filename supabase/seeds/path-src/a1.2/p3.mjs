@@ -70,21 +70,37 @@ const path = {
       title: 'Was tut weh?',
       t: ['What hurts?', 'Что болит?', 'Що болить?', 'Neresi ağrıyor?'],
       card: {
-        id: 'p3_weh',
-        rule: 'Sagen, was wehtut: Ein Körperteil: Mein Kopf tut weh. Zwei oder mehr: Meine Augen tun weh. Auch so: Ich habe Kopfschmerzen, Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Krank sein: Ich habe Fieber. Ich habe Husten und Schnupfen. Ich bin krank. Nicht so schlimm? Es ist nicht schlimm.',
-        examples: ['Mein Rücken tut weh.', 'Meine Füße tun weh.', 'Lena hat Fieber und Halsschmerzen.'],
-        highlight: 'verb',
-        t: [
-          'Saying what hurts: one body part: Mein Kopf tut weh. Two or more: Meine Augen tun weh. Also: Ich habe Kopfschmerzen (a headache), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Being ill: Ich habe Fieber (a temperature). Ich habe Husten (a cough) und Schnupfen (a cold). Ich bin krank. Not so bad? Es ist nicht schlimm.',
-          'Как сказать, что болит: одна часть тела: Mein Kopf tut weh. Две и больше: Meine Augen tun weh. Ещё так: Ich habe Kopfschmerzen (головная боль), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. О болезни: Ich habe Fieber (температура). Ich habe Husten (кашель) und Schnupfen (насморк). Ich bin krank. Ничего страшного? Es ist nicht schlimm.',
-          'Як сказати, що болить: одна частина тіла: Mein Kopf tut weh. Дві й більше: Meine Augen tun weh. Ще так: Ich habe Kopfschmerzen (головний біль), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Про хворобу: Ich habe Fieber (температура). Ich habe Husten (кашель) und Schnupfen (нежить). Ich bin krank. Нічого страшного? Es ist nicht schlimm.',
-          'Ağrıyan yeri söyleme: Tek bir vücut bölümü: Mein Kopf tut weh. İki ya da daha fazla: Meine Augen tun weh. Şöyle de olur: Ich habe Kopfschmerzen (baş ağrısı), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Hasta olmak: Ich habe Fieber (ateş). Ich habe Husten (öksürük) und Schnupfen (nezle). Ich bin krank. Çok kötü değil mi? Es ist nicht schlimm.',
-        ],
-        hint: ['Ein Körperteil → tut weh. Mehrere → tun weh.', 'One body part → tut weh. Several → tun weh.', 'Одна часть тела → tut weh. Несколько → tun weh.', 'Одна частина тіла → tut weh. Кілька → tun weh.', 'Tek bölüm → tut weh. Birden fazla → tun weh.'],
-        hints: {
-          have: ['Bei Krankheiten sagst du haben: Ich habe Fieber, Husten, Schnupfen, Schmerzen.', 'With illnesses you use haben: Ich habe Fieber, Husten, Schnupfen, Schmerzen.', 'О болезнях говорят с haben: Ich habe Fieber, Husten, Schnupfen, Schmerzen.', 'Про хвороби кажуть із haben: Ich habe Fieber, Husten, Schnupfen, Schmerzen.', 'Hastalıklarda haben kullanılır: Ich habe Fieber, Husten, Schnupfen, Schmerzen.'],
-        },
-      },
+  "id": "p3_weh",
+  "rule": "Sagen, was wehtut: Ein Körperteil: Mein Kopf tut weh. Zwei oder mehr: Meine Augen tun weh. Auch so: Ich habe Kopfschmerzen, Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Krank sein: Ich habe Fieber. Ich habe Husten und Schnupfen. Ich bin krank. Nicht so schlimm? Es ist nicht schlimm.",
+  "examples": [
+    "Mein Rücken tut weh.",
+    "Meine Füße tun weh.",
+    "Leon hat Fieber und Halsschmerzen."
+  ],
+  "highlight": "verb",
+  "t": [
+    "Saying what hurts: one body part: Mein Kopf tut weh. Two or more: Meine Augen tun weh. Also: Ich habe Kopfschmerzen (a headache), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Being ill: Ich habe Fieber (a temperature). Ich habe Husten (a cough) und Schnupfen (a cold). Ich bin krank. Not so bad? Es ist nicht schlimm.",
+    "Как сказать, что болит: одна часть тела: Mein Kopf tut weh. Две и больше: Meine Augen tun weh. Ещё так: Ich habe Kopfschmerzen (головная боль), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. О болезни: Ich habe Fieber (температура). Ich habe Husten (кашель) und Schnupfen (насморк). Ich bin krank. Ничего страшного? Es ist nicht schlimm.",
+    "Як сказати, що болить: одна частина тіла: Mein Kopf tut weh. Дві й більше: Meine Augen tun weh. Ще так: Ich habe Kopfschmerzen (головний біль), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Про хворобу: Ich habe Fieber (температура). Ich habe Husten (кашель) und Schnupfen (нежить). Ich bin krank. Нічого страшного? Es ist nicht schlimm.",
+    "Ağrıyan yeri söyleme: Tek bir vücut bölümü: Mein Kopf tut weh. İki ya da daha fazla: Meine Augen tun weh. Şöyle de olur: Ich habe Kopfschmerzen (baş ağrısı), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Hasta olmak: Ich habe Fieber (ateş). Ich habe Husten (öksürük) und Schnupfen (nezle). Ich bin krank. Çok kötü değil mi? Es ist nicht schlimm."
+  ],
+  "hint": [
+    "Ein Körperteil → tut weh. Mehrere → tun weh.",
+    "One body part → tut weh. Several → tun weh.",
+    "Одна часть тела → tut weh. Несколько → tun weh.",
+    "Одна частина тіла → tut weh. Кілька → tun weh.",
+    "Tek bölüm → tut weh. Birden fazla → tun weh."
+  ],
+  "hints": {
+    "have": [
+      "Bei Krankheiten sagst du haben: Ich habe Fieber, Husten, Schnupfen, Schmerzen.",
+      "With illnesses you use haben: Ich habe Fieber, Husten, Schnupfen, Schmerzen.",
+      "О болезнях говорят с haben: Ich habe Fieber, Husten, Schnupfen, Schmerzen.",
+      "Про хвороби кажуть із haben: Ich habe Fieber, Husten, Schnupfen, Schmerzen.",
+      "Hastalıklarda haben kullanılır: Ich habe Fieber, Husten, Schnupfen, Schmerzen."
+    ]
+  }
+},
       ex: [
         mc('K1', 'Krankheiten', I.choose, 'Dein Kopf ist heiß und du hast 39 Grad. Was hast du?', ['Fieber', 'Hunger', 'Urlaub'],
           ['Your head is hot and your temperature is 39 degrees. What do you have?', 'У вас горячая голова и температура 39 градусов. Что у вас?', 'У вас гаряча голова й температура 39 градусів. Що у вас?', 'Başınız sıcak ve ateşiniz 39 derece. Neyiniz var?'], { h: 'have' }),
@@ -154,18 +170,28 @@ const path = {
       title: 'sein oder ihr?',
       t: ['sein or ihr? (his or her?)', 'sein или ihr? (его или её?)', 'sein чи ihr? (його чи її?)', 'sein mi ihr mi? (erkeğin mi kadının mı?)'],
       card: {
-        id: 'p3_seinihr',
-        rule: 'sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. Sofia – ihr Arm, ihre Hand.',
-        examples: ['Das ist Emre. Sein Bein tut weh.', 'Das ist Dilara. Ihr Kopf tut weh.', 'Die Kinder sind krank. Ihre Mutter ruft den Arzt an.'],
-        highlight: 'article',
-        t: [
-          'sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. Sofia – ihr Arm, ihre Hand.',
-          'sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. Sofia – ihr Arm, ihre Hand. В отличие от русского «свой», в немецком всегда выбирают sein или ihr.',
-          'sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. Sofia – ihr Arm, ihre Hand. На відміну від українського «свій», у німецькій завжди обирають sein або ihr.',
-          'sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. Sofia – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.',
-        ],
-        hint: ['Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.', 'First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.', 'Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.', 'Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.', 'Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.'],
-      },
+  "id": "p3_seinihr",
+  "rule": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+  "examples": [
+    "Das ist Emre. Sein Bein tut weh.",
+    "Pronomen „sie (Singular)“: Ihr Kopf tut weh.",
+    "Die Kinder sind krank. Ihre Mutter ruft den Arzt an."
+  ],
+  "highlight": "article",
+  "t": [
+    "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+    "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+    "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+    "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur."
+  ],
+  "hint": [
+    "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
+    "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
+    "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
+    "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
+    "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e."
+  ]
+},
       ex: [
         mc('G2', 'sein', I.choose, 'Jonas ist beim Arzt. … Hals tut weh.', ['Sein', 'Ihr', 'Seine'],
           ['Jonas is at the doctor’s. His throat hurts.', 'Jonas у врача. У него болит горло.', 'Jonas у лікаря. У нього болить горло.', 'Jonas doktorda. Boğazı ağrıyor.']),
@@ -175,8 +201,7 @@ const path = {
           ['Tom and Eva have a cough. Their mother buys tea.', 'У Tom и Eva кашель. Их мама покупает чай.', 'У Tom і Eva кашель. Їхня мама купує чай.', 'Tom ve Eva öksürüyor. Anneleri çay alıyor.']),
         gap('G2', 'sein', I.possessive, 'Das ist Herr Petrov. ', ' Rücken tut weh.', 'Sein', ['Ihr', 'Seine'],
           ['This is Mr Petrov. His back hurts.', 'Это господин Petrov. У него болит спина.', 'Це пан Petrov. У нього болить спина.', 'Bu Petrov Bey. Sırtı ağrıyor.'], 'sein / ihr'),
-        gap('G2', 'ihr', I.possessive, 'Lena ist krank. ', ' Ohren tun weh.', 'Ihre', ['Seine', 'Ihr'],
-          ['Lena is ill. Her ears hurt.', 'Lena больна. У неё болят уши.', 'Lena хвора. У неї болять вуха.', 'Lena hasta. Kulakları ağrıyor.'], 'sein / ihr'),
+        gap("G2", "ihr", I.possessive, "Ergänze den Possessivartikel zu „sie (Singular)“: ", " Ohren tun weh.", "Ihre", ["Seine","Ihr"], ["Complete the possessive for sie (singular): … Ohren tun weh.","Дополните притяжательный артикль для sie (ед. число): … Ohren tun weh.","Доповніть присвійний артикль для sie (однина): … Ohren tun weh.","sie (tekil) için iyelik artikelini tamamlayın: … Ohren tun weh."], "sein / ihr", {"c":"p3_seinihr"}),
         gap('G2', 'sein', I.possessive, 'Mein Bruder hat Fieber. ', ' Freundin bringt Medikamente.', 'Seine', ['Sein', 'Ihre'],
           ['My brother has a temperature. His girlfriend brings medicine.', 'У моего брата температура. Его девушка приносит лекарства.', 'У мого брата температура. Його дівчина приносить ліки.', 'Erkek kardeşimin ateşi var. Kız arkadaşı ilaç getiriyor.'], 'sein / ihr'),
         gap('G2', 'ihr', I.possessive, 'Meine Schwester ist Ärztin. ', ' Praxis ist in Bonn.', 'Ihre', ['Ihr', 'Seine'],
@@ -207,8 +232,7 @@ const path = {
       ex: [
         mc('G3', 'Akkusativ maskulin', I.choose, 'Ich bin krank. Ich rufe … Chef an.', ['meinen', 'mein', 'meine'],
           ['I am ill. I call my boss.', 'Я заболел. Я звоню своему начальнику.', 'Я захворів. Я телефоную своєму начальникові.', 'Hastayım. Patronumu arıyorum.']),
-        mc('G3', 'Akkusativ Plural', I.choose, 'Lena braucht … Tabletten.', ['ihre', 'ihren', 'ihr'],
-          ['Lena needs her tablets.', 'Lena нужны её таблетки.', 'Lena потрібні її таблетки.', 'Lena’nın haplarına ihtiyacı var.']),
+        mc("G3", "Akkusativ Plural", I.choose, "Ergänze den Possessivartikel zu „sie (Singular)“: „Sie braucht … Tabletten.“", ["ihre","ihren","ihr"], ["Complete the possessive for sie (singular): Sie braucht … Tabletten.","Дополните притяжательный артикль для sie (ед. число): Sie braucht … Tabletten.","Доповніть присвійний артикль для sie (однина): Sie braucht … Tabletten.","sie (tekil) için iyelik artikelini tamamlayın: Sie braucht … Tabletten."], {"c":"p3_possakk"}),
         gap('G3', 'Akkusativ maskulin', I.possessive, 'Hast du ', ' Termin vergessen? Er war um neun.', 'deinen', ['dein', 'deine'],
           ['Did you forget your appointment? It was at nine.', 'Ты забыл про свой приём? Он был в девять.', 'Ти забув про свій прийом? Він був о дев’ятій.', 'Randevunu mu unuttun? Saat dokuzdaydı.'], 'dein'),
         gap('G3', 'Akkusativ maskulin', I.possessive, 'Emre nimmt ', ' Hustensaft jeden Abend.', 'seinen', ['sein', 'seine'],
@@ -289,8 +313,7 @@ const path = {
           ['Your knee is swollen and hurts. What does the doctor say?', 'Ваше колено опухло и болит. Что говорит врач?', 'Ваше коліно набрякло й болить. Що каже лікар?', 'Diziniz şişmiş ve ağrıyor. Doktor ne diyor?']),
         mc('K2', 'Ratschlag geben', I.react, '„Ich habe Husten. Was soll ich machen?“', ['Trink viel Tee. Das hilft sicher.', 'Du sollst Husten haben.', 'Ich habe keinen Husten.'],
           ['“I have a cough. What should I do?”', '«У меня кашель. Что мне делать?»', '«У мене кашель. Що мені робити?»', '“Öksürüyorum. Ne yapmalıyım?”']),
-        gap('K2', 'Anweisung weitersagen', I.modal, 'Der Doktor sagt, Lena ', ' drei Tage im Bett bleiben.', 'soll', ['sollt', 'sollst'],
-          ['The doctor says Lena should stay in bed for three days.', 'Доктор говорит, что Lena должна три дня оставаться в постели.', 'Лікар каже, що Lena має три дні залишатися в ліжку.', 'Doktor, Lena’nın üç gün yatakta kalması gerektiğini söylüyor.'], 'sollen'),
+        gap("K2", "Anweisung weitersagen", I.modal, "Der Doktor sagt, Leon ", " drei Tage im Bett bleiben.", "soll", ["sollt","sollst"], ["The doctor says Leon should stay in bed for three days.","Доктор говорит, что Leon должен три дня оставаться в постели.","Лікар каже, що Leon має три дні залишатися в ліжку.","Doktor, Leon’un üç gün yatakta kalması gerektiğini söylüyor."], "sollen", {"c":"p3_rat"}),
         gap('K2', 'Anweisung geben', I.imperative, '', ' Sie die Tabletten bitte dreimal am Tag.', 'Nehmen', ['Nehmt', 'Nimm'],
           ['Please take the tablets three times a day.', 'Принимайте, пожалуйста, таблетки три раза в день.', 'Приймайте, будь ласка, таблетки тричі на день.', 'Lütfen hapları günde üç kez alın.'],
           ['take', 'принимать', 'приймати', 'almak']),
@@ -304,18 +327,28 @@ const path = {
       title: 'Krankmeldung',
       t: ['Calling in sick', 'Сообщение о болезни', 'Повідомлення про хворобу', 'Hastalık bildirimi'],
       card: {
-        id: 'p3_krank',
-        rule: 'Krankmeldung schreiben: Anrede: Sehr geehrte Frau … / Sehr geehrter Herr … Grund: Leider bin ich krank. Ich kann heute nicht in die Firma kommen. Dauer: Ich bin bis Freitag krank. Bitte: Bitte informieren Sie auch Herrn Wolf. Gruß: Mit freundlichen Grüßen.',
-        examples: ['Leider kann ich heute nicht zum Deutschkurs kommen.', 'Ich habe Fieber und muss im Bett bleiben.', 'Bitte informieren Sie auch Frau Lindner.'],
-        highlight: null,
-        t: [
-          'Writing a sick note: salutation: Sehr geehrte Frau … / Sehr geehrter Herr … Reason: Leider bin ich krank (unfortunately I am ill). Ich kann heute nicht in die Firma kommen. Duration: Ich bin bis Freitag krank. Request: Bitte informieren Sie auch Herrn Wolf. Closing: Mit freundlichen Grüßen.',
-          'Как сообщить о болезни письменно: обращение: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (к сожалению, я болею). Ich kann heute nicht in die Firma kommen. Срок: Ich bin bis Freitag krank. Просьба: Bitte informieren Sie auch Herrn Wolf. В конце: Mit freundlichen Grüßen.',
-          'Як повідомити про хворобу письмово: звертання: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (на жаль, я хворію). Ich kann heute nicht in die Firma kommen. Термін: Ich bin bis Freitag krank. Прохання: Bitte informieren Sie auch Herrn Wolf. У кінці: Mit freundlichen Grüßen.',
-          'Hastalık bildirimi yazma: Hitap: Sehr geehrte Frau … / Sehr geehrter Herr … Neden: Leider bin ich krank (maalesef hastayım). Ich kann heute nicht in die Firma kommen. Süre: Ich bin bis Freitag krank. Rica: Bitte informieren Sie auch Herrn Wolf. Kapanış: Mit freundlichen Grüßen.',
-        ],
-        hint: ['In der Krankmeldung steht: Wer? Warum nicht? Wie lange?', 'A sick note says: who? why not? how long?', 'В сообщении о болезни есть: кто? почему не придёт? как долго?', 'У повідомленні про хворобу є: хто? чому не прийде? як довго?', 'Hastalık bildiriminde şunlar yazar: Kim? Neden gelemiyor? Ne kadar süre?'],
-      },
+  "id": "p3_krank",
+  "rule": "Krankmeldung schreiben: Anrede: Sehr geehrte Frau … / Sehr geehrter Herr … Grund: Leider bin ich krank. Ich kann heute nicht in die Firma kommen. Dauer: Ich bin bis Freitag krank. Bitte: Bitte informieren Sie auch Herrn Wolf. Gruß: Mit freundlichen Grüßen.",
+  "examples": [
+    "Leider kann ich heute nicht zum Deutschkurs kommen.",
+    "Ich habe Fieber und muss im Bett bleiben.",
+    "Bitte informieren Sie auch Herrn Lindner."
+  ],
+  "highlight": null,
+  "t": [
+    "Writing a sick note: salutation: Sehr geehrte Frau … / Sehr geehrter Herr … Reason: Leider bin ich krank (unfortunately I am ill). Ich kann heute nicht in die Firma kommen. Duration: Ich bin bis Freitag krank. Request: Bitte informieren Sie auch Herrn Wolf. Closing: Mit freundlichen Grüßen.",
+    "Как сообщить о болезни письменно: обращение: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (к сожалению, я болею). Ich kann heute nicht in die Firma kommen. Срок: Ich bin bis Freitag krank. Просьба: Bitte informieren Sie auch Herrn Wolf. В конце: Mit freundlichen Grüßen.",
+    "Як повідомити про хворобу письмово: звертання: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (на жаль, я хворію). Ich kann heute nicht in die Firma kommen. Термін: Ich bin bis Freitag krank. Прохання: Bitte informieren Sie auch Herrn Wolf. У кінці: Mit freundlichen Grüßen.",
+    "Hastalık bildirimi yazma: Hitap: Sehr geehrte Frau … / Sehr geehrter Herr … Neden: Leider bin ich krank (maalesef hastayım). Ich kann heute nicht in die Firma kommen. Süre: Ich bin bis Freitag krank. Rica: Bitte informieren Sie auch Herrn Wolf. Kapanış: Mit freundlichen Grüßen."
+  ],
+  "hint": [
+    "In der Krankmeldung steht: Wer? Warum nicht? Wie lange?",
+    "A sick note says: who? why not? how long?",
+    "В сообщении о болезни есть: кто? почему не придёт? как долго?",
+    "У повідомленні про хворобу є: хто? чому не прийде? як довго?",
+    "Hastalık bildiriminde şunlar yazar: Kim? Neden gelemiyor? Ne kadar süre?"
+  ]
+},
       ex: [
         mc('K3', 'sich krankmelden', I.choose, 'Du bist krank und kannst nicht arbeiten. Was schreibst du an die Chefin?', ['Leider kann ich heute nicht kommen. Ich bin krank.', 'Leider möchte ich heute nicht kommen.', 'Heute komme ich gern.'],
           ['You are ill and cannot work. What do you write to your boss?', 'Вы заболели и не можете работать. Что вы напишете начальнице?', 'Ви захворіли й не можете працювати. Що ви напишете начальниці?', 'Hastasınız ve çalışamıyorsunuz. Patronunuza ne yazarsınız?']),
