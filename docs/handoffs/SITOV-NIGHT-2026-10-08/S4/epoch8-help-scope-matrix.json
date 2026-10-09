@@ -1,0 +1,280 @@
+{
+  "brand": "Sitov Academy",
+  "epoch": 8,
+  "source_sha": "71972fc3ad62baac4956506cfe31138a21b665f3",
+  "inspection_at_utc": "2026-10-09T04:24:27.043222+00:00",
+  "evidence_kind": "source_inspection_only",
+  "browser_screenreader_production_proof": false,
+  "tests_build_browser_run": false,
+  "release_ready": false,
+  "common_help": {
+    "component": "components/motion/SitovTrainerHelp.tsx",
+    "css": "components/motion/SitovTrainerHelp.module.css",
+    "symbol": "Lightbulb22 + decorative ChevronDown, aria-hidden",
+    "interaction": "Native PressableCard button, aria-expanded/controls, named region; closed content inert/aria-hidden; default closed; reduced-motion immediate collapse; min-height48px, touch-action manipulation, focus-visible outline; stage pauses offscreen decoration. Code evidence only."
+  },
+  "rows": [
+    {
+      "scope": "vocabulary_learning_box",
+      "route": "/[lang]/dashboard/level/[level]/vocabulary",
+      "render_mount": "page.tsx -> components/vocabulary/VocabTrainerPageClient.tsx:74 -> LeitnerBoxOverview.tsx:69 -> LernkastenGuide.tsx:69",
+      "help_integration": "shared Help, short label; named vocabulary context under box",
+      "copy_sources": [
+        "lib/sitov-trainer-help-copy.ts",
+        "lib/vocabulary-i18n.ts",
+        "lib/dictionary.ts"
+      ],
+      "locales": {
+        "help_label": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "body": "Inherited vocabulary dictionary translator; exact per-key completeness not audited in this unit"
+      },
+      "essential_visible_hints": [
+        "due count, phase/count labels and open action remain outside collapse",
+        "bidirectional schedule explanation inside existing guide"
+      ],
+      "gap": "No duplicate guide needed. Epoch2 title-to-locale bridge caveat is superseded: current caller passes lang={uiLanguage}.",
+      "evidence_kind": "source_inspection_only"
+    },
+    {
+      "scope": "vocabulary_lessons_and_card_preview",
+      "route": "/[lang]/dashboard/level/[level]/vocabulary/lessons",
+      "render_mount": "VocabularyLessons.tsx -> LessonCardsModal.tsx",
+      "help_integration": "No SitovTrainerHelp mount in these two components",
+      "copy_sources": [
+        "lib/vocabulary-i18n.ts",
+        "lib/vocabulary-chunks-i18n.ts",
+        "lib/learning/sitov-learning-target-i18n.ts"
+      ],
+      "locales": {
+        "UI_contract": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "specific_copy_keys": "Not individually exhaustively audited"
+      },
+      "essential_visible_hints": [
+        "explicit add/start/assessment choices, unavailable target and read retry stay visible"
+      ],
+      "gap": "Box guide exists elsewhere; selection/add/assessment distinction has no local shared Help. A bounded contextual entry may be useful; preserve explicit add and saved rounds.",
+      "evidence_kind": "source_inspection_only"
+    },
+    {
+      "scope": "verbs",
+      "route": "/[lang]/dashboard/level/[level]/verbs",
+      "render_mount": "VerbTrainerClient.tsx:215 mounts VerbLearningBox -> VerbLearningBox.tsx:129; target box uses VerbTrainerClient.tsx:258",
+      "help_integration": "Short shared Help under learning box; exacttarget box has separate existing shared Help",
+      "copy_sources": [
+        "lib/sitov-trainer-help-copy.ts",
+        "lib/verbs/learning-box-i18n.ts",
+        "lib/sitov-trainer-ui-i18n.ts",
+        "lib/verbs/i18n.ts"
+      ],
+      "locales": {
+        "help_and_rule_copy": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ]
+      },
+      "essential_visible_hints": [
+        "selected/due state, tense selection, explicit add and non-due status remain visible"
+      ],
+      "gap": "Normal management view box and active round do not mount learning-box Help (conditional !sessionActive && view !=box); exacttarget box uses long uiCopy.help instead of short label. Do not duplicate guide across simultaneous mounts.",
+      "evidence_kind": "source_inspection_only"
+    },
+    {
+      "scope": "main_learning_path",
+      "route": "/[lang]/dashboard/level/[level]/path",
+      "render_mount": "path/page.tsx -> components/learning-path/LearningPathClient.tsx",
+      "help_integration": "No shared Help import/mount in main map, choices or ordinary task/test render",
+      "copy_sources": [
+        "lib/learning-path-i18n.ts"
+      ],
+      "locales": {
+        "main_UI_copy": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "help_copy": "Absent dedicated mount"
+      },
+      "essential_visible_hints": [
+        "start/review/resume choice labels,80% goal chip, next/finish/review feedback remain visible"
+      ],
+      "gap": "Confirmed missing contextual Help for main path versus reviewed Special; candidate covers normal practice/test/resume semantics only.",
+      "evidence_kind": "source_inspection_only"
+    },
+    {
+      "scope": "learner_specials",
+      "route": "/[lang]/dashboard/level/[level]/path",
+      "render_mount": "LearningPathClient.tsx mounts SitovLearningSpecial; components/learning-path/SitovLearningSpecial.tsx:79",
+      "help_integration": "Shared short Help after Special body across its rendered learning/test/result states",
+      "copy_sources": [
+        "lib/learning/sitov-learning-specials-i18n.ts"
+      ],
+      "locales": {
+        "help_and_detail": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ]
+      },
+      "essential_visible_hints": [
+        "learnHint/testHint, saved answer count, reveal/right/wrong and submit/result remain visible"
+      ],
+      "gap": "Already wired; no new helper needed. Actual available run/content remains server-owned.",
+      "evidence_kind": "source_inspection_only"
+    },
+    {
+      "scope": "pronunciation_pretests",
+      "route": "/[lang]/dashboard/level/[level]/pronunciation",
+      "render_mount": "PronunciationStudio.tsx:188 selected && status !=passed -> SitovPronunciationPretest.tsx:163",
+      "help_integration": "Shared short Help with named context below pretest",
+      "copy_sources": [
+        "lib/sitov-pronunciation-pretest-i18n.ts"
+      ],
+      "locales": {
+        "help_and_instruction": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ]
+      },
+      "essential_visible_hints": [
+        "choose-answer instruction, saved/unsaved status, submit and connection/conflict state stay visible"
+      ],
+      "gap": "Already wired. Help is conditionally absent for passed text because pretest component is not mounted; this does not prove help for recording.",
+      "evidence_kind": "source_inspection_only"
+    },
+    {
+      "scope": "pronunciation_read_record",
+      "route": "/[lang]/dashboard/level/[level]/pronunciation",
+      "render_mount": "PronunciationStudio.tsx validReady -> existing studio body; KaraokeText + AudioRecorder.tsx:150/249 + Mailbox",
+      "help_integration": "No SitovTrainerHelp import/mount in passed-text studio or AudioRecorder",
+      "copy_sources": [
+        "lib/pronunciation-i18n.ts",
+        "lib/sitov-reading-i18n.ts",
+        "lib/student-ui-i18n.ts"
+      ],
+      "locales": {
+        "UI_translation_contract": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "individual_body_keys": "Not exhaustively audited"
+      },
+      "essential_visible_hints": [
+        "studio steps, word-translation hint, record_hint, review/submitted controls and recording_privacy remain visible"
+      ],
+      "gap": "Concrete Help coverage gap after pass: existing visible hints are present but no common expandable listen/read/record/review/send guide. Preserve real recordings, mailbox and protected prepared audio.",
+      "evidence_kind": "source_inspection_only"
+    },
+    {
+      "scope": "staff_pretest_window",
+      "route": "/[lang]/admin/content/pronunciation ; /[lang]/admin/students/[id]",
+      "render_mount": "Both page.tsx mount SitovPronunciationPretestStaff; staff component:75",
+      "help_integration": "Shared short Help below window; editor:90 and publication:80 have separate context Help",
+      "copy_sources": [
+        "lib/sitov-pronunciation-pretest-staff-i18n.ts"
+      ],
+      "locales": {
+        "staff_editor_publication": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ]
+      },
+      "essential_visible_hints": [
+        "version/current/inactive, draft-only save, source conflict, missing proof and publication status stay visible"
+      ],
+      "gap": "General Help already exists. Editor/publication use longer context labels (Editing help/Publication help) instead of uniform short Help; headings/body can carry context. Retain separate explanatory contexts, do not add another duplicate help.",
+      "evidence_kind": "source_inspection_only"
+    },
+    {
+      "scope": "staff_special_targets_history_publication",
+      "route": "/[lang]/teacher/content/learning-path/specials",
+      "render_mount": "page.tsx -> SitovLearningSpecialStaffTargets.tsx:44/48 -> SitovLearningSpecialStaff.tsx:54 -> SitovSpecialPublication.tsx:61",
+      "help_integration": "Shared selection Help on target picker and publication Help on selected staff panel; version/history preview has no own separate shared Help",
+      "copy_sources": [
+        "lib/learning/sitov-learning-specials-staff-i18n.ts"
+      ],
+      "locales": {
+        "targets_and_publication": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ]
+      },
+      "essential_visible_hints": [
+        "target/level choices, version/draft/published/archive labels, missing-proof/publish states and stored runs stay visible"
+      ],
+      "gap": "Existing target/pub Help covers distinct contexts. Labels Selection help/Publication help are longer than common short Help; no need to duplicate readonly version/history helper.",
+      "evidence_kind": "source_inspection_only"
+    }
+  ],
+  "bounded_repair_candidates": [
+    {
+      "priority": 1,
+      "files": [
+        "components/learning-path/LearningPathClient.tsx",
+        "lib/learning-path-i18n.ts"
+      ],
+      "candidate": "Small main-path common Help entry, using actual practice/test/resume rules and keeping essential choices/results visible; no access/checkpoint changes."
+    },
+    {
+      "priority": 2,
+      "files": [
+        "components/audio/PronunciationStudio.tsx",
+        "lib/pronunciation-i18n.ts"
+      ],
+      "candidate": "Contextual passed-text studio Help; reuse existing listen/read/record/review/send and privacy wording, preserve recordings/prepared audio."
+    },
+    {
+      "priority": 3,
+      "files": [
+        "components/verbs/VerbTrainerClient.tsx",
+        "components/admin/SitovPretestDraftEditor.tsx",
+        "components/admin/SitovPretestPublication.tsx",
+        "components/admin/SitovLearningSpecialStaffTargets.tsx",
+        "components/admin/SitovSpecialPublication.tsx",
+        "lib/sitov-pronunciation-pretest-staff-i18n.ts",
+        "lib/learning/sitov-learning-specials-staff-i18n.ts"
+      ],
+      "candidate": "Normalize existing trigger labels to existing five-locale short Help; retain Lightbulb and contextual headings. No new duplicate panels."
+    }
+  ],
+  "prior_handoffs": [
+    "epoch2-help-and-pretest-ui.md",
+    "epoch5-exact-learning-targets.md",
+    "epoch6-staff-draft-editor.md",
+    "epoch7-publication-ui102.md"
+  ],
+  "constraints": [
+    "No implementation, test/build/browser/QA, SQL/audio/content or shared-file changes",
+    "Future repairs require explicit scope; no change to IDs, progress, access, prepared audio or real recordings"
+  ]
+}
