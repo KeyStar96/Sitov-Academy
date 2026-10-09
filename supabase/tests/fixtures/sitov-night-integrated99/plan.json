@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "target": "sitov-night-integrated99-v1",
+  "sourceIntegrationSha": "8b83a421748dce9c8a2d2e38712cb5526ad5e2bb",
+  "baselineSourceSha": "e22c73883356e61700ed57f3cfeb601f9bf55b32",
+  "baselineSchemaSha256": "c6b90f3bb5527ae6d36d0336c84afd7c5549a5e16d9f79af245d21c0fb8b5cfe",
+  "baselineLookupsSha256": "9e19b140bc5ae9b0585cadb3e97a0691a4c04717dce62959682c689e985e1803",
+  "canonicalSha256": "a9f9f1bcf044ef91c0a54ba4957a7a293ce010c027b51e547b09defbaa0f8dec",
+  "through": 99,
+  "overlays": [
+    {
+      "through": 93,
+      "name": "20261008213000_sitov_commercial_access.sql",
+      "sha256": "a529f1d1d87e2feda9e69f79992cf65d01cbd63d5211f47a9482587855a77781",
+      "canonicalPrefix": "\n-- SITOV-NIGHT integrated overlay 20261008213000_sitov_commercial_access.sql\n",
+      "stripPreviousTrailingWhitespace": false
+    },
+    {
+      "through": 94,
+      "name": "20261008213100_sitov_pronunciation_pretests.sql",
+      "sha256": "a4f9f14d4bbe643f70e34a3222c681f6a4153fd3fd85b4944a08d84b6f1b74df",
+      "canonicalPrefix": "\n-- SITOV-NIGHT integrated overlay 20261008213100_sitov_pronunciation_pretests.sql\n",
+      "stripPreviousTrailingWhitespace": false
+    },
+    {
+      "through": 95,
+      "name": "20261008213200_sitov_learning_specials.sql",
+      "sha256": "46731b6b85663a9e8af32b245ad28f22375d52676abd2fc271298ee383762de0",
+      "canonicalPrefix": "\n-- SITOV-NIGHT integrated overlay 20261008213200_sitov_learning_specials.sql\n",
+      "stripPreviousTrailingWhitespace": false
+    },
+    {
+      "through": 96,
+      "name": "20261008213300_sitov_private_audio_delivery.sql",
+      "sha256": "64b5a159aa1109eaef2afd72c38733a8c9f45ebfffa4187f4931b7a0dba5b169",
+      "canonicalPrefix": "\n-- SITOV-NIGHT integrated overlay 20261008213300_sitov_private_audio_delivery.sql\n",
+      "stripPreviousTrailingWhitespace": false
+    },
+    {
+      "through": 97,
+      "name": "20261009001000_sitov_storage_proof_compatibility.sql",
+      "sha256": "8a46dadf81f0d3ef0dc6d6d00849f26e96121d0ef40ccb9d55612915e45ab2ec",
+      "canonicalPrefix": "\n\n-- SITOV-NIGHT-2026-10-08 additive97 real Storage compatibility\n",
+      "stripPreviousTrailingWhitespace": true
+    },
+    {
+      "through": 98,
+      "name": "20261009002000_sitov_pretest_option_presentation.sql",
+      "sha256": "c0068a9bb09e40d6e750e1895abae9e141e4c0f50661ed0998a86af3ec40a2fc",
+      "canonicalPrefix": "\n\n-- SITOV-NIGHT-2026-10-08 additive98 private attempt presentation\n",
+      "stripPreviousTrailingWhitespace": true
+    },
+    {
+      "through": 99,
+      "name": "20261009003000_sitov_readonly_audio_proofs.sql",
+      "sha256": "a47ec93b4b27c61a6eaf4b96ac286a1f9c90e1f628e848e5f51ec98478c6bd2e",
+      "canonicalPrefix": "\n\n",
+      "stripPreviousTrailingWhitespace": true
+    }
+  ],
+  "seed": "synthetic-baseline-only; QA99 realHTTP proof is separate; no real draft or approval import",
+  "actualTransportProof": false
+}
