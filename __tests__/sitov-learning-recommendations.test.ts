@@ -220,7 +220,7 @@ it('keeps higher-level coverage partial and rejects cross-level, foreign and dup
  expect(validateSitovTopicMapping(cross,catalog)).toContain(`target:${cross[0].targets[0].kind}/${cross[0].targets[0].id}`)
  const foreign=structuredClone(higher);foreign[0].anchors[0].nodeSourceId='P1-N999'
  expect(validateSitovTopicMapping(foreign,catalog).some(error=>error.startsWith('anchor:'))).toBe(true)
- const repeated=structuredClone(higher);repeated[0].targets.push(repeated[0].targets[0])
+ const repeated=structuredClone(higher);repeated[0].targets=[...repeated[0].targets,repeated[0].targets[0]]
  expect(validateSitovTopicMapping(repeated,catalog).some(error=>error.startsWith('target:'))).toBe(true)
  expect(validateSitovTopicMapping([higher[0],higher[0]],catalog)).toEqual(expect.arrayContaining([`topic:${higher[0].topicId}`,`competency:${higher[0].competencyId}`]))
 })

@@ -9,3 +9,5 @@ Die Offlinequelle liest jetzt die zentrale ACCESS_LEVELS-Liste, damit die vier n
 Prüfung: 42 Node-Authoringtests, CLI 12/60 und 1152 unveränderte Audio-Aliasse, sowie 33 gezielte Empfehlungstests bestanden; git diff --check bestanden. Der zusätzlich angegebene Jest-Dateipfad sitov-pronunciation-pretest-authoring.test.ts existiert nicht und wurde von Jest nicht ausgeführt; kein zweiter Suite-Nachweis.
 
 Keine Veröffentlichung, Einfuhr oder Übertragung alter PASS-Nachweise. Vor einer späteren Einfuhr sind neue unveränderliche Definitionen und genaue Audio-/Wortzeitbindungen erforderlich. Menschliche Kalibrierung bleibt offen.
+
+Nach Integration der vier höheren Themen fand TypeScript einen readonly-Testfehler im doppelten Target-Negativfall. M erstellt das neue Array jetzt ohne mutierendes push; die negative Aussage bleibt unverändert.
