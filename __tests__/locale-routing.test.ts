@@ -71,6 +71,18 @@ describe('safeUiLanguageNextPath', () => {
     expect(safeUiLanguageNextPath('/en/admin', 'uk')).toBe('/uk/admin')
   })
 
+  it.each(['de', 'en', 'uk', 'ru', 'tr'] as const)('keeps the guarded Special staff destination in %s', lang => {
+    expect(safeUiLanguageNextPath('/ru/teacher/content/learning-path/specials?level=A1.1#selection', lang))
+      .toBe(`/${lang}/teacher/content/learning-path/specials`)
+    expect(isProtectedPath(`/${lang}/teacher/content/learning-path/specials`)).toBe(true)
+  })
+
+  it('does not accept a similar teacher prefix as an app destination', () => {
+    expect(safeUiLanguageNextPath('/ru/teacher-content', 'de')).toBe('/de/dashboard/profile')
+    expect(isProtectedPath('/ru/teacher-content')).toBe(false)
+    expect(isProtectedPath('/teacher')).toBe(true)
+  })
+
   it('falls back to the profile for missing or unsafe targets', () => {
     expect(safeUiLanguageNextPath(null, 'de')).toBe('/de/dashboard/profile')
     expect(safeUiLanguageNextPath('https://evil.example/phish', 'de')).toBe('/de/dashboard/profile')

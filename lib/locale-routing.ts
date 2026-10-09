@@ -111,7 +111,7 @@ export function toUiLocale(value: string | null | undefined): UiLocale {
 }
 
 const LOCALE_PREFIX = /^\/(de|en|uk|ru|tr)(?=\/|$)/
-const UI_LANGUAGE_APP_PREFIXES = ['/dashboard', '/admin'] as const
+const UI_LANGUAGE_APP_PREFIXES = ['/dashboard', '/admin', '/teacher'] as const
 
 /** Tauscht oder setzt das Sprachpräfix, ohne den Rest des Pfads zu verändern. */
 export function withUiLocale(pathname: string, lang: UiLocale): string {
@@ -120,7 +120,7 @@ export function withUiLocale(pathname: string, lang: UiLocale): string {
 }
 
 /**
- * Erlaubt nur interne Dashboard-/Admin-Pfade als Ziel nach einem Sprachwechsel.
+ * Erlaubt interne Lernenden-, Admin- und Lehrkraftpfade nach einem Sprachwechsel.
  * Verhindert Open Redirects (`//`, Protokolle) und fremde App-Routen.
  */
 export function safeUiLanguageNextPath(raw: unknown, lang: UiLocale): string {
@@ -136,9 +136,12 @@ export function safeUiLanguageNextPath(raw: unknown, lang: UiLocale): string {
 }
 
 export function isProtectedPath(pathname: string): boolean {
+  const unlocalized = pathname.replace(LOCALE_PREFIX, '')
   return (
     pathname.includes('/dashboard') ||
-    pathname.includes('/admin')
+    pathname.includes('/admin') ||
+    unlocalized === '/teacher' ||
+    unlocalized.startsWith('/teacher/')
   )
 }
 
