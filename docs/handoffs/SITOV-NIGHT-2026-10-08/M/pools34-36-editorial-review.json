@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools34-36-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T17:45:06.472Z",
+  "sourceCommit": "6538a6c30db9a35d3700d851d898ae5a2132693a",
+  "scope": "M independently read all72 public questions/options/correct keys/rationales, all3 complete actual A2.2 sources and12 core records. Distractors use relevant shoe parts, purchase documents, repair actions, time/frequency/duration, language learning, reciprocal relations and event roles. Public premises uniquely identify intended keys including subjunctive/modal context, comparison, pronoun antecedent and transitive verb case. No invented same-level target or complete mastery assertion. All previous33 definitions/reviews and3168 aliases unchanged. No human review/listening or empirical calibration claim.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "01bdc7d437183a94ef3e3eab654b49ede631291ebad6fc565f122b15ed6e2047",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "194df28b-7175-5ffa-9813-2c5967cc2cb9",
+      "textVersion": "35536c1fa317cb4ca53f739670df8c3b64cbfa0267be738a34d546e144f67798",
+      "definitionContentHash": "15a49b9ae00f5294cb605f2719915e97b1e356a8029ebe831d44d522e0fad38c",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "35536c1fa317cb4ca53f739670df8c3b64cbfa0267be738a34d546e144f67798",
+        "definitionContentHash": "15a49b9ae00f5294cb605f2719915e97b1e356a8029ebe831d44d522e0fad38c"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-04.words.q1",
+          "correctTextDe": "Die untere Fläche, auf der man steht und geht."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q2",
+          "correctTextDe": "Ein Beleg über einen bereits bezahlten Einkauf."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q3",
+          "correctTextDe": "Die Schuhgröße, die zu den Füßen des Sprechers passt."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q4",
+          "correctTextDe": "Die Beteiligten haben sich gemeinsam auf den Anruf verständigt."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q5",
+          "correctTextDe": "Der Sprecher hat durch die Lösung weniger Sorgen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.words.q6",
+          "correctTextDe": "Er hat den Zustand der Schuhe untersucht."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q1",
+          "correctTextDe": "gekauft"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q2",
+          "correctTextDe": "sich"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q3",
+          "correctTextDe": "bin"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q4",
+          "correctTextDe": "ist"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q5",
+          "correctTextDe": "dazugeholt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.verbs.q6",
+          "correctTextDe": "ankommen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q1",
+          "correctTextDe": "Zwei Wochen vor dem Zeitpunkt des Sprechens."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q2",
+          "correctTextDe": "Zwischen Kauf und Schaden lagen nur wenige Tage."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q3",
+          "correctTextDe": "Weil sich die Sohle gelöst hat."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q4",
+          "correctTextDe": "mit dem Schuh passiert ist"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q5",
+          "correctTextDe": "das Geschäft mich anruft"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.syntax.q6",
+          "correctTextDe": "Wenn das neue Paar angekommen ist, ohne erst einen weiteren Anlass abzuwarten."
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q1",
+          "correctTextDe": "einem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q2",
+          "correctTextDe": "den"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q3",
+          "correctTextDe": "dem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q4",
+          "correctTextDe": "Meine"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q5",
+          "correctTextDe": "neues"
+        },
+        {
+          "questionId": "sitov.pretest.a22-04.nominal.q6",
+          "correctTextDe": "mich"
+        }
+      ]
+    },
+    {
+      "textId": "cdc98a2c-2e24-505e-bcc8-a1e68bfe2553",
+      "textVersion": "5d569bf2469a3b7cb0206a010f18dae381ebaf817cc18a517db0a3a752c3b326",
+      "definitionContentHash": "45c3db367580a4ccffaa67b74fffa2cf79c997261114dab3e35d0f3da474dfb1",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "5d569bf2469a3b7cb0206a010f18dae381ebaf817cc18a517db0a3a752c3b326",
+        "definitionContentHash": "45c3db367580a4ccffaa67b74fffa2cf79c997261114dab3e35d0f3da474dfb1"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-05.words.q1",
+          "correctTextDe": "Er hat erst vor kurzer Zeit angefangen und lernt weiterhin."
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q2",
+          "correctTextDe": "Die Wörter in wiederkehrenden Abständen erneut üben."
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q3",
+          "correctTextDe": "Darauf achten, was der Text inhaltlich mitteilt."
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q4",
+          "correctTextDe": "Darauf achten, wie Wörter und Laute gesprochen werden."
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q5",
+          "correctTextDe": "Themen des gewöhnlichen täglichen Lebens."
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.words.q6",
+          "correctTextDe": "Beide helfen jeweils dem anderen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q1",
+          "correctTextDe": "lernt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q2",
+          "correctTextDe": "gezeigt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q3",
+          "correctTextDe": "wiederhole"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q4",
+          "correctTextDe": "anhören"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q5",
+          "correctTextDe": "beschlossen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.verbs.q6",
+          "correctTextDe": "sprechen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q1",
+          "correctTextDe": "ich zu Hause übe"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q2",
+          "correctTextDe": "ich jeden Tag wenige Wörter lerne"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q3",
+          "correctTextDe": "Auf den Inhalt."
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q4",
+          "correctTextDe": "Zweimal pro Woche."
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q5",
+          "correctTextDe": "für zwanzig Minuten"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.syntax.q6",
+          "correctTextDe": "Trotz eigener Lücken leisten die beiden einander Hilfe."
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q1",
+          "correctTextDe": "Mein"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q2",
+          "correctTextDe": "ihm"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q3",
+          "correctTextDe": "wenige"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q4",
+          "correctTextDe": "ältere"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q5",
+          "correctTextDe": "uns"
+        },
+        {
+          "questionId": "sitov.pretest.a22-05.nominal.q6",
+          "correctTextDe": "Minuten"
+        }
+      ]
+    },
+    {
+      "textId": "1c914afb-1958-5045-bda2-d609de2bd365",
+      "textVersion": "ed0acb86d3a8abd239562c11cdd425d0fe3881ccc7eb8fc9cd04a57b94ea5b0f",
+      "definitionContentHash": "36a5aaac4df8514ecbc8d5bfa14f321094ea149c883afd62630f4e6bc42c8f4f",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "ed0acb86d3a8abd239562c11cdd425d0fe3881ccc7eb8fc9cd04a57b94ea5b0f",
+        "definitionContentHash": "36a5aaac4df8514ecbc8d5bfa14f321094ea149c883afd62630f4e6bc42c8f4f"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-06.words.q1",
+          "correctTextDe": "Eine öffentlich aufgehängte schriftliche Mitteilung."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q2",
+          "correctTextDe": "Der vereinbarte Ort, an dem die Gruppe zusammenkommt."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q3",
+          "correctTextDe": "Sie bedecken und schützen die Hände."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q4",
+          "correctTextDe": "Große flexible Beutel, in die man Müll füllen kann."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q5",
+          "correctTextDe": "Die Person, die den Einsatz plant und koordiniert."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.words.q6",
+          "correctTextDe": "Sich an der gemeinsamen Arbeit unterstützend beteiligen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q1",
+          "correctTextDe": "Präteritum im Vorgangspassiv."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q2",
+          "correctTextDe": "erfahren"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q3",
+          "correctTextDe": "angemeldet"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q4",
+          "correctTextDe": "bekommen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q5",
+          "correctTextDe": "Eine damals erhaltene Anweisung für die Arbeit."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.verbs.q6",
+          "correctTextDe": "mithelfen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q1",
+          "correctTextDe": "wir sauber machen sollten"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q2",
+          "correctTextDe": "Arbeiten und Erzählen finden in derselben Zeit statt."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q3",
+          "correctTextDe": "Auf den älteren Mann."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q4",
+          "correctTextDe": "Zwei Stunden nach Beginn des genannten Zeitraums."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q5",
+          "correctTextDe": "Auf den Wegen lag weniger Schmutz als vorher."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.syntax.q6",
+          "correctTextDe": "Am Ende der genannten Arbeitsabfolge."
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q1",
+          "correctTextDe": "unserem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q2",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q3",
+          "correctTextDe": "große"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q4",
+          "correctTextDe": "älteren"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q5",
+          "correctTextDe": "mir"
+        },
+        {
+          "questionId": "sitov.pretest.a22-06.nominal.q6",
+          "correctTextDe": "nächsten"
+        }
+      ]
+    }
+  ]
+}

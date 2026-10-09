@@ -34880,14 +34880,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel und Begründungen sowie drei vollständige Quellen unabhängig geprüft. Feldnahe Distraktoren und öffentliche Prämissen sind stimmig; tatsächliche Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
         "textVersion": "35536c1fa317cb4ca53f739670df8c3b64cbfa0267be738a34d546e144f67798",
-        "definitionContentHash": "15a49b9ae00f5294cb605f2719915e97b1e356a8029ebe831d44d522e0fad38c"
+        "definitionContentHash": "15a49b9ae00f5294cb605f2719915e97b1e356a8029ebe831d44d522e0fad38c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools34-36-M",
+        "documentSha256": "00bfa0878b4af95652c0f2cf01e349a535372c8aa60702c728a23c0baaa55dc6",
+        "reviewedAt": "2026-10-09T17:45:06.472Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -35924,14 +35929,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel und Begründungen sowie drei vollständige Quellen unabhängig geprüft. Feldnahe Distraktoren und öffentliche Prämissen sind stimmig; tatsächliche Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
         "textVersion": "5d569bf2469a3b7cb0206a010f18dae381ebaf817cc18a517db0a3a752c3b326",
-        "definitionContentHash": "45c3db367580a4ccffaa67b74fffa2cf79c997261114dab3e35d0f3da474dfb1"
+        "definitionContentHash": "45c3db367580a4ccffaa67b74fffa2cf79c997261114dab3e35d0f3da474dfb1",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools34-36-M",
+        "documentSha256": "00bfa0878b4af95652c0f2cf01e349a535372c8aa60702c728a23c0baaa55dc6",
+        "reviewedAt": "2026-10-09T17:45:06.472Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -36964,14 +36974,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel und Begründungen sowie drei vollständige Quellen unabhängig geprüft. Feldnahe Distraktoren und öffentliche Prämissen sind stimmig; tatsächliche Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
         "textVersion": "ed0acb86d3a8abd239562c11cdd425d0fe3881ccc7eb8fc9cd04a57b94ea5b0f",
-        "definitionContentHash": "36a5aaac4df8514ecbc8d5bfa14f321094ea149c883afd62630f4e6bc42c8f4f"
+        "definitionContentHash": "36a5aaac4df8514ecbc8d5bfa14f321094ea149c883afd62630f4e6bc42c8f4f",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools34-36-M",
+        "documentSha256": "00bfa0878b4af95652c0f2cf01e349a535372c8aa60702c728a23c0baaa55dc6",
+        "reviewedAt": "2026-10-09T17:45:06.472Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
