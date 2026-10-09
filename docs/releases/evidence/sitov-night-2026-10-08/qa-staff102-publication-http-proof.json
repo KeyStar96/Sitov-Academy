@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "at": "2026-10-09T01:12:59.757099+00:00",
+  "sourceIntegrationSha": "54370755239d1722721abc4114f7317e954249a9",
+  "qaThrough": 102,
+  "checks": [
+    {
+      "check": "actual GoTrue ownteacher password session",
+      "passed": true
+    },
+    {
+      "check": "actual HTTP unreviewed draft readiness false",
+      "passed": true
+    },
+    {
+      "check": "actual HTTP unreviewed draft publication denied",
+      "passed": true
+    },
+    {
+      "check": "only disposable browser draft removed; original six definitions exactly restored",
+      "passed": true
+    },
+    {
+      "check": "actual HTTP complete imported independent approved inactive readiness true",
+      "passed": true
+    },
+    {
+      "check": "actual authenticated staff HTTP publication exactly prepared definition",
+      "passed": true
+    },
+    {
+      "check": "actual exact publication retry returns current unchanged ack",
+      "passed": true
+    },
+    {
+      "check": "same request altered payload rejected",
+      "passed": true
+    },
+    {
+      "check": "new request stale active CAS rejected",
+      "passed": true
+    },
+    {
+      "check": "role revocation closes existing publication receipt retry",
+      "passed": true
+    },
+    {
+      "check": "source/content/test history preserved and only one additional active definition",
+      "passed": true
+    }
+  ],
+  "realHTTP": true,
+  "productionWrite": false,
+  "activeDefinitions": 4,
+  "scope": "oneofthree newinactive preparedQAdefinitions; no UIpublish or otheractors/studentregression guarantee"
+}

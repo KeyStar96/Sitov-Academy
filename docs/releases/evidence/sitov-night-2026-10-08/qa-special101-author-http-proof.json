@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "at": "2026-10-09T01:23:07.889971+00:00",
+  "checks": [
+    {
+      "check": "actual GoTrue author teacher session",
+      "passed": true
+    },
+    {
+      "check": "independently read-only verified parent IDs",
+      "passed": true
+    },
+    {
+      "check": "actual source bound author context",
+      "passed": true
+    },
+    {
+      "check": "actual author creates server-owned inactive definition",
+      "passed": true
+    },
+    {
+      "check": "exact uncertain retry same server receipt",
+      "passed": true
+    },
+    {
+      "check": "same author request altered payload conflicts",
+      "passed": true
+    },
+    {
+      "check": "new request stale anchor CAS denied",
+      "passed": true
+    },
+    {
+      "check": "inactive unapproved draft no proof no activation and previous pretests retained",
+      "passed": true
+    }
+  ],
+  "realHTTP": true,
+  "qaThrough": 102,
+  "productionWrite": false,
+  "specialItems": 20,
+  "active": false,
+  "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+  "parentFixture": "synthetic QA rows carrying independently verified current production IDs/attributes; no production parent copied or changed",
+  "publicationPending": true,
+  "actorCleanup": "terminal full QA namespace, immutable101 audit retained"
+}

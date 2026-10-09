@@ -46,16 +46,14 @@ export async function createSitovSpecialAuthorDraft(input:unknown):Promise<Sitov
 }
 
 import {sitovSpecialPublicationStateInputSchema,sitovSpecialPublicationInputSchema,sitovSpecialPublicationStateResultSchema,sitovSpecialPublicationResultSchema,type SitovSpecialPublicationStateResult,type SitovSpecialPublicationResult} from './sitov-learning-specials-staff-contract'
-/** Exact104 signature bridge pending M's shared type update; all proof stays in existing private DB rows. */
-type PublicationRpc=(name:'sitov_get_special_publication'|'sitov_publish_special',args:{p_node_id:string,p_definition_id:string,p_definition_version:string,p_source_sha256:string,p_base_active_definition_id:string|null,p_request_id?:string})=>PromiseLike<{data:unknown,error:unknown}>
+/** Actual shared104 typed RPCs; all proof stays in existing private DB rows. */
 export async function loadSitovSpecialPublicationState(input:unknown):Promise<SitovSpecialPublicationStateResult>{
  const v=sitovSpecialPublicationStateInputSchema.safeParse(input)
  if(!v.success)return {ok:false,error:'invalid_input',retryable:false}
  try{
   const client=await createClient();const auth=await client.auth.getUser()
   if(auth.error||!auth.data.user)return {ok:false,error:'authentication_required',retryable:false}
-  const rpc=client.rpc.bind(client) as unknown as PublicationRpc
-  const {data,error}=await rpc('sitov_get_special_publication',{p_node_id:v.data.nodeId,p_definition_id:v.data.definitionId,p_definition_version:v.data.definitionVersion,p_source_sha256:v.data.sourceSha256,p_base_active_definition_id:v.data.baseActiveDefinitionId})
+  const {data,error}=await client.rpc('sitov_get_special_publication',{p_node_id:v.data.nodeId,p_definition_id:v.data.definitionId,p_definition_version:v.data.definitionVersion,p_source_sha256:v.data.sourceSha256,p_base_active_definition_id:v.data.baseActiveDefinitionId})
   if(error)throw error
   const result=sitovSpecialPublicationStateResultSchema.parse(data)
   if(result.ok&&(result.data.nodeId!==v.data.nodeId||result.data.definitionId!==v.data.definitionId||result.data.definitionVersion!==v.data.definitionVersion||result.data.sourceSha256!==v.data.sourceSha256))throw new Error('response_identity')
@@ -68,8 +66,7 @@ export async function publishSitovSpecial(input:unknown):Promise<SitovSpecialPub
  try{
   const client=await createClient();const auth=await client.auth.getUser()
   if(auth.error||!auth.data.user)return {ok:false,error:'authentication_required',retryable:false}
-  const rpc=client.rpc.bind(client) as unknown as PublicationRpc
-  const {data,error}=await rpc('sitov_publish_special',{p_node_id:v.data.nodeId,p_definition_id:v.data.definitionId,p_definition_version:v.data.definitionVersion,p_source_sha256:v.data.sourceSha256,p_base_active_definition_id:v.data.baseActiveDefinitionId,p_request_id:v.data.requestId})
+  const {data,error}=await client.rpc('sitov_publish_special',{p_node_id:v.data.nodeId,p_definition_id:v.data.definitionId,p_definition_version:v.data.definitionVersion,p_source_sha256:v.data.sourceSha256,p_base_active_definition_id:v.data.baseActiveDefinitionId,p_request_id:v.data.requestId})
   if(error)throw error
   const result=sitovSpecialPublicationResultSchema.parse(data)
   if(result.ok&&(result.data.nodeId!==v.data.nodeId||result.data.definitionId!==v.data.definitionId||result.data.definitionVersion!==v.data.definitionVersion||result.data.sourceSha256!==v.data.sourceSha256))throw new Error('response_identity')
