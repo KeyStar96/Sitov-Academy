@@ -2,7 +2,7 @@
 
 Die tatsächliche Storage1.44.2-Zeilenform besitzt `id`, `bucket_id`, `name`, `owner`, `created_at`, `updated_at`, `last_accessed_at`, `metadata`, `path_tokens`, `version`, `owner_id` und `user_metadata`. Sie besitzt weder `archived_at` noch `is_delete_marker`. Die direkte Spaltenreferenz im vorbereiteten Audio-Helper löste einen echten SQL-Fehler aus; die drei darüberliegenden privaten Proof-Guards konnten dadurch ebenfalls keine Freigabe erteilen. Der neue native Test reproduziert diesen Fehler vor Migration97.
 
-Die additive Migration liegt bytegleich in `supabase/migrations/20261009001000_sitov_storage_proof_compatibility.sql` und dem ausdrücklich zugewiesenen VPS-Pfad `deploy/vps/migrations/97_sitov_storage_proof_compatibility.sql`. Bestehende Migrationen92–96 und die eingefrorenen Baseline92-/Integrated96-Dateien werden nicht geändert.
+Die additive Migration liegt bytegleich in `supabase/migrations/20261009001000_sitov_storage_proof_compatibility.sql` und dem ausdrücklich zugewiesenen VPS-Pfad `supabase/vps/97_sitov_storage_proof_compatibility.sql`. Bestehende Migrationen92–96 und die eingefrorenen Baseline92-/Integrated96-Dateien werden nicht geändert.
 
 Der private Prädikat-Helper `sitov_storage_private.sitov_object_is_current(jsonb)` erhält die konkrete vorhandene Storage-Zeile über `to_jsonb(o)`. Fehlende oder nullwertige optionale Flags sind zulässig. Jeder nichtnullwertige Archivierungswert und jeder Löschmarker außer dem JSON-Booleschen Wert false beziehungsweise null wird abgelehnt. Insbesondere akzeptiert er keine Zeichenfolge "false", Zahl0 oder malformed Nicht-Objekt-Eingabe. Dadurch funktionieren Vendor-Zeilen ohne Zusatzspalten; vorhandene echte Erweiterungen bleiben strikt wirksam.
 

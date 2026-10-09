@@ -26,7 +26,7 @@ test('97 supports concrete vendor and extended Storage rows without weakening fo
   const body='Paul geht nach Hause.',reference=await asset(body)
   await t.test('actual missing-column error reproduced;97 replays preserving OIDs/ACLs/flags and private96 path',async()=>{
    await assert.rejects(db.query('SELECT vocabulary_private.sitov_prepared_german_audio_url($1)',[body]),/archived_at/)
-   assert.equal(sql,await readFile(new URL('../../deploy/vps/migrations/97_sitov_storage_proof_compatibility.sql',import.meta.url),'utf8'))
+   assert.equal(sql,await readFile(new URL('../../supabase/vps/97_sitov_storage_proof_compatibility.sql',import.meta.url),'utf8'))
    await db.exec(sql);await db.exec(sql);assert.deepEqual((await attrs()).rows,before)
    assert.equal((await db.query('SELECT vocabulary_private.sitov_prepared_german_audio_url($1) value',[body])).rows[0].value,'storage://audio_cache/'+reference.path)
   })

@@ -35,7 +35,7 @@ test('98 freezes opaque shuffled options only in new attempts and grades actual 
   const before=await attrs()
   let first,second
   await t.test('additive migration mirrors/replays and leaves canonical definitions, assets and historical snapshots unchanged',async()=>{
-   assert.equal(sql,await readFile(new URL('../../deploy/vps/migrations/98_sitov_pretest_option_presentation.sql',import.meta.url),'utf8'));await db.exec(sql);await db.exec(sql)
+   assert.equal(sql,await readFile(new URL('../../supabase/vps/98_sitov_pretest_option_presentation.sql',import.meta.url),'utf8'));await db.exec(sql);await db.exec(sql)
    assert.deepEqual(await attrs(),before);assert.deepEqual((await db.query('SELECT * FROM sitov_pronunciation_private.pretest_attempts ORDER BY id')).rows,previous);assert.deepEqual((await db.query('SELECT * FROM sitov_pronunciation_private.pretest_passes ORDER BY id')).rows,previousPasses);assert.deepEqual((await db.query('SELECT * FROM sitov_pronunciation_private.pretest_receipts ORDER BY request_id')).rows,previousReceipts)
    assert.deepEqual((await db.query('SELECT id,text_version,test_version,definition FROM sitov_pronunciation_private.pretest_definitions WHERE id=$1',[d.id])).rows[0],d)
    await db.actor(sitovUsers.all);const oldResumed=await get(oldOpen.attempt.id);assert.deepEqual(oldResumed.data.tasks,oldOpen.tasks);assert.deepEqual(oldResumed.data.attempt.answers,oldSaved.data.answers)

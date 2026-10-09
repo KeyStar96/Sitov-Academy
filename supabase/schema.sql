@@ -23985,3 +23985,75 @@ BEGIN
  EXECUTE replace(definition,previous,current_reference);
 END $sitov$;
 NOTIFY pgrst,'reload schema';
+
+-- SITOV-NIGHT-2026-10-08 additive97 real Storage compatibility
+-- Sitov Academy additive97: Storage1.44.2 has no soft-delete columns.
+-- Read optional flags from the concrete row, never invent vendor columns.
+-- Missing/null markers mean current; any archive value or non-false delete
+-- marker fails closed. Existing metadata, identity, profile, timing and locks
+-- remain in the original guards. OIDs, ownership and guard ACLs are preserved.
+CREATE OR REPLACE FUNCTION sitov_storage_private.sitov_object_is_current(p_object jsonb)
+RETURNS boolean LANGUAGE sql IMMUTABLE SET search_path='' AS $$
+ SELECT coalesce(jsonb_typeof(p_object)='object'
+  AND coalesce(p_object->'archived_at','null'::jsonb)='null'::jsonb
+  AND coalesce(p_object->'is_delete_marker','null'::jsonb) IN('false'::jsonb,'null'::jsonb),false)
+$$;
+REVOKE ALL ON FUNCTION sitov_storage_private.sitov_object_is_current(jsonb) FROM PUBLIC,anon,authenticated,service_role;
+
+DO $sitov$
+DECLARE target text;definition text;old_clause text;new_clause constant text:='sitov_storage_private.sitov_object_is_current(to_jsonb(o))';
+BEGIN
+ FOREACH target IN ARRAY ARRAY[
+  'vocabulary_private.sitov_prepared_german_audio_url(text)',
+  'sitov_pronunciation_private.reference_valid(text,text,sitov_pronunciation_private.pretest_approvals)',
+  'sitov_pronunciation_private.public_audio_ready(uuid,text,jsonb)',
+  'sitov_special_private.definition_ready(sitov_special_private.definitions)'
+ ] LOOP
+  definition:=pg_get_functiondef(target::regprocedure);
+  IF position(new_clause IN definition)>0 THEN CONTINUE;END IF;
+  old_clause:=CASE
+   WHEN target LIKE 'vocabulary_private.%' THEN 'o.archived_at IS NULL AND coalesce(o.is_delete_marker,false)=false'
+   WHEN target LIKE 'sitov_pronunciation_private.%' THEN 'archived_at IS NULL AND NOT coalesce(is_delete_marker,false)'
+   ELSE 'archived_at IS NULL AND coalesce(is_delete_marker,false)=false' END;
+  IF position(old_clause IN definition)=0 THEN RAISE EXCEPTION 'sitov_storage_proof_guard_contract_changed: %',target;END IF;
+  IF target NOT LIKE 'vocabulary_private.%' THEN
+   IF position('FROM storage.objects WHERE' IN definition)=0 THEN RAISE EXCEPTION 'sitov_storage_proof_object_contract_changed: %',target;END IF;
+   definition:=replace(definition,'FROM storage.objects WHERE','FROM storage.objects o WHERE');
+  END IF;
+  EXECUTE replace(definition,old_clause,new_clause);
+ END LOOP;
+END $sitov$;
+NOTIFY pgrst,'reload schema';
+
+-- SITOV-NIGHT-2026-10-08 additive98 private attempt presentation
+-- Sitov Academy additive98: new attempt presentation is private and frozen once.
+-- Canonical authorship, exact definition/audio hashes and old attempts stay intact.
+CREATE OR REPLACE FUNCTION sitov_pronunciation_private.present_task(q jsonb)
+RETURNS jsonb LANGUAGE plpgsql VOLATILE SET search_path='' AS $$
+DECLARE option jsonb;token text;correct_token text;presented jsonb:='[]'::jsonb;
+BEGIN
+ -- PostgreSQL UUIDv4 uses pg_strong_random. Separate draws provide independent
+ -- opaque tokens and ordering; tokens carry no canonical option-ID or q-number.
+ FOR option IN SELECT value FROM jsonb_array_elements(q->'options') ORDER BY gen_random_uuid() LOOP
+  token:='sitov.option.'||replace(gen_random_uuid()::text,'-','');
+  IF option->>'id'=q->>'correctOptionId' THEN correct_token:=token;END IF;
+  presented:=presented||jsonb_build_array(jsonb_build_object('id',token,'textDe',option->>'textDe'));
+ END LOOP;
+ IF correct_token IS NULL THEN RAISE EXCEPTION 'sitov_pretest_private_option_key_missing';END IF;
+ RETURN q||jsonb_build_object('options',presented,'correctOptionId',correct_token);
+END $$;
+REVOKE ALL ON FUNCTION sitov_pronunciation_private.present_task(jsonb) FROM PUBLIC,anon,authenticated,service_role;
+
+DO $sitov$
+DECLARE definition text;
+ insertion constant text:=$old$INSERT INTO sitov_pronunciation_private.pretest_attempts(student_id,text_id,definition_id,tasks) VALUES(auth.uid(),p_text,d.id,tasks) RETURNING * INTO a;$old$;
+ presentation constant text:=$new$SELECT jsonb_agg(sitov_pronunciation_private.present_task(value) ORDER BY ordinal)
+ INTO tasks FROM jsonb_array_elements(tasks) WITH ORDINALITY AS selected(value,ordinal);
+ INSERT INTO sitov_pronunciation_private.pretest_attempts(student_id,text_id,definition_id,tasks) VALUES(auth.uid(),p_text,d.id,tasks) RETURNING * INTO a;$new$;
+BEGIN
+ definition:=pg_get_functiondef('sitov_pronunciation_private.pretest_command(text,uuid,uuid,integer,jsonb,uuid,text)'::regprocedure);
+ IF position(presentation IN definition)>0 THEN RETURN;END IF;
+ IF position(insertion IN definition)=0 THEN RAISE EXCEPTION 'sitov_pretest_attempt_insert_contract_changed';END IF;
+ EXECUTE replace(definition,insertion,presentation);
+END $sitov$;
+NOTIFY pgrst,'reload schema';
