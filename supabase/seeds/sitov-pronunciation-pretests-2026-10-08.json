@@ -7,8 +7,8 @@
   "scope": "Repository canonical seeds and revisions; no live/custom inventory",
   "coverage": {
     "total": 60,
-    "authored": 24,
-    "pending": 36
+    "authored": 27,
+    "pending": 33
   },
   "audioStatus": "draft_only: full DB public-question/reference asset and immutable word-timing proof gate implemented; actual M local preparation, byte/timing audit, import and trusted proof insertion pending; no definitions published",
   "drafts": [
@@ -25439,6 +25439,3136 @@
           }
         ]
       }
+    },
+    {
+      "textId": "3dfcf736-84e5-599d-a492-b780ffc491c4",
+      "unitId": "3dfcf736-84e5-599d-a492-b780ffc491c4",
+      "level": "A2.1",
+      "textVersion": "07cec7487ca78c47bb1dfd12f8900f8f24ab479fdb5c73dd06222ce4b36c277c",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "07cec7487ca78c47bb1dfd12f8900f8f24ab479fdb5c73dd06222ce4b36c277c",
+        "definitionContentHash": "efa2c94cc80611c283d8035ebfdf662e9d5e97a5a227a487ef63f5d997fdf600"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a21-05.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Sportkurs angeleitetes Training",
+              "Übungen Trainingsaufgaben",
+              "anstrengend Kraftaufwand",
+              "Bewegung Körperaktion",
+              "Gruppe mehrere Personen",
+              "Leute Menschen"
+            ],
+            "sourceSpans": [
+              {
+                "start": 35,
+                "end": 44,
+                "quote": "Sportkurs"
+              },
+              {
+                "start": 144,
+                "end": 151,
+                "quote": "Übungen"
+              },
+              {
+                "start": 161,
+                "end": 172,
+                "quote": "anstrengend"
+              },
+              {
+                "start": 236,
+                "end": 244,
+                "quote": "Bewegung"
+              },
+              {
+                "start": 289,
+                "end": 295,
+                "quote": "Gruppe"
+              },
+              {
+                "start": 455,
+                "end": 460,
+                "quote": "Leute"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Sportkurs angeleitetes Training, Übungen Trainingsaufgaben, anstrengend Kraftaufwand, Bewegung Körperaktion, Gruppe mehrere Personen, Leute Menschen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-05.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "stattfinden trennbares Verb",
+              "waren Präteritum sein",
+              "kann Möglichkeit Fähigkeit",
+              "mitmachen Modalinfinitiv",
+              "unterhalten reflexive Pluralform",
+              "kennenlernen getrennte Satzklammer"
+            ],
+            "sourceSpans": [
+              {
+                "start": 75,
+                "end": 122,
+                "quote": "findet immer mittwochs nach meiner Arbeit statt"
+              },
+              {
+                "start": 134,
+                "end": 151,
+                "quote": "waren die Übungen"
+              },
+              {
+                "start": 180,
+                "end": 211,
+                "quote": "kann ich schon länger mitmachen"
+              },
+              {
+                "start": 180,
+                "end": 211,
+                "quote": "kann ich schon länger mitmachen"
+              },
+              {
+                "start": 396,
+                "end": 411,
+                "quote": "unterhalten uns"
+              },
+              {
+                "start": 438,
+                "end": 467,
+                "quote": "lerne dabei neue Leute kennen"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: stattfinden trennbares Verb, waren Präteritum sein, kann Möglichkeit Fähigkeit, mitmachen Modalinfinitiv, unterhalten reflexive Pluralform, kennenlernen getrennte Satzklammer. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-05.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Seit Beginn bis Gegenwart",
+              "mittwochs regelmäßiger Wochentag",
+              "nach Arbeit zeitliche Folge",
+              "sie Bewegung Rückverweis",
+              "länger zeitlicher Vergleich",
+              "dabei begleitende Tätigkeit"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 44,
+                "quote": "Seit einem Monat besuche ich einen Sportkurs"
+              },
+              {
+                "start": 82,
+                "end": 97,
+                "quote": "immer mittwochs"
+              },
+              {
+                "start": 98,
+                "end": 116,
+                "quote": "nach meiner Arbeit"
+              },
+              {
+                "start": 213,
+                "end": 281,
+                "quote": "Der Trainer zeigt jede Bewegung langsam und erklärt sie noch einmal."
+              },
+              {
+                "start": 189,
+                "end": 211,
+                "quote": "schon länger mitmachen"
+              },
+              {
+                "start": 413,
+                "end": 468,
+                "quote": "Ich bewege mich mehr und lerne dabei neue Leute kennen."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Seit Beginn bis Gegenwart, mittwochs regelmäßiger Wochentag, nach Arbeit zeitliche Folge, sie Bewegung Rückverweis, länger zeitlicher Vergleich, dabei begleitende Tätigkeit. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-05.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "einen Sportkurs Akkusativ",
+              "im Kontraktion in dem",
+              "meiner Arbeit Dativ",
+              "jede Bewegung feminin Akkusativ",
+              "Ländern Dativ Plural",
+              "neue Leute Adjektiv Plural"
+            ],
+            "sourceSpans": [
+              {
+                "start": 29,
+                "end": 44,
+                "quote": "einen Sportkurs"
+              },
+              {
+                "start": 45,
+                "end": 64,
+                "quote": "im Stadtteilzentrum"
+              },
+              {
+                "start": 98,
+                "end": 116,
+                "quote": "nach meiner Arbeit"
+              },
+              {
+                "start": 231,
+                "end": 244,
+                "quote": "jede Bewegung"
+              },
+              {
+                "start": 310,
+                "end": 335,
+                "quote": "aus verschiedenen Ländern"
+              },
+              {
+                "start": 450,
+                "end": 460,
+                "quote": "neue Leute"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: einen Sportkurs Akkusativ, im Kontraktion in dem, meiner Arbeit Dativ, jede Bewegung feminin Akkusativ, Ländern Dativ Plural, neue Leute Adjektiv Plural. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keine Relativsatzkonstruktion; vorhandene Zeit- oder Begründungssätze werden in ihren eigenen belegten Funktionen geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a21-05.words.q1",
+            "competencyId": "sitov.pretest.a21-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Sportkurs«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.words.q1.b",
+                "textDe": "Ein Fahrplan für einen Zug."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q1.a",
+                "textDe": "Ein angeleitetes Angebot zum gemeinsamen Sport."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q1.c",
+                "textDe": "Eine Anleitung zum Kuchenbacken."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.words.q1.a",
+            "assessmentUnit": "Sportkurs angeleitetes Training",
+            "equivalenceKey": "sitov:a21-05:words:1",
+            "sourceSpans": [
+              {
+                "start": 35,
+                "end": 44,
+                "quote": "Sportkurs"
+              }
+            ],
+            "rationaleDe": "Ein Sportkurs bietet angeleitetes sportliches Training; Backanleitung und Fahrplan haben andere Zwecke."
+          },
+          {
+            "id": "sitov.pretest.a21-05.words.q2",
+            "competencyId": "sitov.pretest.a21-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind »Übungen« in einem Sportkurs?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.words.q2.b",
+                "textDe": "Die Abfahrtszeiten von Zügen."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q2.a",
+                "textDe": "Verpackte Postsendungen."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q2.c",
+                "textDe": "Aufgaben oder Bewegungen zum Trainieren."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.words.q2.c",
+            "assessmentUnit": "Übungen Trainingsaufgaben",
+            "equivalenceKey": "sitov:a21-05:words:2",
+            "sourceSpans": [
+              {
+                "start": 144,
+                "end": 151,
+                "quote": "Übungen"
+              }
+            ],
+            "rationaleDe": "Sportliche Übungen sind Aufgaben oder Bewegungen zum Trainieren; Fahrzeiten und Postsendungen gehören nicht dazu."
+          },
+          {
+            "id": "sitov.pretest.a21-05.words.q3",
+            "competencyId": "sitov.pretest.a21-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Die Übungen sind anstrengend«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.words.q3.b",
+                "textDe": "Die Übungen verlangen viel Kraft oder Mühe."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q3.c",
+                "textDe": "Die Übungen kosten ausdrücklich keine Mühe."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q3.a",
+                "textDe": "Die Übungen bestehen nur aus Schlafen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.words.q3.b",
+            "assessmentUnit": "anstrengend Kraftaufwand",
+            "equivalenceKey": "sitov:a21-05:words:3",
+            "sourceSpans": [
+              {
+                "start": 161,
+                "end": 172,
+                "quote": "anstrengend"
+              }
+            ],
+            "rationaleDe": "Anstrengend bedeutet, dass etwas Kraft oder Mühe kostet; Schlafen und ausdrücklich mühelose Übungen passen nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-05.words.q4",
+            "competencyId": "sitov.pretest.a21-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was meint »Bewegung« beim Sport?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.words.q4.a",
+                "textDe": "Die Farbe eines Kuchens."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q4.b",
+                "textDe": "Eine Veränderung der Körperhaltung oder Körperposition."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q4.c",
+                "textDe": "Den Preis einer Fahrkarte."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.words.q4.b",
+            "assessmentUnit": "Bewegung Körperaktion",
+            "equivalenceKey": "sitov:a21-05:words:4",
+            "sourceSpans": [
+              {
+                "start": 236,
+                "end": 244,
+                "quote": "Bewegung"
+              }
+            ],
+            "rationaleDe": "Eine sportliche Bewegung verändert Haltung oder Position des Körpers; Fahrpreis und Kuchenfarbe sind andere Angaben."
+          },
+          {
+            "id": "sitov.pretest.a21-05.words.q5",
+            "competencyId": "sitov.pretest.a21-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine »Gruppe« von Menschen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.words.q5.b",
+                "textDe": "Genau ein leerer Stuhl."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q5.a",
+                "textDe": "Ein einzelner Fahrradreifen."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q5.c",
+                "textDe": "Mehrere Menschen, die zusammengehören oder zusammen sind."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.words.q5.c",
+            "assessmentUnit": "Gruppe mehrere Personen",
+            "equivalenceKey": "sitov:a21-05:words:5",
+            "sourceSpans": [
+              {
+                "start": 289,
+                "end": 295,
+                "quote": "Gruppe"
+              }
+            ],
+            "rationaleDe": "Eine Gruppe besteht aus mehreren zugehörigen Menschen; Stuhl und Reifen sind keine Menschengruppe."
+          },
+          {
+            "id": "sitov.pretest.a21-05.words.q6",
+            "competencyId": "sitov.pretest.a21-05.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »neue Leute kennenlernen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.words.q6.a",
+                "textDe": "Neue Menschen kennenlernen."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q6.b",
+                "textDe": "Alte Fahrkarten wegwerfen."
+              },
+              {
+                "id": "sitov.pretest.a21-05.words.q6.c",
+                "textDe": "Neue Backöfen einschalten."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.words.q6.a",
+            "assessmentUnit": "Leute Menschen",
+            "equivalenceKey": "sitov:a21-05:words:6",
+            "sourceSpans": [
+              {
+                "start": 455,
+                "end": 460,
+                "quote": "Leute"
+              }
+            ],
+            "rationaleDe": "Leute bezeichnet Menschen; Backöfen und Fahrkarten sind Gegenstände und keine Leute."
+          },
+          {
+            "id": "sitov.pretest.a21-05.verbs.q1",
+            "competencyId": "sitov.pretest.a21-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »Der Kurs findet mittwochs statt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.verbs.q1.b",
+                "textDe": "findenstatt"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q1.a",
+                "textDe": "stattfindenhaben"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q1.c",
+                "textDe": "stattfinden"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.verbs.q1.c",
+            "assessmentUnit": "stattfinden trennbares Verb",
+            "equivalenceKey": "sitov:a21-05:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 75,
+                "end": 122,
+                "quote": "findet immer mittwochs nach meiner Arbeit statt"
+              }
+            ],
+            "rationaleDe": "Das trennbare Verb lautet stattfinden; im Hauptsatz stehen findet und statt getrennt."
+          },
+          {
+            "id": "sitov.pretest.a21-05.verbs.q2",
+            "competencyId": "sitov.pretest.a21-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »Die Übungen waren anstrengend«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.verbs.q2.c",
+                "textDe": "warten"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q2.a",
+                "textDe": "werden"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q2.b",
+                "textDe": "sein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.verbs.q2.b",
+            "assessmentUnit": "waren Präteritum sein",
+            "equivalenceKey": "sitov:a21-05:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 134,
+                "end": 151,
+                "quote": "waren die Übungen"
+              }
+            ],
+            "rationaleDe": "Waren ist die Präteritumform von sein für wir oder sie; werden und warten sind andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a21-05.verbs.q3",
+            "competencyId": "sitov.pretest.a21-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Jetzt kann ich länger mitmachen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.verbs.q3.c",
+                "textDe": "Der Sprecher hat es ausdrücklich nicht vor."
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q3.b",
+                "textDe": "Der Sprecher ist jetzt dazu fähig."
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q3.a",
+                "textDe": "Der Sprecher darf es ausdrücklich niemals."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.verbs.q3.b",
+            "assessmentUnit": "kann Möglichkeit Fähigkeit",
+            "equivalenceKey": "sitov:a21-05:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 180,
+                "end": 211,
+                "quote": "kann ich schon länger mitmachen"
+              }
+            ],
+            "rationaleDe": "Können beschreibt hier eine erreichte Fähigkeit; ein Verbot oder eine verneinte Absicht wird nicht ausgesagt."
+          },
+          {
+            "id": "sitov.pretest.a21-05.verbs.q4",
+            "competencyId": "sitov.pretest.a21-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich kann länger ___« zu mitmachen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.verbs.q4.c",
+                "textDe": "mitmachen"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q4.a",
+                "textDe": "mitmache"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q4.b",
+                "textDe": "mitgemacht"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.verbs.q4.c",
+            "assessmentUnit": "mitmachen Modalinfinitiv",
+            "equivalenceKey": "sitov:a21-05:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 180,
+                "end": 211,
+                "quote": "kann ich schon länger mitmachen"
+              }
+            ],
+            "rationaleDe": "Nach dem Modalverb kann steht der Infinitiv mitmachen am Satzende; Partizip und finite Form passen nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-05.verbs.q5",
+            "competencyId": "sitov.pretest.a21-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir unterhalten ___« beim gemeinsamen Gespräch?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.verbs.q5.c",
+                "textDe": "mich"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q5.a",
+                "textDe": "uns"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q5.b",
+                "textDe": "sich"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.verbs.q5.a",
+            "assessmentUnit": "unterhalten reflexive Pluralform",
+            "equivalenceKey": "sitov:a21-05:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 396,
+                "end": 411,
+                "quote": "unterhalten uns"
+              }
+            ],
+            "rationaleDe": "Das reflexive Verb sich unterhalten verlangt bei wir das Pronomen uns; sich und mich haben andere Personen."
+          },
+          {
+            "id": "sitov.pretest.a21-05.verbs.q6",
+            "competencyId": "sitov.pretest.a21-05.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »Ich lerne neue Leute kennen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.verbs.q6.a",
+                "textDe": "kennenlernen"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q6.b",
+                "textDe": "kenntlernen"
+              },
+              {
+                "id": "sitov.pretest.a21-05.verbs.q6.c",
+                "textDe": "kennenlernt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.verbs.q6.a",
+            "assessmentUnit": "kennenlernen getrennte Satzklammer",
+            "equivalenceKey": "sitov:a21-05:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 438,
+                "end": 467,
+                "quote": "lerne dabei neue Leute kennen"
+              }
+            ],
+            "rationaleDe": "Das Verb kennenlernen wird im Hauptsatz als lerne … kennen getrennt; die anderen Formen sind keine passende Grundform."
+          },
+          {
+            "id": "sitov.pretest.a21-05.syntax.q1",
+            "competencyId": "sitov.pretest.a21-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was sagt »Seit einem Monat besuche ich einen Sportkurs« über den Zeitraum?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.syntax.q1.c",
+                "textDe": "Der Besuch war genau vor einem Jahr beendet."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q1.b",
+                "textDe": "Der Besuch begann vor einem Monat und dauert bis jetzt an."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q1.a",
+                "textDe": "Der Besuch beginnt erst in einem Monat."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.syntax.q1.b",
+            "assessmentUnit": "Seit Beginn bis Gegenwart",
+            "equivalenceKey": "sitov:a21-05:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 44,
+                "quote": "Seit einem Monat besuche ich einen Sportkurs"
+              }
+            ],
+            "rationaleDe": "Seit verbindet einen vergangenen Beginn mit der Gegenwart; ein erst zukünftiger Beginn oder längst beendeter Besuch passt nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-05.syntax.q2",
+            "competencyId": "sitov.pretest.a21-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Der Kurs findet immer mittwochs statt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.syntax.q2.b",
+                "textDe": "Der Kurs findet regelmäßig am Mittwoch statt."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q2.a",
+                "textDe": "Der Kurs findet täglich an jedem Wochentag statt."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q2.c",
+                "textDe": "Der Kurs findet ausdrücklich nur einmal am Montag statt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.syntax.q2.b",
+            "assessmentUnit": "mittwochs regelmäßiger Wochentag",
+            "equivalenceKey": "sitov:a21-05:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 82,
+                "end": 97,
+                "quote": "immer mittwochs"
+              }
+            ],
+            "rationaleDe": "Mittwochs nennt den wiederkehrenden Mittwoch; nur Montag oder jeder Wochentag wird nicht ausgesagt."
+          },
+          {
+            "id": "sitov.pretest.a21-05.syntax.q3",
+            "competencyId": "sitov.pretest.a21-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was geschieht laut »Nach meiner Arbeit besuche ich den Kurs« zuerst?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.syntax.q3.a",
+                "textDe": "Die Arbeit."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q3.b",
+                "textDe": "Der Kursbesuch."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q3.c",
+                "textDe": "Beide beginnen ausdrücklich gleichzeitig."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.syntax.q3.a",
+            "assessmentUnit": "nach Arbeit zeitliche Folge",
+            "equivalenceKey": "sitov:a21-05:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 98,
+                "end": 116,
+                "quote": "nach meiner Arbeit"
+              }
+            ],
+            "rationaleDe": "Nach meiner Arbeit ordnet den Kurs zeitlich hinter die Arbeit; die Arbeit kommt zuerst."
+          },
+          {
+            "id": "sitov.pretest.a21-05.syntax.q4",
+            "competencyId": "sitov.pretest.a21-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Worauf verweist »sie« in »Der Trainer zeigt jede Bewegung und erklärt sie«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.syntax.q4.a",
+                "textDe": "Auf den Sportkurs."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q4.c",
+                "textDe": "Auf die Bewegung."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q4.b",
+                "textDe": "Auf den Trainer."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.syntax.q4.c",
+            "assessmentUnit": "sie Bewegung Rückverweis",
+            "equivalenceKey": "sitov:a21-05:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 213,
+                "end": 281,
+                "quote": "Der Trainer zeigt jede Bewegung langsam und erklärt sie noch einmal."
+              }
+            ],
+            "rationaleDe": "Das feminine Pronomen sie greift die Bewegung auf; Trainer und Kurs sind maskulin und passen hier nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-05.syntax.q5",
+            "competencyId": "sitov.pretest.a21-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was drückt »Jetzt kann ich länger mitmachen als am Anfang« aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.syntax.q5.a",
+                "textDe": "Die Körpergröße des Trainers ist größer."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q5.b",
+                "textDe": "Die Dauer ist jetzt ausdrücklich kürzer."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q5.c",
+                "textDe": "Die Dauer des Mitmachens ist jetzt größer."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.syntax.q5.c",
+            "assessmentUnit": "länger zeitlicher Vergleich",
+            "equivalenceKey": "sitov:a21-05:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 189,
+                "end": 211,
+                "quote": "schon länger mitmachen"
+              }
+            ],
+            "rationaleDe": "Länger vergleicht hier die Dauer des Mitmachens; es geht weder um kürzere Dauer noch um die Größe einer Person."
+          },
+          {
+            "id": "sitov.pretest.a21-05.syntax.q6",
+            "competencyId": "sitov.pretest.a21-05.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was verbindet »Ich bewege mich mehr und lerne dabei neue Leute kennen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.syntax.q6.b",
+                "textDe": "Der Sprecher spricht nur über das Backen eines Kuchens."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q6.c",
+                "textDe": "Das Kennenlernen wird ausdrücklich ausgeschlossen."
+              },
+              {
+                "id": "sitov.pretest.a21-05.syntax.q6.a",
+                "textDe": "Beim Sport lernt der Sprecher zugleich Menschen kennen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.syntax.q6.a",
+            "assessmentUnit": "dabei begleitende Tätigkeit",
+            "equivalenceKey": "sitov:a21-05:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 413,
+                "end": 468,
+                "quote": "Ich bewege mich mehr und lerne dabei neue Leute kennen."
+              }
+            ],
+            "rationaleDe": "Dabei verbindet das Kennenlernen mit der sportlichen Tätigkeit; ausgeschlossenes Kennenlernen oder Kuchenbacken steht nicht da."
+          },
+          {
+            "id": "sitov.pretest.a21-05.nominal.q1",
+            "competencyId": "sitov.pretest.a21-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich besuche ___ Sportkurs«, wenn genau einer gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.nominal.q1.b",
+                "textDe": "einen"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q1.c",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q1.a",
+                "textDe": "ein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.nominal.q1.b",
+            "assessmentUnit": "einen Sportkurs Akkusativ",
+            "equivalenceKey": "sitov:a21-05:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 29,
+                "end": 44,
+                "quote": "einen Sportkurs"
+              }
+            ],
+            "rationaleDe": "Besuchen verlangt hier ein Akkusativobjekt; beim maskulinen Sportkurs lautet der Artikel einen."
+          },
+          {
+            "id": "sitov.pretest.a21-05.nominal.q2",
+            "competencyId": "sitov.pretest.a21-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wörter stecken in »im Stadtteilzentrum«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.nominal.q2.a",
+                "textDe": "in das"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q2.b",
+                "textDe": "in den"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q2.c",
+                "textDe": "in dem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.nominal.q2.c",
+            "assessmentUnit": "im Kontraktion in dem",
+            "equivalenceKey": "sitov:a21-05:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 45,
+                "end": 64,
+                "quote": "im Stadtteilzentrum"
+              }
+            ],
+            "rationaleDe": "Im ist die Zusammenziehung von in dem; in den und in das ergeben nicht im."
+          },
+          {
+            "id": "sitov.pretest.a21-05.nominal.q3",
+            "competencyId": "sitov.pretest.a21-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »nach ___ Arbeit«, wenn es die Arbeit des Sprechers ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.nominal.q3.a",
+                "textDe": "meine"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q3.c",
+                "textDe": "meinen"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q3.b",
+                "textDe": "meiner"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.nominal.q3.b",
+            "assessmentUnit": "meiner Arbeit Dativ",
+            "equivalenceKey": "sitov:a21-05:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 98,
+                "end": 116,
+                "quote": "nach meiner Arbeit"
+              }
+            ],
+            "rationaleDe": "Nach verlangt den Dativ; beim femininen Wort Arbeit lautet die Possessivform meiner."
+          },
+          {
+            "id": "sitov.pretest.a21-05.nominal.q4",
+            "competencyId": "sitov.pretest.a21-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Der Trainer zeigt ___ Bewegung«, wenn alle einzeln gemeint sind?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.nominal.q4.b",
+                "textDe": "jedem"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q4.c",
+                "textDe": "jede"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q4.a",
+                "textDe": "jeden"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.nominal.q4.c",
+            "assessmentUnit": "jede Bewegung feminin Akkusativ",
+            "equivalenceKey": "sitov:a21-05:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 231,
+                "end": 244,
+                "quote": "jede Bewegung"
+              }
+            ],
+            "rationaleDe": "Bewegung ist feminin und steht als Akkusativobjekt; die Form lautet jede Bewegung."
+          },
+          {
+            "id": "sitov.pretest.a21-05.nominal.q5",
+            "competencyId": "sitov.pretest.a21-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Menschen aus verschiedenen ___« zu Land?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.nominal.q5.a",
+                "textDe": "Ländern"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q5.c",
+                "textDe": "Landes"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q5.b",
+                "textDe": "Länder"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.nominal.q5.a",
+            "assessmentUnit": "Ländern Dativ Plural",
+            "equivalenceKey": "sitov:a21-05:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 310,
+                "end": 335,
+                "quote": "aus verschiedenen Ländern"
+              }
+            ],
+            "rationaleDe": "Aus verlangt Dativ; der Dativ Plural von Land lautet Ländern mit Umlaut und der Endung n."
+          },
+          {
+            "id": "sitov.pretest.a21-05.nominal.q6",
+            "competencyId": "sitov.pretest.a21-05.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich lerne ___ Leute kennen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-05.nominal.q6.b",
+                "textDe": "neuen"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q6.a",
+                "textDe": "neue"
+              },
+              {
+                "id": "sitov.pretest.a21-05.nominal.q6.c",
+                "textDe": "neuem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-05.nominal.q6.a",
+            "assessmentUnit": "neue Leute Adjektiv Plural",
+            "equivalenceKey": "sitov:a21-05:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 450,
+                "end": 460,
+                "quote": "neue Leute"
+              }
+            ],
+            "rationaleDe": "Leute steht hier im Akkusativ Plural ohne Artikel; die Adjektivform lautet neue."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a21-05.a",
+            "questionIds": [
+              "sitov.pretest.a21-05.words.q1",
+              "sitov.pretest.a21-05.words.q2",
+              "sitov.pretest.a21-05.words.q3",
+              "sitov.pretest.a21-05.verbs.q1",
+              "sitov.pretest.a21-05.verbs.q2",
+              "sitov.pretest.a21-05.verbs.q3",
+              "sitov.pretest.a21-05.syntax.q1",
+              "sitov.pretest.a21-05.syntax.q2",
+              "sitov.pretest.a21-05.syntax.q3",
+              "sitov.pretest.a21-05.nominal.q1",
+              "sitov.pretest.a21-05.nominal.q2",
+              "sitov.pretest.a21-05.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a21-05.b",
+            "questionIds": [
+              "sitov.pretest.a21-05.words.q4",
+              "sitov.pretest.a21-05.words.q5",
+              "sitov.pretest.a21-05.words.q6",
+              "sitov.pretest.a21-05.verbs.q4",
+              "sitov.pretest.a21-05.verbs.q5",
+              "sitov.pretest.a21-05.verbs.q6",
+              "sitov.pretest.a21-05.syntax.q4",
+              "sitov.pretest.a21-05.syntax.q5",
+              "sitov.pretest.a21-05.syntax.q6",
+              "sitov.pretest.a21-05.nominal.q4",
+              "sitov.pretest.a21-05.nominal.q5",
+              "sitov.pretest.a21-05.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "dbe98ecb-4d32-5767-be6c-f54728c93f7d",
+      "unitId": "dbe98ecb-4d32-5767-be6c-f54728c93f7d",
+      "level": "A2.1",
+      "textVersion": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
+        "definitionContentHash": "68ae82c1a336ca88e311b8e3add943d96a488ae66c4eda56a71f206cd3a3c4e2"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a21-06.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Land ländliche Umgebung",
+              "Garten bepflanzte Außenfläche",
+              "Bahnhof Zughaltestelle",
+              "Spaziergang Gehen Freizeit",
+              "draußen außerhalb Gebäude",
+              "kühl niedrige Temperatur"
+            ],
+            "sourceSpans": [
+              {
+                "start": 37,
+                "end": 49,
+                "quote": "auf dem Land"
+              },
+              {
+                "start": 107,
+                "end": 113,
+                "quote": "Garten"
+              },
+              {
+                "start": 157,
+                "end": 164,
+                "quote": "Bahnhof"
+              },
+              {
+                "start": 233,
+                "end": 244,
+                "quote": "Spaziergang"
+              },
+              {
+                "start": 330,
+                "end": 337,
+                "quote": "draußen"
+              },
+              {
+                "start": 355,
+                "end": 359,
+                "quote": "kühl"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Land ländliche Umgebung, Garten bepflanzte Außenfläche, Bahnhof Zughaltestelle, Spaziergang Gehen Freizeit, draußen außerhalb Gebäude, kühl niedrige Temperatur. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-06.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "besucht schwaches Partizip",
+              "wohnen dritte Person Plural",
+              "gefahren Perfekt sein",
+              "abgeholt trennbares Partizip",
+              "gesehen starkes Partizip",
+              "wollten Präteritum Plural"
+            ],
+            "sourceSpans": [
+              {
+                "start": 19,
+                "end": 57,
+                "quote": "haben wir Freunde auf dem Land besucht"
+              },
+              {
+                "start": 59,
+                "end": 69,
+                "quote": "Sie wohnen"
+              },
+              {
+                "start": 115,
+                "end": 153,
+                "quote": "Wir sind morgens mit dem Zug gefahren."
+              },
+              {
+                "start": 165,
+                "end": 187,
+                "quote": "haben sie uns abgeholt"
+              },
+              {
+                "start": 265,
+                "end": 285,
+                "quote": "haben Pferde gesehen"
+              },
+              {
+                "start": 378,
+                "end": 396,
+                "quote": "wollten die Jungen"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: besucht schwaches Partizip, wohnen dritte Person Plural, gefahren Perfekt sein, abgeholt trennbares Partizip, gesehen starkes Partizip, wollten Präteritum Plural. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-06.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Letztes Wochenende vergangener Zeitraum",
+              "sie Freunde als Abholende",
+              "Nach Mittagessen zeitliche Folge",
+              "bis Nebensatz Verbfinal",
+              "bis zeitliche Grenze",
+              "gar nicht verstärkte Verneinung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 18,
+                "quote": "Letztes Wochenende"
+              },
+              {
+                "start": 154,
+                "end": 188,
+                "quote": "Am Bahnhof haben sie uns abgeholt."
+              },
+              {
+                "start": 189,
+                "end": 253,
+                "quote": "Nach dem Mittagessen haben wir einen langen Spaziergang gemacht."
+              },
+              {
+                "start": 348,
+                "end": 365,
+                "quote": "bis es kühl wurde"
+              },
+              {
+                "start": 313,
+                "end": 366,
+                "quote": "Abends haben wir draußen gesessen, bis es kühl wurde."
+              },
+              {
+                "start": 397,
+                "end": 431,
+                "quote": "gar nicht wieder nach Hause fahren"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Letztes Wochenende vergangener Zeitraum, sie Freunde als Abholende, Nach Mittagessen zeitliche Folge, bis Nebensatz Verbfinal, bis zeitliche Grenze, gar nicht verstärkte Verneinung. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-06.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "einem alten Haus Dativ",
+              "einem großen Garten Dativ",
+              "einen langen Spaziergang Akkusativ",
+              "Sie Freunde Pluralpronomen",
+              "uns Besucher Akkusativ Plural",
+              "viele Fragen Menge Plural"
+            ],
+            "sourceSpans": [
+              {
+                "start": 70,
+                "end": 89,
+                "quote": "in einem alten Haus"
+              },
+              {
+                "start": 90,
+                "end": 113,
+                "quote": "mit einem großen Garten"
+              },
+              {
+                "start": 220,
+                "end": 244,
+                "quote": "einen langen Spaziergang"
+              },
+              {
+                "start": 29,
+                "end": 69,
+                "quote": "Freunde auf dem Land besucht. Sie wohnen"
+              },
+              {
+                "start": 171,
+                "end": 187,
+                "quote": "sie uns abgeholt"
+              },
+              {
+                "start": 290,
+                "end": 302,
+                "quote": "viele Fragen"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: einem alten Haus Dativ, einem großen Garten Dativ, einen langen Spaziergang Akkusativ, Sie Freunde Pluralpronomen, uns Besucher Akkusativ Plural, viele Fragen Menge Plural. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keine Relativsatzkonstruktion; vorhandene Zeit- oder Begründungssätze werden in ihren eigenen belegten Funktionen geprüft."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Die tatsächlichen positiven Eigenschaftswörter erfordern keine produktive Steigerungsbildung; Wortschatz, Flexion und belegte Satzbeziehungen werden konkret geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a21-06.words.q1",
+            "competencyId": "sitov.pretest.a21-06.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »auf dem Land wohnen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.words.q1.c",
+                "textDe": "Im Meer schwimmen."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q1.a",
+                "textDe": "In einer ländlichen Umgebung wohnen."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q1.b",
+                "textDe": "Auf einem Zugdach wohnen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.words.q1.a",
+            "assessmentUnit": "Land ländliche Umgebung",
+            "equivalenceKey": "sitov:a21-06:words:1",
+            "sourceSpans": [
+              {
+                "start": 37,
+                "end": 49,
+                "quote": "auf dem Land"
+              }
+            ],
+            "rationaleDe": "Auf dem Land bezeichnet hier eine ländliche Wohnumgebung; Zugdach und Meer passen nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-06.words.q2",
+            "competencyId": "sitov.pretest.a21-06.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Garten« bei einem Haus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.words.q2.a",
+                "textDe": "Eine Abfahrtsanzeige am Bahnhof."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q2.c",
+                "textDe": "Ein geschlossener Briefumschlag."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q2.b",
+                "textDe": "Eine Außenfläche mit Pflanzen oder Platz zum Pflanzen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.words.q2.b",
+            "assessmentUnit": "Garten bepflanzte Außenfläche",
+            "equivalenceKey": "sitov:a21-06:words:2",
+            "sourceSpans": [
+              {
+                "start": 107,
+                "end": 113,
+                "quote": "Garten"
+              }
+            ],
+            "rationaleDe": "Ein Garten ist eine Außenfläche bei einem Haus, oft mit Pflanzen; Briefumschlag und Anzeige sind andere Dinge."
+          },
+          {
+            "id": "sitov.pretest.a21-06.words.q3",
+            "competencyId": "sitov.pretest.a21-06.words",
+            "kind": "single_choice",
+            "promptDe": "Wozu dient ein »Bahnhof«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.words.q3.c",
+                "textDe": "Dort halten Züge und Fahrgäste steigen ein oder aus."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q3.b",
+                "textDe": "Dort liegen ausschließlich Bücher zum Ausleihen."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q3.a",
+                "textDe": "Dort werden ausschließlich Kuchen gebacken."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.words.q3.c",
+            "assessmentUnit": "Bahnhof Zughaltestelle",
+            "equivalenceKey": "sitov:a21-06:words:3",
+            "sourceSpans": [
+              {
+                "start": 157,
+                "end": 164,
+                "quote": "Bahnhof"
+              }
+            ],
+            "rationaleDe": "Am Bahnhof halten Züge für Fahrgäste; Backen und Bücherausleihe definieren keinen Bahnhof."
+          },
+          {
+            "id": "sitov.pretest.a21-06.words.q4",
+            "competencyId": "sitov.pretest.a21-06.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Spaziergang«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.words.q4.a",
+                "textDe": "Ein Gang zu Fuß zur Erholung oder zum Vergnügen."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q4.b",
+                "textDe": "Ein Flug mit einem Flugzeug."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q4.c",
+                "textDe": "Ein kaputter Fahrradreifen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.words.q4.a",
+            "assessmentUnit": "Spaziergang Gehen Freizeit",
+            "equivalenceKey": "sitov:a21-06:words:4",
+            "sourceSpans": [
+              {
+                "start": 233,
+                "end": 244,
+                "quote": "Spaziergang"
+              }
+            ],
+            "rationaleDe": "Ein Spaziergang ist ein erholsamer Gang zu Fuß; Flug und Fahrradschaden bezeichnen etwas anderes."
+          },
+          {
+            "id": "sitov.pretest.a21-06.words.q5",
+            "competencyId": "sitov.pretest.a21-06.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Wir sitzen draußen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.words.q5.a",
+                "textDe": "Wir sitzen ausdrücklich in einer geschlossenen Küche."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q5.b",
+                "textDe": "Wir sitzen ausdrücklich im Keller."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q5.c",
+                "textDe": "Wir sitzen außerhalb eines Gebäudes."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.words.q5.c",
+            "assessmentUnit": "draußen außerhalb Gebäude",
+            "equivalenceKey": "sitov:a21-06:words:5",
+            "sourceSpans": [
+              {
+                "start": 330,
+                "end": 337,
+                "quote": "draußen"
+              }
+            ],
+            "rationaleDe": "Draußen bedeutet außerhalb eines Gebäudes; Keller und geschlossene Küche liegen drinnen."
+          },
+          {
+            "id": "sitov.pretest.a21-06.words.q6",
+            "competencyId": "sitov.pretest.a21-06.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Es wurde kühl«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.words.q6.a",
+                "textDe": "Der Garten wurde ausdrücklich lauter."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q6.b",
+                "textDe": "Die Temperatur wurde eher niedrig."
+              },
+              {
+                "id": "sitov.pretest.a21-06.words.q6.c",
+                "textDe": "Die Temperatur wurde ausdrücklich sehr heiß."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.words.q6.b",
+            "assessmentUnit": "kühl niedrige Temperatur",
+            "equivalenceKey": "sitov:a21-06:words:6",
+            "sourceSpans": [
+              {
+                "start": 355,
+                "end": 359,
+                "quote": "kühl"
+              }
+            ],
+            "rationaleDe": "Kühl beschreibt eine eher niedrige Temperatur; Hitze und Lautstärke sind keine passende Bedeutung."
+          },
+          {
+            "id": "sitov.pretest.a21-06.verbs.q1",
+            "competencyId": "sitov.pretest.a21-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir haben Freunde ___« zu besuchen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.verbs.q1.a",
+                "textDe": "besucht"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q1.c",
+                "textDe": "besuchen"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q1.b",
+                "textDe": "gebesucht"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.verbs.q1.a",
+            "assessmentUnit": "besucht schwaches Partizip",
+            "equivalenceKey": "sitov:a21-06:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 19,
+                "end": 57,
+                "quote": "haben wir Freunde auf dem Land besucht"
+              }
+            ],
+            "rationaleDe": "Das Partizip von besuchen lautet besucht ohne ge wegen der Vorsilbe be; Infinitiv und gebesucht passen nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-06.verbs.q2",
+            "competencyId": "sitov.pretest.a21-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Unsere Freunde ___ auf dem Land« zu wohnen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.verbs.q2.c",
+                "textDe": "wohnen"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q2.b",
+                "textDe": "wohnt"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q2.a",
+                "textDe": "wohnst"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.verbs.q2.c",
+            "assessmentUnit": "wohnen dritte Person Plural",
+            "equivalenceKey": "sitov:a21-06:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 59,
+                "end": 69,
+                "quote": "Sie wohnen"
+              }
+            ],
+            "rationaleDe": "Unsere Freunde ist dritte Person Plural; die passende Präsensform lautet wohnen."
+          },
+          {
+            "id": "sitov.pretest.a21-06.verbs.q3",
+            "competencyId": "sitov.pretest.a21-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welches Hilfsverb ergänzt »Wir ___ mit dem Zug gefahren« im Perfekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.verbs.q3.b",
+                "textDe": "haben"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q3.a",
+                "textDe": "sind"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q3.c",
+                "textDe": "werden"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.verbs.q3.a",
+            "assessmentUnit": "gefahren Perfekt sein",
+            "equivalenceKey": "sitov:a21-06:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 115,
+                "end": 153,
+                "quote": "Wir sind morgens mit dem Zug gefahren."
+              }
+            ],
+            "rationaleDe": "Die Fahrt als Ortswechsel bildet das Perfekt mit sein; bei wir lautet das Hilfsverb sind."
+          },
+          {
+            "id": "sitov.pretest.a21-06.verbs.q4",
+            "competencyId": "sitov.pretest.a21-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Sie haben uns ___« zu abholen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.verbs.q4.b",
+                "textDe": "abholen"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q4.a",
+                "textDe": "geabholt"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q4.c",
+                "textDe": "abgeholt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.verbs.q4.c",
+            "assessmentUnit": "abgeholt trennbares Partizip",
+            "equivalenceKey": "sitov:a21-06:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 165,
+                "end": 187,
+                "quote": "haben sie uns abgeholt"
+              }
+            ],
+            "rationaleDe": "Bei abholen steht ge zwischen ab und holt; das Partizip lautet abgeholt."
+          },
+          {
+            "id": "sitov.pretest.a21-06.verbs.q5",
+            "competencyId": "sitov.pretest.a21-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Die Jungen haben Pferde ___« zu sehen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.verbs.q5.a",
+                "textDe": "sehen"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q5.c",
+                "textDe": "geseht"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q5.b",
+                "textDe": "gesehen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.verbs.q5.b",
+            "assessmentUnit": "gesehen starkes Partizip",
+            "equivalenceKey": "sitov:a21-06:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 265,
+                "end": 285,
+                "quote": "haben Pferde gesehen"
+              }
+            ],
+            "rationaleDe": "Das starke Verb sehen bildet das Partizip gesehen; geseht und der Infinitiv sind hier falsch."
+          },
+          {
+            "id": "sitov.pretest.a21-06.verbs.q6",
+            "competencyId": "sitov.pretest.a21-06.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt im Präteritum »Die Jungen ___ noch bleiben« zu wollen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.verbs.q6.c",
+                "textDe": "wollte"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q6.b",
+                "textDe": "wollten"
+              },
+              {
+                "id": "sitov.pretest.a21-06.verbs.q6.a",
+                "textDe": "will"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.verbs.q6.b",
+            "assessmentUnit": "wollten Präteritum Plural",
+            "equivalenceKey": "sitov:a21-06:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 378,
+                "end": 396,
+                "quote": "wollten die Jungen"
+              }
+            ],
+            "rationaleDe": "Die Jungen ist Plural; im Präteritum von wollen lautet die Form wollten."
+          },
+          {
+            "id": "sitov.pretest.a21-06.syntax.q1",
+            "competencyId": "sitov.pretest.a21-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welchen Zeitraum nennt »Letztes Wochenende haben wir Freunde besucht«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.syntax.q1.c",
+                "textDe": "Das vergangene Wochenende."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q1.b",
+                "textDe": "Das erst kommende Wochenende."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q1.a",
+                "textDe": "Jeden Mittwoch ohne Ausnahme."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.syntax.q1.c",
+            "assessmentUnit": "Letztes Wochenende vergangener Zeitraum",
+            "equivalenceKey": "sitov:a21-06:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 18,
+                "quote": "Letztes Wochenende"
+              }
+            ],
+            "rationaleDe": "Letztes Wochenende bezeichnet das vergangene Wochenende; Zukunft und regelmäßiger Mittwoch sind andere Zeitangaben."
+          },
+          {
+            "id": "sitov.pretest.a21-06.syntax.q2",
+            "competencyId": "sitov.pretest.a21-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer holt in »Unsere Freunde waren am Bahnhof. Sie haben uns abgeholt« die Besucher ab?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.syntax.q2.a",
+                "textDe": "Die Besucher selbst."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q2.c",
+                "textDe": "Die Freunde."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q2.b",
+                "textDe": "Der Zug als handelnde Person."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.syntax.q2.c",
+            "assessmentUnit": "sie Freunde als Abholende",
+            "equivalenceKey": "sitov:a21-06:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 154,
+                "end": 188,
+                "quote": "Am Bahnhof haben sie uns abgeholt."
+              }
+            ],
+            "rationaleDe": "Sie greift unsere Freunde auf; uns bezeichnet die abgeholten Besucher und nicht die Abholenden."
+          },
+          {
+            "id": "sitov.pretest.a21-06.syntax.q3",
+            "competencyId": "sitov.pretest.a21-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was kommt laut »Nach dem Mittagessen machen wir einen Spaziergang« zuerst?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.syntax.q3.c",
+                "textDe": "Beide enden ausdrücklich gleichzeitig."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q3.b",
+                "textDe": "Der Spaziergang."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q3.a",
+                "textDe": "Das Mittagessen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.syntax.q3.a",
+            "assessmentUnit": "Nach Mittagessen zeitliche Folge",
+            "equivalenceKey": "sitov:a21-06:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 189,
+                "end": 253,
+                "quote": "Nach dem Mittagessen haben wir einen langen Spaziergang gemacht."
+              }
+            ],
+            "rationaleDe": "Nach dem Mittagessen ordnet den Spaziergang hinter das Essen; das Mittagessen kommt zuerst."
+          },
+          {
+            "id": "sitov.pretest.a21-06.syntax.q4",
+            "competencyId": "sitov.pretest.a21-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt »Wir saßen draußen, bis …« korrekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.syntax.q4.a",
+                "textDe": "wurde es kühl"
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q4.b",
+                "textDe": "es kühl wurde"
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q4.c",
+                "textDe": "es wurde kühl"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.syntax.q4.b",
+            "assessmentUnit": "bis Nebensatz Verbfinal",
+            "equivalenceKey": "sitov:a21-06:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 348,
+                "end": 365,
+                "quote": "bis es kühl wurde"
+              }
+            ],
+            "rationaleDe": "Bis leitet hier einen Nebensatz ein; das finite Verb wurde steht am Ende."
+          },
+          {
+            "id": "sitov.pretest.a21-06.syntax.q5",
+            "competencyId": "sitov.pretest.a21-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Grenze nennt »Wir saßen draußen, bis es kühl wurde«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.syntax.q5.a",
+                "textDe": "Es wird ausdrücklich keine zeitliche Grenze genannt."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q5.c",
+                "textDe": "Der Zeitraum beginnt ausdrücklich erst einen Monat später."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q5.b",
+                "textDe": "Das Kühlwerden beendet den genannten Zeitraum draußen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.syntax.q5.b",
+            "assessmentUnit": "bis zeitliche Grenze",
+            "equivalenceKey": "sitov:a21-06:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 313,
+                "end": 366,
+                "quote": "Abends haben wir draußen gesessen, bis es kühl wurde."
+              }
+            ],
+            "rationaleDe": "Bis bezeichnet die zeitliche Grenze des Draußensitzens; ein Monat später oder fehlende Grenze steht nicht da."
+          },
+          {
+            "id": "sitov.pretest.a21-06.syntax.q6",
+            "competencyId": "sitov.pretest.a21-06.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Die Jungen wollten gar nicht nach Hause fahren«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.syntax.q6.a",
+                "textDe": "Sie wollten überhaupt nicht nach Hause fahren."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q6.b",
+                "textDe": "Sie wollten unbedingt sofort nach Hause fahren."
+              },
+              {
+                "id": "sitov.pretest.a21-06.syntax.q6.c",
+                "textDe": "Sie mussten ausdrücklich den Kuchen backen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.syntax.q6.a",
+            "assessmentUnit": "gar nicht verstärkte Verneinung",
+            "equivalenceKey": "sitov:a21-06:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 397,
+                "end": 431,
+                "quote": "gar nicht wieder nach Hause fahren"
+              }
+            ],
+            "rationaleDe": "Gar nicht verstärkt die Verneinung des Wunsches; ein dringender Heimfahrwunsch oder Backpflicht passt nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-06.nominal.q1",
+            "competencyId": "sitov.pretest.a21-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Sie wohnen in einem ___ Haus«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.nominal.q1.c",
+                "textDe": "alten"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q1.b",
+                "textDe": "alter"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q1.a",
+                "textDe": "altes"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.nominal.q1.c",
+            "assessmentUnit": "einem alten Haus Dativ",
+            "equivalenceKey": "sitov:a21-06:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 70,
+                "end": 89,
+                "quote": "in einem alten Haus"
+              }
+            ],
+            "rationaleDe": "Wohnen in nennt einen Ort im Dativ; nach einem lautet die Adjektivform alten Haus."
+          },
+          {
+            "id": "sitov.pretest.a21-06.nominal.q2",
+            "competencyId": "sitov.pretest.a21-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »ein Haus mit einem ___ Garten«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.nominal.q2.a",
+                "textDe": "großes"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q2.c",
+                "textDe": "großer"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q2.b",
+                "textDe": "großen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.nominal.q2.b",
+            "assessmentUnit": "einem großen Garten Dativ",
+            "equivalenceKey": "sitov:a21-06:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 90,
+                "end": 113,
+                "quote": "mit einem großen Garten"
+              }
+            ],
+            "rationaleDe": "Mit verlangt Dativ; nach einem lautet die Adjektivform großen Garten."
+          },
+          {
+            "id": "sitov.pretest.a21-06.nominal.q3",
+            "competencyId": "sitov.pretest.a21-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir machen einen ___ Spaziergang«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.nominal.q3.a",
+                "textDe": "langer"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q3.b",
+                "textDe": "langen"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q3.c",
+                "textDe": "langem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.nominal.q3.b",
+            "assessmentUnit": "einen langen Spaziergang Akkusativ",
+            "equivalenceKey": "sitov:a21-06:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 220,
+                "end": 244,
+                "quote": "einen langen Spaziergang"
+              }
+            ],
+            "rationaleDe": "Spaziergang ist maskulines Akkusativobjekt; nach einen lautet die Adjektivform langen."
+          },
+          {
+            "id": "sitov.pretest.a21-06.nominal.q4",
+            "competencyId": "sitov.pretest.a21-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welches Pronomen ersetzt »Unsere Freunde« in »___ wohnen auf dem Land«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.nominal.q4.a",
+                "textDe": "Sie"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q4.c",
+                "textDe": "Er"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q4.b",
+                "textDe": "Es"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.nominal.q4.a",
+            "assessmentUnit": "Sie Freunde Pluralpronomen",
+            "equivalenceKey": "sitov:a21-06:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 29,
+                "end": 69,
+                "quote": "Freunde auf dem Land besucht. Sie wohnen"
+              }
+            ],
+            "rationaleDe": "Unsere Freunde ist Plural und wird durch sie ersetzt; er und es stehen hier für einzelne Personen oder Dinge."
+          },
+          {
+            "id": "sitov.pretest.a21-06.nominal.q5",
+            "competencyId": "sitov.pretest.a21-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Wer ist mit »uns« in »Unsere Freunde haben uns abgeholt« gemeint?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.nominal.q5.b",
+                "textDe": "Nur der Zug ohne Menschen."
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q5.c",
+                "textDe": "Der Sprecher zusammen mit den anderen Besuchern."
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q5.a",
+                "textDe": "Nur die abholenden Freunde ohne den Sprecher."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.nominal.q5.c",
+            "assessmentUnit": "uns Besucher Akkusativ Plural",
+            "equivalenceKey": "sitov:a21-06:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 171,
+                "end": 187,
+                "quote": "sie uns abgeholt"
+              }
+            ],
+            "rationaleDe": "Uns bezeichnet die Gruppe einschließlich des Sprechers als abgeholtes Objekt; es meint nicht die Freunde allein oder den Zug."
+          },
+          {
+            "id": "sitov.pretest.a21-06.nominal.q6",
+            "competencyId": "sitov.pretest.a21-06.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Die Jungen stellen ___ Fragen«, wenn die Anzahl groß ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-06.nominal.q6.c",
+                "textDe": "vieles"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q6.b",
+                "textDe": "viel"
+              },
+              {
+                "id": "sitov.pretest.a21-06.nominal.q6.a",
+                "textDe": "viele"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-06.nominal.q6.a",
+            "assessmentUnit": "viele Fragen Menge Plural",
+            "equivalenceKey": "sitov:a21-06:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 290,
+                "end": 302,
+                "quote": "viele Fragen"
+              }
+            ],
+            "rationaleDe": "Fragen ist ein zählbarer Plural; bei großer Anzahl lautet die Form viele Fragen."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a21-06.a",
+            "questionIds": [
+              "sitov.pretest.a21-06.words.q1",
+              "sitov.pretest.a21-06.words.q2",
+              "sitov.pretest.a21-06.words.q3",
+              "sitov.pretest.a21-06.verbs.q1",
+              "sitov.pretest.a21-06.verbs.q2",
+              "sitov.pretest.a21-06.verbs.q3",
+              "sitov.pretest.a21-06.syntax.q1",
+              "sitov.pretest.a21-06.syntax.q2",
+              "sitov.pretest.a21-06.syntax.q3",
+              "sitov.pretest.a21-06.nominal.q1",
+              "sitov.pretest.a21-06.nominal.q2",
+              "sitov.pretest.a21-06.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a21-06.b",
+            "questionIds": [
+              "sitov.pretest.a21-06.words.q4",
+              "sitov.pretest.a21-06.words.q5",
+              "sitov.pretest.a21-06.words.q6",
+              "sitov.pretest.a21-06.verbs.q4",
+              "sitov.pretest.a21-06.verbs.q5",
+              "sitov.pretest.a21-06.verbs.q6",
+              "sitov.pretest.a21-06.syntax.q4",
+              "sitov.pretest.a21-06.syntax.q5",
+              "sitov.pretest.a21-06.syntax.q6",
+              "sitov.pretest.a21-06.nominal.q4",
+              "sitov.pretest.a21-06.nominal.q5",
+              "sitov.pretest.a21-06.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "2f3b292b-8bdb-5007-90cb-278f9c00fc02",
+      "unitId": "2f3b292b-8bdb-5007-90cb-278f9c00fc02",
+      "level": "A2.1",
+      "textVersion": "e5ba8cecd0972ce4c5c1fcbae2e3c3f4af0a38b4b62277d83b7bc356594c06f5",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "e5ba8cecd0972ce4c5c1fcbae2e3c3f4af0a38b4b62277d83b7bc356594c06f5",
+        "definitionContentHash": "db0086be72ca8328585b5aa60799cfaa2578466484a7c7111c0293526c63e294"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a21-07.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Verein organisierte Gemeinschaft",
+              "kostenlos ohne Preis",
+              "Probetraining Ausprobieren",
+              "Uhrzeit Zeitpunkt am Tag",
+              "Sportschuhe Schuhe fürs Training",
+              "begleiten gemeinsam hingehen"
+            ],
+            "sourceSpans": [
+              {
+                "start": 20,
+                "end": 26,
+                "quote": "Verein"
+              },
+              {
+                "start": 118,
+                "end": 129,
+                "quote": "kostenloses"
+              },
+              {
+                "start": 130,
+                "end": 143,
+                "quote": "Probetraining"
+              },
+              {
+                "start": 194,
+                "end": 201,
+                "quote": "Uhrzeit"
+              },
+              {
+                "start": 257,
+                "end": 268,
+                "quote": "Sportschuhe"
+              },
+              {
+                "start": 356,
+                "end": 365,
+                "quote": "begleitet"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Verein organisierte Gemeinschaft, kostenlos ohne Preis, Probetraining Ausprobieren, Uhrzeit Zeitpunkt am Tag, Sportschuhe Schuhe fürs Training, begleiten gemeinsam hingehen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-07.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "möchte Infinitiv spielen",
+              "anbieten trennbares Verb",
+              "informiert Partizip ohne ge",
+              "geschrieben starkes Partizip",
+              "mitbringen Modalinfinitiv",
+              "freuen reflexive wir Form"
+            ],
+            "sourceSpans": [
+              {
+                "start": 4,
+                "end": 42,
+                "quote": "möchte in einem Verein Fußball spielen"
+              },
+              {
+                "start": 107,
+                "end": 146,
+                "quote": "bietet ein kostenloses Probetraining an"
+              },
+              {
+                "start": 47,
+                "end": 79,
+                "quote": "habe mich im Internet informiert"
+              },
+              {
+                "start": 152,
+                "end": 180,
+                "quote": "habe eine E-Mail geschrieben"
+              },
+              {
+                "start": 252,
+                "end": 300,
+                "quote": "soll Sportschuhe und etwas zu trinken mitbringen"
+              },
+              {
+                "start": 406,
+                "end": 420,
+                "quote": "Wir freuen uns"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: möchte Infinitiv spielen, anbieten trennbares Verb, informiert Partizip ohne ge, geschrieben starkes Partizip, mitbringen Modalinfinitiv, freuen reflexive wir Form. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-07.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "nach Uhrzeit erfragte Information",
+              "soll erhaltene Anweisung",
+              "Am Donnerstag Zeitangabe",
+              "zum ersten Mal erste Teilnahme",
+              "weil Nebensatz Verbfinal",
+              "weil Begründung Begleitung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 185,
+                "end": 209,
+                "quote": "nach der Uhrzeit gefragt"
+              },
+              {
+                "start": 248,
+                "end": 301,
+                "quote": "Ich soll Sportschuhe und etwas zu trinken mitbringen."
+              },
+              {
+                "start": 302,
+                "end": 315,
+                "quote": "Am Donnerstag"
+              },
+              {
+                "start": 325,
+                "end": 339,
+                "quote": "zum ersten Mal"
+              },
+              {
+                "start": 372,
+                "end": 404,
+                "quote": "weil er auch gern Fußball spielt"
+              },
+              {
+                "start": 345,
+                "end": 405,
+                "quote": "Ein Freund begleitet mich, weil er auch gern Fußball spielt."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.begruenden-a21"
+              ],
+              "pendingReasonDe": "Teilbeleg ausschließlich für weil Nebensatz Verbfinal und weil Begründung Begleitung. Andere Einzelziele fehlen: nach Uhrzeit erfragte Information, soll erhaltene Anweisung, Am Donnerstag Zeitangabe, zum ersten Mal erste Teilnahme, weil Nebensatz Verbfinal, weil Begründung Begleitung. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-07.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "einem Verein Dativ Ort",
+              "meiner Nähe Dativ",
+              "kostenloses Probetraining neutral Akkusativ",
+              "der Uhrzeit Dativ nach",
+              "zum Kontraktion zu dem",
+              "mich Akkusativ begleiten"
+            ],
+            "sourceSpans": [
+              {
+                "start": 11,
+                "end": 26,
+                "quote": "in einem Verein"
+              },
+              {
+                "start": 92,
+                "end": 106,
+                "quote": "in meiner Nähe"
+              },
+              {
+                "start": 114,
+                "end": 143,
+                "quote": "ein kostenloses Probetraining"
+              },
+              {
+                "start": 185,
+                "end": 201,
+                "quote": "nach der Uhrzeit"
+              },
+              {
+                "start": 325,
+                "end": 339,
+                "quote": "zum ersten Mal"
+              },
+              {
+                "start": 356,
+                "end": 370,
+                "quote": "begleitet mich"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: einem Verein Dativ Ort, meiner Nähe Dativ, kostenloses Probetraining neutral Akkusativ, der Uhrzeit Dativ nach, zum Kontraktion zu dem, mich Akkusativ begleiten. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keine Relativsatzkonstruktion; vorhandene Zeit- oder Begründungssätze werden in ihren eigenen belegten Funktionen geprüft."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Die tatsächlichen positiven Eigenschaftswörter erfordern keine produktive Steigerungsbildung; Wortschatz, Flexion und belegte Satzbeziehungen werden konkret geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a21-07.words.q1",
+            "competencyId": "sitov.pretest.a21-07.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Verein« zum Fußballspielen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.words.q1.a",
+                "textDe": "Eine organisierte Gemeinschaft mit gemeinsamem Interesse."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q1.b",
+                "textDe": "Ein einzelnes Kuchenrezept."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q1.c",
+                "textDe": "Ein kaputter Fahrradreifen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.words.q1.a",
+            "assessmentUnit": "Verein organisierte Gemeinschaft",
+            "equivalenceKey": "sitov:a21-07:words:1",
+            "sourceSpans": [
+              {
+                "start": 20,
+                "end": 26,
+                "quote": "Verein"
+              }
+            ],
+            "rationaleDe": "Ein Verein ist eine organisierte Gemeinschaft mit gemeinsamem Zweck; Reifen und Rezept sind keine Gemeinschaft."
+          },
+          {
+            "id": "sitov.pretest.a21-07.words.q2",
+            "competencyId": "sitov.pretest.a21-07.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »ein kostenloses Probetraining«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.words.q2.b",
+                "textDe": "Für das Probetraining muss man nichts bezahlen."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q2.a",
+                "textDe": "Das Probetraining findet ausdrücklich nie statt."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q2.c",
+                "textDe": "Das Probetraining kostet ausdrücklich sehr viel."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.words.q2.b",
+            "assessmentUnit": "kostenlos ohne Preis",
+            "equivalenceKey": "sitov:a21-07:words:2",
+            "sourceSpans": [
+              {
+                "start": 118,
+                "end": 129,
+                "quote": "kostenloses"
+              }
+            ],
+            "rationaleDe": "Kostenlos bedeutet ohne zu zahlenden Preis; ein hoher Preis oder ein ausfallendes Training wird nicht ausgesagt."
+          },
+          {
+            "id": "sitov.pretest.a21-07.words.q3",
+            "competencyId": "sitov.pretest.a21-07.words",
+            "kind": "single_choice",
+            "promptDe": "Wozu dient ein »Probetraining«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.words.q3.b",
+                "textDe": "Man muss einen Kuchen backen."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q3.a",
+                "textDe": "Man kann das Training zunächst ausprobieren."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q3.c",
+                "textDe": "Man muss ausschließlich Briefe austragen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.words.q3.a",
+            "assessmentUnit": "Probetraining Ausprobieren",
+            "equivalenceKey": "sitov:a21-07:words:3",
+            "sourceSpans": [
+              {
+                "start": 130,
+                "end": 143,
+                "quote": "Probetraining"
+              }
+            ],
+            "rationaleDe": "Ein Probetraining ermöglicht das Ausprobieren des Trainings; Postzustellung und Kuchenbacken sind andere Tätigkeiten."
+          },
+          {
+            "id": "sitov.pretest.a21-07.words.q4",
+            "competencyId": "sitov.pretest.a21-07.words",
+            "kind": "single_choice",
+            "promptDe": "Wonach fragt man mit »Um wie viel Uhr beginnt das Training«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.words.q4.a",
+                "textDe": "Nach der Farbe der Schuhe."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q4.c",
+                "textDe": "Nach der Uhrzeit."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q4.b",
+                "textDe": "Nach dem Gewicht eines Pakets."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.words.q4.c",
+            "assessmentUnit": "Uhrzeit Zeitpunkt am Tag",
+            "equivalenceKey": "sitov:a21-07:words:4",
+            "sourceSpans": [
+              {
+                "start": 194,
+                "end": 201,
+                "quote": "Uhrzeit"
+              }
+            ],
+            "rationaleDe": "Um wie viel Uhr fragt nach einem Zeitpunkt am Tag; Farbe und Gewicht sind andere Angaben."
+          },
+          {
+            "id": "sitov.pretest.a21-07.words.q5",
+            "competencyId": "sitov.pretest.a21-07.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind »Sportschuhe«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.words.q5.b",
+                "textDe": "Handschuhe für den Backofen."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q5.a",
+                "textDe": "Fahrkarten für den Zug."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q5.c",
+                "textDe": "Schuhe für sportliche Tätigkeiten."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.words.q5.c",
+            "assessmentUnit": "Sportschuhe Schuhe fürs Training",
+            "equivalenceKey": "sitov:a21-07:words:5",
+            "sourceSpans": [
+              {
+                "start": 257,
+                "end": 268,
+                "quote": "Sportschuhe"
+              }
+            ],
+            "rationaleDe": "Sportschuhe sind Schuhe zum Sporttreiben; Ofenhandschuhe und Fahrkarten sind andere Gegenstände."
+          },
+          {
+            "id": "sitov.pretest.a21-07.words.q6",
+            "competencyId": "sitov.pretest.a21-07.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Ein Freund begleitet mich zum Training«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.words.q6.c",
+                "textDe": "Der Freund schickt ausschließlich ein Paket."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q6.a",
+                "textDe": "Der Freund verbietet ausdrücklich jedes Training."
+              },
+              {
+                "id": "sitov.pretest.a21-07.words.q6.b",
+                "textDe": "Der Freund geht zusammen mit mir zum Training."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.words.q6.b",
+            "assessmentUnit": "begleiten gemeinsam hingehen",
+            "equivalenceKey": "sitov:a21-07:words:6",
+            "sourceSpans": [
+              {
+                "start": 356,
+                "end": 365,
+                "quote": "begleitet"
+              }
+            ],
+            "rationaleDe": "Begleiten heißt hier gemeinsam mitgehen; Paketversand und ein Verbot haben eine andere Bedeutung."
+          },
+          {
+            "id": "sitov.pretest.a21-07.verbs.q1",
+            "competencyId": "sitov.pretest.a21-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich möchte Fußball ___« zu spielen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.verbs.q1.c",
+                "textDe": "spiele"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q1.b",
+                "textDe": "gespielt"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q1.a",
+                "textDe": "spielen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.verbs.q1.a",
+            "assessmentUnit": "möchte Infinitiv spielen",
+            "equivalenceKey": "sitov:a21-07:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 4,
+                "end": 42,
+                "quote": "möchte in einem Verein Fußball spielen"
+              }
+            ],
+            "rationaleDe": "Nach möchte steht der Infinitiv spielen; finite Präsensform und Partizip passen hier nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-07.verbs.q2",
+            "competencyId": "sitov.pretest.a21-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »Der Verein bietet ein Probetraining an«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.verbs.q2.c",
+                "textDe": "anbietet"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q2.b",
+                "textDe": "anbieten"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q2.a",
+                "textDe": "bietenan"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.verbs.q2.b",
+            "assessmentUnit": "anbieten trennbares Verb",
+            "equivalenceKey": "sitov:a21-07:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 107,
+                "end": 146,
+                "quote": "bietet ein kostenloses Probetraining an"
+              }
+            ],
+            "rationaleDe": "Das trennbare Verb lautet anbieten; im Hauptsatz stehen bietet und an getrennt."
+          },
+          {
+            "id": "sitov.pretest.a21-07.verbs.q3",
+            "competencyId": "sitov.pretest.a21-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe mich ___« zu informieren?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.verbs.q3.a",
+                "textDe": "informieren"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q3.b",
+                "textDe": "geinformiert"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q3.c",
+                "textDe": "informiert"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.verbs.q3.c",
+            "assessmentUnit": "informiert Partizip ohne ge",
+            "equivalenceKey": "sitov:a21-07:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 47,
+                "end": 79,
+                "quote": "habe mich im Internet informiert"
+              }
+            ],
+            "rationaleDe": "Verben auf ieren bilden das Partizip ohne ge; daher lautet es informiert."
+          },
+          {
+            "id": "sitov.pretest.a21-07.verbs.q4",
+            "competencyId": "sitov.pretest.a21-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe eine E-Mail ___« zu schreiben?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.verbs.q4.b",
+                "textDe": "geschrieben"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q4.c",
+                "textDe": "schreiben"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q4.a",
+                "textDe": "geschreibt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.verbs.q4.b",
+            "assessmentUnit": "geschrieben starkes Partizip",
+            "equivalenceKey": "sitov:a21-07:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 152,
+                "end": 180,
+                "quote": "habe eine E-Mail geschrieben"
+              }
+            ],
+            "rationaleDe": "Das starke Verb schreiben bildet das Partizip geschrieben; geschreibt und Infinitiv sind hier falsch."
+          },
+          {
+            "id": "sitov.pretest.a21-07.verbs.q5",
+            "competencyId": "sitov.pretest.a21-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich soll Sportschuhe ___« zu mitbringen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.verbs.q5.a",
+                "textDe": "mitbringen"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q5.c",
+                "textDe": "bringe mit"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q5.b",
+                "textDe": "mitgebracht"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.verbs.q5.a",
+            "assessmentUnit": "mitbringen Modalinfinitiv",
+            "equivalenceKey": "sitov:a21-07:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 252,
+                "end": 300,
+                "quote": "soll Sportschuhe und etwas zu trinken mitbringen"
+              }
+            ],
+            "rationaleDe": "Nach soll steht der Infinitiv mitbringen; Partizip und getrennte finite Form passen nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-07.verbs.q6",
+            "competencyId": "sitov.pretest.a21-07.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir freuen ___ auf das Training«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.verbs.q6.a",
+                "textDe": "mich"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q6.c",
+                "textDe": "uns"
+              },
+              {
+                "id": "sitov.pretest.a21-07.verbs.q6.b",
+                "textDe": "sich"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.verbs.q6.c",
+            "assessmentUnit": "freuen reflexive wir Form",
+            "equivalenceKey": "sitov:a21-07:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 406,
+                "end": 420,
+                "quote": "Wir freuen uns"
+              }
+            ],
+            "rationaleDe": "Sich freuen verlangt bei wir das Reflexivpronomen uns; sich und mich gehören zu anderen Personen."
+          },
+          {
+            "id": "sitov.pretest.a21-07.syntax.q1",
+            "competencyId": "sitov.pretest.a21-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Information erfragt »Ich habe nach der Uhrzeit des Trainings gefragt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.syntax.q1.b",
+                "textDe": "Wann das Training am Tag stattfindet."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q1.a",
+                "textDe": "Wie viele Äpfel ein Kuchen enthält."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q1.c",
+                "textDe": "Welche Farbe ein Fahrrad hat."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.syntax.q1.b",
+            "assessmentUnit": "nach Uhrzeit erfragte Information",
+            "equivalenceKey": "sitov:a21-07:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 185,
+                "end": 209,
+                "quote": "nach der Uhrzeit gefragt"
+              }
+            ],
+            "rationaleDe": "Nach der Uhrzeit fragen erfragt den Zeitpunkt am Tag; Fahrradfarbe und Apfelzahl sind andere Informationen."
+          },
+          {
+            "id": "sitov.pretest.a21-07.syntax.q2",
+            "competencyId": "sitov.pretest.a21-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was drückt »Ich soll Sportschuhe mitbringen« aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.syntax.q2.b",
+                "textDe": "Der Sprecher erzählt ausschließlich von einem fertigen Kuchen."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q2.a",
+                "textDe": "Der Sprecher hat ausdrücklich ein Mitbringverbot."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q2.c",
+                "textDe": "Der Sprecher hat die Anweisung, Sportschuhe mitzubringen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.syntax.q2.c",
+            "assessmentUnit": "soll erhaltene Anweisung",
+            "equivalenceKey": "sitov:a21-07:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 248,
+                "end": 301,
+                "quote": "Ich soll Sportschuhe und etwas zu trinken mitbringen."
+              }
+            ],
+            "rationaleDe": "Sollen gibt hier eine erhaltene Anweisung wieder; ein Verbot oder Kuchenbericht wird nicht ausgesagt."
+          },
+          {
+            "id": "sitov.pretest.a21-07.syntax.q3",
+            "competencyId": "sitov.pretest.a21-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wann geht der Sprecher laut »Am Donnerstag gehe ich zum Training« hin?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.syntax.q3.c",
+                "textDe": "Ausdrücklich erst am Sonntag."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q3.a",
+                "textDe": "Am Donnerstag."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q3.b",
+                "textDe": "Ausdrücklich nur am Montag."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.syntax.q3.a",
+            "assessmentUnit": "Am Donnerstag Zeitangabe",
+            "equivalenceKey": "sitov:a21-07:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 302,
+                "end": 315,
+                "quote": "Am Donnerstag"
+              }
+            ],
+            "rationaleDe": "Die öffentliche Zeitangabe lautet am Donnerstag; Montag und Sonntag widersprechen dieser Angabe."
+          },
+          {
+            "id": "sitov.pretest.a21-07.syntax.q4",
+            "competencyId": "sitov.pretest.a21-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Ich gehe zum ersten Mal zum Training«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.syntax.q4.b",
+                "textDe": "Der Sprecher hat das Training ausdrücklich schon beendet."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q4.c",
+                "textDe": "Der Sprecher geht ausdrücklich zum zehnten Mal hin."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q4.a",
+                "textDe": "Der Sprecher war vorher noch nicht bei diesem Training."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.syntax.q4.a",
+            "assessmentUnit": "zum ersten Mal erste Teilnahme",
+            "equivalenceKey": "sitov:a21-07:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 325,
+                "end": 339,
+                "quote": "zum ersten Mal"
+              }
+            ],
+            "rationaleDe": "Zum ersten Mal bezeichnet die erste Teilnahme; zehnte Teilnahme und bereits beendetes Training passen nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-07.syntax.q5",
+            "competencyId": "sitov.pretest.a21-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt »Ein Freund kommt mit, weil …« korrekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.syntax.q5.b",
+                "textDe": "er auch gern Fußball spielt"
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q5.a",
+                "textDe": "er spielt auch gern Fußball"
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q5.c",
+                "textDe": "spielt er auch gern Fußball"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.syntax.q5.b",
+            "assessmentUnit": "weil Nebensatz Verbfinal",
+            "equivalenceKey": "sitov:a21-07:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 372,
+                "end": 404,
+                "quote": "weil er auch gern Fußball spielt"
+              }
+            ],
+            "rationaleDe": "Weil leitet einen Nebensatz ein; das finite Verb spielt steht am Ende des Nebensatzes."
+          },
+          {
+            "id": "sitov.pretest.a21-07.syntax.q6",
+            "competencyId": "sitov.pretest.a21-07.syntax",
+            "kind": "single_choice",
+            "promptDe": "Warum begleitet der Freund den Sprecher laut »Ein Freund begleitet mich, weil er auch gern Fußball spielt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.syntax.q6.a",
+                "textDe": "Weil er Fußball ausdrücklich nicht mag."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q6.c",
+                "textDe": "Weil er auch gern Fußball spielt."
+              },
+              {
+                "id": "sitov.pretest.a21-07.syntax.q6.b",
+                "textDe": "Weil er ausschließlich Kuchen backen muss."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.syntax.q6.c",
+            "assessmentUnit": "weil Begründung Begleitung",
+            "equivalenceKey": "sitov:a21-07:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 345,
+                "end": 405,
+                "quote": "Ein Freund begleitet mich, weil er auch gern Fußball spielt."
+              }
+            ],
+            "rationaleDe": "Der öffentliche weil-Satz nennt die Freude am Fußball als Grund; Abneigung und Backpflicht widersprechen dem Kontext."
+          },
+          {
+            "id": "sitov.pretest.a21-07.nominal.q1",
+            "competencyId": "sitov.pretest.a21-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich spiele in ___ Verein«, wenn genau einer gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.nominal.q1.a",
+                "textDe": "ein"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q1.c",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q1.b",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.nominal.q1.c",
+            "assessmentUnit": "einem Verein Dativ Ort",
+            "equivalenceKey": "sitov:a21-07:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 11,
+                "end": 26,
+                "quote": "in einem Verein"
+              }
+            ],
+            "rationaleDe": "In einem Verein bezeichnet hier die Zugehörigkeit im Dativ; beim maskulinen Verein lautet die Form einem."
+          },
+          {
+            "id": "sitov.pretest.a21-07.nominal.q2",
+            "competencyId": "sitov.pretest.a21-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »ein Verein in ___ Nähe«, wenn es die Nähe des Sprechers ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.nominal.q2.c",
+                "textDe": "meine"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q2.b",
+                "textDe": "meinen"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q2.a",
+                "textDe": "meiner"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.nominal.q2.a",
+            "assessmentUnit": "meiner Nähe Dativ",
+            "equivalenceKey": "sitov:a21-07:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 92,
+                "end": 106,
+                "quote": "in meiner Nähe"
+              }
+            ],
+            "rationaleDe": "In meiner Nähe steht hier im Dativ; beim femininen Wort Nähe lautet die Possessivform meiner."
+          },
+          {
+            "id": "sitov.pretest.a21-07.nominal.q3",
+            "competencyId": "sitov.pretest.a21-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Der Verein bietet ein ___ Probetraining an«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.nominal.q3.b",
+                "textDe": "kostenloses"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q3.a",
+                "textDe": "kostenlosem"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q3.c",
+                "textDe": "kostenlosen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.nominal.q3.b",
+            "assessmentUnit": "kostenloses Probetraining neutral Akkusativ",
+            "equivalenceKey": "sitov:a21-07:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 114,
+                "end": 143,
+                "quote": "ein kostenloses Probetraining"
+              }
+            ],
+            "rationaleDe": "Probetraining ist neutral und Akkusativobjekt; nach ein lautet die Adjektivform kostenloses."
+          },
+          {
+            "id": "sitov.pretest.a21-07.nominal.q4",
+            "competencyId": "sitov.pretest.a21-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich frage nach ___ Uhrzeit«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.nominal.q4.c",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q4.b",
+                "textDe": "der"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q4.a",
+                "textDe": "die"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.nominal.q4.b",
+            "assessmentUnit": "der Uhrzeit Dativ nach",
+            "equivalenceKey": "sitov:a21-07:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 185,
+                "end": 201,
+                "quote": "nach der Uhrzeit"
+              }
+            ],
+            "rationaleDe": "Nach verlangt Dativ; beim femininen Wort Uhrzeit lautet der bestimmte Artikel der."
+          },
+          {
+            "id": "sitov.pretest.a21-07.nominal.q5",
+            "competencyId": "sitov.pretest.a21-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wörter stecken in »zum« in »zum ersten Mal«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.nominal.q5.a",
+                "textDe": "zu dem"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q5.b",
+                "textDe": "zu das"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q5.c",
+                "textDe": "zu den"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.nominal.q5.a",
+            "assessmentUnit": "zum Kontraktion zu dem",
+            "equivalenceKey": "sitov:a21-07:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 325,
+                "end": 339,
+                "quote": "zum ersten Mal"
+              }
+            ],
+            "rationaleDe": "Zum ist die Zusammenziehung von zu dem; die anderen Wortverbindungen ergeben nicht zum."
+          },
+          {
+            "id": "sitov.pretest.a21-07.nominal.q6",
+            "competencyId": "sitov.pretest.a21-07.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ein Freund begleitet ___«, wenn der Sprecher gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-07.nominal.q6.a",
+                "textDe": "ich"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q6.b",
+                "textDe": "mir"
+              },
+              {
+                "id": "sitov.pretest.a21-07.nominal.q6.c",
+                "textDe": "mich"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-07.nominal.q6.c",
+            "assessmentUnit": "mich Akkusativ begleiten",
+            "equivalenceKey": "sitov:a21-07:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 356,
+                "end": 370,
+                "quote": "begleitet mich"
+              }
+            ],
+            "rationaleDe": "Begleiten verlangt hier ein Akkusativobjekt; für den Sprecher lautet das Pronomen mich."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a21-07.a",
+            "questionIds": [
+              "sitov.pretest.a21-07.words.q1",
+              "sitov.pretest.a21-07.words.q2",
+              "sitov.pretest.a21-07.words.q3",
+              "sitov.pretest.a21-07.verbs.q1",
+              "sitov.pretest.a21-07.verbs.q2",
+              "sitov.pretest.a21-07.verbs.q3",
+              "sitov.pretest.a21-07.syntax.q1",
+              "sitov.pretest.a21-07.syntax.q2",
+              "sitov.pretest.a21-07.syntax.q3",
+              "sitov.pretest.a21-07.nominal.q1",
+              "sitov.pretest.a21-07.nominal.q2",
+              "sitov.pretest.a21-07.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a21-07.b",
+            "questionIds": [
+              "sitov.pretest.a21-07.words.q4",
+              "sitov.pretest.a21-07.words.q5",
+              "sitov.pretest.a21-07.words.q6",
+              "sitov.pretest.a21-07.verbs.q4",
+              "sitov.pretest.a21-07.verbs.q5",
+              "sitov.pretest.a21-07.verbs.q6",
+              "sitov.pretest.a21-07.syntax.q4",
+              "sitov.pretest.a21-07.syntax.q5",
+              "sitov.pretest.a21-07.syntax.q6",
+              "sitov.pretest.a21-07.nominal.q4",
+              "sitov.pretest.a21-07.nominal.q5",
+              "sitov.pretest.a21-07.nominal.q6"
+            ]
+          }
+        ]
+      }
     }
   ],
   "inventory": [
@@ -25814,7 +28944,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -25829,7 +28959,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -25844,7 +28974,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": null,
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
