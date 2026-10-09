@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "at": "2026-10-09T01:38:38.743203+00:00",
+  "sourceIntegrationSha": "85b6905ec2db8cc1cbf13aabc8597b73b0683d34",
+  "qaThrough": 105,
+  "flow": "ownQAteacher actual RU browser ->AmSamstagimPark current fullyproveninactive ->keyboardEnter publication ->strictcurrentack ->actualstaff reread active current +Russianconfirmation",
+  "realBrowser": true,
+  "realDatabase": true,
+  "keyboardEnter": true,
+  "outerLang": "ru",
+  "germanTitleLang": "de",
+  "germanTranslate": "no",
+  "publishedTestVersionPrefix": "ee442cd1e7d3",
+  "stateBefore": {
+    "active": 4,
+    "passes": 0,
+    "attempts": 0,
+    "sourceHash": "6cf2f86d028224ab4f0dfa98b95db939",
+    "contentHash": "6efe858d4dfbaa0a0397be4d43d4d518",
+    "definitions": 6,
+    "specialRuns": 0,
+    "specialPublished": 1
+  },
+  "stateAfter": {
+    "active": 5,
+    "passes": 0,
+    "attempts": 0,
+    "sourceHash": "6cf2f86d028224ab4f0dfa98b95db939",
+    "contentHash": "6efe858d4dfbaa0a0397be4d43d4d518",
+    "definitions": 6,
+    "specialRuns": 0,
+    "specialPublished": 1
+  },
+  "preserved": "all6immutablecontent/sourcehashes/pass/attempt/Specialrun/history equal; only pretest active4->5",
+  "productionWrite": false,
+  "limits": "one RU desktop teacher flow; no all5themes/viewports/reload/mic claim"
+}
