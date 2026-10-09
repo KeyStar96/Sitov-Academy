@@ -6,6 +6,9 @@ from runtime import scope,health
 TARGET='f690574575b0f92233a939dd7ebe42b268fb40b6'
 assert sys.argv[1:]==['--ready-target',TARGET]
 root=Path('/tmp/sitov-night-20261008-qa-master');assert root.stat().st_mode&0o077==0
+# The actual SSH stdin driver injects private Mac proof/binding inputs.
+assert isinstance(globals().get('qa_ready'), dict), 'driver must inject verified qa_ready proof'
+assert isinstance(globals().get('qa_bindings'), dict), 'driver must inject reviewed qa_bindings'
 assert qa_ready['through']==107 and qa_ready['sourceIntegrationSha']==TARGET and not qa_ready['productionWrite']
 assert qa_ready['migrationSha256']=='a89c4fbc09349bc20b75f101254d697dac00cd4503f418eaf6e3d691b2d7ffa5'
 keys=json.loads((root/'test-keys.json').read_text());url,_=scope();checks=[];actors=[];uploads=[];submissions=[];last_http={};http_trace=[]
