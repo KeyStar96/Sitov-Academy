@@ -71,4 +71,39 @@ class Contracts(unittest.TestCase):
    with self.assertRaises(ValueError):c.prepare(p,'0'*64,{},out)
    self.assertFalse(out.exists())
 
+ def prepare_inputs(self, folder):
+  folder=Path(folder);audio=folder/'audio.mp3';audio.write_bytes(b'unit-source-audio');original=folder/'original.json';original.write_text('{}');arrays=folder/'raw.npz';arrays.write_bytes(b'unit-source-arrays')
+  text='Hallo';times=[{'start':.1,'end':.2}]
+  candidate={'accepted':True,'modelDecision':{'accepted':True,'thresholds':{'minProbability':.005,'minPeakRatio':.01},'classIndices':[1,2],'selectedProbabilities':[.9,.9],'selectedToPeakRatios':[1,1]},'wordTimings':times,'arraysSha256':c.file_sha(arrays),'provenance':{'modelRevision':c.REVISION,'sourceMP3Sha256':c.file_sha(audio)},'actualDecodedDuration':.4}
+  candidate['receiptSha256']=c.digest(candidate);receipt=folder/'candidate.json';receipt.write_text(c.canonical(candidate))
+  row={'bucket':'audio_cache','path':'sitov-qwen-v1/de/'+'a'*64+'.mp3','modelRevision':c.REVISION,'audioPath':str(audio),'audioSha256':c.file_sha(audio),'originalSourceMetadataPath':str(original),'originalSourceMetadataSha256':c.file_sha(original),'candidatePath':str(receipt),'candidateSha256':c.file_sha(receipt),'rawArraysPath':str(arrays),'rawArraysSha256':c.file_sha(arrays),'receiptSha256':candidate['receiptSha256'],'text':text,'textSha256':c.hashlib.sha256(text.encode()).hexdigest(),'method':'original_pinned_raw_classifier','wordTimings':times,'actualOriginalDecodedDuration':.4}
+  allow=folder/'allow.json';allow.write_text(c.canonical({'profileFingerprint':c.PROFILE,'rows':[row]}))
+  obj=self.payload()['rows'][0]['old'];obj['user_metadata'].update(profileFingerprint=c.PROFILE,audioSha256=row['audioSha256'],textSha256=row['textSha256'],keep={'unchanged':True})
+  snapshot={'schemaVersion':1,'inventoryComplete':True,'inventoryTables':[{'schema':'storage','table':'objects'}],'objects':[obj],'consumerSnapshot':[],'readinessBefore':[],'readinessAfter':[],'allowedInactiveReadinessChanges':[]}
+  return allow,snapshot,row
+ def test_positive_prepare_archives_sources_and_only_timings_change(self):
+  with tempfile.TemporaryDirectory()as d:
+   allow,snapshot,row=self.prepare_inputs(d);archive=Path(d)/'archive';before=c.canonical(snapshot)
+   payload=c.prepare(allow,c.file_sha(allow),snapshot,archive)
+   self.assertEqual(c.canonical(snapshot),before);self.assertEqual(len(payload['archiveFiles']),4)
+   for name,sha in payload['archiveFiles'].items():self.assertEqual(c.file_sha(archive/name),sha)
+   new=payload['rows'][0]['newMetadata'];self.assertEqual(new['keep'],{'unchanged':True});self.assertEqual(new['wordTimings'],row['wordTimings'])
+   self.assertEqual(c.Journal(archive).read()[0]['phase'],'PREPARED')
+   with self.assertRaises(FileExistsError):c.prepare(allow,c.file_sha(allow),snapshot,archive)
+ def test_prepare_rejects_source_drift_remote_identity_noop_and_uninventoried_schema(self):
+  for mutation,code in [('source','source_sha'),('identity','remote_identity'),('noop','only_word_timings'),('inventory','explicit_schema_inventory_required')]:
+   with self.subTest(mutation=mutation),tempfile.TemporaryDirectory()as d:
+    allow,snapshot,row=self.prepare_inputs(d)
+    if mutation=='source':Path(row['audioPath']).write_bytes(b'changed')
+    elif mutation=='identity':snapshot['objects'][0]['user_metadata']['audioSha256']='changed'
+    elif mutation=='noop':snapshot['objects'][0]['user_metadata']['wordTimings']=row['wordTimings']
+    else:snapshot['inventoryComplete']=False
+    archive=Path(d)/'archive'
+    with self.assertRaisesRegex(ValueError,code):c.prepare(allow,c.file_sha(allow),snapshot,archive)
+    self.assertFalse(archive.exists())
+ def test_inspection_creates_only_session_scratch_before_readonly_transaction(self):
+  q=c.sql(self.payload());begin=q.index('BEGIN READ ONLY;')
+  self.assertIn('CREATE TEMP TABLE sitov_payload',q[:begin]);self.assertIn('CREATE TEMP TABLE sitov_state',q[:begin])
+  self.assertNotIn('CREATE TEMP TABLE',q[begin:]);self.assertNotIn('UPDATE storage.objects',q)
+
 if __name__=='__main__':unittest.main()

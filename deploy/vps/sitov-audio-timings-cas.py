@@ -224,7 +224,14 @@ def sql(payload, mutate=False):
     def guard(after=False):
         return COMMON.replace('__PAYLOAD__', literal).replace('__ROWLOCK__', 'FOR SHARE' if mutate else '').replace('__READINESS__', "'readinessAfter'" if after else "'readinessBefore'")
     begin = "BEGIN ISOLATION LEVEL SERIALIZABLE;" if mutate else "BEGIN READ ONLY;"
-    out = begin + "SET LOCAL lock_timeout='2s';SET LOCAL statement_timeout='20s';SET LOCAL application_name='sitov_audio_timings_cas';" + guard()
+    initial = guard()
+    prefix = ''
+    if not mutate:
+        # PostgreSQL forbids CREATE TABLE inside READ ONLY, even for temporary tables.
+        # Create session-local scratch tables first; the guarded transaction stays read-only.
+        prefix = 'CREATE TEMP TABLE sitov_payload(v jsonb);CREATE TEMP TABLE sitov_state(v jsonb);'
+        initial = initial.replace('CREATE TEMP TABLE sitov_payload(v jsonb); ', '').replace('CREATE TEMP TABLE sitov_state(v jsonb);', '')
+    out = prefix + begin + "SET LOCAL lock_timeout='2s';SET LOCAL statement_timeout='20s';SET LOCAL application_name='sitov_audio_timings_cas';" + initial
     if mutate:
         out += MUTATE + 'DROP TABLE sitov_payload;DROP TABLE sitov_state;' + guard(True)
     out += "SELECT coalesce(jsonb_agg(to_jsonb(o) ORDER BY o.id),'[]'::jsonb) FROM storage.objects o JOIN jsonb_array_elements((SELECT v FROM sitov_payload)->'rows')r ON o.id=(r->'old'->>'id')::uuid;COMMIT;"
