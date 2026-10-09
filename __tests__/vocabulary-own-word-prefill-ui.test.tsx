@@ -4,12 +4,14 @@ import LessonCardsModal from '@/components/vocabulary/LessonCardsModal'
 import VocabularyLessonsPage from '@/app/[lang]/dashboard/level/[level]/vocabulary/lessons/page'
 import { addOwnWord, getLessonCards } from '@/app/actions/vocabulary'
 import { loadLevelLearningStatus } from '@/lib/learning-status-server'
+import { resolveSitovVocabularyTarget } from '@/lib/learning/sitov-learning-target-server'
 import { OWN_WORDS_LESSON } from '@/lib/vocabulary-own-words'
 import type { LessonStation } from '@/lib/learning-status-server'
 import de from '@/dictionaries/de.json'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/vocabulary', () => ({ addOwnWord: jest.fn(), getLessonCards: jest.fn(), addCardsToTrainer: jest.fn(), deleteOwnWord: jest.fn(), resetLessonProgress: jest.fn(), initializeLesson: jest.fn(), setLessonInBox: jest.fn() }))
+jest.mock('@/lib/learning/sitov-learning-target-server', () => ({ resolveSitovVocabularyTarget: jest.fn() }))
 jest.mock('@/lib/request-session', () => ({ requestSession: jest.fn(async () => ({ supabase: {}, user: { id: 'learner' } })) }))
 jest.mock('@/lib/access/server', () => ({ loadLevelAccessProfile: jest.fn(async () => null) }))
 jest.mock('@/lib/dictionary', () => ({ getDictionary: jest.fn(async () => de) }))
@@ -23,6 +25,11 @@ const example = 'Könnten Sie mir bitte mit dem Formular helfen?'
 beforeEach(() => {
   jest.clearAllMocks()
   jest.mocked(getLessonCards).mockResolvedValue([])
+  // These fixtures exercise ordinary own-word queries, with no recommendation target.
+  jest.mocked(resolveSitovVocabularyTarget).mockReset().mockImplementation(async raw => {
+    if (raw !== undefined) throw new Error('Unexpected recommendation target in own-word fixture')
+    return null
+  })
 })
 
 it('opens the private lesson with a prepared phrase and waits for an explicit submit', async () => {
@@ -77,7 +84,25 @@ it.each([
 ])('rejects malformed or overlong query prefill without saving', async query => {
   jest.mocked(loadLevelLearningStatus).mockResolvedValue({ level: 'B1.2', lessons: [], ownWords: own, vocabulary: { locked: false, total: 0, due: 0, activeWords: 0, learned: 0 } } as Awaited<ReturnType<typeof loadLevelLearningStatus>>)
   const page = await VocabularyLessonsPage({ params: Promise.resolve({ lang: 'de', level: 'B1.2' }), searchParams: Promise.resolve(query) })
+  expect(resolveSitovVocabularyTarget).toHaveBeenCalledWith(undefined, 'B1.2', expect.objectContaining({ user: { id: 'learner' } }), null)
+  expect(page.props.sitovTarget).toBeNull()
   expect(page.props.initialOwnWord).toBe('')
   expect(page.props.initialOwnExample).toBe('')
+  expect(addOwnWord).not.toHaveBeenCalled()
+})
+
+
+it('passes trimmed ordinary query prefill to the private form without automatically writing', async () => {
+  jest.mocked(loadLevelLearningStatus).mockResolvedValue({ level: 'B1.2', lessons: [], ownWords: own,
+    vocabulary: { locked: false, total: 0, due: 0, activeWords: 0, learned: 0 } } as Awaited<ReturnType<typeof loadLevelLearningStatus>>)
+  const page = await VocabularyLessonsPage({ params: Promise.resolve({ lang: 'de', level: 'B1.2' }),
+    searchParams: Promise.resolve({ sitovWord: `  ${phrase}  `, sitovExample: `  ${example}  ` }) })
+  expect(resolveSitovVocabularyTarget).toHaveBeenCalledWith(undefined, 'B1.2', expect.objectContaining({ user: { id: 'learner' } }), null)
+  expect(page.props.sitovTarget).toBeNull()
+  expect(page.props.initialOwnWord).toBe(phrase)
+  expect(page.props.initialOwnExample).toBe(example)
+  render(page)
+  expect(await screen.findByRole('textbox', { name: de.vocabulary.own_words_word_label })).toHaveValue(phrase)
+  expect(screen.getByText(example)).toHaveAttribute('lang', 'de')
   expect(addOwnWord).not.toHaveBeenCalled()
 })
