@@ -1531,6 +1531,8 @@
         "loading": "Yükleniyor …"
     },
     "admin": {
+    "nav_sitov_billing": "Ödeme ayarları",
+    "sitov_learning_path_specials": "Öğrenme yolu ekleri",
         "storage_warning": "Sunucu diski en az %80 dolu. Lütfen yer açın.",
         "storage_unavailable": "Depolama kullanımı şu anda görüntülenemiyor",
         "nav_overview": "Genel bakış",

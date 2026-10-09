@@ -1535,6 +1535,8 @@
         "loading": "Loading …"
     },
     "admin": {
+    "nav_sitov_billing": "Payment settings",
+    "sitov_learning_path_specials": "Learning path extras",
         "storage_warning": "The server disk is at least 80% full. Please free up space.",
         "storage_unavailable": "Storage usage is currently unavailable",
         "nav_overview": "Overview",

@@ -1,16 +1,7 @@
 import germanDictionary from '@/dictionaries/de.json'
 import { createTranslator, type Translations, type Translator } from '@/lib/i18n-runtime'
 
-export const ADMIN_FALLBACKS = { ...germanDictionary.admin,
-  nav_sitov_billing_de: 'Bezahlsystem', nav_sitov_billing_en: 'Payment settings',
-  nav_sitov_billing_ru: 'Система оплаты', nav_sitov_billing_uk: 'Система оплати', nav_sitov_billing_tr: 'Ödeme ayarları',
-  sitov_learning_path_specials: 'Lernpfad-Extras',
-  sitov_learning_path_specials_de: 'Lernpfad-Extras',
-  sitov_learning_path_specials_en: 'Learning path extras',
-  sitov_learning_path_specials_ru: 'Дополнения к учебному пути',
-  sitov_learning_path_specials_uk: 'Доповнення до навчального шляху',
-  sitov_learning_path_specials_tr: 'Öğrenme yolu ekleri',
-}
+export const ADMIN_FALLBACKS = germanDictionary.admin
 
 export type AdminTranslationKey = Extract<keyof typeof ADMIN_FALLBACKS, string>
 

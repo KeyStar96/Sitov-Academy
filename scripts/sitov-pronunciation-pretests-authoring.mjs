@@ -81,5 +81,5 @@ export function sitovValidatePretestAudioAliases(manifest,aliases) {
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
  const source=await sitovReadAuthoringSources(),manifest=await read('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json'),aliases=await read('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json'),errors=[...sitovValidatePretestDrafts(manifest,source),...sitovValidatePretestAudioAliases(manifest,aliases)]
- if(errors.length){console.error(errors.join('\n'));process.exitCode=1}else console.log(`PASS: ${manifest.drafts.length}/60 private drafts; ${60-manifest.drafts.length} pending; ${Object.keys(aliases).length} public audio aliases; 89 inactive legacy; no publication/audio/live DB proof.`)
+ if(errors.length){console.error('Sitov pretest authoring validation failed. Use the authoring validator for detailed checks.');process.exitCode=1}else console.log(`PASS: ${manifest.drafts.length}/60 private drafts; ${60-manifest.drafts.length} pending; ${Object.keys(aliases).length} public audio aliases; 89 inactive legacy; no publication/audio/live DB proof.`)
 }

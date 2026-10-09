@@ -1534,6 +1534,8 @@
         "loading": "Wird geladen …"
     },
     "admin": {
+    "nav_sitov_billing": "Bezahlsystem",
+    "sitov_learning_path_specials": "Lernpfad-Extras",
         "storage_warning": "Der Server-Datenträger ist zu mindestens 80 % belegt. Bitte Speicher freigeben.",
         "storage_unavailable": "Speicherbelegung derzeit nicht verfügbar",
         "nav_overview": "Übersicht",

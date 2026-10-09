@@ -1534,6 +1534,8 @@
         "loading": "Загрузка …"
     },
     "admin": {
+    "nav_sitov_billing": "Система оплаты",
+    "sitov_learning_path_specials": "Дополнения к учебному пути",
         "storage_warning": "Диск сервера заполнен как минимум на 80 %. Освободите место.",
         "storage_unavailable": "Информация о заполнении хранилища временно недоступна",
         "nav_overview": "Обзор",

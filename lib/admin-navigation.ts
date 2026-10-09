@@ -66,8 +66,6 @@ export interface AdminNavSection {
 /** Baut die gruppierte Navigation für eine Sprache mit vollständigen Pfaden. */
 export function buildAdminNav(lang: string): AdminNavSection[] {
   const base = `/${lang}/admin`
-  const billingKey = ({ de: 'nav_sitov_billing_de', en: 'nav_sitov_billing_en', ru: 'nav_sitov_billing_ru', uk: 'nav_sitov_billing_uk', tr: 'nav_sitov_billing_tr' } as const)[lang === 'en' || lang === 'ru' || lang === 'uk' || lang === 'tr' ? lang : 'de']
-  const specialsKey = ({ de: 'sitov_learning_path_specials_de', en: 'sitov_learning_path_specials_en', ru: 'sitov_learning_path_specials_ru', uk: 'sitov_learning_path_specials_uk', tr: 'sitov_learning_path_specials_tr' } as const)[lang === 'en' || lang === 'ru' || lang === 'uk' || lang === 'tr' ? lang : 'de']
   return [
     {
       id: 'overview',
@@ -105,14 +103,14 @@ export function buildAdminNav(lang: string): AdminNavSection[] {
         { labelKey: 'nav_vocabulary', href: `${base}/content/vocabulary`, icon: 'vocabulary' },
         { labelKey: 'nav_media', href: `${base}/content/media`, icon: 'media' },
         { labelKey: 'nav_pronunciation', href: `${base}/content/pronunciation`, icon: 'pronunciation' },
-        { id: 'sitov_learning_path_specials', labelKey: specialsKey, href: `/${lang}/teacher/content/learning-path/specials`, icon: 'sitov_learning_path_specials' },
+        { id: 'sitov_learning_path_specials', labelKey: 'sitov_learning_path_specials', href: `/${lang}/teacher/content/learning-path/specials`, icon: 'sitov_learning_path_specials' },
       ],
     },
     {
       id: 'administration',
       labelKey: 'group_administration',
       items: [
-        { labelKey: billingKey, href: `${base}/settings/billing`, icon: 'sitovBilling' },
+        { labelKey: 'nav_sitov_billing', href: `${base}/settings/billing`, icon: 'sitovBilling' },
         { labelKey: 'nav_finance', href: `${base}/finance`, icon: 'finance' },
         { labelKey: 'nav_registrations', href: `${base}/registrations`, icon: 'registrations' },
         { labelKey: 'nav_invoices', href: `${base}/invoices`, icon: 'invoices' },

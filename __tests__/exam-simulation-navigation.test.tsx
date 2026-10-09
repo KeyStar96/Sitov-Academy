@@ -29,5 +29,14 @@ it('offers only existing content editors after the legacy grammar editor is remo
   const content = buildAdminNav('ru').find(section => section.id === 'content')
   expect(content?.items.map(item => item.href)).toEqual([
     '/ru/admin/content/vocabulary', '/ru/admin/content/media', '/ru/admin/content/pronunciation',
+    '/ru/teacher/content/learning-path/specials',
   ])
+})
+
+
+it.each(['de', 'en', 'ru', 'uk', 'tr'])('localizes new staff destinations using the selected %s dictionary', lang => {
+  const dictionary = jest.requireActual(`../dictionaries/${lang}.json`)
+  render(<AdminI18nProvider translations={dictionary.admin}><TeacherSidebar lang={lang} /></AdminI18nProvider>)
+  expect(screen.getByRole('link', { name: dictionary.admin.nav_sitov_billing })).toHaveAttribute('href', `/${lang}/admin/settings/billing`)
+  expect(screen.getByRole('link', { name: dictionary.admin.sitov_learning_path_specials })).toHaveAttribute('href', `/${lang}/teacher/content/learning-path/specials`)
 })
