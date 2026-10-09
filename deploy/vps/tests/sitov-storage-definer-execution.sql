@@ -1,4 +1,4 @@
--- Sitov Academy: native post-110 ACL and actual Storage RLS smoke.
+-- Sitov Academy: native post-111 ACL and actual Storage RLS smoke.
 -- Existing accounts/objects only. Claims are native SQL context, not signed JWTs.
 \set ON_ERROR_STOP on
 BEGIN READ ONLY;
@@ -14,6 +14,15 @@ BEGIN
  OR EXISTS(SELECT 1 FROM pg_proc p CROSS JOIN LATERAL aclexplode(coalesce(p.proacl,acldefault('f',p.proowner))) a
   WHERE p.oid='sitov_simulation_private.preserve_media(uuid,text)'::regprocedure AND a.grantee=0 AND a.privilege_type='EXECUTE') THEN
   RAISE EXCEPTION 'sitov_storage_definer_api_grant';
+ END IF;
+ IF NOT has_function_privilege('postgres','sitov_access_private.staff()','EXECUTE') THEN
+  RAISE EXCEPTION 'sitov_commercial_definer_missing';
+ END IF;
+ IF EXISTS(SELECT 1 FROM unnest(ARRAY['anon','authenticated','service_role']) r
+  WHERE has_function_privilege(r,'sitov_access_private.staff()','EXECUTE'))
+ OR EXISTS(SELECT 1 FROM pg_proc p CROSS JOIN LATERAL aclexplode(coalesce(p.proacl,acldefault('f',p.proowner))) a
+  WHERE p.oid='sitov_access_private.staff()'::regprocedure AND a.grantee=0 AND a.privilege_type='EXECUTE') THEN
+  RAISE EXCEPTION 'sitov_commercial_definer_api_grant';
  END IF;
  SELECT u.id,u.role,u.raw_app_meta_data INTO actor FROM auth.users u
  JOIN public.profiles p ON p.id=u.id WHERE p.role='student' ORDER BY u.id LIMIT 1;
