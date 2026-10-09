@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-09T17:48:49.270270+00:00",
+  "reviewer": "sitov.agent.M",
+  "humanReview": false,
+  "sourceFileHashesVerified": true,
+  "questionEvidenceVerified": true,
+  "productionPublicationAuthorized": false,
+  "audits": [
+    {
+      "epoch": 1,
+      "sourceSHA": "251129da4fda63c18660f23008161a0241bfc765",
+      "auditSha256": "42b6811b0cb73ebaccfe959db05c039fd49279dc0bc63ada27b863f6637c51de",
+      "fullQuestions": 240,
+      "fullCores": 40,
+      "findings": 52,
+      "disposition": "Actual evidence verified. M accepts implausible distractors, unnecessary language and public case ambiguity as requiring scoped correction. Classification/optional mapping points require individual final repair review; no blanket publication approval."
+    },
+    {
+      "epoch": 2,
+      "sourceSHA": "9bf053e0bc01898d1799359d0c0bd0f56513c944",
+      "auditSha256": "4c7f33e6a8d75464f92381e135499ff94a9a3a865e58b1fc6a9c8ff58e5347ec",
+      "fullQuestions": 240,
+      "fullCores": 40,
+      "findings": 82,
+      "disposition": "Actual evidence verified. M accepts implausible distractors, unnecessary language and public case ambiguity as requiring scoped correction. Classification/optional mapping points require individual final repair review; no blanket publication approval."
+    }
+  ]
+}
