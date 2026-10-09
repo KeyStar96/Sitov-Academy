@@ -1,0 +1,134 @@
+{
+  "counts": {
+    "users": 2,
+    "active": 5,
+    "assets": 2032,
+    "passes": 0,
+    "proofs": 3926,
+    "attempts": 0,
+    "inactive": 37,
+    "definitions": 42
+  },
+  "publication": false,
+  "passTransfer": false,
+  "newDefinitions": [
+    {
+      "id": "ad6c91d0-5ada-47a0-ae50-9870ac9ef925",
+      "active": false,
+      "text_id": "2c6b8ac4-28e2-556d-950e-9937d7da0da9",
+      "test_version": "0d51d0bcd4d454b7eeec1619fcac7e1202b28f026cd7415b49f961cb62afafb5",
+      "text_version": "d8ad8e2345fe88f61c26f94412f16d5827c23ba0e56eddb81b54add705534662",
+      "question_proofs": 89
+    },
+    {
+      "id": "f1d4a4dc-2658-4d66-ad98-35276a5b74fa",
+      "active": false,
+      "text_id": "5ec73679-e979-5ef6-bbac-8d14af8d2651",
+      "test_version": "930bd69cb1a9bbec977519dec42f7f0f6e85149b894f9e6f6ffe6831d7a23925",
+      "text_version": "0b85edef3e946ae27051f9341de774afa934dbcfdb8fc19f74cffe876b547fa8",
+      "question_proofs": 92
+    },
+    {
+      "id": "67bd0366-122b-47cf-abff-5a3f65d8c36b",
+      "active": false,
+      "text_id": "8cd6b9c9-8eaf-5a08-863b-27e712dbc484",
+      "test_version": "ab421c1a36c18715553c4d0eaf17dca076928301da5620b0f101f2528ac07ac3",
+      "text_version": "b528df60ad8fad5373c79df369eeb4f5b5d7696ed16f191ba49b6e49c0a020ea",
+      "question_proofs": 94
+    },
+    {
+      "id": "f451da4f-4187-4d36-a348-08be0bd1005c",
+      "active": false,
+      "text_id": "acb54d47-e197-56ca-9eb7-a890abce63f6",
+      "test_version": "f474f6f2eea0213af9c4d50618cfcf51275819f062eb10f4443b37f21cfae2fe",
+      "text_version": "7c304a43bdb047d35576e4fae98ce9c3ad221aa2729589bcad9c7b7738fd149f",
+      "question_proofs": 93
+    },
+    {
+      "id": "1c015efb-1881-43fb-8745-81ea5c8c80d9",
+      "active": false,
+      "text_id": "b2ae5915-20dd-5018-8921-6afe5be0f1fd",
+      "test_version": "87cf907f39052334058b6d1676a7652b252f834a54ad46be7a24e390c0cf949f",
+      "text_version": "f67f9d04716c48d88c9f99b84758a89fa29ddd02e77c564d190599ed28648879",
+      "question_proofs": 92
+    },
+    {
+      "id": "a27c2304-9f88-4d79-ae1a-35dd9f10ffcc",
+      "active": false,
+      "text_id": "b3fd31c6-efa8-5a64-85d9-7d419b4c42f4",
+      "test_version": "ea4a256ba5f479909d8cac65cf3ba189950336a857048cdb03d7257299d9144e",
+      "text_version": "64a1bac5bc8ceede374a92fd313f479316564a46d804dd77fa5e09c4bebb8d18",
+      "question_proofs": 95
+    }
+  ],
+  "productionWrite": false,
+  "new6PublicationReadiness": true,
+  "old36ReadinessUnchangedByImport": true,
+  "old36DefinitionsApprovalsQuestionProofsUnchanged": true,
+  "at": "2026-10-09T12:36:32.674575+00:00",
+  "sourcePayloadSha256": "0389f5b1cfbbf8def48f1ed59a9f66085daf9c9ba9cd9ff3a14eee3844c2c0fd",
+  "audioReadbackAuditSha256": "f866c5dc5eb02257b649ef331ff44c3cbd7bb67d6701904ac6c119c461c17b18",
+  "humanReview": false,
+  "calibration": "pending",
+  "scope": "Exact six current independently M-reviewed pools19-24; immutable inactive ownedQA versions only. No human review/calibration/publication/production claim.",
+  "actualAudioByteReadbacks": 522,
+  "positiveLexicalAndNumericIntervals": 3117,
+  "fullOld36RowsReadbackVerified": true,
+  "profilesAndAuthHashesUnchanged": true,
+  "imports": [
+    {
+      "bundle": "qa-pretest19-21-bundle-qa-reuse",
+      "manifestSha256": "3784d550202b3ae7469c89923b47069575692543ecbf19546d1c274907bc9905",
+      "planned": 271,
+      "verified": 271,
+      "uploaded": 220,
+      "reused": 51,
+      "linkedRecordings": false
+    },
+    {
+      "bundle": "qa-pretest22-24-bundle-qa-reuse",
+      "manifestSha256": "0997801b7030691ffac7e8670f301f0766db520d945c1d885d671fdc5a03d2e1",
+      "planned": 269,
+      "verified": 269,
+      "uploaded": 237,
+      "reused": 32,
+      "linkedRecordings": false
+    }
+  ],
+  "local19-21": {
+    "localProofSha256": "0d90e780d542fae62607740c4bf6ae05fb9597b869af35881f30ba1a147f9a70",
+    "qaReuseBundle": {
+      "at": "2026-10-09T12:30:57.855Z",
+      "scope": "Standard full271 bundle with exact51 verified existingQA byte/metadata reuses. Existing audio/timings unchanged; remaining220 planned new objects. Every lexically spoken token has a positive actual measured interval.",
+      "objects": 271,
+      "existingQaReused": 51,
+      "newPlanned": 220,
+      "bytes": 4424852,
+      "lexicalIntervals": 1564,
+      "zeroLexical": 0,
+      "manifestSha256": "3784d550202b3ae7469c89923b47069575692543ecbf19546d1c274907bc9905",
+      "reuseReceiptSha256": "60617abd841bfe767650aff530080427e898764a76174936e38c568faae037b2",
+      "qaWrite": false,
+      "productionWrite": false
+    },
+    "note": "Second bundle reused three newly imported shared assets from first batch, hence32 actualreuses versus29 preflight. No overwrite."
+  },
+  "local22-24": {
+    "localProofSha256": "67c7854c63a82af3881be99ac399721f31e6af77c08cdca5d6d7b0776fdef173",
+    "qaReuseBundle": {
+      "at": "2026-10-09T12:30:58.094Z",
+      "scope": "Standard full269 bundle with exact29 verified existingQA byte/metadata reuses. Existing audio/timings unchanged; remaining240 planned new objects. Every lexically spoken token has a positive actual measured interval.",
+      "objects": 269,
+      "existingQaReused": 29,
+      "newPlanned": 240,
+      "bytes": 4439932,
+      "lexicalIntervals": 1578,
+      "zeroLexical": 0,
+      "manifestSha256": "0997801b7030691ffac7e8670f301f0766db520d945c1d885d671fdc5a03d2e1",
+      "reuseReceiptSha256": "ffdf4883e437181632a123df79cdcc97a00a051befec88c9488de89f24b982e4",
+      "qaWrite": false,
+      "productionWrite": false
+    },
+    "note": "Second bundle reused three newly imported shared assets from first batch, hence32 actualreuses versus29 preflight. No overwrite."
+  }
+}

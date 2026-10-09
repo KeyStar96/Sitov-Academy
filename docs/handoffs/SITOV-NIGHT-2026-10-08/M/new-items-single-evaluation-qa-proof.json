@@ -1,0 +1,25 @@
+{
+  "through": 109,
+  "at": "2026-10-09T12:37:45.782643+00:00",
+  "sourceIntegrationSha": "42ecdbc127fae0f047c70f43d66c41f4dfa0465b",
+  "validatedProductSha": "42ecdbc127fae0f047c70f43d66c41f4dfa0465b",
+  "migrationSha256": "3958e8671249b77aadc9ad5a9eed66d458ceb55d82f720ab11733b9982562b6d",
+  "checks": {
+    "oldTwoCallsNewOneMaterialized": true,
+    "targetOwnerAclVolatilityDefinerSearchPathUnchanged": true,
+    "sixOtherFunctionsExact": true
+  },
+  "snapshotTables": 148,
+  "beforeAfterRowsAndCountsEqual": true,
+  "dataSnapshotSha256": "46496b06d53e3baea53063781d639c77a2ee3a9f01edfb084ed6e827e60317cd",
+  "productionWrite": false,
+  "actualLearnerHTTP": "PENDING",
+  "runtimeDurability": "PENDING_BOUNDED_SERIAL_QA",
+  "rootIndependentNative109": {
+    "pass": 9,
+    "skip": 0,
+    "fullJsonComparisons": 41,
+    "durationMs": 19877.103584
+  },
+  "scope": "Actual isolated ownedQA DDL only; all148 table row/count hashes unchanged, full targetmetadata and six otherfunctions preserved. Actual authenticated HTTP acceptance pending."
+}
