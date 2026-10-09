@@ -2,7 +2,13 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sources=await sitovReadAuthoringSources(),sitovActualManifest42=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sources=await sitovReadAuthoringSources(),sitovActualManifest43=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovDelta43=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch43-club-mapping-reason-delta.json','utf8'))
+// Restore exact prior27 metadata/review BEFORE epoch42 and every older source/hash proof.
+const sitovActualManifest42=structuredClone(sitovActualManifest43)
+const sitovOldClub43=sitovActualManifest42.drafts.find(d=>d.textId===sitovDelta43.textId)
+sitovOldClub43.definition.competencies.find(c=>c.id===sitovDelta43.coreId).mapping.pendingReasonDe=sitovDelta43.previousReason
+sitovOldClub43.review=sitovDelta43.previousReview
 const sitovEpoch42=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch42-pools25-27-author-review.json','utf8'))
 // Freeze exact M-reviewed24 BEFORE all M review/source-repair/historical projections.
 const sitovLatestMReviewed24=structuredClone(sitovActualManifest42)
@@ -745,7 +751,7 @@ test('epoch42 actual27/2592 validate directly with exact frozen M-reviewed24/230
  assert.deepEqual(sitovValidatePretestDrafts(sitovActualManifest42,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovActualManifest42,sitovActualAudio42),[])
  assert.equal(sitovHash(JSON.stringify(sitovLatestMReviewed24.drafts)),sitovEpoch42.original24ContentHash)
  for(const [value,content,bytes]of [[sitovLatestMReviewed24,sitovEpoch42.originalManifestContentHash,sitovEpoch42.originalManifestByteSha256],[sitovActualAudio39,sitovEpoch42.original2304AliasContentHash,sitovEpoch42.original2304AliasByteSha256],[sitovActualManifest42,sitovEpoch42.currentManifestContentHash,sitovEpoch42.currentManifestByteSha256],[sitovActualAudio42,sitovEpoch42.currentAliasContentHash,sitovEpoch42.currentAliasByteSha256]]){assert.equal(sitovHash(JSON.stringify(value)),content);assert.equal(sitovHash(JSON.stringify(value,null,2)+'\n'),bytes)}
- assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovEpoch42.currentManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovActualManifest42,null,2)+'\n'),sitovEpoch42.currentManifestByteSha256)
  assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovEpoch42.currentAliasByteSha256)
 })
 test('next canonical A2.1sort5–7 bind all72 audited fields, standalone spans, six-unit cores and independent balanced forms',async()=>{
@@ -782,4 +788,25 @@ test('new27 guards reject false spans, missing evidence/rationale/audio, repeate
  const added=sitovActualManifest42.drafts.slice(24),allA=structuredClone(added);for(const d of allA)for(const q of d.definition.tasks)q.correctOptionId=q.options.find(o=>o.id.endsWith('.a')).id;assert.ok(sitovDiversityErrors(allA).includes('unbalanced_labels'))
  for(const[i,s]of [[0,'verbs.q1'],[0,'syntax.q5'],[1,'syntax.q4'],[2,'syntax.q5']]){const wrong=structuredClone(added),q=wrong[i].definition.tasks.find(q=>q.id.endsWith(s));q.correctOptionId=q.options.find(o=>o.id!==q.correctOptionId).id;assert.throws(()=>sitovAssert42Keys(wrong))}
  const hidden=structuredClone(added);hidden[1].definition.tasks.find(q=>q.id.endsWith('syntax.q2')).promptDe='Wer holt sie ab?';assert.throws(()=>sitovAssert42Keys(hidden))
+})
+
+
+test('epoch43 actual27 validates and exact old27 bytes restore before history; other26/public/audio remain unchanged',async()=>{
+ assert.equal(sitovHash(JSON.stringify(sitovActualManifest42)),sitovDelta43.previousManifestContentHash);assert.equal(sitovHash(JSON.stringify(sitovActualManifest42,null,2)+'\n'),sitovDelta43.previousManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovActualManifest43)),sitovDelta43.currentManifestContentHash);assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovDelta43.currentManifestByteSha256)
+ assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovDelta43.unchangedAudioByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovActualManifest43.drafts.filter(d=>d.textId!==sitovDelta43.textId))),sitovDelta43.other26ContentHash)
+ assert.deepEqual(sitovPublicPretestAudioAliases(sitovActualManifest43),sitovPublicPretestAudioAliases(sitovActualManifest42));assert.equal(sitovHash(JSON.stringify(sitovPublicPretestAudioAliases(sitovActualManifest43))),sitovDelta43.unchangedPublicAliasContentHash)
+ const d=sitovActualManifest43.drafts.find(d=>d.textId===sitovDelta43.textId),restored=structuredClone(sitovActualManifest43),r=restored.drafts.find(d=>d.textId===sitovDelta43.textId)
+ assert.equal(d.review.status,'author_checked_independent_review_pending');assert.equal(d.review.authorIdentity,d.review.reviewer);assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.notEqual(d.review.definitionContentHash,sitovDelta43.previousDefinitionContentHash)
+ r.definition.competencies.find(c=>c.id===sitovDelta43.coreId).mapping.pendingReasonDe=sitovDelta43.previousReason;r.review=sitovDelta43.previousReview;assert.deepEqual(restored,sitovActualManifest42)
+ assert.equal(sitovActualManifest43.drafts.length,27);assert.equal(Object.keys(sitovActualAudio42).length,2592);assert.deepEqual(sitovValidatePretestDrafts(sitovActualManifest43,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovActualManifest43,sitovActualAudio42),[])
+})
+test('club syntax missing list excludes its two evidenced weil skills and retains precisely four genuine gaps',()=>{
+ const core=sitovActualManifest43.drafts.find(d=>d.textId===sitovDelta43.textId).definition.competencies.find(c=>c.id===sitovDelta43.coreId)
+ const supported=['weil Nebensatz Verbfinal','weil Begründung Begleitung'],missing=['nach Uhrzeit erfragte Information','soll erhaltene Anweisung','Am Donnerstag Zeitangabe','zum ersten Mal erste Teilnahme']
+ const check=reason=>{const[prefix,tail]=reason.split('Andere Einzelziele fehlen: ');assert.equal(prefix,'Teilbeleg ausschließlich für '+supported.join(' und ')+'. ');assert.deepEqual(tail.split('. Kein stufenfremder')[0].split(', '),missing);for(const u of supported)assert.ok(!tail.includes(u))}
+ assert.deepEqual(core.mapping.topicIds,['sitov.topic.begruenden-a21']);check(core.mapping.pendingReasonDe)
+ assert.throws(()=>check(sitovDelta43.previousReason));assert.throws(()=>check(core.mapping.pendingReasonDe.replace('Am Donnerstag Zeitangabe, ','')))
+ assert.throws(()=>check(core.mapping.pendingReasonDe.replace('Andere Einzelziele fehlen: ','Andere Einzelziele fehlen: weil Nebensatz Verbfinal, ')))
 })

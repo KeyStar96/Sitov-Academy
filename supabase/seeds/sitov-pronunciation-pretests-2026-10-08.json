@@ -27544,7 +27544,7 @@
         "calibrationStatus": "pending",
         "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
         "textVersion": "e5ba8cecd0972ce4c5c1fcbae2e3c3f4af0a38b4b62277d83b7bc356594c06f5",
-        "definitionContentHash": "db0086be72ca8328585b5aa60799cfaa2578466484a7c7111c0293526c63e294"
+        "definitionContentHash": "0d8b43046575da83f14aa52f0f6adff421b59d7bc59518e1ee4c684d911959f1"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -27698,7 +27698,7 @@
               "topicIds": [
                 "sitov.topic.begruenden-a21"
               ],
-              "pendingReasonDe": "Teilbeleg ausschließlich für weil Nebensatz Verbfinal und weil Begründung Begleitung. Andere Einzelziele fehlen: nach Uhrzeit erfragte Information, soll erhaltene Anweisung, Am Donnerstag Zeitangabe, zum ersten Mal erste Teilnahme, weil Nebensatz Verbfinal, weil Begründung Begleitung. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+              "pendingReasonDe": "Teilbeleg ausschließlich für weil Nebensatz Verbfinal und weil Begründung Begleitung. Andere Einzelziele fehlen: nach Uhrzeit erfragte Information, soll erhaltene Anweisung, Am Donnerstag Zeitangabe, zum ersten Mal erste Teilnahme. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
             }
           },
           {

@@ -1,0 +1,50 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "18837ea41505f1e4ce7cdcfb19458a58bcf8f69c",
+  "textId": "2f3b292b-8bdb-5007-90cb-278f9c00fc02",
+  "coreId": "sitov.pretest.a21-07.syntax",
+  "previousReason": "Teilbeleg ausschließlich für weil Nebensatz Verbfinal und weil Begründung Begleitung. Andere Einzelziele fehlen: nach Uhrzeit erfragte Information, soll erhaltene Anweisung, Am Donnerstag Zeitangabe, zum ersten Mal erste Teilnahme, weil Nebensatz Verbfinal, weil Begründung Begleitung. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung.",
+  "currentReason": "Teilbeleg ausschließlich für weil Nebensatz Verbfinal und weil Begründung Begleitung. Andere Einzelziele fehlen: nach Uhrzeit erfragte Information, soll erhaltene Anweisung, Am Donnerstag Zeitangabe, zum ersten Mal erste Teilnahme. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung.",
+  "supportedUnits": [
+    "weil Nebensatz Verbfinal",
+    "weil Begründung Begleitung"
+  ],
+  "missingUnits": [
+    "nach Uhrzeit erfragte Information",
+    "soll erhaltene Anweisung",
+    "Am Donnerstag Zeitangabe",
+    "zum ersten Mal erste Teilnahme"
+  ],
+  "previousReview": {
+    "status": "author_checked_independent_review_pending",
+    "reviewer": "sitov.agent.S3",
+    "authorIdentity": "sitov.agent.S3",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+    "textVersion": "e5ba8cecd0972ce4c5c1fcbae2e3c3f4af0a38b4b62277d83b7bc356594c06f5",
+    "definitionContentHash": "db0086be72ca8328585b5aa60799cfaa2578466484a7c7111c0293526c63e294"
+  },
+  "currentReview": {
+    "status": "author_checked_independent_review_pending",
+    "reviewer": "sitov.agent.S3",
+    "authorIdentity": "sitov.agent.S3",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+    "textVersion": "e5ba8cecd0972ce4c5c1fcbae2e3c3f4af0a38b4b62277d83b7bc356594c06f5",
+    "definitionContentHash": "0d8b43046575da83f14aa52f0f6adff421b59d7bc59518e1ee4c684d911959f1"
+  },
+  "previousDefinitionContentHash": "db0086be72ca8328585b5aa60799cfaa2578466484a7c7111c0293526c63e294",
+  "currentDefinitionContentHash": "0d8b43046575da83f14aa52f0f6adff421b59d7bc59518e1ee4c684d911959f1",
+  "previousManifestContentHash": "5aa088ecbff0ead27f4b49f7c0d35b6914541b4418a31d4959c34038aa32d058",
+  "previousManifestByteSha256": "a61e90e5f661d9e2e6dce73b4e27f746dba94888cf10eedcdd8f05f81b9d9a8c",
+  "currentManifestContentHash": "a09588361a2de98746248dc0430cd9ee4818a9a796055f9beb7037c130b63d7b",
+  "currentManifestByteSha256": "4a1313c1dc2e9db8cf9ad22b70ece0bea40e741a3491063fb99b5fb8eb46ba6f",
+  "unchangedAudioByteSha256": "d9e0318c79035d61e39a33a9ccdc67b2decb8541f5f6070af775fb1e6d8acb41",
+  "unchangedPublicAliasContentHash": "6b8ab9f3581dfe0c372aa179c91586b175480fbd0b2f706ec3343d81a64837e3",
+  "other26ContentHash": "233e2741be76ca56bcf2698f2e8f58a961febfa325cc70697b1aa7b6eeff2c73",
+  "publicationAuthorized": false,
+  "humanReview": false,
+  "calibrationStatus": "pending"
+}
