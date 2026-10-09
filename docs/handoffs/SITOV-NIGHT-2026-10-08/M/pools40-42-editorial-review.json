@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools40-42-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T18:45:25.329Z",
+  "sourceCommit": "42204ff78bc06a948afecacfb35f0d65b55fffc5",
+  "scope": "M independently read all72 public questions/options/keys/rationales, all3 full actual A2.2sort10 and B1.1sort1–2 sources and12 core records. Teacher dialogue tests actual relative clause in das and verbfinal/finite/participle forms. Career dialogue includes real pluperfect, strong empfahl, modal question and source-supported temporal/contrast relations. Shopping includes explicitPräteritum musste vsKonjunktiv müsste, concessive/causalclauses and public directionalfridge premise. Possession/pronoun/temporal/comparison premises make keys unique. All previous39 including separatelyMreviewed quality18 andquality21 tasks/reviews/currentaliases unchanged against exact25e298d4. Existing mappings honestly pending exactunit targets. No human review/listening, empirical calibration or CEFR/fullmastery certification claim",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "229db068e8f3f52bf562fefaf99816b2886ceeb30dcc40a09d31e4c099d5fd9b",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "f6fed4f3-e48e-5cc0-91e6-270734c1e369",
+      "textVersion": "02f2a7e85c1679d0e465db37347d6ec2b84f6c45f166d5e60dd1407182bc0b32",
+      "definitionContentHash": "4801386e2b668d9c6f517965680ad2d8663aa38094e77249715f6380b87769b7",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "02f2a7e85c1679d0e465db37347d6ec2b84f6c45f166d5e60dd1407182bc0b32",
+        "definitionContentHash": "4801386e2b668d9c6f517965680ad2d8663aa38094e77249715f6380b87769b7"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-10.words.q1",
+          "correctTextDe": "Ein mündlicher Austausch über ein Thema."
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.words.q2",
+          "correctTextDe": "Ich machte mir Sorgen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.words.q3",
+          "correctTextDe": "Er beteiligt sich an der Arbeit im Unterricht."
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.words.q4",
+          "correctTextDe": "Er denkt häufig nicht an seine Hausaufgaben."
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.words.q5",
+          "correctTextDe": "Wir sehen in das Heft."
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.words.q6",
+          "correctTextDe": "Unfreundlich und ärgerlich kritisieren."
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.verbs.q1",
+          "correctTextDe": "eingeladen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.verbs.q2",
+          "correctTextDe": "vergisst"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.verbs.q3",
+          "correctTextDe": "erklärte"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.verbs.q4",
+          "correctTextDe": "überlegt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.verbs.q5",
+          "correctTextDe": "helfen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.verbs.q6",
+          "correctTextDe": "schreibt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.syntax.q1",
+          "correctTextDe": "ich nicht wusste, worum es ging"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.syntax.q2",
+          "correctTextDe": "mein Sohn im Unterricht gut mitarbeitet"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.syntax.q3",
+          "correctTextDe": "wir ihm helfen können"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.syntax.q4",
+          "correctTextDe": "in das er seine Aufgaben schreibt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.syntax.q5",
+          "correctTextDe": "schauen wir jeden Nachmittag kurz hinein"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.syntax.q6",
+          "correctTextDe": "als Schimpfen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.nominal.q1",
+          "correctTextDe": "meines"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.nominal.q2",
+          "correctTextDe": "einem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.nominal.q3",
+          "correctTextDe": "seine"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.nominal.q4",
+          "correctTextDe": "kleines"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.nominal.q5",
+          "correctTextDe": "jeden"
+        },
+        {
+          "questionId": "sitov.pretest.a22-10.nominal.q6",
+          "correctTextDe": "hilfreicher"
+        }
+      ]
+    },
+    {
+      "textId": "19846618-a6c3-5001-84d5-06b21b99dff5",
+      "textVersion": "146c5dffad6893cf79a59f2eefc1fdd64950f184ad06785ecc10357885a8f78f",
+      "definitionContentHash": "64f4f35de68c436d8e68bebd67b8fcb1a7a00f9e94a314255ebda6c5b29c9660",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "146c5dffad6893cf79a59f2eefc1fdd64950f184ad06785ecc10357885a8f78f",
+        "definitionContentHash": "64f4f35de68c436d8e68bebd67b8fcb1a7a00f9e94a314255ebda6c5b29c9660"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-01.words.q1",
+          "correctTextDe": "Eine berufliche Qualifizierung für Pflegeaufgaben."
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.words.q2",
+          "correctTextDe": "Informationen und Unterstützung für eine Entscheidung."
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.words.q3",
+          "correctTextDe": "Ich war unsicher, ob meine Deutschkenntnisse genügen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.words.q4",
+          "correctTextDe": "Eine begrenzte praktische Tätigkeit zum Kennenlernen eines Berufs."
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.words.q5",
+          "correctTextDe": "Punkte, die man noch nicht eindeutig versteht."
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.words.q6",
+          "correctTextDe": "Die Vorstellung der eigenen Person für einen Ausbildungsplatz."
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.verbs.q1",
+          "correctTextDe": "Plusquamperfekt."
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.verbs.q2",
+          "correctTextDe": "ausprobieren"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.verbs.q3",
+          "correctTextDe": "interessierte"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.verbs.q4",
+          "correctTextDe": "empfahl"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.verbs.q5",
+          "correctTextDe": "nachfragen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.verbs.q6",
+          "correctTextDe": "vorbereiten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.syntax.q1",
+          "correctTextDe": "Zuerst arbeitete ich im Verkauf, danach wollte ich etwas Neues ausprobieren."
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.syntax.q2",
+          "correctTextDe": "Die Zweifel bleiben trotz der hilfreichen Beratung bestehen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.syntax.q3",
+          "correctTextDe": "mein Deutsch für den Unterricht ausreichen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.syntax.q4",
+          "correctTextDe": "ich vieles verstehen konnte"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.syntax.q5",
+          "correctTextDe": "bereite ich meine Bewerbung vor"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.syntax.q6",
+          "correctTextDe": "neue Möglichkeiten zu entdecken"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.nominal.q1",
+          "correctTextDe": "älteren"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.nominal.q2",
+          "correctTextDe": "eine"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.nominal.q3",
+          "correctTextDe": "mir"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.nominal.q4",
+          "correctTextDe": "mein"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.nominal.q5",
+          "correctTextDe": "meine"
+        },
+        {
+          "questionId": "sitov.pretest.b11-01.nominal.q6",
+          "correctTextDe": "neue"
+        }
+      ]
+    },
+    {
+      "textId": "b5bd057d-17ae-5fac-824a-a8a75fe827ed",
+      "textVersion": "d36d679af3ede7f9fda0bf326125838f6a1f9cbdda659233d08968b444e2b09b",
+      "definitionContentHash": "99745348f68281431416e8184857316abdfd6cee44c317d26ddff125186e3e23",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "d36d679af3ede7f9fda0bf326125838f6a1f9cbdda659233d08968b444e2b09b",
+        "definitionContentHash": "99745348f68281431416e8184857316abdfd6cee44c317d26ddff125186e3e23"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-02.words.q1",
+          "correctTextDe": "Lebensmittel als Abfall entsorgen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.words.q2",
+          "correctTextDe": "Die Planung hat sich bis zur Gegenwart verändert."
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.words.q3",
+          "correctTextDe": "Die gekaufte Anzahl oder den gekauften Umfang."
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.words.q4",
+          "correctTextDe": "Einkäufe ohne vorherigen Plan."
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.words.q5",
+          "correctTextDe": "Die Veränderung lässt sich gut umsetzen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.words.q6",
+          "correctTextDe": "Bewusst auf Bedarf und Entscheidungen achten."
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.verbs.q1",
+          "correctTextDe": "gekauft"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.verbs.q2",
+          "correctTextDe": "musste"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.verbs.q3",
+          "correctTextDe": "losgehen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.verbs.q4",
+          "correctTextDe": "schreibe"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.verbs.q5",
+          "correctTextDe": "erscheinen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.verbs.q6",
+          "correctTextDe": "verlangt"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.syntax.q1",
+          "correctTextDe": "ich brauchte"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.syntax.q2",
+          "correctTextDe": "plane ich meine Einkäufe genauer"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.syntax.q3",
+          "correctTextDe": "Zuerst schaue ich in den Kühlschrank, danach gehe ich los."
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.syntax.q4",
+          "correctTextDe": "große Packungen manchmal günstiger erscheinen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.syntax.q5",
+          "correctTextDe": "sie kein besonderes Wissen verlangt"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.syntax.q6",
+          "correctTextDe": "Die Müllmenge sinkt, obwohl spontane Einkäufe weiterhin vorkommen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.nominal.q1",
+          "correctTextDe": "der"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.nominal.q2",
+          "correctTextDe": "meine"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.nominal.q3",
+          "correctTextDe": "den"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.nominal.q4",
+          "correctTextDe": "kleinere"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.nominal.q5",
+          "correctTextDe": "günstiger"
+        },
+        {
+          "questionId": "sitov.pretest.b11-02.nominal.q6",
+          "correctTextDe": "besonderes"
+        }
+      ]
+    }
+  ]
+}
