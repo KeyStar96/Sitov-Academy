@@ -1,0 +1,1642 @@
+{
+  "schemaVersion": 1,
+  "groupId": "SITOV-NIGHT-2026-10-08",
+  "sourceIntegrationSha": "06e42f4fb04f546e20474b079d65ed9a2088aadd",
+  "authorAuditSourceSha": "3f26b4732787494f2bf1e5004fb1a6d98d412bf7",
+  "authorAuditSha256": "7074f3b3bc4f611bc624fb9d3e1c64ac78f1146979f72f90d2d8ef7e38182afd",
+  "documentRef": "sitov.editorial.review.first9-visible-context-v1",
+  "reviewer": "sitov.agent.M",
+  "reviewerKind": "independent_agent_visible_context_review",
+  "humanReview": false,
+  "reviewedAt": "2026-10-09T03:29:24.537633+00:00",
+  "scope": "All216 learner-visible prompts/fragments/alloptions and privatekeys independently read for answerability without locked target text; exact author records verified against actual seed. Limited context review; no calibration/whole-platform acceptance claim.",
+  "result": "CHANGES_REQUIRED",
+  "readQuestions": 216,
+  "unauditedQuestions": 0,
+  "confirmedContextBlockers": 24,
+  "confirmedWordingRecommendations": 9,
+  "contextOnlyNoAdditionalBlockerFound": 183,
+  "affectedPools": [
+    5,
+    7,
+    8,
+    9
+  ],
+  "publicationAuthorized": false,
+  "newAudioForAffectedQuestionsAuthorized": false,
+  "requiredNext": "Bounded S3 repair24+wording9; preserve IDs/source/matrix/criteria/forms/oldQAdefinitions/history, final M rereview, then exact prepared maleQwen question assets and immutable version import before any publication.",
+  "rows": [
+    {
+      "questionId": "sitov.pretest.a11-01.words.q1",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.words.q2",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.words.q3",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.words.q4",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.words.q5",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.words.q6",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.verbs.q1",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.verbs.q2",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.verbs.q3",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.verbs.q4",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.verbs.q5",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.verbs.q6",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.syntax.q1",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.syntax.q2",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.syntax.q3",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.syntax.q4",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.syntax.q5",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.syntax.q6",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.nominal.q1",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.nominal.q2",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.nominal.q3",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.nominal.q4",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.nominal.q5",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-01.nominal.q6",
+      "pool": 1,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.words.q1",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.words.q2",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.words.q3",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.words.q4",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.words.q5",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.words.q6",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.verbs.q1",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.verbs.q2",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.verbs.q3",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.verbs.q4",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.verbs.q5",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.verbs.q6",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.syntax.q1",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.syntax.q2",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.syntax.q3",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.syntax.q4",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.syntax.q5",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.syntax.q6",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.nominal.q1",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.nominal.q2",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.nominal.q3",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.nominal.q4",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.nominal.q5",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-02.nominal.q6",
+      "pool": 2,
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.words.q1",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.words.q2",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.words.q3",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.words.q4",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.words.q5",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.words.q6",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.verbs.q1",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.verbs.q2",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.verbs.q3",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.verbs.q4",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.verbs.q5",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.verbs.q6",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.syntax.q1",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.syntax.q2",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.syntax.q3",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.syntax.q4",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.syntax.q5",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.syntax.q6",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.nominal.q1",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.nominal.q2",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.nominal.q3",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.nominal.q4",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.nominal.q5",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-03.nominal.q6",
+      "pool": 3,
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.words.q1",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.words.q2",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.words.q3",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.words.q4",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.words.q5",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.words.q6",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.verbs.q1",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.verbs.q2",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.verbs.q3",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.verbs.q4",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.verbs.q5",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.verbs.q6",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.syntax.q1",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.syntax.q2",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.syntax.q3",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.syntax.q4",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.syntax.q5",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.syntax.q6",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_confirmed_answerable_wording_correction_requested",
+      "category": "wording_clarity",
+      "reasonDe": "später ist als Zeitadverb erkennbar und die Optionen unterscheiden Wann/Was/Mit wem. in diesem Satz verweist trotzdem auf einen nicht gezeigten Satz; später in einer kurzen Frage oder Übung nennen.",
+      "minimalPremiseDe": "Keine zusätzliche inhaltliche Prämisse erforderlich.",
+      "boundedRecommendationDe": "später ist als Zeitadverb erkennbar und die Optionen unterscheiden Wann/Was/Mit wem. in diesem Satz verweist trotzdem auf einen nicht gezeigten Satz; später in einer kurzen Frage oder Übung nennen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.nominal.q1",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.nominal.q2",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.nominal.q3",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.nominal.q4",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.nominal.q5",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-04.nominal.q6",
+      "pool": 4,
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.words.q1",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.words.q2",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.words.q3",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.words.q4",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.words.q5",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.words.q6",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.verbs.q1",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.verbs.q2",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.verbs.q3",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.verbs.q4",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.verbs.q5",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.verbs.q6",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.syntax.q1",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.syntax.q2",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.syntax.q3",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.syntax.q4",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.syntax.q5",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_confirmed_context_repair_required",
+      "category": "missing_adjective_scope",
+      "reasonDe": "kleiner ist sichtbar, sein Bezugsnomen und die Satzstruktur fehlen; Hund wird nur durch die Antwortoption nahegelegt.",
+      "minimalPremiseDe": "Ein kurzer unabhängiger Satz wie »Ein kleiner Hund läuft.«",
+      "boundedRecommendationDe": "Satz ergänzen und nach dem Bezugswort des Adjektivs fragen; keine Vergleichsaufgabe daraus machen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.syntax.q6",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_confirmed_answerable_wording_correction_requested",
+      "category": "wording_clarity",
+      "reasonDe": "Nur eine Option verbindet hören mit Musik und essen mit Brot sinnvoll; dadurch ist Sprachkompetenz ohne Plotwissen ausreichend. Ein kurzer Übungssatz würde die Zuordnung klarer prüfen und das bloße Ausschließen unplausibler Optionen reduzieren.",
+      "minimalPremiseDe": "Keine zusätzliche inhaltliche Prämisse erforderlich.",
+      "boundedRecommendationDe": "Nur eine Option verbindet hören mit Musik und essen mit Brot sinnvoll; dadurch ist Sprachkompetenz ohne Plotwissen ausreichend. Ein kurzer Übungssatz würde die Zuordnung klarer prüfen und das bloße Ausschließen unplausibler Optionen reduzieren."
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.nominal.q1",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.nominal.q2",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.nominal.q3",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.nominal.q4",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.nominal.q5",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.nominal.q6",
+      "pool": 5,
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.words.q1",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.words.q2",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.words.q3",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.words.q4",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.words.q5",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_confirmed_answerable_wording_correction_requested",
+      "category": "wording_clarity",
+      "reasonDe": "blau bezeichnet Farbe, und alle Optionen nennen denselben Stuhl. Kein verborgenes Stuhl-Faktum wird zur Auswahl benötigt; den Stuhl im Prompt nennen oder die Optionen auf Farbe/Größe/Alter verkürzen.",
+      "minimalPremiseDe": "Keine zusätzliche inhaltliche Prämisse erforderlich.",
+      "boundedRecommendationDe": "blau bezeichnet Farbe, und alle Optionen nennen denselben Stuhl. Kein verborgenes Stuhl-Faktum wird zur Auswahl benötigt; den Stuhl im Prompt nennen oder die Optionen auf Farbe/Größe/Alter verkürzen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.words.q6",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.verbs.q1",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.verbs.q2",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.verbs.q3",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.verbs.q4",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.verbs.q5",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.verbs.q6",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.syntax.q1",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_confirmed_answerable_wording_correction_requested",
+      "category": "wording_clarity",
+      "reasonDe": "Die sichtbare Verbindung nicht groß, aber schön reicht für die logische Bedeutung; Zimmer ist in allen Optionen gleich. Ein sichtbares Subjekt würde den Wortlaut glätten.",
+      "minimalPremiseDe": "Keine zusätzliche inhaltliche Prämisse erforderlich.",
+      "boundedRecommendationDe": "Die sichtbare Verbindung nicht groß, aber schön reicht für die logische Bedeutung; Zimmer ist in allen Optionen gleich. Ein sichtbares Subjekt würde den Wortlaut glätten."
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.syntax.q2",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.syntax.q3",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.syntax.q4",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.syntax.q5",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.syntax.q6",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.nominal.q1",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.nominal.q2",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.nominal.q3",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.nominal.q4",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.nominal.q5",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-06.nominal.q6",
+      "pool": 6,
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.words.q1",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.words.q2",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.words.q3",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.words.q4",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_quantity",
+      "reasonDe": "Die benötigte Apfelanzahl ist öffentlich nicht genannt.",
+      "minimalPremiseDe": "Die Zahlform »drei Äpfel« als selbstständige Übungsangabe.",
+      "boundedRecommendationDe": "Nach der Bedeutung von drei fragen, statt den unbekannten Einkauf abzufragen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.words.q5",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.words.q6",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.verbs.q1",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_answerable_wording_correction_requested",
+      "category": "wording_clarity",
+      "reasonDe": "bin genügt zur Grundform sein; im Satz über den Laden ist unnötig und kann entfallen.",
+      "minimalPremiseDe": "Keine zusätzliche inhaltliche Prämisse erforderlich.",
+      "boundedRecommendationDe": "bin genügt zur Grundform sein; im Satz über den Laden ist unnötig und kann entfallen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.verbs.q2",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.verbs.q3",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.verbs.q4",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.verbs.q5",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.verbs.q6",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_context_repair_required",
+      "category": "ambiguous_verb_mode",
+      "reasonDe": "bezahle kann ohne sichtbaren Satz Präsens ich oder Imperativ du sein; die private Ich-Satzposition ist unsichtbar.",
+      "minimalPremiseDe": "Die Aufgabenstellung legt ausdrücklich Präsens fest.",
+      "boundedRecommendationDe": "Nur »Präsensform bezahle« nennen; Schlüssel ich beibehalten.",
+      "MclarificationDe": "Präsens im Indikativ ausdrücklich nennen oder einen kurzen Ich-Satz zeigen; eine unmarkierte isolierte Form kann auch Imperativ/Konjunktiv sein."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q1",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_list",
+      "reasonDe": "Die gemeinte Einkaufsliste ist öffentlich nicht genannt.",
+      "minimalPremiseDe": "Ein kurzer Übungssatz mit einer sichtbaren dreiteiligen Einkaufsliste.",
+      "boundedRecommendationDe": "Die Koordination durch und im Übungssatz prüfen; Zutaten/Anzahl müssen dem vorhandenen Antwortwortlaut entsprechen oder später begrenzt angepasst werden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q2",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_context_repair_required",
+      "category": "missing_antecedent",
+      "reasonDe": "Er zeigt mir das Brot ist sichtbar, aber Er wird nicht ausdrücklich als Verkäufer eingeführt; der richtige Antwortwortlaut behauptet diesen Akteur.",
+      "minimalPremiseDe": "Ein kurzer Kontext führt den Verkäufer als Bezugswort für Er ein.",
+      "boundedRecommendationDe": "Vor dem vorhandenen Satz einen eindeutigen männlichen Verkäufer-Kontext ergänzen; Rollen von Er und mir prüfen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q3",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_context_repair_required",
+      "category": "missing_antecedent",
+      "reasonDe": "Es kostet zwei Euro nennt den Preis, aber nicht den Gegenstand; Brotes im Schlüssel ist unbelegt.",
+      "minimalPremiseDe": "Ein kurzer sichtbarer Brot-Kontext vor Es kostet zwei Euro.",
+      "boundedRecommendationDe": "Entweder Es eindeutig an Brot binden oder den unbelegten Warenbezug aus der Antwort entfernen; Preisverständnis erhalten."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q4",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q5",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_stored_word_order",
+      "reasonDe": "Das Wort nach Dann im gespeicherten Satz ist vor Bestehen unbekannt; bezahle und danke sind beide mögliche finite Verben.",
+      "minimalPremiseDe": "Sichtbare ungeordnete Bausteine »Dann / ich / bezahle«.",
+      "boundedRecommendationDe": "Eine V2-Ordnungsaufgabe aus den gegebenen Bausteinen stellen, keine gespeicherte Reihenfolge abfragen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.syntax.q6",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_shared_subject",
+      "reasonDe": "Der Handelnde für Bezahlen und Danken fehlt im öffentlichen Kontext; der Verkäufer wäre ebenfalls denkbar.",
+      "minimalPremiseDe": "Ein kurzer Ich-Satz mit beiden verbundenen Handlungen.",
+      "boundedRecommendationDe": "Gemeinsames Subjekt in einer sichtbaren Koordination prüfen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.nominal.q1",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.nominal.q2",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.nominal.q3",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_answerable_wording_correction_requested",
+      "category": "wording_clarity",
+      "reasonDe": "männlicher Verkäufer und die angebotenen Artikel erlauben der; im Satz ist unnötig. Eine explizite Nominativ-Lücke wäre präziser.",
+      "minimalPremiseDe": "Keine zusätzliche inhaltliche Prämisse erforderlich.",
+      "boundedRecommendationDe": "männlicher Verkäufer und die angebotenen Artikel erlauben der; im Satz ist unnötig. Eine explizite Nominativ-Lücke wäre präziser."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.nominal.q4",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_confirmed_answerable_wording_correction_requested",
+      "category": "wording_clarity",
+      "reasonDe": "Der Prompt nennt Verkäufer als vorangehenden Bezug; Er und die Antwortoptionen passen nur zum maskulinen Verkäufer. Ein kurzer vollständiger Antezedenzsatz würde die Prämisse eindeutiger zeigen.",
+      "minimalPremiseDe": "Keine zusätzliche inhaltliche Prämisse erforderlich.",
+      "boundedRecommendationDe": "Der Prompt nennt Verkäufer als vorangehenden Bezug; Er und die Antwortoptionen passen nur zum maskulinen Verkäufer. Ein kurzer vollständiger Antezedenzsatz würde die Prämisse eindeutiger zeigen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.nominal.q5",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-07.nominal.q6",
+      "pool": 7,
+      "textId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q1",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q2",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_family_relation",
+      "reasonDe": "Marks Verwandtschaftsrolle ist öffentlich nicht angegeben.",
+      "minimalPremiseDe": "Die Wortgruppe »mein Onkel Mark« als eigenständige Sprachübung.",
+      "boundedRecommendationDe": "Bedeutung von Onkel/Verwandtschaftsrelation prüfen, statt Marks unbekannte Rolle laut Text abzufragen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q3",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q4",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_age_number",
+      "reasonDe": "Die genannte Zahl ist nicht sichtbar; 20 kann nicht aus dem Prompt rekonstruiert werden.",
+      "minimalPremiseDe": "Die ausgeschriebene Zahl »zwanzig Jahre«.",
+      "boundedRecommendationDe": "Zahlwort in Ziffern übertragen lassen, ohne Kenntnis des Bruder-Alters zu verlangen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q5",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.words.q6",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.verbs.q1",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.verbs.q2",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.verbs.q3",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.verbs.q4",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.verbs.q5",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.verbs.q6",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_context_repair_required",
+      "category": "ambiguous_person_number",
+      "reasonDe": "telefonieren passt zu wir, sie und höflichem Sie; der unbekannte Satz muss die erste Person liefern.",
+      "minimalPremiseDe": "Ein sichtbarer Wir-Lückensatz mit telefonieren als Grundform.",
+      "boundedRecommendationDe": "Konjugation zu wir prüfen oder Person aus einem sichtbaren Satz bestimmen; keine unsichtbare erste Person voraussetzen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q1",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_photo_content",
+      "reasonDe": "Der Inhalt des Fotos und seine Zuordnung zur Familie fehlen.",
+      "minimalPremiseDe": "Ein kurzer Satz, der ein Foto und seine Familienzuordnung sprachlich verbindet.",
+      "boundedRecommendationDe": "Identifikation beziehungsweise Possessivrelation im sichtbaren Satz prüfen, nicht das unsichtbare Foto beschreiben lassen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q2",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_name_relation",
+      "reasonDe": "Der gemeinte Satz über Mark und seine Onkelrolle fehlt.",
+      "minimalPremiseDe": "Ein kurzer sichtbarer Satz mit Onkel und Mark als Namen.",
+      "boundedRecommendationDe": "Namensprädikat heißen anhand einer unabhängigen Übung auswerten."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q3",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_preference",
+      "reasonDe": "Die Vorliebe des Onkels zum Kochen ist nicht sichtbar; insbesondere gern fehlt.",
+      "minimalPremiseDe": "Eine sichtbare kurze Verbindung kochen und gern.",
+      "boundedRecommendationDe": "Die Bedeutung von gern prüfen; den Akteur passend zum Übungssatz benennen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q4",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_actor",
+      "reasonDe": "Die beiden genannten Sätze fehlen; Oleg als Vater und Musikliebhaber ist unbekannt.",
+      "minimalPremiseDe": "Ein kurzer sichtbarer Vater/Oleg-Kontext mit anschließendem Er-Satz über Musik.",
+      "boundedRecommendationDe": "Pronomenbezug beziehungsweise gemeinsames Subjekt prüfen; eine eindeutige männliche Antezedenz sichtbar machen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q5",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.syntax.q6",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_coordinated_activities",
+      "reasonDe": "Die mit wir verbundenen Tätigkeiten werden öffentlich nicht genannt.",
+      "minimalPremiseDe": "Ein kurzer Wir-Satz mit telefonieren und lachen.",
+      "boundedRecommendationDe": "Zwei koordinierte Prädikate des sichtbaren gemeinsamen Subjekts erkennen lassen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q1",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_answerable_wording_correction_requested",
+      "category": "wording_clarity",
+      "reasonDe": "Foto ist neutral, ein passt als einziges angebotenes Artikelwort. Die Frage nach einem tatsächlichen Textwort sollte als unabhängige Artikel-Lücke formuliert werden.",
+      "minimalPremiseDe": "Keine zusätzliche inhaltliche Prämisse erforderlich.",
+      "boundedRecommendationDe": "Foto ist neutral, ein passt als einziges angebotenes Artikelwort. Die Frage nach einem tatsächlichen Textwort sollte als unabhängige Artikel-Lücke formuliert werden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q2",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q3",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q4",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q5",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_confirmed_context_repair_required",
+      "category": "unsupported_answer_detail",
+      "reasonDe": "Jahre ist sichtbar und pluralisch, die Zahl zwanzig im richtigen Antwortwortlaut aber nicht.",
+      "minimalPremiseDe": "Eine selbstständige Altersangabe »zwanzig Jahre«.",
+      "boundedRecommendationDe": "Diese Zahl öffentlich nennen oder die Antwort allgemein auf mehrere Jahre begrenzen; Pluralaufgabe erhalten."
+    },
+    {
+      "questionId": "sitov.pretest.a11-08.nominal.q6",
+      "pool": 8,
+      "textId": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.words.q1",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.words.q2",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_course_time",
+      "reasonDe": "Die Kursbeginn-Uhrzeit ist unbekannt.",
+      "minimalPremiseDe": "Das Zahlwort »neun Uhr« als eigenständige Übungsangabe.",
+      "boundedRecommendationDe": "Zahlwortdeutung prüfen statt den unbekannten Kursbeginn zu erinnern."
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.words.q3",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.words.q4",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.words.q5",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_transport",
+      "reasonDe": "Das tatsächlich genutzte Verkehrsmittel wird öffentlich nicht genannt.",
+      "minimalPremiseDe": "Eine sichtbare unabhängige Aussage »Ich fahre mit dem Bus«.",
+      "boundedRecommendationDe": "Bus als Verkehrsmittel oder die Funktion von mit dem Bus im sichtbaren Satz prüfen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.words.q6",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.verbs.q1",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.verbs.q2",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.verbs.q3",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.verbs.q4",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.verbs.q5",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.verbs.q6",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q1",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_time_sequence",
+      "reasonDe": "Die zwei Sätze und beide Uhrzeiten fehlen; Reihenfolge acht/neun ist nicht ableitbar.",
+      "minimalPremiseDe": "Zwei kurze sichtbare Zeitangaben für Weggehen und Kursbeginn.",
+      "boundedRecommendationDe": "Zeitfolge anhand öffentlicher Übungssätze vergleichen; alle genannten Zeiten müssen darin vorkommen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q2",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q3",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q4",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_exit_location",
+      "reasonDe": "Der bezeichnete Satz ist nicht sichtbar; Bahnhof als Ausstiegsort fehlt.",
+      "minimalPremiseDe": "Ein kurzer sichtbarer Satz mit am Bahnhof und steige … aus.",
+      "boundedRecommendationDe": "Lokale Ergänzung und Satzklammer anhand dieses Übungssatzes prüfen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q5",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_waiting_subject",
+      "reasonDe": "Das Subjekt der Wartesituation wird öffentlich nicht genannt.",
+      "minimalPremiseDe": "Ein kurzer sichtbarer Satz mit Freund als Subjekt nach einer Ortsangabe.",
+      "boundedRecommendationDe": "Subjekt trotz vorangestellter Ortsangabe identifizieren lassen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.syntax.q6",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_confirmed_context_repair_required",
+      "category": "hidden_movement_direction",
+      "reasonDe": "Die Schlussbewegung gemeinsam nach innen wird öffentlich nicht genannt.",
+      "minimalPremiseDe": "Ein kurzer Wir-Satz mit zusammen und hinein.",
+      "boundedRecommendationDe": "Richtung und gemeinsame Tätigkeit aus der sichtbaren Sprachform erschließen lassen."
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.nominal.q1",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.nominal.q2",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.nominal.q3",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_confirmed_answerable_wording_correction_requested",
+      "category": "wording_clarity",
+      "reasonDe": "mit regiert Dativ und Bus ist maskulin, daher dem unter den Optionen; im Text setzt unnötig gespeicherten Wortlaut voraus. Eine öffentliche Lücke mit … Bus genügt.",
+      "minimalPremiseDe": "Keine zusätzliche inhaltliche Prämisse erforderlich.",
+      "boundedRecommendationDe": "mit regiert Dativ und Bus ist maskulin, daher dem unter den Optionen; im Text setzt unnötig gespeicherten Wortlaut voraus. Eine öffentliche Lücke mit … Bus genügt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.nominal.q4",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.nominal.q5",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_context_only_no_additional_blocker_found",
+      "category": "visible_language_competence"
+    },
+    {
+      "questionId": "sitov.pretest.a11-09.nominal.q6",
+      "pool": 9,
+      "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "result": "M_confirmed_context_repair_required",
+      "category": "missing_group_antecedent",
+      "reasonDe": "wir schließt den Sprecher ein, aber den Freund als zweite Person kann man ohne den Anschluss nicht sicher bestimmen.",
+      "minimalPremiseDe": "Ein kurzer sichtbarer Freund-Kontext vor einem Wir-Satz.",
+      "boundedRecommendationDe": "Personengruppe anhand des expliziten Anschlusses bestimmen; unbekannten Freundbezug vermeiden."
+    }
+  ]
+}

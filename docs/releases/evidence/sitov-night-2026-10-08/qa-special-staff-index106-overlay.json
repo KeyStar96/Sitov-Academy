@@ -1,0 +1,118 @@
+{
+  "through": 106,
+  "sourceIntegrationSha": "06e42f4fb04f546e20474b079d65ed9a2088aadd",
+  "migrationSha256": "a3c9c999aa5196e9dd37612f2f9cfe9781afd4ffda062d511fed40c3019e8879",
+  "at": "2026-10-09T03:26:37.061418+00:00",
+  "checks": {
+    "anonDenied": true,
+    "serviceDenied": true,
+    "functionExists": true,
+    "authenticatedGranted": true
+  },
+  "baselineCounts": {
+    "authUsers": 2,
+    "pretestDefinitions": 9,
+    "pretestActive": 5,
+    "pretestProofs": 840,
+    "pretestPasses": 0,
+    "pretestAttempts": 0,
+    "specialActive": 1,
+    "specialRuns": 0,
+    "assets": 819
+  },
+  "profileRolesSha256": "fb6dd9ac4fc00d695965ba5632b3c67a7172b21c318900d3d5155ebc1bf5a5e7",
+  "productionWrite": false,
+  "healthAfter": {
+    "at": "2026-10-09T03:26:37.491591+00:00",
+    "network": "sitov-night-20261008-qa-isolated",
+    "gateway_url": "http://10.0.3.3:8000",
+    "containers": [
+      {
+        "name": "/sitov-night-20261008-qa-db",
+        "image_id": "sha256:bce4f0725a10d80bb16e01d678db8d40dd09223d18562125902e2682dd74ecdb",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 402653184,
+        "nano_cpus": 750000000,
+        "hostports": {
+          "5432/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-auth",
+        "image_id": "sha256:f2112b9289422f205df4ea15b8b550d425ae42528ea54521faa32cc7b62490de",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 134217728,
+        "nano_cpus": 250000000,
+        "hostports": {}
+      },
+      {
+        "name": "/sitov-night-20261008-qa-storage",
+        "image_id": "sha256:4f0eb90b935c676914ed0609c2c7d47cddb3f336155726bb2d5542617d4afdfa",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 268435456,
+        "nano_cpus": 500000000,
+        "hostports": {
+          "5000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-rest",
+        "image_id": "sha256:7afcb0447b7849f6875bba4a0c603d79b1e2e44aec97af123bf9a0a2ccfeae52",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 67108864,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "3000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-gateway",
+        "image_id": "sha256:6addf50e6bd8d578314cb9ce4f2d2d1e3781d2edecef59f707e00c6e05d384f5",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 134217728,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "8000/tcp": null,
+          "8001/tcp": null,
+          "8002/tcp": null,
+          "8003/tcp": null,
+          "8004/tcp": null,
+          "8443/tcp": null,
+          "8444/tcp": null,
+          "8445/tcp": null,
+          "8446/tcp": null,
+          "8447/tcp": null
+        }
+      }
+    ],
+    "health": [
+      {
+        "path": "/auth/v1/health",
+        "http_status": 200
+      },
+      {
+        "path": "/rest/v1/",
+        "http_status": 200
+      },
+      {
+        "path": "/storage/v1/status",
+        "http_status": 200
+      }
+    ]
+  }
+}
