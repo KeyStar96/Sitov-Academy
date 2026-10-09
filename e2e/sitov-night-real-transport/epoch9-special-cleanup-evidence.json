@@ -1,0 +1,26 @@
+{
+  "target": "5e1b656ad8befd6af52b593be372519bf1c50704",
+  "cleaned": true,
+  "newAccounts": 3,
+  "uploads": 0,
+  "ownSpecialRunsReceiptsAnchorProgressRemoved": true,
+  "globalCountsPreserved": true,
+  "before": {
+    "assets": 567,
+    "authUsers": 2,
+    "pretestActive": 5,
+    "pretestPasses": 0,
+    "specialActive": 1,
+    "pretestAttempts": 0,
+    "pretestDefinitions": 6
+  },
+  "after": {
+    "assets": 567,
+    "authUsers": 2,
+    "pretestActive": 5,
+    "pretestPasses": 0,
+    "specialActive": 1,
+    "pretestAttempts": 0,
+    "pretestDefinitions": 6
+  }
+}

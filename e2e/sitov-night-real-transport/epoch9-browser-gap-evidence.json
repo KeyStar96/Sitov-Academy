@@ -1,0 +1,7 @@
+{
+  "target": "5e1b656ad8befd6af52b593be372519bf1c50704",
+  "tested": false,
+  "status": "UNTESTED",
+  "reason": "IAB new tab inherited existing M QA teacher session; own temporary tab closed without acting on M account. Separate Chrome session unavailable. No browser cookies read or changed; no M logout or source changes.",
+  "learnerUIHelpResumeTested": false
+}
