@@ -1,0 +1,11 @@
+# Sitov Academy: gespeicherte Einheiten-UUIDs
+
+Epoch 11, bestätigte saubere Basis `cb39a4b92e83dbcf4eca3de4c2aaf02baaf4d354`, Branch `codex/sitov-night-s1-stored-unit-guid`. M-Zuordnung und Addendum `stored_unit_uuid_validation` im eingefrorenen Zielvertrag gelesen. Keine Picks oder Basisänderung während der Lease.
+
+Die einzige Verhaltensänderung betrifft `currentUserHasContentAccess`: Am autoritativen Metadaten-Rückgabefeld `unit_id` verwendet die Validierung `z.guid()` statt `z.uuid()`. Dadurch werden gespeicherte PostgreSQL-UUIDs im kanonischen Hexformat 8-4-4-4-12 auch mit nicht durch RFC-UUID-Versionen eingeschränkten Versions-/Variantenbits akzeptiert. Die konkret belegte Einheiten-ID `01da78e3-726f-a505-a9d6-fbb907ccb31f` fällt darunter. Ungültige Zeichen, fehlende Bindestriche, leere und nicht textuelle Werte bleiben abgelehnt.
+
+Cookie-Authentifizierung, privilegierter ausschließlich auf Scope-Metadaten begrenzter Inhalts-/Eltern-Lookup, tatsächliches Niveau/Trainer-Routing und der anschließend abgefragte aktuelle authentifizierte Katalog mit exakter Kind-/ID-Mitgliedschaft sind unverändert. Frühere Erlaubnis wird nicht zwischengespeichert; ein später fehlender Katalogeintrag verweigert den Zugriff. Keine globale UUID-Umstellung, keine Eingabe-/Akteur-/Versuchsvalidierung, keine Grants-/Trial-/SQL-Änderung. Der unabhängige Präsentationspfad bleibt unverändert.
+
+Validierung: 16 gezielte Jest-Tests bestanden. Sie rufen die tatsächliche Serverhilfe mit gemockten Auth-/Datenbanktransporten auf und prüfen gespeicherte Nicht-RFC-/normale UUIDs, exakte Scope-Abfragen, aktuellen Widerruf nach Erfolg, verweigerte Geschwister/andere Inhaltsarten, fehlerhafte Metadaten, unbekannten Inhalt/Eltern, Katalogfehler, fehlende/fehlerhafte Anmeldung und Präsentationen. Scoped ESLint endete mit Exit 0, ohne Fehler und mit drei bestehenden Warnungen zu unbenutzten Catch-Variablen außerhalb der Änderung. Diff-Prüfungen bestanden. Kein Full-Typecheck, Build, nativer Datenbanktest, Browser, QA, bezahlter Dienst, Produktionszugriff oder Deployment.
+
+Status nach eigener Übergabe: WAIT. M integriert diesen begrenzten Fix zusammen mit S2s separat zugewiesenem Resolver-Parser. Integration und Browserabnahme werden hier nicht behauptet; Release bleibt nicht freigegeben.

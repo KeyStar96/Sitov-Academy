@@ -66,7 +66,8 @@ export async function currentUserHasContentAccess(ref: SitovContentRef): Promise
         path_special: 'path_nodes', path_special_item: 'learning_exercises' } as const
       const { data } = await admin.from(table[ref.kind]).select('unit_id').eq('id', ref.id).maybeSingle()
       if (data) {
-        const metadata = z.object({ unit_id: z.uuid() }).parse(data)
+        // Stored PostgreSQL UUIDs need not use RFC version or variant bits.
+        const metadata = z.object({ unit_id: z.guid() }).parse(data)
         const unit = await admin.from('learning_units').select('level,trainer').eq('id', metadata.unit_id).maybeSingle()
         if (unit.data) scope = { level: unit.data.level, trainer: unit.data.trainer }
       }
