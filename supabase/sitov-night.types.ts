@@ -39,6 +39,7 @@ export type SitovLearningSpecialFunctions = {
   sitov_special_staff_catalog: { Args: { p_node_id: string }; Returns: Json }
   sitov_special_author_context: { Args: { p_unit_id: string; p_anchor_id: string; p_source_ref: string }; Returns: Json }
   sitov_special_author_create: { Args: { p_input: Json }; Returns: Json }
+  sitov_get_special_staff_targets: { Args: { p_level?: string | null }; Returns: Json }
   sitov_get_special_publication: { Args: { p_node_id: string; p_definition_id: string; p_definition_version: string; p_source_sha256: string; p_base_active_definition_id: string | null }; Returns: Json }
   sitov_publish_special: { Args: { p_node_id: string; p_definition_id: string; p_definition_version: string; p_source_sha256: string; p_base_active_definition_id: string | null; p_request_id: string }; Returns: Json }
 }
