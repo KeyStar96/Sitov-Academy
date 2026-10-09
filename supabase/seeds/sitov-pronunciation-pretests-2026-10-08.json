@@ -12816,7 +12816,7 @@
         "calibrationStatus": "pending",
         "notesDe": "S3-Autorenprüfung: öffentlicher Kontext, eindeutiger Schlüssel, exakte Quellspannen und zwei disjunkte Formen. Unabhängige fachliche M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
         "textVersion": "50c72a0375ad6340a4e2aff62d3620f74c9fa79151a9584b44301fd233844b52",
-        "definitionContentHash": "01d2eb10418e09f0f724353910edaf2f913b0769e147037332c32b47ecd883e2"
+        "definitionContentHash": "089bb0b29ca8d37446a0d57ea329b83650b2cd40bf4fd0f3bf2b10929d62781d"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -13049,19 +13049,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.words.q1.a",
+                "id": "sitov.pretest.a12-03.words.q1.c",
                 "textDe": "Ein Ort mit Wasserbecken zum Schwimmen."
               },
               {
-                "id": "sitov.pretest.a12-03.words.q1.b",
+                "id": "sitov.pretest.a12-03.words.q1.a",
                 "textDe": "Ein Geschäft für Bücher."
               },
               {
-                "id": "sitov.pretest.a12-03.words.q1.c",
+                "id": "sitov.pretest.a12-03.words.q1.b",
                 "textDe": "Ein Raum zum Backen."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.words.q1.a",
+            "correctOptionId": "sitov.pretest.a12-03.words.q1.c",
             "assessmentUnit": "Schwimmbad als Ort",
             "equivalenceKey": "sitov:a12-03:words:1",
             "sourceSpans": [
@@ -13081,19 +13081,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.words.q2.b",
-                "textDe": "Zum Bezahlen an der Kasse."
-              },
-              {
                 "id": "sitov.pretest.a12-03.words.q2.c",
                 "textDe": "Zum Schneiden von Obst."
               },
               {
-                "id": "sitov.pretest.a12-03.words.q2.a",
+                "id": "sitov.pretest.a12-03.words.q2.b",
                 "textDe": "Zum Abtrocknen des Körpers."
+              },
+              {
+                "id": "sitov.pretest.a12-03.words.q2.a",
+                "textDe": "Zum Bezahlen an der Kasse."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.words.q2.a",
+            "correctOptionId": "sitov.pretest.a12-03.words.q2.b",
             "assessmentUnit": "Handtuch als Gegenstand",
             "equivalenceKey": "sitov:a12-03:words:2",
             "sourceSpans": [
@@ -13113,12 +13113,12 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.words.q3.c",
-                "textDe": "Unterlagen für einen Arzttermin."
-              },
-              {
                 "id": "sitov.pretest.a12-03.words.q3.a",
                 "textDe": "Kleidung und Dinge zum Baden."
+              },
+              {
+                "id": "sitov.pretest.a12-03.words.q3.c",
+                "textDe": "Unterlagen für einen Arzttermin."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q3.b",
@@ -13146,18 +13146,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.words.q4.a",
-                "textDe": "Man bezahlt die Karten."
+                "textDe": "Man schwimmt im Becken."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q4.b",
-                "textDe": "Man schwimmt im Becken."
+                "textDe": "Man bezahlt die Karten."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q4.c",
                 "textDe": "Man schläft im Bett."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.words.q4.a",
+            "correctOptionId": "sitov.pretest.a12-03.words.q4.b",
             "assessmentUnit": "Kasse als Zahlstelle",
             "equivalenceKey": "sitov:a12-03:words:4",
             "sourceSpans": [
@@ -13178,11 +13178,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.words.q5.b",
-                "textDe": "Die Wärme ist unerträglich."
+                "textDe": "Das Wasser ist gefroren."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q5.c",
-                "textDe": "Das Wasser ist gefroren."
+                "textDe": "Die Wärme ist unerträglich."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q5.a",
@@ -13209,19 +13209,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.words.q6.c",
-                "textDe": "Den Eintrittspreis erhöhen."
-              },
-              {
                 "id": "sitov.pretest.a12-03.words.q6.a",
-                "textDe": "Die Tätigkeit für eine Weile unterbrechen."
+                "textDe": "Den Eintrittspreis erhöhen."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q6.b",
                 "textDe": "Die Tätigkeit ohne Unterbrechung fortsetzen."
+              },
+              {
+                "id": "sitov.pretest.a12-03.words.q6.c",
+                "textDe": "Die Tätigkeit für eine Weile unterbrechen."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.words.q6.a",
+            "correctOptionId": "sitov.pretest.a12-03.words.q6.c",
             "assessmentUnit": "Pause als Unterbrechung",
             "equivalenceKey": "sitov:a12-03:words:6",
             "sourceSpans": [
@@ -13241,16 +13241,16 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.verbs.q1.a",
-                "textDe": "Der Sohn hat die Fähigkeit dazu."
-              },
-              {
-                "id": "sitov.pretest.a12-03.verbs.q1.b",
+                "id": "sitov.pretest.a12-03.verbs.q1.c",
                 "textDe": "Der Sohn muss es gegen seinen Willen tun."
               },
               {
-                "id": "sitov.pretest.a12-03.verbs.q1.c",
+                "id": "sitov.pretest.a12-03.verbs.q1.b",
                 "textDe": "Der Sohn darf es keinesfalls tun."
+              },
+              {
+                "id": "sitov.pretest.a12-03.verbs.q1.a",
+                "textDe": "Der Sohn hat die Fähigkeit dazu."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.verbs.q1.a",
@@ -13273,19 +13273,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.verbs.q2.b",
-                "textDe": "Erste Person Singular."
-              },
-              {
-                "id": "sitov.pretest.a12-03.verbs.q2.c",
+                "id": "sitov.pretest.a12-03.verbs.q2.a",
                 "textDe": "Dritte Person Singular."
               },
               {
-                "id": "sitov.pretest.a12-03.verbs.q2.a",
+                "id": "sitov.pretest.a12-03.verbs.q2.c",
                 "textDe": "Erste Person Plural."
+              },
+              {
+                "id": "sitov.pretest.a12-03.verbs.q2.b",
+                "textDe": "Erste Person Singular."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.verbs.q2.a",
+            "correctOptionId": "sitov.pretest.a12-03.verbs.q2.c",
             "assessmentUnit": "gehen wir Personenform",
             "equivalenceKey": "sitov:a12-03:verbs:2",
             "sourceSpans": [
@@ -13309,15 +13309,15 @@
                 "textDe": "verpacken"
               },
               {
-                "id": "sitov.pretest.a12-03.verbs.q3.a",
+                "id": "sitov.pretest.a12-03.verbs.q3.b",
                 "textDe": "einpacken"
               },
               {
-                "id": "sitov.pretest.a12-03.verbs.q3.b",
+                "id": "sitov.pretest.a12-03.verbs.q3.a",
                 "textDe": "auspacken"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.verbs.q3.a",
+            "correctOptionId": "sitov.pretest.a12-03.verbs.q3.b",
             "assessmentUnit": "einpacken trennbare Grundform",
             "equivalenceKey": "sitov:a12-03:verbs:3",
             "sourceSpans": [
@@ -13337,16 +13337,16 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.verbs.q4.a",
-                "textDe": "kaufen"
-              },
-              {
-                "id": "sitov.pretest.a12-03.verbs.q4.b",
+                "id": "sitov.pretest.a12-03.verbs.q4.c",
                 "textDe": "kauft"
               },
               {
-                "id": "sitov.pretest.a12-03.verbs.q4.c",
+                "id": "sitov.pretest.a12-03.verbs.q4.b",
                 "textDe": "kaufst"
+              },
+              {
+                "id": "sitov.pretest.a12-03.verbs.q4.a",
+                "textDe": "kaufen"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.verbs.q4.a",
@@ -13369,19 +13369,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.verbs.q5.b",
-                "textDe": "schweigen"
-              },
-              {
                 "id": "sitov.pretest.a12-03.verbs.q5.c",
-                "textDe": "schwemmen"
+                "textDe": "schwimmen"
               },
               {
                 "id": "sitov.pretest.a12-03.verbs.q5.a",
-                "textDe": "schwimmen"
+                "textDe": "schwemmen"
+              },
+              {
+                "id": "sitov.pretest.a12-03.verbs.q5.b",
+                "textDe": "schweigen"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.verbs.q5.a",
+            "correctOptionId": "sitov.pretest.a12-03.verbs.q5.c",
             "assessmentUnit": "schwimmt Grundform",
             "equivalenceKey": "sitov:a12-03:verbs:5",
             "sourceSpans": [
@@ -13401,19 +13401,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.verbs.q6.c",
-                "textDe": "übst"
-              },
-              {
-                "id": "sitov.pretest.a12-03.verbs.q6.a",
+                "id": "sitov.pretest.a12-03.verbs.q6.b",
                 "textDe": "übe"
               },
               {
-                "id": "sitov.pretest.a12-03.verbs.q6.b",
+                "id": "sitov.pretest.a12-03.verbs.q6.a",
                 "textDe": "übt"
+              },
+              {
+                "id": "sitov.pretest.a12-03.verbs.q6.c",
+                "textDe": "übst"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.verbs.q6.a",
+            "correctOptionId": "sitov.pretest.a12-03.verbs.q6.b",
             "assessmentUnit": "übe Subjektform",
             "equivalenceKey": "sitov:a12-03:verbs:6",
             "sourceSpans": [
@@ -13434,18 +13434,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.syntax.q1.a",
-                "textDe": "Am Sonntag gehen wir ins Schwimmbad."
+                "textDe": "Am Sonntag ins Schwimmbad wir gehen."
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q1.b",
-                "textDe": "Am Sonntag wir gehen ins Schwimmbad."
+                "textDe": "Am Sonntag gehen wir ins Schwimmbad."
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q1.c",
-                "textDe": "Am Sonntag ins Schwimmbad wir gehen."
+                "textDe": "Am Sonntag wir gehen ins Schwimmbad."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.syntax.q1.a",
+            "correctOptionId": "sitov.pretest.a12-03.syntax.q1.b",
             "assessmentUnit": "Vorfeld Sonntag Verbzweit",
             "equivalenceKey": "sitov:a12-03:syntax:1",
             "sourceSpans": [
@@ -13465,19 +13465,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.syntax.q2.b",
+                "id": "sitov.pretest.a12-03.syntax.q2.c",
                 "textDe": "Zwei verschiedene Sprecher."
               },
               {
-                "id": "sitov.pretest.a12-03.syntax.q2.c",
+                "id": "sitov.pretest.a12-03.syntax.q2.a",
                 "textDe": "Zwei Zeitangaben."
               },
               {
-                "id": "sitov.pretest.a12-03.syntax.q2.a",
+                "id": "sitov.pretest.a12-03.syntax.q2.b",
                 "textDe": "Zwei Dinge, die eingepackt werden."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.syntax.q2.a",
+            "correctOptionId": "sitov.pretest.a12-03.syntax.q2.b",
             "assessmentUnit": "Koordination zwei Objekte",
             "equivalenceKey": "sitov:a12-03:syntax:2",
             "sourceSpans": [
@@ -13498,18 +13498,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.syntax.q3.c",
-                "textDe": "zwei Karten"
-              },
-              {
-                "id": "sitov.pretest.a12-03.syntax.q3.a",
                 "textDe": "An der Kasse"
               },
               {
-                "id": "sitov.pretest.a12-03.syntax.q3.b",
+                "id": "sitov.pretest.a12-03.syntax.q3.a",
                 "textDe": "wir"
+              },
+              {
+                "id": "sitov.pretest.a12-03.syntax.q3.b",
+                "textDe": "zwei Karten"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.syntax.q3.a",
+            "correctOptionId": "sitov.pretest.a12-03.syntax.q3.c",
             "assessmentUnit": "Ortsglied Kasse",
             "equivalenceKey": "sitov:a12-03:syntax:3",
             "sourceSpans": [
@@ -13534,11 +13534,11 @@
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q4.b",
-                "textDe": "Es ist teuer."
+                "textDe": "Es ist tief."
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q4.c",
-                "textDe": "Es ist tief."
+                "textDe": "Es ist teuer."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.syntax.q4.a",
@@ -13565,15 +13565,15 @@
                 "textDe": "Das Schwimmbad."
               },
               {
-                "id": "sitov.pretest.a12-03.syntax.q5.c",
+                "id": "sitov.pretest.a12-03.syntax.q5.a",
                 "textDe": "Die beiden Karten."
               },
               {
-                "id": "sitov.pretest.a12-03.syntax.q5.a",
+                "id": "sitov.pretest.a12-03.syntax.q5.c",
                 "textDe": "Der Sprecher, bezeichnet durch ich."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.syntax.q5.a",
+            "correctOptionId": "sitov.pretest.a12-03.syntax.q5.c",
             "assessmentUnit": "Koordinierte Subjekte unterscheiden",
             "equivalenceKey": "sitov:a12-03:syntax:5",
             "sourceSpans": [
@@ -13594,7 +13594,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.syntax.q6.c",
-                "textDe": "Genau während der ersten Sekunde."
+                "textDe": "Eine Stunde vor Beginn."
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q6.a",
@@ -13602,7 +13602,7 @@
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q6.b",
-                "textDe": "Eine Stunde vor Beginn."
+                "textDe": "Genau während der ersten Sekunde."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.syntax.q6.a",
@@ -13658,18 +13658,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.nominal.q2.b",
-                "textDe": "in dem Schwimmbad"
-              },
-              {
-                "id": "sitov.pretest.a12-03.nominal.q2.c",
-                "textDe": "an das Schwimmbad"
+                "textDe": "in das Schwimmbad"
               },
               {
                 "id": "sitov.pretest.a12-03.nominal.q2.a",
-                "textDe": "in das Schwimmbad"
+                "textDe": "an das Schwimmbad"
+              },
+              {
+                "id": "sitov.pretest.a12-03.nominal.q2.c",
+                "textDe": "in dem Schwimmbad"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.nominal.q2.a",
+            "correctOptionId": "sitov.pretest.a12-03.nominal.q2.b",
             "assessmentUnit": "ins Akkusativ Kontraktion",
             "equivalenceKey": "sitov:a12-03:nominal:2",
             "sourceSpans": [
@@ -13689,19 +13689,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.nominal.q3.c",
+                "id": "sitov.pretest.a12-03.nominal.q3.b",
                 "textDe": "die Handtücher"
               },
               {
-                "id": "sitov.pretest.a12-03.nominal.q3.a",
+                "id": "sitov.pretest.a12-03.nominal.q3.c",
                 "textDe": "das Handtuch"
               },
               {
-                "id": "sitov.pretest.a12-03.nominal.q3.b",
+                "id": "sitov.pretest.a12-03.nominal.q3.a",
                 "textDe": "der Handtuch"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.nominal.q3.a",
+            "correctOptionId": "sitov.pretest.a12-03.nominal.q3.c",
             "assessmentUnit": "Handtücher Plural",
             "equivalenceKey": "sitov:a12-03:nominal:3",
             "sourceSpans": [
@@ -13721,19 +13721,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-03.nominal.q4.a",
-                "textDe": "der"
+                "id": "sitov.pretest.a12-03.nominal.q4.c",
+                "textDe": "den"
               },
               {
                 "id": "sitov.pretest.a12-03.nominal.q4.b",
-                "textDe": "die"
+                "textDe": "der"
               },
               {
-                "id": "sitov.pretest.a12-03.nominal.q4.c",
-                "textDe": "den"
+                "id": "sitov.pretest.a12-03.nominal.q4.a",
+                "textDe": "die"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.nominal.q4.a",
+            "correctOptionId": "sitov.pretest.a12-03.nominal.q4.b",
             "assessmentUnit": "an der Kasse Dativ",
             "equivalenceKey": "sitov:a12-03:nominal:4",
             "sourceSpans": [
@@ -13754,18 +13754,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.nominal.q5.b",
-                "textDe": "Auf das Wasser."
-              },
-              {
-                "id": "sitov.pretest.a12-03.nominal.q5.c",
                 "textDe": "Auf den Sonntag."
               },
               {
                 "id": "sitov.pretest.a12-03.nominal.q5.a",
+                "textDe": "Auf das Wasser."
+              },
+              {
+                "id": "sitov.pretest.a12-03.nominal.q5.c",
                 "textDe": "Auf den Sohn."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-03.nominal.q5.a",
+            "correctOptionId": "sitov.pretest.a12-03.nominal.q5.c",
             "assessmentUnit": "ihm männlicher Sohnbezug",
             "equivalenceKey": "sitov:a12-03:nominal:5",
             "sourceSpans": [
@@ -13785,16 +13785,16 @@
             "fragmentDe": null,
             "options": [
               {
+                "id": "sitov.pretest.a12-03.nominal.q6.b",
+                "textDe": "einen"
+              },
+              {
                 "id": "sitov.pretest.a12-03.nominal.q6.c",
                 "textDe": "einem"
               },
               {
                 "id": "sitov.pretest.a12-03.nominal.q6.a",
                 "textDe": "eine"
-              },
-              {
-                "id": "sitov.pretest.a12-03.nominal.q6.b",
-                "textDe": "einen"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.nominal.q6.a",
@@ -13868,7 +13868,7 @@
         "calibrationStatus": "pending",
         "notesDe": "S3-Autorenprüfung: öffentlicher Kontext, eindeutiger Schlüssel, exakte Quellspannen und zwei disjunkte Formen. Unabhängige fachliche M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
         "textVersion": "af6069fdab6798f3a084ceb92d09a6a47eec2741d01b971e341f116262485848",
-        "definitionContentHash": "9bea70e939921d3797a1e4d1bbeee1919dafb497b76377075b4f4cab0f218c89"
+        "definitionContentHash": "e88b65fc2b15cc33cfba37b53cd9c529ec55b23e2a6bef35086da9ee0a57cf17"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -14100,18 +14100,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.words.q1.a",
-                "textDe": "Der jährlich wiederkehrende Tag der Geburt."
-              },
-              {
-                "id": "sitov.pretest.a12-04.words.q1.b",
-                "textDe": "Der erste Tag jeder Woche."
+                "textDe": "Der Tag jedes Einkaufs."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q1.c",
-                "textDe": "Der Tag jedes Einkaufs."
+                "textDe": "Der erste Tag jeder Woche."
+              },
+              {
+                "id": "sitov.pretest.a12-04.words.q1.b",
+                "textDe": "Der jährlich wiederkehrende Tag der Geburt."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.words.q1.a",
+            "correctOptionId": "sitov.pretest.a12-04.words.q1.b",
             "assessmentUnit": "Geburtstag Anlass",
             "equivalenceKey": "sitov:a12-04:words:1",
             "sourceSpans": [
@@ -14132,18 +14132,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.words.q2.b",
-                "textDe": "Alle Menschen eines anderen Kontinents."
-              },
-              {
-                "id": "sitov.pretest.a12-04.words.q2.c",
                 "textDe": "Nur die eigenen Großeltern."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q2.a",
+                "textDe": "Alle Menschen eines anderen Kontinents."
+              },
+              {
+                "id": "sitov.pretest.a12-04.words.q2.c",
                 "textDe": "Menschen, die in der Nähe wohnen."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.words.q2.a",
+            "correctOptionId": "sitov.pretest.a12-04.words.q2.c",
             "assessmentUnit": "Nachbarn Wohnnähe",
             "equivalenceKey": "sitov:a12-04:words:2",
             "sourceSpans": [
@@ -14163,19 +14163,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.words.q3.c",
-                "textDe": "Man bestätigt den Kauf eines Fahrrads."
+                "id": "sitov.pretest.a12-04.words.q3.a",
+                "textDe": "Man verbietet allen den Besuch."
               },
               {
-                "id": "sitov.pretest.a12-04.words.q3.a",
+                "id": "sitov.pretest.a12-04.words.q3.c",
                 "textDe": "Man bittet jemanden, zur Feier zu kommen."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q3.b",
-                "textDe": "Man verbietet allen den Besuch."
+                "textDe": "Man bestätigt den Kauf eines Fahrrads."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.words.q3.a",
+            "correctOptionId": "sitov.pretest.a12-04.words.q3.c",
             "assessmentUnit": "Einladung Mitteilung",
             "equivalenceKey": "sitov:a12-04:words:3",
             "sourceSpans": [
@@ -14199,11 +14199,11 @@
                 "textDe": "Zum Empfangen von Briefen."
               },
               {
-                "id": "sitov.pretest.a12-04.words.q4.b",
+                "id": "sitov.pretest.a12-04.words.q4.c",
                 "textDe": "Zum Backen von Kuchen."
               },
               {
-                "id": "sitov.pretest.a12-04.words.q4.c",
+                "id": "sitov.pretest.a12-04.words.q4.b",
                 "textDe": "Zum Aufbewahren von Badewasser."
               }
             ],
@@ -14227,16 +14227,16 @@
             "fragmentDe": null,
             "options": [
               {
+                "id": "sitov.pretest.a12-04.words.q5.a",
+                "textDe": "Wasser."
+              },
+              {
                 "id": "sitov.pretest.a12-04.words.q5.b",
                 "textDe": "Ein Stuhl."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q5.c",
                 "textDe": "Ein Briefkasten."
-              },
-              {
-                "id": "sitov.pretest.a12-04.words.q5.a",
-                "textDe": "Wasser."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.words.q5.a",
@@ -14259,19 +14259,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.words.q6.c",
+                "id": "sitov.pretest.a12-04.words.q6.a",
                 "textDe": "Eine Einladung auf Papier."
               },
               {
-                "id": "sitov.pretest.a12-04.words.q6.a",
+                "id": "sitov.pretest.a12-04.words.q6.b",
                 "textDe": "Wasser, das aus Wolken fällt."
               },
               {
-                "id": "sitov.pretest.a12-04.words.q6.b",
+                "id": "sitov.pretest.a12-04.words.q6.c",
                 "textDe": "Ein heller Klang einer Glocke."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.words.q6.a",
+            "correctOptionId": "sitov.pretest.a12-04.words.q6.b",
             "assessmentUnit": "Regen Wetter",
             "equivalenceKey": "sitov:a12-04:words:6",
             "sourceSpans": [
@@ -14292,18 +14292,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.verbs.q1.a",
-                "textDe": "haben"
-              },
-              {
-                "id": "sitov.pretest.a12-04.verbs.q1.b",
                 "textDe": "heben"
               },
               {
-                "id": "sitov.pretest.a12-04.verbs.q1.c",
+                "id": "sitov.pretest.a12-04.verbs.q1.b",
                 "textDe": "halten"
+              },
+              {
+                "id": "sitov.pretest.a12-04.verbs.q1.c",
+                "textDe": "haben"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.verbs.q1.a",
+            "correctOptionId": "sitov.pretest.a12-04.verbs.q1.c",
             "assessmentUnit": "habe Grundform",
             "equivalenceKey": "sitov:a12-04:verbs:1",
             "sourceSpans": [
@@ -14327,12 +14327,12 @@
                 "textDe": "Ein Verbot."
               },
               {
-                "id": "sitov.pretest.a12-04.verbs.q2.c",
-                "textDe": "Eine abgeschlossene Vergangenheit."
-              },
-              {
                 "id": "sitov.pretest.a12-04.verbs.q2.a",
                 "textDe": "Einen Wunsch."
+              },
+              {
+                "id": "sitov.pretest.a12-04.verbs.q2.c",
+                "textDe": "Eine abgeschlossene Vergangenheit."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.verbs.q2.a",
@@ -14355,19 +14355,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.verbs.q3.c",
-                "textDe": "beginnst"
-              },
-              {
-                "id": "sitov.pretest.a12-04.verbs.q3.a",
+                "id": "sitov.pretest.a12-04.verbs.q3.b",
                 "textDe": "beginnt"
               },
               {
-                "id": "sitov.pretest.a12-04.verbs.q3.b",
+                "id": "sitov.pretest.a12-04.verbs.q3.c",
                 "textDe": "beginnen"
+              },
+              {
+                "id": "sitov.pretest.a12-04.verbs.q3.a",
+                "textDe": "beginnst"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.verbs.q3.a",
+            "correctOptionId": "sitov.pretest.a12-04.verbs.q3.b",
             "assessmentUnit": "beginnt Subjekt Singular",
             "equivalenceKey": "sitov:a12-04:verbs:3",
             "sourceSpans": [
@@ -14387,19 +14387,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.verbs.q4.a",
-                "textDe": "schreibe"
+                "id": "sitov.pretest.a12-04.verbs.q4.c",
+                "textDe": "schreibst"
               },
               {
-                "id": "sitov.pretest.a12-04.verbs.q4.b",
+                "id": "sitov.pretest.a12-04.verbs.q4.a",
                 "textDe": "schreibt"
               },
               {
-                "id": "sitov.pretest.a12-04.verbs.q4.c",
-                "textDe": "schreibst"
+                "id": "sitov.pretest.a12-04.verbs.q4.b",
+                "textDe": "schreibe"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.verbs.q4.a",
+            "correctOptionId": "sitov.pretest.a12-04.verbs.q4.b",
             "assessmentUnit": "schreibe erste Person",
             "equivalenceKey": "sitov:a12-04:verbs:4",
             "sourceSpans": [
@@ -14423,12 +14423,12 @@
                 "textDe": "wegbringen"
               },
               {
-                "id": "sitov.pretest.a12-04.verbs.q5.c",
-                "textDe": "verbringen"
-              },
-              {
                 "id": "sitov.pretest.a12-04.verbs.q5.a",
                 "textDe": "mitbringen"
+              },
+              {
+                "id": "sitov.pretest.a12-04.verbs.q5.c",
+                "textDe": "verbringen"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.verbs.q5.a",
@@ -14452,18 +14452,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.verbs.q6.c",
-                "textDe": "baden"
-              },
-              {
-                "id": "sitov.pretest.a12-04.verbs.q6.a",
                 "textDe": "backen"
               },
               {
-                "id": "sitov.pretest.a12-04.verbs.q6.b",
+                "id": "sitov.pretest.a12-04.verbs.q6.a",
                 "textDe": "packen"
+              },
+              {
+                "id": "sitov.pretest.a12-04.verbs.q6.b",
+                "textDe": "baden"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.verbs.q6.a",
+            "correctOptionId": "sitov.pretest.a12-04.verbs.q6.c",
             "assessmentUnit": "backe Grundform",
             "equivalenceKey": "sitov:a12-04:verbs:6",
             "sourceSpans": [
@@ -14487,11 +14487,11 @@
                 "textDe": "Nächste Woche"
               },
               {
-                "id": "sitov.pretest.a12-04.syntax.q1.b",
+                "id": "sitov.pretest.a12-04.syntax.q1.c",
                 "textDe": "ich"
               },
               {
-                "id": "sitov.pretest.a12-04.syntax.q1.c",
+                "id": "sitov.pretest.a12-04.syntax.q1.b",
                 "textDe": "Geburtstag"
               }
             ],
@@ -14515,16 +14515,16 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.syntax.q2.b",
-                "textDe": "Am Sonntag um vier Uhr."
+                "id": "sitov.pretest.a12-04.syntax.q2.a",
+                "textDe": "Am Samstag um vier Uhr."
               },
               {
                 "id": "sitov.pretest.a12-04.syntax.q2.c",
-                "textDe": "Am Samstag um sechs Uhr."
+                "textDe": "Am Sonntag um vier Uhr."
               },
               {
-                "id": "sitov.pretest.a12-04.syntax.q2.a",
-                "textDe": "Am Samstag um vier Uhr."
+                "id": "sitov.pretest.a12-04.syntax.q2.b",
+                "textDe": "Am Samstag um sechs Uhr."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.syntax.q2.a",
@@ -14547,19 +14547,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.syntax.q3.c",
+                "id": "sitov.pretest.a12-04.syntax.q3.b",
                 "textDe": "Die Briefkästen selbst."
               },
               {
                 "id": "sitov.pretest.a12-04.syntax.q3.a",
-                "textDe": "Der Sprecher selbst."
+                "textDe": "Der Kuchen."
               },
               {
-                "id": "sitov.pretest.a12-04.syntax.q3.b",
-                "textDe": "Der Kuchen."
+                "id": "sitov.pretest.a12-04.syntax.q3.c",
+                "textDe": "Der Sprecher selbst."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.syntax.q3.a",
+            "correctOptionId": "sitov.pretest.a12-04.syntax.q3.c",
             "assessmentUnit": "Gleiches Subjekt zwei Prädikate",
             "equivalenceKey": "sitov:a12-04:syntax:3",
             "sourceSpans": [
@@ -14580,18 +14580,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.syntax.q4.a",
+                "textDe": "Jeder kann mitbringt etwas zu essen."
+              },
+              {
+                "id": "sitov.pretest.a12-04.syntax.q4.c",
                 "textDe": "Jeder kann etwas zu essen mitbringen."
               },
               {
                 "id": "sitov.pretest.a12-04.syntax.q4.b",
                 "textDe": "Jeder mitbringen kann etwas zu essen."
-              },
-              {
-                "id": "sitov.pretest.a12-04.syntax.q4.c",
-                "textDe": "Jeder kann mitbringt etwas zu essen."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.syntax.q4.a",
+            "correctOptionId": "sitov.pretest.a12-04.syntax.q4.c",
             "assessmentUnit": "Modalverb Infinitiv Satzende",
             "equivalenceKey": "sitov:a12-04:syntax:4",
             "sourceSpans": [
@@ -14611,19 +14611,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.syntax.q5.b",
+                "id": "sitov.pretest.a12-04.syntax.q5.c",
                 "textDe": "wir"
               },
               {
-                "id": "sitov.pretest.a12-04.syntax.q5.c",
+                "id": "sitov.pretest.a12-04.syntax.q5.a",
                 "textDe": "können"
               },
               {
-                "id": "sitov.pretest.a12-04.syntax.q5.a",
+                "id": "sitov.pretest.a12-04.syntax.q5.b",
                 "textDe": "im Garten"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.syntax.q5.a",
+            "correctOptionId": "sitov.pretest.a12-04.syntax.q5.b",
             "assessmentUnit": "Garten Ort",
             "equivalenceKey": "sitov:a12-04:syntax:5",
             "sourceSpans": [
@@ -14647,15 +14647,15 @@
                 "textDe": "Wenn es genau vier Grad warm ist."
               },
               {
-                "id": "sitov.pretest.a12-04.syntax.q6.a",
+                "id": "sitov.pretest.a12-04.syntax.q6.b",
                 "textDe": "Wenn es regnet."
               },
               {
-                "id": "sitov.pretest.a12-04.syntax.q6.b",
+                "id": "sitov.pretest.a12-04.syntax.q6.a",
                 "textDe": "Wenn die Sonne scheint."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.syntax.q6.a",
+            "correctOptionId": "sitov.pretest.a12-04.syntax.q6.b",
             "assessmentUnit": "Bei Regen Bedingung",
             "equivalenceKey": "sitov:a12-04:syntax:6",
             "sourceSpans": [
@@ -14675,19 +14675,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.nominal.q1.a",
-                "textDe": "meinen"
-              },
-              {
-                "id": "sitov.pretest.a12-04.nominal.q1.b",
+                "id": "sitov.pretest.a12-04.nominal.q1.c",
                 "textDe": "meine"
               },
               {
-                "id": "sitov.pretest.a12-04.nominal.q1.c",
+                "id": "sitov.pretest.a12-04.nominal.q1.b",
+                "textDe": "meinen"
+              },
+              {
+                "id": "sitov.pretest.a12-04.nominal.q1.a",
                 "textDe": "meiner"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.nominal.q1.a",
+            "correctOptionId": "sitov.pretest.a12-04.nominal.q1.b",
             "assessmentUnit": "mit meinen Dativ Plural",
             "equivalenceKey": "sitov:a12-04:nominal:1",
             "sourceSpans": [
@@ -14707,16 +14707,16 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.nominal.q2.b",
-                "textDe": "der"
-              },
-              {
                 "id": "sitov.pretest.a12-04.nominal.q2.c",
-                "textDe": "das"
+                "textDe": "der"
               },
               {
                 "id": "sitov.pretest.a12-04.nominal.q2.a",
                 "textDe": "die"
+              },
+              {
+                "id": "sitov.pretest.a12-04.nominal.q2.b",
+                "textDe": "das"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.nominal.q2.a",
@@ -14739,19 +14739,19 @@
             "fragmentDe": null,
             "options": [
               {
+                "id": "sitov.pretest.a12-04.nominal.q3.b",
+                "textDe": "kurze"
+              },
+              {
                 "id": "sitov.pretest.a12-04.nominal.q3.c",
                 "textDe": "kurzem"
               },
               {
                 "id": "sitov.pretest.a12-04.nominal.q3.a",
-                "textDe": "kurze"
-              },
-              {
-                "id": "sitov.pretest.a12-04.nominal.q3.b",
                 "textDe": "kurzen"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.nominal.q3.a",
+            "correctOptionId": "sitov.pretest.a12-04.nominal.q3.b",
             "assessmentUnit": "kurze Adjektivendung",
             "equivalenceKey": "sitov:a12-04:nominal:3",
             "sourceSpans": [
@@ -14771,19 +14771,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.nominal.q4.a",
-                "textDe": "Auf die Einladung."
+                "id": "sitov.pretest.a12-04.nominal.q4.b",
+                "textDe": "Auf den Garten."
               },
               {
-                "id": "sitov.pretest.a12-04.nominal.q4.b",
+                "id": "sitov.pretest.a12-04.nominal.q4.a",
                 "textDe": "Auf den Sprecher."
               },
               {
                 "id": "sitov.pretest.a12-04.nominal.q4.c",
-                "textDe": "Auf den Garten."
+                "textDe": "Auf die Einladung."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.nominal.q4.a",
+            "correctOptionId": "sitov.pretest.a12-04.nominal.q4.c",
             "assessmentUnit": "sie Einladung Pronomen",
             "equivalenceKey": "sitov:a12-04:nominal:4",
             "sourceSpans": [
@@ -14803,19 +14803,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-04.nominal.q5.b",
-                "textDe": "ein"
-              },
-              {
                 "id": "sitov.pretest.a12-04.nominal.q5.c",
-                "textDe": "einem"
+                "textDe": "einen"
               },
               {
                 "id": "sitov.pretest.a12-04.nominal.q5.a",
-                "textDe": "einen"
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a12-04.nominal.q5.b",
+                "textDe": "ein"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-04.nominal.q5.a",
+            "correctOptionId": "sitov.pretest.a12-04.nominal.q5.c",
             "assessmentUnit": "einen Kuchen Akkusativ",
             "equivalenceKey": "sitov:a12-04:nominal:5",
             "sourceSpans": [
@@ -14836,15 +14836,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.nominal.q6.c",
+                "textDe": "meine"
+              },
+              {
+                "id": "sitov.pretest.a12-04.nominal.q6.b",
                 "textDe": "meinen"
               },
               {
                 "id": "sitov.pretest.a12-04.nominal.q6.a",
                 "textDe": "meiner"
-              },
-              {
-                "id": "sitov.pretest.a12-04.nominal.q6.b",
-                "textDe": "meine"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.nominal.q6.a",
@@ -14918,7 +14918,7 @@
         "calibrationStatus": "pending",
         "notesDe": "S3-Autorenprüfung: öffentlicher Kontext, eindeutiger Schlüssel, exakte Quellspannen und zwei disjunkte Formen. Unabhängige fachliche M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
         "textVersion": "4853b6164bbe3e1b7a25bba35046462505f6236bc0abab77c91749dfe455eb39",
-        "definitionContentHash": "f952f1e3673db812d582a3d9cb41c1efa8c15bf431a27299200e9e3e919cad4b"
+        "definitionContentHash": "b956f39233aa4f67d4f159073e95afcf2abe62c979e9476c54ef47a52d3b13e2"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -15151,19 +15151,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.words.q1.a",
-                "textDe": "Ein regelmäßig stattfindender Markt mit Verkaufsständen."
-              },
-              {
                 "id": "sitov.pretest.a12-05.words.q1.b",
                 "textDe": "Ein privates Schlafzimmer."
               },
               {
-                "id": "sitov.pretest.a12-05.words.q1.c",
+                "id": "sitov.pretest.a12-05.words.q1.a",
                 "textDe": "Eine Haltestelle ohne Verkauf."
+              },
+              {
+                "id": "sitov.pretest.a12-05.words.q1.c",
+                "textDe": "Ein regelmäßig stattfindender Markt mit Verkaufsständen."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.words.q1.a",
+            "correctOptionId": "sitov.pretest.a12-05.words.q1.c",
             "assessmentUnit": "Markt Verkaufsort",
             "equivalenceKey": "sitov:a12-05:words:1",
             "sourceSpans": [
@@ -15184,18 +15184,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.words.q2.b",
-                "textDe": "Zum Anzeigen der Uhrzeit."
+                "textDe": "Zum Tragen der gekauften Waren."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q2.c",
-                "textDe": "Zum Braten der Kartoffeln."
+                "textDe": "Zum Anzeigen der Uhrzeit."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q2.a",
-                "textDe": "Zum Tragen der gekauften Waren."
+                "textDe": "Zum Braten der Kartoffeln."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.words.q2.a",
+            "correctOptionId": "sitov.pretest.a12-05.words.q2.b",
             "assessmentUnit": "Korb Transportbehälter",
             "equivalenceKey": "sitov:a12-05:words:2",
             "sourceSpans": [
@@ -15216,18 +15216,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.words.q3.c",
-                "textDe": "Es ist eine Mengenangabe."
-              },
-              {
-                "id": "sitov.pretest.a12-05.words.q3.a",
                 "textDe": "Es ist nicht alt oder verdorben."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q3.b",
+                "textDe": "Es ist eine Mengenangabe."
+              },
+              {
+                "id": "sitov.pretest.a12-05.words.q3.a",
                 "textDe": "Es besteht aus Metall."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.words.q3.a",
+            "correctOptionId": "sitov.pretest.a12-05.words.q3.c",
             "assessmentUnit": "frisch Qualität",
             "equivalenceKey": "sitov:a12-05:words:3",
             "sourceSpans": [
@@ -15248,18 +15248,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.words.q4.a",
-                "textDe": "Ein Gewicht."
+                "textDe": "Eine Uhrzeit."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q4.b",
-                "textDe": "Eine Uhrzeit."
+                "textDe": "Ein Gewicht."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q4.c",
                 "textDe": "Eine Farbe."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.words.q4.a",
+            "correctOptionId": "sitov.pretest.a12-05.words.q4.b",
             "assessmentUnit": "Kilo Gewichtseinheit",
             "equivalenceKey": "sitov:a12-05:words:4",
             "sourceSpans": [
@@ -15279,12 +15279,12 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.words.q5.b",
-                "textDe": "Den Apfel zeichnen, ohne ihn zu essen."
-              },
-              {
                 "id": "sitov.pretest.a12-05.words.q5.c",
                 "textDe": "Den Preis auswendig aufsagen."
+              },
+              {
+                "id": "sitov.pretest.a12-05.words.q5.b",
+                "textDe": "Den Apfel zeichnen, ohne ihn zu essen."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q5.a",
@@ -15343,16 +15343,16 @@
             "fragmentDe": null,
             "options": [
               {
+                "id": "sitov.pretest.a12-05.verbs.q1.c",
+                "textDe": "gehen"
+              },
+              {
                 "id": "sitov.pretest.a12-05.verbs.q1.a",
                 "textDe": "sein"
               },
               {
                 "id": "sitov.pretest.a12-05.verbs.q1.b",
                 "textDe": "essen"
-              },
-              {
-                "id": "sitov.pretest.a12-05.verbs.q1.c",
-                "textDe": "gehen"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-05.verbs.q1.a",
@@ -15376,18 +15376,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.verbs.q2.b",
+                "textDe": "gehe"
+              },
+              {
+                "id": "sitov.pretest.a12-05.verbs.q2.a",
                 "textDe": "geht"
               },
               {
                 "id": "sitov.pretest.a12-05.verbs.q2.c",
                 "textDe": "gehst"
-              },
-              {
-                "id": "sitov.pretest.a12-05.verbs.q2.a",
-                "textDe": "gehe"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.verbs.q2.a",
+            "correctOptionId": "sitov.pretest.a12-05.verbs.q2.b",
             "assessmentUnit": "gehe erste Person",
             "equivalenceKey": "sitov:a12-05:verbs:2",
             "sourceSpans": [
@@ -15407,19 +15407,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.verbs.q3.c",
-                "textDe": "gelten"
+                "id": "sitov.pretest.a12-05.verbs.q3.b",
+                "textDe": "gehen"
               },
               {
-                "id": "sitov.pretest.a12-05.verbs.q3.a",
+                "id": "sitov.pretest.a12-05.verbs.q3.c",
                 "textDe": "geben"
               },
               {
-                "id": "sitov.pretest.a12-05.verbs.q3.b",
-                "textDe": "gehen"
+                "id": "sitov.pretest.a12-05.verbs.q3.a",
+                "textDe": "gelten"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.verbs.q3.a",
+            "correctOptionId": "sitov.pretest.a12-05.verbs.q3.c",
             "assessmentUnit": "gibt es Grundform",
             "equivalenceKey": "sitov:a12-05:verbs:3",
             "sourceSpans": [
@@ -15440,18 +15440,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.verbs.q4.a",
-                "textDe": "kaufen"
-              },
-              {
-                "id": "sitov.pretest.a12-05.verbs.q4.b",
-                "textDe": "kaufe"
+                "textDe": "kauft"
               },
               {
                 "id": "sitov.pretest.a12-05.verbs.q4.c",
-                "textDe": "kauft"
+                "textDe": "kaufe"
+              },
+              {
+                "id": "sitov.pretest.a12-05.verbs.q4.b",
+                "textDe": "kaufen"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.verbs.q4.a",
+            "correctOptionId": "sitov.pretest.a12-05.verbs.q4.b",
             "assessmentUnit": "möchte kaufen Modalstruktur",
             "equivalenceKey": "sitov:a12-05:verbs:4",
             "sourceSpans": [
@@ -15504,18 +15504,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.verbs.q6.c",
-                "textDe": "schneiden"
-              },
-              {
-                "id": "sitov.pretest.a12-05.verbs.q6.a",
                 "textDe": "schmecken"
               },
               {
                 "id": "sitov.pretest.a12-05.verbs.q6.b",
+                "textDe": "schneiden"
+              },
+              {
+                "id": "sitov.pretest.a12-05.verbs.q6.a",
                 "textDe": "schmücken"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.verbs.q6.a",
+            "correctOptionId": "sitov.pretest.a12-05.verbs.q6.c",
             "assessmentUnit": "schmeckt Infinitiv",
             "equivalenceKey": "sitov:a12-05:verbs:6",
             "sourceSpans": [
@@ -15536,18 +15536,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.syntax.q1.a",
-                "textDe": "Am Mittwoch ist Markt auf dem Platz."
-              },
-              {
-                "id": "sitov.pretest.a12-05.syntax.q1.b",
                 "textDe": "Am Mittwoch Markt ist auf dem Platz."
               },
               {
-                "id": "sitov.pretest.a12-05.syntax.q1.c",
+                "id": "sitov.pretest.a12-05.syntax.q1.b",
                 "textDe": "Am Mittwoch auf dem Platz Markt ist."
+              },
+              {
+                "id": "sitov.pretest.a12-05.syntax.q1.c",
+                "textDe": "Am Mittwoch ist Markt auf dem Platz."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.syntax.q1.a",
+            "correctOptionId": "sitov.pretest.a12-05.syntax.q1.c",
             "assessmentUnit": "Mittwoch Vorfeld Verbzweit",
             "equivalenceKey": "sitov:a12-05:syntax:1",
             "sourceSpans": [
@@ -15568,18 +15568,18 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.syntax.q2.b",
+                "textDe": "Zum Markt auf dem Platz."
+              },
+              {
+                "id": "sitov.pretest.a12-05.syntax.q2.a",
                 "textDe": "Zur eigenen Küche."
               },
               {
                 "id": "sitov.pretest.a12-05.syntax.q2.c",
                 "textDe": "Zu einem nicht genannten Schwimmbad."
-              },
-              {
-                "id": "sitov.pretest.a12-05.syntax.q2.a",
-                "textDe": "Zum Markt auf dem Platz."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.syntax.q2.a",
+            "correctOptionId": "sitov.pretest.a12-05.syntax.q2.b",
             "assessmentUnit": "dorthin Zielverweis",
             "equivalenceKey": "sitov:a12-05:syntax:2",
             "sourceSpans": [
@@ -15599,19 +15599,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.syntax.q3.c",
-                "textDe": "Kartoffeln und Birnen."
+                "id": "sitov.pretest.a12-05.syntax.q3.a",
+                "textDe": "Äpfel und Bananen."
               },
               {
-                "id": "sitov.pretest.a12-05.syntax.q3.a",
+                "id": "sitov.pretest.a12-05.syntax.q3.c",
                 "textDe": "Äpfel und Birnen."
               },
               {
                 "id": "sitov.pretest.a12-05.syntax.q3.b",
-                "textDe": "Äpfel und Bananen."
+                "textDe": "Kartoffeln und Birnen."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.syntax.q3.a",
+            "correctOptionId": "sitov.pretest.a12-05.syntax.q3.c",
             "assessmentUnit": "Äpfel Birnen Koordination",
             "equivalenceKey": "sitov:a12-05:syntax:3",
             "sourceSpans": [
@@ -15663,19 +15663,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.syntax.q5.b",
+                "id": "sitov.pretest.a12-05.syntax.q5.c",
                 "textDe": "Genau in der eigenen Küche."
               },
               {
-                "id": "sitov.pretest.a12-05.syntax.q5.c",
+                "id": "sitov.pretest.a12-05.syntax.q5.a",
                 "textDe": "Vor der Geburt des Verkäufers."
               },
               {
-                "id": "sitov.pretest.a12-05.syntax.q5.a",
+                "id": "sitov.pretest.a12-05.syntax.q5.b",
                 "textDe": "An einem weiteren Verkaufsstand."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.syntax.q5.a",
+            "correctOptionId": "sitov.pretest.a12-05.syntax.q5.b",
             "assessmentUnit": "nächster Stand Ortswechsel",
             "equivalenceKey": "sitov:a12-05:syntax:5",
             "sourceSpans": [
@@ -15695,7 +15695,7 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.syntax.q6.c",
+                "id": "sitov.pretest.a12-05.syntax.q6.b",
                 "textDe": "Alle Handlungen gleichzeitig."
               },
               {
@@ -15703,7 +15703,7 @@
                 "textDe": "Die letzte genannte Handlung."
               },
               {
-                "id": "sitov.pretest.a12-05.syntax.q6.b",
+                "id": "sitov.pretest.a12-05.syntax.q6.c",
                 "textDe": "Die erste Handlung vor allem anderen."
               }
             ],
@@ -15731,11 +15731,11 @@
                 "textDe": "großen"
               },
               {
-                "id": "sitov.pretest.a12-05.nominal.q1.b",
+                "id": "sitov.pretest.a12-05.nominal.q1.c",
                 "textDe": "große"
               },
               {
-                "id": "sitov.pretest.a12-05.nominal.q1.c",
+                "id": "sitov.pretest.a12-05.nominal.q1.b",
                 "textDe": "großer"
               }
             ],
@@ -15759,16 +15759,16 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.nominal.q2.b",
-                "textDe": "mein"
-              },
-              {
                 "id": "sitov.pretest.a12-05.nominal.q2.c",
                 "textDe": "meinen"
               },
               {
                 "id": "sitov.pretest.a12-05.nominal.q2.a",
                 "textDe": "meinem"
+              },
+              {
+                "id": "sitov.pretest.a12-05.nominal.q2.b",
+                "textDe": "mein"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-05.nominal.q2.a",
@@ -15791,19 +15791,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.nominal.q3.c",
-                "textDe": "das Äpfel"
+                "id": "sitov.pretest.a12-05.nominal.q3.b",
+                "textDe": "die Apfel"
               },
               {
                 "id": "sitov.pretest.a12-05.nominal.q3.a",
-                "textDe": "der Apfel"
+                "textDe": "das Äpfel"
               },
               {
-                "id": "sitov.pretest.a12-05.nominal.q3.b",
-                "textDe": "die Apfel"
+                "id": "sitov.pretest.a12-05.nominal.q3.c",
+                "textDe": "der Apfel"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.nominal.q3.a",
+            "correctOptionId": "sitov.pretest.a12-05.nominal.q3.c",
             "assessmentUnit": "Äpfel Singular",
             "equivalenceKey": "sitov:a12-05:nominal:3",
             "sourceSpans": [
@@ -15823,19 +15823,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.nominal.q4.a",
+                "id": "sitov.pretest.a12-05.nominal.q4.b",
                 "textDe": "mich"
               },
               {
-                "id": "sitov.pretest.a12-05.nominal.q4.b",
+                "id": "sitov.pretest.a12-05.nominal.q4.c",
                 "textDe": "mir"
               },
               {
-                "id": "sitov.pretest.a12-05.nominal.q4.c",
+                "id": "sitov.pretest.a12-05.nominal.q4.a",
                 "textDe": "ich"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.nominal.q4.a",
+            "correctOptionId": "sitov.pretest.a12-05.nominal.q4.b",
             "assessmentUnit": "mich Akkusativ Pronomen",
             "equivalenceKey": "sitov:a12-05:nominal:4",
             "sourceSpans": [
@@ -15855,19 +15855,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.nominal.q5.b",
+                "id": "sitov.pretest.a12-05.nominal.q5.c",
                 "textDe": "Auf die Küche."
               },
               {
-                "id": "sitov.pretest.a12-05.nominal.q5.c",
+                "id": "sitov.pretest.a12-05.nominal.q5.a",
                 "textDe": "Auf die Kartoffeln."
               },
               {
-                "id": "sitov.pretest.a12-05.nominal.q5.a",
+                "id": "sitov.pretest.a12-05.nominal.q5.b",
                 "textDe": "Auf den Apfel."
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.nominal.q5.a",
+            "correctOptionId": "sitov.pretest.a12-05.nominal.q5.b",
             "assessmentUnit": "Er Apfel anaphorischer Bezug",
             "equivalenceKey": "sitov:a12-05:nominal:5",
             "sourceSpans": [
@@ -15887,19 +15887,19 @@
             "fragmentDe": null,
             "options": [
               {
-                "id": "sitov.pretest.a12-05.nominal.q6.c",
-                "textDe": "meinem"
+                "id": "sitov.pretest.a12-05.nominal.q6.b",
+                "textDe": "meiner"
               },
               {
-                "id": "sitov.pretest.a12-05.nominal.q6.a",
+                "id": "sitov.pretest.a12-05.nominal.q6.c",
                 "textDe": "meine"
               },
               {
-                "id": "sitov.pretest.a12-05.nominal.q6.b",
-                "textDe": "meiner"
+                "id": "sitov.pretest.a12-05.nominal.q6.a",
+                "textDe": "meinem"
               }
             ],
-            "correctOptionId": "sitov.pretest.a12-05.nominal.q6.a",
+            "correctOptionId": "sitov.pretest.a12-05.nominal.q6.c",
             "assessmentUnit": "meine Küche für Akkusativ",
             "equivalenceKey": "sitov:a12-05:nominal:6",
             "sourceSpans": [
