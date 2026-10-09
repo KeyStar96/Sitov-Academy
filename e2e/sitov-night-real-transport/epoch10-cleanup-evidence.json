@@ -1,0 +1,27 @@
+{
+  "target": "f4b0629ed68da1ba08f8023dad3915d02a555985",
+  "cleaned": true,
+  "ownAccountsDeleted": 1,
+  "uploads": 0,
+  "before": {
+    "assets": 567,
+    "authUsers": 2,
+    "pretestActive": 5,
+    "pretestPasses": 0,
+    "pretestProofs": 558,
+    "specialActive": 1,
+    "pretestAttempts": 0,
+    "pretestDefinitions": 6
+  },
+  "after": {
+    "assets": 567,
+    "authUsers": 2,
+    "pretestActive": 5,
+    "pretestPasses": 0,
+    "pretestProofs": 558,
+    "specialActive": 1,
+    "pretestAttempts": 0,
+    "pretestDefinitions": 6
+  },
+  "globalCountsPreserved": true
+}

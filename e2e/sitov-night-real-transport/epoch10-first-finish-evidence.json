@@ -1,0 +1,25 @@
+{
+  "target": "f4b0629ed68da1ba08f8023dad3915d02a555985",
+  "passed": true,
+  "checks": [
+    {
+      "check": "actual learning stack completed after20 distinct cards",
+      "passed": true
+    },
+    {
+      "check": "completed exact run get persisted",
+      "passed": true
+    },
+    {
+      "check": "main progress stars activity and streak unchanged after full stack",
+      "passed": true
+    }
+  ],
+  "initialRemaining": 20,
+  "cardsRemovedByRPC": 20,
+  "selectedCards": 20,
+  "actualHTTPRPCCompletion": true,
+  "browserCompletion": false,
+  "syntheticAnchor": true,
+  "actualMainPathLearning": false
+}

@@ -1,0 +1,17 @@
+{
+  "target": "f4b0629ed68da1ba08f8023dad3915d02a555985",
+  "prepared": true,
+  "newAccounts": 1,
+  "syntheticAnchor": true,
+  "actualMainPathLearning": false,
+  "baseline": {
+    "assets": 567,
+    "authUsers": 2,
+    "pretestActive": 5,
+    "pretestPasses": 0,
+    "pretestProofs": 558,
+    "specialActive": 1,
+    "pretestAttempts": 0,
+    "pretestDefinitions": 6
+  }
+}

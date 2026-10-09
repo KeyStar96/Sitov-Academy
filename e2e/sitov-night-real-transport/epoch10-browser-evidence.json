@@ -1,0 +1,52 @@
+{
+  "target": "f4b0629ed68da1ba08f8023dad3915d02a555985",
+  "normalMLogoutAuthorized": true,
+  "actualOwnFormLogin": true,
+  "specialLearningStarted": true,
+  "helpOpened": true,
+  "sizes": [
+    {
+      "germanProtected": true,
+      "lang": "ru",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "lang": "ru",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "lang": "ru",
+      "scrollWidth": 1440,
+      "width": 1440
+    }
+  ],
+  "unverified": [
+    "other4languages",
+    "themes/highcontrast",
+    "200percenttext",
+    "reducedmotion/hiddenpause",
+    "axe/screenreader",
+    "fullbrowsertestsubmit"
+  ],
+  "helpClosedWithEnter": true,
+  "afterWrong": {
+    "flurCurrent": false,
+    "remaining": "20 карточек осталось"
+  },
+  "beforeReload": {
+    "remaining": "19 карточек осталось",
+    "solutionButtonPresent": true
+  },
+  "afterReload": {
+    "germanProtected": true,
+    "remaining": "19 карточек осталось"
+  },
+  "revealVisible": true,
+  "wrongRotated": true,
+  "rightViaEnter": true,
+  "ownNormalUILogoutConfirmed": true,
+  "ownNormalUILogoutURLPath": "/ru/login?status=logout_success",
+  "viewportOverrideReset": true
+}
