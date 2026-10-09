@@ -1,0 +1,2800 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "d2342d6b70725ff82213127a68dc88544913916e",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "randomnessProvenance": "node:crypto.randomInt OS CSPRNG;12 distinct balanced label schedules and12 distinct independent position schedules, each question index covers all3 values.",
+  "completedPools": 3,
+  "newQuestionCount": 72,
+  "newAliasCount": 288,
+  "original42ContentHash": "e80891a25c633d3289e4e6a237c06847da21eb47d4da2f3ed244ff4cff439c3c",
+  "originalManifestContentHash": "d1173ff5c1972f59dece9df0b53399a7c5695b60302d6c43f214ed106c367cd8",
+  "originalManifestByteSha256": "6720ee0a2159b5b0667c919543d247b401f684145033a37c1c2882adaceb027b",
+  "original4032AliasContentHash": "a57b236bbb137f5c8b03a54c01f2c3ec3023967c535344ee59285c9bb85c8db3",
+  "original4032AliasByteSha256": "94a37f0effb3473abbd3162494ddb1df9c65eff3421bbc28264b0ddedf942d51",
+  "currentManifestContentHash": "2fd1cb56616ded83ff065242cd0ba777262cb01f43a0a7a385f243faa5dc9a9d",
+  "currentManifestByteSha256": "a084f3a66cd0013366aade17c261b911c27bb216153e58447afc4817cd9d81a0",
+  "currentAliasContentHash": "53dc12e74a75dc44865e978a9b50298db40bc9ceda097a4422b117cb30d64d2c",
+  "currentAliasByteSha256": "f08f393857ae68be5671b57df316fab248b50854c4c7e2f0f173352957487d7d",
+  "previousCoverage": {
+    "total": 60,
+    "authored": 42,
+    "pending": 18
+  },
+  "previousInventoryRows": [
+    {
+      "textId": "f0c48467-2e7b-53ef-acde-b08564514ba9",
+      "unitId": "f0c48467-2e7b-53ef-acde-b08564514ba9",
+      "level": "B1.1",
+      "title": "Freundschaften in einer neuen Stadt",
+      "focus": "fr und sch; Gefühle im Ton",
+      "sortOrder": 3,
+      "active": true,
+      "textVersion": "ad5c6458d11f8b7110edf9767e57489a77c3a4769b8c463d0a261e62b0a07090",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "a32ba623-4578-55b4-9b44-b717c857a46c",
+      "unitId": "a32ba623-4578-55b4-9b44-b717c857a46c",
+      "level": "B1.1",
+      "title": "Eine faire Aufgabenverteilung",
+      "focus": "f und t; Gegensätze und Lösungen",
+      "sortOrder": 4,
+      "active": true,
+      "textVersion": "a7e24452f72bf0e76b4930469a1615bd5ee30f3ac39ad66030d87d4a4bd3298c",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": null,
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "525d59e3-5cad-543c-820a-b9316809645f",
+      "unitId": "525d59e3-5cad-543c-820a-b9316809645f",
+      "level": "B1.1",
+      "title": "Ein sicherer Umgang mit Nachrichten",
+      "focus": "ng und ch; sachlich erklären",
+      "sortOrder": 5,
+      "active": true,
+      "textVersion": "3213e47f04578d281902558235bf23c78c4d536b51ed7baa89d217f92f68f61f",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": null,
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    }
+  ],
+  "pools": [
+    {
+      "textId": "f0c48467-2e7b-53ef-acde-b08564514ba9",
+      "title": "Freundschaften in einer neuen Stadt",
+      "level": "B1.1",
+      "textVersion": "ad5c6458d11f8b7110edf9767e57489a77c3a4769b8c463d0a261e62b0a07090",
+      "definitionContentHash": "3d5aed347629882a147ac9b401f0d95c7f4fd176903ddb740b2d64329defaff9",
+      "sourceBodyDe": "Als ich nach Hannover gezogen bin, kannte ich außer meinem Bruder niemanden. Nach der Arbeit blieb ich meistens zu Hause und fühlte mich oft allein. Mein Bruder schlug vor, einen Kurs zu besuchen, der nichts mit meinem Beruf zu tun hatte. Ich entschied mich für einen Fotokurs. Anfangs fiel es mir schwer, die anderen anzusprechen. Doch bei den gemeinsamen Spaziergängen kamen Gespräche fast von selbst zustande. Aus zwei Bekanntschaften sind inzwischen Freundschaften geworden. Ich habe gelernt, dass Kontakte Zeit brauchen. Manchmal reicht ein gemeinsames Interesse, damit aus einem ersten Gespräch mehr entsteht.",
+      "cores": [
+        {
+          "id": "sitov.pretest.b11-03.words",
+          "category": "vocabulary",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "allein ohne Gesellschaft",
+            "Bekanntschaft lockerer Kontakt",
+            "Freundschaft persönliche Bindung",
+            "Kontakte soziale Verbindungen",
+            "von selbst ohne gezielte Steuerung",
+            "schwerfallen Mühe bereiten"
+          ],
+          "sourceSpans": [
+            {
+              "start": 141,
+              "end": 147,
+              "quote": "allein"
+            },
+            {
+              "start": 422,
+              "end": 437,
+              "quote": "Bekanntschaften"
+            },
+            {
+              "start": 454,
+              "end": 468,
+              "quote": "Freundschaften"
+            },
+            {
+              "start": 502,
+              "end": 510,
+              "quote": "Kontakte"
+            },
+            {
+              "start": 392,
+              "end": 402,
+              "quote": "von selbst"
+            },
+            {
+              "start": 286,
+              "end": 304,
+              "quote": "fiel es mir schwer"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: allein ohne Gesellschaft, Bekanntschaft lockerer Kontakt, Freundschaft persönliche Bindung, Kontakte soziale Verbindungen, von selbst ohne gezielte Steuerung, schwerfallen Mühe bereiten. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-03.verbs",
+          "category": "verb_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "gezogen bin Perfekt sein",
+            "mich Reflexiv fühlen",
+            "vorschlagen trennbarer Infinitiv",
+            "entschied starkes Präteritum",
+            "anzusprechen trennbarer zu Infinitiv",
+            "geworden Partizip werden"
+          ],
+          "sourceSpans": [
+            {
+              "start": 22,
+              "end": 33,
+              "quote": "gezogen bin"
+            },
+            {
+              "start": 125,
+              "end": 136,
+              "quote": "fühlte mich"
+            },
+            {
+              "start": 161,
+              "end": 171,
+              "quote": "schlug vor"
+            },
+            {
+              "start": 243,
+              "end": 252,
+              "quote": "entschied"
+            },
+            {
+              "start": 318,
+              "end": 330,
+              "quote": "anzusprechen"
+            },
+            {
+              "start": 469,
+              "end": 477,
+              "quote": "geworden"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: gezogen bin Perfekt sein, mich Reflexiv fühlen, vorschlagen trennbarer Infinitiv, entschied starkes Präteritum, anzusprechen trennbarer zu Infinitiv, geworden Partizip werden. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-03.syntax",
+          "category": "syntax",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "Als Verbfinal Perfektklammer",
+            "Infinitivgruppe Kursbesuch",
+            "Relativsatz Kurs Verbklammer",
+            "dass indirekter Inhalt Verbfinal",
+            "damit Nebensatz Entstehen",
+            "Aus Bekanntschaften Vorfeld Perfekt"
+          ],
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 33,
+              "quote": "Als ich nach Hannover gezogen bin"
+            },
+            {
+              "start": 173,
+              "end": 195,
+              "quote": "einen Kurs zu besuchen"
+            },
+            {
+              "start": 197,
+              "end": 237,
+              "quote": "der nichts mit meinem Beruf zu tun hatte"
+            },
+            {
+              "start": 497,
+              "end": 524,
+              "quote": "dass Kontakte Zeit brauchen"
+            },
+            {
+              "start": 569,
+              "end": 614,
+              "quote": "damit aus einem ersten Gespräch mehr entsteht"
+            },
+            {
+              "start": 413,
+              "end": 477,
+              "quote": "Aus zwei Bekanntschaften sind inzwischen Freundschaften geworden"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Als Verbfinal Perfektklammer, Infinitivgruppe Kursbesuch, Relativsatz Kurs Verbklammer, dass indirekter Inhalt Verbfinal, damit Nebensatz Entstehen, Aus Bekanntschaften Vorfeld Perfekt. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-03.nominal",
+          "category": "nominal_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "meinem Bruder Dativ außer",
+            "einen Fotokurs Akkusativ für",
+            "gemeinsamen Spaziergängen Dativ Plural",
+            "ersten Gespräch Dativ Adjektiv",
+            "Freundschaften Pluralbildung",
+            "mehr Komparativ viel"
+          ],
+          "sourceSpans": [
+            {
+              "start": 46,
+              "end": 65,
+              "quote": "außer meinem Bruder"
+            },
+            {
+              "start": 258,
+              "end": 276,
+              "quote": "für einen Fotokurs"
+            },
+            {
+              "start": 337,
+              "end": 370,
+              "quote": "bei den gemeinsamen Spaziergängen"
+            },
+            {
+              "start": 575,
+              "end": 600,
+              "quote": "aus einem ersten Gespräch"
+            },
+            {
+              "start": 454,
+              "end": 468,
+              "quote": "Freundschaften"
+            },
+            {
+              "start": 601,
+              "end": 614,
+              "quote": "mehr entsteht"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: meinem Bruder Dativ außer, einen Fotokurs Akkusativ für, gemeinsamen Spaziergängen Dativ Plural, ersten Gespräch Dativ Adjektiv, Freundschaften Pluralbildung, mehr Komparativ viel. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        }
+      ],
+      "questions": [
+        {
+          "questionId": "sitov.pretest.b11-03.words.q1",
+          "publicPromptDe": "Was bedeutet »Ich fühlte mich oft allein« in einer neuen Stadt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.words.q1.c",
+              "textDe": "Ich empfand Sicherheit durch viele enge Kontakte."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q1.a",
+              "textDe": "Ich empfand besonders viel Gemeinschaft mit anderen."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q1.b",
+              "textDe": "Ich empfand wenig Gesellschaft oder Nähe zu anderen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.words.q1.b",
+          "correctAnswerTextDe": "Ich empfand wenig Gesellschaft oder Nähe zu anderen.",
+          "rationaleDe": "Allein beschreibt hier fehlende Gesellschaft, nicht Gemeinschaft oder viele enge Kontakte.",
+          "assessmentUnit": "allein ohne Gesellschaft",
+          "sourceSpans": [
+            {
+              "start": 141,
+              "end": 147,
+              "quote": "allein"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q2",
+          "publicPromptDe": "Was ist eine Bekanntschaft im Vergleich zu einer engen Freundschaft?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.words.q2.c",
+              "textDe": "Eine Person, mit der man noch niemals Kontakt hatte."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q2.a",
+              "textDe": "Ein Kontakt zu einer Person, die man kennt, oft noch ohne enge Bindung."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q2.b",
+              "textDe": "Eine enge Bindung, die immer schon seit vielen Jahren besteht."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.words.q2.a",
+          "correctAnswerTextDe": "Ein Kontakt zu einer Person, die man kennt, oft noch ohne enge Bindung.",
+          "rationaleDe": "Bekanntschaft setzt Kennen voraus, aber keine enge oder langjährige Freundschaft.",
+          "assessmentUnit": "Bekanntschaft lockerer Kontakt",
+          "sourceSpans": [
+            {
+              "start": 422,
+              "end": 437,
+              "quote": "Bekanntschaften"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q3",
+          "publicPromptDe": "Was bezeichnet Freundschaft zwischen zwei Menschen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.words.q3.a",
+              "textDe": "Eine zufällige Begegnung ohne jedes Kennenlernen."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q3.b",
+              "textDe": "Ein einmaliger Kontakt ohne persönliche Beziehung."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q3.c",
+              "textDe": "Eine persönliche Beziehung mit gegenseitiger Nähe und Vertrauen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.words.q3.c",
+          "correctAnswerTextDe": "Eine persönliche Beziehung mit gegenseitiger Nähe und Vertrauen.",
+          "rationaleDe": "Freundschaft meint eine persönliche Bindung und geht über bloße Begegnung hinaus.",
+          "assessmentUnit": "Freundschaft persönliche Bindung",
+          "sourceSpans": [
+            {
+              "start": 454,
+              "end": 468,
+              "quote": "Freundschaften"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q4",
+          "publicPromptDe": "Was sind soziale Kontakte in einer neuen Stadt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.words.q4.c",
+              "textDe": "Verbindungen und Austausch mit anderen Menschen."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q4.b",
+              "textDe": "Nur Adressen von Gebäuden ohne Austausch mit Menschen."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q4.a",
+              "textDe": "Nur private Interessen ohne Bezug zu anderen Menschen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.words.q4.c",
+          "correctAnswerTextDe": "Verbindungen und Austausch mit anderen Menschen.",
+          "rationaleDe": "Soziale Kontakte betreffen Beziehungen und Austausch zwischen Menschen.",
+          "assessmentUnit": "Kontakte soziale Verbindungen",
+          "sourceSpans": [
+            {
+              "start": 502,
+              "end": 510,
+              "quote": "Kontakte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q5",
+          "publicPromptDe": "Gespräche kommen beim Spaziergang fast von selbst zustande. Was bedeutet das?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.words.q5.c",
+              "textDe": "Die Gespräche entstehen nur durch einen festen Gesprächsplan."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q5.b",
+              "textDe": "Die Gespräche entstehen fast ohne gezielte Anstrengung."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q5.a",
+              "textDe": "Die Gespräche werden durchgehend von jemandem vorgeschrieben."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.words.q5.b",
+          "correctAnswerTextDe": "Die Gespräche entstehen fast ohne gezielte Anstrengung.",
+          "rationaleDe": "Von selbst beschreibt spontanes Entstehen statt gezielter Planung oder Vorschrift.",
+          "assessmentUnit": "von selbst ohne gezielte Steuerung",
+          "sourceSpans": [
+            {
+              "start": 392,
+              "end": 402,
+              "quote": "von selbst"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.words.q6",
+          "publicPromptDe": "Was bedeutet »Es fiel mir schwer, andere anzusprechen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.words.q6.a",
+              "textDe": "Es kostete mich Mühe, mit anderen ein Gespräch zu beginnen."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q6.b",
+              "textDe": "Es gelang mir ohne Mühe, andere anzusprechen."
+            },
+            {
+              "id": "sitov.pretest.b11-03.words.q6.c",
+              "textDe": "Es war mir gleichgültig, ob ich andere ansprach."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.words.q6.a",
+          "correctAnswerTextDe": "Es kostete mich Mühe, mit anderen ein Gespräch zu beginnen.",
+          "rationaleDe": "Schwerfallen bezeichnet Schwierigkeit und Mühe, nicht Leichtigkeit oder Gleichgültigkeit.",
+          "assessmentUnit": "schwerfallen Mühe bereiten",
+          "sourceSpans": [
+            {
+              "start": 286,
+              "end": 304,
+              "quote": "fiel es mir schwer"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q1",
+          "publicPromptDe": "Welche Zeitform und welches Hilfsverb zeigt »Als ich nach Hannover gezogen bin«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.verbs.q1.a",
+              "textDe": "Plusquamperfekt mit sein."
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q1.c",
+              "textDe": "Perfekt mit sein."
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q1.b",
+              "textDe": "Perfekt mit haben."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.verbs.q1.c",
+          "correctAnswerTextDe": "Perfekt mit sein.",
+          "rationaleDe": "Bin und das Partizip gezogen bilden das Perfekt mit sein; war gezogen wäre Plusquamperfekt.",
+          "assessmentUnit": "gezogen bin Perfekt sein",
+          "sourceSpans": [
+            {
+              "start": 22,
+              "end": 33,
+              "quote": "gezogen bin"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich fühlte ___ oft allein«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.verbs.q2.b",
+              "textDe": "mir"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q2.a",
+              "textDe": "sich"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q2.c",
+              "textDe": "mich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.verbs.q2.c",
+          "correctAnswerTextDe": "mich",
+          "rationaleDe": "Sich fühlen verlangt hier das reflexive Akkusativpronomen mich zum Subjekt ich.",
+          "assessmentUnit": "mich Reflexiv fühlen",
+          "sourceSpans": [
+            {
+              "start": 125,
+              "end": 136,
+              "quote": "fühlte mich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q3",
+          "publicPromptDe": "Welcher Infinitiv gehört zu »Mein Bruder schlug vor, einen Kurs zu besuchen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.verbs.q3.a",
+              "textDe": "vorschlagen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q3.b",
+              "textDe": "schlagen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q3.c",
+              "textDe": "vorzuschlagen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.verbs.q3.a",
+          "correctAnswerTextDe": "vorschlagen",
+          "rationaleDe": "Schlug und vor bilden das trennbare Verb vorschlagen; vorzuschlagen enthält zusätzlich zu.",
+          "assessmentUnit": "vorschlagen trennbarer Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 161,
+              "end": 171,
+              "quote": "schlug vor"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q4",
+          "publicPromptDe": "Welche Präteritumform von »sich entscheiden« ergänzt »Ich ___ mich für einen Fotokurs«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.verbs.q4.a",
+              "textDe": "entscheidete"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q4.b",
+              "textDe": "entschied"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q4.c",
+              "textDe": "entschieden"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.verbs.q4.b",
+          "correctAnswerTextDe": "entschied",
+          "rationaleDe": "Entscheiden bildet das starke Präteritum entschied in der ersten Person Singular.",
+          "assessmentUnit": "entschied starkes Präteritum",
+          "sourceSpans": [
+            {
+              "start": 243,
+              "end": 252,
+              "quote": "entschied"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q5",
+          "publicPromptDe": "Welche Form von »ansprechen« ergänzt »Es fiel mir schwer, die anderen ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.verbs.q5.a",
+              "textDe": "zu ansprechen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q5.c",
+              "textDe": "ansprechen zu"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q5.b",
+              "textDe": "anzusprechen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.verbs.q5.b",
+          "correctAnswerTextDe": "anzusprechen",
+          "rationaleDe": "Beim trennbaren ansprechen steht zu zwischen Präfix und Stamm: anzusprechen.",
+          "assessmentUnit": "anzusprechen trennbarer zu Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 318,
+              "end": 330,
+              "quote": "anzusprechen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.verbs.q6",
+          "publicPromptDe": "Welche Partizipform von »werden« ergänzt »Aus Bekanntschaften sind Freundschaften ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.verbs.q6.a",
+              "textDe": "geworden"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q6.b",
+              "textDe": "gewordet"
+            },
+            {
+              "id": "sitov.pretest.b11-03.verbs.q6.c",
+              "textDe": "gewerdet"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.verbs.q6.a",
+          "correctAnswerTextDe": "geworden",
+          "rationaleDe": "Werden im Sinn einer Veränderung bildet das Partizip geworden.",
+          "assessmentUnit": "geworden Partizip werden",
+          "sourceSpans": [
+            {
+              "start": 469,
+              "end": 477,
+              "quote": "geworden"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q1",
+          "publicPromptDe": "Welche Folge ergänzt »Als …, kannte ich kaum jemanden«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.syntax.q1.b",
+              "textDe": "ich bin nach Hannover gezogen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q1.c",
+              "textDe": "bin ich nach Hannover gezogen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q1.a",
+              "textDe": "ich nach Hannover gezogen bin"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.syntax.q1.a",
+          "correctAnswerTextDe": "ich nach Hannover gezogen bin",
+          "rationaleDe": "Im Als-Nebensatz steht das finite bin nach dem Partizip gezogen am Ende.",
+          "assessmentUnit": "Als Verbfinal Perfektklammer",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 33,
+              "quote": "Als ich nach Hannover gezogen bin"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q2",
+          "publicPromptDe": "Welche Folge ergänzt »Mein Bruder schlug vor, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.syntax.q2.c",
+              "textDe": "zu einen Kurs besuchen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q2.b",
+              "textDe": "einen Kurs besuchen zu"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q2.a",
+              "textDe": "einen Kurs zu besuchen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.syntax.q2.a",
+          "correctAnswerTextDe": "einen Kurs zu besuchen",
+          "rationaleDe": "In der Infinitivgruppe steht zu unmittelbar vor besuchen.",
+          "assessmentUnit": "Infinitivgruppe Kursbesuch",
+          "sourceSpans": [
+            {
+              "start": 173,
+              "end": 195,
+              "quote": "einen Kurs zu besuchen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q3",
+          "publicPromptDe": "Ein Kurs hatte nichts mit meinem Beruf zu tun. Welche Folge ergänzt »Ich suchte einen Kurs, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.syntax.q3.c",
+              "textDe": "der hatte nichts mit meinem Beruf zu tun"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q3.b",
+              "textDe": "der nichts mit meinem Beruf zu tun hatte"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q3.a",
+              "textDe": "der nichts hatte mit meinem Beruf zu tun"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.syntax.q3.b",
+          "correctAnswerTextDe": "der nichts mit meinem Beruf zu tun hatte",
+          "rationaleDe": "Im Relativsatz steht das finite hatte am Ende nach zu tun; der bezieht sich auf Kurs.",
+          "assessmentUnit": "Relativsatz Kurs Verbklammer",
+          "sourceSpans": [
+            {
+              "start": 197,
+              "end": 237,
+              "quote": "der nichts mit meinem Beruf zu tun hatte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q4",
+          "publicPromptDe": "Welche Folge ergänzt »Ich habe gelernt, dass …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.syntax.q4.b",
+              "textDe": "Kontakte Zeit brauchen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q4.c",
+              "textDe": "brauchen Kontakte Zeit"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q4.a",
+              "textDe": "Kontakte brauchen Zeit"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.syntax.q4.b",
+          "correctAnswerTextDe": "Kontakte Zeit brauchen",
+          "rationaleDe": "Dass leitet den Inhalt des Gelernten ein; brauchen steht im Nebensatz am Ende.",
+          "assessmentUnit": "dass indirekter Inhalt Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 497,
+              "end": 524,
+              "quote": "dass Kontakte Zeit brauchen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q5",
+          "publicPromptDe": "Welche Folge ergänzt »Ein gemeinsames Interesse reicht, damit …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.syntax.q5.c",
+              "textDe": "aus einem ersten Gespräch mehr entsteht"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q5.b",
+              "textDe": "entsteht aus einem ersten Gespräch mehr"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q5.a",
+              "textDe": "aus einem ersten Gespräch entsteht mehr"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.syntax.q5.c",
+          "correctAnswerTextDe": "aus einem ersten Gespräch mehr entsteht",
+          "rationaleDe": "Im damit-Nebensatz steht entsteht am Ende; die Umstellung zum Hauptsatz wäre hier falsch.",
+          "assessmentUnit": "damit Nebensatz Entstehen",
+          "sourceSpans": [
+            {
+              "start": 569,
+              "end": 614,
+              "quote": "damit aus einem ersten Gespräch mehr entsteht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.syntax.q6",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Aus zwei Bekanntschaften …« zu einem Aussagesatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.syntax.q6.b",
+              "textDe": "Freundschaften sind inzwischen geworden"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q6.c",
+              "textDe": "sind inzwischen Freundschaften geworden"
+            },
+            {
+              "id": "sitov.pretest.b11-03.syntax.q6.a",
+              "textDe": "Freundschaften inzwischen geworden sind"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.syntax.q6.c",
+          "correctAnswerTextDe": "sind inzwischen Freundschaften geworden",
+          "rationaleDe": "Die Aus-Gruppe besetzt das Vorfeld; das finite sind folgt an zweiter Satzgliedposition.",
+          "assessmentUnit": "Aus Bekanntschaften Vorfeld Perfekt",
+          "sourceSpans": [
+            {
+              "start": 413,
+              "end": 477,
+              "quote": "Aus zwei Bekanntschaften sind inzwischen Freundschaften geworden"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich kannte außer ___ Bruder niemanden«, wenn es mein Bruder ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.nominal.q1.c",
+              "textDe": "meinen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q1.b",
+              "textDe": "meines"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q1.a",
+              "textDe": "meinem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.nominal.q1.a",
+          "correctAnswerTextDe": "meinem",
+          "rationaleDe": "Außer verlangt hier den Dativ: meinem Bruder.",
+          "assessmentUnit": "meinem Bruder Dativ außer",
+          "sourceSpans": [
+            {
+              "start": 46,
+              "end": 65,
+              "quote": "außer meinem Bruder"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich entschied mich für ___ Fotokurs«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.nominal.q2.a",
+              "textDe": "eines"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q2.c",
+              "textDe": "einen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q2.b",
+              "textDe": "einem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.nominal.q2.c",
+          "correctAnswerTextDe": "einen",
+          "rationaleDe": "Sich entscheiden für verlangt hier Akkusativ; Fotokurs ist maskulin: einen.",
+          "assessmentUnit": "einen Fotokurs Akkusativ für",
+          "sourceSpans": [
+            {
+              "start": 258,
+              "end": 276,
+              "quote": "für einen Fotokurs"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »bei den ___ Spaziergängen« zu »gemeinsam«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.nominal.q3.b",
+              "textDe": "gemeinsame"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q3.c",
+              "textDe": "gemeinsamen"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q3.a",
+              "textDe": "gemeinsamer"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.nominal.q3.c",
+          "correctAnswerTextDe": "gemeinsamen",
+          "rationaleDe": "Nach den im Dativ Plural endet das Adjektiv auf en: gemeinsamen.",
+          "assessmentUnit": "gemeinsamen Spaziergängen Dativ Plural",
+          "sourceSpans": [
+            {
+              "start": 337,
+              "end": 370,
+              "quote": "bei den gemeinsamen Spaziergängen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »aus einem ___ Gespräch« zu »erst«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.nominal.q4.c",
+              "textDe": "erstem"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q4.a",
+              "textDe": "erstes"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q4.b",
+              "textDe": "ersten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.nominal.q4.b",
+          "correctAnswerTextDe": "ersten",
+          "rationaleDe": "Aus verlangt den Dativ; nach einem lautet die Adjektivform ersten.",
+          "assessmentUnit": "ersten Gespräch Dativ Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 575,
+              "end": 600,
+              "quote": "aus einem ersten Gespräch"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q5",
+          "publicPromptDe": "Wie lautet der Plural von »die Freundschaft«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.nominal.q5.b",
+              "textDe": "die Freundschaften"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q5.a",
+              "textDe": "die Freundschafts"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q5.c",
+              "textDe": "die Freundschäfte"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.nominal.q5.b",
+          "correctAnswerTextDe": "die Freundschaften",
+          "rationaleDe": "Der regelmäßige Plural lautet Freundschaften mit en.",
+          "assessmentUnit": "Freundschaften Pluralbildung",
+          "sourceSpans": [
+            {
+              "start": 454,
+              "end": 468,
+              "quote": "Freundschaften"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-03.nominal.q6",
+          "publicPromptDe": "Welche Komparativform von »viel« ergänzt »damit aus einem Gespräch ___ entsteht«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-03.nominal.q6.a",
+              "textDe": "mehr"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q6.c",
+              "textDe": "meiste"
+            },
+            {
+              "id": "sitov.pretest.b11-03.nominal.q6.b",
+              "textDe": "viel"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-03.nominal.q6.a",
+          "correctAnswerTextDe": "mehr",
+          "rationaleDe": "Der Komparativ von viel lautet mehr; viel ist die Grundform, meiste gehört zum Superlativ.",
+          "assessmentUnit": "mehr Komparativ viel",
+          "sourceSpans": [
+            {
+              "start": 601,
+              "end": 614,
+              "quote": "mehr entsteht"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "a32ba623-4578-55b4-9b44-b717c857a46c",
+      "title": "Eine faire Aufgabenverteilung",
+      "level": "B1.1",
+      "textVersion": "a7e24452f72bf0e76b4930469a1615bd5ee30f3ac39ad66030d87d4a4bd3298c",
+      "definitionContentHash": "d9a0f5bf801c82b8b8cef41864b6d1c8173449855037c836c94b551057f44b1f",
+      "sourceBodyDe": "In unserer Wohngemeinschaft gab es immer wieder Streit über die Hausarbeit. Einige putzten häufig, andere bemerkten den Schmutz angeblich gar nicht. Irgendwann setzten wir uns zusammen, statt nur kurze Nachrichten in die Gruppe zu schreiben. Jeder erklärte, welche Aufgaben er übernehmen konnte und was ihn störte. Wir erstellten einen einfachen Plan, der jede Woche wechselt. Außerdem vereinbarten wir, rechtzeitig Bescheid zu geben, wenn jemand keine Zeit hat. Seitdem ist nicht alles perfekt, aber die Stimmung ist besser. Besonders geholfen hat uns, einander zuzuhören und konkrete Absprachen zu treffen.",
+      "cores": [
+        {
+          "id": "sitov.pretest.b11-04.words",
+          "category": "vocabulary",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "Streit Konflikt",
+            "Hausarbeit Haushaltstätigkeit",
+            "angeblich unbestätigte Behauptung",
+            "rechtzeitig vor zu spätem Zeitpunkt",
+            "Bescheid geben informieren",
+            "Absprachen gemeinsam vereinbart"
+          ],
+          "sourceSpans": [
+            {
+              "start": 48,
+              "end": 54,
+              "quote": "Streit"
+            },
+            {
+              "start": 64,
+              "end": 74,
+              "quote": "Hausarbeit"
+            },
+            {
+              "start": 128,
+              "end": 137,
+              "quote": "angeblich"
+            },
+            {
+              "start": 404,
+              "end": 415,
+              "quote": "rechtzeitig"
+            },
+            {
+              "start": 416,
+              "end": 433,
+              "quote": "Bescheid zu geben"
+            },
+            {
+              "start": 586,
+              "end": 596,
+              "quote": "Absprachen"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Streit Konflikt, Hausarbeit Haushaltstätigkeit, angeblich unbestätigte Behauptung, rechtzeitig vor zu spätem Zeitpunkt, Bescheid geben informieren, Absprachen gemeinsam vereinbart. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-04.verbs",
+          "category": "verb_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "gab Präteritum geben",
+            "putzten Präteritum Plural",
+            "uns Reflexiv zusammensetzen",
+            "übernehmen Infinitiv nach können",
+            "geholfen starkes Partizip",
+            "zuzuhören trennbarer zu Infinitiv"
+          ],
+          "sourceSpans": [
+            {
+              "start": 28,
+              "end": 31,
+              "quote": "gab"
+            },
+            {
+              "start": 83,
+              "end": 90,
+              "quote": "putzten"
+            },
+            {
+              "start": 160,
+              "end": 184,
+              "quote": "setzten wir uns zusammen"
+            },
+            {
+              "start": 277,
+              "end": 294,
+              "quote": "übernehmen konnte"
+            },
+            {
+              "start": 536,
+              "end": 544,
+              "quote": "geholfen"
+            },
+            {
+              "start": 563,
+              "end": 572,
+              "quote": "zuzuhören"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: gab Präteritum geben, putzten Präteritum Plural, uns Reflexiv zusammensetzen, übernehmen Infinitiv nach können, geholfen starkes Partizip, zuzuhören trennbarer zu Infinitiv. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-04.syntax",
+          "category": "syntax",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "statt zu alternative Handlung",
+            "welche indirekte Frage Modalverbfinal",
+            "der Relativsatz Plan",
+            "wenn Bedingung fehlende Zeit",
+            "aber Gegensatz unvollkommen besser",
+            "Außerdem Vorfeld Verbzweit"
+          ],
+          "sourceSpans": [
+            {
+              "start": 186,
+              "end": 240,
+              "quote": "statt nur kurze Nachrichten in die Gruppe zu schreiben"
+            },
+            {
+              "start": 258,
+              "end": 294,
+              "quote": "welche Aufgaben er übernehmen konnte"
+            },
+            {
+              "start": 352,
+              "end": 375,
+              "quote": "der jede Woche wechselt"
+            },
+            {
+              "start": 435,
+              "end": 461,
+              "quote": "wenn jemand keine Zeit hat"
+            },
+            {
+              "start": 463,
+              "end": 524,
+              "quote": "Seitdem ist nicht alles perfekt, aber die Stimmung ist besser"
+            },
+            {
+              "start": 377,
+              "end": 402,
+              "quote": "Außerdem vereinbarten wir"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: statt zu alternative Handlung, welche indirekte Frage Modalverbfinal, der Relativsatz Plan, wenn Bedingung fehlende Zeit, aber Gegensatz unvollkommen besser, Außerdem Vorfeld Verbzweit. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-04.nominal",
+          "category": "nominal_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "unserer Wohngemeinschaft Dativ Ort",
+            "die Hausarbeit Akkusativ über",
+            "einfachen Plan Akkusativ Adjektiv",
+            "jede Woche Akkusativ Zeit",
+            "uns Dativ helfen",
+            "besser Komparativ gut"
+          ],
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 27,
+              "quote": "In unserer Wohngemeinschaft"
+            },
+            {
+              "start": 55,
+              "end": 74,
+              "quote": "über die Hausarbeit"
+            },
+            {
+              "start": 330,
+              "end": 350,
+              "quote": "einen einfachen Plan"
+            },
+            {
+              "start": 356,
+              "end": 366,
+              "quote": "jede Woche"
+            },
+            {
+              "start": 536,
+              "end": 552,
+              "quote": "geholfen hat uns"
+            },
+            {
+              "start": 518,
+              "end": 524,
+              "quote": "besser"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: unserer Wohngemeinschaft Dativ Ort, die Hausarbeit Akkusativ über, einfachen Plan Akkusativ Adjektiv, jede Woche Akkusativ Zeit, uns Dativ helfen, besser Komparativ gut. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        }
+      ],
+      "questions": [
+        {
+          "questionId": "sitov.pretest.b11-04.words.q1",
+          "publicPromptDe": "Was bedeutet Streit über die Hausarbeit?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.words.q1.c",
+              "textDe": "Eine bereits gemeinsame Einigung über alle Aufgaben."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q1.a",
+              "textDe": "Ein einvernehmliches Lob für erledigte Aufgaben."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q1.b",
+              "textDe": "Ein Konflikt darüber, wie die Hausarbeit erledigt wird."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.words.q1.b",
+          "correctAnswerTextDe": "Ein Konflikt darüber, wie die Hausarbeit erledigt wird.",
+          "rationaleDe": "Streit bezeichnet einen Konflikt, nicht Einigung oder Lob.",
+          "assessmentUnit": "Streit Konflikt",
+          "sourceSpans": [
+            {
+              "start": 48,
+              "end": 54,
+              "quote": "Streit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q2",
+          "publicPromptDe": "Welche Tätigkeit zählt hier zur Hausarbeit in einer Wohngemeinschaft?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.words.q2.a",
+              "textDe": "Die gemeinsamen Wohnräume sauber halten."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q2.b",
+              "textDe": "Die berufliche Arbeit außerhalb der Wohnung erledigen."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q2.c",
+              "textDe": "Schriftliche Kursaufgaben für den Unterricht lösen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.words.q2.a",
+          "correctAnswerTextDe": "Die gemeinsamen Wohnräume sauber halten.",
+          "rationaleDe": "Hausarbeit meint hier Tätigkeiten im Haushalt, besonders Putzen.",
+          "assessmentUnit": "Hausarbeit Haushaltstätigkeit",
+          "sourceSpans": [
+            {
+              "start": 64,
+              "end": 74,
+              "quote": "Hausarbeit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q3",
+          "publicPromptDe": "Was signalisiert »Andere bemerkten den Schmutz angeblich gar nicht«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.words.q3.c",
+              "textDe": "Dass der Sprecher sicher das Gegenteil beobachtet hat."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q3.b",
+              "textDe": "Dass das Nichtbemerken zweifelsfrei nachgewiesen ist."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q3.a",
+              "textDe": "Dass das Nichtbemerken behauptet, aber nicht als sicher bestätigt wird."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.words.q3.a",
+          "correctAnswerTextDe": "Dass das Nichtbemerken behauptet, aber nicht als sicher bestätigt wird.",
+          "rationaleDe": "Angeblich kennzeichnet eine wiedergegebene Behauptung mit Abstand zu ihrer Sicherheit.",
+          "assessmentUnit": "angeblich unbestätigte Behauptung",
+          "sourceSpans": [
+            {
+              "start": 128,
+              "end": 137,
+              "quote": "angeblich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q4",
+          "publicPromptDe": "Was bedeutet rechtzeitig Bescheid geben, wenn man keine Zeit hat?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.words.q4.c",
+              "textDe": "So früh informieren, dass die anderen noch planen können."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q4.a",
+              "textDe": "Nur informieren, wenn später zufällig danach gefragt wird."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q4.b",
+              "textDe": "Erst informieren, nachdem die Aufgabe schon unerledigt geblieben ist."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.words.q4.c",
+          "correctAnswerTextDe": "So früh informieren, dass die anderen noch planen können.",
+          "rationaleDe": "Rechtzeitig meint vor dem zu späten Zeitpunkt, damit Planung möglich bleibt.",
+          "assessmentUnit": "rechtzeitig vor zu spätem Zeitpunkt",
+          "sourceSpans": [
+            {
+              "start": 404,
+              "end": 415,
+              "quote": "rechtzeitig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q5",
+          "publicPromptDe": "Was bedeutet Bescheid geben?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.words.q5.c",
+              "textDe": "Eine Information für sich behalten."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q5.b",
+              "textDe": "Jemanden über etwas informieren."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q5.a",
+              "textDe": "Eine Information von anderen erhalten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.words.q5.b",
+          "correctAnswerTextDe": "Jemanden über etwas informieren.",
+          "rationaleDe": "Bescheid geben ist eine feste Verbindung für informieren.",
+          "assessmentUnit": "Bescheid geben informieren",
+          "sourceSpans": [
+            {
+              "start": 416,
+              "end": 433,
+              "quote": "Bescheid zu geben"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.words.q6",
+          "publicPromptDe": "Was sind konkrete Absprachen über Hausarbeit?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.words.q6.a",
+              "textDe": "Unausgesprochene Erwartungen, die niemand besprochen hat."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q6.c",
+              "textDe": "Gemeinsam vereinbarte Regeln dazu, wer was erledigt."
+            },
+            {
+              "id": "sitov.pretest.b11-04.words.q6.b",
+              "textDe": "Einseitige Vermutungen darüber, was andere erledigen könnten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.words.q6.c",
+          "correctAnswerTextDe": "Gemeinsam vereinbarte Regeln dazu, wer was erledigt.",
+          "rationaleDe": "Absprachen beruhen auf gemeinsamem Vereinbaren statt unbesprochenen Erwartungen.",
+          "assessmentUnit": "Absprachen gemeinsam vereinbart",
+          "sourceSpans": [
+            {
+              "start": 586,
+              "end": 596,
+              "quote": "Absprachen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q1",
+          "publicPromptDe": "Welche Präteritumform von »geben« ergänzt »In der Wohngemeinschaft ___ es Streit«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.verbs.q1.c",
+              "textDe": "gaben"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q1.b",
+              "textDe": "gebte"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q1.a",
+              "textDe": "gab"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.verbs.q1.a",
+          "correctAnswerTextDe": "gab",
+          "rationaleDe": "Die feste Form es gab steht in der dritten Person Singular des starken Präteritums.",
+          "assessmentUnit": "gab Präteritum geben",
+          "sourceSpans": [
+            {
+              "start": 28,
+              "end": 31,
+              "quote": "gab"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q2",
+          "publicPromptDe": "Welche Präteritumform von »putzen« ergänzt »Einige Bewohner ___ häufig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.verbs.q2.b",
+              "textDe": "putzte"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q2.c",
+              "textDe": "putzten"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q2.a",
+              "textDe": "putztet"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.verbs.q2.c",
+          "correctAnswerTextDe": "putzten",
+          "rationaleDe": "Das Subjekt einige Bewohner verlangt die dritte Person Plural putzten.",
+          "assessmentUnit": "putzten Präteritum Plural",
+          "sourceSpans": [
+            {
+              "start": 83,
+              "end": 90,
+              "quote": "putzten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Wir setzten ___ zusammen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.verbs.q3.c",
+              "textDe": "uns"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q3.b",
+              "textDe": "sich"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q3.a",
+              "textDe": "euch"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.verbs.q3.c",
+          "correctAnswerTextDe": "uns",
+          "rationaleDe": "Sich zusammensetzen steht zum Subjekt wir mit dem Reflexivpronomen uns.",
+          "assessmentUnit": "uns Reflexiv zusammensetzen",
+          "sourceSpans": [
+            {
+              "start": 160,
+              "end": 184,
+              "quote": "setzten wir uns zusammen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Jeder konnte Aufgaben ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.verbs.q4.c",
+              "textDe": "übernommen"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q4.a",
+              "textDe": "zu übernehmen"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q4.b",
+              "textDe": "übernehmen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.verbs.q4.b",
+          "correctAnswerTextDe": "übernehmen",
+          "rationaleDe": "Nach dem finiten Modalverb konnte steht der reine Infinitiv übernehmen.",
+          "assessmentUnit": "übernehmen Infinitiv nach können",
+          "sourceSpans": [
+            {
+              "start": 277,
+              "end": 294,
+              "quote": "übernehmen konnte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q5",
+          "publicPromptDe": "Welche Partizipform von »helfen« ergänzt »Das Zuhören hat uns besonders ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.verbs.q5.a",
+              "textDe": "geholfen"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q5.b",
+              "textDe": "geholft"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q5.c",
+              "textDe": "gehelft"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.verbs.q5.a",
+          "correctAnswerTextDe": "geholfen",
+          "rationaleDe": "Helfen bildet das starke Partizip geholfen.",
+          "assessmentUnit": "geholfen starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 536,
+              "end": 544,
+              "quote": "geholfen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.verbs.q6",
+          "publicPromptDe": "Welche Form von »zuhören« ergänzt »Es hilft, einander ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.verbs.q6.c",
+              "textDe": "zu zuhören"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q6.b",
+              "textDe": "zuzuhören"
+            },
+            {
+              "id": "sitov.pretest.b11-04.verbs.q6.a",
+              "textDe": "zuhören zu"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.verbs.q6.b",
+          "correctAnswerTextDe": "zuzuhören",
+          "rationaleDe": "Beim trennbaren zuhören steht zu zwischen Präfix zu und hören: zuzuhören.",
+          "assessmentUnit": "zuzuhören trennbarer zu Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 563,
+              "end": 572,
+              "quote": "zuzuhören"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q1",
+          "publicPromptDe": "Welche Beziehung zeigt »Wir setzten uns zusammen, statt nur Nachrichten zu schreiben«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.syntax.q1.a",
+              "textDe": "Das gemeinsame Gespräch ist der Zweck des Nachrichtenschreibens."
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q1.b",
+              "textDe": "Das gemeinsame Gespräch geschieht nur nach jeder geschriebenen Nachricht."
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q1.c",
+              "textDe": "Das gemeinsame Gespräch ersetzt das bloße Schreiben von Nachrichten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.syntax.q1.c",
+          "correctAnswerTextDe": "Das gemeinsame Gespräch ersetzt das bloße Schreiben von Nachrichten.",
+          "rationaleDe": "Statt zu benennt eine ersetzte Alternative, nicht Zweck oder feste zeitliche Folge.",
+          "assessmentUnit": "statt zu alternative Handlung",
+          "sourceSpans": [
+            {
+              "start": 186,
+              "end": 240,
+              "quote": "statt nur kurze Nachrichten in die Gruppe zu schreiben"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q2",
+          "publicPromptDe": "Welche Folge ergänzt »Jeder erklärte, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.syntax.q2.c",
+              "textDe": "welche Aufgaben er konnte übernehmen"
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q2.b",
+              "textDe": "welche Aufgaben er übernehmen konnte"
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q2.a",
+              "textDe": "welche Aufgaben konnte er übernehmen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.syntax.q2.b",
+          "correctAnswerTextDe": "welche Aufgaben er übernehmen konnte",
+          "rationaleDe": "In der indirekten welche-Frage steht konnte am Ende nach übernehmen.",
+          "assessmentUnit": "welche indirekte Frage Modalverbfinal",
+          "sourceSpans": [
+            {
+              "start": 258,
+              "end": 294,
+              "quote": "welche Aufgaben er übernehmen konnte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q3",
+          "publicPromptDe": "Ein Plan wechselt jede Woche. Welche Folge ergänzt »Wir erstellten einen Plan, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.syntax.q3.c",
+              "textDe": "der jede Woche wechselt"
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q3.a",
+              "textDe": "der wechselt jede Woche"
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q3.b",
+              "textDe": "der jede Woche wechseln"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.syntax.q3.c",
+          "correctAnswerTextDe": "der jede Woche wechselt",
+          "rationaleDe": "Der Relativsatz zum Plan verlangt das finite wechselt am Ende; Plan ist Singular.",
+          "assessmentUnit": "der Relativsatz Plan",
+          "sourceSpans": [
+            {
+              "start": 352,
+              "end": 375,
+              "quote": "der jede Woche wechselt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q4",
+          "publicPromptDe": "Welche Beziehung zeigt »Wir geben Bescheid, wenn jemand keine Zeit hat«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.syntax.q4.c",
+              "textDe": "Das Bescheidgeben ist der Zweck der fehlenden Zeit."
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q4.a",
+              "textDe": "Fehlende Zeit ist die Bedingung für das Bescheidgeben."
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q4.b",
+              "textDe": "Das Bescheidgeben beweist, dass jeder immer Zeit hat."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.syntax.q4.a",
+          "correctAnswerTextDe": "Fehlende Zeit ist die Bedingung für das Bescheidgeben.",
+          "rationaleDe": "Wenn nennt hier den auslösenden Fall; es formuliert weder einen Zweck noch den gegenteiligen Zustand.",
+          "assessmentUnit": "wenn Bedingung fehlende Zeit",
+          "sourceSpans": [
+            {
+              "start": 435,
+              "end": 461,
+              "quote": "wenn jemand keine Zeit hat"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q5",
+          "publicPromptDe": "Welche Beziehung zeigt »Nicht alles ist perfekt, aber die Stimmung ist besser«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.syntax.q5.a",
+              "textDe": "Die Stimmung verbessert sich trotz weiterhin bestehender Probleme."
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q5.c",
+              "textDe": "Die bessere Stimmung verhindert jede weitere Verbesserung."
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q5.b",
+              "textDe": "Die Stimmung verbessert sich erst, wenn alle Probleme verschwunden sind."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.syntax.q5.a",
+          "correctAnswerTextDe": "Die Stimmung verbessert sich trotz weiterhin bestehender Probleme.",
+          "rationaleDe": "Aber verbindet den Restmangel mit der positiven Entwicklung als Gegensatz.",
+          "assessmentUnit": "aber Gegensatz unvollkommen besser",
+          "sourceSpans": [
+            {
+              "start": 463,
+              "end": 524,
+              "quote": "Seitdem ist nicht alles perfekt, aber die Stimmung ist besser"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.syntax.q6",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Außerdem …« zu einem Aussagesatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.syntax.q6.a",
+              "textDe": "wir rechtzeitig Bescheid zu geben vereinbarten"
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q6.c",
+              "textDe": "wir vereinbarten, rechtzeitig Bescheid zu geben"
+            },
+            {
+              "id": "sitov.pretest.b11-04.syntax.q6.b",
+              "textDe": "vereinbarten wir, rechtzeitig Bescheid zu geben"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.syntax.q6.b",
+          "correctAnswerTextDe": "vereinbarten wir, rechtzeitig Bescheid zu geben",
+          "rationaleDe": "Außerdem besetzt das Vorfeld; vereinbarten folgt vor dem Subjekt wir.",
+          "assessmentUnit": "Außerdem Vorfeld Verbzweit",
+          "sourceSpans": [
+            {
+              "start": 377,
+              "end": 402,
+              "quote": "Außerdem vereinbarten wir"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q1",
+          "publicPromptDe": "Der Streit findet innerhalb unserer Wohngemeinschaft statt. Welche Form ergänzt »In ___ Wohngemeinschaft gibt es Streit«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.nominal.q1.c",
+              "textDe": "unserer"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q1.b",
+              "textDe": "unsere"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q1.a",
+              "textDe": "unseren"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.nominal.q1.c",
+          "correctAnswerTextDe": "unserer",
+          "rationaleDe": "In beschreibt hier den Ort des Streits und verlangt Dativ; feminin Singular lautet unserer.",
+          "assessmentUnit": "unserer Wohngemeinschaft Dativ Ort",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 27,
+              "quote": "In unserer Wohngemeinschaft"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Wir streiten über ___ Hausarbeit«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.nominal.q2.b",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q2.c",
+              "textDe": "der"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q2.a",
+              "textDe": "die"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.nominal.q2.a",
+          "correctAnswerTextDe": "die",
+          "rationaleDe": "Streiten über verlangt hier den Akkusativ; Hausarbeit ist feminin: die.",
+          "assessmentUnit": "die Hausarbeit Akkusativ über",
+          "sourceSpans": [
+            {
+              "start": 55,
+              "end": 74,
+              "quote": "über die Hausarbeit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Wir erstellen einen ___ Plan« zu »einfach«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.nominal.q3.a",
+              "textDe": "einfache"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q3.c",
+              "textDe": "einfacher"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q3.b",
+              "textDe": "einfachen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.nominal.q3.b",
+          "correctAnswerTextDe": "einfachen",
+          "rationaleDe": "Nach einen endet das Adjektiv im Akkusativ maskulin auf en.",
+          "assessmentUnit": "einfachen Plan Akkusativ Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 330,
+              "end": 350,
+              "quote": "einen einfachen Plan"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt die Zeitangabe »Der Plan wechselt ___ Woche«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.nominal.q4.b",
+              "textDe": "jeder"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q4.c",
+              "textDe": "jede"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q4.a",
+              "textDe": "jedem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.nominal.q4.c",
+          "correctAnswerTextDe": "jede",
+          "rationaleDe": "Die Zeitangabe ohne Präposition steht im Akkusativ; feminin Singular lautet jede Woche.",
+          "assessmentUnit": "jede Woche Akkusativ Zeit",
+          "sourceSpans": [
+            {
+              "start": 356,
+              "end": 366,
+              "quote": "jede Woche"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q5",
+          "publicPromptDe": "Welche Form von »wir« ergänzt »Das Zuhören hat ___ geholfen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.nominal.q5.c",
+              "textDe": "unser"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q5.b",
+              "textDe": "uns"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q5.a",
+              "textDe": "wir"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.nominal.q5.b",
+          "correctAnswerTextDe": "uns",
+          "rationaleDe": "Helfen verlangt den Dativ; die Dativform von wir lautet uns.",
+          "assessmentUnit": "uns Dativ helfen",
+          "sourceSpans": [
+            {
+              "start": 536,
+              "end": 552,
+              "quote": "geholfen hat uns"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-04.nominal.q6",
+          "publicPromptDe": "Welche Komparativform von »gut« ergänzt »Die Stimmung ist jetzt ___ als vorher«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-04.nominal.q6.a",
+              "textDe": "besser"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q6.b",
+              "textDe": "beste"
+            },
+            {
+              "id": "sitov.pretest.b11-04.nominal.q6.c",
+              "textDe": "gut"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-04.nominal.q6.a",
+          "correctAnswerTextDe": "besser",
+          "rationaleDe": "Der unregelmäßige Komparativ von gut lautet besser.",
+          "assessmentUnit": "besser Komparativ gut",
+          "sourceSpans": [
+            {
+              "start": 518,
+              "end": 524,
+              "quote": "besser"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "525d59e3-5cad-543c-820a-b9316809645f",
+      "title": "Ein sicherer Umgang mit Nachrichten",
+      "level": "B1.1",
+      "textVersion": "3213e47f04578d281902558235bf23c78c4d536b51ed7baa89d217f92f68f61f",
+      "definitionContentHash": "c651c929c28ada1f625cfe77d5a4683dc88515efb3ad133533b99bdb00f05cd0",
+      "sourceBodyDe": "In einer Chatgruppe bekam ich eine Nachricht über eine angebliche Änderung bei unseren Kurszeiten. Viele Teilnehmende waren sofort beunruhigt. Bevor ich die Nachricht weiterleitete, schaute ich auf der Webseite der Schule nach. Dort stand nichts dazu. Ich rief im Büro an und erfuhr, dass es sich um eine alte Information handelte. Anschließend schrieb ich eine kurze Erklärung in die Gruppe. Die Situation hat mir gezeigt, wie schnell Missverständnisse entstehen können. Heute prüfe ich wichtige Nachrichten lieber einmal mehr. Dabei helfen mir das Datum, die Quelle und eine direkte Nachfrage bei der zuständigen Stelle.",
+      "cores": [
+        {
+          "id": "sitov.pretest.b11-05.words",
+          "category": "vocabulary",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "angebliche Änderung unbestätigt",
+            "beunruhigt Sorge",
+            "weiterleiten Nachricht versenden",
+            "Quelle Herkunft Information",
+            "direkte Nachfrage persönlich klären",
+            "zuständige Stelle Verantwortung"
+          ],
+          "sourceSpans": [
+            {
+              "start": 55,
+              "end": 74,
+              "quote": "angebliche Änderung"
+            },
+            {
+              "start": 131,
+              "end": 141,
+              "quote": "beunruhigt"
+            },
+            {
+              "start": 167,
+              "end": 180,
+              "quote": "weiterleitete"
+            },
+            {
+              "start": 561,
+              "end": 567,
+              "quote": "Quelle"
+            },
+            {
+              "start": 577,
+              "end": 594,
+              "quote": "direkte Nachfrage"
+            },
+            {
+              "start": 603,
+              "end": 621,
+              "quote": "zuständigen Stelle"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: angebliche Änderung unbestätigt, beunruhigt Sorge, weiterleiten Nachricht versenden, Quelle Herkunft Information, direkte Nachfrage persönlich klären, zuständige Stelle Verantwortung. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-05.verbs",
+          "category": "verb_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "bekam starkes Präteritum",
+            "weiterleiten trennbarer Infinitiv",
+            "sich Reflexiv handeln um",
+            "gezeigt schwaches Partizip",
+            "entstehen Infinitiv nach können",
+            "helfen Präsens koordinierter Plural"
+          ],
+          "sourceSpans": [
+            {
+              "start": 20,
+              "end": 25,
+              "quote": "bekam"
+            },
+            {
+              "start": 167,
+              "end": 180,
+              "quote": "weiterleitete"
+            },
+            {
+              "start": 289,
+              "end": 330,
+              "quote": "es sich um eine alte Information handelte"
+            },
+            {
+              "start": 415,
+              "end": 422,
+              "quote": "gezeigt"
+            },
+            {
+              "start": 454,
+              "end": 470,
+              "quote": "entstehen können"
+            },
+            {
+              "start": 535,
+              "end": 567,
+              "quote": "helfen mir das Datum, die Quelle"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: bekam starkes Präteritum, weiterleiten trennbarer Infinitiv, sich Reflexiv handeln um, gezeigt schwaches Partizip, entstehen Infinitiv nach können, helfen Präsens koordinierter Plural. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-05.syntax",
+          "category": "syntax",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "Bevor zeitliche Prüfung vorher",
+            "dass reflexive Verbfinalität",
+            "wie indirekter Satz Modalverbklammer",
+            "Anschließend Vorfeld Verbzweit",
+            "Bevor Nebensatz Verbfinalität",
+            "koordiniertes Subjekt nach Verb"
+          ],
+          "sourceSpans": [
+            {
+              "start": 143,
+              "end": 226,
+              "quote": "Bevor ich die Nachricht weiterleitete, schaute ich auf der Webseite der Schule nach"
+            },
+            {
+              "start": 284,
+              "end": 330,
+              "quote": "dass es sich um eine alte Information handelte"
+            },
+            {
+              "start": 424,
+              "end": 470,
+              "quote": "wie schnell Missverständnisse entstehen können"
+            },
+            {
+              "start": 332,
+              "end": 356,
+              "quote": "Anschließend schrieb ich"
+            },
+            {
+              "start": 143,
+              "end": 180,
+              "quote": "Bevor ich die Nachricht weiterleitete"
+            },
+            {
+              "start": 529,
+              "end": 594,
+              "quote": "Dabei helfen mir das Datum, die Quelle und eine direkte Nachfrage"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Bevor zeitliche Prüfung vorher, dass reflexive Verbfinalität, wie indirekter Satz Modalverbklammer, Anschließend Vorfeld Verbzweit, Bevor Nebensatz Verbfinalität, koordiniertes Subjekt nach Verb. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-05.nominal",
+          "category": "nominal_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "einer Chatgruppe Dativ Ort",
+            "eine alte Information Akkusativ um",
+            "kurze Erklärung Akkusativ Adjektiv",
+            "wichtige Nachrichten Akkusativ Plural",
+            "zuständigen Stelle Dativ bei",
+            "lieber Komparativ gern"
+          ],
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 19,
+              "quote": "In einer Chatgruppe"
+            },
+            {
+              "start": 297,
+              "end": 321,
+              "quote": "um eine alte Information"
+            },
+            {
+              "start": 357,
+              "end": 377,
+              "quote": "eine kurze Erklärung"
+            },
+            {
+              "start": 488,
+              "end": 508,
+              "quote": "wichtige Nachrichten"
+            },
+            {
+              "start": 595,
+              "end": 621,
+              "quote": "bei der zuständigen Stelle"
+            },
+            {
+              "start": 509,
+              "end": 515,
+              "quote": "lieber"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: einer Chatgruppe Dativ Ort, eine alte Information Akkusativ um, kurze Erklärung Akkusativ Adjektiv, wichtige Nachrichten Akkusativ Plural, zuständigen Stelle Dativ bei, lieber Komparativ gern. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        }
+      ],
+      "questions": [
+        {
+          "questionId": "sitov.pretest.b11-05.words.q1",
+          "publicPromptDe": "Was bedeutet eine angebliche Änderung der Kurszeiten?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.words.q1.b",
+              "textDe": "Eine bereits sicher bestätigte Änderung."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q1.c",
+              "textDe": "Eine behauptete Änderung, deren Richtigkeit noch nicht feststeht."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q1.a",
+              "textDe": "Eine sicher widerlegte Änderung, über die niemand mehr spricht."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.words.q1.c",
+          "correctAnswerTextDe": "Eine behauptete Änderung, deren Richtigkeit noch nicht feststeht.",
+          "rationaleDe": "Angeblich markiert eine unbestätigte Behauptung, nicht sichere Bestätigung oder Widerlegung.",
+          "assessmentUnit": "angebliche Änderung unbestätigt",
+          "sourceSpans": [
+            {
+              "start": 55,
+              "end": 74,
+              "quote": "angebliche Änderung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q2",
+          "publicPromptDe": "Was bedeutet »Viele waren beunruhigt« nach einer Nachricht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.words.q2.a",
+              "textDe": "Viele machten sich Sorgen."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q2.c",
+              "textDe": "Viele waren mit der Nachricht zufrieden."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q2.b",
+              "textDe": "Viele fühlten sich erleichtert."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.words.q2.a",
+          "correctAnswerTextDe": "Viele machten sich Sorgen.",
+          "rationaleDe": "Beunruhigt bezeichnet Sorge statt Erleichterung oder Zufriedenheit.",
+          "assessmentUnit": "beunruhigt Sorge",
+          "sourceSpans": [
+            {
+              "start": 131,
+              "end": 141,
+              "quote": "beunruhigt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q3",
+          "publicPromptDe": "Was tut man, wenn man eine erhaltene Nachricht weiterleitet?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.words.q3.a",
+              "textDe": "Man löscht die Nachricht ohne weitere Empfänger."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q3.c",
+              "textDe": "Man bewahrt die Nachricht nur für sich auf."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q3.b",
+              "textDe": "Man sendet die Nachricht an weitere Empfänger."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.words.q3.b",
+          "correctAnswerTextDe": "Man sendet die Nachricht an weitere Empfänger.",
+          "rationaleDe": "Weiterleiten bedeutet Übermitteln an weitere Empfänger.",
+          "assessmentUnit": "weiterleiten Nachricht versenden",
+          "sourceSpans": [
+            {
+              "start": 167,
+              "end": 180,
+              "quote": "weiterleitete"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q4",
+          "publicPromptDe": "Was ist die Quelle einer Nachricht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.words.q4.a",
+              "textDe": "Nur die eigene erste Reaktion auf die Nachricht."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q4.c",
+              "textDe": "Nur das Datum, an dem man die Nachricht selbst gelesen hat."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q4.b",
+              "textDe": "Die Herkunft der Information."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.words.q4.b",
+          "correctAnswerTextDe": "Die Herkunft der Information.",
+          "rationaleDe": "Quelle bezeichnet den Ursprung; Lesedatum und Reaktion sind andere Angaben.",
+          "assessmentUnit": "Quelle Herkunft Information",
+          "sourceSpans": [
+            {
+              "start": 561,
+              "end": 567,
+              "quote": "Quelle"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q5",
+          "publicPromptDe": "Was ist eine direkte Nachfrage bei der Schule?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.words.q5.c",
+              "textDe": "Die Schule selbst um eine Auskunft bitten."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q5.b",
+              "textDe": "Nur Vermutungen in der Chatgruppe sammeln."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q5.a",
+              "textDe": "Nur die vorhandene Nachricht ohne Prüfung erneut versenden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.words.q5.c",
+          "correctAnswerTextDe": "Die Schule selbst um eine Auskunft bitten.",
+          "rationaleDe": "Direkte Nachfrage richtet sich an die zuständige Stelle selbst.",
+          "assessmentUnit": "direkte Nachfrage persönlich klären",
+          "sourceSpans": [
+            {
+              "start": 577,
+              "end": 594,
+              "quote": "direkte Nachfrage"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.words.q6",
+          "publicPromptDe": "Was ist die zuständige Stelle für eine Kurszeiten-Auskunft?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.words.q6.c",
+              "textDe": "Nur die Person, die eine Nachricht zuerst ungeprüft geteilt hat."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q6.a",
+              "textDe": "Die Stelle, die für diese Auskunft verantwortlich ist."
+            },
+            {
+              "id": "sitov.pretest.b11-05.words.q6.b",
+              "textDe": "Eine beliebige Stelle ohne Bezug zu den Kurszeiten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.words.q6.a",
+          "correctAnswerTextDe": "Die Stelle, die für diese Auskunft verantwortlich ist.",
+          "rationaleDe": "Zuständigkeit beschreibt Verantwortung für den betreffenden Sachverhalt.",
+          "assessmentUnit": "zuständige Stelle Verantwortung",
+          "sourceSpans": [
+            {
+              "start": 603,
+              "end": 621,
+              "quote": "zuständigen Stelle"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q1",
+          "publicPromptDe": "Welche Präteritumform von »bekommen« ergänzt »Ich ___ eine Nachricht«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.verbs.q1.a",
+              "textDe": "bekamen"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q1.c",
+              "textDe": "bekam"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q1.b",
+              "textDe": "bekommte"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.verbs.q1.c",
+          "correctAnswerTextDe": "bekam",
+          "rationaleDe": "Bekommen bildet in der ersten Person Singular das starke Präteritum bekam.",
+          "assessmentUnit": "bekam starkes Präteritum",
+          "sourceSpans": [
+            {
+              "start": 20,
+              "end": 25,
+              "quote": "bekam"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q2",
+          "publicPromptDe": "Welcher Infinitiv gehört zu »Bevor ich die Nachricht weiterleitete«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.verbs.q2.a",
+              "textDe": "weiterleiten"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q2.c",
+              "textDe": "weiterzuleiten"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q2.b",
+              "textDe": "leiten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.verbs.q2.a",
+          "correctAnswerTextDe": "weiterleiten",
+          "rationaleDe": "Weiterleitete gehört zum trennbaren Verb weiterleiten; weiterzuleiten enthält zusätzlich zu.",
+          "assessmentUnit": "weiterleiten trennbarer Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 167,
+              "end": 180,
+              "quote": "weiterleitete"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Es handelte ___ um eine alte Information«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.verbs.q3.b",
+              "textDe": "es"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q3.a",
+              "textDe": "ihm"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q3.c",
+              "textDe": "sich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.verbs.q3.c",
+          "correctAnswerTextDe": "sich",
+          "rationaleDe": "Die feste reflexive Verbindung lautet es handelt sich um; sich bleibt auch im Präteritum.",
+          "assessmentUnit": "sich Reflexiv handeln um",
+          "sourceSpans": [
+            {
+              "start": 289,
+              "end": 330,
+              "quote": "es sich um eine alte Information handelte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q4",
+          "publicPromptDe": "Welche Partizipform von »zeigen« ergänzt »Die Situation hat mir ___, wie Missverständnisse entstehen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.verbs.q4.b",
+              "textDe": "gezeigt"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q4.a",
+              "textDe": "zeigte"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q4.c",
+              "textDe": "gezeigen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.verbs.q4.b",
+          "correctAnswerTextDe": "gezeigt",
+          "rationaleDe": "Zeigen bildet das schwache Partizip gezeigt; zeigte ist Präteritum.",
+          "assessmentUnit": "gezeigt schwaches Partizip",
+          "sourceSpans": [
+            {
+              "start": 415,
+              "end": 422,
+              "quote": "gezeigt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Missverständnisse können schnell ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.verbs.q5.c",
+              "textDe": "zu entstehen"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q5.a",
+              "textDe": "entstanden"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q5.b",
+              "textDe": "entstehen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.verbs.q5.b",
+          "correctAnswerTextDe": "entstehen",
+          "rationaleDe": "Nach können steht der reine Infinitiv entstehen.",
+          "assessmentUnit": "entstehen Infinitiv nach können",
+          "sourceSpans": [
+            {
+              "start": 454,
+              "end": 470,
+              "quote": "entstehen können"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.verbs.q6",
+          "publicPromptDe": "Datum, Quelle und Nachfrage bilden zusammen das Subjekt. Welche Präsensform von »helfen« ergänzt »Das Datum, die Quelle und die Nachfrage ___ mir«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.verbs.q6.c",
+              "textDe": "hilft"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q6.a",
+              "textDe": "helfen"
+            },
+            {
+              "id": "sitov.pretest.b11-05.verbs.q6.b",
+              "textDe": "helfst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.verbs.q6.a",
+          "correctAnswerTextDe": "helfen",
+          "rationaleDe": "Die drei mit und verbundenen Subjektteile verlangen die Pluralform helfen.",
+          "assessmentUnit": "helfen Präsens koordinierter Plural",
+          "sourceSpans": [
+            {
+              "start": 535,
+              "end": 567,
+              "quote": "helfen mir das Datum, die Quelle"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q1",
+          "publicPromptDe": "Welche Reihenfolge beschreibt »Bevor ich die Nachricht weiterleitete, schaute ich auf der Webseite nach«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.syntax.q1.a",
+              "textDe": "Beide Handlungen beginnen zur selben Zeit."
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q1.b",
+              "textDe": "Zuerst prüfte ich die Webseite, danach leitete ich die Nachricht weiter."
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q1.c",
+              "textDe": "Zuerst leitete ich die Nachricht weiter, danach prüfte ich die Webseite."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.syntax.q1.b",
+          "correctAnswerTextDe": "Zuerst prüfte ich die Webseite, danach leitete ich die Nachricht weiter.",
+          "rationaleDe": "Bevor ordnet das Nachschauen vor dem Weiterleiten ein.",
+          "assessmentUnit": "Bevor zeitliche Prüfung vorher",
+          "sourceSpans": [
+            {
+              "start": 143,
+              "end": 226,
+              "quote": "Bevor ich die Nachricht weiterleitete, schaute ich auf der Webseite der Schule nach"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q2",
+          "publicPromptDe": "Welche Folge ergänzt »Ich erfuhr, dass …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.syntax.q2.b",
+              "textDe": "es handelte sich um eine alte Information"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q2.a",
+              "textDe": "handelte es sich um eine alte Information"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q2.c",
+              "textDe": "es sich um eine alte Information handelte"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.syntax.q2.c",
+          "correctAnswerTextDe": "es sich um eine alte Information handelte",
+          "rationaleDe": "Im dass-Nebensatz steht das finite handelte am Ende; sich gehört zur festen Verbverbindung.",
+          "assessmentUnit": "dass reflexive Verbfinalität",
+          "sourceSpans": [
+            {
+              "start": 284,
+              "end": 330,
+              "quote": "dass es sich um eine alte Information handelte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q3",
+          "publicPromptDe": "Welche Folge ergänzt »Die Situation zeigte mir, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.syntax.q3.a",
+              "textDe": "wie schnell können Missverständnisse entstehen"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q3.c",
+              "textDe": "wie schnell Missverständnisse können entstehen"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q3.b",
+              "textDe": "wie schnell Missverständnisse entstehen können"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.syntax.q3.b",
+          "correctAnswerTextDe": "wie schnell Missverständnisse entstehen können",
+          "rationaleDe": "In der indirekten wie-Konstruktion steht das finite können nach dem Infinitiv entstehen.",
+          "assessmentUnit": "wie indirekter Satz Modalverbklammer",
+          "sourceSpans": [
+            {
+              "start": 424,
+              "end": 470,
+              "quote": "wie schnell Missverständnisse entstehen können"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q4",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Anschließend …« zu einem Aussagesatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.syntax.q4.a",
+              "textDe": "schrieb ich eine kurze Erklärung"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q4.b",
+              "textDe": "ich schrieb eine kurze Erklärung"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q4.c",
+              "textDe": "ich eine kurze Erklärung schrieb"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.syntax.q4.a",
+          "correctAnswerTextDe": "schrieb ich eine kurze Erklärung",
+          "rationaleDe": "Anschließend besetzt das Vorfeld; schrieb folgt vor ich.",
+          "assessmentUnit": "Anschließend Vorfeld Verbzweit",
+          "sourceSpans": [
+            {
+              "start": 332,
+              "end": 356,
+              "quote": "Anschließend schrieb ich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q5",
+          "publicPromptDe": "Welche Folge ergänzt »Bevor …, schaute ich auf der Webseite nach«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.syntax.q5.c",
+              "textDe": "ich die Nachricht weiterleitete"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q5.a",
+              "textDe": "ich leitete die Nachricht weiter"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q5.b",
+              "textDe": "leitete ich die Nachricht weiter"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.syntax.q5.c",
+          "correctAnswerTextDe": "ich die Nachricht weiterleitete",
+          "rationaleDe": "Im Bevor-Nebensatz steht das trennbare weiterleitete als Ganzes am Ende.",
+          "assessmentUnit": "Bevor Nebensatz Verbfinalität",
+          "sourceSpans": [
+            {
+              "start": 143,
+              "end": 180,
+              "quote": "Bevor ich die Nachricht weiterleitete"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.syntax.q6",
+          "publicPromptDe": "Welche Satzteile bilden in »Dabei helfen mir das Datum, die Quelle und eine direkte Nachfrage« zusammen das Subjekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.syntax.q6.b",
+              "textDe": "Dabei und mir"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q6.a",
+              "textDe": "das Datum, die Quelle und eine direkte Nachfrage"
+            },
+            {
+              "id": "sitov.pretest.b11-05.syntax.q6.c",
+              "textDe": "mir"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.syntax.q6.a",
+          "correctAnswerTextDe": "das Datum, die Quelle und eine direkte Nachfrage",
+          "rationaleDe": "Die mit und verbundenen Nominalgruppen bilden das pluralische Subjekt; mir ist Dativobjekt, Dabei eine Angabe.",
+          "assessmentUnit": "koordiniertes Subjekt nach Verb",
+          "sourceSpans": [
+            {
+              "start": 529,
+              "end": 594,
+              "quote": "Dabei helfen mir das Datum, die Quelle und eine direkte Nachfrage"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q1",
+          "publicPromptDe": "Die Nachricht erscheint innerhalb einer Chatgruppe. Welche Form ergänzt »In ___ Chatgruppe bekam ich die Nachricht«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.nominal.q1.c",
+              "textDe": "einer"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q1.a",
+              "textDe": "eine"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q1.b",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.nominal.q1.c",
+          "correctAnswerTextDe": "einer",
+          "rationaleDe": "In bezeichnet hier den Ort des Empfangs; feminin Dativ lautet einer Chatgruppe.",
+          "assessmentUnit": "einer Chatgruppe Dativ Ort",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 19,
+              "quote": "In einer Chatgruppe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Es handelte sich um ___ alte Information«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.nominal.q2.c",
+              "textDe": "einer"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q2.b",
+              "textDe": "einen"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q2.a",
+              "textDe": "eine"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.nominal.q2.a",
+          "correctAnswerTextDe": "eine",
+          "rationaleDe": "Sich handeln um verlangt Akkusativ; Information ist feminin: eine.",
+          "assessmentUnit": "eine alte Information Akkusativ um",
+          "sourceSpans": [
+            {
+              "start": 297,
+              "end": 321,
+              "quote": "um eine alte Information"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich schrieb eine ___ Erklärung« zu »kurz«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.nominal.q3.b",
+              "textDe": "kurzer"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q3.a",
+              "textDe": "kurze"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q3.c",
+              "textDe": "kurzen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.nominal.q3.a",
+          "correctAnswerTextDe": "kurze",
+          "rationaleDe": "Nach eine steht im Akkusativ feminin die Adjektivform kurze.",
+          "assessmentUnit": "kurze Erklärung Akkusativ Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 357,
+              "end": 377,
+              "quote": "eine kurze Erklärung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Heute prüfe ich ___ Nachrichten« zu »wichtig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.nominal.q4.c",
+              "textDe": "wichtiger"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q4.b",
+              "textDe": "wichtige"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q4.a",
+              "textDe": "wichtigen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.nominal.q4.b",
+          "correctAnswerTextDe": "wichtige",
+          "rationaleDe": "Ohne Artikel lautet die Adjektivform im Akkusativ Plural wichtige.",
+          "assessmentUnit": "wichtige Nachrichten Akkusativ Plural",
+          "sourceSpans": [
+            {
+              "start": 488,
+              "end": 508,
+              "quote": "wichtige Nachrichten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »bei der ___ Stelle« zu »zuständig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.nominal.q5.a",
+              "textDe": "zuständiger"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q5.b",
+              "textDe": "zuständige"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q5.c",
+              "textDe": "zuständigen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.nominal.q5.c",
+          "correctAnswerTextDe": "zuständigen",
+          "rationaleDe": "Bei verlangt Dativ; nach der steht das Adjektiv im femininen Singular mit en.",
+          "assessmentUnit": "zuständigen Stelle Dativ bei",
+          "sourceSpans": [
+            {
+              "start": 595,
+              "end": 621,
+              "quote": "bei der zuständigen Stelle"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-05.nominal.q6",
+          "publicPromptDe": "Welche Komparativform von »gern« ergänzt »Ich prüfe Nachrichten ___ einmal mehr«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-05.nominal.q6.b",
+              "textDe": "lieber"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q6.c",
+              "textDe": "gern"
+            },
+            {
+              "id": "sitov.pretest.b11-05.nominal.q6.a",
+              "textDe": "liebste"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-05.nominal.q6.b",
+          "correctAnswerTextDe": "lieber",
+          "rationaleDe": "Die Vergleichsform von gern lautet lieber; gern ist die Grundform.",
+          "assessmentUnit": "lieber Komparativ gern",
+          "sourceSpans": [
+            {
+              "start": 509,
+              "end": 515,
+              "quote": "lieber"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

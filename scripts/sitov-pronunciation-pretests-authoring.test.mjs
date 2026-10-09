@@ -2,12 +2,20 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sitovLatestMReviewed42=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovActualManifest51=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovEpoch51=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch51-pools43-45-author-review.json','utf8'))
+// Freeze exact current M-reviewed42 BEFORE M42, quality21 and every older111 proof.
+const sitovLatestMReviewed42=structuredClone(sitovActualManifest51)
+sitovLatestMReviewed42.drafts=sitovLatestMReviewed42.drafts.slice(0,42)
+sitovLatestMReviewed42.coverage=structuredClone(sitovEpoch51.previousCoverage)
+for(const row of sitovEpoch51.previousInventoryRows)sitovLatestMReviewed42.inventory[sitovLatestMReviewed42.inventory.findIndex(r=>r.textId===row.textId)]=row
+const sitovActualAudio51=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'))
+const sitovFrozenAudio42=Object.fromEntries(Object.entries(sitovActualAudio51).slice(0,4032))
 const sitovMReview42Raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/pools40-42-editorial-review.json','utf8'),sitovMReview42=JSON.parse(sitovMReview42Raw)
 // Restore author42 reviews BEFORE quality21 application/hash replay and every historical proof.
 const sitovBeforeMReviewed42=structuredClone(sitovLatestMReviewed42)
 for(const r of sitovMReview42.approvedEditorialDrafts)sitovBeforeMReviewed42.drafts.find(d=>d.textId===r.textId).review=r.previousReview
-const sitovQuality21CurrentManifest=structuredClone(sitovBeforeMReviewed42),sitovQuality21CurrentAudio=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'))
+const sitovQuality21CurrentManifest=structuredClone(sitovBeforeMReviewed42),sitovQuality21CurrentAudio=structuredClone(sitovFrozenAudio42)
 const sitovQuality21PatchRaw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch22-quality-patch.json','utf8'),sitovQuality21Patch=JSON.parse(sitovQuality21PatchRaw),sitovQuality21ReviewRaw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/a11-quality21-editorial-review.json','utf8'),sitovQuality21Review=JSON.parse(sitovQuality21ReviewRaw),sitovQuality21Application=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/a11-quality21-application.json','utf8'))
 // Restore exact current42 source state BEFORE author50, M39, quality18 and ALL immutable proofs.
 const sitovQuality21PreviousManifest=structuredClone(sitovQuality21CurrentManifest),sitovQuality21PreviousAudio=structuredClone(sitovQuality21CurrentAudio)
@@ -1234,3 +1242,55 @@ test('quality21 applied42 preserves complete previous manifests before every his
 test('quality21 keys identities unrelated fields and51unchangedtasks remain exact while stale spokenalias is rejected',()=>{const ids=new Set(sitovQuality21Patch.patches.map(r=>r.questionId));for(const r of sitovQuality21Patch.patches){const a=r.previousTask,b=r.currentTask;for(const k of Object.keys(a).filter(k=>!['promptDe','options','rationaleDe'].includes(k)))assert.deepEqual(a[k],b[k]);assert.equal(a.correctOptionId,b.correctOptionId);assert.deepEqual(a.options.map(o=>o.id),b.options.map(o=>o.id))}for(const d of sitovQuality21CurrentManifest.drafts){const old=sitovQuality21PreviousManifest.drafts.find(o=>o.textId===d.textId);for(const q of d.definition.tasks)if(!ids.has(q.id))assert.deepEqual(q,old.definition.tasks.find(o=>o.id===q.id))}const bad={...sitovQuality21CurrentAudio},r=sitovQuality21Patch.patches[0],e=r.previousAudioAliasEntries.find(e=>r.currentAudioAliasEntries.some(n=>n.alias===e.alias&&n.text!==e.text));assert.ok(e);bad[e.alias]=e.text;assert.ok(sitovValidatePretestAudioAliases(sitovQuality21CurrentManifest,bad).length)})
 
 test('actual42 M review binds all72 source-supported tasks and preserves quality21/current39 before all110 immutable proofs',()=>{assert.equal(sitovLatestMReviewed42.drafts.length,42);assert.deepEqual(sitovValidatePretestDrafts(sitovLatestMReviewed42,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovLatestMReviewed42,sitovQuality21CurrentAudio),[]);assert.deepEqual(sitovLatestMReviewed42.drafts.slice(0,39),sitovBeforeMReviewed42.drafts.slice(0,39));for(const r of sitovMReview42.approvedEditorialDrafts){const d=sitovLatestMReviewed42.drafts.find(d=>d.textId===r.textId);assert.equal(d.review.documentSha256,sitovHash(sitovMReview42Raw));assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false);assert.deepEqual(d.definition.tasks.map(q=>({questionId:q.id,correctTextDe:q.options.find(o=>o.id===q.correctOptionId).textDe})),r.correctAnswerTexts)}})
+
+test('epoch51 actual45/4320 validate directly with exact frozen M-reviewed42/4032 content and bytes',async()=>{
+ assert.equal(sitovActualManifest51.drafts.length,45);assert.deepEqual(sitovActualManifest51.coverage,{total:60,authored:45,pending:15});assert.equal(Object.keys(sitovActualAudio51).length,4320)
+ assert.deepEqual(sitovValidatePretestDrafts(sitovActualManifest51,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovActualManifest51,sitovActualAudio51),[])
+ assert.equal(sitovHash(JSON.stringify(sitovLatestMReviewed42.drafts)),sitovEpoch51.original42ContentHash)
+ for(const [value,content,bytes]of [[sitovLatestMReviewed42,sitovEpoch51.originalManifestContentHash,sitovEpoch51.originalManifestByteSha256],[sitovFrozenAudio42,sitovEpoch51.original4032AliasContentHash,sitovEpoch51.original4032AliasByteSha256],[sitovActualManifest51,sitovEpoch51.currentManifestContentHash,sitovEpoch51.currentManifestByteSha256],[sitovActualAudio51,sitovEpoch51.currentAliasContentHash,sitovEpoch51.currentAliasByteSha256]]){assert.equal(sitovHash(JSON.stringify(value)),content);assert.equal(sitovHash(JSON.stringify(value,null,2)+'\n'),bytes)}
+ assert.equal(sitovHash(JSON.stringify(sitovActualManifest51,null,2)+'\n'),sitovEpoch51.currentManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovActualAudio51,null,2)+'\n'),sitovEpoch51.currentAliasByteSha256)
+})
+test('next canonical B1.1sort3–5 bind all72 audited fields, standalone spans, six-unit cores and independent balanced forms',async()=>{
+ const added=sitovActualManifest51.drafts.slice(42),refs=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch51-reference-audio-candidates.json','utf8'))
+ assert.deepEqual(sitovDiversityErrors(added),[]);assert.equal(Object.keys(refs).length,3)
+ for(const[i,d]of added.entries()){
+  const source=sources.rows.find(s=>s.id===d.textId),audit=sitovEpoch51.pools[i],chars=Array.from(source.text)
+  assert.equal(d.level,'B1.1');assert.equal(source.sortOrder,i+3);assert.deepEqual(d.definition.competencies,audit.cores);assert.equal(audit.sourceBodyDe,source.text);assert.equal(refs['sitov-pretest-reference:'+d.textId],source.text);assert.equal(d.textVersion,sitovHash(source.text));assert.equal(d.active,false)
+  assert.equal(d.review.status,'author_checked_independent_review_pending');assert.equal(d.review.reviewer,d.review.authorIdentity);assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.definitionContentHash,audit.definitionContentHash)
+  assert.equal(d.definition.tasks.length,24);assert.equal(d.definition.competencies.length,4);assert.equal(new Set(d.definition.tasks.map(q=>q.assessmentUnit)).size,24)
+  const[a,b]=d.definition.reviewForms;assert.equal(a.questionIds.length,12);assert.equal(b.questionIds.length,12);assert.ok(!a.questionIds.some(id=>b.questionIds.includes(id)))
+  for(const core of d.definition.competencies){const qs=d.definition.tasks.filter(q=>q.competencyId===core.id);assert.equal(qs.length,6);assert.equal(core.languageUnits.length,6);for(const f of[a,b])assert.equal(f.questionIds.filter(id=>qs.some(q=>q.id===id)).length,3)}
+  for(const[j,q]of d.definition.tasks.entries()){
+   const r=audit.questions[j];assert.equal(r.questionId,q.id);assert.equal(r.publicPromptDe,q.promptDe);assert.deepEqual(r.publicOptions,q.options);assert.equal(r.correctOptionId,q.correctOptionId);assert.equal(r.correctAnswerTextDe,q.options.find(o=>o.id===q.correctOptionId).textDe);assert.equal(r.rationaleDe,q.rationaleDe);assert.equal(r.assessmentUnit,q.assessmentUnit);assert.deepEqual(r.sourceSpans,q.sourceSpans)
+   assert.ok(!/\b(Frau|Freundin|Lehrerin|Schülerin|Nachbarin|Mutter|Schwester)\b/u.test(q.promptDe+' '+q.options.map(o=>o.textDe).join(' ')))
+  }
+  for(const span of [...d.definition.tasks.flatMap(q=>q.sourceSpans),...d.definition.competencies.flatMap(c=>c.sourceSpans)]){assert.equal(chars.slice(span.start,span.end).join(''),span.quote);assert.ok(!/[\p{L}\p{N}_]/u.test(chars[span.start-1]??''));assert.ok(!/[\p{L}\p{N}_]/u.test(chars[span.end]??''))}
+ }
+})
+
+
+
+
+const sitovAssert51Keys=ds=>{
+ const cases=[[0,'verbs.q1','Perfekt mit sein.'],[0,'verbs.q2','mich'],[0,'verbs.q3','vorschlagen'],[0,'verbs.q4','entschied'],[0,'verbs.q5','anzusprechen'],[0,'verbs.q6','geworden'],[0,'syntax.q1','ich nach Hannover gezogen bin'],[0,'syntax.q2','einen Kurs zu besuchen'],[0,'syntax.q3','der nichts mit meinem Beruf zu tun hatte'],[0,'syntax.q4','Kontakte Zeit brauchen'],[0,'syntax.q5','aus einem ersten Gespräch mehr entsteht'],[0,'syntax.q6','sind inzwischen Freundschaften geworden'],[0,'nominal.q1','meinem'],[0,'nominal.q2','einen'],[0,'nominal.q3','gemeinsamen'],[0,'nominal.q4','ersten'],[0,'nominal.q5','die Freundschaften'],[0,'nominal.q6','mehr'],[1,'verbs.q1','gab'],[1,'verbs.q2','putzten'],[1,'verbs.q3','uns'],[1,'verbs.q4','übernehmen'],[1,'verbs.q5','geholfen'],[1,'verbs.q6','zuzuhören'],[1,'syntax.q2','welche Aufgaben er übernehmen konnte'],[1,'syntax.q3','der jede Woche wechselt'],[1,'syntax.q6','vereinbarten wir, rechtzeitig Bescheid zu geben'],[1,'nominal.q1','unserer'],[1,'nominal.q2','die'],[1,'nominal.q3','einfachen'],[1,'nominal.q4','jede'],[1,'nominal.q5','uns'],[1,'nominal.q6','besser'],[2,'verbs.q1','bekam'],[2,'verbs.q2','weiterleiten'],[2,'verbs.q3','sich'],[2,'verbs.q4','gezeigt'],[2,'verbs.q5','entstehen'],[2,'verbs.q6','helfen'],[2,'syntax.q2','es sich um eine alte Information handelte'],[2,'syntax.q3','wie schnell Missverständnisse entstehen können'],[2,'syntax.q4','schrieb ich eine kurze Erklärung'],[2,'syntax.q5','ich die Nachricht weiterleitete'],[2,'syntax.q6','das Datum, die Quelle und eine direkte Nachfrage'],[2,'nominal.q1','einer'],[2,'nominal.q2','eine'],[2,'nominal.q3','kurze'],[2,'nominal.q4','wichtige'],[2,'nominal.q5','zuständigen'],[2,'nominal.q6','lieber']]
+ for(const[i,id,key]of cases){const q=ds[i].definition.tasks.find(q=>q.id.endsWith(id));assert.equal(q.options.find(o=>o.id===q.correctOptionId).textDe,key,q.id)}
+ for(const[i,id,p]of [[0,'words.q5','Gespräche kommen beim Spaziergang fast von selbst zustande'],[0,'syntax.q3','Ein Kurs hatte nichts mit meinem Beruf zu tun'],[0,'nominal.q1','wenn es mein Bruder ist'],[1,'nominal.q1','Der Streit findet innerhalb unserer Wohngemeinschaft statt'],[1,'syntax.q4','Wir geben Bescheid, wenn jemand keine Zeit hat'],[1,'syntax.q5','Nicht alles ist perfekt, aber die Stimmung ist besser'],[2,'verbs.q6','Datum, Quelle und Nachfrage bilden zusammen das Subjekt'],[2,'syntax.q1','Bevor ich die Nachricht weiterleitete'],[2,'nominal.q1','Die Nachricht erscheint innerhalb einer Chatgruppe']])assert.ok(ds[i].definition.tasks.find(q=>q.id.endsWith(id)).promptDe.includes(p))
+ for(const d of ds)for(const q of d.definition.tasks)for(const o of q.options)if(o.id!==q.correctOptionId)assert.ok(!/ausdrücklich|ausschließlich|Kuchen|Fahrrad|Koffer|Zugfarbe|Körpergröße/u.test(o.textDe),q.id)
+}
+test('new friendship/shared-house/news questions test actual forms, relative clauses, temporal relations and public case premises',()=>{
+ const ds=sitovActualManifest51.drafts.slice(42);sitovAssert51Keys(ds)
+ for(const d of ds.slice(0,2))assert.ok(!d.definition.omittedCategories.some(c=>c.category==='relative_clauses'))
+ assert.ok(ds[2].definition.omittedCategories.some(c=>c.category==='relative_clauses'))
+ for(const d of ds){assert.ok(!d.definition.omittedCategories.some(c=>['comparatives','past_tenses'].includes(c.category)));for(const c of d.definition.competencies){assert.deepEqual(c.mapping.topicIds,[]);for(const u of c.languageUnits)assert.ok(c.mapping.pendingReasonDe.includes(u))}}
+ for(const[i,id,quote]of [[0,'syntax.q3','der nichts mit meinem Beruf zu tun hatte'],[1,'syntax.q3','der jede Woche wechselt'],[2,'syntax.q2','dass es sich um eine alte Information handelte']])assert.equal(ds[i].definition.tasks.find(q=>q.id.endsWith(id)).sourceSpans[0].quote,quote)
+ const relations=[[1,'syntax.q1','Das gemeinsame Gespräch ersetzt das bloße Schreiben von Nachrichten.'],[1,'syntax.q4','Fehlende Zeit ist die Bedingung für das Bescheidgeben.'],[2,'syntax.q1','Zuerst prüfte ich die Webseite, danach leitete ich die Nachricht weiter.']]
+ for(const[i,id,key]of relations){const q=ds[i].definition.tasks.find(q=>q.id.endsWith(id));assert.equal(q.options.find(o=>o.id===q.correctOptionId).textDe,key)}
+})
+test('actual45 negative guards reject false source/units/forms/topics/audio, hidden case context and wrong genuine grammar keys',()=>{
+ for(const mutate of [m=>m.drafts[42].definition.tasks[0].sourceSpans[0].start++,m=>m.drafts[43].definition.tasks[0].rationaleDe='',m=>m.drafts[44].definition.competencies[0].mapping.topicIds=['sitov.topic.vorschlaege-a22'],m=>{m.drafts[42].definition.tasks[1].assessmentUnit=m.drafts[42].definition.tasks[0].assessmentUnit},m=>{const f=m.drafts[43].definition.reviewForms;f[1].questionIds[0]=f[0].questionIds[0]}]){const copy=structuredClone(sitovActualManifest51);mutate(copy);assert.ok(sitovValidatePretestDrafts(copy,sources).length)}
+ const audio={...sitovActualAudio51};delete audio[Object.keys(audio).at(-1)];assert.ok(sitovValidatePretestAudioAliases(sitovActualManifest51,audio).length)
+ for(const[i,id]of [[0,'verbs.q1'],[0,'verbs.q5'],[0,'syntax.q3'],[1,'verbs.q5'],[1,'verbs.q6'],[1,'syntax.q2'],[2,'verbs.q6'],[2,'syntax.q6']]){const ds=structuredClone(sitovActualManifest51.drafts.slice(42)),q=ds[i].definition.tasks.find(q=>q.id.endsWith(id));q.correctOptionId=q.options.find(o=>o.id!==q.correctOptionId).id;assert.throws(()=>sitovAssert51Keys(ds))}
+ for(const[i,id]of [[0,'nominal.q1'],[1,'nominal.q1'],[2,'nominal.q1'],[2,'verbs.q6']]){const ds=structuredClone(sitovActualManifest51.drafts.slice(42));ds[i].definition.tasks.find(q=>q.id.endsWith(id)).promptDe='Welche Form passt?';assert.throws(()=>sitovAssert51Keys(ds))}
+ const lexical=structuredClone(sitovActualManifest51.drafts.slice(42)),q=lexical[0].definition.tasks.find(q=>q.id.endsWith('verbs.q5'));q.options.find(o=>o.id===q.correctOptionId).textDe='Ein Gespräch beginnen.';assert.throws(()=>sitovAssert51Keys(lexical))
+})
