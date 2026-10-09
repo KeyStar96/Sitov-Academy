@@ -31,6 +31,7 @@ export type SitovPronunciationPretestFunctions = {
 /** Frozen optional Special transport v1. Definitions remain private/inactive
  * until editorial and actual prepared-audio publication guards are verified. */
 export type SitovLearningSpecialFunctions = {
+  sitov_get_learning_recommendation_sources: { Args: { p_level: string; p_node_ids: string[] }; Returns: Json }
   sitov_special_operation: {
     Args: { p_operation: string; p_node_id?: string | null; p_run_id?: string | null;
       p_mode?: string | null; p_revision?: number | null; p_request_id?: string | null;
