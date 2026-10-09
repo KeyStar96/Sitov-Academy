@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-09T04:17:08.410Z",
+  "scope": "240 actual local MP3 bytes/profile/exact tokens standard bundled; seven actual final-MP3 forced-alignments applied only to portable copies with explicit provenance; original generation/raw metadata remains exact historical output, not silently rewritten",
+  "candidateSha256": "bb4a3b6efffb34f557ab80656130ddb0fb99752da3be98560d6a9472f37be463",
+  "rows": [
+    {
+      "catalog": "sitov-pretest10-12-missing-only.json",
+      "objects": 202,
+      "bytes": 3463640,
+      "correctedMp3Alignments": 6,
+      "lexicalIntervals": 1284,
+      "punctuationOnlyTokens": 28,
+      "zeroLexicalIntervals": 0,
+      "bundle": "sitov-night-20261008-pretests-10-12-bundle-positive-wordtimes",
+      "bundleSha256": "66c2e4a884ca16fbaef871621db3f8c76932dfe65927ae3ebb339f60630f88e4",
+      "originalGeneratorManifestSha256": "567395455202e69f09ebaaf9f311ea177d3b269400294a842cc5d43fdd106d15",
+      "originalGenerationManifestUnchanged": true
+    },
+    {
+      "catalog": "sitov-pretest-first9-repair-missing-only.json",
+      "objects": 38,
+      "bytes": 1050376,
+      "correctedMp3Alignments": 1,
+      "lexicalIntervals": 382,
+      "punctuationOnlyTokens": 5,
+      "zeroLexicalIntervals": 0,
+      "bundle": "sitov-night-20261008-pretests-first9-context-repair-bundle-positive-wordtimes",
+      "bundleSha256": "f67c50b6f98d4fd3d50c33c3ed29f04ff16e263beb2ee2d31a14c9f6cbead6bd",
+      "originalGeneratorManifestSha256": "bdfa5c7f4ecc3db5bd7ed16033d1a0c57493dfa2097a14debd962236f47991d2",
+      "originalGenerationManifestUnchanged": true
+    }
+  ],
+  "qaImport": false,
+  "productionWrite": false,
+  "full269RemoteReusePending": true,
+  "full39LocalReusePending": true,
+  "privateProofSha256": "2b8b500ea07caff82ef2d2e86530ce0d45b7508d9c82f44576d5462ddda0aa2b"
+}

@@ -1,0 +1,647 @@
+{
+  "at": "2026-10-09T04:15:53.858972+00:00",
+  "scope": "Read-only candidate measured pinned forced-alignment on seven exact prepared MP3 files; punctuation-only zero tokens valid; no asset/manifest/source/QA/production writes",
+  "rows": [
+    {
+      "id": "26d133135a1ff8f2832b1e443a8e070e2d0a804de01a8449e9175c83080100e2",
+      "text": "Übung: »Nach meinem Namen fragt der Mitarbeiter.« Nach welcher Angabe fragt er?",
+      "originalMetadataSha256": "267b117e4870806465ddbbdfa690c5674eea892294bb69c932778e32050824a3",
+      "audioSha256": "6bba1d5d1fffc9b050605c720008c9e22a7436183acc2359d4c25c1f68635792",
+      "textSha256": "b612761507a03fc74b492a52dd86de6b7ab76cdab5df2af3034ec3b5e3d0da23",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "originalZeroLexicalIndices": [
+        6
+      ],
+      "newZeroLexicalIndices": [],
+      "wordTimings": [
+        {
+          "start": 0.32,
+          "end": 0.8
+        },
+        {
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "start": 1.6,
+          "end": 2.08
+        },
+        {
+          "start": 2.08,
+          "end": 2.4
+        },
+        {
+          "start": 2.4,
+          "end": 2.72
+        },
+        {
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "start": 2.8,
+          "end": 3.44
+        },
+        {
+          "start": 3.92,
+          "end": 4.16
+        },
+        {
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "start": 4.48,
+          "end": 4.96
+        },
+        {
+          "start": 4.96,
+          "end": 5.28
+        },
+        {
+          "start": 5.28,
+          "end": 5.52
+        }
+      ],
+      "rawAlignedWords": [
+        {
+          "text": "Übung",
+          "start": 0.32,
+          "end": 0.8
+        },
+        {
+          "text": "Nach",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "meinem",
+          "start": 1.6,
+          "end": 2.08
+        },
+        {
+          "text": "Namen",
+          "start": 2.08,
+          "end": 2.4
+        },
+        {
+          "text": "fragt",
+          "start": 2.4,
+          "end": 2.72
+        },
+        {
+          "text": "der",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "text": "Mitarbeiter",
+          "start": 2.8,
+          "end": 3.44
+        },
+        {
+          "text": "Nach",
+          "start": 3.92,
+          "end": 4.16
+        },
+        {
+          "text": "welcher",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "Angabe",
+          "start": 4.48,
+          "end": 4.96
+        },
+        {
+          "text": "fragt",
+          "start": 4.96,
+          "end": 5.28
+        },
+        {
+          "text": "er",
+          "start": 5.28,
+          "end": 5.52
+        }
+      ],
+      "alignmentInput": "same normalized MP3 decoded24k mono; existing lead-in retained, no added lead-in",
+      "strictPositiveLexicalTimingCandidate": true
+    },
+    {
+      "id": "2f34e34438f7080d2e3b550190b7de54d7fe84a9f67c1616cdbdf8768c120d8a",
+      "text": "Was bedeutet die Ortsangabe »zu Hause«?",
+      "originalMetadataSha256": "6727499e7c629bd240221101b76277d42b2a354f8d8a3cc2a70d694f0d864362",
+      "audioSha256": "c7158889b84cb8b4c08caf08e1e0fae9ff1e399d70b175a5e53abbb56cc308f8",
+      "textSha256": "2b73e39df4e12e0931b6c2b344dc2747aa45f9a9fc5fb50c2893b3a09142edcc",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "originalZeroLexicalIndices": [
+        3
+      ],
+      "newZeroLexicalIndices": [],
+      "wordTimings": [
+        {
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "start": 0.72,
+          "end": 1.12
+        },
+        {
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "start": 1.2,
+          "end": 1.84
+        },
+        {
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "start": 2.08,
+          "end": 2.4
+        }
+      ],
+      "rawAlignedWords": [
+        {
+          "text": "Was",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "text": "bedeutet",
+          "start": 0.72,
+          "end": 1.12
+        },
+        {
+          "text": "die",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "Ortsangabe",
+          "start": 1.2,
+          "end": 1.84
+        },
+        {
+          "text": "zu",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "text": "Hause",
+          "start": 2.08,
+          "end": 2.4
+        }
+      ],
+      "alignmentInput": "same normalized MP3 decoded24k mono; existing lead-in retained, no added lead-in",
+      "strictPositiveLexicalTimingCandidate": true
+    },
+    {
+      "id": "7102231dde853086fb929835533ee4f6417727949af4da0d6f135aa58e545c6d",
+      "text": "Die Musik ist sehr laut.",
+      "originalMetadataSha256": "2ce47355b7d24eb4a724db71e7334045b7203a3b9e4ddc4ed590390b866c2fd5",
+      "audioSha256": "1888da82c5520d53c5292aad645e56f91ba7c4387f12666a3c969f3a44934945",
+      "textSha256": "acf7a3a68e70f2201d650c88c24e49ce4332518453b16a52eb92c554aef34520",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "originalZeroLexicalIndices": [
+        1
+      ],
+      "newZeroLexicalIndices": [],
+      "wordTimings": [
+        {
+          "start": 0.88,
+          "end": 0.96
+        },
+        {
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "start": 1.76,
+          "end": 2.16
+        }
+      ],
+      "rawAlignedWords": [
+        {
+          "text": "Die",
+          "start": 0.88,
+          "end": 0.96
+        },
+        {
+          "text": "Musik",
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "text": "ist",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "sehr",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "laut",
+          "start": 1.76,
+          "end": 2.16
+        }
+      ],
+      "alignmentInput": "same normalized MP3 decoded24k mono; existing lead-in retained, no added lead-in",
+      "strictPositiveLexicalTimingCandidate": true
+    },
+    {
+      "id": "7dbecd905b529e83d8d54f98c159be871658d43c680bb272f27e78c020ca83d9",
+      "text": "Was ist die »Praxis« im Zusammenhang mit dem Arzttermin?",
+      "originalMetadataSha256": "682eb99ccf62be7ad9e47f4c1b6fd097de740672060664aeb6d6dcef85db78ac",
+      "audioSha256": "d1f23a8be40cf718a9829a6cc73a249fb1234a83f68c1167c5a564ef90fe875d",
+      "textSha256": "911ba5dfae178b20aeb518953d6520e59797d6371ebf86f8ebcf1c6d4d106aea",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "originalZeroLexicalIndices": [
+        3
+      ],
+      "newZeroLexicalIndices": [],
+      "wordTimings": [
+        {
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "start": 1.36,
+          "end": 1.84
+        },
+        {
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "start": 2.0,
+          "end": 2.64
+        },
+        {
+          "start": 2.64,
+          "end": 2.72
+        },
+        {
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "start": 2.88,
+          "end": 3.52
+        }
+      ],
+      "rawAlignedWords": [
+        {
+          "text": "Was",
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "text": "ist",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "die",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "text": "Praxis",
+          "start": 1.36,
+          "end": 1.84
+        },
+        {
+          "text": "im",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "Zusammenhang",
+          "start": 2.0,
+          "end": 2.64
+        },
+        {
+          "text": "mit",
+          "start": 2.64,
+          "end": 2.72
+        },
+        {
+          "text": "dem",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "Arzttermin",
+          "start": 2.88,
+          "end": 3.52
+        }
+      ],
+      "alignmentInput": "same normalized MP3 decoded24k mono; existing lead-in retained, no added lead-in",
+      "strictPositiveLexicalTimingCandidate": true
+    },
+    {
+      "id": "b85e4dd8e540a02d26d23f235db411254562c6124c263c816ecc6de9903182fc",
+      "text": "Um 12 Uhr.",
+      "originalMetadataSha256": "5b5e77bc57379aed879d07ea103950011607b6379c3a80fa7e21a51c5f0b5a76",
+      "audioSha256": "91e216e8a9f10685009da24cc5052ff508ec872fc73722be2a47169428a487e3",
+      "textSha256": "ad644d984e89f4ab9a83b0ac07e6f9d3eadae56e319cd9ebb91c6aae0b2b6ea2",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "originalZeroLexicalIndices": [
+        3
+      ],
+      "newZeroLexicalIndices": [],
+      "wordTimings": [
+        {
+          "start": 0.32,
+          "end": 0.64
+        },
+        {
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "start": 0.96,
+          "end": 1.28
+        }
+      ],
+      "rawAlignedWords": [
+        {
+          "text": "Um",
+          "start": 0.32,
+          "end": 0.64
+        },
+        {
+          "text": "12",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "Uhr",
+          "start": 0.96,
+          "end": 1.28
+        }
+      ],
+      "alignmentInput": "same normalized MP3 decoded24k mono; existing lead-in retained, no added lead-in",
+      "strictPositiveLexicalTimingCandidate": true
+    },
+    {
+      "id": "feb1d5c8f548919726c1e206fc43f150f713efbfa4483a53e64b54ef7e9d5aad",
+      "text": "Er bleibt in der Praxis und trinkt kaltes Wasser.",
+      "originalMetadataSha256": "bba04dca87e8c36f2cd0b93d99958163bfacbb015f100e69edd1164ed3e06b5b",
+      "audioSha256": "721fb90eb8e96c415f249ebad9158d3610f3c1773e5e0178c7949c6ebbf82719",
+      "textSha256": "d1485605caa63b7dc532d14e5a1238e626818b821efd82df3390f1ea7dc3f060",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "originalZeroLexicalIndices": [
+        3
+      ],
+      "newZeroLexicalIndices": [],
+      "wordTimings": [
+        {
+          "start": 0.56,
+          "end": 0.64
+        },
+        {
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "start": 0.96,
+          "end": 1.04
+        },
+        {
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "start": 1.12,
+          "end": 1.68
+        },
+        {
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "start": 2.64,
+          "end": 3.04
+        }
+      ],
+      "rawAlignedWords": [
+        {
+          "text": "Er",
+          "start": 0.56,
+          "end": 0.64
+        },
+        {
+          "text": "bleibt",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "in",
+          "start": 0.96,
+          "end": 1.04
+        },
+        {
+          "text": "der",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "text": "Praxis",
+          "start": 1.12,
+          "end": 1.68
+        },
+        {
+          "text": "und",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "text": "trinkt",
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "text": "kaltes",
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "text": "Wasser",
+          "start": 2.64,
+          "end": 3.04
+        }
+      ],
+      "alignmentInput": "same normalized MP3 decoded24k mono; existing lead-in retained, no added lead-in",
+      "strictPositiveLexicalTimingCandidate": true
+    },
+    {
+      "id": "1bb8185b6ee734155d2e2636fc9ccb13f67a0f46c208c5d5e1653a6f937625e6",
+      "text": "Warum steht in »zwanzig Jahre alt« die Form »Jahre« und nicht »Jahr«?",
+      "originalMetadataSha256": "556a3e81760061ced5807da35ccc096f61b349aabfa68ce978bffa17d7a72836",
+      "audioSha256": "425ea38b72a693117384ce266981783f7e202fc245e79fd43acd76f86883bdeb",
+      "textSha256": "f2e6748a7ce659168835109f3bbe9ed7af217f4d2126f3de3a8a68d2263da584",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "originalZeroLexicalIndices": [
+        7
+      ],
+      "newZeroLexicalIndices": [],
+      "wordTimings": [
+        {
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "start": 1.28,
+          "end": 1.68
+        },
+        {
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "start": 2.48,
+          "end": 2.56
+        },
+        {
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "start": 2.88,
+          "end": 3.36
+        },
+        {
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "start": 3.84,
+          "end": 4.24
+        }
+      ],
+      "rawAlignedWords": [
+        {
+          "text": "Warum",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "steht",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "text": "in",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "text": "zwanzig",
+          "start": 1.28,
+          "end": 1.68
+        },
+        {
+          "text": "Jahre",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "text": "alt",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "text": "die",
+          "start": 2.48,
+          "end": 2.56
+        },
+        {
+          "text": "Form",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "text": "Jahre",
+          "start": 2.88,
+          "end": 3.36
+        },
+        {
+          "text": "und",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "text": "nicht",
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "text": "Jahr",
+          "start": 3.84,
+          "end": 4.24
+        }
+      ],
+      "alignmentInput": "same normalized MP3 decoded24k mono; existing lead-in retained, no added lead-in",
+      "strictPositiveLexicalTimingCandidate": true
+    }
+  ],
+  "complete": true,
+  "qaWrite": false,
+  "productionWrite": false,
+  "privateCandidateSha256": "bb4a3b6efffb34f557ab80656130ddb0fb99752da3be98560d6a9472f37be463"
+}
