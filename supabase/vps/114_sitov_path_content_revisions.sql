@@ -44,7 +44,10 @@ LANGUAGE sql STABLE SET search_path='' AS $$
  SELECT path_private.snapshot(e.id)||jsonb_build_object('unit_id',e.unit_id,'node_id',e.node_id,
   'source_ref',e.source_ref,'sort_order',e.sort_order,'topic',e.topic,'explanation_card',e.explanation_card,
   'parent',jsonb_build_object('level',u.level,'unit_source_id',u.path_source_id,'unit_active',u.is_active,
-  'node_source_id',n.source_id,'node_unit_id',n.unit_id,'node_active',n.is_active,'node_kind',n.kind))
+  'node_source_id',n.source_id,'node_unit_id',n.unit_id,'node_active',n.is_active,'node_kind',n.kind,
+  'node_goals',to_jsonb(n.goals),'node_order',n.sort_order,'node_title',n.title,'node_topic',n.topic,
+  'node_card',n.merkkarte,'node_anchor',n.anchor_node_id,'node_test_size',n.test_size,
+  'unit_trainer',u.trainer,'unit_is_path',u.is_path,'unit_label',u.label,'unit_slug',u.path_slug,'unit_title',u.path_title,'unit_order',u.sort_order))
  FROM public.learning_exercises e JOIN public.learning_units u ON u.id=e.unit_id
  JOIN public.path_nodes n ON n.id=e.node_id WHERE e.id=p_id AND e.node_id IS NOT NULL;
 $$;
@@ -179,8 +182,8 @@ BEGIN
    ON CONFLICT(exercise_id,locale) DO UPDATE SET instruction=excluded.instruction,hint=excluded.hint,
     explanation=excluded.explanation,prompt=excluded.prompt,task=excluded.task,gap_hint=excluded.gap_hint;
   END LOOP;
-  -- Retain 71/72's authoritative saved-row validation; add every authored
-  -- German string, including protected wrong options and complete solutions.
+  -- Retain 71/72's authoritative saved-row validation and positive lexical
+  -- timings for precisely its played utterances; no unplayed options.
   PERFORM learning_private.sitov_require_prepared_learning_audio('exercises',jsonb_build_object('id',e.id),'[]'::jsonb,e.unit_id);
   audio:='[]'::jsonb;
   FOR spoken IN SELECT v FROM path_private.sitov_revision_audio_texts(e.type,candidate->'content') v ORDER BY v LOOP
@@ -206,9 +209,13 @@ DECLARE target uuid; targets uuid[]; expected jsonb;
 BEGIN
  IF TG_TABLE_NAME='learning_exercises' THEN
   targets:=ARRAY[CASE WHEN TG_OP<>'INSERT' THEN OLD.id END,CASE WHEN TG_OP<>'DELETE' THEN NEW.id END];
+ ELSIF TG_TABLE_NAME='path_nodes' THEN
+  SELECT array_agg(e.id) INTO targets FROM public.learning_exercises e WHERE e.node_id IN(CASE WHEN TG_OP<>'INSERT' THEN OLD.id END,CASE WHEN TG_OP<>'DELETE' THEN NEW.id END);
+ ELSIF TG_TABLE_NAME='learning_units' THEN
+  SELECT array_agg(e.id) INTO targets FROM public.learning_exercises e WHERE e.unit_id IN(CASE WHEN TG_OP<>'INSERT' THEN OLD.id END,CASE WHEN TG_OP<>'DELETE' THEN NEW.id END);
  ELSE targets:=ARRAY[CASE WHEN TG_OP<>'INSERT' THEN OLD.exercise_id END,CASE WHEN TG_OP<>'DELETE' THEN NEW.exercise_id END];
  END IF;
- FOREACH target IN ARRAY targets LOOP
+ FOREACH target IN ARRAY coalesce(targets,ARRAY[]::uuid[]) LOOP
  IF target IS NULL THEN CONTINUE; END IF;
  SELECT after_projection INTO expected FROM path_private.sitov_content_revisions
   WHERE exercise_id=target ORDER BY revision_id DESC LIMIT 1;
@@ -224,6 +231,10 @@ CREATE CONSTRAINT TRIGGER sitov_revision_current_guard AFTER INSERT OR UPDATE OR
 DROP TRIGGER IF EXISTS sitov_revision_translation_guard ON public.grammar_translations;
 CREATE CONSTRAINT TRIGGER sitov_revision_translation_guard AFTER INSERT OR UPDATE OR DELETE ON public.grammar_translations
  DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION path_private.sitov_revision_guard_current();
+DROP TRIGGER IF EXISTS sitov_revision_node_guard ON public.path_nodes;
+CREATE CONSTRAINT TRIGGER sitov_revision_node_guard AFTER INSERT OR UPDATE OR DELETE ON public.path_nodes DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION path_private.sitov_revision_guard_current();
+DROP TRIGGER IF EXISTS sitov_revision_unit_guard ON public.learning_units;
+CREATE CONSTRAINT TRIGGER sitov_revision_unit_guard AFTER INSERT OR UPDATE OR DELETE ON public.learning_units DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION path_private.sitov_revision_guard_current();
 REVOKE ALL ON FUNCTION path_private.sitov_revision_guard_current() FROM PUBLIC,anon,authenticated,service_role;
 
 DO $patch$

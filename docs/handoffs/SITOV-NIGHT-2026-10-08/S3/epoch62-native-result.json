@@ -1,0 +1,19 @@
+{
+  "beforeRawSha256": "84f6802ea61ea08d3d14f967aa7eb44d05a10a0aeab6667296790a02f5dd6d6a",
+  "afterRawSha256": "84f6802ea61ea08d3d14f967aa7eb44d05a10a0aeab6667296790a02f5dd6d6a",
+  "rawExact": true,
+  "logicalMetadataExact": true,
+  "rows": 5222,
+  "protected185QA188StreamNotRun": true,
+  "nativeAssertions": 26,
+  "expectedErrorStatements": 15,
+  "deferredNegativeStatements": 8,
+  "fixtureSha256": "01734e6898015defbf655183ee5eab07af7177e45ff5a5af2e68c0f260e4cabf",
+  "staticTests": 6,
+  "healthThree200": true,
+  "memoryAvailableMiB": 2183,
+  "scopedQueries": 0,
+  "productionWrite": false,
+  "sharedQAWrite": false,
+  "releaseReady": false
+}
