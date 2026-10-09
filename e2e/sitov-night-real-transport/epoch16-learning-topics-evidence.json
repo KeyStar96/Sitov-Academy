@@ -1,0 +1,651 @@
+{
+  "passed": true,
+  "target": "f690574575b0f92233a939dd7ebe42b268fb40b6",
+  "checks": [
+    {
+      "check": "current five active definitions verified",
+      "passed": true
+    },
+    {
+      "check": "fresh learner has zero vocabulary verb mainpath evidence",
+      "passed": true
+    },
+    {
+      "check": "text reference denied before individual PASS",
+      "passed": true
+    },
+    {
+      "check": "recording denied before PASS",
+      "passed": true
+    },
+    {
+      "check": "private reference source audio denied before PASS",
+      "passed": true
+    },
+    {
+      "check": "zeroevidence actual current test start",
+      "passed": true
+    },
+    {
+      "check": "valid wrong answers persist terminal FAIL",
+      "passed": true
+    },
+    {
+      "check": "actual107 exact stored failed cores topics versions and attempt",
+      "passed": true
+    },
+    {
+      "check": "107 DTO only exact metadata no keys source body or links",
+      "passed": true
+    },
+    {
+      "check": "foreign learning topics denied",
+      "passed": true
+    },
+    {
+      "check": "anonymous learning topics denied",
+      "passed": true
+    },
+    {
+      "check": "readonly107 preserved attempts result receipts proof progress rights hashes",
+      "passed": true
+    },
+    {
+      "check": "same JWT current commercial revoke denies107",
+      "passed": true
+    },
+    {
+      "check": "exact enabled allunit rights restore restores same107 response",
+      "passed": true
+    },
+    {
+      "check": "actual retake new accountbound current attempt",
+      "passed": true
+    },
+    {
+      "check": "servergrades actual retake PASS",
+      "passed": true
+    },
+    {
+      "check": "PASS submit retry identical receipt",
+      "passed": true
+    },
+    {
+      "check": "passed attempt rejected by failedtopics RPC",
+      "passed": true
+    },
+    {
+      "check": "exact passed reference visible",
+      "passed": true
+    },
+    {
+      "check": "direct private reference audio remains protected",
+      "passed": true
+    },
+    {
+      "check": "real prepared MP3 serverfixture bytes match storedSHA",
+      "passed": true
+    },
+    {
+      "check": "other current text remains test_required",
+      "passed": true
+    },
+    {
+      "check": "exact PASS issues recording ticket",
+      "passed": true
+    },
+    {
+      "check": "actual authorized prepared-copy upload",
+      "passed": true
+    },
+    {
+      "check": "actual syntheticrecording submission persisted",
+      "passed": true
+    },
+    {
+      "check": "submission retry exact same historical receipt",
+      "passed": true
+    },
+    {
+      "check": "history snapshot retained after current revocation",
+      "passed": true
+    },
+    {
+      "check": "own prior failed result history retained",
+      "passed": true
+    }
+  ],
+  "actual107HTTP": true,
+  "publicRawLearningLinksPopulated": false,
+  "DAL108AndBrowserTested": false,
+  "syntheticRecording": true,
+  "realMP3ShaChecked": true,
+  "topicCount": 3,
+  "observationSeconds": 6.663,
+  "http_trace": [
+    {
+      "operation": "/auth/v1/admin",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/token",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/admin",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/token",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/admin",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/token",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/set_student_trainer_access",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/learning_reading_texts",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_create_pronunciation_upload_ticket",
+      "method": "POST",
+      "status": 200,
+      "error": "test_required"
+    },
+    {
+      "operation": "/storage/v1/object",
+      "method": "GET",
+      "status": 400,
+      "error": "not_found"
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_start_pronunciation_pretest",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_submit_pronunciation_pretest",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_get_pronunciation_pretest_learning_topics",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_get_pronunciation_pretest_learning_topics",
+      "method": "POST",
+      "status": 200,
+      "error": "not_found"
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_get_pronunciation_pretest_learning_topics",
+      "method": "POST",
+      "status": 401,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/set_student_trainer_access",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_get_pronunciation_pretest_learning_topics",
+      "method": "POST",
+      "status": 200,
+      "error": "not_found"
+    },
+    {
+      "operation": "/rest/v1/rpc/set_student_trainer_access",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_get_pronunciation_pretest_learning_topics",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_start_pronunciation_pretest",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_submit_pronunciation_pretest",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_submit_pronunciation_pretest",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_get_pronunciation_pretest_learning_topics",
+      "method": "POST",
+      "status": 200,
+      "error": "not_found"
+    },
+    {
+      "operation": "/rest/v1/learning_reading_texts",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/storage/v1/object",
+      "method": "GET",
+      "status": 400,
+      "error": "not_found"
+    },
+    {
+      "operation": "/storage/v1/object",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_create_pronunciation_upload_ticket",
+      "method": "POST",
+      "status": 200,
+      "error": "test_required"
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_create_pronunciation_upload_ticket",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/storage/v1/object",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/create_pronunciation_submission",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/create_pronunciation_submission",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/set_student_trainer_access",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/submissions",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/sitov_get_pronunciation_pretest_attempt",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/storage/v1/object",
+      "method": "DELETE",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/admin",
+      "method": "DELETE",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/admin",
+      "method": "DELETE",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/admin",
+      "method": "DELETE",
+      "status": 200,
+      "error": null
+    }
+  ],
+  "observations": [
+    {
+      "at": "2026-10-09T08:39:14.347145+00:00",
+      "memAvailableMiB": 2639.38671875,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 111546368,
+      "gatewayPeakBytes": 119083008,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-08T23:28:39.827934263Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-08T23:30:48.908375157Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T03:25:07.346010501Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-08T23:30:48.175863114Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T08:27:46.913647726Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T08:39:20.141792+00:00",
+      "memAvailableMiB": 2595.0859375,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 111681536,
+      "gatewayPeakBytes": 119083008,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-08T23:28:39.827934263Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-08T23:30:48.908375157Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T03:25:07.346010501Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-08T23:30:48.175863114Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T08:27:46.913647726Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T08:39:21.583370+00:00",
+      "memAvailableMiB": 2587.19140625,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 111734784,
+      "gatewayPeakBytes": 119083008,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-08T23:28:39.827934263Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-08T23:30:48.908375157Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T03:25:07.346010501Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-08T23:30:48.175863114Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T08:27:46.913647726Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ],
+  "newOwnAccounts": 3,
+  "ownUploads": 1,
+  "ownSubmissions": 1,
+  "onlyOwnCleanup": true,
+  "baselineAfterEqual": true,
+  "baseline": {
+    "defs": 18,
+    "users": 2,
+    "active": 5,
+    "assets": 1089,
+    "passes": 0,
+    "proofs": 1682,
+    "attempts": 0,
+    "assetsHash": "dfa170fb45d55fa655bbcbe7d3241695",
+    "profileHash": "d65b2aa94875b59a45b22f8edba1a047",
+    "submissions": 0,
+    "definitionsHash": "52f236030632ea47f13a179e39ef6b87"
+  },
+  "after": {
+    "defs": 18,
+    "users": 2,
+    "active": 5,
+    "assets": 1089,
+    "passes": 0,
+    "proofs": 1682,
+    "attempts": 0,
+    "assetsHash": "dfa170fb45d55fa655bbcbe7d3241695",
+    "profileHash": "d65b2aa94875b59a45b22f8edba1a047",
+    "submissions": 0,
+    "definitionsHash": "52f236030632ea47f13a179e39ef6b87"
+  },
+  "exit_code": 0,
+  "independentInitialAdmission": {
+    "health": {
+      "at": "2026-10-09T08:35:54.151169+00:00",
+      "network": "sitov-night-20261008-qa-isolated",
+      "gateway_url": "http://10.0.3.3:8000",
+      "containers": [
+        {
+          "name": "/sitov-night-20261008-qa-db",
+          "image_id": "sha256:bce4f0725a10d80bb16e01d678db8d40dd09223d18562125902e2682dd74ecdb",
+          "running": true,
+          "oom_killed": false,
+          "exit_code": 0,
+          "restart_count": 0,
+          "memory_limit": 335544320,
+          "nano_cpus": 750000000,
+          "hostports": {
+            "5432/tcp": null
+          }
+        },
+        {
+          "name": "/sitov-night-20261008-qa-auth",
+          "image_id": "sha256:f2112b9289422f205df4ea15b8b550d425ae42528ea54521faa32cc7b62490de",
+          "running": true,
+          "oom_killed": false,
+          "exit_code": 0,
+          "restart_count": 0,
+          "memory_limit": 134217728,
+          "nano_cpus": 250000000,
+          "hostports": {}
+        },
+        {
+          "name": "/sitov-night-20261008-qa-storage",
+          "image_id": "sha256:4f0eb90b935c676914ed0609c2c7d47cddb3f336155726bb2d5542617d4afdfa",
+          "running": true,
+          "oom_killed": false,
+          "exit_code": 0,
+          "restart_count": 0,
+          "memory_limit": 268435456,
+          "nano_cpus": 500000000,
+          "hostports": {
+            "5000/tcp": null
+          }
+        },
+        {
+          "name": "/sitov-night-20261008-qa-rest",
+          "image_id": "sha256:7afcb0447b7849f6875bba4a0c603d79b1e2e44aec97af123bf9a0a2ccfeae52",
+          "running": true,
+          "oom_killed": false,
+          "exit_code": 0,
+          "restart_count": 0,
+          "memory_limit": 67108864,
+          "nano_cpus": 250000000,
+          "hostports": {
+            "3000/tcp": null
+          }
+        },
+        {
+          "name": "/sitov-night-20261008-qa-gateway",
+          "image_id": "sha256:6addf50e6bd8d578314cb9ce4f2d2d1e3781d2edecef59f707e00c6e05d384f5",
+          "running": true,
+          "oom_killed": false,
+          "exit_code": 0,
+          "restart_count": 0,
+          "memory_limit": 201326592,
+          "nano_cpus": 250000000,
+          "hostports": {
+            "8000/tcp": null,
+            "8001/tcp": null,
+            "8002/tcp": null,
+            "8003/tcp": null,
+            "8004/tcp": null,
+            "8443/tcp": null,
+            "8444/tcp": null,
+            "8445/tcp": null,
+            "8446/tcp": null,
+            "8447/tcp": null
+          }
+        }
+      ],
+      "health": [
+        {
+          "path": "/auth/v1/health",
+          "http_status": 200
+        },
+        {
+          "path": "/rest/v1/",
+          "http_status": 200
+        },
+        {
+          "path": "/storage/v1/status",
+          "http_status": 200
+        }
+      ]
+    },
+    "MemAvailableMiB": 2409.296875,
+    "cgroupExit": 0,
+    "cgroupMetricsOnly": [
+      "low 0",
+      "high 0",
+      "max 0",
+      "oom 0",
+      "oom_kill 0",
+      "oom_group_kill 0",
+      "111525888",
+      "119083008"
+    ]
+  },
+  "protocolHTTPRequests": 38,
+  "boundedRuntimeWindowSeconds": 207.432201
+}
