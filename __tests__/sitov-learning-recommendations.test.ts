@@ -130,3 +130,53 @@ describe('captured PostgreSQL catalog unit IDs',()=>{
   expect(r.data.items.map(item=>item.targetId)).toEqual([nodeId]);expect(currentUserHasContentAccess).not.toHaveBeenCalledWith({kind:'verb',id:verbId});expect(client.from).not.toHaveBeenCalled()
  })
 })
+
+describe('authorized recommendation variety within stored status priority',()=>{
+ const cards=topic.targets.filter(t=>t.kind==='vocabulary_card')
+ const verbs=topic.targets.filter(t=>t.kind==='verb')
+ const reading=topic.targets.find(t=>t.kind==='reading_text')!
+ const readingUnit='77777777-7777-4777-8777-777777777777'
+ let resumeCards:boolean
+ beforeEach(()=>{
+  resumeCards=false;allowed=topic.targets.map(t=>t.id)
+  client.rpc.mockImplementation(async(name,args)=>{
+   if(name==='get_sitov_access_catalog')return {error:null,data:{version:1,level:args.p_level,trainer:args.p_trainer,units:args.p_trainer==='vocabulary'?cards.map(t=>({id:t.unitId,items:[{kind:t.kind,id:t.id,published:true}]})):args.p_trainer==='verbs'?[{id:readingUnit,items:verbs.map(t=>({kind:'verb',id:t.id,published:true}))}]:args.p_trainer==='pronunciation'?[{id:readingUnit,items:[{kind:'reading_text',id:reading.id,published:true}]}]:[]}}
+   if(name==='sitov_learning_checkpoint')return {error:null,data:{checkpoint:resumeCards?{revision:1,updatedAt:'2026-10-09',state:{plan:[progressId]}}:null}}
+   if(name==='sitov_get_pronunciation_pretests')return {error:null,data:{ok:true,data:[{textId:reading.id,unitId:readingUnit,level:topic.level,title:'Guten Tag',focus:null,kind:'regular',textVersion:'a'.repeat(64),testVersion:'b'.repeat(64),status:'available',lockedReason:null,attempt:null,proof:null,target:'pretest'}]}}
+   throw new Error('unexpected prerequisite or write')
+  })
+ })
+ it('does not let repeated cards and verbs starve the individual pronunciation pretest',async()=>{
+  const r=await resolveSitovLearningRecommendations(input);if(!r.ok)throw new Error('failure')
+  expect(r.data.items.map(item=>item.kind)).toEqual(['vocabulary','verbs','pronunciation'])
+  expect(r.data.items[2]).toMatchObject({targetId:reading.id,action:'pretest',progress:{source:'pronunciation',status:'available'}})
+  expect(client.rpc.mock.calls.every(([name,args])=>['get_sitov_access_catalog','sitov_get_pronunciation_pretests'].includes(name)||(name==='sitov_learning_checkpoint'&&args.p_action==='get'))).toBe(true)
+ })
+ it('keeps every resumable card ahead of lower-priority trainer variety',async()=>{
+  resumeCards=true
+  const r=await resolveSitovLearningRecommendations(input);if(!r.ok)throw new Error('failure')
+  expect(r.data.items.map(item=>item.kind)).toEqual(['vocabulary','vocabulary','verbs'])
+  expect(r.data.items.map(item=>item.action)).toEqual(['continue','continue','practice'])
+ })
+ it('never fills variety with a currently denied target and respects the requested limit',async()=>{
+  allowed=allowed.filter(id=>id!==reading.id)
+  const r=await resolveSitovLearningRecommendations({...input,limit:2});if(!r.ok)throw new Error('failure')
+  expect(r.data.items).toHaveLength(2);expect(r.data.items.map(item=>item.kind)).toEqual(['vocabulary','verbs']);expect(r.data.items.every(item=>allowed.includes(item.targetId))).toBe(true)
+ })
+})
+
+it('validates every expanded mapping against authoritative same-level source catalogs',()=>{
+ const fs=jest.requireActual<typeof import('node:fs')>('node:fs')
+ const read=(file:string)=>JSON.parse(fs.readFileSync(file,'utf8'))
+ const catalog={nodes:['a1.1','a1.2'].flatMap(level=>read(`supabase/seeds/path-${level}.json`).flatMap(p=>p.nodes.map(n=>({level:p.level,pathSourceId:p.id,nodeSourceId:n.id})))),targets:[
+  ...read('content/vocabulary/sitov-vocabulary-seed.json').units.flatMap(u=>u.cards.map(c=>({kind:'vocabulary_card',id:c.id,level:u.level,unitId:u.id}))),
+  ...read('lib/verbs/catalog-data.json').map(v=>({kind:'verb',id:v.id,level:v.level})),
+  ...read('supabase/seeds/pronunciation-reading-2026.json').map(t=>({kind:'reading_text',id:t.id,level:t.level})),
+ ]}
+ const {validateSitovTopicMapping}=jest.requireActual<typeof import('@/lib/learning/sitov-topic-mapping')>('@/lib/learning/sitov-topic-mapping')
+ expect(validateSitovTopicMapping(SITOV_TOPIC_MAPPING,catalog)).toEqual([])
+ const added=SITOV_TOPIC_MAPPING.filter(t=>/-a1[12]$/.test(t.topicId));expect(added).toHaveLength(9)
+ expect(added.every(t=>t.targets.every(target=>target.kind!=='vocabulary_card'))).toBe(true)
+ const invalid=structuredClone(added);invalid[0].anchors[0].level='A1.2'
+ expect(validateSitovTopicMapping(invalid,catalog).some(error=>error.startsWith('anchor:'))).toBe(true)
+})

@@ -19,7 +19,7 @@ export type SitovTopicMapping = {
 }
 export const SITOV_TOPIC_MAPPING_VERSION = 1 as const
 // Seed source IDs are level-qualified; DB UUIDs must be resolved from stored rows.
-// Samples only: missing topics do not imply missing learner rights or competence.
+// Evidence-backed partial coverage: missing topics never imply missing rights or competence.
 export const SITOV_TOPIC_MAPPING: readonly SitovTopicMapping[] = [
   {
     "topicId": "sitov.topic.kennenlernen",
@@ -123,7 +123,17 @@ export const SITOV_TOPIC_MAPPING: readonly SitovTopicMapping[] = [
   },
   {
     "topicId": "sitov.topic.nominativ",
-    "specialTargets": [{ "kind": "path_special_source", "level": "A1.1", "pathSourceId": "P4", "nodeSourceId": "sitov-special-a11-artikel-nominativ-v1", "anchorSourceId": "P4-N1", "goalId": "P4-G1", "evidence": "Artikel im Nominativ · vorhandenes optionales Special" }],
+    "specialTargets": [
+      {
+        "kind": "path_special_source",
+        "level": "A1.1",
+        "pathSourceId": "P4",
+        "nodeSourceId": "sitov-special-a11-artikel-nominativ-v1",
+        "anchorSourceId": "P4-N1",
+        "goalId": "P4-G1",
+        "evidence": "Artikel im Nominativ · vorhandenes optionales Special"
+      }
+    ],
     "competencyId": "sitov.competency.nominativ",
     "level": "A1.1",
     "anchors": [
@@ -347,6 +357,463 @@ export const SITOV_TOPIC_MAPPING: readonly SitovTopicMapping[] = [
         "id": "0022c931-279a-5050-ac2d-459c1e978cd1",
         "level": "A1.2",
         "evidence": "Das Buch darf ich vier Wochen behalten."
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.satzbau-a11",
+    "competencyId": "sitov.competency.satzbau-a11",
+    "level": "A1.1",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N7",
+        "evidence": "Satzbau und W-Fragen"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N6",
+        "evidence": "Am Montag arbeite ich"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "reading_text",
+        "id": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+        "level": "A1.1",
+        "evidence": "Guten Tag, das bin ich"
+      },
+      {
+        "kind": "reading_text",
+        "id": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+        "level": "A1.1",
+        "evidence": "Mein Frühstück"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.praesens-a11",
+    "competencyId": "sitov.competency.praesens-a11",
+    "level": "A1.1",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P2",
+        "nodeSourceId": "P2-N4",
+        "evidence": "Verben: wir, ihr, sie"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P2",
+        "nodeSourceId": "P2-N5",
+        "evidence": "heißen, sein, haben"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N5",
+        "evidence": "Verben mit Besonderheiten"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P6",
+        "nodeSourceId": "P6-N7",
+        "evidence": "lesen und treffen"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P6",
+        "nodeSourceId": "P6-N8",
+        "evidence": "nehmen und fahren"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "verb",
+        "id": "sitov-verb-sein",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "sein"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-haben",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "haben"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-essen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "essen"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-lesen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "lesen"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-sprechen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "sprechen"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-nehmen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "nehmen"
+      },
+      {
+        "kind": "reading_text",
+        "id": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+        "level": "A1.1",
+        "evidence": "Guten Tag, das bin ich"
+      },
+      {
+        "kind": "reading_text",
+        "id": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+        "level": "A1.1",
+        "evidence": "Mein Frühstück"
+      },
+      {
+        "kind": "reading_text",
+        "id": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+        "level": "A1.1",
+        "evidence": "Meine Familie"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.tageszeit-a11",
+    "competencyId": "sitov.competency.tageszeit-a11",
+    "level": "A1.1",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N1",
+        "evidence": "Wochentage und Tageszeiten"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N2",
+        "evidence": "Wie spät ist es?"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N6",
+        "evidence": "Am Montag arbeite ich"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "reading_text",
+        "id": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+        "level": "A1.1",
+        "evidence": "Am Samstag im Park"
+      },
+      {
+        "kind": "reading_text",
+        "id": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+        "level": "A1.1",
+        "evidence": "Der Weg zum Kurs"
+      },
+      {
+        "kind": "reading_text",
+        "id": "4a6f7008-9439-5c6e-9d60-113e8945f800",
+        "level": "A1.1",
+        "evidence": "Ein ruhiger Abend"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.essen-a11",
+    "competencyId": "sitov.competency.essen-a11",
+    "level": "A1.1",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P3",
+        "nodeSourceId": "P3-N1",
+        "evidence": "Obst und Gemüse"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P6",
+        "nodeSourceId": "P6-N11",
+        "evidence": "Am Imbiss"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "verb",
+        "id": "sitov-verb-fruehstuecken",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "frühstücken"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-essen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "essen"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-trinken",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "trinken"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-kochen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "kochen"
+      },
+      {
+        "kind": "reading_text",
+        "id": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+        "level": "A1.1",
+        "evidence": "Mein Frühstück"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.wohnen-a11",
+    "competencyId": "sitov.competency.wohnen-a11",
+    "level": "A1.1",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P4",
+        "nodeSourceId": "P4-N2",
+        "evidence": "Zimmer und Möbel"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P4",
+        "nodeSourceId": "P4-N6",
+        "evidence": "Farben und Gegensätze"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P4",
+        "nodeSourceId": "P4-N8",
+        "evidence": "Möbel beschreiben"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "verb",
+        "id": "sitov-verb-liegen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "liegen"
+      },
+      {
+        "kind": "reading_text",
+        "id": "25bdcac1-9272-5294-893f-c2063b4838b9",
+        "level": "A1.1",
+        "evidence": "Unser Kursraum"
+      },
+      {
+        "kind": "reading_text",
+        "id": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+        "level": "A1.1",
+        "evidence": "Mein Zimmer"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.einkaufen-a11",
+    "competencyId": "sitov.competency.einkaufen-a11",
+    "level": "A1.1",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P3",
+        "nodeSourceId": "P3-N5",
+        "evidence": "Im Geschäft"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P3",
+        "nodeSourceId": "P3-N8",
+        "evidence": "Preise"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.1",
+        "pathSourceId": "P3",
+        "nodeSourceId": "P3-N9",
+        "evidence": "Einkaufszettel und Rezept"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "verb",
+        "id": "sitov-verb-brauchen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "brauchen"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-kosten",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "kosten"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-nehmen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "nehmen"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-bezahlen",
+        "level": "A1.1",
+        "tense": "present",
+        "evidence": "bezahlen"
+      },
+      {
+        "kind": "reading_text",
+        "id": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+        "level": "A1.1",
+        "evidence": "Im kleinen Laden"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.gesundheit-a12",
+    "competencyId": "sitov.competency.gesundheit-a12",
+    "level": "A1.2",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A1.2",
+        "pathSourceId": "P3",
+        "nodeSourceId": "P3-N1",
+        "evidence": "Der Körper"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.2",
+        "pathSourceId": "P3",
+        "nodeSourceId": "P3-N2",
+        "evidence": "Was tut weh?"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.2",
+        "pathSourceId": "P3",
+        "nodeSourceId": "P3-N9",
+        "evidence": "Ein Termin beim Arzt"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "reading_text",
+        "id": "1b5c02d4-7217-56e0-8abb-906c20784e30",
+        "level": "A1.2",
+        "evidence": "Ein Termin beim Arzt"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.ablauf-a12",
+    "competencyId": "sitov.competency.ablauf-a12",
+    "level": "A1.2",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A1.2",
+        "pathSourceId": "P2",
+        "nodeSourceId": "P2-N10",
+        "evidence": "Zuerst, dann, danach"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.2",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N3",
+        "evidence": "Mein Tag"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "reading_text",
+        "id": "add5b212-15af-55b5-b224-6282b5c39c13",
+        "level": "A1.2",
+        "evidence": "Wir kochen zusammen"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.akkusativ-a12",
+    "competencyId": "sitov.competency.akkusativ-a12",
+    "level": "A1.2",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A1.2",
+        "pathSourceId": "P6",
+        "nodeSourceId": "P6-N2",
+        "evidence": "Der ist schön! Den nehme ich."
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A1.2",
+        "pathSourceId": "P3",
+        "nodeSourceId": "P3-N5",
+        "evidence": "meinen, deinen, seinen"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "reading_text",
+        "id": "1b5c02d4-7217-56e0-8abb-906c20784e30",
+        "level": "A1.2",
+        "evidence": "einen Termin machen"
+      },
+      {
+        "kind": "reading_text",
+        "id": "add5b212-15af-55b5-b224-6282b5c39c13",
+        "level": "A1.2",
+        "evidence": "Ich decke den Tisch."
       }
     ]
   }

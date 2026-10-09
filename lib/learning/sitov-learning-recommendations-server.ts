@@ -106,7 +106,16 @@ export async function resolveSitovLearningRecommendations(input: unknown): Promi
     }
     // Existing unfinished evidence drives order, never authorization or pedagogical passage.
     const priority = { continue: 0, practice: 1, pretest: 1, review: 2 }
-    items.sort((a, b) => priority[a.action] - priority[b.action])
-    return sitovLearningRecommendationsResultSchema.parse({ ok: true, data: { mappingVersion: 1, items: items.slice(0, limit) } })
+    // Different trainer kinds precede repeats only within the existing status priority.
+    const varied = [0, 1, 2].flatMap(rank => {
+      const kinds = new Set<SitovLearningRecommendation['kind']>()
+      const first: SitovLearningRecommendation[] = [], repeated: SitovLearningRecommendation[] = []
+      for (const item of items.filter(candidate => priority[candidate.action] === rank)) {
+        if (kinds.has(item.kind)) repeated.push(item)
+        else { kinds.add(item.kind); first.push(item) }
+      }
+      return [...first, ...repeated]
+    })
+    return sitovLearningRecommendationsResultSchema.parse({ ok: true, data: { mappingVersion: 1, items: varied.slice(0, limit) } })
   } catch { return { ok: false, error: 'retryable_failure', retryable: true } }
 }
