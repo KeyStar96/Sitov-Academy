@@ -1,0 +1,199 @@
+{
+  "ownCleanup": true,
+  "newOwnAccounts": 1,
+  "before": {
+    "defs": 18,
+    "users": 2,
+    "active": 5,
+    "assets": 1330,
+    "passes": 0,
+    "proofs": 1682,
+    "attempts": 0,
+    "assetsHash": "ddf7e11ed7fc756058ed35f00c926448",
+    "profileHash": "d65b2aa94875b59a45b22f8edba1a047",
+    "submissions": 0,
+    "definitionsHash": "52f236030632ea47f13a179e39ef6b87"
+  },
+  "after": {
+    "defs": 18,
+    "users": 2,
+    "active": 5,
+    "assets": 1330,
+    "passes": 0,
+    "proofs": 1682,
+    "attempts": 0,
+    "assetsHash": "ddf7e11ed7fc756058ed35f00c926448",
+    "profileHash": "d65b2aa94875b59a45b22f8edba1a047",
+    "submissions": 0,
+    "definitionsHash": "52f236030632ea47f13a179e39ef6b87"
+  },
+  "baselineAfterEqual": true,
+  "ownState": {
+    "failed": 1,
+    "passes": 0,
+    "attempts": 1
+  },
+  "navigationProgressAndRightsUnchanged": true,
+  "completeOwnStateUnchanged": true,
+  "failedCompetencyIds": [
+    "sitov.pretest.a11-01.words",
+    "sitov.pretest.a11-01.nominal",
+    "sitov.pretest.a11-01.syntax",
+    "sitov.pretest.a11-01.verbs"
+  ],
+  "observations": [
+    {
+      "at": "2026-10-09T11:38:19.214448+00:00",
+      "memAvailableMiB": 2635.07421875,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 138866688,
+      "gatewayPeakBytes": 143568896,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T11:44:19.951261+00:00",
+      "memAvailableMiB": 2499.61328125,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 141361152,
+      "gatewayPeakBytes": 145874944,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T11:44:21.097761+00:00",
+      "memAvailableMiB": 2510.24609375,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 141557760,
+      "gatewayPeakBytes": 145899520,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ]
+}

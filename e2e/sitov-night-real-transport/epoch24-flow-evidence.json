@@ -1,0 +1,518 @@
+[
+  {
+    "locale": "de",
+    "assignedSourceSha": "736422f44e1a6551553dbd706434a026efef35d3",
+    "builtSourceSha": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+    "resultAt": "2026-10-09T11:40:03.502Z",
+    "pronunciationNavigationBefore": "2026-10-09T11:38:58.566Z",
+    "keyboardHelp": {
+      "openedByReturn": "true",
+      "closedBySpace": "false",
+      "focus": {
+        "tag": "BUTTON",
+        "text": "Hilfe"
+      }
+    },
+    "result": {
+      "german": [
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Frühstück",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Unser Kursraum",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein neuer Nachbar",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Am Samstag im Park",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Zimmer",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Im kleinen Laden",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Meine Familie",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Der Weg zum Kurs",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein ruhiger Abend",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        }
+      ],
+      "lang": "de",
+      "links": [
+        {
+          "href": "/de/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Verbformen üben"
+        },
+        {
+          "href": "/de/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Satzübungen"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Noch nicht bestanden\n\n0 von 12 richtig\n\nVerbformen üben\nSatzübungen"
+      ],
+      "width": 390
+    },
+    "targetRequestBefore": "2026-10-09T11:40:03.552Z",
+    "targetActionAfter": "2026-10-09T11:40:04.076Z",
+    "targetObservedAt": "2026-10-09T11:40:14.494Z",
+    "landingURL": "http://127.0.0.1:3143/de/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landing": {
+      "fixedNavigation": [
+        {
+          "bottom": 834,
+          "label": "Hauptnavigation",
+          "top": 760.8125
+        }
+      ],
+      "focus": {
+        "label": "Hinzufügen: heißen",
+        "tag": "BUTTON",
+        "text": "Hinzufügen"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "de",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 849.8203125,
+          "label": "Ausgewähltes Lernziel: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 745.5625
+        },
+        {
+          "bottom": 808.5625,
+          "label": "Hinzufügen: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 762.5625
+        }
+      ],
+      "width": 390
+    },
+    "landingAfterScroll": {
+      "fixedNavigation": [
+        {
+          "bottom": 919.2506103515624,
+          "label": "Hauptnavigation",
+          "top": 847.4622802734375
+        }
+      ],
+      "focus": {
+        "label": "Hinzufügen: heißen",
+        "tag": "BUTTON",
+        "text": "Hinzufügen"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "de",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 713.3203125,
+          "label": "Ausgewähltes Lernziel: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 609.0625
+        },
+        {
+          "bottom": 672.0625,
+          "label": "Hinzufügen: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 626.0625
+        }
+      ],
+      "width": 390
+    },
+    "acceptance": "PASS_BOUNDED"
+  },
+  {
+    "locale": "ru",
+    "assignedSourceSha": "736422f44e1a6551553dbd706434a026efef35d3",
+    "builtSourceSha": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+    "resultAt": "2026-10-09T11:41:45.983Z",
+    "pronunciationNavigationBefore": "2026-10-09T11:40:42.604Z",
+    "keyboardHelp": {
+      "openedByReturn": "true",
+      "closedBySpace": "false",
+      "focus": {
+        "tag": "BUTTON",
+        "text": "Помощь"
+      }
+    },
+    "result": {
+      "german": [
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Frühstück",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Unser Kursraum",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein neuer Nachbar",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Am Samstag im Park",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Zimmer",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Im kleinen Laden",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Meine Familie",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Der Weg zum Kurs",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein ruhiger Abend",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        }
+      ],
+      "lang": "ru",
+      "links": [
+        {
+          "href": "/ru/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Повторить формы глаголов"
+        },
+        {
+          "href": "/ru/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Упражнения с предложениями"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Пока не пройден\n\nПравильно: 0 из 12\n\nПовторить формы глаголов\nУпражнения с предложениями"
+      ],
+      "width": 390
+    },
+    "targetRequestBefore": "2026-10-09T11:41:46.135Z",
+    "targetActionAfter": "2026-10-09T11:41:46.658Z",
+    "targetObservedAt": "2026-10-09T11:41:58.333Z",
+    "landingURL": "http://127.0.0.1:3143/ru/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landing": {
+      "fixedNavigation": [
+        {
+          "bottom": 834,
+          "label": "Главная навигация",
+          "top": 760.8125
+        }
+      ],
+      "focus": {
+        "label": "Добавить: heißen",
+        "tag": "BUTTON",
+        "text": "Добавить"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "ru",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 847.2578125,
+          "label": "Выбранная учебная цель: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 721.2421875
+        },
+        {
+          "bottom": 784.2421875,
+          "label": "Добавить: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 738.2421875
+        }
+      ],
+      "width": 390
+    },
+    "landingAfterScroll": {
+      "fixedNavigation": [
+        {
+          "bottom": 917.55712890625,
+          "label": "Главная навигация",
+          "top": 845.740966796875
+        }
+      ],
+      "focus": {
+        "label": "Добавить: heißen",
+        "tag": "BUTTON",
+        "text": "Добавить"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "ru",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 713.2578125,
+          "label": "Выбранная учебная цель: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 587.2421875
+        },
+        {
+          "bottom": 650.2421875,
+          "label": "Добавить: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 604.2421875
+        }
+      ],
+      "width": 390
+    },
+    "acceptance": "PASS_BOUNDED"
+  },
+  {
+    "locale": "en",
+    "assignedSourceSha": "736422f44e1a6551553dbd706434a026efef35d3",
+    "builtSourceSha": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+    "resultAt": "2026-10-09T11:43:33.707Z",
+    "pronunciationNavigationBefore": "2026-10-09T11:42:29.984Z",
+    "keyboardHelp": {
+      "openedByReturn": "true",
+      "closedBySpace": "false",
+      "focus": {
+        "tag": "BUTTON",
+        "text": "Help"
+      }
+    },
+    "result": {
+      "german": [
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Frühstück",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Unser Kursraum",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein neuer Nachbar",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Am Samstag im Park",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Zimmer",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Im kleinen Laden",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Meine Familie",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Der Weg zum Kurs",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein ruhiger Abend",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        }
+      ],
+      "lang": "en",
+      "links": [
+        {
+          "href": "/en/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Practise verb forms"
+        },
+        {
+          "href": "/en/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Sentence practice"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Not passed yet\n\n0 of 12 correct\n\nPractise verb forms\nSentence practice"
+      ],
+      "width": 390
+    },
+    "targetRequestBefore": "2026-10-09T11:43:33.759Z",
+    "targetActionAfter": "2026-10-09T11:43:34.193Z",
+    "targetObservedAt": "2026-10-09T11:43:44.488Z",
+    "landingURL": "http://127.0.0.1:3143/en/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landing": {
+      "fixedNavigation": [
+        {
+          "bottom": 834,
+          "label": "Main navigation",
+          "top": 760.8125
+        }
+      ],
+      "focus": {
+        "label": "Add: heißen",
+        "tag": "BUTTON",
+        "text": "Add"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "en",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 825.5,
+          "label": "Selected learning target: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 721.2421875
+        },
+        {
+          "bottom": 784.2421875,
+          "label": "Add: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 738.2421875
+        }
+      ],
+      "width": 390
+    },
+    "landingAfterScroll": {
+      "fixedNavigation": [
+        {
+          "bottom": 919.0850219726562,
+          "label": "Main navigation",
+          "top": 847.2939453125
+        }
+      ],
+      "focus": {
+        "label": "Add: heißen",
+        "tag": "BUTTON",
+        "text": "Add"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "en",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 713.5,
+          "label": "Selected learning target: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 609.2421875
+        },
+        {
+          "bottom": 672.2421875,
+          "label": "Add: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 626.2421875
+        }
+      ],
+      "width": 390
+    },
+    "acceptance": "PASS_BOUNDED"
+  }
+]

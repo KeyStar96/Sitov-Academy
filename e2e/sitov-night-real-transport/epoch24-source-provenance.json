@@ -1,0 +1,30 @@
+{
+  "recordedAt": "2026-10-09T11:41:35.221077+00:00",
+  "assignedSourceSha": "736422f44e1a6551553dbd706434a026efef35d3",
+  "builtSourceSha": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+  "independentGitDiffQuietExit": 0,
+  "comparedPaths": [
+    "app",
+    "lib",
+    "components",
+    "utils",
+    "public",
+    "config"
+  ],
+  "reportedByM": {
+    "build": "PASS",
+    "tsc": "PASS",
+    "jestPassed": 4237,
+    "jestSeparateSkips": 2,
+    "targetedPassed": 26,
+    "qaAssets": 1330,
+    "newAssets": 241,
+    "immutableAssetReuses": 34,
+    "assetByteReadbacksPassed": 275,
+    "audioAuditOldCachedLexicalZero": "alt."
+  },
+  "s5RepeatedBuildOrFullTests": false,
+  "s5RepeatedAudioAuditOrReadbacks": false,
+  "audioIssueResolvedInThisUnit": false,
+  "ukTrOnIdFilterTestedInThisUnit": false
+}
