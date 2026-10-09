@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality18-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3+S4",
+  "reviewerKind": "independent_agent_editorial_review",
+  "reviewedAt": "2026-10-09T18:08:09.391Z",
+  "sourceArtifactCommit": "f2ee42246507a53b0c24e83211110c75f64d89fb",
+  "sourcePatchSha256": "a8562c759565b3fde1b89413dfc25aca01cefa1ab7a1ddece0a0f22004ade3c4",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "changedQuestionsReviewed": 18,
+  "unchangedQuestionsVerified": 54,
+  "resolvedIndependentFindingIDs": [
+    "sitov.audit.S7.e1.001",
+    "sitov.audit.S7.e1.002",
+    "sitov.audit.S7.e1.003",
+    "sitov.audit.S7.e1.004",
+    "sitov.audit.S7.e1.005",
+    "sitov.audit.S7.e1.006",
+    "sitov.audit.S7.e1.007",
+    "sitov.audit.S7.e1.008",
+    "sitov.audit.S7.e1.009",
+    "sitov.audit.S7.e1.010",
+    "sitov.audit.S7.e1.011",
+    "sitov.audit.S7.e1.012",
+    "sitov.audit.S7.e1.024",
+    "sitov.audit.S7.e1.025",
+    "sitov.audit.S7.e1.026",
+    "sitov.audit.S7.e1.033"
+  ],
+  "changedAudioAliases": 41,
+  "scope": "M independently read all18 new public prompts/options/keys/rationales and repair explanations; compared exact previous/current tasks, original source spans and first3 full definitions, proving other54 tasks unchanged. Replaces absurd category distractors with actual semantic alternatives, puts both plausible actors/objects in public exercise premises and shortens an abstract correct answer without changing its meaning. Added exercise premises are not historical source-body claims. Correct wording change a11-03.syntax.q1 explicitly re-reviewed. No human or empirical approval/listening, no publication. Other audit findings remain open.",
+  "approvedEditorialDrafts": [
+    {
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat die exakt geänderte öffentliche Alters-/Wortstellungsfrage, Antwortoptionen und Begründung unabhängig gelesen; die übrigen23 Aufgaben und Kernzuordnungen sind durch exakte frühere unabhängige Prüfung erhalten. Aktive Altversionen und Audionachweise bleiben unverändert.",
+        "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+        "definitionContentHash": "06fd9a4ab8474385583ef42b39a9bd884681a71c29e989dae6b8eb87633855dd",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-age-wordorder-repair-M",
+        "documentSha256": "2b40ebb2d9a7ff8c2c2e25281213cf564ce576e90919afa9a24bb82649adfffb",
+        "reviewedAt": "2026-10-09T11:56:06.101Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+      },
+      "definitionContentHash": "1c5591cbbf53d9489d19dbfa0178221e024a90177da3d0d679e6a5da4b3ce6d8"
+    },
+    {
+      "textId": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+      "textVersion": "a1e829de18793196c9b27aa5b5fe18a20ebf7a12809c5a61799fd9822f987fc0",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "textVersion": "a1e829de18793196c9b27aa5b5fe18a20ebf7a12809c5a61799fd9822f987fc0",
+        "definitionContentHash": "138d693692a655c656ddec034e3ed08cdc04d338099e85a1758e7db87ddcfcc9",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+      },
+      "definitionContentHash": "aee6ecd8bf159d092581f1ac4219f072fdfa8ad89614597fc6bf4cd8d24d3965"
+    },
+    {
+      "textId": "25bdcac1-9272-5294-893f-c2063b4838b9",
+      "textVersion": "1d8ea3dbd24923f3c6a3ec7c9f319d84b475802b18996a605ee447f98bc1a961",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "textVersion": "1d8ea3dbd24923f3c6a3ec7c9f319d84b475802b18996a605ee447f98bc1a961",
+        "definitionContentHash": "4ed47739d1a31c885a2d5d015aa30c4ec7dc548e2fe3f91328001391741166c9",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+      },
+      "definitionContentHash": "da37b30709dca3939e583745c8cd9b8f6884dd572f8c17c7ed61af931c6045bc"
+    }
+  ],
+  "immutableNewDefinitionAndAudioBindingRequired": true
+}
