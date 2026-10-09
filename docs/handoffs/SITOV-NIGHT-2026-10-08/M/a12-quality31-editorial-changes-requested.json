@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "sitov.agent.M",
+  "sourceArtifact": "S4/epoch25-quality-patch.json",
+  "sourceArtifactSha256": "99e4a09ca605b053c98f548275e27aa2790286b57d8870f030db04d697cb23b4",
+  "status": "CHANGES_REQUESTED_AUDIO_SAFE_PROMPTS_ONLY",
+  "reviewedAt": "2026-10-09T19:33:20.979955+00:00",
+  "humanReview": false,
+  "reviewedScope": "M read all31 patches/all96 candidate questions/options/keys/rationales, all16coreunit records and all4 fullcanonicalsources; content corrections are semantically sound. Two actual proposed publicpromptstrings need clearer spoken gap instructions to avoid synthetic filler pronunciation. No seed applied.",
+  "changes": [
+    {
+      "questionId": "sitov.pretest.a12-02.nominal.q1",
+      "field": "promptDe",
+      "expected": "Ergänze: »Zwei ___ kommen zu mir.«",
+      "replacement": "Welche Form von »Freund« gehört in die Lücke zwischen »Zwei« und »kommen zu mir«?",
+      "reason": "Natural spoken instruction preserves actual two-subject nominativeplural choice and all three optionIDs/keys; no blank marker syntheticfiller or answer leakage."
+    },
+    {
+      "questionId": "sitov.pretest.a12-04.verbs.q5",
+      "field": "promptDe",
+      "expected": "Übung: »Paul bringt Brot zur Feier mit.« Welche Grundform gehört zu »bringt … mit«?",
+      "replacement": "Übung: »Paul bringt Brot zur Feier mit.« Welcher Infinitiv gehört zum Verb in diesem Satz?",
+      "reason": "Actual finiteverb and separatedparticle already publicly visible in complete sentence; no repeated fragment/ellipsis needed. Same genuine trennbarerInfinitiv construct, exact key/options."
+    }
+  ],
+  "allOtherProposalsUnchanged": true,
+  "publicationAuthorized": false
+}
