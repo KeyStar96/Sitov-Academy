@@ -31751,16 +31751,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen und drei vollständige Quellen unabhängig geprüft.38 schwache Aufgaben wurden vor Audioerzeugung mit plausiblen fachlichen Distraktoren nachgebessert und erneut geprüft; zwei Pronomenkontexte öffentlich eindeutig. Echte Lernziel-Lücken, menschliche Kalibrierung und endgültige Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "1b5528f6e4495967dafbb7616d771f0290f3d1bcbca65da8908551163e06d596",
-        "definitionContentHash": "edf7265614b3988ecb570172eaacc86f3682b46b441928dcd1d04be6f4f3cfa5",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools31-33-M",
-        "documentSha256": "65a03a15c0b833e433a610fa0a241d08317f54a778b19b5a3a6909e47bae0fd3",
-        "reviewedAt": "2026-10-09T17:30:19.064Z",
+        "definitionContentHash": "21125125b101f64e3caca7a0b757105a2c77d2719de75b2dccaafaec5f6cd4ae",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -32234,7 +32234,7 @@
             "id": "sitov.pretest.a22-01.verbs.q3",
             "competencyId": "sitov.pretest.a22-01.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir mussten in der Stadt ___« zu umsteigen?",
+            "promptDe": "Welche Form von »umsteigen« passt nach »Wir mussten in der Stadt«?",
             "fragmentDe": null,
             "options": [
               {
@@ -32394,7 +32394,7 @@
             "id": "sitov.pretest.a22-01.syntax.q2",
             "competencyId": "sitov.pretest.a22-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Ein Mitarbeiter erklärte, dass …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Ein Mitarbeiter erklärte, dass« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -32458,7 +32458,7 @@
             "id": "sitov.pretest.a22-01.syntax.q4",
             "competencyId": "sitov.pretest.a22-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Ich war unsicher, weil …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Ich war unsicher, weil« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -32554,7 +32554,7 @@
             "id": "sitov.pretest.a22-01.nominal.q1",
             "competencyId": "sitov.pretest.a22-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir fahren zu ___ Eltern«, wenn es die Eltern des Sprechers sind?",
+            "promptDe": "Welche Form passt zwischen »Wir fahren zu« und »Eltern«, wenn es die Eltern des Sprechers sind?",
             "fragmentDe": null,
             "options": [
               {
@@ -32586,7 +32586,7 @@
             "id": "sitov.pretest.a22-01.nominal.q2",
             "competencyId": "sitov.pretest.a22-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Auf ___ Bahnsteig ist es voll«?",
+            "promptDe": "Welche Form passt zwischen »Auf« und »Bahnsteig ist es voll«?",
             "fragmentDe": null,
             "options": [
               {
@@ -32618,7 +32618,7 @@
             "id": "sitov.pretest.a22-01.nominal.q3",
             "competencyId": "sitov.pretest.a22-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir nehmen einen ___ Zug«?",
+            "promptDe": "Welche Form passt zwischen »Wir nehmen einen« und »Zug«?",
             "fragmentDe": null,
             "options": [
               {
@@ -32650,7 +32650,7 @@
             "id": "sitov.pretest.a22-01.nominal.q4",
             "competencyId": "sitov.pretest.a22-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir steigen in einer ___ Stadt um«?",
+            "promptDe": "Welche Form passt zwischen »Wir steigen in einer« und »Stadt um«?",
             "fragmentDe": null,
             "options": [
               {
@@ -32682,7 +32682,7 @@
             "id": "sitov.pretest.a22-01.nominal.q5",
             "competencyId": "sitov.pretest.a22-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ein Mitreisender zeigte ___ das Gleis«, wenn unsere Gruppe der Empfänger ist?",
+            "promptDe": "Welche Form passt zwischen »Ein Mitreisender zeigte« und »das Gleis«, wenn unsere Gruppe der Empfänger ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -32714,7 +32714,7 @@
             "id": "sitov.pretest.a22-01.nominal.q6",
             "competencyId": "sitov.pretest.a22-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt standardsprachlich »trotz der ___ Fahrt«?",
+            "promptDe": "Welche Form passt standardsprachlich zwischen »trotz der« und »Fahrt«?",
             "fragmentDe": null,
             "options": [
               {
@@ -32796,16 +32796,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "a368e2f752bf04554f9a87a44ffca1ba94f8fada5515dd94ed05c8d788523717",
-        "definitionContentHash": "3a61792653b062428d51124acad7f230e52fdbf15a0cf5b3e137cea529cee4fa",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
-        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
-        "reviewedAt": "2026-10-09T20:34:04.245Z",
+        "definitionContentHash": "b53aed91ba51e136eaf3daaa0b07345baf007e38ef1b506f1178567595646193",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -33217,7 +33217,7 @@
             "id": "sitov.pretest.a22-02.verbs.q1",
             "competencyId": "sitov.pretest.a22-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe den Chef um ein Gespräch ___« zu bitten?",
+            "promptDe": "Welche Form von »bitten« passt nach »Ich habe den Chef um ein Gespräch«?",
             "fragmentDe": null,
             "options": [
               {
@@ -33226,7 +33226,7 @@
               },
               {
                 "id": "sitov.pretest.a22-02.verbs.q1.c",
-                "textDe": "gebittet"
+                "textDe": "baten"
               },
               {
                 "id": "sitov.pretest.a22-02.verbs.q1.a",
@@ -33243,18 +33243,18 @@
                 "quote": "Gespräch gebeten"
               }
             ],
-            "rationaleDe": "Das starke Verb bitten bildet das Partizip gebeten; gebittet und Infinitiv passen nicht ins Perfekt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gebeten«. Die Alternativen »baten« und »bitten« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Das starke Verb bitten bildet das Partizip gebeten; baten und Infinitiv passen nicht ins Perfekt."
           },
           {
             "id": "sitov.pretest.a22-02.verbs.q2",
             "competencyId": "sitov.pretest.a22-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe mein Problem ___« zu erklären?",
+            "promptDe": "Welche Form von »erklären« passt nach »Ich habe mein Problem«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-02.verbs.q2.b",
-                "textDe": "geerklärt"
+                "textDe": "erklärte"
               },
               {
                 "id": "sitov.pretest.a22-02.verbs.q2.a",
@@ -33275,7 +33275,7 @@
                 "quote": "Ich habe erklärt"
               }
             ],
-            "rationaleDe": "Erklären bildet das Partizip erklärt ohne ge wegen der Vorsilbe er; die anderen Formen passen hier nicht."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »erklärt«. Die Alternativen »erklärte« und »erklären« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Erklären bildet das Partizip erklärt ohne ge wegen der Vorsilbe er; die anderen Formen passen hier nicht."
           },
           {
             "id": "sitov.pretest.a22-02.verbs.q3",
@@ -33345,12 +33345,12 @@
             "id": "sitov.pretest.a22-02.verbs.q5",
             "competencyId": "sitov.pretest.a22-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Er hat meinem Vorschlag ___« zu zustimmen?",
+            "promptDe": "Welche Form von »zustimmen« passt nach »Er hat meinem Vorschlag«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-02.verbs.q5.b",
-                "textDe": "gezustimmt"
+                "textDe": "stimmten zu"
               },
               {
                 "id": "sitov.pretest.a22-02.verbs.q5.c",
@@ -33371,7 +33371,7 @@
                 "quote": "Vorschlag zugestimmt"
               }
             ],
-            "rationaleDe": "Beim trennbaren Verb zustimmen steht ge zwischen zu und stimmt; das Partizip lautet zugestimmt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »zugestimmt«. Die Alternativen »stimmten zu« und »zustimmen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Beim trennbaren Verb zustimmen steht ge zwischen zu und stimmt; das Partizip lautet zugestimmt."
           },
           {
             "id": "sitov.pretest.a22-02.verbs.q6",
@@ -33473,7 +33473,7 @@
             "id": "sitov.pretest.a22-02.syntax.q3",
             "competencyId": "sitov.pretest.a22-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Ich erklärte, dass …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Ich erklärte, dass« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -33601,7 +33601,7 @@
             "id": "sitov.pretest.a22-02.nominal.q1",
             "competencyId": "sitov.pretest.a22-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »___ Sohn geht in die Schule«, wenn es der Sohn des Sprechers ist?",
+            "promptDe": "Welche Form passt vor »Sohn geht in die Schule«, wenn es der Sohn des Sprechers ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -33633,7 +33633,7 @@
             "id": "sitov.pretest.a22-02.nominal.q2",
             "competencyId": "sitov.pretest.a22-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Die Zeiten passen zu ___ Alltag«, wenn es der Alltag unserer Gruppe ist?",
+            "promptDe": "Welche Form passt zwischen »Die Zeiten passen zu« und »Alltag«, wenn es der Alltag unserer Gruppe ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -33665,7 +33665,7 @@
             "id": "sitov.pretest.a22-02.nominal.q3",
             "competencyId": "sitov.pretest.a22-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe ___ Chef um ein Gespräch gebeten«, wenn es der Chef des Sprechers ist?",
+            "promptDe": "Welche Form passt zwischen »Ich habe« und »Chef um ein Gespräch gebeten«, wenn es der Chef des Sprechers ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -33697,7 +33697,7 @@
             "id": "sitov.pretest.a22-02.nominal.q4",
             "competencyId": "sitov.pretest.a22-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich bitte um ___ Gespräch«, wenn genau eines gemeint ist?",
+            "promptDe": "Welche Form passt zwischen »Ich bitte um« und »Gespräch«, wenn genau eines gemeint ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -33729,7 +33729,7 @@
             "id": "sitov.pretest.a22-02.nominal.q5",
             "competencyId": "sitov.pretest.a22-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Der Chef hat ___ Vorschlag zugestimmt«, wenn es der Vorschlag des Sprechers ist?",
+            "promptDe": "Welche Form passt zwischen »Der Chef hat« und »Vorschlag zugestimmt«, wenn es der Vorschlag des Sprechers ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -33761,7 +33761,7 @@
             "id": "sitov.pretest.a22-02.nominal.q6",
             "competencyId": "sitov.pretest.a22-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir testen die Regelung für ___ Monat«, wenn genau einer gemeint ist?",
+            "promptDe": "Welche Form passt zwischen »Wir testen die Regelung für« und »Monat«, wenn genau einer gemeint ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -33843,16 +33843,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "1607dcecc5c6175d72bdc6c9d5bff4260132e341189499e30f49ff814fa46ced",
-        "definitionContentHash": "b44a3114accb8091df9cfe9d9f9229d22cb4cadbdf1937745a31755527e18ae7",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
-        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
-        "reviewedAt": "2026-10-09T20:34:04.245Z",
+        "definitionContentHash": "40b153b3c02b0515ca527a58d9ec1adf394b3b0551d3b43951c059b1de004fb3",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -34262,7 +34262,7 @@
             "id": "sitov.pretest.a22-03.verbs.q1",
             "competencyId": "sitov.pretest.a22-03.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt im Präteritum »Einige Nachbarn ___ Blumen pflanzen« zu wollen?",
+            "promptDe": "Welche Form von »wollen« passt im Präteritum zwischen »Einige Nachbarn« und »Blumen pflanzen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -34358,7 +34358,7 @@
             "id": "sitov.pretest.a22-03.verbs.q4",
             "competencyId": "sitov.pretest.a22-03.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Jeder hat eine Aufgabe ___« zu übernehmen?",
+            "promptDe": "Welche Form von »übernehmen« passt nach »Jeder hat eine Aufgabe«?",
             "fragmentDe": null,
             "options": [
               {
@@ -34371,7 +34371,7 @@
               },
               {
                 "id": "sitov.pretest.a22-03.verbs.q4.b",
-                "textDe": "geübernommen"
+                "textDe": "übernahmen"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-03.verbs.q4.c",
@@ -34384,13 +34384,13 @@
                 "quote": "Aufgabe übernommen"
               }
             ],
-            "rationaleDe": "Das starke Verb übernehmen bildet das Partizip übernommen ohne zusätzliches ge; die anderen Formen passen nicht ins Perfekt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »übernommen«. Die Alternativen »übernehmen« und »übernahmen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Das starke Verb übernehmen bildet das Partizip übernommen ohne zusätzliches ge; die anderen Formen passen nicht ins Perfekt."
           },
           {
             "id": "sitov.pretest.a22-03.verbs.q5",
             "competencyId": "sitov.pretest.a22-03.verbs",
             "kind": "single_choice",
-            "promptDe": "Welches Hilfsverb ergänzt »Der Hof ___ schöner geworden« im Perfekt?",
+            "promptDe": "Welches Hilfsverb passt zwischen »Der Hof« und »schöner geworden« im Perfekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -34454,7 +34454,7 @@
             "id": "sitov.pretest.a22-03.syntax.q1",
             "competencyId": "sitov.pretest.a22-03.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Wir überlegten, wie …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Wir überlegten, wie« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -34550,7 +34550,7 @@
             "id": "sitov.pretest.a22-03.syntax.q4",
             "competencyId": "sitov.pretest.a22-03.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Nachdem …, bereiteten wir alles vor« korrekt?",
+            "promptDe": "Welche Wortfolge passt zwischen »Nachdem« und », bereiteten wir alles vor« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -34646,7 +34646,7 @@
             "id": "sitov.pretest.a22-03.nominal.q1",
             "competencyId": "sitov.pretest.a22-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »der Innenhof ___ Hauses«, wenn es das Haus unserer Gruppe ist?",
+            "promptDe": "Welche Form passt zwischen »der Innenhof« und »Hauses«, wenn es das Haus unserer Gruppe ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -34678,7 +34678,7 @@
             "id": "sitov.pretest.a22-03.nominal.q2",
             "competencyId": "sitov.pretest.a22-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »bei ___ Treffen«, wenn genau eines gemeint ist?",
+            "promptDe": "Welche Form passt zwischen »bei« und »Treffen«, wenn genau eines gemeint ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -34710,7 +34710,7 @@
             "id": "sitov.pretest.a22-03.nominal.q3",
             "competencyId": "sitov.pretest.a22-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Die Nachbarn wünschen sich ___ Bank«, wenn genau eine gemeint ist?",
+            "promptDe": "Welche Form passt zwischen »Die Nachbarn wünschen sich« und »Bank«, wenn genau eine gemeint ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -34742,7 +34742,7 @@
             "id": "sitov.pretest.a22-03.nominal.q4",
             "competencyId": "sitov.pretest.a22-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir haben ___ Plan gemacht«, wenn genau einer gemeint ist?",
+            "promptDe": "Welche Form passt zwischen »Wir haben« und »Plan gemacht«, wenn genau einer gemeint ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -34806,7 +34806,7 @@
             "id": "sitov.pretest.a22-03.nominal.q6",
             "competencyId": "sitov.pretest.a22-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Jeder übernimmt eine ___ Aufgabe«?",
+            "promptDe": "Welche Form passt zwischen »Jeder übernimmt eine« und »Aufgabe«?",
             "fragmentDe": null,
             "options": [
               {
@@ -34888,16 +34888,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel und Begründungen sowie drei vollständige Quellen unabhängig geprüft. Feldnahe Distraktoren und öffentliche Prämissen sind stimmig; tatsächliche Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "35536c1fa317cb4ca53f739670df8c3b64cbfa0267be738a34d546e144f67798",
-        "definitionContentHash": "15a49b9ae00f5294cb605f2719915e97b1e356a8029ebe831d44d522e0fad38c",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools34-36-M",
-        "documentSha256": "00bfa0878b4af95652c0f2cf01e349a535372c8aa60702c728a23c0baaa55dc6",
-        "reviewedAt": "2026-10-09T17:45:06.472Z",
+        "definitionContentHash": "3b6075deefa4757528b3be6d414ebe4166444a32f0b5de1ff2cae253b51676a1",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -35311,7 +35311,7 @@
             "id": "sitov.pretest.a22-04.verbs.q1",
             "competencyId": "sitov.pretest.a22-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe Schuhe ___« zu kaufen?",
+            "promptDe": "Welche Form von »kaufen« passt nach »Ich habe Schuhe«?",
             "fragmentDe": null,
             "options": [
               {
@@ -35324,7 +35324,7 @@
               },
               {
                 "id": "sitov.pretest.a22-04.verbs.q1.a",
-                "textDe": "gekaufen"
+                "textDe": "kauften"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-04.verbs.q1.c",
@@ -35337,13 +35337,13 @@
                 "quote": "Schuhe gekauft"
               }
             ],
-            "rationaleDe": "Kaufen bildet das schwache Partizip gekauft; gekaufen und der Infinitiv passen hier nicht ins Perfekt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gekauft«. Die Alternativen »kaufen« und »kauften« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Kaufen bildet das schwache Partizip gekauft; kauften und der Infinitiv passen hier nicht ins Perfekt."
           },
           {
             "id": "sitov.pretest.a22-04.verbs.q2",
             "competencyId": "sitov.pretest.a22-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »An einem Schuh hat ___ die Sohle gelöst«?",
+            "promptDe": "Welche Form passt zwischen »An einem Schuh hat« und »die Sohle gelöst«?",
             "fragmentDe": null,
             "options": [
               {
@@ -35375,7 +35375,7 @@
             "id": "sitov.pretest.a22-04.verbs.q3",
             "competencyId": "sitov.pretest.a22-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welches Hilfsverb ergänzt »Ich ___ ins Geschäft gegangen« im Perfekt?",
+            "promptDe": "Welches Hilfsverb passt zwischen »Ich« und »ins Geschäft gegangen« im Perfekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -35407,7 +35407,7 @@
             "id": "sitov.pretest.a22-04.verbs.q4",
             "competencyId": "sitov.pretest.a22-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Der Verkäufer fragt, was passiert ___« im Perfekt?",
+            "promptDe": "Welche Form passt nach »Der Verkäufer fragt, was passiert« im Perfekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -35439,7 +35439,7 @@
             "id": "sitov.pretest.a22-04.verbs.q5",
             "competencyId": "sitov.pretest.a22-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Er hat einen Kollegen ___« zu dazuholen?",
+            "promptDe": "Welche Form von »dazuholen« passt nach »Er hat einen Kollegen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -35448,7 +35448,7 @@
               },
               {
                 "id": "sitov.pretest.a22-04.verbs.q5.a",
-                "textDe": "gedazuholt"
+                "textDe": "holte dazu"
               },
               {
                 "id": "sitov.pretest.a22-04.verbs.q5.c",
@@ -35465,7 +35465,7 @@
                 "quote": "einen Kollegen dazugeholt"
               }
             ],
-            "rationaleDe": "Bei dazuholen steht ge zwischen dazu und holt; das Partizip lautet dazugeholt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »dazugeholt«. Die Alternativen »dazuholen« und »holte dazu« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Bei dazuholen steht ge zwischen dazu und holt; das Partizip lautet dazugeholt."
           },
           {
             "id": "sitov.pretest.a22-04.verbs.q6",
@@ -35599,7 +35599,7 @@
             "id": "sitov.pretest.a22-04.syntax.q4",
             "competencyId": "sitov.pretest.a22-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Ich erklärte dem Verkäufer, was …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Ich erklärte dem Verkäufer, was« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -35631,7 +35631,7 @@
             "id": "sitov.pretest.a22-04.syntax.q5",
             "competencyId": "sitov.pretest.a22-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Wir vereinbaren, dass …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Wir vereinbaren, dass« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -35695,7 +35695,7 @@
             "id": "sitov.pretest.a22-04.nominal.q1",
             "competencyId": "sitov.pretest.a22-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »an ___ Schuh hat sich die Sohle gelöst«, wenn genau einer gemeint ist?",
+            "promptDe": "Welche Form passt zwischen »an« und »Schuh hat sich die Sohle gelöst«, wenn genau einer gemeint ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -35727,7 +35727,7 @@
             "id": "sitov.pretest.a22-04.nominal.q2",
             "competencyId": "sitov.pretest.a22-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »mit ___ Schuhen«?",
+            "promptDe": "Welche Form passt zwischen »mit« und »Schuhen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -35759,7 +35759,7 @@
             "id": "sitov.pretest.a22-04.nominal.q3",
             "competencyId": "sitov.pretest.a22-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich erkläre ___ Verkäufer das Problem«?",
+            "promptDe": "Welche Form passt zwischen »Ich erkläre« und »Verkäufer das Problem«?",
             "fragmentDe": null,
             "options": [
               {
@@ -35791,7 +35791,7 @@
             "id": "sitov.pretest.a22-04.nominal.q4",
             "competencyId": "sitov.pretest.a22-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »___ Größe war nicht mehr da«, wenn es die Größe des Sprechers ist?",
+            "promptDe": "Welche Form passt vor »Größe war nicht mehr da«, wenn es die Größe des Sprechers ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -35823,7 +35823,7 @@
             "id": "sitov.pretest.a22-04.nominal.q5",
             "competencyId": "sitov.pretest.a22-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ein ___ Paar kommt an«?",
+            "promptDe": "Welche Form passt zwischen »Ein« und »Paar kommt an«?",
             "fragmentDe": null,
             "options": [
               {
@@ -35855,7 +35855,7 @@
             "id": "sitov.pretest.a22-04.nominal.q6",
             "competencyId": "sitov.pretest.a22-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Das Geschäft ruft ___ an«, wenn der Sprecher angerufen wird?",
+            "promptDe": "Welche Form passt zwischen »Das Geschäft ruft« und »an«, wenn der Sprecher angerufen wird?",
             "fragmentDe": null,
             "options": [
               {
@@ -35937,16 +35937,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "5d569bf2469a3b7cb0206a010f18dae381ebaf817cc18a517db0a3a752c3b326",
-        "definitionContentHash": "2ccd58cb18ac82ff1350dd1f6e2f4d7439456731e830f670d02eb7d71f2d6113",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
-        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
-        "reviewedAt": "2026-10-09T20:34:04.245Z",
+        "definitionContentHash": "d9a1104033592829a4d2195b80575154ab42a6f557d7305955e4935625a99a2c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -36356,7 +36356,7 @@
             "id": "sitov.pretest.a22-05.verbs.q1",
             "competencyId": "sitov.pretest.a22-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Mein Nachbar ___ Deutsch« zu lernen?",
+            "promptDe": "Welche Form von »lernen« passt zwischen »Mein Nachbar« und »Deutsch«?",
             "fragmentDe": null,
             "options": [
               {
@@ -36388,12 +36388,12 @@
             "id": "sitov.pretest.a22-05.verbs.q2",
             "competencyId": "sitov.pretest.a22-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe ihm meine Übung ___« zu zeigen?",
+            "promptDe": "Welche Form von »zeigen« passt nach »Ich habe ihm meine Übung«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-05.verbs.q2.b",
-                "textDe": "gezeigen"
+                "textDe": "zeigten"
               },
               {
                 "id": "sitov.pretest.a22-05.verbs.q2.c",
@@ -36414,13 +36414,13 @@
                 "quote": "habe ihm gezeigt"
               }
             ],
-            "rationaleDe": "Zeigen bildet das schwache Partizip gezeigt; gezeigen und der Infinitiv passen nicht ins Perfekt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gezeigt«. Die Alternativen »zeigten« und »zeigen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Zeigen bildet das schwache Partizip gezeigt; zeigten und der Infinitiv passen nicht ins Perfekt."
           },
           {
             "id": "sitov.pretest.a22-05.verbs.q3",
             "competencyId": "sitov.pretest.a22-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich ___ ältere Wörter« zu wiederholen?",
+            "promptDe": "Welche Form von »wiederholen« passt zwischen »Ich« und »ältere Wörter«?",
             "fragmentDe": null,
             "options": [
               {
@@ -36484,7 +36484,7 @@
             "id": "sitov.pretest.a22-05.verbs.q5",
             "competencyId": "sitov.pretest.a22-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir haben ein Treffen ___« zu beschließen?",
+            "promptDe": "Welche Form von »beschließen« passt nach »Wir haben ein Treffen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -36493,7 +36493,7 @@
               },
               {
                 "id": "sitov.pretest.a22-05.verbs.q5.a",
-                "textDe": "gebeschlossen"
+                "textDe": "beschloss"
               },
               {
                 "id": "sitov.pretest.a22-05.verbs.q5.b",
@@ -36510,13 +36510,13 @@
                 "quote": "Wir haben beschlossen"
               }
             ],
-            "rationaleDe": "Beschließen bildet das starke Partizip beschlossen ohne zusätzliches ge; die anderen Formen passen nicht ins Perfekt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »beschlossen«. Die Alternativen »beschließen« und »beschloss« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Beschließen bildet das starke Partizip beschlossen ohne zusätzliches ge; die anderen Formen passen nicht ins Perfekt."
           },
           {
             "id": "sitov.pretest.a22-05.verbs.q6",
             "competencyId": "sitov.pretest.a22-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir wollen über Alltagsthemen ___« zu sprechen?",
+            "promptDe": "Welche Form von »sprechen« passt nach »Wir wollen über Alltagsthemen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -36548,7 +36548,7 @@
             "id": "sitov.pretest.a22-05.syntax.q1",
             "competencyId": "sitov.pretest.a22-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Mein Nachbar fragt, wie …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Mein Nachbar fragt, wie« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -36580,7 +36580,7 @@
             "id": "sitov.pretest.a22-05.syntax.q2",
             "competencyId": "sitov.pretest.a22-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Ich zeige ihm, dass …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Ich zeige ihm, dass« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -36740,7 +36740,7 @@
             "id": "sitov.pretest.a22-05.nominal.q1",
             "competencyId": "sitov.pretest.a22-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »___ Nachbar lernt Deutsch«, wenn es der Nachbar des Sprechers ist?",
+            "promptDe": "Welche Form passt vor »Nachbar lernt Deutsch«, wenn es der Nachbar des Sprechers ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -36772,7 +36772,7 @@
             "id": "sitov.pretest.a22-05.nominal.q2",
             "competencyId": "sitov.pretest.a22-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe ___ gezeigt, wie ich übe«, wenn der Nachbar der Empfänger ist?",
+            "promptDe": "Welche Form passt zwischen »Ich habe« und »gezeigt, wie ich übe«, wenn der Nachbar der Empfänger ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -36804,7 +36804,7 @@
             "id": "sitov.pretest.a22-05.nominal.q3",
             "competencyId": "sitov.pretest.a22-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich lerne nur ___ Wörter«, wenn die Anzahl klein ist?",
+            "promptDe": "Welche Form von »wenig« mit einer Pluralendung passt zwischen »Ich lerne nur« und »Wörter«, wenn die Anzahl klein ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -36830,7 +36830,7 @@
                 "quote": "wenige neue Wörter"
               }
             ],
-            "rationaleDe": "Wörter ist ein zählbarer Plural; eine kleine Anzahl wird hier mit wenige bezeichnet."
+            "rationaleDe": "Gefragt ist die Form mit Pluralendung zum zählbaren Akkusativ Plural Wörter: wenige. Die unflektierte Mengenform wenig erfüllt diese ausdrücklich verlangte Flexionsvorgabe nicht; wenigem ist hier keine passende Pluralform."
           },
           {
             "id": "sitov.pretest.a22-05.nominal.q4",
@@ -36868,7 +36868,7 @@
             "id": "sitov.pretest.a22-05.nominal.q5",
             "competencyId": "sitov.pretest.a22-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir möchten ___ treffen«, wenn wir einander treffen wollen?",
+            "promptDe": "Welche Form passt zwischen »Wir möchten« und »treffen«, wenn wir einander treffen wollen?",
             "fragmentDe": null,
             "options": [
               {
@@ -36900,7 +36900,7 @@
             "id": "sitov.pretest.a22-05.nominal.q6",
             "competencyId": "sitov.pretest.a22-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »für zwanzig ___« zu Minute?",
+            "promptDe": "Welche Pluralform von »Minute« passt nach der Zahl zwanzig in einer Zeitdauer?",
             "fragmentDe": null,
             "options": [
               {
@@ -36913,7 +36913,7 @@
               },
               {
                 "id": "sitov.pretest.a22-05.nominal.q6.b",
-                "textDe": "Minutens"
+                "textDe": "einer Minute"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-05.nominal.q6.c",
@@ -36926,7 +36926,7 @@
                 "quote": "zwanzig Minuten"
               }
             ],
-            "rationaleDe": "Nach zwanzig ist hier der Plural Minuten nötig; Minute ist Singular, Minutens keine passende Pluralform."
+            "rationaleDe": "Nach zwanzig steht hier der Plural »Minuten«. »Minute« ist Singular; »einer Minute« ist eine Singularform und passt nicht nach zwanzig."
           }
         ],
         "reviewForms": [
@@ -36982,16 +36982,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel und Begründungen sowie drei vollständige Quellen unabhängig geprüft. Feldnahe Distraktoren und öffentliche Prämissen sind stimmig; tatsächliche Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "ed0acb86d3a8abd239562c11cdd425d0fe3881ccc7eb8fc9cd04a57b94ea5b0f",
-        "definitionContentHash": "36a5aaac4df8514ecbc8d5bfa14f321094ea149c883afd62630f4e6bc42c8f4f",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools34-36-M",
-        "documentSha256": "00bfa0878b4af95652c0f2cf01e349a535372c8aa60702c728a23c0baaa55dc6",
-        "reviewedAt": "2026-10-09T17:45:06.472Z",
+        "definitionContentHash": "4052a2d6ee9cc710ea8c412dc8c56f5a121d0662b64918ff84e54a00b9127a4b",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -37433,7 +37433,7 @@
             "id": "sitov.pretest.a22-06.verbs.q2",
             "competencyId": "sitov.pretest.a22-06.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe davon ___« zu erfahren?",
+            "promptDe": "Welche Form von »erfahren« passt nach »Ich habe davon«?",
             "fragmentDe": null,
             "options": [
               {
@@ -37446,7 +37446,7 @@
               },
               {
                 "id": "sitov.pretest.a22-06.verbs.q2.c",
-                "textDe": "geerfahren"
+                "textDe": "erfuhr"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-06.verbs.q2.b",
@@ -37459,13 +37459,13 @@
                 "quote": "davon erfahren"
               }
             ],
-            "rationaleDe": "Erfahren bildet das Partizip erfahren ohne zusätzliches ge; erfahrt ist eine finite Präsensform."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »erfahren«. Die Alternativen »erfahrt« und »erfuhr« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Erfahren bildet das Partizip erfahren ohne zusätzliches ge; erfahrt ist eine finite Präsensform."
           },
           {
             "id": "sitov.pretest.a22-06.verbs.q3",
             "competencyId": "sitov.pretest.a22-06.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe mich ___« zu anmelden?",
+            "promptDe": "Welche Form von »anmelden« passt nach »Ich habe mich«?",
             "fragmentDe": null,
             "options": [
               {
@@ -37478,7 +37478,7 @@
               },
               {
                 "id": "sitov.pretest.a22-06.verbs.q3.a",
-                "textDe": "geanmeldet"
+                "textDe": "meldeten an"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-06.verbs.q3.b",
@@ -37491,7 +37491,7 @@
                 "quote": "mich angemeldet"
               }
             ],
-            "rationaleDe": "Bei anmelden steht ge zwischen an und meldet; das Partizip lautet angemeldet."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »angemeldet«. Die Alternativen »anmelden« und »meldeten an« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Bei anmelden steht ge zwischen an und meldet; das Partizip lautet angemeldet."
           },
           {
             "id": "sitov.pretest.a22-06.verbs.q4",
@@ -37561,7 +37561,7 @@
             "id": "sitov.pretest.a22-06.verbs.q6",
             "competencyId": "sitov.pretest.a22-06.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich möchte wieder ___« zu mithelfen?",
+            "promptDe": "Welche Form von »mithelfen« passt nach »Ich möchte wieder«?",
             "fragmentDe": null,
             "options": [
               {
@@ -37593,7 +37593,7 @@
             "id": "sitov.pretest.a22-06.syntax.q1",
             "competencyId": "sitov.pretest.a22-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Er erklärte, welche Wege …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Er erklärte, welche Wege« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -37785,7 +37785,7 @@
             "id": "sitov.pretest.a22-06.nominal.q1",
             "competencyId": "sitov.pretest.a22-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »in ___ Stadtteil«, wenn es der Stadtteil unserer Gruppe als Ort ist?",
+            "promptDe": "Welche Form passt zwischen »in« und »Stadtteil«, wenn es der Stadtteil unserer Gruppe als Ort ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -37817,7 +37817,7 @@
             "id": "sitov.pretest.a22-06.nominal.q2",
             "competencyId": "sitov.pretest.a22-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »durch ___ Aushang«, wenn genau einer gemeint ist?",
+            "promptDe": "Welche Form passt zwischen »durch« und »Aushang«, wenn genau einer gemeint ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -37849,7 +37849,7 @@
             "id": "sitov.pretest.a22-06.nominal.q3",
             "competencyId": "sitov.pretest.a22-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir bekamen ___ Säcke«?",
+            "promptDe": "Welche Form passt zwischen »Wir bekamen« und »Säcke«?",
             "fragmentDe": null,
             "options": [
               {
@@ -37881,7 +37881,7 @@
             "id": "sitov.pretest.a22-06.nominal.q4",
             "competencyId": "sitov.pretest.a22-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »mit einem ___ Mann« als Komparativ von alt?",
+            "promptDe": "Welche Form passt zwischen »mit einem« und »Mann« als Komparativ von alt?",
             "fragmentDe": null,
             "options": [
               {
@@ -37913,7 +37913,7 @@
             "id": "sitov.pretest.a22-06.nominal.q5",
             "competencyId": "sitov.pretest.a22-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Der Mann erzählte ___ vom Stadtteil«, wenn der Sprecher der Empfänger ist?",
+            "promptDe": "Welche Form passt zwischen »Der Mann erzählte« und »vom Stadtteil«, wenn der Sprecher der Empfänger ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -37945,7 +37945,7 @@
             "id": "sitov.pretest.a22-06.nominal.q6",
             "competencyId": "sitov.pretest.a22-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »beim ___ Mal«?",
+            "promptDe": "Welche Form passt zwischen »beim« und »Mal«?",
             "fragmentDe": null,
             "options": [
               {
@@ -38027,16 +38027,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "c4cd54805ef71fd2f332b6f3d1e08ff84939edb0a2c07fc4e7595f68c465e106",
-        "definitionContentHash": "4bf6289b273067bc32b05ebca5d0c17a2eb80980a8cad0c359d8e4d5b3089aaf",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
-        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
-        "reviewedAt": "2026-10-09T20:34:04.245Z",
+        "definitionContentHash": "3f5b4dd0b76f560ae0587f124338ab88319b6577b38b050ea0273448a4250a67",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -38542,7 +38542,7 @@
             "id": "sitov.pretest.a22-07.verbs.q4",
             "competencyId": "sitov.pretest.a22-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Er hatte Donnerstag ___« zu verstehen?",
+            "promptDe": "Welche Form von »verstehen« passt nach »Er hatte Donnerstag«?",
             "fragmentDe": null,
             "options": [
               {
@@ -38551,7 +38551,7 @@
               },
               {
                 "id": "sitov.pretest.a22-07.verbs.q4.c",
-                "textDe": "geverstanden"
+                "textDe": "verstand"
               },
               {
                 "id": "sitov.pretest.a22-07.verbs.q4.b",
@@ -38568,7 +38568,7 @@
                 "quote": "Donnerstag statt Dienstag verstanden hatte"
               }
             ],
-            "rationaleDe": "Verstehen bildet das starke Partizip verstanden ohne zusätzliches ge; der Infinitiv passt nicht in diese zusammengesetzte Vergangenheit."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »verstanden«. Die Alternativen »verstand« und »verstehen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Verstehen bildet das starke Partizip verstanden ohne zusätzliches ge; der Infinitiv passt nicht in diese zusammengesetzte Vergangenheit."
           },
           {
             "id": "sitov.pretest.a22-07.verbs.q5",
@@ -38638,7 +38638,7 @@
             "id": "sitov.pretest.a22-07.syntax.q1",
             "competencyId": "sitov.pretest.a22-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Als …, fehlte mein Name im Kalender« korrekt?",
+            "promptDe": "Welche Wortfolge passt zwischen »Als« und », fehlte mein Name im Kalender« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -38702,7 +38702,7 @@
             "id": "sitov.pretest.a22-07.syntax.q3",
             "competencyId": "sitov.pretest.a22-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Es stellte sich heraus, dass …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Es stellte sich heraus, dass« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -38798,7 +38798,7 @@
             "id": "sitov.pretest.a22-07.syntax.q6",
             "competencyId": "sitov.pretest.a22-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »In Zukunft …« zu einem vollständigen Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »In Zukunft« in einem vollständigen Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -38862,7 +38862,7 @@
             "id": "sitov.pretest.a22-07.nominal.q2",
             "competencyId": "sitov.pretest.a22-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Er fragt nach ___ Telefonnummer«, wenn es die Nummer des Sprechers ist?",
+            "promptDe": "Welche Form passt zwischen »Er fragt nach« und »Telefonnummer«, wenn es die Nummer des Sprechers ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -38894,7 +38894,7 @@
             "id": "sitov.pretest.a22-07.nominal.q3",
             "competencyId": "sitov.pretest.a22-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »___ Name war nicht im Kalender«, wenn es der Name des Sprechers ist?",
+            "promptDe": "Welche Form passt vor »Name war nicht im Kalender«, wenn es der Name des Sprechers ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -38926,7 +38926,7 @@
             "id": "sitov.pretest.a22-07.nominal.q4",
             "competencyId": "sitov.pretest.a22-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »nach einer ___ Wartezeit«?",
+            "promptDe": "Welche Form passt zwischen »nach einer« und »Wartezeit«?",
             "fragmentDe": null,
             "options": [
               {
@@ -38990,7 +38990,7 @@
             "id": "sitov.pretest.a22-07.nominal.q6",
             "competencyId": "sitov.pretest.a22-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »am Ende ___ Gesprächs«?",
+            "promptDe": "Welche Form passt zwischen »am Ende« und »Gesprächs«?",
             "fragmentDe": null,
             "options": [
               {
@@ -39072,16 +39072,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel, Begründungen, zwölf Kerne und drei vollständige Quellen nach den drei konkreten Reparaturen unabhängig erneut geprüft. Öffentliche Zielprämisse, echte Verbzweitstellung und finite Präsensform sind korrekt; zwei richtige Antworttexte und Kernzuordnungen ausdrücklich neu geprüft. Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "43b4c86ef586bbe1bee12b4705caf6bc96512a38b4910e59247c39ef15871cfc",
-        "definitionContentHash": "99bafb9966d55591923f4e3c0cf8a01b6efd95a5db1790fc4d17bd1cb7e5d620",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools37-39-M",
-        "documentSha256": "dbe12c32005106556d31776fee258bea597c021237e93afa7fa9d7dc4b6a05dd",
-        "reviewedAt": "2026-10-09T18:21:36.802Z",
+        "definitionContentHash": "f6c61af5868ade37b652810913f104eb10d730ea7ef0cba6f8d05710ab6349b4",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -39491,7 +39491,7 @@
             "id": "sitov.pretest.a22-08.verbs.q1",
             "competencyId": "sitov.pretest.a22-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welches Hilfsverb ergänzt »Unsere Freunde ___ verreist« im Perfekt?",
+            "promptDe": "Welches Hilfsverb passt zwischen »Unsere Freunde« und »verreist« im Perfekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -39523,7 +39523,7 @@
             "id": "sitov.pretest.a22-08.verbs.q2",
             "competencyId": "sitov.pretest.a22-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Die Freunde haben uns ___« zu bitten?",
+            "promptDe": "Welche Form von »bitten« passt nach »Die Freunde haben uns«?",
             "fragmentDe": null,
             "options": [
               {
@@ -39536,7 +39536,7 @@
               },
               {
                 "id": "sitov.pretest.a22-08.verbs.q2.a",
-                "textDe": "gebittet"
+                "textDe": "baten"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-08.verbs.q2.b",
@@ -39549,13 +39549,13 @@
                 "quote": "haben uns gebeten"
               }
             ],
-            "rationaleDe": "Bitten bildet das starke Partizip gebeten; gebittet und Infinitiv passen nicht ins Perfekt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gebeten«. Die Alternativen »bitten« und »baten« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Bitten bildet das starke Partizip gebeten; baten und Infinitiv passen nicht ins Perfekt."
           },
           {
             "id": "sitov.pretest.a22-08.verbs.q3",
             "competencyId": "sitov.pretest.a22-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Sie bitten mich, auf die Katze ___« zu aufpassen?",
+            "promptDe": "Welche Form von »aufpassen« passt nach »Sie bitten mich, auf die Katze«?",
             "fragmentDe": null,
             "options": [
               {
@@ -39587,12 +39587,12 @@
             "id": "sitov.pretest.a22-08.verbs.q4",
             "competencyId": "sitov.pretest.a22-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe Wasser ___« zu hinstellen?",
+            "promptDe": "Welche Form von »hinstellen« passt nach »Ich habe Wasser«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-08.verbs.q4.b",
-                "textDe": "gehinstellt"
+                "textDe": "stellten hin"
               },
               {
                 "id": "sitov.pretest.a22-08.verbs.q4.c",
@@ -39613,18 +39613,18 @@
                 "quote": "Wasser hingestellt"
               }
             ],
-            "rationaleDe": "Bei hinstellen steht ge zwischen hin und stellt; das Partizip lautet hingestellt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »hingestellt«. Die Alternativen »stellten hin« und »hinstellen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Bei hinstellen steht ge zwischen hin und stellt; das Partizip lautet hingestellt."
           },
           {
             "id": "sitov.pretest.a22-08.verbs.q5",
             "competencyId": "sitov.pretest.a22-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe Futter ___« zu geben?",
+            "promptDe": "Welche Form von »geben« passt nach »Ich habe Futter«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-08.verbs.q5.b",
-                "textDe": "gegebt"
+                "textDe": "gaben"
               },
               {
                 "id": "sitov.pretest.a22-08.verbs.q5.c",
@@ -39645,7 +39645,7 @@
                 "quote": "Futter gegeben"
               }
             ],
-            "rationaleDe": "Geben bildet das starke Partizip gegeben; gegebt und der Infinitiv passen nicht ins Perfekt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gegeben«. Die Alternativen »gaben« und »geben« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Geben bildet das starke Partizip gegeben; gaben und der Infinitiv passen nicht ins Perfekt."
           },
           {
             "id": "sitov.pretest.a22-08.verbs.q6",
@@ -39683,7 +39683,7 @@
             "id": "sitov.pretest.a22-08.syntax.q1",
             "competencyId": "sitov.pretest.a22-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Die Katze kam zur Tür, wenn …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Die Katze kam zur Tür, wenn« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -39843,7 +39843,7 @@
             "id": "sitov.pretest.a22-08.syntax.q6",
             "competencyId": "sitov.pretest.a22-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Ich schicke ein Foto, damit …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Ich schicke ein Foto, damit« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -39875,7 +39875,7 @@
             "id": "sitov.pretest.a22-08.nominal.q1",
             "competencyId": "sitov.pretest.a22-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Die Wohnung gehört den Freunden und ist das Ziel meines Weges. Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«?",
+            "promptDe": "Die Wohnung gehört den Freunden und ist das Ziel meines Weges. Welche Form passt zwischen »Ich bin in« und »Wohnung gegangen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -39907,7 +39907,7 @@
             "id": "sitov.pretest.a22-08.nominal.q2",
             "competencyId": "sitov.pretest.a22-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe ___ Wasser hingestellt«?",
+            "promptDe": "Welche Form passt zwischen »Ich habe« und »Wasser hingestellt«?",
             "fragmentDe": null,
             "options": [
               {
@@ -39939,7 +39939,7 @@
             "id": "sitov.pretest.a22-08.nominal.q3",
             "competencyId": "sitov.pretest.a22-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe ___ Freunden ein Foto geschickt«, wenn es die Freunde unserer Gruppe sind?",
+            "promptDe": "Welche Form passt zwischen »Ich habe« und »Freunden ein Foto geschickt«, wenn es die Freunde unserer Gruppe sind?",
             "fragmentDe": null,
             "options": [
               {
@@ -39971,7 +39971,7 @@
             "id": "sitov.pretest.a22-08.nominal.q4",
             "competencyId": "sitov.pretest.a22-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Die Katze ist unter ___ Sofa versteckt«?",
+            "promptDe": "Welche Form passt zwischen »Die Katze ist unter« und »Sofa versteckt«?",
             "fragmentDe": null,
             "options": [
               {
@@ -40003,7 +40003,7 @@
             "id": "sitov.pretest.a22-08.nominal.q5",
             "competencyId": "sitov.pretest.a22-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich passe auf ___ Katze auf«, wenn sie den Freunden gehört?",
+            "promptDe": "Welche Form passt zwischen »Ich passe auf« und »Katze auf«, wenn sie den Freunden gehört?",
             "fragmentDe": null,
             "options": [
               {
@@ -40035,7 +40035,7 @@
             "id": "sitov.pretest.a22-08.nominal.q6",
             "competencyId": "sitov.pretest.a22-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt als höchste Steigerung »Die Katze war am ___« zu glücklich?",
+            "promptDe": "Welche Form von »glücklich« passt als höchste Steigerung nach »Die Katze war am«?",
             "fragmentDe": null,
             "options": [
               {
@@ -40117,16 +40117,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
-        "definitionContentHash": "26a8fbe42cbc0186abb5d12b56f6878212bb2171f44d22140a06ca42511016c7",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
-        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
-        "reviewedAt": "2026-10-09T20:34:04.245Z",
+        "definitionContentHash": "3ee38ff8609c156990da6ca631c67cdcae9a13902d3a7edda466e9b3c0aa4a33",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -40536,7 +40536,7 @@
             "id": "sitov.pretest.a22-09.verbs.q1",
             "competencyId": "sitov.pretest.a22-09.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich möchte ___ weiterentwickeln«, wenn es um die eigene Entwicklung geht?",
+            "promptDe": "Welche Form passt zwischen »Ich möchte« und »weiterentwickeln«, wenn es um die eigene Entwicklung geht?",
             "fragmentDe": null,
             "options": [
               {
@@ -40568,7 +40568,7 @@
             "id": "sitov.pretest.a22-09.verbs.q2",
             "competencyId": "sitov.pretest.a22-09.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe Angebote ___« zu finden?",
+            "promptDe": "Welche Form von »finden« passt nach »Ich habe Angebote«?",
             "fragmentDe": null,
             "options": [
               {
@@ -40577,7 +40577,7 @@
               },
               {
                 "id": "sitov.pretest.a22-09.verbs.q2.a",
-                "textDe": "gefindet"
+                "textDe": "fand"
               },
               {
                 "id": "sitov.pretest.a22-09.verbs.q2.b",
@@ -40594,7 +40594,7 @@
                 "quote": "Angebote gefunden"
               }
             ],
-            "rationaleDe": "Finden bildet das starke Partizip gefunden; gefindet und der Infinitiv passen nicht ins Perfekt."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gefunden«. Die Alternativen »fand« und »finden« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Finden bildet das starke Partizip gefunden; fand und der Infinitiv passen nicht ins Perfekt."
           },
           {
             "id": "sitov.pretest.a22-09.verbs.q3",
@@ -40632,7 +40632,7 @@
             "id": "sitov.pretest.a22-09.verbs.q4",
             "competencyId": "sitov.pretest.a22-09.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe mich für den Kurs ___« zu entscheiden?",
+            "promptDe": "Welche Form von »entscheiden« passt nach »Ich habe mich für den Kurs«?",
             "fragmentDe": null,
             "options": [
               {
@@ -40641,7 +40641,7 @@
               },
               {
                 "id": "sitov.pretest.a22-09.verbs.q4.b",
-                "textDe": "geentschieden"
+                "textDe": "entschied"
               },
               {
                 "id": "sitov.pretest.a22-09.verbs.q4.c",
@@ -40658,13 +40658,13 @@
                 "quote": "mich für den Wochenendkurs entschieden"
               }
             ],
-            "rationaleDe": "Entscheiden bildet das starke Partizip entschieden ohne zusätzliches ge; der Infinitiv passt hier nicht."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »entschieden«. Die Alternativen »entschied« und »entscheiden« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Entscheiden bildet das starke Partizip entschieden ohne zusätzliches ge; der Infinitiv passt hier nicht."
           },
           {
             "id": "sitov.pretest.a22-09.verbs.q5",
             "competencyId": "sitov.pretest.a22-09.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Man ___ einen Laptop« zu brauchen?",
+            "promptDe": "Welche Form von »brauchen« passt zwischen »Man« und »einen Laptop«?",
             "fragmentDe": null,
             "options": [
               {
@@ -40696,7 +40696,7 @@
             "id": "sitov.pretest.a22-09.verbs.q6",
             "competencyId": "sitov.pretest.a22-09.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präsensform von »stellen« ergänzt »Die Schule ___ Geräte zur Verfügung«?",
+            "promptDe": "Welche Präsensform von »stellen« passt zwischen »Die Schule« und »Geräte zur Verfügung«?",
             "fragmentDe": null,
             "options": [
               {
@@ -40792,7 +40792,7 @@
             "id": "sitov.pretest.a22-09.syntax.q3",
             "competencyId": "sitov.pretest.a22-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Ich frage, ob …« korrekt?",
+            "promptDe": "Welche Wortfolge passt nach »Ich frage, ob« korrekt?",
             "fragmentDe": null,
             "options": [
               {
@@ -40920,7 +40920,7 @@
             "id": "sitov.pretest.a22-09.nominal.q1",
             "competencyId": "sitov.pretest.a22-09.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich suche ___ Computerkurs«, wenn genau einer gemeint ist?",
+            "promptDe": "Welche Form passt zwischen »Ich suche« und »Computerkurs«, wenn genau einer gemeint ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -40952,7 +40952,7 @@
             "id": "sitov.pretest.a22-09.nominal.q2",
             "competencyId": "sitov.pretest.a22-09.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »zwei ___ Angebote«?",
+            "promptDe": "Welche Form passt zwischen »zwei« und »Angebote«?",
             "fragmentDe": null,
             "options": [
               {
@@ -40984,7 +40984,7 @@
             "id": "sitov.pretest.a22-09.nominal.q3",
             "competencyId": "sitov.pretest.a22-09.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form von günstig ergänzt den Vergleich »Der Abendkurs ist ___ als der Wochenendkurs«?",
+            "promptDe": "Welche Form von günstig passt im Vergleich zwischen »Der Abendkurs ist« und »als der Wochenendkurs«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41016,7 +41016,7 @@
             "id": "sitov.pretest.a22-09.nominal.q4",
             "competencyId": "sitov.pretest.a22-09.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich entscheide mich für ___ Wochenendkurs«?",
+            "promptDe": "Welche Form passt zwischen »Ich entscheide mich für« und »Wochenendkurs«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41048,7 +41048,7 @@
             "id": "sitov.pretest.a22-09.nominal.q5",
             "competencyId": "sitov.pretest.a22-09.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Man braucht einen ___ Laptop«?",
+            "promptDe": "Welche Form passt zwischen »Man braucht einen« und »Laptop«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41080,7 +41080,7 @@
             "id": "sitov.pretest.a22-09.nominal.q6",
             "competencyId": "sitov.pretest.a22-09.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Pluralform von Gerät ergänzt »Die Schule stellt mehrere ___ bereit«?",
+            "promptDe": "Welche Pluralform von Gerät passt zwischen »Die Schule stellt mehrere« und »bereit«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41162,16 +41162,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel und Begründungen sowie drei vollständige Quellen unabhängig geprüft. Feldnahe Distraktoren und öffentliche Prämissen sind stimmig; tatsächliche Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "02f2a7e85c1679d0e465db37347d6ec2b84f6c45f166d5e60dd1407182bc0b32",
-        "definitionContentHash": "4801386e2b668d9c6f517965680ad2d8663aa38094e77249715f6380b87769b7",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools40-42-M",
-        "documentSha256": "474a8b968d5dd0d2c276affefdf00d7c76a5e4f7bfff3455a5480af447ef992f",
-        "reviewedAt": "2026-10-09T18:45:25.329Z",
+        "definitionContentHash": "497f4b0f749ac5c4e405d0460025a40d48eaf7403b51af592a52bce1f072479e",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -41576,12 +41576,12 @@
             "id": "sitov.pretest.a22-10.verbs.q1",
             "competencyId": "sitov.pretest.a22-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Partizipform von »einladen« ergänzt »Der Lehrer hat mich zu einem Gespräch ___«?",
+            "promptDe": "Welche Partizipform von »einladen« passt nach »Der Lehrer hat mich zu einem Gespräch«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-10.verbs.q1.c",
-                "textDe": "eingeladet"
+                "textDe": "einladen"
               },
               {
                 "id": "sitov.pretest.a22-10.verbs.q1.b",
@@ -41602,13 +41602,13 @@
                 "quote": "eingeladen"
               }
             ],
-            "rationaleDe": "Das starke trennbare Verb einladen bildet das Partizip eingeladen."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »eingeladen«. Die Alternativen »einladen« und »einladet« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Das starke trennbare Verb einladen bildet das Partizip eingeladen."
           },
           {
             "id": "sitov.pretest.a22-10.verbs.q2",
             "competencyId": "sitov.pretest.a22-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präsensform von »vergessen« passt zu »Mein Sohn ___ oft seine Hausaufgaben«?",
+            "promptDe": "Welche Präsensform von »vergessen« passt zwischen »Mein Sohn« und »oft seine Hausaufgaben«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41640,7 +41640,7 @@
             "id": "sitov.pretest.a22-10.verbs.q3",
             "competencyId": "sitov.pretest.a22-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »erklären« passt zu »Im Gespräch ___ der Lehrer die Situation«?",
+            "promptDe": "Welche Präteritumform von »erklären« passt zwischen »Im Gespräch« und »der Lehrer die Situation«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41672,12 +41672,12 @@
             "id": "sitov.pretest.a22-10.verbs.q4",
             "competencyId": "sitov.pretest.a22-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Partizipform von »überlegen« ergänzt »Gemeinsam haben wir ___, wie wir helfen können«?",
+            "promptDe": "Welche Partizipform von »überlegen« passt zwischen »Gemeinsam haben wir« und », wie wir helfen können«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-10.verbs.q4.b",
-                "textDe": "geüberlegt"
+                "textDe": "überlegen"
               },
               {
                 "id": "sitov.pretest.a22-10.verbs.q4.c",
@@ -41685,7 +41685,7 @@
               },
               {
                 "id": "sitov.pretest.a22-10.verbs.q4.a",
-                "textDe": "übergelegen"
+                "textDe": "überlegte"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-10.verbs.q4.c",
@@ -41698,13 +41698,13 @@
                 "quote": "überlegt"
               }
             ],
-            "rationaleDe": "Das untrennbare überlegen bildet das Partizip ohne ge: überlegt."
+            "rationaleDe": "Im Perfekt des untrennbaren Verbs überlegen im Sinn von nachdenken steht das Partizip überlegt. Überlegen ist der Infinitiv; überlegte ist eine finite Präteritumform und keine passende Partizipform."
           },
           {
             "id": "sitov.pretest.a22-10.verbs.q5",
             "competencyId": "sitov.pretest.a22-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir können ihm ___«?",
+            "promptDe": "Welche Form passt nach »Wir können ihm«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41736,7 +41736,7 @@
             "id": "sitov.pretest.a22-10.verbs.q6",
             "competencyId": "sitov.pretest.a22-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präsensform von »schreiben« passt zu »Mein Sohn ___ seine Aufgaben ins Heft«?",
+            "promptDe": "Welche Präsensform von »schreiben« passt zwischen »Mein Sohn« und »seine Aufgaben ins Heft«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41768,7 +41768,7 @@
             "id": "sitov.pretest.a22-10.syntax.q1",
             "competencyId": "sitov.pretest.a22-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Ich war besorgt, weil …«?",
+            "promptDe": "Welche Folge passt nach »Ich war besorgt, weil«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41800,7 +41800,7 @@
             "id": "sitov.pretest.a22-10.syntax.q2",
             "competencyId": "sitov.pretest.a22-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Der Lehrer erklärte, dass …«?",
+            "promptDe": "Welche Folge passt nach »Der Lehrer erklärte, dass«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41832,7 +41832,7 @@
             "id": "sitov.pretest.a22-10.syntax.q3",
             "competencyId": "sitov.pretest.a22-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Wir überlegen, wie …«?",
+            "promptDe": "Welche Folge passt nach »Wir überlegen, wie«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41864,7 +41864,7 @@
             "id": "sitov.pretest.a22-10.syntax.q4",
             "competencyId": "sitov.pretest.a22-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Ein Sohn bekommt ein Heft und schreibt seine Aufgaben hinein. Welche Folge ergänzt »Er bekommt ein Heft, …«?",
+            "promptDe": "Ein Sohn bekommt ein Heft und schreibt seine Aufgaben hinein. Welche Folge passt nach »Er bekommt ein Heft,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41896,7 +41896,7 @@
             "id": "sitov.pretest.a22-10.syntax.q5",
             "competencyId": "sitov.pretest.a22-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Zu Hause …« zu einem Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »Zu Hause« in einem Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -41928,7 +41928,7 @@
             "id": "sitov.pretest.a22-10.syntax.q6",
             "competencyId": "sitov.pretest.a22-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Ergänzung bildet den Vergleich »Die gemeinsame Lösung war hilfreicher …«?",
+            "promptDe": "Welche Ergänzung passt im Vergleich nach »Die gemeinsame Lösung war hilfreicher«?",
             "fragmentDe": null,
             "options": [
               {
@@ -41960,7 +41960,7 @@
             "id": "sitov.pretest.a22-10.nominal.q1",
             "competencyId": "sitov.pretest.a22-10.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »der Lehrer ___ Sohnes«, wenn es um meinen Sohn geht?",
+            "promptDe": "Welche Form passt zwischen »der Lehrer« und »Sohnes«, wenn es um meinen Sohn geht?",
             "fragmentDe": null,
             "options": [
               {
@@ -41992,7 +41992,7 @@
             "id": "sitov.pretest.a22-10.nominal.q2",
             "competencyId": "sitov.pretest.a22-10.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Der Lehrer lädt mich zu ___ Gespräch ein«?",
+            "promptDe": "Welche Form passt zwischen »Der Lehrer lädt mich zu« und »Gespräch ein«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42024,7 +42024,7 @@
             "id": "sitov.pretest.a22-10.nominal.q3",
             "competencyId": "sitov.pretest.a22-10.nominal",
             "kind": "single_choice",
-            "promptDe": "Die Hausaufgaben gehören meinem Sohn. Welche Form ergänzt »Er vergisst ___ Hausaufgaben«?",
+            "promptDe": "Die Hausaufgaben gehören meinem Sohn. Welche Form passt zwischen »Er vergisst« und »Hausaufgaben«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42056,7 +42056,7 @@
             "id": "sitov.pretest.a22-10.nominal.q4",
             "competencyId": "sitov.pretest.a22-10.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Er bekommt ein ___ Heft«?",
+            "promptDe": "Welche Form passt zwischen »Er bekommt ein« und »Heft«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42088,7 +42088,7 @@
             "id": "sitov.pretest.a22-10.nominal.q5",
             "competencyId": "sitov.pretest.a22-10.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt die regelmäßige Zeitangabe »Wir schauen ___ Nachmittag ins Heft«?",
+            "promptDe": "Welche Form passt in der regelmäßigen Zeitangabe zwischen »Wir schauen« und »Nachmittag ins Heft«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42120,7 +42120,7 @@
             "id": "sitov.pretest.a22-10.nominal.q6",
             "competencyId": "sitov.pretest.a22-10.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Steigerungsform ergänzt »Die Lösung war ___ als Schimpfen« zu »hilfreich«?",
+            "promptDe": "Welche Steigerungsform von »hilfreich« passt zwischen »Die Lösung war« und »als Schimpfen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42202,16 +42202,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat13 Fragen und10 vollständige Quellen gegen den unabhängigen B1.1-Audit geprüft: kein Lösungsleck, eindeutiger Reflexivbezug, natürliche Wendung und Distraktoren, ausdrücklich Grundform ohne zu. Keys/IDs/Matrix erhalten; neue unveränderliche Definition und vorberechnete Audios erforderlich. Keine menschliche Hörabnahme oder empirische Äquivalenz",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "146c5dffad6893cf79a59f2eefc1fdd64950f184ad06785ecc10357885a8f78f",
-        "definitionContentHash": "370d175bccc65bee3f000ae764b74e8a72af396ce21c12271c0f099740bda78b",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b11-audit13-M",
-        "documentSha256": "ca35029b0ca995d1d6983c576c9e03c0b4a677397de89a2ececac92e2fc3e3be",
-        "reviewedAt": "2026-10-09T20:55:10.872Z",
+        "definitionContentHash": "b9b5d0d6e207b3911e2ad5703fc6984bb29db9d4d9b0a34d637fbaf353296488",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -42653,7 +42653,7 @@
             "id": "sitov.pretest.b11-01.verbs.q2",
             "competencyId": "sitov.pretest.b11-01.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich wollte beruflich etwas Neues ___«?",
+            "promptDe": "Welche Form passt nach »Ich wollte beruflich etwas Neues«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42685,7 +42685,7 @@
             "id": "sitov.pretest.b11-01.verbs.q3",
             "competencyId": "sitov.pretest.b11-01.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »interessieren« ergänzt »Die Arbeit mit älteren Menschen ___ mich«?",
+            "promptDe": "Welche Präteritumform von »interessieren« passt zwischen »Die Arbeit mit älteren Menschen« und »mich«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42717,7 +42717,7 @@
             "id": "sitov.pretest.b11-01.verbs.q4",
             "competencyId": "sitov.pretest.b11-01.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »empfehlen« ergänzt »Ein Berater ___ mir ein Praktikum«?",
+            "promptDe": "Welche Präteritumform von »empfehlen« passt zwischen »Ein Berater« und »mir ein Praktikum«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42730,7 +42730,7 @@
               },
               {
                 "id": "sitov.pretest.b11-01.verbs.q4.c",
-                "textDe": "empfehlte"
+                "textDe": "empfiehlt"
               }
             ],
             "correctOptionId": "sitov.pretest.b11-01.verbs.q4.a",
@@ -42743,13 +42743,13 @@
                 "quote": "empfahl"
               }
             ],
-            "rationaleDe": "Empfehlen bildet das starke Präteritum empfahl zur dritten Person Singular."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »empfahl«. Die Alternativen »empfahlen« und »empfiehlt« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Empfehlen bildet das starke Präteritum empfahl zur dritten Person Singular."
           },
           {
             "id": "sitov.pretest.b11-01.verbs.q5",
             "competencyId": "sitov.pretest.b11-01.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Bei Unklarheiten durfte ich ___«?",
+            "promptDe": "Welche Form passt nach »Bei Unklarheiten durfte ich«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42877,7 +42877,7 @@
             "id": "sitov.pretest.b11-01.syntax.q3",
             "competencyId": "sitov.pretest.b11-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt die Frage »Würde …?«?",
+            "promptDe": "Welche Folge passt in der Frage nach »Würde«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42909,7 +42909,7 @@
             "id": "sitov.pretest.b11-01.syntax.q4",
             "competencyId": "sitov.pretest.b11-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Ich merkte, dass …«?",
+            "promptDe": "Welche Folge passt nach »Ich merkte, dass«?",
             "fragmentDe": null,
             "options": [
               {
@@ -42941,7 +42941,7 @@
             "id": "sitov.pretest.b11-01.syntax.q5",
             "competencyId": "sitov.pretest.b11-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Jetzt …« zu einem Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »Jetzt« in einem Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -42973,7 +42973,7 @@
             "id": "sitov.pretest.b11-01.syntax.q6",
             "competencyId": "sitov.pretest.b11-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Lernen bedeutet auch, …«?",
+            "promptDe": "Welche Folge passt nach »Lernen bedeutet auch,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43005,7 +43005,7 @@
             "id": "sitov.pretest.b11-01.nominal.q1",
             "competencyId": "sitov.pretest.b11-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »die Arbeit mit ___ Menschen« zu »älter«?",
+            "promptDe": "Welche Form von »älter« passt zwischen »die Arbeit mit« und »Menschen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43069,7 +43069,7 @@
             "id": "sitov.pretest.b11-01.nominal.q3",
             "competencyId": "sitov.pretest.b11-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form von »ich« ergänzt »Ein Berater empfahl ___ ein Praktikum«?",
+            "promptDe": "Welche Form von »ich« passt zwischen »Ein Berater empfahl« und »ein Praktikum«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43101,7 +43101,7 @@
             "id": "sitov.pretest.b11-01.nominal.q4",
             "competencyId": "sitov.pretest.b11-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Die Frage betrifft meine Deutschkenntnisse. Welche Form ergänzt »Würde ___ Deutsch ausreichen«?",
+            "promptDe": "Die Frage betrifft meine Deutschkenntnisse. Welche Form passt zwischen »Würde« und »Deutsch ausreichen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43133,7 +43133,7 @@
             "id": "sitov.pretest.b11-01.nominal.q5",
             "competencyId": "sitov.pretest.b11-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich bereite ___ Bewerbung vor«, wenn es meine eigene ist?",
+            "promptDe": "Welche Form passt zwischen »Ich bereite« und »Bewerbung vor«, wenn es meine eigene ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -43165,7 +43165,7 @@
             "id": "sitov.pretest.b11-01.nominal.q6",
             "competencyId": "sitov.pretest.b11-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Lernen heißt, ___ Möglichkeiten zu entdecken« zu »neu«?",
+            "promptDe": "Welche Form von »neu« passt zwischen »Lernen heißt,« und »Möglichkeiten zu entdecken«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43247,16 +43247,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat13 Fragen und10 vollständige Quellen gegen den unabhängigen B1.1-Audit geprüft: kein Lösungsleck, eindeutiger Reflexivbezug, natürliche Wendung und Distraktoren, ausdrücklich Grundform ohne zu. Keys/IDs/Matrix erhalten; neue unveränderliche Definition und vorberechnete Audios erforderlich. Keine menschliche Hörabnahme oder empirische Äquivalenz",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "d36d679af3ede7f9fda0bf326125838f6a1f9cbdda659233d08968b444e2b09b",
-        "definitionContentHash": "7db5902fa39bf4d0f71b94fb3bf1347acef66812ec4fc74c732a33d7821991c6",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b11-audit13-M",
-        "documentSha256": "ca35029b0ca995d1d6983c576c9e03c0b4a677397de89a2ececac92e2fc3e3be",
-        "reviewedAt": "2026-10-09T20:55:10.872Z",
+        "definitionContentHash": "f757e8fbb45e5c48b30325359907a469d4260b831bf6f2e8394686794ce2bd19",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -43666,12 +43666,12 @@
             "id": "sitov.pretest.b11-02.verbs.q1",
             "competencyId": "sitov.pretest.b11-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Partizipform von »kaufen« ergänzt »Früher habe ich häufig mehr ___«?",
+            "promptDe": "Welche Partizipform von »kaufen« passt nach »Früher habe ich häufig mehr«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.b11-02.verbs.q1.b",
-                "textDe": "gekaufen"
+                "textDe": "kauften"
               },
               {
                 "id": "sitov.pretest.b11-02.verbs.q1.c",
@@ -43692,13 +43692,13 @@
                 "quote": "gekauft"
               }
             ],
-            "rationaleDe": "Kaufen bildet das schwache Partizip gekauft; kaufte ist Präteritum."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gekauft«. Die Alternativen »kauften« und »kaufte« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Kaufen bildet das schwache Partizip gekauft; kaufte ist Präteritum."
           },
           {
             "id": "sitov.pretest.b11-02.verbs.q2",
             "competencyId": "sitov.pretest.b11-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »müssen« ergänzt »Ich ___ Lebensmittel wegwerfen«?",
+            "promptDe": "Welche Präteritumform von »müssen« passt zwischen »Ich« und »Lebensmittel wegwerfen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43762,7 +43762,7 @@
             "id": "sitov.pretest.b11-02.verbs.q4",
             "competencyId": "sitov.pretest.b11-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präsensform von »schreiben« ergänzt »Ich ___ eine Liste«?",
+            "promptDe": "Welche Präsensform von »schreiben« passt zwischen »Ich« und »eine Liste«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43794,7 +43794,7 @@
             "id": "sitov.pretest.b11-02.verbs.q5",
             "competencyId": "sitov.pretest.b11-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präsensform von »erscheinen« ergänzt »Große Packungen ___ manchmal günstiger«?",
+            "promptDe": "Welche Präsensform von »erscheinen« passt zwischen »Große Packungen« und »manchmal günstiger«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43826,7 +43826,7 @@
             "id": "sitov.pretest.b11-02.verbs.q6",
             "competencyId": "sitov.pretest.b11-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präsensform von »verlangen« ergänzt »Diese Veränderung ___ kein besonderes Wissen«?",
+            "promptDe": "Welche Präsensform von »verlangen« passt zwischen »Diese Veränderung« und »kein besonderes Wissen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43858,7 +43858,7 @@
             "id": "sitov.pretest.b11-02.syntax.q1",
             "competencyId": "sitov.pretest.b11-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Ich kaufte mehr, als …«?",
+            "promptDe": "Welche Folge passt nach »Ich kaufte mehr, als«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43890,7 +43890,7 @@
             "id": "sitov.pretest.b11-02.syntax.q2",
             "competencyId": "sitov.pretest.b11-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Das Wegwerfen stört mich, deshalb …«?",
+            "promptDe": "Welche Folge passt nach »Das Wegwerfen stört mich, deshalb«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43954,7 +43954,7 @@
             "id": "sitov.pretest.b11-02.syntax.q4",
             "competencyId": "sitov.pretest.b11-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Ich kaufe kleinere Mengen, auch wenn …«?",
+            "promptDe": "Welche Folge passt nach »Ich kaufe kleinere Mengen, auch wenn«?",
             "fragmentDe": null,
             "options": [
               {
@@ -43986,7 +43986,7 @@
             "id": "sitov.pretest.b11-02.syntax.q5",
             "competencyId": "sitov.pretest.b11-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Die Veränderung ist machbar, weil …«?",
+            "promptDe": "Welche Folge passt nach »Die Veränderung ist machbar, weil«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44050,7 +44050,7 @@
             "id": "sitov.pretest.b11-02.nominal.q1",
             "competencyId": "sitov.pretest.b11-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Am Ende ___ Woche«?",
+            "promptDe": "Welche Form passt zwischen »Am Ende« und »Woche«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44082,7 +44082,7 @@
             "id": "sitov.pretest.b11-02.nominal.q2",
             "competencyId": "sitov.pretest.b11-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich plane ___ Einkäufe«, wenn es meine eigenen sind?",
+            "promptDe": "Welche Form passt zwischen »Ich plane« und »Einkäufe«, wenn es meine eigenen sind?",
             "fragmentDe": null,
             "options": [
               {
@@ -44114,7 +44114,7 @@
             "id": "sitov.pretest.b11-02.nominal.q3",
             "competencyId": "sitov.pretest.b11-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Ich richte meinen Blick in den Innenraum des Kühlschranks. Welche Form ergänzt »Ich schaue in ___ Kühlschrank«?",
+            "promptDe": "Ich richte meinen Blick in den Innenraum des Kühlschranks. Welche Form passt zwischen »Ich schaue in« und »Kühlschrank«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44146,7 +44146,7 @@
             "id": "sitov.pretest.b11-02.nominal.q4",
             "competencyId": "sitov.pretest.b11-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich kaufe ___ Mengen als früher« zu »klein«?",
+            "promptDe": "Welche Form von »klein« passt zwischen »Ich kaufe« und »Mengen als früher«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44178,7 +44178,7 @@
             "id": "sitov.pretest.b11-02.nominal.q5",
             "competencyId": "sitov.pretest.b11-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt den Vergleich »Große Packungen erscheinen ___ als kleine« zu »günstig«?",
+            "promptDe": "Welche Form von »günstig« passt im Vergleich zwischen »Große Packungen erscheinen« und »als kleine«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44210,7 +44210,7 @@
             "id": "sitov.pretest.b11-02.nominal.q6",
             "competencyId": "sitov.pretest.b11-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Adjektivform ergänzt »Sie verlangt kein ___ Wissen«?",
+            "promptDe": "Welche Adjektivform passt zwischen »Sie verlangt kein« und »Wissen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44292,16 +44292,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat13 Fragen und10 vollständige Quellen gegen den unabhängigen B1.1-Audit geprüft: kein Lösungsleck, eindeutiger Reflexivbezug, natürliche Wendung und Distraktoren, ausdrücklich Grundform ohne zu. Keys/IDs/Matrix erhalten; neue unveränderliche Definition und vorberechnete Audios erforderlich. Keine menschliche Hörabnahme oder empirische Äquivalenz",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "ad5c6458d11f8b7110edf9767e57489a77c3a4769b8c463d0a261e62b0a07090",
-        "definitionContentHash": "6ed1dad241ff83b8244b6ff49c777e12aa4be455b8ca168d1602e9a03cd9fc8a",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b11-audit13-M",
-        "documentSha256": "ca35029b0ca995d1d6983c576c9e03c0b4a677397de89a2ececac92e2fc3e3be",
-        "reviewedAt": "2026-10-09T20:55:10.872Z",
+        "definitionContentHash": "6d2c9210e8b554d1c148a0ad44ee680ae93d2151bdb3e91c440cd40cc524fb22",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -44738,7 +44738,7 @@
             "id": "sitov.pretest.b11-03.verbs.q2",
             "competencyId": "sitov.pretest.b11-03.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich fühlte ___ oft allein«?",
+            "promptDe": "Welche Form passt zwischen »Ich fühlte« und »oft allein«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44802,12 +44802,12 @@
             "id": "sitov.pretest.b11-03.verbs.q4",
             "competencyId": "sitov.pretest.b11-03.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »sich entscheiden« ergänzt »Ich ___ mich für einen Fotokurs«?",
+            "promptDe": "Welche Präteritumform von »sich entscheiden« passt zwischen »Ich« und »mich für einen Fotokurs«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.b11-03.verbs.q4.a",
-                "textDe": "entscheidete"
+                "textDe": "entscheidet"
               },
               {
                 "id": "sitov.pretest.b11-03.verbs.q4.b",
@@ -44828,13 +44828,13 @@
                 "quote": "entschied"
               }
             ],
-            "rationaleDe": "Entscheiden bildet das starke Präteritum entschied in der ersten Person Singular."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »entschied«. Die Alternativen »entscheidet« und »entschieden« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Entscheiden bildet das starke Präteritum entschied in der ersten Person Singular."
           },
           {
             "id": "sitov.pretest.b11-03.verbs.q5",
             "competencyId": "sitov.pretest.b11-03.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form von »ansprechen« ergänzt »Es fiel mir schwer, die anderen ___«?",
+            "promptDe": "Welche Form von »ansprechen« passt nach »Es fiel mir schwer, die anderen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44866,7 +44866,7 @@
             "id": "sitov.pretest.b11-03.verbs.q6",
             "competencyId": "sitov.pretest.b11-03.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Partizipform von »werden« ergänzt »Aus Bekanntschaften sind Freundschaften ___«?",
+            "promptDe": "Welche Partizipform von »werden« passt nach »Aus Bekanntschaften sind Freundschaften«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44875,11 +44875,11 @@
               },
               {
                 "id": "sitov.pretest.b11-03.verbs.q6.b",
-                "textDe": "gewordet"
+                "textDe": "wurden"
               },
               {
                 "id": "sitov.pretest.b11-03.verbs.q6.c",
-                "textDe": "gewerdet"
+                "textDe": "werden"
               }
             ],
             "correctOptionId": "sitov.pretest.b11-03.verbs.q6.a",
@@ -44892,13 +44892,13 @@
                 "quote": "geworden"
               }
             ],
-            "rationaleDe": "Werden im Sinn einer Veränderung bildet das Partizip geworden."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »geworden«. Die Alternativen »wurden« und »werden« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Werden im Sinn einer Veränderung bildet das Partizip geworden."
           },
           {
             "id": "sitov.pretest.b11-03.syntax.q1",
             "competencyId": "sitov.pretest.b11-03.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Als …, kannte ich kaum jemanden«?",
+            "promptDe": "Welche Folge passt zwischen »Als« und », kannte ich kaum jemanden«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44930,7 +44930,7 @@
             "id": "sitov.pretest.b11-03.syntax.q2",
             "competencyId": "sitov.pretest.b11-03.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Mein Bruder schlug vor, …«?",
+            "promptDe": "Welche Folge passt nach »Mein Bruder schlug vor,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44962,7 +44962,7 @@
             "id": "sitov.pretest.b11-03.syntax.q3",
             "competencyId": "sitov.pretest.b11-03.syntax",
             "kind": "single_choice",
-            "promptDe": "Ein Kurs hatte nichts mit meinem Beruf zu tun. Welche Folge ergänzt »Ich suchte einen Kurs, …«?",
+            "promptDe": "Ein Kurs hatte nichts mit meinem Beruf zu tun. Welche Folge passt nach »Ich suchte einen Kurs,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -44994,7 +44994,7 @@
             "id": "sitov.pretest.b11-03.syntax.q4",
             "competencyId": "sitov.pretest.b11-03.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Ich habe gelernt, dass …«?",
+            "promptDe": "Welche Folge passt nach »Ich habe gelernt, dass«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45026,7 +45026,7 @@
             "id": "sitov.pretest.b11-03.syntax.q5",
             "competencyId": "sitov.pretest.b11-03.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Ein gemeinsames Interesse reicht, damit …«?",
+            "promptDe": "Welche Folge passt nach »Ein gemeinsames Interesse reicht, damit«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45058,7 +45058,7 @@
             "id": "sitov.pretest.b11-03.syntax.q6",
             "competencyId": "sitov.pretest.b11-03.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Aus zwei Bekanntschaften …« zu einem Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »Aus zwei Bekanntschaften« in einem Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -45090,7 +45090,7 @@
             "id": "sitov.pretest.b11-03.nominal.q1",
             "competencyId": "sitov.pretest.b11-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich kannte außer ___ Bruder niemanden«, wenn es mein Bruder ist?",
+            "promptDe": "Welche Form passt zwischen »Ich kannte außer« und »Bruder niemanden«, wenn es mein Bruder ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -45122,7 +45122,7 @@
             "id": "sitov.pretest.b11-03.nominal.q2",
             "competencyId": "sitov.pretest.b11-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich entschied mich für ___ Fotokurs«?",
+            "promptDe": "Welche Form passt zwischen »Ich entschied mich für« und »Fotokurs«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45154,7 +45154,7 @@
             "id": "sitov.pretest.b11-03.nominal.q3",
             "competencyId": "sitov.pretest.b11-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »bei den ___ Spaziergängen« zu »gemeinsam«?",
+            "promptDe": "Welche Form von »gemeinsam« passt zwischen »bei den« und »Spaziergängen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45186,7 +45186,7 @@
             "id": "sitov.pretest.b11-03.nominal.q4",
             "competencyId": "sitov.pretest.b11-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »aus einem ___ Gespräch« zu »erst«?",
+            "promptDe": "Welche Form von »erst« passt zwischen »aus einem« und »Gespräch«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45227,11 +45227,11 @@
               },
               {
                 "id": "sitov.pretest.b11-03.nominal.q5.a",
-                "textDe": "die Freundschafts"
+                "textDe": "die Freundschaft"
               },
               {
                 "id": "sitov.pretest.b11-03.nominal.q5.c",
-                "textDe": "die Freundschäfte"
+                "textDe": "der Freundschaft"
               }
             ],
             "correctOptionId": "sitov.pretest.b11-03.nominal.q5.b",
@@ -45244,13 +45244,13 @@
                 "quote": "Freundschaften"
               }
             ],
-            "rationaleDe": "Der regelmäßige Plural lautet Freundschaften mit en."
+            "rationaleDe": "Der Nominativ Plural lautet »die Freundschaften«. »die Freundschaft« ist Singular; »der Freundschaft« ist Genitiv oder Dativ Singular."
           },
           {
             "id": "sitov.pretest.b11-03.nominal.q6",
             "competencyId": "sitov.pretest.b11-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Komparativform von »viel« ergänzt »damit aus einem Gespräch ___ entsteht«?",
+            "promptDe": "Welche Komparativform von »viel« passt zwischen »damit aus einem Gespräch« und »entsteht«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45332,16 +45332,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat13 Fragen und10 vollständige Quellen gegen den unabhängigen B1.1-Audit geprüft: kein Lösungsleck, eindeutiger Reflexivbezug, natürliche Wendung und Distraktoren, ausdrücklich Grundform ohne zu. Keys/IDs/Matrix erhalten; neue unveränderliche Definition und vorberechnete Audios erforderlich. Keine menschliche Hörabnahme oder empirische Äquivalenz",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "a7e24452f72bf0e76b4930469a1615bd5ee30f3ac39ad66030d87d4a4bd3298c",
-        "definitionContentHash": "3c30580fc5599f51c4c9cce4fec4ca0ed3171e49baab757e3c4158ef2681a419",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b11-audit13-M",
-        "documentSha256": "ca35029b0ca995d1d6983c576c9e03c0b4a677397de89a2ececac92e2fc3e3be",
-        "reviewedAt": "2026-10-09T20:55:10.872Z",
+        "definitionContentHash": "d8dbb5d64e0b6546bc91bb2777773047d4793bf5361ccb8afe913878e6e2b048",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -45746,7 +45746,7 @@
             "id": "sitov.pretest.b11-04.verbs.q1",
             "competencyId": "sitov.pretest.b11-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »geben« ergänzt »In der Wohngemeinschaft ___ es Streit«?",
+            "promptDe": "Welche Präteritumform von »geben« passt zwischen »In der Wohngemeinschaft« und »es Streit«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45755,7 +45755,7 @@
               },
               {
                 "id": "sitov.pretest.b11-04.verbs.q1.b",
-                "textDe": "gebte"
+                "textDe": "gebt"
               },
               {
                 "id": "sitov.pretest.b11-04.verbs.q1.a",
@@ -45772,13 +45772,13 @@
                 "quote": "gab"
               }
             ],
-            "rationaleDe": "Die feste Form es gab steht in der dritten Person Singular des starken Präteritums."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gab«. Die Alternativen »gaben« und »gebt« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Die feste Form es gab steht in der dritten Person Singular des starken Präteritums."
           },
           {
             "id": "sitov.pretest.b11-04.verbs.q2",
             "competencyId": "sitov.pretest.b11-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »putzen« ergänzt »Einige Bewohner ___ häufig«?",
+            "promptDe": "Welche Präteritumform von »putzen« passt zwischen »Einige Bewohner« und »häufig«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45842,7 +45842,7 @@
             "id": "sitov.pretest.b11-04.verbs.q4",
             "competencyId": "sitov.pretest.b11-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Jeder konnte Aufgaben ___«?",
+            "promptDe": "Welche Form passt nach »Jeder konnte Aufgaben«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45874,7 +45874,7 @@
             "id": "sitov.pretest.b11-04.verbs.q5",
             "competencyId": "sitov.pretest.b11-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Partizipform von »helfen« ergänzt »Das Zuhören hat uns besonders ___«?",
+            "promptDe": "Welche Partizipform von »helfen« passt nach »Das Zuhören hat uns besonders«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45883,11 +45883,11 @@
               },
               {
                 "id": "sitov.pretest.b11-04.verbs.q5.b",
-                "textDe": "geholft"
+                "textDe": "halfen"
               },
               {
                 "id": "sitov.pretest.b11-04.verbs.q5.c",
-                "textDe": "gehelft"
+                "textDe": "helfen"
               }
             ],
             "correctOptionId": "sitov.pretest.b11-04.verbs.q5.a",
@@ -45900,13 +45900,13 @@
                 "quote": "geholfen"
               }
             ],
-            "rationaleDe": "Helfen bildet das starke Partizip geholfen."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »geholfen«. Die Alternativen »halfen« und »helfen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Helfen bildet das starke Partizip geholfen."
           },
           {
             "id": "sitov.pretest.b11-04.verbs.q6",
             "competencyId": "sitov.pretest.b11-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form von »zuhören« ergänzt »Es hilft, einander ___«?",
+            "promptDe": "Welche Form von »zuhören« passt nach »Es hilft, einander«?",
             "fragmentDe": null,
             "options": [
               {
@@ -45970,7 +45970,7 @@
             "id": "sitov.pretest.b11-04.syntax.q2",
             "competencyId": "sitov.pretest.b11-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Jeder erklärte, …«?",
+            "promptDe": "Welche Folge passt nach »Jeder erklärte,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46002,7 +46002,7 @@
             "id": "sitov.pretest.b11-04.syntax.q3",
             "competencyId": "sitov.pretest.b11-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Ein Plan wechselt jede Woche. Welche Folge ergänzt »Wir erstellten einen Plan, …«?",
+            "promptDe": "Ein Plan wechselt jede Woche. Welche Folge passt nach »Wir erstellten einen Plan,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46098,7 +46098,7 @@
             "id": "sitov.pretest.b11-04.syntax.q6",
             "competencyId": "sitov.pretest.b11-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Außerdem …« zu einem Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »Außerdem« in einem Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -46130,7 +46130,7 @@
             "id": "sitov.pretest.b11-04.nominal.q1",
             "competencyId": "sitov.pretest.b11-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Der Streit findet innerhalb unserer Wohngemeinschaft statt. Welche Form ergänzt »In ___ Wohngemeinschaft gibt es Streit«?",
+            "promptDe": "Der Streit findet innerhalb unserer Wohngemeinschaft statt. Welche Form passt zwischen »In« und »Wohngemeinschaft gibt es Streit«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46162,7 +46162,7 @@
             "id": "sitov.pretest.b11-04.nominal.q2",
             "competencyId": "sitov.pretest.b11-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir streiten über ___ Hausarbeit«?",
+            "promptDe": "Welche Form passt zwischen »Wir streiten über« und »Hausarbeit«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46194,7 +46194,7 @@
             "id": "sitov.pretest.b11-04.nominal.q3",
             "competencyId": "sitov.pretest.b11-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir erstellen einen ___ Plan« zu »einfach«?",
+            "promptDe": "Welche Form von »einfach« passt zwischen »Wir erstellen einen« und »Plan«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46226,7 +46226,7 @@
             "id": "sitov.pretest.b11-04.nominal.q4",
             "competencyId": "sitov.pretest.b11-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt die Zeitangabe »Der Plan wechselt ___ Woche«?",
+            "promptDe": "Welche Form passt in der Zeitangabe zwischen »Der Plan wechselt« und »Woche«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46258,7 +46258,7 @@
             "id": "sitov.pretest.b11-04.nominal.q5",
             "competencyId": "sitov.pretest.b11-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form von »wir« ergänzt »Das Zuhören hat ___ geholfen«?",
+            "promptDe": "Welche Form von »wir« passt zwischen »Das Zuhören hat« und »geholfen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46290,7 +46290,7 @@
             "id": "sitov.pretest.b11-04.nominal.q6",
             "competencyId": "sitov.pretest.b11-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Komparativform von »gut« ergänzt »Die Stimmung ist jetzt ___ als vorher«?",
+            "promptDe": "Welche Komparativform von »gut« passt zwischen »Die Stimmung ist jetzt« und »als vorher«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46372,16 +46372,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat13 Fragen und10 vollständige Quellen gegen den unabhängigen B1.1-Audit geprüft: kein Lösungsleck, eindeutiger Reflexivbezug, natürliche Wendung und Distraktoren, ausdrücklich Grundform ohne zu. Keys/IDs/Matrix erhalten; neue unveränderliche Definition und vorberechnete Audios erforderlich. Keine menschliche Hörabnahme oder empirische Äquivalenz",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "3213e47f04578d281902558235bf23c78c4d536b51ed7baa89d217f92f68f61f",
-        "definitionContentHash": "7384bb1f7307b83402f00b9b7aaa915ff1be100fcbee136d8c4db7c90947acaa",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b11-audit13-M",
-        "documentSha256": "ca35029b0ca995d1d6983c576c9e03c0b4a677397de89a2ececac92e2fc3e3be",
-        "reviewedAt": "2026-10-09T20:55:10.872Z",
+        "definitionContentHash": "e1715aa6807c384cf1724d36ed83b4164623fbbeade10642ac3f7b2d32fa8ac4",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -46791,7 +46791,7 @@
             "id": "sitov.pretest.b11-05.verbs.q1",
             "competencyId": "sitov.pretest.b11-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »bekommen« ergänzt »Ich ___ eine Nachricht«?",
+            "promptDe": "Welche Präteritumform von »bekommen« passt zwischen »Ich« und »eine Nachricht«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46804,7 +46804,7 @@
               },
               {
                 "id": "sitov.pretest.b11-05.verbs.q1.b",
-                "textDe": "bekommte"
+                "textDe": "bekommt"
               }
             ],
             "correctOptionId": "sitov.pretest.b11-05.verbs.q1.c",
@@ -46817,7 +46817,7 @@
                 "quote": "bekam"
               }
             ],
-            "rationaleDe": "Bekommen bildet in der ersten Person Singular das starke Präteritum bekam."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »bekam«. Die Alternativen »bekamen« und »bekommt« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Bekommen bildet in der ersten Person Singular das starke Präteritum bekam."
           },
           {
             "id": "sitov.pretest.b11-05.verbs.q2",
@@ -46855,7 +46855,7 @@
             "id": "sitov.pretest.b11-05.verbs.q3",
             "competencyId": "sitov.pretest.b11-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Es handelte ___ um eine alte Information«?",
+            "promptDe": "Welche Form passt zwischen »Es handelte« und »um eine alte Information«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46887,7 +46887,7 @@
             "id": "sitov.pretest.b11-05.verbs.q4",
             "competencyId": "sitov.pretest.b11-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Partizipform von »zeigen« ergänzt »Die Situation hat mir ___, wie Missverständnisse entstehen«?",
+            "promptDe": "Welche Partizipform von »zeigen« passt zwischen »Die Situation hat mir« und », wie Missverständnisse entstehen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46900,7 +46900,7 @@
               },
               {
                 "id": "sitov.pretest.b11-05.verbs.q4.c",
-                "textDe": "gezeigen"
+                "textDe": "zeigen"
               }
             ],
             "correctOptionId": "sitov.pretest.b11-05.verbs.q4.b",
@@ -46913,13 +46913,13 @@
                 "quote": "gezeigt"
               }
             ],
-            "rationaleDe": "Zeigen bildet das schwache Partizip gezeigt; zeigte ist Präteritum."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gezeigt«. Die Alternativen »zeigte« und »zeigen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Zeigen bildet das schwache Partizip gezeigt; zeigte ist Präteritum."
           },
           {
             "id": "sitov.pretest.b11-05.verbs.q5",
             "competencyId": "sitov.pretest.b11-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Missverständnisse können schnell ___«?",
+            "promptDe": "Welche Form passt nach »Missverständnisse können schnell«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46951,7 +46951,7 @@
             "id": "sitov.pretest.b11-05.verbs.q6",
             "competencyId": "sitov.pretest.b11-05.verbs",
             "kind": "single_choice",
-            "promptDe": "Datum, Quelle und Nachfrage bilden zusammen das Subjekt. Welche Präsensform von »helfen« ergänzt »Das Datum, die Quelle und die Nachfrage ___ mir«?",
+            "promptDe": "Datum, Quelle und Nachfrage bilden zusammen das Subjekt. Welche Präsensform von »helfen« passt zwischen »Das Datum, die Quelle und die Nachfrage« und »mir«?",
             "fragmentDe": null,
             "options": [
               {
@@ -46964,7 +46964,7 @@
               },
               {
                 "id": "sitov.pretest.b11-05.verbs.q6.b",
-                "textDe": "helfst"
+                "textDe": "hilfst"
               }
             ],
             "correctOptionId": "sitov.pretest.b11-05.verbs.q6.a",
@@ -46977,7 +46977,7 @@
                 "quote": "helfen mir das Datum, die Quelle"
               }
             ],
-            "rationaleDe": "Die drei mit und verbundenen Subjektteile verlangen die Pluralform helfen."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »helfen«. Die Alternativen »hilft« und »hilfst« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Die drei mit und verbundenen Subjektteile verlangen die Pluralform helfen."
           },
           {
             "id": "sitov.pretest.b11-05.syntax.q1",
@@ -47015,7 +47015,7 @@
             "id": "sitov.pretest.b11-05.syntax.q2",
             "competencyId": "sitov.pretest.b11-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Ich erfuhr, dass …«?",
+            "promptDe": "Welche Folge passt nach »Ich erfuhr, dass«?",
             "fragmentDe": null,
             "options": [
               {
@@ -47047,7 +47047,7 @@
             "id": "sitov.pretest.b11-05.syntax.q3",
             "competencyId": "sitov.pretest.b11-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Die Situation zeigte mir, …«?",
+            "promptDe": "Welche Folge passt nach »Die Situation zeigte mir,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -47079,7 +47079,7 @@
             "id": "sitov.pretest.b11-05.syntax.q4",
             "competencyId": "sitov.pretest.b11-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Anschließend …« zu einem Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »Anschließend« in einem Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -47111,7 +47111,7 @@
             "id": "sitov.pretest.b11-05.syntax.q5",
             "competencyId": "sitov.pretest.b11-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Bevor …, schaute ich auf der Webseite nach«?",
+            "promptDe": "Welche Folge passt zwischen »Bevor« und », schaute ich auf der Webseite nach«?",
             "fragmentDe": null,
             "options": [
               {
@@ -47175,7 +47175,7 @@
             "id": "sitov.pretest.b11-05.nominal.q1",
             "competencyId": "sitov.pretest.b11-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Die Nachricht erscheint innerhalb einer Chatgruppe. Welche Form ergänzt »In ___ Chatgruppe bekam ich die Nachricht«?",
+            "promptDe": "Die Nachricht erscheint innerhalb einer Chatgruppe. Welche Form passt zwischen »In« und »Chatgruppe bekam ich die Nachricht«?",
             "fragmentDe": null,
             "options": [
               {
@@ -47207,7 +47207,7 @@
             "id": "sitov.pretest.b11-05.nominal.q2",
             "competencyId": "sitov.pretest.b11-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Es handelte sich um ___ alte Information«?",
+            "promptDe": "Welche Form passt zwischen »Es handelte sich um« und »alte Information«?",
             "fragmentDe": null,
             "options": [
               {
@@ -47239,7 +47239,7 @@
             "id": "sitov.pretest.b11-05.nominal.q3",
             "competencyId": "sitov.pretest.b11-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich schrieb eine ___ Erklärung« zu »kurz«?",
+            "promptDe": "Welche Form von »kurz« passt zwischen »Ich schrieb eine« und »Erklärung«?",
             "fragmentDe": null,
             "options": [
               {
@@ -47271,7 +47271,7 @@
             "id": "sitov.pretest.b11-05.nominal.q4",
             "competencyId": "sitov.pretest.b11-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Heute prüfe ich ___ Nachrichten« zu »wichtig«?",
+            "promptDe": "Welche Form von »wichtig« passt zwischen »Heute prüfe ich« und »Nachrichten«?",
             "fragmentDe": null,
             "options": [
               {
@@ -47303,7 +47303,7 @@
             "id": "sitov.pretest.b11-05.nominal.q5",
             "competencyId": "sitov.pretest.b11-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »bei der ___ Stelle« zu »zuständig«?",
+            "promptDe": "Welche Form von »zuständig« passt zwischen »bei der« und »Stelle«?",
             "fragmentDe": null,
             "options": [
               {
@@ -47335,7 +47335,7 @@
             "id": "sitov.pretest.b11-05.nominal.q6",
             "competencyId": "sitov.pretest.b11-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Komparativform von »gern« ergänzt »Ich prüfe Nachrichten ___ einmal mehr«?",
+            "promptDe": "Welche Komparativform von »gern« passt zwischen »Ich prüfe Nachrichten« und »einmal mehr«?",
             "fragmentDe": null,
             "options": [
               {
@@ -47417,16 +47417,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat13 Fragen und10 vollständige Quellen gegen den unabhängigen B1.1-Audit geprüft: kein Lösungsleck, eindeutiger Reflexivbezug, natürliche Wendung und Distraktoren, ausdrücklich Grundform ohne zu. Keys/IDs/Matrix erhalten; neue unveränderliche Definition und vorberechnete Audios erforderlich. Keine menschliche Hörabnahme oder empirische Äquivalenz",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "73d4a51db9105270a896a87c99e1b971807c3dbc685644794461dbcd26e0bff6",
-        "definitionContentHash": "3bb8ee09ff576aa5dd034e337c284ef8ab9c8a1d551a8dcb2d2d8359e2073eb2",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b11-audit13-M",
-        "documentSha256": "ca35029b0ca995d1d6983c576c9e03c0b4a677397de89a2ececac92e2fc3e3be",
-        "reviewedAt": "2026-10-09T20:55:10.872Z",
+        "definitionContentHash": "7635bfd6d22d39ed3aaceaa19fe568f9ac4ece9718be3bd08ad2333d7a62d38f",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -47836,12 +47836,12 @@
             "id": "sitov.pretest.b11-06.verbs.q1",
             "competencyId": "sitov.pretest.b11-06.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Partizipform von »verreisen« ergänzt »Ich bin allein ___«?",
+            "promptDe": "Welche Partizipform von »verreisen« passt nach »Ich bin allein«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.b11-06.verbs.q1.a",
-                "textDe": "geverreist"
+                "textDe": "verreisten"
               },
               {
                 "id": "sitov.pretest.b11-06.verbs.q1.b",
@@ -47862,7 +47862,7 @@
                 "quote": "verreist"
               }
             ],
-            "rationaleDe": "Das Verb mit untrennbarem ver bildet das Partizip verreist ohne zusätzliches ge."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »verreist«. Die Alternativen »verreisten« und »verreiste« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Das Verb mit untrennbarem ver bildet das Partizip verreist ohne zusätzliches ge."
           },
           {
             "id": "sitov.pretest.b11-06.verbs.q2",
@@ -47900,12 +47900,12 @@
             "id": "sitov.pretest.b11-06.verbs.q3",
             "competencyId": "sitov.pretest.b11-06.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »finden« ergänzt »Ich ___ das Alleinreisen ungewohnt«?",
+            "promptDe": "Welche Präteritumform von »finden« passt zwischen »Ich« und »das Alleinreisen ungewohnt«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.b11-06.verbs.q3.b",
-                "textDe": "findete"
+                "textDe": "findet"
               },
               {
                 "id": "sitov.pretest.b11-06.verbs.q3.c",
@@ -47926,18 +47926,18 @@
                 "quote": "fand"
               }
             ],
-            "rationaleDe": "Finden bildet in der ersten Person Singular das starke Präteritum fand."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »fand«. Die Alternativen »findet« und »fanden« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Finden bildet in der ersten Person Singular das starke Präteritum fand."
           },
           {
             "id": "sitov.pretest.b11-06.verbs.q4",
             "competencyId": "sitov.pretest.b11-06.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »beginnen« ergänzt »Nach einigen Stunden ___ ich, die Freiheit zu genießen«?",
+            "promptDe": "Welche Präteritumform von »beginnen« passt zwischen »Nach einigen Stunden« und »ich, die Freiheit zu genießen«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.b11-06.verbs.q4.a",
-                "textDe": "beginnte"
+                "textDe": "beginnt"
               },
               {
                 "id": "sitov.pretest.b11-06.verbs.q4.b",
@@ -47958,7 +47958,7 @@
                 "quote": "begann"
               }
             ],
-            "rationaleDe": "Beginnen bildet das starke Präteritum begann zur ersten Person Singular."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »begann«. Die Alternativen »beginnt« und »begannen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Beginnen bildet das starke Präteritum begann zur ersten Person Singular."
           },
           {
             "id": "sitov.pretest.b11-06.verbs.q5",
@@ -47996,7 +47996,7 @@
             "id": "sitov.pretest.b11-06.verbs.q6",
             "competencyId": "sitov.pretest.b11-06.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich freute ___ auf meine Familie«?",
+            "promptDe": "Welche Form passt zwischen »Ich freute« und »auf meine Familie«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48028,7 +48028,7 @@
             "id": "sitov.pretest.b11-06.syntax.q1",
             "competencyId": "sitov.pretest.b11-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Eine Stadt war gut mit dem Zug erreichbar. Welche Folge ergänzt »Ich suchte eine Stadt, …«?",
+            "promptDe": "Eine Stadt war gut mit dem Zug erreichbar. Welche Folge passt nach »Ich suchte eine Stadt,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48060,7 +48060,7 @@
             "id": "sitov.pretest.b11-06.syntax.q2",
             "competencyId": "sitov.pretest.b11-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Niemand fragte, wann …«?",
+            "promptDe": "Welche Folge passt nach »Niemand fragte, wann«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48092,7 +48092,7 @@
             "id": "sitov.pretest.b11-06.syntax.q3",
             "competencyId": "sitov.pretest.b11-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Niemand fragte, …«?",
+            "promptDe": "Welche Folge passt nach »Niemand fragte,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48124,7 +48124,7 @@
             "id": "sitov.pretest.b11-06.syntax.q4",
             "competencyId": "sitov.pretest.b11-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Ich begann, …«?",
+            "promptDe": "Welche Folge passt nach »Ich begann,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48188,7 +48188,7 @@
             "id": "sitov.pretest.b11-06.syntax.q6",
             "competencyId": "sitov.pretest.b11-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Nach einigen Stunden …« zu einem Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »Nach einigen Stunden« in einem Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -48220,7 +48220,7 @@
             "id": "sitov.pretest.b11-06.nominal.q1",
             "competencyId": "sitov.pretest.b11-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich verreise für ___ Wochenende«?",
+            "promptDe": "Welche Form passt zwischen »Ich verreise für« und »Wochenende«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48252,7 +48252,7 @@
             "id": "sitov.pretest.b11-06.nominal.q2",
             "competencyId": "sitov.pretest.b11-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe eine ___ Stadt ausgesucht« zu »klein«?",
+            "promptDe": "Welche Form von »klein« passt zwischen »Ich habe eine« und »Stadt ausgesucht«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48284,7 +48284,7 @@
             "id": "sitov.pretest.b11-06.nominal.q3",
             "competencyId": "sitov.pretest.b11-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Die Stadt ist mit ___ Zug erreichbar«?",
+            "promptDe": "Welche Form passt zwischen »Die Stadt ist mit« und »Zug erreichbar«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48316,7 +48316,7 @@
             "id": "sitov.pretest.b11-06.nominal.q4",
             "competencyId": "sitov.pretest.b11-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich treffe ___ Entscheidungen selbst«?",
+            "promptDe": "Welche Form passt zwischen »Ich treffe« und »Entscheidungen selbst«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48348,7 +48348,7 @@
             "id": "sitov.pretest.b11-06.nominal.q5",
             "competencyId": "sitov.pretest.b11-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Adjektivform ergänzt »mit einem ___ Reisenden«?",
+            "promptDe": "Welche Adjektivform passt zwischen »mit einem« und »Reisenden«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48380,7 +48380,7 @@
             "id": "sitov.pretest.b11-06.nominal.q6",
             "competencyId": "sitov.pretest.b11-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Ich meine eine Reise derselben Art. Welche Form ergänzt »Ich möchte eine ___ Reise wiederholen«?",
+            "promptDe": "Ich meine eine Reise derselben Art. Welche Form passt zwischen »Ich möchte eine« und »Reise wiederholen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48462,16 +48462,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat13 Fragen und10 vollständige Quellen gegen den unabhängigen B1.1-Audit geprüft: kein Lösungsleck, eindeutiger Reflexivbezug, natürliche Wendung und Distraktoren, ausdrücklich Grundform ohne zu. Keys/IDs/Matrix erhalten; neue unveränderliche Definition und vorberechnete Audios erforderlich. Keine menschliche Hörabnahme oder empirische Äquivalenz",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "33692f0ad6e25f4080374ce9667ef9f6c24403df0d599bd3ee41eab4f6018a0e",
-        "definitionContentHash": "145c97f516c45ab5c0502f5cad58bb69fe124d7b753c6d8f0f29c901348e5a02",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b11-audit13-M",
-        "documentSha256": "ca35029b0ca995d1d6983c576c9e03c0b4a677397de89a2ececac92e2fc3e3be",
-        "reviewedAt": "2026-10-09T20:55:10.872Z",
+        "definitionContentHash": "3bcd911766e1003ec538b3a20be97709fa4fa052122e3cc1180d8c1e4a3ade99",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -48881,7 +48881,7 @@
             "id": "sitov.pretest.b11-07.verbs.q1",
             "competencyId": "sitov.pretest.b11-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präsensform von »arbeiten« ergänzt »Ich ___ von zu Hause aus«?",
+            "promptDe": "Welche Präsensform von »arbeiten« passt zwischen »Ich« und »von zu Hause aus«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48913,7 +48913,7 @@
             "id": "sitov.pretest.b11-07.verbs.q2",
             "competencyId": "sitov.pretest.b11-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präsensform von »können« ergänzt »Ich ___ morgens ruhiger beginnen«?",
+            "promptDe": "Welche Präsensform von »können« passt zwischen »Ich« und »morgens ruhiger beginnen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -48945,12 +48945,12 @@
             "id": "sitov.pretest.b11-07.verbs.q3",
             "competencyId": "sitov.pretest.b11-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »stehen« ergänzt »Mein Laptop ___ auf dem Küchentisch«?",
+            "promptDe": "Welche Präteritumform von »stehen« passt zwischen »Mein Laptop« und »auf dem Küchentisch«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.b11-07.verbs.q3.b",
-                "textDe": "stehte"
+                "textDe": "steht"
               },
               {
                 "id": "sitov.pretest.b11-07.verbs.q3.a",
@@ -48971,13 +48971,13 @@
                 "quote": "stand"
               }
             ],
-            "rationaleDe": "Stehen bildet das starke Präteritum stand zur dritten Person Singular."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »stand«. Die Alternativen »steht« und »standen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Stehen bildet das starke Präteritum stand zur dritten Person Singular."
           },
           {
             "id": "sitov.pretest.b11-07.verbs.q4",
             "competencyId": "sitov.pretest.b11-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präteritumform von »beantworten« ergänzt »Ich ___ noch spät Nachrichten«?",
+            "promptDe": "Welche Präteritumform von »beantworten« passt zwischen »Ich« und »noch spät Nachrichten«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49041,7 +49041,7 @@
             "id": "sitov.pretest.b11-07.verbs.q6",
             "competencyId": "sitov.pretest.b11-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich möchte den Kontakt nicht ___«?",
+            "promptDe": "Welche Form passt nach »Ich möchte den Kontakt nicht«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49137,7 +49137,7 @@
             "id": "sitov.pretest.b11-07.syntax.q3",
             "competencyId": "sitov.pretest.b11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Nach der letzten Aufgabe …« zu einem Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »Nach der letzten Aufgabe« in einem Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -49169,7 +49169,7 @@
             "id": "sitov.pretest.b11-07.syntax.q4",
             "competencyId": "sitov.pretest.b11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Die Gewohnheit hilft mir, …«?",
+            "promptDe": "Welche Folge passt nach »Die Gewohnheit hilft mir,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49201,7 +49201,7 @@
             "id": "sitov.pretest.b11-07.syntax.q5",
             "competencyId": "sitov.pretest.b11-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Den Kontakt zu meinen Kollegen …« zu einem Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »Den Kontakt zu meinen Kollegen« in einem Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -49265,7 +49265,7 @@
             "id": "sitov.pretest.b11-07.nominal.q1",
             "competencyId": "sitov.pretest.b11-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt die regelmäßige Zeitangabe »An zwei ___ in der Woche arbeite ich zu Hause«?",
+            "promptDe": "Welche Form passt in der regelmäßigen Zeitangabe zwischen »An zwei« und »in der Woche arbeite ich zu Hause«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49297,7 +49297,7 @@
             "id": "sitov.pretest.b11-07.nominal.q2",
             "competencyId": "sitov.pretest.b11-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich spare ___ Arbeitsweg«?",
+            "promptDe": "Welche Form passt zwischen »Ich spare« und »Arbeitsweg«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49329,7 +49329,7 @@
             "id": "sitov.pretest.b11-07.nominal.q3",
             "competencyId": "sitov.pretest.b11-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Der Laptop steht auf der Tischfläche. Welche Form ergänzt »Der Laptop stand auf ___ Küchentisch«?",
+            "promptDe": "Der Laptop steht auf der Tischfläche. Welche Form passt zwischen »Der Laptop stand auf« und »Küchentisch«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49361,7 +49361,7 @@
             "id": "sitov.pretest.b11-07.nominal.q4",
             "competencyId": "sitov.pretest.b11-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich habe einen ___ Arbeitsplatz« zu »fest«?",
+            "promptDe": "Welche Form von »fest« passt zwischen »Ich habe einen« und »Arbeitsplatz«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49393,7 +49393,7 @@
             "id": "sitov.pretest.b11-07.nominal.q5",
             "competencyId": "sitov.pretest.b11-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Komparativform von »ruhig« ergänzt »Ich kann morgens ___ beginnen«?",
+            "promptDe": "Welche Komparativform von »ruhig« passt zwischen »Ich kann morgens« und »beginnen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49425,7 +49425,7 @@
             "id": "sitov.pretest.b11-07.nominal.q6",
             "competencyId": "sitov.pretest.b11-07.nominal",
             "kind": "single_choice",
-            "promptDe": "Die Kollegen sind meine Kollegen. Welche Form ergänzt »der Kontakt zu ___ Kollegen«?",
+            "promptDe": "Die Kollegen sind meine Kollegen. Welche Form passt zwischen »der Kontakt zu« und »Kollegen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49507,16 +49507,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat13 Fragen und10 vollständige Quellen gegen den unabhängigen B1.1-Audit geprüft: kein Lösungsleck, eindeutiger Reflexivbezug, natürliche Wendung und Distraktoren, ausdrücklich Grundform ohne zu. Keys/IDs/Matrix erhalten; neue unveränderliche Definition und vorberechnete Audios erforderlich. Keine menschliche Hörabnahme oder empirische Äquivalenz",
+        "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
         "textVersion": "25ab86cb8f7e81b744c51fc53c15b07fc0076f632cf724893a7f5f48c3c7ac04",
-        "definitionContentHash": "7caefafa5570e0482184f92f4a0671a871f00bd2d506b4fae00a7085ef768b38",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b11-audit13-M",
-        "documentSha256": "ca35029b0ca995d1d6983c576c9e03c0b4a677397de89a2ececac92e2fc3e3be",
-        "reviewedAt": "2026-10-09T20:55:10.872Z",
+        "definitionContentHash": "00555f06c3c97bae6f0a74f84dc815dcdf6e887f67e3df5ff1fd55f8020e00b9",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+        "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+        "reviewedAt": "2026-10-09T21:14:34.517Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -49930,7 +49930,7 @@
             "id": "sitov.pretest.b11-08.verbs.q1",
             "competencyId": "sitov.pretest.b11-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Präsensform von »organisieren« ergänzt »Unser Deutschkurs ___ einen Nachmittag«?",
+            "promptDe": "Welche Präsensform von »organisieren« passt zwischen »Unser Deutschkurs« und »einen Nachmittag«?",
             "fragmentDe": null,
             "options": [
               {
@@ -49994,7 +49994,7 @@
             "id": "sitov.pretest.b11-08.verbs.q3",
             "competencyId": "sitov.pretest.b11-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Eine Gruppe kümmert ___ um Spiele«?",
+            "promptDe": "Welche Form passt zwischen »Eine Gruppe kümmert« und »um Spiele«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50026,7 +50026,7 @@
             "id": "sitov.pretest.b11-08.verbs.q4",
             "competencyId": "sitov.pretest.b11-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir sollen uns gegenseitig ___«?",
+            "promptDe": "Welche Form passt nach »Wir sollen uns gegenseitig«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50058,12 +50058,12 @@
             "id": "sitov.pretest.b11-08.verbs.q5",
             "competencyId": "sitov.pretest.b11-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Partizipform von »lesen« ergänzt »Wir haben den Text ___«?",
+            "promptDe": "Welche Partizipform von »lesen« passt nach »Wir haben den Text«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.b11-08.verbs.q5.a",
-                "textDe": "geleset"
+                "textDe": "lesen"
               },
               {
                 "id": "sitov.pretest.b11-08.verbs.q5.b",
@@ -50084,13 +50084,13 @@
                 "quote": "gelesen"
               }
             ],
-            "rationaleDe": "Lesen bildet das starke Partizip gelesen; lasen ist Präteritum."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »gelesen«. Die Alternativen »lesen« und »lasen« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Lesen bildet das starke Partizip gelesen; lasen ist Präteritum."
           },
           {
             "id": "sitov.pretest.b11-08.verbs.q6",
             "competencyId": "sitov.pretest.b11-08.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Partizipform von »verbessern« ergänzt »Wir haben den Text ___«?",
+            "promptDe": "Welche Partizipform von »verbessern« passt nach »Wir haben den Text«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50103,7 +50103,7 @@
               },
               {
                 "id": "sitov.pretest.b11-08.verbs.q6.c",
-                "textDe": "geverbessert"
+                "textDe": "verbessern"
               }
             ],
             "correctOptionId": "sitov.pretest.b11-08.verbs.q6.a",
@@ -50116,13 +50116,13 @@
                 "quote": "verbessert"
               }
             ],
-            "rationaleDe": "Das untrennbare Verb mit ver bildet das Partizip verbessert ohne zusätzliches ge."
+            "rationaleDe": "Im vorgegebenen grammatischen Kontext lautet die richtige Antwort »verbessert«. Die Alternativen »verbesserte« und »verbessern« erfüllen die hier verlangte Form, Person, Zeit oder Konstruktion nicht. Das untrennbare Verb mit ver bildet das Partizip verbessert ohne zusätzliches ge."
           },
           {
             "id": "sitov.pretest.b11-08.syntax.q1",
             "competencyId": "sitov.pretest.b11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Wir möchten zeigen, …«?",
+            "promptDe": "Welche Folge passt nach »Wir möchten zeigen,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50154,7 +50154,7 @@
             "id": "sitov.pretest.b11-08.syntax.q2",
             "competencyId": "sitov.pretest.b11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Ich hatte Angst, …«?",
+            "promptDe": "Welche Folge passt nach »Ich hatte Angst,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50186,7 +50186,7 @@
             "id": "sitov.pretest.b11-08.syntax.q3",
             "competencyId": "sitov.pretest.b11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Der Lehrer erklärte, dass …«?",
+            "promptDe": "Welche Folge passt nach »Der Lehrer erklärte, dass«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50218,7 +50218,7 @@
             "id": "sitov.pretest.b11-08.syntax.q4",
             "competencyId": "sitov.pretest.b11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Folge ergänzt »Wir merken, …«?",
+            "promptDe": "Welche Folge passt nach »Wir merken,«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50282,7 +50282,7 @@
             "id": "sitov.pretest.b11-08.syntax.q6",
             "competencyId": "sitov.pretest.b11-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge ergänzt »Gemeinsam …« zu einem Aussagesatz?",
+            "promptDe": "Welche Wortfolge passt nach »Gemeinsam« in einem Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
@@ -50314,7 +50314,7 @@
             "id": "sitov.pretest.b11-08.nominal.q1",
             "competencyId": "sitov.pretest.b11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Der Kurs organisiert einen ___ Nachmittag« zu »klein«?",
+            "promptDe": "Welche Form von »klein« passt zwischen »Der Kurs organisiert einen« und »Nachmittag«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50346,7 +50346,7 @@
             "id": "sitov.pretest.b11-08.nominal.q2",
             "competencyId": "sitov.pretest.b11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt die Zeitangabe »in den ___ Monaten« zu »letzt«?",
+            "promptDe": "Welche Form von »letzt« passt in der Zeitangabe zwischen »in den« und »Monaten«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50378,7 +50378,7 @@
             "id": "sitov.pretest.b11-08.nominal.q3",
             "competencyId": "sitov.pretest.b11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Eine Gruppe bereitet ___ Geschichten vor« zu »kurz«?",
+            "promptDe": "Welche Form von »kurz« passt zwischen »Eine Gruppe bereitet« und »Geschichten vor«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50410,7 +50410,7 @@
             "id": "sitov.pretest.b11-08.nominal.q4",
             "competencyId": "sitov.pretest.b11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Spiele für ___ Jungen«, wenn mehrere Jungen gemeint sind?",
+            "promptDe": "Welche Form passt zwischen »Spiele für« und »Jungen«, wenn mehrere Jungen gemeint sind?",
             "fragmentDe": null,
             "options": [
               {
@@ -50442,7 +50442,7 @@
             "id": "sitov.pretest.b11-08.nominal.q5",
             "competencyId": "sitov.pretest.b11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich bin für ___ Einladung zuständig«?",
+            "promptDe": "Welche Form passt zwischen »Ich bin für« und »Einladung zuständig«?",
             "fragmentDe": null,
             "options": [
               {
@@ -50474,7 +50474,7 @@
             "id": "sitov.pretest.b11-08.nominal.q6",
             "competencyId": "sitov.pretest.b11-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Wir warten nicht auf den ___ Satz« zu »perfekt«?",
+            "promptDe": "Welche Form von »perfekt« passt zwischen »Wir warten nicht auf den« und »Satz«?",
             "fragmentDe": null,
             "options": [
               {
