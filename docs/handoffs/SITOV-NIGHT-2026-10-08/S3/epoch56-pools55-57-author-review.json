@@ -1,0 +1,2800 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "39cfcf09529afe46fef6d6c6de77a95a66c7c6c5",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "randomnessProvenance": "node:crypto.randomInt OS CSPRNG;12 distinct balanced label schedules and12 distinct independent position schedules, each question index covers all3 values.",
+  "completedPools": 3,
+  "newQuestionCount": 72,
+  "newAliasCount": 288,
+  "original54ContentHash": "13b10a517a0c9ffecec9ab7b2a9761bee5e166d84ac242630dde56fd2aad3bf1",
+  "originalManifestContentHash": "0b2391adb6dadf57e02210aede842972bb09b45c205bec2c16d01e3ca3e54489",
+  "originalManifestByteSha256": "0942023111ec8dd2f1adc494f4b31717a49e31719fab9a562daf93e04af8b3a2",
+  "original5184AliasContentHash": "121d31b7271d12cd3ae1cdd168b34b8625f9f7280881b78c1919ab5b6741b72d",
+  "original5184AliasByteSha256": "abcfa9f70bc3b84e366b861035ee669dd5d235e9d61307af74f5a73b08fe7fdd",
+  "currentManifestContentHash": "45424bc4ca85af391474b3858d5c3e1aa351d1ee83c5ca22cbb860e889cc5a9d",
+  "currentManifestByteSha256": "976c49392bc658497980f2038933cb2c80f06213e2460ce244c2724ebee9d88f",
+  "currentAliasContentHash": "9a8df408b90199b1a391d99116f2beae2a4d3ebd61abef96334607f2788ffef4",
+  "currentAliasByteSha256": "7c3bdc5fed779096a8dac8a824c2b86bac8c056149170c753bdd21065452d4a2",
+  "previousCoverage": {
+    "total": 60,
+    "authored": 54,
+    "pending": 6
+  },
+  "previousInventoryRows": [
+    {
+      "textId": "b080a8ae-7be6-5225-af48-1d7aae6f1f6c",
+      "unitId": "b080a8ae-7be6-5225-af48-1d7aae6f1f6c",
+      "level": "B1.2",
+      "title": "Künstliche Intelligenz beim Lernen",
+      "focus": "k und ts; Fachwörter verständlich sprechen",
+      "sortOrder": 5,
+      "active": true,
+      "textVersion": "56c3df1e34bbecd183c024e54818e1ff13f1803a36f1726f05850465fcf7972c",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "2fa06ffd-6b82-5386-9c84-a4320c87bbc7",
+      "unitId": "2fa06ffd-6b82-5386-9c84-a4320c87bbc7",
+      "level": "B1.2",
+      "title": "Ein Konflikt mit einem Nachbarn",
+      "focus": "ch und kn; respektvoller Ton",
+      "sortOrder": 6,
+      "active": true,
+      "textVersion": "77e5a2e3254ec85c6c712a2a54062cd0e20468d3f8e1937ce7ab172d174c1947",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": null,
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "13264420-65a8-54f1-984e-b001a5244341",
+      "unitId": "13264420-65a8-54f1-984e-b001a5244341",
+      "level": "B1.2",
+      "title": "Warum ich mich ehrenamtlich engagiere",
+      "focus": "eh und ge; persönliche Haltung",
+      "sortOrder": 7,
+      "active": true,
+      "textVersion": "377e6ebbf8cafa715d68dc536a5974159d1e696162ccde3dbeff85205152c3ac",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": null,
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    }
+  ],
+  "pools": [
+    {
+      "textId": "b080a8ae-7be6-5225-af48-1d7aae6f1f6c",
+      "title": "Künstliche Intelligenz beim Lernen",
+      "level": "B1.2",
+      "textVersion": "56c3df1e34bbecd183c024e54818e1ff13f1803a36f1726f05850465fcf7972c",
+      "definitionContentHash": "a9d5902bced42ace548d2fec857454249161d45d35765d8832439376a21404fe",
+      "sourceBodyDe": "Digitale Programme können beim Sprachenlernen nützlich sein. Sie erklären Wörter, lesen Texte vor und bieten Übungen zu verschiedenen Themen an. Ich nutze solche Hilfen gern, besonders wenn ich zu Hause eine kurze Frage habe. Trotzdem prüfe ich Antworten, die mir ungewöhnlich vorkommen. Ein Programm kennt meine persönliche Situation nicht immer und kann auch Fehler machen. Das Gespräch mit einem Lehrer bleibt deshalb wichtig. Er hört, was ich eigentlich ausdrücken möchte, und kann gezielt nachfragen. Für mich ergänzen sich digitale Übungen und persönlicher Unterricht. Entscheidend ist, dass ich selbst aktiv bleibe, statt jede Aufgabe sofort von einem Programm lösen zu lassen.",
+      "cores": [
+        {
+          "id": "sitov.pretest.b12-05.words",
+          "category": "vocabulary",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "nützlich praktische Hilfe",
+            "ungewöhnlich nicht erwartet",
+            "persönliche Situation eigener Kontext",
+            "gezielt nachfragen passende Klärung",
+            "ergänzen zusammen unterstützen",
+            "aktiv bleiben selbst handeln"
+          ],
+          "sourceSpans": [
+            {
+              "start": 46,
+              "end": 54,
+              "quote": "nützlich"
+            },
+            {
+              "start": 264,
+              "end": 276,
+              "quote": "ungewöhnlich"
+            },
+            {
+              "start": 313,
+              "end": 334,
+              "quote": "persönliche Situation"
+            },
+            {
+              "start": 486,
+              "end": 504,
+              "quote": "gezielt nachfragen"
+            },
+            {
+              "start": 515,
+              "end": 528,
+              "quote": "ergänzen sich"
+            },
+            {
+              "start": 609,
+              "end": 621,
+              "quote": "aktiv bleibe"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: nützlich praktische Hilfe, ungewöhnlich nicht erwartet, persönliche Situation eigener Kontext, gezielt nachfragen passende Klärung, ergänzen zusammen unterstützen, aktiv bleiben selbst handeln. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b12-05.verbs",
+          "category": "verb_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "können Modal Präsens Plural",
+            "vorlesen trennbarer Infinitiv",
+            "bieten Präsens Plural",
+            "kennt Präsens dritte Singular",
+            "ausdrücken Infinitiv Modal",
+            "lösen reiner Infinitiv vor lassen"
+          ],
+          "sourceSpans": [
+            {
+              "start": 9,
+              "end": 25,
+              "quote": "Programme können"
+            },
+            {
+              "start": 82,
+              "end": 97,
+              "quote": "lesen Texte vor"
+            },
+            {
+              "start": 102,
+              "end": 116,
+              "quote": "bieten Übungen"
+            },
+            {
+              "start": 301,
+              "end": 306,
+              "quote": "kennt"
+            },
+            {
+              "start": 458,
+              "end": 475,
+              "quote": "ausdrücken möchte"
+            },
+            {
+              "start": 668,
+              "end": 683,
+              "quote": "lösen zu lassen"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: können Modal Präsens Plural, vorlesen trennbarer Infinitiv, bieten Präsens Plural, kennt Präsens dritte Singular, ausdrücken Infinitiv Modal, lösen reiner Infinitiv vor lassen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b12-05.syntax",
+          "category": "syntax",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "wenn Bedingung kurze Frage",
+            "die Relativsatz vorkommen",
+            "was indirekter Inhalt Modalverbfinal",
+            "dass bleibe Verbfinal",
+            "statt zu alternative Delegation",
+            "koordiniertes Subjekt Übungen Unterricht"
+          ],
+          "sourceSpans": [
+            {
+              "start": 185,
+              "end": 224,
+              "quote": "wenn ich zu Hause eine kurze Frage habe"
+            },
+            {
+              "start": 256,
+              "end": 286,
+              "quote": "die mir ungewöhnlich vorkommen"
+            },
+            {
+              "start": 439,
+              "end": 475,
+              "quote": "was ich eigentlich ausdrücken möchte"
+            },
+            {
+              "start": 593,
+              "end": 621,
+              "quote": "dass ich selbst aktiv bleibe"
+            },
+            {
+              "start": 623,
+              "end": 683,
+              "quote": "statt jede Aufgabe sofort von einem Programm lösen zu lassen"
+            },
+            {
+              "start": 529,
+              "end": 573,
+              "quote": "digitale Übungen und persönlicher Unterricht"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: wenn Bedingung kurze Frage, die Relativsatz vorkommen, was indirekter Inhalt Modalverbfinal, dass bleibe Verbfinal, statt zu alternative Delegation, koordiniertes Subjekt Übungen Unterricht. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b12-05.nominal",
+          "category": "nominal_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "verschiedenen Themen Dativ Plural",
+            "einem Lehrer Dativ maskulin",
+            "meine persönliche Situation Akkusativ feminin",
+            "einem Programm Dativ neutral",
+            "persönlicher Unterricht Nominativ stark",
+            "ich selbst Nominativ Sprecher"
+          ],
+          "sourceSpans": [
+            {
+              "start": 117,
+              "end": 140,
+              "quote": "zu verschiedenen Themen"
+            },
+            {
+              "start": 389,
+              "end": 405,
+              "quote": "mit einem Lehrer"
+            },
+            {
+              "start": 307,
+              "end": 334,
+              "quote": "meine persönliche Situation"
+            },
+            {
+              "start": 649,
+              "end": 667,
+              "quote": "von einem Programm"
+            },
+            {
+              "start": 550,
+              "end": 573,
+              "quote": "persönlicher Unterricht"
+            },
+            {
+              "start": 598,
+              "end": 621,
+              "quote": "ich selbst aktiv bleibe"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: verschiedenen Themen Dativ Plural, einem Lehrer Dativ maskulin, meine persönliche Situation Akkusativ feminin, einem Programm Dativ neutral, persönlicher Unterricht Nominativ stark, ich selbst Nominativ Sprecher. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        }
+      ],
+      "questions": [
+        {
+          "questionId": "sitov.pretest.b12-05.words.q1",
+          "publicPromptDe": "Was bedeutet digitale Programme können nützlich sein?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.words.q1.a",
+              "textDe": "Sie sind unabhängig von jeder Aufgabe immer erforderlich."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q1.b",
+              "textDe": "Sie müssen jede Aufgabe vollständig übernehmen."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q1.c",
+              "textDe": "Sie können bei einer Aufgabe helfen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.words.q1.c",
+          "correctAnswerTextDe": "Sie können bei einer Aufgabe helfen.",
+          "rationaleDe": "Nützlich meint hilfreich, nicht zwingend erforderlich oder vollständige Übernahme.",
+          "assessmentUnit": "nützlich praktische Hilfe",
+          "sourceSpans": [
+            {
+              "start": 46,
+              "end": 54,
+              "quote": "nützlich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q2",
+          "publicPromptDe": "Was bedeutet eine Antwort kommt mir ungewöhnlich vor?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.words.q2.a",
+              "textDe": "Die Antwort entspricht immer genau meiner Erwartung."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q2.c",
+              "textDe": "Die Antwort weicht von dem ab, was ich erwarte oder kenne."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q2.b",
+              "textDe": "Die Antwort ist schon deshalb sicher richtig."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.words.q2.c",
+          "correctAnswerTextDe": "Die Antwort weicht von dem ab, was ich erwarte oder kenne.",
+          "rationaleDe": "Ungewöhnlich beschreibt eine Abweichung, ohne damit automatisch Richtigkeit oder Fehler zu beweisen.",
+          "assessmentUnit": "ungewöhnlich nicht erwartet",
+          "sourceSpans": [
+            {
+              "start": 264,
+              "end": 276,
+              "quote": "ungewöhnlich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q3",
+          "publicPromptDe": "Was meint meine persönliche Situation beim Lernen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.words.q3.b",
+              "textDe": "Nur allgemeine Angaben ohne Bezug zu mir."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q3.a",
+              "textDe": "Meine eigenen Umstände und Bedürfnisse."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q3.c",
+              "textDe": "Nur die Umstände einer beliebigen anderen Person."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.words.q3.a",
+          "correctAnswerTextDe": "Meine eigenen Umstände und Bedürfnisse.",
+          "rationaleDe": "Persönliche Situation bezeichnet den eigenen Kontext.",
+          "assessmentUnit": "persönliche Situation eigener Kontext",
+          "sourceSpans": [
+            {
+              "start": 313,
+              "end": 334,
+              "quote": "persönliche Situation"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q4",
+          "publicPromptDe": "Was bedeutet gezielt nachfragen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.words.q4.b",
+              "textDe": "Mit einer passenden weiteren Frage einen bestimmten Punkt klären."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q4.a",
+              "textDe": "Fragen ohne Bezug zum unklaren Punkt stellen."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q4.c",
+              "textDe": "Eine unklare Antwort ohne weitere Frage übernehmen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.words.q4.b",
+          "correctAnswerTextDe": "Mit einer passenden weiteren Frage einen bestimmten Punkt klären.",
+          "rationaleDe": "Gezielt bezieht die Frage auf einen konkreten Klärungsbedarf.",
+          "assessmentUnit": "gezielt nachfragen passende Klärung",
+          "sourceSpans": [
+            {
+              "start": 486,
+              "end": 504,
+              "quote": "gezielt nachfragen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q5",
+          "publicPromptDe": "Was bedeutet digitale Übungen und Unterricht ergänzen sich?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.words.q5.a",
+              "textDe": "Beide tragen auf unterschiedliche Weise zum Lernen bei."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q5.c",
+              "textDe": "Nur eine der beiden Hilfen darf überhaupt benutzt werden."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q5.b",
+              "textDe": "Beide Hilfen müssen in jeder Einzelheit identisch sein."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.words.q5.a",
+          "correctAnswerTextDe": "Beide tragen auf unterschiedliche Weise zum Lernen bei.",
+          "rationaleDe": "Ergänzen beschreibt unterschiedliche Beiträge, nicht Ausschluss oder Identität.",
+          "assessmentUnit": "ergänzen zusammen unterstützen",
+          "sourceSpans": [
+            {
+              "start": 515,
+              "end": 528,
+              "quote": "ergänzen sich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.words.q6",
+          "publicPromptDe": "Was bedeutet beim Lernen selbst aktiv bleiben?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.words.q6.a",
+              "textDe": "Nur Ergebnisse sammeln, ohne sie zu bearbeiten."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q6.c",
+              "textDe": "Alle Aufgaben ohne eigenes Mitdenken abgeben."
+            },
+            {
+              "id": "sitov.pretest.b12-05.words.q6.b",
+              "textDe": "Selbst mitdenken und Aufgaben bearbeiten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.words.q6.b",
+          "correctAnswerTextDe": "Selbst mitdenken und Aufgaben bearbeiten.",
+          "rationaleDe": "Aktiv bleiben bedeutet eigene Beteiligung am Lernprozess.",
+          "assessmentUnit": "aktiv bleiben selbst handeln",
+          "sourceSpans": [
+            {
+              "start": 609,
+              "end": 621,
+              "quote": "aktiv bleibe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q1",
+          "publicPromptDe": "Welche Präsensform von »können« passt nach »Digitale Programme«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.verbs.q1.c",
+              "textDe": "können"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q1.a",
+              "textDe": "kann"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q1.b",
+              "textDe": "könnt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.verbs.q1.c",
+          "correctAnswerTextDe": "können",
+          "rationaleDe": "Das pluralische Subjekt verlangt können.",
+          "assessmentUnit": "können Modal Präsens Plural",
+          "sourceSpans": [
+            {
+              "start": 9,
+              "end": 25,
+              "quote": "Programme können"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q2",
+          "publicPromptDe": "Wie lautet der Infinitiv zu »Programme lesen Texte vor«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.verbs.q2.c",
+              "textDe": "vorzulesen"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q2.a",
+              "textDe": "vorlesen"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q2.b",
+              "textDe": "lesen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.verbs.q2.a",
+          "correctAnswerTextDe": "vorlesen",
+          "rationaleDe": "Lesen und vor gehören zum trennbaren Infinitiv vorlesen; vorzulesen enthält zusätzlich zu.",
+          "assessmentUnit": "vorlesen trennbarer Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 82,
+              "end": 97,
+              "quote": "lesen Texte vor"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q3",
+          "publicPromptDe": "Welche Präsensform von »anbieten« steht zwischen »Die Programme« und »Übungen an«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.verbs.q3.a",
+              "textDe": "bietest"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q3.b",
+              "textDe": "bietet"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q3.c",
+              "textDe": "bieten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.verbs.q3.c",
+          "correctAnswerTextDe": "bieten",
+          "rationaleDe": "Das finite Verb steht im Plural als bieten; an steht getrennt am Ende.",
+          "assessmentUnit": "bieten Präsens Plural",
+          "sourceSpans": [
+            {
+              "start": 102,
+              "end": 116,
+              "quote": "bieten Übungen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q4",
+          "publicPromptDe": "Welche Präsensform von »kennen« steht zwischen »Ein Programm« und »meine Situation«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.verbs.q4.a",
+              "textDe": "kennst"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q4.b",
+              "textDe": "kennt"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q4.c",
+              "textDe": "kennen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.verbs.q4.b",
+          "correctAnswerTextDe": "kennt",
+          "rationaleDe": "Ein Programm verlangt die dritte Person Singular kennt.",
+          "assessmentUnit": "kennt Präsens dritte Singular",
+          "sourceSpans": [
+            {
+              "start": 301,
+              "end": 306,
+              "quote": "kennt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q5",
+          "publicPromptDe": "Welche Form von »ausdrücken« folgt auf »Ich möchte meine Gedanken«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.verbs.q5.a",
+              "textDe": "ausdrücken"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q5.c",
+              "textDe": "ausgedrückt"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q5.b",
+              "textDe": "auszudrücken"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.verbs.q5.a",
+          "correctAnswerTextDe": "ausdrücken",
+          "rationaleDe": "Nach möchte steht der reine Infinitiv ausdrücken.",
+          "assessmentUnit": "ausdrücken Infinitiv Modal",
+          "sourceSpans": [
+            {
+              "start": 458,
+              "end": 475,
+              "quote": "ausdrücken möchte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.verbs.q6",
+          "publicPromptDe": "Welche Form von »lösen« steht vor »zu lassen«, wenn ein Programm die Aufgabe übernehmen soll?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.verbs.q6.c",
+              "textDe": "gelöst"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q6.a",
+              "textDe": "zu lösen"
+            },
+            {
+              "id": "sitov.pretest.b12-05.verbs.q6.b",
+              "textDe": "lösen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.verbs.q6.b",
+          "correctAnswerTextDe": "lösen",
+          "rationaleDe": "Das kausative lassen verbindet sich mit dem reinen Infinitiv lösen.",
+          "assessmentUnit": "lösen reiner Infinitiv vor lassen",
+          "sourceSpans": [
+            {
+              "start": 668,
+              "end": 683,
+              "quote": "lösen zu lassen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q1",
+          "publicPromptDe": "Ich nutze die Hilfe, wenn ich eine kurze Frage habe. Welche Beziehung besteht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.syntax.q1.c",
+              "textDe": "Die Nutzung ist der Zweck, mit dem die kurze Frage erzeugt wird."
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q1.b",
+              "textDe": "Die Nutzung setzt voraus, dass keine Frage besteht."
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q1.a",
+              "textDe": "Eine kurze Frage ist ein Anlass für die Nutzung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.syntax.q1.a",
+          "correctAnswerTextDe": "Eine kurze Frage ist ein Anlass für die Nutzung.",
+          "rationaleDe": "Wenn nennt hier den auslösenden Fall.",
+          "assessmentUnit": "wenn Bedingung kurze Frage",
+          "sourceSpans": [
+            {
+              "start": 185,
+              "end": 224,
+              "quote": "wenn ich zu Hause eine kurze Frage habe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q2",
+          "publicPromptDe": "Antworten kommen mir ungewöhnlich vor. Welche Wortfolge ergänzt nach »Ich prüfe Antworten« einen Relativsatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.syntax.q2.a",
+              "textDe": "die mir ungewöhnlich vorkommen"
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q2.b",
+              "textDe": "die mir ungewöhnlich vorkommt"
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q2.c",
+              "textDe": "die kommen mir ungewöhnlich vor"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.syntax.q2.a",
+          "correctAnswerTextDe": "die mir ungewöhnlich vorkommen",
+          "rationaleDe": "Der Relativsatz steht mit vorkommen am Ende; Antworten ist Plural.",
+          "assessmentUnit": "die Relativsatz vorkommen",
+          "sourceSpans": [
+            {
+              "start": 256,
+              "end": 286,
+              "quote": "die mir ungewöhnlich vorkommen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q3",
+          "publicPromptDe": "Welche Wortfolge setzt »Der Lehrer hört« als indirekten Satz fort?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.syntax.q3.b",
+              "textDe": "was ich eigentlich ausdrücken möchte"
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q3.c",
+              "textDe": "was möchte ich eigentlich ausdrücken"
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q3.a",
+              "textDe": "was ich eigentlich ausdrücken möchten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.syntax.q3.b",
+          "correctAnswerTextDe": "was ich eigentlich ausdrücken möchte",
+          "rationaleDe": "Im indirekten was-Satz steht möchte am Ende; ich verlangt Singular.",
+          "assessmentUnit": "was indirekter Inhalt Modalverbfinal",
+          "sourceSpans": [
+            {
+              "start": 439,
+              "end": 475,
+              "quote": "was ich eigentlich ausdrücken möchte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q4",
+          "publicPromptDe": "Welche Wortfolge folgt auf »Entscheidend ist, dass«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.syntax.q4.b",
+              "textDe": "bleibe ich selbst aktiv"
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q4.c",
+              "textDe": "ich selbst aktiv bleibe"
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q4.a",
+              "textDe": "ich selbst aktiv bleibt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.syntax.q4.c",
+          "correctAnswerTextDe": "ich selbst aktiv bleibe",
+          "rationaleDe": "Im dass-Nebensatz steht bleibe am Ende und richtet sich nach ich.",
+          "assessmentUnit": "dass bleibe Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 593,
+              "end": 621,
+              "quote": "dass ich selbst aktiv bleibe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q5",
+          "publicPromptDe": "Ich bleibe selbst aktiv, statt jede Aufgabe von einem Programm lösen zu lassen. Welche Beziehung besteht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.syntax.q5.a",
+              "textDe": "Eigenes aktives Handeln ist erst die Folge vollständig abgegebener Aufgaben."
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q5.b",
+              "textDe": "Vollständige Aufgabenabgabe ist der erklärte Zweck des eigenen Handelns."
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q5.c",
+              "textDe": "Eigenes aktives Handeln steht anstelle vollständiger Aufgabenabgabe."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.syntax.q5.c",
+          "correctAnswerTextDe": "Eigenes aktives Handeln steht anstelle vollständiger Aufgabenabgabe.",
+          "rationaleDe": "Statt bezeichnet die ersetzte Alternative.",
+          "assessmentUnit": "statt zu alternative Delegation",
+          "sourceSpans": [
+            {
+              "start": 623,
+              "end": 683,
+              "quote": "statt jede Aufgabe sofort von einem Programm lösen zu lassen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.syntax.q6",
+          "publicPromptDe": "Welche Gruppen bilden in »Für mich ergänzen sich digitale Übungen und persönlicher Unterricht« gemeinsam das Subjekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.syntax.q6.a",
+              "textDe": "sich und Für mich"
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q6.b",
+              "textDe": "digitale Übungen und persönlicher Unterricht"
+            },
+            {
+              "id": "sitov.pretest.b12-05.syntax.q6.c",
+              "textDe": "Für mich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.syntax.q6.b",
+          "correctAnswerTextDe": "digitale Übungen und persönlicher Unterricht",
+          "rationaleDe": "Die koordinierten Nominalgruppen sind das gemeinsame Subjekt; mich und sich sind keine Subjektgruppen.",
+          "assessmentUnit": "koordiniertes Subjekt Übungen Unterricht",
+          "sourceSpans": [
+            {
+              "start": 529,
+              "end": 573,
+              "quote": "digitale Übungen und persönlicher Unterricht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q1",
+          "publicPromptDe": "Welche Wortgruppe im Dativ Plural folgt auf »Übungen zu«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.nominal.q1.c",
+              "textDe": "verschiedene Themen"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q1.a",
+              "textDe": "verschiedenen Themen"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q1.b",
+              "textDe": "verschiedener Themen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.nominal.q1.a",
+          "correctAnswerTextDe": "verschiedenen Themen",
+          "rationaleDe": "Zu verlangt Dativ Plural; die Adjektivform lautet verschiedenen Themen.",
+          "assessmentUnit": "verschiedenen Themen Dativ Plural",
+          "sourceSpans": [
+            {
+              "start": 117,
+              "end": 140,
+              "quote": "zu verschiedenen Themen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q2",
+          "publicPromptDe": "Welche Wortgruppe im Dativ Singular folgt auf »das Gespräch mit«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.nominal.q2.a",
+              "textDe": "eines Lehrers"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q2.b",
+              "textDe": "einem Lehrer"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q2.c",
+              "textDe": "einen Lehrer"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.nominal.q2.b",
+          "correctAnswerTextDe": "einem Lehrer",
+          "rationaleDe": "Mit verlangt Dativ; die vollständige Gruppe lautet einem Lehrer.",
+          "assessmentUnit": "einem Lehrer Dativ maskulin",
+          "sourceSpans": [
+            {
+              "start": 389,
+              "end": 405,
+              "quote": "mit einem Lehrer"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q3",
+          "publicPromptDe": "Welche Wortgruppe im Akkusativ Singular passt nach »Ein Programm kennt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.nominal.q3.a",
+              "textDe": "meine persönliche Situation"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q3.b",
+              "textDe": "meine persönlichen Situationen"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q3.c",
+              "textDe": "meiner persönlichen Situation"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.nominal.q3.a",
+          "correctAnswerTextDe": "meine persönliche Situation",
+          "rationaleDe": "Das direkte Objekt im femininen Singular lautet meine persönliche Situation.",
+          "assessmentUnit": "meine persönliche Situation Akkusativ feminin",
+          "sourceSpans": [
+            {
+              "start": 307,
+              "end": 334,
+              "quote": "meine persönliche Situation"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q4",
+          "publicPromptDe": "Welche Wortgruppe im Dativ Singular steht nach »von« vor »lösen lassen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.nominal.q4.a",
+              "textDe": "eines Programms"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q4.b",
+              "textDe": "ein Programm"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q4.c",
+              "textDe": "einem Programm"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.nominal.q4.c",
+          "correctAnswerTextDe": "einem Programm",
+          "rationaleDe": "Von verlangt Dativ; neutral Singular lautet einem Programm.",
+          "assessmentUnit": "einem Programm Dativ neutral",
+          "sourceSpans": [
+            {
+              "start": 649,
+              "end": 667,
+              "quote": "von einem Programm"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q5",
+          "publicPromptDe": "Welche Wortgruppe im Nominativ Singular ergänzt das gemeinsame Subjekt nach »digitale Übungen und«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.nominal.q5.c",
+              "textDe": "persönlicher Unterricht"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q5.b",
+              "textDe": "persönlichen Unterricht"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q5.a",
+              "textDe": "persönlichem Unterricht"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.nominal.q5.c",
+          "correctAnswerTextDe": "persönlicher Unterricht",
+          "rationaleDe": "Ohne Artikel trägt das Adjektiv im Nominativ maskulin die Endung er.",
+          "assessmentUnit": "persönlicher Unterricht Nominativ stark",
+          "sourceSpans": [
+            {
+              "start": 550,
+              "end": 573,
+              "quote": "persönlicher Unterricht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-05.nominal.q6",
+          "publicPromptDe": "Die Aussage bezieht sich auf mich als Sprecher. Welche Wortgruppe steht als Subjekt nach »dass« vor »aktiv bleibe«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-05.nominal.q6.a",
+              "textDe": "mich selbst"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q6.c",
+              "textDe": "mir selbst"
+            },
+            {
+              "id": "sitov.pretest.b12-05.nominal.q6.b",
+              "textDe": "ich selbst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-05.nominal.q6.b",
+          "correctAnswerTextDe": "ich selbst",
+          "rationaleDe": "Das Subjekt verlangt Nominativ: ich selbst.",
+          "assessmentUnit": "ich selbst Nominativ Sprecher",
+          "sourceSpans": [
+            {
+              "start": 598,
+              "end": 621,
+              "quote": "ich selbst aktiv bleibe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "2fa06ffd-6b82-5386-9c84-a4320c87bbc7",
+      "title": "Ein Konflikt mit einem Nachbarn",
+      "level": "B1.2",
+      "textVersion": "77e5a2e3254ec85c6c712a2a54062cd0e20468d3f8e1937ce7ab172d174c1947",
+      "definitionContentHash": "b6345af275bc71b1d897cb45259e0dc78410b3fbc6cdc40a1db08fe402cc1ca1",
+      "sourceBodyDe": "Über mehrere Wochen hörte ich spät am Abend laute Musik aus der Nachbarwohnung. Zunächst ärgerte ich mich nur und erzählte anderen davon. Als ich schließlich an der Tür klingelte, versuchte ich bewusst, ruhig zu bleiben. Ich erklärte, wann ich schlafen muss und wie die Musik mich dabei stört. Mein Nachbar war überrascht, weil er nicht wusste, wie deutlich man die Bässe durch die Wand hört. Wir vereinbarten, dass er ab einer bestimmten Uhrzeit Kopfhörer benutzt. Seitdem hat sich die Situation verbessert. Das Gespräch war mir vorher unangenehm, doch es hat mehr bewirkt als meine stillen Vorwürfe. Manchmal fehlt der anderen Person einfach eine wichtige Information.",
+      "cores": [
+        {
+          "id": "sitov.pretest.b12-06.words",
+          "category": "vocabulary",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "Nachbarwohnung angrenzende Wohnung",
+            "bewusst absichtlich aufmerksam",
+            "überrascht unerwartete Information",
+            "Bässe tiefe Töne",
+            "Kopfhörer persönliches Hören",
+            "Vorwürfe Schuldzuweisung"
+          ],
+          "sourceSpans": [
+            {
+              "start": 64,
+              "end": 78,
+              "quote": "Nachbarwohnung"
+            },
+            {
+              "start": 194,
+              "end": 201,
+              "quote": "bewusst"
+            },
+            {
+              "start": 311,
+              "end": 321,
+              "quote": "überrascht"
+            },
+            {
+              "start": 366,
+              "end": 371,
+              "quote": "Bässe"
+            },
+            {
+              "start": 447,
+              "end": 456,
+              "quote": "Kopfhörer"
+            },
+            {
+              "start": 592,
+              "end": 600,
+              "quote": "Vorwürfe"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Nachbarwohnung angrenzende Wohnung, bewusst absichtlich aufmerksam, überrascht unerwartete Information, Bässe tiefe Töne, Kopfhörer persönliches Hören, Vorwürfe Schuldzuweisung. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b12-06.verbs",
+          "category": "verb_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "hörte schwaches Präteritum",
+            "mich Reflexiv ärgern",
+            "bleiben Infinitiv nach zu",
+            "wusste Präteritum wissen",
+            "benutzt Präsens dritte Singular",
+            "verbessert Partizip untrennbar"
+          ],
+          "sourceSpans": [
+            {
+              "start": 20,
+              "end": 25,
+              "quote": "hörte"
+            },
+            {
+              "start": 89,
+              "end": 105,
+              "quote": "ärgerte ich mich"
+            },
+            {
+              "start": 203,
+              "end": 219,
+              "quote": "ruhig zu bleiben"
+            },
+            {
+              "start": 337,
+              "end": 343,
+              "quote": "wusste"
+            },
+            {
+              "start": 457,
+              "end": 464,
+              "quote": "benutzt"
+            },
+            {
+              "start": 497,
+              "end": 507,
+              "quote": "verbessert"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: hörte schwaches Präteritum, mich Reflexiv ärgern, bleiben Infinitiv nach zu, wusste Präteritum wissen, benutzt Präsens dritte Singular, verbessert Partizip untrennbar. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b12-06.syntax",
+          "category": "syntax",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "Als Nebensatz Verbfinal",
+            "wann indirekte Modalfrage",
+            "weil Ursache fehlendes Wissen",
+            "wie deutlich indirekte Gradfrage",
+            "dass Vereinbarung Verbfinal",
+            "mehr als Vergleich Wirkung"
+          ],
+          "sourceSpans": [
+            {
+              "start": 138,
+              "end": 178,
+              "quote": "Als ich schließlich an der Tür klingelte"
+            },
+            {
+              "start": 235,
+              "end": 257,
+              "quote": "wann ich schlafen muss"
+            },
+            {
+              "start": 323,
+              "end": 343,
+              "quote": "weil er nicht wusste"
+            },
+            {
+              "start": 345,
+              "end": 391,
+              "quote": "wie deutlich man die Bässe durch die Wand hört"
+            },
+            {
+              "start": 411,
+              "end": 464,
+              "quote": "dass er ab einer bestimmten Uhrzeit Kopfhörer benutzt"
+            },
+            {
+              "start": 561,
+              "end": 600,
+              "quote": "mehr bewirkt als meine stillen Vorwürfe"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Als Nebensatz Verbfinal, wann indirekte Modalfrage, weil Ursache fehlendes Wissen, wie deutlich indirekte Gradfrage, dass Vereinbarung Verbfinal, mehr als Vergleich Wirkung. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b12-06.nominal",
+          "category": "nominal_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "mehrere Wochen Akkusativ Dauer",
+            "der Nachbarwohnung Dativ aus",
+            "der Tür Dativ Ort an",
+            "der anderen Person Dativ Empfänger",
+            "bestimmten Uhrzeit Dativ Adjektiv",
+            "meine stillen Vorwürfe Nominativ Plural"
+          ],
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 19,
+              "quote": "Über mehrere Wochen"
+            },
+            {
+              "start": 56,
+              "end": 78,
+              "quote": "aus der Nachbarwohnung"
+            },
+            {
+              "start": 158,
+              "end": 168,
+              "quote": "an der Tür"
+            },
+            {
+              "start": 617,
+              "end": 635,
+              "quote": "der anderen Person"
+            },
+            {
+              "start": 422,
+              "end": 446,
+              "quote": "einer bestimmten Uhrzeit"
+            },
+            {
+              "start": 578,
+              "end": 600,
+              "quote": "meine stillen Vorwürfe"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: mehrere Wochen Akkusativ Dauer, der Nachbarwohnung Dativ aus, der Tür Dativ Ort an, der anderen Person Dativ Empfänger, bestimmten Uhrzeit Dativ Adjektiv, meine stillen Vorwürfe Nominativ Plural. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        }
+      ],
+      "questions": [
+        {
+          "questionId": "sitov.pretest.b12-06.words.q1",
+          "publicPromptDe": "Was ist die Nachbarwohnung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.words.q1.a",
+              "textDe": "Eine Wohnung in der unmittelbaren Wohnumgebung."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q1.c",
+              "textDe": "Nur ein Gemeinschaftsraum ohne eigene Wohnung."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q1.b",
+              "textDe": "Nur eine weit entfernte Wohnung ohne Nachbarschaftsbezug."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.words.q1.a",
+          "correctAnswerTextDe": "Eine Wohnung in der unmittelbaren Wohnumgebung.",
+          "rationaleDe": "Nachbarwohnung bezeichnet die benachbarte Wohnung.",
+          "assessmentUnit": "Nachbarwohnung angrenzende Wohnung",
+          "sourceSpans": [
+            {
+              "start": 64,
+              "end": 78,
+              "quote": "Nachbarwohnung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q2",
+          "publicPromptDe": "Was bedeutet ich versuchte bewusst ruhig zu bleiben?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.words.q2.b",
+              "textDe": "Ich wollte absichtlich möglichst aufgebracht reagieren."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q2.c",
+              "textDe": "Ich achtete absichtlich darauf, ruhig zu reagieren."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q2.a",
+              "textDe": "Ich reagierte ohne jede eigene Aufmerksamkeit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.words.q2.c",
+          "correctAnswerTextDe": "Ich achtete absichtlich darauf, ruhig zu reagieren.",
+          "rationaleDe": "Bewusst beschreibt eine absichtliche, aufmerksame Steuerung.",
+          "assessmentUnit": "bewusst absichtlich aufmerksam",
+          "sourceSpans": [
+            {
+              "start": 194,
+              "end": 201,
+              "quote": "bewusst"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q3",
+          "publicPromptDe": "Was bedeutet der Nachbar war überrascht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.words.q3.b",
+              "textDe": "Er erfuhr etwas, das er nicht erwartet hatte."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q3.c",
+              "textDe": "Er kannte die Information bereits sicher und erwartete sie genau so."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q3.a",
+              "textDe": "Er hatte die Information schon erwartet und vollständig vorhergesagt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.words.q3.b",
+          "correctAnswerTextDe": "Er erfuhr etwas, das er nicht erwartet hatte.",
+          "rationaleDe": "Überrascht bezeichnet eine Reaktion auf Unerwartetes.",
+          "assessmentUnit": "überrascht unerwartete Information",
+          "sourceSpans": [
+            {
+              "start": 311,
+              "end": 321,
+              "quote": "überrascht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q4",
+          "publicPromptDe": "Was sind Bässe in der Musik?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.words.q4.b",
+              "textDe": "Besonders hohe Töne."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q4.a",
+              "textDe": "Nur die Pausen zwischen Tönen."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q4.c",
+              "textDe": "Tiefe Töne."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.words.q4.c",
+          "correctAnswerTextDe": "Tiefe Töne.",
+          "rationaleDe": "Bässe bezeichnen den tiefen Tonbereich.",
+          "assessmentUnit": "Bässe tiefe Töne",
+          "sourceSpans": [
+            {
+              "start": 366,
+              "end": 371,
+              "quote": "Bässe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q5",
+          "publicPromptDe": "Wozu benutzt man Kopfhörer beim Musikhören?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.words.q5.c",
+              "textDe": "Um den Ton über Lautsprecher im ganzen Raum zu verteilen."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q5.b",
+              "textDe": "Um nur die Musikschrift ohne hörbaren Ton zu lesen."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q5.a",
+              "textDe": "Um den Ton direkt an den eigenen Ohren zu hören."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.words.q5.a",
+          "correctAnswerTextDe": "Um den Ton direkt an den eigenen Ohren zu hören.",
+          "rationaleDe": "Kopfhörer geben den Ton unmittelbar an den Ohren wieder.",
+          "assessmentUnit": "Kopfhörer persönliches Hören",
+          "sourceSpans": [
+            {
+              "start": 447,
+              "end": 456,
+              "quote": "Kopfhörer"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.words.q6",
+          "publicPromptDe": "Was sind Vorwürfe in einem Konflikt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.words.q6.c",
+              "textDe": "Äußerungen, die nur eine neutrale Uhrzeit nennen."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q6.b",
+              "textDe": "Äußerungen, die jemandem ein Fehlverhalten zuschreiben."
+            },
+            {
+              "id": "sitov.pretest.b12-06.words.q6.a",
+              "textDe": "Äußerungen, die nur für ein Verhalten danken."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.words.q6.b",
+          "correctAnswerTextDe": "Äußerungen, die jemandem ein Fehlverhalten zuschreiben.",
+          "rationaleDe": "Vorwürfe enthalten eine Kritik oder Schuldzuweisung.",
+          "assessmentUnit": "Vorwürfe Schuldzuweisung",
+          "sourceSpans": [
+            {
+              "start": 592,
+              "end": 600,
+              "quote": "Vorwürfe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q1",
+          "publicPromptDe": "Welche Präteritumform von »hören« passt zum Subjekt »ich«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.verbs.q1.a",
+              "textDe": "hörten"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q1.c",
+              "textDe": "hört"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q1.b",
+              "textDe": "hörte"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.verbs.q1.b",
+          "correctAnswerTextDe": "hörte",
+          "rationaleDe": "Die erste Person Singular im Präteritum lautet hörte.",
+          "assessmentUnit": "hörte schwaches Präteritum",
+          "sourceSpans": [
+            {
+              "start": 20,
+              "end": 25,
+              "quote": "hörte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q2",
+          "publicPromptDe": "Welche Reflexivform passt zwischen »Ich ärgerte« und »über die Musik«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.verbs.q2.a",
+              "textDe": "mir"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q2.c",
+              "textDe": "mich"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q2.b",
+              "textDe": "sich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.verbs.q2.c",
+          "correctAnswerTextDe": "mich",
+          "rationaleDe": "Sich ärgern verlangt hier reflexiven Akkusativ: mich.",
+          "assessmentUnit": "mich Reflexiv ärgern",
+          "sourceSpans": [
+            {
+              "start": 89,
+              "end": 105,
+              "quote": "ärgerte ich mich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q3",
+          "publicPromptDe": "Welche Infinitivform von »bleiben« folgt auf »ruhig zu«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.verbs.q3.c",
+              "textDe": "blieb"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q3.b",
+              "textDe": "blieben"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q3.a",
+              "textDe": "bleiben"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.verbs.q3.a",
+          "correctAnswerTextDe": "bleiben",
+          "rationaleDe": "Nach zu steht der Infinitiv bleiben.",
+          "assessmentUnit": "bleiben Infinitiv nach zu",
+          "sourceSpans": [
+            {
+              "start": 203,
+              "end": 219,
+              "quote": "ruhig zu bleiben"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q4",
+          "publicPromptDe": "Welche Präteritumform von »wissen« passt zum Subjekt »er«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.verbs.q4.a",
+              "textDe": "wusste"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q4.b",
+              "textDe": "weiß"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q4.c",
+              "textDe": "wussten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.verbs.q4.a",
+          "correctAnswerTextDe": "wusste",
+          "rationaleDe": "Das unregelmäßige Präteritum zur dritten Person Singular lautet wusste.",
+          "assessmentUnit": "wusste Präteritum wissen",
+          "sourceSpans": [
+            {
+              "start": 337,
+              "end": 343,
+              "quote": "wusste"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q5",
+          "publicPromptDe": "Welche Präsensform von »benutzen« passt nach »Mein Nachbar« vor »Kopfhörer«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.verbs.q5.b",
+              "textDe": "benutztest"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q5.c",
+              "textDe": "benutzt"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q5.a",
+              "textDe": "benutzen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.verbs.q5.c",
+          "correctAnswerTextDe": "benutzt",
+          "rationaleDe": "Mein Nachbar verlangt die dritte Person Singular benutzt.",
+          "assessmentUnit": "benutzt Präsens dritte Singular",
+          "sourceSpans": [
+            {
+              "start": 457,
+              "end": 464,
+              "quote": "benutzt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.verbs.q6",
+          "publicPromptDe": "Welche Partizipform von »verbessern« folgt auf »Die Situation hat sich«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.verbs.q6.b",
+              "textDe": "verbessert"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q6.a",
+              "textDe": "verbesserte"
+            },
+            {
+              "id": "sitov.pretest.b12-06.verbs.q6.c",
+              "textDe": "verbessern"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.verbs.q6.b",
+          "correctAnswerTextDe": "verbessert",
+          "rationaleDe": "Das Perfekt verlangt das Partizip verbessert.",
+          "assessmentUnit": "verbessert Partizip untrennbar",
+          "sourceSpans": [
+            {
+              "start": 497,
+              "end": 507,
+              "quote": "verbessert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q1",
+          "publicPromptDe": "Welche Wortfolge kann nach dem Nebensatzbeginn »Als« stehen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.syntax.q1.a",
+              "textDe": "klingelte ich schließlich an der Tür"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q1.b",
+              "textDe": "ich schließlich an der Tür klingelten"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q1.c",
+              "textDe": "ich schließlich an der Tür klingelte"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.syntax.q1.c",
+          "correctAnswerTextDe": "ich schließlich an der Tür klingelte",
+          "rationaleDe": "Im Als-Nebensatz steht klingelte am Ende; ich verlangt Singular.",
+          "assessmentUnit": "Als Nebensatz Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 138,
+              "end": 178,
+              "quote": "Als ich schließlich an der Tür klingelte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q2",
+          "publicPromptDe": "Welche Wortfolge setzt »Ich erklärte« als indirekte Wann-Frage fort?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.syntax.q2.c",
+              "textDe": "wann ich schlafen müssen"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q2.b",
+              "textDe": "wann ich schlafen muss"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q2.a",
+              "textDe": "wann muss ich schlafen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.syntax.q2.b",
+          "correctAnswerTextDe": "wann ich schlafen muss",
+          "rationaleDe": "Im indirekten wann-Satz steht muss nach schlafen am Ende.",
+          "assessmentUnit": "wann indirekte Modalfrage",
+          "sourceSpans": [
+            {
+              "start": 235,
+              "end": 257,
+              "quote": "wann ich schlafen muss"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q3",
+          "publicPromptDe": "Der Nachbar war überrascht, weil er nicht wusste, dass man die Musik hört. Welche Beziehung besteht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.syntax.q3.b",
+              "textDe": "Sein fehlendes Wissen erklärt die Überraschung."
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q3.a",
+              "textDe": "Sein fehlendes Wissen ist der Zweck der Überraschung."
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q3.c",
+              "textDe": "Die Überraschung beweist, dass er vorher alles wusste."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.syntax.q3.b",
+          "correctAnswerTextDe": "Sein fehlendes Wissen erklärt die Überraschung.",
+          "rationaleDe": "Weil nennt die Ursache der Überraschung.",
+          "assessmentUnit": "weil Ursache fehlendes Wissen",
+          "sourceSpans": [
+            {
+              "start": 323,
+              "end": 343,
+              "quote": "weil er nicht wusste"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q4",
+          "publicPromptDe": "Welche Wortfolge setzt »Er wusste nicht« als indirekten Satz fort?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.syntax.q4.c",
+              "textDe": "wie deutlich hört man die Bässe durch die Wand"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q4.a",
+              "textDe": "wie deutlich man die Bässe durch die Wand hört"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q4.b",
+              "textDe": "wie deutlich man die Bässe durch die Wand hören"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.syntax.q4.a",
+          "correctAnswerTextDe": "wie deutlich man die Bässe durch die Wand hört",
+          "rationaleDe": "Im indirekten wie-Satz steht hört am Ende; man verlangt Singular.",
+          "assessmentUnit": "wie deutlich indirekte Gradfrage",
+          "sourceSpans": [
+            {
+              "start": 345,
+              "end": 391,
+              "quote": "wie deutlich man die Bässe durch die Wand hört"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q5",
+          "publicPromptDe": "Welche Wortfolge folgt auf »Wir vereinbarten, dass«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.syntax.q5.a",
+              "textDe": "er ab einer bestimmten Uhrzeit Kopfhörer benutzen"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q5.b",
+              "textDe": "benutzt er ab einer bestimmten Uhrzeit Kopfhörer"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q5.c",
+              "textDe": "er ab einer bestimmten Uhrzeit Kopfhörer benutzt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.syntax.q5.c",
+          "correctAnswerTextDe": "er ab einer bestimmten Uhrzeit Kopfhörer benutzt",
+          "rationaleDe": "Im dass-Nebensatz steht benutzt am Ende; er verlangt Singular.",
+          "assessmentUnit": "dass Vereinbarung Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 411,
+              "end": 464,
+              "quote": "dass er ab einer bestimmten Uhrzeit Kopfhörer benutzt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.syntax.q6",
+          "publicPromptDe": "Welche Ergänzung vervollständigt den Vergleich nach »Das Gespräch hat mehr bewirkt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.syntax.q6.a",
+              "textDe": "als meine stillen Vorwürfe"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q6.b",
+              "textDe": "so meine stillen Vorwürfe"
+            },
+            {
+              "id": "sitov.pretest.b12-06.syntax.q6.c",
+              "textDe": "wie meine stillen Vorwürfe"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.syntax.q6.a",
+          "correctAnswerTextDe": "als meine stillen Vorwürfe",
+          "rationaleDe": "Der Vergleich mit mehr wird durch als verbunden.",
+          "assessmentUnit": "mehr als Vergleich Wirkung",
+          "sourceSpans": [
+            {
+              "start": 561,
+              "end": 600,
+              "quote": "mehr bewirkt als meine stillen Vorwürfe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q1",
+          "publicPromptDe": "Welche Wortgruppe im Akkusativ Plural folgt auf »über« bei einer Zeitdauer?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.nominal.q1.a",
+              "textDe": "mehrere Wochen"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q1.c",
+              "textDe": "mehreren Wochen"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q1.b",
+              "textDe": "mehrerer Wochen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.nominal.q1.a",
+          "correctAnswerTextDe": "mehrere Wochen",
+          "rationaleDe": "Über steht bei dieser Zeitdauer mit Akkusativ: mehrere Wochen.",
+          "assessmentUnit": "mehrere Wochen Akkusativ Dauer",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 19,
+              "quote": "Über mehrere Wochen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q2",
+          "publicPromptDe": "Welche Wortgruppe im Dativ Singular folgt auf »aus« für die Herkunft der Musik?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.nominal.q2.c",
+              "textDe": "die Nachbarwohnung"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q2.b",
+              "textDe": "der Nachbarwohnung"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q2.a",
+              "textDe": "der Nachbarwohnungen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.nominal.q2.b",
+          "correctAnswerTextDe": "der Nachbarwohnung",
+          "rationaleDe": "Aus verlangt Dativ; feminin Singular lautet der Nachbarwohnung.",
+          "assessmentUnit": "der Nachbarwohnung Dativ aus",
+          "sourceSpans": [
+            {
+              "start": 56,
+              "end": 78,
+              "quote": "aus der Nachbarwohnung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q3",
+          "publicPromptDe": "Ich stehe vor der Tür und klingele an diesem Ort. Welche Wortgruppe im Dativ Singular folgt auf »an«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.nominal.q3.c",
+              "textDe": "die Tür"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q3.b",
+              "textDe": "der Türen"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q3.a",
+              "textDe": "der Tür"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.nominal.q3.a",
+          "correctAnswerTextDe": "der Tür",
+          "rationaleDe": "An beschreibt hier den Ort des Klingelns; Dativ Singular lautet der Tür.",
+          "assessmentUnit": "der Tür Dativ Ort an",
+          "sourceSpans": [
+            {
+              "start": 158,
+              "end": 168,
+              "quote": "an der Tür"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q4",
+          "publicPromptDe": "Welche Dativgruppe von »die andere Person« passt nach »Manchmal fehlt« vor »eine wichtige Information«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.nominal.q4.a",
+              "textDe": "die anderen Personen"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q4.b",
+              "textDe": "die andere Person"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q4.c",
+              "textDe": "der anderen Person"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.nominal.q4.c",
+          "correctAnswerTextDe": "der anderen Person",
+          "rationaleDe": "Der Person, der etwas fehlt, steht im Dativ; Singular lautet der anderen Person.",
+          "assessmentUnit": "der anderen Person Dativ Empfänger",
+          "sourceSpans": [
+            {
+              "start": 617,
+              "end": 635,
+              "quote": "der anderen Person"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q5",
+          "publicPromptDe": "Welche Wortgruppe im Dativ Singular passt nach »ab einer«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.nominal.q5.c",
+              "textDe": "bestimmter Uhrzeiten"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q5.b",
+              "textDe": "bestimmten Uhrzeit"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q5.a",
+              "textDe": "bestimmte Uhrzeit"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.nominal.q5.b",
+          "correctAnswerTextDe": "bestimmten Uhrzeit",
+          "rationaleDe": "Nach einer im Dativ feminin lautet die Gruppe bestimmten Uhrzeit.",
+          "assessmentUnit": "bestimmten Uhrzeit Dativ Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 422,
+              "end": 446,
+              "quote": "einer bestimmten Uhrzeit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-06.nominal.q6",
+          "publicPromptDe": "Welche Wortgruppe ergänzt »still« im pluralischen Subjekt von »Meine Vorwürfe haben wenig bewirkt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-06.nominal.q6.c",
+              "textDe": "meine stillen Vorwürfe"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q6.b",
+              "textDe": "meiner stillen Vorwürfe"
+            },
+            {
+              "id": "sitov.pretest.b12-06.nominal.q6.a",
+              "textDe": "meinen stillen Vorwürfen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-06.nominal.q6.c",
+          "correctAnswerTextDe": "meine stillen Vorwürfe",
+          "rationaleDe": "Das Subjekt steht im Nominativ Plural: meine stillen Vorwürfe.",
+          "assessmentUnit": "meine stillen Vorwürfe Nominativ Plural",
+          "sourceSpans": [
+            {
+              "start": 578,
+              "end": 600,
+              "quote": "meine stillen Vorwürfe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "13264420-65a8-54f1-984e-b001a5244341",
+      "title": "Warum ich mich ehrenamtlich engagiere",
+      "level": "B1.2",
+      "textVersion": "377e6ebbf8cafa715d68dc536a5974159d1e696162ccde3dbeff85205152c3ac",
+      "definitionContentHash": "727eddb8c55bc04916fc14385e0f8c62321ae6c70f08be41de381f51e5918436",
+      "sourceBodyDe": "Einmal pro Woche helfe ich in einer kleinen Fahrradwerkstatt, die von Freiwilligen organisiert wird. Dort unterstützen wir Menschen dabei, ihre Räder selbst zu reparieren. Als ich damit angefangen habe, wollte ich vor allem meine handwerklichen Kenntnisse nutzen. Inzwischen schätze ich besonders die Gespräche mit Menschen, denen ich sonst kaum begegnen würde. Nicht jeder Termin verläuft einfach: Manchmal fehlen Teile, manchmal braucht eine Erklärung viel Geduld. Trotzdem gehe ich meistens zufrieden nach Hause. Ich sehe unmittelbar, dass meine Zeit jemandem geholfen hat. Gleichzeitig lerne ich selbst weiter. Ehrenamt bedeutet für mich deshalb nicht nur, etwas zu geben, sondern auch Erfahrungen und neue Perspektiven zu gewinnen.",
+      "cores": [
+        {
+          "id": "sitov.pretest.b12-07.words",
+          "category": "vocabulary",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "Ehrenamt freiwilliger Einsatz",
+            "Freiwillige aus eigenem Willen",
+            "handwerkliche Kenntnisse praktische Fertigkeiten",
+            "Geduld ruhig abwarten",
+            "unmittelbar direkt erkennbar",
+            "Perspektiven neue Sichtweisen"
+          ],
+          "sourceSpans": [
+            {
+              "start": 615,
+              "end": 623,
+              "quote": "Ehrenamt"
+            },
+            {
+              "start": 70,
+              "end": 82,
+              "quote": "Freiwilligen"
+            },
+            {
+              "start": 230,
+              "end": 255,
+              "quote": "handwerklichen Kenntnisse"
+            },
+            {
+              "start": 459,
+              "end": 465,
+              "quote": "Geduld"
+            },
+            {
+              "start": 525,
+              "end": 536,
+              "quote": "unmittelbar"
+            },
+            {
+              "start": 711,
+              "end": 723,
+              "quote": "Perspektiven"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Ehrenamt freiwilliger Einsatz, Freiwillige aus eigenem Willen, handwerkliche Kenntnisse praktische Fertigkeiten, Geduld ruhig abwarten, unmittelbar direkt erkennbar, Perspektiven neue Sichtweisen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b12-07.verbs",
+          "category": "verb_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "wird organisiert Präsens Passiv",
+            "reparieren Infinitiv nach zu",
+            "angefangen starkes Partizip",
+            "würde Konjunktiv hypothetisch",
+            "verläuft Präsens dritte Singular",
+            "geholfen starkes Partizip"
+          ],
+          "sourceSpans": [
+            {
+              "start": 62,
+              "end": 99,
+              "quote": "die von Freiwilligen organisiert wird"
+            },
+            {
+              "start": 150,
+              "end": 170,
+              "quote": "selbst zu reparieren"
+            },
+            {
+              "start": 186,
+              "end": 201,
+              "quote": "angefangen habe"
+            },
+            {
+              "start": 346,
+              "end": 360,
+              "quote": "begegnen würde"
+            },
+            {
+              "start": 381,
+              "end": 389,
+              "quote": "verläuft"
+            },
+            {
+              "start": 563,
+              "end": 575,
+              "quote": "geholfen hat"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: wird organisiert Präsens Passiv, reparieren Infinitiv nach zu, angefangen starkes Partizip, würde Konjunktiv hypothetisch, verläuft Präsens dritte Singular, geholfen starkes Partizip. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b12-07.syntax",
+          "category": "syntax",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "die Relativsatz Passivfinal",
+            "Als Perfekt Verbfinal",
+            "denen Relativsatz Modalverbfinal",
+            "dass Perfekt Hilfe Verbfinal",
+            "nicht nur sondern auch Ergänzung",
+            "Trotzdem Gegensatz Schwierigkeiten Zufriedenheit"
+          ],
+          "sourceSpans": [
+            {
+              "start": 62,
+              "end": 99,
+              "quote": "die von Freiwilligen organisiert wird"
+            },
+            {
+              "start": 172,
+              "end": 201,
+              "quote": "Als ich damit angefangen habe"
+            },
+            {
+              "start": 325,
+              "end": 360,
+              "quote": "denen ich sonst kaum begegnen würde"
+            },
+            {
+              "start": 538,
+              "end": 575,
+              "quote": "dass meine Zeit jemandem geholfen hat"
+            },
+            {
+              "start": 650,
+              "end": 735,
+              "quote": "nicht nur, etwas zu geben, sondern auch Erfahrungen und neue Perspektiven zu gewinnen"
+            },
+            {
+              "start": 467,
+              "end": 514,
+              "quote": "Trotzdem gehe ich meistens zufrieden nach Hause"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: die Relativsatz Passivfinal, Als Perfekt Verbfinal, denen Relativsatz Modalverbfinal, dass Perfekt Hilfe Verbfinal, nicht nur sondern auch Ergänzung, Trotzdem Gegensatz Schwierigkeiten Zufriedenheit. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b12-07.nominal",
+          "category": "nominal_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "einer kleinen Werkstatt Dativ Ort",
+            "Freiwilligen Dativ Plural",
+            "meine handwerklichen Kenntnisse Akkusativ",
+            "denen Relativpronomen Dativ begegnen",
+            "jemandem Dativ helfen",
+            "neue Perspektiven Akkusativ Plural"
+          ],
+          "sourceSpans": [
+            {
+              "start": 27,
+              "end": 60,
+              "quote": "in einer kleinen Fahrradwerkstatt"
+            },
+            {
+              "start": 66,
+              "end": 82,
+              "quote": "von Freiwilligen"
+            },
+            {
+              "start": 224,
+              "end": 255,
+              "quote": "meine handwerklichen Kenntnisse"
+            },
+            {
+              "start": 315,
+              "end": 360,
+              "quote": "Menschen, denen ich sonst kaum begegnen würde"
+            },
+            {
+              "start": 554,
+              "end": 575,
+              "quote": "jemandem geholfen hat"
+            },
+            {
+              "start": 706,
+              "end": 723,
+              "quote": "neue Perspektiven"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: einer kleinen Werkstatt Dativ Ort, Freiwilligen Dativ Plural, meine handwerklichen Kenntnisse Akkusativ, denen Relativpronomen Dativ begegnen, jemandem Dativ helfen, neue Perspektiven Akkusativ Plural. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        }
+      ],
+      "questions": [
+        {
+          "questionId": "sitov.pretest.b12-07.words.q1",
+          "publicPromptDe": "Was bedeutet Ehrenamt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.words.q1.c",
+              "textDe": "Eine regulär bezahlte berufliche Stelle."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q1.b",
+              "textDe": "Freiwillige Tätigkeit für andere ohne reguläre Bezahlung."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q1.a",
+              "textDe": "Eine private Freizeitbeschäftigung ohne Einsatz für andere."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.words.q1.b",
+          "correctAnswerTextDe": "Freiwillige Tätigkeit für andere ohne reguläre Bezahlung.",
+          "rationaleDe": "Ehrenamt bezeichnet freiwilligen gesellschaftlichen Einsatz ohne reguläres Arbeitsentgelt.",
+          "assessmentUnit": "Ehrenamt freiwilliger Einsatz",
+          "sourceSpans": [
+            {
+              "start": 615,
+              "end": 623,
+              "quote": "Ehrenamt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q2",
+          "publicPromptDe": "Wer sind Freiwillige in einer Hilfswerkstatt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.words.q2.c",
+              "textDe": "Menschen, die gegen ihren Willen zur Hilfe gezwungen werden."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q2.a",
+              "textDe": "Menschen, die nur Hilfe erhalten und nie mithelfen."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q2.b",
+              "textDe": "Menschen, die aus eigenem Willen mithelfen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.words.q2.b",
+          "correctAnswerTextDe": "Menschen, die aus eigenem Willen mithelfen.",
+          "rationaleDe": "Freiwillige übernehmen Hilfe aus eigenem Willen.",
+          "assessmentUnit": "Freiwillige aus eigenem Willen",
+          "sourceSpans": [
+            {
+              "start": 70,
+              "end": 82,
+              "quote": "Freiwilligen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q3",
+          "publicPromptDe": "Was sind handwerkliche Kenntnisse?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.words.q3.a",
+              "textDe": "Wissen und Fertigkeiten zum praktischen Herstellen oder Reparieren."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q3.b",
+              "textDe": "Nur Wissen über Öffnungszeiten ohne praktische Fertigkeiten."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q3.c",
+              "textDe": "Nur Namen von Werkzeugen ohne Wissen über ihren Einsatz."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.words.q3.a",
+          "correctAnswerTextDe": "Wissen und Fertigkeiten zum praktischen Herstellen oder Reparieren.",
+          "rationaleDe": "Handwerkliche Kenntnisse betreffen praktische Arbeit und deren Verfahren.",
+          "assessmentUnit": "handwerkliche Kenntnisse praktische Fertigkeiten",
+          "sourceSpans": [
+            {
+              "start": 230,
+              "end": 255,
+              "quote": "handwerklichen Kenntnisse"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q4",
+          "publicPromptDe": "Was bedeutet eine Erklärung braucht Geduld?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.words.q4.c",
+              "textDe": "Man muss das Verstehen ohne jede Zeit sofort verlangen."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q4.b",
+              "textDe": "Man muss jede Erklärung grundsätzlich abbrechen."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q4.a",
+              "textDe": "Man muss ruhig Zeit für das Verstehen lassen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.words.q4.a",
+          "correctAnswerTextDe": "Man muss ruhig Zeit für das Verstehen lassen.",
+          "rationaleDe": "Geduld lässt Zeit für einen Prozess, statt sofortigen Erfolg zu erzwingen.",
+          "assessmentUnit": "Geduld ruhig abwarten",
+          "sourceSpans": [
+            {
+              "start": 459,
+              "end": 465,
+              "quote": "Geduld"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q5",
+          "publicPromptDe": "Was bedeutet ich sehe unmittelbar, dass meine Zeit hilft?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.words.q5.c",
+              "textDe": "Ich erkenne die Wirkung direkt."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q5.a",
+              "textDe": "Ich erkenne die Wirkung nur über viele indirekte Vermutungen."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q5.b",
+              "textDe": "Ich erkenne grundsätzlich keine Wirkung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.words.q5.c",
+          "correctAnswerTextDe": "Ich erkenne die Wirkung direkt.",
+          "rationaleDe": "Unmittelbar bedeutet hier direkt und ohne lange Vermittlung.",
+          "assessmentUnit": "unmittelbar direkt erkennbar",
+          "sourceSpans": [
+            {
+              "start": 525,
+              "end": 536,
+              "quote": "unmittelbar"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.words.q6",
+          "publicPromptDe": "Was sind neue Perspektiven durch Begegnungen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.words.q6.a",
+              "textDe": "Nur bereits festgelegte Termine ohne neue Sichtweise."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q6.c",
+              "textDe": "Neue Sichtweisen und Möglichkeiten, etwas zu betrachten."
+            },
+            {
+              "id": "sitov.pretest.b12-07.words.q6.b",
+              "textDe": "Nur dieselben unveränderten Sichtweisen ohne Ergänzung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.words.q6.c",
+          "correctAnswerTextDe": "Neue Sichtweisen und Möglichkeiten, etwas zu betrachten.",
+          "rationaleDe": "Perspektiven bezeichnet Blickrichtungen und Möglichkeiten des Verstehens.",
+          "assessmentUnit": "Perspektiven neue Sichtweisen",
+          "sourceSpans": [
+            {
+              "start": 711,
+              "end": 723,
+              "quote": "Perspektiven"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q1",
+          "publicPromptDe": "Welche grammatische Form zeigt »Die Werkstatt wird organisiert«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.verbs.q1.c",
+              "textDe": "Präsens im Aktiv."
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q1.a",
+              "textDe": "Präsens im Vorgangspassiv."
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q1.b",
+              "textDe": "Präteritum im Vorgangspassiv."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.verbs.q1.a",
+          "correctAnswerTextDe": "Präsens im Vorgangspassiv.",
+          "rationaleDe": "Wird und organisiert bilden das Vorgangspassiv im Präsens.",
+          "assessmentUnit": "wird organisiert Präsens Passiv",
+          "sourceSpans": [
+            {
+              "start": 62,
+              "end": 99,
+              "quote": "die von Freiwilligen organisiert wird"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q2",
+          "publicPromptDe": "Welche Infinitivform von »reparieren« steht nach »ihre Räder selbst zu«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.verbs.q2.b",
+              "textDe": "reparieren"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q2.a",
+              "textDe": "reparierte"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q2.c",
+              "textDe": "repariert"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.verbs.q2.b",
+          "correctAnswerTextDe": "reparieren",
+          "rationaleDe": "Nach zu steht der Infinitiv reparieren.",
+          "assessmentUnit": "reparieren Infinitiv nach zu",
+          "sourceSpans": [
+            {
+              "start": 150,
+              "end": 170,
+              "quote": "selbst zu reparieren"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q3",
+          "publicPromptDe": "Welche Partizipform von »anfangen« passt nach »Ich habe damit«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.verbs.q3.c",
+              "textDe": "angefangen"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q3.b",
+              "textDe": "anfangen"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q3.a",
+              "textDe": "anfing"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.verbs.q3.c",
+          "correctAnswerTextDe": "angefangen",
+          "rationaleDe": "Das Perfekt verlangt das starke Partizip angefangen.",
+          "assessmentUnit": "angefangen starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 186,
+              "end": 201,
+              "quote": "angefangen habe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q4",
+          "publicPromptDe": "Welche Konjunktiv-zwei-Form von »werden« steht bei einer vorgestellten Begegnung am Ende des Nebensatzes?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.verbs.q4.a",
+              "textDe": "wurde"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q4.c",
+              "textDe": "wird"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q4.b",
+              "textDe": "würde"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.verbs.q4.b",
+          "correctAnswerTextDe": "würde",
+          "rationaleDe": "Würde bezeichnet hier die vorgestellte Möglichkeit; wird und wurde sind Indikativformen.",
+          "assessmentUnit": "würde Konjunktiv hypothetisch",
+          "sourceSpans": [
+            {
+              "start": 346,
+              "end": 360,
+              "quote": "begegnen würde"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q5",
+          "publicPromptDe": "Welche Präsensform von »verlaufen« passt zwischen »Der Termin« und »einfach«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.verbs.q5.b",
+              "textDe": "verlaufen"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q5.a",
+              "textDe": "verläuft"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q5.c",
+              "textDe": "verlaufe"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.verbs.q5.a",
+          "correctAnswerTextDe": "verläuft",
+          "rationaleDe": "Das Singularsubjekt verlangt verläuft mit Stammwechsel.",
+          "assessmentUnit": "verläuft Präsens dritte Singular",
+          "sourceSpans": [
+            {
+              "start": 381,
+              "end": 389,
+              "quote": "verläuft"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.verbs.q6",
+          "publicPromptDe": "Welche Partizipform von »helfen« folgt auf »Meine Zeit hat jemandem«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.verbs.q6.a",
+              "textDe": "helfen"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q6.b",
+              "textDe": "half"
+            },
+            {
+              "id": "sitov.pretest.b12-07.verbs.q6.c",
+              "textDe": "geholfen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.verbs.q6.c",
+          "correctAnswerTextDe": "geholfen",
+          "rationaleDe": "Das Perfekt verlangt das starke Partizip geholfen.",
+          "assessmentUnit": "geholfen starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 563,
+              "end": 575,
+              "quote": "geholfen hat"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q1",
+          "publicPromptDe": "Welche Wortfolge ergänzt nach »eine Werkstatt« einen Relativsatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.syntax.q1.b",
+              "textDe": "die wird von Freiwilligen organisiert"
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q1.c",
+              "textDe": "die von Freiwilligen organisiert werden"
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q1.a",
+              "textDe": "die von Freiwilligen organisiert wird"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.syntax.q1.a",
+          "correctAnswerTextDe": "die von Freiwilligen organisiert wird",
+          "rationaleDe": "Im Relativsatz steht wird am Ende; Werkstatt ist Singular.",
+          "assessmentUnit": "die Relativsatz Passivfinal",
+          "sourceSpans": [
+            {
+              "start": 62,
+              "end": 99,
+              "quote": "die von Freiwilligen organisiert wird"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q2",
+          "publicPromptDe": "Welche Wortfolge folgt auf den Nebensatzbeginn »Als«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.syntax.q2.b",
+              "textDe": "ich damit angefangen habe"
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q2.c",
+              "textDe": "habe ich damit angefangen"
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q2.a",
+              "textDe": "ich damit angefangen haben"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.syntax.q2.b",
+          "correctAnswerTextDe": "ich damit angefangen habe",
+          "rationaleDe": "Im Als-Nebensatz steht habe nach angefangen am Ende; ich verlangt Singular.",
+          "assessmentUnit": "Als Perfekt Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 172,
+              "end": 201,
+              "quote": "Als ich damit angefangen habe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q3",
+          "publicPromptDe": "Es geht um Menschen, denen ich begegnen könnte. Welche Wortfolge ergänzt nach »Menschen« einen Relativsatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.syntax.q3.b",
+              "textDe": "denen ich sonst kaum begegnen würden"
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q3.c",
+              "textDe": "denen ich sonst kaum begegnen würde"
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q3.a",
+              "textDe": "denen würde ich sonst kaum begegnen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.syntax.q3.c",
+          "correctAnswerTextDe": "denen ich sonst kaum begegnen würde",
+          "rationaleDe": "Im Relativsatz steht würde nach begegnen am Ende; das Subjekt ich verlangt Singular.",
+          "assessmentUnit": "denen Relativsatz Modalverbfinal",
+          "sourceSpans": [
+            {
+              "start": 325,
+              "end": 360,
+              "quote": "denen ich sonst kaum begegnen würde"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q4",
+          "publicPromptDe": "Welche Wortfolge folgt auf »Ich sehe, dass«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.syntax.q4.c",
+              "textDe": "hat meine Zeit jemandem geholfen"
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q4.a",
+              "textDe": "meine Zeit jemandem geholfen hat"
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q4.b",
+              "textDe": "meine Zeit jemandem geholfen haben"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.syntax.q4.a",
+          "correctAnswerTextDe": "meine Zeit jemandem geholfen hat",
+          "rationaleDe": "Im dass-Nebensatz steht hat nach geholfen am Ende; Zeit ist Singular.",
+          "assessmentUnit": "dass Perfekt Hilfe Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 538,
+              "end": 575,
+              "quote": "dass meine Zeit jemandem geholfen hat"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q5",
+          "publicPromptDe": "Ehrenamt heißt nicht nur etwas zu geben, sondern auch Erfahrungen zu gewinnen. Welche Beziehung besteht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.syntax.q5.c",
+              "textDe": "Geben und eigener Erfahrungsgewinn ergänzen sich."
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q5.b",
+              "textDe": "Eigener Erfahrungsgewinn ersetzt das Geben vollständig."
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q5.a",
+              "textDe": "Geben und Erfahrungsgewinn werden beide ausgeschlossen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.syntax.q5.c",
+          "correctAnswerTextDe": "Geben und eigener Erfahrungsgewinn ergänzen sich.",
+          "rationaleDe": "Nicht nur und sondern auch fügen einen weiteren zutreffenden Aspekt hinzu.",
+          "assessmentUnit": "nicht nur sondern auch Ergänzung",
+          "sourceSpans": [
+            {
+              "start": 650,
+              "end": 735,
+              "quote": "nicht nur, etwas zu geben, sondern auch Erfahrungen und neue Perspektiven zu gewinnen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.syntax.q6",
+          "publicPromptDe": "Manchmal fehlen Teile und Erklärungen brauchen Geduld. Trotzdem gehe ich zufrieden nach Hause. Welche Beziehung besteht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.syntax.q6.c",
+              "textDe": "Zufriedenheit setzt voraus, dass keine Schwierigkeit vorkommt."
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q6.a",
+              "textDe": "Die Schwierigkeiten sind der erklärte Zweck der Zufriedenheit."
+            },
+            {
+              "id": "sitov.pretest.b12-07.syntax.q6.b",
+              "textDe": "Zufriedenheit besteht trotz der Schwierigkeiten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.syntax.q6.b",
+          "correctAnswerTextDe": "Zufriedenheit besteht trotz der Schwierigkeiten.",
+          "rationaleDe": "Trotzdem markiert den Gegensatz zwischen Schwierigkeiten und positiver Bilanz.",
+          "assessmentUnit": "Trotzdem Gegensatz Schwierigkeiten Zufriedenheit",
+          "sourceSpans": [
+            {
+              "start": 467,
+              "end": 514,
+              "quote": "Trotzdem gehe ich meistens zufrieden nach Hause"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q1",
+          "publicPromptDe": "Ich arbeite innerhalb einer Werkstatt. Welche Wortgruppe im Dativ Singular folgt auf »in«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.nominal.q1.b",
+              "textDe": "eine kleine Werkstatt"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q1.c",
+              "textDe": "einer kleinen Werkstatt"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q1.a",
+              "textDe": "kleiner Werkstätten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.nominal.q1.c",
+          "correctAnswerTextDe": "einer kleinen Werkstatt",
+          "rationaleDe": "In beschreibt den Arbeitsort; feminin Dativ Singular lautet einer kleinen Werkstatt.",
+          "assessmentUnit": "einer kleinen Werkstatt Dativ Ort",
+          "sourceSpans": [
+            {
+              "start": 27,
+              "end": 60,
+              "quote": "in einer kleinen Fahrradwerkstatt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q2",
+          "publicPromptDe": "Welche Form des substantivierten Adjektivs »freiwillig« folgt ohne Artikel im Dativ Plural auf »von«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.nominal.q2.a",
+              "textDe": "Freiwillige"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q2.b",
+              "textDe": "Freiwilligen"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q2.c",
+              "textDe": "Freiwilliger"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.nominal.q2.b",
+          "correctAnswerTextDe": "Freiwilligen",
+          "rationaleDe": "Ohne Artikel lautet der Dativ Plural der substantivierten Form Freiwilligen.",
+          "assessmentUnit": "Freiwilligen Dativ Plural",
+          "sourceSpans": [
+            {
+              "start": 66,
+              "end": 82,
+              "quote": "von Freiwilligen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q3",
+          "publicPromptDe": "Die Kenntnisse sind meine eigenen. Welche Wortgruppe im Akkusativ Plural folgt auf »Ich nutze«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.nominal.q3.a",
+              "textDe": "meine handwerklichen Kenntnisse"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q3.b",
+              "textDe": "meiner handwerklichen Kenntnisse"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q3.c",
+              "textDe": "meinen handwerklichen Kenntnissen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.nominal.q3.a",
+          "correctAnswerTextDe": "meine handwerklichen Kenntnisse",
+          "rationaleDe": "Das direkte Objekt steht im Akkusativ Plural: meine handwerklichen Kenntnisse.",
+          "assessmentUnit": "meine handwerklichen Kenntnisse Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 224,
+              "end": 255,
+              "quote": "meine handwerklichen Kenntnisse"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q4",
+          "publicPromptDe": "Mehrere Menschen sind gemeint. Welches Relativpronomen steht vor »ich begegnen würde«, wenn das Verb »begegnen« den Dativ verlangt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.nominal.q4.a",
+              "textDe": "denen"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q4.c",
+              "textDe": "deren"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q4.b",
+              "textDe": "die"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.nominal.q4.a",
+          "correctAnswerTextDe": "denen",
+          "rationaleDe": "Begegnen verlangt Dativ; das Relativpronomen im Plural lautet denen.",
+          "assessmentUnit": "denen Relativpronomen Dativ begegnen",
+          "sourceSpans": [
+            {
+              "start": 315,
+              "end": 360,
+              "quote": "Menschen, denen ich sonst kaum begegnen würde"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q5",
+          "publicPromptDe": "Welches Indefinitpronomen im Dativ folgt auf »Meine Zeit hat« vor »geholfen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.nominal.q5.b",
+              "textDe": "jemand"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q5.a",
+              "textDe": "jemanden"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q5.c",
+              "textDe": "jemandem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.nominal.q5.c",
+          "correctAnswerTextDe": "jemandem",
+          "rationaleDe": "Helfen verlangt Dativ; die Form lautet jemandem.",
+          "assessmentUnit": "jemandem Dativ helfen",
+          "sourceSpans": [
+            {
+              "start": 554,
+              "end": 575,
+              "quote": "jemandem geholfen hat"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b12-07.nominal.q6",
+          "publicPromptDe": "Welche Wortgruppe im Akkusativ Plural passt als Objekt von »gewinnen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b12-07.nominal.q6.c",
+              "textDe": "neuer Perspektiven"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q6.a",
+              "textDe": "neuen Perspektiven"
+            },
+            {
+              "id": "sitov.pretest.b12-07.nominal.q6.b",
+              "textDe": "neue Perspektiven"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b12-07.nominal.q6.b",
+          "correctAnswerTextDe": "neue Perspektiven",
+          "rationaleDe": "Ohne Artikel lautet die Adjektivgruppe im Akkusativ Plural neue Perspektiven.",
+          "assessmentUnit": "neue Perspektiven Akkusativ Plural",
+          "sourceSpans": [
+            {
+              "start": 706,
+              "end": 723,
+              "quote": "neue Perspektiven"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
