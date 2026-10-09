@@ -1,0 +1,91 @@
+{
+  "group": "SITOV-NIGHT-2026-10-08",
+  "M_verified_at": "2026-10-09T09:41:22.404729+00:00",
+  "status": "BUDGET_STOP",
+  "release_ready": false,
+  "full_scope_complete": false,
+  "remaining_percent": 18,
+  "M_source_sha": "1878271e2250b2f3e9d459207e8baa08159838cb",
+  "validated_product_sha": "f6a4565cf21efecad36bacfa75405062a7f1416f",
+  "actual_browser_source_sha": "1b656fb52d31c13aacc8026e43aab35b9df863a5",
+  "actual_browser_integration_sha": "501f1033d1a842188857d03a9ab97eecbf9dcac7",
+  "S6": {
+    "epoch": 13,
+    "note": "/Users/denniskostjuk/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Life-OS/01 Projects/Sitov-Academy/43_SITOV-NIGHT-2026-10-08_Integrationsstand.md",
+    "before_sha256": "d729152467fc10c060e65dad9452726964dc4bbc8a6ee1e3edbb2ddf447e6880",
+    "after_sha256": "72feaf940d51c970a82e6aa7accc53876c9b24a607d83512679234446ad9ba7f",
+    "frontmatter_unchanged": true,
+    "eight_wiki_links_and_targets_preserved": true,
+    "older_body_preserved_except_archived_current_heading": true,
+    "exact_unified_patch_recomputed": true,
+    "private_and_source_hashes_verified": true,
+    "completed_within_lease": true,
+    "documentation_complete": false
+  },
+  "workers": {
+    "S1": {
+      "thread_id": "01a11d51-f564-7c83-aa5f-7f4e3686687a",
+      "phase": "STOPPED_SAVED",
+      "status_file_sha256": "389828fca7f67e72969845f21f3fea4e21cc775ecd73dad1300fcb5534654ae2",
+      "updated_at": "2026-10-09T09:35:51.010707+00:00",
+      "cursor": "96540701-3f65-4515-93e1-fdd26b8e5748:41",
+      "actual_thread_status": "idle",
+      "latest_turn_status": "completed"
+    },
+    "S2": {
+      "thread_id": "01a11d52-19cf-74a1-b1e6-cac9d3a3a1d2",
+      "phase": "STOPPED_SAVED",
+      "status_file_sha256": "ac4f822d39c68db19b68cddc1ae3045565e05dfc7adc843bf1923af6e6e0fb52",
+      "updated_at": null,
+      "cursor": "909fb08d-6a0c-4a8c-8767-3f8286264539:93",
+      "actual_thread_status": "idle",
+      "latest_turn_status": "completed"
+    },
+    "S3": {
+      "thread_id": "01a11d52-4517-72a2-9d9a-7dbf5d1e4543",
+      "phase": "STOPPED_SAVED",
+      "status_file_sha256": "ce61e429228b91ffb062cea4c6d7910f8a34895cddadd0c1203e8f52d7397545",
+      "updated_at": "2026-10-09T09:35:49.396614+00:00",
+      "cursor": "2875d404-d0d0-42b3-b44f-03970bbde389:107",
+      "actual_thread_status": "idle",
+      "latest_turn_status": "completed"
+    },
+    "S4": {
+      "thread_id": "01a11d52-6955-72d3-94e5-e8a38bf33777",
+      "phase": "STOPPED_SAVED",
+      "status_file_sha256": "e5cd665e7979e94290a9299915eca637de3f6bf0a7c907d8d344c8512adc113e",
+      "updated_at": "2026-10-09T09:35:56.331711+00:00",
+      "cursor": "4024db3b-faf2-44f4-bb5e-be3eabf8769d:49",
+      "actual_thread_status": "idle",
+      "latest_turn_status": "completed"
+    },
+    "S5": {
+      "thread_id": "01a11d52-9074-74e1-8e80-b9f2b37c6b49",
+      "phase": "STOPPED_SAVED",
+      "status_file_sha256": "67b2d2550a553a1ec3e7d2f47f1cf2b62d437770c6e6a4a717cb961d4ac27542",
+      "updated_at": "2026-10-09T09:35:51.576987+00:00",
+      "cursor": "c23db8d6-5383-4f4b-8002-1fb5486e60fd:105",
+      "actual_thread_status": "idle",
+      "latest_turn_status": "completed"
+    },
+    "S6": {
+      "thread_id": "01a11d52-bc65-7ea1-8a73-8db3dc424c66",
+      "phase": "STOPPED_SAVED",
+      "status_file_sha256": "1fbe6f13adcce287ceaa7e23004ca13bf6fbd75027aa8566058bfbfe70eaf98b",
+      "updated_at": "2026-10-09T09:37:28.810145+00:00",
+      "cursor": "819230fc-befd-49bd-bae3-9b8c55aec9f4:31",
+      "actual_thread_status": "idle",
+      "latest_turn_status": "completed"
+    }
+  },
+  "owned_runtime": "STOPPED; identities/images/volumes/network/private data/worktrees/branches preserved; see budget-closure-owned-runtime-stop.json",
+  "heartbeat": "Deactivation is the final M step after saving coordination; actual result is recorded in master.json",
+  "deployment": "Not performed; COMMIT_AND_HANDOFF",
+  "remaining": [
+    "48/60 private pools missing; calibration",
+    "Broad actual curriculum/topic mapping and full author/edit workflow",
+    "Full five-language/mobile/theme/motion/accessibility/microphone/history and commercial acceptance",
+    "235 older sentence audios missing; 11 QA vocabulary card references absent",
+    "Runtime durability and production all-account rights/history/audio/timing/version deployment gates"
+  ]
+}
