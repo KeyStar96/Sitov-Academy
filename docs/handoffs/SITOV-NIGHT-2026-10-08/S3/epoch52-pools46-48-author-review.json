@@ -1,0 +1,2800 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "932bba7245b5f64e5cb1e78d822610b7451065ff",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "randomnessProvenance": "node:crypto.randomInt OS CSPRNG;12 distinct balanced label schedules and12 distinct independent position schedules, each question index covers all3 values.",
+  "completedPools": 3,
+  "newQuestionCount": 72,
+  "newAliasCount": 288,
+  "original45ContentHash": "272f8616199560f631a7e9a21667342b6c8539543db379da1259cbf9d7a35af5",
+  "originalManifestContentHash": "ebe350718c6407e95ad6054f561b0a1ae20e3f7b73cbd32c1b9049e8a5ec7c9a",
+  "originalManifestByteSha256": "48c6b72631742dbd726909a8c8df03de17a1ccca0fa2637af6a5168b6480f8d9",
+  "original4320AliasContentHash": "6e06238fa61c4b8e1d1c300ff310e18ae8ddc05a7bd413b00b16b50c69ba9491",
+  "original4320AliasByteSha256": "e238583b92a10e306cc2da81a183434e9825a46f944969764f00b7b67021e054",
+  "currentManifestContentHash": "9662f5ad7b4c85a672bd615d37084eb75ad1153711c1f3226645d9390d6e5159",
+  "currentManifestByteSha256": "587a354b2773b0c74ca8b74df5ed9f36051f5c74abee53a5be40044aa6135fe3",
+  "currentAliasContentHash": "fc83da1bf65dc40fc9ab29c677408602ccc1230c90b301ea86c9b2b0aff64604",
+  "currentAliasByteSha256": "16a0b8dd46fbb2652285c04ad34fd85494013ee7cbdfaed46b8b301fbe808797",
+  "previousCoverage": {
+    "total": 60,
+    "authored": 45,
+    "pending": 15
+  },
+  "previousInventoryRows": [
+    {
+      "textId": "2824e504-aef5-5a89-9290-aa72f1d42342",
+      "unitId": "2824e504-aef5-5a89-9290-aa72f1d42342",
+      "level": "B1.1",
+      "title": "Eine kleine Reise allein",
+      "focus": "ei und r; Erzähltempo variieren",
+      "sortOrder": 6,
+      "active": true,
+      "textVersion": "73d4a51db9105270a896a87c99e1b971807c3dbc685644794461dbcd26e0bff6",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "92818a0b-1e3d-5f69-b023-f61637d49279",
+      "unitId": "92818a0b-1e3d-5f69-b023-f61637d49279",
+      "level": "B1.1",
+      "title": "Homeoffice im Alltag",
+      "focus": "h und o; Vor- und Nachteile",
+      "sortOrder": 7,
+      "active": true,
+      "textVersion": "33692f0ad6e25f4080374ce9667ef9f6c24403df0d599bd3ee41eab4f6018a0e",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "d0e1136a-e6ee-5b28-b3b8-37c744be5528",
+      "unitId": "d0e1136a-e6ee-5b28-b3b8-37c744be5528",
+      "level": "B1.1",
+      "title": "Gemeinsam eine Veranstaltung planen",
+      "focus": "v und st; Informationen ordnen",
+      "sortOrder": 8,
+      "active": true,
+      "textVersion": "25ab86cb8f7e81b744c51fc53c15b07fc0076f632cf724893a7f5f48c3c7ac04",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    }
+  ],
+  "pools": [
+    {
+      "textId": "2824e504-aef5-5a89-9290-aa72f1d42342",
+      "title": "Eine kleine Reise allein",
+      "level": "B1.1",
+      "textVersion": "73d4a51db9105270a896a87c99e1b971807c3dbc685644794461dbcd26e0bff6",
+      "definitionContentHash": "c7dff65cb2fe1118eb8c46ac3d2beb0c9461abb0a142b3ad5701597e260dac21",
+      "sourceBodyDe": "Zum ersten Mal seit vielen Jahren bin ich allein für ein Wochenende verreist. Ich hatte mir eine kleine Stadt ausgesucht, die gut mit dem Zug erreichbar war. Zuerst fand ich es ungewohnt, alle Entscheidungen selbst zu treffen. Niemand fragte, wann wir essen oder welches Museum wir besuchen wollten. Nach einigen Stunden begann ich, diese Freiheit zu genießen. In einem Café kam ich mit einem anderen Reisenden ins Gespräch. Wir tauschten Tipps aus und gingen dann wieder eigene Wege. Zu Hause freute ich mich auf meine Familie. Trotzdem möchte ich eine solche Reise gern wiederholen.",
+      "cores": [
+        {
+          "id": "sitov.pretest.b11-06.words",
+          "category": "vocabulary",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "verreisen anderen Ort besuchen",
+            "erreichbar hingelangen können",
+            "ungewohnt nicht vertraut",
+            "Entscheidungen Auswahl",
+            "Freiheit selbst wählen",
+            "eigene Wege getrennt weitergehen"
+          ],
+          "sourceSpans": [
+            {
+              "start": 68,
+              "end": 76,
+              "quote": "verreist"
+            },
+            {
+              "start": 142,
+              "end": 152,
+              "quote": "erreichbar"
+            },
+            {
+              "start": 177,
+              "end": 186,
+              "quote": "ungewohnt"
+            },
+            {
+              "start": 193,
+              "end": 207,
+              "quote": "Entscheidungen"
+            },
+            {
+              "start": 339,
+              "end": 347,
+              "quote": "Freiheit"
+            },
+            {
+              "start": 472,
+              "end": 483,
+              "quote": "eigene Wege"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: verreisen anderen Ort besuchen, erreichbar hingelangen können, ungewohnt nicht vertraut, Entscheidungen Auswahl, Freiheit selbst wählen, eigene Wege getrennt weitergehen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-06.verbs",
+          "category": "verb_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "verreist Partizip untrennbar",
+            "hatte ausgesucht Plusquamperfekt",
+            "fand starkes Präteritum",
+            "begann starkes Präteritum",
+            "austauschen trennbarer Infinitiv",
+            "mich Reflexiv freuen"
+          ],
+          "sourceSpans": [
+            {
+              "start": 68,
+              "end": 76,
+              "quote": "verreist"
+            },
+            {
+              "start": 82,
+              "end": 120,
+              "quote": "hatte mir eine kleine Stadt ausgesucht"
+            },
+            {
+              "start": 165,
+              "end": 169,
+              "quote": "fand"
+            },
+            {
+              "start": 321,
+              "end": 327,
+              "quote": "begann"
+            },
+            {
+              "start": 429,
+              "end": 448,
+              "quote": "tauschten Tipps aus"
+            },
+            {
+              "start": 494,
+              "end": 509,
+              "quote": "freute ich mich"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: verreist Partizip untrennbar, hatte ausgesucht Plusquamperfekt, fand starkes Präteritum, begann starkes Präteritum, austauschen trennbarer Infinitiv, mich Reflexiv freuen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-06.syntax",
+          "category": "syntax",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "die Relativsatz Stadt Verbfinal",
+            "wann indirekte Frage Verbfinal",
+            "welches Museum Modalverbklammer",
+            "Infinitivgruppe Freiheit genießen",
+            "trotzdem Gegensatz Familie Reise",
+            "Nach Stunden Vorfeld Verbzweit"
+          ],
+          "sourceSpans": [
+            {
+              "start": 122,
+              "end": 156,
+              "quote": "die gut mit dem Zug erreichbar war"
+            },
+            {
+              "start": 243,
+              "end": 257,
+              "quote": "wann wir essen"
+            },
+            {
+              "start": 263,
+              "end": 298,
+              "quote": "welches Museum wir besuchen wollten"
+            },
+            {
+              "start": 333,
+              "end": 359,
+              "quote": "diese Freiheit zu genießen"
+            },
+            {
+              "start": 529,
+              "end": 583,
+              "quote": "Trotzdem möchte ich eine solche Reise gern wiederholen"
+            },
+            {
+              "start": 300,
+              "end": 331,
+              "quote": "Nach einigen Stunden begann ich"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: die Relativsatz Stadt Verbfinal, wann indirekte Frage Verbfinal, welches Museum Modalverbklammer, Infinitivgruppe Freiheit genießen, trotzdem Gegensatz Familie Reise, Nach Stunden Vorfeld Verbzweit. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-06.nominal",
+          "category": "nominal_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "ein Wochenende Akkusativ für",
+            "kleine Stadt Akkusativ Adjektiv",
+            "dem Zug Dativ mit",
+            "alle Entscheidungen Akkusativ Plural",
+            "anderen Reisenden Dativ Adjektiv",
+            "solche Reise Akkusativ feminin"
+          ],
+          "sourceSpans": [
+            {
+              "start": 49,
+              "end": 67,
+              "quote": "für ein Wochenende"
+            },
+            {
+              "start": 92,
+              "end": 109,
+              "quote": "eine kleine Stadt"
+            },
+            {
+              "start": 130,
+              "end": 141,
+              "quote": "mit dem Zug"
+            },
+            {
+              "start": 188,
+              "end": 207,
+              "quote": "alle Entscheidungen"
+            },
+            {
+              "start": 383,
+              "end": 410,
+              "quote": "mit einem anderen Reisenden"
+            },
+            {
+              "start": 549,
+              "end": 566,
+              "quote": "eine solche Reise"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: ein Wochenende Akkusativ für, kleine Stadt Akkusativ Adjektiv, dem Zug Dativ mit, alle Entscheidungen Akkusativ Plural, anderen Reisenden Dativ Adjektiv, solche Reise Akkusativ feminin. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        }
+      ],
+      "questions": [
+        {
+          "questionId": "sitov.pretest.b11-06.words.q1",
+          "publicPromptDe": "Was bedeutet für ein Wochenende verreisen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.words.q1.a",
+              "textDe": "Nur den täglichen Weg zur Arbeit zurücklegen."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q1.b",
+              "textDe": "Das Wochenende unverändert am Wohnort verbringen."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q1.c",
+              "textDe": "Für das Wochenende an einen anderen Ort reisen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.words.q1.c",
+          "correctAnswerTextDe": "Für das Wochenende an einen anderen Ort reisen.",
+          "rationaleDe": "Verreisen bezeichnet eine Reise weg vom Wohnort, nicht den normalen Arbeitsweg.",
+          "assessmentUnit": "verreisen anderen Ort besuchen",
+          "sourceSpans": [
+            {
+              "start": 68,
+              "end": 76,
+              "quote": "verreist"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q2",
+          "publicPromptDe": "Was bedeutet »Die Stadt ist gut mit dem Zug erreichbar«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.words.q2.a",
+              "textDe": "Man kann mit dem Zug gut in die Stadt gelangen."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q2.b",
+              "textDe": "Der Zug fährt nur innerhalb der Stadt, ohne Verbindung dorthin."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q2.c",
+              "textDe": "Die Stadt kann nur ohne Zug besucht werden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.words.q2.a",
+          "correctAnswerTextDe": "Man kann mit dem Zug gut in die Stadt gelangen.",
+          "rationaleDe": "Erreichbar beschreibt die Möglichkeit, das Ziel mit dem genannten Verkehrsmittel zu erreichen.",
+          "assessmentUnit": "erreichbar hingelangen können",
+          "sourceSpans": [
+            {
+              "start": 142,
+              "end": 152,
+              "quote": "erreichbar"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q3",
+          "publicPromptDe": "Was bedeutet »Alle Entscheidungen selbst zu treffen war ungewohnt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.words.q3.b",
+              "textDe": "Diese Situation war mir grundsätzlich verboten."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q3.c",
+              "textDe": "Diese Situation war mir noch nicht vertraut."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q3.a",
+              "textDe": "Diese Situation gehörte schon lange zu meiner festen Routine."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.words.q3.c",
+          "correctAnswerTextDe": "Diese Situation war mir noch nicht vertraut.",
+          "rationaleDe": "Ungewohnt meint nicht vertraut, nicht routiniert oder verboten.",
+          "assessmentUnit": "ungewohnt nicht vertraut",
+          "sourceSpans": [
+            {
+              "start": 177,
+              "end": 186,
+              "quote": "ungewohnt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q4",
+          "publicPromptDe": "Was trifft man, wenn man Entscheidungen über Essen und Museumsbesuche trifft?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.words.q4.b",
+              "textDe": "Man nimmt nur unveränderliche Angaben zur Kenntnis."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q4.a",
+              "textDe": "Man wählt zwischen Möglichkeiten."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q4.c",
+              "textDe": "Man erinnert sich nur an bereits vergangene Erlebnisse."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.words.q4.a",
+          "correctAnswerTextDe": "Man wählt zwischen Möglichkeiten.",
+          "rationaleDe": "Entscheidungen betreffen eine Auswahl, nicht bloß Kenntnisnahme oder Erinnerung.",
+          "assessmentUnit": "Entscheidungen Auswahl",
+          "sourceSpans": [
+            {
+              "start": 193,
+              "end": 207,
+              "quote": "Entscheidungen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q5",
+          "publicPromptDe": "Was bedeutet Freiheit beim Alleinreisen und selbstständigen Entscheiden?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.words.q5.a",
+              "textDe": "Eigene Entscheidungen grundsätzlich auf später verschieben zu müssen."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q5.c",
+              "textDe": "Jede Entscheidung von Mitreisenden vorgeben zu lassen."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q5.b",
+              "textDe": "Eigene Entscheidungen ohne Abstimmung mit Mitreisenden treffen zu können."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.words.q5.b",
+          "correctAnswerTextDe": "Eigene Entscheidungen ohne Abstimmung mit Mitreisenden treffen zu können.",
+          "rationaleDe": "Freiheit meint hier selbst wählen zu können; sie sagt nichts über die Abschaffung eigener Verantwortung.",
+          "assessmentUnit": "Freiheit selbst wählen",
+          "sourceSpans": [
+            {
+              "start": 339,
+              "end": 347,
+              "quote": "Freiheit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.words.q6",
+          "publicPromptDe": "Zwei Reisende tauschen Tipps aus und gehen dann wieder eigene Wege. Was bedeutet das?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.words.q6.b",
+              "textDe": "Beide setzen ihre Reise getrennt voneinander fort."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q6.a",
+              "textDe": "Beide beenden ihre Reise genau am Gesprächsort."
+            },
+            {
+              "id": "sitov.pretest.b11-06.words.q6.c",
+              "textDe": "Beide setzen ihre Reise von nun an nur gemeinsam fort."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.words.q6.b",
+          "correctAnswerTextDe": "Beide setzen ihre Reise getrennt voneinander fort.",
+          "rationaleDe": "Eigene Wege gehen bedeutet hier getrennt weiterreisen, nicht zwingend gemeinsam reisen oder aufhören.",
+          "assessmentUnit": "eigene Wege getrennt weitergehen",
+          "sourceSpans": [
+            {
+              "start": 472,
+              "end": 483,
+              "quote": "eigene Wege"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q1",
+          "publicPromptDe": "Welche Partizipform von »verreisen« ergänzt »Ich bin allein ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.verbs.q1.a",
+              "textDe": "geverreist"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q1.b",
+              "textDe": "verreist"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q1.c",
+              "textDe": "verreiste"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.verbs.q1.b",
+          "correctAnswerTextDe": "verreist",
+          "rationaleDe": "Das Verb mit untrennbarem ver bildet das Partizip verreist ohne zusätzliches ge.",
+          "assessmentUnit": "verreist Partizip untrennbar",
+          "sourceSpans": [
+            {
+              "start": 68,
+              "end": 76,
+              "quote": "verreist"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q2",
+          "publicPromptDe": "Welche Zeitform zeigt »Ich hatte mir eine Stadt ausgesucht«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.verbs.q2.b",
+              "textDe": "Präteritum."
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q2.c",
+              "textDe": "Perfekt."
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q2.a",
+              "textDe": "Plusquamperfekt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.verbs.q2.a",
+          "correctAnswerTextDe": "Plusquamperfekt.",
+          "rationaleDe": "Hatte und das Partizip ausgesucht bilden das Plusquamperfekt.",
+          "assessmentUnit": "hatte ausgesucht Plusquamperfekt",
+          "sourceSpans": [
+            {
+              "start": 82,
+              "end": 120,
+              "quote": "hatte mir eine kleine Stadt ausgesucht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q3",
+          "publicPromptDe": "Welche Präteritumform von »finden« ergänzt »Ich ___ das Alleinreisen ungewohnt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.verbs.q3.b",
+              "textDe": "findete"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q3.c",
+              "textDe": "fand"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q3.a",
+              "textDe": "fanden"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.verbs.q3.c",
+          "correctAnswerTextDe": "fand",
+          "rationaleDe": "Finden bildet in der ersten Person Singular das starke Präteritum fand.",
+          "assessmentUnit": "fand starkes Präteritum",
+          "sourceSpans": [
+            {
+              "start": 165,
+              "end": 169,
+              "quote": "fand"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q4",
+          "publicPromptDe": "Welche Präteritumform von »beginnen« ergänzt »Nach einigen Stunden ___ ich, die Freiheit zu genießen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.verbs.q4.a",
+              "textDe": "beginnte"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q4.b",
+              "textDe": "begannen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q4.c",
+              "textDe": "begann"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.verbs.q4.c",
+          "correctAnswerTextDe": "begann",
+          "rationaleDe": "Beginnen bildet das starke Präteritum begann zur ersten Person Singular.",
+          "assessmentUnit": "begann starkes Präteritum",
+          "sourceSpans": [
+            {
+              "start": 321,
+              "end": 327,
+              "quote": "begann"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q5",
+          "publicPromptDe": "Welcher Infinitiv gehört zu »Wir tauschten Tipps aus«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.verbs.q5.b",
+              "textDe": "austauschen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q5.c",
+              "textDe": "tauschen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q5.a",
+              "textDe": "auszutauschen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.verbs.q5.b",
+          "correctAnswerTextDe": "austauschen",
+          "rationaleDe": "Tauschten und aus gehören zum trennbaren Infinitiv austauschen; auszutauschen enthält zusätzlich zu.",
+          "assessmentUnit": "austauschen trennbarer Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 429,
+              "end": 448,
+              "quote": "tauschten Tipps aus"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.verbs.q6",
+          "publicPromptDe": "Welche Form ergänzt »Ich freute ___ auf meine Familie«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.verbs.q6.a",
+              "textDe": "mich"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q6.c",
+              "textDe": "mir"
+            },
+            {
+              "id": "sitov.pretest.b11-06.verbs.q6.b",
+              "textDe": "sich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.verbs.q6.a",
+          "correctAnswerTextDe": "mich",
+          "rationaleDe": "Sich freuen verlangt hier das reflexive Akkusativpronomen mich zum Subjekt ich.",
+          "assessmentUnit": "mich Reflexiv freuen",
+          "sourceSpans": [
+            {
+              "start": 494,
+              "end": 509,
+              "quote": "freute ich mich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q1",
+          "publicPromptDe": "Eine Stadt war gut mit dem Zug erreichbar. Welche Folge ergänzt »Ich suchte eine Stadt, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.syntax.q1.b",
+              "textDe": "die gut mit dem Zug erreichbar war"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q1.c",
+              "textDe": "die war gut mit dem Zug erreichbar"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q1.a",
+              "textDe": "die gut mit dem Zug erreichbar"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.syntax.q1.b",
+          "correctAnswerTextDe": "die gut mit dem Zug erreichbar war",
+          "rationaleDe": "Im Relativsatz steht das finite war am Ende; die bezieht sich auf Stadt.",
+          "assessmentUnit": "die Relativsatz Stadt Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 122,
+              "end": 156,
+              "quote": "die gut mit dem Zug erreichbar war"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q2",
+          "publicPromptDe": "Welche Folge ergänzt »Niemand fragte, wann …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.syntax.q2.b",
+              "textDe": "wir isst"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q2.c",
+              "textDe": "wir essen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q2.a",
+              "textDe": "essen wir"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.syntax.q2.c",
+          "correctAnswerTextDe": "wir essen",
+          "rationaleDe": "In der indirekten wann-Frage steht das finite essen nach dem Subjekt wir am Ende.",
+          "assessmentUnit": "wann indirekte Frage Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 243,
+              "end": 257,
+              "quote": "wann wir essen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q3",
+          "publicPromptDe": "Welche Folge ergänzt »Niemand fragte, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.syntax.q3.c",
+              "textDe": "welches Museum wollten wir besuchen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q3.b",
+              "textDe": "welches Museum wir wollten besuchen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q3.a",
+              "textDe": "welches Museum wir besuchen wollten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.syntax.q3.a",
+          "correctAnswerTextDe": "welches Museum wir besuchen wollten",
+          "rationaleDe": "In der indirekten Frage steht wollten nach dem Infinitiv besuchen am Ende.",
+          "assessmentUnit": "welches Museum Modalverbklammer",
+          "sourceSpans": [
+            {
+              "start": 263,
+              "end": 298,
+              "quote": "welches Museum wir besuchen wollten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q4",
+          "publicPromptDe": "Welche Folge ergänzt »Ich begann, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.syntax.q4.b",
+              "textDe": "diese Freiheit zu genießen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q4.c",
+              "textDe": "diese Freiheit genießen zu"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q4.a",
+              "textDe": "zu diese Freiheit genießen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.syntax.q4.b",
+          "correctAnswerTextDe": "diese Freiheit zu genießen",
+          "rationaleDe": "In der Infinitivgruppe steht zu direkt vor genießen.",
+          "assessmentUnit": "Infinitivgruppe Freiheit genießen",
+          "sourceSpans": [
+            {
+              "start": 333,
+              "end": 359,
+              "quote": "diese Freiheit zu genießen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q5",
+          "publicPromptDe": "Zu Hause freue ich mich auf meine Familie. Trotzdem möchte ich wieder allein reisen. Welche Beziehung besteht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.syntax.q5.b",
+              "textDe": "Der Wunsch nach einer Alleinreise ist der erklärte Zweck der Freude auf die Familie."
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q5.a",
+              "textDe": "Die Freude auf die Familie schließt den Wunsch nach einer weiteren Alleinreise nicht aus."
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q5.c",
+              "textDe": "Die Freude auf die Familie beendet den Wunsch nach jeder weiteren Alleinreise."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.syntax.q5.a",
+          "correctAnswerTextDe": "Die Freude auf die Familie schließt den Wunsch nach einer weiteren Alleinreise nicht aus.",
+          "rationaleDe": "Trotzdem markiert einen Gegensatz zwischen Heimkehrfreude und erneutem Alleinreisewunsch.",
+          "assessmentUnit": "trotzdem Gegensatz Familie Reise",
+          "sourceSpans": [
+            {
+              "start": 529,
+              "end": 583,
+              "quote": "Trotzdem möchte ich eine solche Reise gern wiederholen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.syntax.q6",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Nach einigen Stunden …« zu einem Aussagesatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.syntax.q6.a",
+              "textDe": "ich diese Freiheit zu genießen begann"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q6.b",
+              "textDe": "ich begann, diese Freiheit zu genießen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.syntax.q6.c",
+              "textDe": "begann ich, diese Freiheit zu genießen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.syntax.q6.c",
+          "correctAnswerTextDe": "begann ich, diese Freiheit zu genießen",
+          "rationaleDe": "Die Zeitangabe besetzt das Vorfeld; begann folgt vor dem Subjekt ich.",
+          "assessmentUnit": "Nach Stunden Vorfeld Verbzweit",
+          "sourceSpans": [
+            {
+              "start": 300,
+              "end": 331,
+              "quote": "Nach einigen Stunden begann ich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich verreise für ___ Wochenende«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.nominal.q1.b",
+              "textDe": "einem"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q1.a",
+              "textDe": "ein"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q1.c",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.nominal.q1.a",
+          "correctAnswerTextDe": "ein",
+          "rationaleDe": "Für verlangt Akkusativ; Wochenende ist neutral: ein Wochenende.",
+          "assessmentUnit": "ein Wochenende Akkusativ für",
+          "sourceSpans": [
+            {
+              "start": 49,
+              "end": 67,
+              "quote": "für ein Wochenende"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe eine ___ Stadt ausgesucht« zu »klein«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.nominal.q2.c",
+              "textDe": "kleinen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q2.b",
+              "textDe": "kleine"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q2.a",
+              "textDe": "kleiner"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.nominal.q2.b",
+          "correctAnswerTextDe": "kleine",
+          "rationaleDe": "Nach eine lautet das Adjektiv im Akkusativ feminin kleine.",
+          "assessmentUnit": "kleine Stadt Akkusativ Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 92,
+              "end": 109,
+              "quote": "eine kleine Stadt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Die Stadt ist mit ___ Zug erreichbar«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.nominal.q3.b",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q3.a",
+              "textDe": "des"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q3.c",
+              "textDe": "dem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.nominal.q3.c",
+          "correctAnswerTextDe": "dem",
+          "rationaleDe": "Mit verlangt Dativ; Zug ist maskulin: dem Zug.",
+          "assessmentUnit": "dem Zug Dativ mit",
+          "sourceSpans": [
+            {
+              "start": 130,
+              "end": 141,
+              "quote": "mit dem Zug"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich treffe ___ Entscheidungen selbst«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.nominal.q4.b",
+              "textDe": "allen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q4.a",
+              "textDe": "aller"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q4.c",
+              "textDe": "alle"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.nominal.q4.c",
+          "correctAnswerTextDe": "alle",
+          "rationaleDe": "Entscheidungen ist direktes Objekt im Akkusativ Plural: alle Entscheidungen.",
+          "assessmentUnit": "alle Entscheidungen Akkusativ Plural",
+          "sourceSpans": [
+            {
+              "start": 188,
+              "end": 207,
+              "quote": "alle Entscheidungen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q5",
+          "publicPromptDe": "Welche Adjektivform ergänzt »mit einem ___ Reisenden«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.nominal.q5.a",
+              "textDe": "anderen"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q5.b",
+              "textDe": "anderes"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q5.c",
+              "textDe": "anderer"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.nominal.q5.a",
+          "correctAnswerTextDe": "anderen",
+          "rationaleDe": "Nach einem im Dativ maskulin endet das Adjektiv auf en: anderen.",
+          "assessmentUnit": "anderen Reisenden Dativ Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 383,
+              "end": 410,
+              "quote": "mit einem anderen Reisenden"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-06.nominal.q6",
+          "publicPromptDe": "Ich meine eine Reise derselben Art. Welche Form ergänzt »Ich möchte eine ___ Reise wiederholen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-06.nominal.q6.b",
+              "textDe": "solche"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q6.a",
+              "textDe": "solcher"
+            },
+            {
+              "id": "sitov.pretest.b11-06.nominal.q6.c",
+              "textDe": "solchen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-06.nominal.q6.b",
+          "correctAnswerTextDe": "solche",
+          "rationaleDe": "Nach eine steht solche hier im Akkusativ feminin Singular.",
+          "assessmentUnit": "solche Reise Akkusativ feminin",
+          "sourceSpans": [
+            {
+              "start": 549,
+              "end": 566,
+              "quote": "eine solche Reise"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "92818a0b-1e3d-5f69-b023-f61637d49279",
+      "title": "Homeoffice im Alltag",
+      "level": "B1.1",
+      "textVersion": "33692f0ad6e25f4080374ce9667ef9f6c24403df0d599bd3ee41eab4f6018a0e",
+      "definitionContentHash": "74de4434b7fea8cf8e518d0c040c60364ceceb1d0b787e15692fe0b4d88cb26e",
+      "sourceBodyDe": "An zwei Tagen in der Woche arbeite ich von zu Hause aus. Dadurch spare ich den Arbeitsweg und kann morgens ruhiger beginnen. Allerdings war es anfangs schwierig, nach Feierabend wirklich aufzuhören. Mein Laptop stand auf dem Küchentisch, und ich beantwortete noch spät Nachrichten. Inzwischen habe ich einen festen Arbeitsplatz und klare Arbeitszeiten. Nach der letzten Aufgabe schalte ich den Computer aus und gehe kurz spazieren. Diese kleine Gewohnheit hilft mir, Arbeit und Freizeit zu trennen. Den Kontakt zu meinen Kollegen möchte ich trotzdem nicht verlieren. Deshalb bin ich auch gern regelmäßig im Büro.",
+      "cores": [
+        {
+          "id": "sitov.pretest.b11-07.words",
+          "category": "vocabulary",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "Arbeitsweg Strecke Arbeit",
+            "Feierabend Ende Arbeitstag",
+            "Arbeitsplatz Ort Arbeiten",
+            "Arbeitszeiten zeitliche Grenzen",
+            "Gewohnheit regelmäßiges Verhalten",
+            "Kontakt verlieren weniger Austausch"
+          ],
+          "sourceSpans": [
+            {
+              "start": 79,
+              "end": 89,
+              "quote": "Arbeitsweg"
+            },
+            {
+              "start": 167,
+              "end": 177,
+              "quote": "Feierabend"
+            },
+            {
+              "start": 315,
+              "end": 327,
+              "quote": "Arbeitsplatz"
+            },
+            {
+              "start": 338,
+              "end": 351,
+              "quote": "Arbeitszeiten"
+            },
+            {
+              "start": 445,
+              "end": 455,
+              "quote": "Gewohnheit"
+            },
+            {
+              "start": 503,
+              "end": 529,
+              "quote": "Kontakt zu meinen Kollegen"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Arbeitsweg Strecke Arbeit, Feierabend Ende Arbeitstag, Arbeitsplatz Ort Arbeiten, Arbeitszeiten zeitliche Grenzen, Gewohnheit regelmäßiges Verhalten, Kontakt verlieren weniger Austausch. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-07.verbs",
+          "category": "verb_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "arbeite Präsens erste Singular",
+            "kann Modal Präsens erste Singular",
+            "stand starkes Präteritum",
+            "beantwortete schwaches Präteritum",
+            "ausschalten trennbarer Infinitiv",
+            "verlieren Infinitiv nach möchte"
+          ],
+          "sourceSpans": [
+            {
+              "start": 27,
+              "end": 38,
+              "quote": "arbeite ich"
+            },
+            {
+              "start": 94,
+              "end": 123,
+              "quote": "kann morgens ruhiger beginnen"
+            },
+            {
+              "start": 211,
+              "end": 216,
+              "quote": "stand"
+            },
+            {
+              "start": 246,
+              "end": 258,
+              "quote": "beantwortete"
+            },
+            {
+              "start": 378,
+              "end": 406,
+              "quote": "schalte ich den Computer aus"
+            },
+            {
+              "start": 530,
+              "end": 565,
+              "quote": "möchte ich trotzdem nicht verlieren"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: arbeite Präsens erste Singular, kann Modal Präsens erste Singular, stand starkes Präteritum, beantwortete schwaches Präteritum, ausschalten trennbarer Infinitiv, verlieren Infinitiv nach möchte. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-07.syntax",
+          "category": "syntax",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "Dadurch Konsequenz Heimarbeit",
+            "Allerdings Gegensatz Anfangsschwierigkeit",
+            "Nach Aufgabe Vorfeld Verbzweit",
+            "Infinitivgruppe Arbeit Freizeit",
+            "Kontakt Objektvorfeld Modalklammer",
+            "Deshalb Folge Kontakt Büro"
+          ],
+          "sourceSpans": [
+            {
+              "start": 57,
+              "end": 89,
+              "quote": "Dadurch spare ich den Arbeitsweg"
+            },
+            {
+              "start": 125,
+              "end": 160,
+              "quote": "Allerdings war es anfangs schwierig"
+            },
+            {
+              "start": 353,
+              "end": 406,
+              "quote": "Nach der letzten Aufgabe schalte ich den Computer aus"
+            },
+            {
+              "start": 467,
+              "end": 497,
+              "quote": "Arbeit und Freizeit zu trennen"
+            },
+            {
+              "start": 499,
+              "end": 565,
+              "quote": "Den Kontakt zu meinen Kollegen möchte ich trotzdem nicht verlieren"
+            },
+            {
+              "start": 567,
+              "end": 611,
+              "quote": "Deshalb bin ich auch gern regelmäßig im Büro"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Dadurch Konsequenz Heimarbeit, Allerdings Gegensatz Anfangsschwierigkeit, Nach Aufgabe Vorfeld Verbzweit, Infinitivgruppe Arbeit Freizeit, Kontakt Objektvorfeld Modalklammer, Deshalb Folge Kontakt Büro. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-07.nominal",
+          "category": "nominal_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "Tagen Dativ Plural an",
+            "den Arbeitsweg Akkusativ",
+            "dem Küchentisch Dativ Ort",
+            "festen Arbeitsplatz Akkusativ Adjektiv",
+            "ruhiger Komparativ ruhig",
+            "meinen Kollegen Dativ Plural"
+          ],
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 13,
+              "quote": "An zwei Tagen"
+            },
+            {
+              "start": 75,
+              "end": 89,
+              "quote": "den Arbeitsweg"
+            },
+            {
+              "start": 217,
+              "end": 236,
+              "quote": "auf dem Küchentisch"
+            },
+            {
+              "start": 302,
+              "end": 327,
+              "quote": "einen festen Arbeitsplatz"
+            },
+            {
+              "start": 107,
+              "end": 114,
+              "quote": "ruhiger"
+            },
+            {
+              "start": 511,
+              "end": 529,
+              "quote": "zu meinen Kollegen"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Tagen Dativ Plural an, den Arbeitsweg Akkusativ, dem Küchentisch Dativ Ort, festen Arbeitsplatz Akkusativ Adjektiv, ruhiger Komparativ ruhig, meinen Kollegen Dativ Plural. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        }
+      ],
+      "questions": [
+        {
+          "questionId": "sitov.pretest.b11-07.words.q1",
+          "publicPromptDe": "Was ist der Arbeitsweg?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.words.q1.b",
+              "textDe": "Der Weg zwischen Wohnort und Arbeitsplatz."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q1.a",
+              "textDe": "Nur ein Spaziergang in der Freizeit ohne Arbeitsziel."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q1.c",
+              "textDe": "Nur die Zeit, die man am Arbeitsplatz arbeitet."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.words.q1.b",
+          "correctAnswerTextDe": "Der Weg zwischen Wohnort und Arbeitsplatz.",
+          "rationaleDe": "Arbeitsweg bezeichnet die Strecke zur oder von der Arbeit, nicht Arbeitsdauer oder Freizeitweg.",
+          "assessmentUnit": "Arbeitsweg Strecke Arbeit",
+          "sourceSpans": [
+            {
+              "start": 79,
+              "end": 89,
+              "quote": "Arbeitsweg"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q2",
+          "publicPromptDe": "Was bedeutet nach Feierabend?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.words.q2.c",
+              "textDe": "Vor dem Beginn der täglichen Arbeitszeit."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q2.b",
+              "textDe": "Während der gesamten täglichen Arbeitszeit."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q2.a",
+              "textDe": "Nach dem Ende der täglichen Arbeitszeit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.words.q2.a",
+          "correctAnswerTextDe": "Nach dem Ende der täglichen Arbeitszeit.",
+          "rationaleDe": "Feierabend bezeichnet den Abschluss des Arbeitstags.",
+          "assessmentUnit": "Feierabend Ende Arbeitstag",
+          "sourceSpans": [
+            {
+              "start": 167,
+              "end": 177,
+              "quote": "Feierabend"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q3",
+          "publicPromptDe": "Was meint ein fester Arbeitsplatz zu Hause?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.words.q3.a",
+              "textDe": "Nur eine Uhrzeit, zu der man die Arbeit beendet."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q3.c",
+              "textDe": "Ein bestimmter Ort, an dem man regelmäßig arbeitet."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q3.b",
+              "textDe": "Ein ständig wechselnder Ort ohne feste Zuordnung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.words.q3.c",
+          "correctAnswerTextDe": "Ein bestimmter Ort, an dem man regelmäßig arbeitet.",
+          "rationaleDe": "Arbeitsplatz bezeichnet hier den Arbeitsort; feste Zeiten sind ein anderer Bestandteil.",
+          "assessmentUnit": "Arbeitsplatz Ort Arbeiten",
+          "sourceSpans": [
+            {
+              "start": 315,
+              "end": 327,
+              "quote": "Arbeitsplatz"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q4",
+          "publicPromptDe": "Was legen klare Arbeitszeiten fest?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.words.q4.b",
+              "textDe": "Wann die Arbeit beginnt und endet."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q4.a",
+              "textDe": "Nur mit welchen Kollegen man sprechen darf."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q4.c",
+              "textDe": "Nur an welchem Tisch die Arbeit stattfindet."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.words.q4.b",
+          "correctAnswerTextDe": "Wann die Arbeit beginnt und endet.",
+          "rationaleDe": "Arbeitszeiten betreffen den zeitlichen Rahmen, nicht den Ort oder erlaubte Kontakte.",
+          "assessmentUnit": "Arbeitszeiten zeitliche Grenzen",
+          "sourceSpans": [
+            {
+              "start": 338,
+              "end": 351,
+              "quote": "Arbeitszeiten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q5",
+          "publicPromptDe": "Was ist eine kleine Gewohnheit nach der Arbeit?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.words.q5.a",
+              "textDe": "Ein Verhalten, das man nur von anderen erwartet."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q5.b",
+              "textDe": "Ein einmaliges Verhalten ohne Wiederholung."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q5.c",
+              "textDe": "Ein Verhalten, das man regelmäßig wiederholt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.words.q5.c",
+          "correctAnswerTextDe": "Ein Verhalten, das man regelmäßig wiederholt.",
+          "rationaleDe": "Gewohnheit meint eigenes wiederkehrendes Verhalten.",
+          "assessmentUnit": "Gewohnheit regelmäßiges Verhalten",
+          "sourceSpans": [
+            {
+              "start": 445,
+              "end": 455,
+              "quote": "Gewohnheit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.words.q6",
+          "publicPromptDe": "Was bedeutet den Kontakt zu Kollegen verlieren?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.words.q6.c",
+              "textDe": "Die Kollegen unverändert täglich persönlich treffen."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q6.a",
+              "textDe": "Den regelmäßigen Austausch mit ihnen nicht mehr aufrechterhalten."
+            },
+            {
+              "id": "sitov.pretest.b11-07.words.q6.b",
+              "textDe": "Den regelmäßigen Austausch mit ihnen verstärken."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.words.q6.a",
+          "correctAnswerTextDe": "Den regelmäßigen Austausch mit ihnen nicht mehr aufrechterhalten.",
+          "rationaleDe": "Kontakt verlieren heißt, dass die Verbindung und der Austausch nicht erhalten bleiben.",
+          "assessmentUnit": "Kontakt verlieren weniger Austausch",
+          "sourceSpans": [
+            {
+              "start": 503,
+              "end": 529,
+              "quote": "Kontakt zu meinen Kollegen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q1",
+          "publicPromptDe": "Welche Präsensform von »arbeiten« ergänzt »Ich ___ von zu Hause aus«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.verbs.q1.a",
+              "textDe": "arbeitet"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q1.b",
+              "textDe": "arbeitest"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q1.c",
+              "textDe": "arbeite"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.verbs.q1.c",
+          "correctAnswerTextDe": "arbeite",
+          "rationaleDe": "Ich verlangt die erste Person Singular arbeite.",
+          "assessmentUnit": "arbeite Präsens erste Singular",
+          "sourceSpans": [
+            {
+              "start": 27,
+              "end": 38,
+              "quote": "arbeite ich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q2",
+          "publicPromptDe": "Welche Präsensform von »können« ergänzt »Ich ___ morgens ruhiger beginnen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.verbs.q2.b",
+              "textDe": "kann"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q2.c",
+              "textDe": "können"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q2.a",
+              "textDe": "kannst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.verbs.q2.b",
+          "correctAnswerTextDe": "kann",
+          "rationaleDe": "Das Modalverb lautet zur ersten Person Singular kann.",
+          "assessmentUnit": "kann Modal Präsens erste Singular",
+          "sourceSpans": [
+            {
+              "start": 94,
+              "end": 123,
+              "quote": "kann morgens ruhiger beginnen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q3",
+          "publicPromptDe": "Welche Präteritumform von »stehen« ergänzt »Mein Laptop ___ auf dem Küchentisch«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.verbs.q3.b",
+              "textDe": "stehte"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q3.a",
+              "textDe": "stand"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q3.c",
+              "textDe": "standen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.verbs.q3.a",
+          "correctAnswerTextDe": "stand",
+          "rationaleDe": "Stehen bildet das starke Präteritum stand zur dritten Person Singular.",
+          "assessmentUnit": "stand starkes Präteritum",
+          "sourceSpans": [
+            {
+              "start": 211,
+              "end": 216,
+              "quote": "stand"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q4",
+          "publicPromptDe": "Welche Präteritumform von »beantworten« ergänzt »Ich ___ noch spät Nachrichten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.verbs.q4.c",
+              "textDe": "beantwortetest"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q4.b",
+              "textDe": "beantworteten"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q4.a",
+              "textDe": "beantwortete"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.verbs.q4.a",
+          "correctAnswerTextDe": "beantwortete",
+          "rationaleDe": "Zur ersten Person Singular lautet das schwache Präteritum beantwortete.",
+          "assessmentUnit": "beantwortete schwaches Präteritum",
+          "sourceSpans": [
+            {
+              "start": 246,
+              "end": 258,
+              "quote": "beantwortete"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q5",
+          "publicPromptDe": "Welcher Infinitiv gehört zu »Ich schalte den Computer aus«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.verbs.q5.a",
+              "textDe": "auszuschalten"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q5.b",
+              "textDe": "ausschalten"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q5.c",
+              "textDe": "schalten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.verbs.q5.b",
+          "correctAnswerTextDe": "ausschalten",
+          "rationaleDe": "Schalte und aus bilden das trennbare ausschalten; auszuschalten enthält zusätzlich zu.",
+          "assessmentUnit": "ausschalten trennbarer Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 378,
+              "end": 406,
+              "quote": "schalte ich den Computer aus"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.verbs.q6",
+          "publicPromptDe": "Welche Form ergänzt »Ich möchte den Kontakt nicht ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.verbs.q6.c",
+              "textDe": "verlieren"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q6.a",
+              "textDe": "verloren"
+            },
+            {
+              "id": "sitov.pretest.b11-07.verbs.q6.b",
+              "textDe": "zu verlieren"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.verbs.q6.c",
+          "correctAnswerTextDe": "verlieren",
+          "rationaleDe": "Nach möchte steht der reine Infinitiv verlieren.",
+          "assessmentUnit": "verlieren Infinitiv nach möchte",
+          "sourceSpans": [
+            {
+              "start": 530,
+              "end": 565,
+              "quote": "möchte ich trotzdem nicht verlieren"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q1",
+          "publicPromptDe": "Ich arbeite zu Hause. Dadurch spare ich den Arbeitsweg. Welche Beziehung besteht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.syntax.q1.c",
+              "textDe": "Das Arbeiten zu Hause ist der Zweck eines längeren Arbeitswegs."
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q1.a",
+              "textDe": "Ein längerer Arbeitsweg verhindert das Arbeiten zu Hause."
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q1.b",
+              "textDe": "Das Arbeiten zu Hause führt dazu, dass der Arbeitsweg entfällt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.syntax.q1.b",
+          "correctAnswerTextDe": "Das Arbeiten zu Hause führt dazu, dass der Arbeitsweg entfällt.",
+          "rationaleDe": "Dadurch verbindet die Heimarbeit mit ihrer Folge, dem eingesparten Arbeitsweg.",
+          "assessmentUnit": "Dadurch Konsequenz Heimarbeit",
+          "sourceSpans": [
+            {
+              "start": 57,
+              "end": 89,
+              "quote": "Dadurch spare ich den Arbeitsweg"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q2",
+          "publicPromptDe": "Zu Hause spare ich den Arbeitsweg. Allerdings fiel mir das Aufhören anfangs schwer. Welche Beziehung besteht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.syntax.q2.a",
+              "textDe": "Die Schwierigkeit ist der erklärte Zweck des eingesparten Arbeitswegs."
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q2.c",
+              "textDe": "Ein Vorteil wird durch eine anfängliche Schwierigkeit ergänzt."
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q2.b",
+              "textDe": "Der Vorteil beseitigte von Anfang an jede Schwierigkeit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.syntax.q2.c",
+          "correctAnswerTextDe": "Ein Vorteil wird durch eine anfängliche Schwierigkeit ergänzt.",
+          "rationaleDe": "Allerdings schränkt die positive Darstellung durch einen Gegenpunkt ein.",
+          "assessmentUnit": "Allerdings Gegensatz Anfangsschwierigkeit",
+          "sourceSpans": [
+            {
+              "start": 125,
+              "end": 160,
+              "quote": "Allerdings war es anfangs schwierig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q3",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Nach der letzten Aufgabe …« zu einem Aussagesatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.syntax.q3.b",
+              "textDe": "ich schalte den Computer aus"
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q3.c",
+              "textDe": "ich den Computer ausschalte"
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q3.a",
+              "textDe": "schalte ich den Computer aus"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.syntax.q3.a",
+          "correctAnswerTextDe": "schalte ich den Computer aus",
+          "rationaleDe": "Die Zeitangabe besetzt das Vorfeld; schalte folgt vor ich, aus bleibt am Ende.",
+          "assessmentUnit": "Nach Aufgabe Vorfeld Verbzweit",
+          "sourceSpans": [
+            {
+              "start": 353,
+              "end": 406,
+              "quote": "Nach der letzten Aufgabe schalte ich den Computer aus"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q4",
+          "publicPromptDe": "Welche Folge ergänzt »Die Gewohnheit hilft mir, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.syntax.q4.a",
+              "textDe": "Arbeit und Freizeit trennen zu"
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q4.c",
+              "textDe": "Arbeit und Freizeit zu trennen"
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q4.b",
+              "textDe": "zu Arbeit und Freizeit trennen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.syntax.q4.c",
+          "correctAnswerTextDe": "Arbeit und Freizeit zu trennen",
+          "rationaleDe": "Zu steht direkt vor trennen; Arbeit und Freizeit bilden das koordinierte Objekt.",
+          "assessmentUnit": "Infinitivgruppe Arbeit Freizeit",
+          "sourceSpans": [
+            {
+              "start": 467,
+              "end": 497,
+              "quote": "Arbeit und Freizeit zu trennen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q5",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Den Kontakt zu meinen Kollegen …« zu einem Aussagesatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.syntax.q5.a",
+              "textDe": "möchte ich trotzdem nicht verlieren"
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q5.c",
+              "textDe": "ich möchte trotzdem nicht verlieren"
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q5.b",
+              "textDe": "ich trotzdem nicht verlieren möchte"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.syntax.q5.a",
+          "correctAnswerTextDe": "möchte ich trotzdem nicht verlieren",
+          "rationaleDe": "Das Objekt steht im Vorfeld; möchte folgt vor ich, verlieren bildet das Ende der Verbklammer.",
+          "assessmentUnit": "Kontakt Objektvorfeld Modalklammer",
+          "sourceSpans": [
+            {
+              "start": 499,
+              "end": 565,
+              "quote": "Den Kontakt zu meinen Kollegen möchte ich trotzdem nicht verlieren"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.syntax.q6",
+          "publicPromptDe": "Ich möchte den Kontakt zu Kollegen behalten. Deshalb bin ich regelmäßig im Büro. Welche Beziehung besteht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.syntax.q6.b",
+              "textDe": "Der gewünschte Kontakt ist ein Grund für die regelmäßigen Bürobesuche."
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q6.a",
+              "textDe": "Der gewünschte Kontakt ist erst die Folge völlig vermiedener Bürobesuche."
+            },
+            {
+              "id": "sitov.pretest.b11-07.syntax.q6.c",
+              "textDe": "Die Bürobesuche sollen den Kontakt zu Kollegen verhindern."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.syntax.q6.b",
+          "correctAnswerTextDe": "Der gewünschte Kontakt ist ein Grund für die regelmäßigen Bürobesuche.",
+          "rationaleDe": "Deshalb leitet die Folge aus dem zuvor genannten Kontaktwunsch ab.",
+          "assessmentUnit": "Deshalb Folge Kontakt Büro",
+          "sourceSpans": [
+            {
+              "start": 567,
+              "end": 611,
+              "quote": "Deshalb bin ich auch gern regelmäßig im Büro"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt die regelmäßige Zeitangabe »An zwei ___ in der Woche arbeite ich zu Hause«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.nominal.q1.c",
+              "textDe": "Tage"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q1.b",
+              "textDe": "Tagen"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q1.a",
+              "textDe": "Tages"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.nominal.q1.b",
+          "correctAnswerTextDe": "Tagen",
+          "rationaleDe": "An steht hier mit Dativ Plural; Tag erhält n: Tagen.",
+          "assessmentUnit": "Tagen Dativ Plural an",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 13,
+              "quote": "An zwei Tagen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich spare ___ Arbeitsweg«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.nominal.q2.c",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q2.b",
+              "textDe": "des"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q2.a",
+              "textDe": "dem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.nominal.q2.c",
+          "correctAnswerTextDe": "den",
+          "rationaleDe": "Arbeitsweg ist maskulines direktes Objekt im Akkusativ: den.",
+          "assessmentUnit": "den Arbeitsweg Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 75,
+              "end": 89,
+              "quote": "den Arbeitsweg"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q3",
+          "publicPromptDe": "Der Laptop steht auf der Tischfläche. Welche Form ergänzt »Der Laptop stand auf ___ Küchentisch«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.nominal.q3.b",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q3.c",
+              "textDe": "des"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q3.a",
+              "textDe": "dem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.nominal.q3.a",
+          "correctAnswerTextDe": "dem",
+          "rationaleDe": "Auf beschreibt einen Ort ohne Richtungswechsel und verlangt Dativ: dem Küchentisch.",
+          "assessmentUnit": "dem Küchentisch Dativ Ort",
+          "sourceSpans": [
+            {
+              "start": 217,
+              "end": 236,
+              "quote": "auf dem Küchentisch"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe einen ___ Arbeitsplatz« zu »fest«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.nominal.q4.a",
+              "textDe": "festen"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q4.c",
+              "textDe": "fester"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q4.b",
+              "textDe": "festem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.nominal.q4.a",
+          "correctAnswerTextDe": "festen",
+          "rationaleDe": "Nach einen steht das Adjektiv im Akkusativ maskulin mit en.",
+          "assessmentUnit": "festen Arbeitsplatz Akkusativ Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 302,
+              "end": 327,
+              "quote": "einen festen Arbeitsplatz"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q5",
+          "publicPromptDe": "Welche Komparativform von »ruhig« ergänzt »Ich kann morgens ___ beginnen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.nominal.q5.a",
+              "textDe": "ruhig"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q5.c",
+              "textDe": "ruhiger"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q5.b",
+              "textDe": "ruhigste"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.nominal.q5.c",
+          "correctAnswerTextDe": "ruhiger",
+          "rationaleDe": "Der Komparativ von ruhig lautet ruhiger und wird hier adverbial nicht weiter flektiert.",
+          "assessmentUnit": "ruhiger Komparativ ruhig",
+          "sourceSpans": [
+            {
+              "start": 107,
+              "end": 114,
+              "quote": "ruhiger"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-07.nominal.q6",
+          "publicPromptDe": "Die Kollegen sind meine Kollegen. Welche Form ergänzt »der Kontakt zu ___ Kollegen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-07.nominal.q6.c",
+              "textDe": "meine"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q6.a",
+              "textDe": "meiner"
+            },
+            {
+              "id": "sitov.pretest.b11-07.nominal.q6.b",
+              "textDe": "meinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-07.nominal.q6.b",
+          "correctAnswerTextDe": "meinen",
+          "rationaleDe": "Zu verlangt Dativ Plural: meinen Kollegen.",
+          "assessmentUnit": "meinen Kollegen Dativ Plural",
+          "sourceSpans": [
+            {
+              "start": 511,
+              "end": 529,
+              "quote": "zu meinen Kollegen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "d0e1136a-e6ee-5b28-b3b8-37c744be5528",
+      "title": "Gemeinsam eine Veranstaltung planen",
+      "level": "B1.1",
+      "textVersion": "25ab86cb8f7e81b744c51fc53c15b07fc0076f632cf724893a7f5f48c3c7ac04",
+      "definitionContentHash": "58c00ff5725ab3c2745846a17f5da73731f33098dd217739330e3b2eece2d7af",
+      "sourceBodyDe": "Unser Deutschkurs organisiert einen kleinen Nachmittag für Familien und Freunde. Wir möchten zeigen, was wir in den letzten Monaten gelernt haben. Eine Gruppe bereitet kurze Geschichten vor, eine andere kümmert sich um Spiele für die Jungen. Ich bin für die Einladung zuständig. Zuerst hatte ich Angst, dabei Fehler zu machen. Der Lehrer erklärte jedoch, dass wir uns gegenseitig helfen sollen. Gemeinsam haben wir den Text gelesen und verbessert. Bei der Planung merken wir, wie viel man mit Deutsch schon erreichen kann. Entscheidend ist, dass wir miteinander sprechen und nicht auf den perfekten Satz warten.",
+      "cores": [
+        {
+          "id": "sitov.pretest.b11-08.words",
+          "category": "vocabulary",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "zuständig Verantwortung Aufgabe",
+            "Einladung Bitte Teilnahme",
+            "gegenseitig wechselseitige Hilfe",
+            "Planung Vorbereitung Ablauf",
+            "entscheidend besonders wichtig",
+            "verbessern Qualität steigern"
+          ],
+          "sourceSpans": [
+            {
+              "start": 268,
+              "end": 277,
+              "quote": "zuständig"
+            },
+            {
+              "start": 258,
+              "end": 267,
+              "quote": "Einladung"
+            },
+            {
+              "start": 368,
+              "end": 379,
+              "quote": "gegenseitig"
+            },
+            {
+              "start": 456,
+              "end": 463,
+              "quote": "Planung"
+            },
+            {
+              "start": 523,
+              "end": 535,
+              "quote": "Entscheidend"
+            },
+            {
+              "start": 436,
+              "end": 446,
+              "quote": "verbessert"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: zuständig Verantwortung Aufgabe, Einladung Bitte Teilnahme, gegenseitig wechselseitige Hilfe, Planung Vorbereitung Ablauf, entscheidend besonders wichtig, verbessern Qualität steigern. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-08.verbs",
+          "category": "verb_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "organisiert Präsens dritte Singular",
+            "vorbereiten trennbarer Infinitiv",
+            "sich Reflexiv kümmern",
+            "helfen Infinitiv nach sollen",
+            "gelesen starkes Partizip",
+            "verbessert Partizip untrennbar"
+          ],
+          "sourceSpans": [
+            {
+              "start": 18,
+              "end": 29,
+              "quote": "organisiert"
+            },
+            {
+              "start": 159,
+              "end": 189,
+              "quote": "bereitet kurze Geschichten vor"
+            },
+            {
+              "start": 203,
+              "end": 215,
+              "quote": "kümmert sich"
+            },
+            {
+              "start": 380,
+              "end": 393,
+              "quote": "helfen sollen"
+            },
+            {
+              "start": 424,
+              "end": 431,
+              "quote": "gelesen"
+            },
+            {
+              "start": 436,
+              "end": 446,
+              "quote": "verbessert"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: organisiert Präsens dritte Singular, vorbereiten trennbarer Infinitiv, sich Reflexiv kümmern, helfen Infinitiv nach sollen, gelesen starkes Partizip, verbessert Partizip untrennbar. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-08.syntax",
+          "category": "syntax",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "was indirekter Satz Perfektklammer",
+            "Infinitivgruppe Fehler machen",
+            "dass Reflexiv Modalverbfinal",
+            "wie viel indirekte Modalfrage",
+            "nicht Negationsbereich Warten",
+            "Gemeinsam Vorfeld Perfekt Koordination"
+          ],
+          "sourceSpans": [
+            {
+              "start": 101,
+              "end": 145,
+              "quote": "was wir in den letzten Monaten gelernt haben"
+            },
+            {
+              "start": 303,
+              "end": 325,
+              "quote": "dabei Fehler zu machen"
+            },
+            {
+              "start": 355,
+              "end": 393,
+              "quote": "dass wir uns gegenseitig helfen sollen"
+            },
+            {
+              "start": 476,
+              "end": 521,
+              "quote": "wie viel man mit Deutsch schon erreichen kann"
+            },
+            {
+              "start": 541,
+              "end": 610,
+              "quote": "dass wir miteinander sprechen und nicht auf den perfekten Satz warten"
+            },
+            {
+              "start": 395,
+              "end": 446,
+              "quote": "Gemeinsam haben wir den Text gelesen und verbessert"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: was indirekter Satz Perfektklammer, Infinitivgruppe Fehler machen, dass Reflexiv Modalverbfinal, wie viel indirekte Modalfrage, nicht Negationsbereich Warten, Gemeinsam Vorfeld Perfekt Koordination. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        },
+        {
+          "id": "sitov.pretest.b11-08.nominal",
+          "category": "nominal_forms",
+          "itemsPerAttempt": 3,
+          "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+          "languageUnits": [
+            "kleinen Nachmittag Akkusativ Adjektiv",
+            "letzten Monaten Dativ Plural",
+            "kurze Geschichten Akkusativ Plural",
+            "die Jungen Akkusativ für",
+            "die Einladung Akkusativ für",
+            "perfekten Satz Akkusativ Adjektiv"
+          ],
+          "sourceSpans": [
+            {
+              "start": 30,
+              "end": 54,
+              "quote": "einen kleinen Nachmittag"
+            },
+            {
+              "start": 109,
+              "end": 131,
+              "quote": "in den letzten Monaten"
+            },
+            {
+              "start": 168,
+              "end": 185,
+              "quote": "kurze Geschichten"
+            },
+            {
+              "start": 226,
+              "end": 240,
+              "quote": "für die Jungen"
+            },
+            {
+              "start": 250,
+              "end": 267,
+              "quote": "für die Einladung"
+            },
+            {
+              "start": 581,
+              "end": 603,
+              "quote": "auf den perfekten Satz"
+            }
+          ],
+          "mapping": {
+            "topicIds": [],
+            "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: kleinen Nachmittag Akkusativ Adjektiv, letzten Monaten Dativ Plural, kurze Geschichten Akkusativ Plural, die Jungen Akkusativ für, die Einladung Akkusativ für, perfekten Satz Akkusativ Adjektiv. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+          }
+        }
+      ],
+      "questions": [
+        {
+          "questionId": "sitov.pretest.b11-08.words.q1",
+          "publicPromptDe": "Was bedeutet »Ich bin für die Einladung zuständig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.words.q1.c",
+              "textDe": "Ich bin für diese Aufgabe verantwortlich."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q1.a",
+              "textDe": "Ich habe mit dieser Aufgabe noch keinen vereinbarten Bezug."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q1.b",
+              "textDe": "Ich bin von dieser Aufgabe vollständig ausgenommen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.words.q1.c",
+          "correctAnswerTextDe": "Ich bin für diese Aufgabe verantwortlich.",
+          "rationaleDe": "Zuständig bedeutet verantwortlich für den betreffenden Aufgabenbereich.",
+          "assessmentUnit": "zuständig Verantwortung Aufgabe",
+          "sourceSpans": [
+            {
+              "start": 268,
+              "end": 277,
+              "quote": "zuständig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q2",
+          "publicPromptDe": "Was ist eine Einladung zu einer Veranstaltung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.words.q2.b",
+              "textDe": "Ein Bericht erst nach dem Ende der Veranstaltung."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q2.a",
+              "textDe": "Eine Bitte oder Aufforderung, an der Veranstaltung teilzunehmen."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q2.c",
+              "textDe": "Eine Absage der gesamten Veranstaltung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.words.q2.a",
+          "correctAnswerTextDe": "Eine Bitte oder Aufforderung, an der Veranstaltung teilzunehmen.",
+          "rationaleDe": "Eine Einladung richtet sich auf die Teilnahme, nicht auf Absage oder nachträglichen Bericht.",
+          "assessmentUnit": "Einladung Bitte Teilnahme",
+          "sourceSpans": [
+            {
+              "start": 258,
+              "end": 267,
+              "quote": "Einladung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q3",
+          "publicPromptDe": "Was bedeutet »Wir helfen uns gegenseitig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.words.q3.a",
+              "textDe": "Nur einer hilft dem anderen, ohne selbst Hilfe zu bekommen."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q3.b",
+              "textDe": "Jeder hilft nur sich selbst."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q3.c",
+              "textDe": "Jeder hilft dem anderen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.words.q3.c",
+          "correctAnswerTextDe": "Jeder hilft dem anderen.",
+          "rationaleDe": "Gegenseitig beschreibt wechselseitige Hilfe zwischen den Beteiligten.",
+          "assessmentUnit": "gegenseitig wechselseitige Hilfe",
+          "sourceSpans": [
+            {
+              "start": 368,
+              "end": 379,
+              "quote": "gegenseitig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q4",
+          "publicPromptDe": "Was gehört zur Planung einer Veranstaltung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.words.q4.a",
+              "textDe": "Die Veranstaltung ohne jede Absprache beginnen."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q4.c",
+              "textDe": "Den Ablauf erst nach der Veranstaltung erinnern."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q4.b",
+              "textDe": "Aufgaben und Ablauf im Voraus vorbereiten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.words.q4.b",
+          "correctAnswerTextDe": "Aufgaben und Ablauf im Voraus vorbereiten.",
+          "rationaleDe": "Planung ist vorausschauendes Vorbereiten statt bloßer Rückschau oder fehlender Absprache.",
+          "assessmentUnit": "Planung Vorbereitung Ablauf",
+          "sourceSpans": [
+            {
+              "start": 456,
+              "end": 463,
+              "quote": "Planung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q5",
+          "publicPromptDe": "Was bedeutet »Entscheidend ist, dass wir miteinander sprechen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.words.q5.a",
+              "textDe": "Das Miteinandersprechen ist besonders wichtig für das Gelingen."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q5.c",
+              "textDe": "Das Miteinandersprechen soll das Gelingen verhindern."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q5.b",
+              "textDe": "Das Miteinandersprechen ist für das Gelingen gleichgültig."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.words.q5.a",
+          "correctAnswerTextDe": "Das Miteinandersprechen ist besonders wichtig für das Gelingen.",
+          "rationaleDe": "Entscheidend hebt einen besonders wichtigen Faktor hervor.",
+          "assessmentUnit": "entscheidend besonders wichtig",
+          "sourceSpans": [
+            {
+              "start": 523,
+              "end": 535,
+              "quote": "Entscheidend"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.words.q6",
+          "publicPromptDe": "Was bedeutet einen Einladungstext verbessern?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.words.q6.c",
+              "textDe": "Den Text unverändert lassen."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q6.b",
+              "textDe": "Den Text verständlicher oder sprachlich besser machen."
+            },
+            {
+              "id": "sitov.pretest.b11-08.words.q6.a",
+              "textDe": "Den Text absichtlich unverständlicher machen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.words.q6.b",
+          "correctAnswerTextDe": "Den Text verständlicher oder sprachlich besser machen.",
+          "rationaleDe": "Verbessern bedeutet eine Steigerung der Qualität, nicht unverändertes Behalten oder Verschlechtern.",
+          "assessmentUnit": "verbessern Qualität steigern",
+          "sourceSpans": [
+            {
+              "start": 436,
+              "end": 446,
+              "quote": "verbessert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q1",
+          "publicPromptDe": "Welche Präsensform von »organisieren« ergänzt »Unser Deutschkurs ___ einen Nachmittag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.verbs.q1.a",
+              "textDe": "organisieren"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q1.b",
+              "textDe": "organisierst"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q1.c",
+              "textDe": "organisiert"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.verbs.q1.c",
+          "correctAnswerTextDe": "organisiert",
+          "rationaleDe": "Deutschkurs ist Singular; die dritte Person lautet organisiert.",
+          "assessmentUnit": "organisiert Präsens dritte Singular",
+          "sourceSpans": [
+            {
+              "start": 18,
+              "end": 29,
+              "quote": "organisiert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q2",
+          "publicPromptDe": "Welcher Infinitiv gehört zu »Eine Gruppe bereitet Geschichten vor«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.verbs.q2.c",
+              "textDe": "vorbereiten"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q2.a",
+              "textDe": "vorzubereiten"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q2.b",
+              "textDe": "bereiten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.verbs.q2.c",
+          "correctAnswerTextDe": "vorbereiten",
+          "rationaleDe": "Bereitet und vor bilden vorbereiten; vorzubereiten enthält zusätzlich zu.",
+          "assessmentUnit": "vorbereiten trennbarer Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 159,
+              "end": 189,
+              "quote": "bereitet kurze Geschichten vor"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Eine Gruppe kümmert ___ um Spiele«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.verbs.q3.a",
+              "textDe": "ihr"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q3.c",
+              "textDe": "sie"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q3.b",
+              "textDe": "sich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.verbs.q3.b",
+          "correctAnswerTextDe": "sich",
+          "rationaleDe": "Sich kümmern um verlangt zum Subjekt eine Gruppe das Reflexivpronomen sich.",
+          "assessmentUnit": "sich Reflexiv kümmern",
+          "sourceSpans": [
+            {
+              "start": 203,
+              "end": 215,
+              "quote": "kümmert sich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Wir sollen uns gegenseitig ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.verbs.q4.a",
+              "textDe": "helfen"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q4.c",
+              "textDe": "geholfen"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q4.b",
+              "textDe": "zu helfen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.verbs.q4.a",
+          "correctAnswerTextDe": "helfen",
+          "rationaleDe": "Nach dem Modalverb sollen steht der reine Infinitiv helfen.",
+          "assessmentUnit": "helfen Infinitiv nach sollen",
+          "sourceSpans": [
+            {
+              "start": 380,
+              "end": 393,
+              "quote": "helfen sollen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q5",
+          "publicPromptDe": "Welche Partizipform von »lesen« ergänzt »Wir haben den Text ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.verbs.q5.a",
+              "textDe": "geleset"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q5.b",
+              "textDe": "gelesen"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q5.c",
+              "textDe": "lasen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.verbs.q5.b",
+          "correctAnswerTextDe": "gelesen",
+          "rationaleDe": "Lesen bildet das starke Partizip gelesen; lasen ist Präteritum.",
+          "assessmentUnit": "gelesen starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 424,
+              "end": 431,
+              "quote": "gelesen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.verbs.q6",
+          "publicPromptDe": "Welche Partizipform von »verbessern« ergänzt »Wir haben den Text ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.verbs.q6.b",
+              "textDe": "verbesserte"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q6.a",
+              "textDe": "verbessert"
+            },
+            {
+              "id": "sitov.pretest.b11-08.verbs.q6.c",
+              "textDe": "geverbessert"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.verbs.q6.a",
+          "correctAnswerTextDe": "verbessert",
+          "rationaleDe": "Das untrennbare Verb mit ver bildet das Partizip verbessert ohne zusätzliches ge.",
+          "assessmentUnit": "verbessert Partizip untrennbar",
+          "sourceSpans": [
+            {
+              "start": 436,
+              "end": 446,
+              "quote": "verbessert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q1",
+          "publicPromptDe": "Welche Folge ergänzt »Wir möchten zeigen, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.syntax.q1.a",
+              "textDe": "was haben wir in den letzten Monaten gelernt"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q1.b",
+              "textDe": "was wir haben in den letzten Monaten gelernt"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q1.c",
+              "textDe": "was wir in den letzten Monaten gelernt haben"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.syntax.q1.c",
+          "correctAnswerTextDe": "was wir in den letzten Monaten gelernt haben",
+          "rationaleDe": "In der indirekten was-Konstruktion steht haben nach dem Partizip gelernt am Ende.",
+          "assessmentUnit": "was indirekter Satz Perfektklammer",
+          "sourceSpans": [
+            {
+              "start": 101,
+              "end": 145,
+              "quote": "was wir in den letzten Monaten gelernt haben"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q2",
+          "publicPromptDe": "Welche Folge ergänzt »Ich hatte Angst, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.syntax.q2.b",
+              "textDe": "zu dabei Fehler machen"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q2.a",
+              "textDe": "dabei Fehler zu machen"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q2.c",
+              "textDe": "dabei Fehler machen zu"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.syntax.q2.a",
+          "correctAnswerTextDe": "dabei Fehler zu machen",
+          "rationaleDe": "In der Infinitivgruppe steht zu unmittelbar vor machen.",
+          "assessmentUnit": "Infinitivgruppe Fehler machen",
+          "sourceSpans": [
+            {
+              "start": 303,
+              "end": 325,
+              "quote": "dabei Fehler zu machen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q3",
+          "publicPromptDe": "Welche Folge ergänzt »Der Lehrer erklärte, dass …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.syntax.q3.c",
+              "textDe": "wir sollen uns gegenseitig helfen"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q3.b",
+              "textDe": "sollen wir uns gegenseitig helfen"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q3.a",
+              "textDe": "wir uns gegenseitig helfen sollen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.syntax.q3.a",
+          "correctAnswerTextDe": "wir uns gegenseitig helfen sollen",
+          "rationaleDe": "Im dass-Nebensatz steht sollen nach dem Infinitiv helfen am Ende; uns gehört zur reflexiven Konstruktion.",
+          "assessmentUnit": "dass Reflexiv Modalverbfinal",
+          "sourceSpans": [
+            {
+              "start": 355,
+              "end": 393,
+              "quote": "dass wir uns gegenseitig helfen sollen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q4",
+          "publicPromptDe": "Welche Folge ergänzt »Wir merken, …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.syntax.q4.c",
+              "textDe": "wie viel man mit Deutsch schon erreichen kann"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q4.a",
+              "textDe": "wie viel man kann mit Deutsch schon erreichen"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q4.b",
+              "textDe": "wie viel kann man mit Deutsch schon erreichen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.syntax.q4.c",
+          "correctAnswerTextDe": "wie viel man mit Deutsch schon erreichen kann",
+          "rationaleDe": "In der indirekten wie-viel-Konstruktion steht kann nach erreichen am Ende.",
+          "assessmentUnit": "wie viel indirekte Modalfrage",
+          "sourceSpans": [
+            {
+              "start": 476,
+              "end": 521,
+              "quote": "wie viel man mit Deutsch schon erreichen kann"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q5",
+          "publicPromptDe": "Wir sollen miteinander sprechen und nicht auf den perfekten Satz warten. Welche Handlung wird mit nicht verneint?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.syntax.q5.a",
+              "textDe": "Das Miteinandersprechen."
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q5.b",
+              "textDe": "Das Warten auf den perfekten Satz."
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q5.c",
+              "textDe": "Beide Handlungen gleichermaßen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.syntax.q5.b",
+          "correctAnswerTextDe": "Das Warten auf den perfekten Satz.",
+          "rationaleDe": "Nicht steht im zweiten koordinierten Teil und verneint das Warten, nicht das Miteinandersprechen.",
+          "assessmentUnit": "nicht Negationsbereich Warten",
+          "sourceSpans": [
+            {
+              "start": 541,
+              "end": 610,
+              "quote": "dass wir miteinander sprechen und nicht auf den perfekten Satz warten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.syntax.q6",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Gemeinsam …« zu einem Aussagesatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.syntax.q6.b",
+              "textDe": "haben wir den Text gelesen und verbessert"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q6.c",
+              "textDe": "wir den Text gelesen und verbessert haben"
+            },
+            {
+              "id": "sitov.pretest.b11-08.syntax.q6.a",
+              "textDe": "wir haben den Text gelesen und verbessert"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.syntax.q6.b",
+          "correctAnswerTextDe": "haben wir den Text gelesen und verbessert",
+          "rationaleDe": "Gemeinsam besetzt das Vorfeld; haben folgt vor wir und gehört zu beiden koordinierten Partizipien.",
+          "assessmentUnit": "Gemeinsam Vorfeld Perfekt Koordination",
+          "sourceSpans": [
+            {
+              "start": 395,
+              "end": 446,
+              "quote": "Gemeinsam haben wir den Text gelesen und verbessert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Der Kurs organisiert einen ___ Nachmittag« zu »klein«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.nominal.q1.c",
+              "textDe": "kleiner"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q1.b",
+              "textDe": "kleines"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q1.a",
+              "textDe": "kleinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.nominal.q1.a",
+          "correctAnswerTextDe": "kleinen",
+          "rationaleDe": "Nach einen steht das Adjektiv im Akkusativ maskulin mit en.",
+          "assessmentUnit": "kleinen Nachmittag Akkusativ Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 30,
+              "end": 54,
+              "quote": "einen kleinen Nachmittag"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt die Zeitangabe »in den ___ Monaten« zu »letzt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.nominal.q2.b",
+              "textDe": "letzte"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q2.c",
+              "textDe": "letzter"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q2.a",
+              "textDe": "letzten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.nominal.q2.a",
+          "correctAnswerTextDe": "letzten",
+          "rationaleDe": "Nach den im Dativ Plural lautet die Adjektivform letzten.",
+          "assessmentUnit": "letzten Monaten Dativ Plural",
+          "sourceSpans": [
+            {
+              "start": 109,
+              "end": 131,
+              "quote": "in den letzten Monaten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Eine Gruppe bereitet ___ Geschichten vor« zu »kurz«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.nominal.q3.b",
+              "textDe": "kurze"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q3.c",
+              "textDe": "kurzen"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q3.a",
+              "textDe": "kurzer"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.nominal.q3.b",
+          "correctAnswerTextDe": "kurze",
+          "rationaleDe": "Ohne Artikel steht das Adjektiv im Akkusativ Plural mit e: kurze Geschichten.",
+          "assessmentUnit": "kurze Geschichten Akkusativ Plural",
+          "sourceSpans": [
+            {
+              "start": 168,
+              "end": 185,
+              "quote": "kurze Geschichten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Spiele für ___ Jungen«, wenn mehrere Jungen gemeint sind?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.nominal.q4.a",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q4.c",
+              "textDe": "die"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q4.b",
+              "textDe": "der"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.nominal.q4.c",
+          "correctAnswerTextDe": "die",
+          "rationaleDe": "Für verlangt Akkusativ; der bestimmte Artikel im Plural lautet die.",
+          "assessmentUnit": "die Jungen Akkusativ für",
+          "sourceSpans": [
+            {
+              "start": 226,
+              "end": 240,
+              "quote": "für die Jungen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich bin für ___ Einladung zuständig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.nominal.q5.a",
+              "textDe": "der"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q5.b",
+              "textDe": "die"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q5.c",
+              "textDe": "den"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.nominal.q5.b",
+          "correctAnswerTextDe": "die",
+          "rationaleDe": "Für verlangt Akkusativ; Einladung ist feminin: die Einladung.",
+          "assessmentUnit": "die Einladung Akkusativ für",
+          "sourceSpans": [
+            {
+              "start": 250,
+              "end": 267,
+              "quote": "für die Einladung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.b11-08.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »Wir warten nicht auf den ___ Satz« zu »perfekt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.b11-08.nominal.q6.c",
+              "textDe": "perfekten"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q6.a",
+              "textDe": "perfektem"
+            },
+            {
+              "id": "sitov.pretest.b11-08.nominal.q6.b",
+              "textDe": "perfekter"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.b11-08.nominal.q6.c",
+          "correctAnswerTextDe": "perfekten",
+          "rationaleDe": "Nach den steht das Adjektiv im Akkusativ maskulin mit en: perfekten Satz.",
+          "assessmentUnit": "perfekten Satz Akkusativ Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 581,
+              "end": 603,
+              "quote": "auf den perfekten Satz"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
