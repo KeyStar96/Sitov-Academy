@@ -1,0 +1,2823 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "scope": "batch10-12-only",
+  "status": "author_checked_independent_review_pending",
+  "author": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "questionCount": 72,
+  "changedQuestionCount": 30,
+  "audioStatus": "HOLD_NO_SYNTHESIS_IMPORT_PUBLICATION",
+  "reviewLimitsDe": "S3 ist Autor. Die eigene Prüfung und Regressionstests ersetzen keine unabhängige pädagogische Prüfung durch M. Die 72 Aufgaben wurden gegen ihren sichtbaren Kontext geprüft; die ersten neun Definitionen sind unverändert.",
+  "questions": [
+    {
+      "questionId": "sitov.pretest.a11-10.words.q1",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Tageszeit bezeichnet »Abend«?",
+      "publicPromptDe": "Welche Tageszeit bezeichnet »Abend«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.words.q1.a",
+          "textDe": "Die Mitte des Tages gegen zwölf Uhr."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q1.b",
+          "textDe": "Die Zeit am frühen Morgen."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q1.c",
+          "textDe": "Die Zeit gegen Ende des Tages."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.words.q1.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Abend als Tageszeit",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 13,
+          "quote": "Es ist Abend."
+        }
+      ],
+      "reasonDe": "Abend liegt gegen Ende des Tages; früher Morgen und Mittag sind andere Tageszeiten.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Die Zeit gegen Ende des Tages.",
+      "correctTextDe": "Die Zeit gegen Ende des Tages.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.words.q2",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Wo ist der Sprecher mit »zu Hause«?",
+      "publicPromptDe": "Was bedeutet die Ortsangabe »zu Hause«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.words.q2.a",
+          "textDe": "Im Unterrichtsraum seines Kurses."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q2.b",
+          "textDe": "An seinem Wohnort."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q2.c",
+          "textDe": "In einem fahrenden Bus."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.words.q2.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "zu Hause eigener Wohnort",
+      "sourceCorrespondence": [
+        {
+          "start": 14,
+          "end": 31,
+          "quote": "Ich bin zu Hause."
+        }
+      ],
+      "reasonDe": "Zu Hause bezeichnet hier den eigenen Wohnort; Bus und Unterrichtsraum sind andere Aufenthaltsorte.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "An seinem Wohnort.",
+      "correctTextDe": "An seinem Wohnort.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.words.q3",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welchen Gegenstand bezeichnet »Handy«?",
+      "publicPromptDe": "Welchen Gegenstand bezeichnet »Handy«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.words.q3.a",
+          "textDe": "Ein Mobiltelefon."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q3.b",
+          "textDe": "Eine Sitzgelegenheit."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q3.c",
+          "textDe": "Ein Buch aus Papier."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.words.q3.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Handy als Telefon",
+      "sourceCorrespondence": [
+        {
+          "start": 32,
+          "end": 63,
+          "quote": "Mein Handy liegt auf dem Tisch."
+        }
+      ],
+      "reasonDe": "Handy ist die deutsche Bezeichnung für ein Mobiltelefon; Buch und Sitzgelegenheit sind andere Gegenstände.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Ein Mobiltelefon.",
+      "correctTextDe": "Ein Mobiltelefon.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.words.q4",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Was bedeutet »kleines« beim Buch?",
+      "publicPromptDe": "Was bedeutet »kleines« beim Buch?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.words.q4.a",
+          "textDe": "Das Buch ist nach dem Wort zwingend ein Telefon."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q4.b",
+          "textDe": "Das Buch hat eine geringe Größe."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q4.c",
+          "textDe": "Das Buch hat eine besonders große Größe."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.words.q4.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "kleines Buch Größe",
+      "sourceCorrespondence": [
+        {
+          "start": 79,
+          "end": 95,
+          "quote": "ein kleines Buch"
+        }
+      ],
+      "reasonDe": "Klein beschreibt eine geringe Größe; groß ist das Gegenteil, und eine andere Gegenstandsart wird nicht genannt.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Das Buch hat eine geringe Größe.",
+      "correctTextDe": "Das Buch hat eine geringe Größe.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.words.q5",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Wie ist die Lautstärke der Musik bei »leise«?",
+      "publicPromptDe": "Wie ist die Lautstärke der Musik bei »leise«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.words.q5.a",
+          "textDe": "Die Musik ist nicht laut."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q5.b",
+          "textDe": "Musik wird überhaupt nicht gehört."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q5.c",
+          "textDe": "Die Musik ist sehr laut."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.words.q5.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "leise Lautstärke",
+      "sourceCorrespondence": [
+        {
+          "start": 153,
+          "end": 169,
+          "quote": "höre leise Musik"
+        }
+      ],
+      "reasonDe": "Leise beschreibt eine geringe Lautstärke; sehr laut und gar nicht hören sind andere Aussagen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Die Musik ist nicht laut.",
+      "correctTextDe": "Die Musik ist nicht laut.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.words.q6",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Zu welcher Uhrzeit geht der Sprecher ins Bett?",
+      "publicPromptDe": "Welche Uhrzeit bezeichnet die Zeitangabe »um zehn Uhr«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.words.q6.a",
+          "textDe": "Um 9 Uhr."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q6.b",
+          "textDe": "Um 12 Uhr."
+        },
+        {
+          "id": "sitov.pretest.a11-10.words.q6.c",
+          "textDe": "Um 10 Uhr."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.words.q6.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "zehn Uhr Zeit",
+      "sourceCorrespondence": [
+        {
+          "start": 171,
+          "end": 201,
+          "quote": "Um zehn Uhr gehe ich ins Bett."
+        }
+      ],
+      "reasonDe": "Zehn entspricht 10 und ist die genannte Uhrzeit; zwölf und neun verändern diese Zeitangabe.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Um 10 Uhr.",
+      "correctTextDe": "Um 10 Uhr.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.verbs.q1",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Grundform gehört zu »bin« im Satz über den Aufenthalt?",
+      "publicPromptDe": "Welche Grundform gehört zur Verbform »bin«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.verbs.q1.a",
+          "textDe": "bleiben"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q1.b",
+          "textDe": "sein"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q1.c",
+          "textDe": "beginnen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.verbs.q1.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "sein erste Person Aufenthalt",
+      "sourceCorrespondence": [
+        {
+          "start": 14,
+          "end": 31,
+          "quote": "Ich bin zu Hause."
+        }
+      ],
+      "reasonDe": "Bin ist die ich-Form von sein; bleiben und beginnen sind andere Verben und nicht die Grundform dieser Form.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "sein",
+      "correctTextDe": "sein",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.verbs.q2",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Verbform ergänzt »Mein Handy … auf dem Tisch«?",
+      "publicPromptDe": "Welche Verbform ergänzt »Mein Handy … auf dem Tisch«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.verbs.q2.a",
+          "textDe": "liege"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q2.b",
+          "textDe": "liegt"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q2.c",
+          "textDe": "liegen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.verbs.q2.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "liegen Handy Singular",
+      "sourceCorrespondence": [
+        {
+          "start": 32,
+          "end": 63,
+          "quote": "Mein Handy liegt auf dem Tisch."
+        }
+      ],
+      "reasonDe": "Das einzelne Handy steht in der dritten Person Singular, daher liegt; liegen und liege passen nicht zu diesem Subjekt.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "liegt",
+      "correctTextDe": "liegt",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.verbs.q3",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Grundform gehört zu »lese« beim Buch?",
+      "publicPromptDe": "Welche Grundform gehört zu »lese« beim Buch?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.verbs.q3.a",
+          "textDe": "lernen"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q3.b",
+          "textDe": "lesen"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q3.c",
+          "textDe": "leben"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.verbs.q3.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "lesen erste Person Grundform",
+      "sourceCorrespondence": [
+        {
+          "start": 64,
+          "end": 96,
+          "quote": "Heute lese ich ein kleines Buch."
+        }
+      ],
+      "reasonDe": "Lese ist die ich-Form von lesen; lernen und leben sind ähnliche geschriebene, aber andere Verben.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "lesen",
+      "correctTextDe": "lesen",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.verbs.q4",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Grundform gehört zu »schläft« bei der Katze?",
+      "publicPromptDe": "Welche Grundform gehört zu »schläft« bei der Katze?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.verbs.q4.a",
+          "textDe": "schließen"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q4.b",
+          "textDe": "schaffen"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q4.c",
+          "textDe": "schlafen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.verbs.q4.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "schlafen Katze Singular",
+      "sourceCorrespondence": [
+        {
+          "start": 97,
+          "end": 130,
+          "quote": "Meine Katze schläft auf dem Sofa."
+        }
+      ],
+      "reasonDe": "Schläft ist die dritte Person Singular von schlafen mit dem Umlaut ä; schaffen und schließen sind andere Grundformen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "schlafen",
+      "correctTextDe": "schlafen",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.verbs.q5",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form ergänzt »Ich … Wasser«?",
+      "publicPromptDe": "Welche Form ergänzt »Ich … Wasser«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.verbs.q5.a",
+          "textDe": "trinken"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q5.b",
+          "textDe": "trinkst"
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q5.c",
+          "textDe": "trinke"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.verbs.q5.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "trinken erste Person",
+      "sourceCorrespondence": [
+        {
+          "start": 131,
+          "end": 148,
+          "quote": "Ich trinke Wasser"
+        }
+      ],
+      "reasonDe": "Das Subjekt ich verlangt trinke; trinkst gehört zu du und trinken ist hier keine passende ich-Form.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "trinke",
+      "correctTextDe": "trinke",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.verbs.q6",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Zu welcher Person gehört »gehe« in diesem Satz?",
+      "publicPromptDe": "Zu welcher Person gehört die Präsensform »gehe«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.verbs.q6.a",
+          "textDe": "Zur ersten Person Singular: ich."
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q6.b",
+          "textDe": "Zur dritten Person Plural: sie."
+        },
+        {
+          "id": "sitov.pretest.a11-10.verbs.q6.c",
+          "textDe": "Zur zweiten Person Singular: du."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.verbs.q6.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "gehen Ich nach Zeitangabe",
+      "sourceCorrespondence": [
+        {
+          "start": 171,
+          "end": 201,
+          "quote": "Um zehn Uhr gehe ich ins Bett."
+        }
+      ],
+      "reasonDe": "Das Subjekt ich steht hinter gehe und bestimmt die erste Person Singular; die Orts- und Zeitangaben ändern die Person nicht.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Zur ersten Person Singular: ich.",
+      "correctTextDe": "Zur ersten Person Singular: ich.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.syntax.q1",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Was liegt nach diesem Satz auf dem Tisch?",
+      "publicPromptDe": "Übung: »Auf dem Tisch liegt ein Handy.« Welcher Gegenstand befindet sich auf dem Tisch?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.syntax.q1.a",
+          "textDe": "Der Tisch."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q1.b",
+          "textDe": "Das Handy."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q1.c",
+          "textDe": "Das Sofa."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.syntax.q1.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": true,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Handy Ort auf Tisch",
+      "sourceCorrespondence": [
+        {
+          "start": 32,
+          "end": 63,
+          "quote": "Mein Handy liegt auf dem Tisch."
+        }
+      ],
+      "reasonDe": "Die sichtbare Ortsangabe und das Subjekt zeigen, dass das Handy auf dem Tisch liegt; die Aufgabe benötigt keine Kenntnis des Zieltextes.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Das Handy des Sprechers.",
+      "correctTextDe": "Das Handy.",
+      "keyChangeReasonDe": "Die richtige Options-ID bleibt gleich; der Antwortwortlaut passt nun zum ausdrücklich sichtbaren Übungssubjekt oder benennt das Objekt kürzer. Die geprüfte Zuordnung bleibt dieselbe."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.syntax.q2",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welches Wort steht im gespeicherten Satz direkt nach »Heute«?",
+      "publicPromptDe": "Ordne einen Aussagesatz: »Heute / ich / lese / ein Buch«. Welches Wort muss direkt nach »Heute« stehen?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.syntax.q2.a",
+          "textDe": "lese"
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q2.b",
+          "textDe": "Buch"
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q2.c",
+          "textDe": "ich"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.syntax.q2.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Heute vorangestelltes Feld",
+      "sourceCorrespondence": [
+        {
+          "start": 64,
+          "end": 96,
+          "quote": "Heute lese ich ein kleines Buch."
+        }
+      ],
+      "reasonDe": "Das finite Verb lese steht im Aussagesatz an zweiter Position, auch wenn Heute den Satz eröffnet; die sichtbaren Satzbausteine genügen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "lese",
+      "correctTextDe": "lese",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.syntax.q3",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Wo schläft die Katze im Text?",
+      "publicPromptDe": "Übung: »Eine Katze schläft auf dem Sofa.« Wo schläft die Katze?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.syntax.q3.a",
+          "textDe": "Im Bus auf dem Weg zum Kurs."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q3.b",
+          "textDe": "Auf dem Sofa."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q3.c",
+          "textDe": "Auf dem Tisch neben dem Handy."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.syntax.q3.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Katze eigener Ruheort",
+      "sourceCorrespondence": [
+        {
+          "start": 97,
+          "end": 130,
+          "quote": "Meine Katze schläft auf dem Sofa."
+        }
+      ],
+      "reasonDe": "Die sichtbare Ortsangabe auf dem Sofa beantwortet die Wo-Frage; weder der gesperrte Zieltext noch eine Aufnahme werden benötigt.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Auf dem Sofa.",
+      "correctTextDe": "Auf dem Sofa.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.syntax.q4",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche beiden Handlungen führt der Sprecher in diesem Satz aus?",
+      "publicPromptDe": "Übung: »Paul trinkt Wasser und hört Musik.« Welche beiden Handlungen gehören zu Paul?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.syntax.q4.a",
+          "textDe": "Er trinkt Musik und hört Wasser."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q4.b",
+          "textDe": "Er trinkt Wasser und hört Musik."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q4.c",
+          "textDe": "Er hört Wasser und schläft."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.syntax.q4.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Wasser Musik zwei Handlungen",
+      "sourceCorrespondence": [
+        {
+          "start": 131,
+          "end": 170,
+          "quote": "Ich trinke Wasser und höre leise Musik."
+        }
+      ],
+      "reasonDe": "Das sichtbare Subjekt Paul gilt für beide verbundenen Verben; Wasser gehört zu trinkt und Musik zu hört.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Er trinkt Wasser und hört Musik.",
+      "correctTextDe": "Er trinkt Wasser und hört Musik.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.syntax.q5",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Handlung beschreibt der Satz mit »ins Bett«?",
+      "publicPromptDe": "Übung: »Paul geht ins Bett.« Welche Handlung beschreibt dieser Satz?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.syntax.q5.a",
+          "textDe": "Der Sprecher verlässt seine Wohnung mit dem Bus."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q5.b",
+          "textDe": "Der Sprecher geht zum Schlafen in sein Bett."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q5.c",
+          "textDe": "Der Sprecher bleibt ausdrücklich am Tisch sitzen."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.syntax.q5.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "ins Bett als Bewegung",
+      "sourceCorrespondence": [
+        {
+          "start": 171,
+          "end": 201,
+          "quote": "Um zehn Uhr gehe ich ins Bett."
+        }
+      ],
+      "reasonDe": "Im sichtbaren Übungssatz bezeichnet geht ins Bett den Weg zum Bett zum Schlafen; die übrigen Optionen beschreiben andere Handlungen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Der Sprecher geht zum Schlafen in sein Bett.",
+      "correctTextDe": "Der Sprecher geht zum Schlafen in sein Bett.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.syntax.q6",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Wofür wird »Gute Nacht!« am Textende verwendet?",
+      "publicPromptDe": "Wann verwendet man den Gruß »Gute Nacht!«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.syntax.q6.a",
+          "textDe": "Als Frage nach dem Brotpreis."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q6.b",
+          "textDe": "Als Begrüßung am Morgen."
+        },
+        {
+          "id": "sitov.pretest.a11-10.syntax.q6.c",
+          "textDe": "Als Gruß vor dem Schlafen."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.syntax.q6.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Gute Nacht als Abschiedsgruß",
+      "sourceCorrespondence": [
+        {
+          "start": 202,
+          "end": 213,
+          "quote": "Gute Nacht!"
+        }
+      ],
+      "reasonDe": "Gute Nacht ist der Abschiedsgruß vor dem Schlafen; Preisfrage und Morgenbegrüßung haben andere Formulierungen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Als Gruß vor dem Schlafen.",
+      "correctTextDe": "Als Gruß vor dem Schlafen.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.nominal.q1",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form ergänzt »… Handy liegt auf dem Tisch« für den Sprecher?",
+      "publicPromptDe": "Welche Form ergänzt »… Handy liegt auf dem Tisch« für den Sprecher?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.nominal.q1.a",
+          "textDe": "Meinen"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q1.b",
+          "textDe": "Mein"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q1.c",
+          "textDe": "Meine"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.nominal.q1.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Mein Handy neutrale Besitzform",
+      "sourceCorrespondence": [
+        {
+          "start": 32,
+          "end": 63,
+          "quote": "Mein Handy liegt auf dem Tisch."
+        }
+      ],
+      "reasonDe": "Handy ist neutral und hier Subjekt; die Besitzform lautet mein, nicht meine oder meinen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Mein",
+      "correctTextDe": "Mein",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.nominal.q2",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Artikelform steht in der Ortsangabe »auf … Tisch«?",
+      "publicPromptDe": "Ergänze die Ortsangabe: »Das Buch liegt auf … Tisch.«",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.nominal.q2.a",
+          "textDe": "dem"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q2.b",
+          "textDe": "den"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q2.c",
+          "textDe": "das"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.nominal.q2.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "auf dem Tisch lokaler Dativ",
+      "sourceCorrespondence": [
+        {
+          "start": 49,
+          "end": 62,
+          "quote": "auf dem Tisch"
+        }
+      ],
+      "reasonDe": "Das Liegen beschreibt einen festen Ort; beim maskulinen Tisch steht deshalb dem im Dativ statt den oder das.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "dem",
+      "correctTextDe": "dem",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.nominal.q3",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form von »klein« passt zur Textstelle »ein … Buch«?",
+      "publicPromptDe": "Welche Form von »klein« passt zur Textstelle »ein … Buch«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.nominal.q3.a",
+          "textDe": "kleine"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q3.b",
+          "textDe": "kleines"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q3.c",
+          "textDe": "kleinen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.nominal.q3.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "kleines Buch Adjektivendung",
+      "sourceCorrespondence": [
+        {
+          "start": 79,
+          "end": 95,
+          "quote": "ein kleines Buch"
+        }
+      ],
+      "reasonDe": "Buch ist neutral und wird hier mit ein genannt; das Adjektiv hat in der gespeicherten Form die Endung -es.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "kleines",
+      "correctTextDe": "kleines",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.nominal.q4",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Besitzform ergänzt »… Katze schläft auf dem Sofa«?",
+      "publicPromptDe": "Welche Besitzform ergänzt »… Katze schläft auf dem Sofa«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.nominal.q4.a",
+          "textDe": "Meine"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q4.b",
+          "textDe": "Mein"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q4.c",
+          "textDe": "Meinen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.nominal.q4.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Meine Katze feminine Besitzform",
+      "sourceCorrespondence": [
+        {
+          "start": 97,
+          "end": 130,
+          "quote": "Meine Katze schläft auf dem Sofa."
+        }
+      ],
+      "reasonDe": "Das grammatisch feminine Wort Katze steht als Subjekt mit meine; mein und meinen passen nicht zu dieser Form.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Meine",
+      "correctTextDe": "Meine",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.nominal.q5",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche beiden Wörter stecken in »ins Bett«?",
+      "publicPromptDe": "Welche beiden Wörter stecken in »ins Bett«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.nominal.q5.a",
+          "textDe": "in der Bett"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q5.b",
+          "textDe": "in das Bett"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q5.c",
+          "textDe": "in dem Bett"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.nominal.q5.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "ins Akkusativ Kontraktion Bett",
+      "sourceCorrespondence": [
+        {
+          "start": 192,
+          "end": 200,
+          "quote": "ins Bett"
+        }
+      ],
+      "reasonDe": "Ins verbindet in und das und bezeichnet hier die Bewegung ins neutrale Bett; in dem beschreibt eine andere Form.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "in das Bett",
+      "correctTextDe": "in das Bett",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.nominal.q6",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Form von »gut« steht im Gruß unmittelbar vor »Nacht«?",
+      "publicPromptDe": "Ergänze den Gruß mit einer Form von »gut«: »… Nacht!«",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a11-10.nominal.q6.a",
+          "textDe": "Gutes"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q6.b",
+          "textDe": "Gute"
+        },
+        {
+          "id": "sitov.pretest.a11-10.nominal.q6.c",
+          "textDe": "Guter"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a11-10.nominal.q6.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Gute Nacht Adjektivform Gruß",
+      "sourceCorrespondence": [
+        {
+          "start": 202,
+          "end": 213,
+          "quote": "Gute Nacht!"
+        }
+      ],
+      "reasonDe": "Im festen Gruß steht gute vor dem femininen Wort Nacht; guter und gutes entsprechen nicht dieser tatsächlich vorkommenden Form.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Gute",
+      "correctTextDe": "Gute",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.words.q1",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welchen Körperbereich bezeichnet »Hals«?",
+      "publicPromptDe": "Welchen Körperbereich bezeichnet »Hals«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.words.q1.a",
+          "textDe": "Den Bereich zwischen Hand und Ellenbogen."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q1.b",
+          "textDe": "Den Bereich zwischen Kopf und Rumpf."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q1.c",
+          "textDe": "Den Bereich zwischen Knie und Fuß."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.words.q1.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Hals als Körperbereich",
+      "sourceCorrespondence": [
+        {
+          "start": 17,
+          "end": 26,
+          "quote": "mein Hals"
+        }
+      ],
+      "reasonDe": "Hals bezeichnet den Bereich unter dem Kopf; Unterarm und Unterschenkel sind andere Körperbereiche.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Den Bereich zwischen Kopf und Rumpf.",
+      "correctTextDe": "Den Bereich zwischen Kopf und Rumpf.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.words.q2",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Was ist die »Praxis« im Zusammenhang mit dem Arzttermin?",
+      "publicPromptDe": "Was ist die »Praxis« im Zusammenhang mit dem Arzttermin?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.words.q2.a",
+          "textDe": "Der Arbeits- und Behandlungsort eines Arztes."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q2.b",
+          "textDe": "Ein Geschäft für Lebensmittel."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q2.c",
+          "textDe": "Ein Bahnhof für den Busverkehr."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.words.q2.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Praxis als Arztarbeitsort",
+      "sourceCorrespondence": [
+        {
+          "start": 32,
+          "end": 57,
+          "quote": "Ich rufe in der Praxis an"
+        }
+      ],
+      "reasonDe": "Im Zusammenhang mit einem Arzt ist Praxis der Arbeits- und Behandlungsort; Geschäft und Bahnhof passen nicht zu diesem Kontext.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Der Arbeits- und Behandlungsort eines Arztes.",
+      "correctTextDe": "Der Arbeits- und Behandlungsort eines Arztes.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.words.q3",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Was bedeutet »einen Termin machen« hier?",
+      "publicPromptDe": "Was bedeutet »einen Termin machen« hier?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.words.q3.a",
+          "textDe": "Eine Versichertenkarte vor dem Besuch abholen."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q3.b",
+          "textDe": "Einen Namen in einzelne Buchstaben zerlegen."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q3.c",
+          "textDe": "Eine Zeit für einen Besuch vereinbaren."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.words.q3.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Termin als vereinbarte Besuchszeit",
+      "sourceCorrespondence": [
+        {
+          "start": 69,
+          "end": 88,
+          "quote": "einen Termin machen"
+        }
+      ],
+      "reasonDe": "Einen Termin machen bedeutet einen Besuch zeitlich zu vereinbaren; Buchstabieren und Abholen einer Karte sind andere Handlungen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Eine Zeit für einen Besuch vereinbaren.",
+      "correctTextDe": "Eine Zeit für einen Besuch vereinbaren.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.words.q4",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Was macht man beim »Buchstabieren« eines Namens?",
+      "publicPromptDe": "Was macht man beim »Buchstabieren« eines Namens?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.words.q4.a",
+          "textDe": "Man nennt seine Buchstaben einzeln."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q4.b",
+          "textDe": "Man spricht den Namen als ein zusammenhängendes Wort."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q4.c",
+          "textDe": "Man nennt nur eine Uhrzeit."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.words.q4.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "buchstabieren Name Einzelbuchstaben",
+      "sourceCorrespondence": [
+        {
+          "start": 131,
+          "end": 160,
+          "quote": "Ich buchstabiere ihn langsam."
+        }
+      ],
+      "reasonDe": "Buchstabieren heißt die Buchstaben einzeln zu nennen; eine Uhrzeit oder ein zusammenhängend gesprochenes Wort ist keine solche Buchstabenfolge.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Man nennt seine Buchstaben einzeln.",
+      "correctTextDe": "Man nennt seine Buchstaben einzeln.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.words.q5",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Was bedeutet »frei« bei dem Termin am Nachmittag?",
+      "publicPromptDe": "Was bedeutet »frei« bei dem Termin am Nachmittag?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.words.q5.a",
+          "textDe": "Die Zeit für einen Besuch ist noch verfügbar."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q5.b",
+          "textDe": "Der Termin ist nach dem Wort bereits vollständig belegt."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q5.c",
+          "textDe": "Der Besuch kostet nach diesem Wort sicher kein Geld."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.words.q5.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "frei verfügbarer Termin",
+      "sourceCorrespondence": [
+        {
+          "start": 161,
+          "end": 195,
+          "quote": "Am Nachmittag ist ein Termin frei."
+        }
+      ],
+      "reasonDe": "Frei bedeutet beim Termin noch verfügbar; belegt ist das Gegenteil und eine sichere Aussage über Kosten folgt daraus nicht.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Die Zeit für einen Besuch ist noch verfügbar.",
+      "correctTextDe": "Die Zeit für einen Besuch ist noch verfügbar.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.words.q6",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welches Dokument bezeichnet »Versichertenkarte«?",
+      "publicPromptDe": "Welches Dokument bezeichnet »Versichertenkarte«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.words.q6.a",
+          "textDe": "Eine Karte zum Nachweis der Krankenversicherung."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q6.b",
+          "textDe": "Eine Fahrkarte für den Bus."
+        },
+        {
+          "id": "sitov.pretest.a12-01.words.q6.c",
+          "textDe": "Eine Speisekarte mit Preisen."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.words.q6.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Versichertenkarte als Versicherungsnachweis",
+      "sourceCorrespondence": [
+        {
+          "start": 225,
+          "end": 263,
+          "quote": "Meine Versichertenkarte nehme ich mit."
+        }
+      ],
+      "reasonDe": "Versichertenkarte weist im Arztkontext die Krankenversicherung nach; Fahrkarte und Speisekarte erfüllen andere Zwecke.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Eine Karte zum Nachweis der Krankenversicherung.",
+      "correctTextDe": "Eine Karte zum Nachweis der Krankenversicherung.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.verbs.q1",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Grundform gehört zu »tut … weh« im ersten Satz?",
+      "publicPromptDe": "Welche Grundform gehört zu »tut … weh«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.verbs.q1.a",
+          "textDe": "wehtun"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q1.b",
+          "textDe": "warten"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q1.c",
+          "textDe": "weggehen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.verbs.q1.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "wehtun getrennte Grundform Hals",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 31,
+          "quote": "Seit gestern tut mein Hals weh."
+        }
+      ],
+      "reasonDe": "Die getrennten Teile tut und weh gehören zu wehtun; weggehen und warten sind andere Handlungen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "wehtun",
+      "correctTextDe": "wehtun",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.verbs.q2",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Grundform steckt in »rufe … an«?",
+      "publicPromptDe": "Welche Grundform steckt in »rufe … an«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.verbs.q2.a",
+          "textDe": "anrufen"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q2.b",
+          "textDe": "rufen ohne an"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q2.c",
+          "textDe": "aufräumen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.verbs.q2.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "anrufen getrennte Grundform",
+      "sourceCorrespondence": [
+        {
+          "start": 32,
+          "end": 57,
+          "quote": "Ich rufe in der Praxis an"
+        }
+      ],
+      "reasonDe": "Rufe und das getrennte an bilden anrufen und bezeichnen hier den Telefonkontakt; aufräumen ist eine andere Handlung.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "anrufen",
+      "correctTextDe": "anrufen",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.verbs.q3",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Verbform ergänzt »Ich … einen Termin machen«?",
+      "publicPromptDe": "Welche Verbform ergänzt »Ich … einen Termin machen«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.verbs.q3.a",
+          "textDe": "möchte"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q3.b",
+          "textDe": "möchtet"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q3.c",
+          "textDe": "möchtest"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.verbs.q3.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "möchten erste Person Wunsch",
+      "sourceCorrespondence": [
+        {
+          "start": 62,
+          "end": 88,
+          "quote": "möchte einen Termin machen"
+        }
+      ],
+      "reasonDe": "Zum Subjekt ich gehört möchte; möchtest gehört zu du und möchtet gehört zu ihr.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "möchte",
+      "correctTextDe": "möchte",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.verbs.q4",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Grundform gehört zu »kann« in diesem Satz?",
+      "publicPromptDe": "Welche Grundform gehört zur Verbform »kann«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.verbs.q4.a",
+          "textDe": "können"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q4.b",
+          "textDe": "kommen"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q4.c",
+          "textDe": "kennen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.verbs.q4.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "können erste Person",
+      "sourceCorrespondence": [
+        {
+          "start": 196,
+          "end": 224,
+          "quote": "Ich kann um drei Uhr kommen."
+        }
+      ],
+      "reasonDe": "Kann ist eine Form des Modalverbs können; kennen und kommen sind eigene Verben und nicht diese Grundform.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "können",
+      "correctTextDe": "können",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.verbs.q5",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Grundform gehört zu »nehme … mit«?",
+      "publicPromptDe": "Welche Grundform gehört zu »nehme … mit«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.verbs.q5.a",
+          "textDe": "mitkommen"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q5.b",
+          "textDe": "mitnehmen"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q5.c",
+          "textDe": "nehmen ohne mit"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.verbs.q5.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "mitnehmen getrennte Grundform Karte",
+      "sourceCorrespondence": [
+        {
+          "start": 225,
+          "end": 263,
+          "quote": "Meine Versichertenkarte nehme ich mit."
+        }
+      ],
+      "reasonDe": "Nehme und das getrennte mit bilden mitnehmen; mitkommen hat eine andere Grundform und nehmen allein lässt den Verbteil mit weg.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "mitnehmen",
+      "correctTextDe": "mitnehmen",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.verbs.q6",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form ergänzt »Danach … ich zu Hause«?",
+      "publicPromptDe": "Welche Form ergänzt »Danach … ich zu Hause«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.verbs.q6.a",
+          "textDe": "bleibe"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q6.b",
+          "textDe": "bleiben"
+        },
+        {
+          "id": "sitov.pretest.a12-01.verbs.q6.c",
+          "textDe": "bleibst"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.verbs.q6.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "bleiben erste Person",
+      "sourceCorrespondence": [
+        {
+          "start": 264,
+          "end": 290,
+          "quote": "Danach bleibe ich zu Hause"
+        }
+      ],
+      "reasonDe": "Das Subjekt ich verlangt bleibe trotz der vorangestellten Zeitangabe; bleibst und bleiben passen nicht zu dieser Person.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "bleibe",
+      "correctTextDe": "bleibe",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.syntax.q1",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Seit wann bestehen die Halsschmerzen nach dem Satz?",
+      "publicPromptDe": "Übung: »Seit gestern habe ich Durst.« Seit wann besteht der Durst?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.syntax.q1.a",
+          "textDe": "Seit dem vorherigen Tag."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q1.b",
+          "textDe": "Nur vor einem Jahr ohne Bezug zu jetzt."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q1.c",
+          "textDe": "Erst ab dem kommenden Tag."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.syntax.q1.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Seit gestern Beginn andauernder Zustand",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 31,
+          "quote": "Seit gestern tut mein Hals weh."
+        }
+      ],
+      "reasonDe": "Seit gestern benennt im sichtbaren Übungssatz den Beginn am vorherigen Tag; morgen und letztes Jahr sind andere Zeitangaben.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Seit dem vorherigen Tag.",
+      "correctTextDe": "Seit dem vorherigen Tag.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.syntax.q2",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welchen Wunsch verbindet der Sprecher mit seinem Anruf?",
+      "publicPromptDe": "Übung: »Ich rufe an und möchte einen Termin beim Arzt vereinbaren.« Was möchte der Sprecher?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.syntax.q2.a",
+          "textDe": "Er möchte einen Besuchstermin vereinbaren."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q2.b",
+          "textDe": "Er möchte die Praxis über einen Urlaub informieren."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q2.c",
+          "textDe": "Er möchte einen Besuchstermin für einen Freund absagen."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.syntax.q2.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Anruf Zweck Besuchsvereinbarung",
+      "sourceCorrespondence": [
+        {
+          "start": 32,
+          "end": 89,
+          "quote": "Ich rufe in der Praxis an und möchte einen Termin machen."
+        }
+      ],
+      "reasonDe": "Der sichtbare Übungssatz nennt mit möchte einen Termin beim Arzt vereinbaren die Absicht des Sprechers; der Zieltext ist dafür nicht nötig.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Er möchte einen Besuchstermin vereinbaren.",
+      "correctTextDe": "Er möchte einen Besuchstermin vereinbaren.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.syntax.q3",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Nach welcher Angabe fragt der Mitarbeiter?",
+      "publicPromptDe": "Übung: »Nach meinem Namen fragt der Mitarbeiter.« Nach welcher Angabe fragt er?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.syntax.q3.a",
+          "textDe": "Nach dem Namen des Sprechers."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q3.b",
+          "textDe": "Nach der Farbe eines Sofas."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q3.c",
+          "textDe": "Nach der Anzahl der Kartoffeln."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.syntax.q3.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Mitarbeiter Nachfrage Name",
+      "sourceCorrespondence": [
+        {
+          "start": 90,
+          "end": 130,
+          "quote": "Der Mitarbeiter fragt nach meinem Namen."
+        }
+      ],
+      "reasonDe": "Die sichtbare Ergänzung nach meinem Namen bezeichnet die erfragte Angabe; mein verweist auf den Sprecher, nicht auf den Mitarbeiter.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Nach dem Namen des Sprechers.",
+      "correctTextDe": "Nach dem Namen des Sprechers.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.syntax.q4",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "In welchem Tagesabschnitt ist ein Termin verfügbar?",
+      "publicPromptDe": "Übung: »Ein Termin ist am Nachmittag frei.« Für welche Tageszeit ist der Termin verfügbar?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.syntax.q4.a",
+          "textDe": "Am Nachmittag."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q4.b",
+          "textDe": "In der vergangenen Nacht."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q4.c",
+          "textDe": "Am frühen Morgen."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.syntax.q4.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Nachmittag angebotener Zeitraum",
+      "sourceCorrespondence": [
+        {
+          "start": 161,
+          "end": 195,
+          "quote": "Am Nachmittag ist ein Termin frei."
+        }
+      ],
+      "reasonDe": "Die Zeitangabe am Nachmittag und das Prädikat frei stehen im sichtbaren Übungssatz; keine verborgene Terminangabe ist erforderlich.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Am Nachmittag.",
+      "correctTextDe": "Am Nachmittag.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.syntax.q5",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Was sagt der Sprecher mit »Ich kann um drei Uhr kommen«?",
+      "publicPromptDe": "Was sagt der Sprecher mit »Ich kann um drei Uhr kommen«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.syntax.q5.a",
+          "textDe": "Er kann nach dem Satz nur um zehn Uhr kommen."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q5.b",
+          "textDe": "Er ist nach dem Satz schon um drei Uhr angekommen."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q5.c",
+          "textDe": "Eine Ankunft um drei Uhr ist für ihn möglich."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.syntax.q5.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "kann kommen Möglichkeit keine Ankunft",
+      "sourceCorrespondence": [
+        {
+          "start": 196,
+          "end": 224,
+          "quote": "Ich kann um drei Uhr kommen."
+        }
+      ],
+      "reasonDe": "Kann beschreibt hier die Möglichkeit für drei Uhr; eine bereits erfolgte Ankunft oder zehn Uhr wird nicht ausgesagt.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Eine Ankunft um drei Uhr ist für ihn möglich.",
+      "correctTextDe": "Eine Ankunft um drei Uhr ist für ihn möglich.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.syntax.q6",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Handlungen nennt der Sprecher für danach?",
+      "publicPromptDe": "Übung: »Nach dem Termin bleibe ich zu Hause und trinke warmen Tee.« Welche beiden Handlungen verbindet »und«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.syntax.q6.a",
+          "textDe": "Er fährt zum Markt und kauft Kartoffeln."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q6.b",
+          "textDe": "Er bleibt zu Hause und trinkt warmen Tee."
+        },
+        {
+          "id": "sitov.pretest.a12-01.syntax.q6.c",
+          "textDe": "Er bleibt in der Praxis und trinkt kaltes Wasser."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.syntax.q6.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Danach gemeinsame Nachhandlungen",
+      "sourceCorrespondence": [
+        {
+          "start": 264,
+          "end": 313,
+          "quote": "Danach bleibe ich zu Hause und trinke warmen Tee."
+        }
+      ],
+      "reasonDe": "Beide sichtbaren Verben haben das Subjekt ich: zu Hause bleiben und warmen Tee trinken; die Alternativen verändern diese Handlungen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Er bleibt zu Hause und trinkt warmen Tee.",
+      "correctTextDe": "Er bleibt zu Hause und trinkt warmen Tee.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.nominal.q1",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form ergänzt »Seit gestern tut … Hals weh« für den Sprecher?",
+      "publicPromptDe": "Welche Form ergänzt »Seit gestern tut … Hals weh« für den Sprecher?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.nominal.q1.a",
+          "textDe": "mein"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q1.b",
+          "textDe": "meine"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q1.c",
+          "textDe": "meinen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.nominal.q1.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "mein Hals maskuliner Nominativ",
+      "sourceCorrespondence": [
+        {
+          "start": 17,
+          "end": 26,
+          "quote": "mein Hals"
+        }
+      ],
+      "reasonDe": "Hals ist maskulin und Subjekt von tut weh; deshalb steht mein statt meine oder meinen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "mein",
+      "correctTextDe": "mein",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.nominal.q2",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form ergänzt »Ich möchte … Termin machen«?",
+      "publicPromptDe": "Welche Form ergänzt »Ich möchte … Termin machen«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.nominal.q2.a",
+          "textDe": "ein"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q2.b",
+          "textDe": "einem"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q2.c",
+          "textDe": "einen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.nominal.q2.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "einen Termin Akkusativ",
+      "sourceCorrespondence": [
+        {
+          "start": 69,
+          "end": 88,
+          "quote": "einen Termin machen"
+        }
+      ],
+      "reasonDe": "Termin ist das maskuline Objekt von machen und steht mit einen im Akkusativ; ein und einem passen hier nicht.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "einen",
+      "correctTextDe": "einen",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.nominal.q3",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Form steht in der Ortsangabe »in … Praxis«?",
+      "publicPromptDe": "Ergänze die Ortsangabe: »Der Arzt arbeitet in … Praxis.«",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.nominal.q3.a",
+          "textDe": "den"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q3.b",
+          "textDe": "die"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q3.c",
+          "textDe": "der"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.nominal.q3.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "in der Praxis lokaler Dativ",
+      "sourceCorrespondence": [
+        {
+          "start": 41,
+          "end": 54,
+          "quote": "in der Praxis"
+        }
+      ],
+      "reasonDe": "Praxis ist feminin und bezeichnet hier den Ort des Anrufs; im lokalen Dativ steht der statt die oder den.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "der",
+      "correctTextDe": "der",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.nominal.q4",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Besitzform steht im Text vor »Namen« nach »nach«?",
+      "publicPromptDe": "Welche Form von »mein« ergänzt »Er fragt nach … Namen«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.nominal.q4.a",
+          "textDe": "meinem"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q4.b",
+          "textDe": "mein"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q4.c",
+          "textDe": "meinen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.nominal.q4.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "nach meinem Namen Dativ",
+      "sourceCorrespondence": [
+        {
+          "start": 112,
+          "end": 129,
+          "quote": "nach meinem Namen"
+        }
+      ],
+      "reasonDe": "Nach verlangt den Dativ und führt hier zu meinem Namen; meinen und mein sind nicht die gespeicherten Formen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "meinem",
+      "correctTextDe": "meinem",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.nominal.q5",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Worauf bezieht sich »ihn« beim Buchstabieren?",
+      "publicPromptDe": "Übung: »Ich nenne meinen Namen. Dann buchstabiere ich ihn.« Worauf bezieht sich »ihn«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.nominal.q5.a",
+          "textDe": "Auf den Namen des Mitarbeiters."
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q5.b",
+          "textDe": "Auf den noch nicht erwähnten Tee."
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q5.c",
+          "textDe": "Auf den Namen des Sprechers."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.nominal.q5.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "ihn Bezug Name nicht Mitarbeiter",
+      "sourceCorrespondence": [
+        {
+          "start": 90,
+          "end": 160,
+          "quote": "Der Mitarbeiter fragt nach meinem Namen. Ich buchstabiere ihn langsam."
+        }
+      ],
+      "reasonDe": "Im sichtbaren Kontext ist meinen Namen das maskuline Bezugswort für ihn; es ist der Name des Sprechers und nicht ein Name des Mitarbeiters.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Auf den Namen des Sprechers.",
+      "correctTextDe": "Auf den Namen des Sprechers.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.nominal.q6",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form von »warm« ergänzt »Ich trinke … Tee«?",
+      "publicPromptDe": "Welche Form von »warm« ergänzt »Ich trinke … Tee«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-01.nominal.q6.a",
+          "textDe": "warmem"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q6.b",
+          "textDe": "warmen"
+        },
+        {
+          "id": "sitov.pretest.a12-01.nominal.q6.c",
+          "textDe": "warmer"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-01.nominal.q6.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "warmen Tee Adjektiv Akkusativ",
+      "sourceCorrespondence": [
+        {
+          "start": 295,
+          "end": 312,
+          "quote": "trinke warmen Tee"
+        }
+      ],
+      "reasonDe": "Tee ist das maskuline Objekt von trinke; ohne Artikel lautet die Adjektivform hier warmen, nicht warmer oder warmem.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "warmen",
+      "correctTextDe": "warmen",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.words.q1",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Was bezeichnet »Suppe« beim gemeinsamen Kochen?",
+      "publicPromptDe": "Was bezeichnet »Suppe« beim gemeinsamen Kochen?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.words.q1.a",
+          "textDe": "Ein flüssiges Gericht, das man essen kann."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q1.b",
+          "textDe": "Ein Stück rohes Gemüse."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q1.c",
+          "textDe": "Eine trockene Scheibe gebackenes Brot."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.words.q1.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Suppe als flüssiges Gericht",
+      "sourceCorrespondence": [
+        {
+          "start": 60,
+          "end": 77,
+          "quote": "eine Suppe kochen"
+        }
+      ],
+      "reasonDe": "Suppe ist ein flüssiges Gericht; eine trockene Brotscheibe und ein einzelnes rohes Gemüsestück sind keine Suppe.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Ein flüssiges Gericht, das man essen kann.",
+      "correctTextDe": "Ein flüssiges Gericht, das man essen kann.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.words.q2",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Waren gehören zur Bedeutung von »Gemüse« im Kochtext?",
+      "publicPromptDe": "Welche Waren gehören zur Bedeutung von »Gemüse« im Kochtext?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.words.q2.a",
+          "textDe": "Nur gebackene Brotscheiben."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q2.b",
+          "textDe": "Nur Getränke wie Wasser."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q2.c",
+          "textDe": "Pflanzliche Zutaten wie Karotten und Kartoffeln."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.words.q2.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Gemüse als pflanzliche Zutat",
+      "sourceCorrespondence": [
+        {
+          "start": 79,
+          "end": 118,
+          "quote": "Zuerst kaufen wir Gemüse auf dem Markt."
+        }
+      ],
+      "reasonDe": "Gemüse meint hier pflanzliche Zutaten wie Karotten und Kartoffeln; Brotscheiben und Wasser sind keine Gemüsearten.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Pflanzliche Zutaten wie Karotten und Kartoffeln.",
+      "correctTextDe": "Pflanzliche Zutaten wie Karotten und Kartoffeln.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.words.q3",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Bezeichnung bedeutet dasselbe wie »Karotten«?",
+      "publicPromptDe": "Welche Bezeichnung bedeutet dasselbe wie »Karotten«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.words.q3.a",
+          "textDe": "Möhren."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q3.b",
+          "textDe": "Brote."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q3.c",
+          "textDe": "Kartoffeln."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.words.q3.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Karotten als Möhren",
+      "sourceCorrespondence": [
+        {
+          "start": 136,
+          "end": 148,
+          "quote": "die Karotten"
+        }
+      ],
+      "reasonDe": "Karotten und Möhren sind zwei Bezeichnungen für dasselbe Gemüse; Kartoffeln und Brote sind andere Lebensmittel.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Möhren.",
+      "correctTextDe": "Möhren.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.words.q4",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welches Lebensmittel bezeichnet »Kartoffeln«?",
+      "publicPromptDe": "Welches Lebensmittel bezeichnet »Kartoffeln«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.words.q4.a",
+          "textDe": "Essbare Knollen, die man zum Beispiel kochen kann."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q4.b",
+          "textDe": "Gebackene Brote in Scheiben."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q4.c",
+          "textDe": "Lange orange Möhren."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.words.q4.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Kartoffeln eigene Gemüseart",
+      "sourceCorrespondence": [
+        {
+          "start": 163,
+          "end": 177,
+          "quote": "die Kartoffeln"
+        }
+      ],
+      "reasonDe": "Kartoffeln sind essbare Knollen; Möhren und Brot unterscheiden sich davon und sind keine gleiche Wortbedeutung.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Essbare Knollen, die man zum Beispiel kochen kann.",
+      "correctTextDe": "Essbare Knollen, die man zum Beispiel kochen kann.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.words.q5",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Was bedeutet »den Tisch decken« vor dem Essen?",
+      "publicPromptDe": "Was bedeutet »den Tisch decken« vor dem Essen?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.words.q5.a",
+          "textDe": "Das Geschirr vom Tisch wegräumen."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q5.b",
+          "textDe": "Den Tisch mit dem nötigen Geschirr zum Essen vorbereiten."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q5.c",
+          "textDe": "Den Tisch als Möbel aus der Küche tragen."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.words.q5.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Tisch decken Vorbereitung",
+      "sourceCorrespondence": [
+        {
+          "start": 205,
+          "end": 225,
+          "quote": "Ich decke den Tisch."
+        }
+      ],
+      "reasonDe": "Tischdecken bedeutet das Vorbereiten mit Geschirr; Geschirr wieder wegräumen oder das Möbel wegtragen meint eine andere Tätigkeit.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Den Tisch mit dem nötigen Geschirr zum Essen vorbereiten.",
+      "correctTextDe": "Den Tisch mit dem nötigen Geschirr zum Essen vorbereiten.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.words.q6",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Was wird beim »Aufräumen« der Küche getan?",
+      "publicPromptDe": "Was wird beim »Aufräumen« der Küche getan?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.words.q6.a",
+          "textDe": "Man verlässt die Küche, ohne etwas zu ordnen."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q6.b",
+          "textDe": "Man bringt Gegenstände wieder in Ordnung."
+        },
+        {
+          "id": "sitov.pretest.a12-02.words.q6.c",
+          "textDe": "Man vereinbart einen Arzttermin."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.words.q6.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Küche aufräumen Ordnung",
+      "sourceCorrespondence": [
+        {
+          "start": 280,
+          "end": 312,
+          "quote": "Später räumen wir die Küche auf."
+        }
+      ],
+      "reasonDe": "Aufräumen bedeutet Ordnung herzustellen; nur weggehen oder einen Termin vereinbaren beschreibt nicht diese Tätigkeit.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Man bringt Gegenstände wieder in Ordnung.",
+      "correctTextDe": "Man bringt Gegenstände wieder in Ordnung.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.verbs.q1",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form ergänzt »Am Freitag … zwei Freunde zu mir«?",
+      "publicPromptDe": "Welche Form ergänzt »Am Freitag … zwei Freunde zu mir«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.verbs.q1.a",
+          "textDe": "kommen"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q1.b",
+          "textDe": "komme"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q1.c",
+          "textDe": "kommt"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.verbs.q1.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "kommen Freunde Plural",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 38,
+          "quote": "Am Freitag kommen zwei Freunde zu mir."
+        }
+      ],
+      "reasonDe": "Zwei Freunde ist ein Subjekt im Plural und verlangt kommen; kommt und komme passen nicht zu diesem Subjekt.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "kommen",
+      "correctTextDe": "kommen",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.verbs.q2",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form ergänzt »Wir … zusammen eine Suppe kochen«?",
+      "publicPromptDe": "Welche Form ergänzt »Wir … zusammen eine Suppe kochen«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.verbs.q2.a",
+          "textDe": "möchten"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q2.b",
+          "textDe": "möchtest"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q2.c",
+          "textDe": "möchte"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.verbs.q2.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "möchten Wir Wunsch",
+      "sourceCorrespondence": [
+        {
+          "start": 39,
+          "end": 78,
+          "quote": "Wir möchten zusammen eine Suppe kochen."
+        }
+      ],
+      "reasonDe": "Zum Subjekt wir gehört möchten; möchte gehört hier zum Singular und möchtest zu du.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "möchten",
+      "correctTextDe": "möchten",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.verbs.q3",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Form ergänzt »Mein Freund … Wasser«?",
+      "publicPromptDe": "Welche Form ergänzt »Mein Freund … Wasser«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.verbs.q3.a",
+          "textDe": "koche"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q3.b",
+          "textDe": "kochen"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q3.c",
+          "textDe": "kocht"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.verbs.q3.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "kochen Freund dritte Person",
+      "sourceCorrespondence": [
+        {
+          "start": 179,
+          "end": 204,
+          "quote": "Mein Freund kocht Wasser."
+        }
+      ],
+      "reasonDe": "Der einzelne Freund ist dritte Person Singular, deshalb kocht; koche und kochen passen nicht zu dieser Person.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "kocht",
+      "correctTextDe": "kocht",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.verbs.q4",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Grundform gehört zum Verb beim Säubern der Karotten?",
+      "publicPromptDe": "Welche Grundform gehört zum Verb beim Säubern der Karotten?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.verbs.q4.a",
+          "textDe": "wünschen"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q4.b",
+          "textDe": "waschen"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q4.c",
+          "textDe": "wachsen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.verbs.q4.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "waschen Grundform",
+      "sourceCorrespondence": [
+        {
+          "start": 119,
+          "end": 148,
+          "quote": "Dann waschen wir die Karotten"
+        }
+      ],
+      "reasonDe": "Das Verb lautet waschen und beschreibt das Säubern; wachsen und wünschen sind ähnlich geschriebene, aber andere Verben.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "waschen",
+      "correctTextDe": "waschen",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.verbs.q5",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Grundform gehört zum Verb beim Zerteilen der Kartoffeln?",
+      "publicPromptDe": "Welche Grundform gehört zum Verb beim Zerteilen der Kartoffeln?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.verbs.q5.a",
+          "textDe": "schneiden"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q5.b",
+          "textDe": "schreiben"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q5.c",
+          "textDe": "scheinen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.verbs.q5.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "schneiden Grundform",
+      "sourceCorrespondence": [
+        {
+          "start": 153,
+          "end": 177,
+          "quote": "schneiden die Kartoffeln"
+        }
+      ],
+      "reasonDe": "Die Tätigkeit heißt schneiden; scheinen und schreiben haben andere Bedeutungen und sind nicht das Verb dieser Stelle.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "schneiden",
+      "correctTextDe": "schneiden",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.verbs.q6",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Grundform gehört zu »räumen … auf«?",
+      "publicPromptDe": "Welche Grundform gehört zu »räumen … auf«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.verbs.q6.a",
+          "textDe": "aufräumen"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q6.b",
+          "textDe": "einräumen"
+        },
+        {
+          "id": "sitov.pretest.a12-02.verbs.q6.c",
+          "textDe": "ausräumen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.verbs.q6.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "aufräumen trennbare Grundform",
+      "sourceCorrespondence": [
+        {
+          "start": 280,
+          "end": 312,
+          "quote": "Später räumen wir die Küche auf."
+        }
+      ],
+      "reasonDe": "Die getrennten Teile räumen und auf bilden aufräumen; ausräumen und einräumen haben andere Vorsilben und sind andere Verben.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "aufräumen",
+      "correctTextDe": "aufräumen",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.syntax.q1",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Zu wem kommen die beiden Freunde am Freitag?",
+      "publicPromptDe": "Übung: »Paul sagt: Zwei Freunde kommen zu mir.« Zu wem kommen die Freunde?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.syntax.q1.a",
+          "textDe": "Zu einem Mitarbeiter."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q1.b",
+          "textDe": "Zu Paul, dem Sprecher."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q1.c",
+          "textDe": "Zu den Freunden selbst."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.syntax.q1.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": true,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Freunde Ziel zu Sprecher",
+      "sourceCorrespondence": [
+        {
+          "start": 0,
+          "end": 38,
+          "quote": "Am Freitag kommen zwei Freunde zu mir."
+        }
+      ],
+      "reasonDe": "Im sichtbaren Übungskontext spricht Paul; mir bezeichnet daher Paul als Ziel des Besuchs, nicht die Freunde oder einen Mitarbeiter.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Zum Sprecher.",
+      "correctTextDe": "Zu Paul, dem Sprecher.",
+      "keyChangeReasonDe": "Die richtige Options-ID bleibt gleich; der Antwortwortlaut passt nun zum ausdrücklich sichtbaren Übungssubjekt oder benennt das Objekt kürzer. Die geprüfte Zuordnung bleibt dieselbe."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.syntax.q2",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Was planen die mit »wir« bezeichneten Personen?",
+      "publicPromptDe": "Übung: »Wir möchten gemeinsam eine Suppe kochen.« Was planen die Sprecher?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.syntax.q2.a",
+          "textDe": "Sie wollen getrennt einen Bus fahren."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q2.b",
+          "textDe": "Sie wollen gemeinsam eine Suppe zubereiten."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q2.c",
+          "textDe": "Sie haben nach dem Satz schon die Küche aufgeräumt."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.syntax.q2.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "möchten geplante Kochhandlung",
+      "sourceCorrespondence": [
+        {
+          "start": 39,
+          "end": 78,
+          "quote": "Wir möchten zusammen eine Suppe kochen."
+        }
+      ],
+      "reasonDe": "Die sichtbare Verbindung möchten und Suppe kochen beschreibt den gemeinsamen Wunsch; die Alternativen benennen andere Tätigkeiten.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Sie wollen gemeinsam eine Suppe zubereiten.",
+      "correctTextDe": "Sie wollen gemeinsam eine Suppe zubereiten.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.syntax.q3",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Handlung steht in dieser Abfolge zuerst?",
+      "publicPromptDe": "Übung: »Zuerst kaufen wir Gemüse. Dann waschen wir die Karotten.« Welche Handlung kommt zuerst?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.syntax.q3.a",
+          "textDe": "Die Kartoffeln erst nach dem Essen kaufen."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q3.b",
+          "textDe": "Die Küche vor dem Einkaufen als genannte erste Handlung aufräumen."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q3.c",
+          "textDe": "Gemüse auf dem Markt kaufen."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.syntax.q3.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Zuerst einkaufen vor Vorbereiten",
+      "sourceCorrespondence": [
+        {
+          "start": 79,
+          "end": 178,
+          "quote": "Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln."
+        }
+      ],
+      "reasonDe": "Zuerst markiert den Einkauf als erste Handlung und dann das Waschen als folgende Handlung; diese Abfolge ist vollständig sichtbar.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Gemüse auf dem Markt kaufen.",
+      "correctTextDe": "Gemüse auf dem Markt kaufen.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.syntax.q4",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Zuordnung passt zu den beiden Verben im Satz?",
+      "publicPromptDe": "Übung: »Die Kartoffeln schneiden wir. Die Karotten waschen wir.« Welche Zuordnung der Tätigkeiten ist richtig?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.syntax.q4.a",
+          "textDe": "Karotten werden geschnitten und Kartoffeln gewaschen."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q4.b",
+          "textDe": "Karotten werden gewaschen und Kartoffeln geschnitten."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q4.c",
+          "textDe": "Nur das Brot wird gewaschen und geschnitten."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.syntax.q4.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Zuordnung waschen Karotten schneiden Kartoffeln",
+      "sourceCorrespondence": [
+        {
+          "start": 119,
+          "end": 178,
+          "quote": "Dann waschen wir die Karotten und schneiden die Kartoffeln."
+        }
+      ],
+      "reasonDe": "Auch bei vorangestellten Objekten gehören Kartoffeln zu schneiden und Karotten zu waschen; die sichtbaren Sätze enthalten beide Zuordnungen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Karotten werden gewaschen und Kartoffeln geschnitten.",
+      "correctTextDe": "Karotten werden gewaschen und Kartoffeln geschnitten.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.syntax.q5",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Wie werden die beiden Tätigkeiten aufgeteilt?",
+      "publicPromptDe": "Übung: »Wasser kocht mein Freund; den Tisch decke ich.« Wer macht was?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.syntax.q5.a",
+          "textDe": "Der Freund deckt den Tisch und kocht kein Wasser."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q5.b",
+          "textDe": "Der Freund kocht Wasser; der Sprecher deckt den Tisch."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q5.c",
+          "textDe": "Der Sprecher kocht Wasser; der Freund deckt den Tisch."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.syntax.q5.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Freund Wasser Sprecher Tisch Rollen",
+      "sourceCorrespondence": [
+        {
+          "start": 179,
+          "end": 225,
+          "quote": "Mein Freund kocht Wasser. Ich decke den Tisch."
+        }
+      ],
+      "reasonDe": "Die sichtbaren Subjekte ordnen Wasser kochen dem Freund und Tisch decken dem Sprecher zu; die Objektvoranstellung verändert die Rollen nicht.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Der Freund kocht Wasser; der Sprecher deckt den Tisch.",
+      "correctTextDe": "Der Freund kocht Wasser; der Sprecher deckt den Tisch.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.syntax.q6",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Handlung wird ausdrücklich für später genannt?",
+      "publicPromptDe": "Übung: »Wir essen Brot. Später räumen wir die Küche auf.« Was ist die spätere Handlung?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.syntax.q6.a",
+          "textDe": "Vor dem Besuch einen Arzt anrufen."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q6.b",
+          "textDe": "Als erste Handlung Gemüse kaufen."
+        },
+        {
+          "id": "sitov.pretest.a12-02.syntax.q6.c",
+          "textDe": "Die Küche aufräumen."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.syntax.q6.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "Später Küche Endhandlung",
+      "sourceCorrespondence": [
+        {
+          "start": 280,
+          "end": 312,
+          "quote": "Später räumen wir die Küche auf."
+        }
+      ],
+      "reasonDe": "Später markiert im sichtbaren Kontext das Aufräumen der Küche als nachfolgende Handlung; Essen gehört zum vorherigen Satz.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Die Küche aufräumen.",
+      "correctTextDe": "Die Küche aufräumen.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.nominal.q1",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Zahl hat das Substantiv »Freunde« nach »zwei«?",
+      "publicPromptDe": "Welche Zahl hat das Substantiv »Freunde« nach »zwei«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.nominal.q1.a",
+          "textDe": "Es steht in der Mehrzahl."
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q1.b",
+          "textDe": "Es ist eine Besitzform für den Tisch."
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q1.c",
+          "textDe": "Es bezeichnet genau einen Freund."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.nominal.q1.a",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Freunde Mehrzahl nach zwei",
+      "sourceCorrespondence": [
+        {
+          "start": 18,
+          "end": 30,
+          "quote": "zwei Freunde"
+        }
+      ],
+      "reasonDe": "Zwei verlangt mehrere Personen und Freunde ist die Pluralform; Einzahl und Besitzform sind andere grammatische Funktionen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Es steht in der Mehrzahl.",
+      "correctTextDe": "Es steht in der Mehrzahl.",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.nominal.q2",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Person bezeichnet »mir« beim Besuch?",
+      "publicPromptDe": "Welche Person bezeichnet »mir« in der Aussage eines Sprechers: »Freunde kommen zu mir«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.nominal.q2.a",
+          "textDe": "Nur einen Freund als Ziel des eigenen Besuchs."
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q2.b",
+          "textDe": "Den Sprecher als Ziel des Besuchs."
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q2.c",
+          "textDe": "Die Küche als Person."
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.nominal.q2.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "mir Empfänger Besuch Dativ",
+      "sourceCorrespondence": [
+        {
+          "start": 18,
+          "end": 37,
+          "quote": "zwei Freunde zu mir"
+        }
+      ],
+      "reasonDe": "Mir ist eine Form von ich nach zu und bezeichnet den Sprecher; Freund und Küche sind nicht der Bezug dieses Personalpronomens.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Den Sprecher als Ziel des Besuchs.",
+      "correctTextDe": "Den Sprecher als Ziel des Besuchs.",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.nominal.q3",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Artikelform ergänzt »Wir möchten … Suppe kochen«?",
+      "publicPromptDe": "Welche Artikelform ergänzt »Wir möchten … Suppe kochen«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.nominal.q3.a",
+          "textDe": "ein"
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q3.b",
+          "textDe": "einen"
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q3.c",
+          "textDe": "eine"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.nominal.q3.c",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "eine Suppe feminines Objekt",
+      "sourceCorrespondence": [
+        {
+          "start": 60,
+          "end": 77,
+          "quote": "eine Suppe kochen"
+        }
+      ],
+      "reasonDe": "Suppe ist feminin und wird hier als Objekt mit eine genannt; ein und einen passen nicht zum grammatischen Geschlecht.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "eine",
+      "correctTextDe": "eine",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.nominal.q4",
+      "authorVerdict": "changed_visible_context",
+      "oldPromptDe": "Welche Artikelform steht in der Ortsangabe »auf … Markt«?",
+      "publicPromptDe": "Ergänze die Ortsangabe: »Ein Händler arbeitet auf … Markt.«",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.nominal.q4.a",
+          "textDe": "den"
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q4.b",
+          "textDe": "dem"
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q4.c",
+          "textDe": "das"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.nominal.q4.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Der ausdrücklich zitierte Übungssatz, die Satzbausteine oder die genannte Sprachform liefern alle benötigten Angaben.",
+      "assessmentUnit": "auf dem Markt lokaler Dativ",
+      "sourceCorrespondence": [
+        {
+          "start": 104,
+          "end": 117,
+          "quote": "auf dem Markt"
+        }
+      ],
+      "reasonDe": "Der Einkauf findet an einem Ort statt; beim maskulinen Markt lautet der lokale Dativ dem, nicht den oder das.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "dem",
+      "correctTextDe": "dem",
+      "keyChangeReasonDe": "Richtige Options-ID und Antwortwortlaut bleiben erhalten; nur die notwendige sichtbare Prämisse wurde ergänzt."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.nominal.q5",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Besitzform ergänzt »… Freund kocht Wasser«?",
+      "publicPromptDe": "Welche Besitzform ergänzt »… Freund kocht Wasser«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.nominal.q5.a",
+          "textDe": "Meine"
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q5.b",
+          "textDe": "Mein"
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q5.c",
+          "textDe": "Meinen"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.nominal.q5.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "Mein Freund Besitz Nominativ",
+      "sourceCorrespondence": [
+        {
+          "start": 179,
+          "end": 204,
+          "quote": "Mein Freund kocht Wasser."
+        }
+      ],
+      "reasonDe": "Freund ist maskulin und Subjekt von kocht; die passende Form ist mein, nicht meine oder meinen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "Mein",
+      "correctTextDe": "Mein",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.nominal.q6",
+      "authorVerdict": "unchanged_self_contained",
+      "oldPromptDe": "Welche Artikelform ergänzt »Ich decke … Tisch«?",
+      "publicPromptDe": "Welche Artikelform ergänzt »Ich decke … Tisch«?",
+      "publicOptions": [
+        {
+          "id": "sitov.pretest.a12-02.nominal.q6.a",
+          "textDe": "dem"
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q6.b",
+          "textDe": "den"
+        },
+        {
+          "id": "sitov.pretest.a12-02.nominal.q6.c",
+          "textDe": "der"
+        }
+      ],
+      "correctOptionId": "sitov.pretest.a12-02.nominal.q6.b",
+      "keyIdUnchanged": true,
+      "keyTextChanged": false,
+      "visiblePremiseDe": "Die sichtbare Frage nennt das zu deutende Wort, die Verbform oder einen vollständigen Lückenkontext; keine Erzählungsangabe muss erinnert werden.",
+      "assessmentUnit": "den Tisch maskuliner Akkusativ",
+      "sourceCorrespondence": [
+        {
+          "start": 205,
+          "end": 225,
+          "quote": "Ich decke den Tisch."
+        }
+      ],
+      "reasonDe": "Tisch ist das maskuline direkte Objekt von decke und steht mit den im Akkusativ; der und dem sind andere Kasusformen.",
+      "independentReview": "pending_M",
+      "humanReview": false,
+      "calibrationStatus": "pending",
+      "previousCorrectTextDe": "den",
+      "correctTextDe": "den",
+      "keyChangeReasonDe": "Keine Änderung erforderlich: Wort, Form oder Lückenkontext sind bereits öffentlich vorhanden."
+    }
+  ]
+}

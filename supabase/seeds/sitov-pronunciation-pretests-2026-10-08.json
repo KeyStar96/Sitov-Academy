@@ -9779,7 +9779,7 @@
             "id": "sitov.pretest.a11-10.words.q2",
             "competencyId": "sitov.pretest.a11-10.words",
             "kind": "single_choice",
-            "promptDe": "Wo ist der Sprecher mit »zu Hause«?",
+            "promptDe": "Was bedeutet die Ortsangabe »zu Hause«?",
             "fragmentDe": null,
             "options": [
               {
@@ -9907,7 +9907,7 @@
             "id": "sitov.pretest.a11-10.words.q6",
             "competencyId": "sitov.pretest.a11-10.words",
             "kind": "single_choice",
-            "promptDe": "Zu welcher Uhrzeit geht der Sprecher ins Bett?",
+            "promptDe": "Welche Uhrzeit bezeichnet die Zeitangabe »um zehn Uhr«?",
             "fragmentDe": null,
             "options": [
               {
@@ -9939,7 +9939,7 @@
             "id": "sitov.pretest.a11-10.verbs.q1",
             "competencyId": "sitov.pretest.a11-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Grundform gehört zu »bin« im Satz über den Aufenthalt?",
+            "promptDe": "Welche Grundform gehört zur Verbform »bin«?",
             "fragmentDe": null,
             "options": [
               {
@@ -10099,7 +10099,7 @@
             "id": "sitov.pretest.a11-10.verbs.q6",
             "competencyId": "sitov.pretest.a11-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Zu welcher Person gehört »gehe« in diesem Satz?",
+            "promptDe": "Zu welcher Person gehört die Präsensform »gehe«?",
             "fragmentDe": null,
             "options": [
               {
@@ -10131,20 +10131,20 @@
             "id": "sitov.pretest.a11-10.syntax.q1",
             "competencyId": "sitov.pretest.a11-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Was liegt nach diesem Satz auf dem Tisch?",
+            "promptDe": "Übung: »Auf dem Tisch liegt ein Handy.« Welcher Gegenstand befindet sich auf dem Tisch?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-10.syntax.q1.a",
-                "textDe": "Die Katze als ausdrücklich genanntes Tischobjekt."
+                "textDe": "Der Tisch."
               },
               {
                 "id": "sitov.pretest.a11-10.syntax.q1.b",
-                "textDe": "Das Handy des Sprechers."
+                "textDe": "Das Handy."
               },
               {
                 "id": "sitov.pretest.a11-10.syntax.q1.c",
-                "textDe": "Der Tisch auf dem Handy."
+                "textDe": "Das Sofa."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-10.syntax.q1.b",
@@ -10157,13 +10157,13 @@
                 "quote": "Mein Handy liegt auf dem Tisch."
               }
             ],
-            "rationaleDe": "Mein Handy ist das Subjekt und auf dem Tisch seine Ortsangabe; die anderen Antworten vertauschen Gegenstände oder Orte."
+            "rationaleDe": "Die sichtbare Ortsangabe und das Subjekt zeigen, dass das Handy auf dem Tisch liegt; die Aufgabe benötigt keine Kenntnis des Zieltextes."
           },
           {
             "id": "sitov.pretest.a11-10.syntax.q2",
             "competencyId": "sitov.pretest.a11-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Welches Wort steht im gespeicherten Satz direkt nach »Heute«?",
+            "promptDe": "Ordne einen Aussagesatz: »Heute / ich / lese / ein Buch«. Welches Wort muss direkt nach »Heute« stehen?",
             "fragmentDe": null,
             "options": [
               {
@@ -10189,13 +10189,13 @@
                 "quote": "Heute lese ich ein kleines Buch."
               }
             ],
-            "rationaleDe": "Nach der vorangestellten Zeitangabe Heute folgt das finite Verb lese; ich steht erst danach."
+            "rationaleDe": "Das finite Verb lese steht im Aussagesatz an zweiter Position, auch wenn Heute den Satz eröffnet; die sichtbaren Satzbausteine genügen."
           },
           {
             "id": "sitov.pretest.a11-10.syntax.q3",
             "competencyId": "sitov.pretest.a11-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Wo schläft die Katze im Text?",
+            "promptDe": "Übung: »Eine Katze schläft auf dem Sofa.« Wo schläft die Katze?",
             "fragmentDe": null,
             "options": [
               {
@@ -10221,18 +10221,18 @@
                 "quote": "Meine Katze schläft auf dem Sofa."
               }
             ],
-            "rationaleDe": "Auf dem Sofa ist die Ortsangabe der Katze; der Tisch gehört zum Handy und ein Bus wird hier nicht als Schlafort genannt."
+            "rationaleDe": "Die sichtbare Ortsangabe auf dem Sofa beantwortet die Wo-Frage; weder der gesperrte Zieltext noch eine Aufnahme werden benötigt."
           },
           {
             "id": "sitov.pretest.a11-10.syntax.q4",
             "competencyId": "sitov.pretest.a11-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche beiden Handlungen führt der Sprecher in diesem Satz aus?",
+            "promptDe": "Übung: »Paul trinkt Wasser und hört Musik.« Welche beiden Handlungen gehören zu Paul?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a11-10.syntax.q4.a",
-                "textDe": "Nur die Katze trinkt Wasser und hört Musik."
+                "textDe": "Er trinkt Musik und hört Wasser."
               },
               {
                 "id": "sitov.pretest.a11-10.syntax.q4.b",
@@ -10240,7 +10240,7 @@
               },
               {
                 "id": "sitov.pretest.a11-10.syntax.q4.c",
-                "textDe": "Er trinkt Musik und hört Wasser."
+                "textDe": "Er hört Wasser und schläft."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-10.syntax.q4.b",
@@ -10253,13 +10253,13 @@
                 "quote": "Ich trinke Wasser und höre leise Musik."
               }
             ],
-            "rationaleDe": "Das Subjekt ich gilt für trinke und höre; Wasser ist das Getränk, Musik das Gehörte, und die Katze ist nicht das Subjekt."
+            "rationaleDe": "Das sichtbare Subjekt Paul gilt für beide verbundenen Verben; Wasser gehört zu trinkt und Musik zu hört."
           },
           {
             "id": "sitov.pretest.a11-10.syntax.q5",
             "competencyId": "sitov.pretest.a11-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Handlung beschreibt der Satz mit »ins Bett«?",
+            "promptDe": "Übung: »Paul geht ins Bett.« Welche Handlung beschreibt dieser Satz?",
             "fragmentDe": null,
             "options": [
               {
@@ -10285,13 +10285,13 @@
                 "quote": "Um zehn Uhr gehe ich ins Bett."
               }
             ],
-            "rationaleDe": "Gehe ins Bett beschreibt den Wechsel ins Bett; Sitzen am Tisch oder eine Busfahrt werden nicht ausgesagt."
+            "rationaleDe": "Im sichtbaren Übungssatz bezeichnet geht ins Bett den Weg zum Bett zum Schlafen; die übrigen Optionen beschreiben andere Handlungen."
           },
           {
             "id": "sitov.pretest.a11-10.syntax.q6",
             "competencyId": "sitov.pretest.a11-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Wofür wird »Gute Nacht!« am Textende verwendet?",
+            "promptDe": "Wann verwendet man den Gruß »Gute Nacht!«?",
             "fragmentDe": null,
             "options": [
               {
@@ -10355,7 +10355,7 @@
             "id": "sitov.pretest.a11-10.nominal.q2",
             "competencyId": "sitov.pretest.a11-10.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Artikelform steht in der Ortsangabe »auf … Tisch«?",
+            "promptDe": "Ergänze die Ortsangabe: »Das Buch liegt auf … Tisch.«",
             "fragmentDe": null,
             "options": [
               {
@@ -10483,7 +10483,7 @@
             "id": "sitov.pretest.a11-10.nominal.q6",
             "competencyId": "sitov.pretest.a11-10.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form von »gut« steht im Gruß unmittelbar vor »Nacht«?",
+            "promptDe": "Ergänze den Gruß mit einer Form von »gut«: »… Nacht!«",
             "fragmentDe": null,
             "options": [
               {
@@ -10988,7 +10988,7 @@
             "id": "sitov.pretest.a12-01.verbs.q1",
             "competencyId": "sitov.pretest.a12-01.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Grundform gehört zu »tut … weh« im ersten Satz?",
+            "promptDe": "Welche Grundform gehört zu »tut … weh«?",
             "fragmentDe": null,
             "options": [
               {
@@ -11084,7 +11084,7 @@
             "id": "sitov.pretest.a12-01.verbs.q4",
             "competencyId": "sitov.pretest.a12-01.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Grundform gehört zu »kann« in diesem Satz?",
+            "promptDe": "Welche Grundform gehört zur Verbform »kann«?",
             "fragmentDe": null,
             "options": [
               {
@@ -11180,7 +11180,7 @@
             "id": "sitov.pretest.a12-01.syntax.q1",
             "competencyId": "sitov.pretest.a12-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Seit wann bestehen die Halsschmerzen nach dem Satz?",
+            "promptDe": "Übung: »Seit gestern habe ich Durst.« Seit wann besteht der Durst?",
             "fragmentDe": null,
             "options": [
               {
@@ -11206,13 +11206,13 @@
                 "quote": "Seit gestern tut mein Hals weh."
               }
             ],
-            "rationaleDe": "Seit gestern nennt den Beginn am vorherigen Tag und verbindet ihn mit dem jetzigen Zustand; morgen oder vor einem Jahr steht nicht im Satz."
+            "rationaleDe": "Seit gestern benennt im sichtbaren Übungssatz den Beginn am vorherigen Tag; morgen und letztes Jahr sind andere Zeitangaben."
           },
           {
             "id": "sitov.pretest.a12-01.syntax.q2",
             "competencyId": "sitov.pretest.a12-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Welchen Wunsch verbindet der Sprecher mit seinem Anruf?",
+            "promptDe": "Übung: »Ich rufe an und möchte einen Termin beim Arzt vereinbaren.« Was möchte der Sprecher?",
             "fragmentDe": null,
             "options": [
               {
@@ -11238,13 +11238,13 @@
                 "quote": "Ich rufe in der Praxis an und möchte einen Termin machen."
               }
             ],
-            "rationaleDe": "Der Anruf dient der Vereinbarung eines Termins; eine Urlaubsmeldung und das Absagen eines Freundestermins werden nicht genannt."
+            "rationaleDe": "Der sichtbare Übungssatz nennt mit möchte einen Termin beim Arzt vereinbaren die Absicht des Sprechers; der Zieltext ist dafür nicht nötig."
           },
           {
             "id": "sitov.pretest.a12-01.syntax.q3",
             "competencyId": "sitov.pretest.a12-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Nach welcher Angabe fragt der Mitarbeiter?",
+            "promptDe": "Übung: »Nach meinem Namen fragt der Mitarbeiter.« Nach welcher Angabe fragt er?",
             "fragmentDe": null,
             "options": [
               {
@@ -11270,13 +11270,13 @@
                 "quote": "Der Mitarbeiter fragt nach meinem Namen."
               }
             ],
-            "rationaleDe": "Nach meinem Namen benennt die gewünschte Information; Sofa und Kartoffeln gehören nicht zu dieser Nachfrage."
+            "rationaleDe": "Die sichtbare Ergänzung nach meinem Namen bezeichnet die erfragte Angabe; mein verweist auf den Sprecher, nicht auf den Mitarbeiter."
           },
           {
             "id": "sitov.pretest.a12-01.syntax.q4",
             "competencyId": "sitov.pretest.a12-01.syntax",
             "kind": "single_choice",
-            "promptDe": "In welchem Tagesabschnitt ist ein Termin verfügbar?",
+            "promptDe": "Übung: »Ein Termin ist am Nachmittag frei.« Für welche Tageszeit ist der Termin verfügbar?",
             "fragmentDe": null,
             "options": [
               {
@@ -11302,7 +11302,7 @@
                 "quote": "Am Nachmittag ist ein Termin frei."
               }
             ],
-            "rationaleDe": "Die vorangestellte Angabe Am Nachmittag legt den Zeitraum fest; Morgen und vergangene Nacht sind andere Zeitangaben."
+            "rationaleDe": "Die Zeitangabe am Nachmittag und das Prädikat frei stehen im sichtbaren Übungssatz; keine verborgene Terminangabe ist erforderlich."
           },
           {
             "id": "sitov.pretest.a12-01.syntax.q5",
@@ -11340,7 +11340,7 @@
             "id": "sitov.pretest.a12-01.syntax.q6",
             "competencyId": "sitov.pretest.a12-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Handlungen nennt der Sprecher für danach?",
+            "promptDe": "Übung: »Nach dem Termin bleibe ich zu Hause und trinke warmen Tee.« Welche beiden Handlungen verbindet »und«?",
             "fragmentDe": null,
             "options": [
               {
@@ -11366,7 +11366,7 @@
                 "quote": "Danach bleibe ich zu Hause und trinke warmen Tee."
               }
             ],
-            "rationaleDe": "Das Subjekt ich gilt für bleibe und trinke; ein Marktbesuch oder ein Aufenthalt in der Praxis mit kaltem Wasser wird danach nicht genannt."
+            "rationaleDe": "Beide sichtbaren Verben haben das Subjekt ich: zu Hause bleiben und warmen Tee trinken; die Alternativen verändern diese Handlungen."
           },
           {
             "id": "sitov.pretest.a12-01.nominal.q1",
@@ -11436,7 +11436,7 @@
             "id": "sitov.pretest.a12-01.nominal.q3",
             "competencyId": "sitov.pretest.a12-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form steht in der Ortsangabe »in … Praxis«?",
+            "promptDe": "Ergänze die Ortsangabe: »Der Arzt arbeitet in … Praxis.«",
             "fragmentDe": null,
             "options": [
               {
@@ -11468,7 +11468,7 @@
             "id": "sitov.pretest.a12-01.nominal.q4",
             "competencyId": "sitov.pretest.a12-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Besitzform steht im Text vor »Namen« nach »nach«?",
+            "promptDe": "Welche Form von »mein« ergänzt »Er fragt nach … Namen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -11500,7 +11500,7 @@
             "id": "sitov.pretest.a12-01.nominal.q5",
             "competencyId": "sitov.pretest.a12-01.nominal",
             "kind": "single_choice",
-            "promptDe": "Worauf bezieht sich »ihn« beim Buchstabieren?",
+            "promptDe": "Übung: »Ich nenne meinen Namen. Dann buchstabiere ich ihn.« Worauf bezieht sich »ihn«?",
             "fragmentDe": null,
             "options": [
               {
@@ -11526,7 +11526,7 @@
                 "quote": "Der Mitarbeiter fragt nach meinem Namen. Ich buchstabiere ihn langsam."
               }
             ],
-            "rationaleDe": "Buchstabiert wird der zuvor erfragte Name; der Mitarbeiter fragt nur danach und der Tee wird erst später erwähnt."
+            "rationaleDe": "Im sichtbaren Kontext ist meinen Namen das maskuline Bezugswort für ihn; es ist der Name des Sprechers und nicht ein Name des Mitarbeiters."
           },
           {
             "id": "sitov.pretest.a12-01.nominal.q6",
@@ -12230,20 +12230,20 @@
             "id": "sitov.pretest.a12-02.syntax.q1",
             "competencyId": "sitov.pretest.a12-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Zu wem kommen die beiden Freunde am Freitag?",
+            "promptDe": "Übung: »Paul sagt: Zwei Freunde kommen zu mir.« Zu wem kommen die Freunde?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-02.syntax.q1.a",
-                "textDe": "Zu einem Mitarbeiter auf dem Markt."
+                "textDe": "Zu einem Mitarbeiter."
               },
               {
                 "id": "sitov.pretest.a12-02.syntax.q1.b",
-                "textDe": "Zum Sprecher."
+                "textDe": "Zu Paul, dem Sprecher."
               },
               {
                 "id": "sitov.pretest.a12-02.syntax.q1.c",
-                "textDe": "Zu einem Arzt in seiner Praxis."
+                "textDe": "Zu den Freunden selbst."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-02.syntax.q1.b",
@@ -12256,13 +12256,13 @@
                 "quote": "Am Freitag kommen zwei Freunde zu mir."
               }
             ],
-            "rationaleDe": "Zu mir nennt den Sprecher als Besuchsziel; ein Mitarbeiter auf dem Markt oder ein Arzt ist hier nicht der Gastgeber."
+            "rationaleDe": "Im sichtbaren Übungskontext spricht Paul; mir bezeichnet daher Paul als Ziel des Besuchs, nicht die Freunde oder einen Mitarbeiter."
           },
           {
             "id": "sitov.pretest.a12-02.syntax.q2",
             "competencyId": "sitov.pretest.a12-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Was planen die mit »wir« bezeichneten Personen?",
+            "promptDe": "Übung: »Wir möchten gemeinsam eine Suppe kochen.« Was planen die Sprecher?",
             "fragmentDe": null,
             "options": [
               {
@@ -12288,13 +12288,13 @@
                 "quote": "Wir möchten zusammen eine Suppe kochen."
               }
             ],
-            "rationaleDe": "Möchten zusammen eine Suppe kochen nennt den gemeinsamen Plan; erledigtes Aufräumen oder getrennte Busfahrten werden nicht ausgesagt."
+            "rationaleDe": "Die sichtbare Verbindung möchten und Suppe kochen beschreibt den gemeinsamen Wunsch; die Alternativen benennen andere Tätigkeiten."
           },
           {
             "id": "sitov.pretest.a12-02.syntax.q3",
             "competencyId": "sitov.pretest.a12-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Handlung steht in dieser Abfolge zuerst?",
+            "promptDe": "Übung: »Zuerst kaufen wir Gemüse. Dann waschen wir die Karotten.« Welche Handlung kommt zuerst?",
             "fragmentDe": null,
             "options": [
               {
@@ -12320,13 +12320,13 @@
                 "quote": "Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln."
               }
             ],
-            "rationaleDe": "Zuerst nennt den Einkauf, danach folgen Waschen und Schneiden; Aufräumen und spätere Einkäufe sind nicht die erste genannte Handlung."
+            "rationaleDe": "Zuerst markiert den Einkauf als erste Handlung und dann das Waschen als folgende Handlung; diese Abfolge ist vollständig sichtbar."
           },
           {
             "id": "sitov.pretest.a12-02.syntax.q4",
             "competencyId": "sitov.pretest.a12-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Zuordnung passt zu den beiden Verben im Satz?",
+            "promptDe": "Übung: »Die Kartoffeln schneiden wir. Die Karotten waschen wir.« Welche Zuordnung der Tätigkeiten ist richtig?",
             "fragmentDe": null,
             "options": [
               {
@@ -12352,13 +12352,13 @@
                 "quote": "Dann waschen wir die Karotten und schneiden die Kartoffeln."
               }
             ],
-            "rationaleDe": "Die Karotten sind Objekt von waschen und die Kartoffeln Objekt von schneiden; Vertauschen oder Brot entspricht nicht dem Satz."
+            "rationaleDe": "Auch bei vorangestellten Objekten gehören Kartoffeln zu schneiden und Karotten zu waschen; die sichtbaren Sätze enthalten beide Zuordnungen."
           },
           {
             "id": "sitov.pretest.a12-02.syntax.q5",
             "competencyId": "sitov.pretest.a12-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Wie werden die beiden Tätigkeiten aufgeteilt?",
+            "promptDe": "Übung: »Wasser kocht mein Freund; den Tisch decke ich.« Wer macht was?",
             "fragmentDe": null,
             "options": [
               {
@@ -12384,13 +12384,13 @@
                 "quote": "Mein Freund kocht Wasser. Ich decke den Tisch."
               }
             ],
-            "rationaleDe": "Mein Freund ist Subjekt von kocht, ich ist Subjekt von decke; die anderen Antworten vertauschen die handelnden Personen."
+            "rationaleDe": "Die sichtbaren Subjekte ordnen Wasser kochen dem Freund und Tisch decken dem Sprecher zu; die Objektvoranstellung verändert die Rollen nicht."
           },
           {
             "id": "sitov.pretest.a12-02.syntax.q6",
             "competencyId": "sitov.pretest.a12-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Handlung wird ausdrücklich für später genannt?",
+            "promptDe": "Übung: »Wir essen Brot. Später räumen wir die Küche auf.« Was ist die spätere Handlung?",
             "fragmentDe": null,
             "options": [
               {
@@ -12416,7 +12416,7 @@
                 "quote": "Später räumen wir die Küche auf."
               }
             ],
-            "rationaleDe": "Später markiert das Aufräumen der Küche als spätere Tätigkeit; Ersteinkauf und Arztanruf sind nicht diese Schlussangabe."
+            "rationaleDe": "Später markiert im sichtbaren Kontext das Aufräumen der Küche als nachfolgende Handlung; Essen gehört zum vorherigen Satz."
           },
           {
             "id": "sitov.pretest.a12-02.nominal.q1",
@@ -12454,7 +12454,7 @@
             "id": "sitov.pretest.a12-02.nominal.q2",
             "competencyId": "sitov.pretest.a12-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Person bezeichnet »mir« beim Besuch?",
+            "promptDe": "Welche Person bezeichnet »mir« in der Aussage eines Sprechers: »Freunde kommen zu mir«?",
             "fragmentDe": null,
             "options": [
               {
@@ -12518,7 +12518,7 @@
             "id": "sitov.pretest.a12-02.nominal.q4",
             "competencyId": "sitov.pretest.a12-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Artikelform steht in der Ortsangabe »auf … Markt«?",
+            "promptDe": "Ergänze die Ortsangabe: »Ein Händler arbeitet auf … Markt.«",
             "fragmentDe": null,
             "options": [
               {

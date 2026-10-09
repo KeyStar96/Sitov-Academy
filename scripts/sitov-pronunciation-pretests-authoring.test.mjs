@@ -123,3 +123,19 @@ test('actual evening/doctor/cooking clauses determine keys, pronoun reference, c
  for(const d of [evening,doctor,cooking]){assert.equal(new Set(d.definition.tasks.map(q=>q.assessmentUnit)).size,24);for(const q of d.definition.tasks)assert.ok(!q.options.some(o=>/\b(Frau|Mitarbeiterin|Freundin|Lehrerin|Schülerin)\b/u.test(o.textDe)))}
  assert.ok(doctor.definition.competencies.find(c=>c.category==='verb_forms').mapping.topicIds.includes('sitov.topic.modalverben'));assert.ok(cooking.definition.competencies.find(c=>c.category==='verb_forms').mapping.topicIds.includes('sitov.topic.trennbare-verben'))
 })
+
+test('batch10–12 public-premise regression: formerly hidden facts have explicit practice contexts; author audit covers all72',async()=>{
+ const audit=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/batch10-12-visible-context-epoch21.json','utf8'))
+ const tasks=manifest.drafts.slice(9).flatMap(d=>d.definition.tasks)
+ assert.equal(audit.questions.length,72);assert.equal(audit.changedQuestionCount,30)
+ assert.deepEqual(audit.questions.map(q=>q.questionId),tasks.map(q=>q.id))
+ assert.equal(audit.status,'author_checked_independent_review_pending');assert.equal(audit.humanReview,false);assert.equal(audit.calibrationStatus,'pending')
+ const required={
+  'a11-10.words.q6':'um zehn Uhr','a11-10.syntax.q1':'Auf dem Tisch liegt ein Handy','a11-10.syntax.q2':'Heute / ich / lese / ein Buch','a11-10.syntax.q3':'Eine Katze schläft auf dem Sofa','a11-10.syntax.q4':'Paul trinkt Wasser und hört Musik',
+  'a12-01.syntax.q1':'Seit gestern habe ich Durst','a12-01.syntax.q2':'möchte einen Termin beim Arzt vereinbaren','a12-01.syntax.q3':'Nach meinem Namen fragt der Mitarbeiter','a12-01.syntax.q4':'Ein Termin ist am Nachmittag frei','a12-01.syntax.q6':'bleibe ich zu Hause und trinke warmen Tee','a12-01.nominal.q5':'Ich nenne meinen Namen. Dann buchstabiere ich ihn',
+  'a12-02.syntax.q1':'Paul sagt: Zwei Freunde kommen zu mir','a12-02.syntax.q2':'Wir möchten gemeinsam eine Suppe kochen','a12-02.syntax.q3':'Zuerst kaufen wir Gemüse. Dann waschen wir die Karotten','a12-02.syntax.q4':'Die Kartoffeln schneiden wir. Die Karotten waschen wir','a12-02.syntax.q5':'Wasser kocht mein Freund; den Tisch decke ich','a12-02.syntax.q6':'Wir essen Brot. Später räumen wir die Küche auf'
+ }
+ for(const [suffix,premise] of Object.entries(required)){const q=tasks.find(q=>q.id==='sitov.pretest.'+suffix);assert.ok(q.promptDe.includes(premise));assert.equal(q.fragmentDe,null)}
+ for(const [i,q] of tasks.entries()){assert.equal(audit.questions[i].publicPromptDe,q.promptDe);assert.deepEqual(audit.questions[i].publicOptions,q.options);assert.equal(audit.questions[i].keyIdUnchanged,true);assert.equal(audit.questions[i].independentReview,'pending_M')}
+ // These assertions prevent loss of reviewed public context; they do not certify pedagogy.
+})
