@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality21-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3+S4",
+  "reviewerKind": "independent_agent_editorial_review",
+  "reviewedAt": "2026-10-09T18:34:51.552687+00:00",
+  "sourceArtifactCommit": "f5eba754c73f83a2be7c32b4546af2f12bbccc7e",
+  "sourcePatchSha256": "a986dcf95cd1931cf583010d0d25fc8f5504151d96ee6afb883167b32d1bb5cd",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "applicationStatus": "approved_editorial_candidate_pending_atomic_application_after_current_S3_unit",
+  "changedQuestionsReviewed": 21,
+  "unchangedQuestionsVerified": 51,
+  "changedAudioAliases": 48,
+  "scope": "M independently read all72 public questions/options/correct keys/rationales, all3 complete A1.1 source bodies and12 core records; directly compared previous/current21 tasks and unchanged51. Three correct wordings explicitly rereviewed: treffen concrete meetingplace, Brot lexical flour definition ratherthanmeaninglesscategorydistinction, unser exactpublicPaul+Leongroup. Added contexts are marked exercises, not assertions about historicalsource. Two flagged emphasis changes explicitly accepted for their retained broadunits: breadfood now identifies bread within food, coordinatedmusic/bread now requiresboth positiveactions andcorrectobjects vs one negatedaction. This doesnot certifyempiricalequivalence/CEFR; newimmutabledefinition+exactaudio+newapproval required. Existingkeys/IDs/order/form/core/mapping/equivalencecodes stable; empiricalcalibrationpending. No publication/humanlistening claimed.",
+  "explicitJudgments": [
+    {
+      "questionId": "sitov.pretest.a11-04.words.q3",
+      "correctWordingChange": {
+        "before": "Wir kommen zu einer Begegnung zusammen.",
+        "after": "Wir kommen an einem Ort zusammen.",
+        "meaningBeforeDe": "Sich treffen bedeutet einander begegnen; vermeiden und allein suchen beschreiben keine gemeinsame Begegnung.",
+        "meaningAfterDe": "Wir treffen uns heißt: Wir kommen an einem Ort zusammen. Allein zu Hause bleiben oder nur telefonieren ist kein Treffen vor dem Haus.",
+        "sourceEvidence": [
+          {
+            "start": 73,
+            "end": 108,
+            "quote": "Heute treffen wir uns vor dem Haus."
+          }
+        ],
+        "changeReasonDe": "S7: kurze konkrete Antworten statt Begegnung vermeiden; gleiche Bedeutung der richtigen Antwort als Vorschlag.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      },
+      "constructEmphasis": null,
+      "MEditorialDecision": "ACCEPTED_REVIEWED_CANDIDATE_PENDING_NEW_IMMUTABLE_VERSION_AUDIO_AND_APPROVAL"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.words.q6",
+      "correctWordingChange": {
+        "before": "Ein Lebensmittel.",
+        "after": "Ein Lebensmittel aus Mehl.",
+        "meaningBeforeDe": "Brot ist ein essbares Lebensmittel; Getränk und Musikinstrument gehören zu anderen Bedeutungsfeldern.",
+        "meaningAfterDe": "Brot ist ein Lebensmittel aus Mehl. Käse macht man aus Milch, Wurst aus Fleisch.",
+        "sourceEvidence": [
+          {
+            "start": 191,
+            "end": 208,
+            "quote": "essen unser Brot."
+          }
+        ],
+        "changeReasonDe": "S7: drei Lebensmittelbeschreibungen. Richtige Definition wird von Lebensmittel zu Lebensmittel aus Mehl präzisiert; dies ist eine lexikalische Erklärung von Brot, keine Behauptung einer im Text genannten Zutat. Ausdrückliche M-Neuprüfung nötig.",
+        "meaningRefinement": true,
+        "requiresMReReview": true
+      },
+      "constructEmphasis": {
+        "kind": "lexical_granularity_refinement",
+        "beforeDe": "Brot als Lebensmittel gegenüber Getränk und Instrument erkennen.",
+        "afterDe": "Brot über Mehl von anderen Lebensmitteln aus Milch oder Fleisch unterscheiden.",
+        "additionalKnowledgeDe": "Mehl und die Lebensmittelbeschreibungen sind zusätzliche lexikalische Leselast; kein CEFR-Nachweis.",
+        "sourceEvidence": [
+          {
+            "start": 191,
+            "end": 208,
+            "quote": "essen unser Brot."
+          }
+        ],
+        "requiresMReReview": true,
+        "equivalenceMetadataRetainedPendingReview": true
+      },
+      "MEditorialDecision": "ACCEPTED_REVIEWED_CANDIDATE_PENDING_NEW_IMMUTABLE_VERSION_AUDIO_AND_APPROVAL"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.syntax.q6",
+      "correctWordingChange": null,
+      "constructEmphasis": {
+        "kind": "assessment_emphasis_change",
+        "beforeDe": "Zwei Tätigkeiten und Objekte zuordnen; falsche Optionen enthalten unmögliche Objektbeziehungen.",
+        "afterDe": "Erkennen, dass beide positiv koordinierten Tätigkeiten gelten; falsche Optionen verneinen jeweils eine Tätigkeit.",
+        "additionalKnowledgeDe": "Die Negationswörter kein und keine werden in den Ablenkern benötigt. M muss prüfen, ob diese Betonung die erhaltene Assessment Unit und den Equivalence Key hinreichend abdeckt.",
+        "sourceEvidence": [
+          {
+            "start": 171,
+            "end": 208,
+            "quote": "Wir hören Musik und essen unser Brot."
+          }
+        ],
+        "requiresMReReview": true,
+        "equivalenceMetadataRetainedPendingReview": true
+      },
+      "MEditorialDecision": "ACCEPTED_REVIEWED_CANDIDATE_PENDING_NEW_IMMUTABLE_VERSION_AUDIO_AND_APPROVAL"
+    },
+    {
+      "questionId": "sitov.pretest.a11-05.nominal.q6",
+      "correctWordingChange": {
+        "before": "Das Brot gehört zu der Gruppe mit der sprechenden Person.",
+        "after": "Paul und Leon.",
+        "meaningBeforeDe": "Unser bezieht sich auf wir und schließt den Sprecher ein; sein oder dein würde einen anderen Besitzerbezug ausdrücken.",
+        "meaningAfterDe": "Paul und Leon sagen wir und unser. Unser bezieht sich auf beide Sprecher, nicht nur auf Paul und nicht auf Tom.",
+        "sourceEvidence": [
+          {
+            "start": 171,
+            "end": 208,
+            "quote": "Wir hören Musik und essen unser Brot."
+          }
+        ],
+        "changeReasonDe": "S7: einfache benannte Personen statt ausschließlicher und abstrakter Gruppenbeschreibung. Richtige Antwort wird auf den öffentlichen Sprecherkontext konkretisiert.",
+        "meaningRefinement": false,
+        "requiresMReReview": true
+      },
+      "constructEmphasis": null,
+      "MEditorialDecision": "ACCEPTED_REVIEWED_CANDIDATE_PENDING_NEW_IMMUTABLE_VERSION_AUDIO_AND_APPROVAL"
+    }
+  ],
+  "approvedEditorialDrafts": [
+    {
+      "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+      "definitionContentHash": "ec27a072d710add9d54d657155bd90a0b16222e0d223acd10020f4f1eccf803f",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+        "definitionContentHash": "14468d7997240c66694d7e36bafea6f8be7042a40aab3485075dbd398cc52c8c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+      }
+    },
+    {
+      "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+      "definitionContentHash": "c7f4486cf2d5992ea4ed990979e8806642fe8d39cafed4518bc73e2c05552813",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+        "definitionContentHash": "cf6386546fef2994b79e95e7aa8b41db4573b15bbfd3428213edff3f00356258",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+      }
+    },
+    {
+      "textId": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+      "definitionContentHash": "d612f30be691221cebe326c26daa00e75bd6133b60ff66048b03593353687d77",
+      "previousReview": {
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+        "definitionContentHash": "54352973e29ac3049a679a94f0a6cff1f099141968cf37f8d253675881eb6e8c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+      }
+    }
+  ],
+  "immutableNewDefinitionAndAudioBindingRequired": true
+}
