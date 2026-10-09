@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-quality31-M",
+  "reviewer": "sitov.agent.M",
+  "reviewerKind": "independent_agent_editorial_review",
+  "authorIdentity": "sitov.agent.S4",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T19:43:42.871500+00:00",
+  "sourcePatchSha256": "e2edfcfdd0bbbb777285d6cf46eecf422f73933275d673b90c89809d33b69b29",
+  "sourceCommit": "501298d5fecf3fa8554d0f40f0fc86e7c296294f",
+  "questionsChecked": 96,
+  "coresChecked": 16,
+  "patchesChecked": 31,
+  "unchangedQuestionsChecked": 65,
+  "changedAliases": 64,
+  "scope": "M independently read all96 questions/288options/keys/rationales and16 cores against4 full actualcanonicalA1.2sources, all31 before/after patches and explicitly rechecked both audio-safe prompt corrections. Vocabulary corrected to natural samefield medical/body/household/swimming/invitation/weather contrasts. Genuine finitewäscht/schneidet/bringtmit recognition and ongoingseit interpretation replace lexicalcopy. PublicPaul/Leon/Sohn speakercontexts make pronounreferences unambiguous in standarddirectspeech. Exactcorrectanswer optionIDs stayunchanged; fourcorrectwordingexceptions below reviewed. Other65 tasks/coreunits/sources/history untouched. No empiricalequivalence orCEFRcertification, humanlistening/calibration orpublicationclaim.",
+  "correctWordingExceptions": [
+    "sitov.pretest.a12-01.words.q1",
+    "sitov.pretest.a12-01.syntax.q1",
+    "sitov.pretest.a12-02.nominal.q1",
+    "sitov.pretest.a12-04.words.q1"
+  ],
+  "constructDecisions": [
+    "a12-02.verbs.q4 finite wäscht to sourcelemma waschen",
+    "a12-02.verbs.q5 finite schneidet to sourcelemma schneiden",
+    "a12-04.verbs.q5 complete finite PaulbringtBrotmit to trennbarerInfinitiv, no repeatedellipsis",
+    "a12-01.syntax.q1 seit pastbeginandongoingpresent relation"
+  ],
+  "publicationAuthorized": false,
+  "newImmutableDefinitionAndExactAudioBindingRequired": true
+}

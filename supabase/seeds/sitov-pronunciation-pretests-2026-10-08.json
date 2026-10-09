@@ -10694,16 +10694,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "M hat alle96 Fragen und16Kerne nach31 Reparaturen unabhängig geprüft;65 Fragen exakt erhalten. Vier richtige Antwortformulierungen und vier ausdrücklich markierte tatsächliche Grammatik-/Satzkonstrukte redaktionell neu bewertet. Zwei Audio-Prompts sind nach konkreter M-Korrektur klar ausgesprochen. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "e5f456eec833ee2dd3e6e9da51d565a55312bc3124740451fe2479866ae262f0",
-        "definitionContentHash": "fe8ad1150a7485b0af853e8fb7664972aadbd16c4b0fd5da8af32cb95cb85ce8",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "definitionContentHash": "31366009c52a247185961342379cb0563835a88b6284e941ad6bdc4f881b1c64",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-quality31-M",
+        "documentSha256": "8ac40560c0758ebc4c5aa643eed005fe07bc3406283eb50f15cb960c28c5b58c",
+        "reviewedAt": "2026-10-09T19:43:42.871500+00:00",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -10927,15 +10927,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-01.words.q1.a",
-                "textDe": "Den Bereich zwischen Hand und Ellenbogen."
+                "textDe": "Den Arm."
               },
               {
                 "id": "sitov.pretest.a12-01.words.q1.b",
-                "textDe": "Den Bereich zwischen Kopf und Rumpf."
+                "textDe": "Den Teil zwischen Kopf und Schultern."
               },
               {
                 "id": "sitov.pretest.a12-01.words.q1.c",
-                "textDe": "Den Bereich zwischen Knie und Fuß."
+                "textDe": "Das Bein."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-01.words.q1.b",
@@ -10948,7 +10948,7 @@
                 "quote": "mein Hals"
               }
             ],
-            "rationaleDe": "Hals bezeichnet den Bereich unter dem Kopf; Unterarm und Unterschenkel sind andere Körperbereiche."
+            "rationaleDe": "Der Hals liegt zwischen Kopf und Schultern. Arm und Bein sind andere Körperteile."
           },
           {
             "id": "sitov.pretest.a12-01.words.q2",
@@ -10963,11 +10963,11 @@
               },
               {
                 "id": "sitov.pretest.a12-01.words.q2.b",
-                "textDe": "Ein Geschäft für Lebensmittel."
+                "textDe": "Ein Geschäft für Medikamente."
               },
               {
                 "id": "sitov.pretest.a12-01.words.q2.c",
-                "textDe": "Ein Bahnhof für den Busverkehr."
+                "textDe": "Ein Ort, an dem Kranke über Nacht bleiben."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-01.words.q2.a",
@@ -10980,7 +10980,7 @@
                 "quote": "Ich rufe in der Praxis an"
               }
             ],
-            "rationaleDe": "Im Zusammenhang mit einem Arzt ist Praxis der Arbeits- und Behandlungsort; Geschäft und Bahnhof passen nicht zu diesem Kontext."
+            "rationaleDe": "Eine Arztpraxis ist der Arbeits- und Behandlungsort eines Arztes. Ein Geschäft für Medikamente ist eine Apotheke; zum Übernachten bei einer Behandlung bleibt man im Krankenhaus."
           },
           {
             "id": "sitov.pretest.a12-01.words.q3",
@@ -11031,7 +11031,7 @@
               },
               {
                 "id": "sitov.pretest.a12-01.words.q4.c",
-                "textDe": "Man nennt nur eine Uhrzeit."
+                "textDe": "Man schreibt den Namen als ganzes Wort."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-01.words.q4.a",
@@ -11044,7 +11044,7 @@
                 "quote": "Ich buchstabiere ihn langsam."
               }
             ],
-            "rationaleDe": "Buchstabieren heißt die Buchstaben einzeln zu nennen; eine Uhrzeit oder ein zusammenhängend gesprochenes Wort ist keine solche Buchstabenfolge."
+            "rationaleDe": "Beim Buchstabieren nennt man die Buchstaben einzeln. Den ganzen Namen zu sprechen oder zu schreiben ist etwas anderes."
           },
           {
             "id": "sitov.pretest.a12-01.words.q5",
@@ -11306,20 +11306,20 @@
             "id": "sitov.pretest.a12-01.syntax.q1",
             "competencyId": "sitov.pretest.a12-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Übung: »Seit gestern habe ich Durst.« Seit wann besteht der Durst?",
+            "promptDe": "Übung: »Seit gestern habe ich Durst.« Welche Aussage passt?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-01.syntax.q1.a",
-                "textDe": "Seit dem vorherigen Tag."
+                "textDe": "Der Durst hat gestern begonnen und besteht noch."
               },
               {
                 "id": "sitov.pretest.a12-01.syntax.q1.b",
-                "textDe": "Nur vor einem Jahr ohne Bezug zu jetzt."
+                "textDe": "Der Durst hat gestern schon aufgehört."
               },
               {
                 "id": "sitov.pretest.a12-01.syntax.q1.c",
-                "textDe": "Erst ab dem kommenden Tag."
+                "textDe": "Der Durst beginnt erst morgen."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-01.syntax.q1.a",
@@ -11332,7 +11332,7 @@
                 "quote": "Seit gestern tut mein Hals weh."
               }
             ],
-            "rationaleDe": "Seit gestern benennt im sichtbaren Übungssatz den Beginn am vorherigen Tag; morgen und letztes Jahr sind andere Zeitangaben."
+            "rationaleDe": "Seit gestern nennt den Beginn gestern. Habe ich sagt, dass der Durst jetzt noch besteht; er ist nicht gestern beendet worden und beginnt nicht erst morgen."
           },
           {
             "id": "sitov.pretest.a12-01.syntax.q2",
@@ -11379,11 +11379,11 @@
               },
               {
                 "id": "sitov.pretest.a12-01.syntax.q3.b",
-                "textDe": "Nach der Farbe eines Sofas."
+                "textDe": "Nach dem Namen des Mitarbeiters."
               },
               {
                 "id": "sitov.pretest.a12-01.syntax.q3.c",
-                "textDe": "Nach der Anzahl der Kartoffeln."
+                "textDe": "Nach den Namen aller Ärzte."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-01.syntax.q3.a",
@@ -11396,7 +11396,7 @@
                 "quote": "Der Mitarbeiter fragt nach meinem Namen."
               }
             ],
-            "rationaleDe": "Die sichtbare Ergänzung nach meinem Namen bezeichnet die erfragte Angabe; mein verweist auf den Sprecher, nicht auf den Mitarbeiter."
+            "rationaleDe": "Mein Name ist der Name des Sprechers. Die Frage gilt nicht dem Namen des Mitarbeiters oder den Namen aller Ärzte."
           },
           {
             "id": "sitov.pretest.a12-01.syntax.q4",
@@ -11754,16 +11754,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "M hat alle96 Fragen und16Kerne nach31 Reparaturen unabhängig geprüft;65 Fragen exakt erhalten. Vier richtige Antwortformulierungen und vier ausdrücklich markierte tatsächliche Grammatik-/Satzkonstrukte redaktionell neu bewertet. Zwei Audio-Prompts sind nach konkreter M-Korrektur klar ausgesprochen. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
-        "definitionContentHash": "c2929dab6a04477810447f950de86875f301c6091aa7c991e381328e9eac64b4",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "definitionContentHash": "79c671752eeca3d4e88ec714115ad7c615a211b40d956d8eff711e3619acf6ca",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-quality31-M",
+        "documentSha256": "8ac40560c0758ebc4c5aa643eed005fe07bc3406283eb50f15cb960c28c5b58c",
+        "reviewedAt": "2026-10-09T19:43:42.871500+00:00",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -12144,7 +12144,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-02.words.q6.a",
-                "textDe": "Man verlässt die Küche, ohne etwas zu ordnen."
+                "textDe": "Man kocht ein Essen."
               },
               {
                 "id": "sitov.pretest.a12-02.words.q6.b",
@@ -12152,7 +12152,7 @@
               },
               {
                 "id": "sitov.pretest.a12-02.words.q6.c",
-                "textDe": "Man vereinbart einen Arzttermin."
+                "textDe": "Man putzt den Boden mit Wasser."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-02.words.q6.b",
@@ -12165,7 +12165,7 @@
                 "quote": "Später räumen wir die Küche auf."
               }
             ],
-            "rationaleDe": "Aufräumen bedeutet Ordnung herzustellen; nur weggehen oder einen Termin vereinbaren beschreibt nicht diese Tätigkeit."
+            "rationaleDe": "Aufräumen heißt, Dinge wieder in Ordnung zu bringen. Kochen und den Boden mit Wasser putzen sind andere Tätigkeiten in der Küche."
           },
           {
             "id": "sitov.pretest.a12-02.verbs.q1",
@@ -12267,7 +12267,7 @@
             "id": "sitov.pretest.a12-02.verbs.q4",
             "competencyId": "sitov.pretest.a12-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Grundform gehört zum Verb beim Säubern der Karotten?",
+            "promptDe": "Übung: »Paul wäscht die Karotten.« Welche Grundform gehört zu »wäscht«?",
             "fragmentDe": null,
             "options": [
               {
@@ -12293,13 +12293,13 @@
                 "quote": "Dann waschen wir die Karotten"
               }
             ],
-            "rationaleDe": "Das Verb lautet waschen und beschreibt das Säubern; wachsen und wünschen sind ähnlich geschriebene, aber andere Verben."
+            "rationaleDe": "Wäscht gehört zu waschen. Bei er oder Paul wird a zu ä; die Grundform lautet waschen, nicht wünschen oder wachsen."
           },
           {
             "id": "sitov.pretest.a12-02.verbs.q5",
             "competencyId": "sitov.pretest.a12-02.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Grundform gehört zum Verb beim Zerteilen der Kartoffeln?",
+            "promptDe": "Übung: »Paul schneidet die Kartoffeln.« Welche Grundform gehört zu »schneidet«?",
             "fragmentDe": null,
             "options": [
               {
@@ -12325,7 +12325,7 @@
                 "quote": "schneiden die Kartoffeln"
               }
             ],
-            "rationaleDe": "Die Tätigkeit heißt schneiden; scheinen und schreiben haben andere Bedeutungen und sind nicht das Verb dieser Stelle."
+            "rationaleDe": "Schneidet gehört zu schneiden. Die Endung der Grundform ist en; schreiben und scheinen sind andere Verben."
           },
           {
             "id": "sitov.pretest.a12-02.verbs.q6",
@@ -12432,11 +12432,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-02.syntax.q3.a",
-                "textDe": "Die Kartoffeln erst nach dem Essen kaufen."
+                "textDe": "Die Karotten waschen."
               },
               {
                 "id": "sitov.pretest.a12-02.syntax.q3.b",
-                "textDe": "Die Küche vor dem Einkaufen als genannte erste Handlung aufräumen."
+                "textDe": "Die Karotten waschen und danach Gemüse kaufen."
               },
               {
                 "id": "sitov.pretest.a12-02.syntax.q3.c",
@@ -12453,7 +12453,7 @@
                 "quote": "Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln."
               }
             ],
-            "rationaleDe": "Zuerst markiert den Einkauf als erste Handlung und dann das Waschen als folgende Handlung; diese Abfolge ist vollständig sichtbar."
+            "rationaleDe": "Zuerst gehört zu Gemüse kaufen. Dann folgt Karotten waschen; die anderen Antworten nennen oder setzen das Waschen zuerst."
           },
           {
             "id": "sitov.pretest.a12-02.syntax.q4",
@@ -12472,7 +12472,7 @@
               },
               {
                 "id": "sitov.pretest.a12-02.syntax.q4.c",
-                "textDe": "Nur das Brot wird gewaschen und geschnitten."
+                "textDe": "Karotten und Kartoffeln werden beide geschnitten."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-02.syntax.q4.b",
@@ -12485,7 +12485,7 @@
                 "quote": "Dann waschen wir die Karotten und schneiden die Kartoffeln."
               }
             ],
-            "rationaleDe": "Auch bei vorangestellten Objekten gehören Kartoffeln zu schneiden und Karotten zu waschen; die sichtbaren Sätze enthalten beide Zuordnungen."
+            "rationaleDe": "Kartoffeln gehören zu schneiden; Karotten gehören zu waschen. Die sichtbaren Sätze vertauschen diese Handlungen nicht und sagen nicht, dass beide geschnitten werden."
           },
           {
             "id": "sitov.pretest.a12-02.syntax.q5",
@@ -12528,11 +12528,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-02.syntax.q6.a",
-                "textDe": "Vor dem Besuch einen Arzt anrufen."
+                "textDe": "Brot essen."
               },
               {
                 "id": "sitov.pretest.a12-02.syntax.q6.b",
-                "textDe": "Als erste Handlung Gemüse kaufen."
+                "textDe": "Die Küche aufräumen und danach Brot essen."
               },
               {
                 "id": "sitov.pretest.a12-02.syntax.q6.c",
@@ -12549,26 +12549,26 @@
                 "quote": "Später räumen wir die Küche auf."
               }
             ],
-            "rationaleDe": "Später markiert im sichtbaren Kontext das Aufräumen der Küche als nachfolgende Handlung; Essen gehört zum vorherigen Satz."
+            "rationaleDe": "Später gehört zur Küche aufräumen. Brot essen steht davor; die umgekehrte Reihenfolge passt nicht zum sichtbaren Satz."
           },
           {
             "id": "sitov.pretest.a12-02.nominal.q1",
             "competencyId": "sitov.pretest.a12-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Zahl hat das Substantiv »Freunde« nach »zwei«?",
+            "promptDe": "Welche Form von »Freund« gehört in die Lücke zwischen »Zwei« und »kommen zu mir«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-02.nominal.q1.a",
-                "textDe": "Es steht in der Mehrzahl."
+                "textDe": "Freunde"
               },
               {
                 "id": "sitov.pretest.a12-02.nominal.q1.b",
-                "textDe": "Es ist eine Besitzform für den Tisch."
+                "textDe": "Freund"
               },
               {
                 "id": "sitov.pretest.a12-02.nominal.q1.c",
-                "textDe": "Es bezeichnet genau einen Freund."
+                "textDe": "Freunden"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-02.nominal.q1.a",
@@ -12581,18 +12581,18 @@
                 "quote": "zwei Freunde"
               }
             ],
-            "rationaleDe": "Zwei verlangt mehrere Personen und Freunde ist die Pluralform; Einzahl und Besitzform sind andere grammatische Funktionen."
+            "rationaleDe": "Nach zwei steht hier die Mehrzahl Freunde. Freund ist die Einzahl; Freunden passt nicht als Subjekt dieses Satzes."
           },
           {
             "id": "sitov.pretest.a12-02.nominal.q2",
             "competencyId": "sitov.pretest.a12-02.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Person bezeichnet »mir« in der Aussage eines Sprechers: »Freunde kommen zu mir«?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Zwei Freunde kommen zu mir.« Wen meint »mir«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-02.nominal.q2.a",
-                "textDe": "Nur einen Freund als Ziel des eigenen Besuchs."
+                "textDe": "Leon."
               },
               {
                 "id": "sitov.pretest.a12-02.nominal.q2.b",
@@ -12600,7 +12600,7 @@
               },
               {
                 "id": "sitov.pretest.a12-02.nominal.q2.c",
-                "textDe": "Die Küche als Person."
+                "textDe": "Paul und Leon."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-02.nominal.q2.b",
@@ -12613,7 +12613,7 @@
                 "quote": "zwei Freunde zu mir"
               }
             ],
-            "rationaleDe": "Mir ist eine Form von ich nach zu und bezeichnet den Sprecher; Freund und Küche sind nicht der Bezug dieses Personalpronomens."
+            "rationaleDe": "Paul sagt mir und meint sich selbst als Ziel des Besuchs. Mir bezeichnet weder Leon noch beide zusammen."
           },
           {
             "id": "sitov.pretest.a12-02.nominal.q3",
@@ -12811,16 +12811,17 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 öffentlichen Aufgaben und drei Originaltexte unabhängig fachlich geprüft und danach exakte Schlüssel-/Optionsbijectionen sowie sämtliche unveränderten Inhaltsfelder bestätigt. Nur redaktioneller inaktiver Entwurf; Audioimport, Kalibrierung und Veröffentlichung separat.",
+        "notesDe": "M hat alle96 Fragen und16Kerne nach31 Reparaturen unabhängig geprüft;65 Fragen exakt erhalten. Vier richtige Antwortformulierungen und vier ausdrücklich markierte tatsächliche Grammatik-/Satzkonstrukte redaktionell neu bewertet. Zwei Audio-Prompts sind nach konkreter M-Korrektur klar ausgesprochen. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "50c72a0375ad6340a4e2aff62d3620f74c9fa79151a9584b44301fd233844b52",
-        "definitionContentHash": "089bb0b29ca8d37446a0d57ea329b83650b2cd40bf4fd0f3bf2b10929d62781d",
-        "reviewerKind": "independent_agent_editorial_review",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools13-15-M",
-        "documentSha256": "f96796a68487478130c835b196e1883ea7e44fc4f2efc9698f1155ce27aaf781",
-        "reviewedAt": "2026-10-09T11:12:45.625Z"
+        "definitionContentHash": "6b5b7f935b6e84c72a16bfdbdd8b76f19ae000349102038dd247446d0f924b12",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-quality31-M",
+        "documentSha256": "8ac40560c0758ebc4c5aa643eed005fe07bc3406283eb50f15cb960c28c5b58c",
+        "reviewedAt": "2026-10-09T19:43:42.871500+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -13058,11 +13059,11 @@
               },
               {
                 "id": "sitov.pretest.a12-03.words.q1.a",
-                "textDe": "Ein Geschäft für Bücher."
+                "textDe": "Eine Halle zum Fußballspielen."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q1.b",
-                "textDe": "Ein Raum zum Backen."
+                "textDe": "Ein Platz zum Tennisspielen."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.words.q1.c",
@@ -13075,7 +13076,7 @@
                 "quote": "Schwimmbad"
               }
             ],
-            "rationaleDe": "Ein Schwimmbad dient dem Schwimmen; Bücherkauf und Backen bezeichnen andere Orte."
+            "rationaleDe": "Ein Schwimmbad hat Wasserbecken zum Schwimmen. Fußballhalle und Tennisplatz sind andere Sportorte."
           },
           {
             "id": "sitov.pretest.a12-03.words.q2",
@@ -13086,7 +13087,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.words.q2.c",
-                "textDe": "Zum Schneiden von Obst."
+                "textDe": "Zum Reinigen der Zähne."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q2.b",
@@ -13094,7 +13095,7 @@
               },
               {
                 "id": "sitov.pretest.a12-03.words.q2.a",
-                "textDe": "Zum Bezahlen an der Kasse."
+                "textDe": "Zum Kämmen der Haare."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.words.q2.b",
@@ -13107,7 +13108,7 @@
                 "quote": "zwei Handtücher"
               }
             ],
-            "rationaleDe": "Das Handtuch trocknet den Körper ab; es ist weder Zahlungsmittel noch Schneidewerkzeug."
+            "rationaleDe": "Ein Handtuch trocknet den Körper ab. Für Zähne und Haare benutzt man andere Dinge, zum Beispiel Zahnbürste und Kamm."
           },
           {
             "id": "sitov.pretest.a12-03.words.q3",
@@ -13122,11 +13123,11 @@
               },
               {
                 "id": "sitov.pretest.a12-03.words.q3.c",
-                "textDe": "Unterlagen für einen Arzttermin."
+                "textDe": "Kleidung und Dinge zum Wandern."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q3.b",
-                "textDe": "Werkzeuge zur Gartenarbeit."
+                "textDe": "Kleidung und Dinge zum Skifahren."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.words.q3.a",
@@ -13139,7 +13140,7 @@
                 "quote": "unsere Badesachen"
               }
             ],
-            "rationaleDe": "Badesachen gehören zum Baden; Gartenwerkzeuge und Arztunterlagen gehören zu anderen Tätigkeiten."
+            "rationaleDe": "Badesachen gehören zum Baden. Kleidung und Dinge zum Wandern oder Skifahren sind andere Ausstattungen."
           },
           {
             "id": "sitov.pretest.a12-03.words.q4",
@@ -13150,7 +13151,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.words.q4.a",
-                "textDe": "Man schwimmt im Becken."
+                "textDe": "Man zieht die Badesachen an."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q4.b",
@@ -13158,7 +13159,7 @@
               },
               {
                 "id": "sitov.pretest.a12-03.words.q4.c",
-                "textDe": "Man schläft im Bett."
+                "textDe": "Man trocknet sich nach dem Schwimmen ab."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.words.q4.b",
@@ -13171,7 +13172,7 @@
                 "quote": "An der Kasse"
               }
             ],
-            "rationaleDe": "Die Kasse ist die Zahlstelle; Schwimmen und Schlafen sind keine Bedeutung dieser Ortsangabe."
+            "rationaleDe": "An der Kasse bezahlt man die Karten. Badesachen anziehen und sich abtrocknen sind andere Tätigkeiten beim Schwimmbadbesuch."
           },
           {
             "id": "sitov.pretest.a12-03.words.q5",
@@ -13182,11 +13183,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.words.q5.b",
-                "textDe": "Das Wasser ist gefroren."
+                "textDe": "Das Wasser ist viel zu kalt."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q5.c",
-                "textDe": "Die Wärme ist unerträglich."
+                "textDe": "Das Wasser ist viel zu heiß."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q5.a",
@@ -13203,7 +13204,7 @@
                 "quote": "angenehm warm"
               }
             ],
-            "rationaleDe": "Angenehm bewertet die Wärme positiv; unerträglich ist negativ und gefroren widerspricht warm."
+            "rationaleDe": "Angenehm warm fühlt sich gut an. Viel zu kalt und viel zu heiß fühlen sich nicht angenehm an."
           },
           {
             "id": "sitov.pretest.a12-03.words.q6",
@@ -13214,7 +13215,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.words.q6.a",
-                "textDe": "Den Eintrittspreis erhöhen."
+                "textDe": "Die Tätigkeit ganz beenden."
               },
               {
                 "id": "sitov.pretest.a12-03.words.q6.b",
@@ -13235,7 +13236,7 @@
                 "quote": "eine Pause"
               }
             ],
-            "rationaleDe": "Eine Pause ist eine zeitweilige Unterbrechung; Fortsetzen ohne Unterbrechung ist das Gegenteil."
+            "rationaleDe": "Eine Pause unterbricht eine Tätigkeit für eine Weile. Ganz beenden oder ohne Unterbrechung weitermachen ist etwas anderes."
           },
           {
             "id": "sitov.pretest.a12-03.verbs.q1",
@@ -13566,11 +13567,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.syntax.q5.b",
-                "textDe": "Das Schwimmbad."
+                "textDe": "Der Sohn."
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q5.a",
-                "textDe": "Die beiden Karten."
+                "textDe": "Der Sohn und der Sprecher gemeinsam."
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q5.c",
@@ -13587,7 +13588,7 @@
                 "quote": "Mein Sohn schwimmt, und ich übe mit ihm."
               }
             ],
-            "rationaleDe": "Das ausdrückliche ich gehört zu übe; die anderen angebotenen Gegenstände sind keine handelnden Subjekte."
+            "rationaleDe": "Das Subjekt von übe ist ich, also der Sprecher. Der Sohn ist das Subjekt von schwimmt; gemeinsam üben ist eine mögliche Handlung, aber beide zusammen sind nicht das grammatische Subjekt von übe."
           },
           {
             "id": "sitov.pretest.a12-03.syntax.q6",
@@ -13598,7 +13599,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-03.syntax.q6.c",
-                "textDe": "Eine Stunde vor Beginn."
+                "textDe": "Schon zu Beginn des Übens."
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q6.a",
@@ -13606,7 +13607,7 @@
               },
               {
                 "id": "sitov.pretest.a12-03.syntax.q6.b",
-                "textDe": "Genau während der ersten Sekunde."
+                "textDe": "Erst nach zwei Stunden."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-03.syntax.q6.a",
@@ -13619,7 +13620,7 @@
                 "quote": "Nach einer Stunde machen wir eine Pause."
               }
             ],
-            "rationaleDe": "Nach einer Stunde legt die Pause zeitlich hinter das Verstreichen einer Stunde, nicht davor oder an den Anfang."
+            "rationaleDe": "Nach einer Stunde heißt: Eine Stunde ist vergangen, dann beginnt die Pause. Zu Beginn und nach zwei Stunden sind andere Zeitpunkte."
           },
           {
             "id": "sitov.pretest.a12-03.nominal.q1",
@@ -13753,16 +13754,16 @@
             "id": "sitov.pretest.a12-03.nominal.q5",
             "competencyId": "sitov.pretest.a12-03.nominal",
             "kind": "single_choice",
-            "promptDe": "Auf wen verweist »ihm« in »Mein Sohn schwimmt, und ich übe mit ihm«?",
+            "promptDe": "Auf wen bezieht sich »ihm« in Pauls Satz zu Leon: »Mein Sohn schwimmt, und ich übe mit ihm«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-03.nominal.q5.b",
-                "textDe": "Auf den Sonntag."
+                "textDe": "Auf Paul."
               },
               {
                 "id": "sitov.pretest.a12-03.nominal.q5.a",
-                "textDe": "Auf das Wasser."
+                "textDe": "Auf Leon."
               },
               {
                 "id": "sitov.pretest.a12-03.nominal.q5.c",
@@ -13779,7 +13780,7 @@
                 "quote": "Mein Sohn schwimmt, und ich übe mit ihm."
               }
             ],
-            "rationaleDe": "Der Sohn ist der männliche Personenbezug im Satz; Wasser und Sonntag sind keine gemeinsam übenden Personen."
+            "rationaleDe": "Ihm bezieht sich hier auf den Sohn. Paul ist der Sprecher und Leon hört zu; beide sind mögliche männliche Personen, aber nicht der genannte Bezug von ihm."
           },
           {
             "id": "sitov.pretest.a12-03.nominal.q6",
@@ -13867,16 +13868,17 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 öffentlichen Aufgaben und drei Originaltexte unabhängig fachlich geprüft und danach exakte Schlüssel-/Optionsbijectionen sowie sämtliche unveränderten Inhaltsfelder bestätigt. Nur redaktioneller inaktiver Entwurf; Audioimport, Kalibrierung und Veröffentlichung separat.",
+        "notesDe": "M hat alle96 Fragen und16Kerne nach31 Reparaturen unabhängig geprüft;65 Fragen exakt erhalten. Vier richtige Antwortformulierungen und vier ausdrücklich markierte tatsächliche Grammatik-/Satzkonstrukte redaktionell neu bewertet. Zwei Audio-Prompts sind nach konkreter M-Korrektur klar ausgesprochen. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "af6069fdab6798f3a084ceb92d09a6a47eec2741d01b971e341f116262485848",
-        "definitionContentHash": "e88b65fc2b15cc33cfba37b53cd9c529ec55b23e2a6bef35086da9ee0a57cf17",
-        "reviewerKind": "independent_agent_editorial_review",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools13-15-M",
-        "documentSha256": "f96796a68487478130c835b196e1883ea7e44fc4f2efc9698f1155ce27aaf781",
-        "reviewedAt": "2026-10-09T11:12:45.625Z"
+        "definitionContentHash": "e5a645d9b6d75f463b63db2528dad6d8b8697523101f2ccfe4e17538262a9148",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-quality31-M",
+        "documentSha256": "8ac40560c0758ebc4c5aa643eed005fe07bc3406283eb50f15cb960c28c5b58c",
+        "reviewedAt": "2026-10-09T19:43:42.871500+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -14108,15 +14110,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.words.q1.a",
-                "textDe": "Der Tag jedes Einkaufs."
+                "textDe": "Der erste Tag in einem neuen Kurs."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q1.c",
-                "textDe": "Der erste Tag jeder Woche."
+                "textDe": "Der Tag, an dem man umzieht."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q1.b",
-                "textDe": "Der jährlich wiederkehrende Tag der Geburt."
+                "textDe": "Der Tag, an dem man ein Jahr älter wird."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.words.q1.b",
@@ -14129,7 +14131,7 @@
                 "quote": "Geburtstag"
               }
             ],
-            "rationaleDe": "Geburtstag bezeichnet den Jahrestag der Geburt, nicht einen regelmäßigen Wochen- oder Einkaufstag."
+            "rationaleDe": "Am Geburtstag wird man ein Jahr älter. Der Beginn eines Kurses oder ein Umzug sind andere persönliche Ereignisse."
           },
           {
             "id": "sitov.pretest.a12-04.words.q2",
@@ -14140,11 +14142,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.words.q2.b",
-                "textDe": "Nur die eigenen Großeltern."
+                "textDe": "Menschen, mit denen man zusammen arbeitet."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q2.a",
-                "textDe": "Alle Menschen eines anderen Kontinents."
+                "textDe": "Menschen, mit denen man zusammen lernt."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q2.c",
@@ -14161,7 +14163,7 @@
                 "quote": "meinen Nachbarn"
               }
             ],
-            "rationaleDe": "Nachbarn bezeichnet eine räumliche Wohnbeziehung; Herkunft oder Verwandtschaft allein macht sie nicht aus."
+            "rationaleDe": "Nachbarn wohnen in der Nähe. Gemeinsam arbeiten oder lernen nennt andere Beziehungen zwischen Menschen."
           },
           {
             "id": "sitov.pretest.a12-04.words.q3",
@@ -14172,7 +14174,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.words.q3.a",
-                "textDe": "Man verbietet allen den Besuch."
+                "textDe": "Man sagt, dass man nicht zur Feier kommen kann."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q3.c",
@@ -14180,7 +14182,7 @@
               },
               {
                 "id": "sitov.pretest.a12-04.words.q3.b",
-                "textDe": "Man bestätigt den Kauf eines Fahrrads."
+                "textDe": "Man bedankt sich nach der Feier."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.words.q3.c",
@@ -14193,7 +14195,7 @@
                 "quote": "eine kurze Einladung"
               }
             ],
-            "rationaleDe": "Eine Einladung bittet um Teilnahme; Besuchsverbot und Kaufbestätigung sind andere Mitteilungen."
+            "rationaleDe": "Eine Einladung bittet jemanden, zur Feier zu kommen. Eine Absage und ein Dank nach der Feier sind andere Mitteilungen."
           },
           {
             "id": "sitov.pretest.a12-04.words.q4",
@@ -14208,11 +14210,11 @@
               },
               {
                 "id": "sitov.pretest.a12-04.words.q4.c",
-                "textDe": "Zum Backen von Kuchen."
+                "textDe": "Zum Kaufen von Briefmarken."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q4.b",
-                "textDe": "Zum Aufbewahren von Badewasser."
+                "textDe": "Zum Versenden von Paketen."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.words.q4.a",
@@ -14225,7 +14227,7 @@
                 "quote": "ihre Briefkästen"
               }
             ],
-            "rationaleDe": "Briefkästen nehmen Post auf; sie sind keine Backöfen oder Behälter für Badewasser."
+            "rationaleDe": "Briefkästen an Wohnungen empfangen Briefe. Briefmarken kaufen und Pakete verschicken sind andere Aufgaben rund um die Post."
           },
           {
             "id": "sitov.pretest.a12-04.words.q5",
@@ -14240,11 +14242,11 @@
               },
               {
                 "id": "sitov.pretest.a12-04.words.q5.b",
-                "textDe": "Ein Stuhl."
+                "textDe": "Brot."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q5.c",
-                "textDe": "Ein Briefkasten."
+                "textDe": "Kuchen."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.words.q5.a",
@@ -14257,7 +14259,7 @@
                 "quote": "Getränke"
               }
             ],
-            "rationaleDe": "Wasser kann man trinken; Stuhl und Briefkasten sind keine Getränke."
+            "rationaleDe": "Wasser ist ein Getränk. Brot und Kuchen sind Lebensmittel, die man isst."
           },
           {
             "id": "sitov.pretest.a12-04.words.q6",
@@ -14268,7 +14270,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.words.q6.a",
-                "textDe": "Eine Einladung auf Papier."
+                "textDe": "Schnee, der aus Wolken fällt."
               },
               {
                 "id": "sitov.pretest.a12-04.words.q6.b",
@@ -14276,7 +14278,7 @@
               },
               {
                 "id": "sitov.pretest.a12-04.words.q6.c",
-                "textDe": "Ein heller Klang einer Glocke."
+                "textDe": "Sehr starker Wind."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-04.words.q6.b",
@@ -14289,7 +14291,7 @@
                 "quote": "Bei Regen"
               }
             ],
-            "rationaleDe": "Regen ist Niederschlag aus Wolken; Klang und Schriftstück sind keine Wettererscheinung."
+            "rationaleDe": "Regen ist Wasser, das aus Wolken fällt. Schnee und starker Wind sind andere Wettererscheinungen."
           },
           {
             "id": "sitov.pretest.a12-04.verbs.q1",
@@ -14423,7 +14425,7 @@
             "id": "sitov.pretest.a12-04.verbs.q5",
             "competencyId": "sitov.pretest.a12-04.verbs",
             "kind": "single_choice",
-            "promptDe": "Wie heißt das Verb für »etwas mit zur Feier bringen« in »Jeder kann etwas zu essen mitbringen«?",
+            "promptDe": "Übung: »Paul bringt Brot zur Feier mit.« Welcher Infinitiv gehört zum Verb in diesem Satz?",
             "fragmentDe": null,
             "options": [
               {
@@ -14449,7 +14451,7 @@
                 "quote": "Jeder kann etwas zu essen mitbringen."
               }
             ],
-            "rationaleDe": "Mitbringen bezeichnet das Bringen an den besuchten Ort; wegbringen bezeichnet die Gegenrichtung."
+            "rationaleDe": "Bringt und mit bilden zusammen mitbringen. Wegbringen hat eine andere Vorsilbe; verbringen ist ein anderes Verb."
           },
           {
             "id": "sitov.pretest.a12-04.verbs.q6",
@@ -14551,16 +14553,16 @@
             "id": "sitov.pretest.a12-04.syntax.q3",
             "competencyId": "sitov.pretest.a12-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer legt die Einladung in die Briefkästen laut »Ich schreibe eine Einladung und lege sie in ihre Briefkästen«?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Ich schreibe eine Einladung und lege sie in den Briefkasten.« Wer legt die Einladung in den Briefkasten?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-04.syntax.q3.b",
-                "textDe": "Die Briefkästen selbst."
+                "textDe": "Leon."
               },
               {
                 "id": "sitov.pretest.a12-04.syntax.q3.a",
-                "textDe": "Der Kuchen."
+                "textDe": "Paul und Leon."
               },
               {
                 "id": "sitov.pretest.a12-04.syntax.q3.c",
@@ -14577,7 +14579,7 @@
                 "quote": "Ich schreibe eine kurze Einladung und lege sie in ihre Briefkästen."
               }
             ],
-            "rationaleDe": "Das gemeinsame Subjekt ich gilt auch für lege; weder Kuchen noch Briefkästen führen die Handlung aus."
+            "rationaleDe": "Paul sagt ich. Paul schreibt die Einladung und Paul legt sie in den Briefkasten; das Subjekt wechselt nach und nicht zu Leon."
           },
           {
             "id": "sitov.pretest.a12-04.syntax.q4",
@@ -14652,7 +14654,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-04.syntax.q6.c",
-                "textDe": "Wenn es genau vier Grad warm ist."
+                "textDe": "Wenn es schneit."
               },
               {
                 "id": "sitov.pretest.a12-04.syntax.q6.b",
@@ -14673,7 +14675,7 @@
                 "quote": "Bei Regen feiern wir in meiner Wohnung."
               }
             ],
-            "rationaleDe": "Bei Regen nennt die Bedingung Regen; Sonne und eine genaue Temperatur werden nicht als Bedingung angegeben."
+            "rationaleDe": "Bei Regen bedeutet hier wenn es regnet. Schnee und Sonnenschein sind andere Wetterbedingungen."
           },
           {
             "id": "sitov.pretest.a12-04.nominal.q1",
