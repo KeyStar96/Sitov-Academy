@@ -30,6 +30,8 @@ import { getSitovPronunciationPretests, startSitovPronunciationPretest, getSitov
 import { sitovPronunciationPretestCatalogSchema, type SitovPronunciationPretestCatalogEntry, type SitovPronunciationPretestActionResult } from '@/lib/sitov-pronunciation-pretest-contract'
 import { sitovPronunciationPretestCopy, sitovPretestErrorCopy } from '@/lib/sitov-pronunciation-pretest-i18n'
 import { toUiLocale } from '@/lib/locale-routing'
+import { sitovPronunciationTargetError } from '@/lib/audio/sitov-pronunciation-target'
+import { sitovLearningTargetCopy, type SitovLearningTargetError } from '@/lib/learning/sitov-learning-target-i18n'
 import styles from './PronunciationStudio.module.css'
 
 export type StudioTab = 'studio' | 'mailbox'
@@ -67,7 +69,7 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
   checkpointUnavailable?: boolean
   learnerId?: string
   catalog?: SitovPronunciationPretestActionResult<SitovPronunciationPretestCatalogEntry[]>
-  focusTextId?: string
+  focusTextId?: string | string[]
 }) {
   const s = studentTranslator(lang)
   const router = useRouter()
@@ -121,7 +123,7 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
 function Studio(props: {
   prompts: readonly PronunciationPrompt[]; statuses: Map<string, TextStatus>; level: string; lang: string; translations: PronunciationTranslations;
   onOpenMailbox: () => void; newItems?: LearningNewItems; checkpoint?: PronunciationCheckpointSnapshot | null;
-  checkpointUnavailable?: boolean; learnerId?: string; catalog?: SitovPronunciationPretestActionResult<SitovPronunciationPretestCatalogEntry[]>; focusTextId?: string
+  checkpointUnavailable?: boolean; learnerId?: string; catalog?: SitovPronunciationPretestActionResult<SitovPronunciationPretestCatalogEntry[]>; focusTextId?: string | string[]
 }) {
   const { level, lang, catalog, focusTextId } = props
   const router = useRouter()
@@ -129,11 +131,14 @@ function Studio(props: {
   const s = studentTranslator(lang)
   const parsed = catalog?.ok === true ? sitovPronunciationPretestCatalogSchema.safeParse(catalog.data) : null
   const entries = parsed?.success ? parsed.data.filter(entry => entry.level === level) : []
-  const [selectedId, setSelectedId] = useState(focusTextId)
+  const [selectedId, setSelectedId] = useState(typeof focusTextId === 'string' ? focusTextId : undefined)
   const [ready, setReady] = useState<{ prompt: PronunciationPrompt; entry: SitovPronunciationPretestCatalogEntry } | null>(null)
   const [busy, setBusy] = useState(false)
   const [recordingBusy, setRecordingBusy] = useState(false)
   const [failure, setFailure] = useState<string | null>(null)
+  const [targetFailure, setTargetFailure] = useState<SitovLearningTargetError | null>(null)
+  const targetError = sitovPronunciationTargetError(focusTextId, level, catalog) ?? targetFailure
+  const targetCopy = sitovLearningTargetCopy(lang)
   const pending = useRef(false)
   const mounted = useRef(true)
   const focused = useRef(false)
@@ -142,7 +147,7 @@ function Studio(props: {
   const validReady = ready && entries.some(entry => entry.textId === ready.entry.textId && entry.status === 'passed'
     && entry.textVersion === ready.entry.textVersion && entry.testVersion === ready.entry.testVersion)
   const recordingBlocked = Boolean(validReady && recordingBusy)
-  const next = selected?.target ? selected : entries.find(entry => entry.status === 'in_progress')
+  const next = selected?.target ? selected : focusTextId !== undefined ? undefined : entries.find(entry => entry.status === 'in_progress')
     ?? entries.find(entry => entry.status === 'available' || entry.status === 'failed') ?? entries.find(entry => entry.status === 'passed')
 
   async function openText(textId: string): Promise<SitovPronunciationPretestActionResult<null>> {
@@ -150,28 +155,30 @@ function Studio(props: {
     pending.current = true; setBusy(true); setFailure(null); setReady(null)
     try {
       const current = await getSitovPronunciationPretests(level)
-      if (current.ok === false) { if (mounted.current) setFailure(sitovPretestErrorCopy(lang, current.error)); return current }
+      if (current.ok === false) { if (mounted.current) { setFailure(sitovPretestErrorCopy(lang, current.error)); if (focusTextId !== undefined) setTargetFailure(current.retryable ? 'retryable' : 'unavailable') }; return current }
       const checked = sitovPronunciationPretestCatalogSchema.safeParse(current.data)
+      if (!checked.success && focusTextId !== undefined) { setTargetFailure('retryable'); return { ok: false, error: 'retryable_failure', retryable: true } }
       const exact = checked.success ? checked.data.find(entry => entry.textId === textId && entry.level === level && entry.status === 'passed') : undefined
-      if (!exact) { setFailure(copy.changed); setReady(null); router.refresh(); return { ok: false, error: 'version_conflict', retryable: false } }
+      if (!exact) { if (focusTextId !== undefined) setTargetFailure('unavailable'); setFailure(copy.changed); setReady(null); router.refresh(); return { ok: false, error: 'version_conflict', retryable: false } }
       const bodies = await getPronunciationPrompts(level)
       const prompt = bodies.find(row => row.id === textId)
-      if (!prompt) { setFailure(copy.connection); return { ok: false, error: 'retryable_failure', retryable: true } }
+      if (!prompt) { if (focusTextId !== undefined) setTargetFailure('retryable'); setFailure(copy.connection); return { ok: false, error: 'retryable_failure', retryable: true } }
       if (!mounted.current) return { ok: false, error: 'retryable_failure', retryable: true }
       setReady({ prompt, entry: exact }); setSelectedId(textId); router.refresh()
       return { ok: true, data: null }
-    } catch { if (mounted.current) setFailure(copy.connection); return { ok: false, error: 'retryable_failure', retryable: true } }
+    } catch { if (mounted.current) { setFailure(copy.connection); if (focusTextId !== undefined) setTargetFailure('retryable') }; return { ok: false, error: 'retryable_failure', retryable: true } }
     finally { pending.current = false; if (mounted.current) setBusy(false) }
   }
   function choose(entry: SitovPronunciationPretestCatalogEntry) {
-    if (recordingBlocked || busy || !entry.target) return
+    if (targetError || recordingBlocked || busy || !entry.target) return
     setSelectedId(entry.textId); setFailure(null)
     if (entry.status === 'passed') void openText(entry.textId)
     else setReady(null)
   }
   useEffect(() => {
-    if (!focused.current && focusTextId && selected?.status === 'passed') { focused.current = true; void openText(focusTextId) }
+    if (!targetError && !focused.current && typeof focusTextId === 'string' && focusTextId && selected?.status === 'passed') { focused.current = true; void openText(focusTextId) }
   })
+  if (targetError) return <div role="alert"><p>{targetCopy[targetError]}</p><PressableCard type="button" className="min-h-12 learning-button learning-button-secondary" disabled={busy} onClick={() => { setTargetFailure(null); focused.current = false; router.refresh() }}>{targetCopy.retry}</PressableCard></div>
   const actionLabel = (entry: SitovPronunciationPretestCatalogEntry) => entry.status === 'in_progress' ? copy.resume : entry.status === 'passed' ? copy.open : entry.status === 'failed' ? copy.retry : copy.start
   return <div className="space-y-5">
     <SitovTrainerHero mode="pronunciation" eyebrow={s('area_pronunciation')} level={level} title={s('studio_tab')}
