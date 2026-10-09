@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "baseHead": "d66e876f6942bb4f5990df259db6758fad505855",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+  "questionId": "sitov.pretest.a11-01.syntax.q3",
+  "previousTask": {
+    "id": "sitov.pretest.a11-01.syntax.q3",
+    "competencyId": "sitov.pretest.a11-01.syntax",
+    "kind": "single_choice",
+    "promptDe": "Welcher Satz drückt ein Alter aus?",
+    "fragmentDe": null,
+    "options": [
+      {
+        "id": "sitov.option.1",
+        "textDe": "Bin dreißig ich Jahre alt."
+      },
+      {
+        "id": "sitov.option.2",
+        "textDe": "Ich bin dreißig Jahre alt."
+      },
+      {
+        "id": "sitov.option.3",
+        "textDe": "Ich dreißig bin alt Jahre."
+      }
+    ],
+    "correctOptionId": "sitov.option.2",
+    "assessmentUnit": "age predicate",
+    "equivalenceKey": "age predicate",
+    "sourceSpans": [
+      {
+        "start": 76,
+        "end": 101,
+        "quote": "Ich bin dreißig Jahre alt"
+      }
+    ],
+    "rationaleDe": "Die Wortgruppe dreißig Jahre alt gehört zusammen nach bin; die anderen Reihenfolgen zerstören diese Aussage."
+  },
+  "currentTask": {
+    "id": "sitov.pretest.a11-01.syntax.q3",
+    "competencyId": "sitov.pretest.a11-01.syntax",
+    "kind": "single_choice",
+    "promptDe": "Welcher Satz nennt ein Alter in korrekter deutscher Wortstellung?",
+    "fragmentDe": null,
+    "options": [
+      {
+        "id": "sitov.option.1",
+        "textDe": "Ich lerne Deutsch."
+      },
+      {
+        "id": "sitov.option.2",
+        "textDe": "Ich bin dreißig Jahre alt."
+      },
+      {
+        "id": "sitov.option.3",
+        "textDe": "Ich dreißig bin alt Jahre."
+      }
+    ],
+    "correctOptionId": "sitov.option.2",
+    "assessmentUnit": "age predicate",
+    "equivalenceKey": "age predicate",
+    "sourceSpans": [
+      {
+        "start": 76,
+        "end": 101,
+        "quote": "Ich bin dreißig Jahre alt"
+      }
+    ],
+    "rationaleDe": "Nur »Ich bin dreißig Jahre alt.« nennt ein Alter in korrekter deutscher Wortstellung. »Ich lerne Deutsch.« nennt eine Tätigkeit; die dritte Antwort hat eine falsche Wortstellung."
+  },
+  "previousReview": {
+    "status": "independent_editorial_checked_draft_only",
+    "reviewer": "sitov.agent.M",
+    "authorIdentity": "sitov.agent.S3",
+    "reviewerKind": "independent_agent_editorial_review",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+    "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+    "definitionContentHash": "e33ea78f9f6e845cb9acfccac23d3c3adff57ce9306355d98bdf967247a9148f",
+    "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+    "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+    "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+    "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+  },
+  "currentReview": {
+    "status": "author_checked_independent_review_pending",
+    "reviewer": "sitov.agent.S3",
+    "authorIdentity": "sitov.agent.S3",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "S3-Autorenprüfung ausschließlich der präzisierten Alters-/Wortstellungsfrage und eines ersetzten Distraktors. Neue unabhängige M-Prüfung und exakte neue Audio-/Definitionsbindung ausstehend. Bestehende aktive Assets, Proofs und Historie werden nicht geändert.",
+    "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+    "definitionContentHash": "06fd9a4ab8474385583ef42b39a9bd884681a71c29e989dae6b8eb87633855dd",
+    "audioPublication": "blocked_pending_new_immutable_definition_independent_review_and_exact_audio_binding"
+  },
+  "previousDefinitionContentHash": "e33ea78f9f6e845cb9acfccac23d3c3adff57ce9306355d98bdf967247a9148f",
+  "currentDefinitionContentHash": "06fd9a4ab8474385583ef42b39a9bd884681a71c29e989dae6b8eb87633855dd",
+  "previousManifestContentHash": "eee8f07f9395bd13b5f1f3189a90411aed18c435df3309921eea96003aeb015f",
+  "currentManifestContentHash": "456d8afe32d9046fb7ccbfdd3911eda29f3bb02798309e2618b1c08ee6e0fe27",
+  "previousManifestByteSha256": "371b7f7f76af7c1de53980f5ec548dd13c7e82013235beaf4a689d9ecf4db622",
+  "currentManifestByteSha256": "b53668df28c7868e0e3a106998ed30bb98c7e076bf4f7d154c0428bf98645692",
+  "previousAudioContentHash": "52f5006f022e7999d637ad6204ece4ad121fc987f93984c261c633ca2dd93dd1",
+  "currentAudioContentHash": "788e747b0b1864b076aadcc8c4f4dedf8ddec0b5bf301c9faf4c4a2eeebb08fe",
+  "previousAudioByteSha256": "25130c0cc03577443ba15d18b2f2ab3016912200a9149f260203bfcfa904e021",
+  "currentAudioByteSha256": "74c5b273c3136ad7bc91073caa41e5ae1f6699544bea8463673e3190d161e8e3",
+  "changedAliases": [
+    {
+      "key": "sitov-pretest:6d2f8e95-6f87-510b-b244-0631733f8ff9:sitov.pretest.a11-01.syntax.q3:prompt",
+      "previousTextDe": "Welcher Satz drückt ein Alter aus?",
+      "currentTextDe": "Welcher Satz nennt ein Alter in korrekter deutscher Wortstellung?"
+    },
+    {
+      "key": "sitov-pretest:6d2f8e95-6f87-510b-b244-0631733f8ff9:sitov.pretest.a11-01.syntax.q3:sitov.option.1",
+      "previousTextDe": "Bin dreißig ich Jahre alt.",
+      "currentTextDe": "Ich lerne Deutsch."
+    }
+  ],
+  "changedAliasCount": 2,
+  "correctAnswerIdUnchanged": "sitov.option.2",
+  "correctAnswerTextUnchanged": "Ich bin dreißig Jahre alt.",
+  "other20PoolsContentHash": "e4086fd4f3f3cb96ee155061605a4936bf662ca9a14caa40859868cd2ff23d7a",
+  "immutableConsequence": "Offline inactive candidate only. Later separately authorized import must create a new immutable DB-computed testVersion and independent exact review/audio binding; old active QA asset/proof/attempt/history versions remain unchanged. No QA/SQL/TTS/import/active-CAS/overwrite/publication performed."
+}

@@ -25,19 +25,15 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "independent_editorial_checked_draft_only",
-        "reviewer": "sitov.agent.M",
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
         "authorIdentity": "sitov.agent.S3",
-        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "S3-Autorenprüfung ausschließlich der präzisierten Alters-/Wortstellungsfrage und eines ersetzten Distraktors. Neue unabhängige M-Prüfung und exakte neue Audio-/Definitionsbindung ausstehend. Bestehende aktive Assets, Proofs und Historie werden nicht geändert.",
         "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
-        "definitionContentHash": "e33ea78f9f6e845cb9acfccac23d3c3adff57ce9306355d98bdf967247a9148f",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
-        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        "definitionContentHash": "06fd9a4ab8474385583ef42b39a9bd884681a71c29e989dae6b8eb87633855dd",
+        "audioPublication": "blocked_pending_new_immutable_definition_independent_review_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -708,12 +704,12 @@
             "id": "sitov.pretest.a11-01.syntax.q3",
             "competencyId": "sitov.pretest.a11-01.syntax",
             "kind": "single_choice",
-            "promptDe": "Welcher Satz drückt ein Alter aus?",
+            "promptDe": "Welcher Satz nennt ein Alter in korrekter deutscher Wortstellung?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Bin dreißig ich Jahre alt."
+                "textDe": "Ich lerne Deutsch."
               },
               {
                 "id": "sitov.option.2",
@@ -734,7 +730,7 @@
                 "quote": "Ich bin dreißig Jahre alt"
               }
             ],
-            "rationaleDe": "Die Wortgruppe dreißig Jahre alt gehört zusammen nach bin; die anderen Reihenfolgen zerstören diese Aussage."
+            "rationaleDe": "Nur »Ich bin dreißig Jahre alt.« nennt ein Alter in korrekter deutscher Wortstellung. »Ich lerne Deutsch.« nennt eine Tätigkeit; die dritte Antwort hat eine falsche Wortstellung."
           },
           {
             "id": "sitov.pretest.a11-01.syntax.q4",
