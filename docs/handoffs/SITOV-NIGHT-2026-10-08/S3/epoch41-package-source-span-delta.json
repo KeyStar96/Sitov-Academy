@@ -1,0 +1,60 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "81b05d9476f691bfde020fcb3ed1ecd802942422",
+  "textId": "2c6b8ac4-28e2-556d-950e-9937d7da0da9",
+  "questionId": "sitov.pretest.a21-03.words.q1",
+  "coreId": "sitov.pretest.a21-03.words",
+  "sourceTextVersion": "d8ad8e2345fe88f61c26f94412f16d5827c23ba0e56eddb81b54add705534662",
+  "sourceBodyDe": "Als ich gestern nach Hause kam, klingelte der Paketbote. Mein Nachbar war nicht da, und ich habe sein Paket angenommen. Am Abend habe ich einen Zettel an seine Tür gehängt. Darauf stand, dass er bei mir klingeln kann. Eine Stunde später kam er vorbei. In dem Paket waren Bücher für seinen Sohn. Wir haben kurz über die Schule gesprochen. Zum Dank hat er mich am Wochenende zum Kaffee eingeladen.",
+  "previousQuestionSpan": {
+    "start": 46,
+    "end": 51,
+    "quote": "Paket"
+  },
+  "currentQuestionSpan": {
+    "start": 102,
+    "end": 107,
+    "quote": "Paket"
+  },
+  "previousCoreSpan": {
+    "start": 46,
+    "end": 51,
+    "quote": "Paket"
+  },
+  "currentCoreSpan": {
+    "start": 102,
+    "end": 107,
+    "quote": "Paket"
+  },
+  "previousReview": {
+    "status": "author_checked_independent_review_pending",
+    "reviewer": "sitov.agent.S3",
+    "authorIdentity": "sitov.agent.S3",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, öffentlicher Prämissen, Vergangenheitsformen/Nebensätzen, eindeutiger Schlüssel und CSPRNG-ausgewogener Optionen. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+    "textVersion": "d8ad8e2345fe88f61c26f94412f16d5827c23ba0e56eddb81b54add705534662",
+    "definitionContentHash": "4d96fff912e14e5fdf845c0d316fcdfc9cdd0b97d14659b69e7277f3b637cb4d"
+  },
+  "currentReview": {
+    "status": "author_checked_independent_review_pending",
+    "reviewer": "sitov.agent.S3",
+    "authorIdentity": "sitov.agent.S3",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "S3: Die Wortschatzfrage Paket und ihr Matrixbeleg verweisen exakt auf das eigenständige Wort in sein Paket (102–107), nicht auf den Bestandteil von Paketbote. Öffentliche Frage, Optionen, Schlüssel und Audioaliase unverändert. Unabhängige Prüfung des neuen Definitionshashs ausstehend.",
+    "textVersion": "d8ad8e2345fe88f61c26f94412f16d5827c23ba0e56eddb81b54add705534662",
+    "definitionContentHash": "93b930144b0e449d4f3093cec759be8a3032b522b718eeadf1f8fe0891b4c987"
+  },
+  "previousDefinitionContentHash": "4d96fff912e14e5fdf845c0d316fcdfc9cdd0b97d14659b69e7277f3b637cb4d",
+  "currentDefinitionContentHash": "93b930144b0e449d4f3093cec759be8a3032b522b718eeadf1f8fe0891b4c987",
+  "previousManifestContentHash": "f0d64922c4a87ee64a4e1d8f89f6b67b544edab306a99803cfd31dd51a67a07d",
+  "previousManifestByteSha256": "8455caea16ddd8192476a576cdec2b2cf355a14ee0841d7e6144ec5c28083e35",
+  "currentManifestContentHash": "11c7154b171ebd29a74fc209dff4503658946891197fc943817a497a0c7f7fba",
+  "currentManifestByteSha256": "73bb1ce8518baec092a023a140a1720c27b04f5435289b9c958e1dc2517e1eec",
+  "unchangedAudioByteSha256": "cb2eeaa67ff9b35bfa23012c94ec1fef909fb318402ca55838a9db164bcf2f64",
+  "other23ContentHash": "d3e6f5dd296ef1d8fc79f8975fa89d9b7111f46ca7bdb6bf157e3efffac2ae85",
+  "publicationAuthorized": false,
+  "humanReview": false,
+  "calibrationStatus": "pending"
+}

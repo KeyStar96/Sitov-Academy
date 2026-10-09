@@ -3,9 +3,16 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
 const sources=await sitovReadAuthoringSources(),sitovCurrentRepository24=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovSpan41=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch41-package-source-span-delta.json','utf8'))
+// Restore the exact pre-epoch41 spans/review BEFORE M-review normalization and all history.
+const sitovBeforeSpan41=structuredClone(sitovCurrentRepository24)
+const sitovOldPackage41=sitovBeforeSpan41.drafts.find(d=>d.textId===sitovSpan41.textId)
+sitovOldPackage41.definition.tasks.find(q=>q.id===sitovSpan41.questionId).sourceSpans[0]=sitovSpan41.previousQuestionSpan
+sitovOldPackage41.definition.competencies.find(c=>c.id===sitovSpan41.coreId).sourceSpans[0]=sitovSpan41.previousCoreSpan
+sitovOldPackage41.review=sitovSpan41.previousReview
 const sitovReviewed21Proofs=await Promise.all(["pools19-21-editorial-review.json","age-wordorder-repair-editorial-review.json"].map(async name=>{const raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/'+name,'utf8');return {raw,proof:JSON.parse(raw)}}))
 // Restore exact S3 pre-M-review records before every established historical projection.
-const sitovActualManifest39=structuredClone(sitovCurrentRepository24)
+const sitovActualManifest39=structuredClone(sitovBeforeSpan41)
 for(const {proof}of sitovReviewed21Proofs)for(const r of proof.approvedEditorialDrafts)sitovActualManifest39.drafts.find(d=>d.textId===r.textId).review=r.previousReview
 const sitovEpoch39=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch39-pools22-24-author-review.json','utf8'))
 // Freeze the exact21-pool state INCLUDING the age repair before restoring epoch38/history.
@@ -684,4 +691,33 @@ test('actual24 regressions reject source/unit/form/crosslevel/audio defects and 
  const allFirst=structuredClone(added);for(const d of allFirst)for(const q of d.definition.tasks)q.options.sort((a,b)=>Number(b.id===q.correctOptionId)-Number(a.id===q.correctOptionId));assert.ok(sitovDiversityErrors(allFirst).includes('unbalanced_positions'))
  for(const [i,suffix]of [[1,'syntax.q1'],[1,'syntax.q4'],[2,'syntax.q2'],[1,'verbs.q4'],[2,'verbs.q5']]){const wrong=structuredClone(added),q=wrong[i].definition.tasks.find(q=>q.id.endsWith(suffix));q.correctOptionId=q.options.find(o=>o.id!==q.correctOptionId).id;assert.throws(()=>sitovAssertA2Evidence(wrong))}
  for(const [i,suffix]of [[0,'syntax.q5'],[1,'syntax.q6'],[2,'syntax.q3']]){const hidden=structuredClone(added);hidden[i].definition.tasks.find(q=>q.id.endsWith(suffix)).promptDe='Welche Antwort stimmt?';assert.throws(()=>sitovAssertA2Evidence(hidden))}
+})
+
+
+test('epoch41 actual24 source repair preserves all other23 definitions/public fields/aliases and exact pre-repair bytes',async()=>{
+ assert.equal(sitovHash(JSON.stringify(sitovBeforeSpan41)),sitovSpan41.previousManifestContentHash)
+ assert.equal(sitovHash(JSON.stringify(sitovBeforeSpan41,null,2)+'\n'),sitovSpan41.previousManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovCurrentRepository24)),sitovSpan41.currentManifestContentHash)
+ assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovSpan41.currentManifestByteSha256)
+ assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovSpan41.unchangedAudioByteSha256)
+ const d=sitovCurrentRepository24.drafts.find(d=>d.textId===sitovSpan41.textId),restored=structuredClone(sitovCurrentRepository24)
+ assert.equal(d.review.status,'author_checked_independent_review_pending');assert.equal(d.review.reviewer,'sitov.agent.S3');assert.equal(d.review.authorIdentity,d.review.reviewer);assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(Object.hasOwn(d.review,'documentRef'),false)
+ assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.notEqual(d.review.definitionContentHash,sitovSpan41.previousDefinitionContentHash)
+ assert.equal(sitovHash(JSON.stringify(sitovCurrentRepository24.drafts.filter(d=>d.textId!==sitovSpan41.textId))),sitovSpan41.other23ContentHash)
+ const r=restored.drafts.find(d=>d.textId===sitovSpan41.textId);r.definition.tasks.find(q=>q.id===sitovSpan41.questionId).sourceSpans[0]=sitovSpan41.previousQuestionSpan;r.definition.competencies.find(c=>c.id===sitovSpan41.coreId).sourceSpans[0]=sitovSpan41.previousCoreSpan;r.review=sitovSpan41.previousReview
+ assert.deepEqual(restored,sitovBeforeSpan41)
+ assert.deepEqual(sitovPublicPretestAudioAliases(sitovCurrentRepository24),sitovPublicPretestAudioAliases(sitovBeforeSpan41))
+ assert.deepEqual(sitovValidatePretestDrafts(sitovCurrentRepository24,sources),[])
+ assert.deepEqual(sitovValidatePretestAudioAliases(sitovCurrentRepository24,sitovActualAudio39),[])
+})
+test('Paket question and vocabulary matrix require the standalone source lexeme; embedded Paketbote prefix is rejected',()=>{
+ const d=sitovCurrentRepository24.drafts.find(d=>d.textId===sitovSpan41.textId),body=sources.rows.find(s=>s.id===d.textId).text
+ const standalone=span=>body.slice(span.start,span.end)===span.quote&&!/[\p{L}\p{N}_]/u.test(body[span.start-1]??'')&&!/[\p{L}\p{N}_]/u.test(body[span.end]??'')
+ const q=d.definition.tasks.find(q=>q.id===sitovSpan41.questionId),core=d.definition.competencies.find(c=>c.id===sitovSpan41.coreId)
+ assert.equal(sitovHash(body),sitovSpan41.sourceTextVersion);assert.equal(body,sitovSpan41.sourceBodyDe);assert.equal(body.slice(97,107),'sein Paket')
+ for(const span of [q.sourceSpans[0],core.sourceSpans[0]]){assert.deepEqual(span,{start:102,end:107,quote:'Paket'});assert.ok(standalone(span))}
+ assert.equal(body.slice(46,51),'Paket');assert.equal(body.slice(46,55),'Paketbote');assert.equal(standalone(sitovSpan41.previousQuestionSpan),false);assert.equal(standalone(sitovSpan41.previousCoreSpan),false)
+ assert.equal(standalone({start:103,end:107,quote:'aket'}),false)
+ assert.equal(standalone({start:102,end:108,quote:'Paket'}),false)
+ assert.equal(standalone(core.sourceSpans[1]),true)
 })

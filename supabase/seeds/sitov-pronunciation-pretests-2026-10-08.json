@@ -23355,9 +23355,9 @@
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, öffentlicher Prämissen, Vergangenheitsformen/Nebensätzen, eindeutiger Schlüssel und CSPRNG-ausgewogener Optionen. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "S3: Die Wortschatzfrage Paket und ihr Matrixbeleg verweisen exakt auf das eigenständige Wort in sein Paket (102–107), nicht auf den Bestandteil von Paketbote. Öffentliche Frage, Optionen, Schlüssel und Audioaliase unverändert. Unabhängige Prüfung des neuen Definitionshashs ausstehend.",
         "textVersion": "d8ad8e2345fe88f61c26f94412f16d5827c23ba0e56eddb81b54add705534662",
-        "definitionContentHash": "4d96fff912e14e5fdf845c0d316fcdfc9cdd0b97d14659b69e7277f3b637cb4d"
+        "definitionContentHash": "93b930144b0e449d4f3093cec759be8a3032b522b718eeadf1f8fe0891b4c987"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -23377,8 +23377,8 @@
             ],
             "sourceSpans": [
               {
-                "start": 46,
-                "end": 51,
+                "start": 102,
+                "end": 107,
                 "quote": "Paket"
               },
               {
@@ -23599,8 +23599,8 @@
             "equivalenceKey": "sitov:a21-03:words:1",
             "sourceSpans": [
               {
-                "start": 46,
-                "end": 51,
+                "start": 102,
+                "end": 107,
                 "quote": "Paket"
               }
             ],
