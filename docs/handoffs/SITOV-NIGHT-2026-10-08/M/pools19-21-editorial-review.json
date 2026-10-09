@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T11:56:06.101Z",
+  "sourceCommit": "c987a33983facdabb847c11d9678e343b2d1e3f6",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools19-21-M",
+  "scope": "Independent M read all72 actual prompts/options/keys/rationales, all3 complete source bodies and12 cores/mappings. Actual A2 past morphology and causal verb-final syntax verified. Known same-level mappings explicitly partial; previous18 exact. Read before epoch38, definition content of these3 unchanged across c987.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "44d214d04e341d006a5df406ea97c3dc3ced6a704f386bfcc6b1ba6cfc6e8075",
+  "approvedEditorialDrafts": [
+    {
+      "textId": "b3fd31c6-efa8-5a64-85d9-7d419b4c42f4",
+      "textVersion": "64a1bac5bc8ceede374a92fd313f479316564a46d804dd77fa5e09c4bebb8d18",
+      "definitionContentHash": "00d0c7ddd864cec4031a4abdeeafe70c0aa73a2b7f6bce5fa80e17fa8714a98a",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher Quelle, öffentlicher Prämisse, Morphologie/Syntax, eindeutiger Antwort und CSPRNG-balancierter Optionen. Unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "64a1bac5bc8ceede374a92fd313f479316564a46d804dd77fa5e09c4bebb8d18",
+        "definitionContentHash": "00d0c7ddd864cec4031a4abdeeafe70c0aa73a2b7f6bce5fa80e17fa8714a98a"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a12-09.words.q1",
+          "correctTextDe": "Die Eingangstür eines Hauses."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q2",
+          "correctTextDe": "Zum Aufschließen oder Abschließen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q3",
+          "correctTextDe": "Ein Kleidungsstück für den Oberkörper."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q4",
+          "correctTextDe": "Ein Behälter zum Mitnehmen von Dingen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q5",
+          "correctTextDe": "Ein Mann, der in der Nähe wohnt."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q6",
+          "correctTextDe": "Der Umstand wird als günstig bewertet."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q1",
+          "correctTextDe": "stehen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q2",
+          "correctTextDe": "suche"
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q3",
+          "correctTextDe": "finde"
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q4",
+          "correctTextDe": "anrufen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q5",
+          "correctTextDe": "öffnet"
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q6",
+          "correctTextDe": "Der Schlüssel befindet sich dort in einer Lage."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q1",
+          "correctTextDe": "Der Sprecher, bezeichnet durch ich."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q2",
+          "correctTextDe": "Dass der Schlüssel in der Jacke ist."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q3",
+          "correctTextDe": "Ein weiterer Suchort bleibt ohne Fund."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q4",
+          "correctTextDe": "Der Nachbar."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q5",
+          "correctTextDe": "Für den Sprecher."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q6",
+          "correctTextDe": "Auf dem Küchentisch."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q1",
+          "correctTextDe": "meiner"
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q2",
+          "correctTextDe": "meinen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q3",
+          "correctTextDe": "Auf den Schlüssel."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q4",
+          "correctTextDe": "Auf den Mann des Sprechers."
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q5",
+          "correctTextDe": "zweiten"
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q6",
+          "correctTextDe": "dem"
+        }
+      ]
+    },
+    {
+      "textId": "8cd6b9c9-8eaf-5a08-863b-27e712dbc484",
+      "textVersion": "b528df60ad8fad5373c79df369eeb4f5b5d7696ed16f191ba49b6e49c0a020ea",
+      "definitionContentHash": "77d779fc24fc19d48a21f8859ef71a2bf6fcd34f9e0249d1a125db758598233e",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher Quelle, öffentlicher Prämisse, Morphologie/Syntax, eindeutiger Antwort und CSPRNG-balancierter Optionen. Unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "b528df60ad8fad5373c79df369eeb4f5b5d7696ed16f191ba49b6e49c0a020ea",
+        "definitionContentHash": "77d779fc24fc19d48a21f8859ef71a2bf6fcd34f9e0249d1a125db758598233e"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a12-10.words.q1",
+          "correctTextDe": "Er zeigt Unterrichtszeiten und Fächer oder Aktivitäten."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q2",
+          "correctTextDe": "Die Zeit vor Mittag."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q3",
+          "correctTextDe": "Sich mündlich mit Worten ausdrücken."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q4",
+          "correctTextDe": "Zusammenhängende sprachliche Mitteilungen in geschriebener Form."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q5",
+          "correctTextDe": "Zum Ordnen von Tagen und Eintragen von Terminen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q6",
+          "correctTextDe": "Mit geringem Tempo."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q1",
+          "correctTextDe": "haben"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q2",
+          "correctTextDe": "lernen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q3",
+          "correctTextDe": "Eine Fähigkeit durch Training verbessern."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q4",
+          "correctTextDe": "lesen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q5",
+          "correctTextDe": "schreibe"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q6",
+          "correctTextDe": "abholen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q1",
+          "correctTextDe": "Von Montag an."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q2",
+          "correctTextDe": "Beginn neun Uhr, Ende zwölf Uhr."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q3",
+          "correctTextDe": "Sprechen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q4",
+          "correctTextDe": "Am Donnerstag lesen wir kurze Texte."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q5",
+          "correctTextDe": "Es beschreibt, wie der Lehrer erklärt."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q6",
+          "correctTextDe": "Nachdem der Kurs zu Ende ist."
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q1",
+          "correctTextDe": "Unser"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q2",
+          "correctTextDe": "kurze"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q3",
+          "correctTextDe": "den"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q4",
+          "correctTextDe": "meinen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q5",
+          "correctTextDe": "der"
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q6",
+          "correctTextDe": "mich"
+        }
+      ]
+    },
+    {
+      "textId": "b2ae5915-20dd-5018-8921-6afe5be0f1fd",
+      "textVersion": "f67f9d04716c48d88c9f99b84758a89fa29ddd02e77c564d190599ed28648879",
+      "definitionContentHash": "456751a4ddd4861e2793d8aea9f138e9ffc11ba12a4392c39e9f45878e9cc58b",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher Quelle, öffentlicher Prämisse, Morphologie/Syntax, eindeutiger Antwort und CSPRNG-balancierter Optionen. Unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "f67f9d04716c48d88c9f99b84758a89fa29ddd02e77c564d190599ed28648879",
+        "definitionContentHash": "456751a4ddd4861e2793d8aea9f138e9ffc11ba12a4392c39e9f45878e9cc58b"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a21-01.words.q1",
+          "correctTextDe": "Ein Betrieb, der Backwaren herstellt oder verkauft."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q2",
+          "correctTextDe": "Innerlich angespannt oder aufgeregt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q3",
+          "correctTextDe": "Die Brötchen nach einer Ordnung zusammenstellen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q4",
+          "correctTextDe": "Er bleibt ruhig und nimmt sich Zeit."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q5",
+          "correctTextDe": "Man freut sich über das Erreichte."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q6",
+          "correctTextDe": "Die Anzahl bekannter Wörter ist größer geworden."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q1",
+          "correctTextDe": "haben"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q2",
+          "correctTextDe": "bin"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q3",
+          "correctTextDe": "bin"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q4",
+          "correctTextDe": "gezeigt"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q5",
+          "correctTextDe": "haben"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q6",
+          "correctTextDe": "Eine Notwendigkeit in der Vergangenheit."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q1",
+          "correctTextDe": "Den Tag vor heute."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q2",
+          "correctTextDe": "Das Zeigen der Küche."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q3",
+          "correctTextDe": "An der Kasse musste ich oft nachfragen."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q4",
+          "correctTextDe": "die Kunden schnell gesprochen haben."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q5",
+          "correctTextDe": "Müdigkeit und Stolz werden zugleich gegenübergestellt."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q6",
+          "correctTextDe": "Auf den heutigen Tag."
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q1",
+          "correctTextDe": "ersten"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q2",
+          "correctTextDe": "einer"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q3",
+          "correctTextDe": "mir"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q4",
+          "correctTextDe": "die Brötchen"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q5",
+          "correctTextDe": "Mein"
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q6",
+          "correctTextDe": "meine"
+        }
+      ]
+    }
+  ]
+}

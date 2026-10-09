@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T11:56:06.101Z",
+  "sourceCommit": "c987a33983facdabb847c11d9678e343b2d1e3f6",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-age-wordorder-repair-M",
+  "scope": "Independent M read exact repaired publicquestion/options/correctkey/private rationale/source span. Correct grammatical age sentence uniquely satisfies public prompt; activity distractor and malformed wordorder do not. Previous complete question/core-mapping review retained by exact unchanged-field reconstruction; not claimed as a fresh reading of unchanged23questions. Oldactive cachedasset/proof/attempt bindings are immutable; only a new inactive definition may bind replacement prompt/distractor audio.",
+  "questionsFreshlyRead": 1,
+  "unchangedQuestionsVerifiedFromPriorReview": 23,
+  "deltaSha256": "98b76d411fa46b8b77d07ab7b939d1dd32d4f1cd523d740f8afc72d759bf2806",
+  "priorIndependentReview": {
+    "status": "independent_editorial_checked_draft_only",
+    "reviewer": "sitov.agent.M",
+    "authorIdentity": "sitov.agent.S3",
+    "reviewerKind": "independent_agent_editorial_review",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+    "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+    "definitionContentHash": "e33ea78f9f6e845cb9acfccac23d3c3adff57ce9306355d98bdf967247a9148f",
+    "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+    "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+    "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+    "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+  },
+  "previousTask": {
+    "id": "sitov.pretest.a11-01.syntax.q3",
+    "competencyId": "sitov.pretest.a11-01.syntax",
+    "kind": "single_choice",
+    "promptDe": "Welcher Satz drückt ein Alter aus?",
+    "fragmentDe": null,
+    "options": [
+      {
+        "id": "sitov.option.1",
+        "textDe": "Bin dreißig ich Jahre alt."
+      },
+      {
+        "id": "sitov.option.2",
+        "textDe": "Ich bin dreißig Jahre alt."
+      },
+      {
+        "id": "sitov.option.3",
+        "textDe": "Ich dreißig bin alt Jahre."
+      }
+    ],
+    "correctOptionId": "sitov.option.2",
+    "assessmentUnit": "age predicate",
+    "equivalenceKey": "age predicate",
+    "sourceSpans": [
+      {
+        "start": 76,
+        "end": 101,
+        "quote": "Ich bin dreißig Jahre alt"
+      }
+    ],
+    "rationaleDe": "Die Wortgruppe dreißig Jahre alt gehört zusammen nach bin; die anderen Reihenfolgen zerstören diese Aussage."
+  },
+  "currentTask": {
+    "id": "sitov.pretest.a11-01.syntax.q3",
+    "competencyId": "sitov.pretest.a11-01.syntax",
+    "kind": "single_choice",
+    "promptDe": "Welcher Satz nennt ein Alter in korrekter deutscher Wortstellung?",
+    "fragmentDe": null,
+    "options": [
+      {
+        "id": "sitov.option.1",
+        "textDe": "Ich lerne Deutsch."
+      },
+      {
+        "id": "sitov.option.2",
+        "textDe": "Ich bin dreißig Jahre alt."
+      },
+      {
+        "id": "sitov.option.3",
+        "textDe": "Ich dreißig bin alt Jahre."
+      }
+    ],
+    "correctOptionId": "sitov.option.2",
+    "assessmentUnit": "age predicate",
+    "equivalenceKey": "age predicate",
+    "sourceSpans": [
+      {
+        "start": 76,
+        "end": 101,
+        "quote": "Ich bin dreißig Jahre alt"
+      }
+    ],
+    "rationaleDe": "Nur »Ich bin dreißig Jahre alt.« nennt ein Alter in korrekter deutscher Wortstellung. »Ich lerne Deutsch.« nennt eine Tätigkeit; die dritte Antwort hat eine falsche Wortstellung."
+  },
+  "changedAudioAliases": [
+    {
+      "key": "sitov-pretest:6d2f8e95-6f87-510b-b244-0631733f8ff9:sitov.pretest.a11-01.syntax.q3:prompt",
+      "previousTextDe": "Welcher Satz drückt ein Alter aus?",
+      "currentTextDe": "Welcher Satz nennt ein Alter in korrekter deutscher Wortstellung?"
+    },
+    {
+      "key": "sitov-pretest:6d2f8e95-6f87-510b-b244-0631733f8ff9:sitov.pretest.a11-01.syntax.q3:sitov.option.1",
+      "previousTextDe": "Bin dreißig ich Jahre alt.",
+      "currentTextDe": "Ich lerne Deutsch."
+    }
+  ],
+  "approvedEditorialDrafts": [
+    {
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+      "definitionContentHash": "06fd9a4ab8474385583ef42b39a9bd884681a71c29e989dae6b8eb87633855dd",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung ausschließlich der präzisierten Alters-/Wortstellungsfrage und eines ersetzten Distraktors. Neue unabhängige M-Prüfung und exakte neue Audio-/Definitionsbindung ausstehend. Bestehende aktive Assets, Proofs und Historie werden nicht geändert.",
+        "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+        "definitionContentHash": "06fd9a4ab8474385583ef42b39a9bd884681a71c29e989dae6b8eb87633855dd",
+        "audioPublication": "blocked_pending_new_immutable_definition_independent_review_and_exact_audio_binding"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a11-01.words.q1",
+          "correctTextDe": "Mein Name ist Leon."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.words.q2",
+          "correctTextDe": "Polen ist das Herkunftsland."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.words.q3",
+          "correctTextDe": "In Hannover leben."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.words.q4",
+          "correctTextDe": "Das Alter ist 30 Jahre."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.words.q5",
+          "correctTextDe": "Gemeinsam lernen."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.words.q6",
+          "correctTextDe": "Der spätere Teil des Tages."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.verbs.q1",
+          "correctTextDe": "heißen"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.verbs.q2",
+          "correctTextDe": "komme"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.verbs.q3",
+          "correctTextDe": "wohne"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.verbs.q4",
+          "correctTextDe": "bin"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.verbs.q5",
+          "correctTextDe": "lernen"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.verbs.q6",
+          "correctTextDe": "trinken und lesen"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.syntax.q1",
+          "correctTextDe": "Ich heiße Leon."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.syntax.q2",
+          "correctTextDe": "Zwei Aussagen über dieselbe Person."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.syntax.q3",
+          "correctTextDe": "Ich bin dreißig Jahre alt."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.syntax.q4",
+          "correctTextDe": "trinken wir Tee"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.syntax.q5",
+          "correctTextDe": "Tee."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.syntax.q6",
+          "correctTextDe": "Die Familie."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.nominal.q1",
+          "correctTextDe": "Meine"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.nominal.q2",
+          "correctTextDe": "Mein"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.nominal.q3",
+          "correctTextDe": "ein"
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.nominal.q4",
+          "correctTextDe": "Die sprechende Person und mindestens eine weitere Person."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.nominal.q5",
+          "correctTextDe": "Die sprechende Person."
+        },
+        {
+          "questionId": "sitov.pretest.a11-01.nominal.q6",
+          "correctTextDe": "Der Mann der sprechenden Person."
+        }
+      ]
+    }
+  ]
+}

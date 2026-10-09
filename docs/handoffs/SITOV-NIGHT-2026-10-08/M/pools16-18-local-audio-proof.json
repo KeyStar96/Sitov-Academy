@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-09T11:55:39.352Z",
+  "scope": "Standard bundle: actual native male Qwen MP3 bytes/profile/text hashes/exact visible token timings, current279 unique strings for291 aliases; existing23 local bytes reused. One failed short-token alignment plus13 nonpositive final-MP3 intervals remeasured into this projection with pinned aligner (ten whole, two padded, one croppedregion); original receipts and bytes preserved. No remote import/publication/subjective listening claim.",
+  "aliases": 291,
+  "objects": 279,
+  "generated": 256,
+  "reusedLocal": 23,
+  "measuredMp3AlignmentCorrections": 14,
+  "originalGenerationManifestSha256": "92c83d5fb7865123ea7e6990b40727c5f93231dbe2ba7da0858eef29e2890b1b",
+  "bytes": 4249908,
+  "lexicalIntervals": 1485,
+  "zeroLexical": [],
+  "zeroLexicalCount": 0,
+  "productionWrite": false,
+  "qaImport": false
+}

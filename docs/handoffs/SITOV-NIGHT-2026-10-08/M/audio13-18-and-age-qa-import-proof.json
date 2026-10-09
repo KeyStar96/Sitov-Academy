@@ -1,0 +1,58 @@
+{
+  "brand": "Sitov Academy",
+  "at": "2026-10-09T12:06:33.762746+00:00",
+  "scope": "Exact owned isolated QA imports/actual MP3 byte+metadata readbacks; old storage assets preserved, no recording links or definition activation",
+  "imports": [
+    {
+      "at": "2026-10-09T11:34:34.139756+00:00",
+      "phase": "ALL_IMPORTED_READBACK_VERIFIED",
+      "results": [
+        {
+          "bundle": "qa-pretest13-15-bundle-qa-reuse",
+          "manifestSha256": "dfba4abb24cb9f616dfc2086521be04b97185418f52606071ff7e8448afcf4c5",
+          "planned": 275,
+          "verified": 275,
+          "uploaded": 241,
+          "reused": 34,
+          "linkedRecordings": false
+        }
+      ],
+      "productionWrite": false,
+      "guardsRelaxed": false
+    },
+    {
+      "at": "2026-10-09T12:01:29.456451+00:00",
+      "phase": "ALL_IMPORTED_READBACK_VERIFIED",
+      "results": [
+        {
+          "bundle": "qa-pretest16-18-bundle-qa-reuse",
+          "manifestSha256": "f16faa8d9a994a673e33931f04d879df08cf5bf264de00b2c36adae6e0a90e55",
+          "planned": 279,
+          "verified": 279,
+          "uploaded": 243,
+          "reused": 36,
+          "linkedRecordings": false
+        },
+        {
+          "bundle": "qa-pretest-age-repair-bundle-positive",
+          "manifestSha256": "cbe00b4947da5420ec2f1eb7d837299c0e5e655a1f6d509c11dd3b6fa16ef5cb",
+          "planned": 2,
+          "verified": 2,
+          "uploaded": 2,
+          "reused": 0,
+          "linkedRecordings": false
+        }
+      ],
+      "productionWrite": false,
+      "guardsRelaxed": false
+    }
+  ],
+  "baselineAssets": 1089,
+  "newAssets": 486,
+  "resultingAssets": 1575,
+  "definitionImport": false,
+  "publication": false,
+  "productionWrite": false,
+  "subjectiveListeningClaim": false,
+  "note": "An old active age-distractor asset had zero lexical alt. interval; it is preserved. Only a new inactive definition may use the two newly synthesized replacement strings. Native short ist recovery/13 MP3 alignment corrections for16–18 remain individually evidenced in local private authoring receipts; no estimated word times."
+}

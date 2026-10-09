@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-09T11:56:24.740Z",
+  "scope": "Standard bundle: actual native male Qwen MP3 bytes/profile/text hashes/exact visible token timings, exact2 repaired public strings for2 stable aliases; both prepared by standard pinned native generator; original receipts and bytes preserved. No remote import/publication/subjective listening claim.",
+  "aliases": 2,
+  "objects": 2,
+  "generated": 2,
+  "reusedLocal": 0,
+  "measuredMp3AlignmentCorrections": 0,
+  "originalGenerationManifestSha256": "c5d71a709a0d878a8eed294a9c67d21d2a71f5985d6aa0b9437c48cdff4bbf9b",
+  "bytes": 34744,
+  "lexicalIntervals": 12,
+  "zeroLexical": [],
+  "zeroLexicalCount": 0,
+  "productionWrite": false,
+  "qaImport": false
+}

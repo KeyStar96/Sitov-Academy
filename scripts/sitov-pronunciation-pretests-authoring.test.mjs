@@ -2,7 +2,11 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sources=await sitovReadAuthoringSources(),sitovActualManifest38=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sources=await sitovReadAuthoringSources(),sitovCurrentReviewed21=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovReviewed21Proofs=await Promise.all(["pools19-21-editorial-review.json","age-wordorder-repair-editorial-review.json"].map(async name=>{const raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/'+name,'utf8');return {raw,proof:JSON.parse(raw)}}))
+// Restore exact S3 pre-M-review records before every established historical projection.
+const sitovActualManifest38=structuredClone(sitovCurrentReviewed21)
+for(const {proof}of sitovReviewed21Proofs)for(const r of proof.approvedEditorialDrafts)sitovActualManifest38.drafts.find(d=>d.textId===r.textId).review=r.previousReview
 const sitovDelta38=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch38-age-question-delta.json','utf8'))
 // Restore the exact old first question/review BEFORE every21→18→15→12 historical projection.
 const sitovActualManifest37=structuredClone(sitovActualManifest38)
@@ -581,7 +585,8 @@ test('exact question/review and2alias overlay reconstruct old bytes before histo
  assert.equal(sitovHash(JSON.stringify(sitovActualManifest37,null,2)+'\n'),sitovDelta38.previousManifestByteSha256)
  assert.equal(sitovHash(JSON.stringify(sitovActualAudio37)),sitovDelta38.previousAudioContentHash)
  assert.equal(sitovHash(JSON.stringify(sitovActualAudio37,null,2)+'\n'),sitovDelta38.previousAudioByteSha256)
- assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovDelta38.currentManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovActualManifest38)),sitovDelta38.currentManifestContentHash)
+ assert.equal(sitovHash(JSON.stringify(sitovActualManifest38,null,2)+'\n'),sitovDelta38.currentManifestByteSha256)
  assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovDelta38.currentAudioByteSha256)
  assert.deepEqual(Object.keys(sitovActualAudio38),Object.keys(sitovActualAudio37))
  const changed=Object.keys(sitovActualAudio38).filter(key=>sitovActualAudio38[key]!==sitovActualAudio37[key])
@@ -601,4 +606,9 @@ test('old independent definition review and old question audio cannot approve th
  assert.ok(q.rationaleDe.includes('Ich lerne Deutsch.'));assert.ok(q.rationaleDe.includes('Tätigkeit'))
  assert.equal(sitovHash(JSON.stringify(sitovActualManifest37.drafts[0].definition)),sitovDelta38.previousDefinitionContentHash)
  assert.notEqual(sitovDelta38.previousDefinitionContentHash,sitovDelta38.currentDefinitionContentHash)
+})
+
+test('actual twenty-one definitions bind exact independent M provenance including immutable age repair',()=>{
+ assert.equal(sitovCurrentReviewed21.drafts.length,21);assert.deepEqual(sitovValidatePretestDrafts(sitovCurrentReviewed21,sources),[])
+ for(const {raw,proof}of sitovReviewed21Proofs)for(const r of proof.approvedEditorialDrafts){const d=sitovCurrentReviewed21.drafts.find(d=>d.textId===r.textId);assert.equal(d.review.documentRef,proof.documentRef);assert.equal(d.review.documentSha256,sitovHash(raw));assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.textVersion,r.textVersion);assert.equal(d.review.status,'independent_editorial_checked_draft_only');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false);assert.equal(d.review.reviewer,'sitov.agent.M');assert.deepEqual(d.definition.tasks.map(q=>({questionId:q.id,correctTextDe:q.options.find(o=>o.id===q.correctOptionId).textDe})),r.correctAnswerTexts)}
 })

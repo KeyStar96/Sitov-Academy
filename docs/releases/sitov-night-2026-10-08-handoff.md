@@ -4,6 +4,16 @@
 
 09.10.2026: Nutzer erlaubt das gesamte Restbudget bis 1 Prozent. Frühere 30/25/18/15-Grenzen aufgehoben; Abschluss wird ab 3 Prozent gesichert. Bestehende S1–S6, höchstens zwei Worker und zehn Minuten Lease, gleiche Daten-/Audio-/Qualitätsregeln sowie COMMIT_AND_HANDOFF bleiben verbindlich. Wiedervorlage im selben Master-Chat wieder ACTIVE bestätigt. Produktionsreife noch nicht bestätigt. Konkrete offene Arbeiten: `sitov-night-2026-10-08-remaining-work.md`.
 
+## Aktueller bestätigter Stand, 09.10. 14:06 Europe/Berlin
+
+OPEN / unvollständig / NOT_RELEASE_READY / COMMIT_AND_HANDOFF, zuletzt sieben Prozent Restbudget; Sicherung ab drei, STOP spätestens bei eins. 21 integrierte private Pools,39 fehlen; alle21 aktuellen Definitionen unabhängig von M redaktionell geprüft, humanReview=false/calibration=pending. Neue Altersfrage präzisiert Wortstellung und ersetzt einen Distraktor; richtige Antwort/IDs/Quellen/Kerne erhalten. Alte aktive Aufnahme/Proof/Historie werden nicht überschrieben. 62 gezielte Offline- und sieben Autorenvertragtests bestehen; vollständiger App-Jest4237PASS/2separateSkips, TypeScript/Lint/Produktionsbuild auf1c bleiben die belegte technische Basis, Appquellen seither identisch.
+
+S5 Epoch24 (`67156e88` → M `9d3612fa`) belegt tatsächliche DE/RU/EN390-Zielabläufe; Epoch25 (`768cfed5` → M `629af413`) UK390. Exakter heißen/präsens-Link, ausgewählte Karte/unbetätigtes Hinzufügen, native Tastatur/Scrollen, Sprache und deutsche Inhaltsattribute bestehen. TR-Ergebnis war vor SAVE noch im Ladezustand; Ziel-Link offen, keine dauerhafte Timeoutdiagnose daraus. Alle eigenen Testkonten/Versuche wurden exakt bereinigt, globale Hashes erhalten. Last-Active/New-Items-57014 bleiben ein gesonderter Stabilitätsbefund; S1 prüft native Pläne ohne Timeout-/JIT-/Rechteänderung.
+
+QA-Audioimporte13–15:275/275 Rücklesungen,241neu/34identisch.16–18:279/279,243neu/36identisch. Alterskorrektur:2/2neu mit12 positiven Wortintervallen. Insgesamt486neueAssets seit1089, aktueller QA-Bestand1575. Kein aktiver Asset-Overwrite/Recordinglink/Produktionsimport. Neue unveränderliche inaktive Definitionen und komplette Quell-/Review-/Audio-Proofs stehen als nächster begrenzter Schritt an. Drei weitere A2.1-Kandidaten sind gesichert, unintegriert; überschrittene Lease und noch fehlende Offlineprüfung ehrlich dokumentiert. [Restarbeiten und Fertigkriterien](sitov-night-2026-10-08-remaining-work.md). Kein Push/Deployment.
+
+## Historischer Zwischenstand der Wiederaufnahme
+
 ## Bestätigter Fortschritt der Wiederaufnahme, 09.10. 13:26 Europe/Berlin
 
 OPEN, COMMIT_AND_HANDOFF, zuletzt zehn Prozent Restkontingent; Sicherung ab drei, STOP spätestens bei eins. Aktueller technischer Commit `1c041c6f` enthält rechteerhaltende serielle Verbkatalog-Abfragen nach stabilen IDs. Der S1-Gegenbeweis `3f61acae` → M `b289b4d7` bewahrt zulässige abweichende Katalog-/Elternniveaus; die vorgeschlagene SQL-Abkürzung wurde verworfen, Migration109 bleibt unbenutzt. Die 26 zugehörigen Server-/Action-/Autorenvertragtests, TypeScript und Lint bestehen. Der frühere vollständige cdf-Lauf hatte nur einen inzwischen korrigierten zwölf-statt-fünfzehn-Count im Autorenfixture; der aktuelle Gesamt-Jest auf `1c041c6f` besteht mit 4.237 PASS/zwei separaten Integrations-Skips, der Produktionsbuild ebenfalls.
