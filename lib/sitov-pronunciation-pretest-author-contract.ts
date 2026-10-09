@@ -20,3 +20,9 @@ export const sitovPretestStaffDefinitionSchema=z.object({id:z.uuid(),text_id:z.u
 export const sitovPretestAuthorSavedSchema=sitovPretestStaffDefinitionSchema.extend({definition:sitovPretestAuthorDefinitionSchema,active:z.literal(false)}).strict()
 export const sitovPretestAuthorSaveResultSchema=sitovPronunciationPretestActionResultSchema(sitovPretestAuthorSavedSchema)
 export type SitovPretestAuthorSaveInput=z.infer<typeof sitovPretestAuthorSaveInputSchema>
+
+export const sitovPretestPublicationInputSchema=z.object({textId:z.uuid(),definitionId:z.uuid(),textVersion:hash,testVersion:hash,baseActiveDefinitionId:z.uuid().nullable()}).strict()
+export const sitovPretestPublishInputSchema=sitovPretestPublicationInputSchema.extend({requestId:z.uuid()}).strict()
+const publicationIdentity=z.object({textId:z.uuid(),definitionId:z.uuid(),textVersion:hash,testVersion:hash,activeDefinitionId:z.uuid().nullable()}).strict()
+export const sitovPretestPublicationReadinessSchema=publicationIdentity.extend({ready:z.boolean()}).strict()
+export const sitovPretestPublishedSchema=publicationIdentity.extend({activeDefinitionId:z.uuid(),active:z.literal(true)}).strict().refine(v=>v.activeDefinitionId===v.definitionId,'invalid_active_identity')

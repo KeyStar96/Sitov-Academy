@@ -1,6 +1,6 @@
 'use server'
 import {
-  saveSitovPronunciationPretestDraftServer, loadSitovPronunciationPretestStaff, loadSitovPronunciationPretests, startSitovPronunciationPretestServer, loadSitovPronunciationPretestAttempt,
+  loadSitovPronunciationPretestPublicationServer, publishSitovPronunciationPretestServer, saveSitovPronunciationPretestDraftServer, loadSitovPronunciationPretestStaff, loadSitovPronunciationPretests, startSitovPronunciationPretestServer, loadSitovPronunciationPretestAttempt,
   saveSitovPronunciationPretestAnswersServer, submitSitovPronunciationPretestServer,
   createSitovPronunciationUploadTicketServer, createSitovPronunciationReplyUploadTicketServer,
 } from '@/lib/sitov-pronunciation-pretest-server'
@@ -14,3 +14,6 @@ export async function createSitovPronunciationReplyUploadTicket(input: unknown) 
 export async function getSitovPronunciationPretestStaff(input: unknown) { return loadSitovPronunciationPretestStaff(input) }
 
 export async function saveSitovPronunciationPretestDraft(input: unknown) { return saveSitovPronunciationPretestDraftServer(input) }
+
+export async function getSitovPronunciationPretestPublication(input: unknown) { return loadSitovPronunciationPretestPublicationServer(input) }
+export async function publishSitovPronunciationPretest(input: unknown) { return publishSitovPronunciationPretestServer(input) }

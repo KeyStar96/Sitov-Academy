@@ -15,7 +15,7 @@ import {
   type SitovPronunciationPretestActionResult,
 } from './sitov-pronunciation-pretest-contract'
 
-import { sitovPretestAuthorSaveInputSchema, sitovPretestAuthorSavedSchema, sitovPretestStaffDefinitionSchema } from './sitov-pronunciation-pretest-author-contract'
+import { sitovPretestPublicationInputSchema, sitovPretestPublishInputSchema, sitovPretestPublicationReadinessSchema, sitovPretestPublishedSchema, sitovPretestAuthorSaveInputSchema, sitovPretestAuthorSavedSchema, sitovPretestStaffDefinitionSchema } from './sitov-pronunciation-pretest-author-contract'
 
 type Client = Awaited<ReturnType<typeof requestSession>>['supabase']
 const fail = (error: 'invalid_input' | 'authentication_required' | 'retryable_failure' | 'attempt_conflict') => ({ ok: false as const, error, retryable: error === 'retryable_failure' })
@@ -95,4 +95,24 @@ export async function saveSitovPronunciationPretestDraftServer(input: unknown) {
   const result=await run(sitovPretestAuthorSavedSchema,client=>client.rpc('sitov_save_pronunciation_pretest_draft',{p_text_id:v.textId,p_text_version:v.textVersion,p_base_definition_id:v.baseDefinitionId,p_definition:v.definition,p_request_id:v.requestId}))
   if(result.ok&&(result.data.text_id!==v.textId||result.data.text_version!==v.textVersion||JSON.stringify(result.data.definition)!==JSON.stringify(v.definition)))return fail('retryable_failure')
   return result
+}
+
+/** M owns the shared RPC map; exact temporary signatures only. */
+export async function loadSitovPronunciationPretestPublicationServer(input:unknown) {
+ const parsed=sitovPretestPublicationInputSchema.safeParse(input)
+ if(!parsed.success)return fail('invalid_input')
+ const v=parsed.data
+ type Rpc=(name:'sitov_get_pronunciation_pretest_publication',args:{p_text_id:string;p_definition_id:string;p_text_version:string;p_test_version:string;p_base_active_definition_id:string|null})=>PromiseLike<{data:unknown;error:unknown}>
+ const result=await run(sitovPretestPublicationReadinessSchema,client=>(client.rpc as unknown as Rpc)('sitov_get_pronunciation_pretest_publication',{p_text_id:v.textId,p_definition_id:v.definitionId,p_text_version:v.textVersion,p_test_version:v.testVersion,p_base_active_definition_id:v.baseActiveDefinitionId}))
+ if(result.ok&&(result.data.textId!==v.textId||result.data.definitionId!==v.definitionId||result.data.textVersion!==v.textVersion||result.data.testVersion!==v.testVersion||result.data.activeDefinitionId!==v.baseActiveDefinitionId))return fail('retryable_failure')
+ return result
+}
+export async function publishSitovPronunciationPretestServer(input:unknown) {
+ const parsed=sitovPretestPublishInputSchema.safeParse(input)
+ if(!parsed.success)return fail('invalid_input')
+ const v=parsed.data
+ type Rpc=(name:'sitov_publish_pronunciation_pretest',args:{p_text_id:string;p_definition_id:string;p_text_version:string;p_test_version:string;p_base_active_definition_id:string|null;p_request_id:string})=>PromiseLike<{data:unknown;error:unknown}>
+ const result=await run(sitovPretestPublishedSchema,client=>(client.rpc as unknown as Rpc)('sitov_publish_pronunciation_pretest',{p_text_id:v.textId,p_definition_id:v.definitionId,p_text_version:v.textVersion,p_test_version:v.testVersion,p_base_active_definition_id:v.baseActiveDefinitionId,p_request_id:v.requestId}))
+ if(result.ok&&(result.data.textId!==v.textId||result.data.definitionId!==v.definitionId||result.data.textVersion!==v.textVersion||result.data.testVersion!==v.testVersion))return fail('retryable_failure')
+ return result
 }
