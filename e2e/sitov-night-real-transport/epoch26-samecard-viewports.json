@@ -1,0 +1,155 @@
+{
+  "sameURL": "http://127.0.0.1:3143/tr/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+  "noExtraTargetClick": true,
+  "noExtraNavigation": true,
+  "viewports": [
+    {
+      "at": "2026-10-09T12:19:06.770Z",
+      "requested": {
+        "width": 320,
+        "height": 844
+      },
+      "beforeScroll": {
+        "fixedNavigation": [
+          {
+            "bottom": 834,
+            "label": "Ana gezinme",
+            "top": 760.8125
+          }
+        ],
+        "focus": {
+          "label": "Ekle: heißen",
+          "tag": "BUTTON",
+          "text": "Ekle"
+        },
+        "german": [
+          "heißen"
+        ],
+        "lang": "tr",
+        "scrollWidth": 320,
+        "selected": [
+          {
+            "bottom": 788.453125,
+            "label": "Seçilen öğrenme hedefi: heißen",
+            "pressed": null,
+            "tag": "LI",
+            "top": 662.4375
+          },
+          {
+            "bottom": 725.4375,
+            "label": "Ekle: heißen",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "top": 679.4375
+          }
+        ],
+        "width": 320
+      },
+      "afterScroll": {
+        "fixedNavigation": [
+          {
+            "bottom": 919.2503662109376,
+            "label": "Ana gezinme",
+            "top": 847.4619750976562
+          }
+        ],
+        "focus": {
+          "label": "Ekle: heißen",
+          "tag": "BUTTON",
+          "text": "Ekle"
+        },
+        "german": [
+          "heißen"
+        ],
+        "lang": "tr",
+        "scrollWidth": 320,
+        "selected": [
+          {
+            "bottom": 713.453125,
+            "label": "Seçilen öğrenme hedefi: heißen",
+            "pressed": null,
+            "tag": "LI",
+            "top": 587.4375
+          },
+          {
+            "bottom": 650.4375,
+            "label": "Ekle: heißen",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "top": 604.4375
+          }
+        ],
+        "width": 320
+      },
+      "atAfterScroll": "2026-10-09T12:19:13.396Z"
+    },
+    {
+      "at": "2026-10-09T12:19:14.310Z",
+      "requested": {
+        "width": 1440,
+        "height": 900
+      },
+      "beforeScroll": {
+        "fixedNavigation": [],
+        "focus": {
+          "label": "Ekle: heißen",
+          "tag": "BUTTON",
+          "text": "Ekle"
+        },
+        "german": [
+          "heißen"
+        ],
+        "lang": "tr",
+        "scrollWidth": 1440,
+        "selected": [
+          {
+            "bottom": 751.671875,
+            "label": "Seçilen öğrenme hedefi: heißen",
+            "pressed": null,
+            "tag": "LI",
+            "top": 647.4140625
+          },
+          {
+            "bottom": 710.4140625,
+            "label": "Ekle: heißen",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "top": 664.4140625
+          }
+        ],
+        "width": 1440
+      },
+      "afterScroll": {
+        "fixedNavigation": [],
+        "focus": {
+          "label": "Ekle: heißen",
+          "tag": "BUTTON",
+          "text": "Ekle"
+        },
+        "german": [
+          "heißen"
+        ],
+        "lang": "tr",
+        "scrollWidth": 1440,
+        "selected": [
+          {
+            "bottom": 751.671875,
+            "label": "Seçilen öğrenme hedefi: heißen",
+            "pressed": null,
+            "tag": "LI",
+            "top": 647.4140625
+          },
+          {
+            "bottom": 710.4140625,
+            "label": "Ekle: heißen",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "top": 664.4140625
+          }
+        ],
+        "width": 1440
+      },
+      "atAfterScroll": "2026-10-09T12:19:19.812Z"
+    }
+  ]
+}

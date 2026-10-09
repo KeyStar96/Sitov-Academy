@@ -1,0 +1,172 @@
+{
+  "locale": "tr",
+  "assignedSourceSha": "81b05d9476f691bfde020fcb3ed1ecd802942422",
+  "builtSourceSha": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+  "pronunciationNavigationBefore": "2026-10-09T12:16:58.145Z",
+  "keyboardHelp": {
+    "openedByReturn": "true",
+    "closedBySpace": "false",
+    "focus": {
+      "tag": "BUTTON",
+      "text": "Yardım"
+    }
+  },
+  "acceptance": "PASS_BOUNDED",
+  "resultAt": "2026-10-09T12:18:19.674Z",
+  "result": {
+    "german": [
+      {
+        "lang": "de",
+        "text": "Guten Tag, das bin ich",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Guten Tag, das bin ich",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Mein Frühstück",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Unser Kursraum",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Ein neuer Nachbar",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Am Samstag im Park",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Mein Zimmer",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Im kleinen Laden",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Meine Familie",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Der Weg zum Kurs",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Ein ruhiger Abend",
+        "translate": "no"
+      },
+      {
+        "lang": "de",
+        "text": "Guten Tag, das bin ich",
+        "translate": "no"
+      }
+    ],
+    "lang": "tr",
+    "links": [
+      {
+        "href": "/tr/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+        "text": "Fiil biçimlerini çalış"
+      },
+      {
+        "href": "/tr/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+        "text": "Cümle alıştırmaları"
+      }
+    ],
+    "scrollWidth": 390,
+    "status": [
+      "Henüz geçilmedi\n\n12 sorudan 0 doğru\n\nFiil biçimlerini çalış\nCümle alıştırmaları"
+    ],
+    "width": 390
+  },
+  "targetRequestBefore": "2026-10-09T12:18:20.363Z",
+  "targetActionAfter": "2026-10-09T12:18:21.058Z",
+  "targetObservedAt": "2026-10-09T12:18:40.433Z",
+  "landingURL": "http://127.0.0.1:3143/tr/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+  "landing": {
+    "fixedNavigation": [
+      {
+        "bottom": 834,
+        "label": "Ana gezinme",
+        "top": 760.8125
+      }
+    ],
+    "focus": {
+      "label": "Ekle: heißen",
+      "tag": "BUTTON",
+      "text": "Ekle"
+    },
+    "german": [
+      "heißen"
+    ],
+    "lang": "tr",
+    "scrollWidth": 390,
+    "selected": [
+      {
+        "bottom": 825.5,
+        "label": "Seçilen öğrenme hedefi: heißen",
+        "pressed": null,
+        "tag": "LI",
+        "top": 721.2421875
+      },
+      {
+        "bottom": 784.2421875,
+        "label": "Ekle: heißen",
+        "pressed": "false",
+        "tag": "BUTTON",
+        "top": 738.2421875
+      }
+    ],
+    "width": 390
+  },
+  "landingAfterScroll": {
+    "fixedNavigation": [
+      {
+        "bottom": 919.3367919921876,
+        "label": "Ana gezinme",
+        "top": 847.5498657226562
+      }
+    ],
+    "focus": {
+      "label": "Ekle: heißen",
+      "tag": "BUTTON",
+      "text": "Ekle"
+    },
+    "german": [
+      "heißen"
+    ],
+    "lang": "tr",
+    "scrollWidth": 390,
+    "selected": [
+      {
+        "bottom": 713.5,
+        "label": "Seçilen öğrenme hedefi: heißen",
+        "pressed": null,
+        "tag": "LI",
+        "top": 609.2421875
+      },
+      {
+        "bottom": 672.2421875,
+        "label": "Ekle: heißen",
+        "pressed": "false",
+        "tag": "BUTTON",
+        "top": 626.2421875
+      }
+    ],
+    "width": 390
+  }
+}
