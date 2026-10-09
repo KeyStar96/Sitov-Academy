@@ -52,6 +52,19 @@ function sitovRpcData(data: unknown, error: unknown) {
   return data
 }
 
+// Query only IDs the authored cumulative catalog can render. Database catalog levels
+// may differ from their parent units; filtering by level would alter legacy visibility.
+async function sitovReadCatalog(client: Awaited<ReturnType<typeof createClient>>, ids: readonly string[]) {
+  const rows: { id: string; unit_id: string; level: string }[] = []
+  // Existing IDs keep each encoded filter below 4 KiB; serialize batches so higher
+  // levels do not multiply concurrent RLS work on the bounded learner database.
+  for (let offset = 0; offset < ids.length; offset += 150) {
+    const batch = ids.slice(offset, offset + 150)
+    rows.push(...await readAllRows((from, to) => client.from('sitov_verb_catalog').select('id,unit_id,level').in('id', batch).order('id').range(from, to), 'verb_catalog'))
+  }
+  return rows
+}
+
 async function sitovLoad(client: Awaited<ReturnType<typeof createClient>>, learnerId: string, level: unknown): Promise<SitovVerbTrainerState> {
   const parsed = sitovLevel.safeParse(level)
   if (!parsed.success) throw new SitovVerbError('invalid_input')
@@ -60,9 +73,8 @@ async function sitovLoad(client: Awaited<ReturnType<typeof createClient>>, learn
   // Restrict the database read to the exact cumulative static catalog used below.
   // Cookie-scoped RLS still decides which of those rows the learner may read.
   const catalogEntries = getSitovVerbCatalog(parsed.data)
-  const catalogLevels = [...new Set(catalogEntries.map(verb => verb.level))]
   const [catalog, box, progress] = await Promise.all([
-    readAllRows((from, to) => client.from('sitov_verb_catalog').select('id,unit_id,level').in('level', catalogLevels).order('id').range(from, to), 'verb_catalog'),
+    sitovReadCatalog(client, catalogEntries.map(verb => verb.id)),
     readAllRows((from, to) => client.from('sitov_verb_box').select('verb_id,selected').eq('auth_user_id', learnerId).order('verb_id').range(from, to), 'verb_box'),
     readAllRows((from, to) => client.from('sitov_verb_progress').select('verb_id,tense,box,attempts,correct,lapses,next_review_at,last_answered_at').eq('auth_user_id', learnerId).order('verb_id').order('tense').range(from, to), 'verb_progress'),
   ])

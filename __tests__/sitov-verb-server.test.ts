@@ -1,15 +1,17 @@
 import { loadSitovVerbTrainer } from '@/lib/verbs/server'
 import { createClient } from '@/utils/supabase/server'
 import { loadLevelAccessProfile } from '@/lib/access/server'
+import { getSitovVerbCatalog } from '@/lib/verbs/catalog'
 jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
 jest.mock('@/utils/supabase/admin', () => ({ createAdminClient: jest.fn() }))
 jest.mock('@/lib/access/server', () => ({ loadLevelAccessProfile: jest.fn() }))
-jest.mock('@/lib/verbs/catalog', () => ({ getSitovVerbCatalog: () => [{ id: 'sitov-verb-test', level: 'A1.1' }], getSitovVerbById: () => null, getSitovVerbTenses: () => ['present'] }))
+jest.mock('@/lib/verbs/catalog', () => ({ getSitovVerbCatalog: jest.fn(() => [{ id: 'sitov-verb-test', level: 'A1.1' }]), getSitovVerbById: () => null, getSitovVerbTenses: () => ['present'] }))
 const from = jest.fn()
 let log: jest.SpyInstance
 beforeEach(() => {
   jest.clearAllMocks(); from.mockReset()
+  jest.mocked(getSitovVerbCatalog).mockReturnValue([{ id: 'sitov-verb-test', level: 'A1.1' }] as ReturnType<typeof getSitovVerbCatalog>)
   log = jest.spyOn(console, 'error').mockImplementation(() => {})
   jest.mocked(createClient).mockResolvedValue({ auth: { getUser: async () => ({ data: { user: { id: 'private-user' } }, error: null }) }, from } as unknown as Awaited<ReturnType<typeof createClient>>)
   jest.mocked(loadLevelAccessProfile).mockResolvedValue({ role: 'teacher', allowed_levels: ['A1.1'] })
@@ -52,11 +54,35 @@ it('identifies client creation transport failure without exposing its URL or sta
   expect(from).not.toHaveBeenCalled(); expect(JSON.stringify(log.mock.calls)).not.toContain('private')
 })
 
-it('restricts catalog work to cumulative authored levels without changing RLS or account-scoped history',async()=>{
+it('restricts catalog work to cumulative authored IDs without changing RLS or account-scoped history',async()=>{
  const catalog=rows('sitov_verb_catalog'),box=rows('sitov_verb_box'),progress=rows('sitov_verb_progress')
  from.mockImplementation(table=>table==='sitov_verb_catalog'?catalog:table==='sitov_verb_box'?box:progress)
  const result=await loadSitovVerbTrainer('A1.1','uk')
  expect(result).toMatchObject({data:{level:'A1.1',verbs:[{id:'sitov-verb-test',unitId:'private-unit'}],selectedIds:[],progress:[]}})
- expect(catalog.in).toHaveBeenCalledWith('level',['A1.1'])
+ expect(catalog.in).toHaveBeenCalledWith('id',['sitov-verb-test'])
  expect(box.in).not.toHaveBeenCalled();expect(progress.in).not.toHaveBeenCalled()
+})
+
+it('preserves an authorized authored ID when its database catalog level differs from its canonical parent',async()=>{
+ const catalog=rows('sitov_verb_catalog')
+ catalog.in.mockImplementation((...args:unknown[])=>{catalog.range.mockResolvedValue({data:args[0]==='id'?[{id:'sitov-verb-test',unit_id:'private-unit',level:'B2.2'}]:[],error:null});return catalog})
+ from.mockImplementation(table=>table==='sitov_verb_catalog'?catalog:rows(table))
+ expect(await loadSitovVerbTrainer('A1.1')).toMatchObject({data:{verbs:[{id:'sitov-verb-test',level:'A1.1',unitId:'private-unit'}]}})
+})
+it('serializes bounded ID batches, keeps authored order and omits rows denied by cookie RLS',async()=>{
+ const entries=Array.from({length:310},(_,i)=>({id:`sitov-verb-${String(i).padStart(3,'0')}`,level:'A1.1'}))
+ jest.mocked(getSitovVerbCatalog).mockReturnValue(entries as ReturnType<typeof getSitovVerbCatalog>)
+ const filters:string[][]=[];let active=0,maxActive=0
+ from.mockImplementation(table=>{
+  const query=rows(table)
+  if(table==='sitov_verb_catalog')query.in.mockImplementation((...args:unknown[])=>{
+   expect(args[0]).toBe('id');const ids=args[1] as string[];filters.push(ids)
+   query.range.mockImplementation(async()=>{active++;maxActive=Math.max(maxActive,active);await Promise.resolve();active--;return{data:ids.filter(id=>id!=='sitov-verb-155').reverse().map(id=>({id,unit_id:'private-unit',level:'B2.2'})),error:null}})
+   return query
+  })
+  return query
+ })
+ const result=await loadSitovVerbTrainer('A1.1')
+ expect(filters.map(a=>a.length)).toEqual([150,150,10]);expect(filters.flat()).toEqual(entries.map(v=>v.id));expect(maxActive).toBe(1)
+ expect('data'in result&&result.data?.verbs.map(v=>v.id)).toEqual(entries.filter(v=>v.id!=='sitov-verb-155').map(v=>v.id))
 })

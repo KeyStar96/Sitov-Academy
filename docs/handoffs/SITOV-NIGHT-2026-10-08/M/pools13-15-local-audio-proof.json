@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-09T11:22:53.391Z",
+  "scope": "Standard bundle: actual native male Qwen MP3 bytes/profile/text hashes/exact visible token timings, current275 unique strings for291 aliases; existing5 local bytes reused. Six final MP3s remeasured with pinned aligner into portable metadata only; original receipts and bytes preserved. No remote import/publication/subjective listening claim.",
+  "aliases": 291,
+  "objects": 275,
+  "generated": 270,
+  "reusedLocal": 5,
+  "measuredMp3AlignmentCorrections": 6,
+  "originalGenerationManifestSha256": "8126ffebf824b9f34829cf35da152081da7e89e5fbaa1e4f45995dd3b3a1216c",
+  "bytes": 4101220,
+  "lexicalIntervals": 1470,
+  "zeroLexical": [],
+  "zeroLexicalCount": 0,
+  "productionWrite": false,
+  "qaImport": false,
+  "bundleManifestSha256": "3123a26b38c225e5ab4f4d287ae866fb7c74c1529c8435539e157690e3f0b9a3",
+  "editorialReviewSha256": "f96796a68487478130c835b196e1883ea7e44fc4f2efc9698f1155ce27aaf781",
+  "profile": "sitov-qwen-male-de-v1",
+  "subjectiveListeningVerified": false
+}
