@@ -1,0 +1,3279 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "sourceRoot": "/Users/denniskostjuk/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Life-OS/01 Projects/Sitov-Academy/Teacher/Lernpfad /Specials",
+  "sources": [
+    {
+      "ref": "sitov.source.a11.wohnung.artikel.pdf.v1",
+      "path": "A1_1 Specials/Arbeitsblatt_A1_1_Lektion4_Artikel_mit_Loesungen_RU.pdf",
+      "sha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+      "pages": 8,
+      "reviewedPages": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "independentReview": "pending",
+      "sourceUri": "obsidian:Teacher/Lernpfad /Specials/A1_1 Specials/Arbeitsblatt_A1_1_Lektion4_Artikel_mit_Loesungen_RU.pdf"
+    },
+    {
+      "ref": "sitov.source.special-concept.pdf.v1",
+      "path": "Konzept Specialaufgaben.pdf",
+      "sha256": "b615220e9738f1ff0cd789c47da721402e0e3572f988f2a67d79e0622fbae9b3",
+      "page": 1,
+      "adopted": "10 tasks / pass at 8; varied retakes and error explanations",
+      "superseded": "Old Pro/free retake pay limits are not adopted."
+    }
+  ],
+  "uuidNamespace": "c38a4741-790c-5e6d-a884-fc73a2ff9b22",
+  "uuidPolicy": "UUIDv5 of stable sitov IDs; draft exercise/definition IDs only, never replacement existing node/anchor/unit UUIDs.",
+  "pools": [
+    {
+      "specialId": "sitov-special-a11-artikel-nominativ-v1",
+      "definitionId": "00609604-25c6-5032-8265-40c00ee7ef2b",
+      "status": "UNBOUND_DRAFT",
+      "published": false,
+      "active": false,
+      "level": "A1.1",
+      "title": "Artikel im Nominativ · Meine Wohnung",
+      "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+      "binding": {
+        "unitId": null,
+        "nodeId": null,
+        "anchorNodeId": null,
+        "definitionVersion": null,
+        "candidate": {
+          "level": "A1.1",
+          "pathSourceId": "P4",
+          "anchorSourceId": "P4-N1",
+          "goalId": "P4-G1",
+          "proposedSpecialSourceId": "sitov-special-a11-artikel-nominativ-v1"
+        },
+        "evidence": "Repository path-a1.1.json has P4/P4-N1/P4-G1 and zero Special nodes. No actual database UUID is asserted."
+      },
+      "blueprint": {
+        "masculine": 3,
+        "feminine": 4,
+        "neuter": 3
+      },
+      "editorialProof": null,
+      "audioImportProof": null,
+      "items": [
+        {
+          "id": "cacb4d87-dff7-5697-b9ef-65f7880e2861",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-001",
+          "stratum": "masculine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 1,
+              "span": "___ Flur"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 1,
+              "span": "der"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Flur",
+              "article": "der",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "masculine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "cacb4d87-dff7-5697-b9ef-65f7880e2861",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Flur“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "der",
+              "accepted_answers": [
+                "der"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Flur hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Flur is der. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Flur — der. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Flur — der. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Flur kelimesinin belirli artikeli der olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "e6a1482d-135a-5d7a-add1-be382b85550c",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-002",
+          "stratum": "feminine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 2,
+              "span": "___ Küche"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 2,
+              "span": "die"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Küche",
+              "article": "die",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "feminine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "e6a1482d-135a-5d7a-add1-be382b85550c",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Küche“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "die",
+              "accepted_answers": [
+                "die"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Küche hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Küche is die. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Küche — die. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Küche — die. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Küche kelimesinin belirli artikeli die olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "a0ef8227-6838-56ef-9598-389512995f1e",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-003",
+          "stratum": "neuter",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 3,
+              "span": "___ Bad"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 3,
+              "span": "das"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Bad",
+              "article": "das",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "neuter",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "a0ef8227-6838-56ef-9598-389512995f1e",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Bad“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "das",
+              "accepted_answers": [
+                "das"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Bad hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Bad is das. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Bad — das. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Bad — das. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Bad kelimesinin belirli artikeli das olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "249ce82d-2f77-53b1-8c77-5aacc5ec4263",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-004",
+          "stratum": "masculine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 4,
+              "span": "___ Balkon"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 4,
+              "span": "der"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Balkon",
+              "article": "der",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "masculine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "249ce82d-2f77-53b1-8c77-5aacc5ec4263",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Balkon“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "der",
+              "accepted_answers": [
+                "der"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Balkon hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Balkon is der. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Balkon — der. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Balkon — der. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Balkon kelimesinin belirli artikeli der olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "7ce045e8-238a-579a-a704-0b82aa17867d",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-005",
+          "stratum": "neuter",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 5,
+              "span": "___ Schlafzimmer"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 5,
+              "span": "das"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Schlafzimmer",
+              "article": "das",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "neuter",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "7ce045e8-238a-579a-a704-0b82aa17867d",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Schlafzimmer“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "das",
+              "accepted_answers": [
+                "das"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Schlafzimmer hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Schlafzimmer is das. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Schlafzimmer — das. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Schlafzimmer — das. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Schlafzimmer kelimesinin belirli artikeli das olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "7d28e00b-d130-5bb4-81a0-bed8966b8287",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-006",
+          "stratum": "neuter",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 6,
+              "span": "___ Wohnzimmer"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 6,
+              "span": "das"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Wohnzimmer",
+              "article": "das",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "neuter",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "7d28e00b-d130-5bb4-81a0-bed8966b8287",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Wohnzimmer“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "das",
+              "accepted_answers": [
+                "das"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Wohnzimmer hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Wohnzimmer is das. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Wohnzimmer — das. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Wohnzimmer — das. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Wohnzimmer kelimesinin belirli artikeli das olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "e3feb482-4f42-5a37-831e-0896f92912d3",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-007",
+          "stratum": "feminine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 7,
+              "span": "___ Toilette"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 7,
+              "span": "die"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Toilette",
+              "article": "die",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "feminine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "e3feb482-4f42-5a37-831e-0896f92912d3",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Toilette“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "die",
+              "accepted_answers": [
+                "die"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Toilette hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Toilette is die. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Toilette — die. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Toilette — die. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Toilette kelimesinin belirli artikeli die olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "b174e50b-37c5-5e2c-8261-69984a775c03",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-008",
+          "stratum": "feminine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 8,
+              "span": "___ Wohnung"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 8,
+              "span": "die"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Wohnung",
+              "article": "die",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "feminine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "b174e50b-37c5-5e2c-8261-69984a775c03",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Wohnung“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "die",
+              "accepted_answers": [
+                "die"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Wohnung hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Wohnung is die. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Wohnung — die. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Wohnung — die. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Wohnung kelimesinin belirli artikeli die olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "329a159a-9ed4-58d9-bf7d-908079343999",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-009",
+          "stratum": "feminine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 9,
+              "span": "___ Stadt"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 9,
+              "span": "die"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Stadt",
+              "article": "die",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "feminine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "329a159a-9ed4-58d9-bf7d-908079343999",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Stadt“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "die",
+              "accepted_answers": [
+                "die"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Stadt hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Stadt is die. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Stadt — die. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Stadt — die. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Stadt kelimesinin belirli artikeli die olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "f1af813c-b681-5537-9e6d-d758ce344384",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-010",
+          "stratum": "feminine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 10,
+              "span": "___ Bäckerei"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 10,
+              "span": "die"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Bäckerei",
+              "article": "die",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "feminine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "f1af813c-b681-5537-9e6d-d758ce344384",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Bäckerei“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "die",
+              "accepted_answers": [
+                "die"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Bäckerei hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Bäckerei is die. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Bäckerei — die. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Bäckerei — die. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Bäckerei kelimesinin belirli artikeli die olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-011",
+          "stratum": "masculine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 11,
+              "span": "___ Gemüseladen"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 11,
+              "span": "der"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Gemüseladen",
+              "article": "der",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "masculine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Gemüseladen“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "der",
+              "accepted_answers": [
+                "der"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Gemüseladen hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Gemüseladen is der. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Gemüseladen — der. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Gemüseladen — der. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Gemüseladen kelimesinin belirli artikeli der olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-012",
+          "stratum": "neuter",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 12,
+              "span": "___ Brot"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 12,
+              "span": "das"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Brot",
+              "article": "das",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "neuter",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Brot“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "das",
+              "accepted_answers": [
+                "das"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Brot hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Brot is das. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Brot — das. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Brot — das. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Brot kelimesinin belirli artikeli das olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "f647992a-52a4-5c97-8edd-0266171b37a8",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-013",
+          "stratum": "neuter",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 13,
+              "span": "___ Obst"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 13,
+              "span": "das"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Obst",
+              "article": "das",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "neuter",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "f647992a-52a4-5c97-8edd-0266171b37a8",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Obst“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "das",
+              "accepted_answers": [
+                "das"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Obst hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Obst is das. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Obst — das. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Obst — das. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Obst kelimesinin belirli artikeli das olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "0bf2f249-4dbf-591f-9bc7-503f59b68f98",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-014",
+          "stratum": "masculine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 14,
+              "span": "___ Wein"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 14,
+              "span": "der"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Wein",
+              "article": "der",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "masculine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "0bf2f249-4dbf-591f-9bc7-503f59b68f98",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Wein“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "der",
+              "accepted_answers": [
+                "der"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Wein hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Wein is der. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Wein — der. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Wein — der. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Wein kelimesinin belirli artikeli der olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-015",
+          "stratum": "feminine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 1,
+              "exercise": "1",
+              "item": 15,
+              "span": "___ Milch"
+            },
+            "solution": {
+              "page": 5,
+              "exercise": "1",
+              "item": 15,
+              "span": "die"
+            },
+            "adaptation": "Source written article blank becomes a spoken noun/article question with three fixed article options. The noun and correct source article are unchanged; no underscore is sent to TTS.",
+            "rationale": {
+              "noun": "Milch",
+              "article": "die",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "feminine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5",
+            "type": "multiple_choice",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Wählen Sie den bestimmten Artikel.",
+              "question": "Welcher bestimmte Artikel gehört zu „Milch“?",
+              "options": [
+                "der",
+                "die",
+                "das"
+              ],
+              "correct_answer": "die",
+              "accepted_answers": [
+                "die"
+              ]
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Milch hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Milch is die. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Milch — die. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Milch — die. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Milch kelimesinin belirli artikeli die olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "57e06847-8dad-53fe-b3a6-9d321c1dcb55",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-016",
+          "stratum": "neuter",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 2,
+              "exercise": "4",
+              "item": 2,
+              "span": "(Der / Das) Bad ist hier."
+            },
+            "solution": {
+              "page": 6,
+              "exercise": "4",
+              "item": 2,
+              "span": "Das"
+            },
+            "adaptation": "Source printed two-option article choice becomes a single article gap. Original sentence context and source answer are retained; canonical complete sentence is the95 audio utterance.",
+            "rationale": {
+              "noun": "Bad",
+              "article": "das",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "neuter",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "57e06847-8dad-53fe-b3a6-9d321c1dcb55",
+            "type": "fill_in_blank",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Ergänzen Sie den bestimmten Artikel.",
+              "correct_answer": "Das",
+              "accepted_answers": [
+                "Das"
+              ],
+              "text_before": "",
+              "text_after": "Bad ist hier."
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Bad hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Bad is das. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Bad — das. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Bad — das. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Bad kelimesinin belirli artikeli das olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "b606fded-ba61-59f5-b74f-414d6436754b",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-017",
+          "stratum": "feminine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 2,
+              "exercise": "4",
+              "item": 4,
+              "span": "(Die / Das) Toilette ist dort."
+            },
+            "solution": {
+              "page": 6,
+              "exercise": "4",
+              "item": 4,
+              "span": "Die"
+            },
+            "adaptation": "Source printed two-option article choice becomes a single article gap. Original sentence context and source answer are retained; canonical complete sentence is the95 audio utterance.",
+            "rationale": {
+              "noun": "Toilette",
+              "article": "die",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "feminine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "b606fded-ba61-59f5-b74f-414d6436754b",
+            "type": "fill_in_blank",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Ergänzen Sie den bestimmten Artikel.",
+              "correct_answer": "Die",
+              "accepted_answers": [
+                "Die"
+              ],
+              "text_before": "",
+              "text_after": "Toilette ist dort."
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Toilette hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Toilette is die. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Toilette — die. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Toilette — die. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Toilette kelimesinin belirli artikeli die olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "6ad6d136-67a6-5228-a621-04993884d813",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-018",
+          "stratum": "masculine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 2,
+              "exercise": "4",
+              "item": 6,
+              "span": "(Der / Die) Balkon ist klein."
+            },
+            "solution": {
+              "page": 6,
+              "exercise": "4",
+              "item": 6,
+              "span": "Der"
+            },
+            "adaptation": "Source printed two-option article choice becomes a single article gap. Original sentence context and source answer are retained; canonical complete sentence is the95 audio utterance.",
+            "rationale": {
+              "noun": "Balkon",
+              "article": "der",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "masculine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "6ad6d136-67a6-5228-a621-04993884d813",
+            "type": "fill_in_blank",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Ergänzen Sie den bestimmten Artikel.",
+              "correct_answer": "Der",
+              "accepted_answers": [
+                "Der"
+              ],
+              "text_before": "",
+              "text_after": "Balkon ist klein."
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Balkon hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Balkon is der. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Balkon — der. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Balkon — der. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Balkon kelimesinin belirli artikeli der olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "bec44eec-ca00-57f2-8153-1fe3b556c567",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-019",
+          "stratum": "feminine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 2,
+              "exercise": "4",
+              "item": 8,
+              "span": "(Die / Der) Wohnung ist schön."
+            },
+            "solution": {
+              "page": 6,
+              "exercise": "4",
+              "item": 8,
+              "span": "Die"
+            },
+            "adaptation": "Source printed two-option article choice becomes a single article gap. Original sentence context and source answer are retained; canonical complete sentence is the95 audio utterance.",
+            "rationale": {
+              "noun": "Wohnung",
+              "article": "die",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "feminine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "bec44eec-ca00-57f2-8153-1fe3b556c567",
+            "type": "fill_in_blank",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Ergänzen Sie den bestimmten Artikel.",
+              "correct_answer": "Die",
+              "accepted_answers": [
+                "Die"
+              ],
+              "text_before": "",
+              "text_after": "Wohnung ist schön."
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Wohnung hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Wohnung is die. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Wohnung — die. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Wohnung — die. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Wohnung kelimesinin belirli artikeli die olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        },
+        {
+          "id": "55b00673-6c5c-54d1-aec5-3e8486d52e34",
+          "stableId": "sitov-special-a11-artikel-nominativ-v1-item-020",
+          "stratum": "masculine",
+          "published": false,
+          "sourceEvidence": {
+            "sourceRef": "sitov.source.a11.wohnung.artikel.pdf.v1",
+            "sourceSha256": "d59dd2bb1f019e6f9945347e69320245a18881ac53769de9a6a7328a38a8d507",
+            "task": {
+              "page": 2,
+              "exercise": "4",
+              "item": 10,
+              "span": "(Das / Der) Gemüseladen ist neu."
+            },
+            "solution": {
+              "page": 6,
+              "exercise": "4",
+              "item": 10,
+              "span": "Der"
+            },
+            "adaptation": "Source printed two-option article choice becomes a single article gap. Original sentence context and source answer are retained; canonical complete sentence is the95 audio utterance.",
+            "rationale": {
+              "noun": "Gemüseladen",
+              "article": "der",
+              "case": "Nominativ",
+              "number": "singular",
+              "gender": "masculine",
+              "fictionalCharacters": []
+            }
+          },
+          "snapshot": {
+            "id": "55b00673-6c5c-54d1-aec5-3e8486d52e34",
+            "type": "fill_in_blank",
+            "content": {
+              "target_form": [
+                "Bestimmter Artikel im Nominativ"
+              ],
+              "instruction": "Ergänzen Sie den bestimmten Artikel.",
+              "correct_answer": "Der",
+              "accepted_answers": [
+                "Der"
+              ],
+              "text_before": "",
+              "text_after": "Gemüseladen ist neu."
+            },
+            "goal_id": "P4-G1",
+            "translations": {
+              "de": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Gemüseladen hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+                "prompt": null
+              },
+              "en": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "The definite article of Gemüseladen is der. This noun is in the nominative here.",
+                "prompt": null
+              },
+              "ru": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Определённый артикль слова Gemüseladen — der. Здесь существительное стоит в именительном падеже.",
+                "prompt": null
+              },
+              "uk": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Означений артикль слова Gemüseladen — der. Тут іменник стоїть в називному відмінку.",
+                "prompt": null
+              },
+              "tr": {
+                "instruction": null,
+                "hint": null,
+                "explanation": "Gemüseladen kelimesinin belirli artikeli der olur. Burada isim yalın hâldedir.",
+                "prompt": null
+              }
+            }
+          }
+        }
+      ],
+      "draftContentSha256": "73a22d54992172a7ecf08d194607947ea886e873dd57877c342dac018d871878"
+    }
+  ],
+  "audioManifest": {
+    "profile": "sitov-qwen-male-de-v1",
+    "generation": "M serializes local Qwen synthesis and imports; none generated/imported here.",
+    "status": "unprepared",
+    "aliases": [
+      {
+        "id": "sitov-audio-017cb2ca51e27218c65abfbbc18eed9a52997fc26a4ebd0ee63178135ef14afb",
+        "text": "Obst",
+        "textSha256": "017cb2ca51e27218c65abfbbc18eed9a52997fc26a4ebd0ee63178135ef14afb",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-02060220b3ffbddea9053c925a6c1fba9f520e05067f5cdf0b25cf96601871ea",
+        "text": "Bäckerei hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+        "textSha256": "02060220b3ffbddea9053c925a6c1fba9f520e05067f5cdf0b25cf96601871ea",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-08f7b944a44e646d3dcdcc424155fbba8f412d561faceef61473fd29be3fdd62",
+        "text": "Wohnzimmer",
+        "textSha256": "08f7b944a44e646d3dcdcc424155fbba8f412d561faceef61473fd29be3fdd62",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-0a7cb27e52927eacabbb7ecc738b0fea50b3967945257c43a67eb753cb465bd0",
+        "text": "das",
+        "textSha256": "0a7cb27e52927eacabbb7ecc738b0fea50b3967945257c43a67eb753cb465bd0",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "options",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          },
+          {
+            "role": "options",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          },
+          {
+            "role": "options",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          },
+          {
+            "role": "options",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          },
+          {
+            "role": "options",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          },
+          {
+            "role": "options",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          },
+          {
+            "role": "options",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          },
+          {
+            "role": "options",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          },
+          {
+            "role": "options",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          },
+          {
+            "role": "options",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          },
+          {
+            "role": "options",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          },
+          {
+            "role": "options",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          },
+          {
+            "role": "options",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          },
+          {
+            "role": "options",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          },
+          {
+            "role": "options",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-0daaac155cf1995f97fb2b43c067297617767396f83876d4d64cae710c758f6e",
+        "text": "der Flur",
+        "textSha256": "0daaac155cf1995f97fb2b43c067297617767396f83876d4d64cae710c758f6e",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-0ec572ca1972dbf33201fcd3e9f85e74d29de43394961ec4d32337030a77a228",
+        "text": "Welcher bestimmte Artikel gehört zu „Milch“?",
+        "textSha256": "0ec572ca1972dbf33201fcd3e9f85e74d29de43394961ec4d32337030a77a228",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-0f0ba68dd7e11883ac49b82c05f6bbbd20ffbea057dcf7edeaf46db9394892e6",
+        "text": "Die Wohnung ist schön.",
+        "textSha256": "0f0ba68dd7e11883ac49b82c05f6bbbd20ffbea057dcf7edeaf46db9394892e6",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "bec44eec-ca00-57f2-8153-1fe3b556c567"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-14362276d198a3fa284b7bfdcd2aa9dd9e5b4c4d427e04bc8cad79dd57ddd4c2",
+        "text": "das Obst",
+        "textSha256": "14362276d198a3fa284b7bfdcd2aa9dd9e5b4c4d427e04bc8cad79dd57ddd4c2",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-1468f0594768ec5bff4b4e305f42048a0fdda953e1d08db91b4c1c3b3dc68166",
+        "text": "die Toilette",
+        "textSha256": "1468f0594768ec5bff4b4e305f42048a0fdda953e1d08db91b4c1c3b3dc68166",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-2279bd134de6291c1bb407daff8f1c041908b026e35be14c063f3ee51c033b50",
+        "text": "Stadt",
+        "textSha256": "2279bd134de6291c1bb407daff8f1c041908b026e35be14c063f3ee51c033b50",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-25765d1b311bf20646cf2f877f311f613150cb36f0b3053cb90a899330ccd3ea",
+        "text": "Welcher bestimmte Artikel gehört zu „Gemüseladen“?",
+        "textSha256": "25765d1b311bf20646cf2f877f311f613150cb36f0b3053cb90a899330ccd3ea",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-26660a76b577a92169876b3eced16bab49eee27345836722ac1d4b44c3585d87",
+        "text": "Bad hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+        "textSha256": "26660a76b577a92169876b3eced16bab49eee27345836722ac1d4b44c3585d87",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          },
+          {
+            "role": "explanation",
+            "itemId": "57e06847-8dad-53fe-b3a6-9d321c1dcb55"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-285d8962156bff8990ae2ff1a3300d8bec5223c0dea7762e4846593bff4fbfb3",
+        "text": "Stadt hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+        "textSha256": "285d8962156bff8990ae2ff1a3300d8bec5223c0dea7762e4846593bff4fbfb3",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-2c8acfad7ec9be65b2afb164c399957838aaaa9a402b1599bd36a3dfc0a2c822",
+        "text": "Brot hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+        "textSha256": "2c8acfad7ec9be65b2afb164c399957838aaaa9a402b1599bd36a3dfc0a2c822",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-37b8826bedd45ded7bd03152fa712f80c2c67b7cac9582a4a9471f56ba6e8c3d",
+        "text": "die Milch",
+        "textSha256": "37b8826bedd45ded7bd03152fa712f80c2c67b7cac9582a4a9471f56ba6e8c3d",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-3c8ea74c4293c94df50fa6aa66a18dbee5735ce68d9e21b968b6328af9a99838",
+        "text": "das Schlafzimmer",
+        "textSha256": "3c8ea74c4293c94df50fa6aa66a18dbee5735ce68d9e21b968b6328af9a99838",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-3e06e5f20efc5ec24cc4a163edfefe8da5abee856274fad8abb92effdff5619a",
+        "text": "die Bäckerei",
+        "textSha256": "3e06e5f20efc5ec24cc4a163edfefe8da5abee856274fad8abb92effdff5619a",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-45abd87d11b2d0c25e5f1bacd4c41e24d74351ac3cf3b3fe8894a74511449677",
+        "text": "das Wohnzimmer",
+        "textSha256": "45abd87d11b2d0c25e5f1bacd4c41e24d74351ac3cf3b3fe8894a74511449677",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-4a49154a732af4659be076c4b160393f5e2e2301a90421ad6b4afb8574b752e2",
+        "text": "Welcher bestimmte Artikel gehört zu „Stadt“?",
+        "textSha256": "4a49154a732af4659be076c4b160393f5e2e2301a90421ad6b4afb8574b752e2",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-500a497cc22e9e5008f6dfbd1e8c0bf349edd041df0ebd6008a3ae2f49ffbab3",
+        "text": "Welcher bestimmte Artikel gehört zu „Balkon“?",
+        "textSha256": "500a497cc22e9e5008f6dfbd1e8c0bf349edd041df0ebd6008a3ae2f49ffbab3",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-5050d80d22ecd471ea55df7034042c1e041341ff4066e7f6ff38e20b720df8ea",
+        "text": "der",
+        "textSha256": "5050d80d22ecd471ea55df7034042c1e041341ff4066e7f6ff38e20b720df8ea",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "correct_answer",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          },
+          {
+            "role": "options",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          },
+          {
+            "role": "options",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          },
+          {
+            "role": "options",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          },
+          {
+            "role": "options",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          },
+          {
+            "role": "options",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          },
+          {
+            "role": "options",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          },
+          {
+            "role": "options",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          },
+          {
+            "role": "options",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          },
+          {
+            "role": "options",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          },
+          {
+            "role": "options",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          },
+          {
+            "role": "options",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          },
+          {
+            "role": "options",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          },
+          {
+            "role": "options",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          },
+          {
+            "role": "options",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          },
+          {
+            "role": "options",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-54db167eb77e1e2f14259781e7e74da8b74db89456096f6d255644aa2ccaa19a",
+        "text": "Artikel im Nominativ · Meine Wohnung",
+        "textSha256": "54db167eb77e1e2f14259781e7e74da8b74db89456096f6d255644aa2ccaa19a",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "title"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-57ba56386b3f1d5b7d025aacd16384ae3f70c24b263c22388a4a2a9f5b2a96f0",
+        "text": "Welcher bestimmte Artikel gehört zu „Wohnzimmer“?",
+        "textSha256": "57ba56386b3f1d5b7d025aacd16384ae3f70c24b263c22388a4a2a9f5b2a96f0",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-59f2ed10060e366691f3b2e77e469579cd5c9ca9907c5c8727eaac96b30b1441",
+        "text": "der Gemüseladen",
+        "textSha256": "59f2ed10060e366691f3b2e77e469579cd5c9ca9907c5c8727eaac96b30b1441",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-5fc1ecf4e158ff6b648713cefedd71ba3927789c356e9d1b5e578c901e195861",
+        "text": "Milch hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+        "textSha256": "5fc1ecf4e158ff6b648713cefedd71ba3927789c356e9d1b5e578c901e195861",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-651a681b759c3447ca7f8e4091335f3b3747e4c1a6426ea67a21db858dd8b46b",
+        "text": "Wein",
+        "textSha256": "651a681b759c3447ca7f8e4091335f3b3747e4c1a6426ea67a21db858dd8b46b",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-6603b950e5f0e68ac3318810e4fb786d72ac99f94af8c420416d06e91fceb637",
+        "text": "Welcher bestimmte Artikel gehört zu „Flur“?",
+        "textSha256": "6603b950e5f0e68ac3318810e4fb786d72ac99f94af8c420416d06e91fceb637",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-6643f2f410cea7dc1c0b2301a831d9ddf7b4253b8b28cc7e9c4dadfc0978e0b8",
+        "text": "das Brot",
+        "textSha256": "6643f2f410cea7dc1c0b2301a831d9ddf7b4253b8b28cc7e9c4dadfc0978e0b8",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-6aa88e5469c63a6941b9f34f1b1079efad416944af93db2f9d10e64fd13423cf",
+        "text": "Die Toilette ist dort.",
+        "textSha256": "6aa88e5469c63a6941b9f34f1b1079efad416944af93db2f9d10e64fd13423cf",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "b606fded-ba61-59f5-b74f-414d6436754b"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-6b7e32c98e4ed4bfcdd7e70f96ad1f94f6f55a2fab072b9ce0d34413b8196fb7",
+        "text": "Welcher bestimmte Artikel gehört zu „Bad“?",
+        "textSha256": "6b7e32c98e4ed4bfcdd7e70f96ad1f94f6f55a2fab072b9ce0d34413b8196fb7",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-6fe7d7112caaba1b1bc7bfa656974ac4016cc525a7286117494f5b29dfec1f77",
+        "text": "Bad",
+        "textSha256": "6fe7d7112caaba1b1bc7bfa656974ac4016cc525a7286117494f5b29dfec1f77",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          },
+          {
+            "role": "sourceNoun",
+            "itemId": "57e06847-8dad-53fe-b3a6-9d321c1dcb55"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-715d0508ea1c5ff05c6df52a77eec11941061cdca1d40fdf6470ac385f04d73f",
+        "text": "Welcher bestimmte Artikel gehört zu „Wein“?",
+        "textSha256": "715d0508ea1c5ff05c6df52a77eec11941061cdca1d40fdf6470ac385f04d73f",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-719ef67b8bc3bbc417fb89026ce86d78aedf5493ecc5c423e2fb17220c86c9e2",
+        "text": "Bäckerei",
+        "textSha256": "719ef67b8bc3bbc417fb89026ce86d78aedf5493ecc5c423e2fb17220c86c9e2",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-7775d62b998af9293b1d6dfab3effc6cb4b6e9e30f600cee3f6962265b238566",
+        "text": "Toilette ist dort.",
+        "textSha256": "7775d62b998af9293b1d6dfab3effc6cb4b6e9e30f600cee3f6962265b238566",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "text_after",
+            "itemId": "b606fded-ba61-59f5-b74f-414d6436754b"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-7daa8df85075e640445c4d7a298d27c5b0127c230be1669a6400d85144162251",
+        "text": "der Wein",
+        "textSha256": "7daa8df85075e640445c4d7a298d27c5b0127c230be1669a6400d85144162251",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-80619cbf258ab6e679234b449434077f6bcd15995fa0aabf3a33fc1d3a0debac",
+        "text": "Milch",
+        "textSha256": "80619cbf258ab6e679234b449434077f6bcd15995fa0aabf3a33fc1d3a0debac",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-83be6048b67b9a42e461ef15b663c2fbb6049e0ffc7afa2c96a7678496ee1166",
+        "text": "Schlafzimmer hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+        "textSha256": "83be6048b67b9a42e461ef15b663c2fbb6049e0ffc7afa2c96a7678496ee1166",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-8c39b79089cc6ed7f99ba8f5ab072ceb058d9c0bade832522a8c4431b1365307",
+        "text": "Gemüseladen ist neu.",
+        "textSha256": "8c39b79089cc6ed7f99ba8f5ab072ceb058d9c0bade832522a8c4431b1365307",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "text_after",
+            "itemId": "55b00673-6c5c-54d1-aec5-3e8486d52e34"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-8ed2c36eaf9704f29a44e942287f2ff1a8b90b80bb4554b25aa7d2b59daa0dcb",
+        "text": "Wein hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+        "textSha256": "8ed2c36eaf9704f29a44e942287f2ff1a8b90b80bb4554b25aa7d2b59daa0dcb",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-8f084a6e6376a8b96f382df673cb02a6de0703256f1ab3b429a16e885a2e84b6",
+        "text": "Welcher bestimmte Artikel gehört zu „Küche“?",
+        "textSha256": "8f084a6e6376a8b96f382df673cb02a6de0703256f1ab3b429a16e885a2e84b6",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-957cbc8486101073d34cd2f61a9ea979cd0599b32bf010e1ca8729f94f2d62f1",
+        "text": "Welcher bestimmte Artikel gehört zu „Brot“?",
+        "textSha256": "957cbc8486101073d34cd2f61a9ea979cd0599b32bf010e1ca8729f94f2d62f1",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-9651823826fb0eb9640209af258c3629a9a83da42d6a1d4b60f8748bfddc5b31",
+        "text": "Bestimmter Artikel im Nominativ",
+        "textSha256": "9651823826fb0eb9640209af258c3629a9a83da42d6a1d4b60f8748bfddc5b31",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "target_form",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          },
+          {
+            "role": "target_form",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          },
+          {
+            "role": "target_form",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          },
+          {
+            "role": "target_form",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          },
+          {
+            "role": "target_form",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          },
+          {
+            "role": "target_form",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          },
+          {
+            "role": "target_form",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          },
+          {
+            "role": "target_form",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          },
+          {
+            "role": "target_form",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          },
+          {
+            "role": "target_form",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          },
+          {
+            "role": "target_form",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          },
+          {
+            "role": "target_form",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          },
+          {
+            "role": "target_form",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          },
+          {
+            "role": "target_form",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          },
+          {
+            "role": "target_form",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          },
+          {
+            "role": "target_form",
+            "itemId": "57e06847-8dad-53fe-b3a6-9d321c1dcb55"
+          },
+          {
+            "role": "target_form",
+            "itemId": "b606fded-ba61-59f5-b74f-414d6436754b"
+          },
+          {
+            "role": "target_form",
+            "itemId": "6ad6d136-67a6-5228-a621-04993884d813"
+          },
+          {
+            "role": "target_form",
+            "itemId": "bec44eec-ca00-57f2-8153-1fe3b556c567"
+          },
+          {
+            "role": "target_form",
+            "itemId": "55b00673-6c5c-54d1-aec5-3e8486d52e34"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-98dc5dc19f7d8c44130a40293627937a39b3860adcec49953a3ffcda3d6fd616",
+        "text": "Das Bad ist hier.",
+        "textSha256": "98dc5dc19f7d8c44130a40293627937a39b3860adcec49953a3ffcda3d6fd616",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "57e06847-8dad-53fe-b3a6-9d321c1dcb55"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-99310e22289bf64c27f882981d752fce703fda299bfee1f99b0a813d6d5ba3b0",
+        "text": "Wählen Sie den bestimmten Artikel.",
+        "textSha256": "99310e22289bf64c27f882981d752fce703fda299bfee1f99b0a813d6d5ba3b0",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "instruction",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          },
+          {
+            "role": "instruction",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          },
+          {
+            "role": "instruction",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          },
+          {
+            "role": "instruction",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          },
+          {
+            "role": "instruction",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          },
+          {
+            "role": "instruction",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          },
+          {
+            "role": "instruction",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          },
+          {
+            "role": "instruction",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          },
+          {
+            "role": "instruction",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          },
+          {
+            "role": "instruction",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          },
+          {
+            "role": "instruction",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          },
+          {
+            "role": "instruction",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          },
+          {
+            "role": "instruction",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          },
+          {
+            "role": "instruction",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          },
+          {
+            "role": "instruction",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-9cbe1405e09b8125ff05026eb749d42fb131df12c102ae380fd7c6f2afd2a7d8",
+        "text": "Balkon hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+        "textSha256": "9cbe1405e09b8125ff05026eb749d42fb131df12c102ae380fd7c6f2afd2a7d8",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          },
+          {
+            "role": "explanation",
+            "itemId": "6ad6d136-67a6-5228-a621-04993884d813"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-a75f776554f67e6a7fccb496755fad382d4b34dcbebf5b91c80bcfbb73c0091a",
+        "text": "Welcher bestimmte Artikel gehört zu „Wohnung“?",
+        "textSha256": "a75f776554f67e6a7fccb496755fad382d4b34dcbebf5b91c80bcfbb73c0091a",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-a8d79f40ddb79de569d778f1c0b832f9cc266b32274b702cff4ba2b8a0dd1549",
+        "text": "die",
+        "textSha256": "a8d79f40ddb79de569d778f1c0b832f9cc266b32274b702cff4ba2b8a0dd1549",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "options",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          },
+          {
+            "role": "options",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          },
+          {
+            "role": "options",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          },
+          {
+            "role": "options",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          },
+          {
+            "role": "options",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          },
+          {
+            "role": "options",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          },
+          {
+            "role": "options",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          },
+          {
+            "role": "options",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          },
+          {
+            "role": "options",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          },
+          {
+            "role": "options",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          },
+          {
+            "role": "options",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          },
+          {
+            "role": "options",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          },
+          {
+            "role": "options",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          },
+          {
+            "role": "options",
+            "itemId": "0bf2f249-4dbf-591f-9bc7-503f59b68f98"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          },
+          {
+            "role": "options",
+            "itemId": "0c71ffd4-1da6-516c-b327-cdde0cd9b7f5"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-a9d354a78348bc0f8d28e19ab9e0721ddc59a99a1581c58a4205dc0d5ec03138",
+        "text": "Das",
+        "textSha256": "a9d354a78348bc0f8d28e19ab9e0721ddc59a99a1581c58a4205dc0d5ec03138",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "correct_answer",
+            "itemId": "57e06847-8dad-53fe-b3a6-9d321c1dcb55"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-a9ec872e661915b53a7b5e6e116d8d4095e0ab175c8ee1183b13840e9bde3cac",
+        "text": "Küche",
+        "textSha256": "a9ec872e661915b53a7b5e6e116d8d4095e0ab175c8ee1183b13840e9bde3cac",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-abceaf379e4f9511766db524e2b0738bed82ead78d79be131a498929395dd724",
+        "text": "Bad ist hier.",
+        "textSha256": "abceaf379e4f9511766db524e2b0738bed82ead78d79be131a498929395dd724",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "text_after",
+            "itemId": "57e06847-8dad-53fe-b3a6-9d321c1dcb55"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-b5edfa5343a4e1b2805b2f74df853a471da8903becc9679aa246bf34966a03b2",
+        "text": "Der",
+        "textSha256": "b5edfa5343a4e1b2805b2f74df853a471da8903becc9679aa246bf34966a03b2",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "correct_answer",
+            "itemId": "6ad6d136-67a6-5228-a621-04993884d813"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "55b00673-6c5c-54d1-aec5-3e8486d52e34"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-b869e8effa4e583dc103fb086a471dd8ff2439c139b0641639fee194bb0dd0a7",
+        "text": "Ergänzen Sie den bestimmten Artikel.",
+        "textSha256": "b869e8effa4e583dc103fb086a471dd8ff2439c139b0641639fee194bb0dd0a7",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "instruction",
+            "itemId": "57e06847-8dad-53fe-b3a6-9d321c1dcb55"
+          },
+          {
+            "role": "instruction",
+            "itemId": "b606fded-ba61-59f5-b74f-414d6436754b"
+          },
+          {
+            "role": "instruction",
+            "itemId": "6ad6d136-67a6-5228-a621-04993884d813"
+          },
+          {
+            "role": "instruction",
+            "itemId": "bec44eec-ca00-57f2-8153-1fe3b556c567"
+          },
+          {
+            "role": "instruction",
+            "itemId": "55b00673-6c5c-54d1-aec5-3e8486d52e34"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-b9553afbde022cc3ec3640fce1914dd616b3c2c3a0184a68ff851f63ec8b7061",
+        "text": "Obst hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+        "textSha256": "b9553afbde022cc3ec3640fce1914dd616b3c2c3a0184a68ff851f63ec8b7061",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-bea01007bd12bdfde82973c57c47a2f658147c1605a5ed7448ed30b10b1b31f9",
+        "text": "Toilette hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+        "textSha256": "bea01007bd12bdfde82973c57c47a2f658147c1605a5ed7448ed30b10b1b31f9",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          },
+          {
+            "role": "explanation",
+            "itemId": "b606fded-ba61-59f5-b74f-414d6436754b"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-bf545abb127cdcd91a0d7fe970b24c2f8e8bb843f030a4de688eacb1dcf3f40b",
+        "text": "die Stadt",
+        "textSha256": "bf545abb127cdcd91a0d7fe970b24c2f8e8bb843f030a4de688eacb1dcf3f40b",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "329a159a-9ed4-58d9-bf7d-908079343999"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-c27f8089e83b45ccedd611b3e2df0b841399c701850d0a611984ad5cd78a9deb",
+        "text": "Flur hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+        "textSha256": "c27f8089e83b45ccedd611b3e2df0b841399c701850d0a611984ad5cd78a9deb",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-c6b6fd25bc6138a4b81edd70fc6f12b52110dd1c066e1aa1fb905f93759295bb",
+        "text": "Flur",
+        "textSha256": "c6b6fd25bc6138a4b81edd70fc6f12b52110dd1c066e1aa1fb905f93759295bb",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "cacb4d87-dff7-5697-b9ef-65f7880e2861"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-c79932037e9ae0d8b49ca0b088c8f75719a887716e53436221ec38fbe1f686c8",
+        "text": "die Küche",
+        "textSha256": "c79932037e9ae0d8b49ca0b088c8f75719a887716e53436221ec38fbe1f686c8",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-c91145d16d21c165362dbbdbe19e864d978f0030df1177b1689c231d27298191",
+        "text": "Wohnung",
+        "textSha256": "c91145d16d21c165362dbbdbe19e864d978f0030df1177b1689c231d27298191",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          },
+          {
+            "role": "sourceNoun",
+            "itemId": "bec44eec-ca00-57f2-8153-1fe3b556c567"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-c958b1ff7962988067212738c58a5440feb5a387c6f1dd418f226a5b2777f293",
+        "text": "Wohnung ist schön.",
+        "textSha256": "c958b1ff7962988067212738c58a5440feb5a387c6f1dd418f226a5b2777f293",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "text_after",
+            "itemId": "bec44eec-ca00-57f2-8153-1fe3b556c567"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-cd70191c1ab9d646933067fe3df42e343aca93c93b49ef0e7b4fa5661a43a69d",
+        "text": "Welcher bestimmte Artikel gehört zu „Bäckerei“?",
+        "textSha256": "cd70191c1ab9d646933067fe3df42e343aca93c93b49ef0e7b4fa5661a43a69d",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "f1af813c-b681-5537-9e6d-d758ce344384"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-d169602d01f7a92da7a8bba4d3f2e6e5307b0ad314628090ebcdd7f926568e61",
+        "text": "Schlafzimmer",
+        "textSha256": "d169602d01f7a92da7a8bba4d3f2e6e5307b0ad314628090ebcdd7f926568e61",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-d3c2d6d341045b1a4455dbe670f2adb3064fca79f42dcc361d2015b63a4d47b0",
+        "text": "Die",
+        "textSha256": "d3c2d6d341045b1a4455dbe670f2adb3064fca79f42dcc361d2015b63a4d47b0",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "correct_answer",
+            "itemId": "b606fded-ba61-59f5-b74f-414d6436754b"
+          },
+          {
+            "role": "correct_answer",
+            "itemId": "bec44eec-ca00-57f2-8153-1fe3b556c567"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-d665bfb4c9af0dfdb6bd680009865a5f440f843a71ae27dbf904b8f31dab439e",
+        "text": "Wohnzimmer hat den bestimmten Artikel das. Hier steht das Nomen im Nominativ.",
+        "textSha256": "d665bfb4c9af0dfdb6bd680009865a5f440f843a71ae27dbf904b8f31dab439e",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "7d28e00b-d130-5bb4-81a0-bed8966b8287"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-d9ab3be48b3d2b204e3fcc03f33e554c5bfc2e1411888d17fa21fbf509ad2144",
+        "text": "Welcher bestimmte Artikel gehört zu „Toilette“?",
+        "textSha256": "d9ab3be48b3d2b204e3fcc03f33e554c5bfc2e1411888d17fa21fbf509ad2144",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-da6905ec2c9067b639a8a732c165c25e8bf34dd08562d833cf4e976d9315d071",
+        "text": "Der Balkon ist klein.",
+        "textSha256": "da6905ec2c9067b639a8a732c165c25e8bf34dd08562d833cf4e976d9315d071",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "6ad6d136-67a6-5228-a621-04993884d813"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-dbc8a6c803485b9565c6ea4d3e5019c2b83a8c7e316153c0e0b419f59d755fd1",
+        "text": "Welcher bestimmte Artikel gehört zu „Obst“?",
+        "textSha256": "dbc8a6c803485b9565c6ea4d3e5019c2b83a8c7e316153c0e0b419f59d755fd1",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "f647992a-52a4-5c97-8edd-0266171b37a8"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-e1a2b7aa04d084d0562a29cbc292fd86fa17dd7b4beeff704b78b9fd7b3f6ad4",
+        "text": "die Wohnung",
+        "textSha256": "e1a2b7aa04d084d0562a29cbc292fd86fa17dd7b4beeff704b78b9fd7b3f6ad4",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-e327c2eb9fd690036bbb0fc30330b2184c6b51bb49a208a5d51adf5b41305861",
+        "text": "Der Gemüseladen ist neu.",
+        "textSha256": "e327c2eb9fd690036bbb0fc30330b2184c6b51bb49a208a5d51adf5b41305861",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "55b00673-6c5c-54d1-aec5-3e8486d52e34"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-e5dc2ab81b3acd639a31377b1fcbdb1063a8239c08e4b4074f01621a16650a91",
+        "text": "Welcher bestimmte Artikel gehört zu „Schlafzimmer“?",
+        "textSha256": "e5dc2ab81b3acd639a31377b1fcbdb1063a8239c08e4b4074f01621a16650a91",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "question",
+            "itemId": "7ce045e8-238a-579a-a704-0b82aa17867d"
+          }
+        ],
+        "requiredBy95": true
+      },
+      {
+        "id": "sitov-audio-e6d25cbb81d738bb5875e27ce39e6473b435df8d461a691cd112a000bffab4a2",
+        "text": "Wohnung hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+        "textSha256": "e6d25cbb81d738bb5875e27ce39e6473b435df8d461a691cd112a000bffab4a2",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "b174e50b-37c5-5e2c-8261-69984a775c03"
+          },
+          {
+            "role": "explanation",
+            "itemId": "bec44eec-ca00-57f2-8153-1fe3b556c567"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-eae6fe01ef784f28e9b0d82079748ff3b38f44180a148e65de74442481f38afc",
+        "text": "Gemüseladen",
+        "textSha256": "eae6fe01ef784f28e9b0d82079748ff3b38f44180a148e65de74442481f38afc",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          },
+          {
+            "role": "sourceNoun",
+            "itemId": "55b00673-6c5c-54d1-aec5-3e8486d52e34"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-ef53751671e5219919b139afb43865b325192727a2f1ca216b018d4509abb57f",
+        "text": "Brot",
+        "textSha256": "ef53751671e5219919b139afb43865b325192727a2f1ca216b018d4509abb57f",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "93b6334f-518c-50ef-a3d5-54ba1ca2eebc"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-f77269907af627f795bcfb55ce5a08024369e199586fed0263b36d44e8427fba",
+        "text": "Toilette",
+        "textSha256": "f77269907af627f795bcfb55ce5a08024369e199586fed0263b36d44e8427fba",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "e3feb482-4f42-5a37-831e-0896f92912d3"
+          },
+          {
+            "role": "sourceNoun",
+            "itemId": "b606fded-ba61-59f5-b74f-414d6436754b"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-fb90b7d3a51e0b31135223f6b059494723945a5af66fc28cb65b23ff83cc19be",
+        "text": "Balkon ist klein.",
+        "textSha256": "fb90b7d3a51e0b31135223f6b059494723945a5af66fc28cb65b23ff83cc19be",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "text_after",
+            "itemId": "6ad6d136-67a6-5228-a621-04993884d813"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-fc1c7e67531c3d9691831edbed75dd51528412cd17a43bde40e65b4b07e571c0",
+        "text": "Gemüseladen hat den bestimmten Artikel der. Hier steht das Nomen im Nominativ.",
+        "textSha256": "fc1c7e67531c3d9691831edbed75dd51528412cd17a43bde40e65b4b07e571c0",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "08e07db2-f7a6-57c7-ab95-06602e9a1a2a"
+          },
+          {
+            "role": "explanation",
+            "itemId": "55b00673-6c5c-54d1-aec5-3e8486d52e34"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-fda8d01242b5e13e336de8086dec8d64a6eed6ccd1b7ad7f952928b5c291143e",
+        "text": "das Bad",
+        "textSha256": "fda8d01242b5e13e336de8086dec8d64a6eed6ccd1b7ad7f952928b5c291143e",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "a0ef8227-6838-56ef-9598-389512995f1e"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-fe14cafcd66f276cdffc54a15ac236a63d542b94664e0fb81cba9b5181cbf5b2",
+        "text": "Küche hat den bestimmten Artikel die. Hier steht das Nomen im Nominativ.",
+        "textSha256": "fe14cafcd66f276cdffc54a15ac236a63d542b94664e0fb81cba9b5181cbf5b2",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "explanation",
+            "itemId": "e6a1482d-135a-5d7a-add1-be382b85550c"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-ff29981f98a81bfc0029075639f6f9370d1a623b83384c53559c0f10f8bd134f",
+        "text": "der Balkon",
+        "textSha256": "ff29981f98a81bfc0029075639f6f9370d1a623b83384c53559c0f10f8bd134f",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "completeSolution",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          }
+        ],
+        "requiredBy95": false
+      },
+      {
+        "id": "sitov-audio-ff9f658402a62fc66b04b801da499a7fe6c0313f7b603891b6c497a653e8698f",
+        "text": "Balkon",
+        "textSha256": "ff9f658402a62fc66b04b801da499a7fe6c0313f7b603891b6c497a653e8698f",
+        "profile": "sitov-qwen-male-de-v1",
+        "status": "unprepared",
+        "uses": [
+          {
+            "role": "sourceNoun",
+            "itemId": "249ce82d-2f77-53b1-8c77-5aacc5ec4263"
+          },
+          {
+            "role": "sourceNoun",
+            "itemId": "6ad6d136-67a6-5228-a621-04993884d813"
+          }
+        ],
+        "requiredBy95": false
+      }
+    ],
+    "requiredBy95Count": 28,
+    "additionalUserRequiredCount": 52
+  }
+}
