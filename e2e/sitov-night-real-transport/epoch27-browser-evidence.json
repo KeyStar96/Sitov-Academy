@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-09T12:46:54.068Z",
+  "url": "http://127.0.0.1:3143/de/login",
+  "normalLoginFormObserved": true,
+  "credentialsEntered": false,
+  "loginSubmitted": false,
+  "authenticatedBrowserSession": false,
+  "normalLogout": "NOT_APPLICABLE_NO_BROWSER_LOGIN",
+  "authorUI": "UNVERIFIED_FIXTURE_CREDENTIAL_LEDGER",
+  "noMfaBypass": true,
+  "noDraftSaveOrPublication": true,
+  "observationBasis": "Initial full accessibility tree plus saved screenshot visually inspected; final diff-only tree was not a full form inventory."
+}

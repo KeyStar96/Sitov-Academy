@@ -1,0 +1,199 @@
+{
+  "ownCleanup": true,
+  "newOwnAccounts": 2,
+  "ownDraftsRemoved": 0,
+  "ownDraftReceiptsRemoved": 0,
+  "before": {
+    "defs": 42,
+    "users": 2,
+    "active": 5,
+    "assets": 2032,
+    "passes": 0,
+    "proofs": 3926,
+    "attempts": 0,
+    "authHash": "03cac3102379fa794264c4c1a898e54b",
+    "seenHash": "d41d8cd98f00b204e9800998ecf8427e",
+    "assetsHash": "d96595ed214bdce5fcab740f45ed406a",
+    "proofsHash": "6c3a6e6e65da3ead8c9327fa86ac4741",
+    "profileHash": "d65b2aa94875b59a45b22f8edba1a047",
+    "submissions": 0,
+    "firstVisitHash": "a826f17674ef09e3c79dfd6ea2ba9819",
+    "definitionsHash": "24c6b719fcd722ab2f78440bb41d4ff7",
+    "draftReceiptHash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "after": {
+    "defs": 42,
+    "users": 2,
+    "active": 5,
+    "assets": 2032,
+    "passes": 0,
+    "proofs": 3926,
+    "attempts": 0,
+    "authHash": "03cac3102379fa794264c4c1a898e54b",
+    "seenHash": "d41d8cd98f00b204e9800998ecf8427e",
+    "assetsHash": "d96595ed214bdce5fcab740f45ed406a",
+    "proofsHash": "6c3a6e6e65da3ead8c9327fa86ac4741",
+    "profileHash": "d65b2aa94875b59a45b22f8edba1a047",
+    "submissions": 0,
+    "firstVisitHash": "a826f17674ef09e3c79dfd6ea2ba9819",
+    "definitionsHash": "24c6b719fcd722ab2f78440bb41d4ff7",
+    "draftReceiptHash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "baselineAfterEqual": true,
+  "studentReadonlyStateUnchanged": true,
+  "observations": [
+    {
+      "at": "2026-10-09T12:44:18.303940+00:00",
+      "memAvailableMiB": 2665.44140625,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 168312832,
+      "gatewayPeakBytes": 173244416,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T12:47:09.715644+00:00",
+      "memAvailableMiB": 2566.0078125,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 168177664,
+      "gatewayPeakBytes": 173244416,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T12:47:11.331576+00:00",
+      "memAvailableMiB": 2588.19921875,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 168128512,
+      "gatewayPeakBytes": 173244416,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ]
+}
