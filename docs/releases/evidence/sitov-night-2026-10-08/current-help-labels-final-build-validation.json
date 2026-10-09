@@ -1,0 +1,52 @@
+{
+  "brand": "Sitov Academy",
+  "scope": "Latest combined product including five existing short Help labels; no actual browser/SQL/device acceptance inferred",
+  "verifiedAt": "2026-10-09T06:21:10.124738+00:00",
+  "sourceCommit": "a1b7141b98074af0ce0aba8bdc16324c4518f9ab",
+  "fullTypeScript": {
+    "command": "npx tsc --noEmit --incremental false",
+    "exitCode": 0,
+    "log": "/tmp/sitov-night-m-tsc-a1b7141b.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "fullBuild": {
+    "command": "Existing masked build-owned-qa-env.py: next build --webpack",
+    "exitCode": 0,
+    "nextVersion": "16.3.8",
+    "staticPages": 313,
+    "buildWorkers": 1,
+    "nodeMemoryMiB": 1536,
+    "log": "/tmp/sitov-night-m-build-a1b7141b.log",
+    "sha256": "7c6c128d7b9e945b43ab4c0f61e41eb1caff18928629c0bcbc1cdbdc46c69b48",
+    "providerConfiguration": "All repo/service environment keys masked; own QA loopback only; paid/provider keys empty",
+    "warning": "Existing custom Cache-Control notice remains"
+  },
+  "labelDelta": {
+    "worker": "S4",
+    "epoch": 12,
+    "sourceCommit": "634fcd65c004742e5bd6d1ba64aae289fa398a1d",
+    "integrationCommit": "a1b7141b98074af0ce0aba8bdc16324c4518f9ab",
+    "componentsChanged": 5,
+    "change": "Common unchanged five short Help labels; former context preserved as panel heading; existing bodies, actions, guards, IDs, German content, audio and progress unchanged",
+    "existingTargetedSuites": 6,
+    "passedTests": 81,
+    "initialFailure": "Existing staff overview assumed globally unique Help button label; only affected assertions corrected and that14-test suite rerun PASS",
+    "newMirrorTests": 0,
+    "scopedLintErrors": 0,
+    "scopedLintWarnings": 0,
+    "testBoundary": "Mocked component/action/focus/CAS/retry guards, no browser/native proof"
+  },
+  "previousCurrentHelpTargetCompileEvidence": "current-help-target-build-validation.json at22231;72 vocabulary Help and30 explicit-target route/component tests separately documented",
+  "vocabularyStrictLint": "Four inherited warnings still prevent max-warnings0; unchanged-source proof in vocabulary-context-help-lint.json; no error/suppression",
+  "runtimeGeneratedNextEnvSourceRestoredByteExact": true,
+  "ownQaNextDevStopped": true,
+  "actualNewHelpAndTargetBrowserAcceptance": "PENDING_FAILED_FRESH_HOST_MEMORY_GATE",
+  "latestHealthEvidence": "qa-final-help-labels-health-memory.json",
+  "latestObsidianEvidence": "obsidian43-epoch10-verification.json; assignedadfd snapshot excludes this later label delta",
+  "ordinaryWeeklyRemainingPercent": 24,
+  "featureFreeze": true,
+  "calibration": "pending",
+  "publication": false,
+  "productionWrite": false,
+  "releaseReady": false
+}

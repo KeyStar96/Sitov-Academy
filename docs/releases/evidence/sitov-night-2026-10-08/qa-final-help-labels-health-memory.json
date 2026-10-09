@@ -1,0 +1,33 @@
+{
+  "brand": "Sitov Academy",
+  "scope": "Read-only fresh final Help/target compile checkpoint runtime/host memory; no mutations or admission guard bypass",
+  "checkedAt": "2026-10-09T06:17:20.210689+00:00",
+  "sourceCommit": "a1b7141b98074af0ce0aba8bdc16324c4518f9ab",
+  "containersChecked": 5,
+  "allFiveRunningWithoutCurrentOOMFlag": true,
+  "health": [
+    {
+      "path": "/auth/v1/health",
+      "http_status": 200
+    },
+    {
+      "path": "/rest/v1/",
+      "http_status": 200
+    },
+    {
+      "path": "/storage/v1/status",
+      "http_status": 200
+    }
+  ],
+  "aggregateMemoryMiB": 960,
+  "aggregateCPU": 2.0,
+  "hostAvailableMiB": 2580,
+  "requiredFreshAdmissionMiB": 3072,
+  "freshAdmissionPassed": false,
+  "durabilityProven": false,
+  "priorGatewayOOMHistoryPreserved": true,
+  "noRuntimeMutation": true,
+  "productionWrite": false,
+  "privateProofSha256": "22bf283e888d4b7aaf7b43bff87d28d2c5a992e46c9455cda2c49b60e6b6156a",
+  "limitation": "Current health does not prove sustained load stability; prior OOM remains required acceptance gate."
+}

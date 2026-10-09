@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "group_id": "SITOV-NIGHT-2026-10-08",
+  "owner": "M",
+  "epoch": 10,
+  "verified_at": "2026-10-09T06:10:34.041696+00:00",
+  "assigned_integration_sha": "adfd3ffa6e26b5f066db1ae1d37f2999af55394a",
+  "assigned_handoff_sha256": "7e2f237360052ca4309705a1778b3014ba2fa1456c007f95c1ad53613dad4a2b",
+  "note_path": "/Users/denniskostjuk/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Life-OS/01 Projects/Sitov-Academy/43_SITOV-NIGHT-2026-10-08_Integrationsstand.md",
+  "note_before_sha256": "b64fb2a7f2ad270d4f96f4bc229c1e214bfe496725b26f84d6f30f50ee68d96d",
+  "note_after_sha256": "34554ef3bf486a3df9c3f386e0e527c665ff88fba5bd3fe62203538bf6b21d4a",
+  "private_handoff_sha256": "e69e4793bd73b280434f1092189ca087f5b195b0c6ab5fe4a2f2fbfd164955fa",
+  "private_patch_sha256": "27a958a3daa84633ccf37f2021cc93b403d402d931a0f9ef25bcdb723d56aad3",
+  "versioned_evidence_sha256": {
+    "current-help-target-build-validation.json": "495d4bf9b2970868f85686c2d791ef756d70e09a20a92c9952be7299ca7624f6",
+    "vocabulary-context-help-lint.json": "2d2be1e616004bf68eefdee7518526291951fb81de0d56ff12cd31d3e7238a48",
+    "qa-current-health-memory-gate.json": "5e84718cd0a73a46405566cef49b1ee3d69441258872ac4bf3ba672898275b9c"
+  },
+  "checks": {
+    "all_private_and_three_public_sha256_match": true,
+    "assigned_git_handoff_sha256_match": true,
+    "frontmatter_unchanged": true,
+    "eight_wikilinks_unchanged_and_targets_exist": true,
+    "all_previous_checkpoint_bodies_and_history_byte_exact": true,
+    "actual_unified_patch_matches_before_after": true,
+    "completed_within_lease": true
+  },
+  "completed_at": "2026-10-09T06:08:24.292336+00:00",
+  "lease_valid_until": "2026-10-09T06:09:59.462525+00:00",
+  "documentation_complete": false,
+  "release_ready": false,
+  "scope": "Existing Vault43 confirmed adfd snapshot only. Later S4epoch12 label normalization is separate and not claimed in this note snapshot."
+}
