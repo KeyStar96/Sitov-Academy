@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-09T09:34:13.193458+00:00",
+  "qa": {
+    "at": "2026-10-09T09:32:02.178527+00:00",
+    "namespace": "sitov-night-20261008-qa",
+    "stopped": [
+      "sitov-night-20261008-qa-db",
+      "sitov-night-20261008-qa-auth",
+      "sitov-night-20261008-qa-storage",
+      "sitov-night-20261008-qa-rest",
+      "sitov-night-20261008-qa-gateway"
+    ],
+    "allStopped": true,
+    "containerIdentitiesAndImagesPreserved": true,
+    "volumesPreserved": true,
+    "networkPreserved": true,
+    "noVolumeOrNetworkDeletion": true,
+    "productionTouched": false
+  },
+  "mac": {
+    "nextStopped": true,
+    "tunnelStopped": true,
+    "nativePostgresStopped": true,
+    "dataDirectoryPreserved": true,
+    "ownedEndpointsVerified": true,
+    "unrelatedSystemServicesUntouched": true
+  },
+  "worktreesBranchesPrivateInputsPreserved": true,
+  "productionTouched": false
+}

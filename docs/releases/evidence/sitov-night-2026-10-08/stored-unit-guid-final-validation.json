@@ -24,7 +24,21 @@
     "ownActorsCleaned": 2
   },
   "actualPreRepairBrowser": "S5epoch17FAIL7/12 zeroLinks/automaticRetake",
-  "actualPostRepairBrowser": "PENDING",
+  "actualPostRepairBrowser": {
+    "status": "PASS boundedcriticalrepair",
+    "sourceSha": "1b656fb52d31c13aacc8026e43aab35b9df863a5",
+    "sourceEvidenceCommit": "7888f76e62c91754b954e35a1473a764b7c13775",
+    "integratedEvidenceCommit": "501f1033d1a842188857d03a9ab97eecbf9dcac7",
+    "locale": "ru",
+    "storedFailNoRetake": true,
+    "actualLinks": 2,
+    "visibleClickedTarget": "sitov-verb-heissen",
+    "tense": "present",
+    "actualTargetEntryUnchecked": true,
+    "completeOwnStatePreserved": true,
+    "ownActorDeletedBaselineEqual": true,
+    "fullMatrixMicrophoneDurability": "NOT_TESTED"
+  },
   "native107Tests": 8,
   "native108Tests": 7,
   "actualQa107": {
