@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-09T04:25:37.573Z",
+  "scope": "Exact full269 final texts10–12 and full39 changed-alias portable bundles, actual bytes/profile/hash/exact tokens and strictly positive lexical intervals; two additional measured reuse corrections applied only to portable copies; production/local source objects unchanged",
+  "rows": [
+    {
+      "key": "pretest10-12",
+      "objects": 269,
+      "bytes": 4163164,
+      "newPrepared": 202,
+      "reusedLocal": 11,
+      "reusedFreshRemote": 56,
+      "correctedAdditionalReuses": 2,
+      "lexicalIntervals": 1504,
+      "punctuationOnlyTokens": 28,
+      "zeroLexicalIntervals": 0,
+      "bundle": "qa-pretest10-12-audio-bundle-positive",
+      "bundleSha256": "8a9817bfc547d46446167771a47c193219fb5632b8f35fd0e3fd8f7823e986e7"
+    },
+    {
+      "key": "pretest-first9-repair",
+      "objects": 39,
+      "bytes": 1071348,
+      "newPrepared": 38,
+      "reusedLocal": 1,
+      "reusedFreshRemote": 0,
+      "correctedAdditionalReuses": 0,
+      "lexicalIntervals": 388,
+      "punctuationOnlyTokens": 5,
+      "zeroLexicalIntervals": 0,
+      "bundle": "qa-pretest-first9-repair-audio-bundle-positive",
+      "bundleSha256": "8d627563f8f2e1cd54f6247520696b298bb0d7bc2ef1bffb3a166c99d2242914"
+    }
+  ],
+  "qaImport": false,
+  "productionWrite": false,
+  "source12ProductionTimingCorrectionPending": true,
+  "localUm9UhrReferencedQaCorrectionMustBeReviewedBeforeImport": true,
+  "privateProofSha256": "7dbe769df0e3008f0fbc91d132ff347ee3473a289ee8e47e225638369e777c17"
+}

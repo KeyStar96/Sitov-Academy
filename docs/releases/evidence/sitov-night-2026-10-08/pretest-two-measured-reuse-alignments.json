@@ -1,0 +1,561 @@
+{
+  "scope": "Exact unchanged existing source12 MP3 and prior locally generated Um9Uhr MP3; only local portable measured timing candidates; no storage/production/QA metadata changes",
+  "rows": [
+    {
+      "candidate": "remote56-one-realignment-candidate.json",
+      "privateCandidateSha256": "69d3fea73f86318c772ba08bcb6a4981276bc387d32ff6f7c60f0468d4893d9b",
+      "rows": [
+        {
+          "id": "a74a251ca5f7d9fd7ecd09dab5f91322764ec8959ea96fec48567c44b9932e2f",
+          "text": "Am Freitag kommen zwei Freunde zu mir. Wir möchten zusammen eine Suppe kochen. Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln. Mein Freund kocht Wasser. Ich decke den Tisch. Die Suppe schmeckt gut, und wir essen noch Brot dazu. Später räumen wir die Küche auf.",
+          "originalMetadataSha256": "8dbd3a01e1b8edc25ae47ffac53e7c7e010dc691890e42ca35e48db27f2ae20a",
+          "audioSha256": "196a318f537eabf37b76a825ee6d5b73001968102fb78f4118406caee5b0d58f",
+          "textSha256": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
+          "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+          "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+          "originalZeroLexicalIndices": [
+            38
+          ],
+          "newZeroLexicalIndices": [],
+          "wordTimings": [
+            {
+              "start": 0.56,
+              "end": 0.64
+            },
+            {
+              "start": 0.64,
+              "end": 1.28
+            },
+            {
+              "start": 1.36,
+              "end": 1.68
+            },
+            {
+              "start": 1.68,
+              "end": 1.92
+            },
+            {
+              "start": 1.92,
+              "end": 2.32
+            },
+            {
+              "start": 2.32,
+              "end": 2.4
+            },
+            {
+              "start": 2.4,
+              "end": 2.8
+            },
+            {
+              "start": 3.36,
+              "end": 3.52
+            },
+            {
+              "start": 3.52,
+              "end": 3.84
+            },
+            {
+              "start": 3.84,
+              "end": 4.24
+            },
+            {
+              "start": 4.24,
+              "end": 4.4
+            },
+            {
+              "start": 4.4,
+              "end": 4.72
+            },
+            {
+              "start": 4.72,
+              "end": 5.12
+            },
+            {
+              "start": 5.68,
+              "end": 6.08
+            },
+            {
+              "start": 6.08,
+              "end": 6.48
+            },
+            {
+              "start": 6.48,
+              "end": 6.56
+            },
+            {
+              "start": 6.56,
+              "end": 6.96
+            },
+            {
+              "start": 6.96,
+              "end": 7.12
+            },
+            {
+              "start": 7.12,
+              "end": 7.2
+            },
+            {
+              "start": 7.2,
+              "end": 7.76
+            },
+            {
+              "start": 8.32,
+              "end": 8.56
+            },
+            {
+              "start": 8.56,
+              "end": 8.88
+            },
+            {
+              "start": 8.88,
+              "end": 8.96
+            },
+            {
+              "start": 8.96,
+              "end": 9.04
+            },
+            {
+              "start": 9.04,
+              "end": 9.6
+            },
+            {
+              "start": 9.6,
+              "end": 9.76
+            },
+            {
+              "start": 9.76,
+              "end": 10.16
+            },
+            {
+              "start": 10.16,
+              "end": 10.24
+            },
+            {
+              "start": 10.24,
+              "end": 10.88
+            },
+            {
+              "start": 11.28,
+              "end": 11.44
+            },
+            {
+              "start": 11.44,
+              "end": 11.76
+            },
+            {
+              "start": 11.76,
+              "end": 12.0
+            },
+            {
+              "start": 12.0,
+              "end": 12.4
+            },
+            {
+              "start": 12.96,
+              "end": 13.12
+            },
+            {
+              "start": 13.12,
+              "end": 13.28
+            },
+            {
+              "start": 13.28,
+              "end": 13.44
+            },
+            {
+              "start": 13.44,
+              "end": 13.84
+            },
+            {
+              "start": 14.32,
+              "end": 14.4
+            },
+            {
+              "start": 14.4,
+              "end": 14.64
+            },
+            {
+              "start": 14.64,
+              "end": 14.96
+            },
+            {
+              "start": 14.96,
+              "end": 15.36
+            },
+            {
+              "start": 15.68,
+              "end": 15.84
+            },
+            {
+              "start": 15.84,
+              "end": 15.92
+            },
+            {
+              "start": 15.92,
+              "end": 16.16
+            },
+            {
+              "start": 16.16,
+              "end": 16.32
+            },
+            {
+              "start": 16.32,
+              "end": 16.56
+            },
+            {
+              "start": 16.56,
+              "end": 17.04
+            },
+            {
+              "start": 17.52,
+              "end": 17.92
+            },
+            {
+              "start": 17.92,
+              "end": 18.24
+            },
+            {
+              "start": 18.24,
+              "end": 18.4
+            },
+            {
+              "start": 18.4,
+              "end": 18.48
+            },
+            {
+              "start": 18.48,
+              "end": 18.8
+            },
+            {
+              "start": 18.8,
+              "end": 19.12
+            }
+          ],
+          "rawAlignedWords": [
+            {
+              "text": "Am",
+              "start": 0.56,
+              "end": 0.64
+            },
+            {
+              "text": "Freitag",
+              "start": 0.64,
+              "end": 1.28
+            },
+            {
+              "text": "kommen",
+              "start": 1.36,
+              "end": 1.68
+            },
+            {
+              "text": "zwei",
+              "start": 1.68,
+              "end": 1.92
+            },
+            {
+              "text": "Freunde",
+              "start": 1.92,
+              "end": 2.32
+            },
+            {
+              "text": "zu",
+              "start": 2.32,
+              "end": 2.4
+            },
+            {
+              "text": "mir",
+              "start": 2.4,
+              "end": 2.8
+            },
+            {
+              "text": "Wir",
+              "start": 3.36,
+              "end": 3.52
+            },
+            {
+              "text": "möchten",
+              "start": 3.52,
+              "end": 3.84
+            },
+            {
+              "text": "zusammen",
+              "start": 3.84,
+              "end": 4.24
+            },
+            {
+              "text": "eine",
+              "start": 4.24,
+              "end": 4.4
+            },
+            {
+              "text": "Suppe",
+              "start": 4.4,
+              "end": 4.72
+            },
+            {
+              "text": "kochen",
+              "start": 4.72,
+              "end": 5.12
+            },
+            {
+              "text": "Zuerst",
+              "start": 5.68,
+              "end": 6.08
+            },
+            {
+              "text": "kaufen",
+              "start": 6.08,
+              "end": 6.48
+            },
+            {
+              "text": "wir",
+              "start": 6.48,
+              "end": 6.56
+            },
+            {
+              "text": "Gemüse",
+              "start": 6.56,
+              "end": 6.96
+            },
+            {
+              "text": "auf",
+              "start": 6.96,
+              "end": 7.12
+            },
+            {
+              "text": "dem",
+              "start": 7.12,
+              "end": 7.2
+            },
+            {
+              "text": "Markt",
+              "start": 7.2,
+              "end": 7.76
+            },
+            {
+              "text": "Dann",
+              "start": 8.32,
+              "end": 8.56
+            },
+            {
+              "text": "waschen",
+              "start": 8.56,
+              "end": 8.88
+            },
+            {
+              "text": "wir",
+              "start": 8.88,
+              "end": 8.96
+            },
+            {
+              "text": "die",
+              "start": 8.96,
+              "end": 9.04
+            },
+            {
+              "text": "Karotten",
+              "start": 9.04,
+              "end": 9.6
+            },
+            {
+              "text": "und",
+              "start": 9.6,
+              "end": 9.76
+            },
+            {
+              "text": "schneiden",
+              "start": 9.76,
+              "end": 10.16
+            },
+            {
+              "text": "die",
+              "start": 10.16,
+              "end": 10.24
+            },
+            {
+              "text": "Kartoffeln",
+              "start": 10.24,
+              "end": 10.88
+            },
+            {
+              "text": "Mein",
+              "start": 11.28,
+              "end": 11.44
+            },
+            {
+              "text": "Freund",
+              "start": 11.44,
+              "end": 11.76
+            },
+            {
+              "text": "kocht",
+              "start": 11.76,
+              "end": 12.0
+            },
+            {
+              "text": "Wasser",
+              "start": 12.0,
+              "end": 12.4
+            },
+            {
+              "text": "Ich",
+              "start": 12.96,
+              "end": 13.12
+            },
+            {
+              "text": "decke",
+              "start": 13.12,
+              "end": 13.28
+            },
+            {
+              "text": "den",
+              "start": 13.28,
+              "end": 13.44
+            },
+            {
+              "text": "Tisch",
+              "start": 13.44,
+              "end": 13.84
+            },
+            {
+              "text": "Die",
+              "start": 14.32,
+              "end": 14.4
+            },
+            {
+              "text": "Suppe",
+              "start": 14.4,
+              "end": 14.64
+            },
+            {
+              "text": "schmeckt",
+              "start": 14.64,
+              "end": 14.96
+            },
+            {
+              "text": "gut",
+              "start": 14.96,
+              "end": 15.36
+            },
+            {
+              "text": "und",
+              "start": 15.68,
+              "end": 15.84
+            },
+            {
+              "text": "wir",
+              "start": 15.84,
+              "end": 15.92
+            },
+            {
+              "text": "essen",
+              "start": 15.92,
+              "end": 16.16
+            },
+            {
+              "text": "noch",
+              "start": 16.16,
+              "end": 16.32
+            },
+            {
+              "text": "Brot",
+              "start": 16.32,
+              "end": 16.56
+            },
+            {
+              "text": "dazu",
+              "start": 16.56,
+              "end": 17.04
+            },
+            {
+              "text": "Später",
+              "start": 17.52,
+              "end": 17.92
+            },
+            {
+              "text": "räumen",
+              "start": 17.92,
+              "end": 18.24
+            },
+            {
+              "text": "wir",
+              "start": 18.24,
+              "end": 18.4
+            },
+            {
+              "text": "die",
+              "start": 18.4,
+              "end": 18.48
+            },
+            {
+              "text": "Küche",
+              "start": 18.48,
+              "end": 18.8
+            },
+            {
+              "text": "auf",
+              "start": 18.8,
+              "end": 19.12
+            }
+          ],
+          "alignmentInput": "same normalized MP3 decoded24k mono; existing lead-in retained, no added lead-in",
+          "strictPositiveLexicalTimingCandidate": true
+        }
+      ]
+    },
+    {
+      "candidate": "reuse-local11-padded-input-realignment-candidate.json",
+      "privateCandidateSha256": "e8f89669e6bf388e4b108c5502cf3f006edcd20225efd0b1deef1d73904ca50e",
+      "rows": [
+        {
+          "id": "0def154e46870c2f06ffe49521fdb1c6297bed5a9c6e71fee2f94021bdd04917",
+          "text": "Um 9 Uhr.",
+          "originalMetadataSha256": "b6ffd0194bac8b130fd1c0aa056e8005a0237479d540f41a497d45cf8fea5528",
+          "audioSha256": "4812f89f76cc3ac324fcca1838660babc76dc1e197467fb7d5fb4a18ec4e110c",
+          "textSha256": "c715e93a49e23811a0fff2f78df128b07b25c35cf965004553b5d5829ccb0dac",
+          "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+          "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+          "originalZeroLexicalIndices": [
+            3
+          ],
+          "newZeroLexicalIndices": [],
+          "wordTimings": [
+            {
+              "start": 0.36,
+              "end": 0.52
+            },
+            {
+              "start": 0.52,
+              "end": 0.76
+            },
+            {
+              "start": 0.76,
+              "end": 1.0
+            }
+          ],
+          "rawAlignedWords": [
+            {
+              "text": "Um",
+              "start": 0.3600000000000001,
+              "end": 0.52
+            },
+            {
+              "text": "9",
+              "start": 0.52,
+              "end": 0.76
+            },
+            {
+              "text": "Uhr",
+              "start": 0.76,
+              "end": 1.0
+            }
+          ],
+          "alignmentInput": "same MP3 decoded24k mono; actual temporary1second leading+trailing silence; learned bounds subtract exactly1second, no time fabrication or MP3 change",
+          "strictPositiveLexicalTimingCandidate": true
+        }
+      ]
+    }
+  ],
+  "productionWrite": false,
+  "qaWrite": false
+}
