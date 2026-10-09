@@ -15,6 +15,7 @@ import { THEME_BOOTSTRAP_SCRIPT } from "@/lib/theme";
 import { RouteFeedbackProvider, type RouteFeedbackCopy } from "@/components/layout/RouteFeedbackProvider";
 import ConsentManager from "@/components/analytics/ConsentManager";
 import { CONSENT_BOOTSTRAP_SCRIPT } from "@/lib/analytics/consent";
+import { SitovDocumentBootstrap } from "@/components/layout/SitovDocumentBootstrap";
 import { CANONICAL_SITE_URL } from "@/lib/site-url";
 import { LOCALES } from "@/lib/locale-routing";
 import AcademySkipLink from "@/components/layout/AcademySkipLink";
@@ -129,8 +130,10 @@ export default async function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <Script id="sitov-theme-bootstrap" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
-        <Script id="sitov-consent-bootstrap" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP_SCRIPT }} />
+        <SitovDocumentBootstrap>
+          <Script id="sitov-theme-bootstrap" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
+          <Script id="sitov-consent-bootstrap" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP_SCRIPT }} />
+        </SitovDocumentBootstrap>
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-[var(--canvas)] text-[var(--foreground)] antialiased overflow-x-clip w-full`}>
         <AcademySkipLink label={dictionary.academy.skip_content} />
