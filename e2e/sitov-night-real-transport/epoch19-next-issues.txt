@@ -1,0 +1,166 @@
+Browser tab: 11, Title: "Немецкий в Ганновере и онлайн | Sitov Academy", URL: "http://127.0.0.1:3143/ru/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9".
+1 AXWebArea Немецкий в Ганновере и онлайн | Sitov Academy, URL: 127.0.0.1:3143/ru/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9
+	2 container
+		3 link Description: Перейти к содержимому, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9#main-content
+		4 container main-content
+			5 container
+				6 link Description: Sitov Academy, Value: 127.0.0.1:3143/ru/dashboard
+				7 link Description: Открыть профиль, Value: 127.0.0.1:3143/ru/dashboard/profile
+				8 pop up button (collapsed) Description: Оформление и читаемость, Secondary Actions: Expand
+				9 pop up button Выйти
+				10 container Главная навигация
+					11 content list
+						12 link Description: Главная, Value: 127.0.0.1:3143/ru/dashboard
+						13 link Description: Учиться, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1
+						14 link Description: Путешествие, Value: 127.0.0.1:3143/ru/dashboard/daily-quest
+						15 link Description: Календарь, Value: 127.0.0.1:3143/ru/dashboard/calendar
+						16 pop up button (collapsed) Помощь, Secondary Actions: Expand
+				17 container Навигация по страницам
+					18 content list
+						19 link Description: Главная, Value: 127.0.0.1:3143/ru/dashboard
+						20 link Description: A1.1, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1
+						21 heading Произношение, Value: 1
+							22 text Произношение
+			23 container Учебные разделы уровня A1.1
+				24 content list
+					25 link Description: Слова, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/vocabulary
+					26 link Description: Тренажёр глаголов, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/verbs
+					27 link Description: Учебный путь, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/path
+					28 link Description: Произношение, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/pronunciation
+					29 link Description: Медиатека, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/videos
+			30 container
+				31 tab group Произношение
+					32 tab (selected, settable, boolean) Говорить, Value: 1, ID: studio-tab-studio
+					33 tab (selectable, settable, boolean) Почта, Value: 0, ID: studio-tab-mailbox
+				34 container Description: Говорить, ID: studio-panel-studio
+					35 container Говорить
+						36 text ПРОИЗНОШЕНИЕ A1.1
+						37 heading Говорить, Value: 1
+							38 text Говорить
+						39 text Guten Tag, das bin ich
+						40 button Попробовать снова
+					41 content list
+						42 checkbox Guten Tag, das bin ich Попробовать снова, Value: 1
+						43 checkbox Mein Frühstück Начать тест, Value: 0
+						44 checkbox Unser Kursraum Начать тест, Value: 0
+						45 checkbox Ein neuer Nachbar Начать тест, Value: 0
+						46 checkbox Am Samstag im Park Начать тест, Value: 0
+						47 checkbox (disabled) Mein Zimmer Этот тест пока недоступен., Value: 0
+						48 checkbox (disabled) Im kleinen Laden Этот тест пока недоступен., Value: 0
+						49 checkbox (disabled) Meine Familie Этот тест пока недоступен., Value: 0
+						50 checkbox (disabled) Der Weg zum Kurs Этот тест пока недоступен., Value: 0
+						51 checkbox (disabled) Ein ruhiger Abend Этот тест пока недоступен., Value: 0
+					52 container Guten Tag, das bin ich
+						53 container
+							54 text Предварительный тест  ·  A1.1
+							55 heading Guten Tag, das bin ich, Value: 2
+								56 text Guten Tag, das bin ich
+						57 button (disabled) Загрузка …
+						58 container Тест к этому тексту
+							59 button (collapsed) Помощь, ID: sitov-help-_R_7rclrknet5ritqkndl9etb_-toggle, Secondary Actions: Expand
+		60 container
+			61 container
+				62 container
+					63 button (disabled) previous
+						64 image previous
+					65 text 1 / 2
+					66 button next
+						67 image next
+				68 link Description: Next.js 16.3.8 (stale) Webpack, Value: nextjs.org/docs/messages/version-staleness
+			69 container Console Error
+				70 container
+					71 container
+						72 text Console Error Server
+						73 button Copy Error Info
+							74 image
+						75 button (disabled) No related documentation found
+							76 image
+						77 button Attach Node.js inspector
+							78 image
+						79 container nextjs__container_errors_desc
+							80 text [learning-new] items_unavailable
+					81 container
+						82 image
+						83 text lib/learning-new-server.ts (29:26)  @ eval
+						84 button Open in editor
+							85 image
+						86 container
+							87 text 27 | const  supabase =  await  createClient()
+						88 container
+							89 text 28 | const  { data, error } =  await  supabase.rpc( 'get_learning_new_items' , { p_level: level })
+						90 container
+							91 text > 29 | if  (error) { console.error( '[learning-new] items_unavailable' );  return NO_NEW_ITEMS  }
+						92 container
+							93 text    | ^
+						94 container
+							95 text 30 | return  parseLearningNewItems(data)
+						96 container
+							97 text 31 |    }  catch  { console.error( '[learning-new] items_unavailable' );  return NO_NEW_ITEMS  }
+						98 container
+							99 text 32 |  })
+					100 container
+						101 text Call Stack 13
+						102 button Show 9 ignore-listed frame(s)
+							103 text Show 9 ignore-listed frame(s)
+							104 image
+						105 text eval
+						106 button Open eval in editor
+							107 image
+						108 text lib/learning-new-server.ts (29:26) Promise.all <anonymous> PronunciationDashboard
+						109 button Open PronunciationDashboard in editor
+							110 image
+						111 text app/[lang]/dashboard/level/[level]/pronunciation/page.tsx (19:69) PronunciationDashboard <anonymous>
+			112 container Error feedback
+				113 link Description: Was this helpful?, Value: nextjs.org/telemetry#error-feedback
+				114 button (disabled) Description: Mark as helpful, Help: Feedback disabled due to setting NEXT_TELEMETRY_DISABLED
+				115 button (disabled) Description: Mark as not helpful, Help: Feedback disabled due to setting NEXT_TELEMETRY_DISABLED
+			116 container
+				117 pop up button (collapsed) Description: Open Next.js Dev Tools, ID: next-logo, Secondary Actions: Expand
+					118 image
+				119 button Open issues overlay
+					120 text 2
+					121 text Issue
+				122 button Collapse issues badge
+					123 image
+
+The focused UI element is 69 container Console Error
+
+Browser tab: 11, Title: "Немецкий в Ганновере и онлайн | Sitov Academy", URL: "http://127.0.0.1:3143/ru/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 81-111
+~					63 button previous
+~					65 text 2 / 2
+~					66 button (disabled) next
+~							80 text [last-active-level] unavailable
++					124 container
++						125 image
++						126 text lib/last-active-level.ts (54:15)  @ eval
++						127 button Open in editor
++							128 image
++						129 container
++							130 text 52 | const  { data, error } =  await  supabase.rpc( 'get_last_active_level' )
++						131 container
++							132 text 53 | if  (error || getRpcError(data)) {
++						133 container
++							134 text > 54 |        console.error( '[last-active-level] unavailable' )
++						135 container
++							136 text    | ^
++						137 container
++							138 text 55 | return null
++						139 container
++							140 text 56 |      }
++						141 container
++							142 text 57 | const  parsed = response.safeParse(data)
++					143 container
++						144 text Call Stack 13
++						145 button Show 9 ignore-listed frame(s)
++							146 text Show 9 ignore-listed frame(s)
++							147 image
++						148 text eval
++						149 button Open eval in editor
++							150 image
++						151 text lib/last-active-level.ts (54:15) Promise.all <anonymous> DashboardLayout
++						152 button Open DashboardLayout in editor
++							153 image
++						154 text app/[lang]/dashboard/layout.tsx (19:63) DashboardLayout <anonymous>
+The focused UI element is 1 AXWebArea Немецкий в Ганновере и онлайн | Sitov Academy, URL: 127.0.0.1:3143/ru/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9

@@ -1,0 +1,15 @@
+{
+  "activation": "Return on visible Help button",
+  "dom": {
+    "expanded": [
+      {
+        "control": "sitov-help-_R_7rclrknet5ritqkndl9etb_-panel",
+        "text": "Помощь"
+      }
+    ],
+    "focus": "<button id=\"sitov-help-_R_7rclrknet5ritqkndl9etb_-toggle\" class=\"SitovTrainerHelp_sitovToggle__PvMqq\" data-sitov-trainer-help-toggle=\"true\" aria-expanded=\"true\" aria-controls=\"sitov-help-_R_7rclrknet5ritqkndl9etb_-panel\" type=\"button\" data-pressable=\"\" tabindex=\"0\" style=\"transform: none;\"><span class=\"SitovTrainerHelp_sitovIcon__01ROx\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-lightbulb\"><path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\"></path><path d=\"M9 18h6\"></path><path d=\"M10 22h4\"></path></svg></span><span class=\"SitovTrainerHelp_sitovTitle__o5YxQ\">Помощь</span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chevron-down SitovTrainerHelp_sitovChevron__RMYiC\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"></path></svg></button>",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "ax": "Browser tab: 11, Title: \"Немецкий в Ганновере и онлайн | Sitov Academy\", URL: \"http://127.0.0.1:3143/ru/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 23-29\n+\t\t\t68 container Учебные разделы уровня A1.1\n+\t\t\t\t69 content list\n+\t\t\t\t\t70 link Description: Слова, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/vocabulary\n+\t\t\t\t\t71 link Description: Тренажёр глаголов, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/verbs\n+\t\t\t\t\t72 link Description: Учебный путь, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/path\n+\t\t\t\t\t73 link Description: Произношение, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/pronunciation\n+\t\t\t\t\t74 link Description: Медиатека, Value: 127.0.0.1:3143/ru/dashboard/level/A1.1/videos\n~\t\t\t\t\t\t\t59 button (expanded) Помощь, ID: sitov-help-_R_7rclrknet5ritqkndl9etb_-toggle, Secondary Actions: Collapse\n+\t\t\t\t\t\t\t75 container Помощь, ID: sitov-help-_R_7rclrknet5ritqkndl9etb_-panel\n+\t\t\t\t\t\t\t\t76 heading Тест к этому тексту, Value: 3\n+\t\t\t\t\t\t\t\t\t77 text Тест к этому тексту\n+\t\t\t\t\t\t\t\t78 text Ответы сохраняются при переходе дальше. Их можно изменить до отправки. Результат для этого текста подтверждает только сервер.\nThe focused UI element is 59 button (expanded) Помощь, ID: sitov-help-_R_7rclrknet5ritqkndl9etb_-toggle, Secondary Actions: Collapse"
+}

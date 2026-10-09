@@ -1,0 +1,25 @@
+{
+  "darkHighContrast320": {
+    "className": "dark high-contrast",
+    "contrast": "high",
+    "focus": {
+      "outline": "none",
+      "tag": "BUTTON"
+    },
+    "foreground": "#ffffff",
+    "lang": "en",
+    "reducedMotionObserved": false,
+    "scrollWidth": 320,
+    "surface": "#0a0a0a",
+    "theme": "dark",
+    "width": 320
+  },
+  "lightNormal1440": {
+    "contrast": "standard",
+    "foreground": "#0f172a",
+    "scrollWidth": 1440,
+    "surface": "#ffffff",
+    "theme": "light",
+    "width": 1440
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "level": "error",
+    "message": "%c%s%c [learning-new] items_unavailable background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server  ",
+    "timestamp": "2026-10-09T10:05:44.703Z",
+    "url": "webpack-internal:///(app-pages-browser)/../../../../Documents/SitovAcademy/SmartGerman/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js"
+  },
+  {
+    "level": "error",
+    "message": "%c%s%c [last-active-level] unavailable background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server  ",
+    "timestamp": "2026-10-09T10:05:44.703Z",
+    "url": "webpack-internal:///(app-pages-browser)/../../../../Documents/SitovAcademy/SmartGerman/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js"
+  }
+]
