@@ -127,6 +127,10 @@ test('actual evening/doctor/cooking clauses determine keys, pronoun reference, c
 test('batch10–12 public-premise regression: formerly hidden facts have explicit practice contexts; author audit covers all72',async()=>{
  const audit=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/batch10-12-visible-context-epoch21.json','utf8'))
  const tasks=manifest.drafts.slice(9).flatMap(d=>d.definition.tasks)
+ const delta=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/batch10-12-final-wording-delta-epoch22.json','utf8'))
+ assert.equal(delta.changedQuestions.length,5);assert.equal(delta.aliasesChanged,4);assert.equal(delta.humanReview,false);assert.equal(delta.calibrationStatus,'pending')
+ const current=new Map(delta.changedQuestions.map(row=>[row.questionId,row.currentTask]))
+ for(const row of delta.changedQuestions){assert.equal(row.keyIdUnchanged,true);assert.deepEqual(tasks.find(q=>q.id===row.questionId),row.currentTask)}
  assert.equal(audit.questions.length,72);assert.equal(audit.changedQuestionCount,30)
  assert.deepEqual(audit.questions.map(q=>q.questionId),tasks.map(q=>q.id))
  assert.equal(audit.status,'author_checked_independent_review_pending');assert.equal(audit.humanReview,false);assert.equal(audit.calibrationStatus,'pending')
@@ -136,6 +140,6 @@ test('batch10–12 public-premise regression: formerly hidden facts have explici
   'a12-02.syntax.q1':'Paul sagt: Zwei Freunde kommen zu mir','a12-02.syntax.q2':'Wir möchten gemeinsam eine Suppe kochen','a12-02.syntax.q3':'Zuerst kaufen wir Gemüse. Dann waschen wir die Karotten','a12-02.syntax.q4':'Die Kartoffeln schneiden wir. Die Karotten waschen wir','a12-02.syntax.q5':'Wasser kocht mein Freund; den Tisch decke ich','a12-02.syntax.q6':'Wir essen Brot. Später räumen wir die Küche auf'
  }
  for(const [suffix,premise] of Object.entries(required)){const q=tasks.find(q=>q.id==='sitov.pretest.'+suffix);assert.ok(q.promptDe.includes(premise));assert.equal(q.fragmentDe,null)}
- for(const [i,q] of tasks.entries()){assert.equal(audit.questions[i].publicPromptDe,q.promptDe);assert.deepEqual(audit.questions[i].publicOptions,q.options);assert.equal(audit.questions[i].keyIdUnchanged,true);assert.equal(audit.questions[i].independentReview,'pending_M')}
+ for(const [i,q] of tasks.entries()){assert.equal(audit.questions[i].publicPromptDe,q.promptDe);assert.deepEqual(current.get(q.id)?.options ?? audit.questions[i].publicOptions,q.options);assert.equal(audit.questions[i].keyIdUnchanged,true);assert.equal(audit.questions[i].independentReview,'pending_M')}
  // These assertions prevent loss of reviewed public context; they do not certify pedagogy.
 })

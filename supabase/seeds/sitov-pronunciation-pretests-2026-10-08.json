@@ -10125,7 +10125,7 @@
                 "quote": "Um zehn Uhr gehe ich ins Bett."
               }
             ],
-            "rationaleDe": "Das Subjekt ich steht hinter gehe und bestimmt die erste Person Singular; die Orts- und Zeitangaben ändern die Person nicht."
+            "rationaleDe": "Die Präsensform gehe gehört zur ersten Person Singular ich; du verlangt gehst und die dritte Person Plural sie verlangt gehen."
           },
           {
             "id": "sitov.pretest.a11-10.syntax.q1",
@@ -10264,15 +10264,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a11-10.syntax.q5.a",
-                "textDe": "Der Sprecher verlässt seine Wohnung mit dem Bus."
+                "textDe": "Paul verlässt seine Wohnung mit dem Bus."
               },
               {
                 "id": "sitov.pretest.a11-10.syntax.q5.b",
-                "textDe": "Der Sprecher geht zum Schlafen in sein Bett."
+                "textDe": "Paul geht zum Schlafen in sein Bett."
               },
               {
                 "id": "sitov.pretest.a11-10.syntax.q5.c",
-                "textDe": "Der Sprecher bleibt ausdrücklich am Tisch sitzen."
+                "textDe": "Paul bleibt ausdrücklich am Tisch sitzen."
               }
             ],
             "correctOptionId": "sitov.pretest.a11-10.syntax.q5.b",
@@ -11462,7 +11462,7 @@
                 "quote": "in der Praxis"
               }
             ],
-            "rationaleDe": "Praxis ist feminin und bezeichnet hier den Ort des Anrufs; im lokalen Dativ steht der statt die oder den."
+            "rationaleDe": "Im sichtbaren Übungssatz bezeichnet in … Praxis den Arbeitsort des Arztes. Praxis ist feminin; auf die Wo-Frage folgt hier der lokale Dativ der."
           },
           {
             "id": "sitov.pretest.a12-01.nominal.q4",
@@ -12307,7 +12307,7 @@
               },
               {
                 "id": "sitov.pretest.a12-02.syntax.q3.c",
-                "textDe": "Gemüse auf dem Markt kaufen."
+                "textDe": "Gemüse kaufen."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-02.syntax.q3.c",
@@ -12544,7 +12544,7 @@
                 "quote": "auf dem Markt"
               }
             ],
-            "rationaleDe": "Der Einkauf findet an einem Ort statt; beim maskulinen Markt lautet der lokale Dativ dem, nicht den oder das."
+            "rationaleDe": "Im sichtbaren Übungssatz bezeichnet auf … Markt den Arbeitsort des Händlers. Markt ist maskulin; auf die Wo-Frage folgt hier der lokale Dativ dem."
           },
           {
             "id": "sitov.pretest.a12-02.nominal.q5",

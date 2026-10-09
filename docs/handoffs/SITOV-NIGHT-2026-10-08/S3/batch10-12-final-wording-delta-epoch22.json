@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "epoch": 22,
+  "baseSha": "543b2bcacd8af5a3f81c2006347176bf5bfd2b50",
+  "historicalAuthorAudit": "batch10-12-visible-context-epoch21.json",
+  "status": "author_checked_independent_review_pending",
+  "author": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "audioStatus": "HOLD_NO_SYNTHESIS_IMPORT_PUBLICATION",
+  "changedQuestions": [
+    {
+      "questionId": "sitov.pretest.a11-10.verbs.q6",
+      "previousTask": {
+        "id": "sitov.pretest.a11-10.verbs.q6",
+        "competencyId": "sitov.pretest.a11-10.verbs",
+        "kind": "single_choice",
+        "promptDe": "Zu welcher Person gehört die Präsensform »gehe«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-10.verbs.q6.a",
+            "textDe": "Zur ersten Person Singular: ich."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q6.b",
+            "textDe": "Zur dritten Person Plural: sie."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q6.c",
+            "textDe": "Zur zweiten Person Singular: du."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-10.verbs.q6.a",
+        "assessmentUnit": "gehen Ich nach Zeitangabe",
+        "equivalenceKey": "sitov:10:verbs:gehen Ich nach Zeitangabe",
+        "sourceSpans": [
+          {
+            "start": 171,
+            "end": 201,
+            "quote": "Um zehn Uhr gehe ich ins Bett."
+          }
+        ],
+        "rationaleDe": "Das Subjekt ich steht hinter gehe und bestimmt die erste Person Singular; die Orts- und Zeitangaben ändern die Person nicht."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-10.verbs.q6",
+        "competencyId": "sitov.pretest.a11-10.verbs",
+        "kind": "single_choice",
+        "promptDe": "Zu welcher Person gehört die Präsensform »gehe«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-10.verbs.q6.a",
+            "textDe": "Zur ersten Person Singular: ich."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q6.b",
+            "textDe": "Zur dritten Person Plural: sie."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q6.c",
+            "textDe": "Zur zweiten Person Singular: du."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-10.verbs.q6.a",
+        "assessmentUnit": "gehen Ich nach Zeitangabe",
+        "equivalenceKey": "sitov:10:verbs:gehen Ich nach Zeitangabe",
+        "sourceSpans": [
+          {
+            "start": 171,
+            "end": 201,
+            "quote": "Um zehn Uhr gehe ich ins Bett."
+          }
+        ],
+        "rationaleDe": "Die Präsensform gehe gehört zur ersten Person Singular ich; du verlangt gehst und die dritte Person Plural sie verlangt gehen."
+      },
+      "reasonDe": "Die private Erklärung bezieht sich jetzt auf die sichtbare Sprachform beziehungsweise den Arbeitsort, ohne eine verborgene Satzposition oder Tätigkeit vorauszusetzen.",
+      "keyIdUnchanged": true,
+      "sourceVersionUnchanged": true,
+      "independentReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a11-10.syntax.q5",
+      "previousTask": {
+        "id": "sitov.pretest.a11-10.syntax.q5",
+        "competencyId": "sitov.pretest.a11-10.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Paul geht ins Bett.« Welche Handlung beschreibt dieser Satz?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-10.syntax.q5.a",
+            "textDe": "Der Sprecher verlässt seine Wohnung mit dem Bus."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q5.b",
+            "textDe": "Der Sprecher geht zum Schlafen in sein Bett."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q5.c",
+            "textDe": "Der Sprecher bleibt ausdrücklich am Tisch sitzen."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-10.syntax.q5.b",
+        "assessmentUnit": "ins Bett als Bewegung",
+        "equivalenceKey": "sitov:10:syntax:ins Bett als Bewegung",
+        "sourceSpans": [
+          {
+            "start": 171,
+            "end": 201,
+            "quote": "Um zehn Uhr gehe ich ins Bett."
+          }
+        ],
+        "rationaleDe": "Im sichtbaren Übungssatz bezeichnet geht ins Bett den Weg zum Bett zum Schlafen; die übrigen Optionen beschreiben andere Handlungen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a11-10.syntax.q5",
+        "competencyId": "sitov.pretest.a11-10.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Paul geht ins Bett.« Welche Handlung beschreibt dieser Satz?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a11-10.syntax.q5.a",
+            "textDe": "Paul verlässt seine Wohnung mit dem Bus."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q5.b",
+            "textDe": "Paul geht zum Schlafen in sein Bett."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q5.c",
+            "textDe": "Paul bleibt ausdrücklich am Tisch sitzen."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a11-10.syntax.q5.b",
+        "assessmentUnit": "ins Bett als Bewegung",
+        "equivalenceKey": "sitov:10:syntax:ins Bett als Bewegung",
+        "sourceSpans": [
+          {
+            "start": 171,
+            "end": 201,
+            "quote": "Um zehn Uhr gehe ich ins Bett."
+          }
+        ],
+        "rationaleDe": "Im sichtbaren Übungssatz bezeichnet geht ins Bett den Weg zum Bett zum Schlafen; die übrigen Optionen beschreiben andere Handlungen."
+      },
+      "reasonDe": "Alle Optionen beziehen sich nun eindeutig auf Paul, das Subjekt des sichtbaren Übungssatzes; die richtige Zuordnung bleibt erhalten.",
+      "keyIdUnchanged": true,
+      "sourceVersionUnchanged": true,
+      "independentReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a12-01.nominal.q3",
+      "previousTask": {
+        "id": "sitov.pretest.a12-01.nominal.q3",
+        "competencyId": "sitov.pretest.a12-01.nominal",
+        "kind": "single_choice",
+        "promptDe": "Ergänze die Ortsangabe: »Der Arzt arbeitet in … Praxis.«",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a12-01.nominal.q3.a",
+            "textDe": "den"
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q3.b",
+            "textDe": "die"
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q3.c",
+            "textDe": "der"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a12-01.nominal.q3.c",
+        "assessmentUnit": "in der Praxis lokaler Dativ",
+        "equivalenceKey": "sitov:11:nominal:in der Praxis lokaler Dativ",
+        "sourceSpans": [
+          {
+            "start": 41,
+            "end": 54,
+            "quote": "in der Praxis"
+          }
+        ],
+        "rationaleDe": "Praxis ist feminin und bezeichnet hier den Ort des Anrufs; im lokalen Dativ steht der statt die oder den."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a12-01.nominal.q3",
+        "competencyId": "sitov.pretest.a12-01.nominal",
+        "kind": "single_choice",
+        "promptDe": "Ergänze die Ortsangabe: »Der Arzt arbeitet in … Praxis.«",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a12-01.nominal.q3.a",
+            "textDe": "den"
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q3.b",
+            "textDe": "die"
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q3.c",
+            "textDe": "der"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a12-01.nominal.q3.c",
+        "assessmentUnit": "in der Praxis lokaler Dativ",
+        "equivalenceKey": "sitov:11:nominal:in der Praxis lokaler Dativ",
+        "sourceSpans": [
+          {
+            "start": 41,
+            "end": 54,
+            "quote": "in der Praxis"
+          }
+        ],
+        "rationaleDe": "Im sichtbaren Übungssatz bezeichnet in … Praxis den Arbeitsort des Arztes. Praxis ist feminin; auf die Wo-Frage folgt hier der lokale Dativ der."
+      },
+      "reasonDe": "Die private Erklärung bezieht sich jetzt auf die sichtbare Sprachform beziehungsweise den Arbeitsort, ohne eine verborgene Satzposition oder Tätigkeit vorauszusetzen.",
+      "keyIdUnchanged": true,
+      "sourceVersionUnchanged": true,
+      "independentReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.syntax.q3",
+      "previousTask": {
+        "id": "sitov.pretest.a12-02.syntax.q3",
+        "competencyId": "sitov.pretest.a12-02.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Zuerst kaufen wir Gemüse. Dann waschen wir die Karotten.« Welche Handlung kommt zuerst?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a12-02.syntax.q3.a",
+            "textDe": "Die Kartoffeln erst nach dem Essen kaufen."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q3.b",
+            "textDe": "Die Küche vor dem Einkaufen als genannte erste Handlung aufräumen."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q3.c",
+            "textDe": "Gemüse auf dem Markt kaufen."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a12-02.syntax.q3.c",
+        "assessmentUnit": "Zuerst einkaufen vor Vorbereiten",
+        "equivalenceKey": "sitov:12:syntax:Zuerst einkaufen vor Vorbereiten",
+        "sourceSpans": [
+          {
+            "start": 79,
+            "end": 178,
+            "quote": "Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln."
+          }
+        ],
+        "rationaleDe": "Zuerst markiert den Einkauf als erste Handlung und dann das Waschen als folgende Handlung; diese Abfolge ist vollständig sichtbar."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a12-02.syntax.q3",
+        "competencyId": "sitov.pretest.a12-02.syntax",
+        "kind": "single_choice",
+        "promptDe": "Übung: »Zuerst kaufen wir Gemüse. Dann waschen wir die Karotten.« Welche Handlung kommt zuerst?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a12-02.syntax.q3.a",
+            "textDe": "Die Kartoffeln erst nach dem Essen kaufen."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q3.b",
+            "textDe": "Die Küche vor dem Einkaufen als genannte erste Handlung aufräumen."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q3.c",
+            "textDe": "Gemüse kaufen."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a12-02.syntax.q3.c",
+        "assessmentUnit": "Zuerst einkaufen vor Vorbereiten",
+        "equivalenceKey": "sitov:12:syntax:Zuerst einkaufen vor Vorbereiten",
+        "sourceSpans": [
+          {
+            "start": 79,
+            "end": 178,
+            "quote": "Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln."
+          }
+        ],
+        "rationaleDe": "Zuerst markiert den Einkauf als erste Handlung und dann das Waschen als folgende Handlung; diese Abfolge ist vollständig sichtbar."
+      },
+      "reasonDe": "Die richtige Antwort nennt nur die im sichtbaren Satz belegte erste Handlung; die dort nicht genannte Ortsangabe wurde entfernt.",
+      "keyIdUnchanged": true,
+      "sourceVersionUnchanged": true,
+      "independentReview": "pending_M"
+    },
+    {
+      "questionId": "sitov.pretest.a12-02.nominal.q4",
+      "previousTask": {
+        "id": "sitov.pretest.a12-02.nominal.q4",
+        "competencyId": "sitov.pretest.a12-02.nominal",
+        "kind": "single_choice",
+        "promptDe": "Ergänze die Ortsangabe: »Ein Händler arbeitet auf … Markt.«",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a12-02.nominal.q4.a",
+            "textDe": "den"
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q4.b",
+            "textDe": "dem"
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q4.c",
+            "textDe": "das"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a12-02.nominal.q4.b",
+        "assessmentUnit": "auf dem Markt lokaler Dativ",
+        "equivalenceKey": "sitov:12:nominal:auf dem Markt lokaler Dativ",
+        "sourceSpans": [
+          {
+            "start": 104,
+            "end": 117,
+            "quote": "auf dem Markt"
+          }
+        ],
+        "rationaleDe": "Der Einkauf findet an einem Ort statt; beim maskulinen Markt lautet der lokale Dativ dem, nicht den oder das."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a12-02.nominal.q4",
+        "competencyId": "sitov.pretest.a12-02.nominal",
+        "kind": "single_choice",
+        "promptDe": "Ergänze die Ortsangabe: »Ein Händler arbeitet auf … Markt.«",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a12-02.nominal.q4.a",
+            "textDe": "den"
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q4.b",
+            "textDe": "dem"
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q4.c",
+            "textDe": "das"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a12-02.nominal.q4.b",
+        "assessmentUnit": "auf dem Markt lokaler Dativ",
+        "equivalenceKey": "sitov:12:nominal:auf dem Markt lokaler Dativ",
+        "sourceSpans": [
+          {
+            "start": 104,
+            "end": 117,
+            "quote": "auf dem Markt"
+          }
+        ],
+        "rationaleDe": "Im sichtbaren Übungssatz bezeichnet auf … Markt den Arbeitsort des Händlers. Markt ist maskulin; auf die Wo-Frage folgt hier der lokale Dativ dem."
+      },
+      "reasonDe": "Die private Erklärung bezieht sich jetzt auf die sichtbare Sprachform beziehungsweise den Arbeitsort, ohne eine verborgene Satzposition oder Tätigkeit vorauszusetzen.",
+      "keyIdUnchanged": true,
+      "sourceVersionUnchanged": true,
+      "independentReview": "pending_M"
+    }
+  ],
+  "aliasesChanged": 4,
+  "distinctAliasStrings": 965
+}
