@@ -50555,7 +50555,7 @@
         "calibrationStatus": "pending",
         "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
         "textVersion": "5da2196b39f2056111313e3dc236fd205560b59b241410286ef50eae13b944af",
-        "definitionContentHash": "38eec1e9c4f9c33779bc7bfeda2d0e2cbd9de562df14bfcd7091285b551425dc"
+        "definitionContentHash": "992e4da5ebf9320d91d39d6a7d38ccc3dbbdd31bff7edd343c3d8b8d633d19f1"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -51188,7 +51188,7 @@
             "options": [
               {
                 "id": "sitov.pretest.b11-09.syntax.q2.c",
-                "textDe": "wie unsicher er war selbst beim Lernen einer Sprache"
+                "textDe": "wie unsicher er selbst waren beim Lernen einer Sprache"
               },
               {
                 "id": "sitov.pretest.b11-09.syntax.q2.b",
@@ -51407,7 +51407,7 @@
             "id": "sitov.pretest.b11-09.nominal.q3",
             "competencyId": "sitov.pretest.b11-09.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form von »ander« passt zwischen »beim Lernen einer« und »Sprache«?",
+            "promptDe": "Welche Adjektivform passt zwischen »beim Lernen einer« und »Sprache«?",
             "fragmentDe": null,
             "options": [
               {

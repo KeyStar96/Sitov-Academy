@@ -1,0 +1,196 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "403287274c26e1c9653435b55178d4788402cbba",
+  "status": "author_checked_independent_review_pending",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "masterRequestSha256": "9d17d1601593d0652c74a8b1a6f895535d2cac53519a8c305c8ef2dffa3c6168",
+  "textId": "8c963a66-e60b-5f88-bee3-73aa3f3e3df7",
+  "changedQuestionCount": 2,
+  "changedAliasCount": 2,
+  "previousReview": {
+    "status": "author_checked_independent_review_pending",
+    "reviewer": "sitov.agent.S3",
+    "authorIdentity": "sitov.agent.S3",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+    "textVersion": "5da2196b39f2056111313e3dc236fd205560b59b241410286ef50eae13b944af",
+    "definitionContentHash": "38eec1e9c4f9c33779bc7bfeda2d0e2cbd9de562df14bfcd7091285b551425dc"
+  },
+  "currentReview": {
+    "status": "author_checked_independent_review_pending",
+    "reviewer": "sitov.agent.S3",
+    "authorIdentity": "sitov.agent.S3",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+    "textVersion": "5da2196b39f2056111313e3dc236fd205560b59b241410286ef50eae13b944af",
+    "definitionContentHash": "992e4da5ebf9320d91d39d6a7d38ccc3dbbdd31bff7edd343c3d8b8d633d19f1"
+  },
+  "previousDefinitionContentHash": "38eec1e9c4f9c33779bc7bfeda2d0e2cbd9de562df14bfcd7091285b551425dc",
+  "currentDefinitionContentHash": "992e4da5ebf9320d91d39d6a7d38ccc3dbbdd31bff7edd343c3d8b8d633d19f1",
+  "previousManifestContentHash": "17eb9da100229adba03c96bfdd11239095f547f7b516131b4f8ab8a1f0888c58",
+  "previousManifestByteSha256": "76e84ff6837a331481ae3ebcbe18fec55582675b90cd1997180104175c25bfe3",
+  "currentManifestContentHash": "48b24550b84d27ce71c156299e52495481bdb7001dd4f5416ea192bd9b30b95c",
+  "currentManifestByteSha256": "5eb367ce2d9da42007b25868d132c95e97bb83e53ea393c10c8770607866fedd",
+  "previousAudioContentHash": "23c6d5ebbeb60fbf1371fa2163d9a061df01f6812045c8005f4477fc578af5a0",
+  "previousAudioByteSha256": "fc764ea9e1d14613f596ff28f0c63c0dcef356819e61dea3bac23d3dc4678e46",
+  "currentAudioContentHash": "d5f22d443a44434f474bcef74b9a00f3a80e6db6b2950a9eaa79453b4ef89fe0",
+  "currentAudioByteSha256": "01b7f5a7a2fc6bd83afab7bacd2d5a2b6f28d73c0b268060df04523f2071901b",
+  "questions": [
+    {
+      "textId": "8c963a66-e60b-5f88-bee3-73aa3f3e3df7",
+      "questionId": "sitov.pretest.b11-09.syntax.q2",
+      "field": "option.textDe",
+      "optionId": "sitov.pretest.b11-09.syntax.q2.c",
+      "previousTask": {
+        "id": "sitov.pretest.b11-09.syntax.q2",
+        "competencyId": "sitov.pretest.b11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Wie setzt man »Der Kollege erzählte mir« als indirekten Satz fort?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.b11-09.syntax.q2.c",
+            "textDe": "wie unsicher er war selbst beim Lernen einer Sprache"
+          },
+          {
+            "id": "sitov.pretest.b11-09.syntax.q2.b",
+            "textDe": "wie unsicher war er selbst beim Lernen einer Sprache"
+          },
+          {
+            "id": "sitov.pretest.b11-09.syntax.q2.a",
+            "textDe": "wie unsicher er selbst beim Lernen einer Sprache war"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.b11-09.syntax.q2.a",
+        "assessmentUnit": "wie unsicher indirekter Satz",
+        "equivalenceKey": "sitov:b11-09:syntax:2",
+        "sourceSpans": [
+          {
+            "start": 217,
+            "end": 277,
+            "quote": "wie unsicher er selbst beim Lernen einer anderen Sprache war"
+          }
+        ],
+        "rationaleDe": "Im indirekten wie-Satz steht das finite war am Ende."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.b11-09.syntax.q2",
+        "competencyId": "sitov.pretest.b11-09.syntax",
+        "kind": "single_choice",
+        "promptDe": "Wie setzt man »Der Kollege erzählte mir« als indirekten Satz fort?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.b11-09.syntax.q2.c",
+            "textDe": "wie unsicher er selbst waren beim Lernen einer Sprache"
+          },
+          {
+            "id": "sitov.pretest.b11-09.syntax.q2.b",
+            "textDe": "wie unsicher war er selbst beim Lernen einer Sprache"
+          },
+          {
+            "id": "sitov.pretest.b11-09.syntax.q2.a",
+            "textDe": "wie unsicher er selbst beim Lernen einer Sprache war"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.b11-09.syntax.q2.a",
+        "assessmentUnit": "wie unsicher indirekter Satz",
+        "equivalenceKey": "sitov:b11-09:syntax:2",
+        "sourceSpans": [
+          {
+            "start": 217,
+            "end": 277,
+            "quote": "wie unsicher er selbst beim Lernen einer anderen Sprache war"
+          }
+        ],
+        "rationaleDe": "Im indirekten wie-Satz steht das finite war am Ende."
+      }
+    },
+    {
+      "textId": "8c963a66-e60b-5f88-bee3-73aa3f3e3df7",
+      "questionId": "sitov.pretest.b11-09.nominal.q3",
+      "field": "promptDe",
+      "optionId": null,
+      "previousTask": {
+        "id": "sitov.pretest.b11-09.nominal.q3",
+        "competencyId": "sitov.pretest.b11-09.nominal",
+        "kind": "single_choice",
+        "promptDe": "Welche Form von »ander« passt zwischen »beim Lernen einer« und »Sprache«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.b11-09.nominal.q3.c",
+            "textDe": "anderer"
+          },
+          {
+            "id": "sitov.pretest.b11-09.nominal.q3.b",
+            "textDe": "andere"
+          },
+          {
+            "id": "sitov.pretest.b11-09.nominal.q3.a",
+            "textDe": "anderen"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.b11-09.nominal.q3.a",
+        "assessmentUnit": "anderen Sprache Genitiv Adjektiv",
+        "equivalenceKey": "sitov:b11-09:nominal:3",
+        "sourceSpans": [
+          {
+            "start": 252,
+            "end": 273,
+            "quote": "einer anderen Sprache"
+          }
+        ],
+        "rationaleDe": "Im Genitivattribut einer anderen Sprache endet das Adjektiv nach einer auf en."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.b11-09.nominal.q3",
+        "competencyId": "sitov.pretest.b11-09.nominal",
+        "kind": "single_choice",
+        "promptDe": "Welche Adjektivform passt zwischen »beim Lernen einer« und »Sprache«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.b11-09.nominal.q3.c",
+            "textDe": "anderer"
+          },
+          {
+            "id": "sitov.pretest.b11-09.nominal.q3.b",
+            "textDe": "andere"
+          },
+          {
+            "id": "sitov.pretest.b11-09.nominal.q3.a",
+            "textDe": "anderen"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.b11-09.nominal.q3.a",
+        "assessmentUnit": "anderen Sprache Genitiv Adjektiv",
+        "equivalenceKey": "sitov:b11-09:nominal:3",
+        "sourceSpans": [
+          {
+            "start": 252,
+            "end": 273,
+            "quote": "einer anderen Sprache"
+          }
+        ],
+        "rationaleDe": "Im Genitivattribut einer anderen Sprache endet das Adjektiv nach einer auf en."
+      }
+    }
+  ],
+  "changedAliases": [
+    {
+      "key": "sitov-pretest:8c963a66-e60b-5f88-bee3-73aa3f3e3df7:sitov.pretest.b11-09.syntax.q2:sitov.pretest.b11-09.syntax.q2.c",
+      "previousTextDe": "wie unsicher er war selbst beim Lernen einer Sprache",
+      "currentTextDe": "wie unsicher er selbst waren beim Lernen einer Sprache"
+    },
+    {
+      "key": "sitov-pretest:8c963a66-e60b-5f88-bee3-73aa3f3e3df7:sitov.pretest.b11-09.nominal.q3:prompt",
+      "previousTextDe": "Welche Form von »ander« passt zwischen »beim Lernen einer« und »Sprache«?",
+      "currentTextDe": "Welche Adjektivform passt zwischen »beim Lernen einer« und »Sprache«?"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# S3 epoch54: exakt zwei redaktionelle Felder
+
+M-Anforderung pools49-51-editorial-changes-requested.json exakt umgesetzt. In b11-09.syntax.q2 ersetzt wie unsicher er selbst waren beim Lernen einer Sprache den mehrdeutigen Nachfeld-Ablenker wie unsicher er war selbst beim Lernen einer Sprache. Die reale Pluralform waren passt eindeutig nicht zum Singular er. In b11-09.nominal.q3 fragt der Prompt nun Welche Adjektivform passt zwischen »beim Lernen einer« und »Sprache«? ohne isoliertes ander.
+
+Exakt zwei fachliche Felder in zwei Aufgaben und zwei öffentliche Audio-Textaliaswerte ändern sich; der Autorenreview erhält nur den neuen Definitionshash. Keine Schlüssel, richtige Antworttexte, Antwort-IDs/-Reihenfolge, Aufgaben-IDs, Kerne/Matrixeinheiten, Quellenbelege, Wiederholungsformen oder anderen70 neuen Aufgaben ändern sich. Alle anderen50 Pools sind exakt erhalten. Stand51/60,9offen,4896Aliase,89inaktiveLegacy-Texte.
+
+Der selbstständige Delta-Nachweis enthält zwei vollständige alte/neue Aufgaben, alten/neuen Review, alten/neuen Definitionshash, exakt zwei Aliasänderungen, vollständige alte/neue Manifest-/Alias-Content-/Bytehashes und SHA256 des unveränderten M-Auftrags. Die Tests restaurieren beide alten Aufgaben und den alten Review vor author53/full48 und jeder der127 historischen Prüfungen; keine Hash-Rebaseline.
+
+Bestätigt: node --test scripts/sitov-pronunciation-pretests-authoring.test.mjs129/129 PASS; Autorenvertrag-Jest7/7 PASS; Authoring-CLI PASS51/60/4896/89; git diff --check PASS. Die zwei neuen Checks kontrollieren den vollständigen Delta-Rückweg und tatsächliche Datenvalidierung sowie die konkrete Singular/Plural-Fehlanpassung und den natürlichen Adjektivprompt. Beide alten Aufgaben werden einzeln von den neuen semantischen Guards abgewiesen; beide alten Audioaliaswerte werden zurückgewiesen. Neue51-Pool-Daten bestehen weiterhin die bisherigen Audio-/Grammatik-Prüfungen der72 neuen Aufgaben.
+
+Keine Migration, Runtime-/App-/SQL-Änderung, QA-Assets, TTS, Wortzeiten, DB-/Storage-Importe, Browser-/Native-Prüfung, Veröffentlichung, Deployment oder Reset. Weiterhin S3-Autorenreview, unabhängigem M-Review vorbehalten; humanReview=false, calibrationStatus=pending, active=false, publicationAuthorized=false. Redaktionelle JSON.stringify-Hashes sind keine DB-JSONB-Versionen. Die zwei geänderten öffentlichen Texte benötigen neue Audiobindungen im M-Prozess. Rückweg: diesen inaktiven Kandidatencommit zurücknehmen. Nach Commit und atomarer Sicherung WAIT.
+
+Basis `403287274c26e1c9653435b55178d4788402cbba`. Aktueller Definitionshash `992e4da5ebf9320d91d39d6a7d38ccc3dbbdd31bff7edd343c3d8b8d633d19f1`. M-Auftrag SHA `9d17d1601593d0652c74a8b1a6f895535d2cac53519a8c305c8ef2dffa3c6168`.
