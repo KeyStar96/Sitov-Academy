@@ -1,0 +1,161 @@
+{
+  "at": "2026-10-09T13:20:01.593848+00:00",
+  "integrationSource": "e12e7700016241fd419e7b133122072c255c2b75",
+  "actualAppBuild": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+  "appSourceUnchangedSinceBuild": true,
+  "releaseReady": false,
+  "productionWrite": false,
+  "releasePolicy": "COMMIT_AND_HANDOFF",
+  "canonicalSchemaSha256": "e961647fd6d0cba2742bab7174d351c59443dd37eb6c3e0dd0592d620d71f9f8",
+  "orderedDeltaOverlays": [
+    {
+      "order": 93,
+      "vps": "supabase/vps/93_sitov_commercial_access.sql",
+      "migration": "supabase/migrations/20261008213000_sitov_commercial_access.sql",
+      "sha256": "a529f1d1d87e2feda9e69f79992cf65d01cbd63d5211f47a9482587855a77781",
+      "byteIdentical": true
+    },
+    {
+      "order": 94,
+      "vps": "supabase/vps/94_sitov_pronunciation_pretests.sql",
+      "migration": "supabase/migrations/20261008213100_sitov_pronunciation_pretests.sql",
+      "sha256": "a4f9f14d4bbe643f70e34a3222c681f6a4153fd3fd85b4944a08d84b6f1b74df",
+      "byteIdentical": true
+    },
+    {
+      "order": 95,
+      "vps": "supabase/vps/95_sitov_learning_specials.sql",
+      "migration": "supabase/migrations/20261008213200_sitov_learning_specials.sql",
+      "sha256": "46731b6b85663a9e8af32b245ad28f22375d52676abd2fc271298ee383762de0",
+      "byteIdentical": true
+    },
+    {
+      "order": 96,
+      "vps": "supabase/vps/96_sitov_private_audio_delivery.sql",
+      "migration": "supabase/migrations/20261008213300_sitov_private_audio_delivery.sql",
+      "sha256": "64b5a159aa1109eaef2afd72c38733a8c9f45ebfffa4187f4931b7a0dba5b169",
+      "byteIdentical": true
+    },
+    {
+      "order": 97,
+      "vps": "supabase/vps/97_sitov_storage_proof_compatibility.sql",
+      "migration": "supabase/migrations/20261009001000_sitov_storage_proof_compatibility.sql",
+      "sha256": "8a46dadf81f0d3ef0dc6d6d00849f26e96121d0ef40ccb9d55612915e45ab2ec",
+      "byteIdentical": true
+    },
+    {
+      "order": 98,
+      "vps": "supabase/vps/98_sitov_pretest_option_presentation.sql",
+      "migration": "supabase/migrations/20261009002000_sitov_pretest_option_presentation.sql",
+      "sha256": "c0068a9bb09e40d6e750e1895abae9e141e4c0f50661ed0998a86af3ec40a2fc",
+      "byteIdentical": true
+    },
+    {
+      "order": 99,
+      "vps": "supabase/vps/99_sitov_readonly_audio_proofs.sql",
+      "migration": "supabase/migrations/20261009003000_sitov_readonly_audio_proofs.sql",
+      "sha256": "a47ec93b4b27c61a6eaf4b96ac286a1f9c90e1f628e848e5f51ec98478c6bd2e",
+      "byteIdentical": true
+    },
+    {
+      "order": 100,
+      "vps": "supabase/vps/100_sitov_pretest_staff_drafts.sql",
+      "migration": "supabase/migrations/20261009004000_sitov_pretest_staff_drafts.sql",
+      "sha256": "ebe50eedbeeb3506ddbd0ab7a2105488f3b5362905ddd2c1834490edb217cb7c",
+      "byteIdentical": true
+    },
+    {
+      "order": 101,
+      "vps": "supabase/vps/101_sitov_special_authoring.sql",
+      "migration": "supabase/migrations/20261009005000_sitov_special_authoring.sql",
+      "sha256": "8dd08addeb2f68ce0a4bbe1255bde2dd21a6cbbc535dbcb95f2a6b310767bebf",
+      "byteIdentical": true
+    },
+    {
+      "order": 102,
+      "vps": "supabase/vps/102_sitov_pretest_staff_publication.sql",
+      "migration": "supabase/migrations/20261009010000_sitov_pretest_staff_publication.sql",
+      "sha256": "99e88657aaef02beeb14704bfa58e823979f3888733a4f04d2806312d522ea1d",
+      "byteIdentical": true
+    },
+    {
+      "order": 103,
+      "vps": "supabase/vps/103_sitov_staff_draft_authority.sql",
+      "migration": "supabase/migrations/20261009011000_sitov_staff_draft_authority.sql",
+      "sha256": "b1168996f85da110df888b5a9d03dac2cd069dcc84bc8e025d0e1d03c9d2e5a3",
+      "byteIdentical": true
+    },
+    {
+      "order": 104,
+      "vps": "supabase/vps/104_sitov_special_staff_publication.sql",
+      "migration": "supabase/migrations/20261009012000_sitov_special_staff_publication.sql",
+      "sha256": "91e8946ffc03bdb407cd4fc899ccbd2673513af9b3f97cd4627b01a9e2af614f",
+      "byteIdentical": true
+    },
+    {
+      "order": 105,
+      "vps": "supabase/vps/105_sitov_pretest_publication_authority.sql",
+      "migration": "supabase/migrations/20261009013000_sitov_pretest_publication_authority.sql",
+      "sha256": "03fa59dda2447cbf9dfd91b62017b6d2b756ff7313b257e1284ae2594c6eb103",
+      "byteIdentical": true
+    },
+    {
+      "order": 106,
+      "vps": "supabase/vps/106_sitov_special_staff_targets.sql",
+      "migration": "supabase/migrations/20261009014000_sitov_special_staff_targets.sql",
+      "sha256": "a3c9c999aa5196e9dd37612f2f9cfe9781afd4ffda062d511fed40c3019e8879",
+      "byteIdentical": true
+    },
+    {
+      "order": 107,
+      "vps": "supabase/vps/107_sitov_pretest_learning_topics.sql",
+      "migration": "supabase/migrations/20261009015000_sitov_pretest_learning_topics.sql",
+      "sha256": "a89c4fbc09349bc20b75f101254d697dac00cd4503f418eaf6e3d691b2d7ffa5",
+      "byteIdentical": true
+    },
+    {
+      "order": 108,
+      "vps": "supabase/vps/108_sitov_learning_recommendation_sources.sql",
+      "migration": "supabase/migrations/20261009082500_sitov_learning_recommendation_sources.sql",
+      "sha256": "8a3b6ccffc2b7e728123eaeda7625ba1c6db20acea557b79a61fc4cd9ba240fe",
+      "byteIdentical": true
+    },
+    {
+      "order": 109,
+      "vps": "supabase/vps/109_sitov_new_items_single_evaluation.sql",
+      "migration": "supabase/migrations/20261009122500_sitov_new_items_single_evaluation.sql",
+      "sha256": "3958e8671249b77aadc9ad5a9eed66d458ceb55d82f720ab11733b9982562b6d",
+      "byteIdentical": true
+    }
+  ],
+  "testLogs": {
+    "/tmp/sitov-night-m-id-filter-full-jest.log": "3894ad2f6f299edefc634239ca418013f77d636d99372a4104a2143bc907044b",
+    "/tmp/sitov-night-m-authored-id-filter-build.log": "d6819961efa9fe2ec883b1852e0af9f161c6cf481b50a1f32bf0fa8cccaa3424",
+    "/tmp/sitov-night-m-id-filter-tsc.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/sitov-night-m-id-filter-lint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/sitov-night-m-reviewed30-offline.log": "6726ff7efcb6188ea849aa3c8eaf542fb4a50d95c422d13e72206e1e935fea30",
+    "/tmp/sitov-night-m-reviewed30-author.log": "234ae05da24488f44f56e594768a31bf1d1e171eb7485566a0c813bb478617ba",
+    "/tmp/sitov-night-m-reviewed30-cli.log": "71509448225412122bb1ba5dd1fedd6436ff49cf6274374138171b936ff87768",
+    "/tmp/sitov-night-m-single-items-native.log": "bdd6e7a74a49df39f7057ee654fd404417c18776b486dbfce96683b2205a183d",
+    "/tmp/sitov-night-m-schema109-current-chain.log": "9cffdc1889b6163b6c83c97b71f9dce0fca380644d7b69987bf7b48b52da0c47"
+  },
+  "results": {
+    "appJestPass": 4237,
+    "appJestSkipped": 2,
+    "appJestFailed": 0,
+    "reviewed30OfflinePass": 80,
+    "reviewed30OfflineSkipped": 0,
+    "currentAuthorContractPass": 7,
+    "privatePools": 30,
+    "missingPools": 30,
+    "publicAudioAliases": 2880,
+    "legacyInactiveTexts": 89,
+    "root109NativePass": 9,
+    "root109FixedSnapshotFullJsonPairs": 41,
+    "rootCurrent109ChainParityPass": 2,
+    "qa30AudioReadbacks": 2382,
+    "qa30PositiveLexicalIntervals": 14036,
+    "qa30ZeroPunctuationTokens": 268
+  },
+  "installCaveat": "Inventory/byte parity only. Native proof is pinned baseline92+frozen93-99+explicit100-109, not a full current canonical fresh production install. Installer has no automatic migration ledger; inspect actual installed state, never blindly replay old97 after99. No execution authorization."
+}
