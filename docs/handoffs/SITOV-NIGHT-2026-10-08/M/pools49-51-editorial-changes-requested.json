@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "sitov.agent.M",
+  "sourceCommit": "f95e9fa3f296b98ee8200a0ae67d26aa614fa7f4",
+  "status": "CHANGES_REQUESTED",
+  "reviewedAt": "2026-10-09T19:40:06.546844+00:00",
+  "humanReview": false,
+  "scope": "All72newquestions/216options/rationales/keys,12cores,3fullcanonicalsources read. One genuine Nachfeld ambiguity and one unnecessary nonstandard bareadjectivelemma instruction need bounded correction beforeMapproval. Other70 unchanged.",
+  "changes": [
+    {
+      "textId": "8c963a66-e60b-5f88-bee3-73aa3f3e3df7",
+      "questionId": "sitov.pretest.b11-09.syntax.q2",
+      "field": "option.textDe",
+      "optionId": "sitov.pretest.b11-09.syntax.q2.c",
+      "expected": "wie unsicher er war selbst beim Lernen einer Sprache",
+      "replacement": "wie unsicher er selbst waren beim Lernen einer Sprache",
+      "reasonDe": "Der bisherige Ablenker kann als Nachfeld/Ausklammerung grammatisch sein. Die finite Form waren passt eindeutig nicht zum Singular er; die andere Alternative prüft weiterhin den indirekten Satz. Reale Verbform, kein Fantasiewort. Schlüssel/Einheit/Quelle unverändert."
+    },
+    {
+      "textId": "8c963a66-e60b-5f88-bee3-73aa3f3e3df7",
+      "questionId": "sitov.pretest.b11-09.nominal.q3",
+      "field": "promptDe",
+      "expected": "Welche Form von »ander« passt zwischen »beim Lernen einer« und »Sprache«?",
+      "replacement": "Welche Adjektivform passt zwischen »beim Lernen einer« und »Sprache«?",
+      "reasonDe": "Keine isolierte fragliche Zitierform ander als Lernlemma oder Audio. Alle Optionen sind Formen desselben Adjektivs; öffentlicher Genitivkontext erhält die eindeutige Endungswahl, ohne richtige Antwort vorwegzunehmen."
+    }
+  ],
+  "publicationAuthorized": false
+}
