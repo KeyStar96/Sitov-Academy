@@ -1,0 +1,2198 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "736422f44e1a6551553dbd706434a026efef35d3",
+  "status": "author_checked_independent_review_pending",
+  "authorIdentity": "sitov.agent.S3",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "completedPools": 3,
+  "requestedMaximumPools": 6,
+  "newQuestionCount": 72,
+  "newAliasCount": 288,
+  "randomnessProvenance": "OS CSPRNG secrets.SystemRandom independently sampled balanced label/position schedules and random option bijections/permutations; sealed concrete output only, no seed or answer-from-ID algorithm.",
+  "original18ContentHash": "357aded6651d38c8b0237a3c6eb0856a3a4a794fa1490818674590bd92b78f42",
+  "originalManifestContentHash": "4a420e34076789da39b661cb663e8cf41a295e3af031bafd1b212dbd45c4ee5d",
+  "originalManifestByteSha256": "77e86aef913dac04a93f4d0e99d947fd5504416a92e0885e83320bd3c412470a",
+  "original1728AliasContentHash": "de6936078679f3e917b68fe894a1eebfab529d9f8ac5d46986b104729bb1aac3",
+  "original1728AliasByteSha256": "61d25c411e76707f8ad292e7477c68a3b060cd023051d662025c78f656577f52",
+  "currentManifestContentHash": "eee8f07f9395bd13b5f1f3189a90411aed18c435df3309921eea96003aeb015f",
+  "currentManifestByteSha256": "371b7f7f76af7c1de53980f5ec548dd13c7e82013235beaf4a689d9ecf4db622",
+  "currentAliasContentHash": "52f5006f022e7999d637ad6204ece4ad121fc987f93984c261c633ca2dd93dd1",
+  "currentAliasByteSha256": "25130c0cc03577443ba15d18b2f2ab3016912200a9149f260203bfcfa904e021",
+  "previousCoverage": {
+    "total": 60,
+    "authored": 18,
+    "pending": 42
+  },
+  "previousInventoryRows": [
+    {
+      "textId": "b3fd31c6-efa8-5a64-85d9-7d419b4c42f4",
+      "unitId": "b3fd31c6-efa8-5a64-85d9-7d419b4c42f4",
+      "level": "A1.2",
+      "title": "Ein verlorener Schlüssel",
+      "focus": "schl und ü; Hauptakzente",
+      "sortOrder": 9,
+      "active": true,
+      "textVersion": "64a1bac5bc8ceede374a92fd313f479316564a46d804dd77fa5e09c4bebb8d18",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "8cd6b9c9-8eaf-5a08-863b-27e712dbc484",
+      "unitId": "8cd6b9c9-8eaf-5a08-863b-27e712dbc484",
+      "level": "A1.2",
+      "title": "Der neue Stundenplan",
+      "focus": "st und sp; Satzverbindungen",
+      "sortOrder": 10,
+      "active": true,
+      "textVersion": "b528df60ad8fad5373c79df369eeb4f5b5d7696ed16f191ba49b6e49c0a020ea",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    },
+    {
+      "textId": "b2ae5915-20dd-5018-8921-6afe5be0f1fd",
+      "unitId": "b2ae5915-20dd-5018-8921-6afe5be0f1fd",
+      "level": "A2.1",
+      "title": "Mein erster Arbeitstag",
+      "focus": "ei und ar; Vergangenheitsformen",
+      "sortOrder": 1,
+      "active": true,
+      "textVersion": "f67f9d04716c48d88c9f99b84758a89fa29ddd02e77c564d190599ed28648879",
+      "sourceAudioUrl": null,
+      "source": "supabase/seeds/vps-content.sql",
+      "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
+      "coverageStatus": "pending",
+      "referenceProof": "pending_M_prepared_audio_verification"
+    }
+  ],
+  "pools": [
+    {
+      "textId": "b3fd31c6-efa8-5a64-85d9-7d419b4c42f4",
+      "title": "Ein verlorener Schlüssel",
+      "level": "A1.2",
+      "textVersion": "64a1bac5bc8ceede374a92fd313f479316564a46d804dd77fa5e09c4bebb8d18",
+      "definitionContentHash": "00d0c7ddd864cec4031a4abdeeafe70c0aa73a2b7f6bce5fa80e17fa8714a98a",
+      "sourceBodyDe": "Ich stehe vor meiner Haustür und suche meinen Schlüssel. Er ist nicht in meiner Jacke. Auch in meiner Tasche finde ich ihn nicht. Ich rufe meinen Mann an. Er ist noch bei der Arbeit. Zum Glück hat unser Nachbar einen zweiten Schlüssel. Er öffnet mir die Tür. Mein Schlüssel liegt auf dem Küchentisch.",
+      "status": "author_checked_independent_review_pending",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a12-09.words.q1",
+          "publicPromptDe": "Was ist eine »Haustür«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.words.q1.c",
+              "textDe": "Ein Regal für Bücher."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q1.b",
+              "textDe": "Ein Fenster im Zug."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q1.a",
+              "textDe": "Die Eingangstür eines Hauses."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.words.q1.a",
+          "correctAnswerTextDe": "Die Eingangstür eines Hauses.",
+          "rationaleDe": "Haustür bezeichnet die Eingangstür zum Haus; Fenster und Regal haben andere Funktionen.",
+          "assessmentUnit": "Haustür Eingang",
+          "sourceSpans": [
+            {
+              "start": 21,
+              "end": 28,
+              "quote": "Haustür"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q2",
+          "publicPromptDe": "Wozu dient ein »Schlüssel« an einer verschlossenen Tür?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.words.q2.b",
+              "textDe": "Zum Ablesen der Uhrzeit."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q2.c",
+              "textDe": "Zum Aufschließen oder Abschließen."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q2.a",
+              "textDe": "Zum Kochen von Wasser."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.words.q2.c",
+          "correctAnswerTextDe": "Zum Aufschließen oder Abschließen.",
+          "rationaleDe": "Ein Schlüssel betätigt das Schloss; Kochen und Zeitablesen sind keine Bedeutung dieses Gegenstands.",
+          "assessmentUnit": "Schlüssel Öffnungsgegenstand",
+          "sourceSpans": [
+            {
+              "start": 39,
+              "end": 55,
+              "quote": "meinen Schlüssel"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q3",
+          "publicPromptDe": "Was ist eine »Jacke«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.words.q3.c",
+              "textDe": "Ein Stück Obst."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q3.a",
+              "textDe": "Ein Schienenweg."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q3.b",
+              "textDe": "Ein Kleidungsstück für den Oberkörper."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.words.q3.b",
+          "correctAnswerTextDe": "Ein Kleidungsstück für den Oberkörper.",
+          "rationaleDe": "Jacke ist ein Kleidungsstück; Obst und Gleis sind keine entsprechenden Bedeutungen.",
+          "assessmentUnit": "Jacke Kleidungsstück",
+          "sourceSpans": [
+            {
+              "start": 73,
+              "end": 85,
+              "quote": "meiner Jacke"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q4",
+          "publicPromptDe": "Was ist eine »Tasche« im Kontext »Ich suche meinen Schlüssel in meiner Tasche«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.words.q4.b",
+              "textDe": "Ein Behälter zum Mitnehmen von Dingen."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q4.a",
+              "textDe": "Ein Gerät zum Backen."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q4.c",
+              "textDe": "Ein fest eingebautes Türschloss."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.words.q4.b",
+          "correctAnswerTextDe": "Ein Behälter zum Mitnehmen von Dingen.",
+          "rationaleDe": "Im öffentlichen Kontext bezeichnet Tasche einen tragbaren Behälter, kein Türschloss oder Backgerät.",
+          "assessmentUnit": "Tasche Behälter",
+          "sourceSpans": [
+            {
+              "start": 95,
+              "end": 108,
+              "quote": "meiner Tasche"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q5",
+          "publicPromptDe": "Wer ist ein »Nachbar«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.words.q5.c",
+              "textDe": "Nur der eigene Vater."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q5.a",
+              "textDe": "Ein Mann, der in der Nähe wohnt."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q5.b",
+              "textDe": "Jeder unbekannte Mann auf der Welt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.words.q5.a",
+          "correctAnswerTextDe": "Ein Mann, der in der Nähe wohnt.",
+          "rationaleDe": "Nachbar bezeichnet hier Wohnnähe; bloße Unbekanntheit oder Verwandtschaft allein begründet sie nicht.",
+          "assessmentUnit": "Nachbar Wohnnähe",
+          "sourceSpans": [
+            {
+              "start": 197,
+              "end": 210,
+              "quote": "unser Nachbar"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.words.q6",
+          "publicPromptDe": "Was bedeutet »zum Glück« in »Zum Glück hat unser Nachbar einen zweiten Schlüssel«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.words.q6.c",
+              "textDe": "Der Umstand wird als günstig bewertet."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q6.a",
+              "textDe": "Es wird eine genaue Uhrzeit genannt."
+            },
+            {
+              "id": "sitov.pretest.a12-09.words.q6.b",
+              "textDe": "Der Umstand wird ausdrücklich als Unglück bewertet."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.words.q6.c",
+          "correctAnswerTextDe": "Der Umstand wird als günstig bewertet.",
+          "rationaleDe": "Zum Glück bewertet das Vorhandensein des zweiten Schlüssels positiv; weder Unglück noch Uhrzeit ist gemeint.",
+          "assessmentUnit": "Zum Glück positive Wendung",
+          "sourceSpans": [
+            {
+              "start": 183,
+              "end": 192,
+              "quote": "Zum Glück"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q1",
+          "publicPromptDe": "Wie lautet die Grundform von »stehe« in »Ich stehe vor meiner Haustür«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.verbs.q1.c",
+              "textDe": "stehen"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q1.b",
+              "textDe": "stehlen"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q1.a",
+              "textDe": "steigen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.verbs.q1.c",
+          "correctAnswerTextDe": "stehen",
+          "rationaleDe": "Stehe gehört zu stehen; stehlen und steigen sind andere Verben mit anderen Bedeutungen.",
+          "assessmentUnit": "stehe Grundform stehen",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 9,
+              "quote": "Ich stehe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich ___ meinen Schlüssel«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.verbs.q2.c",
+              "textDe": "suchst"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q2.b",
+              "textDe": "suche"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q2.a",
+              "textDe": "sucht"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.verbs.q2.b",
+          "correctAnswerTextDe": "suche",
+          "rationaleDe": "Zum Subjekt ich gehört suche; sucht und suchst passen nicht zur ersten Person Singular.",
+          "assessmentUnit": "suche erste Person",
+          "sourceSpans": [
+            {
+              "start": 33,
+              "end": 55,
+              "quote": "suche meinen Schlüssel"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »In meiner Tasche ___ ich ihn nicht«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.verbs.q3.a",
+              "textDe": "findet"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q3.c",
+              "textDe": "findest"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q3.b",
+              "textDe": "finde"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.verbs.q3.b",
+          "correctAnswerTextDe": "finde",
+          "rationaleDe": "Das Subjekt ich verlangt finde; die Voranstellung der Ortsangabe ändert die Personenform nicht.",
+          "assessmentUnit": "finde Form finden",
+          "sourceSpans": [
+            {
+              "start": 109,
+              "end": 128,
+              "quote": "finde ich ihn nicht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q4",
+          "publicPromptDe": "Wie lautet die Grundform von »rufe … an« in »Ich rufe meinen Mann an«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.verbs.q4.c",
+              "textDe": "zurufen"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q4.a",
+              "textDe": "anrufen"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q4.b",
+              "textDe": "aufrufen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.verbs.q4.a",
+          "correctAnswerTextDe": "anrufen",
+          "rationaleDe": "Die getrennte Partikel an gehört zu rufen und bildet anrufen, nicht aufrufen oder zurufen.",
+          "assessmentUnit": "anrufen getrennte Grundform",
+          "sourceSpans": [
+            {
+              "start": 130,
+              "end": 154,
+              "quote": "Ich rufe meinen Mann an."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Der Nachbar ___ mir die Tür«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.verbs.q5.c",
+              "textDe": "öffnet"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q5.b",
+              "textDe": "öffnen"
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q5.a",
+              "textDe": "öffnest"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.verbs.q5.c",
+          "correctAnswerTextDe": "öffnet",
+          "rationaleDe": "Der Nachbar steht in der dritten Person Singular; deshalb lautet die Form öffnet.",
+          "assessmentUnit": "öffnet dritte Person",
+          "sourceSpans": [
+            {
+              "start": 236,
+              "end": 258,
+              "quote": "Er öffnet mir die Tür."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.verbs.q6",
+          "publicPromptDe": "Was bedeutet »liegt« in »Mein Schlüssel liegt auf dem Küchentisch«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.verbs.q6.b",
+              "textDe": "Der Schlüssel ruft jemanden an."
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q6.c",
+              "textDe": "Der Schlüssel läuft selbst zum Tisch."
+            },
+            {
+              "id": "sitov.pretest.a12-09.verbs.q6.a",
+              "textDe": "Der Schlüssel befindet sich dort in einer Lage."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.verbs.q6.a",
+          "correctAnswerTextDe": "Der Schlüssel befindet sich dort in einer Lage.",
+          "rationaleDe": "Liegt beschreibt die Lage des Gegenstands, keine eigenständige Bewegung oder telefonische Handlung.",
+          "assessmentUnit": "liegen Lage",
+          "sourceSpans": [
+            {
+              "start": 259,
+              "end": 279,
+              "quote": "Mein Schlüssel liegt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q1",
+          "publicPromptDe": "Wer sucht in »Ich stehe vor meiner Haustür und suche meinen Schlüssel«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.syntax.q1.a",
+              "textDe": "Der Schlüssel selbst."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q1.b",
+              "textDe": "Der Sprecher, bezeichnet durch ich."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q1.c",
+              "textDe": "Die Haustür selbst."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.syntax.q1.b",
+          "correctAnswerTextDe": "Der Sprecher, bezeichnet durch ich.",
+          "rationaleDe": "Das gemeinsame Subjekt ich gilt für stehe und suche; Tür und Schlüssel führen die Suche nicht aus.",
+          "assessmentUnit": "gemeinsames Ich Koordination",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 56,
+              "quote": "Ich stehe vor meiner Haustür und suche meinen Schlüssel."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q2",
+          "publicPromptDe": "Was wird in »Der Schlüssel ist nicht in meiner Jacke« verneint?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.syntax.q2.a",
+              "textDe": "Dass der Schlüssel in der Jacke ist."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q2.b",
+              "textDe": "Dass es überhaupt eine Jacke gibt."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q2.c",
+              "textDe": "Dass der Sprecher einen Namen hat."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.syntax.q2.a",
+          "correctAnswerTextDe": "Dass der Schlüssel in der Jacke ist.",
+          "rationaleDe": "Nicht verneint hier den genannten Aufenthaltsort; die Existenz der Jacke oder ein Name werden nicht verneint.",
+          "assessmentUnit": "nicht Ortsnegation",
+          "sourceSpans": [
+            {
+              "start": 57,
+              "end": 86,
+              "quote": "Er ist nicht in meiner Jacke."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q3",
+          "publicPromptDe": "Was zeigt »auch« in »In der Jacke finde ich den Schlüssel nicht. Auch in der Tasche finde ich ihn nicht«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.syntax.q3.b",
+              "textDe": "Der Schlüssel wurde in der Tasche gefunden."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q3.a",
+              "textDe": "Die Jacke wurde weggeworfen."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q3.c",
+              "textDe": "Ein weiterer Suchort bleibt ohne Fund."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.syntax.q3.c",
+          "correctAnswerTextDe": "Ein weiterer Suchort bleibt ohne Fund.",
+          "rationaleDe": "Auch erweitert die erfolglose Suche um einen zweiten Ort; Fund oder Wegwerfen nennt der öffentliche Kontext nicht.",
+          "assessmentUnit": "Auch zusätzliche erfolglose Suche",
+          "sourceSpans": [
+            {
+              "start": 87,
+              "end": 129,
+              "quote": "Auch in meiner Tasche finde ich ihn nicht."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q4",
+          "publicPromptDe": "Wer hat laut »Zum Glück hat unser Nachbar einen zweiten Schlüssel« den zweiten Schlüssel?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.syntax.q4.a",
+              "textDe": "Der Küchentisch."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q4.c",
+              "textDe": "Der Nachbar."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q4.b",
+              "textDe": "Die Haustür."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.syntax.q4.c",
+          "correctAnswerTextDe": "Der Nachbar.",
+          "rationaleDe": "Unser Nachbar ist das Subjekt von hat; Tür und Tisch sind keine Besitzer in dieser Aussage.",
+          "assessmentUnit": "Nachbar Subjekt nach Vorfeld",
+          "sourceSpans": [
+            {
+              "start": 183,
+              "end": 235,
+              "quote": "Zum Glück hat unser Nachbar einen zweiten Schlüssel."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q5",
+          "publicPromptDe": "Für wen wird laut »Der Nachbar öffnet mir die Tür« die Tür geöffnet?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.syntax.q5.b",
+              "textDe": "Für die Jacke."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q5.c",
+              "textDe": "Für den Schlüssel."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q5.a",
+              "textDe": "Für den Sprecher."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.syntax.q5.a",
+          "correctAnswerTextDe": "Für den Sprecher.",
+          "rationaleDe": "Mir bezeichnet hier den begünstigten Sprecher; Schlüssel und Jacke sind nicht die empfangende Person.",
+          "assessmentUnit": "mir Empfängerrolle Satz",
+          "sourceSpans": [
+            {
+              "start": 236,
+              "end": 258,
+              "quote": "Er öffnet mir die Tür."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.syntax.q6",
+          "publicPromptDe": "Welchen Ort nennt »Mein Schlüssel liegt auf dem Küchentisch«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.syntax.q6.b",
+              "textDe": "Auf dem Küchentisch."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q6.a",
+              "textDe": "Unter dem Bett."
+            },
+            {
+              "id": "sitov.pretest.a12-09.syntax.q6.c",
+              "textDe": "Im Zug."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.syntax.q6.b",
+          "correctAnswerTextDe": "Auf dem Küchentisch.",
+          "rationaleDe": "Der öffentliche Satz nennt den Küchentisch ausdrücklich; Bett und Zug stehen dort nicht als Ort.",
+          "assessmentUnit": "Küchentisch Fundort",
+          "sourceSpans": [
+            {
+              "start": 259,
+              "end": 300,
+              "quote": "Mein Schlüssel liegt auf dem Küchentisch."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich stehe vor ___ Haustür«, wenn es die Haustür des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.nominal.q1.b",
+              "textDe": "meine"
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q1.a",
+              "textDe": "meinen"
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q1.c",
+              "textDe": "meiner"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.nominal.q1.c",
+          "correctAnswerTextDe": "meiner",
+          "rationaleDe": "Vor bezeichnet hier einen festen Ort; die feminine Haustür steht mit meiner im Dativ.",
+          "assessmentUnit": "meiner Haustür Dativ",
+          "sourceSpans": [
+            {
+              "start": 10,
+              "end": 28,
+              "quote": "vor meiner Haustür"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich suche ___ Schlüssel«, wenn der Schlüssel dem Sprecher gehört?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.nominal.q2.c",
+              "textDe": "mein"
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q2.a",
+              "textDe": "meinem"
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q2.b",
+              "textDe": "meinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.nominal.q2.b",
+          "correctAnswerTextDe": "meinen",
+          "rationaleDe": "Schlüssel ist maskulin und steht nach suchen als Akkusativobjekt; die Form lautet meinen.",
+          "assessmentUnit": "meinen Schlüssel Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 39,
+              "end": 55,
+              "quote": "meinen Schlüssel"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q3",
+          "publicPromptDe": "Worauf verweist »ihn« in »Ich suche meinen Schlüssel. In der Tasche finde ich ihn nicht«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.nominal.q3.c",
+              "textDe": "Auf die Haustür."
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q3.a",
+              "textDe": "Auf den Schlüssel."
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q3.b",
+              "textDe": "Auf die Tasche."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.nominal.q3.a",
+          "correctAnswerTextDe": "Auf den Schlüssel.",
+          "rationaleDe": "Ihn greift den maskulinen Schlüssel wieder auf; Tasche und Haustür sind feminine Nomen.",
+          "assessmentUnit": "ihn Schlüssel Bezug",
+          "sourceSpans": [
+            {
+              "start": 109,
+              "end": 128,
+              "quote": "finde ich ihn nicht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q4",
+          "publicPromptDe": "Auf wen verweist »Er« in »Ich rufe meinen Mann an. Er ist noch bei der Arbeit«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.nominal.q4.c",
+              "textDe": "Auf die Jacke."
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q4.b",
+              "textDe": "Auf den Mann des Sprechers."
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q4.a",
+              "textDe": "Auf die Arbeit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.nominal.q4.b",
+          "correctAnswerTextDe": "Auf den Mann des Sprechers.",
+          "rationaleDe": "Er greift den zuvor genannten Mann auf; Arbeit und Jacke sind keine männlichen Personenbezüge.",
+          "assessmentUnit": "Er Mann Bezug",
+          "sourceSpans": [
+            {
+              "start": 139,
+              "end": 182,
+              "quote": "meinen Mann an. Er ist noch bei der Arbeit."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Der Nachbar hat einen ___ Schlüssel«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.nominal.q5.a",
+              "textDe": "zweiten"
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q5.c",
+              "textDe": "zweite"
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q5.b",
+              "textDe": "zweitem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.nominal.q5.a",
+          "correctAnswerTextDe": "zweiten",
+          "rationaleDe": "Nach einen steht das Adjektiv beim maskulinen Akkusativ hier mit en: zweiten.",
+          "assessmentUnit": "zweiten Adjektiv Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 211,
+              "end": 234,
+              "quote": "einen zweiten Schlüssel"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-09.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt die Ortsangabe »Der Schlüssel liegt auf ___ Küchentisch«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-09.nominal.q6.c",
+              "textDe": "dem"
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q6.b",
+              "textDe": "das"
+            },
+            {
+              "id": "sitov.pretest.a12-09.nominal.q6.a",
+              "textDe": "den"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-09.nominal.q6.c",
+          "correctAnswerTextDe": "dem",
+          "rationaleDe": "Auf bezeichnet einen festen Ort; der maskuline Küchentisch steht hier im Dativ mit dem.",
+          "assessmentUnit": "dem Küchentisch Dativ",
+          "sourceSpans": [
+            {
+              "start": 280,
+              "end": 299,
+              "quote": "auf dem Küchentisch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "8cd6b9c9-8eaf-5a08-863b-27e712dbc484",
+      "title": "Der neue Stundenplan",
+      "level": "A1.2",
+      "textVersion": "b528df60ad8fad5373c79df369eeb4f5b5d7696ed16f191ba49b6e49c0a020ea",
+      "definitionContentHash": "77d779fc24fc19d48a21f8859ef71a2bf6fcd34f9e0249d1a125db758598233e",
+      "sourceBodyDe": "Unser Deutschkurs hat ab Montag neue Zeiten. Wir lernen jetzt am Vormittag von neun bis zwölf Uhr. Am Dienstag üben wir besonders viel Sprechen. Am Donnerstag lesen wir kurze Texte. Der Lehrer erklärt den Stundenplan langsam. Ich schreibe die Zeiten in meinen Kalender. Nach dem Kurs kann ich meinen Sohn von der Schule abholen. Das passt gut für mich.",
+      "status": "author_checked_independent_review_pending",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a12-10.words.q1",
+          "publicPromptDe": "Wozu dient ein »Stundenplan«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.words.q1.b",
+              "textDe": "Er ist ein Schlüssel für eine Tür."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q1.c",
+              "textDe": "Er zeigt Unterrichtszeiten und Fächer oder Aktivitäten."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q1.a",
+              "textDe": "Er ist eine Backform."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.words.q1.c",
+          "correctAnswerTextDe": "Er zeigt Unterrichtszeiten und Fächer oder Aktivitäten.",
+          "rationaleDe": "Ein Stundenplan ordnet den Unterricht zeitlich; Schlüssel und Backform haben andere Funktionen.",
+          "assessmentUnit": "Stundenplan Zeitordnung",
+          "sourceSpans": [
+            {
+              "start": 205,
+              "end": 216,
+              "quote": "Stundenplan"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q2",
+          "publicPromptDe": "Welchen Tagesabschnitt bezeichnet »Vormittag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.words.q2.b",
+              "textDe": "Die Zeit vor Mittag."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q2.a",
+              "textDe": "Die Zeit nach Mitternacht bis zum nächsten Abend insgesamt."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q2.c",
+              "textDe": "Nur die Zeit nach dem Abendessen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.words.q2.b",
+          "correctAnswerTextDe": "Die Zeit vor Mittag.",
+          "rationaleDe": "Vormittag bezeichnet den Abschnitt vor Mittag, nicht den ganzen Tag oder die Zeit nach dem Abendessen.",
+          "assessmentUnit": "Vormittag Tagesabschnitt",
+          "sourceSpans": [
+            {
+              "start": 62,
+              "end": 74,
+              "quote": "am Vormittag"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q3",
+          "publicPromptDe": "Was bedeutet »Sprechen« als Kursaktivität?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.words.q3.b",
+              "textDe": "Nur Buchstaben still ansehen."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q3.a",
+              "textDe": "Ein Brötchen backen."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q3.c",
+              "textDe": "Sich mündlich mit Worten ausdrücken."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.words.q3.c",
+          "correctAnswerTextDe": "Sich mündlich mit Worten ausdrücken.",
+          "rationaleDe": "Sprechen ist mündlicher Ausdruck; stilles Ansehen und Backen sind andere Tätigkeiten.",
+          "assessmentUnit": "Sprechen mündliche Tätigkeit",
+          "sourceSpans": [
+            {
+              "start": 130,
+              "end": 143,
+              "quote": "viel Sprechen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q4",
+          "publicPromptDe": "Was sind »Texte« beim Lesen im Deutschkurs?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.words.q4.c",
+              "textDe": "Nur ungeöffnete Türen."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q4.b",
+              "textDe": "Nur leere Tische."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q4.a",
+              "textDe": "Zusammenhängende sprachliche Mitteilungen in geschriebener Form."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.words.q4.a",
+          "correctAnswerTextDe": "Zusammenhängende sprachliche Mitteilungen in geschriebener Form.",
+          "rationaleDe": "Im genannten Lesekontext sind Texte geschriebene sprachliche Mitteilungen, keine Möbel oder Türen.",
+          "assessmentUnit": "Texte schriftliche Einheiten",
+          "sourceSpans": [
+            {
+              "start": 169,
+              "end": 180,
+              "quote": "kurze Texte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q5",
+          "publicPromptDe": "Wofür benutzt man einen »Kalender«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.words.q5.b",
+              "textDe": "Zum Öffnen eines Schlosses."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q5.a",
+              "textDe": "Zum Ordnen von Tagen und Eintragen von Terminen."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q5.c",
+              "textDe": "Zum Waschen von Kleidung."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.words.q5.a",
+          "correctAnswerTextDe": "Zum Ordnen von Tagen und Eintragen von Terminen.",
+          "rationaleDe": "Ein Kalender ordnet Zeit und Termine; Schlossöffnen und Wäschewaschen sind andere Funktionen.",
+          "assessmentUnit": "Kalender Termine",
+          "sourceSpans": [
+            {
+              "start": 253,
+              "end": 268,
+              "quote": "meinen Kalender"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.words.q6",
+          "publicPromptDe": "Was bedeutet »langsam« in »Der Lehrer erklärt langsam«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.words.q6.b",
+              "textDe": "Mit geringem Tempo."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q6.c",
+              "textDe": "Ganz ohne jede Erklärung."
+            },
+            {
+              "id": "sitov.pretest.a12-10.words.q6.a",
+              "textDe": "Mit höchstmöglicher Geschwindigkeit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.words.q6.b",
+          "correctAnswerTextDe": "Mit geringem Tempo.",
+          "rationaleDe": "Langsam bezeichnet ein geringes Tempo; sehr schnell oder gar nicht erklären ist nicht dieselbe Bedeutung.",
+          "assessmentUnit": "langsam Tempo",
+          "sourceSpans": [
+            {
+              "start": 217,
+              "end": 224,
+              "quote": "langsam"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q1",
+          "publicPromptDe": "Wie lautet die Grundform von »hat« in »Unser Deutschkurs hat neue Zeiten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.verbs.q1.c",
+              "textDe": "haben"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q1.b",
+              "textDe": "halten"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q1.a",
+              "textDe": "helfen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.verbs.q1.c",
+          "correctAnswerTextDe": "haben",
+          "rationaleDe": "Hat ist eine Form von haben; halten und helfen sind andere Grundformen.",
+          "assessmentUnit": "hat Grundform haben",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 21,
+              "quote": "Unser Deutschkurs hat"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Wir ___ jetzt am Vormittag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.verbs.q2.a",
+              "textDe": "lernst"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q2.b",
+              "textDe": "lernen"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q2.c",
+              "textDe": "lernt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.verbs.q2.b",
+          "correctAnswerTextDe": "lernen",
+          "rationaleDe": "Zum Subjekt wir gehört lernen; lernt und lernst passen zu anderen Personen.",
+          "assessmentUnit": "lernen wir Form",
+          "sourceSpans": [
+            {
+              "start": 45,
+              "end": 61,
+              "quote": "Wir lernen jetzt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q3",
+          "publicPromptDe": "Was bedeutet »üben« in »Wir üben Sprechen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.verbs.q3.a",
+              "textDe": "Eine Tür abschließen."
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q3.b",
+              "textDe": "Eine Fähigkeit durch Training verbessern."
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q3.c",
+              "textDe": "Eine Fähigkeit ausdrücklich nie benutzen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.verbs.q3.b",
+          "correctAnswerTextDe": "Eine Fähigkeit durch Training verbessern.",
+          "rationaleDe": "Üben bezeichnet das Trainieren einer Fähigkeit; Nichtbenutzen und Abschließen sind andere Handlungen.",
+          "assessmentUnit": "üben Tätigkeit trainieren",
+          "sourceSpans": [
+            {
+              "start": 111,
+              "end": 143,
+              "quote": "üben wir besonders viel Sprechen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Am Donnerstag ___ wir kurze Texte«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.verbs.q4.a",
+              "textDe": "liest"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q4.b",
+              "textDe": "lest"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q4.c",
+              "textDe": "lesen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.verbs.q4.c",
+          "correctAnswerTextDe": "lesen",
+          "rationaleDe": "Das Subjekt wir verlangt lesen; liest und lest passen nicht zur ersten Person Plural.",
+          "assessmentUnit": "lesen wir Form",
+          "sourceSpans": [
+            {
+              "start": 159,
+              "end": 180,
+              "quote": "lesen wir kurze Texte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich ___ die Zeiten in meinen Kalender«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.verbs.q5.a",
+              "textDe": "schreibe"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q5.b",
+              "textDe": "schreibt"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q5.c",
+              "textDe": "schreibst"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.verbs.q5.a",
+          "correctAnswerTextDe": "schreibe",
+          "rationaleDe": "Ich verlangt schreibe; schreibt und schreibst sind Formen anderer Personen.",
+          "assessmentUnit": "schreibe erste Person",
+          "sourceSpans": [
+            {
+              "start": 226,
+              "end": 238,
+              "quote": "Ich schreibe"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.verbs.q6",
+          "publicPromptDe": "Welche Form ergänzt »Ich kann meinen Sohn von der Schule ___«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.verbs.q6.b",
+              "textDe": "abgeholt"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q6.c",
+              "textDe": "hole ab"
+            },
+            {
+              "id": "sitov.pretest.a12-10.verbs.q6.a",
+              "textDe": "abholen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.verbs.q6.a",
+          "correctAnswerTextDe": "abholen",
+          "rationaleDe": "Nach kann steht hier der Infinitiv abholen; die finite getrennte Form und das Partizip passen nicht.",
+          "assessmentUnit": "abholen Infinitiv nach kann",
+          "sourceSpans": [
+            {
+              "start": 293,
+              "end": 327,
+              "quote": "meinen Sohn von der Schule abholen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q1",
+          "publicPromptDe": "Wann gelten die neuen Zeiten laut »Unser Deutschkurs hat ab Montag neue Zeiten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.syntax.q1.c",
+              "textDe": "Erst ein Jahr nach Montag."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q1.b",
+              "textDe": "Nur bis Sonntag davor."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q1.a",
+              "textDe": "Von Montag an."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.syntax.q1.a",
+          "correctAnswerTextDe": "Von Montag an.",
+          "rationaleDe": "Ab Montag nennt den Beginn der Geltung; ein früheres Ende oder ein Jahr Verzögerung folgt nicht daraus.",
+          "assessmentUnit": "ab Montag Beginn",
+          "sourceSpans": [
+            {
+              "start": 22,
+              "end": 43,
+              "quote": "ab Montag neue Zeiten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q2",
+          "publicPromptDe": "Welche Zeitspanne nennt »Wir lernen von neun bis zwölf Uhr«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.syntax.q2.b",
+              "textDe": "Beginn zwölf Uhr, Ende neun Uhr."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q2.c",
+              "textDe": "Beginn neun Uhr, Ende zwölf Uhr."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q2.a",
+              "textDe": "Beginn neun Uhr, Ende zehn Uhr."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.syntax.q2.c",
+          "correctAnswerTextDe": "Beginn neun Uhr, Ende zwölf Uhr.",
+          "rationaleDe": "Von nennt den Beginn und bis das Ende; der öffentliche Satz gibt neun und zwölf Uhr an.",
+          "assessmentUnit": "von bis Zeitspanne",
+          "sourceSpans": [
+            {
+              "start": 75,
+              "end": 97,
+              "quote": "von neun bis zwölf Uhr"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q3",
+          "publicPromptDe": "Welche Aktivität nennt »Am Dienstag üben wir besonders viel Sprechen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.syntax.q3.c",
+              "textDe": "Sprechen."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q3.a",
+              "textDe": "Kuchenbacken."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q3.b",
+              "textDe": "Schwimmen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.syntax.q3.c",
+          "correctAnswerTextDe": "Sprechen.",
+          "rationaleDe": "Der öffentliche Satz nennt ausdrücklich Sprechen; die anderen Aktivitäten werden dort nicht genannt.",
+          "assessmentUnit": "Dienstag Aktivität",
+          "sourceSpans": [
+            {
+              "start": 99,
+              "end": 144,
+              "quote": "Am Dienstag üben wir besonders viel Sprechen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q4",
+          "publicPromptDe": "Welcher Satz ist mit vorangestelltem »Am Donnerstag« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.syntax.q4.b",
+              "textDe": "Am Donnerstag lesen wir kurze Texte."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q4.a",
+              "textDe": "Am Donnerstag wir lesen kurze Texte."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q4.c",
+              "textDe": "Am Donnerstag kurze Texte wir lesen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.syntax.q4.b",
+          "correctAnswerTextDe": "Am Donnerstag lesen wir kurze Texte.",
+          "rationaleDe": "Nach dem Zeitglied steht das finite Verb lesen vor wir; die anderen Satzfolgen verletzen hier die Verbzweitstellung.",
+          "assessmentUnit": "Vorfeld Donnerstag Verbzweit",
+          "sourceSpans": [
+            {
+              "start": 145,
+              "end": 181,
+              "quote": "Am Donnerstag lesen wir kurze Texte."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q5",
+          "publicPromptDe": "Welche Rolle hat »langsam« in »Der Lehrer erklärt den Stundenplan langsam«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.syntax.q5.a",
+              "textDe": "Es ersetzt den Lehrer als Subjekt."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q5.c",
+              "textDe": "Es benennt den erklärten Gegenstand."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q5.b",
+              "textDe": "Es beschreibt, wie der Lehrer erklärt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.syntax.q5.b",
+          "correctAnswerTextDe": "Es beschreibt, wie der Lehrer erklärt.",
+          "rationaleDe": "Langsam beschreibt die Art beziehungsweise das Tempo; Stundenplan ist das Objekt und Lehrer das Subjekt.",
+          "assessmentUnit": "langsam Art des Erklärens",
+          "sourceSpans": [
+            {
+              "start": 182,
+              "end": 225,
+              "quote": "Der Lehrer erklärt den Stundenplan langsam."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.syntax.q6",
+          "publicPromptDe": "Wann kann der Sprecher laut »Nach dem Kurs kann ich meinen Sohn von der Schule abholen« den Sohn abholen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.syntax.q6.c",
+              "textDe": "Ausdrücklich während jeder Kursminute."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q6.a",
+              "textDe": "Nachdem der Kurs zu Ende ist."
+            },
+            {
+              "id": "sitov.pretest.a12-10.syntax.q6.b",
+              "textDe": "Nur bevor der Kurs beginnt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.syntax.q6.a",
+          "correctAnswerTextDe": "Nachdem der Kurs zu Ende ist.",
+          "rationaleDe": "Nach dem Kurs legt die Abholung hinter das Kursende, nicht vor den Beginn oder in jede Kursminute.",
+          "assessmentUnit": "Nach Kurs Reihenfolge",
+          "sourceSpans": [
+            {
+              "start": 270,
+              "end": 328,
+              "quote": "Nach dem Kurs kann ich meinen Sohn von der Schule abholen."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »___ Deutschkurs hat neue Zeiten«, wenn er der Sprechergruppe zugeordnet wird?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.nominal.q1.b",
+              "textDe": "Unser"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q1.c",
+              "textDe": "Unseren"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q1.a",
+              "textDe": "Unserem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.nominal.q1.b",
+          "correctAnswerTextDe": "Unser",
+          "rationaleDe": "Deutschkurs ist ein maskulines Subjekt im Nominativ; die passende Possessivform ist unser.",
+          "assessmentUnit": "Unser Deutschkurs Nominativ",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 17,
+              "quote": "Unser Deutschkurs"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Wir lesen ___ Texte« ohne vorangestellten Artikel?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.nominal.q2.b",
+              "textDe": "kurze"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q2.c",
+              "textDe": "kurzem"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q2.a",
+              "textDe": "kurzen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.nominal.q2.b",
+          "correctAnswerTextDe": "kurze",
+          "rationaleDe": "Beim artikellosen Akkusativ Plural lautet die Adjektivform kurze Texte; kurzen und kurzem passen hier nicht.",
+          "assessmentUnit": "kurze Adjektiv Plural",
+          "sourceSpans": [
+            {
+              "start": 169,
+              "end": 180,
+              "quote": "kurze Texte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Der Lehrer erklärt ___ Stundenplan«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.nominal.q3.a",
+              "textDe": "dem"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q3.c",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q3.b",
+              "textDe": "der"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.nominal.q3.c",
+          "correctAnswerTextDe": "den",
+          "rationaleDe": "Stundenplan ist maskulin und steht als Objekt im Akkusativ; der bestimmte Artikel lautet den.",
+          "assessmentUnit": "den Stundenplan Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 201,
+              "end": 216,
+              "quote": "den Stundenplan"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich schreibe die Zeiten in ___ Kalender«, wenn der Kalender dem Sprecher gehört?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.nominal.q4.b",
+              "textDe": "mein"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q4.c",
+              "textDe": "meinem"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q4.a",
+              "textDe": "meinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.nominal.q4.a",
+          "correctAnswerTextDe": "meinen",
+          "rationaleDe": "Die Eintragung in den Kalender wird hier mit in und Akkusativ bezeichnet: in meinen Kalender.",
+          "assessmentUnit": "meinen Kalender Ziel Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 250,
+              "end": 268,
+              "quote": "in meinen Kalender"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich hole meinen Sohn von ___ Schule ab«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.nominal.q5.c",
+              "textDe": "die"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q5.a",
+              "textDe": "der"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q5.b",
+              "textDe": "den"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.nominal.q5.a",
+          "correctAnswerTextDe": "der",
+          "rationaleDe": "Von verlangt Dativ; für das feminine Nomen Schule lautet der bestimmte Artikel der.",
+          "assessmentUnit": "der Schule Dativ",
+          "sourceSpans": [
+            {
+              "start": 305,
+              "end": 319,
+              "quote": "von der Schule"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a12-10.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »Das passt gut für ___«, wenn der Sprecher selbst gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a12-10.nominal.q6.b",
+              "textDe": "mir"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q6.a",
+              "textDe": "ich"
+            },
+            {
+              "id": "sitov.pretest.a12-10.nominal.q6.c",
+              "textDe": "mich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a12-10.nominal.q6.c",
+          "correctAnswerTextDe": "mich",
+          "rationaleDe": "Für verlangt Akkusativ; mich ist die entsprechende Personalpronomenform der ersten Person Singular.",
+          "assessmentUnit": "mich Akkusativ nach für",
+          "sourceSpans": [
+            {
+              "start": 343,
+              "end": 351,
+              "quote": "für mich"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "b2ae5915-20dd-5018-8921-6afe5be0f1fd",
+      "title": "Mein erster Arbeitstag",
+      "level": "A2.1",
+      "textVersion": "f67f9d04716c48d88c9f99b84758a89fa29ddd02e77c564d190599ed28648879",
+      "definitionContentHash": "456751a4ddd4861e2793d8aea9f138e9ffc11ba12a4392c39e9f45878e9cc58b",
+      "sourceBodyDe": "Gestern hatte ich meinen ersten Arbeitstag in einer Bäckerei. Ich war ein bisschen nervös und bin sehr früh losgefahren. Mein Kollege hat mir zuerst die Küche gezeigt. Danach haben wir zusammen die Brötchen sortiert. An der Kasse musste ich oft nachfragen, weil die Kunden schnell gesprochen haben. Mein Kollege war geduldig und hat mir geholfen. Am Abend war ich müde, aber auch stolz. Heute kenne ich schon mehr Wörter für meine Arbeit.",
+      "status": "author_checked_independent_review_pending",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a21-01.words.q1",
+          "publicPromptDe": "Was ist eine »Bäckerei«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.words.q1.b",
+              "textDe": "Ein Becken zum Schwimmen."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q1.c",
+              "textDe": "Ein Bahnhofsgleis."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q1.a",
+              "textDe": "Ein Betrieb, der Backwaren herstellt oder verkauft."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.words.q1.a",
+          "correctAnswerTextDe": "Ein Betrieb, der Backwaren herstellt oder verkauft.",
+          "rationaleDe": "Eine Bäckerei stellt Backwaren her oder verkauft sie; Gleis und Wasserbecken sind andere Einrichtungen.",
+          "assessmentUnit": "Bäckerei Arbeitsort",
+          "sourceSpans": [
+            {
+              "start": 43,
+              "end": 60,
+              "quote": "in einer Bäckerei"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q2",
+          "publicPromptDe": "Was bedeutet »nervös« vor einem ersten Arbeitstag?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.words.q2.a",
+              "textDe": "Völlig aus Metall bestehend."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q2.b",
+              "textDe": "Innerlich angespannt oder aufgeregt."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q2.c",
+              "textDe": "Genau zwölf Uhr."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.words.q2.b",
+          "correctAnswerTextDe": "Innerlich angespannt oder aufgeregt.",
+          "rationaleDe": "Nervös beschreibt ein Gefühl von Anspannung, kein Material und keine Uhrzeit.",
+          "assessmentUnit": "nervös Gefühl",
+          "sourceSpans": [
+            {
+              "start": 83,
+              "end": 89,
+              "quote": "nervös"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q3",
+          "publicPromptDe": "Was bedeutet »Brötchen sortieren«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.words.q3.b",
+              "textDe": "Die Brötchen ausdrücklich sofort alle essen."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q3.c",
+              "textDe": "Die Brötchen als Fahrkarten benutzen."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q3.a",
+              "textDe": "Die Brötchen nach einer Ordnung zusammenstellen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.words.q3.a",
+          "correctAnswerTextDe": "Die Brötchen nach einer Ordnung zusammenstellen.",
+          "rationaleDe": "Sortieren meint das ordnende Zusammenstellen; Essen und Fahrkartennutzung sind andere Handlungen.",
+          "assessmentUnit": "sortieren Ordnung",
+          "sourceSpans": [
+            {
+              "start": 194,
+              "end": 215,
+              "quote": "die Brötchen sortiert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q4",
+          "publicPromptDe": "Was bedeutet »geduldig«, wenn ein Kollege wiederholt Fragen beantwortet?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.words.q4.b",
+              "textDe": "Er ist ein Küchengerät."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q4.c",
+              "textDe": "Er bleibt ruhig und nimmt sich Zeit."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q4.a",
+              "textDe": "Er beantwortet ausdrücklich keine Frage aus Ungeduld."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.words.q4.c",
+          "correctAnswerTextDe": "Er bleibt ruhig und nimmt sich Zeit.",
+          "rationaleDe": "Geduldig beschreibt ruhiges, ausdauerndes Verhalten; Ungeduld oder Gegenstandsart widersprechen dieser Bedeutung.",
+          "assessmentUnit": "geduldig Verhalten",
+          "sourceSpans": [
+            {
+              "start": 316,
+              "end": 324,
+              "quote": "geduldig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q5",
+          "publicPromptDe": "Was bedeutet »stolz« nach einer gelungenen Arbeit?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.words.q5.b",
+              "textDe": "Man freut sich über das Erreichte."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q5.c",
+              "textDe": "Man bezeichnet damit ein Verkehrsmittel."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q5.a",
+              "textDe": "Man nennt damit die Temperatur des Ofens."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.words.q5.b",
+          "correctAnswerTextDe": "Man freut sich über das Erreichte.",
+          "rationaleDe": "Stolz bezeichnet hier das positive Gefühl über eine Leistung, keine Temperatur oder Fahrzeugart.",
+          "assessmentUnit": "stolz Gefühl",
+          "sourceSpans": [
+            {
+              "start": 380,
+              "end": 385,
+              "quote": "stolz"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.words.q6",
+          "publicPromptDe": "Was bedeutet »mehr Wörter« in »Heute kenne ich mehr Wörter als gestern«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.words.q6.c",
+              "textDe": "Die Anzahl bekannter Wörter ist größer geworden."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q6.a",
+              "textDe": "Die Anzahl ist genau gleich geblieben."
+            },
+            {
+              "id": "sitov.pretest.a21-01.words.q6.b",
+              "textDe": "Es sind ausdrücklich weniger Wörter geworden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.words.q6.c",
+          "correctAnswerTextDe": "Die Anzahl bekannter Wörter ist größer geworden.",
+          "rationaleDe": "Mehr bezeichnet eine größere Menge im Vergleich; gleich viele und weniger sind andere Mengenverhältnisse.",
+          "assessmentUnit": "mehr Mengenvergleich",
+          "sourceSpans": [
+            {
+              "start": 409,
+              "end": 420,
+              "quote": "mehr Wörter"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q1",
+          "publicPromptDe": "Welche Grundform gehört zu »hatte« in »Gestern hatte ich meinen ersten Arbeitstag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.verbs.q1.a",
+              "textDe": "haben"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q1.b",
+              "textDe": "hören"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q1.c",
+              "textDe": "halten"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.verbs.q1.a",
+          "correctAnswerTextDe": "haben",
+          "rationaleDe": "Hatte ist das Präteritum von haben; halten und hören haben andere Vergangenheitsformen.",
+          "assessmentUnit": "hatte Präteritum haben",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 17,
+              "quote": "Gestern hatte ich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q2",
+          "publicPromptDe": "Welche Präsensform entspricht bei »ich« dem Präteritum »war« in »Ich war nervös«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.verbs.q2.a",
+              "textDe": "habe"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q2.c",
+              "textDe": "bin"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q2.b",
+              "textDe": "werde"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.verbs.q2.c",
+          "correctAnswerTextDe": "bin",
+          "rationaleDe": "War ist hier die Vergangenheitsform von sein; im Präsens lautet die erste Person bin.",
+          "assessmentUnit": "war Präteritum sein",
+          "sourceSpans": [
+            {
+              "start": 62,
+              "end": 89,
+              "quote": "Ich war ein bisschen nervös"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q3",
+          "publicPromptDe": "Welches Hilfsverb ergänzt »Ich ___ sehr früh losgefahren« im Perfekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.verbs.q3.b",
+              "textDe": "bin"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q3.a",
+              "textDe": "werde"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q3.c",
+              "textDe": "habe"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.verbs.q3.b",
+          "correctAnswerTextDe": "bin",
+          "rationaleDe": "Losfahren bildet hier als Bewegung mit Ortswechsel das Perfekt mit sein: ich bin losgefahren.",
+          "assessmentUnit": "Perfekt losfahren mit sein",
+          "sourceSpans": [
+            {
+              "start": 94,
+              "end": 119,
+              "quote": "bin sehr früh losgefahren"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q4",
+          "publicPromptDe": "Welches Partizip ergänzt »Mein Kollege hat mir die Küche ___« zu zeigen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.verbs.q4.c",
+              "textDe": "zeigen"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q4.b",
+              "textDe": "zeigte"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q4.a",
+              "textDe": "gezeigt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.verbs.q4.a",
+          "correctAnswerTextDe": "gezeigt",
+          "rationaleDe": "Zum Perfekt mit hat gehört das Partizip gezeigt; zeigen ist Infinitiv und zeigte Präteritum.",
+          "assessmentUnit": "gezeigt schwaches Partizip",
+          "sourceSpans": [
+            {
+              "start": 134,
+              "end": 166,
+              "quote": "hat mir zuerst die Küche gezeigt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Danach ___ wir die Brötchen sortiert« im Perfekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.verbs.q5.a",
+              "textDe": "hat"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q5.b",
+              "textDe": "haben"
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q5.c",
+              "textDe": "habt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.verbs.q5.b",
+          "correctAnswerTextDe": "haben",
+          "rationaleDe": "Das Subjekt wir verlangt das Hilfsverb haben; hat und habt passen zu anderen Personen.",
+          "assessmentUnit": "haben wir Perfekt Plural",
+          "sourceSpans": [
+            {
+              "start": 175,
+              "end": 215,
+              "quote": "haben wir zusammen die Brötchen sortiert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.verbs.q6",
+          "publicPromptDe": "Was drückt »musste« in »An der Kasse musste ich oft nachfragen« aus?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.verbs.q6.a",
+              "textDe": "Eine bereits erteilte Erlaubnis ohne Notwendigkeit."
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q6.b",
+              "textDe": "Ein ausdrückliches Verbot in der Zukunft."
+            },
+            {
+              "id": "sitov.pretest.a21-01.verbs.q6.c",
+              "textDe": "Eine Notwendigkeit in der Vergangenheit."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.verbs.q6.c",
+          "correctAnswerTextDe": "Eine Notwendigkeit in der Vergangenheit.",
+          "rationaleDe": "Musste ist die Vergangenheitsform von müssen und drückt hier vergangene Notwendigkeit aus.",
+          "assessmentUnit": "musste Präteritum Modalverb",
+          "sourceSpans": [
+            {
+              "start": 230,
+              "end": 255,
+              "quote": "musste ich oft nachfragen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q1",
+          "publicPromptDe": "Welche Zeit nennt »Gestern hatte ich meinen ersten Arbeitstag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.syntax.q1.a",
+              "textDe": "Den Tag vor heute."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q1.c",
+              "textDe": "Den Tag nach heute."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q1.b",
+              "textDe": "Ein ausdrücklich genanntes nächstes Jahr."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.syntax.q1.a",
+          "correctAnswerTextDe": "Den Tag vor heute.",
+          "rationaleDe": "Gestern bezeichnet den Tag vor heute; morgen oder nächstes Jahr sind andere Zeitangaben.",
+          "assessmentUnit": "Gestern vergangener Zeitpunkt",
+          "sourceSpans": [
+            {
+              "start": 0,
+              "end": 42,
+              "quote": "Gestern hatte ich meinen ersten Arbeitstag"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q2",
+          "publicPromptDe": "Was passiert laut »Zuerst zeigt mein Kollege die Küche. Danach sortieren wir Brötchen« zuerst?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.syntax.q2.c",
+              "textDe": "Das Zeigen der Küche."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q2.a",
+              "textDe": "Beides wird ausdrücklich gleichzeitig begonnen."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q2.b",
+              "textDe": "Das Sortieren der Brötchen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.syntax.q2.c",
+          "correctAnswerTextDe": "Das Zeigen der Küche.",
+          "rationaleDe": "Zuerst und danach ordnen die öffentlich genannten Tätigkeiten: Küche zeigen kommt vor Brötchen sortieren.",
+          "assessmentUnit": "zuerst Danach Reihenfolge",
+          "sourceSpans": [
+            {
+              "start": 142,
+              "end": 216,
+              "quote": "zuerst die Küche gezeigt. Danach haben wir zusammen die Brötchen sortiert."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q3",
+          "publicPromptDe": "Welcher Satz ist mit vorangestelltem »An der Kasse« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.syntax.q3.b",
+              "textDe": "An der Kasse oft nachfragen ich musste."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q3.a",
+              "textDe": "An der Kasse ich musste oft nachfragen."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q3.c",
+              "textDe": "An der Kasse musste ich oft nachfragen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.syntax.q3.c",
+          "correctAnswerTextDe": "An der Kasse musste ich oft nachfragen.",
+          "rationaleDe": "Nach dem vorangestellten Ortsglied steht das finite Modalverb musste vor ich; nachfragen steht am Ende.",
+          "assessmentUnit": "An Kasse Vorfeld Verbzweit",
+          "sourceSpans": [
+            {
+              "start": 217,
+              "end": 255,
+              "quote": "An der Kasse musste ich oft nachfragen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q4",
+          "publicPromptDe": "Welche Fortsetzung ist korrekt: »Ich musste nachfragen, weil …«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.syntax.q4.b",
+              "textDe": "die Kunden haben schnell gesprochen."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q4.a",
+              "textDe": "die Kunden schnell gesprochen haben."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q4.c",
+              "textDe": "haben die Kunden schnell gesprochen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.syntax.q4.a",
+          "correctAnswerTextDe": "die Kunden schnell gesprochen haben.",
+          "rationaleDe": "Im weil-Nebensatz steht die finite Form haben am Ende nach dem Partizip gesprochen.",
+          "assessmentUnit": "weil Perfekt Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 257,
+              "end": 297,
+              "quote": "weil die Kunden schnell gesprochen haben"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q5",
+          "publicPromptDe": "Welche Beziehung zeigt »aber« in »Ich war müde, aber auch stolz«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.syntax.q5.c",
+              "textDe": "Müdigkeit wird ausdrücklich verneint."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q5.b",
+              "textDe": "Müdigkeit und Stolz werden zugleich gegenübergestellt."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q5.a",
+              "textDe": "Stolz wird ausdrücklich verneint."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.syntax.q5.b",
+          "correctAnswerTextDe": "Müdigkeit und Stolz werden zugleich gegenübergestellt.",
+          "rationaleDe": "Aber verbindet Müdigkeit mit dem zugleich bestehenden positiven Stolz; keine Empfindung wird durch den Satz verneint.",
+          "assessmentUnit": "aber kontrastierende Zustände",
+          "sourceSpans": [
+            {
+              "start": 347,
+              "end": 386,
+              "quote": "Am Abend war ich müde, aber auch stolz."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.syntax.q6",
+          "publicPromptDe": "Auf welchen Zeitpunkt wechselt »Heute kenne ich mehr Wörter« nach einem Bericht über gestern?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.syntax.q6.c",
+              "textDe": "Auf den Tag vor gestern."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q6.a",
+              "textDe": "Auf ein ausdrücklich genanntes nächstes Jahr."
+            },
+            {
+              "id": "sitov.pretest.a21-01.syntax.q6.b",
+              "textDe": "Auf den heutigen Tag."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.syntax.q6.b",
+          "correctAnswerTextDe": "Auf den heutigen Tag.",
+          "rationaleDe": "Heute wechselt vom gestrigen Bericht zur Gegenwart; die anderen Zeitpunkte werden nicht bezeichnet.",
+          "assessmentUnit": "Heute Gegenwartswechsel",
+          "sourceSpans": [
+            {
+              "start": 387,
+              "end": 438,
+              "quote": "Heute kenne ich schon mehr Wörter für meine Arbeit."
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich hatte meinen ___ Arbeitstag«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.nominal.q1.a",
+              "textDe": "erstem"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q1.b",
+              "textDe": "ersten"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q1.c",
+              "textDe": "erste"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.nominal.q1.b",
+          "correctAnswerTextDe": "ersten",
+          "rationaleDe": "Nach meinen trägt das Adjektiv beim maskulinen Akkusativ die Endung en: ersten.",
+          "assessmentUnit": "ersten Adjektiv Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 18,
+              "end": 42,
+              "quote": "meinen ersten Arbeitstag"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich arbeite in ___ Bäckerei«, wenn ein fester Arbeitsort gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.nominal.q2.a",
+              "textDe": "einer"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q2.b",
+              "textDe": "eine"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q2.c",
+              "textDe": "einen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.nominal.q2.a",
+          "correctAnswerTextDe": "einer",
+          "rationaleDe": "Die feminine Bäckerei steht in dieser Ortsangabe mit in im Dativ: in einer Bäckerei.",
+          "assessmentUnit": "einer Bäckerei Dativ",
+          "sourceSpans": [
+            {
+              "start": 43,
+              "end": 60,
+              "quote": "in einer Bäckerei"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Mein Kollege hat ___ geholfen«, wenn er dem Sprecher geholfen hat?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.nominal.q3.a",
+              "textDe": "ich"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q3.b",
+              "textDe": "mir"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q3.c",
+              "textDe": "mich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.nominal.q3.b",
+          "correctAnswerTextDe": "mir",
+          "rationaleDe": "Helfen verlangt hier Dativ; mir bezeichnet den Sprecher als Empfänger der Hilfe.",
+          "assessmentUnit": "mir Dativ helfen",
+          "sourceSpans": [
+            {
+              "start": 329,
+              "end": 345,
+              "quote": "hat mir geholfen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q4",
+          "publicPromptDe": "Welche Wortgruppe ist in »Wir sortieren die Brötchen« das Akkusativobjekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.nominal.q4.b",
+              "textDe": "sortieren"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q4.c",
+              "textDe": "wir"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q4.a",
+              "textDe": "die Brötchen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.nominal.q4.a",
+          "correctAnswerTextDe": "die Brötchen",
+          "rationaleDe": "Die Brötchen bezeichnet die sortierten Gegenstände; wir ist das Subjekt und sortieren das Verb.",
+          "assessmentUnit": "Brötchen Plural Artikel",
+          "sourceSpans": [
+            {
+              "start": 194,
+              "end": 206,
+              "quote": "die Brötchen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »___ Kollege war geduldig«, wenn es der Kollege des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.nominal.q5.b",
+              "textDe": "Meinem"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q5.a",
+              "textDe": "Meinen"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q5.c",
+              "textDe": "Mein"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.nominal.q5.c",
+          "correctAnswerTextDe": "Mein",
+          "rationaleDe": "Kollege ist hier maskulines Subjekt im Nominativ; deshalb lautet die Possessivform mein.",
+          "assessmentUnit": "Mein Kollege Nominativ",
+          "sourceSpans": [
+            {
+              "start": 299,
+              "end": 324,
+              "quote": "Mein Kollege war geduldig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a21-01.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »Wörter für ___ Arbeit«, wenn es die Arbeit des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a21-01.nominal.q6.c",
+              "textDe": "meine"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q6.a",
+              "textDe": "meinem"
+            },
+            {
+              "id": "sitov.pretest.a21-01.nominal.q6.b",
+              "textDe": "meiner"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a21-01.nominal.q6.c",
+          "correctAnswerTextDe": "meine",
+          "rationaleDe": "Für verlangt Akkusativ; für die feminine Arbeit ist meine die passende Possessivform.",
+          "assessmentUnit": "meine Arbeit Akkusativ für",
+          "sourceSpans": [
+            {
+              "start": 421,
+              "end": 437,
+              "quote": "für meine Arbeit"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
