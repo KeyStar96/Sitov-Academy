@@ -7,8 +7,8 @@
   "scope": "Repository canonical seeds and revisions; no live/custom inventory",
   "coverage": {
     "total": 60,
-    "authored": 9,
-    "pending": 51
+    "authored": 12,
+    "pending": 48
   },
   "audioStatus": "draft_only: full DB public-question/reference asset and immutable word-timing proof gate implemented; actual M local preparation, byte/timing audit, import and trusted proof insertion pending; no definitions published",
   "drafts": [
@@ -9517,6 +9517,3151 @@
           }
         ]
       }
+    },
+    {
+      "textId": "4a6f7008-9439-5c6e-9d60-113e8945f800",
+      "unitId": "4a6f7008-9439-5c6e-9d60-113e8945f800",
+      "level": "A1.1",
+      "textVersion": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a11-10.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Tageszeit, Wohnort, Telefon, Größe, Lautstärke und tatsächliche Uhrzeit des Abendtextes verstehen.",
+            "languageUnits": [
+              "Abend als Tageszeit",
+              "zu Hause eigener Wohnort",
+              "Handy als Telefon",
+              "kleines Buch Größe",
+              "leise Lautstärke",
+              "zehn Uhr Zeit"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 13,
+                "quote": "Es ist Abend."
+              },
+              {
+                "start": 14,
+                "end": 31,
+                "quote": "Ich bin zu Hause."
+              },
+              {
+                "start": 32,
+                "end": 63,
+                "quote": "Mein Handy liegt auf dem Tisch."
+              },
+              {
+                "start": 79,
+                "end": 95,
+                "quote": "ein kleines Buch"
+              },
+              {
+                "start": 153,
+                "end": 169,
+                "quote": "höre leise Musik"
+              },
+              {
+                "start": 171,
+                "end": 201,
+                "quote": "Um zehn Uhr gehe ich ins Bett."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sein, liegen, lesen, schlafen, trinken und gehen in ihren tatsächlich vorkommenden Personenformen erkennen.",
+            "languageUnits": [
+              "sein erste Person Aufenthalt",
+              "liegen Handy Singular",
+              "lesen erste Person Grundform",
+              "schlafen Katze Singular",
+              "trinken erste Person",
+              "gehen Ich nach Zeitangabe"
+            ],
+            "sourceSpans": [
+              {
+                "start": 14,
+                "end": 31,
+                "quote": "Ich bin zu Hause."
+              },
+              {
+                "start": 32,
+                "end": 63,
+                "quote": "Mein Handy liegt auf dem Tisch."
+              },
+              {
+                "start": 64,
+                "end": 96,
+                "quote": "Heute lese ich ein kleines Buch."
+              },
+              {
+                "start": 97,
+                "end": 130,
+                "quote": "Meine Katze schläft auf dem Sofa."
+              },
+              {
+                "start": 131,
+                "end": 148,
+                "quote": "Ich trinke Wasser"
+              },
+              {
+                "start": 171,
+                "end": 201,
+                "quote": "Um zehn Uhr gehe ich ins Bett."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Gegenstand und Ort, Heute-Inversion, Katzenort, koordinierte Tätigkeiten, Bewegung ins Bett und Nachtgruß nachvollziehen.",
+            "languageUnits": [
+              "Handy Ort auf Tisch",
+              "Heute vorangestelltes Feld",
+              "Katze eigener Ruheort",
+              "Wasser Musik zwei Handlungen",
+              "ins Bett als Bewegung",
+              "Gute Nacht als Abschiedsgruß"
+            ],
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 63,
+                "quote": "Mein Handy liegt auf dem Tisch."
+              },
+              {
+                "start": 64,
+                "end": 96,
+                "quote": "Heute lese ich ein kleines Buch."
+              },
+              {
+                "start": 97,
+                "end": 130,
+                "quote": "Meine Katze schläft auf dem Sofa."
+              },
+              {
+                "start": 131,
+                "end": 170,
+                "quote": "Ich trinke Wasser und höre leise Musik."
+              },
+              {
+                "start": 171,
+                "end": 201,
+                "quote": "Um zehn Uhr gehe ich ins Bett."
+              },
+              {
+                "start": 202,
+                "end": 213,
+                "quote": "Gute Nacht!"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a11-10.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Neutrale und feminine Besitzformen, lokalen Dativ, kleines Buch, gerichtete Kontraktion ins und die tatsächliche Grußform erkennen.",
+            "languageUnits": [
+              "Mein Handy neutrale Besitzform",
+              "auf dem Tisch lokaler Dativ",
+              "kleines Buch Adjektivendung",
+              "Meine Katze feminine Besitzform",
+              "ins Akkusativ Kontraktion Bett",
+              "Gute Nacht Adjektivform Gruß"
+            ],
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 63,
+                "quote": "Mein Handy liegt auf dem Tisch."
+              },
+              {
+                "start": 49,
+                "end": 62,
+                "quote": "auf dem Tisch"
+              },
+              {
+                "start": 79,
+                "end": 95,
+                "quote": "ein kleines Buch"
+              },
+              {
+                "start": 97,
+                "end": 130,
+                "quote": "Meine Katze schläft auf dem Sofa."
+              },
+              {
+                "start": 192,
+                "end": 200,
+                "quote": "ins Bett"
+              },
+              {
+                "start": 202,
+                "end": 213,
+                "quote": "Gute Nacht!"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a11-10.words.q1",
+            "competencyId": "sitov.pretest.a11-10.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Tageszeit bezeichnet »Abend«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.words.q1.a",
+                "textDe": "Die Mitte des Tages gegen zwölf Uhr."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q1.b",
+                "textDe": "Die Zeit am frühen Morgen."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q1.c",
+                "textDe": "Die Zeit gegen Ende des Tages."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.words.q1.c",
+            "assessmentUnit": "Abend als Tageszeit",
+            "equivalenceKey": "sitov:10:words:Abend als Tageszeit",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 13,
+                "quote": "Es ist Abend."
+              }
+            ],
+            "rationaleDe": "Abend liegt gegen Ende des Tages; früher Morgen und Mittag sind andere Tageszeiten."
+          },
+          {
+            "id": "sitov.pretest.a11-10.words.q2",
+            "competencyId": "sitov.pretest.a11-10.words",
+            "kind": "single_choice",
+            "promptDe": "Wo ist der Sprecher mit »zu Hause«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.words.q2.a",
+                "textDe": "Im Unterrichtsraum seines Kurses."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q2.b",
+                "textDe": "An seinem Wohnort."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q2.c",
+                "textDe": "In einem fahrenden Bus."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.words.q2.b",
+            "assessmentUnit": "zu Hause eigener Wohnort",
+            "equivalenceKey": "sitov:10:words:zu Hause eigener Wohnort",
+            "sourceSpans": [
+              {
+                "start": 14,
+                "end": 31,
+                "quote": "Ich bin zu Hause."
+              }
+            ],
+            "rationaleDe": "Zu Hause bezeichnet hier den eigenen Wohnort; Bus und Unterrichtsraum sind andere Aufenthaltsorte."
+          },
+          {
+            "id": "sitov.pretest.a11-10.words.q3",
+            "competencyId": "sitov.pretest.a11-10.words",
+            "kind": "single_choice",
+            "promptDe": "Welchen Gegenstand bezeichnet »Handy«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.words.q3.a",
+                "textDe": "Ein Mobiltelefon."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q3.b",
+                "textDe": "Eine Sitzgelegenheit."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q3.c",
+                "textDe": "Ein Buch aus Papier."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.words.q3.a",
+            "assessmentUnit": "Handy als Telefon",
+            "equivalenceKey": "sitov:10:words:Handy als Telefon",
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 63,
+                "quote": "Mein Handy liegt auf dem Tisch."
+              }
+            ],
+            "rationaleDe": "Handy ist die deutsche Bezeichnung für ein Mobiltelefon; Buch und Sitzgelegenheit sind andere Gegenstände."
+          },
+          {
+            "id": "sitov.pretest.a11-10.words.q4",
+            "competencyId": "sitov.pretest.a11-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »kleines« beim Buch?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.words.q4.a",
+                "textDe": "Das Buch ist nach dem Wort zwingend ein Telefon."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q4.b",
+                "textDe": "Das Buch hat eine geringe Größe."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q4.c",
+                "textDe": "Das Buch hat eine besonders große Größe."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.words.q4.b",
+            "assessmentUnit": "kleines Buch Größe",
+            "equivalenceKey": "sitov:10:words:kleines Buch Größe",
+            "sourceSpans": [
+              {
+                "start": 79,
+                "end": 95,
+                "quote": "ein kleines Buch"
+              }
+            ],
+            "rationaleDe": "Klein beschreibt eine geringe Größe; groß ist das Gegenteil, und eine andere Gegenstandsart wird nicht genannt."
+          },
+          {
+            "id": "sitov.pretest.a11-10.words.q5",
+            "competencyId": "sitov.pretest.a11-10.words",
+            "kind": "single_choice",
+            "promptDe": "Wie ist die Lautstärke der Musik bei »leise«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.words.q5.a",
+                "textDe": "Die Musik ist nicht laut."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q5.b",
+                "textDe": "Musik wird überhaupt nicht gehört."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q5.c",
+                "textDe": "Die Musik ist sehr laut."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.words.q5.a",
+            "assessmentUnit": "leise Lautstärke",
+            "equivalenceKey": "sitov:10:words:leise Lautstärke",
+            "sourceSpans": [
+              {
+                "start": 153,
+                "end": 169,
+                "quote": "höre leise Musik"
+              }
+            ],
+            "rationaleDe": "Leise beschreibt eine geringe Lautstärke; sehr laut und gar nicht hören sind andere Aussagen."
+          },
+          {
+            "id": "sitov.pretest.a11-10.words.q6",
+            "competencyId": "sitov.pretest.a11-10.words",
+            "kind": "single_choice",
+            "promptDe": "Zu welcher Uhrzeit geht der Sprecher ins Bett?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.words.q6.a",
+                "textDe": "Um 9 Uhr."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q6.b",
+                "textDe": "Um 12 Uhr."
+              },
+              {
+                "id": "sitov.pretest.a11-10.words.q6.c",
+                "textDe": "Um 10 Uhr."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.words.q6.c",
+            "assessmentUnit": "zehn Uhr Zeit",
+            "equivalenceKey": "sitov:10:words:zehn Uhr Zeit",
+            "sourceSpans": [
+              {
+                "start": 171,
+                "end": 201,
+                "quote": "Um zehn Uhr gehe ich ins Bett."
+              }
+            ],
+            "rationaleDe": "Zehn entspricht 10 und ist die genannte Uhrzeit; zwölf und neun verändern diese Zeitangabe."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q1",
+            "competencyId": "sitov.pretest.a11-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »bin« im Satz über den Aufenthalt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.verbs.q1.a",
+                "textDe": "bleiben"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q1.b",
+                "textDe": "sein"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q1.c",
+                "textDe": "beginnen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.verbs.q1.b",
+            "assessmentUnit": "sein erste Person Aufenthalt",
+            "equivalenceKey": "sitov:10:verbs:sein erste Person Aufenthalt",
+            "sourceSpans": [
+              {
+                "start": 14,
+                "end": 31,
+                "quote": "Ich bin zu Hause."
+              }
+            ],
+            "rationaleDe": "Bin ist die ich-Form von sein; bleiben und beginnen sind andere Verben und nicht die Grundform dieser Form."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q2",
+            "competencyId": "sitov.pretest.a11-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Verbform ergänzt »Mein Handy … auf dem Tisch«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.verbs.q2.a",
+                "textDe": "liege"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q2.b",
+                "textDe": "liegt"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q2.c",
+                "textDe": "liegen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.verbs.q2.b",
+            "assessmentUnit": "liegen Handy Singular",
+            "equivalenceKey": "sitov:10:verbs:liegen Handy Singular",
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 63,
+                "quote": "Mein Handy liegt auf dem Tisch."
+              }
+            ],
+            "rationaleDe": "Das einzelne Handy steht in der dritten Person Singular, daher liegt; liegen und liege passen nicht zu diesem Subjekt."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q3",
+            "competencyId": "sitov.pretest.a11-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »lese« beim Buch?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.verbs.q3.a",
+                "textDe": "lernen"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q3.b",
+                "textDe": "lesen"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q3.c",
+                "textDe": "leben"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.verbs.q3.b",
+            "assessmentUnit": "lesen erste Person Grundform",
+            "equivalenceKey": "sitov:10:verbs:lesen erste Person Grundform",
+            "sourceSpans": [
+              {
+                "start": 64,
+                "end": 96,
+                "quote": "Heute lese ich ein kleines Buch."
+              }
+            ],
+            "rationaleDe": "Lese ist die ich-Form von lesen; lernen und leben sind ähnliche geschriebene, aber andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q4",
+            "competencyId": "sitov.pretest.a11-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »schläft« bei der Katze?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.verbs.q4.a",
+                "textDe": "schließen"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q4.b",
+                "textDe": "schaffen"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q4.c",
+                "textDe": "schlafen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.verbs.q4.c",
+            "assessmentUnit": "schlafen Katze Singular",
+            "equivalenceKey": "sitov:10:verbs:schlafen Katze Singular",
+            "sourceSpans": [
+              {
+                "start": 97,
+                "end": 130,
+                "quote": "Meine Katze schläft auf dem Sofa."
+              }
+            ],
+            "rationaleDe": "Schläft ist die dritte Person Singular von schlafen mit dem Umlaut ä; schaffen und schließen sind andere Grundformen."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q5",
+            "competencyId": "sitov.pretest.a11-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich … Wasser«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.verbs.q5.a",
+                "textDe": "trinken"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q5.b",
+                "textDe": "trinkst"
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q5.c",
+                "textDe": "trinke"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.verbs.q5.c",
+            "assessmentUnit": "trinken erste Person",
+            "equivalenceKey": "sitov:10:verbs:trinken erste Person",
+            "sourceSpans": [
+              {
+                "start": 131,
+                "end": 148,
+                "quote": "Ich trinke Wasser"
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich verlangt trinke; trinkst gehört zu du und trinken ist hier keine passende ich-Form."
+          },
+          {
+            "id": "sitov.pretest.a11-10.verbs.q6",
+            "competencyId": "sitov.pretest.a11-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Zu welcher Person gehört »gehe« in diesem Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.verbs.q6.a",
+                "textDe": "Zur ersten Person Singular: ich."
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q6.b",
+                "textDe": "Zur dritten Person Plural: sie."
+              },
+              {
+                "id": "sitov.pretest.a11-10.verbs.q6.c",
+                "textDe": "Zur zweiten Person Singular: du."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.verbs.q6.a",
+            "assessmentUnit": "gehen Ich nach Zeitangabe",
+            "equivalenceKey": "sitov:10:verbs:gehen Ich nach Zeitangabe",
+            "sourceSpans": [
+              {
+                "start": 171,
+                "end": 201,
+                "quote": "Um zehn Uhr gehe ich ins Bett."
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich steht hinter gehe und bestimmt die erste Person Singular; die Orts- und Zeitangaben ändern die Person nicht."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q1",
+            "competencyId": "sitov.pretest.a11-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was liegt nach diesem Satz auf dem Tisch?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.syntax.q1.a",
+                "textDe": "Die Katze als ausdrücklich genanntes Tischobjekt."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q1.b",
+                "textDe": "Das Handy des Sprechers."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q1.c",
+                "textDe": "Der Tisch auf dem Handy."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.syntax.q1.b",
+            "assessmentUnit": "Handy Ort auf Tisch",
+            "equivalenceKey": "sitov:10:syntax:Handy Ort auf Tisch",
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 63,
+                "quote": "Mein Handy liegt auf dem Tisch."
+              }
+            ],
+            "rationaleDe": "Mein Handy ist das Subjekt und auf dem Tisch seine Ortsangabe; die anderen Antworten vertauschen Gegenstände oder Orte."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q2",
+            "competencyId": "sitov.pretest.a11-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welches Wort steht im gespeicherten Satz direkt nach »Heute«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.syntax.q2.a",
+                "textDe": "lese"
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q2.b",
+                "textDe": "Buch"
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q2.c",
+                "textDe": "ich"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.syntax.q2.a",
+            "assessmentUnit": "Heute vorangestelltes Feld",
+            "equivalenceKey": "sitov:10:syntax:Heute vorangestelltes Feld",
+            "sourceSpans": [
+              {
+                "start": 64,
+                "end": 96,
+                "quote": "Heute lese ich ein kleines Buch."
+              }
+            ],
+            "rationaleDe": "Nach der vorangestellten Zeitangabe Heute folgt das finite Verb lese; ich steht erst danach."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q3",
+            "competencyId": "sitov.pretest.a11-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wo schläft die Katze im Text?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.syntax.q3.a",
+                "textDe": "Im Bus auf dem Weg zum Kurs."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q3.b",
+                "textDe": "Auf dem Sofa."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q3.c",
+                "textDe": "Auf dem Tisch neben dem Handy."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.syntax.q3.b",
+            "assessmentUnit": "Katze eigener Ruheort",
+            "equivalenceKey": "sitov:10:syntax:Katze eigener Ruheort",
+            "sourceSpans": [
+              {
+                "start": 97,
+                "end": 130,
+                "quote": "Meine Katze schläft auf dem Sofa."
+              }
+            ],
+            "rationaleDe": "Auf dem Sofa ist die Ortsangabe der Katze; der Tisch gehört zum Handy und ein Bus wird hier nicht als Schlafort genannt."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q4",
+            "competencyId": "sitov.pretest.a11-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche beiden Handlungen führt der Sprecher in diesem Satz aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.syntax.q4.a",
+                "textDe": "Nur die Katze trinkt Wasser und hört Musik."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q4.b",
+                "textDe": "Er trinkt Wasser und hört Musik."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q4.c",
+                "textDe": "Er trinkt Musik und hört Wasser."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.syntax.q4.b",
+            "assessmentUnit": "Wasser Musik zwei Handlungen",
+            "equivalenceKey": "sitov:10:syntax:Wasser Musik zwei Handlungen",
+            "sourceSpans": [
+              {
+                "start": 131,
+                "end": 170,
+                "quote": "Ich trinke Wasser und höre leise Musik."
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich gilt für trinke und höre; Wasser ist das Getränk, Musik das Gehörte, und die Katze ist nicht das Subjekt."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q5",
+            "competencyId": "sitov.pretest.a11-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Handlung beschreibt der Satz mit »ins Bett«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.syntax.q5.a",
+                "textDe": "Der Sprecher verlässt seine Wohnung mit dem Bus."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q5.b",
+                "textDe": "Der Sprecher geht zum Schlafen in sein Bett."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q5.c",
+                "textDe": "Der Sprecher bleibt ausdrücklich am Tisch sitzen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.syntax.q5.b",
+            "assessmentUnit": "ins Bett als Bewegung",
+            "equivalenceKey": "sitov:10:syntax:ins Bett als Bewegung",
+            "sourceSpans": [
+              {
+                "start": 171,
+                "end": 201,
+                "quote": "Um zehn Uhr gehe ich ins Bett."
+              }
+            ],
+            "rationaleDe": "Gehe ins Bett beschreibt den Wechsel ins Bett; Sitzen am Tisch oder eine Busfahrt werden nicht ausgesagt."
+          },
+          {
+            "id": "sitov.pretest.a11-10.syntax.q6",
+            "competencyId": "sitov.pretest.a11-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wofür wird »Gute Nacht!« am Textende verwendet?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.syntax.q6.a",
+                "textDe": "Als Frage nach dem Brotpreis."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q6.b",
+                "textDe": "Als Begrüßung am Morgen."
+              },
+              {
+                "id": "sitov.pretest.a11-10.syntax.q6.c",
+                "textDe": "Als Gruß vor dem Schlafen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.syntax.q6.c",
+            "assessmentUnit": "Gute Nacht als Abschiedsgruß",
+            "equivalenceKey": "sitov:10:syntax:Gute Nacht als Abschiedsgruß",
+            "sourceSpans": [
+              {
+                "start": 202,
+                "end": 213,
+                "quote": "Gute Nacht!"
+              }
+            ],
+            "rationaleDe": "Gute Nacht ist der Abschiedsgruß vor dem Schlafen; Preisfrage und Morgenbegrüßung haben andere Formulierungen."
+          },
+          {
+            "id": "sitov.pretest.a11-10.nominal.q1",
+            "competencyId": "sitov.pretest.a11-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »… Handy liegt auf dem Tisch« für den Sprecher?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.nominal.q1.a",
+                "textDe": "Meinen"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q1.b",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q1.c",
+                "textDe": "Meine"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.nominal.q1.b",
+            "assessmentUnit": "Mein Handy neutrale Besitzform",
+            "equivalenceKey": "sitov:10:nominal:Mein Handy neutrale Besitzform",
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 63,
+                "quote": "Mein Handy liegt auf dem Tisch."
+              }
+            ],
+            "rationaleDe": "Handy ist neutral und hier Subjekt; die Besitzform lautet mein, nicht meine oder meinen."
+          },
+          {
+            "id": "sitov.pretest.a11-10.nominal.q2",
+            "competencyId": "sitov.pretest.a11-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Artikelform steht in der Ortsangabe »auf … Tisch«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.nominal.q2.a",
+                "textDe": "dem"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q2.b",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q2.c",
+                "textDe": "das"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.nominal.q2.a",
+            "assessmentUnit": "auf dem Tisch lokaler Dativ",
+            "equivalenceKey": "sitov:10:nominal:auf dem Tisch lokaler Dativ",
+            "sourceSpans": [
+              {
+                "start": 49,
+                "end": 62,
+                "quote": "auf dem Tisch"
+              }
+            ],
+            "rationaleDe": "Das Liegen beschreibt einen festen Ort; beim maskulinen Tisch steht deshalb dem im Dativ statt den oder das."
+          },
+          {
+            "id": "sitov.pretest.a11-10.nominal.q3",
+            "competencyId": "sitov.pretest.a11-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »klein« passt zur Textstelle »ein … Buch«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.nominal.q3.a",
+                "textDe": "kleine"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q3.b",
+                "textDe": "kleines"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q3.c",
+                "textDe": "kleinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.nominal.q3.b",
+            "assessmentUnit": "kleines Buch Adjektivendung",
+            "equivalenceKey": "sitov:10:nominal:kleines Buch Adjektivendung",
+            "sourceSpans": [
+              {
+                "start": 79,
+                "end": 95,
+                "quote": "ein kleines Buch"
+              }
+            ],
+            "rationaleDe": "Buch ist neutral und wird hier mit ein genannt; das Adjektiv hat in der gespeicherten Form die Endung -es."
+          },
+          {
+            "id": "sitov.pretest.a11-10.nominal.q4",
+            "competencyId": "sitov.pretest.a11-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Besitzform ergänzt »… Katze schläft auf dem Sofa«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.nominal.q4.a",
+                "textDe": "Meine"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q4.b",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q4.c",
+                "textDe": "Meinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.nominal.q4.a",
+            "assessmentUnit": "Meine Katze feminine Besitzform",
+            "equivalenceKey": "sitov:10:nominal:Meine Katze feminine Besitzform",
+            "sourceSpans": [
+              {
+                "start": 97,
+                "end": 130,
+                "quote": "Meine Katze schläft auf dem Sofa."
+              }
+            ],
+            "rationaleDe": "Das grammatisch feminine Wort Katze steht als Subjekt mit meine; mein und meinen passen nicht zu dieser Form."
+          },
+          {
+            "id": "sitov.pretest.a11-10.nominal.q5",
+            "competencyId": "sitov.pretest.a11-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche beiden Wörter stecken in »ins Bett«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.nominal.q5.a",
+                "textDe": "in der Bett"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q5.b",
+                "textDe": "in das Bett"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q5.c",
+                "textDe": "in dem Bett"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.nominal.q5.b",
+            "assessmentUnit": "ins Akkusativ Kontraktion Bett",
+            "equivalenceKey": "sitov:10:nominal:ins Akkusativ Kontraktion Bett",
+            "sourceSpans": [
+              {
+                "start": 192,
+                "end": 200,
+                "quote": "ins Bett"
+              }
+            ],
+            "rationaleDe": "Ins verbindet in und das und bezeichnet hier die Bewegung ins neutrale Bett; in dem beschreibt eine andere Form."
+          },
+          {
+            "id": "sitov.pretest.a11-10.nominal.q6",
+            "competencyId": "sitov.pretest.a11-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »gut« steht im Gruß unmittelbar vor »Nacht«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a11-10.nominal.q6.a",
+                "textDe": "Gutes"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q6.b",
+                "textDe": "Gute"
+              },
+              {
+                "id": "sitov.pretest.a11-10.nominal.q6.c",
+                "textDe": "Guter"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a11-10.nominal.q6.b",
+            "assessmentUnit": "Gute Nacht Adjektivform Gruß",
+            "equivalenceKey": "sitov:10:nominal:Gute Nacht Adjektivform Gruß",
+            "sourceSpans": [
+              {
+                "start": 202,
+                "end": 213,
+                "quote": "Gute Nacht!"
+              }
+            ],
+            "rationaleDe": "Im festen Gruß steht gute vor dem femininen Wort Nacht; guter und gutes entsprechen nicht dieser tatsächlich vorkommenden Form."
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "past_tenses",
+            "reasonDe": "Der gespeicherte Text verwendet Präsensformen; auch genannte Zeitangaben machen keine Vergangenheitsform zur Textvoraussetzung."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Im gespeicherten Text stehen keine Steigerungsformen von Adjektiven; zusätzliche Vergleiche sind für seine Aussagen nicht nötig."
+          },
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Der gespeicherte Text enthält keine Relativsätze; diese Satzart wird für seine einfachen Aussagen nicht vorausgesetzt."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.pretest.a11-10.form1",
+            "questionIds": [
+              "sitov.pretest.a11-10.words.q1",
+              "sitov.pretest.a11-10.words.q2",
+              "sitov.pretest.a11-10.words.q3",
+              "sitov.pretest.a11-10.verbs.q1",
+              "sitov.pretest.a11-10.verbs.q2",
+              "sitov.pretest.a11-10.verbs.q3",
+              "sitov.pretest.a11-10.syntax.q1",
+              "sitov.pretest.a11-10.syntax.q2",
+              "sitov.pretest.a11-10.syntax.q3",
+              "sitov.pretest.a11-10.nominal.q1",
+              "sitov.pretest.a11-10.nominal.q2",
+              "sitov.pretest.a11-10.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.pretest.a11-10.form2",
+            "questionIds": [
+              "sitov.pretest.a11-10.words.q4",
+              "sitov.pretest.a11-10.words.q5",
+              "sitov.pretest.a11-10.words.q6",
+              "sitov.pretest.a11-10.verbs.q4",
+              "sitov.pretest.a11-10.verbs.q5",
+              "sitov.pretest.a11-10.verbs.q6",
+              "sitov.pretest.a11-10.syntax.q4",
+              "sitov.pretest.a11-10.syntax.q5",
+              "sitov.pretest.a11-10.syntax.q6",
+              "sitov.pretest.a11-10.nominal.q4",
+              "sitov.pretest.a11-10.nominal.q5",
+              "sitov.pretest.a11-10.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "1b5c02d4-7217-56e0-8abb-906c20784e30",
+      "unitId": "1b5c02d4-7217-56e0-8abb-906c20784e30",
+      "level": "A1.2",
+      "textVersion": "e5f456eec833ee2dd3e6e9da51d565a55312bc3124740451fe2479866ae262f0",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a12-01.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Körperbereich, Arztpraxis, Besuchsvereinbarung, Buchstabieren, Verfügbarkeit und Versicherungsnachweis des gespeicherten Arzttextes verstehen.",
+            "languageUnits": [
+              "Hals als Körperbereich",
+              "Praxis als Arztarbeitsort",
+              "Termin als vereinbarte Besuchszeit",
+              "buchstabieren Name Einzelbuchstaben",
+              "frei verfügbarer Termin",
+              "Versichertenkarte als Versicherungsnachweis"
+            ],
+            "sourceSpans": [
+              {
+                "start": 17,
+                "end": 26,
+                "quote": "mein Hals"
+              },
+              {
+                "start": 32,
+                "end": 57,
+                "quote": "Ich rufe in der Praxis an"
+              },
+              {
+                "start": 69,
+                "end": 88,
+                "quote": "einen Termin machen"
+              },
+              {
+                "start": 131,
+                "end": 160,
+                "quote": "Ich buchstabiere ihn langsam."
+              },
+              {
+                "start": 161,
+                "end": 195,
+                "quote": "Am Nachmittag ist ein Termin frei."
+              },
+              {
+                "start": 225,
+                "end": 263,
+                "quote": "Meine Versichertenkarte nehme ich mit."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a12-01.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Wehtun, anrufen, möchten, können, mitnehmen und bleiben in ihren tatsächlich verwendeten Formen und Verbteilen erkennen.",
+            "languageUnits": [
+              "wehtun getrennte Grundform Hals",
+              "anrufen getrennte Grundform",
+              "möchten erste Person Wunsch",
+              "können erste Person",
+              "mitnehmen getrennte Grundform Karte",
+              "bleiben erste Person"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 31,
+                "quote": "Seit gestern tut mein Hals weh."
+              },
+              {
+                "start": 32,
+                "end": 57,
+                "quote": "Ich rufe in der Praxis an"
+              },
+              {
+                "start": 62,
+                "end": 88,
+                "quote": "möchte einen Termin machen"
+              },
+              {
+                "start": 196,
+                "end": 224,
+                "quote": "Ich kann um drei Uhr kommen."
+              },
+              {
+                "start": 225,
+                "end": 263,
+                "quote": "Meine Versichertenkarte nehme ich mit."
+              },
+              {
+                "start": 264,
+                "end": 290,
+                "quote": "Danach bleibe ich zu Hause"
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.trennbare-verben",
+                "sitov.topic.modalverben"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a12-01.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Beschwerdebeginn, Anrufziel, Namensfrage, freier Zeitraum, mögliche Ankunft und anschließende Tätigkeiten verstehen.",
+            "languageUnits": [
+              "Seit gestern Beginn andauernder Zustand",
+              "Anruf Zweck Besuchsvereinbarung",
+              "Mitarbeiter Nachfrage Name",
+              "Nachmittag angebotener Zeitraum",
+              "kann kommen Möglichkeit keine Ankunft",
+              "Danach gemeinsame Nachhandlungen"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 31,
+                "quote": "Seit gestern tut mein Hals weh."
+              },
+              {
+                "start": 32,
+                "end": 89,
+                "quote": "Ich rufe in der Praxis an und möchte einen Termin machen."
+              },
+              {
+                "start": 90,
+                "end": 130,
+                "quote": "Der Mitarbeiter fragt nach meinem Namen."
+              },
+              {
+                "start": 161,
+                "end": 195,
+                "quote": "Am Nachmittag ist ein Termin frei."
+              },
+              {
+                "start": 196,
+                "end": 224,
+                "quote": "Ich kann um drei Uhr kommen."
+              },
+              {
+                "start": 264,
+                "end": 313,
+                "quote": "Danach bleibe ich zu Hause und trinke warmen Tee."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Maskulinen Hals, Akkusativtermin, lokale Praxis, Dativnamen, eindeutigen Bezug von ihn und warmen Tee im konkreten Satz entschlüsseln.",
+            "languageUnits": [
+              "mein Hals maskuliner Nominativ",
+              "einen Termin Akkusativ",
+              "in der Praxis lokaler Dativ",
+              "nach meinem Namen Dativ",
+              "ihn Bezug Name nicht Mitarbeiter",
+              "warmen Tee Adjektiv Akkusativ"
+            ],
+            "sourceSpans": [
+              {
+                "start": 17,
+                "end": 26,
+                "quote": "mein Hals"
+              },
+              {
+                "start": 69,
+                "end": 88,
+                "quote": "einen Termin machen"
+              },
+              {
+                "start": 41,
+                "end": 54,
+                "quote": "in der Praxis"
+              },
+              {
+                "start": 112,
+                "end": 129,
+                "quote": "nach meinem Namen"
+              },
+              {
+                "start": 90,
+                "end": 160,
+                "quote": "Der Mitarbeiter fragt nach meinem Namen. Ich buchstabiere ihn langsam."
+              },
+              {
+                "start": 295,
+                "end": 312,
+                "quote": "trinke warmen Tee"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a12-01.words.q1",
+            "competencyId": "sitov.pretest.a12-01.words",
+            "kind": "single_choice",
+            "promptDe": "Welchen Körperbereich bezeichnet »Hals«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.words.q1.a",
+                "textDe": "Den Bereich zwischen Hand und Ellenbogen."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q1.b",
+                "textDe": "Den Bereich zwischen Kopf und Rumpf."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q1.c",
+                "textDe": "Den Bereich zwischen Knie und Fuß."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.words.q1.b",
+            "assessmentUnit": "Hals als Körperbereich",
+            "equivalenceKey": "sitov:11:words:Hals als Körperbereich",
+            "sourceSpans": [
+              {
+                "start": 17,
+                "end": 26,
+                "quote": "mein Hals"
+              }
+            ],
+            "rationaleDe": "Hals bezeichnet den Bereich unter dem Kopf; Unterarm und Unterschenkel sind andere Körperbereiche."
+          },
+          {
+            "id": "sitov.pretest.a12-01.words.q2",
+            "competencyId": "sitov.pretest.a12-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist die »Praxis« im Zusammenhang mit dem Arzttermin?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.words.q2.a",
+                "textDe": "Der Arbeits- und Behandlungsort eines Arztes."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q2.b",
+                "textDe": "Ein Geschäft für Lebensmittel."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q2.c",
+                "textDe": "Ein Bahnhof für den Busverkehr."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.words.q2.a",
+            "assessmentUnit": "Praxis als Arztarbeitsort",
+            "equivalenceKey": "sitov:11:words:Praxis als Arztarbeitsort",
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 57,
+                "quote": "Ich rufe in der Praxis an"
+              }
+            ],
+            "rationaleDe": "Im Zusammenhang mit einem Arzt ist Praxis der Arbeits- und Behandlungsort; Geschäft und Bahnhof passen nicht zu diesem Kontext."
+          },
+          {
+            "id": "sitov.pretest.a12-01.words.q3",
+            "competencyId": "sitov.pretest.a12-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »einen Termin machen« hier?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.words.q3.a",
+                "textDe": "Eine Versichertenkarte vor dem Besuch abholen."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q3.b",
+                "textDe": "Einen Namen in einzelne Buchstaben zerlegen."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q3.c",
+                "textDe": "Eine Zeit für einen Besuch vereinbaren."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.words.q3.c",
+            "assessmentUnit": "Termin als vereinbarte Besuchszeit",
+            "equivalenceKey": "sitov:11:words:Termin als vereinbarte Besuchszeit",
+            "sourceSpans": [
+              {
+                "start": 69,
+                "end": 88,
+                "quote": "einen Termin machen"
+              }
+            ],
+            "rationaleDe": "Einen Termin machen bedeutet einen Besuch zeitlich zu vereinbaren; Buchstabieren und Abholen einer Karte sind andere Handlungen."
+          },
+          {
+            "id": "sitov.pretest.a12-01.words.q4",
+            "competencyId": "sitov.pretest.a12-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was macht man beim »Buchstabieren« eines Namens?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.words.q4.a",
+                "textDe": "Man nennt seine Buchstaben einzeln."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q4.b",
+                "textDe": "Man spricht den Namen als ein zusammenhängendes Wort."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q4.c",
+                "textDe": "Man nennt nur eine Uhrzeit."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.words.q4.a",
+            "assessmentUnit": "buchstabieren Name Einzelbuchstaben",
+            "equivalenceKey": "sitov:11:words:buchstabieren Name Einzelbuchstaben",
+            "sourceSpans": [
+              {
+                "start": 131,
+                "end": 160,
+                "quote": "Ich buchstabiere ihn langsam."
+              }
+            ],
+            "rationaleDe": "Buchstabieren heißt die Buchstaben einzeln zu nennen; eine Uhrzeit oder ein zusammenhängend gesprochenes Wort ist keine solche Buchstabenfolge."
+          },
+          {
+            "id": "sitov.pretest.a12-01.words.q5",
+            "competencyId": "sitov.pretest.a12-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »frei« bei dem Termin am Nachmittag?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.words.q5.a",
+                "textDe": "Die Zeit für einen Besuch ist noch verfügbar."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q5.b",
+                "textDe": "Der Termin ist nach dem Wort bereits vollständig belegt."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q5.c",
+                "textDe": "Der Besuch kostet nach diesem Wort sicher kein Geld."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.words.q5.a",
+            "assessmentUnit": "frei verfügbarer Termin",
+            "equivalenceKey": "sitov:11:words:frei verfügbarer Termin",
+            "sourceSpans": [
+              {
+                "start": 161,
+                "end": 195,
+                "quote": "Am Nachmittag ist ein Termin frei."
+              }
+            ],
+            "rationaleDe": "Frei bedeutet beim Termin noch verfügbar; belegt ist das Gegenteil und eine sichere Aussage über Kosten folgt daraus nicht."
+          },
+          {
+            "id": "sitov.pretest.a12-01.words.q6",
+            "competencyId": "sitov.pretest.a12-01.words",
+            "kind": "single_choice",
+            "promptDe": "Welches Dokument bezeichnet »Versichertenkarte«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.words.q6.a",
+                "textDe": "Eine Karte zum Nachweis der Krankenversicherung."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q6.b",
+                "textDe": "Eine Fahrkarte für den Bus."
+              },
+              {
+                "id": "sitov.pretest.a12-01.words.q6.c",
+                "textDe": "Eine Speisekarte mit Preisen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.words.q6.a",
+            "assessmentUnit": "Versichertenkarte als Versicherungsnachweis",
+            "equivalenceKey": "sitov:11:words:Versichertenkarte als Versicherungsnachweis",
+            "sourceSpans": [
+              {
+                "start": 225,
+                "end": 263,
+                "quote": "Meine Versichertenkarte nehme ich mit."
+              }
+            ],
+            "rationaleDe": "Versichertenkarte weist im Arztkontext die Krankenversicherung nach; Fahrkarte und Speisekarte erfüllen andere Zwecke."
+          },
+          {
+            "id": "sitov.pretest.a12-01.verbs.q1",
+            "competencyId": "sitov.pretest.a12-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »tut … weh« im ersten Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.verbs.q1.a",
+                "textDe": "wehtun"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q1.b",
+                "textDe": "warten"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q1.c",
+                "textDe": "weggehen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.verbs.q1.a",
+            "assessmentUnit": "wehtun getrennte Grundform Hals",
+            "equivalenceKey": "sitov:11:verbs:wehtun getrennte Grundform Hals",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 31,
+                "quote": "Seit gestern tut mein Hals weh."
+              }
+            ],
+            "rationaleDe": "Die getrennten Teile tut und weh gehören zu wehtun; weggehen und warten sind andere Handlungen."
+          },
+          {
+            "id": "sitov.pretest.a12-01.verbs.q2",
+            "competencyId": "sitov.pretest.a12-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform steckt in »rufe … an«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.verbs.q2.a",
+                "textDe": "anrufen"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q2.b",
+                "textDe": "rufen ohne an"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q2.c",
+                "textDe": "aufräumen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.verbs.q2.a",
+            "assessmentUnit": "anrufen getrennte Grundform",
+            "equivalenceKey": "sitov:11:verbs:anrufen getrennte Grundform",
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 57,
+                "quote": "Ich rufe in der Praxis an"
+              }
+            ],
+            "rationaleDe": "Rufe und das getrennte an bilden anrufen und bezeichnen hier den Telefonkontakt; aufräumen ist eine andere Handlung."
+          },
+          {
+            "id": "sitov.pretest.a12-01.verbs.q3",
+            "competencyId": "sitov.pretest.a12-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Verbform ergänzt »Ich … einen Termin machen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.verbs.q3.a",
+                "textDe": "möchte"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q3.b",
+                "textDe": "möchtet"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q3.c",
+                "textDe": "möchtest"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.verbs.q3.a",
+            "assessmentUnit": "möchten erste Person Wunsch",
+            "equivalenceKey": "sitov:11:verbs:möchten erste Person Wunsch",
+            "sourceSpans": [
+              {
+                "start": 62,
+                "end": 88,
+                "quote": "möchte einen Termin machen"
+              }
+            ],
+            "rationaleDe": "Zum Subjekt ich gehört möchte; möchtest gehört zu du und möchtet gehört zu ihr."
+          },
+          {
+            "id": "sitov.pretest.a12-01.verbs.q4",
+            "competencyId": "sitov.pretest.a12-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »kann« in diesem Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.verbs.q4.a",
+                "textDe": "können"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q4.b",
+                "textDe": "kommen"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q4.c",
+                "textDe": "kennen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.verbs.q4.a",
+            "assessmentUnit": "können erste Person",
+            "equivalenceKey": "sitov:11:verbs:können erste Person",
+            "sourceSpans": [
+              {
+                "start": 196,
+                "end": 224,
+                "quote": "Ich kann um drei Uhr kommen."
+              }
+            ],
+            "rationaleDe": "Kann ist eine Form des Modalverbs können; kennen und kommen sind eigene Verben und nicht diese Grundform."
+          },
+          {
+            "id": "sitov.pretest.a12-01.verbs.q5",
+            "competencyId": "sitov.pretest.a12-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »nehme … mit«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.verbs.q5.a",
+                "textDe": "mitkommen"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q5.b",
+                "textDe": "mitnehmen"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q5.c",
+                "textDe": "nehmen ohne mit"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.verbs.q5.b",
+            "assessmentUnit": "mitnehmen getrennte Grundform Karte",
+            "equivalenceKey": "sitov:11:verbs:mitnehmen getrennte Grundform Karte",
+            "sourceSpans": [
+              {
+                "start": 225,
+                "end": 263,
+                "quote": "Meine Versichertenkarte nehme ich mit."
+              }
+            ],
+            "rationaleDe": "Nehme und das getrennte mit bilden mitnehmen; mitkommen hat eine andere Grundform und nehmen allein lässt den Verbteil mit weg."
+          },
+          {
+            "id": "sitov.pretest.a12-01.verbs.q6",
+            "competencyId": "sitov.pretest.a12-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Danach … ich zu Hause«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.verbs.q6.a",
+                "textDe": "bleibe"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q6.b",
+                "textDe": "bleiben"
+              },
+              {
+                "id": "sitov.pretest.a12-01.verbs.q6.c",
+                "textDe": "bleibst"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.verbs.q6.a",
+            "assessmentUnit": "bleiben erste Person",
+            "equivalenceKey": "sitov:11:verbs:bleiben erste Person",
+            "sourceSpans": [
+              {
+                "start": 264,
+                "end": 290,
+                "quote": "Danach bleibe ich zu Hause"
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich verlangt bleibe trotz der vorangestellten Zeitangabe; bleibst und bleiben passen nicht zu dieser Person."
+          },
+          {
+            "id": "sitov.pretest.a12-01.syntax.q1",
+            "competencyId": "sitov.pretest.a12-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Seit wann bestehen die Halsschmerzen nach dem Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.syntax.q1.a",
+                "textDe": "Seit dem vorherigen Tag."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q1.b",
+                "textDe": "Nur vor einem Jahr ohne Bezug zu jetzt."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q1.c",
+                "textDe": "Erst ab dem kommenden Tag."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.syntax.q1.a",
+            "assessmentUnit": "Seit gestern Beginn andauernder Zustand",
+            "equivalenceKey": "sitov:11:syntax:Seit gestern Beginn andauernder Zustand",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 31,
+                "quote": "Seit gestern tut mein Hals weh."
+              }
+            ],
+            "rationaleDe": "Seit gestern nennt den Beginn am vorherigen Tag und verbindet ihn mit dem jetzigen Zustand; morgen oder vor einem Jahr steht nicht im Satz."
+          },
+          {
+            "id": "sitov.pretest.a12-01.syntax.q2",
+            "competencyId": "sitov.pretest.a12-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welchen Wunsch verbindet der Sprecher mit seinem Anruf?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.syntax.q2.a",
+                "textDe": "Er möchte einen Besuchstermin vereinbaren."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q2.b",
+                "textDe": "Er möchte die Praxis über einen Urlaub informieren."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q2.c",
+                "textDe": "Er möchte einen Besuchstermin für einen Freund absagen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.syntax.q2.a",
+            "assessmentUnit": "Anruf Zweck Besuchsvereinbarung",
+            "equivalenceKey": "sitov:11:syntax:Anruf Zweck Besuchsvereinbarung",
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 89,
+                "quote": "Ich rufe in der Praxis an und möchte einen Termin machen."
+              }
+            ],
+            "rationaleDe": "Der Anruf dient der Vereinbarung eines Termins; eine Urlaubsmeldung und das Absagen eines Freundestermins werden nicht genannt."
+          },
+          {
+            "id": "sitov.pretest.a12-01.syntax.q3",
+            "competencyId": "sitov.pretest.a12-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Nach welcher Angabe fragt der Mitarbeiter?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.syntax.q3.a",
+                "textDe": "Nach dem Namen des Sprechers."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q3.b",
+                "textDe": "Nach der Farbe eines Sofas."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q3.c",
+                "textDe": "Nach der Anzahl der Kartoffeln."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.syntax.q3.a",
+            "assessmentUnit": "Mitarbeiter Nachfrage Name",
+            "equivalenceKey": "sitov:11:syntax:Mitarbeiter Nachfrage Name",
+            "sourceSpans": [
+              {
+                "start": 90,
+                "end": 130,
+                "quote": "Der Mitarbeiter fragt nach meinem Namen."
+              }
+            ],
+            "rationaleDe": "Nach meinem Namen benennt die gewünschte Information; Sofa und Kartoffeln gehören nicht zu dieser Nachfrage."
+          },
+          {
+            "id": "sitov.pretest.a12-01.syntax.q4",
+            "competencyId": "sitov.pretest.a12-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "In welchem Tagesabschnitt ist ein Termin verfügbar?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.syntax.q4.a",
+                "textDe": "Am Nachmittag."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q4.b",
+                "textDe": "In der vergangenen Nacht."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q4.c",
+                "textDe": "Am frühen Morgen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.syntax.q4.a",
+            "assessmentUnit": "Nachmittag angebotener Zeitraum",
+            "equivalenceKey": "sitov:11:syntax:Nachmittag angebotener Zeitraum",
+            "sourceSpans": [
+              {
+                "start": 161,
+                "end": 195,
+                "quote": "Am Nachmittag ist ein Termin frei."
+              }
+            ],
+            "rationaleDe": "Die vorangestellte Angabe Am Nachmittag legt den Zeitraum fest; Morgen und vergangene Nacht sind andere Zeitangaben."
+          },
+          {
+            "id": "sitov.pretest.a12-01.syntax.q5",
+            "competencyId": "sitov.pretest.a12-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was sagt der Sprecher mit »Ich kann um drei Uhr kommen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.syntax.q5.a",
+                "textDe": "Er kann nach dem Satz nur um zehn Uhr kommen."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q5.b",
+                "textDe": "Er ist nach dem Satz schon um drei Uhr angekommen."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q5.c",
+                "textDe": "Eine Ankunft um drei Uhr ist für ihn möglich."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.syntax.q5.c",
+            "assessmentUnit": "kann kommen Möglichkeit keine Ankunft",
+            "equivalenceKey": "sitov:11:syntax:kann kommen Möglichkeit keine Ankunft",
+            "sourceSpans": [
+              {
+                "start": 196,
+                "end": 224,
+                "quote": "Ich kann um drei Uhr kommen."
+              }
+            ],
+            "rationaleDe": "Kann beschreibt hier die Möglichkeit für drei Uhr; eine bereits erfolgte Ankunft oder zehn Uhr wird nicht ausgesagt."
+          },
+          {
+            "id": "sitov.pretest.a12-01.syntax.q6",
+            "competencyId": "sitov.pretest.a12-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Handlungen nennt der Sprecher für danach?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.syntax.q6.a",
+                "textDe": "Er fährt zum Markt und kauft Kartoffeln."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q6.b",
+                "textDe": "Er bleibt zu Hause und trinkt warmen Tee."
+              },
+              {
+                "id": "sitov.pretest.a12-01.syntax.q6.c",
+                "textDe": "Er bleibt in der Praxis und trinkt kaltes Wasser."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.syntax.q6.b",
+            "assessmentUnit": "Danach gemeinsame Nachhandlungen",
+            "equivalenceKey": "sitov:11:syntax:Danach gemeinsame Nachhandlungen",
+            "sourceSpans": [
+              {
+                "start": 264,
+                "end": 313,
+                "quote": "Danach bleibe ich zu Hause und trinke warmen Tee."
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich gilt für bleibe und trinke; ein Marktbesuch oder ein Aufenthalt in der Praxis mit kaltem Wasser wird danach nicht genannt."
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q1",
+            "competencyId": "sitov.pretest.a12-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Seit gestern tut … Hals weh« für den Sprecher?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.nominal.q1.a",
+                "textDe": "mein"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q1.b",
+                "textDe": "meine"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q1.c",
+                "textDe": "meinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.nominal.q1.a",
+            "assessmentUnit": "mein Hals maskuliner Nominativ",
+            "equivalenceKey": "sitov:11:nominal:mein Hals maskuliner Nominativ",
+            "sourceSpans": [
+              {
+                "start": 17,
+                "end": 26,
+                "quote": "mein Hals"
+              }
+            ],
+            "rationaleDe": "Hals ist maskulin und Subjekt von tut weh; deshalb steht mein statt meine oder meinen."
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q2",
+            "competencyId": "sitov.pretest.a12-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich möchte … Termin machen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.nominal.q2.a",
+                "textDe": "ein"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q2.b",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q2.c",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.nominal.q2.c",
+            "assessmentUnit": "einen Termin Akkusativ",
+            "equivalenceKey": "sitov:11:nominal:einen Termin Akkusativ",
+            "sourceSpans": [
+              {
+                "start": 69,
+                "end": 88,
+                "quote": "einen Termin machen"
+              }
+            ],
+            "rationaleDe": "Termin ist das maskuline Objekt von machen und steht mit einen im Akkusativ; ein und einem passen hier nicht."
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q3",
+            "competencyId": "sitov.pretest.a12-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form steht in der Ortsangabe »in … Praxis«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.nominal.q3.a",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q3.b",
+                "textDe": "die"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q3.c",
+                "textDe": "der"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.nominal.q3.c",
+            "assessmentUnit": "in der Praxis lokaler Dativ",
+            "equivalenceKey": "sitov:11:nominal:in der Praxis lokaler Dativ",
+            "sourceSpans": [
+              {
+                "start": 41,
+                "end": 54,
+                "quote": "in der Praxis"
+              }
+            ],
+            "rationaleDe": "Praxis ist feminin und bezeichnet hier den Ort des Anrufs; im lokalen Dativ steht der statt die oder den."
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q4",
+            "competencyId": "sitov.pretest.a12-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Besitzform steht im Text vor »Namen« nach »nach«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.nominal.q4.a",
+                "textDe": "meinem"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q4.b",
+                "textDe": "mein"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q4.c",
+                "textDe": "meinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.nominal.q4.a",
+            "assessmentUnit": "nach meinem Namen Dativ",
+            "equivalenceKey": "sitov:11:nominal:nach meinem Namen Dativ",
+            "sourceSpans": [
+              {
+                "start": 112,
+                "end": 129,
+                "quote": "nach meinem Namen"
+              }
+            ],
+            "rationaleDe": "Nach verlangt den Dativ und führt hier zu meinem Namen; meinen und mein sind nicht die gespeicherten Formen."
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q5",
+            "competencyId": "sitov.pretest.a12-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Worauf bezieht sich »ihn« beim Buchstabieren?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.nominal.q5.a",
+                "textDe": "Auf den Namen des Mitarbeiters."
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q5.b",
+                "textDe": "Auf den noch nicht erwähnten Tee."
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q5.c",
+                "textDe": "Auf den Namen des Sprechers."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.nominal.q5.c",
+            "assessmentUnit": "ihn Bezug Name nicht Mitarbeiter",
+            "equivalenceKey": "sitov:11:nominal:ihn Bezug Name nicht Mitarbeiter",
+            "sourceSpans": [
+              {
+                "start": 90,
+                "end": 160,
+                "quote": "Der Mitarbeiter fragt nach meinem Namen. Ich buchstabiere ihn langsam."
+              }
+            ],
+            "rationaleDe": "Buchstabiert wird der zuvor erfragte Name; der Mitarbeiter fragt nur danach und der Tee wird erst später erwähnt."
+          },
+          {
+            "id": "sitov.pretest.a12-01.nominal.q6",
+            "competencyId": "sitov.pretest.a12-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »warm« ergänzt »Ich trinke … Tee«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-01.nominal.q6.a",
+                "textDe": "warmem"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q6.b",
+                "textDe": "warmen"
+              },
+              {
+                "id": "sitov.pretest.a12-01.nominal.q6.c",
+                "textDe": "warmer"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-01.nominal.q6.b",
+            "assessmentUnit": "warmen Tee Adjektiv Akkusativ",
+            "equivalenceKey": "sitov:11:nominal:warmen Tee Adjektiv Akkusativ",
+            "sourceSpans": [
+              {
+                "start": 295,
+                "end": 312,
+                "quote": "trinke warmen Tee"
+              }
+            ],
+            "rationaleDe": "Tee ist das maskuline Objekt von trinke; ohne Artikel lautet die Adjektivform hier warmen, nicht warmer oder warmem."
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "past_tenses",
+            "reasonDe": "Der gespeicherte Text verwendet Präsensformen; auch genannte Zeitangaben machen keine Vergangenheitsform zur Textvoraussetzung."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Im gespeicherten Text stehen keine Steigerungsformen von Adjektiven; zusätzliche Vergleiche sind für seine Aussagen nicht nötig."
+          },
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Der gespeicherte Text enthält keine Relativsätze; diese Satzart wird für seine einfachen Aussagen nicht vorausgesetzt."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.pretest.a12-01.form1",
+            "questionIds": [
+              "sitov.pretest.a12-01.words.q1",
+              "sitov.pretest.a12-01.words.q2",
+              "sitov.pretest.a12-01.words.q3",
+              "sitov.pretest.a12-01.verbs.q1",
+              "sitov.pretest.a12-01.verbs.q2",
+              "sitov.pretest.a12-01.verbs.q3",
+              "sitov.pretest.a12-01.syntax.q1",
+              "sitov.pretest.a12-01.syntax.q2",
+              "sitov.pretest.a12-01.syntax.q3",
+              "sitov.pretest.a12-01.nominal.q1",
+              "sitov.pretest.a12-01.nominal.q2",
+              "sitov.pretest.a12-01.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.pretest.a12-01.form2",
+            "questionIds": [
+              "sitov.pretest.a12-01.words.q4",
+              "sitov.pretest.a12-01.words.q5",
+              "sitov.pretest.a12-01.words.q6",
+              "sitov.pretest.a12-01.verbs.q4",
+              "sitov.pretest.a12-01.verbs.q5",
+              "sitov.pretest.a12-01.verbs.q6",
+              "sitov.pretest.a12-01.syntax.q4",
+              "sitov.pretest.a12-01.syntax.q5",
+              "sitov.pretest.a12-01.syntax.q6",
+              "sitov.pretest.a12-01.nominal.q4",
+              "sitov.pretest.a12-01.nominal.q5",
+              "sitov.pretest.a12-01.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "add5b212-15af-55b5-b224-6282b5c39c13",
+      "unitId": "add5b212-15af-55b5-b224-6282b5c39c13",
+      "level": "A1.2",
+      "textVersion": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "humanReview": false,
+        "calibrationStatus": "pending"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a12-02.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Gericht und Zutaten, Karotten/Kartoffeln, Tischdecken und Aufräumen im tatsächlichen Kochablauf unterscheiden.",
+            "languageUnits": [
+              "Suppe als flüssiges Gericht",
+              "Gemüse als pflanzliche Zutat",
+              "Karotten als Möhren",
+              "Kartoffeln eigene Gemüseart",
+              "Tisch decken Vorbereitung",
+              "Küche aufräumen Ordnung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 60,
+                "end": 77,
+                "quote": "eine Suppe kochen"
+              },
+              {
+                "start": 79,
+                "end": 118,
+                "quote": "Zuerst kaufen wir Gemüse auf dem Markt."
+              },
+              {
+                "start": 136,
+                "end": 148,
+                "quote": "die Karotten"
+              },
+              {
+                "start": 163,
+                "end": 177,
+                "quote": "die Kartoffeln"
+              },
+              {
+                "start": 205,
+                "end": 225,
+                "quote": "Ich decke den Tisch."
+              },
+              {
+                "start": 280,
+                "end": 312,
+                "quote": "Später räumen wir die Küche auf."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a12-02.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Pluralfreunde, möchten, Freund-kocht, waschen, schneiden und räumen…auf an den realen Subjekten und Verbteilen erkennen.",
+            "languageUnits": [
+              "kommen Freunde Plural",
+              "möchten Wir Wunsch",
+              "kochen Freund dritte Person",
+              "waschen Grundform",
+              "schneiden Grundform",
+              "aufräumen trennbare Grundform"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 38,
+                "quote": "Am Freitag kommen zwei Freunde zu mir."
+              },
+              {
+                "start": 39,
+                "end": 78,
+                "quote": "Wir möchten zusammen eine Suppe kochen."
+              },
+              {
+                "start": 179,
+                "end": 204,
+                "quote": "Mein Freund kocht Wasser."
+              },
+              {
+                "start": 119,
+                "end": 148,
+                "quote": "Dann waschen wir die Karotten"
+              },
+              {
+                "start": 153,
+                "end": 177,
+                "quote": "schneiden die Kartoffeln"
+              },
+              {
+                "start": 280,
+                "end": 312,
+                "quote": "Später räumen wir die Küche auf."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.trennbare-verben"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Besuchsziel, gemeinsame Absicht, Einkaufsfolge, Verteilung der Gemüsehandlungen, Aufgabenteilung und Schlussreihenfolge verstehen.",
+            "languageUnits": [
+              "Freunde Ziel zu Sprecher",
+              "möchten geplante Kochhandlung",
+              "Zuerst einkaufen vor Vorbereiten",
+              "Zuordnung waschen Karotten schneiden Kartoffeln",
+              "Freund Wasser Sprecher Tisch Rollen",
+              "Später Küche Endhandlung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 38,
+                "quote": "Am Freitag kommen zwei Freunde zu mir."
+              },
+              {
+                "start": 39,
+                "end": 78,
+                "quote": "Wir möchten zusammen eine Suppe kochen."
+              },
+              {
+                "start": 79,
+                "end": 178,
+                "quote": "Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln."
+              },
+              {
+                "start": 119,
+                "end": 178,
+                "quote": "Dann waschen wir die Karotten und schneiden die Kartoffeln."
+              },
+              {
+                "start": 179,
+                "end": 225,
+                "quote": "Mein Freund kocht Wasser. Ich decke den Tisch."
+              },
+              {
+                "start": 280,
+                "end": 312,
+                "quote": "Später räumen wir die Küche auf."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Freundeplural, Personalpronomen mir, feminines Suppenobjekt, Marktdativ, maskuline Freund-Besitzform und Tischakkusativ erkennen.",
+            "languageUnits": [
+              "Freunde Mehrzahl nach zwei",
+              "mir Empfänger Besuch Dativ",
+              "eine Suppe feminines Objekt",
+              "auf dem Markt lokaler Dativ",
+              "Mein Freund Besitz Nominativ",
+              "den Tisch maskuliner Akkusativ"
+            ],
+            "sourceSpans": [
+              {
+                "start": 18,
+                "end": 30,
+                "quote": "zwei Freunde"
+              },
+              {
+                "start": 18,
+                "end": 37,
+                "quote": "zwei Freunde zu mir"
+              },
+              {
+                "start": 60,
+                "end": 77,
+                "quote": "eine Suppe kochen"
+              },
+              {
+                "start": 104,
+                "end": 117,
+                "quote": "auf dem Markt"
+              },
+              {
+                "start": 179,
+                "end": 204,
+                "quote": "Mein Freund kocht Wasser."
+              },
+              {
+                "start": 205,
+                "end": 225,
+                "quote": "Ich decke den Tisch."
+              }
+            ],
+            "mapping": {
+              "topicIds": [
+                "sitov.topic.akkusativ"
+              ],
+              "pendingReasonDe": "Vorhandene Themen decken nur Teile dieses textbezogenen Kerns ab; genaue freiwillige Lernziele müssen separat autorisiert und geprüft werden."
+            }
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a12-02.words.q1",
+            "competencyId": "sitov.pretest.a12-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bezeichnet »Suppe« beim gemeinsamen Kochen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.words.q1.a",
+                "textDe": "Ein flüssiges Gericht, das man essen kann."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q1.b",
+                "textDe": "Ein Stück rohes Gemüse."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q1.c",
+                "textDe": "Eine trockene Scheibe gebackenes Brot."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.words.q1.a",
+            "assessmentUnit": "Suppe als flüssiges Gericht",
+            "equivalenceKey": "sitov:12:words:Suppe als flüssiges Gericht",
+            "sourceSpans": [
+              {
+                "start": 60,
+                "end": 77,
+                "quote": "eine Suppe kochen"
+              }
+            ],
+            "rationaleDe": "Suppe ist ein flüssiges Gericht; eine trockene Brotscheibe und ein einzelnes rohes Gemüsestück sind keine Suppe."
+          },
+          {
+            "id": "sitov.pretest.a12-02.words.q2",
+            "competencyId": "sitov.pretest.a12-02.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Waren gehören zur Bedeutung von »Gemüse« im Kochtext?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.words.q2.a",
+                "textDe": "Nur gebackene Brotscheiben."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q2.b",
+                "textDe": "Nur Getränke wie Wasser."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q2.c",
+                "textDe": "Pflanzliche Zutaten wie Karotten und Kartoffeln."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.words.q2.c",
+            "assessmentUnit": "Gemüse als pflanzliche Zutat",
+            "equivalenceKey": "sitov:12:words:Gemüse als pflanzliche Zutat",
+            "sourceSpans": [
+              {
+                "start": 79,
+                "end": 118,
+                "quote": "Zuerst kaufen wir Gemüse auf dem Markt."
+              }
+            ],
+            "rationaleDe": "Gemüse meint hier pflanzliche Zutaten wie Karotten und Kartoffeln; Brotscheiben und Wasser sind keine Gemüsearten."
+          },
+          {
+            "id": "sitov.pretest.a12-02.words.q3",
+            "competencyId": "sitov.pretest.a12-02.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Bezeichnung bedeutet dasselbe wie »Karotten«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.words.q3.a",
+                "textDe": "Möhren."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q3.b",
+                "textDe": "Brote."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q3.c",
+                "textDe": "Kartoffeln."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.words.q3.a",
+            "assessmentUnit": "Karotten als Möhren",
+            "equivalenceKey": "sitov:12:words:Karotten als Möhren",
+            "sourceSpans": [
+              {
+                "start": 136,
+                "end": 148,
+                "quote": "die Karotten"
+              }
+            ],
+            "rationaleDe": "Karotten und Möhren sind zwei Bezeichnungen für dasselbe Gemüse; Kartoffeln und Brote sind andere Lebensmittel."
+          },
+          {
+            "id": "sitov.pretest.a12-02.words.q4",
+            "competencyId": "sitov.pretest.a12-02.words",
+            "kind": "single_choice",
+            "promptDe": "Welches Lebensmittel bezeichnet »Kartoffeln«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.words.q4.a",
+                "textDe": "Essbare Knollen, die man zum Beispiel kochen kann."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q4.b",
+                "textDe": "Gebackene Brote in Scheiben."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q4.c",
+                "textDe": "Lange orange Möhren."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.words.q4.a",
+            "assessmentUnit": "Kartoffeln eigene Gemüseart",
+            "equivalenceKey": "sitov:12:words:Kartoffeln eigene Gemüseart",
+            "sourceSpans": [
+              {
+                "start": 163,
+                "end": 177,
+                "quote": "die Kartoffeln"
+              }
+            ],
+            "rationaleDe": "Kartoffeln sind essbare Knollen; Möhren und Brot unterscheiden sich davon und sind keine gleiche Wortbedeutung."
+          },
+          {
+            "id": "sitov.pretest.a12-02.words.q5",
+            "competencyId": "sitov.pretest.a12-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »den Tisch decken« vor dem Essen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.words.q5.a",
+                "textDe": "Das Geschirr vom Tisch wegräumen."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q5.b",
+                "textDe": "Den Tisch mit dem nötigen Geschirr zum Essen vorbereiten."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q5.c",
+                "textDe": "Den Tisch als Möbel aus der Küche tragen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.words.q5.b",
+            "assessmentUnit": "Tisch decken Vorbereitung",
+            "equivalenceKey": "sitov:12:words:Tisch decken Vorbereitung",
+            "sourceSpans": [
+              {
+                "start": 205,
+                "end": 225,
+                "quote": "Ich decke den Tisch."
+              }
+            ],
+            "rationaleDe": "Tischdecken bedeutet das Vorbereiten mit Geschirr; Geschirr wieder wegräumen oder das Möbel wegtragen meint eine andere Tätigkeit."
+          },
+          {
+            "id": "sitov.pretest.a12-02.words.q6",
+            "competencyId": "sitov.pretest.a12-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was wird beim »Aufräumen« der Küche getan?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.words.q6.a",
+                "textDe": "Man verlässt die Küche, ohne etwas zu ordnen."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q6.b",
+                "textDe": "Man bringt Gegenstände wieder in Ordnung."
+              },
+              {
+                "id": "sitov.pretest.a12-02.words.q6.c",
+                "textDe": "Man vereinbart einen Arzttermin."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.words.q6.b",
+            "assessmentUnit": "Küche aufräumen Ordnung",
+            "equivalenceKey": "sitov:12:words:Küche aufräumen Ordnung",
+            "sourceSpans": [
+              {
+                "start": 280,
+                "end": 312,
+                "quote": "Später räumen wir die Küche auf."
+              }
+            ],
+            "rationaleDe": "Aufräumen bedeutet Ordnung herzustellen; nur weggehen oder einen Termin vereinbaren beschreibt nicht diese Tätigkeit."
+          },
+          {
+            "id": "sitov.pretest.a12-02.verbs.q1",
+            "competencyId": "sitov.pretest.a12-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Am Freitag … zwei Freunde zu mir«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.verbs.q1.a",
+                "textDe": "kommen"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q1.b",
+                "textDe": "komme"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q1.c",
+                "textDe": "kommt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.verbs.q1.a",
+            "assessmentUnit": "kommen Freunde Plural",
+            "equivalenceKey": "sitov:12:verbs:kommen Freunde Plural",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 38,
+                "quote": "Am Freitag kommen zwei Freunde zu mir."
+              }
+            ],
+            "rationaleDe": "Zwei Freunde ist ein Subjekt im Plural und verlangt kommen; kommt und komme passen nicht zu diesem Subjekt."
+          },
+          {
+            "id": "sitov.pretest.a12-02.verbs.q2",
+            "competencyId": "sitov.pretest.a12-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir … zusammen eine Suppe kochen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.verbs.q2.a",
+                "textDe": "möchten"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q2.b",
+                "textDe": "möchtest"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q2.c",
+                "textDe": "möchte"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.verbs.q2.a",
+            "assessmentUnit": "möchten Wir Wunsch",
+            "equivalenceKey": "sitov:12:verbs:möchten Wir Wunsch",
+            "sourceSpans": [
+              {
+                "start": 39,
+                "end": 78,
+                "quote": "Wir möchten zusammen eine Suppe kochen."
+              }
+            ],
+            "rationaleDe": "Zum Subjekt wir gehört möchten; möchte gehört hier zum Singular und möchtest zu du."
+          },
+          {
+            "id": "sitov.pretest.a12-02.verbs.q3",
+            "competencyId": "sitov.pretest.a12-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Mein Freund … Wasser«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.verbs.q3.a",
+                "textDe": "koche"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q3.b",
+                "textDe": "kochen"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q3.c",
+                "textDe": "kocht"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.verbs.q3.c",
+            "assessmentUnit": "kochen Freund dritte Person",
+            "equivalenceKey": "sitov:12:verbs:kochen Freund dritte Person",
+            "sourceSpans": [
+              {
+                "start": 179,
+                "end": 204,
+                "quote": "Mein Freund kocht Wasser."
+              }
+            ],
+            "rationaleDe": "Der einzelne Freund ist dritte Person Singular, deshalb kocht; koche und kochen passen nicht zu dieser Person."
+          },
+          {
+            "id": "sitov.pretest.a12-02.verbs.q4",
+            "competencyId": "sitov.pretest.a12-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zum Verb beim Säubern der Karotten?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.verbs.q4.a",
+                "textDe": "wünschen"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q4.b",
+                "textDe": "waschen"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q4.c",
+                "textDe": "wachsen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.verbs.q4.b",
+            "assessmentUnit": "waschen Grundform",
+            "equivalenceKey": "sitov:12:verbs:waschen Grundform",
+            "sourceSpans": [
+              {
+                "start": 119,
+                "end": 148,
+                "quote": "Dann waschen wir die Karotten"
+              }
+            ],
+            "rationaleDe": "Das Verb lautet waschen und beschreibt das Säubern; wachsen und wünschen sind ähnlich geschriebene, aber andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a12-02.verbs.q5",
+            "competencyId": "sitov.pretest.a12-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zum Verb beim Zerteilen der Kartoffeln?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.verbs.q5.a",
+                "textDe": "schneiden"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q5.b",
+                "textDe": "schreiben"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q5.c",
+                "textDe": "scheinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.verbs.q5.a",
+            "assessmentUnit": "schneiden Grundform",
+            "equivalenceKey": "sitov:12:verbs:schneiden Grundform",
+            "sourceSpans": [
+              {
+                "start": 153,
+                "end": 177,
+                "quote": "schneiden die Kartoffeln"
+              }
+            ],
+            "rationaleDe": "Die Tätigkeit heißt schneiden; scheinen und schreiben haben andere Bedeutungen und sind nicht das Verb dieser Stelle."
+          },
+          {
+            "id": "sitov.pretest.a12-02.verbs.q6",
+            "competencyId": "sitov.pretest.a12-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »räumen … auf«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.verbs.q6.a",
+                "textDe": "aufräumen"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q6.b",
+                "textDe": "einräumen"
+              },
+              {
+                "id": "sitov.pretest.a12-02.verbs.q6.c",
+                "textDe": "ausräumen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.verbs.q6.a",
+            "assessmentUnit": "aufräumen trennbare Grundform",
+            "equivalenceKey": "sitov:12:verbs:aufräumen trennbare Grundform",
+            "sourceSpans": [
+              {
+                "start": 280,
+                "end": 312,
+                "quote": "Später räumen wir die Küche auf."
+              }
+            ],
+            "rationaleDe": "Die getrennten Teile räumen und auf bilden aufräumen; ausräumen und einräumen haben andere Vorsilben und sind andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q1",
+            "competencyId": "sitov.pretest.a12-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Zu wem kommen die beiden Freunde am Freitag?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.syntax.q1.a",
+                "textDe": "Zu einem Mitarbeiter auf dem Markt."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q1.b",
+                "textDe": "Zum Sprecher."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q1.c",
+                "textDe": "Zu einem Arzt in seiner Praxis."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.syntax.q1.b",
+            "assessmentUnit": "Freunde Ziel zu Sprecher",
+            "equivalenceKey": "sitov:12:syntax:Freunde Ziel zu Sprecher",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 38,
+                "quote": "Am Freitag kommen zwei Freunde zu mir."
+              }
+            ],
+            "rationaleDe": "Zu mir nennt den Sprecher als Besuchsziel; ein Mitarbeiter auf dem Markt oder ein Arzt ist hier nicht der Gastgeber."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q2",
+            "competencyId": "sitov.pretest.a12-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was planen die mit »wir« bezeichneten Personen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.syntax.q2.a",
+                "textDe": "Sie wollen getrennt einen Bus fahren."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q2.b",
+                "textDe": "Sie wollen gemeinsam eine Suppe zubereiten."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q2.c",
+                "textDe": "Sie haben nach dem Satz schon die Küche aufgeräumt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.syntax.q2.b",
+            "assessmentUnit": "möchten geplante Kochhandlung",
+            "equivalenceKey": "sitov:12:syntax:möchten geplante Kochhandlung",
+            "sourceSpans": [
+              {
+                "start": 39,
+                "end": 78,
+                "quote": "Wir möchten zusammen eine Suppe kochen."
+              }
+            ],
+            "rationaleDe": "Möchten zusammen eine Suppe kochen nennt den gemeinsamen Plan; erledigtes Aufräumen oder getrennte Busfahrten werden nicht ausgesagt."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q3",
+            "competencyId": "sitov.pretest.a12-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Handlung steht in dieser Abfolge zuerst?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.syntax.q3.a",
+                "textDe": "Die Kartoffeln erst nach dem Essen kaufen."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q3.b",
+                "textDe": "Die Küche vor dem Einkaufen als genannte erste Handlung aufräumen."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q3.c",
+                "textDe": "Gemüse auf dem Markt kaufen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.syntax.q3.c",
+            "assessmentUnit": "Zuerst einkaufen vor Vorbereiten",
+            "equivalenceKey": "sitov:12:syntax:Zuerst einkaufen vor Vorbereiten",
+            "sourceSpans": [
+              {
+                "start": 79,
+                "end": 178,
+                "quote": "Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln."
+              }
+            ],
+            "rationaleDe": "Zuerst nennt den Einkauf, danach folgen Waschen und Schneiden; Aufräumen und spätere Einkäufe sind nicht die erste genannte Handlung."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q4",
+            "competencyId": "sitov.pretest.a12-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Zuordnung passt zu den beiden Verben im Satz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.syntax.q4.a",
+                "textDe": "Karotten werden geschnitten und Kartoffeln gewaschen."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q4.b",
+                "textDe": "Karotten werden gewaschen und Kartoffeln geschnitten."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q4.c",
+                "textDe": "Nur das Brot wird gewaschen und geschnitten."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.syntax.q4.b",
+            "assessmentUnit": "Zuordnung waschen Karotten schneiden Kartoffeln",
+            "equivalenceKey": "sitov:12:syntax:Zuordnung waschen Karotten schneiden Kartoffeln",
+            "sourceSpans": [
+              {
+                "start": 119,
+                "end": 178,
+                "quote": "Dann waschen wir die Karotten und schneiden die Kartoffeln."
+              }
+            ],
+            "rationaleDe": "Die Karotten sind Objekt von waschen und die Kartoffeln Objekt von schneiden; Vertauschen oder Brot entspricht nicht dem Satz."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q5",
+            "competencyId": "sitov.pretest.a12-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wie werden die beiden Tätigkeiten aufgeteilt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.syntax.q5.a",
+                "textDe": "Der Freund deckt den Tisch und kocht kein Wasser."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q5.b",
+                "textDe": "Der Freund kocht Wasser; der Sprecher deckt den Tisch."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q5.c",
+                "textDe": "Der Sprecher kocht Wasser; der Freund deckt den Tisch."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.syntax.q5.b",
+            "assessmentUnit": "Freund Wasser Sprecher Tisch Rollen",
+            "equivalenceKey": "sitov:12:syntax:Freund Wasser Sprecher Tisch Rollen",
+            "sourceSpans": [
+              {
+                "start": 179,
+                "end": 225,
+                "quote": "Mein Freund kocht Wasser. Ich decke den Tisch."
+              }
+            ],
+            "rationaleDe": "Mein Freund ist Subjekt von kocht, ich ist Subjekt von decke; die anderen Antworten vertauschen die handelnden Personen."
+          },
+          {
+            "id": "sitov.pretest.a12-02.syntax.q6",
+            "competencyId": "sitov.pretest.a12-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Handlung wird ausdrücklich für später genannt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.syntax.q6.a",
+                "textDe": "Vor dem Besuch einen Arzt anrufen."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q6.b",
+                "textDe": "Als erste Handlung Gemüse kaufen."
+              },
+              {
+                "id": "sitov.pretest.a12-02.syntax.q6.c",
+                "textDe": "Die Küche aufräumen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.syntax.q6.c",
+            "assessmentUnit": "Später Küche Endhandlung",
+            "equivalenceKey": "sitov:12:syntax:Später Küche Endhandlung",
+            "sourceSpans": [
+              {
+                "start": 280,
+                "end": 312,
+                "quote": "Später räumen wir die Küche auf."
+              }
+            ],
+            "rationaleDe": "Später markiert das Aufräumen der Küche als spätere Tätigkeit; Ersteinkauf und Arztanruf sind nicht diese Schlussangabe."
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q1",
+            "competencyId": "sitov.pretest.a12-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Zahl hat das Substantiv »Freunde« nach »zwei«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.nominal.q1.a",
+                "textDe": "Es steht in der Mehrzahl."
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q1.b",
+                "textDe": "Es ist eine Besitzform für den Tisch."
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q1.c",
+                "textDe": "Es bezeichnet genau einen Freund."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.nominal.q1.a",
+            "assessmentUnit": "Freunde Mehrzahl nach zwei",
+            "equivalenceKey": "sitov:12:nominal:Freunde Mehrzahl nach zwei",
+            "sourceSpans": [
+              {
+                "start": 18,
+                "end": 30,
+                "quote": "zwei Freunde"
+              }
+            ],
+            "rationaleDe": "Zwei verlangt mehrere Personen und Freunde ist die Pluralform; Einzahl und Besitzform sind andere grammatische Funktionen."
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q2",
+            "competencyId": "sitov.pretest.a12-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Person bezeichnet »mir« beim Besuch?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.nominal.q2.a",
+                "textDe": "Nur einen Freund als Ziel des eigenen Besuchs."
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q2.b",
+                "textDe": "Den Sprecher als Ziel des Besuchs."
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q2.c",
+                "textDe": "Die Küche als Person."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.nominal.q2.b",
+            "assessmentUnit": "mir Empfänger Besuch Dativ",
+            "equivalenceKey": "sitov:12:nominal:mir Empfänger Besuch Dativ",
+            "sourceSpans": [
+              {
+                "start": 18,
+                "end": 37,
+                "quote": "zwei Freunde zu mir"
+              }
+            ],
+            "rationaleDe": "Mir ist eine Form von ich nach zu und bezeichnet den Sprecher; Freund und Küche sind nicht der Bezug dieses Personalpronomens."
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q3",
+            "competencyId": "sitov.pretest.a12-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Artikelform ergänzt »Wir möchten … Suppe kochen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.nominal.q3.a",
+                "textDe": "ein"
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q3.b",
+                "textDe": "einen"
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q3.c",
+                "textDe": "eine"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.nominal.q3.c",
+            "assessmentUnit": "eine Suppe feminines Objekt",
+            "equivalenceKey": "sitov:12:nominal:eine Suppe feminines Objekt",
+            "sourceSpans": [
+              {
+                "start": 60,
+                "end": 77,
+                "quote": "eine Suppe kochen"
+              }
+            ],
+            "rationaleDe": "Suppe ist feminin und wird hier als Objekt mit eine genannt; ein und einen passen nicht zum grammatischen Geschlecht."
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q4",
+            "competencyId": "sitov.pretest.a12-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Artikelform steht in der Ortsangabe »auf … Markt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.nominal.q4.a",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q4.b",
+                "textDe": "dem"
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q4.c",
+                "textDe": "das"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.nominal.q4.b",
+            "assessmentUnit": "auf dem Markt lokaler Dativ",
+            "equivalenceKey": "sitov:12:nominal:auf dem Markt lokaler Dativ",
+            "sourceSpans": [
+              {
+                "start": 104,
+                "end": 117,
+                "quote": "auf dem Markt"
+              }
+            ],
+            "rationaleDe": "Der Einkauf findet an einem Ort statt; beim maskulinen Markt lautet der lokale Dativ dem, nicht den oder das."
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q5",
+            "competencyId": "sitov.pretest.a12-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Besitzform ergänzt »… Freund kocht Wasser«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.nominal.q5.a",
+                "textDe": "Meine"
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q5.b",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q5.c",
+                "textDe": "Meinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.nominal.q5.b",
+            "assessmentUnit": "Mein Freund Besitz Nominativ",
+            "equivalenceKey": "sitov:12:nominal:Mein Freund Besitz Nominativ",
+            "sourceSpans": [
+              {
+                "start": 179,
+                "end": 204,
+                "quote": "Mein Freund kocht Wasser."
+              }
+            ],
+            "rationaleDe": "Freund ist maskulin und Subjekt von kocht; die passende Form ist mein, nicht meine oder meinen."
+          },
+          {
+            "id": "sitov.pretest.a12-02.nominal.q6",
+            "competencyId": "sitov.pretest.a12-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Artikelform ergänzt »Ich decke … Tisch«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a12-02.nominal.q6.a",
+                "textDe": "dem"
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q6.b",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.a12-02.nominal.q6.c",
+                "textDe": "der"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a12-02.nominal.q6.b",
+            "assessmentUnit": "den Tisch maskuliner Akkusativ",
+            "equivalenceKey": "sitov:12:nominal:den Tisch maskuliner Akkusativ",
+            "sourceSpans": [
+              {
+                "start": 205,
+                "end": 225,
+                "quote": "Ich decke den Tisch."
+              }
+            ],
+            "rationaleDe": "Tisch ist das maskuline direkte Objekt von decke und steht mit den im Akkusativ; der und dem sind andere Kasusformen."
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "past_tenses",
+            "reasonDe": "Der gespeicherte Text verwendet Präsensformen; auch genannte Zeitangaben machen keine Vergangenheitsform zur Textvoraussetzung."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Im gespeicherten Text stehen keine Steigerungsformen von Adjektiven; zusätzliche Vergleiche sind für seine Aussagen nicht nötig."
+          },
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Der gespeicherte Text enthält keine Relativsätze; diese Satzart wird für seine einfachen Aussagen nicht vorausgesetzt."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.pretest.a12-02.form1",
+            "questionIds": [
+              "sitov.pretest.a12-02.words.q1",
+              "sitov.pretest.a12-02.words.q2",
+              "sitov.pretest.a12-02.words.q3",
+              "sitov.pretest.a12-02.verbs.q1",
+              "sitov.pretest.a12-02.verbs.q2",
+              "sitov.pretest.a12-02.verbs.q3",
+              "sitov.pretest.a12-02.syntax.q1",
+              "sitov.pretest.a12-02.syntax.q2",
+              "sitov.pretest.a12-02.syntax.q3",
+              "sitov.pretest.a12-02.nominal.q1",
+              "sitov.pretest.a12-02.nominal.q2",
+              "sitov.pretest.a12-02.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.pretest.a12-02.form2",
+            "questionIds": [
+              "sitov.pretest.a12-02.words.q4",
+              "sitov.pretest.a12-02.words.q5",
+              "sitov.pretest.a12-02.words.q6",
+              "sitov.pretest.a12-02.verbs.q4",
+              "sitov.pretest.a12-02.verbs.q5",
+              "sitov.pretest.a12-02.verbs.q6",
+              "sitov.pretest.a12-02.syntax.q4",
+              "sitov.pretest.a12-02.syntax.q5",
+              "sitov.pretest.a12-02.syntax.q6",
+              "sitov.pretest.a12-02.nominal.q4",
+              "sitov.pretest.a12-02.nominal.q5",
+              "sitov.pretest.a12-02.nominal.q6"
+            ]
+          }
+        ]
+      }
     }
   ],
   "inventory": [
@@ -9667,7 +12812,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": null,
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -9682,7 +12827,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -9697,7 +12842,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {

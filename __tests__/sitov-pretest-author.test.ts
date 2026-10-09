@@ -43,8 +43,8 @@ it('preserves explicit SQL security, CAS and receipt conflicts',async()=>{
  }
 })
 
-it('accepts all nine actual private source definitions without changing German text or promoting review',()=>{
+it('accepts all twelve actual private source definitions without changing German text or promoting review',()=>{
  const drafts=JSON.parse(readFileSync('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')).drafts
- expect(drafts).toHaveLength(9)
+ expect(drafts).toHaveLength(12)
  for(const d of drafts)expect(sitovPretestAuthorSaveInputSchema.parse({textId:d.textId,textVersion:d.textVersion,baseDefinitionId:null,definition:d.definition,requestId})).toEqual({textId:d.textId,textVersion:d.textVersion,baseDefinitionId:null,definition:d.definition,requestId})
 })
