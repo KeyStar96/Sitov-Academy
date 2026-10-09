@@ -1,0 +1,360 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools49-51-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T19:46:09.653Z",
+  "sourceCommit": "26d2b878ab9891a3f24648562c1d8beaf4e5b868",
+  "scope": "M independently read all72 prompts/216options/keys/rationales,12cores and3full actualcanonical B1.1sort9–10/B1.2sort1 sources, plus exact2Mrequested corrections. Errorlearning tests actualstrongPartizip, modalpast/reflexive/personalverb/trennbareInfinitive, concession/conditional/relative/indirectsyntax, Genitivattributwithoutanswerleak and Komparativ. Community tests truepassive/modal/personalforms/zuModal/relatives/coordination and case/adjective/possessive forms. Workplace tests PrasesPassiv, Partizip, trennbarezu, Konjunktivtwo and pluralstrongpast, dass/obmodalPerfektclauses, nichtnurcontrast and trueSuperlativ/Komparativ. Original possibleNachfeld distractor replaced by unequivocal er/waren agreementerror; ambiguous barequotedlemma ander removed. Actual2currenttasks/delta verified and oldauthor53 reconstructed for fullaudit/hashcomparison. Allprevious48including71A11repairs/4608aliases unchanged. Genuine72questions/sixdistinctunitspercore withhonestlypendingexactcurriculummappings. No human/listening/empiricalcalibration/CEFRcertificationclaim",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "a2c4999da6e414aaf21d3fb2ca9e45bda6c4f444140852ba7a1b5d3bfdc1d155",
+  "authorRepairDeltaSha256": "b0e69216a256f6296e3ed1a9f4ebb588096f513f4ddf5b8a99451fa82fd51875",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "8c963a66-e60b-5f88-bee3-73aa3f3e3df7",
+      "textVersion": "5da2196b39f2056111313e3dc236fd205560b59b241410286ef50eae13b944af",
+      "definitionContentHash": "992e4da5ebf9320d91d39d6a7d38ccc3dbbdd31bff7edd343c3d8b8d633d19f1",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "5da2196b39f2056111313e3dc236fd205560b59b241410286ef50eae13b944af",
+        "definitionContentHash": "992e4da5ebf9320d91d39d6a7d38ccc3dbbdd31bff7edd343c3d8b8d633d19f1"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-09.words.q1",
+          "correctTextDe": "Eine sprachliche Form oder Verwendung, die nicht richtig ist."
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.words.q2",
+          "correctTextDe": "Nichts sagen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.words.q3",
+          "correctTextDe": "An den eigenen Kenntnissen oder Handlungen zweifeln."
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.words.q4",
+          "correctTextDe": "Auf präzise und richtige Einzelheiten achten."
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.words.q5",
+          "correctTextDe": "Mit einer weiteren Frage das Verständnis klären."
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.words.q6",
+          "correctTextDe": "Ein konkreter Fall, der die Verwendung des Wortes zeigt."
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.verbs.q1",
+          "correctTextDe": "geschwiegen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.verbs.q2",
+          "correctTextDe": "konnte"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.verbs.q3",
+          "correctTextDe": "sich"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.verbs.q4",
+          "correctTextDe": "benutze"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.verbs.q5",
+          "correctTextDe": "aufschreiben"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.verbs.q6",
+          "correctTextDe": "nachzufragen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.syntax.q1",
+          "correctTextDe": "Das Schweigen steht im Gegensatz zur vorhandenen Möglichkeit zu sprechen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.syntax.q2",
+          "correctTextDe": "wie unsicher er selbst beim Lernen einer Sprache war"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.syntax.q3",
+          "correctTextDe": "Fehler als Teil des Lernens zu betrachten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.syntax.q4",
+          "correctTextDe": "Der falsche Wortgebrauch ist der auslösende Fall für das Aufschreiben."
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.syntax.q5",
+          "correctTextDe": "in denen Genauigkeit wichtig ist"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.syntax.q6",
+          "correctTextDe": "hilft es mir, freundlich nachzufragen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.nominal.q1",
+          "correctTextDe": "ersten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.nominal.q2",
+          "correctTextDe": "einem"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.nominal.q3",
+          "correctTextDe": "anderen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.nominal.q4",
+          "correctTextDe": "des"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.nominal.q5",
+          "correctTextDe": "denen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-09.nominal.q6",
+          "correctTextDe": "sicherer"
+        }
+      ]
+    },
+    {
+      "textId": "c5dc1e9e-43fb-5505-ae4a-82cdc74fac41",
+      "textVersion": "45d0af055d779c3d7fdbb59e08ad8f04a08b2e45afed108fb312b6e54893d67c",
+      "definitionContentHash": "7f39159187ba27104238297276d3b5ec1b694ef8289ddb07fc27587ceec1401d",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "45d0af055d779c3d7fdbb59e08ad8f04a08b2e45afed108fb312b6e54893d67c",
+        "definitionContentHash": "7f39159187ba27104238297276d3b5ec1b694ef8289ddb07fc27587ceec1401d"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b11-10.words.q1",
+          "correctTextDe": "Ein Ort, an dem Menschen zusammenkommen können."
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.words.q2",
+          "correctTextDe": "Gruppen von Menschen aus unterschiedlichen Altersjahrgängen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.words.q3",
+          "correctTextDe": "Ein Mann im Ruhestand, der in der Regel Rente erhält."
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.words.q4",
+          "correctTextDe": "Bei der Veranstaltung dabei sein und sich beteiligen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.words.q5",
+          "correctTextDe": "Stoff mit Nadel und Faden verbinden oder bearbeiten."
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.words.q6",
+          "correctTextDe": "Angenehme persönliche Kontakte zwischen Menschen."
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.verbs.q1",
+          "correctTextDe": "Präteritum im Vorgangspassiv."
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.verbs.q2",
+          "correctTextDe": "kann"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.verbs.q3",
+          "correctTextDe": "anbieten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.verbs.q4",
+          "correctTextDe": "beantworten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.verbs.q5",
+          "correctTextDe": "dürfen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.verbs.q6",
+          "correctTextDe": "teilen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.syntax.q1",
+          "correctTextDe": "Menschen verschiedener Generationen zusammenkommen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.syntax.q2",
+          "correctTextDe": "Jugendliche Fragen zum Smartphone beantworten"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.syntax.q3",
+          "correctTextDe": "um bleiben zu dürfen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.syntax.q4",
+          "correctTextDe": "lesen, Kaffee trinken oder an Veranstaltungen teilnehmen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.syntax.q5",
+          "correctTextDe": "die ihre Zeit miteinander teilen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.syntax.q6",
+          "correctTextDe": "ein offener Raum und Menschen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.nominal.q1",
+          "correctTextDe": "offenen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.nominal.q2",
+          "correctTextDe": "kleinen"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.nominal.q3",
+          "correctTextDe": "verschiedener"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.nominal.q4",
+          "correctTextDe": "dem"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.nominal.q5",
+          "correctTextDe": "unseren"
+        },
+        {
+          "questionId": "sitov.pretest.b11-10.nominal.q6",
+          "correctTextDe": "ihre"
+        }
+      ]
+    },
+    {
+      "textId": "cacb3a6d-e789-5abc-9e94-f6eecfb36bdb",
+      "textVersion": "ecad48e8d123063b6e69a5da577273f166a86c0fb43d184a93fe39aeec70052e",
+      "definitionContentHash": "869f147d43e582383387a655122fefd8ab2608db5a8c41992bd2fb55dcb2de22",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "ecad48e8d123063b6e69a5da577273f166a86c0fb43d184a93fe39aeec70052e",
+        "definitionContentHash": "869f147d43e582383387a655122fefd8ab2608db5a8c41992bd2fb55dcb2de22"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-01.words.q1",
+          "correctTextDe": "Ein gemeinsamer Austausch über betriebliche Themen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.words.q2",
+          "correctTextDe": "Zwischen Ankündigung und Sitzung bleibt wenig Zeit."
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.words.q3",
+          "correctTextDe": "Eine geringere vereinbarte regelmäßige Arbeitszeit."
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.words.q4",
+          "correctTextDe": "Weitere Fragen, mit denen man Unklarheiten klärt."
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.words.q5",
+          "correctTextDe": "Eine begrenzte Zeit, in der man die Idee erprobt."
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.words.q6",
+          "correctTextDe": "Eine gut begrenzte und im Umfang verständliche Erprobung."
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.verbs.q1",
+          "correctTextDe": "Präsens im Vorgangspassiv."
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.verbs.q2",
+          "correctTextDe": "vorgeschlagen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.verbs.q3",
+          "correctTextDe": "einzuführen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.verbs.q4",
+          "correctTextDe": "würde"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.verbs.q5",
+          "correctTextDe": "könnten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.verbs.q6",
+          "correctTextDe": "beschlossen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.syntax.q1",
+          "correctTextDe": "Die kurze Vorlaufzeit erschwert die Teilnahme der Teilzeitkräfte."
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.syntax.q2",
+          "correctTextDe": "dadurch zusätzliche Arbeit entstehen würde"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.syntax.q3",
+          "correctTextDe": "kurze Notizen Rückfragen vermeiden könnten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.syntax.q4",
+          "correctTextDe": "ob sich die Zusammenarbeit verbessert hat"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.syntax.q5",
+          "correctTextDe": "Bloßes Kritisieren oder Fordern soll nicht die einzige Handlung bleiben."
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.syntax.q6",
+          "correctTextDe": "beschlossen wir, die Idee auszuprobieren"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.nominal.q1",
+          "correctTextDe": "Teilzeitverträgen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.nominal.q2",
+          "correctTextDe": "festen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.nominal.q3",
+          "correctTextDe": "wichtigsten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.nominal.q4",
+          "correctTextDe": "dieser"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.nominal.q5",
+          "correctTextDe": "konkreter"
+        },
+        {
+          "questionId": "sitov.pretest.b12-01.nominal.q6",
+          "correctTextDe": "leichter"
+        }
+      ]
+    }
+  ]
+}
