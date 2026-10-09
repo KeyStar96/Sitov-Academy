@@ -3235,12 +3235,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
-        "calibrationStatus": "pending"
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+        "definitionContentHash": "3acc700ac24ba272b4ad35173befbcaab3b19c63ac163077d2fef706c51a4f5d",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -4290,12 +4298,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
-        "calibrationStatus": "pending"
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+        "definitionContentHash": "4c228fd7de28e9ed0e4b3b864573a6ade71d4c3dd542ac8786170694cada7b26",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -5353,12 +5369,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
-        "calibrationStatus": "pending"
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+        "definitionContentHash": "3ed5e3fa3c214d2d4d9717bb81d75548fa66810a76ba078abba6f6ca63126ec4",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -6404,12 +6428,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
-        "calibrationStatus": "pending"
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+        "definitionContentHash": "6b192633e63b737a845cef7b00312e7dd5515d869b7a9fe8e97065ed0970a5c5",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -7445,12 +7477,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
-        "calibrationStatus": "pending"
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
+        "definitionContentHash": "a0d76a2c9a20bdb5c076c4764758476a8f538c134f20e31d103e08e8731d6949",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -8491,12 +8531,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die von M bestätigten Kontext- und Formulierungslücken für diese neue private Definition berichtigt. Frühere Prüfungen gelten für den damaligen Wortlaut; unabhängige Schlussprüfung durch M und Kalibrierung stehen aus. Keine Audio-/Import-/Veröffentlichungsbelege oder neue menschliche Freigabepflicht.",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
-        "calibrationStatus": "pending"
+        "calibrationStatus": "pending",
+        "notesDe": "M hat den sichtbaren Kontext aller 216 ursprünglichen Aufgaben sowie alle 33 endgültigen Änderungen, Optionen, Schlüssel und Begründungen einschließlich der korrigierten Adjektivrichtung unabhängig fachlich geprüft. Dieser Nachweis gilt nur für die exakte private Entwurfsdefinition; empirische Kalibrierung und tatsächliche Audio-/Import-/Veröffentlichungsbelege stehen aus. Frühere Versuchsergebnisse werden nicht auf eine neue Testversion übertragen.",
+        "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+        "definitionContentHash": "98048a069fee6e53ce82130bf5932e56f6e351aeaf46fe6261aab7521675410e",
+        "documentRef": "sitov.editorial.review.first9-final-context-v1",
+        "documentSha256": "f8b0b262b11aeaf47ead7f591cafd166d7cc60979ee21abe1d1f4a1b299ebf12",
+        "reviewedAt": "2026-10-09T03:55:53.506Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
