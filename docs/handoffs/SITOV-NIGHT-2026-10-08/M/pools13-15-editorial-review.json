@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools13-15-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T11:12:45.625Z",
+  "sourceCommit": "4c0e344b232b6a1821148f3ea49fea2635d7720d",
+  "scope": "Independent semantic reading of all72 public questions/options/correct answer texts/rationales and three exact source bodies before option repair; exact independently checked bijection and full preserved field comparison after repair. Six-question cores have balanced and varied labels and positions; existing12 are exact. Editorial draft only.",
+  "semanticReviewPrivateReceiptSha256": "23a46734de8eaa9cc9128cd485e6a65ab23f250851e1afb105b859e4947fdce2",
+  "optionDeltaSha256": "7376637bb797a8d4c907e4f45d7c1db8bc3667ffcd2b6cab37d53668a3dc2450",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "924ee488-8b97-5070-ba23-eea0f03992e6",
+      "textVersion": "50c72a0375ad6340a4e2aff62d3620f74c9fa79151a9584b44301fd233844b52",
+      "definitionContentHash": "089bb0b29ca8d37446a0d57ea329b83650b2cd40bf4fd0f3bf2b10929d62781d",
+      "questionCount": 24,
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a12-03.words.q1",
+          "correctTextDe": "Ein Ort mit Wasserbecken zum Schwimmen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q2",
+          "correctTextDe": "Zum Abtrocknen des Körpers."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q3",
+          "correctTextDe": "Kleidung und Dinge zum Baden."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q4",
+          "correctTextDe": "Man bezahlt die Karten."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q5",
+          "correctTextDe": "Die Wärme fühlt sich gut an."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.words.q6",
+          "correctTextDe": "Die Tätigkeit für eine Weile unterbrechen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q1",
+          "correctTextDe": "Der Sohn hat die Fähigkeit dazu."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q2",
+          "correctTextDe": "Erste Person Plural."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q3",
+          "correctTextDe": "einpacken"
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q4",
+          "correctTextDe": "kaufen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q5",
+          "correctTextDe": "schwimmen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.verbs.q6",
+          "correctTextDe": "übe"
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q1",
+          "correctTextDe": "Am Sonntag gehen wir ins Schwimmbad."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q2",
+          "correctTextDe": "Zwei Dinge, die eingepackt werden."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q3",
+          "correctTextDe": "An der Kasse"
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q4",
+          "correctTextDe": "Es ist warm."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q5",
+          "correctTextDe": "Der Sprecher, bezeichnet durch ich."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.syntax.q6",
+          "correctTextDe": "Nachdem eine Stunde vergangen ist."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q1",
+          "correctTextDe": "Mein"
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q2",
+          "correctTextDe": "in das Schwimmbad"
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q3",
+          "correctTextDe": "das Handtuch"
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q4",
+          "correctTextDe": "der"
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q5",
+          "correctTextDe": "Auf den Sohn."
+        },
+        {
+          "questionId": "sitov.pretest.a12-03.nominal.q6",
+          "correctTextDe": "eine"
+        }
+      ]
+    },
+    {
+      "textId": "6e15b015-d482-58e4-9fa2-25ba0c8dea72",
+      "textVersion": "af6069fdab6798f3a084ceb92d09a6a47eec2741d01b971e341f116262485848",
+      "definitionContentHash": "e88b65fc2b15cc33cfba37b53cd9c529ec55b23e2a6bef35086da9ee0a57cf17",
+      "questionCount": 24,
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a12-04.words.q1",
+          "correctTextDe": "Der jährlich wiederkehrende Tag der Geburt."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q2",
+          "correctTextDe": "Menschen, die in der Nähe wohnen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q3",
+          "correctTextDe": "Man bittet jemanden, zur Feier zu kommen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q4",
+          "correctTextDe": "Zum Empfangen von Briefen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q5",
+          "correctTextDe": "Wasser."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.words.q6",
+          "correctTextDe": "Wasser, das aus Wolken fällt."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q1",
+          "correctTextDe": "haben"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q2",
+          "correctTextDe": "Einen Wunsch."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q3",
+          "correctTextDe": "beginnt"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q4",
+          "correctTextDe": "schreibe"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q5",
+          "correctTextDe": "mitbringen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.verbs.q6",
+          "correctTextDe": "backen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q1",
+          "correctTextDe": "Nächste Woche"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q2",
+          "correctTextDe": "Am Samstag um vier Uhr."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q3",
+          "correctTextDe": "Der Sprecher selbst."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q4",
+          "correctTextDe": "Jeder kann etwas zu essen mitbringen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q5",
+          "correctTextDe": "im Garten"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.syntax.q6",
+          "correctTextDe": "Wenn es regnet."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q1",
+          "correctTextDe": "meinen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q2",
+          "correctTextDe": "die"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q3",
+          "correctTextDe": "kurze"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q4",
+          "correctTextDe": "Auf die Einladung."
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q5",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-04.nominal.q6",
+          "correctTextDe": "meiner"
+        }
+      ]
+    },
+    {
+      "textId": "93e4a1ed-cb70-5f0a-9dd2-cf6b2a9c9699",
+      "textVersion": "4853b6164bbe3e1b7a25bba35046462505f6236bc0abab77c91749dfe455eb39",
+      "definitionContentHash": "b956f39233aa4f67d4f159073e95afcf2abe62c979e9476c54ef47a52d3b13e2",
+      "questionCount": 24,
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a12-05.words.q1",
+          "correctTextDe": "Ein regelmäßig stattfindender Markt mit Verkaufsständen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q2",
+          "correctTextDe": "Zum Tragen der gekauften Waren."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q3",
+          "correctTextDe": "Es ist nicht alt oder verdorben."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q4",
+          "correctTextDe": "Ein Gewicht."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q5",
+          "correctTextDe": "Ein Stück kosten, um den Geschmack zu prüfen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.words.q6",
+          "correctTextDe": "Ein Geschmack wie bei Zucker."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q1",
+          "correctTextDe": "sein"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q2",
+          "correctTextDe": "gehe"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q3",
+          "correctTextDe": "geben"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q4",
+          "correctTextDe": "kaufen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q5",
+          "correctTextDe": "lassen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.verbs.q6",
+          "correctTextDe": "schmecken"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q1",
+          "correctTextDe": "Am Mittwoch ist Markt auf dem Platz."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q2",
+          "correctTextDe": "Zum Markt auf dem Platz."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q3",
+          "correctTextDe": "Äpfel und Birnen."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q4",
+          "correctTextDe": "Der Sprecher, bezeichnet durch mich."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q5",
+          "correctTextDe": "An einem weiteren Verkaufsstand."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.syntax.q6",
+          "correctTextDe": "Die letzte genannte Handlung."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q1",
+          "correctTextDe": "großen"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q2",
+          "correctTextDe": "meinem"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q3",
+          "correctTextDe": "der Apfel"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q4",
+          "correctTextDe": "mich"
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q5",
+          "correctTextDe": "Auf den Apfel."
+        },
+        {
+          "questionId": "sitov.pretest.a12-05.nominal.q6",
+          "correctTextDe": "meine"
+        }
+      ]
+    }
+  ]
+}

@@ -7,7 +7,9 @@ const sitovEpoch34=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-
 const sitovAllAudio=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'))
 const sitovFrozenAudio12=Object.fromEntries(Object.entries(sitovAllAudio).slice(0,1152))
 const sitovDelta35=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch35-option-diversity-delta.json','utf8'))
-const sitovBefore35=structuredClone(currentManifest)
+const sitovAuthor35=structuredClone(currentManifest)
+for(const row of sitovDelta35.pools)sitovAuthor35.drafts.find(d=>d.textId===row.textId).review=row.currentReview
+const sitovBefore35=structuredClone(sitovAuthor35)
 for(const row of sitovDelta35.questions){
  const q=sitovBefore35.drafts.find(d=>d.textId===row.textId).definition.tasks.find(q=>q.id===row.questionId)
  q.options=row.previousOptions;q.correctOptionId=row.previousCorrectOptionId
@@ -315,14 +317,14 @@ test('source reader accepts central levels and rejects forged level, mixed-level
 
 
 test('next three actual A1.2 sources append15/60 inactive pools with frozen12 Mreviews and1152aliases intact',()=>{
- assert.equal(currentManifest.drafts.length,15);assert.deepEqual(currentManifest.coverage,{total:60,authored:15,pending:45})
+ assert.equal(sitovAuthor35.drafts.length,15);assert.deepEqual(sitovAuthor35.coverage,{total:60,authored:15,pending:45})
  assert.equal(sitovHash(JSON.stringify(originalManifest.drafts)),sitovEpoch34.original12ContentHash)
  assert.equal(sitovHash(JSON.stringify(originalManifest)),sitovEpoch34.originalManifestContentHash)
  assert.equal(sitovHash(JSON.stringify(sitovFrozenAudio12)),sitovEpoch34.original1152AliasContentHash)
  assert.equal(sitovHash(JSON.stringify(sitovFrozenAudio12,null,2)+'\n'),sitovEpoch34.original1152AliasByteSha256)
- assert.deepEqual(sitovValidatePretestDrafts(currentManifest,sources),[])
- assert.equal(Object.keys(sitovAllAudio).length,1440);assert.deepEqual(sitovValidatePretestAudioAliases(currentManifest,sitovAllAudio),[])
- for(const [index,draft] of currentManifest.drafts.slice(12).entries()){
+ assert.deepEqual(sitovValidatePretestDrafts(sitovAuthor35,sources),[])
+ assert.equal(Object.keys(sitovAllAudio).length,1440);assert.deepEqual(sitovValidatePretestAudioAliases(sitovAuthor35,sitovAllAudio),[])
+ for(const [index,draft] of sitovAuthor35.drafts.slice(12).entries()){
   assert.equal(sources.rows.find(s=>s.id===draft.textId).sortOrder,index+3);assert.equal(draft.level,'A1.2');assert.equal(draft.active,false)
   assert.equal(draft.definition.tasks.length,24);assert.equal(draft.definition.competencies.length,4)
   assert.equal(draft.review.status,'author_checked_independent_review_pending');assert.equal(draft.review.authorIdentity,draft.review.reviewer)
@@ -346,7 +348,7 @@ test('new source-specific answers and public premises distinguish swim ability, 
 })
 test('new pools reject duplicated assessed units, shared retake questions and false source spans',()=>{
  for(const mutate of [m=>{m.drafts[12].definition.tasks[1].assessmentUnit=m.drafts[12].definition.tasks[0].assessmentUnit},m=>{m.drafts[13].definition.reviewForms[1].questionIds[0]=m.drafts[13].definition.reviewForms[0].questionIds[0]},m=>{m.drafts[14].definition.tasks[0].sourceSpans[0].start++}]){
-  const copy=structuredClone(currentManifest);mutate(copy);assert.ok(sitovValidatePretestDrafts(copy,sources).length)
+  const copy=structuredClone(sitovAuthor35);mutate(copy);assert.ok(sitovValidatePretestDrafts(copy,sources).length)
  }
 })
 
@@ -369,13 +371,13 @@ const sitovDiversityErrors=drafts=>{
  return errors
 }
 test('current new72 have independently varied balanced labels and positions; prior predictable state fails',()=>{
- assert.deepEqual(sitovDiversityErrors(currentManifest.drafts.slice(12)),[])
+ assert.deepEqual(sitovDiversityErrors(sitovAuthor35.drafts.slice(12)),[])
  const previous=sitovDiversityErrors(sitovBefore35.drafts.slice(12))
  assert.ok(previous.includes('unbalanced_labels'));assert.ok(previous.includes('repeated_position_schedule'))
- const allFirst=structuredClone(currentManifest.drafts.slice(12))
+ const allFirst=structuredClone(sitovAuthor35.drafts.slice(12))
  for(const d of allFirst)for(const q of d.definition.tasks){const correct=q.options.find(o=>o.id===q.correctOptionId);q.options=[correct,...q.options.filter(o=>o!==correct)]}
  assert.ok(sitovDiversityErrors(allFirst).includes('unbalanced_positions'))
- const allA=structuredClone(currentManifest.drafts.slice(12))
+ const allA=structuredClone(sitovAuthor35.drafts.slice(12))
  for(const d of allA)for(const q of d.definition.tasks)q.correctOptionId=q.options.find(o=>o.id.endsWith('.a')).id
  assert.ok(sitovDiversityErrors(allA).includes('unbalanced_labels'))
 })
@@ -385,11 +387,11 @@ test('epoch35 exact bijections preserve each correct answer and every other task
  assert.equal(sitovDelta35.changedQuestionCount,sitovDelta35.questions.filter(row=>JSON.stringify(row.previousOptions)!==JSON.stringify(row.currentOptions)||row.previousCorrectOptionId!==row.currentCorrectOptionId).length)
  assert.equal(sitovHash(JSON.stringify(sitovBefore35)),sitovDelta35.previousManifestContentHash)
  assert.equal(sitovHash(JSON.stringify(sitovBefore35,null,2)+'\n'),sitovDelta35.previousManifestByteSha256)
- assert.equal(sitovHash(JSON.stringify(currentManifest)),sitovDelta35.currentManifestContentHash)
- assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovDelta35.currentManifestByteSha256)
- assert.equal(sitovHash(JSON.stringify(currentManifest.drafts.slice(0,12))),sitovDelta35.original12ContentHash)
+ assert.equal(sitovHash(JSON.stringify(sitovAuthor35)),sitovDelta35.currentManifestContentHash)
+ assert.equal(sitovHash(JSON.stringify(sitovAuthor35,null,2)+'\n'),sitovDelta35.currentManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(sitovAuthor35.drafts.slice(0,12))),sitovDelta35.original12ContentHash)
  for(const row of sitovDelta35.questions){
-  const actual=currentManifest.drafts.find(d=>d.textId===row.textId).definition.tasks.find(q=>q.id===row.questionId)
+  const actual=sitovAuthor35.drafts.find(d=>d.textId===row.textId).definition.tasks.find(q=>q.id===row.questionId)
   const previous=sitovBefore35.drafts.find(d=>d.textId===row.textId).definition.tasks.find(q=>q.id===row.questionId)
   assert.deepEqual(actual.options,row.currentOptions);assert.equal(actual.correctOptionId,row.currentCorrectOptionId)
   assert.equal(actual.options.find(o=>o.id===actual.correctOptionId).textDe,row.correctAnswerTextDe)
@@ -399,14 +401,14 @@ test('epoch35 exact bijections preserve each correct answer and every other task
   assert.deepEqual({...actual,options:previous.options,correctOptionId:previous.correctOptionId},previous)
  }
  for(const row of sitovDelta35.pools){
-  const current=currentManifest.drafts.find(d=>d.textId===row.textId),previous=sitovBefore35.drafts.find(d=>d.textId===row.textId)
+  const current=sitovAuthor35.drafts.find(d=>d.textId===row.textId),previous=sitovBefore35.drafts.find(d=>d.textId===row.textId)
   assert.equal(sitovHash(JSON.stringify(current.definition)),row.currentDefinitionContentHash)
   assert.equal(sitovHash(JSON.stringify(previous.definition)),row.previousDefinitionContentHash)
   assert.equal(current.review.status,'author_checked_independent_review_pending')
   assert.deepEqual({...current.review,definitionContentHash:previous.review.definitionContentHash},previous.review)
   const restored=structuredClone(current);restored.definition.tasks=previous.definition.tasks;restored.review=previous.review;assert.deepEqual(restored,previous)
  }
- assert.deepEqual(sitovValidatePretestDrafts(currentManifest,sources),[])
+ assert.deepEqual(sitovValidatePretestDrafts(sitovAuthor35,sources),[])
 })
 test('new option aliases follow exact bijections/order while old1152 and all German spoken values stay unchanged',async()=>{
  assert.equal(sitovHash(JSON.stringify(sitovBeforeAudio35)),sitovDelta35.previousAudioContentHash)
@@ -418,7 +420,15 @@ test('new option aliases follow exact bijections/order while old1152 and all Ger
  const expected={...sitovFrozenAudio12}
  for(const row of sitovDelta35.questions)for(const alias of row.currentAliasEntries)expected[alias.key]=alias.textDe
  assert.deepEqual(Object.entries(sitovAllAudio),Object.entries(expected))
- assert.deepEqual(sitovValidatePretestAudioAliases(currentManifest,sitovAllAudio),[])
+ assert.deepEqual(sitovValidatePretestAudioAliases(sitovAuthor35,sitovAllAudio),[])
  assert.equal(sitovHash(JSON.stringify(sitovFrozenAudio12)),sitovDelta35.original1152AliasContentHash)
- assert.ok(sitovValidatePretestAudioAliases(currentManifest,sitovBeforeAudio35).length>0)
+ assert.ok(sitovValidatePretestAudioAliases(sitovAuthor35,sitovBeforeAudio35).length>0)
+})
+
+test('M exact independent review binds current new3 definitions without rewriting author history or claiming publication',async()=>{
+ const raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/pools13-15-editorial-review.json','utf8'),proof=JSON.parse(raw)
+ assert.equal(proof.questionsChecked,72);assert.equal(proof.coresChecked,12);assert.equal(proof.humanReview,false);assert.equal(proof.calibrationStatus,'pending');assert.equal(proof.publicationAuthorized,false)
+ assert.equal(proof.optionDeltaSha256,sitovHash(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch35-option-diversity-delta.json','utf8')))
+ for(const d of currentManifest.drafts.slice(12)){const r=proof.approvedEditorialDrafts.find(r=>r.textId===d.textId);assert.equal(d.active,false);assert.equal(d.review.status,'independent_editorial_checked_draft_only');assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.authorIdentity,'sitov.agent.S3');assert.equal(d.review.documentSha256,sitovHash(raw));assert.equal(d.review.textVersion,r.textVersion);assert.equal(d.review.definitionContentHash,r.definitionContentHash);assert.equal(r.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');for(const q of d.definition.tasks)assert.equal(r.correctAnswerTexts.find(r=>r.questionId===q.id).correctTextDe,q.options.find(o=>o.id===q.correctOptionId).textDe)}
+ assert.deepEqual(sitovValidatePretestDrafts(currentManifest,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(currentManifest,sitovAllAudio),[])
 })
