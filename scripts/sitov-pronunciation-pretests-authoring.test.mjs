@@ -2,9 +2,11 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sources=await sitovReadAuthoringSources(),manifest=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sources=await sitovReadAuthoringSources(),currentManifest=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),manifest=structuredClone(currentManifest)
 // Reconstruct the exact frozen pre-mapping record before applying historical task repairs.
 const sitovMapping33=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch33-same-level-mapping-delta.json','utf8'))
+// Reconstruct S3's exact pending-review state; current M provenance is checked separately below.
+for(const row of sitovMapping33.changedPools)manifest.drafts.find(d=>d.textId===row.textId).review=row.currentReview
 const sitovBeforeMapping=structuredClone(manifest)
 for(const row of sitovMapping33.changedPools){
  const draft=sitovBeforeMapping.drafts.find(d=>d.textId===row.textId)
@@ -212,7 +214,8 @@ test('known cross-level topics are rejected in both directions despite existing 
  }
 })
 test('current partial mappings use canonical same-level evidence and retain exact uncovered gaps',()=>{
- assert.equal(sources.topicLevels.size,16)
+ assert.equal(sources.topicLevels.size,20)
+ assert.deepEqual([...sources.topicLevels.values()].slice(16),['A2.1','A2.2','B1.1','B1.2'])
  assert.deepEqual(sitovValidatePretestDrafts(manifest,sources),[])
  for(const draft of manifest.drafts)for(const core of draft.definition.competencies){
   for(const topic of core.mapping.topicIds)assert.equal(sources.topicLevels.get(topic),draft.level)
@@ -228,9 +231,11 @@ test('current partial mappings use canonical same-level evidence and retain exac
 test('explicit epoch33 delta exactly reconstructs frozen history while only mapping and honest pending review change',async()=>{
  assert.equal(sitovHash(JSON.stringify(sitovBeforeMapping)),sitovMapping33.previousManifestContentHash)
  assert.equal(sitovHash(JSON.stringify(sitovBeforeMapping,null,2)+'\n'),sitovMapping33.previousManifestByteSha256)
- assert.equal(sitovHash(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovMapping33.currentManifestByteSha256)
+ assert.equal(sitovHash(JSON.stringify(manifest,null,2)+'\n'),sitovMapping33.currentManifestByteSha256)
  assert.equal(sitovHash(JSON.stringify(manifest)),sitovMapping33.currentManifestContentHash)
- assert.equal(sitovHash(await readFile('lib/learning/sitov-topic-mapping.ts','utf8')),sitovMapping33.sourceMappingSha256)
+ const mappingRaw=await readFile('lib/learning/sitov-topic-mapping.ts','utf8'),array=mappingRaw.match(/export const SITOV_TOPIC_MAPPING[^=]*=\s*(\[[\s\S]*?\n\])/u)[1]
+ const priorMapping=mappingRaw.replace("import type { AccessLevel } from '@/lib/access/levels'\n\n",'').replace('export type SitovMappedLevel = AccessLevel',"export type SitovMappedLevel = 'A1.1' | 'A1.2'").replace(array,JSON.stringify(JSON.parse(array).slice(0,16),null,2))
+ assert.equal(sitovHash(priorMapping),sitovMapping33.sourceMappingSha256)
  assert.equal(sitovMapping33.changedPools.length,12)
  assert.equal(sitovMapping33.spokenFieldsChanged,0);assert.equal(sitovMapping33.keysChanged,0)
  for(const row of sitovMapping33.changedPools){
@@ -252,4 +257,40 @@ test('explicit epoch33 delta exactly reconstructs frozen history while only mapp
  assert.equal(sitovHash(audioRaw),sitovMapping33.audioAliasByteSha256)
  assert.equal(sitovHash(JSON.stringify(JSON.parse(audioRaw))),sitovMapping33.audioAliasContentHash)
  assert.deepEqual(sitovPublicPretestAudioAliases(manifest),sitovPublicPretestAudioAliases(sitovBeforeMapping))
+})
+
+
+test('current exact M review composes unchanged prior independently reviewed tasks and checked metadata without publication',async()=>{
+ const path='docs/handoffs/SITOV-NIGHT-2026-10-08/M/core-mapping-editorial-review.json',raw=await readFile(path,'utf8'),proof=JSON.parse(raw)
+ assert.equal(proof.humanReview,false);assert.equal(proof.calibrationStatus,'pending');assert.equal(proof.publicationAuthorized,false);assert.equal(proof.coresChecked,48)
+ assert.deepEqual(sitovValidatePretestDrafts(currentManifest,sources),[])
+ for(const d of currentManifest.drafts){
+  const record=proof.approvedEditorialDrafts.find(r=>r.textId===d.textId),pending=manifest.drafts.find(r=>r.textId===d.textId)
+  assert.deepEqual(d.definition,pending.definition);assert.equal(record.definitionContentHash,sitovHash(JSON.stringify(d.definition)))
+  assert.equal(d.review.documentSha256,sitovHash(raw));assert.equal(d.review.documentRef,proof.documentRef);assert.equal(d.review.reviewer,proof.reviewer);assert.equal(d.review.authorIdentity,proof.authorIdentity)
+  assert.notEqual(d.review.reviewer,d.review.authorIdentity);assert.equal(d.review.textVersion,d.textVersion);assert.equal(d.review.definitionContentHash,record.definitionContentHash)
+  assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false)
+  for(const file of record.priorReviewDocuments)assert.equal(sitovHash(await readFile(file,'utf8')),record.priorReview.documentSha256)
+  assert.equal(record.previousDefinitionContentHash,record.priorReview.definitionContentHash);assert.equal(record.nonMappingFieldsExactlyUnchanged,true)
+ }
+ const stale=structuredClone(currentManifest);stale.drafts[0].definition.tasks[0].correctOptionId='sitov.changed.key'
+ assert.ok(sitovValidatePretestDrafts(stale,sources).some(e=>e.endsWith('independent exact-version review provenance required')))
+ assert.deepEqual(sitovPublicPretestAudioAliases(currentManifest),sitovPublicPretestAudioAliases(manifest))
+})
+
+
+test('source reader accepts central levels and rejects forged level, mixed-level and duplicate topic metadata',async()=>{
+ const fs=await import('node:fs/promises'),{tmpdir}=await import('node:os'),{join,resolve}=await import('node:path')
+ const dir=await fs.mkdtemp(join(tmpdir(),'sitov-topic-source-'))
+ try{
+  await fs.mkdir(join(dir,'supabase'),{recursive:true});await fs.symlink(resolve('supabase/seeds'),join(dir,'supabase/seeds'))
+  await fs.mkdir(join(dir,'lib/access'),{recursive:true});await fs.mkdir(join(dir,'lib/learning'),{recursive:true})
+  const access=await readFile('lib/access/levels.ts','utf8'),mapping=await readFile('lib/learning/sitov-topic-mapping.ts','utf8')
+  await fs.writeFile(join(dir,'lib/access/levels.ts'),access);await fs.writeFile(join(dir,'lib/learning/sitov-topic-mapping.ts'),mapping)
+  const valid=await sitovReadAuthoringSources(dir);assert.equal(valid.rows.filter(r=>r.active).length,60);assert.equal(valid.topicLevels.size,20)
+  for(const invalid of [mapping.replace('"level": "A2.1"','"level": "Z9.9"'),mapping.replace('"level": "A2.1"','"level": "B1.2"'),mapping.replace('sitov.topic.begruenden-a21','sitov.topic.nominativ')]){
+   await fs.writeFile(join(dir,'lib/learning/sitov-topic-mapping.ts'),invalid);await assert.rejects(sitovReadAuthoringSources(dir),/Invalid canonical topic-level evidence/)
+  }
+  await fs.writeFile(join(dir,'lib/access/levels.ts'),access.replace("  'A1.1',","  'INVALID',"));await assert.rejects(sitovReadAuthoringSources(dir),/Invalid canonical access-level evidence/)
+ }finally{await fs.rm(dir,{recursive:true,force:true})}
 })

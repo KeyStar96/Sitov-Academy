@@ -25,15 +25,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
         "definitionContentHash": "e33ea78f9f6e845cb9acfccac23d3c3adff57ce9306355d98bdf967247a9148f",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -1098,15 +1102,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "a1e829de18793196c9b27aa5b5fe18a20ebf7a12809c5a61799fd9822f987fc0",
         "definitionContentHash": "138d693692a655c656ddec034e3ed08cdc04d338099e85a1758e7db87ddcfcc9",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -2170,15 +2178,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "1d8ea3dbd24923f3c6a3ec7c9f319d84b475802b18996a605ee447f98bc1a961",
         "definitionContentHash": "4ed47739d1a31c885a2d5d015aa30c4ec7dc548e2fe3f91328001391741166c9",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -3240,15 +3252,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
         "definitionContentHash": "14468d7997240c66694d7e36bafea6f8be7042a40aab3485075dbd398cc52c8c",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -4301,15 +4317,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
         "definitionContentHash": "cf6386546fef2994b79e95e7aa8b41db4573b15bbfd3428213edff3f00356258",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -5372,15 +5392,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
         "definitionContentHash": "54352973e29ac3049a679a94f0a6cff1f099141968cf37f8d253675881eb6e8c",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -6431,15 +6455,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
         "definitionContentHash": "b691b7b0554cc562278883981225bc20a97622d6b6732a017acf34d385594174",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -7485,15 +7513,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
         "definitionContentHash": "8ff24cfc766fea71670c574237b5ac416effb70f978d6653f4f5522f6a3f281d",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -8544,15 +8576,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
         "definitionContentHash": "e190a2f9d568fe43182264ddcc5aad15e7bcdd345e340d60261a9afa292099f9",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -9592,15 +9628,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561",
         "definitionContentHash": "253d4cc1ea6388059aaf575149f185068da4af1e1a655d14007b532895713127",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -10652,15 +10692,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "e5f456eec833ee2dd3e6e9da51d565a55312bc3124740451fe2479866ae262f0",
         "definitionContentHash": "fe8ad1150a7485b0af853e8fb7664972aadbd16c4b0fd5da8af32cb95cb85ce8",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -11708,15 +11752,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 hat ausschließlich gleichstufige optionale Themenmetadaten gegen die 16 belegten Themen und den S2-Epoch21-Vorschlag geprüft. Offene Teilfertigkeiten bleiben benannt. Neue unabhängige M-Prüfung der geänderten Definition ausstehend; keine Audio-/Publikationsfreigabe.",
+        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
         "textVersion": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
         "definitionContentHash": "c2929dab6a04477810447f950de86875f301c6091aa7c991e381328e9eac64b4",
-        "audioPublication": "blocked_pending_new_independent_review_and_immutable_definition_binding"
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
+        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
+        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",

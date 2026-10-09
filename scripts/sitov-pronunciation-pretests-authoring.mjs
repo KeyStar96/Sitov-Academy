@@ -24,9 +24,13 @@ export async function sitovReadAuthoringSources(root=process.cwd()) {
  const result=rows.map(row=>({...row,...units.get(row.unitId),textVersion:sitovHash(row.text)}))
  for(const entry of catalog){const row=result.find(r=>r.id===entry.id);if(!row||row.text!==entry.text||row.level!==entry.level||row.title!==entry.title||row.sortOrder!==entry.sortOrder||!row.active)throw Error('Canonical reading catalog/source mismatch')}
  if(result.length!==149||catalog.length!==60||result.filter(r=>r.active).length!==60||new Set(result.map(r=>r.id)).size!==149)throw Error('Unexpected inventory; review all source changes')
+ const access=await readFile(resolve(root,'lib/access/levels.ts'),'utf8')
+ const levelLiteral=access.match(/export const ACCESS_LEVELS\s*=\s*(\[[\s\S]*?\])/u)?.[1]
+ const levels=levelLiteral?.match(/'[^']+'/gu)?.map(value=>value.slice(1,-1))
+ if(!levels?.length||new Set(levels).size!==levels.length||levels.some(level=>!/^([ABC][12])\.[12]$/.test(level)))throw Error('Invalid canonical access-level evidence')
  const mapping=await readFile(resolve(root,'lib/learning/sitov-topic-mapping.ts'),'utf8')
  const topics=JSON.parse(mapping.match(/export const SITOV_TOPIC_MAPPING[^=]*=\s*(\[[\s\S]*?\n\])/u)?.[1]??'null')
- if(!Array.isArray(topics)||!topics.length||new Set(topics.map(t=>t.topicId)).size!==topics.length||topics.some(t=>!id.test(t.topicId)||!['A1.1','A1.2'].includes(t.level)||[...(t.anchors??[]),...(t.targets??[]),...(t.specialTargets??[])].some(target=>target.level!==t.level)))throw Error('Invalid canonical topic-level evidence')
+ if(!Array.isArray(topics)||!topics.length||new Set(topics.map(t=>t.topicId)).size!==topics.length||topics.some(t=>!id.test(t.topicId)||!levels.includes(t.level)||[...(t.anchors??[]),...(t.targets??[]),...(t.specialTargets??[])].some(target=>target.level!==t.level)))throw Error('Invalid canonical topic-level evidence')
  return {rows:result,topicIds:new Set(topics.map(t=>t.topicId)),topicLevels:new Map(topics.map(t=>[t.topicId,t.level]))}
 }
 /** Strict draft contract checks, never a semantic grader or a publication command. */
