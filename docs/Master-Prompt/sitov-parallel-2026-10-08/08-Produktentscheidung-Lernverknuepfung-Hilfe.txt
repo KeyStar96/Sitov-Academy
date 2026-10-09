@@ -1,0 +1,35 @@
+Sitov Academy – Produktentscheidung zur Lernverknüpfung und Textreduktion
+Stand: 8. Oktober 2026. Diese Datei ergänzt die sieben vollständigen Sessions-Prompts; deren Inhalte wurden ebenfalls aktualisiert. Sie ist kein achter Arbeitsauftrag und startet keine Implementierung.
+
+Jetzt verbindlich umsetzen
+
+1. Themenbezogene Verbindung statt isolierter Trainer. Ein kleines Manifest verknüpft tatsächliche Lernpfadstationen mit passenden Vokabelkarten/-lektionen, Verbformen, Specials und Aussprachetexten. Kurze direkte nächste Aktionen verwenden, beispielsweise nach einer Akkusativübung passende Wörter oder einen Sprechtext anbieten. Vorhandene Zugriffsrechte und Fortschritte berücksichtigen, keine neue universelle Fortschrittszahl oder doppelte Lernstandspeicherung. S2 besitzt fachliches Mapping, M den gemeinsamen Vertrag; S3 verwendet es für Fehler-Lernverweise, S4 für die Oberfläche.
+
+2. Klare kurze Lernaufgaben und einheitliche Hilfe. Eine gemeinsame Hilfe mit wiedererkennbarem Symbol plus kurzer lokalisierter Beschriftung baut auf SitovTrainerHelp auf. Kern-Lernbereiche und neue Lehrerfenster verwenden dieselbe Bedienung. Aufgabe, nächste Aktion, kurze notwendige Anweisung, Eingabelabels und wichtige Fehlermeldungen bleiben sichtbar. Ausführliche Regeln/Zusatzwissen öffnen sich auf Klick/Touch/Tastatur, nicht nur bei Hover. Lesbare Schrift, große Touchziele, Kontrast und dosierte ruhige Motion. Standardmäßig geschlossene Hilfe darf nicht dazu führen, dass Schüler die Grundbedienung erraten müssen.
+
+3. Verständlicher echter Fortschritt und kurzes Erfolgsfeedback. Bestehende Stars/Lernboxen/Abschlüsse und sinnvolle nächste Schritte einsetzen. Optionale kleine Missionen verbessern die Abwechslung. Neue Animationen behaupten kein Wissen, das nicht durch vorhandene Nachweise belegt ist. Keine Änderung bestehender Streaks oder automatische Erhöhung des Vokabel-/Verbfortschritts durch bloßes Lesen eines Bonusstücks.
+
+Kleiner optionaler Startbestand
+
+Genau zwei eigene kurze Ausspracheinhalte: ein natürlicher Lernreim A1.1 mit zwei bis vier Zeilen und ein leichter Zungenbrecher A1.2, sofern M den Pilot innerhalb der Kernprioritäten/Kontingentreserve freigibt. Je ein klares Laut-/Betonungs-/Rhythmusziel, niveaugerechter Wortschatz, eigene stabile ID, individueller Vortest und bestehender Aufnahme-/Lehrerbewertungsweg. Verständlichkeit/Artikulation üben; keine Schnelligkeitsprüfung oder Native-Akzentpflicht. Alle deutschen Hörtexte vor Veröffentlichung lokal mit dem festgelegten Qwen-Profil samt Wortzeiten vorberechnen und importieren. Ohne vollständige fachliche Tests und Audio-Proof bleibt der Inhalt unsichtbarer unveröffentlichter Entwurf. Die Architektur ist die bestehende Aussprachefunktion, kein zusätzlicher Trainer.
+
+Voraussetzungen eindeutig
+
+Die letzte verbindliche Ausspracheentscheidung bleibt: Ein bestandener individueller Test ist die einzige fachliche Voraussetzung des konkreten Textes, einschließlich Reimen/Zungenbrechern. Lernpfadstand und bekannte Vokabeln helfen bei Auswahl und Empfehlung, werden aber nicht als zusätzliche Sperre eingeführt. Separate kommerzielle Freigaben bleiben bestehen; registrierte Schüler behalten ihre bisherige Plattformberechtigung.
+
+Für diesen Durchlauf zurückstellen
+
+Große Gedichtbibliothek, neue globale Skill-Tree-Datenbank, künstliche XP-/Freischaltwährungen, Ranglisten/Wettbewerbe, zeitabhängiger Druck und aufwendige adaptive Empfehlungsalgorithmen. Ein vollständiger Umbau aller Trainer verdrängt die Kernaufgaben nicht. Duolingo ist ein Vergleichsmaßstab für klare mobile Bedienung und konsistentes Feedback; Sitov Academy behält eigene Gestaltung, Inhalte und pädagogische Entscheidungen.
+
+Abnahme
+
+S5 prüft fachlich passende und autorisierte Deep Links, fehlende versteckte Aussprache-Gates, erhaltene Fortschritte, konsistente kontextbezogene Hilfe, fünf UI-Sprachen, Touch/Tastatur/Screenreader/Reduced Motion, 320/390/1440 px und 200-%-Textvergrößerung. Zusatzinhalte gehen nur vollständig geprüft und audioimportiert live. S6 dokumentiert das tatsächliche Ergebnis. Dieses Dokument bewertet Produktideen; es ist keine visuelle Abnahme des aktuellen gesamten Produkts.
+
+Primärquellen der Bewertung
+
+W3C WAI empfiehlt klare kurze Inhalte und konsistente vertraute Bedienmuster. Dies ist zusätzliche kognitive Accessibility guidance, keine pauschale Konformitätsbestätigung:
+https://www.w3.org/WAI/WCAG2/supplemental/objectives/o3-clear-content/
+https://www.w3.org/WAI/WCAG2/supplemental/objectives/o1-understandable/
+
+Der Europarat beschreibt phonologische Kompetenz mit allgemeiner Kontrolle, Artikulation und Prosodie; damit sind Laut-/Rhythmusziele passend, ein Schnelligkeitswettbewerb ist aus diesen Kriterien nicht abgeleitet:
+https://www.coe.int/en/web/common-european-framework-reference-languages/phonology-in-the-classroom

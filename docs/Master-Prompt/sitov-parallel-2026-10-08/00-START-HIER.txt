@@ -1,0 +1,53 @@
+Sitov Academy – sieben Prompts für parallele Sessions
+Stand: 8. Oktober 2026. Ziel der später gestarteten Umsetzung: 9. Oktober morgens, Europe/Berlin.
+
+Diese Dateien sind fertige Einzelprompts. Das Erstellen dieses Pakets hat noch keine Feature-Implementierung, Sub-Session, Automation, produktive Migration oder Veröffentlichung gestartet.
+
+Start für den unbeaufsichtigten Nachtlauf:
+1. 01-MASTER.txt vollständig in einen neuen Chat im Projekt einfügen und absenden. Er beginnt sofort seinen Bootstrap, veröffentlicht seine Thread-ID und richtet eine Wiedervorlage alle 15 Minuten im selben Master-Chat ein.
+2. Direkt danach die sechs Dateien 02 bis 07 jeweils vollständig in einen eigenen neuen Chat im selben Projekt einfügen und absenden. Nicht auf den Abschluss des Masters oder einzelner Sub-Sessions warten. Sie registrieren sich, melden sich beim Master und erhalten ihre Freigaben automatisch.
+3. Vor dem Schlafen einmal die konkrete Master-Startmeldung prüfen: Nachtlauf aktiv: 6/6 Sub-Sessions registriert; Master-ID und Wiedervorlage bestätigt; erste Arbeitsfreigaben gesendet. Dazu ist keine erneute Zustimmung oder fortlaufendes manuelles Weiter nötig. Bei 5/6 fehlt eine Registrierung; der Master soll genau benennen, welche.
+4. Mac am Strom lassen, Codex-App geöffnet lassen und Systemruhezustand verhindern. Der Bildschirm darf ausgeschaltet werden. Lokale Worktrees, Obsidian und die Qwen-Vorbereitung benötigen diesen Mac.
+
+Alle sieben Prompts enthalten den vollständigen gemeinsamen Rahmen. Die Sub-Sessions richten eigene Worktrees auf der verifizierten gemeinsamen Basis ein; anfänglich führt kein Worker Featureänderungen im normalen Projektcheckout aus. Master und Worker sind zum gegenseitigen gruppeninternen Messaging autorisiert. Zusätzlich existiert ein gemeinsames Steuerverzeichnis innerhalb der Git-Metadaten; Nachrichten und Wiedervorlage aktivieren wartende Chats, eine Datei allein tut das nicht.
+
+Dateien/Zuständigkeiten:
+01-MASTER.txt — Verträge, Reihenfolge, Kontingent, Integration, Releaseentscheidung.
+02-S1-Zugang-Bezahlsystem.txt — VIP, Testzugang bis einzelne Aufgaben, Niveaukaufgerüst, Lehrer-Menü und Payment-Schalter.
+03-S2-Lernpfad-Specials.txt — Obsidian-Konzepte, Spezialformate, optionaler Pfadzweig, Akkusativ-Lernen/Test, Inhalte und Audio-Manifeste.
+04-S3-Aussprache-Vortests.txt — individuelle Kompetenzprüfung jedes Textes, geschützte Bewertung/Persistenz/RLS, Lernverweise.
+05-S4-Aussprache-UI-Motion.txt — Startwidget, mobile morphende Karten, Vortestablauf, Lehrerfenster und Profiloptionen.
+06-S5-Qualitaetssicherung.txt — unabhängige Integration/DB/Sicherheit/Inhalte/Browser/Regression.
+07-S6-Obsidian-Dokumentation.txt — bestätigte Zwischenstände und endgültiger Abgleich im vorhandenen Vault.
+
+Es arbeiten höchstens zwei Sub-Sessions gleichzeitig. Sinnvolle Wellen: zunächst S1/S3, nach verbindlichen Verträgen S2/S4, danach QA und abschließende Dokumentation; kurze Dokumentationseinheiten können dazwischen liegen. Die Master-Session verteilt begrenzte Arbeitsfreigaben und integriert gemeinsame Dateien.
+
+Kontingent: Bei Paket-Erstellung meldete das Tool 42 % verbraucht, also 58 % verbleibend. Geplant wird konservativ mit den vom Nutzer genannten 57 %. Reserve: 15 %. 30 % löst Zurückhaltung bei neuen Inhalten aus, 25 % Feature-Freeze, 18 % nur Sicherung/zwingender Abschluss, 15 % Stop. Prozentwerte sind kontoübergreifend und keine präzise Kostenquote einer einzelnen Session. Prompt-Anweisungen/Usage-Abfragen garantieren keinen technisch harten Verbrauchsdeckel; deshalb geringe Parallelität, kurze Freigaben und frühe Reserve. Kein Reset und keine API-/Creditkäufe.
+
+Standard-Releasepolitik: COMMIT_AND_HANDOFF. Implementierung, passende Tests, Integration und Commits haben Vorrang. Das VPS-Deployment bleibt ausstehend, mit fertiger Übergabe. Für automatisches Deployment zusätzlich direkt an die Master-Session schreiben:
+
+Ich autorisiere für SITOV-NIGHT-2026-10-08 AUTO_DEPLOY, ausschließlich durch die Master-Session, nach bestandenen Release-Gates und bei ausreichender Kontingentreserve. Bei fehlenden Tests, Audios oder Reserve bleibt es bei COMMIT_AND_HANDOFF. Das Bezahlsystem bleibt ausgeschaltet; produktive Zahlungen sind nicht autorisiert.
+
+Ein kopierter Prompt garantiert weder vollständige Umsetzung bis morgen früh noch unbegrenzt laufende Ausführung. Der ausführende Mac muss für lokale Sessions und Qwen-Vorbereitung verfügbar bleiben. Dieses Autorenchat-Paket hat noch keine Automation angelegt. Der aktualisierte Master-Prompt autorisiert und beauftragt den tatsächlichen Master-Chat, seine eigene Wiedervorlage einzurichten und den Erfolg zu bestätigen. Bei einer erreichten Budgetgrenze sollen alle Ergebnisse sicher commitet und genaue Restaufgaben benannt sein.
+
+Verifizierte Quellen:
+Projekt: /Users/denniskostjuk/Documents/SitovAcademy/SmartGerman
+Vault: /Users/denniskostjuk/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Life-OS/01 Projects/Sitov-Academy
+Specials: Teacher/Lernpfad /Specials/ — Leerzeichen nach Lernpfad beachten.
+Bezahlentwurf: 19_Bezahlsystem_und_Trial_Entwurf_2026-10-02.md
+Motion: docs/design/sitov-motion-design.md
+Audio: docs/audio-authoring.md
+
+Bereits vorhanden: Lernpfad-special/anchor_node_id und 80%-Tests; granulare Niveau-/Trainer-/Einheitenrechte; Aussprache-Meilensteine mit Wortabdeckung; gemeinsame Motion-/Trainerkomponenten. Die Prompts verlangen gezielte Erweiterung, keine parallele Neuentwicklung. VIP bleibt zusätzliche Schüler-Zugriffsrolle. Letzte Nutzerentscheidung: Der individuelle Texttest ist die einzige fachliche Aussprache-Voraussetzung; sämtliche alten Meilenstein-, Wortabdeckungs-, Vokabel-/Verb-/Lernpfad-Minima werden entfernt. Alte Pro-Limits und unbeauftragte Abos entfallen. Höhere Akkusativ-HTML-Prototypen sind identische Kopien, keine niveauspezifischen Autorenkonzepte. Bild-PDF/Pages-Quelle müssen von der Fachsession vollständig gelesen werden.
+
+Grundlage für isolierte parallele Worktrees: offizielle OpenAI-Dokumentation, https://learn.chatgpt.com/docs/environments/git-worktrees
+
+Letzte Qualitätsvorgabe: Die Plattform soll markttauglich und gegen Geld nutzbar sein. Produktionsreife ist deshalb ein überprüfbares Release-Gate: vollständige Nutzerflüsse, sichere Berechtigungen, korrekte Inhalte, dauerhafte Zustände, getestete Migrationen, Audio-Proofs und echte mobile/browserbasierte Nachweise. Offene kritische Fehler oder ungetestete notwendige Teile verhindern RELEASE_READY. Eine vollständige Plattformabnahme ist durch dieses Prompt-Paket noch nicht erfolgt.
+
+Letzte Bestandsvorgabe: Bereits registrierte Schüler behalten ihre bisherigen kommerziellen Freigaben exakt. Kein automatischer Trial-Wechsel, Kaufzwang oder nachträgliche Paywall. Migrationen brauchen einen Vorher-nachher-Nachweis; neue Aussprache-Vortests werden davon getrennt eingeführt.
+
+Ausführungsvoraussetzung: verifiziertes Thread-Messaging/Wait und die bestätigte Wiedervorlage im Master-Chat sichern den Wiedereinstieg. Das Dateipostfach allein kann einen beendeten Chat nicht wecken. Der Master beendet seine Wiedervorlage nach Auftragserfolg oder Budgetstop. Produktive Rechtevergleiche werden erst beim tatsächlichen Deployment durchgeführt; der commitete Code benötigt bereits vorher einen isolierten Migrationsnachweis.
+
+Aktualisierung zur Produktkritik: Die sieben Prompts enthalten jetzt thematische Verknüpfungen zwischen vorhandenen Trainern, echte Fortschrittsrückmeldung und einheitliche kontextbezogene Hilfe mit weniger Standardtext. Optionaler vollständig geprüfter Pilot: ein kurzer Reim A1.1 und ein leichter Zungenbrecher A1.2 mit jeweils eigenem Vortest und Audio-Proof. Keine zusätzlichen fachlichen Aussprache-Gates. Entscheidung und bewusst zurückgestellte Erweiterungen stehen in 08-Produktentscheidung-Lernverknuepfung-Hilfe.txt; dafür ist keine weitere Session nötig.
+
+Offizielle Dokumentation für eine Wiedervorlage im bestehenden Chat und lokale Ausführungsvoraussetzungen: https://learn.chatgpt.com/docs/automations
