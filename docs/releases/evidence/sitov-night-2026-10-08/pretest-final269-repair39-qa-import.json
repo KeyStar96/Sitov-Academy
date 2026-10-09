@@ -1,0 +1,29 @@
+{
+  "scope": "Exact ownedQA audio imports only; no recording links/definition/activation changes",
+  "productionWrite": false,
+  "guardsRelaxed": false,
+  "results": [
+    {
+      "bundle": "qa-pretest10-12-audio-bundle-positive",
+      "manifestSha256": "8a9817bfc547d46446167771a47c193219fb5632b8f35fd0e3fd8f7823e986e7",
+      "planned": 269,
+      "verified": 269,
+      "uploaded": 232,
+      "reused": 37,
+      "linkedRecordings": false
+    },
+    {
+      "bundle": "qa-pretest-first9-repair-audio-bundle-positive",
+      "manifestSha256": "8d627563f8f2e1cd54f6247520696b298bb0d7bc2ef1bffb3a166c99d2242914",
+      "planned": 39,
+      "verified": 39,
+      "uploaded": 38,
+      "reused": 1,
+      "linkedRecordings": false
+    }
+  ],
+  "at": "2026-10-09T05:09:34.074256+00:00",
+  "phase": "ALL_IMPORTED_READBACK_VERIFIED",
+  "brand": "Sitov Academy",
+  "privateProofSha256": "37c02f70ac3a3e4c3344b6f4ade20dc4d1d6ffe970f9a060d01e1b0cd568d42a"
+}

@@ -1,0 +1,476 @@
+{
+  "brand": "Sitov Academy",
+  "scope": "Actual ownedQA4 canonical metadata-only corrections, allMP3 bytes/profile/text unchanged; old immutable approvals/definition/proof rows preserved; three distinct oldinactive definitions now not audio-ready; active5 unchanged",
+  "productionWrite": false,
+  "guardsRelaxed": false,
+  "metadataRowsChanged": 4,
+  "first": {
+    "beforeReadiness": {
+      "id": "0d5ed084-6cb4-4bd5-af1e-d41aa23895b3",
+      "audio": true,
+      "active": false,
+      "publication": true
+    },
+    "afterReadiness": {
+      "id": "0d5ed084-6cb4-4bd5-af1e-d41aa23895b3",
+      "audio": false,
+      "active": false,
+      "publication": false
+    },
+    "actualAudioSha256": "4812f89f76cc3ac324fcca1838660babc76dc1e197467fb7d5fb4a18ec4e110c",
+    "actualAudioBytes": 8444,
+    "oldWordTimingsHash": "445c8e5fbc95a87a05846b7a8c4f5464b3475c356e069375788a856e895e2426",
+    "newWordTimingsHash": "cf54c80907e8f5f5c144529b3f15e49c8b8922b10e62fcd5ff05bc2938a616c9",
+    "metadataApiExact": true
+  },
+  "next3": {
+    "beforeReadiness": [
+      {
+        "id": "0d5ed084-6cb4-4bd5-af1e-d41aa23895b3",
+        "audio": false,
+        "active": false,
+        "publication": false
+      },
+      {
+        "id": "7d44cebf-e327-4e75-b7ce-282d893bedac",
+        "audio": true,
+        "active": false,
+        "publication": true
+      },
+      {
+        "id": "a4f8f56f-15e7-404b-92c6-4222d3c8e4d7",
+        "audio": true,
+        "active": false,
+        "publication": true
+      }
+    ],
+    "afterReadiness": [
+      {
+        "id": "0d5ed084-6cb4-4bd5-af1e-d41aa23895b3",
+        "audio": false,
+        "active": false,
+        "publication": false
+      },
+      {
+        "id": "7d44cebf-e327-4e75-b7ce-282d893bedac",
+        "audio": false,
+        "active": false,
+        "publication": false
+      },
+      {
+        "id": "a4f8f56f-15e7-404b-92c6-4222d3c8e4d7",
+        "audio": false,
+        "active": false,
+        "publication": false
+      }
+    ],
+    "actualReadbacks": [
+      {
+        "path": "sitov-qwen-v1/de/50236181e21644a2eceb7e227bb7606e2f7231efb9a14e5cac536d1f23d946be.mp3",
+        "audioSha256": "69df9e57a7ec1b6ea4f260c7f4b7cfc23766d720427d980f7a456fc4d888fa57",
+        "bytes": 12764,
+        "metadataApiExact": true
+      },
+      {
+        "path": "sitov-qwen-v1/de/e3096972184eeeb689a7e24888da6896d78b8c08fcdf1bd8f7c0dbeb29c2f3d4.mp3",
+        "audioSha256": "35a19bf1f5cb83368c6248747b5f458dc3bbee79205f99af719c2b78ff52ad7e",
+        "bytes": 14636,
+        "metadataApiExact": true
+      },
+      {
+        "path": "sitov-qwen-v1/de/f295578bc25cb5d0b99e4cc777802970a31e25f4e333363b21b7acb8ee76cd34.mp3",
+        "audioSha256": "58126604a27206f753fb081b38c13234a1591eed7608853a8a25796fa6e1c4e1",
+        "bytes": 5564,
+        "metadataApiExact": true
+      }
+    ],
+    "timingHashChanges": [
+      {
+        "path": "sitov-qwen-v1/de/50236181e21644a2eceb7e227bb7606e2f7231efb9a14e5cac536d1f23d946be.mp3",
+        "oldTimingHash": "388090478032552ce768a8bc360f86490ea3bc2e4f436c952e611e459f767af0",
+        "newTimingHash": "c8b8e37f11cee8b7ec05ba96868f4bb6501254d5e2f38dc14c1efa0da1a8b386"
+      },
+      {
+        "path": "sitov-qwen-v1/de/e3096972184eeeb689a7e24888da6896d78b8c08fcdf1bd8f7c0dbeb29c2f3d4.mp3",
+        "oldTimingHash": "317218e0f0f90a5c531885240a3fbd308d6a2ecb4a44ef690b6bf4fd8dc4c027",
+        "newTimingHash": "8a48fe13ca268fe87433904fb9073af81db21fb79373d3cbb6238dc65efcbb50"
+      },
+      {
+        "path": "sitov-qwen-v1/de/f295578bc25cb5d0b99e4cc777802970a31e25f4e333363b21b7acb8ee76cd34.mp3",
+        "oldTimingHash": "16079e060c1a9a8880b49cb0fffcabdc1fdbfe106c80fb48b32eb66bd7a6eac9",
+        "newTimingHash": "35cfbbf7ac36d48140e7f8fddcf391aac41259c9da9fd540307bde07879436c9"
+      }
+    ]
+  },
+  "preserved": {
+    "oldDefinitionsApprovalsProofs": true,
+    "active5Readiness": true
+  },
+  "privateProofHashes": {
+    "first": "882f427dc65197bda8ae7fad75ff3a0886197aa3169e67c7ffd8b0755931ef3f",
+    "three": "b6b41c27cd290a4046687b91e2b9696fba34e7935524b427e51e69983455e4fd"
+  },
+  "measuredNext3": [
+    {
+      "path": "sitov-qwen-v1/de/50236181e21644a2eceb7e227bb7606e2f7231efb9a14e5cac536d1f23d946be.mp3",
+      "textSha256": "c688ae6346edf0e53f20601433e33b30325db7c365c63655eda23639d585e1ac",
+      "audioSha256": "69df9e57a7ec1b6ea4f260c7f4b7cfc23766d720427d980f7a456fc4d888fa57",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "oldWordTimings": [
+        {
+          "end": 0.51,
+          "start": 0.35
+        },
+        {
+          "end": 0.83,
+          "start": 0.51
+        },
+        {
+          "end": 0.83,
+          "start": 0.83
+        },
+        {
+          "end": 1.31,
+          "start": 0.83
+        },
+        {
+          "end": 1.39,
+          "start": 1.31
+        },
+        {
+          "end": 1.95,
+          "start": 1.47
+        }
+      ],
+      "wordTimings": [
+        {
+          "start": 0.4,
+          "end": 0.56
+        },
+        {
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "start": 0.8,
+          "end": 0.88
+        },
+        {
+          "start": 0.88,
+          "end": 1.28
+        },
+        {
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "start": 1.44,
+          "end": 2.0
+        }
+      ],
+      "attempts": [
+        {
+          "actualTemporarySilenceSecondsEachEnd": 0,
+          "rawMeasuredWords": [
+            {
+              "text": "Es",
+              "start": 0.4,
+              "end": 0.56
+            },
+            {
+              "text": "zeigt",
+              "start": 0.56,
+              "end": 0.8
+            },
+            {
+              "text": "die",
+              "start": 0.8,
+              "end": 0.88
+            },
+            {
+              "text": "Familie",
+              "start": 0.88,
+              "end": 1.28
+            },
+            {
+              "text": "des",
+              "start": 1.28,
+              "end": 1.44
+            },
+            {
+              "text": "Sprechers",
+              "start": 1.44,
+              "end": 2.0
+            }
+          ],
+          "measuredBoundsInOriginalMp3": [
+            {
+              "text": "Es",
+              "start": 0.4,
+              "end": 0.56
+            },
+            {
+              "text": "zeigt",
+              "start": 0.56,
+              "end": 0.8
+            },
+            {
+              "text": "die",
+              "start": 0.8,
+              "end": 0.88
+            },
+            {
+              "text": "Familie",
+              "start": 0.88,
+              "end": 1.28
+            },
+            {
+              "text": "des",
+              "start": 1.28,
+              "end": 1.44
+            },
+            {
+              "text": "Sprechers",
+              "start": 1.44,
+              "end": 2.0
+            }
+          ],
+          "wordTimings": [
+            {
+              "start": 0.4,
+              "end": 0.56
+            },
+            {
+              "start": 0.56,
+              "end": 0.8
+            },
+            {
+              "start": 0.8,
+              "end": 0.88
+            },
+            {
+              "start": 0.88,
+              "end": 1.28
+            },
+            {
+              "start": 1.28,
+              "end": 1.44
+            },
+            {
+              "start": 1.44,
+              "end": 2.0
+            }
+          ],
+          "remainingZeroLexicalIndices": []
+        }
+      ],
+      "strictPositiveLexicalTimingCandidate": true,
+      "audioBytesUnchanged": true
+    },
+    {
+      "path": "sitov-qwen-v1/de/e3096972184eeeb689a7e24888da6896d78b8c08fcdf1bd8f7c0dbeb29c2f3d4.mp3",
+      "textSha256": "91a69da1b06147314b1fb66f6d28d8c130e6770ad499bbda4d0b4246991d5a05",
+      "audioSha256": "35a19bf1f5cb83368c6248747b5f458dc3bbee79205f99af719c2b78ff52ad7e",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "oldWordTimings": [
+        {
+          "end": 0.51,
+          "start": 0.35
+        },
+        {
+          "end": 0.83,
+          "start": 0.51
+        },
+        {
+          "end": 0.83,
+          "start": 0.83
+        },
+        {
+          "end": 1.39,
+          "start": 0.91
+        },
+        {
+          "end": 1.47,
+          "start": 1.39
+        },
+        {
+          "end": 2.19,
+          "start": 1.47
+        }
+      ],
+      "wordTimings": [
+        {
+          "start": 0.4,
+          "end": 0.56
+        },
+        {
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "start": 0.8,
+          "end": 0.88
+        },
+        {
+          "start": 0.88,
+          "end": 1.36
+        },
+        {
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "start": 1.52,
+          "end": 2.24
+        }
+      ],
+      "attempts": [
+        {
+          "actualTemporarySilenceSecondsEachEnd": 0,
+          "rawMeasuredWords": [
+            {
+              "text": "Es",
+              "start": 0.4,
+              "end": 0.56
+            },
+            {
+              "text": "nennt",
+              "start": 0.56,
+              "end": 0.8
+            },
+            {
+              "text": "die",
+              "start": 0.8,
+              "end": 0.88
+            },
+            {
+              "text": "Uhrzeit",
+              "start": 0.88,
+              "end": 1.36
+            },
+            {
+              "text": "des",
+              "start": 1.36,
+              "end": 1.52
+            },
+            {
+              "text": "Kursbeginns",
+              "start": 1.52,
+              "end": 2.24
+            }
+          ],
+          "measuredBoundsInOriginalMp3": [
+            {
+              "text": "Es",
+              "start": 0.4,
+              "end": 0.56
+            },
+            {
+              "text": "nennt",
+              "start": 0.56,
+              "end": 0.8
+            },
+            {
+              "text": "die",
+              "start": 0.8,
+              "end": 0.88
+            },
+            {
+              "text": "Uhrzeit",
+              "start": 0.88,
+              "end": 1.36
+            },
+            {
+              "text": "des",
+              "start": 1.36,
+              "end": 1.52
+            },
+            {
+              "text": "Kursbeginns",
+              "start": 1.52,
+              "end": 2.24
+            }
+          ],
+          "wordTimings": [
+            {
+              "start": 0.4,
+              "end": 0.56
+            },
+            {
+              "start": 0.56,
+              "end": 0.8
+            },
+            {
+              "start": 0.8,
+              "end": 0.88
+            },
+            {
+              "start": 0.88,
+              "end": 1.36
+            },
+            {
+              "start": 1.36,
+              "end": 1.52
+            },
+            {
+              "start": 1.52,
+              "end": 2.24
+            }
+          ],
+          "remainingZeroLexicalIndices": []
+        }
+      ],
+      "strictPositiveLexicalTimingCandidate": true,
+      "audioBytesUnchanged": true
+    },
+    {
+      "path": "sitov-qwen-v1/de/f295578bc25cb5d0b99e4cc777802970a31e25f4e333363b21b7acb8ee76cd34.mp3",
+      "textSha256": "aac0b469efc36d86edfab68d6108082a872355fc4196f234c03e12794f3d0922",
+      "audioSha256": "58126604a27206f753fb081b38c13234a1591eed7608853a8a25796fa6e1c4e1",
+      "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+      "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+      "oldWordTimings": [
+        {
+          "end": 0.91,
+          "start": 0.91
+        }
+      ],
+      "wordTimings": [
+        {
+          "start": 0.32,
+          "end": 0.8
+        }
+      ],
+      "attempts": [
+        {
+          "actualTemporarySilenceSecondsEachEnd": 0,
+          "rawMeasuredWords": [
+            {
+              "text": "stehst",
+              "start": 0.32,
+              "end": 0.8
+            }
+          ],
+          "measuredBoundsInOriginalMp3": [
+            {
+              "text": "stehst",
+              "start": 0.32,
+              "end": 0.8
+            }
+          ],
+          "wordTimings": [
+            {
+              "start": 0.32,
+              "end": 0.8
+            }
+          ],
+          "remainingZeroLexicalIndices": []
+        }
+      ],
+      "strictPositiveLexicalTimingCandidate": true,
+      "audioBytesUnchanged": true
+    }
+  ]
+}

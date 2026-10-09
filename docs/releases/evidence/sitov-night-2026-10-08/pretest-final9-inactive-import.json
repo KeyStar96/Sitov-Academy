@@ -1,0 +1,101 @@
+{
+  "counts": {
+    "users": 2,
+    "active": 5,
+    "assets": 1089,
+    "passes": 0,
+    "proofs": 1682,
+    "attempts": 0,
+    "inactive": 13,
+    "definitions": 18
+  },
+  "publication": false,
+  "passTransfer": false,
+  "newDefinitions": [
+    {
+      "id": "85c923b4-4fee-4009-baec-623dd7f1eb54",
+      "active": false,
+      "text_id": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+      "test_version": "aab46d5b29066e674d68263518a0763040dbc09f8ea11d64bb6e94dbff086892",
+      "text_version": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+      "question_proofs": 94
+    },
+    {
+      "id": "57362f12-ce84-4908-9bdb-540e9639d5ca",
+      "active": false,
+      "text_id": "1b5c02d4-7217-56e0-8abb-906c20784e30",
+      "test_version": "f4e7c2002985e263917810d5ee0f2dcdd6622adf394171eef96e28647e68ed2b",
+      "text_version": "e5f456eec833ee2dd3e6e9da51d565a55312bc3124740451fe2479866ae262f0",
+      "question_proofs": 94
+    },
+    {
+      "id": "3238e998-dd26-4155-ad26-141158990abe",
+      "active": false,
+      "text_id": "4a6f7008-9439-5c6e-9d60-113e8945f800",
+      "test_version": "0d2fa95f780b5600a8650d00d03173b96d8918180a32615672633904afe25665",
+      "text_version": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561",
+      "question_proofs": 93
+    },
+    {
+      "id": "4c6e5fac-6d13-43c1-ad84-d6cc7b719861",
+      "active": false,
+      "text_id": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+      "test_version": "bebc2721ee73d9ee1b271e8c988ee67201f3cd7c01a9a292aeae9e806e2e26c9",
+      "text_version": "34ea6677fb873cbae770619373327f98721c1ce2ebf1c5d0ec9a015b86ff0b15",
+      "question_proofs": 96
+    },
+    {
+      "id": "8fdbc78e-b5e5-4b71-98a5-6547de47a408",
+      "active": false,
+      "text_id": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+      "test_version": "b56803c40e1c31d8b5d79d60c74a07937992908caeaaa9522774831058c12588",
+      "text_version": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
+      "question_proofs": 92
+    },
+    {
+      "id": "d94f6e02-9045-4f98-93f6-858b24ebde83",
+      "active": false,
+      "text_id": "add5b212-15af-55b5-b224-6282b5c39c13",
+      "test_version": "445b2b383e0d06c98fbc567498576c362bb315bab415929f1dfcab91244abdc8",
+      "text_version": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
+      "question_proofs": 94
+    },
+    {
+      "id": "f3e24da1-09b4-4c38-99f3-5c77f3c01274",
+      "active": false,
+      "text_id": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+      "test_version": "aa38e2b2ee53584a22c3732cadf31ff4ee5557f45442dc82083f25d6a9045539",
+      "text_version": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+      "question_proofs": 96
+    },
+    {
+      "id": "dd718818-2415-431a-8f33-34aa7c54dba5",
+      "active": false,
+      "text_id": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+      "test_version": "776316e0f89709d018dc88a772635f91a50199dfc137f71c883049796dfe7738",
+      "text_version": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+      "question_proofs": 92
+    },
+    {
+      "id": "703c0859-db72-430e-bd44-9d4292c73f1e",
+      "active": false,
+      "text_id": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+      "test_version": "823bba7d9ccc436a81142c88fde0e0a7533ac71d726a1bea32baad1c92d4d748",
+      "text_version": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+      "question_proofs": 91
+    }
+  ],
+  "productionWrite": false,
+  "new9PublicationReadiness": true,
+  "old9PostCorrectionReadinessUnchangedByImport": true,
+  "old9DefinitionsApprovalsQuestionProofsUnchanged": true,
+  "at": "2026-10-09T05:25:36.625303+00:00",
+  "sourcePayloadSha256": "0bd2c386e7590b77cd6bc3dcf0745cc839c3a15d889eecf0e3e59b729c6946c5",
+  "audioReadbackAuditSha256": "5e678575dd0efaf6ad88372976fcea061fda4e872c104c7c4655a92a433e52ff",
+  "humanReview": false,
+  "calibration": "pending",
+  "brand": "Sitov Academy",
+  "scope": "Actual nine new immutable INACTIVE QA definitions for finalpools4–12 only; technicalpublication_readiness true is not activation or release approval",
+  "newQuestionProofs": 842,
+  "privateProofSha256": "e02f99ac738517b2988f6ec76df1524563271500d9a8039daaa435e01447a2d8"
+}

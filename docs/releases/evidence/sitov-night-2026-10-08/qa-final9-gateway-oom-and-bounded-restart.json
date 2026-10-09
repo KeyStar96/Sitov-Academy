@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-09T05:24:53.025300+00:00",
+  "scope": "Exactly one bounded restart of existingownedQA gateway; no recreation/config/cap/network/othercontainer changes",
+  "sameContainer": true,
+  "totalMemoryLimitMiB": 960,
+  "totalCpuLimit": 2,
+  "hostAvailableMiBBefore": 2778,
+  "new3GiBAdmissionAttempted": false,
+  "initial3GiBAdmissionProvenByThisRestart": false,
+  "priorOOMRetainedAsDurabilityFailure": true,
+  "productionWrite": false,
+  "brand": "Sitov Academy",
+  "initialDefinitionImport": "ABORTED_BEFORE_DB_TRANSACTION_ON_EXISTING_GATEWAY_OOM_FLAG",
+  "afterHealthStatuses": [
+    200,
+    200,
+    200
+  ],
+  "newDefinitionsCreatedDuringFailure": 0,
+  "privateProofSha256": "2d4675c28c773c5d1310e5344e4abcbcfc7bbd4cae29801bfe919860eb4eb89e"
+}

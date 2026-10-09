@@ -1,6 +1,6 @@
 # Sitov Academy: initialer Dokument-Bootstrap
 
-M, 09.10.2026. Begrenzte Stabilisierung nach dem tatsächlichen S5-Fehlernachweis `977cb1d892ec409989b0030c104f4e58c79ff5b5` → Integration `8b1f16c8d4c624db2a02fe2cff2def0822ab24c3`. **Browser-Abnahme dieser weiteren Korrektur noch offen.**
+M, 09.10.2026. Begrenzte Stabilisierung nach dem tatsächlichen S5-Fehlernachweis `977cb1d892ec409989b0030c104f4e58c79ff5b5` → Integration `8b1f16c8d4c624db2a02fe2cff2def0822ab24c3`. **Die spätere begrenzte Browsernachprüfung ist bestanden:** S5 `0cf00203c51ec75c370e56fb8582f370a0e1570b` → M `626c93e65a0e9adce9e28c713df8fd3893a15280`, fünf UI-Sprachen ohne Wiederholung dieses Fehlers, tatsächlicher Dark Mode/hoher Kontrast mit Erhalt, Wiederherstellung und normaler Abmeldung. Full-TypeScript und aktueller Gesamtbuild auf626 sind ebenfalls bestanden; 313 Seiten, Webpack, ein Worker/1.536 MiB, maskierte eigene QA-Konfiguration. Log `/tmp/sitov-night-m-build-626c93e6.log`. Die folgenden zeitgebundenen Entwicklungsnachweise dokumentieren auch den vorherigen noch offenen Zustand; die umfassende Release-Abnahme bleibt offen.
 
 Der installierte Next-Code `node_modules/next/dist/client/script.js` erzeugt für App-Router-`beforeInteractive` ein Inline-Queue-Script, auch bei einem neuen Client-Render des Sprachlayouts. React warnt bei dessen clientseitiger Anlage; die erste Umstellung auf `next/script` beseitigte den echten Fehler nicht.
 
