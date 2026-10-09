@@ -1,0 +1,17 @@
+# S5 epoch14: frische Document-Bootstrap-Browsernachprüfung
+
+Verifizierter sauberer Ausgangsstand `35a0c0b5c5902f6b62e729ea9383ea3d8da7a301`, Branch `codex/sitov-night-s5-document-bootstrap`. QA-Next3143 von M während der fünfminütigen Lease unverändert. Frist 2026-10-09 07:00:54 Europe/Berlin. Neuer FullTS/Build war bei Zuweisung offen und wurde von S5 nicht ausgeführt; 89Jest/SSR sind M-Nachweise.
+
+**PASS im begrenzten tatsächlichen Browserweg:** neuer eigener IAB-Tab, frischer Seitenbesuch und echtes Formularlogin derselben freigegebenen synthetischen M-Lehrkraft. Gespeicherte Sprache zunächst EN; Special-Route über sichtbares Menü geöffnet. Initial keine Issues-Badge. Tatsächliche UI-Sprachwechsel EN→RU→DE→EN→UK→TR jeweils mit vollständig gerendertem Ziel, erhaltenem Staffroutepfad und ohne Issues-Badge. Danach tatsächliches Next-Menü geöffnet: Route Dynamic, Bundler Webpack, Route Info, Preferences; kein Issues-Eintrag. Der bisherige RootLayout-Script-Console-Fehler wurde auf diesem neuen Prüfweg nicht reproduziert. Keine Ableitung aus Jest oder alter Toolbarhistorie und keine Behauptung einer global vollständig fehlerfreien Console.
+
+**PASS echte Darstellungsaktionen:** Anfang Hell/normaler Kontrast; Dark über tatsächliche UI gewählt, hoher Kontrast eingeschaltet. Sichtbare Steuerungen bestätigen die Auswahl. DOM/CSS-Zustände ändern sich: Canvas #f8fafc → #0f172a → #000000, Klassen dark/high-contrast, Attribute data-theme=dark/data-contrast=high. Diese Zustände bleiben über alle fünf Sprachziele erhalten; nach allen Wechseln bestätigt das türkische Darstellungsfenster Dark und hohen Kontrast weiterhin als gewählt. Danach tatsächlich Hell gewählt und hoher Kontrast ausgeschaltet; Anfangscanvas #f8fafc und Standardattribute wiederhergestellt. Keine Consententscheidung.
+
+**PASS Sprachrolle:** jeder beobachtete äußere Rahmen folgt ru/de/en/uk/tr, während der sichtbare kanonische Titel „Artikel im Nominativ · Meine Wohnung“ gezielt lang=de/translate=no bleibt. Dies ist die Titel-/Indexprüfung; kein erneuter vollständiger Staff-/Schreibtest. Zielauswahl unverändert leer beim Sprachwechsel, keine neue Auswahl-/Progresssemantik behauptet.
+
+**PASS normale UI-Abmeldung:** sichtbare Erfolgsmeldung und `/tr/login?status=logout_success` nach Wiederherstellung der Darstellungspräferenzen.
+
+Keine neuen Konten, Cookies/JWT-Injektion, versteckte Browserdaten, DB-/Storage-/Publikations-/Create-/Save-/Durchgangs-/Aufnahme-/Mikrofonaktionen oder Produkt-/Runtime-/SQL-/Audioänderung. Autorisierte Authsitzung, Sprachwahl und Darstellungspräferenzen wurden über die reale UI bedient. Private Loginwerte nicht in Artefakten gespeichert.
+
+Evidenz `e2e/sitov-night-real-transport/epoch14-document-bootstrap-evidence.json`; drei Screenshots in `epoch14-document-bootstrap-screenshots/`: englischer Dark-/Kontrastzustand, türkischer Dark-/Kontrastzustand mit Next-Menü ohne Issues, wiederhergestellte türkische Darstellungspräferenzen. JSON-Flow/Darstellungs-/Logoutinvarianten, Credential-/Actor-Abwesenheit und Git-Diffcheck geprüft.
+
+Offen: aktueller FullTS/Build außerhalb S5, komplette Plattform-/Sprach-/Theme-/Viewportmatrix, neue Lernpfad-/Studiobrowserhilfe, Motion/a11y und Consent-/Bootstrapausführung außerhalb der beobachteten UI. Spätere Live-Prüfung bestehender kommerzieller Rechte bleibt Deploymentgate. **WAIT; begrenzte Browsernachprüfung PASS, kein umfassendes RELEASE_READY.**

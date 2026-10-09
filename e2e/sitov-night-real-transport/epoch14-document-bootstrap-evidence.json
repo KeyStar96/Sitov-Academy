@@ -1,0 +1,177 @@
+{
+  "target": "35a0c0b5c5902f6b62e729ea9383ea3d8da7a301",
+  "freshTab": true,
+  "actualFormLogin": true,
+  "initialIssueBadge": false,
+  "switches": [
+    {
+      "from": "en",
+      "to": "ru",
+      "routePreserved": true,
+      "issueBadge": false,
+      "visual": {
+        "bodyBackground": "rgb(0, 0, 0)",
+        "canvas": "#000000",
+        "htmlClass": "dark high-contrast",
+        "htmlContrast": "high",
+        "htmlTheme": "dark",
+        "lang": "ru",
+        "protectedGermanTitle": true
+      }
+    },
+    {
+      "from": "ru",
+      "to": "de",
+      "routePreserved": true,
+      "issueBadge": false,
+      "visual": {
+        "bodyBackground": "rgb(0, 0, 0)",
+        "canvas": "#000000",
+        "htmlClass": "dark high-contrast",
+        "htmlContrast": "high",
+        "htmlTheme": "dark",
+        "lang": "de",
+        "protectedGermanTitle": true
+      }
+    },
+    {
+      "from": "de",
+      "to": "en",
+      "routePreserved": true,
+      "issueBadge": false,
+      "visual": {
+        "bodyBackground": "rgb(0, 0, 0)",
+        "canvas": "#000000",
+        "htmlClass": "dark high-contrast",
+        "htmlContrast": "high",
+        "htmlTheme": "dark",
+        "lang": "en",
+        "protectedGermanTitle": true
+      }
+    },
+    {
+      "from": "en",
+      "to": "uk",
+      "routePreserved": true,
+      "issueBadge": false,
+      "visual": {
+        "bodyBackground": "rgb(0, 0, 0)",
+        "canvas": "#000000",
+        "htmlClass": "dark high-contrast",
+        "htmlContrast": "high",
+        "htmlTheme": "dark",
+        "lang": "uk",
+        "protectedGermanTitle": true
+      }
+    },
+    {
+      "from": "uk",
+      "to": "tr",
+      "routePreserved": true,
+      "issueBadge": false,
+      "visual": {
+        "bodyBackground": "rgb(0, 0, 0)",
+        "canvas": "#000000",
+        "htmlClass": "dark high-contrast",
+        "htmlContrast": "high",
+        "htmlTheme": "dark",
+        "lang": "tr",
+        "protectedGermanTitle": true
+      }
+    }
+  ],
+  "appearance": [
+    {
+      "stage": "initial",
+      "light": true,
+      "highContrast": false,
+      "visual": {
+        "bodyBackground": "rgb(248, 250, 252)",
+        "canvas": "#f8fafc",
+        "htmlClass": "",
+        "htmlContrast": "standard",
+        "htmlTheme": "light",
+        "lang": "en",
+        "protectedGermanTitle": true
+      }
+    },
+    {
+      "stage": "dark",
+      "dark": true,
+      "visual": {
+        "bodyBackground": "rgb(15, 23, 42)",
+        "canvas": "#0f172a",
+        "htmlClass": "dark",
+        "htmlContrast": "standard",
+        "htmlTheme": "dark",
+        "lang": "en",
+        "protectedGermanTitle": true
+      }
+    },
+    {
+      "stage": "dark-high-contrast",
+      "dark": true,
+      "highContrast": true,
+      "visual": {
+        "bodyBackground": "rgb(0, 0, 0)",
+        "canvas": "#000000",
+        "htmlClass": "dark high-contrast",
+        "htmlContrast": "high",
+        "htmlTheme": "dark",
+        "lang": "en",
+        "protectedGermanTitle": true
+      }
+    },
+    {
+      "stage": "after-all-locales",
+      "darkSelected": true,
+      "highContrastSelected": true,
+      "visual": {
+        "bodyBackground": "rgb(0, 0, 0)",
+        "canvas": "#000000",
+        "htmlClass": "dark high-contrast",
+        "htmlContrast": "high",
+        "htmlTheme": "dark",
+        "lang": "tr",
+        "protectedGermanTitle": true
+      }
+    },
+    {
+      "stage": "restored",
+      "lightSelected": true,
+      "highContrastSelected": false,
+      "visual": {
+        "bodyBackground": "rgb(248, 250, 252)",
+        "canvas": "#f8fafc",
+        "htmlClass": "",
+        "htmlContrast": "standard",
+        "htmlTheme": "light",
+        "lang": "tr",
+        "protectedGermanTitle": true
+      }
+    }
+  ],
+  "issues": [],
+  "unverified": [
+    "current FullTS/build pending per M; not rerun",
+    "full platform, learner/studio help, motion/a11y, full language/theme matrix",
+    "consent/bootstrap script execution beyond observed UI; no consent decision"
+  ],
+  "nextMenu": {
+    "openedAfterAllSwitches": true,
+    "items": [
+      "Route Dynamic",
+      "Bundler Webpack",
+      "Route Info",
+      "Preferences"
+    ],
+    "issuesEntry": false,
+    "issueBadge": false
+  },
+  "startingAppearanceRestored": true,
+  "normalUILogoutConfirmed": true,
+  "logoutPath": "/tr/login?status=logout_success",
+  "result": "PASS for bounded fresh browser locale/console and appearance recheck",
+  "noConsentDecision": true,
+  "noBusinessWriteControlsClicked": true
+}
