@@ -1,0 +1,84 @@
+{
+  "epoch": 33,
+  "baseCommit": "e425214272e86c11bbe44e902ab80a88afa69fb9",
+  "branch": "codex/sitov-night-s4-history-reviewed59",
+  "checkedAtUtc": "2026-10-09T23:44:03.180393+00:00",
+  "status": "PASS",
+  "repositorySuite": {
+    "command": "node --test scripts/sitov-pronunciation-pretests-authoring.test.mjs",
+    "tests": 178,
+    "pass": 178,
+    "fail": 0,
+    "historicalTestsUnchanged": 163,
+    "newTests": 15,
+    "negativeMutationScenarios": 17,
+    "log": "epoch33-authoring-results.log"
+  },
+  "cli": {
+    "command": "node scripts/sitov-pronunciation-pretests-authoring.mjs",
+    "status": "PASS",
+    "drafts": 60,
+    "publicAudioAliases": 5760,
+    "inactiveLegacy": 89
+  },
+  "independentApplicationValidator": {
+    "command": "node docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch32-validate.mjs",
+    "status": "PASS"
+  },
+  "historicalBodySha256": "6875f1653293c10a02e4704c32f700e0c6d21e635e1385a821c5c6c03845b157",
+  "historicalBodyByteIdenticalToBase": true,
+  "currentObjectsPreservedBeforeRewind": true,
+  "currentLayer": {
+    "changedTasks": 59,
+    "changedDefinitions": 31,
+    "changedAudioAliases": 94,
+    "correctAnswerTextChanges": 11,
+    "changedAssessmentUnits": 16,
+    "independentConstructTraces": 15,
+    "exactAdditionalTemporalRepair": 1,
+    "changedCompetencyRecords": 13,
+    "oldAndNewNativeDefinitionHashes": 62
+  },
+  "sourceByteEvidence": {
+    "supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json": {
+      "sha256": "379828911ee2eb6bc7edd5e223e8b773d681820b302cae928f29ea4c9b293e9c",
+      "equalsExactBaseBytes": true
+    },
+    "supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json": {
+      "sha256": "3b679dd36981fc370cb6497de403da2f3d69516d1aef1540f6815f1b9705019b",
+      "equalsExactBaseBytes": true
+    },
+    "supabase/seeds/pronunciation-reading-2026.json": {
+      "sha256": "f1994eea5e588420477cd43bb41ce43d59a687195042153a6902314fbdf2e47d",
+      "equalsExactBaseBytes": true
+    },
+    "docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch32-independent-editorial-review.json": {
+      "sha256": "e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143",
+      "equalsExactBaseBytes": true
+    }
+  },
+  "mutationsRejected": [
+    "review document SHA",
+    "native definition hash",
+    "protected key with recomputed review definition hash",
+    "task ID",
+    "option order",
+    "source span",
+    "active flag",
+    "legacy89",
+    "reviewForms",
+    "unreviewed prompt",
+    "stale matrix unit",
+    "stale equivalence key",
+    "stale alias",
+    "missing alias",
+    "foreign alias",
+    "reading source bytes",
+    "coordinated current/review rebaseline"
+  ],
+  "limitations": [
+    "Offline authoring checks only; no semantic calibration or human listening approval",
+    "No seed/review/source/form definition/app/runtime/model/audio/DB/API/SSH/import/push/deploy/publication mutation",
+    "Immutable definition/audio bindings and local audio pipeline remain M scope"
+  ]
+}

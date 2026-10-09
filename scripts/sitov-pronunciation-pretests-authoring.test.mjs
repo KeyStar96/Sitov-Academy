@@ -2,7 +2,19 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sitovA21Quality198CurrentManifest=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovA21Quality198CurrentAudio=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'))
+// Preserve actual repository objects before the historical loader rewinds any review layer.
+const sitovReviewed59ManifestRaw=await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')
+const sitovReviewed59AudioRaw=await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')
+const sitovReviewed59CurrentManifest=JSON.parse(sitovReviewed59ManifestRaw),sitovReviewed59CurrentAudio=JSON.parse(sitovReviewed59AudioRaw)
+const sitovEpoch32ReviewRaw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch32-independent-editorial-review.json','utf8'),sitovEpoch32Review=JSON.parse(sitovEpoch32ReviewRaw)
+const sitovReviewed59ReviewSha='e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143'
+assert.equal(sitovHash(sitovEpoch32ReviewRaw),sitovReviewed59ReviewSha,'exact independently reviewed59 document')
+const sitovA21Quality198CurrentManifest=structuredClone(sitovReviewed59CurrentManifest),sitovA21Quality198CurrentAudio=structuredClone(sitovReviewed59CurrentAudio)
+// Only historical assertions consume this exact previous version; current checks use the saved objects.
+for(const r of sitovEpoch32Review.pools){const d=sitovA21Quality198CurrentManifest.drafts.find(d=>d.textId===r.textId);d.definition=structuredClone(r.previousDefinition);d.review=structuredClone(r.previousReview)}
+for(const e of sitovEpoch32Review.audioAliasRepairs)sitovA21Quality198CurrentAudio[e.alias]=e.previousTextDe
+assert.equal(sitovHash(JSON.stringify(sitovA21Quality198CurrentManifest,null,2)+'\n'),'69c178dfc2660102b936f45f8a1f376804a410b3262146491457f9f4b533bb67','exact pre-layer manifest bytes')
+assert.equal(sitovHash(JSON.stringify(sitovA21Quality198CurrentAudio,null,2)+'\n'),'d2cb7f4204bdab80523b17ca8a3cb90cdeb220032180bcd22e33cf1afd7ce23c','exact pre-layer alias bytes')
 const sitovA21Quality198Raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/a21-quality198-editorial-review.json','utf8'),sitovA21Quality198=JSON.parse(sitovA21Quality198Raw)
 const sitovA21Quality198PreviousManifest=structuredClone(sitovA21Quality198CurrentManifest),sitovA21Quality198PreviousAudio=structuredClone(sitovA21Quality198CurrentAudio)
 for(const r of sitovA21Quality198.pools){const d=sitovA21Quality198PreviousManifest.drafts.find(d=>d.textId===r.textId);d.definition=r.previousDefinition;d.review=r.previousReview}
@@ -1707,3 +1719,129 @@ test('AudioFinal5 sourcebound newconstructs cannot reuse oldequivalence or stale
 test('A21Quality198 preserves all161 immutable proofs and1440stablekeys',()=>{assert.equal(sitovHash(JSON.stringify(sitovA21Quality198PreviousManifest,null,2)+'\n'),sitovA21Quality198.previousManifestByteSha256);assert.equal(sitovHash(JSON.stringify(sitovA21Quality198PreviousAudio,null,2)+'\n'),sitovA21Quality198.previousAudioByteSha256);assert.deepEqual(sitovValidatePretestDrafts(sitovA21Quality198CurrentManifest,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovA21Quality198CurrentManifest,sitovA21Quality198CurrentAudio),[]);const ids=new Set(sitovA21Quality198.patches.map(p=>p.questionId));for(const d of sitovA21Quality198CurrentManifest.drafts){const prev=sitovA21Quality198PreviousManifest.drafts.find(o=>o.textId===d.textId);assert.equal(d.textVersion,prev.textVersion);assert.deepEqual(d.definition.reviewForms,prev.definition.reviewForms);for(const q of d.definition.tasks){const o=prev.definition.tasks.find(o=>o.id===q.id);assert.equal(q.correctOptionId,o.correctOptionId);assert.deepEqual(q.options.map(o=>o.id),o.options.map(o=>o.id));if(!ids.has(q.id))assert.deepEqual(q,o)}}for(const r of sitovA21Quality198.pools){const d=sitovA21Quality198CurrentManifest.drafts.find(d=>d.textId===r.textId);assert.deepEqual(d.definition,r.candidateDefinition);assert.equal(d.review.documentSha256,sitovHash(sitovA21Quality198Raw));assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.active,false)}})
 
 test('A21Quality198 sourcebound newconstructs cannot reuse oldequivalence or staleaudio',()=>{assert.equal(sitovA21Quality198.patches.length,198);assert.equal(sitovA21Quality198.audioAliasRepairs.length,382);assert.equal(sitovA21Quality198.coreChanges.length,8);assert.equal(sitovA21Quality198.patches.filter(p=>p.previousTask.assessmentUnit!==p.currentTask.assessmentUnit).length,14);for(const p of sitovA21Quality198.patches){if(p.previousTask.assessmentUnit!==p.currentTask.assessmentUnit)assert.notEqual(p.previousTask.equivalenceKey,p.currentTask.equivalenceKey);assert.equal(new Set(p.currentTask.options.map(o=>o.textDe)).size,3);assert.ok(!/___|…|\.\.\./u.test(p.currentTask.promptDe))}const bad={...sitovA21Quality198CurrentAudio},a=sitovA21Quality198.audioAliasRepairs[0];bad[a.alias]=a.previousTextDe;assert.ok(sitovValidatePretestAudioAliases(sitovA21Quality198CurrentManifest,bad).length);const stale=structuredClone(sitovA21Quality198CurrentManifest);stale.drafts.find(d=>d.textId===sitovA21Quality198.pools[0].textId).definition.tasks[0].promptDe+=' Verändert.';assert.ok(sitovValidatePretestDrafts(stale,sources).length)})
+
+// Current-source checks intentionally run independently of every historical projection above.
+const sitovReviewed59ReadingRaw=await readFile('supabase/seeds/pronunciation-reading-2026.json','utf8')
+const sitovWithout=(value,keys)=>Object.fromEntries(Object.entries(value).filter(([key])=>!keys.includes(key)))
+function sitovAssertReviewed59(manifest,audio,reviewRaw=sitovEpoch32ReviewRaw,readingRaw=sitovReviewed59ReadingRaw) {
+ assert.equal(sitovHash(reviewRaw),sitovReviewed59ReviewSha,'review document SHA')
+ const review=JSON.parse(reviewRaw),previous=sitovA21Quality198CurrentManifest,previousAudio=sitovA21Quality198CurrentAudio
+ assert.equal(review.baseCommit,'d699794d362b023050fd4eb00221bd67388c3543')
+ assert.equal(review.previousManifestByteSha256,sitovHash(JSON.stringify(previous,null,2)+'\n'))
+ assert.equal(review.previousAudioByteSha256,sitovHash(JSON.stringify(previousAudio,null,2)+'\n'))
+ assert.equal(sitovHash(readingRaw),review.originalReadingSourceByteSha256,'reading source bytes')
+ assert.equal(sitovHash(review.independentAuditDocumentUtf8),review.sourceIndependentAuditSha256)
+ assert.equal(sitovHash(review.exactAdditionalRepairDocumentUtf8),review.exactAdditionalRepairSha256)
+ assert.deepEqual(JSON.parse(review.independentAuditDocumentUtf8),review.independentAudit)
+ assert.deepEqual(JSON.parse(review.exactAdditionalRepairDocumentUtf8),review.exactAdditionalRepair)
+ assert.equal(review.sourceIndependentAuditSha256,'ed6a7c9efd8778511b559a5c12887ae48093e41356d03bf33dc7c9ea08593d79')
+ assert.equal(review.exactAdditionalRepairSha256,'df5791b6bbd9889a28eb524b008edd3a79ed737cf73b1e42e4ebeb502281be41')
+ assert.equal(review.sourcePatchSha256,review.independentAudit.inputHashes['current114-final-candidates.json'])
+ assert.equal(review.sourcePatchSha256,'ed9d4a023629213d31c8d26522e262399480047e56dc540526b8049c208e22ec')
+ assert.equal(review.pools.length,31);assert.equal(new Set(review.pools.map(p=>p.textId)).size,31)
+ assert.equal(review.patches.length,59);assert.equal(new Set(review.patches.map(p=>p.questionId)).size,59)
+ assert.equal(review.audioAliasRepairs.length,94);assert.equal(new Set(review.audioAliasRepairs.map(p=>p.alias)).size,94)
+ assert.deepEqual(sitovWithout(manifest,['drafts']),sitovWithout(previous,['drafts']))
+ assert.equal(manifest.drafts.length,60);assert.equal(manifest.inactiveLegacy.length,89)
+ assert.equal(sitovHash(JSON.stringify(manifest.inactiveLegacy)),review.legacy89NativeSha256)
+ assert.deepEqual(manifest.drafts.map(d=>d.textId),previous.drafts.map(d=>d.textId))
+ const patches=new Map(review.patches.map(p=>[p.questionId,p])),verdicts=new Map(review.independentAudit.perTaskVerdicts.map(v=>[v.id,v]))
+ const unitIds=[],changedIds=[],correctIds=[]
+ for(const d of manifest.drafts) {
+  const old=previous.drafts.find(o=>o.textId===d.textId),pool=review.pools.find(p=>p.textId===d.textId)
+  assert.equal(d.active,false);assert.equal(d.textVersion,old.textVersion)
+  if(!pool){assert.deepEqual(d,old,'unchanged draft');continue}
+  assert.deepEqual(pool.previousDefinition,old.definition);assert.deepEqual(pool.previousReview,old.review)
+  assert.deepEqual(pool.previousDraftMetadata,sitovWithout(old,['definition']))
+  assert.equal(sitovHash(JSON.stringify(old.definition)),pool.oldNativeDefinitionSha256)
+  assert.equal(sitovHash(JSON.stringify(d.definition)),pool.newNativeDefinitionSha256,'current native definition SHA')
+  assert.deepEqual(d.definition,pool.currentDefinition,'current definition source')
+  const auditHash=review.independentAudit.independentDefinitionHashes.find(h=>h.pool===manifest.drafts.indexOf(d)+1)
+  if(auditHash){assert.equal(auditHash.exact,true);assert.equal(auditHash.before,pool.oldNativeDefinitionSha256);assert.equal(auditHash.after,pool.newNativeDefinitionSha256)}
+  else {assert.equal(d.textId,review.exactAdditionalRepair.textId);assert.equal(pool.oldNativeDefinitionSha256,review.exactAdditionalRepair.oldNativeDefinitionSha256);assert.equal(pool.newNativeDefinitionSha256,review.exactAdditionalRepair.candidateNativeDefinitionSha256)}
+  assert.deepEqual(sitovWithout(d,['definition','review']),sitovWithout(old,['definition','review']))
+  assert.deepEqual(sitovWithout(d.definition,['tasks','competencies']),sitovWithout(old.definition,['tasks','competencies']))
+  assert.deepEqual(d.definition.tasks.map(q=>q.id),old.definition.tasks.map(q=>q.id))
+  assert.deepEqual(d.definition.competencies.map(c=>c.id),old.definition.competencies.map(c=>c.id))
+  assert.equal(d.review.status,'independent_editorial_checked_draft_only');assert.equal(d.review.reviewer,'sitov.agent.S7')
+  assert.equal(d.review.authorIdentity,review.authorIdentity);assert.equal(d.review.reviewerKind,'independent_agent_editorial_review')
+  assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending')
+  assert.equal(d.review.textVersion,d.textVersion);assert.equal(d.review.definitionContentHash,pool.newNativeDefinitionSha256)
+  assert.equal(d.review.documentSha256,sitovReviewed59ReviewSha);assert.equal(d.review.documentRef,review.documentRef)
+  assert.equal(d.review.audioPublication,'blocked_pending_new_immutable_definition_and_exact_audio_binding')
+  assert.equal(d.review.reviewedAt,review.reviewedAt)
+  const poolChanged=[]
+  for(const q of d.definition.tasks) {
+   const before=old.definition.tasks.find(t=>t.id===q.id),patch=patches.get(q.id)
+   assert.equal(q.correctOptionId,before.correctOptionId,'protected answer key')
+   assert.deepEqual(q.options.map(o=>o.id),before.options.map(o=>o.id),'protected option IDs/order')
+   for(const key of ['id','competencyId','kind','fragmentDe','sourceSpans'])assert.deepEqual(q[key],before[key],`protected ${key}`)
+   if(!patch){assert.deepEqual(q,before,'unchanged task');continue}
+   changedIds.push(q.id);poolChanged.push(q.id)
+   assert.equal(patch.textId,d.textId);assert.deepEqual(patch.previousTask,before);assert.deepEqual(patch.currentTask,q)
+   const changedCorrect=q.options.find(o=>o.id===q.correctOptionId).textDe!==before.options.find(o=>o.id===before.correctOptionId).textDe
+   assert.equal(patch.correctWordChange.changed,changedCorrect)
+   if(changedCorrect)correctIds.push(q.id)
+   if(q.assessmentUnit!==before.assessmentUnit){unitIds.push(q.id);assert.notEqual(q.equivalenceKey,before.equivalenceKey)}
+   if(q.id===review.exactAdditionalRepair.taskId){assert.deepEqual(q,review.exactAdditionalRepair.candidateTask);assert.deepEqual(before,review.exactAdditionalRepair.beforeTask)}
+   else {const verdict=verdicts.get(q.id);assert.ok(verdict);assert.equal(verdict.verdict,'ACCEPT');assert.equal(verdict.prompt,q.promptDe);assert.equal(verdict.correctOptionId,q.correctOptionId);assert.equal(verdict.rationaleReviewed,q.rationaleDe);assert.deepEqual(verdict.sourceSpansReviewed,q.sourceSpans);assert.equal(verdict.unitChanged,q.assessmentUnit!==before.assessmentUnit);assert.equal(verdict.correctOptionTextChanged,changedCorrect)}
+  }
+  assert.deepEqual(poolChanged,pool.reviewedChangedTaskIds)
+  for(const c of d.definition.competencies) {
+   const before=old.definition.competencies.find(o=>o.id===c.id),expected=structuredClone(before)
+   for(const q of d.definition.tasks.filter(q=>q.competencyId===c.id)){const oldTask=old.definition.tasks.find(o=>o.id===q.id);if(q.assessmentUnit!==oldTask.assessmentUnit)expected.languageUnits[expected.languageUnits.indexOf(oldTask.assessmentUnit)]=q.assessmentUnit}
+   if(c.id===review.exactAdditionalRepair.candidateCompetency.id){assert.deepEqual(before,review.exactAdditionalRepair.beforeCompetency);assert.deepEqual(c,review.exactAdditionalRepair.candidateCompetency);expected.mapping=structuredClone(review.exactAdditionalRepair.candidateCompetency.mapping)}
+   assert.deepEqual(c,expected,'only reviewed task-unit replacements and exact extra mapping')
+   assert.equal(c.languageUnits.length,6);assert.equal(new Set(c.languageUnits).size,6)
+  }
+ }
+ assert.equal(changedIds.length,59);assert.equal(correctIds.length,11);assert.equal(unitIds.length,16)
+ assert.equal(review.independentAudit.independentDefinitionHashes.length,30)
+ assert.equal(verdicts.size,58);assert.deepEqual(new Set(changedIds),new Set([...verdicts.keys(),review.exactAdditionalRepair.taskId]))
+ assert.equal(review.independentAudit.changedUnitTaskIds.length,15)
+ assert.deepEqual(new Set(unitIds),new Set([...review.independentAudit.changedUnitTaskIds,review.exactAdditionalRepair.taskId]))
+ assert.equal(review.independentAudit.constructAssessments.length,15)
+ assert.deepEqual(new Set(review.independentAudit.constructAssessments.map(t=>t.taskId)),new Set(review.independentAudit.changedUnitTaskIds))
+ for(const trace of review.independentAudit.constructAssessments){const p=patches.get(trace.taskId);assert.equal(trace.verdict,'ACCEPT_NEW_RECOGNITION_GOAL');assert.equal(trace.unitBefore,p.previousTask.assessmentUnit);assert.equal(trace.unitAfter,p.currentTask.assessmentUnit);assert.equal(trace.equivalenceBefore,p.previousTask.equivalenceKey);assert.equal(trace.equivalenceAfter,p.currentTask.equivalenceKey);assert.equal(trace.learnerRationale,p.currentTask.rationaleDe)}
+ assert.deepEqual(Object.keys(audio),Object.keys(previousAudio))
+ const aliasIds=Object.keys(audio).filter(k=>audio[k]!==previousAudio[k]);assert.equal(aliasIds.length,94)
+ assert.deepEqual(new Set(aliasIds),new Set(review.audioAliasRepairs.map(e=>e.alias)))
+ for(const e of review.audioAliasRepairs){assert.equal(audio[e.alias],e.currentTextDe);assert.equal(previousAudio[e.alias],e.previousTextDe)}
+ assert.deepEqual(sitovValidatePretestDrafts(manifest,sources),[],'actual current source/matrix/spans/forms/provenance')
+ assert.deepEqual(sitovValidatePretestAudioAliases(manifest,audio),[],'actual current public alias source')
+ return {tasks:changedIds.length,definitions:review.pools.length,aliases:aliasIds.length,correctTextChanges:correctIds.length,unitChanges:unitIds.length}
+}
+
+test('reviewed59 actual current60/5760 sources validate separately from163 unchanged historical assertions',()=>{
+ assert.deepEqual(sitovAssertReviewed59(sitovReviewed59CurrentManifest,sitovReviewed59CurrentAudio),{tasks:59,definitions:31,aliases:94,correctTextChanges:11,unitChanges:16})
+ assert.equal(Object.keys(sitovReviewed59CurrentAudio).length,5760)
+ assert.equal(sitovHash(sitovReviewed59ManifestRaw),sitovHash(JSON.stringify(sitovReviewed59CurrentManifest,null,2)+'\n'))
+ assert.equal(sitovHash(sitovReviewed59AudioRaw),sitovHash(JSON.stringify(sitovReviewed59CurrentAudio,null,2)+'\n'))
+})
+const sitovReviewed59First=()=>sitovReviewed59CurrentManifest.drafts.find(d=>d.textId===sitovEpoch32Review.pools[0].textId)
+for(const [label,mutate] of [
+ ['invalid new review SHA',m=>{m.drafts.find(d=>d.textId===sitovReviewed59First().textId).review.documentSha256='0'.repeat(64)}],
+ ['stale native definition hash',m=>{m.drafts.find(d=>d.textId===sitovReviewed59First().textId).review.definitionContentHash='0'.repeat(64)}],
+ ['protected answer key even with recomputed review hash',m=>{const d=m.drafts.find(d=>d.textId===sitovReviewed59First().textId),q=d.definition.tasks.find(q=>q.id===sitovEpoch32Review.patches[0].questionId);q.correctOptionId=q.options.find(o=>o.id!==q.correctOptionId).id;d.review.definitionContentHash=sitovHash(JSON.stringify(d.definition))}],
+ ['protected task ID',m=>{m.drafts[0].definition.tasks[0].id+='-changed'}],
+ ['protected option order',m=>{m.drafts[0].definition.tasks[0].options.reverse()}],
+ ['source span drift',m=>{m.drafts[0].definition.tasks[0].sourceSpans[0].start++}],
+ ['changed published activation',m=>{m.drafts[0].active=true}],
+ ['old89 drift',m=>{m.inactiveLegacy[0].textVersion='changed'}],
+ ['review form drift',m=>{m.drafts[0].definition.reviewForms[0].questionIds.reverse()}],
+ ['unreviewed current prompt',m=>{m.drafts[0].definition.tasks[0].promptDe+=' Verändert.'}],
+ ['stale matrix unit',m=>{const p=sitovEpoch32Review.patches.find(p=>p.currentTask.assessmentUnit!==p.previousTask.assessmentUnit),d=m.drafts.find(d=>d.textId===p.textId);d.definition.competencies.find(c=>c.id===p.currentTask.competencyId).languageUnits[0]='Ungeprüfte Einheit'}],
+ ['stale equivalence key',m=>{const p=sitovEpoch32Review.patches.find(p=>p.currentTask.assessmentUnit!==p.previousTask.assessmentUnit);m.drafts.find(d=>d.textId===p.textId).definition.tasks.find(q=>q.id===p.questionId).equivalenceKey=p.previousTask.equivalenceKey}]
+])test('reviewed59 rejects '+label,()=>{const m=structuredClone(sitovReviewed59CurrentManifest);mutate(m);assert.throws(()=>sitovAssertReviewed59(m,sitovReviewed59CurrentAudio))})
+test('reviewed59 rejects stale, missing and foreign actual audio aliases',()=>{
+ const e=sitovEpoch32Review.audioAliasRepairs[0]
+ for(const mutate of [a=>{a[e.alias]=e.previousTextDe},a=>{delete a[e.alias]},a=>{a['sitov:foreign:alias']='Fremder Text'}]){const a={...sitovReviewed59CurrentAudio};mutate(a);assert.throws(()=>sitovAssertReviewed59(sitovReviewed59CurrentManifest,a))}
+})
+test('reviewed59 rejects altered source bytes and coordinated current/review rebaseline',()=>{
+ assert.throws(()=>sitovAssertReviewed59(sitovReviewed59CurrentManifest,sitovReviewed59CurrentAudio,sitovEpoch32ReviewRaw,sitovReviewed59ReadingRaw+' '))
+ const m=structuredClone(sitovReviewed59CurrentManifest),r=structuredClone(sitovEpoch32Review),p=r.patches[0],d=m.drafts.find(d=>d.textId===p.textId),q=d.definition.tasks.find(q=>q.id===p.questionId)
+ q.correctOptionId=q.options.find(o=>o.id!==q.correctOptionId).id;p.currentTask=structuredClone(q)
+ const pool=r.pools.find(p=>p.textId===d.textId);pool.currentDefinition=structuredClone(d.definition);pool.newNativeDefinitionSha256=sitovHash(JSON.stringify(d.definition));d.review.definitionContentHash=pool.newNativeDefinitionSha256
+ const raw=JSON.stringify(r,null,2)+'\n';d.review.documentSha256=sitovHash(raw)
+ assert.throws(()=>sitovAssertReviewed59(m,sitovReviewed59CurrentAudio,raw))
+})
