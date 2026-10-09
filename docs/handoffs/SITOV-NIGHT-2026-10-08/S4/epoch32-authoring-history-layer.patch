@@ -1,0 +1,15 @@
+--- a/scripts/sitov-pronunciation-pretests-authoring.test.mjs
++++ b/scripts/sitov-pronunciation-pretests-authoring.test.mjs
+@@ -3,6 +3,12 @@
+ import { readFile } from 'node:fs/promises'
+ import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
+ const sitovA21Quality198CurrentManifest=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')),sitovA21Quality198CurrentAudio=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8'))
++// New immutable59-task layer: historical assertions start at its exact previous version.
++const sitovEpoch32ReviewRaw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch32-independent-editorial-review.json','utf8'),sitovEpoch32Review=JSON.parse(sitovEpoch32ReviewRaw)
++for(const r of sitovEpoch32Review.pools){const d=sitovA21Quality198CurrentManifest.drafts.find(d=>d.textId===r.textId);d.definition=r.previousDefinition;d.review=r.previousReview}
++for(const e of sitovEpoch32Review.audioAliasRepairs)sitovA21Quality198CurrentAudio[e.alias]=e.previousTextDe
++assert.equal(sitovHash(JSON.stringify(sitovA21Quality198CurrentManifest,null,2)+'\n'),sitovEpoch32Review.previousManifestByteSha256)
++assert.equal(sitovHash(JSON.stringify(sitovA21Quality198CurrentAudio,null,2)+'\n'),sitovEpoch32Review.previousAudioByteSha256)
+ const sitovA21Quality198Raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/a21-quality198-editorial-review.json','utf8'),sitovA21Quality198=JSON.parse(sitovA21Quality198Raw)
+ const sitovA21Quality198PreviousManifest=structuredClone(sitovA21Quality198CurrentManifest),sitovA21Quality198PreviousAudio=structuredClone(sitovA21Quality198CurrentAudio)
+ for(const r of sitovA21Quality198.pools){const d=sitovA21Quality198PreviousManifest.drafts.find(d=>d.textId===r.textId);d.definition=r.previousDefinition;d.review=r.previousReview}

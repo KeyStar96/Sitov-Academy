@@ -1,0 +1,26 @@
+{
+  "baseCommit": "d699794d362b023050fd4eb00221bd67388c3543",
+  "reviewDocument": "docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch32-independent-editorial-review.json",
+  "reviewDocumentSha256": "e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143",
+  "previousManifestByteSha256": "69c178dfc2660102b936f45f8a1f376804a410b3262146491457f9f4b533bb67",
+  "currentManifestByteSha256": "379828911ee2eb6bc7edd5e223e8b773d681820b302cae928f29ea4c9b293e9c",
+  "previousAudioByteSha256": "d2cb7f4204bdab80523b17ca8a3cb90cdeb220032180bcd22e33cf1afd7ce23c",
+  "currentAudioByteSha256": "3b679dd36981fc370cb6497de403da2f3d69516d1aef1540f6815f1b9705019b",
+  "originalReadingSourceByteSha256": "f1994eea5e588420477cd43bb41ce43d59a687195042153a6902314fbdf2e47d",
+  "taskChanges": 59,
+  "changedPools": 31,
+  "aliasChanges": 94,
+  "uniqueNextAudioTexts": 94,
+  "unitEquivalenceChanges": 16,
+  "correctTextChanges": 11,
+  "allDraftsInactive": true,
+  "legacy89Preserved": true,
+  "correctedTriageCounts": {
+    "REPAIR": 31,
+    "BENIGN": 29,
+    "AUDIO_REPAIR": 34,
+    "HOLD": 20
+  },
+  "audioGeneration": false,
+  "publication": false
+}

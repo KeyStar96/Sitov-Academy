@@ -1,0 +1,756 @@
+{
+  "rows": [
+    {
+      "id": "sitov.epoch32.a7d532afabeeaf2ff4f2ec4566f485613701fbdea0540acb2f809ddf35204ef1",
+      "text": "Welche Wortfolge vervollständigt den Aussagesatz nach »Am Abend«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:6d2f8e95-6f87-510b-b244-0631733f8ff9:sitov.pretest.a11-01.syntax.q4:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.3dc30af4b79f47d03cfeb577785642a71bf8a7103399ed3e6bb145e81a86d600",
+      "text": "Welche Form passt zwischen »Wir lesen« und »Buch«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:6d2f8e95-6f87-510b-b244-0631733f8ff9:sitov.pretest.a11-01.nominal.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.55afc1163b16deeed3b415fe803b9aabd537419e4afef2da0bd4a83b6f05368f",
+      "text": "Welche Verbform im Präsens passt zwischen »Er« und »einen Apfel«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:d7280df2-9f87-5729-bd8f-19c9b47c9488:sitov.pretest.a11-02.verbs.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.9d1e1459fac2c36e4b87f50390cfb6ccda6ccdaaa1921f23897a2971ed6fc176",
+      "text": "Welche Wortfolge vervollständigt den Aussagesatz nach »Auf dem Tisch«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:d7280df2-9f87-5729-bd8f-19c9b47c9488:sitov.pretest.a11-02.syntax.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.1f74fba9fcdd3c3b4eb0f8e88ddfad45368a2a3d68ef569f03498b43c9577d75",
+      "text": "Welche Form passt zwischen »Ich sitze in« und »Küche« in einer Ortsangabe?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:d7280df2-9f87-5729-bd8f-19c9b47c9488:sitov.pretest.a11-02.nominal.q1:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.9a57d6d0160bf5cbedc67fcb082a676e70095f13bc158e95a3027a198f622fad",
+      "text": "Welche Form passt zwischen »Das Brot liegt auf« und »Tisch« in einer Ortsangabe?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:d7280df2-9f87-5729-bd8f-19c9b47c9488:sitov.pretest.a11-02.nominal.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.fdfe6aea2a662c72ddb872e1add44c4dea4cb7460dd726ab10ab065d716b18ea",
+      "text": "Welche Verbform im Präsens passt nach »Der Lehrer«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:25bdcac1-9272-5294-893f-c2063b4838b9:sitov.pretest.a11-03.verbs.q4:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.8ca6b2558aeb0156e4906030f925a304a8c88f6c3162d3faeb92023befa11ab8",
+      "text": "Welche Wortfolge vervollständigt den Aussagesatz nach »Jetzt«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:25bdcac1-9272-5294-893f-c2063b4838b9:sitov.pretest.a11-03.syntax.q6:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.0bac3cd4de7b8f812b50308b9070866cdb55c2a7c328f1e9f3fc2a7381b38cb2",
+      "text": "Welche Form passt zwischen »Das Heft liegt auf« und »Tisch« in einer Ortsangabe?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:25bdcac1-9272-5294-893f-c2063b4838b9:sitov.pretest.a11-03.nominal.q6:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.c38a03f38e54281b3d9e2c12576d508a67b4632225123bbebac3f0509a15a12a",
+      "text": "Welche Verbform im Präsens passt zwischen »Heute« und »wir uns vor dem Haus«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:b73f6228-c6c7-591b-ac83-2bae82a3b163:sitov.pretest.a11-04.verbs.q4:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.1ed549c776ffc6730b71d52bbe8dad5c788f875ffaa3dc962dcb55adb41410fd",
+      "text": "Welche Form passt zwischen »Ich wohne in« und »Gartenstraße« in einer Ortsangabe?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:b73f6228-c6c7-591b-ac83-2bae82a3b163:sitov.pretest.a11-04.nominal.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.6f0f3898278f1debef94ca9342a2d2e2a074638bae1361e273f707caa79a3525",
+      "text": "Welche Verbform im Präsens passt zwischen »Wir hören Musik und« und »unser Brot«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:fd1297a1-999f-5759-b0d9-1f77c381d114:sitov.pretest.a11-05.verbs.q6:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.6e4f95c9d8c3279a5bfae7ec79bb4aec44f002aa62e2b3f65125f80b63d0990a",
+      "text": "Welche Form passt zwischen »Wir gehen in« und »Park« in einer Richtungsangabe?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:fd1297a1-999f-5759-b0d9-1f77c381d114:sitov.pretest.a11-05.nominal.q1:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.fc8cbcbe3be6242a1089f4dd9a8123ac71bfe114660587b6558e099d71b717ad",
+      "text": "Welche Wortfolge vervollständigt den Aussagesatz nach »Am Abend mache ich«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:a218b88e-9369-5472-b5fe-34c99d1ced76:sitov.pretest.a11-06.syntax.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.3db45a48f496755f108ad7a7be4ce15a3a9031dd1aae95930c2dfe20d8f1046d",
+      "text": "Welche Form passt zwischen »Auf« und »Tisch liegt mein Deutschbuch« in einer Ortsangabe?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:a218b88e-9369-5472-b5fe-34c99d1ced76:sitov.pretest.a11-06.nominal.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.a162b8fa726d4b674457c097bdcc09b145d3dabd2ae247bc9a684ef7be5cf8e6",
+      "text": "2 Äpfel, also zwei Stück.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.words.q4:sitov.pretest.a11-07.words.q4.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.917143586e370920620f72f4750bba26a68db90a17173947dfb6712e5c9e8cf3",
+      "text": "3 Äpfel, also drei Stück.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.words.q4:sitov.pretest.a11-07.words.q4.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.8bafae99d248bcc0e8e9a845b917e6b90b90d8ed346ec47bdf5b1254f46e7811",
+      "text": "1 Apfel, also ein Stück.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.words.q4:sitov.pretest.a11-07.words.q4.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.27c982f1794f4f1bfd9a4f4af00913ec28437f64c9518c5eb2775f6e841e6225",
+      "text": "Welche Präsensform von kosten passt zwischen »Es« und »zwei Euro«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:15c29bec-e14e-5f27-8f12-ea9e45145e97:sitov.pretest.a11-07.verbs.q4:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.01da095126371a1fe3cc46de86a30e795a9714c230ea864c59d7620bd546b5b0",
+      "text": "Welche Präsensform von heißen passt zwischen »Mein Onkel« und »Mark«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.verbs.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.59bdb13269b4b24557c9f18d49f2f22614bdb06ff9660382e04fffd0e6d88729",
+      "text": "Welche Präsensform von kochen passt zwischen »Er« und »gern«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.verbs.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.618dd71803f75f7e5e325468dafbd1b376b1b297670adf5529e0e0e6e3d8e155",
+      "text": "Welche Form passt zwischen »Mein Bruder ist zwanzig« und »alt«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:610e3f81-2a6f-5794-bb78-ef06cb7ece17:sitov.pretest.a11-08.nominal.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.a328f81c84444837269630478ac30ec73ba09c67f3ffd3a02646d6e3036f5ffd",
+      "text": "Welche Form passt zwischen »Ich« und »um acht Uhr aus dem Haus«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.verbs.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.4905d76188a0b68c3ba4f8bf7083f56870c6cd41487076ccd1f4d5412aa4ac33",
+      "text": "Welche Form passt in der Textstelle zwischen »aus« und »Haus«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.nominal.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.49ef5155f8a17b208dc069b3535b33cf43054cb64424dacaca9c3270db247f19",
+      "text": "Welche Form passt zwischen »Ich fahre mit« und »Bus«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.nominal.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.36c3c4b3be224fd45cf97aff4b52e034848b7544941a6dd127fb591ef31bfd1d",
+      "text": "Welche Form passt in der Ortsangabe zwischen »Vor« und »Tür wartet mein Freund«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:c8055fa7-7bb0-5027-9f3e-13d001eb728b:sitov.pretest.a11-09.nominal.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.a544bc4c47258800a59d72895cb7fa56c9f92d607de1b5da5417bb9587abdaae",
+      "text": "Welche Form passt zwischen »Das Buch liegt auf« und »Tisch« in einer Ortsangabe?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:4a6f7008-9439-5c6e-9d60-113e8945f800:sitov.pretest.a11-10.nominal.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.60037033717d77db69f3ff695bdb6cc1771ad1e43732983c87d827595bd509f2",
+      "text": "Welche Grundform hat das Verb in »Seit gestern tut mein Hals weh«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:1b5c02d4-7217-56e0-8abb-906c20784e30:sitov.pretest.a12-01.verbs.q1:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.20795d35a55b0cc8654723eb28d03a4e93d871a2376e6aa96aaf862498e1e72b",
+      "text": "Welche Grundform hat das Verb in »Meine Versichertenkarte nehme ich mit«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:1b5c02d4-7217-56e0-8abb-906c20784e30:sitov.pretest.a12-01.verbs.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.3456ecff1cf6d82849216a8a8569da229aff2b115f102b703bffbfe11e0416f6",
+      "text": "Welche Form passt zwischen »Der Arzt arbeitet in« und »Praxis« in einer Ortsangabe?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:1b5c02d4-7217-56e0-8abb-906c20784e30:sitov.pretest.a12-01.nominal.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.a939e6a5ac868fa7ed10fee38a5c02a2fcd1f0eaacd409a13fa46d5ed52fdf7b",
+      "text": "Welche Form passt zwischen »Ein Händler arbeitet auf« und »Markt« in einer Ortsangabe?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:add5b212-15af-55b5-b224-6282b5c39c13:sitov.pretest.a12-02.nominal.q4:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.49666ed05105fa35f6cb6e48c344d3521c0637491e7ef7ba0b916f703c6bc4ff",
+      "text": "Welche Artikelform passt zwischen »Ich decke« und »Tisch«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:add5b212-15af-55b5-b224-6282b5c39c13:sitov.pretest.a12-02.nominal.q6:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.42192024c004896352fd57883bd6d581e953f61af0b4fa3fc170c0de3fe0cd30",
+      "text": "Welche Form passt in der Ortsangabe zwischen »Wir bezahlen an« und »Kasse«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:924ee488-8b97-5070-ba23-eea0f03992e6:sitov.pretest.a12-03.nominal.q4:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.990dc408730a63d807e2358b723578714e645b9b2e275377eda68c414c583cf8",
+      "text": "Welche Form passt zwischen »Ich schreibe eine« und »Einladung«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:6e15b015-d482-58e4-9fa2-25ba0c8dea72:sitov.pretest.a12-04.nominal.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.aa726f0318baf009e0ed68f5c6225abd0e17da17e7d89b3af1580801ed2d497f",
+      "text": "Welche Form passt zwischen »Ich« und »mit meinem Korb zum Markt«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:93e4a1ed-cb70-5f0a-9dd2-cf6b2a9c9699:sitov.pretest.a12-05.verbs.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.aa308a7b53b8e4aa722bf08e9f93de3d4f74af864f7b2898a11d248a5d9f7a67",
+      "text": "Welche Form passt nach »Ich möchte ein Kilo Äpfel«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:93e4a1ed-cb70-5f0a-9dd2-cf6b2a9c9699:sitov.pretest.a12-05.verbs.q4:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.2363f71005f6e131f7b306351e83486e0f598bde729c1781c9bc32de32c3f1da",
+      "text": "Welche Form passt zwischen »Wir suchen eine« und »Wohnung«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:5b3316e2-4a9f-5689-ba11-e5d0dc420f2b:sitov.pretest.a12-06.nominal.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.a2027157155edc9f7d0f917b7c6fc2de91c64afc4a735a92a2bc6be0bd078ca1",
+      "text": "Welche Form passt in der Ortsangabe zwischen »Neben« und »Haus ist ein Spielplatz«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:5b3316e2-4a9f-5689-ba11-e5d0dc420f2b:sitov.pretest.a12-06.nominal.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.bc86ff5cfa1c1f3a38056c8dc95a47b37f90853b0644d3f2f00eebdffd91da5a",
+      "text": "Welche Form passt zwischen »Morgen« und »wir meinen Bruder«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:00cedd4e-cf66-50ae-a181-e687d85a8379:sitov.pretest.a12-07.verbs.q1:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.24a47fe8c5f225cfcd73298bb9023dec7b73962df055aa66d20ec0359b330b89",
+      "text": "Welche Form passt zwischen »Mein Bruder« und »am Bahnhof«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:00cedd4e-cf66-50ae-a181-e687d85a8379:sitov.pretest.a12-07.verbs.q6:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.90e4b75a04434d9f5c9595c11de484eaefe356a06ee18506366a6d4859e58b18",
+      "text": "Welche Form passt zwischen »Wir fahren mit« und »Straßenbahn«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:00cedd4e-cf66-50ae-a181-e687d85a8379:sitov.pretest.a12-07.nominal.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.2baf7da528d7e7c3c9c76889582b82b2145647bd71ae11a6f9717ba66fd2efdf",
+      "text": "Was geschieht bei der Anmeldung in einer Bibliothek?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:0022c931-279a-5050-ac2d-459c1e978cd1:sitov.pretest.a12-08.words.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.be374692ae27ba26296034db08e12a0a0f84d689e58294c6cdd17d3a4e0f0e73",
+      "text": "Ein ausgeliehenes Buch wird zurückgegeben.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:0022c931-279a-5050-ac2d-459c1e978cd1:sitov.pretest.a12-08.words.q2:sitov.pretest.a12-08.words.q2.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.7ffe99f09b77a5eb816b9356352c1e8c1575b6587df108861f488793567beff7",
+      "text": "Ein neuer Nutzer wird registriert.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:0022c931-279a-5050-ac2d-459c1e978cd1:sitov.pretest.a12-08.words.q2:sitov.pretest.a12-08.words.q2.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.e52c7ae4f05b1b20067be4fec1acbe5ae59c60cbe28163006edd4aaea4d724dd",
+      "text": "Die erlaubte Zeit zum Behalten eines Buches wird verlängert.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:0022c931-279a-5050-ac2d-459c1e978cd1:sitov.pretest.a12-08.words.q2:sitov.pretest.a12-08.words.q2.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.4017d29a04546bd8203a36d1d0c7743206446c556996dce0fb619ef6194fa6fb",
+      "text": "Wofür steht die Nutzerkarte in der Bibliothek?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:0022c931-279a-5050-ac2d-459c1e978cd1:sitov.pretest.a12-08.words.q4:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.3a651d0aad578331ee2e98affacf18c900d55e55cbbafd0c48c367224741b98d",
+      "text": "Die Karte weist eine Zugfahrt nach.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:0022c931-279a-5050-ac2d-459c1e978cd1:sitov.pretest.a12-08.words.q4:sitov.pretest.a12-08.words.q4.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.95deada6a71442a248d2a6f2ac7e8ad9e6cb0973d4d02b3f808758610bd87d4a",
+      "text": "Die Karte weist die Berechtigung zur Nutzung der Bibliothek nach.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:0022c931-279a-5050-ac2d-459c1e978cd1:sitov.pretest.a12-08.words.q4:sitov.pretest.a12-08.words.q4.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.731493116161e9f478cdf81885563db6be8282097cad6800273a46ad641e7a74",
+      "text": "Die Karte bestätigt eine bezahlte Rechnung.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:0022c931-279a-5050-ac2d-459c1e978cd1:sitov.pretest.a12-08.words.q4:sitov.pretest.a12-08.words.q4.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.b01e30e710861915cbeb2fe47a65c7a32f86baa2b3a00ba4f2235223623c58e1",
+      "text": "Welche Form passt zwischen »Ich« und »heute in die Bibliothek«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:0022c931-279a-5050-ac2d-459c1e978cd1:sitov.pretest.a12-08.verbs.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.dcc8e4fc6f6a6d842e0d2efa4f56c8da04009f92b8c99b6132bd5008ce084b06",
+      "text": "Welche Form passt in der Ortsangabe zwischen »Der Schlüssel liegt auf« und »Küchentisch«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:b3fd31c6-efa8-5a64-85d9-7d419b4c42f4:sitov.pretest.a12-09.nominal.q6:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.7152706c2b2c213178a1d564755aabd383960aaf904c9e51588dc6f31702d632",
+      "text": "Welche Form passt zwischen »Am Donnerstag« und »wir kurze Texte«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:8cd6b9c9-8eaf-5a08-863b-27e712dbc484:sitov.pretest.a12-10.verbs.q4:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.7bef9ab227c1d6be0cf41d31b92c7e4a6a2160405dd06e790000cb6aa427c6e9",
+      "text": "Welche Form passt zwischen »Der Lehrer erklärt« und »Stundenplan«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:8cd6b9c9-8eaf-5a08-863b-27e712dbc484:sitov.pretest.a12-10.nominal.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.5653204c67d9a8a9fe437d135ba906e8e79541daf20b91201004d9afc869d0f1",
+      "text": "Welche Form passt zwischen »Ich hole meinen Sohn von« und »Schule ab«?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:8cd6b9c9-8eaf-5a08-863b-27e712dbc484:sitov.pretest.a12-10.nominal.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.e253bf925c27026c7b23cac664421c5b6ea70000fcb0443eacb1cdfb3bfe1298",
+      "text": "Welche Aussage verwendet schieben im Perfekt?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:acb54d47-e197-56ca-9eb7-a890abce63f6:sitov.pretest.a21-02.verbs.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.4dff5068dda9b5cc4f309848559bfd6590f3eb103d77898953d7398ed1363255",
+      "text": "Ich schob das Rad.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:acb54d47-e197-56ca-9eb7-a890abce63f6:sitov.pretest.a21-02.verbs.q3:sitov.pretest.a21-02.verbs.q3.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.bea23b6611c8de6de9d6f04772a43715339e5a8bf3d702924a3a0f60df62b43b",
+      "text": "Ich habe das Rad geschoben.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:acb54d47-e197-56ca-9eb7-a890abce63f6:sitov.pretest.a21-02.verbs.q3:sitov.pretest.a21-02.verbs.q3.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.7d5ab318cdf6501f4f0121a5992d02b880a82ea1f7e2a2b72126969e247a17b2",
+      "text": "Ich möchte das Rad schieben.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:acb54d47-e197-56ca-9eb7-a890abce63f6:sitov.pretest.a21-02.verbs.q3:sitov.pretest.a21-02.verbs.q3.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.7575a415d7d881aeb657a120e2eb7fb9f6142e571a76b7fd56de7f4d85e08f78",
+      "text": "Welche Aussage verwendet sehen im Perfekt?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:dbe98ecb-4d32-5767-be6c-f54728c93f7d:sitov.pretest.a21-06.verbs.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.4e27056d9350c0c2be6f18e4d98f422240ca0134a295d247cd5cef9f27786bdc",
+      "text": "Wir möchten Pferde sehen.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:dbe98ecb-4d32-5767-be6c-f54728c93f7d:sitov.pretest.a21-06.verbs.q5:sitov.pretest.a21-06.verbs.q5.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.966b62dbd11b73d572e5e63e2bf76230a8644d117321d6b81257faca71654db9",
+      "text": "Wir sahen Pferde.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:dbe98ecb-4d32-5767-be6c-f54728c93f7d:sitov.pretest.a21-06.verbs.q5:sitov.pretest.a21-06.verbs.q5.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.e05e8204e5adcf2a89603a5d97c12eb073aa0d6df4f92a910c9b4795c8458453",
+      "text": "Wir haben Pferde gesehen.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:dbe98ecb-4d32-5767-be6c-f54728c93f7d:sitov.pretest.a21-06.verbs.q5:sitov.pretest.a21-06.verbs.q5.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.8dfcfe800725cd77092b0c48071c2373593a4bc36503076b4182a48d85f34f93",
+      "text": "Welche Wortfolge folgt unmittelbar auf »Am Donnerstag« in einem Aussagesatz, wenn das finite Verb direkt nach der Zeitangabe steht?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:2f3b292b-8bdb-5007-90cb-278f9c00fc02:sitov.pretest.a21-07.syntax.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.687d7bcd9cb67803dd918823f1eaa2ee7f060e7bf2e0aace0932578f9724302e",
+      "text": "ich gehe zum Training",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:2f3b292b-8bdb-5007-90cb-278f9c00fc02:sitov.pretest.a21-07.syntax.q3:sitov.pretest.a21-07.syntax.q3.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.05a4860682232e732fe8af64577de16e6136cc8763bb1176e8113a3d9186e9fb",
+      "text": "zum Training gehe ich",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:2f3b292b-8bdb-5007-90cb-278f9c00fc02:sitov.pretest.a21-07.syntax.q3:sitov.pretest.a21-07.syntax.q3.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.1fcad5c638e68aa7800e17850c3d95815d87dec9e94e4cb7f13e70655b3c57e8",
+      "text": "Welche Aussage verwendet aufdrehen im Perfekt?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:ad61d4d1-2223-533e-974e-51a2d97806b0:sitov.pretest.a21-08.verbs.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.4aec29d95aa6780fdd7c38850e886acaa245428daba8f8640042245ba51bce4d",
+      "text": "Ich möchte die Heizung aufdrehen.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:ad61d4d1-2223-533e-974e-51a2d97806b0:sitov.pretest.a21-08.verbs.q2:sitov.pretest.a21-08.verbs.q2.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.2f48a9ca518b82d39d1c0933cebc247c36c5156d10a7b54249cedcce089ff246",
+      "text": "Ich habe die Heizung aufgedreht.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:ad61d4d1-2223-533e-974e-51a2d97806b0:sitov.pretest.a21-08.verbs.q2:sitov.pretest.a21-08.verbs.q2.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.6b7bac8ad6f7b11c8a3358a0e39c7e3caef32cb11f56879d12f7d952d65d36b2",
+      "text": "Ich drehte die Heizung auf.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:ad61d4d1-2223-533e-974e-51a2d97806b0:sitov.pretest.a21-08.verbs.q2:sitov.pretest.a21-08.verbs.q2.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.583984c17916516634a069192c433dd40e2a756cd80f1747150e6fb636157715",
+      "text": "Welche Aussage verwendet beschreiben im Perfekt?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:ad61d4d1-2223-533e-974e-51a2d97806b0:sitov.pretest.a21-08.verbs.q5:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.4c7190017ca07733c6b751390cc844e75df7fc2748e2a1a651057603040fb27e",
+      "text": "Ich habe das Problem beschrieben.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:ad61d4d1-2223-533e-974e-51a2d97806b0:sitov.pretest.a21-08.verbs.q5:sitov.pretest.a21-08.verbs.q5.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.9952df7f09dfb51ae9065612c774bd0f008f1bea370086e398a9a7bac2f80f3e",
+      "text": "Ich beschrieb das Problem.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:ad61d4d1-2223-533e-974e-51a2d97806b0:sitov.pretest.a21-08.verbs.q5:sitov.pretest.a21-08.verbs.q5.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.5999959799ec775284c56269e34021a8a3a3c7b894f629e63fd3f04a976172ca",
+      "text": "Ich möchte das Problem beschreiben.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:ad61d4d1-2223-533e-974e-51a2d97806b0:sitov.pretest.a21-08.verbs.q5:sitov.pretest.a21-08.verbs.q5.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.5b4f5cba7dc330c9bff7ba823533d75abef8f1cfbd6fee4c0a189600564ba9c0",
+      "text": "Welche Aussage steht im Perfekt und beschreibt das erneute Üben von Wörtern?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:c5d7b014-5b84-57f5-bfb0-67e3bcb65066:sitov.pretest.a21-09.verbs.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.15f85df88046370b583121b8f72a4bc73d8f0d778e0314d85428f2af0b773830",
+      "text": "Wir wiederholten die Wörter.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:c5d7b014-5b84-57f5-bfb0-67e3bcb65066:sitov.pretest.a21-09.verbs.q3:sitov.pretest.a21-09.verbs.q3.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.b23d2f2cf276ab535993064d4706118e24b320c175134f2ecd2faea5b0f415e2",
+      "text": "Wir wiederholen die Wörter.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:c5d7b014-5b84-57f5-bfb0-67e3bcb65066:sitov.pretest.a21-09.verbs.q3:sitov.pretest.a21-09.verbs.q3.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.60546ace39e649cfbe86091f6a55567c89b1c405798e0dd61133d1ce0286ea47",
+      "text": "Wir haben die Wörter wiederholt.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:c5d7b014-5b84-57f5-bfb0-67e3bcb65066:sitov.pretest.a21-09.verbs.q3:sitov.pretest.a21-09.verbs.q3.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.3632cabf0f409b5520edce1ab7f3df9bc10e58ebe30ac529bbf93448fad4287b",
+      "text": "Welche Wortfolge vervollständigt nach »Würde« eine Entscheidungsfrage?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:19846618-a6c3-5001-84d5-06b21b99dff5:sitov.pretest.b11-01.syntax.q3:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.224f1ace549dc90352c627b43841cdb61c9f83ca4fb8d40a471451680b0f46bb",
+      "text": "mein Deutsch würde für den Unterricht ausreichen",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:19846618-a6c3-5001-84d5-06b21b99dff5:sitov.pretest.b11-01.syntax.q3:sitov.pretest.b11-01.syntax.q3.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.2a359dbe10139cee6c4efe1392c00d609b9fbed877981d075897d32a15896db8",
+      "text": "für den Unterricht würde mein Deutsch ausreichen",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:19846618-a6c3-5001-84d5-06b21b99dff5:sitov.pretest.b11-01.syntax.q3:sitov.pretest.b11-01.syntax.q3.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.1d2c5ddba9615d9668f9b2aec99d7687afc57401116b4b42c030b72038b656a3",
+      "text": "Welche Wortfolge passt nach »Mein Bruder schlug vor,« als Infinitivgruppe mit zu?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:f0c48467-2e7b-53ef-acde-b08564514ba9:sitov.pretest.b11-03.syntax.q2:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.1e31be05a5cd865698197118b6b7adc8fe2e1f9995cefa209a1b6ece3061c227",
+      "text": "einen Kurs besuchen",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:f0c48467-2e7b-53ef-acde-b08564514ba9:sitov.pretest.b11-03.syntax.q2:sitov.pretest.b11-03.syntax.q2.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.b523ce4574d66f126dcdde14ccd80691a74f946c64f43cf34499d8663c1eaa45",
+      "text": "ich besuche einen Kurs",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:f0c48467-2e7b-53ef-acde-b08564514ba9:sitov.pretest.b11-03.syntax.q2:sitov.pretest.b11-03.syntax.q2.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.7ffed19a84663f0fb38497edcd6a3d584adaa50e12a38ba791a7cfed72d598c3",
+      "text": "Welche Aussage verwendet bekommen im Präteritum mit ich als Subjekt?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:525d59e3-5cad-543c-820a-b9316809645f:sitov.pretest.b11-05.verbs.q1:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.62d4eda3d75d3859ef73e5b97e79656ef8829148ea9adc9e30477ed84c8f749a",
+      "text": "Wir bekamen eine Nachricht.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:525d59e3-5cad-543c-820a-b9316809645f:sitov.pretest.b11-05.verbs.q1:sitov.pretest.b11-05.verbs.q1.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.5515b5e4e9a417b2feb7773df210c7c9a33c2e28bc90cc99e355a1f5bf4545be",
+      "text": "Ich bekam eine Nachricht.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:525d59e3-5cad-543c-820a-b9316809645f:sitov.pretest.b11-05.verbs.q1:sitov.pretest.b11-05.verbs.q1.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.caa73a5f50acc827a2c86796ee647cefa587fff725dd9c00fd0ee218a80e7a32",
+      "text": "Er bekommt eine Nachricht.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:525d59e3-5cad-543c-820a-b9316809645f:sitov.pretest.b11-05.verbs.q1:sitov.pretest.b11-05.verbs.q1.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.28d7c155820e7308a06d469d4dd33f3b4b4d436da1f5f63dc27cb05b8472e713",
+      "text": "Welche Aussage verwendet helfen im Präsens mit einem Subjekt in der dritten Person Plural?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:525d59e3-5cad-543c-820a-b9316809645f:sitov.pretest.b11-05.verbs.q6:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.3238ce893dfe250212da6ccb07ccae0343d5e2703b70509b7665fe740d1dcdc8",
+      "text": "Er hilft mir.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:525d59e3-5cad-543c-820a-b9316809645f:sitov.pretest.b11-05.verbs.q6:sitov.pretest.b11-05.verbs.q6.c"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.07df99a179424af724fac4eb2d54df84d78d5d5e0e2790cba6457c2aaef57075",
+      "text": "Das Datum, die Quelle und die Nachfrage helfen mir.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:525d59e3-5cad-543c-820a-b9316809645f:sitov.pretest.b11-05.verbs.q6:sitov.pretest.b11-05.verbs.q6.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.39e237095a7e142e4234bb71d4b3bc93da990016d1b767ae65268c6fa8b0c951",
+      "text": "Du hilfst mir.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:525d59e3-5cad-543c-820a-b9316809645f:sitov.pretest.b11-05.verbs.q6:sitov.pretest.b11-05.verbs.q6.b"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.219c9c70c1913dd0c3392d07356e4595ff0b64883ad4fc4f78e5f8366d127e8a",
+      "text": "Was sind mehrere Bewertungen eines Kurses?",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:5dc0cf34-6f7c-5e67-9728-22bbe90c5dc7:sitov.pretest.b12-08.words.q1:prompt"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.fde8f9c08d029edb41090f30eaa8f3c2faff437088e7faeb88a93b328781a0e7",
+      "text": "Mehrere Urteile über die Qualität des Kurses.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:5dc0cf34-6f7c-5e67-9728-22bbe90c5dc7:sitov.pretest.b12-08.words.q1:sitov.pretest.b12-08.words.q1.a"
+      ]
+    },
+    {
+      "id": "sitov.epoch32.ecfa5462582c3800cf03f07279e8773f6c9dcdab42299c919df4bf83415f925e",
+      "text": "Ein ausschließlich zufälliger Effekt ohne geplantes Ziel.",
+      "rate": 1,
+      "sources": [
+        "authored-file:private-frozen-epoch32:sitov-pretest:8cf76d58-8428-59ef-b449-4301051413ba:sitov.pretest.b12-09.words.q5:sitov.pretest.b12-09.words.q5.b"
+      ]
+    }
+  ]
+}
