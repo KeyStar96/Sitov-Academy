@@ -1,4 +1,5 @@
 import 'server-only'
+import { sitovServerFailure } from '@/lib/sitov-server-failure'
 import { cache } from 'react'
 import { z } from 'zod'
 import { requestSession } from '@/lib/request-session'
@@ -50,13 +51,14 @@ export const loadLastActiveLevel = cache(async (): Promise<LastActiveLevel | nul
     const { supabase, user } = await requestSession()
     if (!user) return null
     const { data, error } = await supabase.rpc('get_last_active_level')
-    if (error || getRpcError(data)) {
-      console.error('[last-active-level] unavailable')
+    const failure = getRpcError(data)
+    if (error || failure) {
+      console.error('[last-active-level] unavailable', { failure: sitovServerFailure(error ?? failure) })
       return null
     }
     const parsed = response.safeParse(data)
     if (!parsed.success) {
-      console.error('[last-active-level] invalid_response')
+      console.error('[last-active-level] invalid_response', { failure: 'schema:invalid_response' })
       return null
     }
     return {
@@ -70,8 +72,8 @@ export const loadLastActiveLevel = cache(async (): Promise<LastActiveLevel | nul
         topic: entry.topic ?? null,
       })),
     }
-  } catch {
-    console.error('[last-active-level] unavailable')
+  } catch (error) {
+    console.error('[last-active-level] unavailable', { failure: sitovServerFailure(error) })
     return null
   }
 })

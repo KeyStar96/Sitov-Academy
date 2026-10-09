@@ -6,6 +6,7 @@ import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { hasTrainerAccess } from '@/lib/access/levels'
+import { sitovServerFailure, SitovServerReadError } from '@/lib/sitov-server-failure'
 import { readAllRows } from '@/lib/supabase-read'
 import { pickWeightedRandomOrder, selectionWeightForBox } from '@/lib/leitner'
 import { getSitovVerbById, getSitovVerbCatalog, getSitovVerbTenses } from './catalog'
@@ -28,14 +29,20 @@ const sitovReviewSchema = z.object({ correct: z.boolean(), solution: z.string(),
 class SitovVerbError extends Error {}
 
 async function sitovRequest<T>(work: (client: Awaited<ReturnType<typeof createClient>>, userId: string) => Promise<T>): Promise<SitovVerbResult<T>> {
+  let stage: 'client' | 'auth' | 'work' = 'client'
   try {
     const client = await createClient()
+    stage = 'auth'
     const { data: { user }, error } = await client.auth.getUser()
     if (error || !user) throw new SitovVerbError('not_authenticated')
+    stage = 'work'
     return { data: await work(client, user.id) }
   } catch (error) {
     if (error instanceof SitovVerbError) return { error: error.message }
-    console.error('[sitov-verbs] Request unavailable')
+    console.error('[sitov-verbs] Request unavailable', {
+      stage: error instanceof SitovServerReadError ? error.source : stage,
+      failure: error instanceof SitovServerReadError ? error.failure : sitovServerFailure(error),
+    })
     return { error: 'request_failed' }
   }
 }
@@ -51,9 +58,9 @@ async function sitovLoad(client: Awaited<ReturnType<typeof createClient>>, learn
   const profile = await loadLevelAccessProfile(client, learnerId)
   if (!hasTrainerAccess(profile, parsed.data, 'verbs')) throw new SitovVerbError('not_authorized')
   const [catalog, box, progress] = await Promise.all([
-    readAllRows((from, to) => client.from('sitov_verb_catalog').select('id,unit_id,level').order('id').range(from, to)),
-    readAllRows((from, to) => client.from('sitov_verb_box').select('verb_id,selected').eq('auth_user_id', learnerId).order('verb_id').range(from, to)),
-    readAllRows((from, to) => client.from('sitov_verb_progress').select('verb_id,tense,box,attempts,correct,lapses,next_review_at,last_answered_at').eq('auth_user_id', learnerId).order('verb_id').order('tense').range(from, to)),
+    readAllRows((from, to) => client.from('sitov_verb_catalog').select('id,unit_id,level').order('id').range(from, to), 'verb_catalog'),
+    readAllRows((from, to) => client.from('sitov_verb_box').select('verb_id,selected').eq('auth_user_id', learnerId).order('verb_id').range(from, to), 'verb_box'),
+    readAllRows((from, to) => client.from('sitov_verb_progress').select('verb_id,tense,box,attempts,correct,lapses,next_review_at,last_answered_at').eq('auth_user_id', learnerId).order('verb_id').order('tense').range(from, to), 'verb_progress'),
   ])
   const metadata = new Map(catalog.map(row => [row.id, row]))
   const verbs = getSitovVerbCatalog(parsed.data).flatMap(verb => {
