@@ -1,0 +1,23 @@
+{
+  "passed": false,
+  "target": "708068f83e75403a4bd2c348122acece24b01d15",
+  "checks": [
+    {
+      "check": "actual Next cookie reference denied before pass",
+      "passed": true,
+      "http_status": 404
+    },
+    {
+      "check": "actual current individual pass",
+      "passed": true,
+      "http_status": 200
+    },
+    {
+      "check": "actual Next cookie MP3 matches prepared hash",
+      "passed": true,
+      "http_status": 200
+    }
+  ],
+  "failure": "QA assertion failed: source prepared word timings present",
+  "error_type": "AssertionError"
+}

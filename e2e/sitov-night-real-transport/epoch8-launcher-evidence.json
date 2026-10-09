@@ -1,0 +1,33 @@
+{
+  "source": "M private launcher AST read-only",
+  "target": "708068f83e75403a4bd2c348122acece24b01d15",
+  "overrides": [
+    {
+      "keys": [
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "SUPABASE_URL",
+        "SUPABASE_INTERNAL_URL"
+      ],
+      "loopbackQAURL": true,
+      "usesFreshAnon": false,
+      "usesFreshService": false
+    },
+    {
+      "keys": [
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "SUPABASE_ANON_KEY"
+      ],
+      "loopbackQAURL": false,
+      "usesFreshAnon": true,
+      "usesFreshService": false
+    },
+    {
+      "keys": [
+        "SUPABASE_SERVICE_ROLE_KEY"
+      ],
+      "loopbackQAURL": false,
+      "usesFreshAnon": false,
+      "usesFreshService": true
+    }
+  ]
+}
