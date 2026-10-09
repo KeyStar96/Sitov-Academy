@@ -39,5 +39,39 @@
     "S4": "Only M explicitly assigned small vocabulary/verb route and existing component integrations; no new progress model.",
     "S1": "Underlying exact commercial ports and any new navigation registration.",
     "M": "Frozen shared contract and eventual verified integration."
+  },
+  "authorized_source_lookup": {
+    "approved_by": "M",
+    "approved_at": "2026-10-09T08:25:00.049030+00:00",
+    "rpc": "sitov_get_learning_recommendation_sources",
+    "args": {
+      "p_level": "text current access level",
+      "p_node_ids": "uuid[] unique1..200, explicit actual current map IDs only"
+    },
+    "result": {
+      "ok": true,
+      "data": {
+        "level": "exact requested level",
+        "sources": [
+          {
+            "nodeId": "actual UUID",
+            "unitId": "actual parent UUID",
+            "pathSourceId": "stored exact path source",
+            "nodeSourceId": "stored exact node source",
+            "kind": "practice|review|test|special",
+            "anchorNodeId": "actual same-parent UUID or null",
+            "anchorSourceId": "stored exact anchor source or null",
+            "goals": "stored string[]",
+            "anchorGoals": "stored string[] or []"
+          }
+        ]
+      }
+    },
+    "rules": [
+      "Fresh auth.uid; no caller/student identity or trusted rights input. Private SECURITY DEFINER emptysearchpath, public SECURITY INVOKER, narrow authenticated EXECUTE only; anon/PUBLIC/service deny; no broad table RLS change.",
+      "Only actual active canonical units+nodes, unique exact parent/level/source binding, currently available authorized get_learning_path nodes and commercial path_node/path_special item rights; Special same-parent active authorized anchor and existing publication/anchor-completion guards mandatory.",
+      "Return minimal content-source metadata only; never task answers/private sources/audio keys/accountprogress. No writes, no additional progress or pronunciation prerequisite. Missing/foreign/revoked/unavailable/ambiguous rows omitted; malformed input/auth/errors explicit stable envelopes.",
+      "Current source RLS blocker also affects ordinary path metadata. S2 replaces raw SELECT lookup using this port only after SQL/native proof. Public recommendations/pretestResult contracts remain unchanged."
+    ]
   }
 }
