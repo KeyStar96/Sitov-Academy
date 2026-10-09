@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "source": "actual browser login/cookie/action/RPC/postgresql100",
+  "integrationSha": "52169f502336025ec4cb27759a613d042a76204e",
+  "createdDraftInactive": true,
+  "exactlyOneReceipt": true,
+  "previousDefinitionsUnchanged": true,
+  "sourcesUnchanged": true,
+  "oldActiveCount": 3,
+  "oldAttemptsPassesUnchanged": true,
+  "language": "ru",
+  "germanPromptDe": true,
+  "screenshot": "staff100-saved-ru.png",
+  "scope": "oneQAteacher onefield actualsave; no publication; broaderacceptancepending",
+  "reloadPersisted": true,
+  "germanFieldAttributes": {
+    "lang": "de",
+    "translate": "no"
+  }
+}

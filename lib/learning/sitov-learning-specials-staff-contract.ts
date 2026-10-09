@@ -3,7 +3,7 @@ import { learningPathContentSchemas } from '@/lib/learning-path-schema'
 import { sitovSpecialRunSchema } from './sitov-learning-specials-contract'
 const hash=z.string().regex(/^[a-f0-9]{64}$/)
 const translated=z.object({instruction:z.string().nullable().optional(),hint:z.string().nullable().optional(),explanation:z.string().nullable().optional(),prompt:z.string().nullable().optional()}).strict()
-const snapshot=z.object({id:z.uuid(),type:z.enum(['multiple_choice','fill_in_blank','sentence_building']),content:z.unknown(),goal_id:z.string(),translations:z.partialRecord(z.enum(['de','en','ru','uk','tr']),translated)}).strict().superRefine((v,ctx)=>{
+const snapshot=z.object({id:z.uuid(),type:z.enum(['multiple_choice','fill_in_blank','sentence_building']),content:z.json(),goal_id:z.string(),translations:z.partialRecord(z.enum(['de','en','ru','uk','tr']),translated)}).strict().superRefine((v,ctx)=>{
  if(!learningPathContentSchemas[v.type].safeParse(v.content).success)ctx.addIssue({code:'custom',message:'invalid_snapshot'})
 })
 const item=z.object({id:z.uuid(),stratum:z.string().min(1).max(120),snapshot}).strict().refine(v=>v.id===v.snapshot.id)

@@ -17,16 +17,14 @@ export async function loadSitovSpecialStaffCatalog(input:unknown):Promise<SitovS
 }
 
 import {sitovSpecialAuthorContextInputSchema,sitovSpecialAuthorInputSchema,sitovSpecialAuthorContextResultSchema,sitovSpecialAuthorResultSchema,type SitovSpecialAuthorResult,type SitovSpecialAuthorContextResult} from './sitov-learning-specials-staff-contract'
-/** New101 signatures are listed in the handoff for M's shared type update. No service-role client. */
-type AuthorRpc=(name:'sitov_special_author_context'|'sitov_special_author_create',args:Record<string,unknown>)=>PromiseLike<{data:unknown,error:unknown}>
+/** Frozen101 typed author RPCs; cookie-scoped client only. */
 export async function loadSitovSpecialAuthorContext(input:unknown):Promise<SitovSpecialAuthorContextResult>{
  const v=sitovSpecialAuthorContextInputSchema.safeParse(input)
  if(!v.success)return {ok:false,error:'invalid_input',retryable:false}
  try{
   const client=await createClient();const auth=await client.auth.getUser()
   if(auth.error||!auth.data.user)return {ok:false,error:'authentication_required',retryable:false}
-  const rpc=client.rpc.bind(client) as unknown as AuthorRpc
-  const {data,error}=await rpc('sitov_special_author_context',{p_unit_id:v.data.unitId,p_anchor_id:v.data.anchorNodeId,p_source_ref:v.data.sourceRef})
+  const {data,error}=await client.rpc('sitov_special_author_context',{p_unit_id:v.data.unitId,p_anchor_id:v.data.anchorNodeId,p_source_ref:v.data.sourceRef})
   if(error)throw error
   const result=sitovSpecialAuthorContextResultSchema.parse(data)
   if(result.ok&&(result.data.unitId!==v.data.unitId||result.data.anchorNodeId!==v.data.anchorNodeId||result.data.sourceRef!==v.data.sourceRef))throw new Error('response_identity')
@@ -39,8 +37,7 @@ export async function createSitovSpecialAuthorDraft(input:unknown):Promise<Sitov
  try{
   const client=await createClient();const auth=await client.auth.getUser()
   if(auth.error||!auth.data.user)return {ok:false,error:'authentication_required',retryable:false}
-  const rpc=client.rpc.bind(client) as unknown as AuthorRpc
-  const {data,error}=await rpc('sitov_special_author_create',{p_input:v.data})
+  const {data,error}=await client.rpc('sitov_special_author_create',{p_input:v.data})
   if(error)throw error
   const result=sitovSpecialAuthorResultSchema.parse(data)
   if(result.ok&&(result.data.unitId!==v.data.unitId||result.data.anchorNodeId!==v.data.anchorNodeId||result.data.sourceRef!==v.data.sourceRef||result.data.sourceSha256!==v.data.sourceSha256||JSON.stringify(result.data.itemIds)!==JSON.stringify(v.data.items.map(i=>i.id))))throw new Error('response_identity')

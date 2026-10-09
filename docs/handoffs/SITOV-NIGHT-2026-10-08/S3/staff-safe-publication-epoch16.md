@@ -45,3 +45,5 @@ This narrow operation requires an existing valid prepared male Qwen reference pl
 - Native fixtures seed synthetic imported metadata and proof rows through isolated owner setup to exercise real guards; this is **not** a claim of actual generated audio bytes, production or HTTP validation.
 
 M owns canonical schema/type integration and QA runtime review. S3 did not edit pools, audio aliases, central schema/types, UI, containers, QA or production and did not cherry-pick new dependencies. Repo authoring coverage remains 6/60 private drafts, 54 pending; this patch publishes nothing in production. M separately reported QA three additional fully imported inactive definitions/266 assets; S3 did not modify or independently validate that QA state. Wait for a fresh START after commit/handoff.
+
+M-Integration: Die echte gemeinsame RPC-Typmap ist erweitert; temporäre RPC-Brücken sind entfernt. Special-Snapshot-Inhalte werden zusätzlich als JSON validiert, bevor die bestehenden fachlichen Inhaltsschemas prüfen. M:8 native PASS/0skip,13 Jest PASS, vollständiges TypeScript und gezieltes ESLint PASS. Keine tatsächliche QA-HTTP-Publikation ist hiermit behauptet.

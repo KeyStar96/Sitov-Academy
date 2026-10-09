@@ -21,6 +21,8 @@ export type SitovPronunciationPretestFunctions = {
   sitov_submit_pronunciation_pretest: { Args: { p_attempt_id: string; p_revision: number; p_answers: Json; p_request_id: string }; Returns: Json }
   sitov_get_pronunciation_pretest_staff: { Args: { p_text_id: string; p_student_id?: string | null }; Returns: Json }
   sitov_save_pronunciation_pretest_draft: { Args: { p_text_id: string; p_text_version: string; p_base_definition_id: string | null; p_definition: Json; p_request_id: string }; Returns: Json }
+  sitov_get_pronunciation_pretest_publication: { Args: { p_text_id: string; p_definition_id: string; p_text_version: string; p_test_version: string; p_base_active_definition_id: string | null }; Returns: Json }
+  sitov_publish_pronunciation_pretest: { Args: { p_text_id: string; p_definition_id: string; p_text_version: string; p_test_version: string; p_base_active_definition_id: string | null; p_request_id: string }; Returns: Json }
   sitov_create_pronunciation_upload_ticket: { Args: { p_text_id: string; p_request_id: string; p_extension: string }; Returns: Json }
   sitov_create_pronunciation_reply_upload_ticket: { Args: { p_submission_id: string; p_request_id: string; p_extension: string }; Returns: Json }
 }
@@ -35,4 +37,6 @@ export type SitovLearningSpecialFunctions = {
     Returns: Json
   }
   sitov_special_staff_catalog: { Args: { p_node_id: string }; Returns: Json }
+  sitov_special_author_context: { Args: { p_unit_id: string; p_anchor_id: string; p_source_ref: string }; Returns: Json }
+  sitov_special_author_create: { Args: { p_input: Json }; Returns: Json }
 }
