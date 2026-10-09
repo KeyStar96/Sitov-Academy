@@ -3277,7 +3277,7 @@
                 "Infinitiv am Ende"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Mia macht einen Vorschlag für den Abend.",
+              "question": "Milan macht einen Vorschlag für den Abend.",
               "options": [
                 "Wir zusammen könnten einen Film sehen.",
                 "Wir könnten zusammen einen Film sehen.",
@@ -3299,25 +3299,25 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "könnte in position 2, infinitive at the end: Wir könnten … machen. du könntest, wir könnten, ihr könntet.",
                 "explanation": "Suggestions with könnte (could): ich könnte, du könntest, er/es/sie könnte, wir könnten, ihr könntet, sie/Sie könnten. könnte is in position 2, the infinitive at the end of the sentence: Du könntest ins Kino gehen. (You could go to the cinema.) Wir könnten am Samstag eine Radtour machen. A suggestion with könnte is friendly: it is an idea, not a must.",
-                "task": "Mia is making a suggestion for the evening."
+                "task": "Milan is making a suggestion for the evening."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "könnte на втором месте, инфинитив в конце: Wir könnten … machen. du könntest, wir könnten, ihr könntet.",
                 "explanation": "Предложения с könnte (мог бы): ich könnte, du könntest, er/es/sie könnte, wir könnten, ihr könntet, sie/Sie könnten. könnte стоит на втором месте, инфинитив – в конце предложения: Du könntest ins Kino gehen. (Ты мог бы пойти в кино.) Wir könnten am Samstag eine Radtour machen. Предложение с könnte звучит дружелюбно: это идея, а не обязанность.",
-                "task": "Mia предлагает, чем заняться вечером."
+                "task": "Milan предлагает, чем заняться вечером."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "könnte на другому місці, інфінітив у кінці: Wir könnten … machen. du könntest, wir könnten, ihr könntet.",
                 "explanation": "Пропозиції з könnte (міг би): ich könnte, du könntest, er/es/sie könnte, wir könnten, ihr könntet, sie/Sie könnten. könnte стоїть на другому місці, інфінітив – у кінці речення: Du könntest ins Kino gehen. (Ти міг би піти в кіно.) Wir könnten am Samstag eine Radtour machen. Пропозиція з könnte звучить приязно: це ідея, а не обов’язок.",
-                "task": "Mia пропонує, чим зайнятися ввечері."
+                "task": "Milan пропонує, чим зайнятися ввечері."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "könnte ikinci sırada, mastar sonda: Wir könnten … machen. du könntest, wir könnten, ihr könntet.",
                 "explanation": "könnte ile öneriler: ich könnte, du könntest, er/es/sie könnte, wir könnten, ihr könntet, sie/Sie könnten. könnte ikinci sırada, mastar cümlenin sonunda durur: Du könntest ins Kino gehen. (Sinemaya gidebilirsin.) Wir könnten am Samstag eine Radtour machen. könnte ile yapılan öneri naziktir: Bir fikirdir, zorunluluk değildir.",
-                "task": "Mia akşam için bir öneride bulunuyor."
+                "task": "Milan akşam için bir öneride bulunuyor."
               }
             }
           },
@@ -3772,7 +3772,7 @@
                 "Vorschlag machen"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du möchtest am Samstag mit einer Freundin ins Museum gehen. Wie machst du einen Vorschlag?",
+              "question": "Du möchtest am Samstag mit einem Freund ins Museum gehen. Wie machst du einen Vorschlag?",
               "options": [
                 "Das Museum ist am Samstag geschlossen.",
                 "Wir könnten am Samstag ins Museum gehen. Hast du Lust?",
@@ -3800,13 +3800,13 @@
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Wie wäre es mit (как насчёт) + Dativ: mit einem Ausflug, mit einer Radtour. Hast du Lust? = хочешь присоединиться?",
                 "explanation": "Как предлагать и говорить о планах: Wir könnten am Samstag mal wieder ins Kino gehen. (В субботу мы могли бы снова сходить в кино.) Wie wäre es mit einem Picknick? (Как насчёт пикника? – mit + Dativ) Ich würde gern schwimmen gehen. Hast du Lust? (Хочешь?) Как спросить о планах: Was machst du gern am Freitagabend? Wofür nimmst du dir am Samstag Zeit? (На что ты находишь время в субботу?) Und am Sonntag, was machst du da?",
-                "task": "Вы хотите в субботу пойти с подругой в музей. Как вы это предложите?"
+                "task": "Вы хотите в субботу пойти с другом в музей. Как вы это предложите?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Wie wäre es mit (як щодо) + Dativ: mit einem Ausflug, mit einer Radtour. Hast du Lust? = хочеш приєднатися?",
                 "explanation": "Як пропонувати й говорити про плани: Wir könnten am Samstag mal wieder ins Kino gehen. (У суботу ми могли б знову сходити в кіно.) Wie wäre es mit einem Picknick? (Як щодо пікніка? – mit + Dativ) Ich würde gern schwimmen gehen. Hast du Lust? (Хочеш?) Як запитати про плани: Was machst du gern am Freitagabend? Wofür nimmst du dir am Samstag Zeit? (На що ти знаходиш час у суботу?) Und am Sonntag, was machst du da?",
-                "task": "Ви хочете в суботу піти з подругою до музею. Як ви це запропонуєте?"
+                "task": "Ви хочете в суботу піти з другом до музею. Як ви це запропонуєте?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",

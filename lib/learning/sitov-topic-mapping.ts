@@ -145,13 +145,6 @@ export const SITOV_TOPIC_MAPPING: readonly SitovTopicMapping[] = [
         "pathSourceId": "P4",
         "nodeSourceId": "P4-N1",
         "evidence": "Der, das, die"
-      },
-      {
-        "kind": "path_node_source",
-        "level": "A1.1",
-        "pathSourceId": "P4",
-        "nodeSourceId": "P4-N7",
-        "evidence": "Hier, dort und Rückfragen"
       }
     ],
     "targets": [

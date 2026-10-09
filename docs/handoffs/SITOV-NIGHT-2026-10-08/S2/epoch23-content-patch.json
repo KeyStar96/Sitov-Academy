@@ -1,0 +1,437 @@
+[
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/merkkarte/examples/3",
+    "old": "Das ist Selin. Sie kommt aus der Türkei.",
+    "new": "Das ist Selim. Er kommt aus der Türkei."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/content/text_before",
+    "old": "Das ist Selin. Sie ",
+    "new": "Das ist Selim. Er "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/translations/en/task",
+    "old": "This is Selin. She comes from Turkey.",
+    "new": "This is Selim. He comes from Turkey."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/translations/ru/task",
+    "old": "Это Selin. Она из Турции.",
+    "new": "Это Selim. Он из Турции."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/translations/uk/task",
+    "old": "Це Selin. Вона з Туреччини.",
+    "new": "Це Selim. Він з Туреччини."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/4/translations/tr/task",
+    "old": "Bu Selin. Türkiye’den geliyor.",
+    "new": "Bu Selim. Türkiye’den geliyor."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/2/merkkarte/examples/1",
+    "old": "Olena ruft am Abend ihre Mutter an.",
+    "new": "Oleh ruft am Abend seinen Vater an."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/2/exercises/1/content/text_before",
+    "old": "Olena ",
+    "new": "Oleh "
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/2/exercises/1/content/text_after",
+    "old": " am Abend ihre Mutter an.",
+    "new": " am Abend seinen Vater an."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/2/exercises/1/translations/en/task",
+    "old": "Olena calls her mother in the evening.",
+    "new": "Oleh calls his father in the evening."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/2/exercises/1/translations/ru/task",
+    "old": "Olena вечером звонит маме.",
+    "new": "Oleh вечером звонит отцу."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/2/exercises/1/translations/uk/task",
+    "old": "Olena ввечері телефонує мамі.",
+    "new": "Oleh ввечері телефонує батькові."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/2/exercises/1/translations/tr/task",
+    "old": "Olena akşam annesini arıyor.",
+    "new": "Oleh akşam babasını arıyor."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/merkkarte/rule",
+    "old": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+    "new": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/merkkarte/examples/3",
+    "old": "Um sieben Uhr frühstückt Olena.",
+    "new": "Um sieben Uhr frühstückt Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/merkkarte/translations/en/rule",
+    "old": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+    "new": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/merkkarte/translations/ru/rule",
+    "old": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/merkkarte/translations/uk/rule",
+    "old": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/merkkarte/translations/tr/rule",
+    "old": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+    "new": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/0/explanation",
+    "old": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+    "new": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/0/translations/en/explanation",
+    "old": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+    "new": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/0/translations/ru/explanation",
+    "old": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/0/translations/uk/explanation",
+    "old": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/0/translations/tr/explanation",
+    "old": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+    "new": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/1/explanation",
+    "old": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+    "new": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/1/translations/en/explanation",
+    "old": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+    "new": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/1/translations/ru/explanation",
+    "old": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/1/translations/uk/explanation",
+    "old": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/1/translations/tr/explanation",
+    "old": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+    "new": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/7/explanation",
+    "old": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+    "new": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/7/translations/en/explanation",
+    "old": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+    "new": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/7/translations/ru/explanation",
+    "old": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/7/translations/uk/explanation",
+    "old": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/7/translations/tr/explanation",
+    "old": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+    "new": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/explanation",
+    "old": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+    "new": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/translations/en/explanation",
+    "old": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+    "new": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/translations/ru/explanation",
+    "old": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/translations/uk/explanation",
+    "old": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/translations/tr/explanation",
+    "old": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+    "new": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/9/explanation",
+    "old": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+    "new": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/9/translations/en/explanation",
+    "old": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+    "new": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/9/translations/ru/explanation",
+    "old": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/9/translations/uk/explanation",
+    "old": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/9/translations/tr/explanation",
+    "old": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+    "new": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/11/explanation",
+    "old": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+    "new": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/11/translations/en/explanation",
+    "old": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+    "new": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/11/translations/ru/explanation",
+    "old": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/11/translations/uk/explanation",
+    "old": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/10/exercises/11/translations/tr/explanation",
+    "old": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+    "new": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/0/explanation",
+    "old": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+    "new": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/0/translations/en/explanation",
+    "old": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+    "new": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/0/translations/ru/explanation",
+    "old": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/0/translations/uk/explanation",
+    "old": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/0/translations/tr/explanation",
+    "old": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+    "new": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/25/explanation",
+    "old": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+    "new": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/25/translations/en/explanation",
+    "old": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+    "new": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/25/translations/ru/explanation",
+    "old": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/25/translations/uk/explanation",
+    "old": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+    "new": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/11/exercises/25/translations/tr/explanation",
+    "old": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+    "new": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/merkkarte/examples/1",
+    "old": "Kasia liest jeden Abend.",
+    "new": "Kamil liest jeden Abend."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/merkkarte/examples/2",
+    "old": "Triffst du heute Kasia?",
+    "new": "Triffst du heute Kamil?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/1/content/text_before",
+    "old": "Kasia ",
+    "new": "Kamil "
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/1/translations/en/task",
+    "old": "Kasia reads every evening.",
+    "new": "Kamil reads every evening."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/1/translations/ru/task",
+    "old": "Kasia читает каждый вечер.",
+    "new": "Kamil читает каждый вечер."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/1/translations/uk/task",
+    "old": "Kasia читає щовечора.",
+    "new": "Kamil читає щовечора."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/1/translations/tr/task",
+    "old": "Kasia her akşam okuyor.",
+    "new": "Kamil her akşam okuyor."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/2/content/text_after",
+    "old": " du heute Kasia?",
+    "new": " du heute Kamil?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/2/translations/en/task",
+    "old": "Are you meeting Kasia today?",
+    "new": "Are you meeting Kamil today?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/2/translations/ru/task",
+    "old": "Ты сегодня встречаешься с Kasia?",
+    "new": "Ты сегодня встречаешься с Kamil?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/2/translations/uk/task",
+    "old": "Ти сьогодні зустрічаєшся з Kasia?",
+    "new": "Ти сьогодні зустрічаєшся з Kamil?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/6/exercises/2/translations/tr/task",
+    "old": "Bugün Kasia ile buluşuyor musun?",
+    "new": "Bugün Kamil ile buluşuyor musun?"
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/7/merkkarte/examples/2",
+    "old": "Olena fährt am Wochenende nach Dresden.",
+    "new": "Oleh fährt am Wochenende nach Dresden."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/7/exercises/3/content/text_before",
+    "old": "Olena ",
+    "new": "Oleh "
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/7/exercises/3/translations/en/task",
+    "old": "Olena is going to Dresden at the weekend.",
+    "new": "Oleh is going to Dresden at the weekend."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/7/exercises/3/translations/ru/task",
+    "old": "Olena на выходных едет в Дрезден.",
+    "new": "Oleh на выходных едет в Дрезден."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/7/exercises/3/translations/uk/task",
+    "old": "Olena на вихідних їде до Дрездена.",
+    "new": "Oleh на вихідних їде до Дрездена."
+  },
+  {
+    "pointer": "path-a1.1.json/5/nodes/7/exercises/3/translations/tr/task",
+    "old": "Olena hafta sonu Dresden’e gidiyor.",
+    "new": "Oleh hafta sonu Dresden’e gidiyor."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/1/merkkarte/examples/2",
+    "old": "Lena hat Fieber und Halsschmerzen.",
+    "new": "Leon hat Fieber und Halsschmerzen."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/merkkarte/examples/0",
+    "old": "Lena lernt Deutsch, weil sie in Berlin arbeitet.",
+    "new": "Leon lernt Deutsch, weil er in Berlin arbeitet."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/5/exercises/2/content/question",
+    "old": "Mia macht einen Vorschlag für den Abend.",
+    "new": "Milan macht einen Vorschlag für den Abend."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/5/exercises/2/translations/en/task",
+    "old": "Mia is making a suggestion for the evening.",
+    "new": "Milan is making a suggestion for the evening."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/5/exercises/2/translations/ru/task",
+    "old": "Mia предлагает, чем заняться вечером.",
+    "new": "Milan предлагает, чем заняться вечером."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/5/exercises/2/translations/uk/task",
+    "old": "Mia пропонує, чим зайнятися ввечері.",
+    "new": "Milan пропонує, чим зайнятися ввечері."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/5/exercises/2/translations/tr/task",
+    "old": "Mia akşam için bir öneride bulunuyor.",
+    "new": "Milan akşam için bir öneride bulunuyor."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/6/exercises/0/content/question",
+    "old": "Du möchtest am Samstag mit einer Freundin ins Museum gehen. Wie machst du einen Vorschlag?",
+    "new": "Du möchtest am Samstag mit einem Freund ins Museum gehen. Wie machst du einen Vorschlag?"
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/6/exercises/0/translations/ru/task",
+    "old": "Вы хотите в субботу пойти с подругой в музей. Как вы это предложите?",
+    "new": "Вы хотите в субботу пойти с другом в музей. Как вы это предложите?"
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/6/exercises/0/translations/uk/task",
+    "old": "Ви хочете в суботу піти з подругою до музею. Як ви це запропонуєте?",
+    "new": "Ви хочете в суботу піти з другом до музею. Як ви це запропонуєте?"
+  }
+]

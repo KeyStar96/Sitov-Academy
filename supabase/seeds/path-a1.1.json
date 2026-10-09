@@ -7802,7 +7802,7 @@
             "Mein Vater und meine Mutter sind meine Eltern.",
             "Emre ist der Vater von Deniz und Elif. Elif ist die Tochter von Emre.",
             "Das sind Samir und Lina.",
-            "Das ist Selin. Sie kommt aus der Türkei."
+            "Das ist Selim. Er kommt aus der Türkei."
           ],
           "highlight": null,
           "translations": {
@@ -8054,7 +8054,7 @@
                 "kommen"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Das ist Selin. Sie ",
+              "text_before": "Das ist Selim. Er ",
               "text_after": " aus der Türkei.",
               "gap_hint": "kommen",
               "correct_answer": "kommt",
@@ -8078,25 +8078,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "With er/sie/es the verb ends in -t – like the -s in „he lives“.",
                 "explanation": "Introducing others: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt.",
-                "task": "This is Selin. She comes from Turkey."
+                "task": "This is Selim. He comes from Turkey."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "С er/sie/es (он/она/оно) глагол оканчивается на -t.",
                 "explanation": "Как представить других: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt.",
-                "task": "Это Selin. Она из Турции."
+                "task": "Это Selim. Он из Турции."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "З er/sie/es (він/вона/воно) дієслово закінчується на -t.",
                 "explanation": "Як представити інших: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt.",
-                "task": "Це Selin. Вона з Туреччини."
+                "task": "Це Selim. Він з Туреччини."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "er/sie/es (o) ile fiil -t ile biter: er wohnt.",
                 "explanation": "Başkalarını tanıtma: „Das ist Selin. Sie kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt.",
-                "task": "Bu Selin. Türkiye’den geliyor."
+                "task": "Bu Selim. Türkiye’den geliyor."
               }
             }
           }
@@ -27516,7 +27516,7 @@
           "rule": "Trennbare Verben: Der erste Teil (auf-, ein-, an-, fern-, ab-) geht ans Satzende, der Verbteil mit Endung steht auf Position 2: Ich stehe um sechs Uhr auf. Das ist die Satzklammer: stehe … auf. Im Infinitiv schreibt man zusammen: aufstehen.",
           "examples": [
             "Ich stehe um sechs Uhr auf.",
-            "Olena ruft am Abend ihre Mutter an.",
+            "Oleh ruft am Abend seinen Vater an.",
             "Wir kaufen am Samstag ein.",
             "Samir räumt die Küche auf."
           ],
@@ -27603,8 +27603,8 @@
                 "anrufen"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Olena ",
-              "text_after": " am Abend ihre Mutter an.",
+              "text_before": "Oleh ",
+              "text_after": " am Abend seinen Vater an.",
               "gap_hint": "anrufen",
               "correct_answer": "ruft",
               "options": [
@@ -27627,25 +27627,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Only the part with the ending is in position 2; the prefix goes to the end: Sie ruft … an.",
                 "explanation": "Separable verbs: the prefix (auf-, ein-, an-, fern-, ab-) goes to the end, the part with the ending is in position 2: Ich stehe um sechs Uhr auf. This is the sentence bracket: stehe … auf. The infinitive is one word: aufstehen.",
-                "task": "Olena calls her mother in the evening."
+                "task": "Oleh calls his father in the evening."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "На 2-м месте – только часть глагола с окончанием, приставка – в конце: Sie ruft … an.",
                 "explanation": "Глаголы с отделяемой приставкой: приставка (auf-, ein-, an-, fern-, ab-) уходит в конец, часть с окончанием – на 2-м месте: Ich stehe um sechs Uhr auf. Это рамочная конструкция: stehe … auf. Инфинитив пишется слитно: aufstehen.",
-                "task": "Olena вечером звонит маме."
+                "task": "Oleh вечером звонит отцу."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "На 2-му місці – лише частина дієслова із закінченням, префікс – у кінці: Sie ruft … an.",
                 "explanation": "Дієслова з відокремлюваним префіксом: префікс (auf-, ein-, an-, fern-, ab-) іде в кінець, частина із закінченням – на 2-му місці: Ich stehe um sechs Uhr auf. Це рамкова конструкція: stehe … auf. Інфінітив пишеться разом: aufstehen.",
-                "task": "Olena ввечері телефонує мамі."
+                "task": "Oleh ввечері телефонує батькові."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "2. sırada sadece çekimli kısım bulunur, önek sona gider: Sie ruft … an.",
                 "explanation": "Ayrılabilen fiiller: Önek (auf-, ein-, an-, fern-, ab-) cümlenin sonuna gider, çekimli kısım 2. sıradadır: Ich stehe um sechs Uhr auf. Bu cümle çerçevesidir: stehe … auf. Mastar bitişik yazılır: aufstehen.",
-                "task": "Olena akşam annesini arıyor."
+                "task": "Oleh akşam babasını arıyor."
               }
             }
           },
@@ -28889,26 +28889,26 @@
         ],
         "merkkarte": {
           "card": "p5_inversion",
-          "rule": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+          "rule": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
           "examples": [
             "Am Abend koche ich.",
             "Um acht Uhr fängt der Kurs an.",
             "Am Montag arbeite ich.",
-            "Um sieben Uhr frühstückt Olena."
+            "Um sieben Uhr frühstückt Oleh."
           ],
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)"
+              "rule": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)"
             },
             "ru": {
-              "rule": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)"
+              "rule": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
             },
             "uk": {
-              "rule": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)"
+              "rule": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)"
             },
             "tr": {
-              "rule": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)"
+              "rule": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)"
             }
           }
         },
@@ -28938,31 +28938,31 @@
               "Am Abend koche ich."
             ],
             "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
-            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
             "explanation_card": "p5_inversion",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
-                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
                 "task": "Which sentence is correct?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
-                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "Какое предложение правильное?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
-                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "Яке речення правильне?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
-                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
                 "task": "Hangi cümle doğru?"
               }
             }
@@ -28992,31 +28992,31 @@
               "Um acht Uhr fängt der Kurs an."
             ],
             "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
-            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
             "explanation_card": "p5_inversion",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
-                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
                 "task": "Which sentence is correct?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
-                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "Какое предложение правильное?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
-                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "Яке речення правильне?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
-                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
                 "task": "Hangi cümle doğru?"
               }
             }
@@ -29331,31 +29331,31 @@
               "Ich arbeite am Montag."
             ],
             "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
-            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
             "explanation_card": "p5_inversion",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
-                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
                 "task": "On Monday I work."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
-                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "В понедельник я работаю."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
-                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "У понеділок я працюю."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
-                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
                 "task": "Pazartesi çalışıyorum."
               }
             }
@@ -29386,31 +29386,31 @@
               "Olena frühstückt um sieben Uhr."
             ],
             "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
-            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
             "explanation_card": "p5_inversion",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
-                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
                 "task": "At seven o’clock Olena has breakfast."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
-                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "В семь часов Olena завтракает."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
-                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "О сьомій годині Olena снідає."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
-                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
                 "task": "Saat yedide Olena kahvaltı yapıyor."
               }
             }
@@ -29443,31 +29443,31 @@
               "Emre ruft am Abend seine Mutter an."
             ],
             "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
-            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
             "explanation_card": "p5_inversion",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
-                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
                 "task": "In the evening Emre calls his mother."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
-                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "Вечером Emre звонит маме."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
-                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "Увечері Emre телефонує мамі."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
-                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
                 "task": "Akşam Emre annesini arıyor."
               }
             }
@@ -31683,31 +31683,31 @@
               "Ich habe am Dienstag Deutschkurs."
             ],
             "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
-            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
             "explanation_card": "p5_inversion",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
-                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
                 "task": "On Tuesday I have my German course."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
-                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "Во вторник у меня курс немецкого."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
-                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "У вівторок у мене курс німецької."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
-                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
                 "task": "Salı günü Almanca kursum var."
               }
             }
@@ -31775,31 +31775,31 @@
               "Um sechs Uhr steht Emre auf."
             ],
             "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
-            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
             "explanation_card": "p5_inversion",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
-                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
                 "task": "Which sentence is correct?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
-                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "Какое предложение правильное?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
-                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "Яке речення правильне?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
-                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
                 "task": "Hangi cümle doğru?"
               }
             }
@@ -33158,31 +33158,31 @@
               "Samir arbeitet am Samstag."
             ],
             "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
-            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Nicht: Am Montag ich arbeite.)",
+            "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
             "explanation_card": "p5_inversion",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
-                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Not: Am Montag ich arbeite.)",
+                "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
                 "task": "On Saturday Samir works."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
-                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "В субботу Samir работает."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
-                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Не: Am Montag ich arbeite.)",
+                "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
                 "task": "У суботу Samir працює."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
-                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Olena auf. (Am Montag ich arbeite değil.)",
+                "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
                 "task": "Cumartesi Samir çalışıyor."
               }
             }
@@ -35738,8 +35738,8 @@
           "rule": "Vokalwechsel bei du und er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Schon bekannt: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
           "examples": [
             "Was liest du gerade?",
-            "Kasia liest jeden Abend.",
-            "Triffst du heute Kasia?",
+            "Kamil liest jeden Abend.",
+            "Triffst du heute Kamil?",
             "Emre trifft am Samstag seine Freunde."
           ],
           "highlight": "verb",
@@ -35825,7 +35825,7 @@
                 "lesen"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Kasia ",
+              "text_before": "Kamil ",
               "text_after": " jeden Abend.",
               "gap_hint": "lesen",
               "correct_answer": "liest",
@@ -35849,25 +35849,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Vowel change only with du and er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). Not with ich, wir, ihr, sie.",
                 "explanation": "Vowel change with du and er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. You already know: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Kasia reads every evening."
+                "task": "Kamil reads every evening."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Гласная меняется только с du и er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). С ich, wir, ihr, sie – нет.",
                 "explanation": "Смена гласной с du и er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Уже знакомо: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Kasia читает каждый вечер."
+                "task": "Kamil читает каждый вечер."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Голосна змінюється лише з du та er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). З ich, wir, ihr, sie – ні.",
                 "explanation": "Зміна голосної з du та er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Уже знайомо: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Kasia читає щовечора."
+                "task": "Kamil читає щовечора."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Ünlü sadece du ve er/sie/es ile değişir: e → i/ie (liest, trifft, nimmt), a → ä (fährt). ich, wir, ihr, sie ile değişmez.",
                 "explanation": "du ve er/sie/es ile ünlü değişimi: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Bildikleriniz: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Kasia her akşam okuyor."
+                "task": "Kamil her akşam okuyor."
               }
             }
           },
@@ -35882,7 +35882,7 @@
               ],
               "instruction": "Ergänze die richtige Verbform.",
               "text_before": "",
-              "text_after": " du heute Kasia?",
+              "text_after": " du heute Kamil?",
               "gap_hint": "treffen",
               "correct_answer": "Triffst",
               "options": [
@@ -35905,25 +35905,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Vowel change only with du and er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). Not with ich, wir, ihr, sie.",
                 "explanation": "Vowel change with du and er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. You already know: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Are you meeting Kasia today?"
+                "task": "Are you meeting Kamil today?"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Гласная меняется только с du и er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). С ich, wir, ihr, sie – нет.",
                 "explanation": "Смена гласной с du и er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Уже знакомо: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Ты сегодня встречаешься с Kasia?"
+                "task": "Ты сегодня встречаешься с Kamil?"
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Голосна змінюється лише з du та er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). З ich, wir, ihr, sie – ні.",
                 "explanation": "Зміна голосної з du та er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Уже знайомо: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Ти сьогодні зустрічаєшся з Kasia?"
+                "task": "Ти сьогодні зустрічаєшся з Kamil?"
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Ünlü sadece du ve er/sie/es ile değişir: e → i/ie (liest, trifft, nimmt), a → ä (fährt). ich, wir, ihr, sie ile değişmez.",
                 "explanation": "du ve er/sie/es ile ünlü değişimi: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Bildikleriniz: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Bugün Kasia ile buluşuyor musun?"
+                "task": "Bugün Kamil ile buluşuyor musun?"
               }
             }
           },
@@ -36126,7 +36126,7 @@
           "examples": [
             "Er nimmt einen Kaffee.",
             "Fährst du gern Fahrrad?",
-            "Olena fährt am Wochenende nach Dresden.",
+            "Oleh fährt am Wochenende nach Dresden.",
             "Ihr fahrt mit dem Bus."
           ],
           "highlight": "verb",
@@ -36324,7 +36324,7 @@
                 "fahren"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Olena ",
+              "text_before": "Oleh ",
               "text_after": " am Wochenende nach Dresden.",
               "gap_hint": "fahren",
               "correct_answer": "fährt",
@@ -36348,25 +36348,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Vowel change only with du and er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). Not with ich, wir, ihr, sie.",
                 "explanation": "Vowel change with du and er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. You already know: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Olena is going to Dresden at the weekend."
+                "task": "Oleh is going to Dresden at the weekend."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Гласная меняется только с du и er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). С ich, wir, ihr, sie – нет.",
                 "explanation": "Смена гласной с du и er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Уже знакомо: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Olena на выходных едет в Дрезден."
+                "task": "Oleh на выходных едет в Дрезден."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Голосна змінюється лише з du та er/sie/es: e → i/ie (liest, trifft, nimmt), a → ä (fährt). З ich, wir, ihr, sie – ні.",
                 "explanation": "Зміна голосної з du та er/sie/es: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Уже знайомо: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Olena на вихідних їде до Дрездена."
+                "task": "Oleh на вихідних їде до Дрездена."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Ünlü sadece du ve er/sie/es ile değişir: e → i/ie (liest, trifft, nimmt), a → ä (fährt). ich, wir, ihr, sie ile değişmez.",
                 "explanation": "du ve er/sie/es ile ünlü değişimi: lesen → du liest, er liest; treffen → du triffst, er trifft; nehmen → du nimmst, er nimmt; fahren → du fährst, er fährt. Bildikleriniz: du siehst fern, du isst, du sprichst, du schläfst, du fängst an.",
-                "task": "Olena hafta sonu Dresden’e gidiyor."
+                "task": "Oleh hafta sonu Dresden’e gidiyor."
               }
             }
           },
