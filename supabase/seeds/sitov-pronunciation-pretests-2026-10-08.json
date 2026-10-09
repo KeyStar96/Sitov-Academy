@@ -9531,12 +9531,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
-        "calibrationStatus": "pending"
+        "calibrationStatus": "pending",
+        "notesDe": "M hat alle 72 endgültigen Aufgaben, Optionen, Schlüssel, Begründungen und Quellen sowie die sichtbaren Übungskontexte unabhängig fachlich geprüft. Die Freigabe betrifft ausschließlich private Entwürfe; empirische Kalibrierung, tatsächliche Audio-/Importbelege und Veröffentlichung stehen aus. Der Kontext-Audit der ersten neun Pools ist separat zu prüfen.",
+        "textVersion": "521bab83a7b997be40d1ca9094a707605563fbd8a125ffe2af73b45813788561",
+        "definitionContentHash": "d0554dc36161be56f37440c13cee95e97d92cd8142d2b004f36c4dc7722060f7",
+        "documentRef": "sitov.editorial.review.batch10-12-final-v1",
+        "documentSha256": "4d07d5c28c675f46bdf827adc8887ef3de0e2190180922f66d1775f7129c3945",
+        "reviewedAt": "2026-10-09T03:09:22.384Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -10577,12 +10585,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
-        "calibrationStatus": "pending"
+        "calibrationStatus": "pending",
+        "notesDe": "M hat alle 72 endgültigen Aufgaben, Optionen, Schlüssel, Begründungen und Quellen sowie die sichtbaren Übungskontexte unabhängig fachlich geprüft. Die Freigabe betrifft ausschließlich private Entwürfe; empirische Kalibrierung, tatsächliche Audio-/Importbelege und Veröffentlichung stehen aus. Der Kontext-Audit der ersten neun Pools ist separat zu prüfen.",
+        "textVersion": "e5f456eec833ee2dd3e6e9da51d565a55312bc3124740451fe2479866ae262f0",
+        "definitionContentHash": "7e8baa27ec4f0f055890edd5d2436a1c878f4afa9c072f8bc7d37a703c6f89e4",
+        "documentRef": "sitov.editorial.review.batch10-12-final-v1",
+        "documentSha256": "4d07d5c28c675f46bdf827adc8887ef3de0e2190180922f66d1775f7129c3945",
+        "reviewedAt": "2026-10-09T03:09:22.384Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -11626,12 +11642,20 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
+        "reviewerSourceLabel": "M",
         "authorIdentity": "sitov.agent.S3",
-        "notesDe": "S3 hat die tatsächlichen Quellenbelege, Schlüssel und Ablenkungsgründe geprüft. Unabhängige fachliche Prüfung durch M und Kalibrierung stehen aus; keine vorberechneten Audio- oder Importbelege und keine Veröffentlichung. Eine menschliche Freigabepflicht wird dadurch nicht neu eingeführt.",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
-        "calibrationStatus": "pending"
+        "calibrationStatus": "pending",
+        "notesDe": "M hat alle 72 endgültigen Aufgaben, Optionen, Schlüssel, Begründungen und Quellen sowie die sichtbaren Übungskontexte unabhängig fachlich geprüft. Die Freigabe betrifft ausschließlich private Entwürfe; empirische Kalibrierung, tatsächliche Audio-/Importbelege und Veröffentlichung stehen aus. Der Kontext-Audit der ersten neun Pools ist separat zu prüfen.",
+        "textVersion": "68bfab46b002f2d5ee66f5a8b64efce735ef69084d1eb51faacb9e5d47e99e92",
+        "definitionContentHash": "64fcc09b07fb806b48b2d901a351047d061f31c1fa422b3d0df6e9968bcaec39",
+        "documentRef": "sitov.editorial.review.batch10-12-final-v1",
+        "documentSha256": "4d07d5c28c675f46bdf827adc8887ef3de0e2190180922f66d1775f7129c3945",
+        "reviewedAt": "2026-10-09T03:09:22.384Z",
+        "audioPublication": "blocked_pending_new_question_assets_and_gate"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
