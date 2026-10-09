@@ -2,7 +2,11 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sitovActualManifest55=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovLatestMReviewed54=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovMReview54Raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/pools52-54-editorial-review.json','utf8'),sitovMReview54=JSON.parse(sitovMReview54Raw)
+const sitovBeforeMReviewed54=structuredClone(sitovLatestMReviewed54)
+for(const r of sitovMReview54.approvedEditorialDrafts)sitovBeforeMReviewed54.drafts.find(d=>d.textId===r.textId).review=r.previousReview
+const sitovActualManifest55=structuredClone(sitovBeforeMReviewed54)
 const sitovEpoch55=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch55-pools52-54-author-review.json','utf8'))
 // Freeze FULL current51 including A12quality31 BEFORE every132 historical proof.
 const sitovA12Quality31CurrentManifest=structuredClone(sitovActualManifest55)
@@ -1526,3 +1530,5 @@ test('actual54 negative guards reject source/matrix/form/topic/audio drift, hidd
  for(const marker of['___','…','...']){const ds=structuredClone(sitovActualManifest55.drafts.slice(51));ds[0].definition.tasks[0].promptDe+=' '+marker;assert.throws(()=>sitovAssert55Quality(ds))}
  const fake=structuredClone(sitovActualManifest55.drafts.slice(51)),q=fake[2].definition.tasks.find(q=>q.id.endsWith('verbs.q2'));q.options.find(o=>o.id!==q.correctOptionId).textDe='gesteigt';assert.throws(()=>sitovAssert55Quality(fake))
 })
+
+test('actual54 M review binds all72 B1.2 tasks and preserves full51 before all136 immutable proofs',()=>{assert.equal(sitovLatestMReviewed54.drafts.length,54);assert.deepEqual(sitovValidatePretestDrafts(sitovLatestMReviewed54,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovLatestMReviewed54,sitovActualAudio55),[]);assert.deepEqual(sitovLatestMReviewed54.drafts.slice(0,51),sitovBeforeMReviewed54.drafts.slice(0,51));for(const r of sitovMReview54.approvedEditorialDrafts){const d=sitovLatestMReviewed54.drafts.find(d=>d.textId===r.textId);assert.equal(d.review.documentSha256,sitovHash(sitovMReview54Raw));assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false);assert.deepEqual(d.definition.tasks.map(q=>({questionId:q.id,correctTextDe:q.options.find(o=>o.id===q.correctOptionId).textDe})),r.correctAnswerTexts)}})

@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools52-54-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T20:00:21.847Z",
+  "sourceCommit": "7578f115a442532e0e35fc954ff0abc0884d3a9d",
+  "scope": "M independently read all72 prompts/216options/keys/rationales,12cores and3fullcanonical B1.2sort2-4 sources. Publicspace questions genuinely assess reflexiveplural, Partizip/Prateritumpassive/modalinfinitive, relative/dassfinal syntax, comparison and actualcase/possessive/adjective/pronounforms; explicitplaceandpluralpremises. Eveningcourse questions assess reflexiveDativmerken, modalpast/Partizip/reflexivkuemmern, obwohl/damit/purpose/compensatingdafuer/comparative/lässt-sichpossibility, actualDativplural/possessive/adjective/comparative. Vereinsentscheidung tests trueinfinitive/strongPartizip/pluralpast/reflexive/trennbarerInfinitiv/passive; genuineweil/dass/indirectwhy/temporalbevor/nichtsondern/Modalfinal syntax and pluralpossessive/accusativearticle/superlative/adjectivaldeclension/substantivicpronoun. Realinflecteddistractors, no blank markers, no hiddencaseassumptions, no grammaticalNachfeldrejected. All51 earlier includingA11quality71/A12quality31/M51 and4896aliases exactlypreserved. Source spans exact and form/core coverage validated. Topic-target gaps retained honestly. No human listening/calibration/CEFR certification claim.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "authorAuditSha256": "a2028caac7b1beb7f53ec8a2ee9b472b6dd5bfc987323984d1f69732f984f198",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "6b4676fc-7a16-51d6-8c1c-4b5da00ffaf2",
+      "textVersion": "b5a2bf237ab09cc5e11e35b5407a4a52dae4f80f039d9676b8cc563541f3ffe0",
+      "definitionContentHash": "9dfdbd9202f9982488ad002cd8532d0d4b2de604ba01058ce56458d1931f9762",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "b5a2bf237ab09cc5e11e35b5407a4a52dae4f80f039d9676b8cc563541f3ffe0",
+        "definitionContentHash": "9dfdbd9202f9982488ad002cd8532d0d4b2de604ba01058ce56458d1931f9762"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-02.words.q1",
+          "correctTextDe": "Menschen, die in der Nähe des Platzes wohnen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.words.q2",
+          "correctTextDe": "Die Gespräche als Beeinträchtigung der eigenen Ruhe erleben."
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.words.q3",
+          "correctTextDe": "Sich treffen können, ohne dafür bezahlen zu müssen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.words.q4",
+          "correctTextDe": "Beide Seiten konnten ihren Standpunkt vortragen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.words.q5",
+          "correctTextDe": "Verschiedene Wünsche und Erfordernisse, etwa nach Ruhe oder Begegnung."
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.words.q6",
+          "correctTextDe": "An der Entwicklung der Lösung mitwirken."
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.verbs.q1",
+          "correctTextDe": "sich"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.verbs.q2",
+          "correctTextDe": "gestört"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.verbs.q3",
+          "correctTextDe": "Präteritum im Vorgangspassiv."
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.verbs.q4",
+          "correctTextDe": "erklärten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.verbs.q5",
+          "correctTextDe": "vorgeschlagen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.verbs.q6",
+          "correctTextDe": "erfüllen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.syntax.q1",
+          "correctTextDe": "junge Menschen einen Ort brauchen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.syntax.q2",
+          "correctTextDe": "an dem sie kostenlos zusammenkommen können"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.syntax.q3",
+          "correctTextDe": "es in der Nähe kaum Angebote für sie gibt"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.syntax.q4",
+          "correctTextDe": "Ein erster Fortschritt besteht trotz weiter vorhandener Unzufriedenheit."
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.syntax.q5",
+          "correctTextDe": "öffentlicher Raum unterschiedliche Bedürfnisse erfüllen muss"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.syntax.q6",
+          "correctTextDe": "als durch gegenseitige Vorwürfe"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.nominal.q1",
+          "correctTextDe": "dem"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.nominal.q2",
+          "correctTextDe": "unserer"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.nominal.q3",
+          "correctTextDe": "junge"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.nominal.q4",
+          "correctTextDe": "beide"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.nominal.q5",
+          "correctTextDe": "zusätzlicher"
+        },
+        {
+          "questionId": "sitov.pretest.b12-02.nominal.q6",
+          "correctTextDe": "sie"
+        }
+      ]
+    },
+    {
+      "textId": "876f98ba-930f-59f0-8b53-e7e09e235b6e",
+      "textVersion": "5d9d61b0b424e10ddc4f663b712340253f14d988cbd70a61753635b70f060c41",
+      "definitionContentHash": "c9b0b2842b41965a4c539e64b63351c149429f635181ab8be7ab6e22db41b45c",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "5d9d61b0b424e10ddc4f663b712340253f14d988cbd70a61753635b70f060c41",
+        "definitionContentHash": "c9b0b2842b41965a4c539e64b63351c149429f635181ab8be7ab6e22db41b45c"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-03.words.q1",
+          "correctTextDe": "Ein Kurs, dessen Unterricht am Abend stattfindet."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.words.q2",
+          "correctTextDe": "Beruf und Familie nehmen bereits viel Zeit ein."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.words.q3",
+          "correctTextDe": "Immer wieder oder fast durchgehend müde sein."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.words.q4",
+          "correctTextDe": "Ein Plan, der zu den tatsächlichen Möglichkeiten passt."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.words.q5",
+          "correctTextDe": "Mit hohen Zielen und großem Einsatz beginnen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.words.q6",
+          "correctTextDe": "Über einen längeren Zeitraum hilfreicher."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.verbs.q1",
+          "correctTextDe": "wollte"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.verbs.q2",
+          "correctTextDe": "mir"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.verbs.q3",
+          "correctTextDe": "vereinbart"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.verbs.q4",
+          "correctTextDe": "sich"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.verbs.q5",
+          "correctTextDe": "arbeiten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.verbs.q6",
+          "correctTextDe": "verstanden"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.syntax.q1",
+          "correctTextDe": "Der Kursbesuch findet trotz der bereits hohen Belastung statt."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.syntax.q2",
+          "correctTextDe": "ich ständig müde war und mir wenig merken konnte"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.syntax.q3",
+          "correctTextDe": "Die Essensübernahme soll konzentriertes Arbeiten ermöglichen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.syntax.q4",
+          "correctTextDe": "Der freie Sonntag bildet einen Ausgleich für die Lernabende."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.syntax.q5",
+          "correctTextDe": "als ein ehrgeiziger Anfang"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.syntax.q6",
+          "correctTextDe": "Man kann die Routine durchhalten."
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.nominal.q1",
+          "correctTextDe": "ersten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.nominal.q2",
+          "correctTextDe": "freien"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.nominal.q3",
+          "correctTextDe": "meiner"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.nominal.q4",
+          "correctTextDe": "Abenden"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.nominal.q5",
+          "correctTextDe": "der"
+        },
+        {
+          "questionId": "sitov.pretest.b12-03.nominal.q6",
+          "correctTextDe": "langsamer"
+        }
+      ]
+    },
+    {
+      "textId": "fd156fa0-66df-5eeb-8558-f3d99b3b7119",
+      "textVersion": "199717546e69a3c31ed96b79781534b80b03a3bae92b83d11885cc3bcd46a16e",
+      "definitionContentHash": "3d6c72866c2957bc8cc74827f8a68c176329a828a6405564b54b536c490fa689",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "199717546e69a3c31ed96b79781534b80b03a3bae92b83d11885cc3bcd46a16e",
+        "definitionContentHash": "3d6c72866c2957bc8cc74827f8a68c176329a828a6405564b54b536c490fa689"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.b12-04.words.q1",
+          "correctTextDe": "Eine regelmäßige Zahlung für die Mitgliedschaft."
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.words.q2",
+          "correctTextDe": "Ein gemeinsames Treffen zum Besprechen und Entscheiden."
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.words.q3",
+          "correctTextDe": "Die Erhöhung als erforderlich ansehen."
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.words.q4",
+          "correctTextDe": "Ein Beitrag, der auf geringe finanzielle Möglichkeiten Rücksicht nimmt."
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.words.q5",
+          "correctTextDe": "Viele Beteiligte sind mit dem Vorschlag einverstanden."
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.words.q6",
+          "correctTextDe": "Die Beteiligten geben ihre Stimme für eine Auswahl ab."
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.verbs.q1",
+          "correctTextDe": "erhöhen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.verbs.q2",
+          "correctTextDe": "gestiegen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.verbs.q3",
+          "correctTextDe": "hielten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.verbs.q4",
+          "correctTextDe": "sich"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.verbs.q5",
+          "correctTextDe": "vorstellen"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.verbs.q6",
+          "correctTextDe": "Präteritum im Vorgangspassiv."
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.syntax.q1",
+          "correctTextDe": "die Kosten für die Halle gestiegen sind"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.syntax.q2",
+          "correctTextDe": "Zahlen erklärt wurden"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.syntax.q3",
+          "correctTextDe": "Zuerst wurden Zahlen erklärt, danach begann die Abstimmung."
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.syntax.q4",
+          "correctTextDe": "warum eine Veränderung nötig war"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.syntax.q5",
+          "correctTextDe": "Eine erste Vorstellung von Fairness wird durch eine andere ersetzt."
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.syntax.q6",
+          "correctTextDe": "möglichst viele weiter teilnehmen können"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.nominal.q1",
+          "correctTextDe": "seine"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.nominal.q2",
+          "correctTextDe": "die"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.nominal.q3",
+          "correctTextDe": "wichtigsten"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.nominal.q4",
+          "correctTextDe": "freiwillige"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.nominal.q5",
+          "correctTextDe": "breite"
+        },
+        {
+          "questionId": "sitov.pretest.b12-04.nominal.q6",
+          "correctTextDe": "dasselbe"
+        }
+      ]
+    }
+  ]
+}
