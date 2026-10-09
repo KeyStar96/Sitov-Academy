@@ -1,0 +1,32 @@
+{
+  "group": "SITOV-NIGHT-2026-10-08",
+  "epoch": 11,
+  "M_verified_at": "2026-10-09T07:02:17.397784+00:00",
+  "assigned_M_handoff": "b4fd0986930bcd572f8fa5a67654f25ca7b4fd6d",
+  "validated_product": "521ba4cb474486054e47e2b97548ec587d234b30",
+  "note_path": "/Users/denniskostjuk/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Life-OS/01 Projects/Sitov-Academy/43_SITOV-NIGHT-2026-10-08_Integrationsstand.md",
+  "before_sha256": "34554ef3bf486a3df9c3f386e0e527c665ff88fba5bd3fe62203538bf6b21d4a",
+  "after_sha256": "a7d3b47ec1ed736940d59e52ea748e1aceb92c7873b1dd49c29f0dd98669ed0e",
+  "frontmatter_exact": true,
+  "wikilinks_exact": 8,
+  "wikilink_targets_exist": true,
+  "older_entire_body_exact_except_single_archived_live_heading": true,
+  "unified_patch_exact": true,
+  "bound_repo_current_and_git_hashes_exact": {
+    "docs/releases/sitov-night-2026-10-08-handoff.md": "17b1621c998a0ea4d83332fe681302ffe9dfcfd744df0aa0f45794262c9f55b1",
+    "docs/releases/evidence/sitov-night-2026-10-08/pretest-learning-links107-validation.json": "0656d0ffd15010fbf6190a096dcdaf5f692f1921736b2c5370ca97d83a530da3",
+    "docs/releases/evidence/sitov-night-2026-10-08/qa-learning-links-health-memory.json": "6e32e3857da05fc65448ba5d7452933c20c92891048773b12b78157458029f21"
+  },
+  "private_file_hashes_verified": {
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S6/epoch11-vault-before.md": "34554ef3bf486a3df9c3f386e0e527c665ff88fba5bd3fe62203538bf6b21d4a",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S6/epoch11-vault-update.patch": "f644fc06338430bc860a2dc53a198cae0b6be54ffb8bf3bd48d993b03e800360",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S6/epoch11-handoff-delta.md": "89960aa16daf98b73afe92fc68ffaf805409a1df3a855863cd25c3dd28cdeac4",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S6/epoch11-assigned-M-handoff.md": "17b1621c998a0ea4d83332fe681302ffe9dfcfd744df0aa0f45794262c9f55b1",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S6/epoch11-confirmed-source-snapshot.json": "10a47fae2707ab45bb8f7bf20a08d77dfaea109f4589afa310f11eb0c33cde7e"
+  },
+  "completed_at": "2026-10-09T07:00:11.194118+00:00",
+  "deadline": "2026-10-09T07:01:37.268015+00:00",
+  "on_time": true,
+  "documentation_complete": false,
+  "release_ready": false
+}
