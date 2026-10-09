@@ -1,0 +1,139 @@
+{
+  "assignedSourceSha": "e12e7700016241fd419e7b133122072c255c2b75",
+  "knownCredentialsSavedBeforeCreate": true,
+  "actorIdLedgerBeforePasswordToken": true,
+  "newOwnStudents": 1,
+  "syntheticVocabularyMetadataOnly": true,
+  "baseline": {
+    "defs": 48,
+    "users": 2,
+    "active": 5,
+    "assets": 2496,
+    "passes": 0,
+    "proofs": 4490,
+    "attempts": 0,
+    "authHash": "03cac3102379fa794264c4c1a898e54b",
+    "seenHash": "d41d8cd98f00b204e9800998ecf8427e",
+    "assetsHash": "5cc07d89a982d8c2973a0fec23028764",
+    "proofsHash": "7267805eea7d0f2cecd07fc406792774",
+    "profileHash": "d65b2aa94875b59a45b22f8edba1a047",
+    "submissions": 0,
+    "firstVisitHash": "a826f17674ef09e3c79dfd6ea2ba9819",
+    "definitionsHash": "adb1aa6c883147428e95a3587a50ffaa",
+    "draftReceiptHash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "baselineFullTableCount": 188,
+  "result": {
+    "startedAt": "2026-10-09T13:22:01.464172+00:00",
+    "seconds": 1.5832,
+    "httpStatus": 200,
+    "success": true,
+    "level": "A1.1",
+    "lessonIDs": [
+      "1bc89212-e5e8-47a1-ba53-3373c660a83c",
+      "b12198d8-0bc0-4c99-b1c1-d443454154f1"
+    ],
+    "lessonLabels": {
+      "1bc89212-e5e8-47a1-ba53-3373c660a83c": "Sitov QA29 Fixture Lektion A 1bc89212",
+      "b12198d8-0bc0-4c99-b1c1-d443454154f1": "Sitov QA29 Fixture Lektion B b12198d8"
+    },
+    "expectedIDs": [
+      "1bc89212-e5e8-47a1-ba53-3373c660a83c",
+      "b12198d8-0bc0-4c99-b1c1-d443454154f1"
+    ],
+    "expectedLabels": {
+      "1bc89212-e5e8-47a1-ba53-3373c660a83c": "Sitov QA29 Fixture Lektion A 1bc89212",
+      "b12198d8-0bc0-4c99-b1c1-d443454154f1": "Sitov QA29 Fixture Lektion B b12198d8"
+    },
+    "idsNonempty": true,
+    "idsExactlyMatch": true,
+    "lexicalOrderMatches": true,
+    "reverseInsertionOrder": [
+      "b12198d8-0bc0-4c99-b1c1-d443454154f1",
+      "1bc89212-e5e8-47a1-ba53-3373c660a83c"
+    ],
+    "labelsExactlyMatch": true,
+    "ownStateUnchanged": true,
+    "allFixtureHashesUnchanged": true,
+    "resultKeys": [
+      "items",
+      "lessons",
+      "level",
+      "success"
+    ],
+    "sqlstate": null
+  },
+  "trace": [
+    {
+      "operation": "/auth/v1/admin",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/auth/v1/token",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    },
+    {
+      "operation": "/rest/v1/rpc/get_learning_new_items",
+      "method": "POST",
+      "status": 200,
+      "error": null
+    }
+  ],
+  "observations": [
+    {
+      "at": "2026-10-09T13:21:57.225435+00:00",
+      "memAvailableMiB": 2562.79296875,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 168861696,
+      "gatewayPeakBytes": 173629440,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ]
+}
