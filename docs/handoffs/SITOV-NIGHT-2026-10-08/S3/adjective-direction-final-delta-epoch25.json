@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "epoch": 25,
+  "baseSha": "9727a61b01366dd777036498e0f117194616e063",
+  "author": "sitov.agent.S3",
+  "status": "author_checked_independent_review_pending",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "independentFinalReview": "pending_M",
+  "questionId": "sitov.pretest.a11-05.syntax.q5",
+  "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+  "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+  "previousTask": {
+    "id": "sitov.pretest.a11-05.syntax.q5",
+    "competencyId": "sitov.pretest.a11-05.syntax",
+    "kind": "single_choice",
+    "promptDe": "Übung: »Im Gras spielt ein kleiner Hund.« Welches Wort beschreibt »kleiner« genauer?",
+    "fragmentDe": null,
+    "options": [
+      {
+        "id": "sitov.option.1",
+        "textDe": "Gras."
+      },
+      {
+        "id": "sitov.option.2",
+        "textDe": "Hund."
+      },
+      {
+        "id": "sitov.option.3",
+        "textDe": "Spielt."
+      }
+    ],
+    "correctOptionId": "sitov.option.2",
+    "assessmentUnit": "adjective scope dog",
+    "equivalenceKey": "adjective scope dog",
+    "sourceSpans": [
+      {
+        "start": 138,
+        "end": 170,
+        "quote": "Ein kleiner Hund spielt im Gras."
+      }
+    ],
+    "rationaleDe": "Kleiner gehört im sichtbaren Satz zur Nominalgruppe ein kleiner Hund und beschreibt Hund; Gras bezeichnet den Spielort und spielt die Tätigkeit."
+  },
+  "currentTask": {
+    "id": "sitov.pretest.a11-05.syntax.q5",
+    "competencyId": "sitov.pretest.a11-05.syntax",
+    "kind": "single_choice",
+    "promptDe": "Übung: »Im Gras spielt ein kleiner Hund.« Welches Wort wird durch »kleiner« genauer beschrieben?",
+    "fragmentDe": null,
+    "options": [
+      {
+        "id": "sitov.option.1",
+        "textDe": "Gras."
+      },
+      {
+        "id": "sitov.option.2",
+        "textDe": "Hund."
+      },
+      {
+        "id": "sitov.option.3",
+        "textDe": "Spielt."
+      }
+    ],
+    "correctOptionId": "sitov.option.2",
+    "assessmentUnit": "adjective scope dog",
+    "equivalenceKey": "adjective scope dog",
+    "sourceSpans": [
+      {
+        "start": 138,
+        "end": 170,
+        "quote": "Ein kleiner Hund spielt im Gras."
+      }
+    ],
+    "rationaleDe": "Kleiner gehört im sichtbaren Satz zur Nominalgruppe ein kleiner Hund und beschreibt Hund; Gras bezeichnet den Spielort und spielt die Tätigkeit."
+  },
+  "previousDefinitionHash": "9821f5a3a2df430ca556eacbb5fed1b72b98f656b2c7483ef355fd9452194e86",
+  "newDefinitionHash": "4c228fd7de28e9ed0e4b3b864573a6ade71d4c3dd542ac8786170694cada7b26",
+  "historicalEpoch24DeltaSha256": "f1f1c294bc85a043f161e590c26174f97e08789e9c36b0426f62831eb6f19f56",
+  "changedAlias": {
+    "key": "sitov-pretest:fd1297a1-999f-5759-b0d9-1f77c381d114:sitov.pretest.a11-05.syntax.q5:prompt",
+    "previousTextDe": "Übung: »Im Gras spielt ein kleiner Hund.« Welches Wort beschreibt »kleiner« genauer?",
+    "currentTextDe": "Übung: »Im Gras spielt ein kleiner Hund.« Welches Wort wird durch »kleiner« genauer beschrieben?"
+  },
+  "aliasCount": 1152,
+  "distinctAliasStrings": 964,
+  "reasonDe": "Die passive Frageform fragt eindeutig nach dem Bezugsnomen, das durch das Adjektiv kleiner beschrieben wird. Hund bleibt die richtige Antwort; alle übrigen Felder und Begründungen bleiben unverändert.",
+  "preserved": {
+    "first3WholeRecordHash": "64ef9ff63db660b92316c30d41b47eced8d84855e9ae3b68d071759169f75f45",
+    "final10_12WholeRecordHash": "5d1b19f3ead1bf62163e537dfd3b18d4bdaea534ded879789924d01c80acc156",
+    "allOtherTaskFieldsAndReviews": true
+  },
+  "audioStatus": "HOLD_NO_SYNTHESIS_IMPORT_PUBLICATION"
+}

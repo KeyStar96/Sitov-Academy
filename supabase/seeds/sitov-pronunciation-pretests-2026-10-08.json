@@ -5023,7 +5023,7 @@
             "id": "sitov.pretest.a11-05.syntax.q5",
             "competencyId": "sitov.pretest.a11-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Übung: »Im Gras spielt ein kleiner Hund.« Welches Wort beschreibt »kleiner« genauer?",
+            "promptDe": "Übung: »Im Gras spielt ein kleiner Hund.« Welches Wort wird durch »kleiner« genauer beschrieben?",
             "fragmentDe": null,
             "options": [
               {
