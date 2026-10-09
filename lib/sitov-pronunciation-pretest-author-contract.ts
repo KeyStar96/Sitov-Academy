@@ -8,8 +8,10 @@ const task=z.object({id,competencyId:id,kind:z.literal('single_choice'),promptDe
 export const sitovPretestAuthorDefinitionSchema=z.object({
  policyId:z.literal('sitov-pronunciation-language-prerequisites-v1'),
  competencies:z.array(z.object({id,category:text(100),itemsPerAttempt:z.number().int().min(3).max(40),necessityDe:text(3000),languageUnits:z.array(text(200)).min(3).max(1000),sourceSpans:z.array(span).min(1).max(100),mapping:z.object({topicIds:z.array(id).max(100),pendingReasonDe:text(3000).optional()}).strict()}).strict()).min(1).max(40),
- tasks:z.array(task).min(6).max(1000),omittedCategories:z.array(z.object({category:text(100),reasonDe:text(3000)}).strict()).min(1).max(40),reviewForms:z.array(z.object({id,questionIds:z.array(id).min(3).max(120)}).strict()).length(2),
+ tasks:z.array(task).min(6).max(1000),omittedCategories:z.array(z.object({category:text(100),reasonDe:text(3000).refine(v=>Array.from(v.trim()).length>=20,'short_omission_reason')}).strict()).max(40),reviewForms:z.array(z.object({id,questionIds:z.array(id).min(3).max(120)}).strict()).length(2),
 }).strict().superRefine((d,ctx)=>{
+ // Match SQL valid_authoring: complete matrices need no invented omission.
+ for(const category of ['vocabulary','verb_forms','syntax','nominal_forms'])if(!d.competencies.some(c=>c.category===category)&&!d.omittedCategories.some(o=>o.category===category))ctx.addIssue({code:'custom',message:'missing_category_justification'})
  const ids=new Set(d.tasks.map(q=>q.id)),cores=new Set(d.competencies.map(c=>c.id)),used=d.reviewForms.flatMap(f=>f.questionIds)
  if(ids.size!==d.tasks.length||cores.size!==d.competencies.length||used.length!==new Set(used).size||used.some(q=>!ids.has(q))||d.tasks.some(q=>!cores.has(q.competencyId))||d.competencies.reduce((n,c)=>n+c.itemsPerAttempt,0)>120)ctx.addIssue({code:'custom',message:'invalid_pool'})
  for(const c of d.competencies)if(d.tasks.filter(q=>q.competencyId===c.id).length<2*c.itemsPerAttempt||d.reviewForms.some(f=>f.questionIds.filter(id=>d.tasks.find(q=>q.id===id)?.competencyId===c.id).length!==c.itemsPerAttempt))ctx.addIssue({code:'custom',message:'unbalanced_core'})

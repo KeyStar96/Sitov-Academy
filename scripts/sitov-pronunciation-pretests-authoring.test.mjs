@@ -168,3 +168,17 @@ test('batch10–12 public-premise regression: formerly hidden facts have explici
  for(const [i,q] of tasks.entries()){assert.equal(audit.questions[i].publicPromptDe,q.promptDe);assert.deepEqual(current.get(q.id)?.options ?? audit.questions[i].publicOptions,q.options);assert.equal(audit.questions[i].keyIdUnchanged,true);assert.equal(audit.questions[i].independentReview,'pending_M')}
  // These assertions prevent loss of reviewed public context; they do not certify pedagogy.
 })
+
+test('complete essential-category matrix accepts an empty omission list without inventing content',()=>{
+ const errors=validate(m=>{const draft=m.drafts[0];draft.review={status:'author_checked_teacher_review_pending',reviewer:'sitov.fixture.author',notesDe:'Synthetic omission-contract fixture; no editorial or publication approval.'};draft.definition.omittedCategories=[]})
+ assert.deepEqual(errors,[])
+})
+test('omission reasons remain substantive and missing categories cannot disappear silently',()=>{
+ const pending=draft=>{draft.review={status:'author_checked_teacher_review_pending',reviewer:'sitov.fixture.author',notesDe:'Synthetic omission-contract fixture; no editorial or publication approval.'}}
+ for(const reasonDe of ['Kurz.','                  Kurz.                  ','🙂'.repeat(10)]){
+  const errors=validate(m=>{const draft=m.drafts[0];pending(draft);draft.definition.omittedCategories[0].reasonDe=reasonDe})
+  assert.ok(errors.some(error=>error.endsWith('absent categories need reasons')))
+ }
+ const errors=validate(m=>{const draft=m.drafts[0];pending(draft);const d=draft.definition,core=d.competencies.find(c=>c.category==='nominal_forms'),removed=new Set(d.tasks.filter(q=>q.competencyId===core.id).map(q=>q.id));d.competencies=d.competencies.filter(c=>c.id!==core.id);d.tasks=d.tasks.filter(q=>!removed.has(q.id));for(const form of d.reviewForms)form.questionIds=form.questionIds.filter(q=>!removed.has(q));d.omittedCategories=[]})
+ assert.ok(errors.some(error=>error.endsWith('missing matrix or justified absence nominal_forms')))
+})

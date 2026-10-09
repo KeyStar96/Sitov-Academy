@@ -48,3 +48,23 @@ it('accepts all twelve actual private source definitions without changing German
  expect(drafts).toHaveLength(12)
  for(const d of drafts)expect(sitovPretestAuthorSaveInputSchema.parse({textId:d.textId,textVersion:d.textVersion,baseDefinitionId:null,definition:d.definition,requestId})).toEqual({textId:d.textId,textVersion:d.textVersion,baseDefinitionId:null,definition:d.definition,requestId})
 })
+
+it('saves a complete four-category matrix without inventing an omitted category',async()=>{
+ const definition={...input.definition,omittedCategories:[]}
+ const complete={...input,definition}
+ setup({ok:true,data:{...ack,definition}})
+ expect(await saveSitovPronunciationPretestDraftServer(complete)).toEqual({ok:true,data:{...ack,definition}})
+ expect(rpc).toHaveBeenCalledWith('sitov_save_pronunciation_pretest_draft',{p_text_id:complete.textId,p_text_version:complete.textVersion,p_base_definition_id:id,p_definition:definition,p_request_id:requestId})
+})
+it('requires a substantive omission reason when an essential category is absent',async()=>{
+ const definition=JSON.parse(JSON.stringify(input.definition))
+ definition.competencies.find((core:{category:string})=>core.category==='nominal_forms').category='additional'
+ for(const omittedCategories of [[],[{category:'nominal_forms',reasonDe:'Kurz.'}],[{category:'nominal_forms',reasonDe:'                  Kurz.                  '}],[{category:'nominal_forms',reasonDe:'🙂'.repeat(10)}]]){
+  setup({ok:true,data:ack})
+  expect(await saveSitovPronunciationPretestDraftServer({...input,definition:{...definition,omittedCategories}})).toEqual({ok:false,error:'invalid_input',retryable:false})
+ }
+ expect(rpc).not.toHaveBeenCalled()
+ definition.omittedCategories=[{category:'nominal_forms',reasonDe:'Für diesen synthetischen Vertragstest ist diese Kategorie ausdrücklich ausgelassen.'}]
+ setup({ok:true,data:{...ack,definition}})
+ expect(await saveSitovPronunciationPretestDraftServer({...input,definition})).toEqual({ok:true,data:{...ack,definition}})
+})
