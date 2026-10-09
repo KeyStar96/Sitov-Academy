@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools37-39-M",
+  "reviewer": "sitov.agent.M",
+  "authorIdentity": "sitov.agent.S3",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "reviewedAt": "2026-10-09T18:21:36.802Z",
+  "sourceCommit": "050fd65efd03c23b0214e6e7704e3239fbdedecd",
+  "scope": "M independently reread all72 public questions/options/keys/rationales, three complete source bodies and12 core records after the three requested repairs. The public destination premise uniquely requires ihre Wohnung; the actual In Zukunft fronting now tests V2 with a coordinated object; Die Schule stellt now tests finite3PersonSingular rather than lexical meaning. Correct IDs/order are unchanged; two correct answer wordings and two core units were honestly replaced and re-reviewed. Existing semantic/discourse relations are judged for their stated units, not claimed a complete formal syntax or CEFR certification. All previous36 including quality18 and corresponding3456 aliases remain exact. No human review/listening, empirical calibration or publication claim.",
+  "questionsChecked": 72,
+  "coresChecked": 12,
+  "confirmedRepairs": 3,
+  "changedAliases": 9,
+  "correctWordingChanges": 2,
+  "authorAuditSha256": "f50e2c60729326b16041188d22eb5d92f6d42f2a575c8ca0ee98ea36f59b21d6",
+  "publicationAuthorized": false,
+  "immutableNewDefinitionAndAudioBindingRequired": true,
+  "approvedEditorialDrafts": [
+    {
+      "textId": "cff8a034-8b6e-5258-affc-6958091ef60b",
+      "textVersion": "c4cd54805ef71fd2f332b6f3d1e08ff84939edb0a2c07fc4e7595f68c465e106",
+      "definitionContentHash": "ab35bac23a75d2a497c92cac5b0afd32d6952bbab3849d7df96e798f150d8582",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "c4cd54805ef71fd2f332b6f3d1e08ff84939edb0a2c07fc4e7595f68c465e106",
+        "definitionContentHash": "ab35bac23a75d2a497c92cac5b0afd32d6952bbab3849d7df96e798f150d8582"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-07.words.q1",
+          "correctTextDe": "Ein vereinbarter Zeitpunkt für den Besuch."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q2",
+          "correctTextDe": "Die Räume, in denen der Friseur arbeitet."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q3",
+          "correctTextDe": "Zum Zuordnen von Terminen zu Tagen und Zeiten."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q4",
+          "correctTextDe": "Den Termin in einem Telefongespräch absprechen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q5",
+          "correctTextDe": "Die Zeit bis zum Beginn der Bedienung."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q6",
+          "correctTextDe": "Bei künftigen Gesprächen will der Sprecher die Uhrzeit wiederholen."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q1",
+          "correctTextDe": "Plusquamperfekt (Vorvergangenheit)."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q2",
+          "correctTextDe": "ankommen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q3",
+          "correctTextDe": "nachfragen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q4",
+          "correctTextDe": "verstanden"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q5",
+          "correctTextDe": "Eine gedachte Reaktion in einer vergangenen Situation."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q6",
+          "correctTextDe": "bleiben"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q1",
+          "correctTextDe": "ich am Dienstag im Salon ankam"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q2",
+          "correctTextDe": "Donnerstag, obwohl Dienstag gemeint war."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q3",
+          "correctTextDe": "er Donnerstag verstanden hatte"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q4",
+          "correctTextDe": "Eine frühere gedachte Reaktion mit dem ruhigen Verhalten dieses Mal."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q5",
+          "correctTextDe": "Das Warten."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q6",
+          "correctTextDe": "wiederhole ich Datum und Uhrzeit"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q1",
+          "correctTextDe": "bei dem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q2",
+          "correctTextDe": "meiner"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q3",
+          "correctTextDe": "Mein"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q4",
+          "correctTextDe": "kurzen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q5",
+          "correctTextDe": "Der Mitarbeiter und der Sprecher."
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q6",
+          "correctTextDe": "des"
+        }
+      ]
+    },
+    {
+      "textId": "4533b44b-4ec1-5147-8a69-3345d5df7933",
+      "textVersion": "43b4c86ef586bbe1bee12b4705caf6bc96512a38b4910e59247c39ef15871cfc",
+      "definitionContentHash": "99bafb9966d55591923f4e3c0cf8a01b6efd95a5db1790fc4d17bd1cb7e5d620",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "43b4c86ef586bbe1bee12b4705caf6bc96512a38b4910e59247c39ef15871cfc",
+        "definitionContentHash": "99bafb9966d55591923f4e3c0cf8a01b6efd95a5db1790fc4d17bd1cb7e5d620"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-08.words.q1",
+          "correctTextDe": "Sie sind vorübergehend für eine Woche an einen anderen Ort gefahren."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q2",
+          "correctTextDe": "Die Katze betreuen und dafür sorgen, dass es ihr gut geht."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q3",
+          "correctTextDe": "Nahrung, die die Katze frisst."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q4",
+          "correctTextDe": "Eine Toilette mit geeignetem Material für die Katze."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q5",
+          "correctTextDe": "Sie hat sich dorthin zurückgezogen, wo man sie weniger sieht."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q6",
+          "correctTextDe": "Beunruhigt darüber sein, ob es der Katze gut geht."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q1",
+          "correctTextDe": "sind"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q2",
+          "correctTextDe": "gebeten"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q3",
+          "correctTextDe": "aufzupassen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q4",
+          "correctTextDe": "hingestellt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q5",
+          "correctTextDe": "gegeben"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q6",
+          "correctTextDe": "zurückkommen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q1",
+          "correctTextDe": "sie mich hörte"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q2",
+          "correctTextDe": "Um ihre Sorgen um die Katze zu vermeiden."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q3",
+          "correctTextDe": "Der Satz ordnet das Glücklichsein ihrer damaligen Rückkehr zu."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q4",
+          "correctTextDe": "Die gute Betreuung verhindert nicht, dass die Rückkehr sie am glücklichsten macht."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q5",
+          "correctTextDe": "Später kommt die Katze hervor, statt sich wie am Anfang zu verstecken."
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q6",
+          "correctTextDe": "sie sich keine Sorgen machen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q1",
+          "correctTextDe": "ihre"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q2",
+          "correctTextDe": "frisches"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q3",
+          "correctTextDe": "unseren"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q4",
+          "correctTextDe": "dem"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q5",
+          "correctTextDe": "ihre"
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q6",
+          "correctTextDe": "glücklichsten"
+        }
+      ]
+    },
+    {
+      "textId": "4c550a8b-95b1-5a53-ac3c-b2ad48ea592d",
+      "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
+      "definitionContentHash": "a558b4fd59684c644315e443c5040bf528fdaf79cf07d34a5eaa37b5e8ff9fe9",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
+        "definitionContentHash": "a558b4fd59684c644315e443c5040bf528fdaf79cf07d34a5eaa37b5e8ff9fe9"
+      },
+      "correctAnswerTexts": [
+        {
+          "questionId": "sitov.pretest.a22-09.words.q1",
+          "correctTextDe": "Die eigenen Kenntnisse und Fähigkeiten für die Arbeit verbessern."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q2",
+          "correctTextDe": "Zwei Kursmöglichkeiten, zwischen denen man wählen kann."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q3",
+          "correctTextDe": "Ein Kurs, dessen Unterricht am Abend stattfindet."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q4",
+          "correctTextDe": "Das Eintragen oder Anmelden zur Teilnahme."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q5",
+          "correctTextDe": "Die Aufmerksamkeit beim Lernen auf die Aufgabe richten."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q6",
+          "correctTextDe": "Technische Gegenstände, die man im Kurs benutzen kann."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q1",
+          "correctTextDe": "mich"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q2",
+          "correctTextDe": "gefunden"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q3",
+          "correctTextDe": "stattfinden"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q4",
+          "correctTextDe": "entschieden"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q5",
+          "correctTextDe": "braucht"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q6",
+          "correctTextDe": "stellt"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q1",
+          "correctTextDe": "Der günstigere Preis entscheidet nicht zugunsten des Abendkurses."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q2",
+          "correctTextDe": "Die Müdigkeit ist so stark, dass konzentriertes Lernen nicht gelingt."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q3",
+          "correctTextDe": "man einen eigenen Laptop braucht"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q4",
+          "correctTextDe": "Die Frage nach dem Laptop."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q5",
+          "correctTextDe": "Die zweite der beiden genannten Kursmöglichkeiten."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q6",
+          "correctTextDe": "Die Müdigkeit tritt häufig auf, aber nicht notwendig jedes Mal."
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q1",
+          "correctTextDe": "einen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q2",
+          "correctTextDe": "passende"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q3",
+          "correctTextDe": "günstiger"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q4",
+          "correctTextDe": "den"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q5",
+          "correctTextDe": "eigenen"
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q6",
+          "correctTextDe": "Geräte"
+        }
+      ]
+    }
+  ]
+}

@@ -38019,14 +38019,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel, Begründungen, zwölf Kerne und drei vollständige Quellen nach den drei konkreten Reparaturen unabhängig erneut geprüft. Öffentliche Zielprämisse, echte Verbzweitstellung und finite Präsensform sind korrekt; zwei richtige Antworttexte und Kernzuordnungen ausdrücklich neu geprüft. Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
         "textVersion": "c4cd54805ef71fd2f332b6f3d1e08ff84939edb0a2c07fc4e7595f68c465e106",
-        "definitionContentHash": "ab35bac23a75d2a497c92cac5b0afd32d6952bbab3849d7df96e798f150d8582"
+        "definitionContentHash": "ab35bac23a75d2a497c92cac5b0afd32d6952bbab3849d7df96e798f150d8582",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools37-39-M",
+        "documentSha256": "dbe12c32005106556d31776fee258bea597c021237e93afa7fa9d7dc4b6a05dd",
+        "reviewedAt": "2026-10-09T18:21:36.802Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -39059,14 +39064,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel, Begründungen, zwölf Kerne und drei vollständige Quellen nach den drei konkreten Reparaturen unabhängig erneut geprüft. Öffentliche Zielprämisse, echte Verbzweitstellung und finite Präsensform sind korrekt; zwei richtige Antworttexte und Kernzuordnungen ausdrücklich neu geprüft. Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
         "textVersion": "43b4c86ef586bbe1bee12b4705caf6bc96512a38b4910e59247c39ef15871cfc",
-        "definitionContentHash": "99bafb9966d55591923f4e3c0cf8a01b6efd95a5db1790fc4d17bd1cb7e5d620"
+        "definitionContentHash": "99bafb9966d55591923f4e3c0cf8a01b6efd95a5db1790fc4d17bd1cb7e5d620",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools37-39-M",
+        "documentSha256": "dbe12c32005106556d31776fee258bea597c021237e93afa7fa9d7dc4b6a05dd",
+        "reviewedAt": "2026-10-09T18:21:36.802Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -40099,14 +40109,19 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "sitov.agent.S3",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.M",
         "authorIdentity": "sitov.agent.S3",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel, Begründungen, zwölf Kerne und drei vollständige Quellen nach den drei konkreten Reparaturen unabhängig erneut geprüft. Öffentliche Zielprämisse, echte Verbzweitstellung und finite Präsensform sind korrekt; zwei richtige Antworttexte und Kernzuordnungen ausdrücklich neu geprüft. Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
         "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
-        "definitionContentHash": "a558b4fd59684c644315e443c5040bf528fdaf79cf07d34a5eaa37b5e8ff9fe9"
+        "definitionContentHash": "a558b4fd59684c644315e443c5040bf528fdaf79cf07d34a5eaa37b5e8ff9fe9",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools37-39-M",
+        "documentSha256": "dbe12c32005106556d31776fee258bea597c021237e93afa7fa9d7dc4b6a05dd",
+        "reviewedAt": "2026-10-09T18:21:36.802Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",

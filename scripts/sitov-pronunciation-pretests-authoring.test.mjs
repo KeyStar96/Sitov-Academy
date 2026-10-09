@@ -2,7 +2,10 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sources=await sitovReadAuthoringSources(),sitovActualManifest49=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sources=await sitovReadAuthoringSources(),sitovLatestMReviewed39=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovMReview39Raw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/pools37-39-editorial-review.json','utf8'),sitovMReview39=JSON.parse(sitovMReview39Raw)
+const sitovActualManifest49=structuredClone(sitovLatestMReviewed39)
+for(const r of sitovMReview39.approvedEditorialDrafts)sitovActualManifest49.drafts.find(d=>d.textId===r.textId).review=r.previousReview
 const sitovDelta49=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch49-three-core-repairs-delta.json','utf8'))
 // Freeze exact M-reviewed quality18/39 state BEFORE quality18 and all97 older immutable proofs.
 const sitovQualityCurrent=structuredClone(sitovActualManifest49)
@@ -1154,3 +1157,5 @@ test('epoch49 semantic guards reject hidden destination, wrong V2/finite keys, l
  for(const r of sitovDelta49.cores){const copy=structuredClone(sitovActualManifest49),d=copy.drafts.find(d=>d.textId===r.textId);d.definition.competencies[d.definition.competencies.findIndex(c=>c.id===r.coreId)]=r.previousCore;assert.ok(sitovValidatePretestDrafts(copy,sources).length);assert.throws(()=>sitovAssert49Constructs(copy))}
  for(const r of sitovDelta49.changedAliases){const stale={...sitovActualAudio49,[r.key]:r.previousTextDe};assert.ok(sitovValidatePretestAudioAliases(sitovActualManifest49,stale).length)}
 })
+
+test('actual39 independent M repairs review binds exact definitions and all103 historical author checks',()=>{assert.equal(sitovLatestMReviewed39.drafts.length,39);assert.deepEqual(sitovValidatePretestDrafts(sitovLatestMReviewed39,sources),[]);for(const r of sitovMReview39.approvedEditorialDrafts){const d=sitovLatestMReviewed39.drafts.find(d=>d.textId===r.textId);assert.equal(d.active,false);assert.equal(d.review.documentSha256,sitovHash(sitovMReview39Raw));assert.equal(d.review.reviewer,'sitov.agent.M');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.textVersion,r.textVersion);assert.deepEqual(d.definition.tasks.map(q=>({questionId:q.id,correctTextDe:q.options.find(o=>o.id===q.correctOptionId).textDe})),r.correctAnswerTexts)}})
