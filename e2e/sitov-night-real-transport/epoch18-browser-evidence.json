@@ -1,0 +1,58 @@
+{
+  "source": "1b656fb52d31c13aacc8026e43aab35b9df863a5",
+  "normalLogin": true,
+  "storedFAILShown": true,
+  "score": "0/12",
+  "originalTextRetryVisible": true,
+  "visibleRecommendations": {
+    "german": [
+      "Guten Tag, das bin ich",
+      "Guten Tag, das bin ich",
+      "Mein Frühstück",
+      "Unser Kursraum",
+      "Ein neuer Nachbar",
+      "Am Samstag im Park",
+      "Mein Zimmer",
+      "Im kleinen Laden",
+      "Meine Familie",
+      "Der Weg zum Kurs",
+      "Ein ruhiger Abend",
+      "Guten Tag, das bin ich"
+    ],
+    "lang": "ru",
+    "links": [
+      {
+        "href": "/ru/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+        "text": "Повторить формы глаголов"
+      },
+      {
+        "href": "/ru/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-kommen&tense=present",
+        "text": "Повторить формы глаголов"
+      }
+    ]
+  },
+  "clickedHref": "/ru/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+  "actualLandingURL": "http://127.0.0.1:3143/ru/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+  "exactTarget": "sitov-verb-heissen",
+  "exactVerbSelected": "heißen",
+  "visibleLanding": {
+    "checkboxes": [
+      {
+        "checked": false,
+        "label": null
+      }
+    ],
+    "lang": "ru",
+    "selected": [
+      {
+        "label": "Выбранная учебная цель: heißen",
+        "text": "A1.1\nheißen\n\nзвать(ся) (ich heiße, du heißt, Sie heißen)"
+      }
+    ],
+    "visibleText": "Sitov Academy\n\nЗдравствуйте, Sitov QA Paul\n\nПрофиль\nОформление\nВыйти\nГлавная\nУчиться\nПутешествие\nКалендарь\nПомощь\nГлавная\nA1.1\nТренажёр глаголов\nСлова\nТренажёр глаголов\nУчебный путь\nПроизношение\nМедиатека\nПомощь\nТвои глаголы. Твой темп.\n\nДобавляй глаголы из доступных уровней. При удалении прогресс сохраняется.\n\nПрогресс сохраняется\nВсе уровни\nA1.1\nA1.2\nA2.1\nA2.2\nB1.1\nB1.2\nТолько мои глаголы\n1 / 140\nДобавить показанные\nA1.1\nheißen\n\nзвать(ся) (ich heiße, du heißt, Sie heißen)"
+  },
+  "automaticallyAdded": false,
+  "additionalLocaleOrViewportTested": false,
+  "normalLogout": true,
+  "logoutURL": "http://127.0.0.1:3143/ru/login?status=logout_success"
+}
