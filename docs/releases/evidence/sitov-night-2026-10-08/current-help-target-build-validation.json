@@ -1,0 +1,58 @@
+{
+  "brand": "Sitov Academy",
+  "scope": "Current combined Help and explicit pronunciation target repair compile/build; worker component proofs remain mock-port proofs",
+  "verifiedAt": "2026-10-09T06:04:54.711259+00:00",
+  "sourceCommit": "22231b1942e3500b480a55ef318afb8676ae0751",
+  "fullTypeScript": {
+    "command": "npx tsc --noEmit --incremental false",
+    "exitCode": 0,
+    "log": "/tmp/sitov-night-m-tsc-22231b19.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "fullBuild": {
+    "command": "Existing masked build-owned-qa-env.py: next build --webpack",
+    "exitCode": 0,
+    "nextVersion": "16.3.8",
+    "staticPages": 313,
+    "buildWorkers": 1,
+    "nodeMemoryMiB": 1536,
+    "log": "/tmp/sitov-night-m-build-22231b19.log",
+    "sha256": "4d6211eb594479ed40f0a204df4e9b8a4afb6fae6ba7ae6dde71e2e0d1988e96",
+    "configuration": "Every repo/process service environment key masked; own QA loopback only, paid/provider keys empty; no production configuration fallback",
+    "warning": "Existing custom Cache-Control notice remains"
+  },
+  "workerTests": [
+    {
+      "owner": "S4",
+      "epoch": 10,
+      "sourceCommit": "04aeb7947c903b3a3bc7c6114b5286e576f96deb",
+      "integrationCommit": "0c76ff78d14ea09588f67ff2d58519528d20501d",
+      "suites": 4,
+      "passed": 72,
+      "newTests": 12,
+      "ports": "Server/action/audio mocked; not browser/database/device proof",
+      "strictLint": "FAIL due to four unchanged preexisting VocabCardSession warnings; zero errors. M real JSON lint and baseline source comparison verified."
+    },
+    {
+      "owner": "S4",
+      "epoch": 11,
+      "sourceCommit": "2ea9ba9ce9650efc965b120db5dbd913de76618d",
+      "integrationCommit": "22231b1942e3500b480a55ef318afb8676ae0751",
+      "suites": 3,
+      "passed": 30,
+      "ports": "Route/component/server/action/audio/recorder/mailbox mocked; not browser/SQL/device proof",
+      "scopedLintErrors": 0,
+      "scopedLintWarnings": 0
+    }
+  ],
+  "ownQaNextDevStopped": true,
+  "nextEnvGeneratedSourceRestoredByteExact": true,
+  "actualNewHelpAndTargetBrowserAcceptance": "PENDING; fresh host admission failed at2811MiB<3072; prior gateway OOM durability gate unresolved",
+  "existingRootScriptActualBrowserEvidence": "Earlier epoch14 five UI languages, theme/contrast preservation and restoration PASS at35a/626; no fresh whole-platform browser acceptance for current Help/target changes",
+  "individualCurrentTextPass": "sole pedagogical pronunciation prerequisite; commercial authority separate",
+  "productionWrite": false,
+  "publication": false,
+  "releaseReady": false,
+  "featureFreeze": true,
+  "ordinaryWeeklyRemainingPercent": 25
+}

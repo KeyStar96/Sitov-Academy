@@ -1,0 +1,34 @@
+{
+  "brand": "Sitov Academy",
+  "scope": "existing exact owned QA namespace read-only, one health request per endpoint, no mutations",
+  "checkedAt": "2026-10-09T05:47:59.777868+00:00",
+  "sourceCommit": "0c76ff78d14ea09588f67ff2d58519528d20501d",
+  "containersChecked": 5,
+  "allFiveRunningWithoutCurrentOOMFlag": true,
+  "health": [
+    {
+      "path": "/auth/v1/health",
+      "http_status": 200
+    },
+    {
+      "path": "/rest/v1/",
+      "http_status": 200
+    },
+    {
+      "path": "/storage/v1/status",
+      "http_status": 200
+    }
+  ],
+  "aggregateMemoryMiB": 960,
+  "aggregateCPU": 2.0,
+  "hostAvailableMiB": 2811,
+  "requiredFreshAdmissionMiB": 3072,
+  "freshAdmissionPassed": false,
+  "durabilityProven": false,
+  "priorGatewayOOMHistoryPreserved": true,
+  "noRuntimeMutation": true,
+  "productionWrite": false,
+  "privateProofSha256": "0d55cc4a9c877e943c3ea2c10c359085a2a32356d2f11c040794cb9f583fcfd1",
+  "runtimeSourceSha256": "065b3c62085a4d955de9796037ff15529d01c58b723206c1edc26856bc8414f9",
+  "limitation": "Current health is not sustained-load acceptance. Host memory remains below required fresh admission threshold; no further real QA/browser block approved from this snapshot."
+}

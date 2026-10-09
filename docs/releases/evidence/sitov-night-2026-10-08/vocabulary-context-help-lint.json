@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-09T05:56:38.579480+00:00",
+  "sourceCommit": "0c76ff78d14ea09588f67ff2d58519528d20501d",
+  "scope": "Four touched Help source/test files; real scoped ESLint JSON result and exact unchanged source line comparison against30e",
+  "eslintExitWithoutWarningBudget": 0,
+  "errorCount": 0,
+  "warningCount": 4,
+  "strictMaxWarnings0": "FAIL; four preexisting warnings, not zero-warning acceptance",
+  "warnings": [
+    {
+      "rule": "react-hooks/exhaustive-deps",
+      "line": 216,
+      "message": "React Hook useEffect has missing dependencies: 'beginRound', 'previousCardId', 'restored', 'roundSize', and 'size'. Either include them or remove the dependency array.",
+      "baselineLineUnchanged": true
+    },
+    {
+      "rule": "react-hooks/exhaustive-deps",
+      "line": 455,
+      "message": "React Hook useEffect has missing dependencies: 'actorId', 'learningSourceLanguage', 'level', 'restored?.state.pending', and 'uiLanguage'. Either include them or remove the dependency array.",
+      "baselineLineUnchanged": true
+    },
+    {
+      "rule": "@next/next/no-img-element",
+      "line": 642,
+      "message": "Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element",
+      "baselineLineUnchanged": true
+    },
+    {
+      "rule": "@next/next/no-img-element",
+      "line": 675,
+      "message": "Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element",
+      "baselineLineUnchanged": true
+    }
+  ],
+  "releaseReady": false
+}
