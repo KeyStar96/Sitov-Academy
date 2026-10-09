@@ -7,8 +7,8 @@
   "scope": "Repository canonical seeds and revisions; no live/custom inventory",
   "coverage": {
     "total": 60,
-    "authored": 21,
-    "pending": 39
+    "authored": 24,
+    "pending": 36
   },
   "audioStatus": "draft_only: full DB public-question/reference asset and immutable word-timing proof gate implemented; actual M local preparation, byte/timing audit, import and trusted proof insertion pending; no definitions published",
   "drafts": [
@@ -22292,6 +22292,3138 @@
           }
         ]
       }
+    },
+    {
+      "textId": "acb54d47-e197-56ca-9eb7-a890abce63f6",
+      "unitId": "acb54d47-e197-56ca-9eb7-a890abce63f6",
+      "level": "A2.1",
+      "textVersion": "7c304a43bdb047d35576e4fae98ce9c3ad221aa2729589bcad9c7b7738fd149f",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, öffentlicher Prämissen, Vergangenheitsformen/Nebensätzen, eindeutiger Schlüssel und CSPRNG-ausgewogener Optionen. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "7c304a43bdb047d35576e4fae98ce9c3ad221aa2729589bcad9c7b7738fd149f",
+        "definitionContentHash": "93a36a872b48a015a87cbcee0c495ecf9e6d72ac97d4f7663af69131a917d8fc"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a21-02.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "Reifen Radteil",
+              "Werkstatt Reparaturort",
+              "Loch Öffnung",
+              "plötzlich unerwartet",
+              "vorsichtig Verhalten",
+              "Nachricht Mitteilung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 66,
+                "end": 72,
+                "quote": "Reifen"
+              },
+              {
+                "start": 127,
+                "end": 136,
+                "quote": "Werkstatt"
+              },
+              {
+                "start": 167,
+                "end": 183,
+                "quote": "ein kleines Loch"
+              },
+              {
+                "start": 77,
+                "end": 86,
+                "quote": "plötzlich"
+              },
+              {
+                "start": 409,
+                "end": 419,
+                "quote": "vorsichtig"
+              },
+              {
+                "start": 324,
+                "end": 344,
+                "quote": "eine kurze Nachricht"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Reifen Radteil, Werkstatt Reparaturort, Loch Öffnung, plötzlich unerwartet, vorsichtig Verhalten, Nachricht Mitteilung. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-02.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "kaputtgehen Perfekt sein",
+              "war Präteritum sein",
+              "geschoben starkes Partizip",
+              "gefunden Partizip finden",
+              "konnte vergangene Möglichkeit",
+              "abgeholt trennbares Partizip"
+            ],
+            "sourceSpans": [
+              {
+                "start": 21,
+                "end": 52,
+                "quote": "ist mein Fahrrad kaputtgegangen"
+              },
+              {
+                "start": 73,
+                "end": 91,
+                "quote": "war plötzlich leer"
+              },
+              {
+                "start": 97,
+                "end": 146,
+                "quote": "habe das Rad bis zur nächsten Werkstatt geschoben"
+              },
+              {
+                "start": 163,
+                "end": 192,
+                "quote": "hat ein kleines Loch gefunden"
+              },
+              {
+                "start": 194,
+                "end": 214,
+                "quote": "Er konnte den Reifen"
+              },
+              {
+                "start": 379,
+                "end": 400,
+                "quote": "mein Fahrrad abgeholt"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: kaputtgehen Perfekt sein, war Präteritum sein, geschoben starkes Partizip, gefunden Partizip finden, konnte vergangene Möglichkeit, abgeholt trennbares Partizip. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-02.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "Weg Vorfeld Perfektstellung",
+              "bis zur Zielgrenze",
+              "selber Vormittag Zeitbezug",
+              "Deshalb Folgebezug",
+              "Vorangestellter Empfänger Subjekt",
+              "zwei abgeschlossene Handlungen"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 53,
+                "quote": "Auf dem Weg zum Kurs ist mein Fahrrad kaputtgegangen."
+              },
+              {
+                "start": 110,
+                "end": 146,
+                "quote": "bis zur nächsten Werkstatt geschoben"
+              },
+              {
+                "start": 215,
+                "end": 250,
+                "quote": "noch am selben Vormittag reparieren"
+              },
+              {
+                "start": 252,
+                "end": 300,
+                "quote": "Deshalb bin ich mit dem Bus zur Schule gefahren."
+              },
+              {
+                "start": 301,
+                "end": 355,
+                "quote": "Meinem Lehrer habe ich eine kurze Nachricht geschickt."
+              },
+              {
+                "start": 356,
+                "end": 440,
+                "quote": "Nach dem Kurs habe ich mein Fahrrad abgeholt und bin vorsichtig nach Hause gefahren."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Weg Vorfeld Perfektstellung, bis zur Zielgrenze, selber Vormittag Zeitbezug, Deshalb Folgebezug, Vorangestellter Empfänger Subjekt, zwei abgeschlossene Handlungen. Die vorhandene A2.1-Registry belegt weil; das deckt die hier tatsächlichen anderen Konnektoren, Satzrollen und Zeitbeziehungen nicht genau ab. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-02.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "mein Fahrrad Nominativ",
+              "hintere Adjektiv Nominativ",
+              "zur Kontraktion zu der",
+              "kleines neutrales Adjektiv",
+              "Meinem Lehrer Dativ",
+              "Er Mechaniker Bezug"
+            ],
+            "sourceSpans": [
+              {
+                "start": 25,
+                "end": 52,
+                "quote": "mein Fahrrad kaputtgegangen"
+              },
+              {
+                "start": 54,
+                "end": 72,
+                "quote": "Der hintere Reifen"
+              },
+              {
+                "start": 114,
+                "end": 136,
+                "quote": "zur nächsten Werkstatt"
+              },
+              {
+                "start": 167,
+                "end": 183,
+                "quote": "ein kleines Loch"
+              },
+              {
+                "start": 301,
+                "end": 314,
+                "quote": "Meinem Lehrer"
+              },
+              {
+                "start": 148,
+                "end": 203,
+                "quote": "Der Mechaniker hat ein kleines Loch gefunden. Er konnte"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: mein Fahrrad Nominativ, hintere Adjektiv Nominativ, zur Kontraktion zu der, kleines neutrales Adjektiv, Meinem Lehrer Dativ, Er Mechaniker Bezug. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächlichen als-, dass- oder während-Konstruktionen sind keine Relativsätze; ihre belegten Funktionen werden in der Syntaxmatrix geprüft."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Keine zusätzliche produktive Steigerungsbildung wird für die Aussagen vorausgesetzt; lexikalische Reihenfolge- oder positive Eigenschaftswörter bleiben im tatsächlichen Kontext geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a21-02.words.q1",
+            "competencyId": "sitov.pretest.a21-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Reifen« an einem Fahrrad?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.words.q1.c",
+                "textDe": "Der äußere Teil des Rades, der auf der Straße rollt."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q1.b",
+                "textDe": "Der Lenker zum Steuern."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q1.a",
+                "textDe": "Ein Brief an den Lehrer."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.words.q1.c",
+            "assessmentUnit": "Reifen Radteil",
+            "equivalenceKey": "sitov:a21-02:words:1",
+            "sourceSpans": [
+              {
+                "start": 66,
+                "end": 72,
+                "quote": "Reifen"
+              }
+            ],
+            "rationaleDe": "Der Reifen bildet den rollenden äußeren Radteil; Lenker und Brief haben andere Funktionen."
+          },
+          {
+            "id": "sitov.pretest.a21-02.words.q2",
+            "competencyId": "sitov.pretest.a21-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine »Werkstatt« für Fahrräder?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.words.q2.c",
+                "textDe": "Ein Raum ausschließlich zum Lesen."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q2.a",
+                "textDe": "Ein Ort, an dem Fahrräder repariert werden."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q2.b",
+                "textDe": "Ein Gleis für Züge."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.words.q2.a",
+            "assessmentUnit": "Werkstatt Reparaturort",
+            "equivalenceKey": "sitov:a21-02:words:2",
+            "sourceSpans": [
+              {
+                "start": 127,
+                "end": 136,
+                "quote": "Werkstatt"
+              }
+            ],
+            "rationaleDe": "Eine Fahrradwerkstatt dient der Reparatur und Wartung; Leseraum und Bahngleis sind andere Orte."
+          },
+          {
+            "id": "sitov.pretest.a21-02.words.q3",
+            "competencyId": "sitov.pretest.a21-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »ein Loch« in einem Fahrradreifen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.words.q3.c",
+                "textDe": "Eine neue Klingel am Lenker."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q3.b",
+                "textDe": "Eine Öffnung in der Reifenoberfläche."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q3.a",
+                "textDe": "Ein genau festgelegter Fahrpreis."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.words.q3.b",
+            "assessmentUnit": "Loch Öffnung",
+            "equivalenceKey": "sitov:a21-02:words:3",
+            "sourceSpans": [
+              {
+                "start": 167,
+                "end": 183,
+                "quote": "ein kleines Loch"
+              }
+            ],
+            "rationaleDe": "Loch bezeichnet eine Öffnung im Material; Klingel und Fahrpreis sind keine Bedeutung dieses Wortes."
+          },
+          {
+            "id": "sitov.pretest.a21-02.words.q4",
+            "competencyId": "sitov.pretest.a21-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »plötzlich« in »Der Reifen war plötzlich leer«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.words.q4.c",
+                "textDe": "Es geschah unerwartet und unvermittelt."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q4.a",
+                "textDe": "Es war eine ausdrücklich lange geplante Feier."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q4.b",
+                "textDe": "Es bezeichnet nur eine Farbe."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.words.q4.c",
+            "assessmentUnit": "plötzlich unerwartet",
+            "equivalenceKey": "sitov:a21-02:words:4",
+            "sourceSpans": [
+              {
+                "start": 77,
+                "end": 86,
+                "quote": "plötzlich"
+              }
+            ],
+            "rationaleDe": "Plötzlich beschreibt unvermitteltes Eintreten, keine Feierplanung oder Farbe."
+          },
+          {
+            "id": "sitov.pretest.a21-02.words.q5",
+            "competencyId": "sitov.pretest.a21-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »vorsichtig fahren«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.words.q5.c",
+                "textDe": "Das Fahrrad ausdrücklich stehen lassen."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q5.b",
+                "textDe": "Absichtlich jedes Risiko suchen."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q5.a",
+                "textDe": "Beim Fahren aufmerksam sein und Risiken vermeiden."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.words.q5.a",
+            "assessmentUnit": "vorsichtig Verhalten",
+            "equivalenceKey": "sitov:a21-02:words:5",
+            "sourceSpans": [
+              {
+                "start": 409,
+                "end": 419,
+                "quote": "vorsichtig"
+              }
+            ],
+            "rationaleDe": "Vorsichtiges Fahren ist achtsames Verhalten; Risikosuche und gar nicht fahren bedeuten etwas anderes."
+          },
+          {
+            "id": "sitov.pretest.a21-02.words.q6",
+            "competencyId": "sitov.pretest.a21-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine »Nachricht« an den Lehrer?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.words.q6.c",
+                "textDe": "Ein Loch im Reifen."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q6.a",
+                "textDe": "Ein Teil eines Fahrrads."
+              },
+              {
+                "id": "sitov.pretest.a21-02.words.q6.b",
+                "textDe": "Eine Mitteilung mit Informationen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.words.q6.b",
+            "assessmentUnit": "Nachricht Mitteilung",
+            "equivalenceKey": "sitov:a21-02:words:6",
+            "sourceSpans": [
+              {
+                "start": 324,
+                "end": 344,
+                "quote": "eine kurze Nachricht"
+              }
+            ],
+            "rationaleDe": "Eine Nachricht übermittelt Informationen; Loch und Fahrradteil sind keine sprachliche Mitteilung."
+          },
+          {
+            "id": "sitov.pretest.a21-02.verbs.q1",
+            "competencyId": "sitov.pretest.a21-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welches Hilfsverb ergänzt »Mein Fahrrad ___ kaputtgegangen« im Perfekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.verbs.q1.b",
+                "textDe": "ist"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q1.a",
+                "textDe": "hat"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q1.c",
+                "textDe": "wird"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.verbs.q1.b",
+            "assessmentUnit": "kaputtgehen Perfekt sein",
+            "equivalenceKey": "sitov:a21-02:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 21,
+                "end": 52,
+                "quote": "ist mein Fahrrad kaputtgegangen"
+              }
+            ],
+            "rationaleDe": "Kaputtgehen bildet hier das Perfekt mit sein: ist kaputtgegangen; hat und wird passen nicht zu dieser Form."
+          },
+          {
+            "id": "sitov.pretest.a21-02.verbs.q2",
+            "competencyId": "sitov.pretest.a21-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »war« in »Der Reifen war leer«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.verbs.q2.a",
+                "textDe": "werden"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q2.b",
+                "textDe": "sein"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q2.c",
+                "textDe": "warten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.verbs.q2.b",
+            "assessmentUnit": "war Präteritum sein",
+            "equivalenceKey": "sitov:a21-02:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 73,
+                "end": 91,
+                "quote": "war plötzlich leer"
+              }
+            ],
+            "rationaleDe": "War ist das Präteritum von sein; werden und warten haben andere Vergangenheitsformen."
+          },
+          {
+            "id": "sitov.pretest.a21-02.verbs.q3",
+            "competencyId": "sitov.pretest.a21-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welches Partizip ergänzt »Ich habe das Rad ___« zu schieben?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.verbs.q3.b",
+                "textDe": "geschiebt"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q3.c",
+                "textDe": "geschoben"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q3.a",
+                "textDe": "schieben"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.verbs.q3.c",
+            "assessmentUnit": "geschoben starkes Partizip",
+            "equivalenceKey": "sitov:a21-02:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 97,
+                "end": 146,
+                "quote": "habe das Rad bis zur nächsten Werkstatt geschoben"
+              }
+            ],
+            "rationaleDe": "Das starke Verb schieben bildet das Partizip geschoben; geschiebt ist falsch und schieben ist Infinitiv."
+          },
+          {
+            "id": "sitov.pretest.a21-02.verbs.q4",
+            "competencyId": "sitov.pretest.a21-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Der Mechaniker hat ein Loch ___« zu finden?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.verbs.q4.a",
+                "textDe": "gefindet"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q4.b",
+                "textDe": "fand"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q4.c",
+                "textDe": "gefunden"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.verbs.q4.c",
+            "assessmentUnit": "gefunden Partizip finden",
+            "equivalenceKey": "sitov:a21-02:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 163,
+                "end": 192,
+                "quote": "hat ein kleines Loch gefunden"
+              }
+            ],
+            "rationaleDe": "Das Perfekt verlangt gefunden; gefindet ist falsch, fand ist die finite Präteritumform."
+          },
+          {
+            "id": "sitov.pretest.a21-02.verbs.q5",
+            "competencyId": "sitov.pretest.a21-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Was drückt »konnte« in »Er konnte den Reifen reparieren« aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.verbs.q5.a",
+                "textDe": "Eine Möglichkeit oder Fähigkeit in der Vergangenheit."
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q5.b",
+                "textDe": "Ein ausdrückliches Verbot."
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q5.c",
+                "textDe": "Dass der Reifen sprechen kann."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.verbs.q5.a",
+            "assessmentUnit": "konnte vergangene Möglichkeit",
+            "equivalenceKey": "sitov:a21-02:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 194,
+                "end": 214,
+                "quote": "Er konnte den Reifen"
+              }
+            ],
+            "rationaleDe": "Konnte ist das Präteritum von können und bezeichnet hier vergangene Möglichkeit, kein Verbot."
+          },
+          {
+            "id": "sitov.pretest.a21-02.verbs.q6",
+            "competencyId": "sitov.pretest.a21-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe mein Fahrrad ___« zu abholen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.verbs.q6.b",
+                "textDe": "abholen"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q6.c",
+                "textDe": "geabholt"
+              },
+              {
+                "id": "sitov.pretest.a21-02.verbs.q6.a",
+                "textDe": "abgeholt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.verbs.q6.a",
+            "assessmentUnit": "abgeholt trennbares Partizip",
+            "equivalenceKey": "sitov:a21-02:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 379,
+                "end": 400,
+                "quote": "mein Fahrrad abgeholt"
+              }
+            ],
+            "rationaleDe": "Beim trennbaren abholen steht ge zwischen Vorsilbe und Stamm: abgeholt."
+          },
+          {
+            "id": "sitov.pretest.a21-02.syntax.q1",
+            "competencyId": "sitov.pretest.a21-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welcher Satz ist mit vorangestelltem »Auf dem Weg« korrekt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.syntax.q1.a",
+                "textDe": "Auf dem Weg kaputtgegangen mein Fahrrad ist."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q1.b",
+                "textDe": "Auf dem Weg mein Fahrrad ist kaputtgegangen."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q1.c",
+                "textDe": "Auf dem Weg ist mein Fahrrad kaputtgegangen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.syntax.q1.c",
+            "assessmentUnit": "Weg Vorfeld Perfektstellung",
+            "equivalenceKey": "sitov:a21-02:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 53,
+                "quote": "Auf dem Weg zum Kurs ist mein Fahrrad kaputtgegangen."
+              }
+            ],
+            "rationaleDe": "Nach dem Vorfeld steht das finite Hilfsverb ist; das Partizip kaputtgegangen steht am Ende."
+          },
+          {
+            "id": "sitov.pretest.a21-02.syntax.q2",
+            "competencyId": "sitov.pretest.a21-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Bis wohin wurde das Rad laut »Ich habe das Rad bis zur Werkstatt geschoben« geschoben?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.syntax.q2.a",
+                "textDe": "Bis zur Bibliothek."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q2.b",
+                "textDe": "Bis zur Werkstatt."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q2.c",
+                "textDe": "Ausdrücklich nur bis zum Bett."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.syntax.q2.b",
+            "assessmentUnit": "bis zur Zielgrenze",
+            "equivalenceKey": "sitov:a21-02:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 110,
+                "end": 146,
+                "quote": "bis zur nächsten Werkstatt geschoben"
+              }
+            ],
+            "rationaleDe": "Die öffentlich genannte Zielgrenze ist die Werkstatt; Bibliothek und Bett stehen dort nicht."
+          },
+          {
+            "id": "sitov.pretest.a21-02.syntax.q3",
+            "competencyId": "sitov.pretest.a21-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wann ist die Reparatur laut »Er konnte den Reifen noch am selben Vormittag reparieren« möglich?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.syntax.q3.c",
+                "textDe": "Noch im gleichen Vormittag."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q3.a",
+                "textDe": "Nur ein Jahr zuvor."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q3.b",
+                "textDe": "Erst ausdrücklich im nächsten Monat."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.syntax.q3.c",
+            "assessmentUnit": "selber Vormittag Zeitbezug",
+            "equivalenceKey": "sitov:a21-02:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 215,
+                "end": 250,
+                "quote": "noch am selben Vormittag reparieren"
+              }
+            ],
+            "rationaleDe": "Am selben Vormittag bezeichnet denselben Vormittag, nicht einen anderen Monat oder ein vergangenes Jahr."
+          },
+          {
+            "id": "sitov.pretest.a21-02.syntax.q4",
+            "competencyId": "sitov.pretest.a21-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Bedeutung hat »deshalb« in »Deshalb bin ich mit dem Bus gefahren«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.syntax.q4.a",
+                "textDe": "Aus dem vorher genannten Grund."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q4.b",
+                "textDe": "Ganz ohne Bezug zu einem vorherigen Grund."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q4.c",
+                "textDe": "Es bezeichnet ausschließlich einen Gegenstand."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.syntax.q4.a",
+            "assessmentUnit": "Deshalb Folgebezug",
+            "equivalenceKey": "sitov:a21-02:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 252,
+                "end": 300,
+                "quote": "Deshalb bin ich mit dem Bus zur Schule gefahren."
+              }
+            ],
+            "rationaleDe": "Deshalb stellt einen Begründungs- beziehungsweise Folgebezug her; es ist kein Gegenstandsname."
+          },
+          {
+            "id": "sitov.pretest.a21-02.syntax.q5",
+            "competencyId": "sitov.pretest.a21-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer schickt in »Meinem Lehrer habe ich eine Nachricht geschickt« die Nachricht?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.syntax.q5.b",
+                "textDe": "Das Fahrrad selbst."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q5.a",
+                "textDe": "Der Sprecher, bezeichnet durch ich."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q5.c",
+                "textDe": "Der Lehrer wird ausdrücklich als Sender genannt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.syntax.q5.a",
+            "assessmentUnit": "Vorangestellter Empfänger Subjekt",
+            "equivalenceKey": "sitov:a21-02:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 301,
+                "end": 355,
+                "quote": "Meinem Lehrer habe ich eine kurze Nachricht geschickt."
+              }
+            ],
+            "rationaleDe": "Ich ist das Subjekt von habe geschickt; meinem Lehrer bezeichnet den Empfänger, nicht den Sender."
+          },
+          {
+            "id": "sitov.pretest.a21-02.syntax.q6",
+            "competencyId": "sitov.pretest.a21-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Handlungen nennt »Nach dem Kurs habe ich mein Fahrrad abgeholt und bin nach Hause gefahren«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.syntax.q6.c",
+                "textDe": "Bücher ausleihen und im Garten sitzen."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q6.a",
+                "textDe": "Reifen verkaufen und Kuchen backen."
+              },
+              {
+                "id": "sitov.pretest.a21-02.syntax.q6.b",
+                "textDe": "Fahrrad abholen und nach Hause fahren."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.syntax.q6.b",
+            "assessmentUnit": "zwei abgeschlossene Handlungen",
+            "equivalenceKey": "sitov:a21-02:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 356,
+                "end": 440,
+                "quote": "Nach dem Kurs habe ich mein Fahrrad abgeholt und bin vorsichtig nach Hause gefahren."
+              }
+            ],
+            "rationaleDe": "Der öffentliche Satz verbindet ausdrücklich Abholen und Heimfahren; die anderen Handlungspaare werden nicht genannt."
+          },
+          {
+            "id": "sitov.pretest.a21-02.nominal.q1",
+            "competencyId": "sitov.pretest.a21-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »___ Fahrrad ist kaputtgegangen«, wenn das Fahrrad dem Sprecher gehört?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.nominal.q1.c",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q1.b",
+                "textDe": "Meinen"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q1.a",
+                "textDe": "Meinem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.nominal.q1.c",
+            "assessmentUnit": "mein Fahrrad Nominativ",
+            "equivalenceKey": "sitov:a21-02:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 25,
+                "end": 52,
+                "quote": "mein Fahrrad kaputtgegangen"
+              }
+            ],
+            "rationaleDe": "Fahrrad ist ein neutrales Subjekt im Nominativ; die passende Possessivform lautet mein."
+          },
+          {
+            "id": "sitov.pretest.a21-02.nominal.q2",
+            "competencyId": "sitov.pretest.a21-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Der ___ Reifen war leer«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.nominal.q2.c",
+                "textDe": "hinterem"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q2.b",
+                "textDe": "hintere"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q2.a",
+                "textDe": "hinteren"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.nominal.q2.b",
+            "assessmentUnit": "hintere Adjektiv Nominativ",
+            "equivalenceKey": "sitov:a21-02:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 54,
+                "end": 72,
+                "quote": "Der hintere Reifen"
+              }
+            ],
+            "rationaleDe": "Nach der steht das Adjektiv im maskulinen Nominativ hier mit e: hintere."
+          },
+          {
+            "id": "sitov.pretest.a21-02.nominal.q3",
+            "competencyId": "sitov.pretest.a21-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe steckt in »zur Werkstatt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.nominal.q3.c",
+                "textDe": "zu die Werkstatt"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q3.b",
+                "textDe": "in der Werkstatt"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q3.a",
+                "textDe": "zu der Werkstatt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.nominal.q3.a",
+            "assessmentUnit": "zur Kontraktion zu der",
+            "equivalenceKey": "sitov:a21-02:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 114,
+                "end": 136,
+                "quote": "zur nächsten Werkstatt"
+              }
+            ],
+            "rationaleDe": "Zur ist die Zusammenziehung von zu der; die anderen Wortgruppen haben eine andere Form oder Präposition."
+          },
+          {
+            "id": "sitov.pretest.a21-02.nominal.q4",
+            "competencyId": "sitov.pretest.a21-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Der Mechaniker findet ein ___ Loch«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.nominal.q4.c",
+                "textDe": "kleines"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q4.b",
+                "textDe": "kleinen"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q4.a",
+                "textDe": "kleinem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.nominal.q4.c",
+            "assessmentUnit": "kleines neutrales Adjektiv",
+            "equivalenceKey": "sitov:a21-02:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 167,
+                "end": 183,
+                "quote": "ein kleines Loch"
+              }
+            ],
+            "rationaleDe": "Loch ist neutral und steht hier im Akkusativ; nach ein trägt das Adjektiv die Endung es: kleines."
+          },
+          {
+            "id": "sitov.pretest.a21-02.nominal.q5",
+            "competencyId": "sitov.pretest.a21-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »___ Lehrer habe ich eine Nachricht geschickt«, wenn es der Lehrer des Sprechers ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.nominal.q5.b",
+                "textDe": "Meinen"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q5.a",
+                "textDe": "Meinem"
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q5.c",
+                "textDe": "Mein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.nominal.q5.a",
+            "assessmentUnit": "Meinem Lehrer Dativ",
+            "equivalenceKey": "sitov:a21-02:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 301,
+                "end": 314,
+                "quote": "Meinem Lehrer"
+              }
+            ],
+            "rationaleDe": "Der Empfänger steht hier im Dativ; beim maskulinen Lehrer lautet die Possessivform meinem."
+          },
+          {
+            "id": "sitov.pretest.a21-02.nominal.q6",
+            "competencyId": "sitov.pretest.a21-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Auf wen verweist »Er« in »Der Mechaniker hat ein Loch gefunden. Er konnte den Reifen reparieren«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-02.nominal.q6.c",
+                "textDe": "Auf das Loch."
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q6.a",
+                "textDe": "Auf das Fahrrad."
+              },
+              {
+                "id": "sitov.pretest.a21-02.nominal.q6.b",
+                "textDe": "Auf den Mechaniker."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-02.nominal.q6.b",
+            "assessmentUnit": "Er Mechaniker Bezug",
+            "equivalenceKey": "sitov:a21-02:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 148,
+                "end": 203,
+                "quote": "Der Mechaniker hat ein kleines Loch gefunden. Er konnte"
+              }
+            ],
+            "rationaleDe": "Er greift den männlichen Mechaniker wieder auf; Loch und Fahrrad sind neutrale Gegenstände."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a21-02.a",
+            "questionIds": [
+              "sitov.pretest.a21-02.words.q1",
+              "sitov.pretest.a21-02.words.q2",
+              "sitov.pretest.a21-02.words.q3",
+              "sitov.pretest.a21-02.verbs.q1",
+              "sitov.pretest.a21-02.verbs.q2",
+              "sitov.pretest.a21-02.verbs.q3",
+              "sitov.pretest.a21-02.syntax.q1",
+              "sitov.pretest.a21-02.syntax.q2",
+              "sitov.pretest.a21-02.syntax.q3",
+              "sitov.pretest.a21-02.nominal.q1",
+              "sitov.pretest.a21-02.nominal.q2",
+              "sitov.pretest.a21-02.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a21-02.b",
+            "questionIds": [
+              "sitov.pretest.a21-02.words.q4",
+              "sitov.pretest.a21-02.words.q5",
+              "sitov.pretest.a21-02.words.q6",
+              "sitov.pretest.a21-02.verbs.q4",
+              "sitov.pretest.a21-02.verbs.q5",
+              "sitov.pretest.a21-02.verbs.q6",
+              "sitov.pretest.a21-02.syntax.q4",
+              "sitov.pretest.a21-02.syntax.q5",
+              "sitov.pretest.a21-02.syntax.q6",
+              "sitov.pretest.a21-02.nominal.q4",
+              "sitov.pretest.a21-02.nominal.q5",
+              "sitov.pretest.a21-02.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "2c6b8ac4-28e2-556d-950e-9937d7da0da9",
+      "unitId": "2c6b8ac4-28e2-556d-950e-9937d7da0da9",
+      "level": "A2.1",
+      "textVersion": "d8ad8e2345fe88f61c26f94412f16d5827c23ba0e56eddb81b54add705534662",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, öffentlicher Prämissen, Vergangenheitsformen/Nebensätzen, eindeutiger Schlüssel und CSPRNG-ausgewogener Optionen. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "d8ad8e2345fe88f61c26f94412f16d5827c23ba0e56eddb81b54add705534662",
+        "definitionContentHash": "4d96fff912e14e5fdf845c0d316fcdfc9cdd0b97d14659b69e7277f3b637cb4d"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a21-03.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "Paket Versandstück",
+              "Paketbote Beruf",
+              "Zettel Papierstück",
+              "Bücher Singular",
+              "Dank Anerkennung",
+              "Wochenende übliche Tage"
+            ],
+            "sourceSpans": [
+              {
+                "start": 46,
+                "end": 51,
+                "quote": "Paket"
+              },
+              {
+                "start": 46,
+                "end": 55,
+                "quote": "Paketbote"
+              },
+              {
+                "start": 138,
+                "end": 150,
+                "quote": "einen Zettel"
+              },
+              {
+                "start": 271,
+                "end": 277,
+                "quote": "Bücher"
+              },
+              {
+                "start": 338,
+                "end": 346,
+                "quote": "Zum Dank"
+              },
+              {
+                "start": 359,
+                "end": 372,
+                "quote": "am Wochenende"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Paket Versandstück, Paketbote Beruf, Zettel Papierstück, Bücher Singular, Dank Anerkennung, Wochenende übliche Tage. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-03.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "kam Präteritum kommen",
+              "klingelte schwaches Präteritum",
+              "angenommen trennbares starkes Partizip",
+              "gehängt transitives Partizip",
+              "stand Präteritum stehen",
+              "eingeladen trennbares Partizip"
+            ],
+            "sourceSpans": [
+              {
+                "start": 16,
+                "end": 30,
+                "quote": "nach Hause kam"
+              },
+              {
+                "start": 32,
+                "end": 55,
+                "quote": "klingelte der Paketbote"
+              },
+              {
+                "start": 92,
+                "end": 118,
+                "quote": "habe sein Paket angenommen"
+              },
+              {
+                "start": 151,
+                "end": 171,
+                "quote": "an seine Tür gehängt"
+              },
+              {
+                "start": 173,
+                "end": 185,
+                "quote": "Darauf stand"
+              },
+              {
+                "start": 373,
+                "end": 394,
+                "quote": "zum Kaffee eingeladen"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: kam Präteritum kommen, klingelte schwaches Präteritum, angenommen trennbares starkes Partizip, gehängt transitives Partizip, stand Präteritum stehen, eingeladen trennbares Partizip. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-03.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "Als Nebensatz Verbfinal",
+              "Hauptsatz nach Nebensatz Inversion",
+              "Nachbarabwesenheit Sprecherhandlung",
+              "dass Modalverb am Ende",
+              "Eine Stunde später zeitliche Folge",
+              "für Sohn Zuordnung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Als ich gestern nach Hause kam"
+              },
+              {
+                "start": 0,
+                "end": 56,
+                "quote": "Als ich gestern nach Hause kam, klingelte der Paketbote."
+              },
+              {
+                "start": 57,
+                "end": 119,
+                "quote": "Mein Nachbar war nicht da, und ich habe sein Paket angenommen."
+              },
+              {
+                "start": 187,
+                "end": 216,
+                "quote": "dass er bei mir klingeln kann"
+              },
+              {
+                "start": 218,
+                "end": 251,
+                "quote": "Eine Stunde später kam er vorbei."
+              },
+              {
+                "start": 252,
+                "end": 294,
+                "quote": "In dem Paket waren Bücher für seinen Sohn."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Als Nebensatz Verbfinal, Hauptsatz nach Nebensatz Inversion, Nachbarabwesenheit Sprecherhandlung, dass Modalverb am Ende, Eine Stunde später zeitliche Folge, für Sohn Zuordnung. Die vorhandene A2.1-Registry belegt weil; das deckt die hier tatsächlichen anderen Konnektoren, Satzrollen und Zeitbeziehungen nicht genau ab. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-03.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "sein Paket Akkusativ neutral",
+              "einen Zettel Akkusativ",
+              "seine Tür Ziel Akkusativ",
+              "mir Dativ bei",
+              "seinen Sohn Akkusativ für",
+              "mich Akkusativ einladen"
+            ],
+            "sourceSpans": [
+              {
+                "start": 97,
+                "end": 118,
+                "quote": "sein Paket angenommen"
+              },
+              {
+                "start": 138,
+                "end": 150,
+                "quote": "einen Zettel"
+              },
+              {
+                "start": 151,
+                "end": 163,
+                "quote": "an seine Tür"
+              },
+              {
+                "start": 195,
+                "end": 211,
+                "quote": "bei mir klingeln"
+              },
+              {
+                "start": 278,
+                "end": 293,
+                "quote": "für seinen Sohn"
+              },
+              {
+                "start": 347,
+                "end": 358,
+                "quote": "hat er mich"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: sein Paket Akkusativ neutral, einen Zettel Akkusativ, seine Tür Ziel Akkusativ, mir Dativ bei, seinen Sohn Akkusativ für, mich Akkusativ einladen. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächlichen als-, dass- oder während-Konstruktionen sind keine Relativsätze; ihre belegten Funktionen werden in der Syntaxmatrix geprüft."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Keine zusätzliche produktive Steigerungsbildung wird für die Aussagen vorausgesetzt; lexikalische Reihenfolge- oder positive Eigenschaftswörter bleiben im tatsächlichen Kontext geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a21-03.words.q1",
+            "competencyId": "sitov.pretest.a21-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Paket« beim Postversand?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.words.q1.b",
+                "textDe": "Ein verpacktes Versandstück."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q1.c",
+                "textDe": "Ein fest eingebautes Türschloss."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q1.a",
+                "textDe": "Ein Fahrradreifen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.words.q1.b",
+            "assessmentUnit": "Paket Versandstück",
+            "equivalenceKey": "sitov:a21-03:words:1",
+            "sourceSpans": [
+              {
+                "start": 46,
+                "end": 51,
+                "quote": "Paket"
+              }
+            ],
+            "rationaleDe": "Paket bezeichnet ein verpacktes Versandstück; Reifen und Schloss haben andere Funktionen."
+          },
+          {
+            "id": "sitov.pretest.a21-03.words.q2",
+            "competencyId": "sitov.pretest.a21-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was macht ein »Paketbote«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.words.q2.b",
+                "textDe": "Er repariert ausschließlich Reifen."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q2.a",
+                "textDe": "Er liefert Pakete aus."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q2.c",
+                "textDe": "Er backt ausschließlich Brot."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.words.q2.a",
+            "assessmentUnit": "Paketbote Beruf",
+            "equivalenceKey": "sitov:a21-03:words:2",
+            "sourceSpans": [
+              {
+                "start": 46,
+                "end": 55,
+                "quote": "Paketbote"
+              }
+            ],
+            "rationaleDe": "Ein Paketbote stellt Pakete zu; Reparieren und Backen sind andere Tätigkeiten."
+          },
+          {
+            "id": "sitov.pretest.a21-03.words.q3",
+            "competencyId": "sitov.pretest.a21-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Zettel« für eine kurze Mitteilung?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.words.q3.c",
+                "textDe": "Ein Schienenfahrzeug."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q3.b",
+                "textDe": "Ein Wasserbecken."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q3.a",
+                "textDe": "Ein kleines Stück Papier."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.words.q3.a",
+            "assessmentUnit": "Zettel Papierstück",
+            "equivalenceKey": "sitov:a21-03:words:3",
+            "sourceSpans": [
+              {
+                "start": 138,
+                "end": 150,
+                "quote": "einen Zettel"
+              }
+            ],
+            "rationaleDe": "Ein Zettel ist ein Papierstück zum Notieren; Fahrzeug und Wasserbecken sind andere Dinge."
+          },
+          {
+            "id": "sitov.pretest.a21-03.words.q4",
+            "competencyId": "sitov.pretest.a21-03.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Einzahl gehört zum Wort »Bücher«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.words.q4.b",
+                "textDe": "die Buche"
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q4.a",
+                "textDe": "der Bauch"
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q4.c",
+                "textDe": "das Buch"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.words.q4.c",
+            "assessmentUnit": "Bücher Singular",
+            "equivalenceKey": "sitov:a21-03:words:4",
+            "sourceSpans": [
+              {
+                "start": 271,
+                "end": 277,
+                "quote": "Bücher"
+              }
+            ],
+            "rationaleDe": "Bücher ist die Mehrzahl von Buch; Bauch und Buche bezeichnen andere Begriffe."
+          },
+          {
+            "id": "sitov.pretest.a21-03.words.q5",
+            "competencyId": "sitov.pretest.a21-03.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »zum Dank« in »Zum Dank lädt er mich ein«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.words.q5.c",
+                "textDe": "Als Name eines Wochentags."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q5.b",
+                "textDe": "Als Ausdruck seiner Dankbarkeit."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q5.a",
+                "textDe": "Als ausdrückliche Bestrafung."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.words.q5.b",
+            "assessmentUnit": "Dank Anerkennung",
+            "equivalenceKey": "sitov:a21-03:words:5",
+            "sourceSpans": [
+              {
+                "start": 338,
+                "end": 346,
+                "quote": "Zum Dank"
+              }
+            ],
+            "rationaleDe": "Zum Dank bezeichnet den Ausdruck von Dankbarkeit, nicht Strafe oder einen Wochentag."
+          },
+          {
+            "id": "sitov.pretest.a21-03.words.q6",
+            "competencyId": "sitov.pretest.a21-03.words",
+            "kind": "single_choice",
+            "promptDe": "Welche Tage gehören üblicherweise zum Wochenende?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.words.q6.c",
+                "textDe": "Samstag und Sonntag."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q6.a",
+                "textDe": "Mittwoch und Donnerstag."
+              },
+              {
+                "id": "sitov.pretest.a21-03.words.q6.b",
+                "textDe": "Montag und Dienstag."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.words.q6.c",
+            "assessmentUnit": "Wochenende übliche Tage",
+            "equivalenceKey": "sitov:a21-03:words:6",
+            "sourceSpans": [
+              {
+                "start": 359,
+                "end": 372,
+                "quote": "am Wochenende"
+              }
+            ],
+            "rationaleDe": "Das übliche Wochenende umfasst Samstag und Sonntag; die anderen Paare sind gewöhnliche Werktage."
+          },
+          {
+            "id": "sitov.pretest.a21-03.verbs.q1",
+            "competencyId": "sitov.pretest.a21-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »kam« in »Ich kam nach Hause«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.verbs.q1.b",
+                "textDe": "kämmen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q1.c",
+                "textDe": "kommen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q1.a",
+                "textDe": "kaufen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.verbs.q1.c",
+            "assessmentUnit": "kam Präteritum kommen",
+            "equivalenceKey": "sitov:a21-03:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 16,
+                "end": 30,
+                "quote": "nach Hause kam"
+              }
+            ],
+            "rationaleDe": "Kam ist das Präteritum von kommen; kämmen und kaufen sind andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a21-03.verbs.q2",
+            "competencyId": "sitov.pretest.a21-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform entspricht »Der Paketbote klingelte«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.verbs.q2.c",
+                "textDe": "Der Paketbote klingeln."
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q2.a",
+                "textDe": "Der Paketbote geklingelt."
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q2.b",
+                "textDe": "Der Paketbote klingelt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.verbs.q2.b",
+            "assessmentUnit": "klingelte schwaches Präteritum",
+            "equivalenceKey": "sitov:a21-03:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 32,
+                "end": 55,
+                "quote": "klingelte der Paketbote"
+              }
+            ],
+            "rationaleDe": "Die dritte Person Singular im Präsens lautet klingelt; Infinitiv und Partizip sind hier keine passende finite Form."
+          },
+          {
+            "id": "sitov.pretest.a21-03.verbs.q3",
+            "competencyId": "sitov.pretest.a21-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welches Partizip ergänzt »Ich habe sein Paket ___« zu annehmen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.verbs.q3.c",
+                "textDe": "annehmen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q3.a",
+                "textDe": "angenommen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q3.b",
+                "textDe": "angenehmt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.verbs.q3.a",
+            "assessmentUnit": "angenommen trennbares starkes Partizip",
+            "equivalenceKey": "sitov:a21-03:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 92,
+                "end": 118,
+                "quote": "habe sein Paket angenommen"
+              }
+            ],
+            "rationaleDe": "Annehmen bildet das starke trennbare Partizip angenommen; angenehmt ist falsch und annehmen Infinitiv."
+          },
+          {
+            "id": "sitov.pretest.a21-03.verbs.q4",
+            "competencyId": "sitov.pretest.a21-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe einen Zettel an die Tür ___« zu hängen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.verbs.q4.a",
+                "textDe": "gehängt"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q4.b",
+                "textDe": "hängte"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q4.c",
+                "textDe": "gehangen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.verbs.q4.a",
+            "assessmentUnit": "gehängt transitives Partizip",
+            "equivalenceKey": "sitov:a21-03:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 151,
+                "end": 171,
+                "quote": "an seine Tür gehängt"
+              }
+            ],
+            "rationaleDe": "Beim aktiven Aufhängen eines Gegenstands lautet das Partizip gehängt; gehangen beschreibt das intransitive Hängen."
+          },
+          {
+            "id": "sitov.pretest.a21-03.verbs.q5",
+            "competencyId": "sitov.pretest.a21-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »stand« in »Auf dem Zettel stand eine Nachricht«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.verbs.q5.c",
+                "textDe": "sitzen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q5.a",
+                "textDe": "stellen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q5.b",
+                "textDe": "stehen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.verbs.q5.b",
+            "assessmentUnit": "stand Präteritum stehen",
+            "equivalenceKey": "sitov:a21-03:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 173,
+                "end": 185,
+                "quote": "Darauf stand"
+              }
+            ],
+            "rationaleDe": "Stand ist die Vergangenheitsform von stehen; stellen und sitzen haben andere Präteritumformen."
+          },
+          {
+            "id": "sitov.pretest.a21-03.verbs.q6",
+            "competencyId": "sitov.pretest.a21-03.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Er hat mich zum Kaffee ___« zu einladen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.verbs.q6.c",
+                "textDe": "eingeladen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q6.a",
+                "textDe": "einladet"
+              },
+              {
+                "id": "sitov.pretest.a21-03.verbs.q6.b",
+                "textDe": "geeinladen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.verbs.q6.c",
+            "assessmentUnit": "eingeladen trennbares Partizip",
+            "equivalenceKey": "sitov:a21-03:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 373,
+                "end": 394,
+                "quote": "zum Kaffee eingeladen"
+              }
+            ],
+            "rationaleDe": "Einladen bildet das trennbare starke Partizip eingeladen; die anderen angebotenen Formen passen nicht zum Perfekt."
+          },
+          {
+            "id": "sitov.pretest.a21-03.syntax.q1",
+            "competencyId": "sitov.pretest.a21-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ist korrekt: »Als …, klingelte der Paketbote«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.syntax.q1.b",
+                "textDe": "ich gestern nach Hause kam"
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q1.c",
+                "textDe": "kam ich gestern nach Hause"
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q1.a",
+                "textDe": "ich kam gestern nach Hause"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.syntax.q1.b",
+            "assessmentUnit": "Als Nebensatz Verbfinal",
+            "equivalenceKey": "sitov:a21-03:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 30,
+                "quote": "Als ich gestern nach Hause kam"
+              }
+            ],
+            "rationaleDe": "Im vorangestellten als-Nebensatz steht das finite Verb kam am Ende."
+          },
+          {
+            "id": "sitov.pretest.a21-03.syntax.q2",
+            "competencyId": "sitov.pretest.a21-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Fortsetzung ist korrekt: »Als ich nach Hause kam, …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.syntax.q2.b",
+                "textDe": "der Paketbote geklingelt."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q2.a",
+                "textDe": "klingelte der Paketbote."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q2.c",
+                "textDe": "der Paketbote klingelte."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.syntax.q2.a",
+            "assessmentUnit": "Hauptsatz nach Nebensatz Inversion",
+            "equivalenceKey": "sitov:a21-03:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 56,
+                "quote": "Als ich gestern nach Hause kam, klingelte der Paketbote."
+              }
+            ],
+            "rationaleDe": "Nach dem vorangestellten Nebensatz beginnt der Hauptsatz mit dem finiten Verb klingelte vor dem Subjekt."
+          },
+          {
+            "id": "sitov.pretest.a21-03.syntax.q3",
+            "competencyId": "sitov.pretest.a21-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer nimmt laut »Mein Nachbar war nicht da, und ich habe sein Paket angenommen« das Paket an?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.syntax.q3.a",
+                "textDe": "Der ausdrücklich abwesende Nachbar wird als Annehmender genannt."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q3.b",
+                "textDe": "Der Sprecher."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q3.c",
+                "textDe": "Die Tür selbst."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.syntax.q3.b",
+            "assessmentUnit": "Nachbarabwesenheit Sprecherhandlung",
+            "equivalenceKey": "sitov:a21-03:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 57,
+                "end": 119,
+                "quote": "Mein Nachbar war nicht da, und ich habe sein Paket angenommen."
+              }
+            ],
+            "rationaleDe": "Ich bezeichnet den annehmenden Sprecher; der Nachbar ist ausdrücklich abwesend und die Tür keine Person."
+          },
+          {
+            "id": "sitov.pretest.a21-03.syntax.q4",
+            "competencyId": "sitov.pretest.a21-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Fortsetzung ist korrekt: »Auf dem Zettel stand, dass …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.syntax.q4.b",
+                "textDe": "er kann bei mir klingeln."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q4.a",
+                "textDe": "kann er bei mir klingeln."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q4.c",
+                "textDe": "er bei mir klingeln kann."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.syntax.q4.c",
+            "assessmentUnit": "dass Modalverb am Ende",
+            "equivalenceKey": "sitov:a21-03:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 187,
+                "end": 216,
+                "quote": "dass er bei mir klingeln kann"
+              }
+            ],
+            "rationaleDe": "Im dass-Nebensatz steht das finite Modalverb kann nach dem Infinitiv klingeln am Ende."
+          },
+          {
+            "id": "sitov.pretest.a21-03.syntax.q5",
+            "competencyId": "sitov.pretest.a21-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Eine Stunde später kam er vorbei«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.syntax.q5.b",
+                "textDe": "Der Satz nennt genau ein Jahr Abstand."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q5.c",
+                "textDe": "Sein Kommen liegt eine Stunde davor."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q5.a",
+                "textDe": "Sein Kommen folgt nach einer Stunde."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.syntax.q5.a",
+            "assessmentUnit": "Eine Stunde später zeitliche Folge",
+            "equivalenceKey": "sitov:a21-03:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 218,
+                "end": 251,
+                "quote": "Eine Stunde später kam er vorbei."
+              }
+            ],
+            "rationaleDe": "Später legt das Kommen zeitlich nach den Bezugspunkt; die genannte Dauer ist eine Stunde."
+          },
+          {
+            "id": "sitov.pretest.a21-03.syntax.q6",
+            "competencyId": "sitov.pretest.a21-03.syntax",
+            "kind": "single_choice",
+            "promptDe": "Für wen sind laut »In dem Paket waren Bücher für seinen Sohn« die Bücher bestimmt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.syntax.q6.c",
+                "textDe": "Für den Sohn."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q6.b",
+                "textDe": "Für den Paketboten wird ausdrücklich gesagt."
+              },
+              {
+                "id": "sitov.pretest.a21-03.syntax.q6.a",
+                "textDe": "Für den Küchentisch."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.syntax.q6.c",
+            "assessmentUnit": "für Sohn Zuordnung",
+            "equivalenceKey": "sitov:a21-03:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 252,
+                "end": 294,
+                "quote": "In dem Paket waren Bücher für seinen Sohn."
+              }
+            ],
+            "rationaleDe": "Für seinen Sohn nennt die bestimmte Empfängerperson; Paketbote und Küchentisch werden nicht so zugeordnet."
+          },
+          {
+            "id": "sitov.pretest.a21-03.nominal.q1",
+            "competencyId": "sitov.pretest.a21-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe ___ Paket angenommen«, wenn es das Paket des Nachbarn ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.nominal.q1.a",
+                "textDe": "seinen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q1.b",
+                "textDe": "sein"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q1.c",
+                "textDe": "seinem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.nominal.q1.b",
+            "assessmentUnit": "sein Paket Akkusativ neutral",
+            "equivalenceKey": "sitov:a21-03:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 97,
+                "end": 118,
+                "quote": "sein Paket angenommen"
+              }
+            ],
+            "rationaleDe": "Paket ist neutral und steht hier im Akkusativ; die passende Possessivform ist sein."
+          },
+          {
+            "id": "sitov.pretest.a21-03.nominal.q2",
+            "competencyId": "sitov.pretest.a21-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe ___ Zettel aufgehängt«, wenn genau ein Zettel gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.nominal.q2.b",
+                "textDe": "einen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q2.c",
+                "textDe": "ein"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q2.a",
+                "textDe": "einem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.nominal.q2.b",
+            "assessmentUnit": "einen Zettel Akkusativ",
+            "equivalenceKey": "sitov:a21-03:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 138,
+                "end": 150,
+                "quote": "einen Zettel"
+              }
+            ],
+            "rationaleDe": "Zettel ist maskulin und steht als Akkusativobjekt; der unbestimmte Artikel lautet einen."
+          },
+          {
+            "id": "sitov.pretest.a21-03.nominal.q3",
+            "competencyId": "sitov.pretest.a21-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich hänge den Zettel an ___ Tür«, wenn es die Tür des Nachbarn ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.nominal.q3.c",
+                "textDe": "seine"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q3.b",
+                "textDe": "seiner"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q3.a",
+                "textDe": "seinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.nominal.q3.c",
+            "assessmentUnit": "seine Tür Ziel Akkusativ",
+            "equivalenceKey": "sitov:a21-03:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 151,
+                "end": 163,
+                "quote": "an seine Tür"
+              }
+            ],
+            "rationaleDe": "Die Zielrichtung wird hier mit an und Akkusativ bezeichnet; zur femininen Tür gehört seine."
+          },
+          {
+            "id": "sitov.pretest.a21-03.nominal.q4",
+            "competencyId": "sitov.pretest.a21-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Er kann bei ___ klingeln«, wenn der Sprecher gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.nominal.q4.c",
+                "textDe": "mich"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q4.b",
+                "textDe": "ich"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q4.a",
+                "textDe": "mir"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.nominal.q4.a",
+            "assessmentUnit": "mir Dativ bei",
+            "equivalenceKey": "sitov:a21-03:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 195,
+                "end": 211,
+                "quote": "bei mir klingeln"
+              }
+            ],
+            "rationaleDe": "Bei verlangt Dativ; mir ist die passende Personalpronomenform der ersten Person Singular."
+          },
+          {
+            "id": "sitov.pretest.a21-03.nominal.q5",
+            "competencyId": "sitov.pretest.a21-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Bücher für ___ Sohn«, wenn es der Sohn des Nachbarn ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.nominal.q5.c",
+                "textDe": "sein"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q5.a",
+                "textDe": "seinen"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q5.b",
+                "textDe": "seinem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.nominal.q5.a",
+            "assessmentUnit": "seinen Sohn Akkusativ für",
+            "equivalenceKey": "sitov:a21-03:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 278,
+                "end": 293,
+                "quote": "für seinen Sohn"
+              }
+            ],
+            "rationaleDe": "Für verlangt Akkusativ; beim maskulinen Sohn lautet die Possessivform seinen."
+          },
+          {
+            "id": "sitov.pretest.a21-03.nominal.q6",
+            "competencyId": "sitov.pretest.a21-03.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Der Nachbar hat ___ eingeladen«, wenn er den Sprecher eingeladen hat?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-03.nominal.q6.b",
+                "textDe": "ich"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q6.a",
+                "textDe": "mir"
+              },
+              {
+                "id": "sitov.pretest.a21-03.nominal.q6.c",
+                "textDe": "mich"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-03.nominal.q6.c",
+            "assessmentUnit": "mich Akkusativ einladen",
+            "equivalenceKey": "sitov:a21-03:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 347,
+                "end": 358,
+                "quote": "hat er mich"
+              }
+            ],
+            "rationaleDe": "Die eingeladene Person steht bei einladen im Akkusativ; mich ist die passende Form."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a21-03.a",
+            "questionIds": [
+              "sitov.pretest.a21-03.words.q1",
+              "sitov.pretest.a21-03.words.q2",
+              "sitov.pretest.a21-03.words.q3",
+              "sitov.pretest.a21-03.verbs.q1",
+              "sitov.pretest.a21-03.verbs.q2",
+              "sitov.pretest.a21-03.verbs.q3",
+              "sitov.pretest.a21-03.syntax.q1",
+              "sitov.pretest.a21-03.syntax.q2",
+              "sitov.pretest.a21-03.syntax.q3",
+              "sitov.pretest.a21-03.nominal.q1",
+              "sitov.pretest.a21-03.nominal.q2",
+              "sitov.pretest.a21-03.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a21-03.b",
+            "questionIds": [
+              "sitov.pretest.a21-03.words.q4",
+              "sitov.pretest.a21-03.words.q5",
+              "sitov.pretest.a21-03.words.q6",
+              "sitov.pretest.a21-03.verbs.q4",
+              "sitov.pretest.a21-03.verbs.q5",
+              "sitov.pretest.a21-03.verbs.q6",
+              "sitov.pretest.a21-03.syntax.q4",
+              "sitov.pretest.a21-03.syntax.q5",
+              "sitov.pretest.a21-03.syntax.q6",
+              "sitov.pretest.a21-03.nominal.q4",
+              "sitov.pretest.a21-03.nominal.q5",
+              "sitov.pretest.a21-03.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "5ec73679-e979-5ef6-bbac-8d14af8d2651",
+      "unitId": "5ec73679-e979-5ef6-bbac-8d14af8d2651",
+      "level": "A2.1",
+      "textVersion": "0b85edef3e946ae27051f9341de774afa934dbcfdb8fc19f74cffe876b547fa8",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.1-Quelle, öffentlicher Prämissen, Vergangenheitsformen/Nebensätzen, eindeutiger Schlüssel und CSPRNG-ausgewogener Optionen. Neue unabhängige M-Prüfung und menschliche Kalibrierung ausstehend; keine Audio-/Publikationsfreigabe.",
+        "textVersion": "0b85edef3e946ae27051f9341de774afa934dbcfdb8fc19f74cffe876b547fa8",
+        "definitionContentHash": "249d1ffb53ba4e3d0aa944bfb907655159c563c8fe051475d35c601a8e493bc0"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a21-04.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "Rezept Kochanleitung",
+              "Zutaten Bestandteile",
+              "Teig Backmasse",
+              "Ofen Gerät",
+              "Erfahrung praktisches Wissen",
+              "dunkel Farbe"
+            ],
+            "sourceSpans": [
+              {
+                "start": 44,
+                "end": 50,
+                "quote": "Rezept"
+              },
+              {
+                "start": 141,
+                "end": 152,
+                "quote": "die Zutaten"
+              },
+              {
+                "start": 204,
+                "end": 212,
+                "quote": "den Teig"
+              },
+              {
+                "start": 245,
+                "end": 252,
+                "quote": "im Ofen"
+              },
+              {
+                "start": 108,
+                "end": 123,
+                "quote": "wenig Erfahrung"
+              },
+              {
+                "start": 361,
+                "end": 373,
+                "quote": "etwas dunkel"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Rezept Kochanleitung, Zutaten Bestandteile, Teig Backmasse, Ofen Gerät, Erfahrung praktisches Wissen, dunkel Farbe. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-04.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "erklärt Partizip ohne ge",
+              "wollte Präteritum wollen",
+              "hatte Grundform haben",
+              "aufgeschrieben trennbares Partizip",
+              "vorbereitet Partizip",
+              "roch Präteritum riechen"
+            ],
+            "sourceSpans": [
+              {
+                "start": 44,
+                "end": 58,
+                "quote": "Rezept erklärt"
+              },
+              {
+                "start": 60,
+                "end": 70,
+                "quote": "Ich wollte"
+              },
+              {
+                "start": 97,
+                "end": 123,
+                "quote": "hatte aber wenig Erfahrung"
+              },
+              {
+                "start": 141,
+                "end": 167,
+                "quote": "die Zutaten aufgeschrieben"
+              },
+              {
+                "start": 204,
+                "end": 224,
+                "quote": "den Teig vorbereitet"
+              },
+              {
+                "start": 310,
+                "end": 332,
+                "quote": "roch die ganze Wohnung"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: erklärt Partizip ohne ge, wollte Präteritum wollen, hatte Grundform haben, aufgeschrieben trennbares Partizip, vorbereitet Partizip, roch Präteritum riechen. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-04.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "Zuerst Dann Reihenfolge",
+              "Während Nebensatz Verbfinal",
+              "Während Gleichzeitigkeit",
+              "Nach vierzig Minuten Dauer",
+              "aber Farbe Geschmack Kontrast",
+              "Empfänger vorangestellt Sender"
+            ],
+            "sourceSpans": [
+              {
+                "start": 125,
+                "end": 225,
+                "quote": "Zuerst habe ich die Zutaten aufgeschrieben und alles eingekauft. Dann habe ich den Teig vorbereitet."
+              },
+              {
+                "start": 226,
+                "end": 256,
+                "quote": "Während der Kuchen im Ofen war"
+              },
+              {
+                "start": 226,
+                "end": 288,
+                "quote": "Während der Kuchen im Ofen war, habe ich die Küche aufgeräumt."
+              },
+              {
+                "start": 289,
+                "end": 309,
+                "quote": "Nach vierzig Minuten"
+              },
+              {
+                "start": 346,
+                "end": 399,
+                "quote": "Der Kuchen war etwas dunkel, hat aber gut geschmeckt."
+              },
+              {
+                "start": 400,
+                "end": 441,
+                "quote": "Meinem Vater habe ich ein Foto geschickt."
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Zuerst Dann Reihenfolge, Während Nebensatz Verbfinal, Während Gleichzeitigkeit, Nach vierzig Minuten Dauer, aber Farbe Geschmack Kontrast, Empfänger vorangestellt Sender. Die vorhandene A2.1-Registry belegt weil; das deckt die hier tatsächlichen anderen Konnektoren, Satzrollen und Zeitbeziehungen nicht genau ab. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          },
+          {
+            "id": "sitov.pretest.a21-04.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächliche Quellteilfertigkeiten werden mit eigenen Matrixeinheiten geprüft; Vergangenheitsmorphologie und Satzbau werden anhand ihres konkreten Textgebrauchs unterschieden.",
+            "languageUnits": [
+              "Meinem Vater Dativ",
+              "einfaches neutrales Adjektiv",
+              "einen Apfelkuchen Akkusativ",
+              "wenig Erfahrung Mengenwort",
+              "die Küche Akkusativ feminin",
+              "ein Foto Akkusativ neutral"
+            ],
+            "sourceSpans": [
+              {
+                "start": 400,
+                "end": 412,
+                "quote": "Meinem Vater"
+              },
+              {
+                "start": 30,
+                "end": 50,
+                "quote": "ein einfaches Rezept"
+              },
+              {
+                "start": 71,
+                "end": 88,
+                "quote": "einen Apfelkuchen"
+              },
+              {
+                "start": 108,
+                "end": 123,
+                "quote": "wenig Erfahrung"
+              },
+              {
+                "start": 267,
+                "end": 287,
+                "quote": "die Küche aufgeräumt"
+              },
+              {
+                "start": 422,
+                "end": 440,
+                "quote": "ein Foto geschickt"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Meinem Vater Dativ, einfaches neutrales Adjektiv, einen Apfelkuchen Akkusativ, wenig Erfahrung Mengenwort, die Küche Akkusativ feminin, ein Foto Akkusativ neutral. Keine stufenfremden Ersatz- oder erfundenen Lernziele; spätere Ziele brauchen eigenen aktuellen Zugriff."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächlichen als-, dass- oder während-Konstruktionen sind keine Relativsätze; ihre belegten Funktionen werden in der Syntaxmatrix geprüft."
+          },
+          {
+            "category": "comparatives",
+            "reasonDe": "Keine zusätzliche produktive Steigerungsbildung wird für die Aussagen vorausgesetzt; lexikalische Reihenfolge- oder positive Eigenschaftswörter bleiben im tatsächlichen Kontext geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a21-04.words.q1",
+            "competencyId": "sitov.pretest.a21-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein »Rezept« zum Kuchenbacken?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.words.q1.b",
+                "textDe": "Eine Anleitung mit Zutaten und Zubereitung."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q1.c",
+                "textDe": "Eine Zuganzeige."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q1.a",
+                "textDe": "Ein Fahrradschloss."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.words.q1.b",
+            "assessmentUnit": "Rezept Kochanleitung",
+            "equivalenceKey": "sitov:a21-04:words:1",
+            "sourceSpans": [
+              {
+                "start": 44,
+                "end": 50,
+                "quote": "Rezept"
+              }
+            ],
+            "rationaleDe": "Ein Backrezept beschreibt Zutaten und Zubereitung; Schloss und Zuganzeige gehören nicht dazu."
+          },
+          {
+            "id": "sitov.pretest.a21-04.words.q2",
+            "competencyId": "sitov.pretest.a21-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind »Zutaten« für einen Kuchen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.words.q2.c",
+                "textDe": "Die Reifen eines Fahrrads."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q2.a",
+                "textDe": "Die Lebensmittel, aus denen der Kuchen gemacht wird."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q2.b",
+                "textDe": "Die Uhrzeiten eines Deutschkurses."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.words.q2.a",
+            "assessmentUnit": "Zutaten Bestandteile",
+            "equivalenceKey": "sitov:a21-04:words:2",
+            "sourceSpans": [
+              {
+                "start": 141,
+                "end": 152,
+                "quote": "die Zutaten"
+              }
+            ],
+            "rationaleDe": "Zutaten sind die benötigten Lebensmittel; Kurszeiten und Fahrradreifen sind keine Kuchenbestandteile."
+          },
+          {
+            "id": "sitov.pretest.a21-04.words.q3",
+            "competencyId": "sitov.pretest.a21-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was bezeichnet »Teig« beim Backen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.words.q3.a",
+                "textDe": "Die Außenwand der Wohnung."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q3.c",
+                "textDe": "Eine fertig gedruckte Fahrkarte."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q3.b",
+                "textDe": "Die vorbereitete Masse, aus der das Gebäck entsteht."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.words.q3.b",
+            "assessmentUnit": "Teig Backmasse",
+            "equivalenceKey": "sitov:a21-04:words:3",
+            "sourceSpans": [
+              {
+                "start": 204,
+                "end": 212,
+                "quote": "den Teig"
+              }
+            ],
+            "rationaleDe": "Teig ist die vorbereitete Backmasse; Wohnungswand und Fahrkarte sind andere Gegenstände."
+          },
+          {
+            "id": "sitov.pretest.a21-04.words.q4",
+            "competencyId": "sitov.pretest.a21-04.words",
+            "kind": "single_choice",
+            "promptDe": "Wozu dient ein »Ofen« beim Kuchenbacken?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.words.q4.b",
+                "textDe": "Zum Telefonieren."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q4.a",
+                "textDe": "Zum Erhitzen und Backen des Kuchens."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q4.c",
+                "textDe": "Zum Zustellen von Paketen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.words.q4.a",
+            "assessmentUnit": "Ofen Gerät",
+            "equivalenceKey": "sitov:a21-04:words:4",
+            "sourceSpans": [
+              {
+                "start": 245,
+                "end": 252,
+                "quote": "im Ofen"
+              }
+            ],
+            "rationaleDe": "Ein Backofen erhitzt das Backgut; Telefonieren und Paketzustellung sind andere Tätigkeiten."
+          },
+          {
+            "id": "sitov.pretest.a21-04.words.q5",
+            "competencyId": "sitov.pretest.a21-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »wenig Erfahrung« beim Kuchenbacken?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.words.q5.c",
+                "textDe": "Man hat bisher wenig praktische Übung darin."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q5.b",
+                "textDe": "Man hat ausdrücklich schon sehr viel Übung darin."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q5.a",
+                "textDe": "Man besitzt genau vierzig Backöfen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.words.q5.c",
+            "assessmentUnit": "Erfahrung praktisches Wissen",
+            "equivalenceKey": "sitov:a21-04:words:5",
+            "sourceSpans": [
+              {
+                "start": 108,
+                "end": 123,
+                "quote": "wenig Erfahrung"
+              }
+            ],
+            "rationaleDe": "Wenig Erfahrung bezeichnet geringe bisherige Übung oder Kenntnis; große Übung oder Ofenzahl ist etwas anderes."
+          },
+          {
+            "id": "sitov.pretest.a21-04.words.q6",
+            "competencyId": "sitov.pretest.a21-04.words",
+            "kind": "single_choice",
+            "promptDe": "Was beschreibt »dunkel« in »Der Kuchen war etwas dunkel«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.words.q6.a",
+                "textDe": "Die Lautstärke eines Telefons."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q6.b",
+                "textDe": "Die Anzahl von Rezepten."
+              },
+              {
+                "id": "sitov.pretest.a21-04.words.q6.c",
+                "textDe": "Die dunkle Farbe des Kuchens."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.words.q6.c",
+            "assessmentUnit": "dunkel Farbe",
+            "equivalenceKey": "sitov:a21-04:words:6",
+            "sourceSpans": [
+              {
+                "start": 361,
+                "end": 373,
+                "quote": "etwas dunkel"
+              }
+            ],
+            "rationaleDe": "Dunkel beschreibt hier die Farbe, nicht Lautstärke oder Anzahl; verbrannt wird damit nicht zwingend behauptet."
+          },
+          {
+            "id": "sitov.pretest.a21-04.verbs.q1",
+            "competencyId": "sitov.pretest.a21-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Mein Vater hat das Rezept ___« zu erklären?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.verbs.q1.c",
+                "textDe": "erklären"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q1.a",
+                "textDe": "geerklärt"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q1.b",
+                "textDe": "erklärt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.verbs.q1.b",
+            "assessmentUnit": "erklärt Partizip ohne ge",
+            "equivalenceKey": "sitov:a21-04:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 44,
+                "end": 58,
+                "quote": "Rezept erklärt"
+              }
+            ],
+            "rationaleDe": "Das Verb erklären bildet das Partizip ohne zusätzliches ge: erklärt; geerklärt ist falsch."
+          },
+          {
+            "id": "sitov.pretest.a21-04.verbs.q2",
+            "competencyId": "sitov.pretest.a21-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Was drückt »wollte« in »Ich wollte einen Apfelkuchen backen« aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.verbs.q2.c",
+                "textDe": "Eine Absicht oder einen Wunsch in der Vergangenheit."
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q2.b",
+                "textDe": "Ein ausdrückliches Backverbot."
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q2.a",
+                "textDe": "Eine Zeitangabe für nächstes Jahr."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.verbs.q2.c",
+            "assessmentUnit": "wollte Präteritum wollen",
+            "equivalenceKey": "sitov:a21-04:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 60,
+                "end": 70,
+                "quote": "Ich wollte"
+              }
+            ],
+            "rationaleDe": "Wollte ist das Präteritum von wollen und bezeichnet hier eine vergangene Absicht."
+          },
+          {
+            "id": "sitov.pretest.a21-04.verbs.q3",
+            "competencyId": "sitov.pretest.a21-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »hatte« in »Ich hatte wenig Erfahrung«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.verbs.q3.b",
+                "textDe": "haben"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q3.a",
+                "textDe": "halten"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q3.c",
+                "textDe": "hängen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.verbs.q3.b",
+            "assessmentUnit": "hatte Grundform haben",
+            "equivalenceKey": "sitov:a21-04:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 97,
+                "end": 123,
+                "quote": "hatte aber wenig Erfahrung"
+              }
+            ],
+            "rationaleDe": "Hatte ist die Vergangenheitsform von haben; halten und hängen sind andere Verben."
+          },
+          {
+            "id": "sitov.pretest.a21-04.verbs.q4",
+            "competencyId": "sitov.pretest.a21-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe die Zutaten ___« zu aufschreiben?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.verbs.q4.b",
+                "textDe": "geaufschrieben"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q4.c",
+                "textDe": "aufgeschrieben"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q4.a",
+                "textDe": "aufschreibte"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.verbs.q4.c",
+            "assessmentUnit": "aufgeschrieben trennbares Partizip",
+            "equivalenceKey": "sitov:a21-04:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 141,
+                "end": 167,
+                "quote": "die Zutaten aufgeschrieben"
+              }
+            ],
+            "rationaleDe": "Das trennbare starke Verb aufschreiben bildet das Partizip aufgeschrieben."
+          },
+          {
+            "id": "sitov.pretest.a21-04.verbs.q5",
+            "competencyId": "sitov.pretest.a21-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe den Teig ___« zu vorbereiten?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.verbs.q5.c",
+                "textDe": "vorgebereitet"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q5.b",
+                "textDe": "vorbereiten"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q5.a",
+                "textDe": "vorbereitet"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.verbs.q5.a",
+            "assessmentUnit": "vorbereitet Partizip",
+            "equivalenceKey": "sitov:a21-04:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 204,
+                "end": 224,
+                "quote": "den Teig vorbereitet"
+              }
+            ],
+            "rationaleDe": "Das Partizip von vorbereiten lautet vorbereitet; zusätzliches ge in vorgebereitet ist hier falsch."
+          },
+          {
+            "id": "sitov.pretest.a21-04.verbs.q6",
+            "competencyId": "sitov.pretest.a21-04.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Grundform gehört zu »roch« in »Die Wohnung roch nach Äpfeln«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.verbs.q6.c",
+                "textDe": "rauchen"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q6.a",
+                "textDe": "riechen"
+              },
+              {
+                "id": "sitov.pretest.a21-04.verbs.q6.b",
+                "textDe": "reichen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.verbs.q6.a",
+            "assessmentUnit": "roch Präteritum riechen",
+            "equivalenceKey": "sitov:a21-04:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 310,
+                "end": 332,
+                "quote": "roch die ganze Wohnung"
+              }
+            ],
+            "rationaleDe": "Roch ist das starke Präteritum von riechen; rauchen und reichen haben andere Bedeutungen und Formen."
+          },
+          {
+            "id": "sitov.pretest.a21-04.syntax.q1",
+            "competencyId": "sitov.pretest.a21-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was kommt laut »Zuerst schreibe ich die Zutaten auf. Dann bereite ich den Teig vor« zuerst?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.syntax.q1.b",
+                "textDe": "Beide Handlungen beginnen ausdrücklich gleichzeitig."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q1.a",
+                "textDe": "Das Aufschreiben der Zutaten."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q1.c",
+                "textDe": "Das Vorbereiten des Teigs."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.syntax.q1.a",
+            "assessmentUnit": "Zuerst Dann Reihenfolge",
+            "equivalenceKey": "sitov:a21-04:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 125,
+                "end": 225,
+                "quote": "Zuerst habe ich die Zutaten aufgeschrieben und alles eingekauft. Dann habe ich den Teig vorbereitet."
+              }
+            ],
+            "rationaleDe": "Zuerst ordnet das Aufschreiben vor die mit dann genannte Teigvorbereitung."
+          },
+          {
+            "id": "sitov.pretest.a21-04.syntax.q2",
+            "competencyId": "sitov.pretest.a21-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ist korrekt: »Während …, räumte ich die Küche auf«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.syntax.q2.c",
+                "textDe": "der Kuchen im Ofen war"
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q2.a",
+                "textDe": "der Kuchen war im Ofen"
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q2.b",
+                "textDe": "war der Kuchen im Ofen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.syntax.q2.c",
+            "assessmentUnit": "Während Nebensatz Verbfinal",
+            "equivalenceKey": "sitov:a21-04:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 226,
+                "end": 256,
+                "quote": "Während der Kuchen im Ofen war"
+              }
+            ],
+            "rationaleDe": "Im während-Nebensatz steht das finite Verb war am Ende."
+          },
+          {
+            "id": "sitov.pretest.a21-04.syntax.q3",
+            "competencyId": "sitov.pretest.a21-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche zeitliche Beziehung nennt »Während der Kuchen im Ofen war, habe ich die Küche aufgeräumt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.syntax.q3.c",
+                "textDe": "Der Kuchen war ausdrücklich nie im Ofen."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q3.a",
+                "textDe": "Das Aufräumen beginnt ausdrücklich erst ein Jahr später."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q3.b",
+                "textDe": "Das Aufräumen geschieht in der Zeit, in der der Kuchen im Ofen ist."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.syntax.q3.b",
+            "assessmentUnit": "Während Gleichzeitigkeit",
+            "equivalenceKey": "sitov:a21-04:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 226,
+                "end": 288,
+                "quote": "Während der Kuchen im Ofen war, habe ich die Küche aufgeräumt."
+              }
+            ],
+            "rationaleDe": "Während stellt hier zeitliche Überschneidung her; spätes Folgejahr oder Verneinung des Backens wird nicht genannt."
+          },
+          {
+            "id": "sitov.pretest.a21-04.syntax.q4",
+            "competencyId": "sitov.pretest.a21-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wann tritt das Genannte laut »Nach vierzig Minuten roch die Wohnung nach Äpfeln« ein?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.syntax.q4.a",
+                "textDe": "Nachdem vierzig Minuten vergangen sind."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q4.b",
+                "textDe": "Vierzig Minuten vor dem Bezugspunkt."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q4.c",
+                "textDe": "Genau nach vierzig Jahren."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.syntax.q4.a",
+            "assessmentUnit": "Nach vierzig Minuten Dauer",
+            "equivalenceKey": "sitov:a21-04:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 289,
+                "end": 309,
+                "quote": "Nach vierzig Minuten"
+              }
+            ],
+            "rationaleDe": "Nach bezeichnet die Zeit hinter dem Verstreichen von vierzig Minuten; davor und Jahre sind andere Angaben."
+          },
+          {
+            "id": "sitov.pretest.a21-04.syntax.q5",
+            "competencyId": "sitov.pretest.a21-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Was stellt »Der Kuchen war etwas dunkel, hat aber gut geschmeckt« gegenüber?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.syntax.q5.a",
+                "textDe": "Hellen Kuchen und schlechten Geschmack."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q5.c",
+                "textDe": "Dunkle Farbe und guten Geschmack."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q5.b",
+                "textDe": "Dass überhaupt kein Kuchen da war."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.syntax.q5.c",
+            "assessmentUnit": "aber Farbe Geschmack Kontrast",
+            "equivalenceKey": "sitov:a21-04:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 346,
+                "end": 399,
+                "quote": "Der Kuchen war etwas dunkel, hat aber gut geschmeckt."
+              }
+            ],
+            "rationaleDe": "Aber stellt die dunkle Farbe dem zugleich guten Geschmack gegenüber; schlechter Geschmack oder fehlender Kuchen wird nicht behauptet."
+          },
+          {
+            "id": "sitov.pretest.a21-04.syntax.q6",
+            "competencyId": "sitov.pretest.a21-04.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wer schickt in »Meinem Vater habe ich ein Foto geschickt« das Foto?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.syntax.q6.a",
+                "textDe": "Der Vater wird ausdrücklich als Sender genannt."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q6.c",
+                "textDe": "Das Foto selbst."
+              },
+              {
+                "id": "sitov.pretest.a21-04.syntax.q6.b",
+                "textDe": "Der Sprecher, bezeichnet durch ich."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.syntax.q6.b",
+            "assessmentUnit": "Empfänger vorangestellt Sender",
+            "equivalenceKey": "sitov:a21-04:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 400,
+                "end": 441,
+                "quote": "Meinem Vater habe ich ein Foto geschickt."
+              }
+            ],
+            "rationaleDe": "Ich ist das Subjekt; meinem Vater bezeichnet den Empfänger und nicht den Sender."
+          },
+          {
+            "id": "sitov.pretest.a21-04.nominal.q1",
+            "competencyId": "sitov.pretest.a21-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »___ Vater habe ich ein Foto geschickt«, wenn es der Vater des Sprechers ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.nominal.q1.b",
+                "textDe": "Mein"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q1.c",
+                "textDe": "Meinem"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q1.a",
+                "textDe": "Meinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.nominal.q1.c",
+            "assessmentUnit": "Meinem Vater Dativ",
+            "equivalenceKey": "sitov:a21-04:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 400,
+                "end": 412,
+                "quote": "Meinem Vater"
+              }
+            ],
+            "rationaleDe": "Der Empfänger steht im Dativ; beim maskulinen Vater lautet die Possessivform meinem."
+          },
+          {
+            "id": "sitov.pretest.a21-04.nominal.q2",
+            "competencyId": "sitov.pretest.a21-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Er erklärt ein ___ Rezept«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.nominal.q2.b",
+                "textDe": "einfaches"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q2.c",
+                "textDe": "einfachem"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q2.a",
+                "textDe": "einfachen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.nominal.q2.b",
+            "assessmentUnit": "einfaches neutrales Adjektiv",
+            "equivalenceKey": "sitov:a21-04:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 30,
+                "end": 50,
+                "quote": "ein einfaches Rezept"
+              }
+            ],
+            "rationaleDe": "Rezept ist neutral und steht als Akkusativobjekt; nach ein lautet die Adjektivform einfaches."
+          },
+          {
+            "id": "sitov.pretest.a21-04.nominal.q3",
+            "competencyId": "sitov.pretest.a21-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich wollte ___ Apfelkuchen backen«, wenn genau einer gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.nominal.q3.b",
+                "textDe": "ein"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q3.c",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q3.a",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.nominal.q3.a",
+            "assessmentUnit": "einen Apfelkuchen Akkusativ",
+            "equivalenceKey": "sitov:a21-04:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 71,
+                "end": 88,
+                "quote": "einen Apfelkuchen"
+              }
+            ],
+            "rationaleDe": "Apfelkuchen ist maskulin und steht als Akkusativobjekt; daher lautet der Artikel einen."
+          },
+          {
+            "id": "sitov.pretest.a21-04.nominal.q4",
+            "competencyId": "sitov.pretest.a21-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich hatte ___ Erfahrung« bei geringer bisheriger Übung?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.nominal.q4.c",
+                "textDe": "wenige"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q4.b",
+                "textDe": "wenig"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q4.a",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.nominal.q4.b",
+            "assessmentUnit": "wenig Erfahrung Mengenwort",
+            "equivalenceKey": "sitov:a21-04:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 108,
+                "end": 123,
+                "quote": "wenig Erfahrung"
+              }
+            ],
+            "rationaleDe": "Erfahrung bezeichnet hier eine nicht gezählte Menge praktischen Wissens; die Form lautet wenig Erfahrung."
+          },
+          {
+            "id": "sitov.pretest.a21-04.nominal.q5",
+            "competencyId": "sitov.pretest.a21-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe ___ Küche aufgeräumt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.nominal.q5.c",
+                "textDe": "die"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q5.b",
+                "textDe": "dem"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q5.a",
+                "textDe": "der"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.nominal.q5.c",
+            "assessmentUnit": "die Küche Akkusativ feminin",
+            "equivalenceKey": "sitov:a21-04:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 267,
+                "end": 287,
+                "quote": "die Küche aufgeräumt"
+              }
+            ],
+            "rationaleDe": "Küche ist feminin und steht als Akkusativobjekt; der bestimmte Artikel lautet die."
+          },
+          {
+            "id": "sitov.pretest.a21-04.nominal.q6",
+            "competencyId": "sitov.pretest.a21-04.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich habe meinem Vater ___ Foto geschickt«, wenn genau eines gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a21-04.nominal.q6.c",
+                "textDe": "einen"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q6.b",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a21-04.nominal.q6.a",
+                "textDe": "ein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a21-04.nominal.q6.a",
+            "assessmentUnit": "ein Foto Akkusativ neutral",
+            "equivalenceKey": "sitov:a21-04:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 422,
+                "end": 440,
+                "quote": "ein Foto geschickt"
+              }
+            ],
+            "rationaleDe": "Foto ist neutral und steht als Akkusativobjekt; der unbestimmte Artikel lautet ein."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a21-04.a",
+            "questionIds": [
+              "sitov.pretest.a21-04.words.q1",
+              "sitov.pretest.a21-04.words.q2",
+              "sitov.pretest.a21-04.words.q3",
+              "sitov.pretest.a21-04.verbs.q1",
+              "sitov.pretest.a21-04.verbs.q2",
+              "sitov.pretest.a21-04.verbs.q3",
+              "sitov.pretest.a21-04.syntax.q1",
+              "sitov.pretest.a21-04.syntax.q2",
+              "sitov.pretest.a21-04.syntax.q3",
+              "sitov.pretest.a21-04.nominal.q1",
+              "sitov.pretest.a21-04.nominal.q2",
+              "sitov.pretest.a21-04.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a21-04.b",
+            "questionIds": [
+              "sitov.pretest.a21-04.words.q4",
+              "sitov.pretest.a21-04.words.q5",
+              "sitov.pretest.a21-04.words.q6",
+              "sitov.pretest.a21-04.verbs.q4",
+              "sitov.pretest.a21-04.verbs.q5",
+              "sitov.pretest.a21-04.verbs.q6",
+              "sitov.pretest.a21-04.syntax.q4",
+              "sitov.pretest.a21-04.syntax.q5",
+              "sitov.pretest.a21-04.syntax.q6",
+              "sitov.pretest.a21-04.nominal.q4",
+              "sitov.pretest.a21-04.nominal.q5",
+              "sitov.pretest.a21-04.nominal.q6"
+            ]
+          }
+        ]
+      }
     }
   ],
   "inventory": [
@@ -22622,7 +25754,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -22637,7 +25769,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -22652,7 +25784,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
