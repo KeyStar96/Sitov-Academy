@@ -1,0 +1,370 @@
+{
+  "scope": "Offline candidate exactexistingMP3 bytes decoded and forcedaligned withpinnedlocalaligner; no asset/source/metadata writes or synthesis",
+  "audioSha256": "0abcbdb2f0bd142a15cb14a7f283c2f95c468cceeae6e98b40aa22d4cbe8371a",
+  "textSha256": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+  "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+  "originalZeroDurationIndices": [
+    17
+  ],
+  "newZeroDurationIndices": [],
+  "wordTimings": [
+    {
+      "start": 0.56,
+      "end": 0.72
+    },
+    {
+      "start": 0.72,
+      "end": 0.8
+    },
+    {
+      "start": 0.8,
+      "end": 0.96
+    },
+    {
+      "start": 0.96,
+      "end": 1.36
+    },
+    {
+      "start": 1.92,
+      "end": 2.08
+    },
+    {
+      "start": 2.08,
+      "end": 2.4
+    },
+    {
+      "start": 2.4,
+      "end": 2.8
+    },
+    {
+      "start": 2.88,
+      "end": 3.28
+    },
+    {
+      "start": 3.44,
+      "end": 3.6
+    },
+    {
+      "start": 3.6,
+      "end": 3.84
+    },
+    {
+      "start": 3.84,
+      "end": 4.24
+    },
+    {
+      "start": 4.8,
+      "end": 4.96
+    },
+    {
+      "start": 4.96,
+      "end": 5.36
+    },
+    {
+      "start": 5.36,
+      "end": 5.52
+    },
+    {
+      "start": 5.52,
+      "end": 6.08
+    },
+    {
+      "start": 6.16,
+      "end": 6.24
+    },
+    {
+      "start": 6.24,
+      "end": 6.56
+    },
+    {
+      "start": 6.56,
+      "end": 6.64
+    },
+    {
+      "start": 6.64,
+      "end": 6.8
+    },
+    {
+      "start": 6.8,
+      "end": 7.2
+    },
+    {
+      "start": 7.44,
+      "end": 7.52
+    },
+    {
+      "start": 7.52,
+      "end": 7.92
+    },
+    {
+      "start": 7.92,
+      "end": 8.16
+    },
+    {
+      "start": 8.16,
+      "end": 8.56
+    },
+    {
+      "start": 8.64,
+      "end": 8.8
+    },
+    {
+      "start": 8.8,
+      "end": 8.96
+    },
+    {
+      "start": 8.96,
+      "end": 9.2
+    },
+    {
+      "start": 9.2,
+      "end": 9.6
+    },
+    {
+      "start": 10.0,
+      "end": 10.16
+    },
+    {
+      "start": 10.16,
+      "end": 10.64
+    },
+    {
+      "start": 10.64,
+      "end": 10.8
+    },
+    {
+      "start": 10.8,
+      "end": 10.96
+    },
+    {
+      "start": 10.96,
+      "end": 11.2
+    },
+    {
+      "start": 11.2,
+      "end": 11.6
+    },
+    {
+      "start": 12.08,
+      "end": 12.24
+    },
+    {
+      "start": 12.24,
+      "end": 12.56
+    },
+    {
+      "start": 12.56,
+      "end": 12.72
+    },
+    {
+      "start": 12.72,
+      "end": 12.88
+    },
+    {
+      "start": 12.88,
+      "end": 13.2
+    }
+  ],
+  "rawAlignedWords": [
+    {
+      "text": "Ich",
+      "start": 0.56,
+      "end": 0.72
+    },
+    {
+      "text": "bin",
+      "start": 0.72,
+      "end": 0.8
+    },
+    {
+      "text": "im",
+      "start": 0.8,
+      "end": 0.96
+    },
+    {
+      "text": "Laden",
+      "start": 0.96,
+      "end": 1.36
+    },
+    {
+      "text": "Ich",
+      "start": 1.92,
+      "end": 2.08
+    },
+    {
+      "text": "brauche",
+      "start": 2.08,
+      "end": 2.4
+    },
+    {
+      "text": "Milch",
+      "start": 2.4,
+      "end": 2.8
+    },
+    {
+      "text": "Brot",
+      "start": 2.88,
+      "end": 3.28
+    },
+    {
+      "text": "und",
+      "start": 3.44,
+      "end": 3.6
+    },
+    {
+      "text": "drei",
+      "start": 3.6,
+      "end": 3.84
+    },
+    {
+      "text": "Äpfel",
+      "start": 3.84,
+      "end": 4.24
+    },
+    {
+      "text": "Der",
+      "start": 4.8,
+      "end": 4.96
+    },
+    {
+      "text": "Verkäufer",
+      "start": 4.96,
+      "end": 5.36
+    },
+    {
+      "text": "ist",
+      "start": 5.36,
+      "end": 5.52
+    },
+    {
+      "text": "freundlich",
+      "start": 5.52,
+      "end": 6.08
+    },
+    {
+      "text": "Er",
+      "start": 6.16,
+      "end": 6.24
+    },
+    {
+      "text": "zeigt",
+      "start": 6.24,
+      "end": 6.56
+    },
+    {
+      "text": "mir",
+      "start": 6.56,
+      "end": 6.64
+    },
+    {
+      "text": "das",
+      "start": 6.64,
+      "end": 6.8
+    },
+    {
+      "text": "Brot",
+      "start": 6.8,
+      "end": 7.2
+    },
+    {
+      "text": "Es",
+      "start": 7.44,
+      "end": 7.52
+    },
+    {
+      "text": "kostet",
+      "start": 7.52,
+      "end": 7.92
+    },
+    {
+      "text": "zwei",
+      "start": 7.92,
+      "end": 8.16
+    },
+    {
+      "text": "Euro",
+      "start": 8.16,
+      "end": 8.56
+    },
+    {
+      "text": "Ich",
+      "start": 8.64,
+      "end": 8.8
+    },
+    {
+      "text": "nehme",
+      "start": 8.8,
+      "end": 8.96
+    },
+    {
+      "text": "auch",
+      "start": 8.96,
+      "end": 9.2
+    },
+    {
+      "text": "Wasser",
+      "start": 9.2,
+      "end": 9.6
+    },
+    {
+      "text": "Dann",
+      "start": 10.0,
+      "end": 10.16
+    },
+    {
+      "text": "bezahle",
+      "start": 10.16,
+      "end": 10.64
+    },
+    {
+      "text": "ich",
+      "start": 10.64,
+      "end": 10.8
+    },
+    {
+      "text": "und",
+      "start": 10.8,
+      "end": 10.96
+    },
+    {
+      "text": "sage",
+      "start": 10.96,
+      "end": 11.2
+    },
+    {
+      "text": "danke",
+      "start": 11.2,
+      "end": 11.6
+    },
+    {
+      "text": "Meine",
+      "start": 12.08,
+      "end": 12.24
+    },
+    {
+      "text": "Tasche",
+      "start": 12.24,
+      "end": 12.56
+    },
+    {
+      "text": "ist",
+      "start": 12.56,
+      "end": 12.72
+    },
+    {
+      "text": "jetzt",
+      "start": 12.72,
+      "end": 12.88
+    },
+    {
+      "text": "voll",
+      "start": 12.88,
+      "end": 13.2
+    }
+  ],
+  "rate": 1,
+  "alreadyNormalizedMP3LeadInPreserved": true,
+  "strictPositiveTimingCandidate": true,
+  "productionWrite": false,
+  "qaWrite": false
+}

@@ -1,0 +1,444 @@
+{
+  "at": "2026-10-09T02:27:35.754347+00:00",
+  "scope": "QAonly exactnewunusedasset metadataCAS, onlyactualpinnedforcedwordTimings changed; bytes/text/profile/path unchanged",
+  "sourceTextId": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+  "candidateSha256": "43ce13dc7045b1a3870c63ea3a3117beee73200ec6a7bea78395c6948e60d2ae",
+  "audioSha256": "0abcbdb2f0bd142a15cb14a7f283c2f95c468cceeae6e98b40aa22d4cbe8371a",
+  "textSha256": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+  "counts": {
+    "defs": 8,
+    "users": 2,
+    "active": 5,
+    "assets": 819,
+    "proofs": 746,
+    "matchingCorrectedObject": 1
+  },
+  "oldMetadata": {
+    "voice": "sitov-qwen-male-de-v1",
+    "engine": "qwen3-tts",
+    "revision": "sitov-qwen-base-bf16-v1",
+    "textSha256": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+    "audioSha256": "0abcbdb2f0bd142a15cb14a7f283c2f95c468cceeae6e98b40aa22d4cbe8371a",
+    "wordTimings": [
+      {
+        "end": 0.67,
+        "start": 0.51
+      },
+      {
+        "end": 0.83,
+        "start": 0.67
+      },
+      {
+        "end": 0.99,
+        "start": 0.83
+      },
+      {
+        "end": 1.31,
+        "start": 0.99
+      },
+      {
+        "end": 2.11,
+        "start": 1.95
+      },
+      {
+        "end": 2.35,
+        "start": 2.11
+      },
+      {
+        "end": 2.83,
+        "start": 2.35
+      },
+      {
+        "end": 3.31,
+        "start": 2.91
+      },
+      {
+        "end": 3.63,
+        "start": 3.39
+      },
+      {
+        "end": 3.87,
+        "start": 3.63
+      },
+      {
+        "end": 4.19,
+        "start": 3.87
+      },
+      {
+        "end": 4.91,
+        "start": 4.83
+      },
+      {
+        "end": 5.31,
+        "start": 4.91
+      },
+      {
+        "end": 5.47,
+        "start": 5.31
+      },
+      {
+        "end": 6.11,
+        "start": 5.47
+      },
+      {
+        "end": 6.27,
+        "start": 6.11
+      },
+      {
+        "end": 6.59,
+        "start": 6.27
+      },
+      {
+        "end": 6.59,
+        "start": 6.59
+      },
+      {
+        "end": 6.75,
+        "start": 6.59
+      },
+      {
+        "end": 7.15,
+        "start": 6.75
+      },
+      {
+        "end": 7.55,
+        "start": 7.39
+      },
+      {
+        "end": 7.87,
+        "start": 7.55
+      },
+      {
+        "end": 8.19,
+        "start": 7.87
+      },
+      {
+        "end": 8.59,
+        "start": 8.19
+      },
+      {
+        "end": 8.75,
+        "start": 8.67
+      },
+      {
+        "end": 8.99,
+        "start": 8.75
+      },
+      {
+        "end": 9.15,
+        "start": 8.99
+      },
+      {
+        "end": 9.55,
+        "start": 9.15
+      },
+      {
+        "end": 10.19,
+        "start": 10.03
+      },
+      {
+        "end": 10.59,
+        "start": 10.19
+      },
+      {
+        "end": 10.83,
+        "start": 10.67
+      },
+      {
+        "end": 10.99,
+        "start": 10.83
+      },
+      {
+        "end": 11.23,
+        "start": 10.99
+      },
+      {
+        "end": 11.63,
+        "start": 11.23
+      },
+      {
+        "end": 12.27,
+        "start": 12.03
+      },
+      {
+        "end": 12.51,
+        "start": 12.27
+      },
+      {
+        "end": 12.67,
+        "start": 12.51
+      },
+      {
+        "end": 12.91,
+        "start": 12.67
+      },
+      {
+        "end": 13.15,
+        "start": 12.91
+      }
+    ],
+    "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5"
+  },
+  "newMetadata": {
+    "voice": "sitov-qwen-male-de-v1",
+    "engine": "qwen3-tts",
+    "revision": "sitov-qwen-base-bf16-v1",
+    "textSha256": "428077f20485569999765257250df2a50ca2d9737823b888fed2e6b0fbff15b8",
+    "audioSha256": "0abcbdb2f0bd142a15cb14a7f283c2f95c468cceeae6e98b40aa22d4cbe8371a",
+    "wordTimings": [
+      {
+        "start": 0.56,
+        "end": 0.72
+      },
+      {
+        "start": 0.72,
+        "end": 0.8
+      },
+      {
+        "start": 0.8,
+        "end": 0.96
+      },
+      {
+        "start": 0.96,
+        "end": 1.36
+      },
+      {
+        "start": 1.92,
+        "end": 2.08
+      },
+      {
+        "start": 2.08,
+        "end": 2.4
+      },
+      {
+        "start": 2.4,
+        "end": 2.8
+      },
+      {
+        "start": 2.88,
+        "end": 3.28
+      },
+      {
+        "start": 3.44,
+        "end": 3.6
+      },
+      {
+        "start": 3.6,
+        "end": 3.84
+      },
+      {
+        "start": 3.84,
+        "end": 4.24
+      },
+      {
+        "start": 4.8,
+        "end": 4.96
+      },
+      {
+        "start": 4.96,
+        "end": 5.36
+      },
+      {
+        "start": 5.36,
+        "end": 5.52
+      },
+      {
+        "start": 5.52,
+        "end": 6.08
+      },
+      {
+        "start": 6.16,
+        "end": 6.24
+      },
+      {
+        "start": 6.24,
+        "end": 6.56
+      },
+      {
+        "start": 6.56,
+        "end": 6.64
+      },
+      {
+        "start": 6.64,
+        "end": 6.8
+      },
+      {
+        "start": 6.8,
+        "end": 7.2
+      },
+      {
+        "start": 7.44,
+        "end": 7.52
+      },
+      {
+        "start": 7.52,
+        "end": 7.92
+      },
+      {
+        "start": 7.92,
+        "end": 8.16
+      },
+      {
+        "start": 8.16,
+        "end": 8.56
+      },
+      {
+        "start": 8.64,
+        "end": 8.8
+      },
+      {
+        "start": 8.8,
+        "end": 8.96
+      },
+      {
+        "start": 8.96,
+        "end": 9.2
+      },
+      {
+        "start": 9.2,
+        "end": 9.6
+      },
+      {
+        "start": 10.0,
+        "end": 10.16
+      },
+      {
+        "start": 10.16,
+        "end": 10.64
+      },
+      {
+        "start": 10.64,
+        "end": 10.8
+      },
+      {
+        "start": 10.8,
+        "end": 10.96
+      },
+      {
+        "start": 10.96,
+        "end": 11.2
+      },
+      {
+        "start": 11.2,
+        "end": 11.6
+      },
+      {
+        "start": 12.08,
+        "end": 12.24
+      },
+      {
+        "start": 12.24,
+        "end": 12.56
+      },
+      {
+        "start": 12.56,
+        "end": 12.72
+      },
+      {
+        "start": 12.72,
+        "end": 12.88
+      },
+      {
+        "start": 12.88,
+        "end": 13.2
+      }
+    ],
+    "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5"
+  },
+  "productionWrite": false,
+  "qaMetadataChanged": 1,
+  "guardsRelaxed": false,
+  "health": {
+    "at": "2026-10-09T02:27:36.230558+00:00",
+    "network": "sitov-night-20261008-qa-isolated",
+    "gateway_url": "http://10.0.3.3:8000",
+    "containers": [
+      {
+        "name": "/sitov-night-20261008-qa-db",
+        "image_id": "sha256:bce4f0725a10d80bb16e01d678db8d40dd09223d18562125902e2682dd74ecdb",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 402653184,
+        "nano_cpus": 750000000,
+        "hostports": {
+          "5432/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-auth",
+        "image_id": "sha256:f2112b9289422f205df4ea15b8b550d425ae42528ea54521faa32cc7b62490de",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 134217728,
+        "nano_cpus": 250000000,
+        "hostports": {}
+      },
+      {
+        "name": "/sitov-night-20261008-qa-storage",
+        "image_id": "sha256:4f0eb90b935c676914ed0609c2c7d47cddb3f336155726bb2d5542617d4afdfa",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 268435456,
+        "nano_cpus": 500000000,
+        "hostports": {
+          "5000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-rest",
+        "image_id": "sha256:7afcb0447b7849f6875bba4a0c603d79b1e2e44aec97af123bf9a0a2ccfeae52",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 67108864,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "3000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-gateway",
+        "image_id": "sha256:6addf50e6bd8d578314cb9ce4f2d2d1e3781d2edecef59f707e00c6e05d384f5",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 134217728,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "8000/tcp": null,
+          "8001/tcp": null,
+          "8002/tcp": null,
+          "8003/tcp": null,
+          "8004/tcp": null,
+          "8443/tcp": null,
+          "8444/tcp": null,
+          "8445/tcp": null,
+          "8446/tcp": null,
+          "8447/tcp": null
+        }
+      }
+    ],
+    "health": [
+      {
+        "path": "/auth/v1/health",
+        "http_status": 200
+      },
+      {
+        "path": "/rest/v1/",
+        "http_status": 200
+      },
+      {
+        "path": "/storage/v1/status",
+        "http_status": 200
+      }
+    ]
+  }
+}
