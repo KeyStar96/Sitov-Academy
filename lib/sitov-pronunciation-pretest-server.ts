@@ -15,6 +15,8 @@ import {
   type SitovPronunciationPretestActionResult,
 } from './sitov-pronunciation-pretest-contract'
 
+import { sitovPretestAuthorSaveInputSchema, sitovPretestAuthorSavedSchema, sitovPretestStaffDefinitionSchema } from './sitov-pronunciation-pretest-author-contract'
+
 type Client = Awaited<ReturnType<typeof requestSession>>['supabase']
 const fail = (error: 'invalid_input' | 'authentication_required' | 'retryable_failure' | 'attempt_conflict') => ({ ok: false as const, error, retryable: error === 'retryable_failure' })
 async function run<T extends z.ZodType>(schema: T, query: (client: Client) => PromiseLike<{ data: unknown; error: unknown }>): Promise<SitovPronunciationPretestActionResult<z.infer<T>>> {
@@ -77,10 +79,22 @@ export async function createSitovPronunciationReplyUploadTicketServer(input: unk
 }
 
 const staffInput = z.object({ textId: z.uuid(), studentId: z.uuid().nullable().optional() }).strict()
-const staffDefinition = z.object({ id: z.uuid(), text_id: z.uuid(), text_version: z.string().regex(/^[a-f0-9]{64}$/), test_version: z.string().regex(/^[a-f0-9]{64}$/), definition: z.record(z.string(), z.unknown()), active: z.boolean(), created_at: z.iso.datetime({ offset: true }) }).strict()
+const staffDefinition = sitovPretestStaffDefinitionSchema
 const staffData = z.object({ definitions: z.array(staffDefinition), attempts: z.array(attemptSchema) }).strict()
 export async function loadSitovPronunciationPretestStaff(input: unknown) {
   const parsed = staffInput.safeParse(input)
   if (!parsed.success) return fail('invalid_input')
   return run(staffData, client => client.rpc('sitov_get_pronunciation_pretest_staff', { p_text_id: parsed.data.textId, p_student_id: parsed.data.studentId ?? null }))
+}
+
+/** Cookie-scoped authenticated RPC only; SQL independently enforces staff/MFA. */
+export async function saveSitovPronunciationPretestDraftServer(input: unknown) {
+  const parsed=sitovPretestAuthorSaveInputSchema.safeParse(input)
+  if(!parsed.success)return fail('invalid_input')
+  const v=parsed.data
+  // Narrow temporary signature until M adds this exact RPC to shared generated types.
+  type DraftRpc=(name:'sitov_save_pronunciation_pretest_draft',args:{p_text_id:string;p_text_version:string;p_base_definition_id:string|null;p_definition:typeof v.definition;p_request_id:string})=>PromiseLike<{data:unknown;error:unknown}>
+  const result=await run(sitovPretestAuthorSavedSchema,client=>(client.rpc as unknown as DraftRpc)('sitov_save_pronunciation_pretest_draft',{p_text_id:v.textId,p_text_version:v.textVersion,p_base_definition_id:v.baseDefinitionId,p_definition:v.definition,p_request_id:v.requestId}))
+  if(result.ok&&(result.data.text_id!==v.textId||result.data.text_version!==v.textVersion||JSON.stringify(result.data.definition)!==JSON.stringify(v.definition)))return fail('retryable_failure')
+  return result
 }
