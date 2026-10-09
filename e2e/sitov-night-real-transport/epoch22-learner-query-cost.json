@@ -1,0 +1,292 @@
+{
+  "target": "76a667693f92c8c06a214da44c443ab724d9f8f2",
+  "observations": [
+    {
+      "at": "2026-10-09T11:05:57.769771+00:00",
+      "memAvailableMiB": 2726.43359375,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 120680448,
+      "gatewayPeakBytes": 125042688,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-09T09:47:04.431069843Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T09:49:00.642364654Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T09:47:05.043648649Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T09:47:05.490403668Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T09:49:00.315193691Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ],
+  "httpResults": [
+    {
+      "operation": "get_last_active_level",
+      "startedAt": "2026-10-09T11:05:59.114466+00:00",
+      "seconds": 3.62,
+      "httpStatus": 200,
+      "sqlstate": null,
+      "ownJwtSubjectMatchesLedger": true,
+      "resultKeys": [
+        "level",
+        "levels",
+        "mode",
+        "source"
+      ],
+      "rowCount": null,
+      "successBoolean": null,
+      "okBoolean": null,
+      "resultSha256": "63e4ec07e092024d37302265b6df89c7f29a33dc9e1d97eee8edbf66a0f45b49"
+    },
+    {
+      "operation": "get_learning_new_items_A1.1",
+      "startedAt": "2026-10-09T11:06:02.734726+00:00",
+      "seconds": 0.028,
+      "httpStatus": 200,
+      "sqlstate": null,
+      "ownJwtSubjectMatchesLedger": true,
+      "resultKeys": [
+        "items",
+        "lessons",
+        "level",
+        "success"
+      ],
+      "rowCount": null,
+      "successBoolean": true,
+      "okBoolean": null,
+      "resultSha256": "b83cd2e3f13236d2019dc64ce99c8612d6e8f08539d15665db05006472699d6c"
+    },
+    {
+      "operation": "verb_catalog_unfiltered_range_0_499",
+      "startedAt": "2026-10-09T11:06:02.763078+00:00",
+      "seconds": 3.4762,
+      "httpStatus": 200,
+      "sqlstate": null,
+      "ownJwtSubjectMatchesLedger": true,
+      "resultKeys": null,
+      "rowCount": 140,
+      "successBoolean": null,
+      "okBoolean": null,
+      "resultSha256": "999190b73d808f0567b37c0e9acbfb2d81ed294418a134fe9558cf8b235cf4ff"
+    },
+    {
+      "operation": "verb_catalog_A1.1_range_0_499",
+      "startedAt": "2026-10-09T11:06:06.239610+00:00",
+      "seconds": 0.5965,
+      "httpStatus": 200,
+      "sqlstate": null,
+      "ownJwtSubjectMatchesLedger": true,
+      "resultKeys": null,
+      "rowCount": 140,
+      "successBoolean": null,
+      "okBoolean": null,
+      "resultSha256": "999190b73d808f0567b37c0e9acbfb2d81ed294418a134fe9558cf8b235cf4ff"
+    }
+  ],
+  "sqlResults": [
+    {
+      "operation": "get_last_active_level",
+      "jit": "on",
+      "startedAt": "2026-10-09T11:06:06.836414+00:00",
+      "statementTimeoutSeconds": 8,
+      "readOnly": true,
+      "exitCode": 0,
+      "authProof": {
+        "jit": "on",
+        "proof": true,
+        "readOnly": "on",
+        "currentRole": "authenticated",
+        "statementTimeout": "8s",
+        "uidMatchesLedger": true,
+        "studentRoleMatches": true
+      },
+      "resultKeys": [
+        "level",
+        "levels",
+        "mode",
+        "source"
+      ],
+      "rowCount": null,
+      "successBoolean": null,
+      "okBoolean": null,
+      "resultSha256": "63e4ec07e092024d37302265b6df89c7f29a33dc9e1d97eee8edbf66a0f45b49",
+      "sqlstate": null,
+      "seconds": 3.1137
+    },
+    {
+      "operation": "get_last_active_level",
+      "jit": "off",
+      "startedAt": "2026-10-09T11:06:09.950442+00:00",
+      "statementTimeoutSeconds": 8,
+      "readOnly": true,
+      "exitCode": 0,
+      "authProof": {
+        "jit": "off",
+        "proof": true,
+        "readOnly": "on",
+        "currentRole": "authenticated",
+        "statementTimeout": "8s",
+        "uidMatchesLedger": true,
+        "studentRoleMatches": true
+      },
+      "resultKeys": [
+        "level",
+        "levels",
+        "mode",
+        "source"
+      ],
+      "rowCount": null,
+      "successBoolean": null,
+      "okBoolean": null,
+      "resultSha256": "63e4ec07e092024d37302265b6df89c7f29a33dc9e1d97eee8edbf66a0f45b49",
+      "sqlstate": null,
+      "seconds": 3.3298
+    },
+    {
+      "operation": "get_learning_new_items_A1.1",
+      "jit": "on",
+      "startedAt": "2026-10-09T11:06:13.280483+00:00",
+      "statementTimeoutSeconds": 8,
+      "readOnly": true,
+      "exitCode": 0,
+      "authProof": {
+        "jit": "on",
+        "proof": true,
+        "readOnly": "on",
+        "currentRole": "authenticated",
+        "statementTimeout": "8s",
+        "uidMatchesLedger": true,
+        "studentRoleMatches": true
+      },
+      "resultKeys": [
+        "items",
+        "lessons",
+        "level",
+        "success"
+      ],
+      "rowCount": null,
+      "successBoolean": true,
+      "okBoolean": null,
+      "resultSha256": "b83cd2e3f13236d2019dc64ce99c8612d6e8f08539d15665db05006472699d6c",
+      "sqlstate": null,
+      "seconds": 0.1046
+    },
+    {
+      "operation": "get_learning_new_items_A1.1",
+      "jit": "off",
+      "startedAt": "2026-10-09T11:06:13.385383+00:00",
+      "statementTimeoutSeconds": 8,
+      "readOnly": true,
+      "exitCode": 0,
+      "authProof": {
+        "jit": "off",
+        "proof": true,
+        "readOnly": "on",
+        "currentRole": "authenticated",
+        "statementTimeout": "8s",
+        "uidMatchesLedger": true,
+        "studentRoleMatches": true
+      },
+      "resultKeys": [
+        "items",
+        "lessons",
+        "level",
+        "success"
+      ],
+      "rowCount": null,
+      "successBoolean": true,
+      "okBoolean": null,
+      "resultSha256": "b83cd2e3f13236d2019dc64ce99c8612d6e8f08539d15665db05006472699d6c",
+      "sqlstate": null,
+      "seconds": 0.0951
+    },
+    {
+      "operation": "verb_catalog_A1.1_range_0_499",
+      "jit": "on",
+      "startedAt": "2026-10-09T11:06:13.480785+00:00",
+      "statementTimeoutSeconds": 8,
+      "readOnly": true,
+      "exitCode": 0,
+      "authProof": {
+        "jit": "on",
+        "proof": true,
+        "readOnly": "on",
+        "currentRole": "authenticated",
+        "statementTimeout": "8s",
+        "uidMatchesLedger": true,
+        "studentRoleMatches": true
+      },
+      "resultKeys": null,
+      "rowCount": 140,
+      "successBoolean": null,
+      "okBoolean": null,
+      "resultSha256": "999190b73d808f0567b37c0e9acbfb2d81ed294418a134fe9558cf8b235cf4ff",
+      "sqlstate": null,
+      "seconds": 0.5771
+    },
+    {
+      "operation": "verb_catalog_A1.1_range_0_499",
+      "jit": "off",
+      "startedAt": "2026-10-09T11:06:14.058265+00:00",
+      "statementTimeoutSeconds": 8,
+      "readOnly": true,
+      "exitCode": 0,
+      "authProof": {
+        "jit": "off",
+        "proof": true,
+        "readOnly": "on",
+        "currentRole": "authenticated",
+        "statementTimeout": "8s",
+        "uidMatchesLedger": true,
+        "studentRoleMatches": true
+      },
+      "resultKeys": null,
+      "rowCount": 140,
+      "successBoolean": null,
+      "okBoolean": null,
+      "resultSha256": "999190b73d808f0567b37c0e9acbfb2d81ed294418a134fe9558cf8b235cf4ff",
+      "sqlstate": null,
+      "seconds": 0.5395
+    }
+  ],
+  "ownJwtSubjectMatchesLedger": true,
+  "newOwnAccounts": 1,
+  "realGoTruePasswordSession": true,
+  "browserUsed": false,
+  "extraDiagnosticCalls": 0,
+  "globalJitChanged": false
+}
