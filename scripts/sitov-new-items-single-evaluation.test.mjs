@@ -1,14 +1,88 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { readFile } from 'node:fs/promises'
+import { readFile, readdir } from 'node:fs/promises'
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { performance } from 'node:perf_hooks'
 import { SitovNativeDatabase, createSitovCurrentNativeDatabase } from '../supabase/tests/helpers/sitov-night-current-native-db.mjs'
 import { sitovUsers, sitovId, sitovHistorySnapshot } from '../supabase/tests/helpers/sitov-night-current-db.mjs'
+import { createSitovIntegrated99NativeDatabase } from '../supabase/tests/helpers/sitov-night-integrated99-native-db.mjs'
+import { sitovRightsSnapshot } from '../supabase/tests/helpers/sitov-night-current-db.mjs'
 
 const literal=value=>value===null?'NULL':`'${String(value).replaceAll("'","''")}'`
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex')
+const sourceHash=value=>createHash('sha256').update(value).digest('hex')
+const sitovSchema109Sources=async()=>{
+ const schema=await readFile(new URL('../supabase/schema.sql',import.meta.url),'utf8')
+ const vps=await readFile(new URL('../supabase/vps/109_sitov_new_items_single_evaluation.sql',import.meta.url),'utf8')
+ const migration=await readFile(new URL('../supabase/migrations/20261009122500_sitov_new_items_single_evaluation.sql',import.meta.url),'utf8')
+ const matches=[...schema.matchAll(/CREATE(?: OR REPLACE)? FUNCTION public\.get_learning_new_items\(p_level text\) RETURNS jsonb[\s\S]*?\nEND \$\$;/g)]
+ assert.equal(matches.length,1,'canonical schema has exactly one definition')
+ const canonical=matches[0][0]
+ assert.equal(vps,migration,'109 aliases are byte-identical')
+ assert.equal(canonical,vps.slice(vps.indexOf('CREATE OR REPLACE FUNCTION')).trim(),'canonical function is the exact proven109 definition')
+ return {canonical,migration}
+}
+
+test('schema109 parity: canonical function exactly matches both migration sources',sitovSchema109Sources)
+
+test('schema109 parity: native frozen99 plus explicit100–109 regression and canonical replay',
+ {skip:process.env.SITOV_NIGHT_NATIVE!=='1',timeout:180000},async t=>{
+ const {canonical,migration}=await sitovSchema109Sources()
+ const database=`sitov_night_schema109_${process.pid}`,admin=new SitovNativeDatabase()
+ admin.raw(`CREATE DATABASE ${database}`)
+ let db
+ try {
+  db=await createSitovIntegrated99NativeDatabase({database})
+  db.raw=sql=>execFileSync('/opt/homebrew/opt/postgresql@17/bin/psql',['-X','-w','-qAt','-h','/tmp/sitov-night-2026-10-08-pg','-p','55438','-d',database,'-v','ON_ERROR_STOP=1'],
+   {input:`SET statement_timeout='8s';${sql}`,encoding:'utf8',timeout:8500,maxBuffer:16*1024*1024,
+    env:Object.fromEntries(Object.entries(process.env).filter(([key])=>!key.startsWith('PG'))),stdio:['pipe','pipe','pipe']}).trim()
+  const files=(await readdir(new URL('../supabase/vps/',import.meta.url))).filter(name=>/^10[0-8]_sitov_.*\.sql$/.test(name)).sort()
+  assert.equal(files.length,9)
+  const applied=[]
+  for(const [index,name] of files.entries()) {
+   assert.equal(Number(name.slice(0,3)),100+index)
+   const sql=await readFile(new URL(`../supabase/vps/${name}`,import.meta.url),'utf8')
+   await db.exec(`BEGIN;${sql}COMMIT;`)
+   applied.push({name,sha256:sourceHash(sql)})
+  }
+  const definition=async signature=>(await db.query('SELECT pg_get_functiondef($1::regprocedure) body',[signature])).rows[0].body
+  const original=await definition('public.get_learning_new_items(text)')
+  assert.equal(original.match(/learning_private\.new_objects\(\)/g).length,2)
+  const guards=['learning_private.new_objects()','public.get_learning_new_counts()','public.get_last_active_level()',
+   'sitov_access_private.unit_allowed(uuid,uuid)','sitov_access_private.item_allowed(uuid,text,text)','sitov_verb_private.level_allowed(uuid,text)']
+  const beforeGuards=Object.fromEntries(await Promise.all(guards.map(async signature=>[signature,await definition(signature)])))
+  const beforeRights=await sitovRightsSnapshot(db),beforeHistory=await sitovHistorySnapshot(db)
+  const metadata=async()=>(await db.query("SELECT provolatile,prosecdef,proconfig,proacl::text,proowner FROM pg_proc WHERE oid='public.get_learning_new_items(text)'::regprocedure")).rows[0]
+  const beforeMeta=await metadata()
+  await db.exec(`BEGIN;${migration}COMMIT;`)
+  const migrated=await definition('public.get_learning_new_items(text)')
+  assert.deepEqual(await metadata(),beforeMeta)
+  await db.exec(canonical)
+  assert.equal(await definition('public.get_learning_new_items(text)'),migrated)
+  await db.exec(`BEGIN;${migration}COMMIT;`)
+  assert.equal(await definition('public.get_learning_new_items(text)'),migrated,'109 replay is idempotent')
+  assert.deepEqual(await metadata(),beforeMeta)
+  for(const signature of guards)assert.equal(await definition(signature),beforeGuards[signature],signature)
+  assert.deepEqual(await sitovRightsSnapshot(db),beforeRights)
+  assert.deepEqual(await sitovHistorySnapshot(db),beforeHistory)
+  await db.actor(sitovUsers.selected)
+  assert.equal((await db.query("SELECT count(*)::int n FROM learning_reading_texts WHERE id=$1",[sitovId(302)])).rows[0].n,0,'legacy hard mode alone never bypasses the per-text pretest gate')
+  await db.actor(null,'postgres');await db.exec(`INSERT INTO learning_first_visits(auth_user_id,scope,first_visit_at)
+   SELECT '${sitovUsers.all}',scope,'2026-01-01'::timestamptz FROM(VALUES('room'),('A1.1')) v(scope) ON CONFLICT DO NOTHING;`)
+  await db.actor(sitovUsers.all)
+  const result=(await db.query("SELECT get_learning_new_items('A1.1') value")).rows[0].value
+  assert.equal(result.success,true)
+  assert.deepEqual(result.items.vocabulary_lesson,[sitovId(211),sitovId(212)])
+  assert.deepEqual(result.lessons,{[sitovId(211)]:'Sitov QA vocabulary 1',[sitovId(212)]:'Sitov QA vocabulary 2'})
+  t.diagnostic(JSON.stringify({install:'immutable baseline92 + frozen93–99 + explicit current100–109; not whole canonical schema install',applied,
+   migration109Sha256:sourceHash(migration),nativeDefinitionSha256:sourceHash(migrated),metadata:beforeMeta,rightsSha256:hash(beforeRights),historySha256:hash(beforeHistory),nonemptyResult:result,perTextGatePreserved:true}))
+ } finally {
+  if(db)await db.close()
+  admin.raw(`DROP DATABASE IF EXISTS ${database} WITH(FORCE)`)
+ }
+})
+
 test('new items: exact native fixed-snapshot JSON equivalence and single evaluation', {skip:process.env.SITOV_NIGHT_NATIVE!=='1',timeout:180000}, async t=>{
  const admin=new SitovNativeDatabase(), database=`sitov_night_single_items_${process.pid}`
  admin.raw(`CREATE DATABASE ${database}`)

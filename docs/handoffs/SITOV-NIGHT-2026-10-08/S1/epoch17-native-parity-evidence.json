@@ -1,0 +1,99 @@
+{
+  "base_sha": "42ecdbc127fae0f047c70f43d66c41f4dfa0465b",
+  "canonical_delta": "exactly one assigned function; all outside bytes unchanged",
+  "parity_tests": {
+    "pass": 2,
+    "skip": 0,
+    "selection": "schema109 parity only; original9 deliberately not repeated"
+  },
+  "bundled_tests": {
+    "pass": 20,
+    "skip": 0,
+    "files": [
+      "supabase/tests/sitov-night-current-schema.test.mjs",
+      "supabase/tests/sitov-night-integrated99.test.mjs",
+      "supabase/tests/sitov-commercial-current-db.test.mjs"
+    ],
+    "duration_ms": 8609.9215
+  },
+  "diagnostics": [
+    {
+      "install": "immutable baseline92 + frozen93–99 + explicit current100–109; not whole canonical schema install",
+      "applied": [
+        {
+          "name": "100_sitov_pretest_staff_drafts.sql",
+          "sha256": "ebe50eedbeeb3506ddbd0ab7a2105488f3b5362905ddd2c1834490edb217cb7c"
+        },
+        {
+          "name": "101_sitov_special_authoring.sql",
+          "sha256": "8dd08addeb2f68ce0a4bbe1255bde2dd21a6cbbc535dbcb95f2a6b310767bebf"
+        },
+        {
+          "name": "102_sitov_pretest_staff_publication.sql",
+          "sha256": "99e88657aaef02beeb14704bfa58e823979f3888733a4f04d2806312d522ea1d"
+        },
+        {
+          "name": "103_sitov_staff_draft_authority.sql",
+          "sha256": "b1168996f85da110df888b5a9d03dac2cd069dcc84bc8e025d0e1d03c9d2e5a3"
+        },
+        {
+          "name": "104_sitov_special_staff_publication.sql",
+          "sha256": "91e8946ffc03bdb407cd4fc899ccbd2673513af9b3f97cd4627b01a9e2af614f"
+        },
+        {
+          "name": "105_sitov_pretest_publication_authority.sql",
+          "sha256": "03fa59dda2447cbf9dfd91b62017b6d2b756ff7313b257e1284ae2594c6eb103"
+        },
+        {
+          "name": "106_sitov_special_staff_targets.sql",
+          "sha256": "a3c9c999aa5196e9dd37612f2f9cfe9781afd4ffda062d511fed40c3019e8879"
+        },
+        {
+          "name": "107_sitov_pretest_learning_topics.sql",
+          "sha256": "a89c4fbc09349bc20b75f101254d697dac00cd4503f418eaf6e3d691b2d7ffa5"
+        },
+        {
+          "name": "108_sitov_learning_recommendation_sources.sql",
+          "sha256": "8a3b6ccffc2b7e728123eaeda7625ba1c6db20acea557b79a61fc4cd9ba240fe"
+        }
+      ],
+      "migration109Sha256": "3958e8671249b77aadc9ad5a9eed66d458ceb55d82f720ab11733b9982562b6d",
+      "nativeDefinitionSha256": "7c56bd4a0e8fc59779feb111dfec5e0be3f7559741d5f4c226a17acf31fed1d7",
+      "metadata": {
+        "proacl": "{postgres=X/postgres,authenticated=X/postgres,service_role=X/postgres}",
+        "proowner": "16389",
+        "proconfig": [
+          "search_path=\"\""
+        ],
+        "prosecdef": true,
+        "provolatile": "v"
+      },
+      "rightsSha256": "ebd9d95c683d0c0456dac2071e6c47c3247e7d51b2c06b663c1583f7de264bf4",
+      "historySha256": "5f87da3cc92ed3ef44d8892fd7fda1573e2c998ca7735014ae0f46aedce6ba36",
+      "nonemptyResult": {
+        "items": {
+          "level": [
+            "A1.1"
+          ],
+          "video": [
+            "00000000-0000-4000-8000-000000000303"
+          ],
+          "vocabulary_lesson": [
+            "00000000-0000-4000-8000-000000000211",
+            "00000000-0000-4000-8000-000000000212"
+          ],
+          "pronunciation_text": [
+            "00000000-0000-4000-8000-000000000302"
+          ]
+        },
+        "level": "A1.1",
+        "lessons": {
+          "00000000-0000-4000-8000-000000000211": "Sitov QA vocabulary 1",
+          "00000000-0000-4000-8000-000000000212": "Sitov QA vocabulary 2"
+        },
+        "success": true
+      },
+      "perTextGatePreserved": true
+    }
+  ]
+}

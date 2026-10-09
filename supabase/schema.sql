@@ -14033,20 +14033,22 @@ BEGIN
  RETURN jsonb_build_object('success',true,'any',levels<>'{}'::jsonb,'levels',levels,'visited',visited);
 EXCEPTION WHEN OTHERS THEN RETURN jsonb_build_object('error','request_failed','message','The request could not be completed.','sqlstate',SQLSTATE);
 END $$;
-CREATE FUNCTION public.get_learning_new_items(p_level text) RETURNS jsonb
-    LANGUAGE plpgsql SECURITY DEFINER
-    SET search_path TO ''
-    AS $$
+CREATE OR REPLACE FUNCTION public.get_learning_new_items(p_level text) RETURNS jsonb
+LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path='' AS $$
 DECLARE actor uuid:=auth.uid(); items jsonb; lessons jsonb;
 BEGIN
  IF actor IS NULL THEN RETURN jsonb_build_object('error','not_authenticated','message','Authentication is required.'); END IF;
  IF p_level IS NULL OR length(p_level) NOT BETWEEN 1 AND 20 THEN RETURN jsonb_build_object('error','invalid_input','message','The request contains invalid data.'); END IF;
- SELECT coalesce(jsonb_object_agg(g.kind,g.keys),'{}'::jsonb) INTO items FROM (
-  SELECT n.kind::text kind,jsonb_agg(n.object_key ORDER BY n.object_key) keys
-    FROM learning_private.new_objects() n WHERE n.level=p_level GROUP BY n.kind) g;
- -- Vokabel-Lektionen erscheinen in der Oberfläche unter ihrem Namen: Name je neuer Lektion mitgeben.
- SELECT coalesce(jsonb_object_agg(u.id::text,u.label),'{}'::jsonb) INTO lessons FROM public.learning_units u
-  WHERE u.id::text IN(SELECT n.object_key FROM learning_private.new_objects() n WHERE n.level=p_level AND n.kind='vocabulary_lesson');
+ WITH sitov_new_objects AS MATERIALIZED (
+  SELECT n.kind,n.object_key FROM learning_private.new_objects() n WHERE n.level=p_level
+ )
+ SELECT
+  (SELECT coalesce(jsonb_object_agg(g.kind,g.keys),'{}'::jsonb) FROM (
+   SELECT n.kind::text kind,jsonb_agg(n.object_key ORDER BY n.object_key) keys
+   FROM sitov_new_objects n GROUP BY n.kind) g),
+  (SELECT coalesce(jsonb_object_agg(u.id::text,u.label),'{}'::jsonb) FROM public.learning_units u
+   WHERE u.id::text IN(SELECT n.object_key FROM sitov_new_objects n WHERE n.kind='vocabulary_lesson'))
+ INTO items,lessons;
  RETURN jsonb_build_object('success',true,'level',p_level,'items',items,'lessons',lessons);
 EXCEPTION WHEN OTHERS THEN RETURN jsonb_build_object('error','request_failed','message','The request could not be completed.','sqlstate',SQLSTATE);
 END $$;
