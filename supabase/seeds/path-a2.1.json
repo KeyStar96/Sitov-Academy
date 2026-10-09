@@ -2725,7 +2725,7 @@
                 "im Perfekt"
               ],
               "instruction": "Ergänze haben oder sein in der richtigen Form.",
-              "text_before": "Lena kommt zu spät, weil sie den Bus verpasst ",
+              "text_before": "Leon kommt zu spät, weil er den Bus verpasst ",
               "text_after": ".",
               "gap_hint": "haben / sein",
               "correct_answer": "hat",
@@ -2749,25 +2749,25 @@
                 "instruction": "Fill in haben or sein in the correct form.",
                 "hint": "Perfect tense: movement from A to B (kommen, fahren, gehen) → sein. Otherwise usually haben.",
                 "explanation": "In a weil clause all parts of the verb go to the end. With a modal verb: infinitive + modal verb: …, weil ich arbeiten muss. In the perfect tense: participle + haben or sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Separable verbs are written as one word: …, weil er früh aufsteht.",
-                "task": "Lena is late because she missed the bus."
+                "task": "Leon is late because he missed the bus."
               },
               "ru": {
                 "instruction": "Вставьте haben или sein в правильной форме.",
                 "hint": "Perfekt: движение из A в B (kommen, fahren, gehen) → sein. В остальных случаях обычно haben.",
                 "explanation": "В предложении с weil все части сказуемого стоят в конце. С модальным глаголом: инфинитив + модальный глагол: …, weil ich arbeiten muss. В Perfekt: причастие + haben или sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Глаголы с отделяемой приставкой пишутся слитно: …, weil er früh aufsteht.",
-                "task": "Lena опаздывает, потому что пропустила автобус."
+                "task": "Leon опаздывает, потому что пропустил автобус."
               },
               "uk": {
                 "instruction": "Вставте haben або sein у правильній формі.",
                 "hint": "Perfekt: рух з A в B (kommen, fahren, gehen) → sein. В інших випадках зазвичай haben.",
                 "explanation": "У реченні з weil усі частини присудка стоять у кінці. З модальним дієсловом: інфінітив + модальне дієслово: …, weil ich arbeiten muss. У Perfekt: дієприкметник + haben або sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Дієслова з відокремлюваним префіксом пишуться разом: …, weil er früh aufsteht.",
-                "task": "Lena запізнюється, тому що пропустила автобус."
+                "task": "Leon запізнюється, тому що пропустив автобус."
               },
               "tr": {
                 "instruction": "Haben ya da sein fiilini doğru biçimde yazın.",
                 "hint": "Perfekt: A’dan B’ye hareket (kommen, fahren, gehen) → sein. Diğer durumlarda genellikle haben.",
                 "explanation": "weil cümlesinde fiilin bütün parçaları sonda durur. Kip fiiliyle: mastar + kip fiili: …, weil ich arbeiten muss. Perfekt’te: Partizip + haben ya da sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Ayrılabilen fiiller bitişik yazılır: …, weil er früh aufsteht.",
-                "task": "Lena geç kalıyor, çünkü otobüsü kaçırdı."
+                "task": "Leon geç kalıyor, çünkü otobüsü kaçırdı."
               }
             }
           },
@@ -2837,7 +2837,7 @@
                 "trennbares Verb"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Mia ist nicht zu Hause, weil sie gerade im Supermarkt ",
+              "text_before": "Milan ist nicht zu Hause, weil er gerade im Supermarkt ",
               "text_after": ".",
               "gap_hint": "einkaufen",
               "correct_answer": "einkauft",
@@ -2861,25 +2861,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "All verb parts go to the end – the conjugated verb comes last: arbeiten muss, verpasst habe.",
                 "explanation": "In a weil clause all parts of the verb go to the end. With a modal verb: infinitive + modal verb: …, weil ich arbeiten muss. In the perfect tense: participle + haben or sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Separable verbs are written as one word: …, weil er früh aufsteht.",
-                "task": "Mia is not at home because she is shopping at the supermarket right now."
+                "task": "Milan is not at home because he is shopping at the supermarket right now."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Все части сказуемого – в конец, спрягаемый глагол самый последний: arbeiten muss, verpasst habe.",
                 "explanation": "В предложении с weil все части сказуемого стоят в конце. С модальным глаголом: инфинитив + модальный глагол: …, weil ich arbeiten muss. В Perfekt: причастие + haben или sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Глаголы с отделяемой приставкой пишутся слитно: …, weil er früh aufsteht.",
-                "task": "Mia нет дома, потому что она сейчас делает покупки в супермаркете."
+                "task": "Milan нет дома, потому что он сейчас делает покупки в супермаркете."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Усі частини присудка – в кінець, відмінюване дієслово останнє: arbeiten muss, verpasst habe.",
                 "explanation": "У реченні з weil усі частини присудка стоять у кінці. З модальним дієсловом: інфінітив + модальне дієслово: …, weil ich arbeiten muss. У Perfekt: дієприкметник + haben або sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Дієслова з відокремлюваним префіксом пишуться разом: …, weil er früh aufsteht.",
-                "task": "Mia немає вдома, тому що вона зараз купує продукти в супермаркеті."
+                "task": "Milan немає вдома, тому що він зараз купує продукти в супермаркеті."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Fiilin bütün parçaları sona gelir – çekimli fiil en sonda: arbeiten muss, verpasst habe.",
                 "explanation": "weil cümlesinde fiilin bütün parçaları sonda durur. Kip fiiliyle: mastar + kip fiili: …, weil ich arbeiten muss. Perfekt’te: Partizip + haben ya da sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Ayrılabilen fiiller bitişik yazılır: …, weil er früh aufsteht.",
-                "task": "Mia evde değil, çünkü şu anda süpermarkette alışveriş yapıyor."
+                "task": "Milan evde değil, çünkü şu anda süpermarkette alışveriş yapıyor."
               }
             }
           },
@@ -5269,7 +5269,7 @@
         ],
         "merkkarte": {
           "card": "p1_gliedern",
-          "rule": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+          "rule": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
           "examples": [
             "Zuerst habe ich verschlafen.",
             "Dann habe ich den Bus verpasst.",
@@ -5278,16 +5278,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen."
+              "rule": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen."
             },
             "ru": {
-              "rule": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen."
+              "rule": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen."
             },
             "uk": {
-              "rule": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen."
+              "rule": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen."
             },
             "tr": {
-              "rule": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen."
+              "rule": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen."
             }
           }
         },
@@ -5317,31 +5317,31 @@
               "Zuerst"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Which word fits at the beginning of a story?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Какое слово подходит в начале рассказа?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Яке слово підходить на початку розповіді?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Bir hikâyenin başına hangi kelime uyar?"
               }
             }
@@ -5371,31 +5371,31 @@
               "Schließlich"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Which word fits at the end of a story?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Какое слово подходит в конце рассказа?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Яке слово підходить у кінці розповіді?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Bir hikâyenin sonuna hangi kelime uyar?"
               }
             }
@@ -5425,31 +5425,31 @@
               "Dann habe ich meine Schwester angerufen."
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Which sentence is correct?",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Lena is talking about her evening."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Lena рассказывает о своём вечере."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Lena розповідає про свій вечір."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Lena akşamını anlatıyor."
               }
             }
@@ -5479,31 +5479,31 @@
               "zuerst – dann – schließlich"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "What is the correct order?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Какой порядок правильный?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Який порядок правильний?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Doğru sıra hangisi?"
               }
             }
@@ -5534,34 +5534,34 @@
               "Zuerst"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "First I got up, then I had a shower.",
                 "gap_hint": "first"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Сначала я встал, потом принял душ.",
                 "gap_hint": "сначала"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Спочатку я встав, потім прийняв душ.",
                 "gap_hint": "спочатку"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Önce kalktım, sonra duş aldım.",
                 "gap_hint": "önce"
               }
@@ -5593,34 +5593,34 @@
               "schließlich"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "First we cooked, then we ate, and finally we watched a film.",
                 "gap_hint": "finally"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Сначала мы готовили, потом ели и наконец посмотрели фильм.",
                 "gap_hint": "наконец"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Спочатку ми готували, потім їли й нарешті подивилися фільм.",
                 "gap_hint": "нарешті"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Önce yemek yaptık, sonra yedik ve sonunda bir film izledik.",
                 "gap_hint": "sonunda"
               }
@@ -5653,31 +5653,31 @@
               "sind"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Fill in haben or sein in the correct form.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Later we went to the cinema."
               },
               "ru": {
                 "instruction": "Вставьте haben или sein в правильной форме.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Позже мы пошли в кино."
               },
               "uk": {
                 "instruction": "Вставте haben або sein у правильній формі.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Пізніше ми пішли в кіно."
               },
               "tr": {
                 "instruction": "Haben ya da sein fiilini doğru biçimde yazın.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Daha sonra sinemaya gittik."
               }
             }
@@ -5712,34 +5712,34 @@
               "Später"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "First I made coffee. Then I read the newspaper.",
                 "gap_hint": "then"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Сначала я сварил кофе. Потом почитал газету.",
                 "gap_hint": "потом"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Спочатку я зварив каву. Потім почитав газету.",
                 "gap_hint": "потім"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Önce kahve yaptım. Sonra gazete okudum.",
                 "gap_hint": "sonra"
               }
@@ -5773,31 +5773,31 @@
               "Wir sind schließlich nach Hause gefahren."
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Finally we went home."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Наконец мы поехали домой."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Нарешті ми поїхали додому."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Sonunda eve gittik."
               }
             }
@@ -5831,7 +5831,7 @@
           "card": "p1_bewerten",
           "rule": "Sagen, wie jemand etwas findet: Das findet er toll. Das findet sie nicht so toll. Das gefällt ihm. Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (einem Mann), ihr (einer Frau), ihnen (mehreren Personen).",
           "examples": [
-            "Lena wohnt allein. Das findet sie toll.",
+            "Leon wohnt allein. Das findet er toll.",
             "Paul steht um fünf Uhr auf. Das gefällt ihm nicht.",
             "Meine Eltern leben auf dem Land. Das gefällt ihnen."
           ],
@@ -6190,8 +6190,8 @@
                 "finden"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Mia hat ein eigenes Zimmer. Das ",
-              "text_after": " sie super.",
+              "text_before": "Milan hat ein eigenes Zimmer. Das ",
+              "text_after": " er super.",
               "gap_hint": "finden / gefallen",
               "correct_answer": "findet",
               "options": [
@@ -6214,25 +6214,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "finden: er / sie + findet. gefallen: ihm (man), ihr (woman), ihnen (several people).",
                 "explanation": "Saying what someone thinks of something: Das findet er toll. (He thinks that is great.) Das findet sie nicht so toll. Das gefällt ihm. (He likes that.) Das gefällt ihr nicht. finden + accusative: Er findet die Wohnung schön. gefallen + dative: Die Wohnung gefällt ihm (a man), ihr (a woman), ihnen (several people).",
-                "task": "Mia has a room of her own. She thinks that is great."
+                "task": "Milan has a room of his own. He thinks that is great."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "finden: er / sie + findet. gefallen: ihm (мужчина), ihr (женщина), ihnen (несколько человек).",
                 "explanation": "Как сказать, что человек о чём-то думает: Das findet er toll. (Он считает, что это здорово.) Das findet sie nicht so toll. Das gefällt ihm. (Ему это нравится.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (мужчине), ihr (женщине), ihnen (нескольким людям).",
-                "task": "У Mia есть своя комната. Она считает, что это здорово."
+                "task": "У Milan есть своя комната. Он считает, что это здорово."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "finden: er / sie + findet. gefallen: ihm (чоловік), ihr (жінка), ihnen (кілька людей).",
                 "explanation": "Як сказати, що людина про щось думає: Das findet er toll. (Він вважає, що це чудово.) Das findet sie nicht so toll. Das gefällt ihm. (Йому це подобається.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (чоловікові), ihr (жінці), ihnen (кільком людям).",
-                "task": "У Mia є власна кімната. Вона вважає, що це чудово."
+                "task": "У Milan є власна кімната. Він вважає, що це чудово."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "finden: er / sie + findet. gefallen: ihm (erkek), ihr (kadın), ihnen (birkaç kişi).",
                 "explanation": "Birinin bir şeyi nasıl bulduğunu söylemek: Das findet er toll. (Bunu harika buluyor.) Das findet sie nicht so toll. Das gefällt ihm. (Bu onun hoşuna gidiyor.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (bir erkeğin), ihr (bir kadının), ihnen (birkaç kişinin) hoşuna gidiyor.",
-                "task": "Mia’nın kendi odası var. Bunu harika buluyor."
+                "task": "Milan’ın kendi odası var. Bunu harika buluyor."
               }
             }
           },
@@ -7057,31 +7057,31 @@
               "Dann"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "First I had breakfast. Then I went to work."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Сначала я позавтракал. Потом поехал на работу."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Спочатку я поснідав. Потім поїхав на роботу."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Önce kahvaltı yaptım. Sonra işe gittim."
               }
             }
@@ -8118,7 +8118,7 @@
                 "getrennt"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena und Tom sind kein Paar mehr, aber sie sind noch nicht geschieden. Sie leben …",
+              "question": "Leon und Tom sind kein Paar mehr, aber sie sind noch nicht geschieden. Sie leben …",
               "options": [
                 "getrennt",
                 "in einer Großfamilie",
@@ -8140,25 +8140,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Marital status: ledig, verheiratet, getrennt, geschieden. Work: berufstätig, arbeitslos, in Rente.",
                 "explanation": "How people live: Ich lebe allein (alone). Ich bin Single. Wir leben als Paar zusammen (together as a couple). Ich wohne in einer Wohngemeinschaft (WG = shared flat). In a Großfamilie (extended family) grandparents, parents and children live together. Marital status: ledig (never married), verheiratet (married), getrennt (separated), geschieden (divorced). Alleinerziehend: a mother or father lives alone with the child (single parent). Work: berufstätig (working), arbeitslos (unemployed), in Rente (retired), studieren, als Koch arbeiten (work as a cook). Time: Ich lebe seit drei Jahren allein.",
-                "task": "Lena and Tom are no longer a couple, but they are not divorced yet. They live …"
+                "task": "Leon and Tom are no longer a couple, but they are not divorced yet. They live …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Семейное положение: ledig, verheiratet, getrennt, geschieden. Работа: berufstätig, arbeitslos, in Rente.",
                 "explanation": "Как живут люди: Ich lebe allein (один). Ich bin Single. Wir leben als Paar zusammen (вместе как пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, которую снимают вместе). В Großfamilie (большой семье) вместе живут бабушки и дедушки, родители и дети. Семейное положение: ledig (никогда не был в браке), verheiratet (в браке), getrennt (живут раздельно), geschieden (в разводе). Alleinerziehend: мать или отец живёт с ребёнком без партнёра. Работа: berufstätig (работает), arbeitslos (безработный), in Rente (на пенсии), studieren, als Koch arbeiten (работать поваром). Время: Ich lebe seit drei Jahren allein.",
-                "task": "Lena и Tom больше не пара, но ещё не развелись. Они живут …"
+                "task": "Leon и Tom больше не пара, но ещё не развелись. Они живут …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Сімейний стан: ledig, verheiratet, getrennt, geschieden. Робота: berufstätig, arbeitslos, in Rente.",
                 "explanation": "Як живуть люди: Ich lebe allein (сам). Ich bin Single. Wir leben als Paar zusammen (разом як пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, яку винаймають разом). У Großfamilie (великій родині) разом живуть бабусі й дідусі, батьки та діти. Сімейний стан: ledig (ніколи не був у шлюбі), verheiratet (у шлюбі), getrennt (живуть окремо), geschieden (розлучений). Alleinerziehend: мати або батько живе з дитиною без партнера. Робота: berufstätig (працює), arbeitslos (безробітний), in Rente (на пенсії), studieren, als Koch arbeiten (працювати кухарем). Час: Ich lebe seit drei Jahren allein.",
-                "task": "Lena і Tom більше не пара, але ще не розлучилися. Вони живуть …"
+                "task": "Leon і Tom більше не пара, але ще не розлучилися. Вони живуть …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Medeni durum: ledig, verheiratet, getrennt, geschieden. İş: berufstätig, arbeitslos, in Rente.",
                 "explanation": "İnsanlar nasıl yaşar: Ich lebe allein (yalnız). Ich bin Single. Wir leben als Paar zusammen (çift olarak birlikte). Ich wohne in einer Wohngemeinschaft (WG = ortak ev). Bir Großfamilie’de (geniş aile) büyükanne ve büyükbaba, anne baba ve çocuklar birlikte yaşar. Medeni durum: ledig (hiç evlenmemiş), verheiratet (evli), getrennt (ayrı yaşayan), geschieden (boşanmış). Alleinerziehend: Anne ya da baba çocuğuyla yalnız yaşar. İş: berufstätig (çalışan), arbeitslos (işsiz), in Rente (emekli), studieren, als Koch arbeiten (aşçı olarak çalışmak). Zaman: Ich lebe seit drei Jahren allein.",
-                "task": "Lena ile Tom artık çift değil, ama henüz boşanmadılar. Onlar … yaşıyor."
+                "task": "Leon ile Tom artık çift değil, ama henüz boşanmadılar. Onlar … yaşıyor."
               }
             }
           },
@@ -8241,31 +8241,31 @@
               "Zuerst"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "First I waited for a long time. Then the bus finally came."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Сначала я долго ждал. Потом автобус наконец пришёл."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Спочатку я довго чекав. Потім автобус нарешті приїхав."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Önce uzun süre bekledim. Sonra otobüs nihayet geldi."
               }
             }
@@ -8500,7 +8500,7 @@
                 "im Perfekt"
               ],
               "instruction": "Ergänze haben oder sein in der richtigen Form.",
-              "text_before": "Mia ist glücklich, weil sie eine Wohnung gefunden ",
+              "text_before": "Milan ist glücklich, weil er eine Wohnung gefunden ",
               "text_after": ".",
               "gap_hint": "haben / sein",
               "correct_answer": "hat",
@@ -8524,25 +8524,25 @@
                 "instruction": "Fill in haben or sein in the correct form.",
                 "hint": "Perfect tense: movement from A to B (kommen, fahren, gehen) → sein. Otherwise usually haben.",
                 "explanation": "In a weil clause all parts of the verb go to the end. With a modal verb: infinitive + modal verb: …, weil ich arbeiten muss. In the perfect tense: participle + haben or sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Separable verbs are written as one word: …, weil er früh aufsteht.",
-                "task": "Mia is happy because she has found a flat."
+                "task": "Milan is happy because he has found a flat."
               },
               "ru": {
                 "instruction": "Вставьте haben или sein в правильной форме.",
                 "hint": "Perfekt: движение из A в B (kommen, fahren, gehen) → sein. В остальных случаях обычно haben.",
                 "explanation": "В предложении с weil все части сказуемого стоят в конце. С модальным глаголом: инфинитив + модальный глагол: …, weil ich arbeiten muss. В Perfekt: причастие + haben или sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Глаголы с отделяемой приставкой пишутся слитно: …, weil er früh aufsteht.",
-                "task": "Mia счастлива, потому что нашла квартиру."
+                "task": "Milan счастлив, потому что нашёл квартиру."
               },
               "uk": {
                 "instruction": "Вставте haben або sein у правильній формі.",
                 "hint": "Perfekt: рух з A в B (kommen, fahren, gehen) → sein. В інших випадках зазвичай haben.",
                 "explanation": "У реченні з weil усі частини присудка стоять у кінці. З модальним дієсловом: інфінітив + модальне дієслово: …, weil ich arbeiten muss. У Perfekt: дієприкметник + haben або sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Дієслова з відокремлюваним префіксом пишуться разом: …, weil er früh aufsteht.",
-                "task": "Mia щаслива, тому що знайшла квартиру."
+                "task": "Milan щасливий, тому що знайшов квартиру."
               },
               "tr": {
                 "instruction": "Haben ya da sein fiilini doğru biçimde yazın.",
                 "hint": "Perfekt: A’dan B’ye hareket (kommen, fahren, gehen) → sein. Diğer durumlarda genellikle haben.",
                 "explanation": "weil cümlesinde fiilin bütün parçaları sonda durur. Kip fiiliyle: mastar + kip fiili: …, weil ich arbeiten muss. Perfekt’te: Partizip + haben ya da sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Ayrılabilen fiiller bitişik yazılır: …, weil er früh aufsteht.",
-                "task": "Mia mutlu, çünkü bir daire buldu."
+                "task": "Milan mutlu, çünkü bir daire buldu."
               }
             }
           },
@@ -9082,34 +9082,34 @@
               "schließlich"
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
-            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+            "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
             "explanation_card": "p1_gliedern",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
-                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "First we did the shopping, then we cooked, and finally we ate.",
                 "gap_hint": "finally"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
-                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Сначала мы сходили за покупками, потом готовили и наконец поели.",
                 "gap_hint": "наконец"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
-                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Спочатку ми сходили по покупки, потім готували й нарешті поїли.",
                 "gap_hint": "нарешті"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
-                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Lena getroffen. Schließlich sind wir nach Hause gegangen.",
+                "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
                 "task": "Önce alışveriş yaptık, sonra yemek pişirdik ve sonunda yedik.",
                 "gap_hint": "sonunda"
               }
@@ -15155,7 +15155,7 @@
               ],
               "instruction": "Ergänze die richtige Form.",
               "text_before": "Bis bald und viele ",
-              "text_after": " von deiner Nachbarin Mia",
+              "text_after": " von deinem Nachbarn Milan",
               "gap_hint": "der Gruß",
               "correct_answer": "Grüße",
               "options": [
@@ -15178,25 +15178,25 @@
                 "instruction": "Fill in the correct form.",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Formal closing: Mit freundlichen Grüßen.",
                 "explanation": "Greeting and closing in a letter. Formal, no name known: Sehr geehrte Damen und Herren, … (Dear Sir or Madam) Formal with a name: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Closing: Mit freundlichen Grüßen (Yours sincerely). To neighbours or colleagues: Hallo Frau Kaya, … Liebe Nachbarn, … Closing: Viele Grüße. Herzliche Grüße. To friends: Liebe Lena, … Lieber Paul, … After the greeting there is a comma, and the text continues with a small letter.",
-                "task": "See you soon and best wishes from your neighbour Mia"
+                "task": "See you soon and best wishes from your neighbour Milan"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму.",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Официальное прощание: Mit freundlichen Grüßen.",
                 "explanation": "Обращение и прощание в письме. Официально, имя неизвестно: Sehr geehrte Damen und Herren, … (Уважаемые дамы и господа) Официально с именем: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Прощание: Mit freundlichen Grüßen (С уважением). Соседям или коллегам: Hallo Frau Kaya, … Liebe Nachbarn, … Прощание: Viele Grüße. Herzliche Grüße. Друзьям: Liebe Lena, … Lieber Paul, … После обращения ставится запятая, дальше пишут с маленькой буквы.",
-                "task": "До скорого и большой привет от твоей соседки Mia"
+                "task": "До скорого и большой привет от твоего соседа Milan"
               },
               "uk": {
                 "instruction": "Вставте правильну форму.",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Офіційне прощання: Mit freundlichen Grüßen.",
                 "explanation": "Звертання і прощання в листі. Офіційно, ім’я невідоме: Sehr geehrte Damen und Herren, … (Шановні пані та панове) Офіційно з іменем: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Прощання: Mit freundlichen Grüßen (З повагою). Сусідам або колегам: Hallo Frau Kaya, … Liebe Nachbarn, … Прощання: Viele Grüße. Herzliche Grüße. Друзям: Liebe Lena, … Lieber Paul, … Після звертання ставиться кома, далі пишуть із малої літери.",
-                "task": "До зустрічі й щирі вітання від твоєї сусідки Mia"
+                "task": "До зустрічі й щирі вітання від твого сусіда Milan"
               },
               "tr": {
                 "instruction": "Doğru biçimi yazın.",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Resmî kapanış: Mit freundlichen Grüßen.",
                 "explanation": "Mektupta hitap ve kapanış. Resmî, isim bilinmiyor: Sehr geehrte Damen und Herren, … (Sayın Bayanlar ve Baylar) Resmî ve isimle: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Kapanış: Mit freundlichen Grüßen (Saygılarımla). Komşulara ya da iş arkadaşlarına: Hallo Frau Kaya, … Liebe Nachbarn, … Kapanış: Viele Grüße. Herzliche Grüße. Arkadaşlara: Liebe Lena, … Lieber Paul, … Hitaptan sonra virgül konur, ardından küçük harfle devam edilir.",
-                "task": "Yakında görüşmek üzere, komşun Mia’dan selamlar"
+                "task": "Yakında görüşmek üzere, komşun Milan’dan selamlar"
               }
             }
           }
@@ -18951,7 +18951,7 @@
                 "immer"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena isst jeden Tag Obst. Sie isst … Obst.",
+              "question": "Leon isst jeden Tag Obst. Er isst … Obst.",
               "options": [
                 "immer",
                 "selten",
@@ -18973,25 +18973,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "From a lot to a little: immer – meistens – oft – manchmal – selten – nie.",
                 "explanation": "How often do you do something? immer (always) – fast immer (almost always) – meistens (mostly) – oft (often) – manchmal (sometimes) – selten (rarely) – fast nie (hardly ever) – nie (never). With numbers: einmal, zweimal, dreimal (once, twice, three times) pro Tag, pro Woche, im Monat, im Jahr. Meals: Zum Frühstück gibt es meistens Müsli. Zum Abendessen esse ich oft Brot. The frequency word usually comes after the verb: Ich koche selten. Ich gehe einmal pro Woche ins Restaurant.",
-                "task": "Lena eats fruit every day. She … eats fruit."
+                "task": "Leon eats fruit every day. He … eats fruit."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "От частого к редкому: immer – meistens – oft – manchmal – selten – nie.",
                 "explanation": "Как часто вы что-то делаете? immer (всегда) – fast immer (почти всегда) – meistens (чаще всего) – oft (часто) – manchmal (иногда) – selten (редко) – fast nie (почти никогда) – nie (никогда). С числами: einmal, zweimal, dreimal (один, два, три раза) pro Tag, pro Woche, im Monat, im Jahr. Приёмы пищи: Zum Frühstück gibt es meistens Müsli. Zum Abendessen esse ich oft Brot. Слово, обозначающее частоту, обычно стоит после глагола: Ich koche selten. Ich gehe einmal pro Woche ins Restaurant.",
-                "task": "Lena ест фрукты каждый день. Она … ест фрукты."
+                "task": "Leon ест фрукты каждый день. Он … ест фрукты."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Від частого до рідкого: immer – meistens – oft – manchmal – selten – nie.",
                 "explanation": "Як часто ви щось робите? immer (завжди) – fast immer (майже завжди) – meistens (здебільшого) – oft (часто) – manchmal (іноді) – selten (рідко) – fast nie (майже ніколи) – nie (ніколи). З числами: einmal, zweimal, dreimal (один, два, три рази) pro Tag, pro Woche, im Monat, im Jahr. Прийоми їжі: Zum Frühstück gibt es meistens Müsli. Zum Abendessen esse ich oft Brot. Слово, що означає частоту, зазвичай стоїть після дієслова: Ich koche selten. Ich gehe einmal pro Woche ins Restaurant.",
-                "task": "Lena їсть фрукти щодня. Вона … їсть фрукти."
+                "task": "Leon їсть фрукти щодня. Він … їсть фрукти."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Çoktan aza: immer – meistens – oft – manchmal – selten – nie.",
                 "explanation": "Bir şeyi ne sıklıkta yaparsınız? immer (her zaman) – fast immer (neredeyse her zaman) – meistens (çoğunlukla) – oft (sık sık) – manchmal (bazen) – selten (nadiren) – fast nie (neredeyse hiç) – nie (hiç, asla). Sayılarla: einmal, zweimal, dreimal (bir, iki, üç kez) pro Tag, pro Woche, im Monat, im Jahr. Öğünler: Zum Frühstück gibt es meistens Müsli. Zum Abendessen esse ich oft Brot. Sıklık bildiren kelime çoğunlukla fiilden sonra gelir: Ich koche selten. Ich gehe einmal pro Woche ins Restaurant.",
-                "task": "Lena her gün meyve yiyor. O … meyve yer."
+                "task": "Leon her gün meyve yiyor. O … meyve yer."
               }
             }
           },
@@ -25248,7 +25248,7 @@
                 "Wie oft?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Mia schreibt: „Bei uns zu Hause gibt es zweimal pro Woche Fisch, immer dienstags und freitags. Fleisch essen wir selten, weil mein Mann Vegetarier ist.“ Wie oft isst die Familie Fisch?",
+              "question": "Milan schreibt: „Bei uns zu Hause gibt es zweimal pro Woche Fisch, immer dienstags und freitags. Fleisch essen wir selten, weil mein Mann Vegetarier ist.“ Wie oft isst die Familie Fisch?",
               "options": [
                 "Zweimal pro Woche.",
                 "Selten.",

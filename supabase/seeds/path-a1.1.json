@@ -44453,26 +44453,26 @@
         ],
         "merkkarte": {
           "card": "p7_sorry",
-          "rule": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es der Lehrerin.“",
+          "rule": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
           "examples": [
-            "Oh, gute Besserung! Ich sage es der Lehrerin.",
+            "Oh, gute Besserung! Ich sage es dem Lehrer.",
             "Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.",
             "Du bist krank? Gute Besserung!",
-            "Danke für die Information. Ich sage es der Lehrerin."
+            "Danke für die Information. Ich sage es dem Lehrer."
           ],
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es der Lehrerin.“ (I’ll tell the teacher.)"
+              "rule": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)"
             },
             "ru": {
-              "rule": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительнице»)."
+              "rule": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»)."
             },
             "uk": {
-              "rule": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительці»)."
+              "rule": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»)."
             },
             "tr": {
-              "rule": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es der Lehrerin.“ (Öğretmene söylerim.)"
+              "rule": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)"
             }
           }
         },
@@ -44502,31 +44502,31 @@
               "Oh, gute Besserung! Ich sage es der Lehrerin."
             ],
             "hint": "Jemand ist krank? Dann sagt man: Gute Besserung!",
-            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es der Lehrerin.“",
+            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
             "explanation_card": "p7_sorry",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Someone is ill? Say: Gute Besserung! (Get well soon!)",
-                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es der Lehrerin.“ (I’ll tell the teacher.)",
+                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)",
                 "task": "Emre calls the school: “My son Deniz is ill. He can’t come today.” What does the secretary say?"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
-                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительнице»).",
+                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
                 "task": "Emre звонит в школу: «Мой сын Deniz болен. Сегодня он не сможет прийти». Что говорит секретарь?"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
-                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительці»).",
+                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
                 "task": "Emre телефонує до школи: «Мій син Deniz хворий. Сьогодні він не зможе прийти». Що каже секретарка?"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Biri hasta mı? Gute Besserung! (Geçmiş olsun!) denir.",
-                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es der Lehrerin.“ (Öğretmene söylerim.)",
+                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)",
                 "task": "Emre okulu arıyor: “Oğlum Deniz hasta. Bugün gelemiyor.” Sekreter ne diyor?"
               }
             }
@@ -44612,31 +44612,31 @@
               "kann"
             ],
             "hint": "Modalverben: ich und er/sie/es haben keine Endung: ich kann, er kann.",
-            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es der Lehrerin.“",
+            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
             "explanation_card": "p7_sorry",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the correct form.",
                 "hint": "Modal verbs have no ending with ich and er/sie/es: ich kann, sie kann – just like English „I can, she can“.",
-                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es der Lehrerin.“ (I’ll tell the teacher.)",
+                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)",
                 "task": "My son is ill. He can’t come to school today."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в правильной форме.",
                 "hint": "У модальных глаголов с ich и er/sie/es нет окончания: ich kann, er kann.",
-                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительнице»).",
+                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
                 "task": "Мой сын болен. Сегодня он не может прийти в школу."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в правильній формі.",
                 "hint": "У модальних дієслів з ich та er/sie/es немає закінчення: ich kann, er kann.",
-                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительці»).",
+                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
                 "task": "Мій син хворий. Сьогодні він не може прийти до школи."
               },
               "tr": {
                 "instruction": "Kip fiilini doğru biçimde yazın.",
                 "hint": "Kip fiillerinde ich ve er/sie/es ile ek yoktur: ich kann, er kann.",
-                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es der Lehrerin.“ (Öğretmene söylerim.)",
+                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)",
                 "task": "Oğlum hasta. Bugün okula gelemiyor."
               }
             }
@@ -44667,34 +44667,34 @@
               "Besserung"
             ],
             "hint": "Jemand ist krank? Dann sagt man: Gute Besserung!",
-            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es der Lehrerin.“",
+            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
             "explanation_card": "p7_sorry",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "Someone is ill? Say: Gute Besserung! (Get well soon!)",
-                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es der Lehrerin.“ (I’ll tell the teacher.)",
+                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)",
                 "task": "You are ill? Get well soon!",
                 "gap_hint": "recovery (get well)"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
-                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительнице»).",
+                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
                 "task": "Ты болеешь? Выздоравливай!",
                 "gap_hint": "выздоровление"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
-                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительці»).",
+                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
                 "task": "Ти хворієш? Одужуй!",
                 "gap_hint": "одужання"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Biri hasta mı? Gute Besserung! (Geçmiş olsun!) denir.",
-                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es der Lehrerin.“ (Öğretmene söylerim.)",
+                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)",
                 "task": "Hasta mısın? Geçmiş olsun!",
                 "gap_hint": "iyileşme (geçmiş olsun)"
               }
@@ -44727,31 +44727,31 @@
               "sage"
             ],
             "hint": "Jemand ist krank? Dann sagt man: Gute Besserung!",
-            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es der Lehrerin.“",
+            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
             "explanation_card": "p7_sorry",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Someone is ill? Say: Gute Besserung! (Get well soon!)",
-                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es der Lehrerin.“ (I’ll tell the teacher.)",
+                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)",
                 "task": "Thank you for the information. I will tell the teacher."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
-                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительнице»).",
+                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
                 "task": "Спасибо за информацию. Я скажу преподавательнице."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
-                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительці»).",
+                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
                 "task": "Дякую за інформацію. Я скажу викладачці."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Biri hasta mı? Gute Besserung! (Geçmiş olsun!) denir.",
-                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es der Lehrerin.“ (Öğretmene söylerim.)",
+                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)",
                 "task": "Bilgi için teşekkürler. Öğretmene söylerim."
               }
             }
@@ -44878,8 +44878,8 @@
                 "Entschuldigung schreiben"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Liebe Frau Roth, leider bin ich heute krank. Ich kann nicht zum Deutschkurs kommen. Viele ",
-              "text_after": ", Olena Marchenko",
+              "text_before": "Lieber Herr Roth, leider bin ich heute krank. Ich kann nicht zum Deutschkurs kommen. Viele ",
+              "text_after": ", Oleh Marchenko",
               "gap_hint": "Gruß",
               "correct_answer": "Grüße",
               "options": [
@@ -44902,25 +44902,25 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "An excuse note has four parts: greeting, reason, information, closing.",
                 "explanation": "Writing an excuse note: greeting (Liebe Frau Roth, / Lieber Herr Albers,) – reason (Ich bin krank.) – information (Ich kann heute nicht zum Deutschkurs kommen.) – closing (Viele Grüße) – name.",
-                "task": "Dear Ms Roth, unfortunately I am ill today. I can’t come to the German course. Best regards, Olena Marchenko"
+                "task": "Dear Mr Roth, unfortunately I am ill today. I can’t come to the German course. Best regards, Oleh Marchenko"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Записка-извинение состоит из четырёх частей: обращение, причина, информация, прощание.",
                 "explanation": "Как написать извинение: обращение (Liebe Frau Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – информация (Ich kann heute nicht zum Deutschkurs kommen.) – прощание (Viele Grüße) – имя.",
-                "task": "Дорогая госпожа Roth, к сожалению, сегодня я больна. Я не могу прийти на курс немецкого. С наилучшими пожеланиями, Olena Marchenko"
+                "task": "Дорогой господин Roth, к сожалению, сегодня я болен. Я не могу прийти на курс немецкого. С наилучшими пожеланиями, Oleh Marchenko"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Лист-вибачення має чотири частини: звертання, причина, інформація, прощання.",
                 "explanation": "Як написати вибачення: звертання (Liebe Frau Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – інформація (Ich kann heute nicht zum Deutschkurs kommen.) – прощання (Viele Grüße) – ім’я.",
-                "task": "Шановна пані Roth, на жаль, сьогодні я хвора. Я не можу прийти на курс німецької. З найкращими побажаннями, Olena Marchenko"
+                "task": "Шановний пане Roth, на жаль, сьогодні я хворий. Я не можу прийти на курс німецької. З найкращими побажаннями, Oleh Marchenko"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Mazeret mesajının dört bölümü vardır: hitap, sebep, bilgi, selam.",
                 "explanation": "Mazeret yazma: hitap (Liebe Frau Roth, / Lieber Herr Albers,) – sebep (Ich bin krank.) – bilgi (Ich kann heute nicht zum Deutschkurs kommen.) – selam (Viele Grüße) – isim.",
-                "task": "Sevgili Roth Hanım, maalesef bugün hastayım. Almanca kursuna gelemiyorum. Selamlar, Olena Marchenko"
+                "task": "Sevgili Roth Bey, maalesef bugün hastayım. Almanca kursuna gelemiyorum. Selamlar, Oleh Marchenko"
               }
             }
           }
@@ -45041,31 +45041,31 @@
               "Gute Besserung!"
             ],
             "hint": "Jemand ist krank? Dann sagt man: Gute Besserung!",
-            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es der Lehrerin.“",
+            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
             "explanation_card": "p7_sorry",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Someone is ill? Say: Gute Besserung! (Get well soon!)",
-                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es der Lehrerin.“ (I’ll tell the teacher.)",
+                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)",
                 "task": "Your colleague says: “I am ill.”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
-                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительнице»).",
+                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
                 "task": "Ваша коллега говорит: «Я заболела»."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
-                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительці»).",
+                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
                 "task": "Ваша колега каже: «Я захворіла»."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Biri hasta mı? Gute Besserung! (Geçmiş olsun!) denir.",
-                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es der Lehrerin.“ (Öğretmene söylerim.)",
+                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)",
                 "task": "İş arkadaşınız diyor ki: “Hastayım.”"
               }
             }
@@ -45956,31 +45956,31 @@
               "Meine Tochter ist krank. Sie kann heute nicht kommen."
             ],
             "hint": "Jemand ist krank? Dann sagt man: Gute Besserung!",
-            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es der Lehrerin.“",
+            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
             "explanation_card": "p7_sorry",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "Someone is ill? Say: Gute Besserung! (Get well soon!)",
-                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es der Lehrerin.“ (I’ll tell the teacher.)",
+                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)",
                 "task": "You call the nursery. Your daughter is ill."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
-                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительнице»).",
+                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
                 "task": "Вы звоните в детский сад. Ваша дочь заболела."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
-                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительці»).",
+                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
                 "task": "Ви телефонуєте до дитячого садка. Ваша донька захворіла."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Biri hasta mı? Gute Besserung! (Geçmiş olsun!) denir.",
-                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es der Lehrerin.“ (Öğretmene söylerim.)",
+                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)",
                 "task": "Kreşi arıyorsunuz. Kızınız hasta."
               }
             }
@@ -46442,31 +46442,31 @@
               "Oh, gute Besserung!"
             ],
             "hint": "Jemand ist krank? Dann sagt man: Gute Besserung!",
-            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es der Lehrerin.“",
+            "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
             "explanation_card": "p7_sorry",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Someone is ill? Say: Gute Besserung! (Get well soon!)",
-                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es der Lehrerin.“ (I’ll tell the teacher.)",
+                "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)",
                 "task": "Your neighbour says: “My husband is ill.”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
-                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительнице»).",
+                "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
                 "task": "Ваша соседка говорит: «Мой муж заболел»."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
-                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es der Lehrerin.“ («Я передам учительці»).",
+                "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
                 "task": "Ваша сусідка каже: «Мій чоловік захворів»."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Biri hasta mı? Gute Besserung! (Geçmiş olsun!) denir.",
-                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es der Lehrerin.“ (Öğretmene söylerim.)",
+                "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)",
                 "task": "Komşunuz diyor ki: “Eşim hasta.”"
               }
             }
