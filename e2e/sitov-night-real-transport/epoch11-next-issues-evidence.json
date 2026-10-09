@@ -7,10 +7,25 @@
     "documentedTabInventory": [],
     "visibleTwoIssuePanelTested": false,
     "exactTwoIssuesIdentified": false,
-    "newTabCreated": false,
+    "newTabCreated": true,
     "newLoginOrAccount": false,
     "cookiesOrHiddenBrowserStateRead": false,
-    "screenshotCaptured": false
+    "screenshotCaptured": true,
+    "newTabExplicitlyAuthorizedByM": true,
+    "freshTabId": "5",
+    "freshURL": "http://127.0.0.1:3143/ru/login",
+    "loggedOutLoginFormVisible": true,
+    "nextMenuOpened": true,
+    "observedNextMenuItems": [
+      "Route Dynamic",
+      "Bundler Webpack",
+      "Route Info",
+      "Preferences"
+    ],
+    "issuesBadgeVisible": false,
+    "issuesMenuEntryVisible": false,
+    "screenshot": "epoch11-login-next-menu.png",
+    "tabMarkedForHandoff": true
   },
   "log": {
     "source": "master/qa-next-private.log",
@@ -62,6 +77,7 @@
     "visibleSeverityAndComponentStacks": "UNTESTED",
     "currentFatalConsoleHydrationClassification": "UNTESTED",
     "JSONModuleIdentity": "not established by this sanitized warning excerpt; prior JSON hypothesis not independently confirmed",
-    "fatalFailureProvenByThisExcerpt": false
+    "fatalFailureProvenByThisExcerpt": false,
+    "freshLoginRoute": "No visible issue badge or Issues menu entry observed; former authenticated-route two issue messages remain untested"
   }
 }
