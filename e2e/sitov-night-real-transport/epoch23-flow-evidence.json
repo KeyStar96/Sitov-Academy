@@ -1,0 +1,332 @@
+[
+  {
+    "locale": "uk",
+    "sourceSha": "cdf479971e30d2320074dfd67f14fec870095a81",
+    "resultAt": "2026-10-09T11:18:00.902Z",
+    "pronunciationNavigationBefore": "2026-10-09T11:16:55.995Z",
+    "keyboardHelp": {
+      "openedByReturn": "true",
+      "closedBySpace": "false",
+      "focus": {
+        "tag": "BUTTON",
+        "text": "Допомога"
+      }
+    },
+    "result": {
+      "german": [
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Frühstück",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Unser Kursraum",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein neuer Nachbar",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Am Samstag im Park",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Zimmer",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Im kleinen Laden",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Meine Familie",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Der Weg zum Kurs",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein ruhiger Abend",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        }
+      ],
+      "lang": "uk",
+      "links": [
+        {
+          "href": "/uk/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Повторити форми дієслів"
+        },
+        {
+          "href": "/uk/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Вправи з реченнями"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Ще не пройдено\n\nПравильно: 0 з 12\n\nПовторити форми дієслів\nВправи з реченнями"
+      ],
+      "width": 390
+    },
+    "targetRequestBefore": "2026-10-09T11:18:00.978Z",
+    "targetActionAfter": "2026-10-09T11:18:01.502Z",
+    "targetObservedAt": "2026-10-09T11:18:18.593Z",
+    "landingURL": "http://127.0.0.1:3143/uk/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landing": {
+      "fixedNavigation": [
+        {
+          "bottom": 834,
+          "label": "Головна навігація",
+          "top": 760.8125
+        }
+      ],
+      "focus": {
+        "label": "Додати: heißen",
+        "tag": "BUTTON",
+        "text": "Додати"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "uk",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 825.5,
+          "checked": null,
+          "label": "Вибрана навчальна ціль: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 721.2421875
+        },
+        {
+          "bottom": 784.2421875,
+          "checked": null,
+          "label": "Додати: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 738.2421875
+        }
+      ],
+      "width": 390
+    },
+    "acceptance": "PASS_BOUNDED",
+    "landingAfterScroll": {
+      "fixedNavigation": [
+        {
+          "bottom": 917.4420776367188,
+          "top": 845.6240234375
+        }
+      ],
+      "focus": {
+        "label": "Додати: heißen",
+        "tag": "BUTTON"
+      },
+      "selected": [
+        {
+          "bottom": 713.5,
+          "label": "Вибрана навчальна ціль: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 609.2421875
+        },
+        {
+          "bottom": 672.2421875,
+          "label": "Додати: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 626.2421875
+        }
+      ]
+    }
+  },
+  {
+    "locale": "tr",
+    "sourceSha": "cdf479971e30d2320074dfd67f14fec870095a81",
+    "resultAt": "2026-10-09T11:20:19.380Z",
+    "pronunciationNavigationBefore": "2026-10-09T11:19:19.610Z",
+    "keyboardHelp": {
+      "openedByReturn": "true",
+      "closedBySpace": "false",
+      "focus": {
+        "tag": "BUTTON",
+        "text": "Yardım"
+      }
+    },
+    "result": {
+      "german": [
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Frühstück",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Unser Kursraum",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein neuer Nachbar",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Am Samstag im Park",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Zimmer",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Im kleinen Laden",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Meine Familie",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Der Weg zum Kurs",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein ruhiger Abend",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        }
+      ],
+      "lang": "tr",
+      "links": [
+        {
+          "href": "/tr/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Fiil biçimlerini çalış"
+        },
+        {
+          "href": "/tr/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Cümle alıştırmaları"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Henüz geçilmedi\n\n12 sorudan 0 doğru\n\nFiil biçimlerini çalış\nCümle alıştırmaları"
+      ],
+      "width": 390
+    },
+    "targetRequestBefore": "2026-10-09T11:20:19.437Z",
+    "targetActionAfter": "2026-10-09T11:20:19.968Z",
+    "targetObservedAt": "2026-10-09T11:20:36.792Z",
+    "landingURL": "http://127.0.0.1:3143/tr/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landing": {
+      "fixedNavigation": [
+        {
+          "bottom": 834,
+          "label": "Ana gezinme",
+          "top": 760.8125
+        }
+      ],
+      "focus": {
+        "label": "Ekle: heißen",
+        "tag": "BUTTON",
+        "text": "Ekle"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "tr",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 825.5,
+          "checked": null,
+          "label": "Seçilen öğrenme hedefi: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 721.2421875
+        },
+        {
+          "bottom": 784.2421875,
+          "checked": null,
+          "label": "Ekle: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 738.2421875
+        }
+      ],
+      "width": 390
+    },
+    "landingAfterScroll": {
+      "fixedNavigation": [
+        {
+          "bottom": 919.1705932617188,
+          "top": 847.3809204101562
+        }
+      ],
+      "focus": {
+        "label": "Ekle: heißen",
+        "tag": "BUTTON"
+      },
+      "selected": [
+        {
+          "bottom": 713.5,
+          "label": "Seçilen öğrenme hedefi: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 609.2421875
+        },
+        {
+          "bottom": 672.2421875,
+          "label": "Ekle: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 626.2421875
+        }
+      ]
+    },
+    "acceptance": "PASS_BOUNDED"
+  }
+]
