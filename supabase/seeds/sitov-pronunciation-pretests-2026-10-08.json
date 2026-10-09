@@ -3254,16 +3254,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "M hat alle72 Fragen und zwölf Kerne nach21 Reparaturen unabhängig geprüft;51 Fragen exakt erhalten. Drei richtige Antwortformulierungen und zwei ausdrücklich markierte Prüfbetonungen redaktionell neu bewertet. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
-        "definitionContentHash": "14468d7997240c66694d7e36bafea6f8be7042a40aab3485075dbd398cc52c8c",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "definitionContentHash": "ec27a072d710add9d54d657155bd90a0b16222e0d223acd10020f4f1eccf803f",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality21-M",
+        "documentSha256": "b64c2e2bd8b1baf4541482f3ffe9dd8e698c9bfa8f396b6e395b686ca6c68713",
+        "reviewedAt": "2026-10-09T18:34:51.552687+00:00",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -3543,20 +3543,20 @@
             "id": "sitov.pretest.a11-04.words.q3",
             "competencyId": "sitov.pretest.a11-04.words",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet »wir treffen uns«?",
+            "promptDe": "Übung: »Wir treffen uns vor dem Haus.« Was bedeutet das?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Wir vermeiden eine Begegnung."
+                "textDe": "Wir bleiben allein zu Hause."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Wir suchen allein eine Wohnung."
+                "textDe": "Wir sprechen nur am Telefon."
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Wir kommen zu einer Begegnung zusammen."
+                "textDe": "Wir kommen an einem Ort zusammen."
               }
             ],
             "correctOptionId": "sitov.option.3",
@@ -3569,7 +3569,7 @@
                 "quote": "Heute treffen wir uns vor dem Haus."
               }
             ],
-            "rationaleDe": "Sich treffen bedeutet einander begegnen; vermeiden und allein suchen beschreiben keine gemeinsame Begegnung."
+            "rationaleDe": "Wir treffen uns heißt: Wir kommen an einem Ort zusammen. Allein zu Hause bleiben oder nur telefonieren ist kein Treffen vor dem Haus."
           },
           {
             "id": "sitov.pretest.a11-04.words.q4",
@@ -3584,11 +3584,11 @@
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Zur Angabe einer Adresse."
+                "textDe": "Zum Abschied."
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Zur Beschreibung einer Uhrzeit."
+                "textDe": "Zum Dank."
               }
             ],
             "correctOptionId": "sitov.option.1",
@@ -3601,7 +3601,7 @@
                 "quote": "Ich sage Hallo"
               }
             ],
-            "rationaleDe": "Hallo ist eine Begrüßung; es nennt weder eine Adresse noch eine Uhrzeit."
+            "rationaleDe": "Hallo sagt man zur Begrüßung. Zum Abschied sagt man zum Beispiel Tschüss; zum Dank sagt man Danke."
           },
           {
             "id": "sitov.pretest.a11-04.words.q5",
@@ -3648,7 +3648,7 @@
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Zur gleichen Zeit wie gestern."
+                "textDe": "Jetzt sofort."
               },
               {
                 "id": "sitov.option.3",
@@ -3665,7 +3665,7 @@
                 "quote": "Wir trinken später zusammen Kaffee."
               }
             ],
-            "rationaleDe": "Später ordnet das Kaffeetrinken zeitlich nach dem jetzigen Geschehen ein; früher bezeichnet die Gegenrichtung."
+            "rationaleDe": "Später bedeutet: zu einem Zeitpunkt danach. Früher ist davor; jetzt sofort ist nicht später."
           },
           {
             "id": "sitov.pretest.a11-04.verbs.q1",
@@ -3927,7 +3927,7 @@
             "id": "sitov.pretest.a11-04.syntax.q3",
             "competencyId": "sitov.pretest.a11-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Welcher Satz ist die W-Frage nach dem Befinden?",
+            "promptDe": "Du möchtest wissen, wie es Leon geht. Welche Frage ist richtig?",
             "fragmentDe": null,
             "options": [
               {
@@ -3953,13 +3953,13 @@
                 "quote": "Wie geht es Ihnen?"
               }
             ],
-            "rationaleDe": "Die selbstständige W-Frage beginnt mit Wie und dem finiten Verb geht; die anderen Reihenfolgen bilden diese Frage nicht korrekt."
+            "rationaleDe": "Die Frage lautet: Wie geht es Ihnen? Wie steht am Anfang, danach kommt geht."
           },
           {
             "id": "sitov.pretest.a11-04.syntax.q4",
             "competencyId": "sitov.pretest.a11-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer führt beide Tätigkeiten in »Ich sage Hallo und frage« aus?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Ich sage Hallo und frage: Wie geht es Ihnen?« Wer sagt Hallo und fragt?",
             "fragmentDe": null,
             "options": [
               {
@@ -3968,11 +3968,11 @@
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Nur Leon."
+                "textDe": "Leon."
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Zwei verschiedene, nicht genannte Männer."
+                "textDe": "Paul und Leon."
               }
             ],
             "correctOptionId": "sitov.option.1",
@@ -3985,13 +3985,13 @@
                 "quote": "Ich sage Hallo und frage"
               }
             ],
-            "rationaleDe": "Das Subjekt ich gilt sowohl für sage als auch für frage; und verbindet Tätigkeiten desselben Sprechers."
+            "rationaleDe": "Paul sagt ich. Paul sagt Hallo und Paul fragt; Leon ist hier die angesprochene Person."
           },
           {
             "id": "sitov.pretest.a11-04.syntax.q5",
             "competencyId": "sitov.pretest.a11-04.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortgruppe antwortet hier auf »Wo treffen wir uns?«?",
+            "promptDe": "Übung: »Heute treffen wir uns vor dem Haus.« Welche Wortgruppe beantwortet »Wo treffen wir uns?«?",
             "fragmentDe": null,
             "options": [
               {
@@ -4017,7 +4017,7 @@
                 "quote": "Heute treffen wir uns vor dem Haus."
               }
             ],
-            "rationaleDe": "Vor dem Haus bildet die Ortsangabe; Heute ist eine Zeitangabe, wir uns nennt beteiligte Personen."
+            "rationaleDe": "Vor dem Haus nennt den Ort. Heute nennt die Zeit; wir uns nennt Personen."
           },
           {
             "id": "sitov.pretest.a11-04.syntax.q6",
@@ -4183,12 +4183,12 @@
             "id": "sitov.pretest.a11-04.nominal.q5",
             "competencyId": "sitov.pretest.a11-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Wer ist mit »Ihnen« in der Frage »Wie geht es Ihnen?« gemeint?",
+            "promptDe": "Übung: Paul fragt Leon: »Wie geht es Ihnen?« Wen spricht Paul mit »Ihnen« an?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Nur der Sprecher selbst."
+                "textDe": "Paul selbst."
               },
               {
                 "id": "sitov.option.2",
@@ -4196,7 +4196,7 @@
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Eine Sache ohne Personenbezug."
+                "textDe": "Paul und Leon zusammen."
               }
             ],
             "correctOptionId": "sitov.option.2",
@@ -4209,22 +4209,22 @@
                 "quote": "Wie geht es Ihnen?"
               }
             ],
-            "rationaleDe": "Großgeschriebenes Ihnen ist hier die höfliche Dativform für den angesprochenen Nachbarn; es bezeichnet weder den Sprecher noch eine Sache."
+            "rationaleDe": "Paul spricht Leon höflich an. Ihnen meint Leon; es meint nicht Paul selbst oder beide zusammen."
           },
           {
             "id": "sitov.pretest.a11-04.nominal.q6",
             "competencyId": "sitov.pretest.a11-04.nominal",
             "kind": "single_choice",
-            "promptDe": "Wen bezeichnet »ihm« nach »Leon lächelt«?",
+            "promptDe": "Übung: Paul sagt: »Leon lächelt. Es geht ihm gut.« Wen meint »ihm«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Die sprechende Person mit ich."
+                "textDe": "Paul."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Mehrere nicht genannte Männer."
+                "textDe": "Paul und Leon."
               },
               {
                 "id": "sitov.option.3",
@@ -4241,7 +4241,7 @@
                 "quote": "Leon lächelt. Es geht ihm gut."
               }
             ],
-            "rationaleDe": "Ihm ist die männliche Dativform, die Leon wieder aufnimmt; mir wäre der Sprecher, ihnen ohne Großschreibung ein Plural."
+            "rationaleDe": "Ihm meint den zuvor genannten Leon. Paul ist der Sprecher; Paul und Leon zusammen wären mehrere Personen."
           }
         ],
         "omittedCategories": [
@@ -4319,16 +4319,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "M hat alle72 Fragen und zwölf Kerne nach21 Reparaturen unabhängig geprüft;51 Fragen exakt erhalten. Drei richtige Antwortformulierungen und zwei ausdrücklich markierte Prüfbetonungen redaktionell neu bewertet. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
-        "definitionContentHash": "cf6386546fef2994b79e95e7aa8b41db4573b15bbfd3428213edff3f00356258",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "definitionContentHash": "c7f4486cf2d5992ea4ed990979e8806642fe8d39cafed4518bc73e2c05552813",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality21-M",
+        "documentSha256": "b64c2e2bd8b1baf4541482f3ffe9dd8e698c9bfa8f396b6e395b686ca6c68713",
+        "reviewedAt": "2026-10-09T18:34:51.552687+00:00",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -4619,11 +4619,11 @@
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Eine Sitzgelegenheit."
+                "textDe": "Eine kleine Pflanze ohne Stamm."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Ein kleines Tier."
+                "textDe": "Gras auf dem Boden."
               },
               {
                 "id": "sitov.option.3",
@@ -4640,7 +4640,7 @@
                 "quote": "Dort sind viele Bäume und Blumen."
               }
             ],
-            "rationaleDe": "Ein Baum ist eine Pflanze mit Stamm; Bank und Hund sind andere Dinge aus der Parksituation."
+            "rationaleDe": "Ein Baum ist eine große Pflanze mit Stamm. Eine kleine Pflanze ohne Stamm und Gras sind andere Pflanzen."
           },
           {
             "id": "sitov.pretest.a11-05.words.q4",
@@ -4683,7 +4683,7 @@
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Musik mit den Augen lesen."
+                "textDe": "Musik mit einem Instrument spielen."
               },
               {
                 "id": "sitov.option.2",
@@ -4691,7 +4691,7 @@
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Musik als Essen verwenden."
+                "textDe": "Ein Lied selbst singen."
               }
             ],
             "correctOptionId": "sitov.option.2",
@@ -4704,7 +4704,7 @@
                 "quote": "Wir hören Musik"
               }
             ],
-            "rationaleDe": "Hören bezeichnet die Wahrnehmung mit den Ohren; lesen und essen sind andere Tätigkeiten."
+            "rationaleDe": "Musik hören heißt, Musik mit den Ohren wahrzunehmen. Ein Instrument spielen und selbst singen sind andere Tätigkeiten."
           },
           {
             "id": "sitov.pretest.a11-05.words.q6",
@@ -4715,15 +4715,15 @@
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Ein Getränk."
+                "textDe": "Ein Lebensmittel aus Milch."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Ein Musikinstrument."
+                "textDe": "Ein Lebensmittel aus Fleisch."
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Ein Lebensmittel."
+                "textDe": "Ein Lebensmittel aus Mehl."
               }
             ],
             "correctOptionId": "sitov.option.3",
@@ -4736,7 +4736,7 @@
                 "quote": "essen unser Brot."
               }
             ],
-            "rationaleDe": "Brot ist ein essbares Lebensmittel; Getränk und Musikinstrument gehören zu anderen Bedeutungsfeldern."
+            "rationaleDe": "Brot ist ein Lebensmittel aus Mehl. Käse macht man aus Milch, Wurst aus Fleisch."
           },
           {
             "id": "sitov.pretest.a11-05.verbs.q1",
@@ -4979,7 +4979,7 @@
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Nur ein anderer, ungenannter Mann."
+                "textDe": "Nur die sprechende Person."
               }
             ],
             "correctOptionId": "sitov.option.2",
@@ -4992,7 +4992,7 @@
                 "quote": "Mein Freund und ich gehen in den Park."
               }
             ],
-            "rationaleDe": "Und verbindet Freund und ich zu einem gemeinsamen Subjekt; beide führen die Tätigkeit gehen aus."
+            "rationaleDe": "Mein Freund und ich nennt zwei Personen. Beide gehen in den Park; weder der Freund noch die sprechende Person geht allein."
           },
           {
             "id": "sitov.pretest.a11-05.syntax.q3",
@@ -5030,7 +5030,7 @@
             "id": "sitov.pretest.a11-05.syntax.q4",
             "competencyId": "sitov.pretest.a11-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortgruppe beantwortet »Wo sitzen wir?«?",
+            "promptDe": "Übung: »Wir sitzen auf einer Bank.« Welche Wortgruppe beantwortet »Wo sitzen wir?«?",
             "fragmentDe": null,
             "options": [
               {
@@ -5056,7 +5056,7 @@
                 "quote": "Wir sitzen auf einer Bank."
               }
             ],
-            "rationaleDe": "Auf einer Bank ist die zusammengehörige Ortsangabe; wir ist Subjekt und sitzen das Verb."
+            "rationaleDe": "Auf einer Bank nennt den Ort. Wir nennt die Personen; sitzen nennt die Tätigkeit."
           },
           {
             "id": "sitov.pretest.a11-05.syntax.q5",
@@ -5094,16 +5094,16 @@
             "id": "sitov.pretest.a11-05.syntax.q6",
             "competencyId": "sitov.pretest.a11-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Übung: »Brot essen wir und Musik hören wir.« Welche Zuordnung der Tätigkeiten gibt denselben Inhalt wieder?",
+            "promptDe": "Übung: »Brot essen wir und Musik hören wir.« Welche Aussage passt?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Wir hören Brot und essen Musik."
+                "textDe": "Wir hören Musik, aber essen kein Brot."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Wir hören und essen nur Brot."
+                "textDe": "Wir essen Brot, aber hören keine Musik."
               },
               {
                 "id": "sitov.option.3",
@@ -5120,7 +5120,7 @@
                 "quote": "Wir hören Musik und essen unser Brot."
               }
             ],
-            "rationaleDe": "Die sichtbaren vorangestellten Objekte gehören jeweils zu ihrem Verb: Brot zu essen und Musik zu hören; und verbindet beide Handlungen desselben Subjekts."
+            "rationaleDe": "Wir essen Brot und wir hören Musik. Beide Tätigkeiten stehen im Satz. Die anderen Antworten verneinen jeweils eine davon."
           },
           {
             "id": "sitov.pretest.a11-05.nominal.q1",
@@ -5254,12 +5254,12 @@
             "id": "sitov.pretest.a11-05.nominal.q5",
             "competencyId": "sitov.pretest.a11-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Wessen Freund ist mit »Mein Freund« gemeint?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Mein Freund Tom kommt.« Wessen Freund nennt Paul?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Der Freund eines unbekannten Dritten."
+                "textDe": "Leons Freund."
               },
               {
                 "id": "sitov.option.2",
@@ -5267,7 +5267,7 @@
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Der Freund ausschließlich des Zuhörers."
+                "textDe": "Toms Freund."
               }
             ],
             "correctOptionId": "sitov.option.2",
@@ -5280,26 +5280,26 @@
                 "quote": "Mein Freund und ich gehen in den Park."
               }
             ],
-            "rationaleDe": "Mein ordnet den Freund dem Sprecher zu; dein würde den Zuhörer, sein einen anderen Mann bezeichnen."
+            "rationaleDe": "Paul sagt mein Freund. Damit nennt Paul seinen eigenen Freund Tom; mein meint hier nicht Leon oder Tom als Sprecher."
           },
           {
             "id": "sitov.pretest.a11-05.nominal.q6",
             "competencyId": "sitov.pretest.a11-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Was zeigt »unser« in »unser Brot«?",
+            "promptDe": "Übung: Paul und Leon sagen zu Tom: »Wir essen unser Brot.« Wen meint »unser« hier?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Das Brot gehört nur einem ungenannten Mann."
+                "textDe": "Nur Paul."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Das Brot gehört ausschließlich dem Zuhörer."
+                "textDe": "Tom."
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Das Brot gehört zu der Gruppe mit der sprechenden Person."
+                "textDe": "Paul und Leon."
               }
             ],
             "correctOptionId": "sitov.option.3",
@@ -5312,7 +5312,7 @@
                 "quote": "Wir hören Musik und essen unser Brot."
               }
             ],
-            "rationaleDe": "Unser bezieht sich auf wir und schließt den Sprecher ein; sein oder dein würde einen anderen Besitzerbezug ausdrücken."
+            "rationaleDe": "Paul und Leon sagen wir und unser. Unser bezieht sich auf beide Sprecher, nicht nur auf Paul und nicht auf Tom."
           }
         ],
         "omittedCategories": [
@@ -5394,16 +5394,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat die unveränderten Aufgaben anhand der exakt rekonstruierten früheren unabhängigen Prüfung und die 48 aktuellen Teilzuordnungen gegen Quellen und gleichstufige Themen geprüft. Keine menschliche Kalibrierung, neue Audio-Bindung, Datenbankeinfuhr oder Publikation.",
+        "notesDe": "M hat alle72 Fragen und zwölf Kerne nach21 Reparaturen unabhängig geprüft;51 Fragen exakt erhalten. Drei richtige Antwortformulierungen und zwei ausdrücklich markierte Prüfbetonungen redaktionell neu bewertet. Keine empirische Äquivalenz- oder CEFR-Zertifizierung; neue unveränderliche Definition, genaue Audio-Bindung und Publikationsfreigabe bleiben Pflicht.",
         "textVersion": "05ab1affff92acc58f0ced58954e72fef04e482abf499d41c812d5f285f4fefc",
-        "definitionContentHash": "54352973e29ac3049a679a94f0a6cff1f099141968cf37f8d253675881eb6e8c",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-core-mapping-M",
-        "documentSha256": "f6caa4954024bbb16e145567e807ad6403a471ab6e439efd97cb50ee5a61be91",
-        "reviewedAt": "2026-10-09T10:45:15.385534+00:00",
+        "definitionContentHash": "d612f30be691221cebe326c26daa00e75bd6133b60ff66048b03593353687d77",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-A11-quality21-M",
+        "documentSha256": "b64c2e2bd8b1baf4541482f3ffe9dd8e698c9bfa8f396b6e395b686ca6c68713",
+        "reviewedAt": "2026-10-09T18:34:51.552687+00:00",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -5626,11 +5626,11 @@
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Zum Autofahren."
+                "textDe": "Zum Essen am Tisch."
               },
               {
                 "id": "sitov.option.3",
-                "textDe": "Zum Schreiben an einer Wand."
+                "textDe": "Zum Arbeiten am Schreibtisch."
               }
             ],
             "correctOptionId": "sitov.option.1",
@@ -5643,7 +5643,7 @@
                 "quote": "Links steht mein Bett."
               }
             ],
-            "rationaleDe": "Bett bezeichnet ein Möbelstück zum Schlafen; die anderen Tätigkeiten beschreiben seinen normalen Zweck nicht."
+            "rationaleDe": "Ein Bett ist normalerweise zum Schlafen da. Am Tisch isst man; am Schreibtisch arbeitet man."
           },
           {
             "id": "sitov.pretest.a11-06.words.q2",
@@ -5782,11 +5782,11 @@
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Ich darf hier niemals lesen."
+                "textDe": "Ich muss hier lesen."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Ich lese hier nur unwillig."
+                "textDe": "Ich lese hier nicht gern."
               },
               {
                 "id": "sitov.option.3",
@@ -5803,7 +5803,7 @@
                 "quote": "Ich lese hier gern."
               }
             ],
-            "rationaleDe": "Gern beschreibt eine positive Vorliebe beim Lesen; niemals dürfen oder unwillig handeln ist etwas anderes."
+            "rationaleDe": "Gern heißt: Ich mag es. Müssen sagt, dass etwas nötig ist; nicht gern bedeutet, dass ich es nicht mag."
           },
           {
             "id": "sitov.pretest.a11-06.verbs.q1",
@@ -6065,7 +6065,7 @@
             "id": "sitov.pretest.a11-06.syntax.q3",
             "competencyId": "sitov.pretest.a11-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortgruppe beantwortet »Wo steht ein Tisch?«?",
+            "promptDe": "Übung: »Am Fenster steht ein Tisch.« Welche Wortgruppe beantwortet »Wo steht ein Tisch?«?",
             "fragmentDe": null,
             "options": [
               {
@@ -6091,7 +6091,7 @@
                 "quote": "Am Fenster steht ein Tisch."
               }
             ],
-            "rationaleDe": "Am Fenster ist die Ortsangabe; ein Tisch ist das Subjekt und steht das finite Verb."
+            "rationaleDe": "Am Fenster nennt den Ort. Ein Tisch nennt den Gegenstand; steht ist das Verb."
           },
           {
             "id": "sitov.pretest.a11-06.syntax.q4",
@@ -6161,16 +6161,16 @@
             "id": "sitov.pretest.a11-06.syntax.q6",
             "competencyId": "sitov.pretest.a11-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer lernt in »mache ich die Lampe an und lerne neue Wörter«?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Am Abend mache ich die Lampe an und lerne neue Wörter.« Wer lernt?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Die Lampe."
+                "textDe": "Leon."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Ein anderer, nicht genannter Mann."
+                "textDe": "Paul und Leon."
               },
               {
                 "id": "sitov.option.3",
@@ -6187,7 +6187,7 @@
                 "quote": "Am Abend mache ich die Lampe an und lerne neue Wörter."
               }
             ],
-            "rationaleDe": "Das Subjekt ich gilt auch nach und für lerne; die Lampe ist das Objekt der ersten Tätigkeit und kein Lernender."
+            "rationaleDe": "Paul sagt ich. Paul macht die Lampe an und Paul lernt neue Wörter. Leon wird nicht als zweite lernende Person genannt."
           },
           {
             "id": "sitov.pretest.a11-06.nominal.q1",
@@ -6353,16 +6353,16 @@
             "id": "sitov.pretest.a11-06.nominal.q6",
             "competencyId": "sitov.pretest.a11-06.nominal",
             "kind": "single_choice",
-            "promptDe": "Wem ordnet »mein Deutschbuch« das Buch zu?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Mein Deutschbuch liegt auf dem Tisch.« Wem gehört das Buch in diesem Satz?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.option.1",
-                "textDe": "Nur dem Zuhörer."
+                "textDe": "Leon."
               },
               {
                 "id": "sitov.option.2",
-                "textDe": "Nur einem unbekannten Dritten."
+                "textDe": "Paul und Leon."
               },
               {
                 "id": "sitov.option.3",
@@ -6379,7 +6379,7 @@
                 "quote": "Auf dem Tisch liegt mein Deutschbuch."
               }
             ],
-            "rationaleDe": "Mein bezeichnet die Besitzbeziehung zum Sprecher; dein würde den Zuhörer und sein einen anderen Mann bezeichnen."
+            "rationaleDe": "Paul sagt mein Deutschbuch. Mein bezieht sich auf Paul, die sprechende Person, nicht auf Leon oder beide zusammen."
           }
         ],
         "omittedCategories": [
