@@ -1,0 +1,260 @@
+[
+  {
+    "locale": "uk",
+    "assignedSourceSha": "9d3612fa2915e144e89989e805d89a50890ede25",
+    "builtSourceSha": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+    "resultAt": "2026-10-09T11:52:04.690Z",
+    "pronunciationNavigationBefore": "2026-10-09T11:51:00.822Z",
+    "keyboardHelp": {
+      "openedByReturn": "true",
+      "closedBySpace": "false",
+      "focus": {
+        "tag": "BUTTON",
+        "text": "Допомога"
+      }
+    },
+    "result": {
+      "german": [
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Frühstück",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Unser Kursraum",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein neuer Nachbar",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Am Samstag im Park",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Zimmer",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Im kleinen Laden",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Meine Familie",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Der Weg zum Kurs",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein ruhiger Abend",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        }
+      ],
+      "lang": "uk",
+      "links": [
+        {
+          "href": "/uk/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+          "text": "Повторити форми дієслів"
+        },
+        {
+          "href": "/uk/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb",
+          "text": "Вправи з реченнями"
+        }
+      ],
+      "scrollWidth": 390,
+      "status": [
+        "Ще не пройдено\n\nПравильно: 0 з 12\n\nПовторити форми дієслів\nВправи з реченнями"
+      ],
+      "width": 390
+    },
+    "targetRequestBefore": "2026-10-09T11:52:04.820Z",
+    "targetActionAfter": "2026-10-09T11:52:05.339Z",
+    "targetObservedAt": "2026-10-09T11:52:17.256Z",
+    "landingURL": "http://127.0.0.1:3143/uk/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present",
+    "landing": {
+      "fixedNavigation": [
+        {
+          "bottom": 834,
+          "label": "Головна навігація",
+          "top": 760.8125
+        }
+      ],
+      "focus": {
+        "label": "Додати: heißen",
+        "tag": "BUTTON",
+        "text": "Додати"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "uk",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 825.5,
+          "label": "Вибрана навчальна ціль: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 721.2421875
+        },
+        {
+          "bottom": 784.2421875,
+          "label": "Додати: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 738.2421875
+        }
+      ],
+      "width": 390
+    },
+    "landingAfterScroll": {
+      "fixedNavigation": [
+        {
+          "bottom": 923.1875,
+          "label": "Головна навігація",
+          "top": 851.4637451171875
+        }
+      ],
+      "focus": {
+        "label": "Додати: heißen",
+        "tag": "BUTTON",
+        "text": "Додати"
+      },
+      "german": [
+        "heißen"
+      ],
+      "lang": "uk",
+      "scrollWidth": 390,
+      "selected": [
+        {
+          "bottom": 713.5,
+          "label": "Вибрана навчальна ціль: heißen",
+          "pressed": null,
+          "tag": "LI",
+          "top": 609.2421875
+        },
+        {
+          "bottom": 672.2421875,
+          "label": "Додати: heißen",
+          "pressed": "false",
+          "tag": "BUTTON",
+          "top": 626.2421875
+        }
+      ],
+      "width": 390
+    },
+    "acceptance": "PASS_BOUNDED"
+  },
+  {
+    "locale": "tr",
+    "assignedSourceSha": "9d3612fa2915e144e89989e805d89a50890ede25",
+    "builtSourceSha": "1c041c6f1e57191ac0955092a635b21ebeed690e",
+    "resultAt": "2026-10-09T11:55:45.485Z",
+    "pronunciationNavigationBefore": "2026-10-09T11:55:13.949Z",
+    "keyboardHelp": {
+      "openedByReturn": "true",
+      "closedBySpace": "false",
+      "focus": {
+        "tag": "BUTTON",
+        "text": "Yardım"
+      }
+    },
+    "result": {
+      "german": [
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Frühstück",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Unser Kursraum",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein neuer Nachbar",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Am Samstag im Park",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Mein Zimmer",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Im kleinen Laden",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Meine Familie",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Der Weg zum Kurs",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Ein ruhiger Abend",
+          "translate": "no"
+        },
+        {
+          "lang": "de",
+          "text": "Guten Tag, das bin ich",
+          "translate": "no"
+        }
+      ],
+      "lang": "tr",
+      "links": [],
+      "scrollWidth": 390,
+      "status": [],
+      "width": 390
+    },
+    "acceptance": "UNVERIFIED_SAVE_CUTOFF",
+    "reason": "Stored-result UI still loading at final observation; no target click or retry before SAVE cutoff."
+  }
+]
