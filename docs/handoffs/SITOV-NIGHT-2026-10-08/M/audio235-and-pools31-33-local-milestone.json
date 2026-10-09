@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "at": "2026-10-09T18:30:31.866374+00:00",
+  "scope": "Confirmed local audio preparation milestone. No QA/production import or publication; no subjective human listening or empirical calibration claimed.",
+  "existingMissing235": {
+    "objects": 235,
+    "regeneratedPreviouslyMissing": 7,
+    "lexicalIntervals": 1872,
+    "zeroLexical": 0,
+    "bytes": 4494548,
+    "manifestSha256": "e57b666138babedfd6ebf84e585ba4ea0dd77cde31cd9515f825c7616f027195",
+    "largerASRRevision": "a8379a2e2f9e313c9292cdf1af4055ab56d50d55"
+  },
+  "newPools31To33": {
+    "at": "2026-10-09T18:23:00.691Z",
+    "scope": "Standard full268 bundle:226actualnativeQwenmaleMP3+42verifiedlocalreuse;6 exactfinalMP3 remeasured withpinnedaligner (oneactual1s temporarysilence/exactoffset). Alloriginalreceipts/MP3bytes preserved; no estimatedintervals, noASR/humanlistening/import/publicationclaim.",
+    "aliases": 291,
+    "objects": 268,
+    "generated": 226,
+    "reusedLocal": 42,
+    "lexicalIntervals": 1889,
+    "zeroLexical": 0,
+    "bytes": 5160416,
+    "manifestSha256": "719a881b939e67c204ed13b27d1f7c8d30cc1d49372835a3c99e2eef93add337",
+    "candidateSha256": "fee8b579a972bb4ffc844f27cb179ac497e0e77d6c500d5f1471db4447f729e1",
+    "qaWrite": false,
+    "productionWrite": false
+  },
+  "existingProductionTimingRepair": {
+    "matchedExistingObjects": 20349,
+    "positiveLexicalIntervals": 196040,
+    "zeroLexicalIntervals": 1412,
+    "affectedObjects": 1299,
+    "exactLocalMP3Matches": 498,
+    "readonlyRemoteMP3ReadbackNeeded": 801,
+    "existingProductionBytesChanged": false,
+    "remeasurementPending": true
+  },
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "qaWrite": false,
+  "productionWrite": false
+}
