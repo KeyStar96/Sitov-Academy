@@ -16,15 +16,27 @@ const cardId = '30000000-0000-4000-8000-000000000001'
 
 function setup(rpcResult: unknown = { data: { cardId, activated: false }, error: null }) {
   const profile = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), single: jest.fn().mockResolvedValue({ data: {
-    role: 'student', level_access: [{ level: 'A1.1' }], native_language: 'ru', ui_language: 'ru', trainer_grants: [],
+    role: 'student', sitov_mfa_required: false, level_access: [{ level: 'A1.1' }], native_language: 'ru', ui_language: 'ru', trainer_grants: [],
   }, error: null }) }
   const rulesResult = Promise.resolve({ data: [], error: null })
   const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
-  const from = jest.fn((table: string) => table === 'profiles' ? profile : rules)
-  const rpc = jest.fn().mockResolvedValue(rpcResult)
+  const from = jest.fn((table: string) => {
+    if (table === 'profiles') return profile
+    if (table === 'learning_trainer_grants') return rules
+    throw new Error(`Unexpected table: ${table}`)
+  })
+  const accessContext = jest.fn().mockResolvedValue({ data: {
+    vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0,
+  }, error: null })
+  const mutation = jest.fn().mockResolvedValue(rpcResult)
+  const rpc = jest.fn((name: string, args: unknown) => {
+    if (name === 'get_sitov_access_context') return accessContext(args)
+    if (name === 'add_own_vocabulary' || name === 'delete_own_vocabulary') return mutation(name, args)
+    throw new Error(`Unexpected RPC: ${name}`)
+  })
   const auth = { getUser: jest.fn().mockResolvedValue({ data: { user: { id: userId } }, error: null }) }
   jest.mocked(createClient).mockResolvedValue({ from, rpc, auth } as unknown as Awaited<ReturnType<typeof createClient>>)
-  return { from, rpc, auth }
+  return { from, rpc, auth, accessContext, mutation }
 }
 
 beforeEach(() => {
@@ -34,33 +46,42 @@ beforeEach(() => {
 })
 
 it('trennt den Artikel ab und trägt das Wort in der Sprache der Oberfläche ein', async () => {
-  const { rpc } = setup()
+  const { rpc, accessContext, mutation } = setup()
   expect(await addOwnWord({ level: 'A1.1', word: '  das   Brot ', translation: ' хлеб ', uiLanguage: 'ru' }))
     .toEqual({ success: true, cardId, activated: false })
   expect(rpc).toHaveBeenCalledWith('add_own_vocabulary', { p_level: 'A1.1', p_word_de: 'Brot', p_article: 'das', p_translation: 'хлеб', p_locale: 'ru' })
+  expect(accessContext).toHaveBeenCalledTimes(1)
+  expect(accessContext).toHaveBeenCalledWith({ p_student: userId })
+  expect(mutation).toHaveBeenCalledTimes(1)
   expect(findCachedAudio).toHaveBeenCalledWith('das Brot', 'das Brot')
   expect(requestGermanAudioPreparation).not.toHaveBeenCalled()
 })
 
 it('queues an unprepared word and leaves the learner card inactive until preparation finishes', async () => {
-  const { rpc } = setup()
+  const { accessContext, mutation } = setup()
   jest.mocked(findCachedAudio).mockResolvedValue(null)
   expect(await addOwnWord({ level: 'A1.1', word: 'das Brot', translation: 'хлеб', uiLanguage: 'ru' })).toEqual({ success: false, error: 'audio_pending' })
   expect(requestGermanAudioPreparation).toHaveBeenCalledWith('das Brot')
-  expect(rpc).not.toHaveBeenCalled()
+  expect(accessContext).toHaveBeenCalledWith({ p_student: userId })
+  expect(mutation).not.toHaveBeenCalled()
 })
 
 it('does not queue or read cache before authentication or after the quota is exhausted', async () => {
-  const { rpc, auth } = setup()
+  const { rpc, auth, accessContext, mutation } = setup()
   auth.getUser.mockResolvedValueOnce({ data: { user: null }, error: null })
   const input = { level: 'A1.1', word: 'Brot', translation: 'хлеб', uiLanguage: 'ru' }
   expect(await addOwnWord(input)).toEqual({ success: false, error: 'failed' })
   expect(rateLimit).not.toHaveBeenCalled()
+  expect(rpc).not.toHaveBeenCalled()
+  expect(findCachedAudio).not.toHaveBeenCalled()
+  expect(requestGermanAudioPreparation).not.toHaveBeenCalled()
   jest.mocked(rateLimit).mockResolvedValueOnce({ success: false, limit: 20, remaining: 0, reset: Date.now() + 60000 })
   expect(await addOwnWord(input)).toEqual({ success: false, error: 'failed' })
   expect(findCachedAudio).not.toHaveBeenCalled()
   expect(requestGermanAudioPreparation).not.toHaveBeenCalled()
-  expect(rpc).not.toHaveBeenCalled()
+  expect(accessContext).toHaveBeenCalledTimes(1)
+  expect(accessContext).toHaveBeenCalledWith({ p_student: userId })
+  expect(mutation).not.toHaveBeenCalled()
 })
 
 it('reports pending preparation if Storage readiness changes before the transactional RPC', async () => {
