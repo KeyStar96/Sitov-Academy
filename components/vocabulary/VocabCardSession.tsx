@@ -1,5 +1,8 @@
 'use client'
 
+import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
+
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
@@ -127,6 +130,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   const exitRequested = useRef(false)
   const finalized = useRef(false)
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
+  const help = sitovTrainerHelpCopy(uiLanguage)
   const s = studentTranslator(uiLanguage)
   const checkpointCopy = learningCheckpointCopy(uiLanguage)
   const item = queue[index]
@@ -743,6 +747,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
       {saveFailed && <p role="status" className="learning-status learning-error">{saveConflict ? checkpointCopy.conflict : t('save_failed')}</p>}
       {saveFailed && !current && <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={saveConflict ? () => window.location.reload() : retry}>{saveConflict ? checkpointCopy.reload : t('error_retry')}</button>}
       {retryFailed && <p role="status" className="learning-status learning-error">{t('retry_check_failed')}</p>}
+      {current && <section aria-label={help.vocabularyRoundTitle} lang={uiLanguage}><SitovTrainerHelp title={help.label}><h3>{help.vocabularyRoundTitle}</h3><p>{help.vocabularyRoundBody}</p></SitovTrainerHelp></section>}
     </LearningScreen>
   )
 }

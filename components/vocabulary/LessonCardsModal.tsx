@@ -1,5 +1,8 @@
 'use client'
 
+import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
+
 import { sitovLearningTargetCopy } from '@/lib/learning/sitov-learning-target-i18n'
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type FormEvent, type WheelEvent } from 'react'
@@ -56,6 +59,7 @@ export default function LessonCardsModal({
   onCardAdded: () => void
 }) {
   const t = createVocabularyTranslator(translations)
+  const help = sitovTrainerHelpCopy(uiLanguage)
   const ct = sitovVocabularyChunksTranslator(uiLanguage)
   const tabIds = useId()
   const sitovFocusedCard = useRef<HTMLLIElement>(null)
@@ -329,6 +333,7 @@ export default function LessonCardsModal({
           data-lenis-prevent
           className="modal-scroll-region min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain p-4 sm:p-6"
         >
+          <section aria-label={help.lessonCardsTitle} lang={uiLanguage} className="mb-4"><SitovTrainerHelp title={help.label}><h3>{help.lessonCardsTitle}</h3><p>{help.lessonCardsBody}</p></SitovTrainerHelp></section>
           {activeTab === 'words' && (
             <div role="tabpanel" tabIndex={0} id={wordsPanelId} aria-labelledby={wordsTabId}>
               {cardsState === 'loading' && (
