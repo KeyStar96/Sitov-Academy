@@ -1,0 +1,11 @@
+{
+  "currentTableHash": "533cfe63d7c5e516422f7cfe1fcfe212",
+  "expectedSourceRows": 1,
+  "expectedSourceCounter": 1,
+  "expectedSourceExpires": "2026-10-09T12:58:57.971067+00:00",
+  "at": "2026-10-09T13:04:10.211054+00:00",
+  "qaWrite": false,
+  "productionWrite": false,
+  "scope": "Read-only shared login-source bookkeeping review;187/188fulltable hashes equal after S5 own cleanup. Prior row not saved; no exact historical counter restoration claim. Existing counter preserved, not reset.",
+  "privateReceiptSha256": "b49e2bbdcd69d86920c6af94cc101dee99e4377d1b0abd2c31b2fe3cd904c512"
+}

@@ -1,0 +1,102 @@
+{
+  "counts": {
+    "users": 2,
+    "active": 5,
+    "assets": 2496,
+    "passes": 0,
+    "proofs": 4490,
+    "attempts": 0,
+    "inactive": 43,
+    "definitions": 48
+  },
+  "publication": false,
+  "passTransfer": false,
+  "newDefinitions": [
+    {
+      "id": "bb109004-3cff-482b-98fa-9d0c0365f6f8",
+      "active": false,
+      "text_id": "2f3b292b-8bdb-5007-90cb-278f9c00fc02",
+      "test_version": "5d59371f74b641f42770c43a4b96ee7c22e591cce4160a092aff55489f670b51",
+      "text_version": "e5ba8cecd0972ce4c5c1fcbae2e3c3f4af0a38b4b62277d83b7bc356594c06f5",
+      "question_proofs": 95
+    },
+    {
+      "id": "8a858629-baf9-4916-8b8e-f675ba684356",
+      "active": false,
+      "text_id": "3dfcf736-84e5-599d-a492-b780ffc491c4",
+      "test_version": "159896236eeffa055b4d9ca71915bfc2fefb6b3befca4101ecee93d1b1f51e39",
+      "text_version": "07cec7487ca78c47bb1dfd12f8900f8f24ab479fdb5c73dd06222ce4b36c277c",
+      "question_proofs": 96
+    },
+    {
+      "id": "54174611-e241-402d-af43-2e94baf0929d",
+      "active": false,
+      "text_id": "99feaf25-8ae7-58f7-a492-e2aa4a501707",
+      "test_version": "ffa4af5333664df2522b7f6f51cd6f41102bcdc7055b3c66b6de97934b271c32",
+      "text_version": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
+      "question_proofs": 90
+    },
+    {
+      "id": "3609bba4-923b-43e9-b3ac-a76c5ecf7c50",
+      "active": false,
+      "text_id": "ad61d4d1-2223-533e-974e-51a2d97806b0",
+      "test_version": "5ee717f1c01df9b8f65efa365ac7dded07a9636ef54796cb32abc6d29bac94ef",
+      "text_version": "dfc9a7cf90c7e867c0cb8b1051a71f5cfca363ce8e42af62c7cd0c85f3f65a60",
+      "question_proofs": 92
+    },
+    {
+      "id": "c1d2998f-905f-4c58-a434-30892f014386",
+      "active": false,
+      "text_id": "c5d7b014-5b84-57f5-bfb0-67e3bcb65066",
+      "test_version": "c8ce80c0b1a1a391da28b675a808053ea4e883379f1acbedc57d6fd0384e0b5c",
+      "text_version": "3a709d34efb37577692df2d799fce76748edf189eaba11df3af9337b699174ef",
+      "question_proofs": 95
+    },
+    {
+      "id": "065cd05e-683a-4499-8c63-24a50a93aa54",
+      "active": false,
+      "text_id": "dbe98ecb-4d32-5767-be6c-f54728c93f7d",
+      "test_version": "0a121d028449b510a39ae54ee6579d6eee6bd04578392e5d1068441c78f4fa34",
+      "text_version": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
+      "question_proofs": 96
+    }
+  ],
+  "productionWrite": false,
+  "new6PublicationReadiness": true,
+  "old42ReadinessUnchangedByImport": true,
+  "old42DefinitionsApprovalsQuestionProofsUnchanged": true,
+  "at": "2026-10-09T13:15:50.686273+00:00",
+  "sourcePayloadSha256": "14050fa6e15c83c569af95872b6bf78f730410c87ffb62789dc90a7d021e4bf2",
+  "audioReadbackAuditSha256": "c4437e8d7504a79b4fd6d0ef7d6f0d925e537e2722ea2cecf346acae31a90c8c",
+  "humanReview": false,
+  "calibration": "pending",
+  "scope": "Exact current six25-30 independently M-reviewed pools. Immutable inactive ownedQA versions; no human review/calibration/publication/production claim.",
+  "actualAudioByteReadbacks": 529,
+  "positiveLexicalAndNumericIntervals": 3052,
+  "zeroPunctuationTokens": 66,
+  "fullOld42RowsReadbackVerified": true,
+  "profilesAndAuthHashesUnchanged": true,
+  "imports": [
+    {
+      "bundle": "qa-pretest25-27-bundle-qa-reuse",
+      "manifestSha256": "93c527406dba9e41ead308def8754a7d29b049c424d1fcdc644aa720f0030299",
+      "planned": 279,
+      "verified": 279,
+      "uploaded": 245,
+      "reused": 34,
+      "linkedRecordings": false
+    },
+    {
+      "bundle": "qa-pretest28-30-bundle-qa-reuse",
+      "manifestSha256": "d480edab04bbaff5af087466e1e68dfe89e6f313c532200afeeface4d6c6d1cd",
+      "planned": 269,
+      "verified": 269,
+      "uploaded": 219,
+      "reused": 50,
+      "linkedRecordings": false
+    }
+  ],
+  "privateBeforeSha256": "cfd6701963e14e0316bf0bf12a1172a5af2144e538870919c88b099ffaa19064",
+  "privateAfterSha256": "8248517c52a713c9b97b21fa253906a595389c79562a59d58f9fa04a8c7aa5e8",
+  "privateImportReceiptSha256": "d33a2c2d9de3c4a9e823b163ea0452bf5bb62816233c9c83b6492b17192542e6"
+}

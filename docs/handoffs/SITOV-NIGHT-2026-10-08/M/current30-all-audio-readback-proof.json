@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-09T13:16:48.558365+00:00",
+  "uniqueTextAssets": 2382,
+  "actualByteReadbacks": 2382,
+  "lexicalAndNumericIntervals": 14036,
+  "zeroPunctuationTokens": 268,
+  "failures": [],
+  "eligibleForInactiveImport": true,
+  "sourcePayloadSha256": "e591a96004be69595f6ddd4d8b80d07e4ee35fc830c4b1f70a0d52a52b721635",
+  "qaWrite": false,
+  "productionWrite": false,
+  "scope": "Read-only actual complete current30 M-reviewed immutable inactive definitions: every unique public question/option/prompt and primary reference MP3/metadata. No subjective listening, calibration or production publication claim. Old active legacy assets not overwritten.",
+  "privateCompleteReceiptSha256": "b20810b784d97223fe015445d1851f846e62767134c6a484c89bfe0603a30353"
+}
