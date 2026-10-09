@@ -7,8 +7,8 @@
   "scope": "Repository canonical seeds and revisions; no live/custom inventory",
   "coverage": {
     "total": 60,
-    "authored": 39,
-    "pending": 21
+    "authored": 42,
+    "pending": 18
   },
   "audioStatus": "draft_only: full DB public-question/reference asset and immutable word-timing proof gate implemented; actual M local preparation, byte/timing audit, import and trusted proof insertion pending; no definitions published",
   "drafts": [
@@ -41140,6 +41140,3121 @@
           }
         ]
       }
+    },
+    {
+      "textId": "f6fed4f3-e48e-5cc0-91e6-270734c1e369",
+      "unitId": "f6fed4f3-e48e-5cc0-91e6-270734c1e369",
+      "level": "A2.2",
+      "textVersion": "02f2a7e85c1679d0e465db37347d6ec2b84f6c45f166d5e60dd1407182bc0b32",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "02f2a7e85c1679d0e465db37347d6ec2b84f6c45f166d5e60dd1407182bc0b32",
+        "definitionContentHash": "4801386e2b668d9c6f517965680ad2d8663aa38094e77249715f6380b87769b7"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.a22-10.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Gespräch Austausch",
+              "besorgt Sorge",
+              "mitarbeiten Beteiligung",
+              "vergessen nicht daran denken",
+              "hineinschauen Einblick",
+              "Schimpfen unfreundliche Kritik"
+            ],
+            "sourceSpans": [
+              {
+                "start": 43,
+                "end": 51,
+                "quote": "Gespräch"
+              },
+              {
+                "start": 79,
+                "end": 86,
+                "quote": "besorgt"
+              },
+              {
+                "start": 184,
+                "end": 195,
+                "quote": "mitarbeitet"
+              },
+              {
+                "start": 225,
+                "end": 233,
+                "quote": "vergisst"
+              },
+              {
+                "start": 405,
+                "end": 411,
+                "quote": "hinein"
+              },
+              {
+                "start": 496,
+                "end": 505,
+                "quote": "Schimpfen"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Gespräch Austausch, besorgt Sorge, mitarbeiten Beteiligung, vergessen nicht daran denken, hineinschauen Einblick, Schimpfen unfreundliche Kritik. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-10.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "eingeladen Partizip trennbar",
+              "vergisst Präsens Stammwechsel",
+              "erklärte Präteritum schwach",
+              "überlegt Partizip untrennbar",
+              "können Modal Infinitiv",
+              "schreibt Präsens dritte Singular"
+            ],
+            "sourceSpans": [
+              {
+                "start": 52,
+                "end": 62,
+                "quote": "eingeladen"
+              },
+              {
+                "start": 225,
+                "end": 233,
+                "quote": "vergisst"
+              },
+              {
+                "start": 138,
+                "end": 146,
+                "quote": "erklärte"
+              },
+              {
+                "start": 255,
+                "end": 263,
+                "quote": "überlegt"
+              },
+              {
+                "start": 277,
+                "end": 290,
+                "quote": "helfen können"
+              },
+              {
+                "start": 352,
+                "end": 360,
+                "quote": "schreibt"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: eingeladen Partizip trennbar, vergisst Präsens Stammwechsel, erklärte Präteritum schwach, überlegt Partizip untrennbar, können Modal Infinitiv, schreibt Präsens dritte Singular. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-10.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "weil Verbfinal Begründung",
+              "dass Satzklammer Mitarbeit",
+              "wie Modalverbfinal helfen",
+              "in das Relativsatz Ziel Heft",
+              "Zu Hause Vorfeld Verbzweit",
+              "als Komparativvergleich Lösung"
+            ],
+            "sourceSpans": [
+              {
+                "start": 88,
+                "end": 109,
+                "quote": "weil ich nicht wusste"
+              },
+              {
+                "start": 151,
+                "end": 195,
+                "quote": "dass mein Sohn im Unterricht gut mitarbeitet"
+              },
+              {
+                "start": 265,
+                "end": 290,
+                "quote": "wie wir ihm helfen können"
+              },
+              {
+                "start": 327,
+                "end": 360,
+                "quote": "in das er seine Aufgaben schreibt"
+              },
+              {
+                "start": 362,
+                "end": 411,
+                "quote": "Zu Hause schauen wir jeden Nachmittag kurz hinein"
+              },
+              {
+                "start": 480,
+                "end": 505,
+                "quote": "hilfreicher als Schimpfen"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: weil Verbfinal Begründung, dass Satzklammer Mitarbeit, wie Modalverbfinal helfen, in das Relativsatz Ziel Heft, Zu Hause Vorfeld Verbzweit, als Komparativvergleich Lösung. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.a22-10.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "meines Sohnes Genitiv Singular",
+              "einem Gespräch Dativ zu",
+              "seine Hausaufgaben Besitz Sohn",
+              "kleines Heft Adjektiv neutral",
+              "jeden Nachmittag Akkusativ Zeit",
+              "hilfreicher Komparativ"
+            ],
+            "sourceSpans": [
+              {
+                "start": 11,
+                "end": 24,
+                "quote": "meines Sohnes"
+              },
+              {
+                "start": 34,
+                "end": 51,
+                "quote": "zu einem Gespräch"
+              },
+              {
+                "start": 202,
+                "end": 220,
+                "quote": "seine Hausaufgaben"
+              },
+              {
+                "start": 309,
+                "end": 325,
+                "quote": "ein kleines Heft"
+              },
+              {
+                "start": 383,
+                "end": 399,
+                "quote": "jeden Nachmittag"
+              },
+              {
+                "start": 480,
+                "end": 491,
+                "quote": "hilfreicher"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: meines Sohnes Genitiv Singular, einem Gespräch Dativ zu, seine Hausaufgaben Besitz Sohn, kleines Heft Adjektiv neutral, jeden Nachmittag Akkusativ Zeit, hilfreicher Komparativ. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [],
+        "tasks": [
+          {
+            "id": "sitov.pretest.a22-10.words.q1",
+            "competencyId": "sitov.pretest.a22-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein Gespräch zwischen Vater und Lehrer?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.words.q1.c",
+                "textDe": "Eine einzelne Anweisung ohne Antwort."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q1.a",
+                "textDe": "Eine schriftliche Benotung ohne Austausch."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q1.b",
+                "textDe": "Ein mündlicher Austausch über ein Thema."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.words.q1.b",
+            "assessmentUnit": "Gespräch Austausch",
+            "equivalenceKey": "sitov:a22-10:words:1",
+            "sourceSpans": [
+              {
+                "start": 43,
+                "end": 51,
+                "quote": "Gespräch"
+              }
+            ],
+            "rationaleDe": "Ein Gespräch ist ein Austausch; Benotung und einseitige Anweisung sind andere Kommunikationsformen."
+          },
+          {
+            "id": "sitov.pretest.a22-10.words.q2",
+            "competencyId": "sitov.pretest.a22-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Ich war besorgt« vor einem Gespräch?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.words.q2.c",
+                "textDe": "Ich war auf das Ergebnis stolz."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q2.a",
+                "textDe": "Ich machte mir Sorgen."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q2.b",
+                "textDe": "Ich war mit dem Ergebnis zufrieden."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.words.q2.a",
+            "assessmentUnit": "besorgt Sorge",
+            "equivalenceKey": "sitov:a22-10:words:2",
+            "sourceSpans": [
+              {
+                "start": 79,
+                "end": 86,
+                "quote": "besorgt"
+              }
+            ],
+            "rationaleDe": "Besorgt bezeichnet Sorge, nicht Zufriedenheit oder Stolz."
+          },
+          {
+            "id": "sitov.pretest.a22-10.words.q3",
+            "competencyId": "sitov.pretest.a22-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Der Sohn arbeitet im Unterricht gut mit«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.words.q3.b",
+                "textDe": "Er beteiligt sich an der Arbeit im Unterricht."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q3.a",
+                "textDe": "Er arbeitet während des Unterrichts an einem anderen Ort."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q3.c",
+                "textDe": "Er erledigt nur Aufgaben nach dem Unterricht."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.words.q3.b",
+            "assessmentUnit": "mitarbeiten Beteiligung",
+            "equivalenceKey": "sitov:a22-10:words:3",
+            "sourceSpans": [
+              {
+                "start": 184,
+                "end": 195,
+                "quote": "mitarbeitet"
+              }
+            ],
+            "rationaleDe": "Mitarbeiten meint Beteiligung an der gemeinsamen Unterrichtsarbeit."
+          },
+          {
+            "id": "sitov.pretest.a22-10.words.q4",
+            "competencyId": "sitov.pretest.a22-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Er vergisst seine Hausaufgaben oft«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.words.q4.c",
+                "textDe": "Er gibt seine Hausaufgaben häufig bewusst auf."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q4.b",
+                "textDe": "Er verbessert seine Hausaufgaben häufig."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q4.a",
+                "textDe": "Er denkt häufig nicht an seine Hausaufgaben."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.words.q4.a",
+            "assessmentUnit": "vergessen nicht daran denken",
+            "equivalenceKey": "sitov:a22-10:words:4",
+            "sourceSpans": [
+              {
+                "start": 225,
+                "end": 233,
+                "quote": "vergisst"
+              }
+            ],
+            "rationaleDe": "Vergessen bezeichnet fehlendes Erinnern, nicht absichtlichen Verzicht oder Verbessern."
+          },
+          {
+            "id": "sitov.pretest.a22-10.words.q5",
+            "competencyId": "sitov.pretest.a22-10.words",
+            "kind": "single_choice",
+            "promptDe": "Der Sohn schreibt Aufgaben in ein Heft. Zu Hause schauen wir hinein. Was tun wir?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.words.q5.c",
+                "textDe": "Wir sehen in das Heft."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q5.a",
+                "textDe": "Wir sehen vom Heft weg."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q5.b",
+                "textDe": "Wir sehen nur auf die geschlossene Außenseite des Hefts."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.words.q5.c",
+            "assessmentUnit": "hineinschauen Einblick",
+            "equivalenceKey": "sitov:a22-10:words:5",
+            "sourceSpans": [
+              {
+                "start": 405,
+                "end": 411,
+                "quote": "hinein"
+              }
+            ],
+            "rationaleDe": "Hinein verweist auf das Innere des zuvor genannten Hefts."
+          },
+          {
+            "id": "sitov.pretest.a22-10.words.q6",
+            "competencyId": "sitov.pretest.a22-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet Schimpfen in einer Erziehungssituation?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.words.q6.b",
+                "textDe": "Ruhig gemeinsam nach einer Lösung suchen."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q6.c",
+                "textDe": "Unfreundlich und ärgerlich kritisieren."
+              },
+              {
+                "id": "sitov.pretest.a22-10.words.q6.a",
+                "textDe": "Freundlich für eine gute Leistung loben."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.words.q6.c",
+            "assessmentUnit": "Schimpfen unfreundliche Kritik",
+            "equivalenceKey": "sitov:a22-10:words:6",
+            "sourceSpans": [
+              {
+                "start": 496,
+                "end": 505,
+                "quote": "Schimpfen"
+              }
+            ],
+            "rationaleDe": "Schimpfen ist ärgerliche Kritik; Lösungssuche und Lob sind andere Reaktionen."
+          },
+          {
+            "id": "sitov.pretest.a22-10.verbs.q1",
+            "competencyId": "sitov.pretest.a22-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Partizipform von »einladen« ergänzt »Der Lehrer hat mich zu einem Gespräch ___«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.verbs.q1.c",
+                "textDe": "eingeladet"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q1.b",
+                "textDe": "einladet"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q1.a",
+                "textDe": "eingeladen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.verbs.q1.a",
+            "assessmentUnit": "eingeladen Partizip trennbar",
+            "equivalenceKey": "sitov:a22-10:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 52,
+                "end": 62,
+                "quote": "eingeladen"
+              }
+            ],
+            "rationaleDe": "Das starke trennbare Verb einladen bildet das Partizip eingeladen."
+          },
+          {
+            "id": "sitov.pretest.a22-10.verbs.q2",
+            "competencyId": "sitov.pretest.a22-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »vergessen« passt zu »Mein Sohn ___ oft seine Hausaufgaben«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.verbs.q2.a",
+                "textDe": "vergessen"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q2.c",
+                "textDe": "vergesst"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q2.b",
+                "textDe": "vergisst"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.verbs.q2.b",
+            "assessmentUnit": "vergisst Präsens Stammwechsel",
+            "equivalenceKey": "sitov:a22-10:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 225,
+                "end": 233,
+                "quote": "vergisst"
+              }
+            ],
+            "rationaleDe": "Vergessen hat in der dritten Person Singular den Stammwechsel zu vergisst."
+          },
+          {
+            "id": "sitov.pretest.a22-10.verbs.q3",
+            "competencyId": "sitov.pretest.a22-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präteritumform von »erklären« passt zu »Im Gespräch ___ der Lehrer die Situation«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.verbs.q3.c",
+                "textDe": "erklärte"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q3.a",
+                "textDe": "erklärtest"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q3.b",
+                "textDe": "erklärten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.verbs.q3.c",
+            "assessmentUnit": "erklärte Präteritum schwach",
+            "equivalenceKey": "sitov:a22-10:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 138,
+                "end": 146,
+                "quote": "erklärte"
+              }
+            ],
+            "rationaleDe": "Das schwache Verb steht zum Subjekt der Lehrer in der dritten Person Singular: erklärte."
+          },
+          {
+            "id": "sitov.pretest.a22-10.verbs.q4",
+            "competencyId": "sitov.pretest.a22-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Partizipform von »überlegen« ergänzt »Gemeinsam haben wir ___, wie wir helfen können«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.verbs.q4.b",
+                "textDe": "geüberlegt"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q4.c",
+                "textDe": "überlegt"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q4.a",
+                "textDe": "übergelegen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.verbs.q4.c",
+            "assessmentUnit": "überlegt Partizip untrennbar",
+            "equivalenceKey": "sitov:a22-10:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 255,
+                "end": 263,
+                "quote": "überlegt"
+              }
+            ],
+            "rationaleDe": "Das untrennbare überlegen bildet das Partizip ohne ge: überlegt."
+          },
+          {
+            "id": "sitov.pretest.a22-10.verbs.q5",
+            "competencyId": "sitov.pretest.a22-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Wir können ihm ___«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.verbs.q5.b",
+                "textDe": "helfen"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q5.c",
+                "textDe": "geholfen"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q5.a",
+                "textDe": "zu helfen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.verbs.q5.b",
+            "assessmentUnit": "können Modal Infinitiv",
+            "equivalenceKey": "sitov:a22-10:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 277,
+                "end": 290,
+                "quote": "helfen können"
+              }
+            ],
+            "rationaleDe": "Nach dem finiten Modalverb können steht der reine Infinitiv helfen."
+          },
+          {
+            "id": "sitov.pretest.a22-10.verbs.q6",
+            "competencyId": "sitov.pretest.a22-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »schreiben« passt zu »Mein Sohn ___ seine Aufgaben ins Heft«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.verbs.q6.c",
+                "textDe": "schreibst"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q6.a",
+                "textDe": "schreibt"
+              },
+              {
+                "id": "sitov.pretest.a22-10.verbs.q6.b",
+                "textDe": "schreiben"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.verbs.q6.a",
+            "assessmentUnit": "schreibt Präsens dritte Singular",
+            "equivalenceKey": "sitov:a22-10:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 352,
+                "end": 360,
+                "quote": "schreibt"
+              }
+            ],
+            "rationaleDe": "Das Subjekt mein Sohn verlangt die dritte Person Singular schreibt."
+          },
+          {
+            "id": "sitov.pretest.a22-10.syntax.q1",
+            "competencyId": "sitov.pretest.a22-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt »Ich war besorgt, weil …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.syntax.q1.a",
+                "textDe": "ich wusste nicht, worum es ging"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q1.c",
+                "textDe": "ich nicht wusste, worum es ging"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q1.b",
+                "textDe": "wusste ich nicht, worum es ging"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.syntax.q1.c",
+            "assessmentUnit": "weil Verbfinal Begründung",
+            "equivalenceKey": "sitov:a22-10:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 88,
+                "end": 109,
+                "quote": "weil ich nicht wusste"
+              }
+            ],
+            "rationaleDe": "Weil leitet einen Nebensatz ein; dessen finites Verb wusste folgt dem nicht."
+          },
+          {
+            "id": "sitov.pretest.a22-10.syntax.q2",
+            "competencyId": "sitov.pretest.a22-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt »Der Lehrer erklärte, dass …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.syntax.q2.c",
+                "textDe": "mein Sohn im Unterricht gut mitarbeitet"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q2.a",
+                "textDe": "arbeitet mein Sohn im Unterricht gut mit"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q2.b",
+                "textDe": "mein Sohn arbeitet im Unterricht gut mit"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.syntax.q2.c",
+            "assessmentUnit": "dass Satzklammer Mitarbeit",
+            "equivalenceKey": "sitov:a22-10:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 151,
+                "end": 195,
+                "quote": "dass mein Sohn im Unterricht gut mitarbeitet"
+              }
+            ],
+            "rationaleDe": "Im dass-Satz steht das finite trennbare Verb zusammengeschrieben am Ende: mitarbeitet."
+          },
+          {
+            "id": "sitov.pretest.a22-10.syntax.q3",
+            "competencyId": "sitov.pretest.a22-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt »Wir überlegen, wie …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.syntax.q3.a",
+                "textDe": "wir können ihm helfen"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q3.b",
+                "textDe": "wir ihm helfen können"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q3.c",
+                "textDe": "können wir ihm helfen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.syntax.q3.b",
+            "assessmentUnit": "wie Modalverbfinal helfen",
+            "equivalenceKey": "sitov:a22-10:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 265,
+                "end": 290,
+                "quote": "wie wir ihm helfen können"
+              }
+            ],
+            "rationaleDe": "In der indirekten wie-Frage steht das finite Modalverb können nach dem Infinitiv helfen."
+          },
+          {
+            "id": "sitov.pretest.a22-10.syntax.q4",
+            "competencyId": "sitov.pretest.a22-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Ein Sohn bekommt ein Heft und schreibt seine Aufgaben hinein. Welche Folge ergänzt »Er bekommt ein Heft, …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.syntax.q4.a",
+                "textDe": "in das er seine Aufgaben schreibt"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q4.b",
+                "textDe": "in das er schreibt seine Aufgaben"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q4.c",
+                "textDe": "in das schreibt er seine Aufgaben"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.syntax.q4.a",
+            "assessmentUnit": "in das Relativsatz Ziel Heft",
+            "equivalenceKey": "sitov:a22-10:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 327,
+                "end": 360,
+                "quote": "in das er seine Aufgaben schreibt"
+              }
+            ],
+            "rationaleDe": "Im Relativsatz in das steht schreibt am Satzende; das verweist auf das Heft als Schreibziel."
+          },
+          {
+            "id": "sitov.pretest.a22-10.syntax.q5",
+            "competencyId": "sitov.pretest.a22-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt »Zu Hause …« zu einem Aussagesatz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.syntax.q5.c",
+                "textDe": "wir jeden Nachmittag kurz hineinschauen"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q5.a",
+                "textDe": "wir schauen jeden Nachmittag kurz hinein"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q5.b",
+                "textDe": "schauen wir jeden Nachmittag kurz hinein"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.syntax.q5.b",
+            "assessmentUnit": "Zu Hause Vorfeld Verbzweit",
+            "equivalenceKey": "sitov:a22-10:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 362,
+                "end": 411,
+                "quote": "Zu Hause schauen wir jeden Nachmittag kurz hinein"
+              }
+            ],
+            "rationaleDe": "Zu Hause besetzt das Vorfeld; das finite schauen steht vor dem Subjekt wir, hinein am Ende."
+          },
+          {
+            "id": "sitov.pretest.a22-10.syntax.q6",
+            "competencyId": "sitov.pretest.a22-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Ergänzung bildet den Vergleich »Die gemeinsame Lösung war hilfreicher …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.syntax.q6.b",
+                "textDe": "wie Schimpfen"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q6.c",
+                "textDe": "so Schimpfen"
+              },
+              {
+                "id": "sitov.pretest.a22-10.syntax.q6.a",
+                "textDe": "als Schimpfen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.syntax.q6.a",
+            "assessmentUnit": "als Komparativvergleich Lösung",
+            "equivalenceKey": "sitov:a22-10:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 480,
+                "end": 505,
+                "quote": "hilfreicher als Schimpfen"
+              }
+            ],
+            "rationaleDe": "Der Komparativ hilfreicher verbindet den Vergleich mit als, nicht wie oder so."
+          },
+          {
+            "id": "sitov.pretest.a22-10.nominal.q1",
+            "competencyId": "sitov.pretest.a22-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »der Lehrer ___ Sohnes«, wenn es um meinen Sohn geht?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.nominal.q1.a",
+                "textDe": "meinem"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q1.c",
+                "textDe": "meinen"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q1.b",
+                "textDe": "meines"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.nominal.q1.b",
+            "assessmentUnit": "meines Sohnes Genitiv Singular",
+            "equivalenceKey": "sitov:a22-10:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 11,
+                "end": 24,
+                "quote": "meines Sohnes"
+              }
+            ],
+            "rationaleDe": "Der Genitiv maskulin Singular lautet meines Sohnes."
+          },
+          {
+            "id": "sitov.pretest.a22-10.nominal.q2",
+            "competencyId": "sitov.pretest.a22-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Der Lehrer lädt mich zu ___ Gespräch ein«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.nominal.q2.b",
+                "textDe": "eines"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q2.c",
+                "textDe": "einem"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q2.a",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.nominal.q2.c",
+            "assessmentUnit": "einem Gespräch Dativ zu",
+            "equivalenceKey": "sitov:a22-10:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 34,
+                "end": 51,
+                "quote": "zu einem Gespräch"
+              }
+            ],
+            "rationaleDe": "Zu verlangt den Dativ; Gespräch ist neutral: einem Gespräch."
+          },
+          {
+            "id": "sitov.pretest.a22-10.nominal.q3",
+            "competencyId": "sitov.pretest.a22-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Die Hausaufgaben gehören meinem Sohn. Welche Form ergänzt »Er vergisst ___ Hausaufgaben«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.nominal.q3.a",
+                "textDe": "seine"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q3.c",
+                "textDe": "seiner"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q3.b",
+                "textDe": "seinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.nominal.q3.a",
+            "assessmentUnit": "seine Hausaufgaben Besitz Sohn",
+            "equivalenceKey": "sitov:a22-10:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 202,
+                "end": 220,
+                "quote": "seine Hausaufgaben"
+              }
+            ],
+            "rationaleDe": "Hausaufgaben steht hier im Akkusativ Plural; der Possessivartikel zu er lautet seine."
+          },
+          {
+            "id": "sitov.pretest.a22-10.nominal.q4",
+            "competencyId": "sitov.pretest.a22-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Er bekommt ein ___ Heft«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.nominal.q4.c",
+                "textDe": "kleinem"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q4.b",
+                "textDe": "kleines"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q4.a",
+                "textDe": "kleinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.nominal.q4.b",
+            "assessmentUnit": "kleines Heft Adjektiv neutral",
+            "equivalenceKey": "sitov:a22-10:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 309,
+                "end": 325,
+                "quote": "ein kleines Heft"
+              }
+            ],
+            "rationaleDe": "Nach ein im Akkusativ neutral Singular trägt das Adjektiv die Endung es."
+          },
+          {
+            "id": "sitov.pretest.a22-10.nominal.q5",
+            "competencyId": "sitov.pretest.a22-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt die regelmäßige Zeitangabe »Wir schauen ___ Nachmittag ins Heft«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.nominal.q5.b",
+                "textDe": "jedem"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q5.c",
+                "textDe": "jedes"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q5.a",
+                "textDe": "jeden"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.nominal.q5.a",
+            "assessmentUnit": "jeden Nachmittag Akkusativ Zeit",
+            "equivalenceKey": "sitov:a22-10:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 383,
+                "end": 399,
+                "quote": "jeden Nachmittag"
+              }
+            ],
+            "rationaleDe": "Die Zeitangabe ohne Präposition steht hier im Akkusativ maskulin: jeden Nachmittag."
+          },
+          {
+            "id": "sitov.pretest.a22-10.nominal.q6",
+            "competencyId": "sitov.pretest.a22-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Steigerungsform ergänzt »Die Lösung war ___ als Schimpfen« zu »hilfreich«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.a22-10.nominal.q6.c",
+                "textDe": "hilfreicher"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q6.a",
+                "textDe": "hilfreich"
+              },
+              {
+                "id": "sitov.pretest.a22-10.nominal.q6.b",
+                "textDe": "hilfreichste"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.a22-10.nominal.q6.c",
+            "assessmentUnit": "hilfreicher Komparativ",
+            "equivalenceKey": "sitov:a22-10:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 480,
+                "end": 491,
+                "quote": "hilfreicher"
+              }
+            ],
+            "rationaleDe": "Vor dem als-Vergleich steht der Komparativ hilfreicher."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.a22-10.a",
+            "questionIds": [
+              "sitov.pretest.a22-10.words.q1",
+              "sitov.pretest.a22-10.words.q2",
+              "sitov.pretest.a22-10.words.q3",
+              "sitov.pretest.a22-10.verbs.q1",
+              "sitov.pretest.a22-10.verbs.q2",
+              "sitov.pretest.a22-10.verbs.q3",
+              "sitov.pretest.a22-10.syntax.q1",
+              "sitov.pretest.a22-10.syntax.q2",
+              "sitov.pretest.a22-10.syntax.q3",
+              "sitov.pretest.a22-10.nominal.q1",
+              "sitov.pretest.a22-10.nominal.q2",
+              "sitov.pretest.a22-10.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.a22-10.b",
+            "questionIds": [
+              "sitov.pretest.a22-10.words.q4",
+              "sitov.pretest.a22-10.words.q5",
+              "sitov.pretest.a22-10.words.q6",
+              "sitov.pretest.a22-10.verbs.q4",
+              "sitov.pretest.a22-10.verbs.q5",
+              "sitov.pretest.a22-10.verbs.q6",
+              "sitov.pretest.a22-10.syntax.q4",
+              "sitov.pretest.a22-10.syntax.q5",
+              "sitov.pretest.a22-10.syntax.q6",
+              "sitov.pretest.a22-10.nominal.q4",
+              "sitov.pretest.a22-10.nominal.q5",
+              "sitov.pretest.a22-10.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "19846618-a6c3-5001-84d5-06b21b99dff5",
+      "unitId": "19846618-a6c3-5001-84d5-06b21b99dff5",
+      "level": "B1.1",
+      "textVersion": "146c5dffad6893cf79a59f2eefc1fdd64950f184ad06785ecc10357885a8f78f",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "146c5dffad6893cf79a59f2eefc1fdd64950f184ad06785ecc10357885a8f78f",
+        "definitionContentHash": "64f4f35de68c436d8e68bebd67b8fcb1a7a00f9e94a314255ebda6c5b29c9660"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.b11-01.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Ausbildung berufliches Lernen",
+              "Beratung Unterstützung Entscheidung",
+              "Zweifel Unsicherheit",
+              "Praktikum Berufserfahrung Probe",
+              "Unklarheiten Verständnislücken",
+              "Bewerbung Antrag Stelle"
+            ],
+            "sourceSpans": [
+              {
+                "start": 194,
+                "end": 204,
+                "quote": "Ausbildung"
+              },
+              {
+                "start": 238,
+                "end": 246,
+                "quote": "Beratung"
+              },
+              {
+                "start": 281,
+                "end": 288,
+                "quote": "Zweifel"
+              },
+              {
+                "start": 368,
+                "end": 377,
+                "quote": "Praktikum"
+              },
+              {
+                "start": 437,
+                "end": 449,
+                "quote": "Unklarheiten"
+              },
+              {
+                "start": 493,
+                "end": 502,
+                "quote": "Bewerbung"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Ausbildung berufliches Lernen, Beratung Unterstützung Entscheidung, Zweifel Unsicherheit, Praktikum Berufserfahrung Probe, Unklarheiten Verständnislücken, Bewerbung Antrag Stelle. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b11-01.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "gearbeitet hatte Plusquamperfekt",
+              "ausprobieren Infinitiv nach wollen",
+              "interessierte Präteritum dritte Singular",
+              "empfahl starkes Präteritum",
+              "nachfragen Infinitiv nach dürfen",
+              "vorbereiten trennbarer Infinitiv"
+            ],
+            "sourceSpans": [
+              {
+                "start": 35,
+                "end": 51,
+                "quote": "gearbeitet hatte"
+              },
+              {
+                "start": 53,
+                "end": 98,
+                "quote": "wollte ich beruflich etwas Neues ausprobieren"
+              },
+              {
+                "start": 142,
+                "end": 155,
+                "quote": "interessierte"
+              },
+              {
+                "start": 352,
+                "end": 359,
+                "quote": "empfahl"
+              },
+              {
+                "start": 450,
+                "end": 467,
+                "quote": "nachfragen durfte"
+              },
+              {
+                "start": 475,
+                "end": 506,
+                "quote": "bereite ich meine Bewerbung vor"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: gearbeitet hatte Plusquamperfekt, ausprobieren Infinitiv nach wollen, interessierte Präteritum dritte Singular, empfahl starkes Präteritum, nachfragen Infinitiv nach dürfen, vorbereiten trennbarer Infinitiv. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b11-01.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Nachdem zeitliche Vorzeitigkeit",
+              "trotzdem Gegensatz hilfreiche Beratung",
+              "Würde Fragesatz Verbklammer",
+              "dass Modalverbfinal verstehen",
+              "Jetzt Vorfeld Verbzweit",
+              "Infinitivgruppe neue Möglichkeiten"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 51,
+                "quote": "Nachdem ich viele Jahre im Verkauf gearbeitet hatte"
+              },
+              {
+                "start": 234,
+                "end": 288,
+                "quote": "Die Beratung war hilfreich, trotzdem hatte ich Zweifel"
+              },
+              {
+                "start": 290,
+                "end": 338,
+                "quote": "Würde mein Deutsch für den Unterricht ausreichen"
+              },
+              {
+                "start": 396,
+                "end": 428,
+                "quote": "dass ich vieles verstehen konnte"
+              },
+              {
+                "start": 469,
+                "end": 506,
+                "quote": "Jetzt bereite ich meine Bewerbung vor"
+              },
+              {
+                "start": 608,
+                "end": 639,
+                "quote": "neue Möglichkeiten zu entdecken"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Nachdem zeitliche Vorzeitigkeit, trotzdem Gegensatz hilfreiche Beratung, Würde Fragesatz Verbklammer, dass Modalverbfinal verstehen, Jetzt Vorfeld Verbzweit, Infinitivgruppe neue Möglichkeiten. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b11-01.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "älteren Menschen Dativ Adjektiv",
+              "eine Ausbildung Akkusativ über",
+              "mir Dativ Empfehlung",
+              "mein Deutsch Possessiv neutral",
+              "meine Bewerbung Akkusativ feminin",
+              "neue Möglichkeiten Akkusativ Plural"
+            ],
+            "sourceSpans": [
+              {
+                "start": 121,
+                "end": 141,
+                "quote": "mit älteren Menschen"
+              },
+              {
+                "start": 184,
+                "end": 204,
+                "quote": "über eine Ausbildung"
+              },
+              {
+                "start": 360,
+                "end": 377,
+                "quote": "mir ein Praktikum"
+              },
+              {
+                "start": 296,
+                "end": 308,
+                "quote": "mein Deutsch"
+              },
+              {
+                "start": 487,
+                "end": 502,
+                "quote": "meine Bewerbung"
+              },
+              {
+                "start": 608,
+                "end": 626,
+                "quote": "neue Möglichkeiten"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: älteren Menschen Dativ Adjektiv, eine Ausbildung Akkusativ über, mir Dativ Empfehlung, mein Deutsch Possessiv neutral, meine Bewerbung Akkusativ feminin, neue Möglichkeiten Akkusativ Plural. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keinen Relativsatz; vorhandene Zeit-, Grund- und Gegensatzkonstruktionen werden in ihren belegten Funktionen geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.b11-01.words.q1",
+            "competencyId": "sitov.pretest.b11-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine Ausbildung im Pflegebereich?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.words.q1.b",
+                "textDe": "Eine bereits feste Anstellung ohne berufliches Lernen."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q1.c",
+                "textDe": "Eine berufliche Qualifizierung für Pflegeaufgaben."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q1.a",
+                "textDe": "Eine private Betreuung ohne berufliche Qualifizierung."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.words.q1.c",
+            "assessmentUnit": "Ausbildung berufliches Lernen",
+            "equivalenceKey": "sitov:b11-01:words:1",
+            "sourceSpans": [
+              {
+                "start": 194,
+                "end": 204,
+                "quote": "Ausbildung"
+              }
+            ],
+            "rationaleDe": "Ausbildung ist berufliches Lernen und Qualifizierung, nicht schon die Anstellung oder rein private Hilfe."
+          },
+          {
+            "id": "sitov.pretest.b11-01.words.q2",
+            "competencyId": "sitov.pretest.b11-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was bietet eine Beratung bei einem Berufswechsel?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.words.q2.a",
+                "textDe": "Eine Garantie auf eine spätere Anstellung."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q2.b",
+                "textDe": "Informationen und Unterstützung für eine Entscheidung."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q2.c",
+                "textDe": "Eine verbindliche Entscheidung anstelle des Ratsuchenden."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.words.q2.b",
+            "assessmentUnit": "Beratung Unterstützung Entscheidung",
+            "equivalenceKey": "sitov:b11-01:words:2",
+            "sourceSpans": [
+              {
+                "start": 238,
+                "end": 246,
+                "quote": "Beratung"
+              }
+            ],
+            "rationaleDe": "Beratung unterstützt die eigene Entscheidung; sie ersetzt diese nicht und garantiert keine Stelle."
+          },
+          {
+            "id": "sitov.pretest.b11-01.words.q3",
+            "competencyId": "sitov.pretest.b11-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Ich hatte Zweifel, ob mein Deutsch ausreicht«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.words.q3.c",
+                "textDe": "Ich war sicher, dass meine Deutschkenntnisse genügen."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q3.b",
+                "textDe": "Ich war sicher, dass Deutsch im Unterricht unwichtig ist."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q3.a",
+                "textDe": "Ich war unsicher, ob meine Deutschkenntnisse genügen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.words.q3.a",
+            "assessmentUnit": "Zweifel Unsicherheit",
+            "equivalenceKey": "sitov:b11-01:words:3",
+            "sourceSpans": [
+              {
+                "start": 281,
+                "end": 288,
+                "quote": "Zweifel"
+              }
+            ],
+            "rationaleDe": "Zweifel bezeichnet Unsicherheit über das Genügen, nicht Gewissheit."
+          },
+          {
+            "id": "sitov.pretest.b11-01.words.q4",
+            "competencyId": "sitov.pretest.b11-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist ein Praktikum zur beruflichen Orientierung?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.words.q4.c",
+                "textDe": "Eine begrenzte praktische Tätigkeit zum Kennenlernen eines Berufs."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q4.b",
+                "textDe": "Eine theoretische Abschlussprüfung ohne praktische Tätigkeit."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q4.a",
+                "textDe": "Eine dauerhafte Anstellung ohne Erprobungsphase."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.words.q4.c",
+            "assessmentUnit": "Praktikum Berufserfahrung Probe",
+            "equivalenceKey": "sitov:b11-01:words:4",
+            "sourceSpans": [
+              {
+                "start": 368,
+                "end": 377,
+                "quote": "Praktikum"
+              }
+            ],
+            "rationaleDe": "Ein Praktikum ermöglicht praktische Einblicke für begrenzte Zeit."
+          },
+          {
+            "id": "sitov.pretest.b11-01.words.q5",
+            "competencyId": "sitov.pretest.b11-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind Unklarheiten im Unterricht?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.words.q5.c",
+                "textDe": "Punkte, über die man unabhängig vom Verständnis entscheidet."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q5.a",
+                "textDe": "Punkte, die man bereits vollständig verstanden hat."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q5.b",
+                "textDe": "Punkte, die man noch nicht eindeutig versteht."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.words.q5.b",
+            "assessmentUnit": "Unklarheiten Verständnislücken",
+            "equivalenceKey": "sitov:b11-01:words:5",
+            "sourceSpans": [
+              {
+                "start": 437,
+                "end": 449,
+                "quote": "Unklarheiten"
+              }
+            ],
+            "rationaleDe": "Unklarheiten betreffen fehlende Eindeutigkeit oder Verständnis."
+          },
+          {
+            "id": "sitov.pretest.b11-01.words.q6",
+            "competencyId": "sitov.pretest.b11-01.words",
+            "kind": "single_choice",
+            "promptDe": "Was bereitet man mit einer Bewerbung für eine Ausbildung vor?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.words.q6.a",
+                "textDe": "Die Vorstellung der eigenen Person für einen Ausbildungsplatz."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q6.c",
+                "textDe": "Die Abrechnung der bereits geleisteten Ausbildungsstunden."
+              },
+              {
+                "id": "sitov.pretest.b11-01.words.q6.b",
+                "textDe": "Die Kündigung eines zugesagten Ausbildungsplatzes."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.words.q6.a",
+            "assessmentUnit": "Bewerbung Antrag Stelle",
+            "equivalenceKey": "sitov:b11-01:words:6",
+            "sourceSpans": [
+              {
+                "start": 493,
+                "end": 502,
+                "quote": "Bewerbung"
+              }
+            ],
+            "rationaleDe": "Eine Bewerbung stellt die eigene Eignung für einen gewünschten Platz dar."
+          },
+          {
+            "id": "sitov.pretest.b11-01.verbs.q1",
+            "competencyId": "sitov.pretest.b11-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Zeitform zeigt »Nachdem ich im Verkauf gearbeitet hatte«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.verbs.q1.c",
+                "textDe": "Präteritum."
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q1.a",
+                "textDe": "Plusquamperfekt."
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q1.b",
+                "textDe": "Perfekt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.verbs.q1.a",
+            "assessmentUnit": "gearbeitet hatte Plusquamperfekt",
+            "equivalenceKey": "sitov:b11-01:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 35,
+                "end": 51,
+                "quote": "gearbeitet hatte"
+              }
+            ],
+            "rationaleDe": "Partizip gearbeitet und hatte bilden das Plusquamperfekt für die vorausgehende Arbeit."
+          },
+          {
+            "id": "sitov.pretest.b11-01.verbs.q2",
+            "competencyId": "sitov.pretest.b11-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich wollte beruflich etwas Neues ___«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.verbs.q2.a",
+                "textDe": "auszuprobieren"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q2.b",
+                "textDe": "ausprobiert"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q2.c",
+                "textDe": "ausprobieren"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.verbs.q2.c",
+            "assessmentUnit": "ausprobieren Infinitiv nach wollen",
+            "equivalenceKey": "sitov:b11-01:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 53,
+                "end": 98,
+                "quote": "wollte ich beruflich etwas Neues ausprobieren"
+              }
+            ],
+            "rationaleDe": "Nach wollte steht der reine Infinitiv ausprobieren."
+          },
+          {
+            "id": "sitov.pretest.b11-01.verbs.q3",
+            "competencyId": "sitov.pretest.b11-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präteritumform von »interessieren« ergänzt »Die Arbeit mit älteren Menschen ___ mich«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.verbs.q3.a",
+                "textDe": "interessiertest"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q3.b",
+                "textDe": "interessierte"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q3.c",
+                "textDe": "interessierten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.verbs.q3.b",
+            "assessmentUnit": "interessierte Präteritum dritte Singular",
+            "equivalenceKey": "sitov:b11-01:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 142,
+                "end": 155,
+                "quote": "interessierte"
+              }
+            ],
+            "rationaleDe": "Das Subjekt die Arbeit verlangt im Präteritum die dritte Person Singular interessierte."
+          },
+          {
+            "id": "sitov.pretest.b11-01.verbs.q4",
+            "competencyId": "sitov.pretest.b11-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präteritumform von »empfehlen« ergänzt »Ein Berater ___ mir ein Praktikum«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.verbs.q4.a",
+                "textDe": "empfahl"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q4.b",
+                "textDe": "empfahlen"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q4.c",
+                "textDe": "empfehlte"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.verbs.q4.a",
+            "assessmentUnit": "empfahl starkes Präteritum",
+            "equivalenceKey": "sitov:b11-01:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 352,
+                "end": 359,
+                "quote": "empfahl"
+              }
+            ],
+            "rationaleDe": "Empfehlen bildet das starke Präteritum empfahl zur dritten Person Singular."
+          },
+          {
+            "id": "sitov.pretest.b11-01.verbs.q5",
+            "competencyId": "sitov.pretest.b11-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Bei Unklarheiten durfte ich ___«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.verbs.q5.c",
+                "textDe": "nachfragen"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q5.a",
+                "textDe": "nachzufragen"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q5.b",
+                "textDe": "nachgefragt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.verbs.q5.c",
+            "assessmentUnit": "nachfragen Infinitiv nach dürfen",
+            "equivalenceKey": "sitov:b11-01:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 450,
+                "end": 467,
+                "quote": "nachfragen durfte"
+              }
+            ],
+            "rationaleDe": "Nach dem Modalverb durfte steht der reine Infinitiv nachfragen."
+          },
+          {
+            "id": "sitov.pretest.b11-01.verbs.q6",
+            "competencyId": "sitov.pretest.b11-01.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welcher Infinitiv gehört zu »Ich bereite meine Bewerbung vor«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.verbs.q6.c",
+                "textDe": "bereiten"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q6.a",
+                "textDe": "vorzubereiten"
+              },
+              {
+                "id": "sitov.pretest.b11-01.verbs.q6.b",
+                "textDe": "vorbereiten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.verbs.q6.b",
+            "assessmentUnit": "vorbereiten trennbarer Infinitiv",
+            "equivalenceKey": "sitov:b11-01:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 475,
+                "end": 506,
+                "quote": "bereite ich meine Bewerbung vor"
+              }
+            ],
+            "rationaleDe": "Die getrennten Bestandteile bereite und vor gehören zum Infinitiv vorbereiten; vorzubereiten enthält zusätzlich zu."
+          },
+          {
+            "id": "sitov.pretest.b11-01.syntax.q1",
+            "competencyId": "sitov.pretest.b11-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Reihenfolge beschreibt »Nachdem ich im Verkauf gearbeitet hatte, wollte ich etwas Neues ausprobieren«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.syntax.q1.a",
+                "textDe": "Zuerst wollte ich etwas Neues ausprobieren, danach begann die Arbeit im Verkauf."
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q1.c",
+                "textDe": "Beide Ereignisse beginnen zur selben Zeit."
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q1.b",
+                "textDe": "Zuerst arbeitete ich im Verkauf, danach wollte ich etwas Neues ausprobieren."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.syntax.q1.b",
+            "assessmentUnit": "Nachdem zeitliche Vorzeitigkeit",
+            "equivalenceKey": "sitov:b11-01:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 51,
+                "quote": "Nachdem ich viele Jahre im Verkauf gearbeitet hatte"
+              }
+            ],
+            "rationaleDe": "Nachdem mit Plusquamperfekt ordnet die Arbeit vor dem späteren Wunsch ein."
+          },
+          {
+            "id": "sitov.pretest.b11-01.syntax.q2",
+            "competencyId": "sitov.pretest.b11-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Beziehung zeigt »Die Beratung war hilfreich, trotzdem hatte ich Zweifel«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.syntax.q2.b",
+                "textDe": "Die Zweifel sind der erklärte Zweck der hilfreichen Beratung."
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q2.a",
+                "textDe": "Die Zweifel bleiben trotz der hilfreichen Beratung bestehen."
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q2.c",
+                "textDe": "Die hilfreiche Beratung beseitigt alle Zweifel."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.syntax.q2.a",
+            "assessmentUnit": "trotzdem Gegensatz hilfreiche Beratung",
+            "equivalenceKey": "sitov:b11-01:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 234,
+                "end": 288,
+                "quote": "Die Beratung war hilfreich, trotzdem hatte ich Zweifel"
+              }
+            ],
+            "rationaleDe": "Trotzdem signalisiert einen Gegensatz zur erwartbaren Wirkung hilfreicher Beratung."
+          },
+          {
+            "id": "sitov.pretest.b11-01.syntax.q3",
+            "competencyId": "sitov.pretest.b11-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt die Frage »Würde …?«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.syntax.q3.a",
+                "textDe": "mein Deutsch ausreichen für den Unterricht würde"
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q3.c",
+                "textDe": "mein Deutsch für den Unterricht ausreichen"
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q3.b",
+                "textDe": "ausreichen mein Deutsch für den Unterricht"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.syntax.q3.c",
+            "assessmentUnit": "Würde Fragesatz Verbklammer",
+            "equivalenceKey": "sitov:b11-01:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 290,
+                "end": 338,
+                "quote": "Würde mein Deutsch für den Unterricht ausreichen"
+              }
+            ],
+            "rationaleDe": "Das finite würde steht am Frageanfang, der Infinitiv ausreichen am Ende."
+          },
+          {
+            "id": "sitov.pretest.b11-01.syntax.q4",
+            "competencyId": "sitov.pretest.b11-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt »Ich merkte, dass …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.syntax.q4.a",
+                "textDe": "ich vieles verstehen konnte"
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q4.b",
+                "textDe": "konnte ich vieles verstehen"
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q4.c",
+                "textDe": "ich konnte vieles verstehen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.syntax.q4.a",
+            "assessmentUnit": "dass Modalverbfinal verstehen",
+            "equivalenceKey": "sitov:b11-01:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 396,
+                "end": 428,
+                "quote": "dass ich vieles verstehen konnte"
+              }
+            ],
+            "rationaleDe": "Im dass-Nebensatz steht das finite konnte nach dem Infinitiv verstehen."
+          },
+          {
+            "id": "sitov.pretest.b11-01.syntax.q5",
+            "competencyId": "sitov.pretest.b11-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt »Jetzt …« zu einem Aussagesatz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.syntax.q5.b",
+                "textDe": "bereite ich meine Bewerbung vor"
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q5.a",
+                "textDe": "ich meine Bewerbung vorbereite"
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q5.c",
+                "textDe": "ich bereite meine Bewerbung vor"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.syntax.q5.b",
+            "assessmentUnit": "Jetzt Vorfeld Verbzweit",
+            "equivalenceKey": "sitov:b11-01:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 469,
+                "end": 506,
+                "quote": "Jetzt bereite ich meine Bewerbung vor"
+              }
+            ],
+            "rationaleDe": "Jetzt besetzt das Vorfeld; bereite steht vor ich, der abgetrennte Verbteil vor am Ende."
+          },
+          {
+            "id": "sitov.pretest.b11-01.syntax.q6",
+            "competencyId": "sitov.pretest.b11-01.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt »Lernen bedeutet auch, …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.syntax.q6.a",
+                "textDe": "zu neue Möglichkeiten entdecken"
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q6.b",
+                "textDe": "neue Möglichkeiten entdecken zu"
+              },
+              {
+                "id": "sitov.pretest.b11-01.syntax.q6.c",
+                "textDe": "neue Möglichkeiten zu entdecken"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.syntax.q6.c",
+            "assessmentUnit": "Infinitivgruppe neue Möglichkeiten",
+            "equivalenceKey": "sitov:b11-01:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 608,
+                "end": 639,
+                "quote": "neue Möglichkeiten zu entdecken"
+              }
+            ],
+            "rationaleDe": "Die Infinitivgruppe stellt zu unmittelbar vor den Infinitiv entdecken."
+          },
+          {
+            "id": "sitov.pretest.b11-01.nominal.q1",
+            "competencyId": "sitov.pretest.b11-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »die Arbeit mit ___ Menschen« zu »älter«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.nominal.q1.b",
+                "textDe": "ältere"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q1.a",
+                "textDe": "älteren"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q1.c",
+                "textDe": "älterer"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.nominal.q1.a",
+            "assessmentUnit": "älteren Menschen Dativ Adjektiv",
+            "equivalenceKey": "sitov:b11-01:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 121,
+                "end": 141,
+                "quote": "mit älteren Menschen"
+              }
+            ],
+            "rationaleDe": "Mit verlangt Dativ Plural; die Adjektivform lautet älteren."
+          },
+          {
+            "id": "sitov.pretest.b11-01.nominal.q2",
+            "competencyId": "sitov.pretest.b11-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ich informiere mich über eine Ausbildung. Welche Form ergänzt »über ___ Ausbildung«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.nominal.q2.c",
+                "textDe": "eine"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q2.a",
+                "textDe": "einer"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q2.b",
+                "textDe": "einen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.nominal.q2.c",
+            "assessmentUnit": "eine Ausbildung Akkusativ über",
+            "equivalenceKey": "sitov:b11-01:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 184,
+                "end": 204,
+                "quote": "über eine Ausbildung"
+              }
+            ],
+            "rationaleDe": "Sich informieren über verlangt hier den Akkusativ; Ausbildung ist feminin: eine."
+          },
+          {
+            "id": "sitov.pretest.b11-01.nominal.q3",
+            "competencyId": "sitov.pretest.b11-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »ich« ergänzt »Ein Berater empfahl ___ ein Praktikum«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.nominal.q3.b",
+                "textDe": "mein"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q3.c",
+                "textDe": "mich"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q3.a",
+                "textDe": "mir"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.nominal.q3.a",
+            "assessmentUnit": "mir Dativ Empfehlung",
+            "equivalenceKey": "sitov:b11-01:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 360,
+                "end": 377,
+                "quote": "mir ein Praktikum"
+              }
+            ],
+            "rationaleDe": "Der Empfänger einer Empfehlung steht im Dativ: mir."
+          },
+          {
+            "id": "sitov.pretest.b11-01.nominal.q4",
+            "competencyId": "sitov.pretest.b11-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Die Frage betrifft meine Deutschkenntnisse. Welche Form ergänzt »Würde ___ Deutsch ausreichen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.nominal.q4.b",
+                "textDe": "mein"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q4.a",
+                "textDe": "meinen"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q4.c",
+                "textDe": "meine"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.nominal.q4.b",
+            "assessmentUnit": "mein Deutsch Possessiv neutral",
+            "equivalenceKey": "sitov:b11-01:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 296,
+                "end": 308,
+                "quote": "mein Deutsch"
+              }
+            ],
+            "rationaleDe": "Das substantivierte Deutsch ist neutral Singular und steht als Subjekt: mein Deutsch."
+          },
+          {
+            "id": "sitov.pretest.b11-01.nominal.q5",
+            "competencyId": "sitov.pretest.b11-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich bereite ___ Bewerbung vor«, wenn es meine eigene ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.nominal.q5.a",
+                "textDe": "meiner"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q5.b",
+                "textDe": "meine"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q5.c",
+                "textDe": "meinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.nominal.q5.b",
+            "assessmentUnit": "meine Bewerbung Akkusativ feminin",
+            "equivalenceKey": "sitov:b11-01:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 487,
+                "end": 502,
+                "quote": "meine Bewerbung"
+              }
+            ],
+            "rationaleDe": "Bewerbung ist feminin und direktes Objekt im Akkusativ: meine Bewerbung."
+          },
+          {
+            "id": "sitov.pretest.b11-01.nominal.q6",
+            "competencyId": "sitov.pretest.b11-01.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Lernen heißt, ___ Möglichkeiten zu entdecken« zu »neu«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-01.nominal.q6.a",
+                "textDe": "neuer"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q6.b",
+                "textDe": "neuen"
+              },
+              {
+                "id": "sitov.pretest.b11-01.nominal.q6.c",
+                "textDe": "neue"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-01.nominal.q6.c",
+            "assessmentUnit": "neue Möglichkeiten Akkusativ Plural",
+            "equivalenceKey": "sitov:b11-01:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 608,
+                "end": 626,
+                "quote": "neue Möglichkeiten"
+              }
+            ],
+            "rationaleDe": "Ohne Artikel steht das Adjektiv im Akkusativ Plural mit e: neue Möglichkeiten."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.b11-01.a",
+            "questionIds": [
+              "sitov.pretest.b11-01.words.q1",
+              "sitov.pretest.b11-01.words.q2",
+              "sitov.pretest.b11-01.words.q3",
+              "sitov.pretest.b11-01.verbs.q1",
+              "sitov.pretest.b11-01.verbs.q2",
+              "sitov.pretest.b11-01.verbs.q3",
+              "sitov.pretest.b11-01.syntax.q1",
+              "sitov.pretest.b11-01.syntax.q2",
+              "sitov.pretest.b11-01.syntax.q3",
+              "sitov.pretest.b11-01.nominal.q1",
+              "sitov.pretest.b11-01.nominal.q2",
+              "sitov.pretest.b11-01.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.b11-01.b",
+            "questionIds": [
+              "sitov.pretest.b11-01.words.q4",
+              "sitov.pretest.b11-01.words.q5",
+              "sitov.pretest.b11-01.words.q6",
+              "sitov.pretest.b11-01.verbs.q4",
+              "sitov.pretest.b11-01.verbs.q5",
+              "sitov.pretest.b11-01.verbs.q6",
+              "sitov.pretest.b11-01.syntax.q4",
+              "sitov.pretest.b11-01.syntax.q5",
+              "sitov.pretest.b11-01.syntax.q6",
+              "sitov.pretest.b11-01.nominal.q4",
+              "sitov.pretest.b11-01.nominal.q5",
+              "sitov.pretest.b11-01.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "b5bd057d-17ae-5fac-824a-a8a75fe827ed",
+      "unitId": "b5bd057d-17ae-5fac-824a-a8a75fe827ed",
+      "level": "B1.1",
+      "textVersion": "d36d679af3ede7f9fda0bf326125838f6a1f9cbdda659233d08968b444e2b09b",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer A2.2-/B1.1-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "d36d679af3ede7f9fda0bf326125838f6a1f9cbdda659233d08968b444e2b09b",
+        "definitionContentHash": "99745348f68281431416e8184857316abdfd6cee44c317d26ddff125186e3e23"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.b11-02.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "wegwerfen entsorgen",
+              "inzwischen veränderte Gegenwart",
+              "Mengen Anzahl Umfang",
+              "spontane Einkäufe ungeplant",
+              "machbar durchführbar",
+              "Aufmerksamkeit bewusstes Beachten"
+            ],
+            "sourceSpans": [
+              {
+                "start": 120,
+                "end": 129,
+                "quote": "wegwerfen"
+              },
+              {
+                "start": 186,
+                "end": 196,
+                "quote": "inzwischen"
+              },
+              {
+                "start": 308,
+                "end": 314,
+                "quote": "Mengen"
+              },
+              {
+                "start": 383,
+                "end": 400,
+                "quote": "spontane Einkäufe"
+              },
+              {
+                "start": 500,
+                "end": 507,
+                "quote": "machbar"
+              },
+              {
+                "start": 585,
+                "end": 599,
+                "quote": "Aufmerksamkeit"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: wegwerfen entsorgen, inzwischen veränderte Gegenwart, Mengen Anzahl Umfang, spontane Einkäufe ungeplant, machbar durchführbar, Aufmerksamkeit bewusstes Beachten. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b11-02.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "gekauft Partizip schwach",
+              "musste Präteritum Modal",
+              "losgehen trennbarer Infinitiv",
+              "schreibe Präsens erste Singular",
+              "erscheinen Präsens Plural",
+              "verlangt Präsens dritte Singular"
+            ],
+            "sourceSpans": [
+              {
+                "start": 42,
+                "end": 49,
+                "quote": "gekauft"
+              },
+              {
+                "start": 87,
+                "end": 93,
+                "quote": "musste"
+              },
+              {
+                "start": 216,
+                "end": 223,
+                "quote": "losgehe"
+              },
+              {
+                "start": 259,
+                "end": 267,
+                "quote": "schreibe"
+              },
+              {
+                "start": 361,
+                "end": 371,
+                "quote": "erscheinen"
+              },
+              {
+                "start": 541,
+                "end": 549,
+                "quote": "verlangt"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: gekauft Partizip schwach, musste Präteritum Modal, losgehen trennbarer Infinitiv, schreibe Präsens erste Singular, erscheinen Präsens Plural, verlangt Präsens dritte Singular. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b11-02.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "mehr als Vergleichssatz Bedarf",
+              "deshalb Konsequenz Verbzweit",
+              "Bevor zeitliche Reihenfolge",
+              "auch wenn konzessiver Nebensatz",
+              "weil Begründung Verbfinal",
+              "trotzdem Gegensatz Restproblem Reduktion"
+            ],
+            "sourceSpans": [
+              {
+                "start": 37,
+                "end": 67,
+                "quote": "mehr gekauft, als ich brauchte"
+              },
+              {
+                "start": 153,
+                "end": 204,
+                "quote": "deshalb plane ich meine Einkäufe inzwischen genauer"
+              },
+              {
+                "start": 206,
+                "end": 254,
+                "quote": "Bevor ich losgehe, schaue ich in den Kühlschrank"
+              },
+              {
+                "start": 316,
+                "end": 371,
+                "quote": "auch wenn große Packungen manchmal günstiger erscheinen"
+              },
+              {
+                "start": 509,
+                "end": 549,
+                "quote": "weil sie kein besonderes Wissen verlangt"
+              },
+              {
+                "start": 423,
+                "end": 463,
+                "quote": "Trotzdem landet deutlich weniger im Müll"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: mehr als Vergleichssatz Bedarf, deshalb Konsequenz Verbzweit, Bevor zeitliche Reihenfolge, auch wenn konzessiver Nebensatz, weil Begründung Verbfinal, trotzdem Gegensatz Restproblem Reduktion. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b11-02.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "der Woche Genitiv feminin",
+              "meine Einkäufe Akkusativ Plural",
+              "den Kühlschrank Akkusativ Blickziel",
+              "kleinere Mengen Komparativ",
+              "günstiger prädikativer Komparativ",
+              "besonderes Wissen Adjektiv neutral"
+            ],
+            "sourceSpans": [
+              {
+                "start": 77,
+                "end": 86,
+                "quote": "der Woche"
+              },
+              {
+                "start": 171,
+                "end": 185,
+                "quote": "meine Einkäufe"
+              },
+              {
+                "start": 236,
+                "end": 254,
+                "quote": "in den Kühlschrank"
+              },
+              {
+                "start": 299,
+                "end": 314,
+                "quote": "kleinere Mengen"
+              },
+              {
+                "start": 351,
+                "end": 360,
+                "quote": "günstiger"
+              },
+              {
+                "start": 518,
+                "end": 540,
+                "quote": "kein besonderes Wissen"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: der Woche Genitiv feminin, meine Einkäufe Akkusativ Plural, den Kühlschrank Akkusativ Blickziel, kleinere Mengen Komparativ, günstiger prädikativer Komparativ, besonderes Wissen Adjektiv neutral. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keinen Relativsatz; vorhandene Zeit-, Grund- und Gegensatzkonstruktionen werden in ihren belegten Funktionen geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.b11-02.words.q1",
+            "competencyId": "sitov.pretest.b11-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet Lebensmittel wegwerfen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.words.q1.c",
+                "textDe": "Lebensmittel für später aufbewahren."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q1.a",
+                "textDe": "Lebensmittel vor dem Einkauf auswählen."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q1.b",
+                "textDe": "Lebensmittel als Abfall entsorgen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.words.q1.b",
+            "assessmentUnit": "wegwerfen entsorgen",
+            "equivalenceKey": "sitov:b11-02:words:1",
+            "sourceSpans": [
+              {
+                "start": 120,
+                "end": 129,
+                "quote": "wegwerfen"
+              }
+            ],
+            "rationaleDe": "Wegwerfen bedeutet entsorgen, nicht lagern oder auswählen."
+          },
+          {
+            "id": "sitov.pretest.b11-02.words.q2",
+            "competencyId": "sitov.pretest.b11-02.words",
+            "kind": "single_choice",
+            "promptDe": "Früher plante ich wenig, inzwischen plane ich genauer. Was zeigt inzwischen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.words.q2.c",
+                "textDe": "Die Planung hat sich bis zur Gegenwart verändert."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q2.b",
+                "textDe": "Die genauere Planung ist nur für die ferne Zukunft vorgesehen."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q2.a",
+                "textDe": "Die frühere und heutige Planung bleiben gleich."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.words.q2.c",
+            "assessmentUnit": "inzwischen veränderte Gegenwart",
+            "equivalenceKey": "sitov:b11-02:words:2",
+            "sourceSpans": [
+              {
+                "start": 186,
+                "end": 196,
+                "quote": "inzwischen"
+              }
+            ],
+            "rationaleDe": "Inzwischen markiert den inzwischen erreichten veränderten Zustand."
+          },
+          {
+            "id": "sitov.pretest.b11-02.words.q3",
+            "competencyId": "sitov.pretest.b11-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was verändert man beim Kauf kleinerer Mengen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.words.q3.c",
+                "textDe": "Die gekaufte Anzahl oder den gekauften Umfang."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q3.b",
+                "textDe": "Nur den Einkaufsort bei unveränderter Menge."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q3.a",
+                "textDe": "Nur den Preis bei unveränderter Menge."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.words.q3.c",
+            "assessmentUnit": "Mengen Anzahl Umfang",
+            "equivalenceKey": "sitov:b11-02:words:3",
+            "sourceSpans": [
+              {
+                "start": 308,
+                "end": 314,
+                "quote": "Mengen"
+              }
+            ],
+            "rationaleDe": "Menge bezeichnet Anzahl oder Umfang der gekauften Lebensmittel."
+          },
+          {
+            "id": "sitov.pretest.b11-02.words.q4",
+            "competencyId": "sitov.pretest.b11-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind spontane Einkäufe?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.words.q4.b",
+                "textDe": "Einkäufe, die lange im Voraus fest bestellt sind."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q4.c",
+                "textDe": "Einkäufe, die schon vollständig auf der Liste stehen."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q4.a",
+                "textDe": "Einkäufe ohne vorherigen Plan."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.words.q4.a",
+            "assessmentUnit": "spontane Einkäufe ungeplant",
+            "equivalenceKey": "sitov:b11-02:words:4",
+            "sourceSpans": [
+              {
+                "start": 383,
+                "end": 400,
+                "quote": "spontane Einkäufe"
+              }
+            ],
+            "rationaleDe": "Spontan steht hier für ungeplant, im Gegensatz zu Liste oder Vorbestellung."
+          },
+          {
+            "id": "sitov.pretest.b11-02.words.q5",
+            "competencyId": "sitov.pretest.b11-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet »Die Veränderung ist gut machbar«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.words.q5.b",
+                "textDe": "Die Veränderung ist bereits ohne jedes Zutun abgeschlossen."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q5.a",
+                "textDe": "Die Veränderung lässt sich gut umsetzen."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q5.c",
+                "textDe": "Die Veränderung lässt sich nur beschreiben, nicht umsetzen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.words.q5.a",
+            "assessmentUnit": "machbar durchführbar",
+            "equivalenceKey": "sitov:b11-02:words:5",
+            "sourceSpans": [
+              {
+                "start": 500,
+                "end": 507,
+                "quote": "machbar"
+              }
+            ],
+            "rationaleDe": "Machbar beschreibt Durchführbarkeit, nicht bloße Beschreibung oder garantierten Abschluss."
+          },
+          {
+            "id": "sitov.pretest.b11-02.words.q6",
+            "competencyId": "sitov.pretest.b11-02.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet Aufmerksamkeit beim Planen von Einkäufen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.words.q6.a",
+                "textDe": "Die Planung allein anderen überlassen."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q6.b",
+                "textDe": "Bewusst auf Bedarf und Entscheidungen achten."
+              },
+              {
+                "id": "sitov.pretest.b11-02.words.q6.c",
+                "textDe": "Entscheidungen ohne Beachten des Bedarfs treffen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.words.q6.b",
+            "assessmentUnit": "Aufmerksamkeit bewusstes Beachten",
+            "equivalenceKey": "sitov:b11-02:words:6",
+            "sourceSpans": [
+              {
+                "start": 585,
+                "end": 599,
+                "quote": "Aufmerksamkeit"
+              }
+            ],
+            "rationaleDe": "Aufmerksamkeit bedeutet bewusstes Beachten der relevanten Informationen."
+          },
+          {
+            "id": "sitov.pretest.b11-02.verbs.q1",
+            "competencyId": "sitov.pretest.b11-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Partizipform von »kaufen« ergänzt »Früher habe ich häufig mehr ___«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.verbs.q1.b",
+                "textDe": "gekaufen"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q1.c",
+                "textDe": "gekauft"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q1.a",
+                "textDe": "kaufte"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.verbs.q1.c",
+            "assessmentUnit": "gekauft Partizip schwach",
+            "equivalenceKey": "sitov:b11-02:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 42,
+                "end": 49,
+                "quote": "gekauft"
+              }
+            ],
+            "rationaleDe": "Kaufen bildet das schwache Partizip gekauft; kaufte ist Präteritum."
+          },
+          {
+            "id": "sitov.pretest.b11-02.verbs.q2",
+            "competencyId": "sitov.pretest.b11-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präteritumform von »müssen« ergänzt »Ich ___ Lebensmittel wegwerfen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.verbs.q2.c",
+                "textDe": "musste"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q2.b",
+                "textDe": "müsste"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q2.a",
+                "textDe": "mussten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.verbs.q2.c",
+            "assessmentUnit": "musste Präteritum Modal",
+            "equivalenceKey": "sitov:b11-02:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 87,
+                "end": 93,
+                "quote": "musste"
+              }
+            ],
+            "rationaleDe": "Die erste Person Singular im Präteritum lautet musste; müsste ist Konjunktiv II, mussten Plural."
+          },
+          {
+            "id": "sitov.pretest.b11-02.verbs.q3",
+            "competencyId": "sitov.pretest.b11-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welcher Infinitiv gehört zu »Bevor ich losgehe«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.verbs.q3.a",
+                "textDe": "losgehen"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q3.b",
+                "textDe": "gehen"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q3.c",
+                "textDe": "loszugehen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.verbs.q3.a",
+            "assessmentUnit": "losgehen trennbarer Infinitiv",
+            "equivalenceKey": "sitov:b11-02:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 216,
+                "end": 223,
+                "quote": "losgehe"
+              }
+            ],
+            "rationaleDe": "Losgehe gehört zum trennbaren Infinitiv losgehen; loszugehen enthält zusätzlich zu."
+          },
+          {
+            "id": "sitov.pretest.b11-02.verbs.q4",
+            "competencyId": "sitov.pretest.b11-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »schreiben« ergänzt »Ich ___ eine Liste«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.verbs.q4.c",
+                "textDe": "schreibt"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q4.b",
+                "textDe": "schreibst"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q4.a",
+                "textDe": "schreibe"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.verbs.q4.a",
+            "assessmentUnit": "schreibe Präsens erste Singular",
+            "equivalenceKey": "sitov:b11-02:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 259,
+                "end": 267,
+                "quote": "schreibe"
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich verlangt die erste Person Singular schreibe."
+          },
+          {
+            "id": "sitov.pretest.b11-02.verbs.q5",
+            "competencyId": "sitov.pretest.b11-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »erscheinen« ergänzt »Große Packungen ___ manchmal günstiger«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.verbs.q5.a",
+                "textDe": "erscheint"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q5.b",
+                "textDe": "erscheinen"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q5.c",
+                "textDe": "erschienen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.verbs.q5.b",
+            "assessmentUnit": "erscheinen Präsens Plural",
+            "equivalenceKey": "sitov:b11-02:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 361,
+                "end": 371,
+                "quote": "erscheinen"
+              }
+            ],
+            "rationaleDe": "Das Subjekt große Packungen ist Plural; im Präsens lautet die Form erscheinen."
+          },
+          {
+            "id": "sitov.pretest.b11-02.verbs.q6",
+            "competencyId": "sitov.pretest.b11-02.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »verlangen« ergänzt »Diese Veränderung ___ kein besonderes Wissen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.verbs.q6.c",
+                "textDe": "verlangen"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q6.a",
+                "textDe": "verlangst"
+              },
+              {
+                "id": "sitov.pretest.b11-02.verbs.q6.b",
+                "textDe": "verlangt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.verbs.q6.b",
+            "assessmentUnit": "verlangt Präsens dritte Singular",
+            "equivalenceKey": "sitov:b11-02:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 541,
+                "end": 549,
+                "quote": "verlangt"
+              }
+            ],
+            "rationaleDe": "Diese Veränderung verlangt die dritte Person Singular verlangt."
+          },
+          {
+            "id": "sitov.pretest.b11-02.syntax.q1",
+            "competencyId": "sitov.pretest.b11-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt »Ich kaufte mehr, als …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.syntax.q1.c",
+                "textDe": "ich brauchte"
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q1.a",
+                "textDe": "brauchte ich"
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q1.b",
+                "textDe": "ich brauchen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.syntax.q1.c",
+            "assessmentUnit": "mehr als Vergleichssatz Bedarf",
+            "equivalenceKey": "sitov:b11-02:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 37,
+                "end": 67,
+                "quote": "mehr gekauft, als ich brauchte"
+              }
+            ],
+            "rationaleDe": "Im Vergleichssatz mit als steht das finite brauchte am Ende nach dem Subjekt."
+          },
+          {
+            "id": "sitov.pretest.b11-02.syntax.q2",
+            "competencyId": "sitov.pretest.b11-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt »Das Wegwerfen stört mich, deshalb …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.syntax.q2.a",
+                "textDe": "plane ich meine Einkäufe genauer"
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q2.b",
+                "textDe": "ich meine Einkäufe genauer plane"
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q2.c",
+                "textDe": "ich plane meine Einkäufe genauer"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.syntax.q2.a",
+            "assessmentUnit": "deshalb Konsequenz Verbzweit",
+            "equivalenceKey": "sitov:b11-02:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 153,
+                "end": 204,
+                "quote": "deshalb plane ich meine Einkäufe inzwischen genauer"
+              }
+            ],
+            "rationaleDe": "Deshalb besetzt das Vorfeld des Hauptsatzes; plane folgt vor dem Subjekt ich."
+          },
+          {
+            "id": "sitov.pretest.b11-02.syntax.q3",
+            "competencyId": "sitov.pretest.b11-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Reihenfolge beschreibt »Bevor ich losgehe, schaue ich in den Kühlschrank«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.syntax.q3.c",
+                "textDe": "Zuerst gehe ich los, danach schaue ich in den Kühlschrank."
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q3.a",
+                "textDe": "Das Nachsehen und das Losgehen finden gleichzeitig statt."
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q3.b",
+                "textDe": "Zuerst schaue ich in den Kühlschrank, danach gehe ich los."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.syntax.q3.b",
+            "assessmentUnit": "Bevor zeitliche Reihenfolge",
+            "equivalenceKey": "sitov:b11-02:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 206,
+                "end": 254,
+                "quote": "Bevor ich losgehe, schaue ich in den Kühlschrank"
+              }
+            ],
+            "rationaleDe": "Bevor ordnet das Nachsehen vor dem Losgehen ein."
+          },
+          {
+            "id": "sitov.pretest.b11-02.syntax.q4",
+            "competencyId": "sitov.pretest.b11-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt »Ich kaufe kleinere Mengen, auch wenn …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.syntax.q4.a",
+                "textDe": "große Packungen erscheinen manchmal günstiger"
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q4.c",
+                "textDe": "erscheinen große Packungen manchmal günstiger"
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q4.b",
+                "textDe": "große Packungen manchmal günstiger erscheinen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.syntax.q4.b",
+            "assessmentUnit": "auch wenn konzessiver Nebensatz",
+            "equivalenceKey": "sitov:b11-02:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 316,
+                "end": 371,
+                "quote": "auch wenn große Packungen manchmal günstiger erscheinen"
+              }
+            ],
+            "rationaleDe": "Auch wenn leitet den konzessiven Nebensatz mit erscheinen am Ende ein."
+          },
+          {
+            "id": "sitov.pretest.b11-02.syntax.q5",
+            "competencyId": "sitov.pretest.b11-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Folge ergänzt »Die Veränderung ist machbar, weil …«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.syntax.q5.c",
+                "textDe": "sie verlangt kein besonderes Wissen"
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q5.a",
+                "textDe": "sie kein besonderes Wissen verlangt"
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q5.b",
+                "textDe": "verlangt sie kein besonderes Wissen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.syntax.q5.a",
+            "assessmentUnit": "weil Begründung Verbfinal",
+            "equivalenceKey": "sitov:b11-02:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 509,
+                "end": 549,
+                "quote": "weil sie kein besonderes Wissen verlangt"
+              }
+            ],
+            "rationaleDe": "Weil leitet den begründenden Nebensatz ein; verlangt steht am Ende."
+          },
+          {
+            "id": "sitov.pretest.b11-02.syntax.q6",
+            "competencyId": "sitov.pretest.b11-02.syntax",
+            "kind": "single_choice",
+            "promptDe": "Spontane Einkäufe kommen noch vor. Trotzdem landet weniger im Müll. Welche Beziehung besteht?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.syntax.q6.b",
+                "textDe": "Die Müllmenge sinkt, damit spontane Einkäufe weiterhin vorkommen."
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q6.c",
+                "textDe": "Die Müllmenge sinkt, obwohl spontane Einkäufe weiterhin vorkommen."
+              },
+              {
+                "id": "sitov.pretest.b11-02.syntax.q6.a",
+                "textDe": "Die Müllmenge sinkt erst dann, wenn spontane Einkäufe vollständig verschwinden."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.syntax.q6.c",
+            "assessmentUnit": "trotzdem Gegensatz Restproblem Reduktion",
+            "equivalenceKey": "sitov:b11-02:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 423,
+                "end": 463,
+                "quote": "Trotzdem landet deutlich weniger im Müll"
+              }
+            ],
+            "rationaleDe": "Trotzdem verbindet den Rückgang des Mülls mit dem weiterhin bestehenden Restproblem als Gegensatz, nicht als Bedingung oder Zweck."
+          },
+          {
+            "id": "sitov.pretest.b11-02.nominal.q1",
+            "competencyId": "sitov.pretest.b11-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Am Ende ___ Woche«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.nominal.q1.c",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q1.b",
+                "textDe": "der"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q1.a",
+                "textDe": "die"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.nominal.q1.b",
+            "assessmentUnit": "der Woche Genitiv feminin",
+            "equivalenceKey": "sitov:b11-02:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 77,
+                "end": 86,
+                "quote": "der Woche"
+              }
+            ],
+            "rationaleDe": "Der Genitiv feminin Singular lautet der Woche."
+          },
+          {
+            "id": "sitov.pretest.b11-02.nominal.q2",
+            "competencyId": "sitov.pretest.b11-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich plane ___ Einkäufe«, wenn es meine eigenen sind?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.nominal.q2.a",
+                "textDe": "meinen"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q2.b",
+                "textDe": "meiner"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q2.c",
+                "textDe": "meine"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.nominal.q2.c",
+            "assessmentUnit": "meine Einkäufe Akkusativ Plural",
+            "equivalenceKey": "sitov:b11-02:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 171,
+                "end": 185,
+                "quote": "meine Einkäufe"
+              }
+            ],
+            "rationaleDe": "Das direkte Objekt Einkäufe steht im Akkusativ Plural: meine."
+          },
+          {
+            "id": "sitov.pretest.b11-02.nominal.q3",
+            "competencyId": "sitov.pretest.b11-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ich richte meinen Blick in den Innenraum des Kühlschranks. Welche Form ergänzt »Ich schaue in ___ Kühlschrank«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.nominal.q3.b",
+                "textDe": "des"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q3.a",
+                "textDe": "den"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q3.c",
+                "textDe": "dem"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.nominal.q3.a",
+            "assessmentUnit": "den Kühlschrank Akkusativ Blickziel",
+            "equivalenceKey": "sitov:b11-02:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 236,
+                "end": 254,
+                "quote": "in den Kühlschrank"
+              }
+            ],
+            "rationaleDe": "Der Blick ist nach innen gerichtet; in mit dieser Richtung verlangt Akkusativ: den Kühlschrank."
+          },
+          {
+            "id": "sitov.pretest.b11-02.nominal.q4",
+            "competencyId": "sitov.pretest.b11-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt »Ich kaufe ___ Mengen als früher« zu »klein«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.nominal.q4.b",
+                "textDe": "kleinere"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q4.a",
+                "textDe": "kleinsten"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q4.c",
+                "textDe": "kleine"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.nominal.q4.b",
+            "assessmentUnit": "kleinere Mengen Komparativ",
+            "equivalenceKey": "sitov:b11-02:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 299,
+                "end": 314,
+                "quote": "kleinere Mengen"
+              }
+            ],
+            "rationaleDe": "Der Vergleich mit als verlangt den Komparativ; im Akkusativ Plural lautet er kleinere."
+          },
+          {
+            "id": "sitov.pretest.b11-02.nominal.q5",
+            "competencyId": "sitov.pretest.b11-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form ergänzt den Vergleich »Große Packungen erscheinen ___ als kleine« zu »günstig«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.nominal.q5.a",
+                "textDe": "günstigste"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q5.b",
+                "textDe": "günstig"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q5.c",
+                "textDe": "günstiger"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.nominal.q5.c",
+            "assessmentUnit": "günstiger prädikativer Komparativ",
+            "equivalenceKey": "sitov:b11-02:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 351,
+                "end": 360,
+                "quote": "günstiger"
+              }
+            ],
+            "rationaleDe": "Prädikativ steht der unflektierte Komparativ günstiger vor dem als-Vergleich."
+          },
+          {
+            "id": "sitov.pretest.b11-02.nominal.q6",
+            "competencyId": "sitov.pretest.b11-02.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Adjektivform ergänzt »Sie verlangt kein ___ Wissen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b11-02.nominal.q6.a",
+                "textDe": "besonderes"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q6.b",
+                "textDe": "besonderem"
+              },
+              {
+                "id": "sitov.pretest.b11-02.nominal.q6.c",
+                "textDe": "besonderen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b11-02.nominal.q6.a",
+            "assessmentUnit": "besonderes Wissen Adjektiv neutral",
+            "equivalenceKey": "sitov:b11-02:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 518,
+                "end": 540,
+                "quote": "kein besonderes Wissen"
+              }
+            ],
+            "rationaleDe": "Nach kein trägt das Adjektiv im Akkusativ neutral Singular die Endung es: besonderes."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.b11-02.a",
+            "questionIds": [
+              "sitov.pretest.b11-02.words.q1",
+              "sitov.pretest.b11-02.words.q2",
+              "sitov.pretest.b11-02.words.q3",
+              "sitov.pretest.b11-02.verbs.q1",
+              "sitov.pretest.b11-02.verbs.q2",
+              "sitov.pretest.b11-02.verbs.q3",
+              "sitov.pretest.b11-02.syntax.q1",
+              "sitov.pretest.b11-02.syntax.q2",
+              "sitov.pretest.b11-02.syntax.q3",
+              "sitov.pretest.b11-02.nominal.q1",
+              "sitov.pretest.b11-02.nominal.q2",
+              "sitov.pretest.b11-02.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.b11-02.b",
+            "questionIds": [
+              "sitov.pretest.b11-02.words.q4",
+              "sitov.pretest.b11-02.words.q5",
+              "sitov.pretest.b11-02.words.q6",
+              "sitov.pretest.b11-02.verbs.q4",
+              "sitov.pretest.b11-02.verbs.q5",
+              "sitov.pretest.b11-02.verbs.q6",
+              "sitov.pretest.b11-02.syntax.q4",
+              "sitov.pretest.b11-02.syntax.q5",
+              "sitov.pretest.b11-02.syntax.q6",
+              "sitov.pretest.b11-02.nominal.q4",
+              "sitov.pretest.b11-02.nominal.q5",
+              "sitov.pretest.b11-02.nominal.q6"
+            ]
+          }
+        ]
+      }
     }
   ],
   "inventory": [
@@ -41740,7 +44855,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -41755,7 +44870,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -41770,7 +44885,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": null,
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
