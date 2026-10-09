@@ -1,0 +1,98 @@
+{
+  "at": "2026-10-09T17:24:47.520Z",
+  "locale": "de",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+  "normalLogin": true,
+  "journal": [
+    {
+      "phase": "FAIL",
+      "question": 1,
+      "prompt": "Ergänze: ___ Mann heißt Paul.",
+      "choice": "Meine"
+    },
+    {
+      "phase": "FAIL",
+      "question": 2,
+      "prompt": "Wen umfasst das Wort »wir«?",
+      "choice": "Nur die sprechende Person."
+    },
+    {
+      "phase": "FAIL",
+      "question": 3,
+      "prompt": "Wessen Mann ist Paul in »Mein Mann heißt Paul«?",
+      "choice": "Der Mann des Zuhörers."
+    },
+    {
+      "phase": "FAIL",
+      "question": 4,
+      "prompt": "Welcher Satz hat die normale Aussagesatzstellung?",
+      "choice": "Ich Leon heiße."
+    },
+    {
+      "phase": "FAIL",
+      "question": 5,
+      "prompt": "Was beschreibt »klein« in »Meine Familie ist klein«?",
+      "choice": "Die Stadt."
+    },
+    {
+      "phase": "FAIL",
+      "question": 6,
+      "prompt": "Was trinken die Personen in »Wir trinken Tee und lesen ein Buch«?",
+      "choice": "Ein Buch."
+    },
+    {
+      "phase": "FAIL",
+      "question": 7,
+      "prompt": "Welche zwei Grundformen gehören zu »Wir trinken Tee und lesen ein Buch«?",
+      "choice": "trinken und wohnen"
+    },
+    {
+      "phase": "FAIL",
+      "question": 8,
+      "prompt": "Welche Grundform gehört zu »heiße« in »Ich heiße Leon«?",
+      "choice": "heizen"
+    },
+    {
+      "phase": "FAIL",
+      "question": 9,
+      "prompt": "Welches Wort ist das gebeugte Verb in »Ich wohne jetzt in Hannover«?",
+      "choice": "jetzt"
+    },
+    {
+      "phase": "FAIL",
+      "question": 10,
+      "prompt": "Was bedeutet »in Hannover wohnen«?",
+      "choice": "Hannover verlassen."
+    },
+    {
+      "phase": "FAIL",
+      "question": 11,
+      "prompt": "Was bedeutet »ich heiße Leon«?",
+      "choice": "Ich wohne bei Leon."
+    },
+    {
+      "phase": "FAIL",
+      "question": 12,
+      "prompt": "Was bedeutet »dreißig Jahre alt«?",
+      "choice": "Die Uhrzeit ist 30 Uhr."
+    }
+  ],
+  "lastObservedDOM": "- link \"Zum Inhalt\":\n  - /url: \"#main-content\"\n- main:\n  - link \"Sitov Academy\":\n    - /url: /de/dashboard\n    - generic: Sitov Academy\n  - link \"Profil öffnen\":\n    - /url: /de/dashboard/profile\n    - generic: Profil\n  - button \"Darstellung & Lesbarkeit\":\n    - generic: Darstellung\n  - button \"Abmelden\":\n    - generic: Abmelden\n  - navigation \"Hauptnavigation\":\n    - list:\n      - link \"Start\":\n        - /url: /de/dashboard\n        - generic: Start\n      - link \"Lernen\":\n        - /url: /de/dashboard/level/A1.1\n        - generic: Lernen\n      - link \"Deutschreise\":\n        - /url: /de/dashboard/daily-quest\n        - generic: Deutschreise\n      - link \"Kalender\":\n        - /url: /de/dashboard/calendar\n        - generic: Kalender\n      - button \"Hilfe\":\n        - generic: Hilfe\n  - navigation \"Seitennavigation\":\n    - list:\n      - link \"Start\":\n        - /url: /de/dashboard\n        - generic: Start\n      - link \"A1.1\":\n        - /url: /de/dashboard/level/A1.1\n        - generic: A1.1\n      - heading \"Aussprache\" [level=1]:\n        - generic: Aussprache\n  - navigation \"Lernbereiche von A1.1\":\n    - list:\n      - link \"Vokabeln\":\n        - /url: /de/dashboard/level/A1.1/vocabulary\n        - generic: VokabelnVokab.\n      - link \"Verbtrainer\":\n        - /url: /de/dashboard/level/A1.1/verbs\n        - generic: VerbtrainerVerb\n      - link \"Lernpfad\":\n        - /url: /de/dashboard/level/A1.1/path\n        - generic: LernpfadPfad\n      - link \"Aussprache\":\n        - /url: /de/dashboard/level/A1.1/pronunciation\n        - generic: AusspracheAusspr.\n      - link \"Mediathek\":\n        - /url: /de/dashboard/level/A1.1/videos\n        - generic: MediathekMedia\n  - tablist \"Aussprache\":\n    - tab \"Sprechen\" [selected]:\n      - generic: Sprechen\n    - tab \"Briefkasten\":\n      - generic: Briefkasten\n  - tabpanel \"Sprechen\":\n    - region \"Sprechen\":\n      - paragraph:\n        - generic: Aussprache\n        - generic: A1.1\n      - heading \"Sprechen\" [level=1]\n      - generic: Guten Tag, das bin ich\n      - button \"Vortest fortsetzen\":\n        - generic: Vortest fortsetzen\n      - generic: ü\n    - list:\n      - button \"Guten Tag, das bin ich Vortest fortsetzen\" [pressed]:\n        - generic: Guten Tag, das bin ich\n        - generic: Vortest fortsetzen\n      - button \"Mein Frühstück Vortest starten\":\n        - generic: Mein Frühstück\n        - generic: Vortest starten\n      - button \"Unser Kursraum Vortest starten\":\n        - generic: Unser Kursraum\n        - generic: Vortest starten\n      - button \"Ein neuer Nachbar Vortest starten\":\n        - generic: Ein neuer Nachbar\n        - generic: Vortest starten\n      - button \"Am Samstag im Park Vortest starten\":\n        - generic: Am Samstag im Park\n        - generic: Vortest starten\n      - button \"Mein Zimmer Dieser Vortest ist noch nicht verfügbar.\" [disabled]:\n        - generic: Mein Zimmer\n        - generic: Dieser Vortest ist noch nicht verfügbar.\n      - button \"Im kleinen Laden Dieser Vortest ist noch nicht verfügbar.\" [disabled]:\n        - generic: Im kleinen Laden\n        - generic: Dieser Vortest ist noch nicht verfügbar.\n      - button \"Meine Familie Dieser Vortest ist noch nicht verfügbar.\" [disabled]:\n        - generic: Meine Familie\n        - generic: Dieser Vortest ist noch nicht verfügbar.\n      - button \"Der Weg zum Kurs Dieser Vortest ist noch nicht verfügbar.\" [disabled]:\n        - generic: Der Weg zum Kurs\n        - generic: Dieser Vortest ist noch nicht verfügbar.\n      - button \"Ein ruhiger Abend Dieser Vortest ist noch nicht verfügbar.\" [disabled]:\n        - generic: Ein ruhiger Abend\n        - generic: Dieser Vortest ist noch nicht verfügbar.\n    - generic \"Guten Tag, das bin ich\":\n      - generic: Vortest · A1.1\n      - heading \"Guten Tag, das bin ich\" [level=2]\n      - status:\n        - heading \"Noch nicht bestanden\" [level=3]\n        - paragraph: 0 von 12 richtig\n        - navigation \"Passend weiterlernen\":\n          - link \"Verbformen üben\":\n            - /url: /de/dashboard/level/A1.1/verbs?sitov_target=sitov-verb-heissen&tense=present\n          - link \"Satzübungen\":\n            - /url: /de/dashboard/level/A1.1/path?sitov_target=9f92ad82-cb5c-40cf-86d3-87b17b75c5bb\n      - button \"Erneut versuchen\"\n      - region \"Dein Vortest zu diesem Text\":\n        - button \"Hilfe\":\n          - generic: Hilfe\n- alert",
+  "completedFail": true,
+  "review": false,
+  "retake": false,
+  "completedPass": false,
+  "audio": false,
+  "cutoffReason": "fixed lease SAVE cutoff, last answer remained saving; no retry",
+  "failScore": {
+    "correct": 0,
+    "total": 12
+  },
+  "failObservedAt": "2026-10-09T17:25:01.185Z",
+  "retakeControlVisible": true,
+  "finalFailAX": "Browser tab: 20, Title: \"Deutschkurse in Hannover & online | Sitov Academy\", URL: \"http://127.0.0.1:3143/de/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 100 container Wirklich abmelden?"
+}
