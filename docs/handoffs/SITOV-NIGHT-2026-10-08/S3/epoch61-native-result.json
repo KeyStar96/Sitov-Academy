@@ -1,0 +1,20 @@
+{
+  "beforeRawSha256": "51652fa6f9dc5b47c0120dc664b9101dd8063607315a2696dc2c0cce1969b070",
+  "afterRawSha256": "51652fa6f9dc5b47c0120dc664b9101dd8063607315a2696dc2c0cce1969b070",
+  "rawExact": true,
+  "logicalMetadataExact": true,
+  "rows": 5222,
+  "protected185QA188StreamNotRun": true,
+  "postgres": "15.19",
+  "actor": "supabase_admin",
+  "nativeAssertions": 13,
+  "expectedErrorStatements": 8,
+  "staticTests": 6,
+  "actualNativeFixture": "supabase/tests/sitov-path-content-revisions-native.sql",
+  "nativeFixtureSha256": "cbeeb3732d963646a5f59cac2e3a61bbdb75c952af80c66d5f9b67033052eeb6",
+  "productionWrite": false,
+  "sharedQAWrite": false,
+  "cloneTransactionRolledBack": true,
+  "MP3ListeningProof": false,
+  "releaseReady": false
+}

@@ -1,0 +1,593 @@
+BEGIN;SET LOCAL statement_timeout='8s';SET LOCAL lock_timeout='2s';SET LOCAL application_name='sitov_S3_epoch61_fixture';
+-- Sitov Academy: source revisions only. No learner records are rewritten.
+-- Reserved by M; native PostgreSQL verification is required before application.
+CREATE TABLE IF NOT EXISTS path_private.sitov_content_revisions (
+ revision_id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+ request_id uuid NOT NULL, exercise_id uuid NOT NULL,
+ before_hash text NOT NULL CHECK(before_hash ~ '^[a-f0-9]{64}$'), after_hash text NOT NULL CHECK(after_hash ~ '^[a-f0-9]{64}$'),
+ before_projection jsonb NOT NULL, after_projection jsonb NOT NULL,
+ before_full jsonb NOT NULL, after_full jsonb NOT NULL,
+ review_evidence jsonb NOT NULL, audio_evidence jsonb NOT NULL,
+ actor_role text NOT NULL, created_at timestamptz NOT NULL DEFAULT clock_timestamp(),
+ UNIQUE(request_id,exercise_id)
+);
+CREATE INDEX IF NOT EXISTS sitov_content_revisions_exercise ON path_private.sitov_content_revisions(exercise_id,revision_id);
+CREATE TABLE IF NOT EXISTS path_private.sitov_content_revision_receipts (
+ request_id uuid PRIMARY KEY, payload jsonb NOT NULL, result jsonb NOT NULL,
+ created_at timestamptz NOT NULL DEFAULT clock_timestamp()
+);
+CREATE TABLE IF NOT EXISTS path_private.sitov_revision_function_backups (
+ signature text PRIMARY KEY, definition text NOT NULL
+);
+ALTER TABLE path_private.sitov_content_revisions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE path_private.sitov_content_revision_receipts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE path_private.sitov_revision_function_backups ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON path_private.sitov_content_revisions,path_private.sitov_content_revision_receipts,path_private.sitov_revision_function_backups FROM PUBLIC,anon,authenticated,service_role;
+REVOKE ALL ON SEQUENCE path_private.sitov_content_revisions_revision_id_seq FROM PUBLIC,anon,authenticated,service_role;
+
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_immutable() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$ BEGIN
+ RAISE EXCEPTION 'sitov_revision_immutable' USING ERRCODE='23514';
+END $$;
+DROP TRIGGER IF EXISTS sitov_revision_immutable ON path_private.sitov_content_revisions;
+CREATE TRIGGER sitov_revision_immutable BEFORE UPDATE OR DELETE OR TRUNCATE ON path_private.sitov_content_revisions
+ FOR EACH STATEMENT EXECUTE FUNCTION path_private.sitov_revision_immutable();
+DROP TRIGGER IF EXISTS sitov_receipt_immutable ON path_private.sitov_content_revision_receipts;
+CREATE TRIGGER sitov_receipt_immutable BEFORE UPDATE OR DELETE OR TRUNCATE ON path_private.sitov_content_revision_receipts
+ FOR EACH STATEMENT EXECUTE FUNCTION path_private.sitov_revision_immutable();
+
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_hash(p_value jsonb) RETURNS text
+LANGUAGE sql IMMUTABLE STRICT SET search_path='' AS $$
+ SELECT encode(sha256(convert_to(p_value::text,'UTF8')),'hex');
+$$;
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_projection(p_id uuid) RETURNS jsonb
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT path_private.snapshot(e.id)||jsonb_build_object('unit_id',e.unit_id,'node_id',e.node_id,
+  'source_ref',e.source_ref,'sort_order',e.sort_order,'topic',e.topic,'explanation_card',e.explanation_card,
+  'parent',jsonb_build_object('level',u.level,'unit_source_id',u.path_source_id,'unit_active',u.is_active,
+  'node_source_id',n.source_id,'node_unit_id',n.unit_id,'node_active',n.is_active,'node_kind',n.kind))
+ FROM public.learning_exercises e JOIN public.learning_units u ON u.id=e.unit_id
+ JOIN public.path_nodes n ON n.id=e.node_id WHERE e.id=p_id AND e.node_id IS NOT NULL;
+$$;
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_full(p_id uuid) RETURNS jsonb
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT jsonb_build_object('exercise',to_jsonb(e),'translations',coalesce((
+ SELECT jsonb_agg(to_jsonb(t) ORDER BY t.locale) FROM public.grammar_translations t WHERE t.exercise_id=e.id),'[]'::jsonb))
+ FROM public.learning_exercises e WHERE e.id=p_id;
+$$;
+-- Same played utterances as sitovExerciseAudioTexts and SQL71. No raw
+-- prefixes/suffixes, distractors or parts are added as a second audio contract.
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_audio_texts(p_type public.exercise_type,p_content jsonb) RETURNS SETOF text
+LANGUAGE sql IMMUTABLE SET search_path='' AS $$
+ SELECT unnest(learning_private.sitov_learning_audio_texts('exercises',jsonb_build_object('type',p_type,'content',p_content),'[]'::jsonb));
+$$;
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_strict_audio(p_text text) RETURNS text
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE reference text; authored jsonb; token text; timing jsonb; idx bigint;
+BEGIN
+ reference:=vocabulary_private.sitov_prepared_german_audio_url(p_text);
+ SELECT m.user_metadata INTO authored FROM sitov_storage_private.sitov_audio_metadata('audio_cache',replace(reference,'storage://audio_cache/','')) m;
+ FOR token,idx IN SELECT v,n FROM unnest(string_to_array(vocabulary_private.sitov_normalize_audio_text(p_text),' ')) WITH ORDINALITY a(v,n) LOOP
+  timing:=authored->'wordTimings'->(idx::integer-1);
+  IF token ~ '[[:alnum:]]' AND (timing IS NULL OR (timing->>'end')::numeric <= (timing->>'start')::numeric) THEN
+   RAISE EXCEPTION 'prepared_audio_lexical_duration_required' USING ERRCODE='22023';
+  END IF;
+ END LOOP;
+ RETURN reference;
+END $$;
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_protected(p_id uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM path_private.sitov_content_revisions WHERE exercise_id=p_id);
+$$;
+
+-- Check the complete seed before its first catalog mutation. No bypass flag or
+-- editable GUC capability: the checked writer below never calls this importer.
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_check_import(p_path jsonb) RETURNS void
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE r record; n jsonb; x jsonb; expected jsonb; actual jsonb; lang text; tr jsonb;
+BEGIN
+ FOR r IN SELECT e.* FROM public.learning_exercises e JOIN public.learning_units u ON u.id=e.unit_id
+  WHERE u.level=p_path->>'level' AND u.path_source_id=p_path->>'id'
+   AND path_private.sitov_revision_protected(e.id) ORDER BY e.id LOOP
+  SELECT nn,ee INTO n,x FROM jsonb_array_elements(p_path->'nodes') nn
+   CROSS JOIN LATERAL jsonb_array_elements(nn->'exercises') ee WHERE ee->>'id'=r.id::text;
+  IF x IS NULL OR n->>'id' IS DISTINCT FROM (SELECT source_id FROM public.path_nodes WHERE id=r.node_id)
+   OR NOT coalesce((n->>'is_active')::boolean,true) OR NOT coalesce((p_path->>'is_active')::boolean,true)
+   OR n->>'topic' IS DISTINCT FROM r.topic OR x->>'goal' IS DISTINCT FROM r.goal_id
+   OR x->>'ref' IS DISTINCT FROM r.source_ref OR x->>'exercise_type' IS DISTINCT FROM r.type::text
+   OR x->'content' IS DISTINCT FROM r.content OR x->>'explanation_card' IS DISTINCT FROM r.explanation_card
+   OR (SELECT ord FROM jsonb_array_elements(n->'exercises') WITH ORDINALITY z(v,ord) WHERE v->>'id'=r.id::text) IS DISTINCT FROM r.sort_order::bigint
+  THEN RAISE EXCEPTION 'sitov_revision_import_conflict' USING ERRCODE='40001'; END IF;
+  actual:=path_private.sitov_revision_projection(r.id)->'translations'; expected:='{}'::jsonb;
+  FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
+   tr:=jsonb_build_object('hint',CASE WHEN lang='de' THEN x->>'hint' ELSE x->'translations'->lang->>'hint' END,
+    'explanation',CASE WHEN lang='de' THEN x->>'explanation' ELSE x->'translations'->lang->>'explanation' END,
+    'instruction',CASE WHEN lang='de' THEN x->'content'->>'instruction' ELSE x->'translations'->lang->>'instruction' END,
+    'prompt',x->'translations'->lang->>'prompt',
+    'task',CASE WHEN lang='de' THEN NULL ELSE nullif(btrim(x->'translations'->lang->>'task'),'') END,
+    'gap_hint',CASE WHEN lang='de' THEN NULL ELSE nullif(btrim(x->'translations'->lang->>'gap_hint'),'') END);
+   expected:=expected||jsonb_build_object(lang,tr);
+  END LOOP;
+  IF actual IS DISTINCT FROM expected THEN RAISE EXCEPTION 'sitov_revision_import_conflict' USING ERRCODE='40001'; END IF;
+ END LOOP;
+END $$;
+
+CREATE OR REPLACE FUNCTION public.sitov_revise_path_content(p_request_id uuid,p_items jsonb) RETURNS jsonb
+LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE role_name text:=coalesce(nullif(current_setting('role',true),'none'),session_user);
+ item jsonb; e public.learning_exercises; old jsonb; candidate jsonb; before_full jsonb;
+ before_hash text; after_hash text; existing path_private.sitov_content_revision_receipts;
+ lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text;
+BEGIN
+ IF role_name<>'service_role' THEN RAISE EXCEPTION 'not_authorized' USING ERRCODE='42501'; END IF;
+ IF p_request_id IS NULL OR jsonb_typeof(p_items) IS DISTINCT FROM 'array' THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+ IF jsonb_array_length(p_items) NOT BETWEEN 1 AND 100 OR octet_length(p_items::text)>2000000
+  OR EXISTS(SELECT 1 FROM jsonb_array_elements(p_items) v GROUP BY v->>'id' HAVING count(*)>1)
+ THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('sitov-path-revision-request:'||p_request_id::text,0));
+ SELECT * INTO existing FROM path_private.sitov_content_revision_receipts WHERE request_id=p_request_id;
+ IF FOUND THEN
+  IF existing.payload IS DISTINCT FROM p_items THEN RAISE EXCEPTION 'request_conflict' USING ERRCODE='40001'; END IF;
+  RETURN existing.result;
+ END IF;
+ -- Same level locks as the importer, sorted before any unit/exercise lock.
+ FOR level_code IN SELECT DISTINCT u.level FROM jsonb_array_elements(p_items) v
+  JOIN public.learning_exercises ex ON ex.id=(v->>'id')::uuid JOIN public.learning_units u ON u.id=ex.unit_id ORDER BY u.level LOOP
+  PERFORM pg_advisory_xact_lock(hashtextextended('path-catalog:'||level_code,0));
+ END LOOP;
+ PERFORM u.id FROM public.learning_units u WHERE u.id IN(SELECT ex.unit_id FROM public.learning_exercises ex
+  JOIN jsonb_array_elements(p_items) v ON ex.id=(v->>'id')::uuid) ORDER BY u.id FOR UPDATE;
+ PERFORM ex.id FROM public.learning_exercises ex JOIN jsonb_array_elements(p_items) v ON ex.id=(v->>'id')::uuid ORDER BY ex.id FOR UPDATE OF ex;
+ FOR item IN SELECT value FROM jsonb_array_elements(p_items) ORDER BY value->>'id' LOOP
+  SELECT * INTO e FROM public.learning_exercises WHERE id=(item->>'id')::uuid;
+  IF NOT FOUND OR e.node_id IS NULL OR NOT e.path_is_active THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+  PERFORM gt.exercise_id FROM public.grammar_translations gt WHERE gt.exercise_id=e.id ORDER BY gt.locale FOR UPDATE;
+  old:=path_private.sitov_revision_projection(e.id); candidate:=item->'after';
+  IF old#>>'{parent,unit_active}' IS DISTINCT FROM 'true' OR old#>>'{parent,node_active}' IS DISTINCT FROM 'true'
+   OR old#>>'{parent,node_unit_id}' IS DISTINCT FROM e.unit_id::text THEN RAISE EXCEPTION 'sitov_revision_parent_conflict' USING ERRCODE='40001'; END IF;
+  before_hash:=path_private.sitov_revision_hash(old); after_hash:=path_private.sitov_revision_hash(candidate);
+  IF item->>'expected_hash' IS DISTINCT FROM before_hash
+   OR (candidate-ARRAY['content','translations']) IS DISTINCT FROM (old-ARRAY['content','translations'])
+  THEN RAISE EXCEPTION 'sitov_revision_version_conflict' USING ERRCODE='40001'; END IF;
+  IF after_hash IS NULL OR before_hash=after_hash OR NOT path_private.valid_content(e.type,candidate->'content')
+   OR jsonb_typeof(candidate->'translations') IS DISTINCT FROM 'object'
+   OR NOT path_private.only_keys(candidate->'translations',ARRAY['de','en','ru','uk','tr'])
+   OR item#>>'{review,approved}' IS DISTINCT FROM 'true'
+   OR item#>>'{review,before_hash}' IS DISTINCT FROM before_hash
+   OR item#>>'{review,after_hash}' IS DISTINCT FROM after_hash
+   OR nullif(btrim(item#>>'{review,reviewer}'),'') IS NULL
+   OR nullif(btrim(item#>>'{review,evidence_uri}'),'') IS NULL
+  THEN RAISE EXCEPTION 'sitov_revision_review_required' USING ERRCODE='23514'; END IF;
+  FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
+   t:=candidate->'translations'->lang;
+   IF jsonb_typeof(t) IS DISTINCT FROM 'object' OR NOT path_private.only_keys(t,ARRAY['instruction','hint','explanation','prompt','task','gap_hint'])
+    OR NOT path_private.valid_text(t->'hint') OR NOT path_private.valid_text(t->'explanation')
+    OR (lang<>'de' AND NOT path_private.valid_text(t->'instruction'))
+    OR (lang='de' AND (t->>'instruction' IS DISTINCT FROM candidate->'content'->>'instruction' OR t->>'task' IS NOT NULL OR t->>'gap_hint' IS NOT NULL))
+   THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+  END LOOP;
+  -- Old Special resume/history is unresolved: fail closed for every stored
+  -- definition dependency, including inactive definitions with old attempts.
+  IF EXISTS(SELECT 1 FROM sitov_special_private.definitions d CROSS JOIN LATERAL jsonb_array_elements(d.pool) q WHERE q->>'id'=e.id::text) THEN
+   RAISE EXCEPTION 'sitov_revision_special_dependency' USING ERRCODE='23514';
+  END IF;
+  before_full:=path_private.sitov_revision_full(e.id);
+  UPDATE public.learning_exercises SET content=candidate->'content' WHERE id=e.id;
+  FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
+   t:=candidate->'translations'->lang;
+   INSERT INTO public.grammar_translations(exercise_id,locale,instruction,hint,explanation,prompt,task,gap_hint)
+    VALUES(e.id,lang,t->>'instruction',t->>'hint',t->>'explanation',t->>'prompt',t->>'task',t->>'gap_hint')
+   ON CONFLICT(exercise_id,locale) DO UPDATE SET instruction=excluded.instruction,hint=excluded.hint,
+    explanation=excluded.explanation,prompt=excluded.prompt,task=excluded.task,gap_hint=excluded.gap_hint;
+  END LOOP;
+  -- Retain 71/72's authoritative saved-row validation; add every authored
+  -- German string, including protected wrong options and complete solutions.
+  PERFORM learning_private.sitov_require_prepared_learning_audio('exercises',jsonb_build_object('id',e.id),'[]'::jsonb,e.unit_id);
+  audio:='[]'::jsonb;
+  FOR spoken IN SELECT v FROM path_private.sitov_revision_audio_texts(e.type,candidate->'content') v ORDER BY v LOOP
+   audio:=audio||jsonb_build_array(jsonb_build_object('text',spoken,'prepared_url',path_private.sitov_revision_strict_audio(spoken)));
+  END LOOP;
+  IF path_private.sitov_revision_projection(e.id) IS DISTINCT FROM candidate THEN RAISE EXCEPTION 'sitov_revision_projection_conflict' USING ERRCODE='40001'; END IF;
+  INSERT INTO path_private.sitov_content_revisions(request_id,exercise_id,before_hash,after_hash,before_projection,after_projection,before_full,after_full,review_evidence,audio_evidence,actor_role)
+   VALUES(p_request_id,e.id,before_hash,after_hash,old,candidate,before_full,path_private.sitov_revision_full(e.id),item->'review',audio,role_name);
+  result:=result||jsonb_build_array(jsonb_build_object('id',e.id,'before_hash',before_hash,'after_hash',after_hash));
+ END LOOP;
+ -- No exception handler: any failure rolls back the entire batch and receipt.
+ INSERT INTO path_private.sitov_content_revision_receipts(request_id,payload,result) VALUES(p_request_id,p_items,result);
+ RETURN result;
+END $$;
+
+-- Deferred constraint checks allow the checked transaction to replace row and
+-- translations before appending the complete new revision. At commit every
+-- protected source must equal the newest archived after-image, including writes
+-- through other existing authoring routes. No caller-controlled bypass exists.
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_guard_current() RETURNS trigger
+LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE target uuid; targets uuid[]; expected jsonb;
+BEGIN
+ IF TG_TABLE_NAME='learning_exercises' THEN
+  targets:=ARRAY[CASE WHEN TG_OP<>'INSERT' THEN OLD.id END,CASE WHEN TG_OP<>'DELETE' THEN NEW.id END];
+ ELSE targets:=ARRAY[CASE WHEN TG_OP<>'INSERT' THEN OLD.exercise_id END,CASE WHEN TG_OP<>'DELETE' THEN NEW.exercise_id END];
+ END IF;
+ FOREACH target IN ARRAY targets LOOP
+ IF target IS NULL THEN CONTINUE; END IF;
+ SELECT after_projection INTO expected FROM path_private.sitov_content_revisions
+  WHERE exercise_id=target ORDER BY revision_id DESC LIMIT 1;
+ IF FOUND AND path_private.sitov_revision_projection(target) IS DISTINCT FROM expected THEN
+  RAISE EXCEPTION 'sitov_revision_unreviewed_write' USING ERRCODE='40001';
+ END IF;
+ END LOOP;
+ RETURN NULL;
+END $$;
+DROP TRIGGER IF EXISTS sitov_revision_current_guard ON public.learning_exercises;
+CREATE CONSTRAINT TRIGGER sitov_revision_current_guard AFTER INSERT OR UPDATE OR DELETE ON public.learning_exercises
+ DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION path_private.sitov_revision_guard_current();
+DROP TRIGGER IF EXISTS sitov_revision_translation_guard ON public.grammar_translations;
+CREATE CONSTRAINT TRIGGER sitov_revision_translation_guard AFTER INSERT OR UPDATE OR DELETE ON public.grammar_translations
+ DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION path_private.sitov_revision_guard_current();
+REVOKE ALL ON FUNCTION path_private.sitov_revision_guard_current() FROM PUBLIC,anon,authenticated,service_role;
+
+DO $patch$
+DECLARE definition text; anchor text; replacement text;
+BEGIN
+ INSERT INTO path_private.sitov_revision_function_backups(signature,definition)
+ SELECT s,pg_get_functiondef(s::regprocedure) FROM unnest(ARRAY['path_private.import_path_catalog(jsonb,uuid)','path_private.present(jsonb,text)']) s ON CONFLICT DO NOTHING;
+ definition:=pg_get_functiondef('path_private.import_path_catalog(jsonb,uuid)'::regprocedure);
+ IF strpos(definition,'-- sitov-path-revision-import-v1')=0 THEN
+  IF strpos(definition,'-- sitov-prepared-path-publication-v1')=0 THEN RAISE EXCEPTION 'sitov_revision_requires_72' USING ERRCODE='23514'; END IF;
+  anchor:=$a$ PERFORM pg_advisory_xact_lock(hashtextextended('path-catalog:'||(p_path->>'level'),0));$a$;
+  replacement:=anchor||E'\n -- sitov-path-revision-import-v1\n PERFORM path_private.sitov_revision_check_import(p_path);';
+  IF strpos(definition,anchor)=0 THEN RAISE EXCEPTION 'sitov_revision_import_source_drift' USING ERRCODE='23514'; END IF;
+  EXECUTE replace(definition,anchor,replacement);
+ END IF;
+ definition:=pg_get_functiondef('path_private.present(jsonb,text)'::regprocedure);
+ IF strpos(definition,'-- sitov-path-revision-help-v1')=0 THEN
+  anchor:=$a$WHERE e.id=(p_snapshot->>'id')::uuid AND p_snapshot->>'type'='fill_in_blank'$a$;
+  IF strpos(definition,anchor)=0 THEN RAISE EXCEPTION 'sitov_revision_help_source_drift' USING ERRCODE='23514'; END IF;
+  definition:=replace(definition,anchor,anchor||' AND NOT path_private.sitov_revision_protected(e.id)');
+  anchor:=$a$WHERE t.exercise_id=(p_snapshot->>'id')::uuid AND t.locale=p_locale AND p_locale<>'de'$a$;
+  IF strpos(definition,anchor)=0 THEN RAISE EXCEPTION 'sitov_revision_help_translation_source_drift' USING ERRCODE='23514'; END IF;
+  definition:=replace(definition,anchor,anchor||' AND NOT path_private.sitov_revision_protected(t.exercise_id)');
+  definition:=replace(definition,'WITH live AS (','-- sitov-path-revision-help-v1'||E'\n WITH live AS (');
+  EXECUTE definition;
+ END IF;
+END $patch$;
+REVOKE ALL ON FUNCTION path_private.sitov_revision_immutable(),path_private.sitov_revision_hash(jsonb),path_private.sitov_revision_projection(uuid),path_private.sitov_revision_full(uuid),path_private.sitov_revision_audio_texts(public.exercise_type,jsonb),path_private.sitov_revision_strict_audio(text),path_private.sitov_revision_protected(uuid),path_private.sitov_revision_check_import(jsonb) FROM PUBLIC,anon,authenticated,service_role;
+REVOKE ALL ON FUNCTION public.sitov_revise_path_content(uuid,jsonb) FROM PUBLIC,anon,authenticated,service_role;
+GRANT EXECUTE ON FUNCTION public.sitov_revise_path_content(uuid,jsonb) TO service_role;
+
+-- Existing importer and presentation run as postgres; new helpers are owned by
+-- the actual migration actor supabase_admin. Grant only this internal chain.
+GRANT EXECUTE ON FUNCTION path_private.sitov_revision_check_import(jsonb),path_private.sitov_revision_projection(uuid),path_private.sitov_revision_protected(uuid) TO postgres;
+DO $internal$ BEGIN
+ IF NOT has_function_privilege('postgres','path_private.sitov_revision_check_import(jsonb)','EXECUTE')
+ OR NOT has_function_privilege('postgres','path_private.sitov_revision_projection(uuid)','EXECUTE')
+ OR NOT has_function_privilege('postgres','path_private.sitov_revision_protected(uuid)','EXECUTE') THEN
+ RAISE EXCEPTION 'sitov_revision_internal_execution_not_granted' USING ERRCODE='42501'; END IF;
+END $internal$;
+
+-- Sitov Academy: source revisions only. No learner records are rewritten.
+-- Reserved by M; native PostgreSQL verification is required before application.
+CREATE TABLE IF NOT EXISTS path_private.sitov_content_revisions (
+ revision_id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+ request_id uuid NOT NULL, exercise_id uuid NOT NULL,
+ before_hash text NOT NULL CHECK(before_hash ~ '^[a-f0-9]{64}$'), after_hash text NOT NULL CHECK(after_hash ~ '^[a-f0-9]{64}$'),
+ before_projection jsonb NOT NULL, after_projection jsonb NOT NULL,
+ before_full jsonb NOT NULL, after_full jsonb NOT NULL,
+ review_evidence jsonb NOT NULL, audio_evidence jsonb NOT NULL,
+ actor_role text NOT NULL, created_at timestamptz NOT NULL DEFAULT clock_timestamp(),
+ UNIQUE(request_id,exercise_id)
+);
+CREATE INDEX IF NOT EXISTS sitov_content_revisions_exercise ON path_private.sitov_content_revisions(exercise_id,revision_id);
+CREATE TABLE IF NOT EXISTS path_private.sitov_content_revision_receipts (
+ request_id uuid PRIMARY KEY, payload jsonb NOT NULL, result jsonb NOT NULL,
+ created_at timestamptz NOT NULL DEFAULT clock_timestamp()
+);
+CREATE TABLE IF NOT EXISTS path_private.sitov_revision_function_backups (
+ signature text PRIMARY KEY, definition text NOT NULL
+);
+ALTER TABLE path_private.sitov_content_revisions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE path_private.sitov_content_revision_receipts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE path_private.sitov_revision_function_backups ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON path_private.sitov_content_revisions,path_private.sitov_content_revision_receipts,path_private.sitov_revision_function_backups FROM PUBLIC,anon,authenticated,service_role;
+REVOKE ALL ON SEQUENCE path_private.sitov_content_revisions_revision_id_seq FROM PUBLIC,anon,authenticated,service_role;
+
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_immutable() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$ BEGIN
+ RAISE EXCEPTION 'sitov_revision_immutable' USING ERRCODE='23514';
+END $$;
+DROP TRIGGER IF EXISTS sitov_revision_immutable ON path_private.sitov_content_revisions;
+CREATE TRIGGER sitov_revision_immutable BEFORE UPDATE OR DELETE OR TRUNCATE ON path_private.sitov_content_revisions
+ FOR EACH STATEMENT EXECUTE FUNCTION path_private.sitov_revision_immutable();
+DROP TRIGGER IF EXISTS sitov_receipt_immutable ON path_private.sitov_content_revision_receipts;
+CREATE TRIGGER sitov_receipt_immutable BEFORE UPDATE OR DELETE OR TRUNCATE ON path_private.sitov_content_revision_receipts
+ FOR EACH STATEMENT EXECUTE FUNCTION path_private.sitov_revision_immutable();
+
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_hash(p_value jsonb) RETURNS text
+LANGUAGE sql IMMUTABLE STRICT SET search_path='' AS $$
+ SELECT encode(sha256(convert_to(p_value::text,'UTF8')),'hex');
+$$;
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_projection(p_id uuid) RETURNS jsonb
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT path_private.snapshot(e.id)||jsonb_build_object('unit_id',e.unit_id,'node_id',e.node_id,
+  'source_ref',e.source_ref,'sort_order',e.sort_order,'topic',e.topic,'explanation_card',e.explanation_card,
+  'parent',jsonb_build_object('level',u.level,'unit_source_id',u.path_source_id,'unit_active',u.is_active,
+  'node_source_id',n.source_id,'node_unit_id',n.unit_id,'node_active',n.is_active,'node_kind',n.kind))
+ FROM public.learning_exercises e JOIN public.learning_units u ON u.id=e.unit_id
+ JOIN public.path_nodes n ON n.id=e.node_id WHERE e.id=p_id AND e.node_id IS NOT NULL;
+$$;
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_full(p_id uuid) RETURNS jsonb
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT jsonb_build_object('exercise',to_jsonb(e),'translations',coalesce((
+ SELECT jsonb_agg(to_jsonb(t) ORDER BY t.locale) FROM public.grammar_translations t WHERE t.exercise_id=e.id),'[]'::jsonb))
+ FROM public.learning_exercises e WHERE e.id=p_id;
+$$;
+-- Same played utterances as sitovExerciseAudioTexts and SQL71. No raw
+-- prefixes/suffixes, distractors or parts are added as a second audio contract.
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_audio_texts(p_type public.exercise_type,p_content jsonb) RETURNS SETOF text
+LANGUAGE sql IMMUTABLE SET search_path='' AS $$
+ SELECT unnest(learning_private.sitov_learning_audio_texts('exercises',jsonb_build_object('type',p_type,'content',p_content),'[]'::jsonb));
+$$;
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_strict_audio(p_text text) RETURNS text
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE reference text; authored jsonb; token text; timing jsonb; idx bigint;
+BEGIN
+ reference:=vocabulary_private.sitov_prepared_german_audio_url(p_text);
+ SELECT m.user_metadata INTO authored FROM sitov_storage_private.sitov_audio_metadata('audio_cache',replace(reference,'storage://audio_cache/','')) m;
+ FOR token,idx IN SELECT v,n FROM unnest(string_to_array(vocabulary_private.sitov_normalize_audio_text(p_text),' ')) WITH ORDINALITY a(v,n) LOOP
+  timing:=authored->'wordTimings'->(idx::integer-1);
+  IF token ~ '[[:alnum:]]' AND (timing IS NULL OR (timing->>'end')::numeric <= (timing->>'start')::numeric) THEN
+   RAISE EXCEPTION 'prepared_audio_lexical_duration_required' USING ERRCODE='22023';
+  END IF;
+ END LOOP;
+ RETURN reference;
+END $$;
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_protected(p_id uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM path_private.sitov_content_revisions WHERE exercise_id=p_id);
+$$;
+
+-- Check the complete seed before its first catalog mutation. No bypass flag or
+-- editable GUC capability: the checked writer below never calls this importer.
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_check_import(p_path jsonb) RETURNS void
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE r record; n jsonb; x jsonb; expected jsonb; actual jsonb; lang text; tr jsonb;
+BEGIN
+ FOR r IN SELECT e.* FROM public.learning_exercises e JOIN public.learning_units u ON u.id=e.unit_id
+  WHERE u.level=p_path->>'level' AND u.path_source_id=p_path->>'id'
+   AND path_private.sitov_revision_protected(e.id) ORDER BY e.id LOOP
+  SELECT nn,ee INTO n,x FROM jsonb_array_elements(p_path->'nodes') nn
+   CROSS JOIN LATERAL jsonb_array_elements(nn->'exercises') ee WHERE ee->>'id'=r.id::text;
+  IF x IS NULL OR n->>'id' IS DISTINCT FROM (SELECT source_id FROM public.path_nodes WHERE id=r.node_id)
+   OR NOT coalesce((n->>'is_active')::boolean,true) OR NOT coalesce((p_path->>'is_active')::boolean,true)
+   OR n->>'topic' IS DISTINCT FROM r.topic OR x->>'goal' IS DISTINCT FROM r.goal_id
+   OR x->>'ref' IS DISTINCT FROM r.source_ref OR x->>'exercise_type' IS DISTINCT FROM r.type::text
+   OR x->'content' IS DISTINCT FROM r.content OR x->>'explanation_card' IS DISTINCT FROM r.explanation_card
+   OR (SELECT ord FROM jsonb_array_elements(n->'exercises') WITH ORDINALITY z(v,ord) WHERE v->>'id'=r.id::text) IS DISTINCT FROM r.sort_order::bigint
+  THEN RAISE EXCEPTION 'sitov_revision_import_conflict' USING ERRCODE='40001'; END IF;
+  actual:=path_private.sitov_revision_projection(r.id)->'translations'; expected:='{}'::jsonb;
+  FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
+   tr:=jsonb_build_object('hint',CASE WHEN lang='de' THEN x->>'hint' ELSE x->'translations'->lang->>'hint' END,
+    'explanation',CASE WHEN lang='de' THEN x->>'explanation' ELSE x->'translations'->lang->>'explanation' END,
+    'instruction',CASE WHEN lang='de' THEN x->'content'->>'instruction' ELSE x->'translations'->lang->>'instruction' END,
+    'prompt',x->'translations'->lang->>'prompt',
+    'task',CASE WHEN lang='de' THEN NULL ELSE nullif(btrim(x->'translations'->lang->>'task'),'') END,
+    'gap_hint',CASE WHEN lang='de' THEN NULL ELSE nullif(btrim(x->'translations'->lang->>'gap_hint'),'') END);
+   expected:=expected||jsonb_build_object(lang,tr);
+  END LOOP;
+  IF actual IS DISTINCT FROM expected THEN RAISE EXCEPTION 'sitov_revision_import_conflict' USING ERRCODE='40001'; END IF;
+ END LOOP;
+END $$;
+
+CREATE OR REPLACE FUNCTION public.sitov_revise_path_content(p_request_id uuid,p_items jsonb) RETURNS jsonb
+LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE role_name text:=coalesce(nullif(current_setting('role',true),'none'),session_user);
+ item jsonb; e public.learning_exercises; old jsonb; candidate jsonb; before_full jsonb;
+ before_hash text; after_hash text; existing path_private.sitov_content_revision_receipts;
+ lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text;
+BEGIN
+ IF role_name<>'service_role' THEN RAISE EXCEPTION 'not_authorized' USING ERRCODE='42501'; END IF;
+ IF p_request_id IS NULL OR jsonb_typeof(p_items) IS DISTINCT FROM 'array' THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+ IF jsonb_array_length(p_items) NOT BETWEEN 1 AND 100 OR octet_length(p_items::text)>2000000
+  OR EXISTS(SELECT 1 FROM jsonb_array_elements(p_items) v GROUP BY v->>'id' HAVING count(*)>1)
+ THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('sitov-path-revision-request:'||p_request_id::text,0));
+ SELECT * INTO existing FROM path_private.sitov_content_revision_receipts WHERE request_id=p_request_id;
+ IF FOUND THEN
+  IF existing.payload IS DISTINCT FROM p_items THEN RAISE EXCEPTION 'request_conflict' USING ERRCODE='40001'; END IF;
+  RETURN existing.result;
+ END IF;
+ -- Same level locks as the importer, sorted before any unit/exercise lock.
+ FOR level_code IN SELECT DISTINCT u.level FROM jsonb_array_elements(p_items) v
+  JOIN public.learning_exercises ex ON ex.id=(v->>'id')::uuid JOIN public.learning_units u ON u.id=ex.unit_id ORDER BY u.level LOOP
+  PERFORM pg_advisory_xact_lock(hashtextextended('path-catalog:'||level_code,0));
+ END LOOP;
+ PERFORM u.id FROM public.learning_units u WHERE u.id IN(SELECT ex.unit_id FROM public.learning_exercises ex
+  JOIN jsonb_array_elements(p_items) v ON ex.id=(v->>'id')::uuid) ORDER BY u.id FOR UPDATE;
+ PERFORM ex.id FROM public.learning_exercises ex JOIN jsonb_array_elements(p_items) v ON ex.id=(v->>'id')::uuid ORDER BY ex.id FOR UPDATE OF ex;
+ FOR item IN SELECT value FROM jsonb_array_elements(p_items) ORDER BY value->>'id' LOOP
+  SELECT * INTO e FROM public.learning_exercises WHERE id=(item->>'id')::uuid;
+  IF NOT FOUND OR e.node_id IS NULL OR NOT e.path_is_active THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+  PERFORM gt.exercise_id FROM public.grammar_translations gt WHERE gt.exercise_id=e.id ORDER BY gt.locale FOR UPDATE;
+  old:=path_private.sitov_revision_projection(e.id); candidate:=item->'after';
+  IF old#>>'{parent,unit_active}' IS DISTINCT FROM 'true' OR old#>>'{parent,node_active}' IS DISTINCT FROM 'true'
+   OR old#>>'{parent,node_unit_id}' IS DISTINCT FROM e.unit_id::text THEN RAISE EXCEPTION 'sitov_revision_parent_conflict' USING ERRCODE='40001'; END IF;
+  before_hash:=path_private.sitov_revision_hash(old); after_hash:=path_private.sitov_revision_hash(candidate);
+  IF item->>'expected_hash' IS DISTINCT FROM before_hash
+   OR (candidate-ARRAY['content','translations']) IS DISTINCT FROM (old-ARRAY['content','translations'])
+  THEN RAISE EXCEPTION 'sitov_revision_version_conflict' USING ERRCODE='40001'; END IF;
+  IF after_hash IS NULL OR before_hash=after_hash OR NOT path_private.valid_content(e.type,candidate->'content')
+   OR jsonb_typeof(candidate->'translations') IS DISTINCT FROM 'object'
+   OR NOT path_private.only_keys(candidate->'translations',ARRAY['de','en','ru','uk','tr'])
+   OR item#>>'{review,approved}' IS DISTINCT FROM 'true'
+   OR item#>>'{review,before_hash}' IS DISTINCT FROM before_hash
+   OR item#>>'{review,after_hash}' IS DISTINCT FROM after_hash
+   OR nullif(btrim(item#>>'{review,reviewer}'),'') IS NULL
+   OR nullif(btrim(item#>>'{review,evidence_uri}'),'') IS NULL
+  THEN RAISE EXCEPTION 'sitov_revision_review_required' USING ERRCODE='23514'; END IF;
+  FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
+   t:=candidate->'translations'->lang;
+   IF jsonb_typeof(t) IS DISTINCT FROM 'object' OR NOT path_private.only_keys(t,ARRAY['instruction','hint','explanation','prompt','task','gap_hint'])
+    OR NOT path_private.valid_text(t->'hint') OR NOT path_private.valid_text(t->'explanation')
+    OR (lang<>'de' AND NOT path_private.valid_text(t->'instruction'))
+    OR (lang='de' AND (t->>'instruction' IS DISTINCT FROM candidate->'content'->>'instruction' OR t->>'task' IS NOT NULL OR t->>'gap_hint' IS NOT NULL))
+   THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+  END LOOP;
+  -- Old Special resume/history is unresolved: fail closed for every stored
+  -- definition dependency, including inactive definitions with old attempts.
+  IF EXISTS(SELECT 1 FROM sitov_special_private.definitions d CROSS JOIN LATERAL jsonb_array_elements(d.pool) q WHERE q->>'id'=e.id::text) THEN
+   RAISE EXCEPTION 'sitov_revision_special_dependency' USING ERRCODE='23514';
+  END IF;
+  before_full:=path_private.sitov_revision_full(e.id);
+  UPDATE public.learning_exercises SET content=candidate->'content' WHERE id=e.id;
+  FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
+   t:=candidate->'translations'->lang;
+   INSERT INTO public.grammar_translations(exercise_id,locale,instruction,hint,explanation,prompt,task,gap_hint)
+    VALUES(e.id,lang,t->>'instruction',t->>'hint',t->>'explanation',t->>'prompt',t->>'task',t->>'gap_hint')
+   ON CONFLICT(exercise_id,locale) DO UPDATE SET instruction=excluded.instruction,hint=excluded.hint,
+    explanation=excluded.explanation,prompt=excluded.prompt,task=excluded.task,gap_hint=excluded.gap_hint;
+  END LOOP;
+  -- Retain 71/72's authoritative saved-row validation; add every authored
+  -- German string, including protected wrong options and complete solutions.
+  PERFORM learning_private.sitov_require_prepared_learning_audio('exercises',jsonb_build_object('id',e.id),'[]'::jsonb,e.unit_id);
+  audio:='[]'::jsonb;
+  FOR spoken IN SELECT v FROM path_private.sitov_revision_audio_texts(e.type,candidate->'content') v ORDER BY v LOOP
+   audio:=audio||jsonb_build_array(jsonb_build_object('text',spoken,'prepared_url',path_private.sitov_revision_strict_audio(spoken)));
+  END LOOP;
+  IF path_private.sitov_revision_projection(e.id) IS DISTINCT FROM candidate THEN RAISE EXCEPTION 'sitov_revision_projection_conflict' USING ERRCODE='40001'; END IF;
+  INSERT INTO path_private.sitov_content_revisions(request_id,exercise_id,before_hash,after_hash,before_projection,after_projection,before_full,after_full,review_evidence,audio_evidence,actor_role)
+   VALUES(p_request_id,e.id,before_hash,after_hash,old,candidate,before_full,path_private.sitov_revision_full(e.id),item->'review',audio,role_name);
+  result:=result||jsonb_build_array(jsonb_build_object('id',e.id,'before_hash',before_hash,'after_hash',after_hash));
+ END LOOP;
+ -- No exception handler: any failure rolls back the entire batch and receipt.
+ INSERT INTO path_private.sitov_content_revision_receipts(request_id,payload,result) VALUES(p_request_id,p_items,result);
+ RETURN result;
+END $$;
+
+-- Deferred constraint checks allow the checked transaction to replace row and
+-- translations before appending the complete new revision. At commit every
+-- protected source must equal the newest archived after-image, including writes
+-- through other existing authoring routes. No caller-controlled bypass exists.
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_guard_current() RETURNS trigger
+LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE target uuid; targets uuid[]; expected jsonb;
+BEGIN
+ IF TG_TABLE_NAME='learning_exercises' THEN
+  targets:=ARRAY[CASE WHEN TG_OP<>'INSERT' THEN OLD.id END,CASE WHEN TG_OP<>'DELETE' THEN NEW.id END];
+ ELSE targets:=ARRAY[CASE WHEN TG_OP<>'INSERT' THEN OLD.exercise_id END,CASE WHEN TG_OP<>'DELETE' THEN NEW.exercise_id END];
+ END IF;
+ FOREACH target IN ARRAY targets LOOP
+ IF target IS NULL THEN CONTINUE; END IF;
+ SELECT after_projection INTO expected FROM path_private.sitov_content_revisions
+  WHERE exercise_id=target ORDER BY revision_id DESC LIMIT 1;
+ IF FOUND AND path_private.sitov_revision_projection(target) IS DISTINCT FROM expected THEN
+  RAISE EXCEPTION 'sitov_revision_unreviewed_write' USING ERRCODE='40001';
+ END IF;
+ END LOOP;
+ RETURN NULL;
+END $$;
+DROP TRIGGER IF EXISTS sitov_revision_current_guard ON public.learning_exercises;
+CREATE CONSTRAINT TRIGGER sitov_revision_current_guard AFTER INSERT OR UPDATE OR DELETE ON public.learning_exercises
+ DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION path_private.sitov_revision_guard_current();
+DROP TRIGGER IF EXISTS sitov_revision_translation_guard ON public.grammar_translations;
+CREATE CONSTRAINT TRIGGER sitov_revision_translation_guard AFTER INSERT OR UPDATE OR DELETE ON public.grammar_translations
+ DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION path_private.sitov_revision_guard_current();
+REVOKE ALL ON FUNCTION path_private.sitov_revision_guard_current() FROM PUBLIC,anon,authenticated,service_role;
+
+DO $patch$
+DECLARE definition text; anchor text; replacement text;
+BEGIN
+ INSERT INTO path_private.sitov_revision_function_backups(signature,definition)
+ SELECT s,pg_get_functiondef(s::regprocedure) FROM unnest(ARRAY['path_private.import_path_catalog(jsonb,uuid)','path_private.present(jsonb,text)']) s ON CONFLICT DO NOTHING;
+ definition:=pg_get_functiondef('path_private.import_path_catalog(jsonb,uuid)'::regprocedure);
+ IF strpos(definition,'-- sitov-path-revision-import-v1')=0 THEN
+  IF strpos(definition,'-- sitov-prepared-path-publication-v1')=0 THEN RAISE EXCEPTION 'sitov_revision_requires_72' USING ERRCODE='23514'; END IF;
+  anchor:=$a$ PERFORM pg_advisory_xact_lock(hashtextextended('path-catalog:'||(p_path->>'level'),0));$a$;
+  replacement:=anchor||E'\n -- sitov-path-revision-import-v1\n PERFORM path_private.sitov_revision_check_import(p_path);';
+  IF strpos(definition,anchor)=0 THEN RAISE EXCEPTION 'sitov_revision_import_source_drift' USING ERRCODE='23514'; END IF;
+  EXECUTE replace(definition,anchor,replacement);
+ END IF;
+ definition:=pg_get_functiondef('path_private.present(jsonb,text)'::regprocedure);
+ IF strpos(definition,'-- sitov-path-revision-help-v1')=0 THEN
+  anchor:=$a$WHERE e.id=(p_snapshot->>'id')::uuid AND p_snapshot->>'type'='fill_in_blank'$a$;
+  IF strpos(definition,anchor)=0 THEN RAISE EXCEPTION 'sitov_revision_help_source_drift' USING ERRCODE='23514'; END IF;
+  definition:=replace(definition,anchor,anchor||' AND NOT path_private.sitov_revision_protected(e.id)');
+  anchor:=$a$WHERE t.exercise_id=(p_snapshot->>'id')::uuid AND t.locale=p_locale AND p_locale<>'de'$a$;
+  IF strpos(definition,anchor)=0 THEN RAISE EXCEPTION 'sitov_revision_help_translation_source_drift' USING ERRCODE='23514'; END IF;
+  definition:=replace(definition,anchor,anchor||' AND NOT path_private.sitov_revision_protected(t.exercise_id)');
+  definition:=replace(definition,'WITH live AS (','-- sitov-path-revision-help-v1'||E'\n WITH live AS (');
+  EXECUTE definition;
+ END IF;
+END $patch$;
+REVOKE ALL ON FUNCTION path_private.sitov_revision_immutable(),path_private.sitov_revision_hash(jsonb),path_private.sitov_revision_projection(uuid),path_private.sitov_revision_full(uuid),path_private.sitov_revision_audio_texts(public.exercise_type,jsonb),path_private.sitov_revision_strict_audio(text),path_private.sitov_revision_protected(uuid),path_private.sitov_revision_check_import(jsonb) FROM PUBLIC,anon,authenticated,service_role;
+REVOKE ALL ON FUNCTION public.sitov_revise_path_content(uuid,jsonb) FROM PUBLIC,anon,authenticated,service_role;
+GRANT EXECUTE ON FUNCTION public.sitov_revise_path_content(uuid,jsonb) TO service_role;
+
+-- Existing importer and presentation run as postgres; new helpers are owned by
+-- the actual migration actor supabase_admin. Grant only this internal chain.
+GRANT EXECUTE ON FUNCTION path_private.sitov_revision_check_import(jsonb),path_private.sitov_revision_projection(uuid),path_private.sitov_revision_protected(uuid) TO postgres;
+DO $internal$ BEGIN
+ IF NOT has_function_privilege('postgres','path_private.sitov_revision_check_import(jsonb)','EXECUTE')
+ OR NOT has_function_privilege('postgres','path_private.sitov_revision_projection(uuid)','EXECUTE')
+ OR NOT has_function_privilege('postgres','path_private.sitov_revision_protected(uuid)','EXECUTE') THEN
+ RAISE EXCEPTION 'sitov_revision_internal_execution_not_granted' USING ERRCODE='42501'; END IF;
+END $internal$;
+
+CREATE TEMP TABLE sitov61_checks(label text primary key,passed boolean not null);
+CREATE FUNCTION pg_temp.sitov61_assert(label text, passed boolean) RETURNS void LANGUAGE plpgsql AS $$BEGIN IF passed IS DISTINCT FROM true THEN RAISE EXCEPTION 'assertion_failed:%',label;END IF;INSERT INTO sitov61_checks VALUES(label,passed);END$$;
+GRANT EXECUTE ON FUNCTION pg_temp.sitov61_assert(text,boolean) TO authenticated,service_role;
+CREATE FUNCTION pg_temp.sitov61_error(command text, expected text) RETURNS void LANGUAGE plpgsql AS $$BEGIN BEGIN EXECUTE command;EXCEPTION WHEN OTHERS THEN IF strpos(SQLERRM,expected)>0 THEN RETURN;END IF;RAISE;END;RAISE EXCEPTION 'expected_error_missing:%',expected;END$$;
+GRANT EXECUTE ON FUNCTION pg_temp.sitov61_error(text,text) TO authenticated,service_role;
+DO $$BEGIN IF EXISTS(SELECT 1 FROM public.learning_exercises WHERE id::text LIKE '00000000-0061-%') OR EXISTS(SELECT 1 FROM public.learning_units WHERE path_source_id='sitov-s3-epoch61') THEN RAISE EXCEPTION 'synthetic_id_collision';END IF;END$$;
+DO $$BEGIN IF NOT EXISTS(SELECT 1 FROM storage.objects WHERE bucket_id='audio_cache' AND name='sitov-qwen-v1/de/f1596c2be85d9c3a8402f409394933ae38c001acdb7dffa9ae82ab548dd1b1cd.mp3') THEN INSERT INTO storage.objects(id,bucket_id,name,metadata,user_metadata) VALUES(gen_random_uuid(),'audio_cache','sitov-qwen-v1/de/f1596c2be85d9c3a8402f409394933ae38c001acdb7dffa9ae82ab548dd1b1cd.mp3','{"mimetype": "audio/mpeg", "size": 1000}'::jsonb,'{"engine": "qwen3-tts", "voice": "sitov-qwen-male-de-v1", "revision": "sitov-qwen-base-bf16-v1", "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5", "textSha256": "52a71228b6075cf3febca685a459b6ab58e2720c1ac4e8a021d102b8a691de9a", "audioSha256": "1111111111111111111111111111111111111111111111111111111111111111", "wordTimings": [{"word": "lernt", "start": 0.0, "end": 0.1}]}'::jsonb);END IF;END$$;
+DO $$BEGIN IF NOT EXISTS(SELECT 1 FROM storage.objects WHERE bucket_id='audio_cache' AND name='sitov-qwen-v1/de/6412400ec502c5c10364391feeeb7a7ae44917e8fcd878bd0a67e137558b9b03.mp3') THEN INSERT INTO storage.objects(id,bucket_id,name,metadata,user_metadata) VALUES(gen_random_uuid(),'audio_cache','sitov-qwen-v1/de/6412400ec502c5c10364391feeeb7a7ae44917e8fcd878bd0a67e137558b9b03.mp3','{"mimetype": "audio/mpeg", "size": 1000}'::jsonb,'{"engine": "qwen3-tts", "voice": "sitov-qwen-male-de-v1", "revision": "sitov-qwen-base-bf16-v1", "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5", "textSha256": "afffbb5d032bc3b51d3e1204b80e6880c5604b274cb8b090c2ce225dba8bae3b", "audioSha256": "1111111111111111111111111111111111111111111111111111111111111111", "wordTimings": [{"word": "Paul", "start": 0.0, "end": 0.1}, {"word": "lernt", "start": 0.2, "end": 0.30000000000000004}, {"word": "Deutsch.", "start": 0.4, "end": 0.5}]}'::jsonb);END IF;END$$;
+DO $$BEGIN IF NOT EXISTS(SELECT 1 FROM storage.objects WHERE bucket_id='audio_cache' AND name='sitov-qwen-v1/de/1184736a5acb710f4aedade2a156c940279a88d503fbfd9b30b36c1f4e35f5b9.mp3') THEN INSERT INTO storage.objects(id,bucket_id,name,metadata,user_metadata) VALUES(gen_random_uuid(),'audio_cache','sitov-qwen-v1/de/1184736a5acb710f4aedade2a156c940279a88d503fbfd9b30b36c1f4e35f5b9.mp3','{"mimetype": "audio/mpeg", "size": 1000}'::jsonb,'{"engine": "qwen3-tts", "voice": "sitov-qwen-male-de-v1", "revision": "sitov-qwen-base-bf16-v1", "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5", "textSha256": "5e7ad10ad15cee6e8ca3cad00998be6655570f244ef0b29c94e0bccc45a485f8", "audioSha256": "1111111111111111111111111111111111111111111111111111111111111111", "wordTimings": [{"word": "übt", "start": 0.0, "end": 0.1}]}'::jsonb);END IF;END$$;
+DO $$BEGIN IF NOT EXISTS(SELECT 1 FROM storage.objects WHERE bucket_id='audio_cache' AND name='sitov-qwen-v1/de/072d27d192b1a5113c3751b190664523bddd7a580d3d22d856360947093ee683.mp3') THEN INSERT INTO storage.objects(id,bucket_id,name,metadata,user_metadata) VALUES(gen_random_uuid(),'audio_cache','sitov-qwen-v1/de/072d27d192b1a5113c3751b190664523bddd7a580d3d22d856360947093ee683.mp3','{"mimetype": "audio/mpeg", "size": 1000}'::jsonb,'{"engine": "qwen3-tts", "voice": "sitov-qwen-male-de-v1", "revision": "sitov-qwen-base-bf16-v1", "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5", "textSha256": "2b1c87dfac2d68d53334e871ff9011f19d58cfd89596c6fe29f52ca676b8cd10", "audioSha256": "1111111111111111111111111111111111111111111111111111111111111111", "wordTimings": [{"word": "Paul", "start": 0.0, "end": 0.1}, {"word": "übt", "start": 0.2, "end": 0.30000000000000004}, {"word": "Deutsch.", "start": 0.4, "end": 0.5}]}'::jsonb);END IF;END$$;
+DO $$BEGIN IF NOT EXISTS(SELECT 1 FROM storage.objects WHERE bucket_id='audio_cache' AND name='sitov-qwen-v1/de/6bed4011ee7ba64e89a13b340af4853c1aeeca67857307ea74bf981f5332e7d6.mp3') THEN INSERT INTO storage.objects(id,bucket_id,name,metadata,user_metadata) VALUES(gen_random_uuid(),'audio_cache','sitov-qwen-v1/de/6bed4011ee7ba64e89a13b340af4853c1aeeca67857307ea74bf981f5332e7d6.mp3','{"mimetype": "audio/mpeg", "size": 1000}'::jsonb,'{"engine": "qwen3-tts", "voice": "sitov-qwen-male-de-v1", "revision": "sitov-qwen-base-bf16-v1", "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5", "textSha256": "5aef203584a064318fbd4f9afe5e8a06d49b53000f22b50709e45344db2b086b", "audioSha256": "1111111111111111111111111111111111111111111111111111111111111111", "wordTimings": [{"word": "Sitovlexikprobe", "start": 0.0, "end": 0}]}'::jsonb);END IF;END$$;
+SELECT pg_temp.sitov61_assert('seed_shape',path_private.valid_seed_shape('{"id": "sitov-s3-epoch61", "level": "A1.1", "path": 91, "slug": "sitov-s3-epoch61", "title": "Sitov Academy Probe", "translations": {"en": {"title": "Getting to know each other"}, "ru": {"title": "Знакомство"}, "uk": {"title": "Знайомство"}, "tr": {"title": "Tanışma"}}, "unit": {"level": "A1.1", "trainer": "exercises", "label": "Sitov Academy synthetic epoch61", "sort_order": 91}, "objectives": [{"id": "P1-G1", "area": "grammar", "description": "Aussagesatz: Das Verb steht auf Position 2."}], "nodes": [{"id": "sitov-61-n0", "kind": "practice", "sort_order": 1, "topic": "Kennenlernen · Begrüßen und verabschieden", "title": "Begrüßen und verabschieden", "translations": {"en": {"title": "Greeting and saying goodbye"}, "ru": {"title": "Приветствие и прощание"}, "uk": {"title": "Привітання і прощання"}, "tr": {"title": "Selamlaşma ve vedalaşma"}}, "goals": ["P1-G1"], "merkkarte": {"card": "p1_greet", "rule": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "examples": ["Guten Morgen, Frau Kaya!", "Es ist acht Uhr am Abend. Guten Abend, Herr Albers!", "Holzbau Brandt, Jonas Weber, guten Tag.", "Guten Tag! Freut mich."], "highlight": null, "translations": {"en": {"rule": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "ru": {"rule": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "uk": {"rule": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "tr": {"rule": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}}}, "exercises": [{"id": "00000000-0061-4000-8000-000000000001", "ref": "sitov-61-n0-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000002", "ref": "sitov-61-n0-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}]}, {"id": "sitov-61-n1", "kind": "review", "sort_order": 2, "topic": "Kennenlernen · Höflich sein: Sie oder du?", "title": "Höflich sein: Sie oder du?", "translations": {"en": {"title": "Being polite: Sie or du?"}, "ru": {"title": "Вежливость: Sie или du?"}, "uk": {"title": "Ввічливість: Sie чи du?"}, "tr": {"title": "Kibar olmak: Sie mi du mu?"}}, "goals": ["P1-G1"], "exercises": [{"id": "00000000-0061-4000-8000-000000000003", "ref": "sitov-61-n1-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000004", "ref": "sitov-61-n1-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}]}, {"id": "sitov-61-n2", "kind": "test", "sort_order": 3, "topic": "Kennenlernen · Wie heißen Sie?", "title": "Wie heißen Sie?", "translations": {"en": {"title": "What is your name?"}, "ru": {"title": "Как вас зовут?"}, "uk": {"title": "Як вас звати?"}, "tr": {"title": "Adınız ne?"}}, "goals": ["P1-G1"], "exercises": [{"id": "00000000-0061-4000-8000-000000000005", "ref": "sitov-61-n2-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000006", "ref": "sitov-61-n2-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}], "test_size": 1}]}'::jsonb));
+SELECT path_private.import_path_catalog('{"id": "sitov-s3-epoch61", "level": "A1.1", "path": 91, "slug": "sitov-s3-epoch61", "title": "Sitov Academy Probe", "translations": {"en": {"title": "Getting to know each other"}, "ru": {"title": "Знакомство"}, "uk": {"title": "Знайомство"}, "tr": {"title": "Tanışma"}}, "unit": {"level": "A1.1", "trainer": "exercises", "label": "Sitov Academy synthetic epoch61", "sort_order": 91}, "objectives": [{"id": "P1-G1", "area": "grammar", "description": "Aussagesatz: Das Verb steht auf Position 2."}], "nodes": [{"id": "sitov-61-n0", "kind": "practice", "sort_order": 1, "topic": "Kennenlernen · Begrüßen und verabschieden", "title": "Begrüßen und verabschieden", "translations": {"en": {"title": "Greeting and saying goodbye"}, "ru": {"title": "Приветствие и прощание"}, "uk": {"title": "Привітання і прощання"}, "tr": {"title": "Selamlaşma ve vedalaşma"}}, "goals": ["P1-G1"], "merkkarte": {"card": "p1_greet", "rule": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "examples": ["Guten Morgen, Frau Kaya!", "Es ist acht Uhr am Abend. Guten Abend, Herr Albers!", "Holzbau Brandt, Jonas Weber, guten Tag.", "Guten Tag! Freut mich."], "highlight": null, "translations": {"en": {"rule": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "ru": {"rule": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "uk": {"rule": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "tr": {"rule": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}}}, "exercises": [{"id": "00000000-0061-4000-8000-000000000001", "ref": "sitov-61-n0-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000002", "ref": "sitov-61-n0-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}]}, {"id": "sitov-61-n1", "kind": "review", "sort_order": 2, "topic": "Kennenlernen · Höflich sein: Sie oder du?", "title": "Höflich sein: Sie oder du?", "translations": {"en": {"title": "Being polite: Sie or du?"}, "ru": {"title": "Вежливость: Sie или du?"}, "uk": {"title": "Ввічливість: Sie чи du?"}, "tr": {"title": "Kibar olmak: Sie mi du mu?"}}, "goals": ["P1-G1"], "exercises": [{"id": "00000000-0061-4000-8000-000000000003", "ref": "sitov-61-n1-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000004", "ref": "sitov-61-n1-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}]}, {"id": "sitov-61-n2", "kind": "test", "sort_order": 3, "topic": "Kennenlernen · Wie heißen Sie?", "title": "Wie heißen Sie?", "translations": {"en": {"title": "What is your name?"}, "ru": {"title": "Как вас зовут?"}, "uk": {"title": "Як вас звати?"}, "tr": {"title": "Adınız ne?"}}, "goals": ["P1-G1"], "exercises": [{"id": "00000000-0061-4000-8000-000000000005", "ref": "sitov-61-n2-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000006", "ref": "sitov-61-n2-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}], "test_size": 1}]}'::jsonb,NULL);
+CREATE TEMP TABLE sitov61_payload AS SELECT path_private.sitov_revision_projection('00000000-0061-4000-8000-000000000001') old;
+ALTER TABLE sitov61_payload ADD COLUMN items jsonb;
+UPDATE sitov61_payload SET items=jsonb_build_array(jsonb_build_object('id',old->'id','expected_hash',path_private.sitov_revision_hash(old),'after',jsonb_set(jsonb_set(old,'{content,correct_answer}','"übt"'),'{content,accepted_answers}','["übt"]'),'review',jsonb_build_object('approved',true,'reviewer','sitov-synthetic-reviewer','evidence_uri','catalog:sitov-synthetic','before_hash',path_private.sitov_revision_hash(old),'after_hash',path_private.sitov_revision_hash(jsonb_set(jsonb_set(old,'{content,correct_answer}','"übt"'),'{content,accepted_answers}','["übt"]')))));
+GRANT SELECT ON sitov61_payload TO service_role;GRANT ALL ON sitov61_checks TO service_role;
+
+SELECT pg_temp.sitov61_assert('private_api_helpers_denied',NOT has_function_privilege('authenticated','path_private.sitov_revision_projection(uuid)','EXECUTE') AND NOT has_function_privilege('service_role','path_private.sitov_revision_projection(uuid)','EXECUTE'));
+SELECT pg_temp.sitov61_assert('internal_postgres_exec',has_function_privilege('postgres','path_private.sitov_revision_check_import(jsonb)','EXECUTE') AND has_function_privilege('postgres','path_private.sitov_revision_protected(uuid)','EXECUTE'));
+SELECT pg_temp.sitov61_error('SELECT path_private.sitov_revision_strict_audio(''Sitovlexikprobe'')','prepared_audio_lexical_duration_required');
+SELECT pg_temp.sitov61_assert('lexical_zero_rejected',true);
+SET LOCAL ROLE authenticated;
+SELECT pg_temp.sitov61_error('SELECT public.sitov_revise_path_content(gen_random_uuid(),''[]'')','permission denied');
+RESET ROLE;
+SELECT pg_temp.sitov61_assert('authenticated_writer_denied',true);
+SET LOCAL ROLE service_role;
+SELECT public.sitov_revise_path_content('00000000-0061-4000-8000-000000001001',items) FROM sitov61_payload;
+SELECT public.sitov_revise_path_content('00000000-0061-4000-8000-000000001001',items) FROM sitov61_payload;
+SELECT pg_temp.sitov61_error('SELECT public.sitov_revise_path_content(''00000000-0061-4000-8000-000000001002'',items) FROM sitov61_payload','sitov_revision_version_conflict');
+SELECT pg_temp.sitov61_error('SELECT public.sitov_revise_path_content(''00000000-0061-4000-8000-000000001001'',jsonb_set(items,''{0,review,reviewer}'',''"different"'')) FROM sitov61_payload','request_conflict');
+RESET ROLE;
+SELECT pg_temp.sitov61_assert('stale_hash_rejected',true);
+SELECT pg_temp.sitov61_assert('happy_replay_single_archive',(SELECT count(*)=1 FROM path_private.sitov_content_revisions));
+SELECT pg_temp.sitov61_assert('happy_replay_single_receipt',(SELECT count(*)=1 FROM path_private.sitov_content_revision_receipts));
+SELECT pg_temp.sitov61_assert('old_snapshot_grade',path_private.grade('fill_in_blank',(SELECT old->'content' FROM sitov61_payload),'{"text":"lernt"}')->>'correct'='true');
+SET CONSTRAINTS ALL IMMEDIATE;
+SET CONSTRAINTS ALL DEFERRED;
+SELECT pg_temp.sitov61_error('SELECT path_private.sitov_revision_check_import('||quote_literal('{"id": "sitov-s3-epoch61", "level": "A1.1", "path": 91, "slug": "sitov-s3-epoch61", "title": "Sitov Academy Probe", "translations": {"en": {"title": "Getting to know each other"}, "ru": {"title": "Знакомство"}, "uk": {"title": "Знайомство"}, "tr": {"title": "Tanışma"}}, "unit": {"level": "A1.1", "trainer": "exercises", "label": "Sitov Academy synthetic epoch61", "sort_order": 91}, "objectives": [{"id": "P1-G1", "area": "grammar", "description": "Aussagesatz: Das Verb steht auf Position 2."}], "nodes": [{"id": "sitov-61-n0", "kind": "practice", "sort_order": 1, "topic": "Kennenlernen · Begrüßen und verabschieden", "title": "Begrüßen und verabschieden", "translations": {"en": {"title": "Greeting and saying goodbye"}, "ru": {"title": "Приветствие и прощание"}, "uk": {"title": "Привітання і прощання"}, "tr": {"title": "Selamlaşma ve vedalaşma"}}, "goals": ["P1-G1"], "merkkarte": {"card": "p1_greet", "rule": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "examples": ["Guten Morgen, Frau Kaya!", "Es ist acht Uhr am Abend. Guten Abend, Herr Albers!", "Holzbau Brandt, Jonas Weber, guten Tag.", "Guten Tag! Freut mich."], "highlight": null, "translations": {"en": {"rule": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "ru": {"rule": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "uk": {"rule": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "tr": {"rule": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}}}, "exercises": [{"id": "00000000-0061-4000-8000-000000000001", "ref": "sitov-61-n0-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000002", "ref": "sitov-61-n0-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}]}, {"id": "sitov-61-n1", "kind": "review", "sort_order": 2, "topic": "Kennenlernen · Höflich sein: Sie oder du?", "title": "Höflich sein: Sie oder du?", "translations": {"en": {"title": "Being polite: Sie or du?"}, "ru": {"title": "Вежливость: Sie или du?"}, "uk": {"title": "Ввічливість: Sie чи du?"}, "tr": {"title": "Kibar olmak: Sie mi du mu?"}}, "goals": ["P1-G1"], "exercises": [{"id": "00000000-0061-4000-8000-000000000003", "ref": "sitov-61-n1-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000004", "ref": "sitov-61-n1-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}]}, {"id": "sitov-61-n2", "kind": "test", "sort_order": 3, "topic": "Kennenlernen · Wie heißen Sie?", "title": "Wie heißen Sie?", "translations": {"en": {"title": "What is your name?"}, "ru": {"title": "Как вас зовут?"}, "uk": {"title": "Як вас звати?"}, "tr": {"title": "Adınız ne?"}}, "goals": ["P1-G1"], "exercises": [{"id": "00000000-0061-4000-8000-000000000005", "ref": "sitov-61-n2-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000006", "ref": "sitov-61-n2-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}], "test_size": 1}]}'::jsonb)||'::jsonb)','sitov_revision_import_conflict');
+SELECT path_private.sitov_revision_check_import('{"id": "sitov-s3-epoch61", "level": "A1.1", "path": 91, "slug": "sitov-s3-epoch61", "title": "Sitov Academy Probe", "translations": {"en": {"title": "Getting to know each other"}, "ru": {"title": "Знакомство"}, "uk": {"title": "Знайомство"}, "tr": {"title": "Tanışma"}}, "unit": {"level": "A1.1", "trainer": "exercises", "label": "Sitov Academy synthetic epoch61", "sort_order": 91}, "objectives": [{"id": "P1-G1", "area": "grammar", "description": "Aussagesatz: Das Verb steht auf Position 2."}], "nodes": [{"id": "sitov-61-n0", "kind": "practice", "sort_order": 1, "topic": "Kennenlernen · Begrüßen und verabschieden", "title": "Begrüßen und verabschieden", "translations": {"en": {"title": "Greeting and saying goodbye"}, "ru": {"title": "Приветствие и прощание"}, "uk": {"title": "Привітання і прощання"}, "tr": {"title": "Selamlaşma ve vedalaşma"}}, "goals": ["P1-G1"], "merkkarte": {"card": "p1_greet", "rule": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "examples": ["Guten Morgen, Frau Kaya!", "Es ist acht Uhr am Abend. Guten Abend, Herr Albers!", "Holzbau Brandt, Jonas Weber, guten Tag.", "Guten Tag! Freut mich."], "highlight": null, "translations": {"en": {"rule": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "ru": {"rule": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "uk": {"rule": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}, "tr": {"rule": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"}}}, "exercises": [{"id": "00000000-0061-4000-8000-000000000001", "ref": "sitov-61-n0-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "übt", "accepted_answers": ["übt"]}, "accepted_answers": ["übt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000002", "ref": "sitov-61-n0-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}]}, {"id": "sitov-61-n1", "kind": "review", "sort_order": 2, "topic": "Kennenlernen · Höflich sein: Sie oder du?", "title": "Höflich sein: Sie oder du?", "translations": {"en": {"title": "Being polite: Sie or du?"}, "ru": {"title": "Вежливость: Sie или du?"}, "uk": {"title": "Ввічливість: Sie чи du?"}, "tr": {"title": "Kibar olmak: Sie mi du mu?"}}, "goals": ["P1-G1"], "exercises": [{"id": "00000000-0061-4000-8000-000000000003", "ref": "sitov-61-n1-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000004", "ref": "sitov-61-n1-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}]}, {"id": "sitov-61-n2", "kind": "test", "sort_order": 3, "topic": "Kennenlernen · Wie heißen Sie?", "title": "Wie heißen Sie?", "translations": {"en": {"title": "What is your name?"}, "ru": {"title": "Как вас зовут?"}, "uk": {"title": "Як вас звати?"}, "tr": {"title": "Adınız ne?"}}, "goals": ["P1-G1"], "exercises": [{"id": "00000000-0061-4000-8000-000000000005", "ref": "sitov-61-n2-e0", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}, {"id": "00000000-0061-4000-8000-000000000006", "ref": "sitov-61-n2-e1", "goal": "P1-G1", "exercise_type": "fill_in_blank", "content": {"target_form": ["lernen"], "instruction": "Ergänze das Verb.", "text_before": "Paul ", "text_after": " Deutsch.", "correct_answer": "lernt", "accepted_answers": ["lernt"]}, "accepted_answers": ["lernt"], "hint": "Paul lernt Deutsch.", "explanation": "Das Verb steht auf Position zwei.", "explanation_card": "p1_greet", "translations": {"en": {"instruction": "What do you say in this situation?", "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.", "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."}, "ru": {"instruction": "Что вы скажете в этой ситуации?", "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.", "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."}, "uk": {"instruction": "Що ви скажете в цій ситуації?", "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.", "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."}, "tr": {"instruction": "Bu durumda ne dersiniz?", "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.", "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“", "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."}}}], "test_size": 1}]}'::jsonb);
+SELECT pg_temp.sitov61_assert('identical_import_guard',true);
+SET LOCAL ROLE postgres; SELECT path_private.sitov_revision_protected('00000000-0061-4000-8000-000000000001'); RESET ROLE;
+
+CREATE TEMP TABLE sitov61_late AS SELECT jsonb_agg(jsonb_build_object('id',old->'id','expected_hash',path_private.sitov_revision_hash(old),'after',candidate,'review',jsonb_build_object('approved',true,'reviewer','synthetic','evidence_uri','catalog:synthetic','before_hash',path_private.sitov_revision_hash(old),'after_hash',path_private.sitov_revision_hash(candidate))) ORDER BY old->>'id') items FROM (
+ SELECT old,jsonb_set(jsonb_set(old,'{content,correct_answer}',to_jsonb(CASE WHEN old->>'id' LIKE '%000002' THEN 'übt' ELSE 'prüft Sitovprobe' END)),'{content,accepted_answers}',jsonb_build_array(CASE WHEN old->>'id' LIKE '%000002' THEN 'übt' ELSE 'prüft Sitovprobe' END)) candidate FROM (SELECT path_private.sitov_revision_projection(id) old FROM public.learning_exercises WHERE id IN('00000000-0061-4000-8000-000000000002','00000000-0061-4000-8000-000000000003')) v) x;
+GRANT SELECT ON sitov61_late TO service_role;
+SET LOCAL ROLE service_role;
+SELECT pg_temp.sitov61_error('SELECT public.sitov_revise_path_content(''00000000-0061-4000-8000-000000001003'',items) FROM sitov61_late','prepared_audio_required');
+RESET ROLE;
+SELECT pg_temp.sitov61_assert('late_audio_failure_atomic',(SELECT count(*)=1 FROM path_private.sitov_content_revisions) AND (SELECT bool_and(content->>'correct_answer'='lernt') FROM public.learning_exercises WHERE id IN('00000000-0061-4000-8000-000000000002','00000000-0061-4000-8000-000000000003')));
+
+SELECT pg_temp.sitov61_assert('frozen_help_retained',path_private.present((SELECT old FROM sitov61_payload),'en')->'translation' IS NOT NULL);
+SELECT pg_temp.sitov61_assert('oldhelp_not_borrowed',NOT(path_private.present((SELECT old-'translations' FROM sitov61_payload),'en')?'translation'));
+SELECT pg_temp.sitov61_error('UPDATE path_private.sitov_content_revisions SET actor_role=actor_role','sitov_revision_immutable');
+SELECT pg_temp.sitov61_error('TRUNCATE path_private.sitov_content_revision_receipts','sitov_revision_immutable');
+SELECT jsonb_build_object('checks',(SELECT count(*) FROM sitov61_checks),'allPassed',(SELECT bool_and(passed) FROM sitov61_checks));
+ROLLBACK;
+SELECT jsonb_build_object('rollbackNoArchive',to_regclass('path_private.sitov_content_revisions') IS NULL,'fixtureRows',(SELECT count(*) FROM public.learning_exercises WHERE id::text LIKE '00000000-0061-%'));

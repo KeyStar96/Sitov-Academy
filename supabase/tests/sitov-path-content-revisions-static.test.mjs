@@ -20,7 +20,7 @@ test('source-only contract never mutates learner tables or replaces learner RPCs
 });
 test('service boundary checks actual invoking role; private storage has no app grant',()=>{
  assert.ok(sql.includes("IF role_name<>'service_role'"));
- assert.doesNotMatch(sql,/auth\.jwt|user_metadata|set_config/);
+ assert.doesNotMatch(sql,/auth\.jwt|raw_user_meta_data|set_config/);
  assert.doesNotMatch(sql,/GRANT (?:SELECT|INSERT|UPDATE|DELETE|ALL) ON (?:TABLE )?path_private\.sitov_content/);
  assert.ok(sql.includes('BEFORE UPDATE OR DELETE OR TRUNCATE'));
 });

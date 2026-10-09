@@ -42,8 +42,11 @@ $$;
 CREATE OR REPLACE FUNCTION path_private.sitov_revision_projection(p_id uuid) RETURNS jsonb
 LANGUAGE sql STABLE SET search_path='' AS $$
  SELECT path_private.snapshot(e.id)||jsonb_build_object('unit_id',e.unit_id,'node_id',e.node_id,
-  'source_ref',e.source_ref,'sort_order',e.sort_order,'topic',e.topic,'explanation_card',e.explanation_card)
- FROM public.learning_exercises e WHERE e.id=p_id AND e.node_id IS NOT NULL;
+  'source_ref',e.source_ref,'sort_order',e.sort_order,'topic',e.topic,'explanation_card',e.explanation_card,
+  'parent',jsonb_build_object('level',u.level,'unit_source_id',u.path_source_id,'unit_active',u.is_active,
+  'node_source_id',n.source_id,'node_unit_id',n.unit_id,'node_active',n.is_active,'node_kind',n.kind))
+ FROM public.learning_exercises e JOIN public.learning_units u ON u.id=e.unit_id
+ JOIN public.path_nodes n ON n.id=e.node_id WHERE e.id=p_id AND e.node_id IS NOT NULL;
 $$;
 CREATE OR REPLACE FUNCTION path_private.sitov_revision_full(p_id uuid) RETURNS jsonb
 LANGUAGE sql STABLE SET search_path='' AS $$
@@ -51,20 +54,26 @@ LANGUAGE sql STABLE SET search_path='' AS $$
  SELECT jsonb_agg(to_jsonb(t) ORDER BY t.locale) FROM public.grammar_translations t WHERE t.exercise_id=e.id),'[]'::jsonb))
  FROM public.learning_exercises e WHERE e.id=p_id;
 $$;
--- Exact authoring strings, excluding UI instructions, IDs, target forms and URLs.
--- Requiring a superset of currently playable audio prevents future options from
--- being published without the same prepared male Qwen/timing proof.
-CREATE OR REPLACE FUNCTION path_private.sitov_revision_audio_texts(p_content jsonb) RETURNS SETOF text
+-- Same played utterances as sitovExerciseAudioTexts and SQL71. No raw
+-- prefixes/suffixes, distractors or parts are added as a second audio contract.
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_audio_texts(p_type public.exercise_type,p_content jsonb) RETURNS SETOF text
 LANGUAGE sql IMMUTABLE SET search_path='' AS $$
- WITH RECURSIVE walk(value) AS (
- SELECT p_content UNION ALL
- SELECT child.value FROM walk w CROSS JOIN LATERAL (
-  SELECT o.value FROM jsonb_each(CASE WHEN jsonb_typeof(w.value)='object' THEN w.value ELSE '{}'::jsonb END) o
-   WHERE o.key NOT IN('id','type','audio','instruction','target_form','gap_hint','needs_article')
-  UNION ALL SELECT a.value FROM jsonb_array_elements(CASE WHEN jsonb_typeof(w.value)='array' THEN w.value ELSE '[]'::jsonb END) a
- ) child
- ) SELECT DISTINCT value#>>'{}' FROM walk WHERE jsonb_typeof(value)='string' AND btrim(value#>>'{}')<>'';
+ SELECT unnest(learning_private.sitov_learning_audio_texts('exercises',jsonb_build_object('type',p_type,'content',p_content),'[]'::jsonb));
 $$;
+CREATE OR REPLACE FUNCTION path_private.sitov_revision_strict_audio(p_text text) RETURNS text
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE reference text; authored jsonb; token text; timing jsonb; idx bigint;
+BEGIN
+ reference:=vocabulary_private.sitov_prepared_german_audio_url(p_text);
+ SELECT m.user_metadata INTO authored FROM sitov_storage_private.sitov_audio_metadata('audio_cache',replace(reference,'storage://audio_cache/','')) m;
+ FOR token,idx IN SELECT v,n FROM unnest(string_to_array(vocabulary_private.sitov_normalize_audio_text(p_text),' ')) WITH ORDINALITY a(v,n) LOOP
+  timing:=authored->'wordTimings'->(idx::integer-1);
+  IF token ~ '[[:alnum:]]' AND (timing IS NULL OR (timing->>'end')::numeric <= (timing->>'start')::numeric) THEN
+   RAISE EXCEPTION 'prepared_audio_lexical_duration_required' USING ERRCODE='22023';
+  END IF;
+ END LOOP;
+ RETURN reference;
+END $$;
 CREATE OR REPLACE FUNCTION path_private.sitov_revision_protected(p_id uuid) RETURNS boolean
 LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
  SELECT EXISTS(SELECT 1 FROM path_private.sitov_content_revisions WHERE exercise_id=p_id);
@@ -133,6 +142,8 @@ BEGIN
   IF NOT FOUND OR e.node_id IS NULL OR NOT e.path_is_active THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
   PERFORM gt.exercise_id FROM public.grammar_translations gt WHERE gt.exercise_id=e.id ORDER BY gt.locale FOR UPDATE;
   old:=path_private.sitov_revision_projection(e.id); candidate:=item->'after';
+  IF old#>>'{parent,unit_active}' IS DISTINCT FROM 'true' OR old#>>'{parent,node_active}' IS DISTINCT FROM 'true'
+   OR old#>>'{parent,node_unit_id}' IS DISTINCT FROM e.unit_id::text THEN RAISE EXCEPTION 'sitov_revision_parent_conflict' USING ERRCODE='40001'; END IF;
   before_hash:=path_private.sitov_revision_hash(old); after_hash:=path_private.sitov_revision_hash(candidate);
   IF item->>'expected_hash' IS DISTINCT FROM before_hash
    OR (candidate-ARRAY['content','translations']) IS DISTINCT FROM (old-ARRAY['content','translations'])
@@ -172,8 +183,8 @@ BEGIN
   -- German string, including protected wrong options and complete solutions.
   PERFORM learning_private.sitov_require_prepared_learning_audio('exercises',jsonb_build_object('id',e.id),'[]'::jsonb,e.unit_id);
   audio:='[]'::jsonb;
-  FOR spoken IN SELECT v FROM path_private.sitov_revision_audio_texts(candidate->'content') v ORDER BY v LOOP
-   audio:=audio||jsonb_build_array(jsonb_build_object('text',spoken,'prepared_url',vocabulary_private.sitov_prepared_german_audio_url(spoken)));
+  FOR spoken IN SELECT v FROM path_private.sitov_revision_audio_texts(e.type,candidate->'content') v ORDER BY v LOOP
+   audio:=audio||jsonb_build_array(jsonb_build_object('text',spoken,'prepared_url',path_private.sitov_revision_strict_audio(spoken)));
   END LOOP;
   IF path_private.sitov_revision_projection(e.id) IS DISTINCT FROM candidate THEN RAISE EXCEPTION 'sitov_revision_projection_conflict' USING ERRCODE='40001'; END IF;
   INSERT INTO path_private.sitov_content_revisions(request_id,exercise_id,before_hash,after_hash,before_projection,after_projection,before_full,after_full,review_evidence,audio_evidence,actor_role)
@@ -240,6 +251,16 @@ BEGIN
   EXECUTE definition;
  END IF;
 END $patch$;
-REVOKE ALL ON FUNCTION path_private.sitov_revision_immutable(),path_private.sitov_revision_hash(jsonb),path_private.sitov_revision_projection(uuid),path_private.sitov_revision_full(uuid),path_private.sitov_revision_audio_texts(jsonb),path_private.sitov_revision_protected(uuid),path_private.sitov_revision_check_import(jsonb) FROM PUBLIC,anon,authenticated,service_role;
+REVOKE ALL ON FUNCTION path_private.sitov_revision_immutable(),path_private.sitov_revision_hash(jsonb),path_private.sitov_revision_projection(uuid),path_private.sitov_revision_full(uuid),path_private.sitov_revision_audio_texts(public.exercise_type,jsonb),path_private.sitov_revision_strict_audio(text),path_private.sitov_revision_protected(uuid),path_private.sitov_revision_check_import(jsonb) FROM PUBLIC,anon,authenticated,service_role;
 REVOKE ALL ON FUNCTION public.sitov_revise_path_content(uuid,jsonb) FROM PUBLIC,anon,authenticated,service_role;
 GRANT EXECUTE ON FUNCTION public.sitov_revise_path_content(uuid,jsonb) TO service_role;
+
+-- Existing importer and presentation run as postgres; new helpers are owned by
+-- the actual migration actor supabase_admin. Grant only this internal chain.
+GRANT EXECUTE ON FUNCTION path_private.sitov_revision_check_import(jsonb),path_private.sitov_revision_projection(uuid),path_private.sitov_revision_protected(uuid) TO postgres;
+DO $internal$ BEGIN
+ IF NOT has_function_privilege('postgres','path_private.sitov_revision_check_import(jsonb)','EXECUTE')
+ OR NOT has_function_privilege('postgres','path_private.sitov_revision_projection(uuid)','EXECUTE')
+ OR NOT has_function_privilege('postgres','path_private.sitov_revision_protected(uuid)','EXECUTE') THEN
+ RAISE EXCEPTION 'sitov_revision_internal_execution_not_granted' USING ERRCODE='42501'; END IF;
+END $internal$;
