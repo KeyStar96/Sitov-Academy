@@ -3,7 +3,7 @@ import { act, fireEvent, render, screen, waitFor, within } from '@testing-librar
 import { readFileSync } from 'node:fs'
 import SitovPretestDraftEditor from '@/components/admin/SitovPretestDraftEditor'
 import { saveSitovPronunciationPretestDraft } from '@/app/actions/sitov-pronunciation-pretest'
-import { sitovPretestAuthorDefinitionSchema } from '@/lib/sitov-pronunciation-pretest-author-contract'
+import { sitovPretestAuthorDefinitionSchema, sitovPretestAuthorSaveInputSchema } from '@/lib/sitov-pronunciation-pretest-author-contract'
 import { sitovPretestEditorCopy } from '@/lib/sitov-pronunciation-pretest-staff-i18n'
 import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 jest.unmock('lucide-react')
@@ -163,14 +163,14 @@ it('imports a substantively justified absence with balanced remaining forms and 
   expect(save).toBeEnabled(); fireEvent.click(save)
   await waitFor(() => expect(props.onSaved).toHaveBeenCalledTimes(1))
   expect(saveSitovPronunciationPretestDraft).toHaveBeenCalledTimes(1)
-  expect(jest.mocked(saveSitovPronunciationPretestDraft).mock.calls[0][0].definition).toEqual(absent)
+  expect(sitovPretestAuthorSaveInputSchema.parse(jest.mocked(saveSitovPronunciationPretestDraft).mock.calls[0][0]).definition).toEqual(absent)
 })
 it.each(['text', 'source', 'definition'] as const)('does not accept a strict inactive ack with a foreign %s', async mismatch => {
   jest.mocked(saveSitovPronunciationPretestDraft).mockImplementationOnce(async input => {
     const response = ack(input)
     if (mismatch === 'text') response.data.text_id = saved
     if (mismatch === 'source') response.data.text_version = 'b'.repeat(64)
-    if (mismatch === 'definition') response.data.definition = { ...input.definition, omittedCategories: [{ category: 'additional', reasonDe: 'Diese zusätzliche Begründung war nicht Teil des gesendeten Entwurfs.' }] }
+    if (mismatch === 'definition') response.data.definition = { ...sitovPretestAuthorSaveInputSchema.parse(input).definition, omittedCategories: [{ category: 'additional', reasonDe: 'Diese zusätzliche Begründung war nicht Teil des gesendeten Entwurfs.' }] }
     return response
   })
   render(<SitovPretestDraftEditor {...props} definition={undefined} />)

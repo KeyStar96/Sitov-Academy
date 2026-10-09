@@ -1,0 +1,7 @@
+# Sitov Academy: abschließende Fixture-Integration
+
+Der vollständige Jest-Lauf auf `d0a5fecdda955747970bd25c69fd0a733a31df2a` bestand mit 315 Suites/4156 Tests; zwei Suites mit zwölf Assertions scheiterten, zwei Suites/Tests blieben übersprungen. Nach den Änderungen an den Standard-Navigationsschlüsseln verwendeten diese Fixtures noch den deutschen Fallback-Übersetzer ohne die ausgewählte Sprache. Die echte Staff-Shell erhält ihren Sprachkontext über `AdminI18nProvider`. Die Fixtures verwenden jetzt die tatsächlichen fünf Wörterbücher und beim Rendern der Sidebar/Brotkrumen denselben Provider. Lokalisierte Linktexte, Ziele, aktiver Zustand, Symbole und Größe bleiben geprüft. Die Tests erwarten für Aussprache ebenfalls das gewählte Wörterbuch statt eines deutschen Textes in allen Sprachen.
+
+TypeScript meldete drei Typfehler in neuen Testhelfern. Die Aussprache-Fixture verwendet jetzt den vorhandenen Niveau-Uniontyp. Die Editor-Fixture validiert unbekannte Action-Eingaben mit dem tatsächlichen Save-Input-Schema, bevor sie auf die Definition zugreift. Keine Produktionsdatei oder Berechtigungsregel geändert.
+
+Die vier betroffenen Suites bestanden danach mit **53 Tests**. Scoped ESLint: keine Befunde. Gesamt-Jest, vollständiger Typecheck und Produktionsbuild werden anschließend erneut auf dem gesicherten Integrationsstand ausgeführt; dieses Dokument behauptet deren Ergebnis noch nicht. Mocks bleiben getrennt von echten Browser-, Datenbank- und Audionachweisen.

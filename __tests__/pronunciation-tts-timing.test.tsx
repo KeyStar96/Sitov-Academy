@@ -35,11 +35,11 @@ const prompt: PronunciationPrompt = {
   id, unitId: id, title: 'Mein Weg', lesson: '1', cefrLevel: 'A1', sentenceDe: 'Die Straßenverkehrsordnung ändert sich.',
   focus: null, audioUrl: null, sortOrder: 0,
 }
-function available(text: PronunciationPrompt, level: string): Entry {
+function available(text: PronunciationPrompt, level: Entry['level']): Entry {
   return { textId: text.id, unitId: text.unitId, level, title: text.title!, focus: null, kind: 'regular',
     textVersion: version, testVersion, status: 'available', lockedReason: null, attempt: null, proof: null, target: 'pretest' }
 }
-function passed(text: PronunciationPrompt, level: string): Entry {
+function passed(text: PronunciationPrompt, level: Entry['level']): Entry {
   return { ...available(text, level), status: 'passed', target: 'pronunciation',
     attempt: { id: attemptId, textId: text.id, textVersion: version, testVersion, status: 'passed', revision: 1,
       startedAt: time, updatedAt: time, questionIds: ['sitov.q0', 'sitov.q1', 'sitov.q2'],
@@ -58,7 +58,7 @@ beforeEach(() => {
 })
 afterEach(() => { global.fetch = originalFetch })
 
-async function open(texts = [prompt], level = 'A1.2', checkpoint?: PronunciationCheckpointSnapshot, focusTextId?: string) {
+async function open(texts = [prompt], level: Entry['level'] = 'A1.2', checkpoint?: PronunciationCheckpointSnapshot, focusTextId?: string) {
   const rows = texts.map(text => passed(text, level))
   expect(sitovPronunciationPretestCatalogSchema.safeParse(rows).success).toBe(true)
   jest.mocked(getSitovPronunciationPretests).mockResolvedValue({ ok: true, data: rows })

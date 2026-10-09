@@ -1,6 +1,7 @@
 import { render, screen, within } from '@testing-library/react'
 import TeacherSidebar from '@/components/admin/TeacherSidebar'
 import TeacherLayout from '@/components/admin/TeacherLayout'
+import { AdminI18nProvider } from '@/components/admin/AdminI18nProvider'
 import { createAdminTranslator } from '@/lib/admin-i18n'
 import { activeTabbarId, buildAdminNav, findActiveNavItem, findActiveSection } from '@/lib/admin-navigation'
 
@@ -15,25 +16,27 @@ const labels = {
 it.each(Object.keys(labels) as (keyof typeof labels)[])('mounts the real extras destination and current content section in %s', lang => {
   const path = `/${lang}/teacher/content/learning-path/specials`
   const nav = buildAdminNav(lang)
+  const dictionary = jest.requireActual(`../dictionaries/${lang}.json`)
   const item = findActiveNavItem(path, nav)
   expect(item).toMatchObject({ id: 'sitov_learning_path_specials', href: path, icon: 'sitov_learning_path_specials' })
-  expect(item && createAdminTranslator({})(item.labelKey)).toBe(labels[lang])
+  expect(item && createAdminTranslator(dictionary.admin)(item.labelKey)).toBe(labels[lang])
   expect(findActiveSection(path, nav)?.id).toBe('content')
   expect(activeTabbarId(path, nav)).toBe('menu')
   expect(findActiveNavItem(`${path}/draft`, nav)).toBe(item)
   expect(findActiveNavItem(`${path}-other`, nav)).toBeNull()
-  render(<TeacherSidebar lang={lang} size="comfortable" sitovPreviewPathname={path} />)
+  render(<AdminI18nProvider translations={dictionary.admin}><TeacherSidebar lang={lang} size="comfortable" sitovPreviewPathname={path} /></AdminI18nProvider>)
   const link = screen.getByRole('link', { name: labels[lang] })
   expect(link).toHaveAttribute('href', path)
   expect(link).toHaveAttribute('aria-current', 'page')
   expect(link).toHaveClass('min-h-12')
   expect(link.querySelector('svg')).toHaveClass('lucide-git-branch')
-  expect(screen.getByRole('link', { name: 'Aussprache-Trainer' })).toHaveAttribute('href', `/${lang}/admin/content/pronunciation`)
+  expect(screen.getByRole('link', { name: dictionary.admin.nav_pronunciation })).toHaveAttribute('href', `/${lang}/admin/content/pronunciation`)
   expect(screen.getByRole('link', { name: /Bezahlsystem|Payment settings|Система оплаты|Система оплати|Ödeme ayarları/ })).toHaveAttribute('href', `/${lang}/admin/settings/billing`)
 })
 
 it.each(Object.keys(labels) as (keyof typeof labels)[])('uses the existing shell breadcrumb and current mobile section tab in %s', lang => {
-  render(<TeacherLayout lang={lang} sitovPreviewPathname={`/${lang}/teacher/content/learning-path/specials`} brand="Sitov Academy" controls={null}><p>Inhalt</p></TeacherLayout>)
+  const dictionary = jest.requireActual(`../dictionaries/${lang}.json`)
+  render(<AdminI18nProvider translations={dictionary.admin}><TeacherLayout lang={lang} sitovPreviewPathname={`/${lang}/teacher/content/learning-path/specials`} brand="Sitov Academy" controls={null}><p>Inhalt</p></TeacherLayout></AdminI18nProvider>)
   const header = screen.getByRole('banner')
   expect(header).toHaveTextContent(labels[lang])
   const tab = within(header).getByRole('link', { name: labels[lang] })
