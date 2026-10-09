@@ -112,12 +112,13 @@ class MigrationFailureTests(unittest.TestCase):
         stale when 19_vocabulary_self_rating_fix.sql was added; deriving both
         sides from the directory keeps it honest.
         """
-        available = sorted(path.name for path in SQL_DIR.glob('*.sql') if path.name[:2].isdigit())
+        available = sorted(path.name for path in SQL_DIR.glob('*.sql') if path.name.split('_')[0].isdigit())
         self.assertEqual(sorted(MIGRATION.ORDER), available, 'ORDER and supabase/vps/*.sql disagree')
         # The first five files carry a hand-picked order (identity before the
         # critical fixes). Everything from 04 onward runs by ascending number.
-        numbered = [name for name in MIGRATION.ORDER if name >= '04_']
-        self.assertEqual(numbered, sorted(numbered), 'migrations from 04 onward must stay in ascending order')
+        numbered = [name for name in MIGRATION.ORDER if int(name.split('_')[0]) >= 4]
+        self.assertEqual(numbered, sorted(numbered, key=lambda name: int(name.split('_')[0])),
+                         'migrations from 04 onward must stay in numeric order, including 100+')
 
     def test_content_quality_migration_precedes_phase4_and_waits_for_matching_app(self):
         (self.root / '07_content_quality.sql').write_text('SELECT 1;\n')
@@ -172,6 +173,27 @@ class MigrationFailureTests(unittest.TestCase):
                    '--sql-dir', str(self.root), '--keep-stopped']), self.assertRaisesRegex(RuntimeError, 'Own transaction boundary'):
             MIGRATION.main()
         self.assertEqual(self.commands, [])
+
+
+
+    def test_night_deltas_are_explicit_and_failure_preserves_stopped_services(self):
+        names = [name for name in MIGRATION.ORDER if 93 <= int(name.split('_')[0]) <= 109]
+        self.assertEqual([int(name.split('_')[0]) for name in names], list(range(93, 110)))
+        for index, name in enumerate(names):
+            (self.root / name).write_text(f"SELECT {index + 93};\n")
+        self.result = subprocess.CompletedProcess([], 2, 'COMMIT\n', 'later statement failed')
+        with patch('sys.argv', [str(SCRIPT), '--apply', *names,
+                               '--sql-dir', str(self.root), '--keep-stopped']):
+            with self.assertRaisesRegex(RuntimeError, 'commit status is unverified'):
+                MIGRATION.main()
+        self.assert_services_stopped()
+        self.mocks[2].assert_called_once()
+        command = self.sql_commands[-1]
+        positions = [command.index(f'SELECT {number};') for number in range(93, 110)]
+        self.assertEqual(positions, sorted(positions))
+        self.assertEqual(command.count('BEGIN;'), 17)
+        self.assertEqual(command.count('COMMIT;'), 17)
+        self.assertFalse((self.backup / 'applied.json').exists())
 
 
 if __name__ == '__main__':

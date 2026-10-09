@@ -1,0 +1,5 @@
+# Explicit migration runner support through 109
+
+The release runner previously accepted only migrations through 92, so the reviewed night deltas could not be passed to its explicit `--apply` command. M registered the exact existing 93–109 filenames in numeric order. This does not infer production installation history or execute any SQL. Deployment still requires a current protected backup, an isolated rehearsal, an explicit missing-delta list and the exact prepared matching app release.
+
+The existing ordering assertion now compares numeric migration prefixes, including 100+, while retaining the deliberately chosen initial identity order. Fourteen Python runner tests pass, including the actual registered file inventory, production `--keep-stopped` requirement and an additional simulated late failure across all seventeen deltas. That test confirms one backup, ordered individually bounded transactions, no false success receipt and no restart of an old potentially incompatible release. These are process-contract tests, not a claim that the current production migration has run. `git diff --check` passes. No production changes.
