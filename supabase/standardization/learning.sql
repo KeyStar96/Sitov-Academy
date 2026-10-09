@@ -565,8 +565,8 @@ ALTER TABLE public.submissions ADD CONSTRAINT submissions_level_fk FOREIGN KEY(l
 
 -- SITOV-NIGHT-2026-10-08: this historical learning cutover is not the current
 -- complete install target. Fresh normalized installs use supabase/schema.sql
--- (through 98); existing reviewed through-92 databases apply canonical
+-- (through 99); existing reviewed through-92 databases apply canonical
 -- 20261008213000, 20261008213100, 20261008213200, 20261008213300,
--- 20261009001000 and 20261009002000 in order.
+-- 20261009001000, 20261009002000 and 20261009003000 in order.
 -- Do not append those overlays here without the intervening business/learning
 -- migrations. Immutable QA inputs: tests/fixtures/sitov-night-integrated96/plan.json.
