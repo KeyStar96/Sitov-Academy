@@ -1,0 +1,33 @@
+# S2 · Epoch 19 · Actual empty learning links: partial diagnosis
+
+Group `SITOV-NIGHT-2026-10-08`; clean verified base `4c6a1f8ae9f754fcc178be7e942e003acfe2cdf4`, branch `codex/sitov-night-s2-real-empty-links-diagnosis`. Lease expires 2026-10-09 09:13:36 UTC. Fresh account usage checked twice: 19% ordinary weekly budget remaining. Outcome: incomplete diagnosis, no application repair and no release acceptance.
+
+## Confirmed actual evidence
+
+S5's committed epoch17 browser evidence shows actual UI FAIL 7/12 and zero learning links. It does not include the failed competency IDs, companion107 reply, or recommendation DAL failure stage. Its screenshot was inspected; it cannot establish which failed cores had topic mappings. The actual browser flow is not repeated here.
+
+A bounded own SSH diagnostic reused the reviewed epoch16 `runtime` scope/health and helper definitions. Before creating its single authorized disposable learner, the actual isolated QA namespace/image/network/no-host-port scope passed; caps were DB320/Auth128/Storage256/REST64/Gateway192 MiB, total960 MiB/2CPU. MemAvailable was2683.32 MiB, all three health endpoints200, all services running/noOOM, gateway memory.events low/high/max/oom/oom_kill all0.
+
+The diagnostic created exactly one own `example.invalid` student with only own A1.1 level access. It then failed **before starting a pretest**: my diagnostic helper queried `pretest_definitions.level`, which does not exist. Actual migration94 defines `text_id`, versions, definition JSON, active and created_at; canonical level belongs to the referenced reading unit. This is a diagnostic-script error, not evidence of a product defect. No attempt, fake terminal result, pass or mainpath progress was inserted. No authenticated107/108/catalog/progress/checkpoint DTO was captured, and no parser-failure root cause is claimed.
+
+The private driver query has been corrected to join the actual reading text and canonical unit for a future explicitly authorized run. **The corrected driver was not rerun.** The one-account allowance was consumed; no second account was created or borrowed. Private helper/ledger and sanitized observations are under the own S2 coordination directory, outside Git. Keys were loaded only in remote process memory; no credentials or actor/attempt IDs were logged.
+
+A subsequent owner read-only content-reference check queried the current actual QA tables for each declared static mapping target. It made no auth/session/schema/content changes and returned only sanitized topic/kind/presence and level/parent-match booleans:
+
+- All **11** declared vocabulary-card UUIDs are absent from `public.learning_vocabulary_cards`, including both Kennenlernen, both Familie and both Nominativ references. This is an actual row absence, not an RLS inference. Those links must remain omitted under the existing resolver contract.
+- All **5** declared verb IDs exist once with matching canonical level.
+- **6** regular reading-text references exist once with matching canonical level; the **2** Modalverben bonus draft references are absent.
+
+The mapping's original epoch2 validator checked repository seed catalogs and expressly did not claim actual database import/publication. This observation establishes a QA content-reference/import gap, but **does not explain all zero-link results**: ordinary-path/verb candidates may remain, and the actual failed core/topic set is unknown. Do not replace missing IDs with same-title guesses, seed new content, relax rights or claim a DAL fix from this evidence.
+
+## Cleanup and limits
+
+The helper's finally block performed own logout and exact ledger-bound admin deletion. Cleanup succeeded. Before/after baseline is identical:2 existing M users,18 definitions/5active,1682 question audio proofs,1089 storage objects,0 attempts/0 passes/0 submissions. Profile hash `d65b2aa94875b59a45b22f8edba1a047`, definition hash `52f236030632ea47f13a179e39ef6b87`, and storage-object hash `dfa170fb45d55fa655bbcbe7d3241695` match exactly before/after. Final MemAvailable2723.98 MiB; three health200, no restarts/OOM/cgroup-limit events. Own private remote ledger records cleaned=true/actorsCreated1. Existing users were not edited.
+
+The original baseline comparison covers these counts and profile/definition/asset hashes, not a new128-table or all-history hash proof. Own progress/rights read-state hashing was not reached before the fixture error. No claims of completed failed-topic/DAL end-to-end acceptance or full production durability follow from cleanup evidence.
+
+## Required next step
+
+M must allocate a fresh bounded authenticated diagnostic allowance after reviewing this partial result. Resolve and validate the actual active definition's canonical level **before** actor creation. Use exactly that one actor's real start/valid-wrong submit, then retain sanitized failed core IDs and107 topic IDs. Capture actual catalog/map/source108, selected-target current authorization, progress/checkpoint responses and unchanged-schema parser outcomes stage by stage. Preserve finally cleanup and state/baseline hashes. Reconcile the actual QA vocabulary import/source identities separately under the correct owner and frozen content contract; no ID substitution is authorized here.
+
+Only this handoff document changed. No TS/application, tests, SQL/RLS, public DTO, rights/gate, mapping, content, audio, UI, runtime/resource or production change. `git diff --check` and staged diff check PASS. Jest/lint were not run because no application code changed. No fullTS/build/native/broad107 suite/browser/Next run. M was notified of the fixture failure, verified cleanup and actual missing-reference evidence. S2 saves its own commit/status and returns to WAIT without extending the lease.
