@@ -7,6 +7,7 @@ import { currentUserHasContentAccess } from '@/lib/access/server'
 import { resolveSitovLearningRecommendations } from '@/lib/learning/sitov-learning-recommendations-server'
 import { sitovLearningRecommendationInputSchema } from '@/lib/learning/sitov-learning-recommendations-contract'
 import { SITOV_TOPIC_MAPPING } from '@/lib/learning/sitov-topic-mapping'
+import { ACCESS_LEVELS } from '@/lib/access/levels'
 const topic = SITOV_TOPIC_MAPPING[0]
 const target = topic.targets.find(t => t.kind === 'vocabulary_card')!
 const unit = target.kind === 'vocabulary_card' ? target.unitId : ''
@@ -168,7 +169,7 @@ describe('authorized recommendation variety within stored status priority',()=>{
 it('validates every expanded mapping against authoritative same-level source catalogs',()=>{
  const fs=jest.requireActual<typeof import('node:fs')>('node:fs')
  const read=(file:string)=>JSON.parse(fs.readFileSync(file,'utf8'))
- const catalog={nodes:['a1.1','a1.2'].flatMap(level=>read(`supabase/seeds/path-${level}.json`).flatMap(p=>p.nodes.map(n=>({level:p.level,pathSourceId:p.id,nodeSourceId:n.id})))),targets:[
+ const catalog={nodes:ACCESS_LEVELS.flatMap(level=>read(`supabase/seeds/path-${level.toLowerCase()}.json`).flatMap(p=>p.nodes.map(n=>({level:p.level,pathSourceId:p.id,nodeSourceId:n.id})))),targets:[
   ...read('content/vocabulary/sitov-vocabulary-seed.json').units.flatMap(u=>u.cards.map(c=>({kind:'vocabulary_card',id:c.id,level:u.level,unitId:u.id}))),
   ...read('lib/verbs/catalog-data.json').map(v=>({kind:'verb',id:v.id,level:v.level})),
   ...read('supabase/seeds/pronunciation-reading-2026.json').map(t=>({kind:'reading_text',id:t.id,level:t.level})),
@@ -179,4 +180,47 @@ it('validates every expanded mapping against authoritative same-level source cat
  expect(added.every(t=>t.targets.every(target=>target.kind!=='vocabulary_card'))).toBe(true)
  const invalid=structuredClone(added);invalid[0].anchors[0].level='A1.2'
  expect(validateSitovTopicMapping(invalid,catalog).some(error=>error.startsWith('anchor:'))).toBe(true)
+})
+
+
+it.each(['A2.1','A2.2','B1.1','B1.2'] as const)('resolves the exact authorized %s vocabulary target and current progress',async level=>{
+ const mapped=SITOV_TOPIC_MAPPING.find(t=>t.level===level)!
+ const card=mapped.targets.find(t=>t.kind==='vocabulary_card')!
+ if(card.kind!=='vocabulary_card')throw new Error('missing concrete card')
+ allowed=[card.id]
+ client.rpc.mockImplementation(async(name,args)=>{
+  if(name==='get_sitov_access_catalog')return {error:null,data:{version:1,level:args.p_level,trainer:args.p_trainer,units:args.p_trainer==='vocabulary'?[{id:card.unitId,items:[{kind:'vocabulary_card',id:card.id,published:true}]}]:[]}}
+  if(name==='sitov_learning_checkpoint')return {error:null,data:{checkpoint:null}}
+  throw new Error('unexpected rpc')
+ })
+ const requested={topicIds:[mapped.topicId],locale:'tr',limit:3}
+ const result=await resolveSitovLearningRecommendations(requested)
+ expect(result).toEqual({ok:true,data:{mappingVersion:1,items:[expect.objectContaining({kind:'vocabulary',level,targetId:card.id,topicId:mapped.topicId,action:'practice',href:`/tr/dashboard/level/${level}/vocabulary/lessons?sitov_target=${card.id}`})]}})
+ expect(filters.some(row=>row.card_id===card.id&&row.auth_user_id==='account-a')).toBe(true)
+ expect(client.rpc.mock.calls.filter(([name])=>name==='get_sitov_access_catalog').every(([,args])=>args.p_level===level)).toBe(true)
+ allowed=[]
+ expect(await resolveSitovLearningRecommendations(requested)).toEqual({ok:true,data:{mappingVersion:1,items:[]}})
+})
+
+it('keeps higher-level coverage partial and rejects cross-level, foreign and duplicate references',()=>{
+ const fs=jest.requireActual<typeof import('node:fs')>('node:fs')
+ const read=(file:string)=>JSON.parse(fs.readFileSync(file,'utf8'))
+ const {validateSitovTopicMapping}=jest.requireActual<typeof import('@/lib/learning/sitov-topic-mapping')>('@/lib/learning/sitov-topic-mapping')
+ const higher=SITOV_TOPIC_MAPPING.filter(t=>!['A1.1','A1.2'].includes(t.level))
+ expect(higher.map(t=>t.level)).toEqual(['A2.1','A2.2','B1.1','B1.2'])
+ expect(SITOV_TOPIC_MAPPING).toHaveLength(20)
+ const catalog={nodes:ACCESS_LEVELS.flatMap(level=>read(`supabase/seeds/path-${level.toLowerCase()}.json`).flatMap(p=>p.nodes.map(n=>({level:p.level,pathSourceId:p.id,nodeSourceId:n.id})))),targets:[
+  ...read('content/vocabulary/sitov-vocabulary-seed.json').units.flatMap(u=>u.cards.map(c=>({kind:'vocabulary_card',id:c.id,level:u.level,unitId:u.id}))),
+  ...read('lib/verbs/catalog-data.json').map(v=>({kind:'verb',id:v.id,level:v.level})),
+  ...read('supabase/seeds/pronunciation-reading-2026.json').map(t=>({kind:'reading_text',id:t.id,level:t.level})),
+ ]}
+ expect(validateSitovTopicMapping(SITOV_TOPIC_MAPPING,catalog)).toEqual([])
+ for(const level of ['B2.1','B2.2','C1.1','C1.2'])expect(catalog.targets.filter(t=>t.level===level)).toHaveLength(0)
+ const cross=structuredClone(higher);cross[0].targets[0].level='A2.2'
+ expect(validateSitovTopicMapping(cross,catalog)).toContain(`target:${cross[0].targets[0].kind}/${cross[0].targets[0].id}`)
+ const foreign=structuredClone(higher);foreign[0].anchors[0].nodeSourceId='P1-N999'
+ expect(validateSitovTopicMapping(foreign,catalog).some(error=>error.startsWith('anchor:'))).toBe(true)
+ const repeated=structuredClone(higher);repeated[0].targets.push(repeated[0].targets[0])
+ expect(validateSitovTopicMapping(repeated,catalog).some(error=>error.startsWith('target:'))).toBe(true)
+ expect(validateSitovTopicMapping([higher[0],higher[0]],catalog)).toEqual(expect.arrayContaining([`topic:${higher[0].topicId}`,`competency:${higher[0].competencyId}`]))
 })

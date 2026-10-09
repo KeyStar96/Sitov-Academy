@@ -1,5 +1,7 @@
+import type { AccessLevel } from '@/lib/access/levels'
+
 /** Content metadata only. No access grants, scores, unlocks or client-selected URLs. */
-export type SitovMappedLevel = 'A1.1' | 'A1.2'
+export type SitovMappedLevel = AccessLevel
 export type SitovPathSourceTarget = {
   kind: 'path_node_source'; level: SitovMappedLevel; pathSourceId: string;
   nodeSourceId: string; evidence: string;
@@ -814,6 +816,192 @@ export const SITOV_TOPIC_MAPPING: readonly SitovTopicMapping[] = [
         "id": "add5b212-15af-55b5-b224-6282b5c39c13",
         "level": "A1.2",
         "evidence": "Ich decke den Tisch."
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.begruenden-a21",
+    "competencyId": "sitov.competency.begruenden-a21",
+    "level": "A2.1",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A2.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N4",
+        "evidence": "weil"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A2.1",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N5",
+        "evidence": "Warum? – Weil ich arbeiten muss."
+      }
+    ],
+    "targets": [
+      {
+        "kind": "vocabulary_card",
+        "id": "7c843d2c-122c-59d8-be9b-872e6a633d5d",
+        "level": "A2.1",
+        "unitId": "b323bbf3-b8af-5972-91c1-cb60d513f4f6",
+        "evidence": "weil ich …"
+      },
+      {
+        "kind": "reading_text",
+        "id": "b2ae5915-20dd-5018-8921-6afe5be0f1fd",
+        "level": "A2.1",
+        "evidence": "Mein erster Arbeitstag · weil die Kunden schnell gesprochen haben; Teilbeleg im Kontext, kein Kompetenznachweis"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.vorschlaege-a22",
+    "competencyId": "sitov.competency.vorschlaege-a22",
+    "level": "A2.2",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "A2.2",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N6",
+        "evidence": "Du könntest …"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A2.2",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N7",
+        "evidence": "Wie wäre es mit …?"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "A2.2",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N8",
+        "evidence": "Gute Idee!"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "vocabulary_card",
+        "id": "769fbe06-623b-5208-9255-4bc3146b34d6",
+        "level": "A2.2",
+        "unitId": "81278222-33e1-5bcf-aeee-8b01a16606c1",
+        "evidence": "einen Vorschlag machen"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-vorschlagen",
+        "level": "A2.2",
+        "tense": "present",
+        "evidence": "vorschlagen · Präsens des Lexems, keine Konjunktiv- oder Vergangenheitsabdeckung"
+      },
+      {
+        "kind": "reading_text",
+        "id": "3243b764-4bfc-5fc6-8c24-1a49962988ff",
+        "level": "A2.2",
+        "evidence": "Ein Gespräch über Arbeitszeiten · Dafür könnte ich morgens eine Stunde früher anfangen; Teilbeleg im Kontext, kein Kompetenznachweis"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.berufseinstieg-b11",
+    "competencyId": "sitov.competency.berufseinstieg-b11",
+    "level": "B1.1",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "B1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N1",
+        "evidence": "Bewerbung und Beruf"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "B1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N7",
+        "evidence": "Berufliche Wünsche"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "B1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N8",
+        "evidence": "Die Bewerbung"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "B1.1",
+        "pathSourceId": "P5",
+        "nodeSourceId": "P5-N9",
+        "evidence": "Über die Arbeit sprechen"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "vocabulary_card",
+        "id": "09279424-00ac-5fbb-9776-fe430b731dbf",
+        "level": "B1.1",
+        "unitId": "2a531c0b-bd97-54b9-9913-4327386e5038",
+        "evidence": "einen Lebenslauf schreiben"
+      },
+      {
+        "kind": "vocabulary_card",
+        "id": "7cdbce00-8fc5-5e41-8952-2624b7025daf",
+        "level": "B1.1",
+        "unitId": "2a531c0b-bd97-54b9-9913-4327386e5038",
+        "evidence": "Unterlagen einreichen"
+      },
+      {
+        "kind": "reading_text",
+        "id": "19846618-a6c3-5001-84d5-06b21b99dff5",
+        "level": "B1.1",
+        "evidence": "Ein neuer Beruf als Chance · Praktikum, beruflicher Wechsel und Bewerbung; Teilbeleg im Kontext, kein Kompetenznachweis"
+      }
+    ]
+  },
+  {
+    "topicId": "sitov.topic.zusammenarbeit-b12",
+    "competencyId": "sitov.competency.zusammenarbeit-b12",
+    "level": "B1.2",
+    "anchors": [
+      {
+        "kind": "path_node_source",
+        "level": "B1.2",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N1",
+        "evidence": "Arbeitsalltag im Team"
+      },
+      {
+        "kind": "path_node_source",
+        "level": "B1.2",
+        "pathSourceId": "P1",
+        "nodeSourceId": "P1-N9",
+        "evidence": "Alternativen vorschlagen"
+      }
+    ],
+    "targets": [
+      {
+        "kind": "vocabulary_card",
+        "id": "04b04190-54df-5325-931b-bf3ccdbde9b5",
+        "level": "B1.2",
+        "unitId": "d812aefe-f72d-5524-b2b9-08fbd59bdaf2",
+        "evidence": "die Zusammenarbeit verbessern"
+      },
+      {
+        "kind": "verb",
+        "id": "sitov-verb-beschliessen",
+        "level": "B1.2",
+        "tense": "present",
+        "evidence": "beschließen · Präsens des Lexems, keine Konjunktiv- oder Vergangenheitsabdeckung"
+      },
+      {
+        "kind": "reading_text",
+        "id": "cacb3a6d-e789-5abc-9e94-f6eecfb36bdb",
+        "level": "B1.2",
+        "evidence": "Ein Vorschlag im Betrieb · Vorschlag im Betrieb und Zusammenarbeit verbessern; Teilbeleg im Kontext, kein Kompetenznachweis"
       }
     ]
   }
