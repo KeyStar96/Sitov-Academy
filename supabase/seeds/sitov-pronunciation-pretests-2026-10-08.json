@@ -7,8 +7,8 @@
   "scope": "Repository canonical seeds and revisions; no live/custom inventory",
   "coverage": {
     "total": 60,
-    "authored": 57,
-    "pending": 3
+    "authored": 60,
+    "pending": 0
   },
   "audioStatus": "draft_only: full DB public-question/reference asset and immutable word-timing proof gate implemented; actual M local preparation, byte/timing audit, import and trusted proof insertion pending; no definitions published",
   "drafts": [
@@ -59935,6 +59935,3121 @@
           }
         ]
       }
+    },
+    {
+      "textId": "5dc0cf34-6f7c-5e67-9728-22bbe90c5dc7",
+      "unitId": "5dc0cf34-6f7c-5e67-9728-22bbe90c5dc7",
+      "level": "B1.2",
+      "textVersion": "d550ac12f9b5113443bdf1591b579ef42b00d5012cc387347780aad2db4a2d31",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "d550ac12f9b5113443bdf1591b579ef42b00d5012cc387347780aad2db4a2d31",
+        "definitionContentHash": "e293b514e3bf3de37ecdc433eec9c2672789af56f2d3ac5f81badf66f88bbaf2"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.b12-08.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Bewertungen Einschätzungen",
+              "Erfahrungen selbst Erlebtes",
+              "Erwartungen Vorstellungen vorab",
+              "Anfänger wenig Vorkenntnisse",
+              "Fortgeschrittene vorhandene Kenntnisse",
+              "Orientierung erste Entscheidungshilfe"
+            ],
+            "sourceSpans": [
+              {
+                "start": 65,
+                "end": 76,
+                "quote": "Bewertungen"
+              },
+              {
+                "start": 224,
+                "end": 235,
+                "quote": "Erfahrungen"
+              },
+              {
+                "start": 286,
+                "end": 297,
+                "quote": "Erwartungen"
+              },
+              {
+                "start": 323,
+                "end": 331,
+                "quote": "Anfänger"
+              },
+              {
+                "start": 350,
+                "end": 366,
+                "quote": "Fortgeschrittene"
+              },
+              {
+                "start": 590,
+                "end": 602,
+                "quote": "Orientierung"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Bewertungen Einschätzungen, Erfahrungen selbst Erlebtes, Erwartungen Vorstellungen vorab, Anfänger wenig Vorkenntnisse, Fortgeschrittene vorhandene Kenntnisse, Orientierung erste Entscheidungshilfe. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b12-08.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "buche Präsens erste Singular",
+              "sich Reflexivform dritte Plural",
+              "orientiert reflexives Perfekt",
+              "beschreibt dritte Singular",
+              "verändern Infinitiv nach Modal",
+              "nachfragen trennbare Präsensform"
+            ],
+            "sourceSpans": [
+              {
+                "start": 6,
+                "end": 26,
+                "quote": "ich einen Kurs buche"
+              },
+              {
+                "start": 423,
+                "end": 453,
+                "quote": "Angebote können sich verändern"
+              },
+              {
+                "start": 97,
+                "end": 154,
+                "quote": "habe ich mich vor allem an der Zahl der Sterne orientiert"
+              },
+              {
+                "start": 208,
+                "end": 246,
+                "quote": "jemand konkrete Erfahrungen beschreibt"
+              },
+              {
+                "start": 423,
+                "end": 453,
+                "quote": "Angebote können sich verändern"
+              },
+              {
+                "start": 681,
+                "end": 712,
+                "quote": "frage direkt beim Anbieter nach"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: buche Präsens erste Singular, sich Reflexivform dritte Plural, orientiert reflexives Perfekt, beschreibt dritte Singular, verändern Infinitiv nach Modal, nachfragen trennbare Präsensform. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b12-08.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "bevor zeitliche Reihenfolge",
+              "ob indirekte Entscheidungsfrage",
+              "denn kausale Hauptsatzstellung",
+              "wenn Bedingung Entscheidung",
+              "deshalb Folge Wahl",
+              "genauer Komparativ Adverb"
+            ],
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 26,
+                "quote": "Bevor ich einen Kurs buche"
+              },
+              {
+                "start": 205,
+                "end": 246,
+                "quote": "ob jemand konkrete Erfahrungen beschreibt"
+              },
+              {
+                "start": 418,
+                "end": 453,
+                "quote": "denn Angebote können sich verändern"
+              },
+              {
+                "start": 604,
+                "end": 638,
+                "quote": "Wenn eine Entscheidung wichtig ist"
+              },
+              {
+                "start": 503,
+                "end": 551,
+                "quote": "entscheiden deshalb nicht allein über meine Wahl"
+              },
+              {
+                "start": 173,
+                "end": 180,
+                "quote": "genauer"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: bevor zeitliche Reihenfolge, ob indirekte Entscheidungsfrage, denn kausale Hauptsatzstellung, wenn Bedingung Entscheidung, deshalb Folge Wahl, genauer Komparativ Adverb. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b12-08.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "einen Kurs Akkusativ maskulin",
+              "der Sterne Genitiv Plural",
+              "meinen eigenen Erwartungen Dativ Plural",
+              "Anfänger Akkusativ Plural ohne Artikel",
+              "Fortgeschrittene substantiviertes Adjektiv",
+              "beim Anbieter verschmolzener Dativ"
+            ],
+            "sourceSpans": [
+              {
+                "start": 10,
+                "end": 20,
+                "quote": "einen Kurs"
+              },
+              {
+                "start": 124,
+                "end": 143,
+                "quote": "der Zahl der Sterne"
+              },
+              {
+                "start": 268,
+                "end": 297,
+                "quote": "zu meinen eigenen Erwartungen"
+              },
+              {
+                "start": 319,
+                "end": 331,
+                "quote": "für Anfänger"
+              },
+              {
+                "start": 346,
+                "end": 366,
+                "quote": "für Fortgeschrittene"
+              },
+              {
+                "start": 694,
+                "end": 707,
+                "quote": "beim Anbieter"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: einen Kurs Akkusativ maskulin, der Sterne Genitiv Plural, meinen eigenen Erwartungen Dativ Plural, Anfänger Akkusativ Plural ohne Artikel, Fortgeschrittene substantiviertes Adjektiv, beim Anbieter verschmolzener Dativ. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keinen Relativsatz; vorhandene Zeit-, Grund- und Gegensatzkonstruktionen werden in ihren belegten Funktionen geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.b12-08.words.q1",
+            "competencyId": "sitov.pretest.b12-08.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind Bewertungen eines Kurses?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.words.q1.a",
+                "textDe": "Einschätzungen seiner Qualität."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q1.c",
+                "textDe": "Nur Anmeldungen zu seinem Termin."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q1.b",
+                "textDe": "Nur Angaben zu seinem Termin."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.words.q1.a",
+            "assessmentUnit": "Bewertungen Einschätzungen",
+            "equivalenceKey": "sitov:b12-08:words:1",
+            "sourceSpans": [
+              {
+                "start": 65,
+                "end": 76,
+                "quote": "Bewertungen"
+              }
+            ],
+            "rationaleDe": "Bewertungen schätzen die Qualität ein; Termine und Anmeldungen sind andere Informationen."
+          },
+          {
+            "id": "sitov.pretest.b12-08.words.q2",
+            "competencyId": "sitov.pretest.b12-08.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind konkrete Erfahrungen mit einem Kurs?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.words.q2.a",
+                "textDe": "Nur Wünsche an einen noch unbekannten Kurs."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q2.c",
+                "textDe": "Bestimmte Dinge, die man im Kurs selbst erlebt hat."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q2.b",
+                "textDe": "Nur Vermutungen ohne eigene Teilnahme."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.words.q2.c",
+            "assessmentUnit": "Erfahrungen selbst Erlebtes",
+            "equivalenceKey": "sitov:b12-08:words:2",
+            "sourceSpans": [
+              {
+                "start": 224,
+                "end": 235,
+                "quote": "Erfahrungen"
+              }
+            ],
+            "rationaleDe": "Erfahrungen beruhen auf Erlebtem, nicht nur auf Wünschen oder Vermutungen."
+          },
+          {
+            "id": "sitov.pretest.b12-08.words.q3",
+            "competencyId": "sitov.pretest.b12-08.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind meine Erwartungen an einen Kurs?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.words.q3.a",
+                "textDe": "Meine Vorstellungen davon, was der Kurs bieten soll."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q3.b",
+                "textDe": "Nur meine Erinnerungen an abgeschlossene Übungen."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q3.c",
+                "textDe": "Nur die gemessenen Ergebnisse einer Prüfung."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.words.q3.a",
+            "assessmentUnit": "Erwartungen Vorstellungen vorab",
+            "equivalenceKey": "sitov:b12-08:words:3",
+            "sourceSpans": [
+              {
+                "start": 286,
+                "end": 297,
+                "quote": "Erwartungen"
+              }
+            ],
+            "rationaleDe": "Erwartungen richten sich auf das Gewünschte oder Vorausgesehene."
+          },
+          {
+            "id": "sitov.pretest.b12-08.words.q4",
+            "competencyId": "sitov.pretest.b12-08.words",
+            "kind": "single_choice",
+            "promptDe": "Wer sind Anfänger beim Deutschlernen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.words.q4.c",
+                "textDe": "Menschen, die bereits lange auf hohem Niveau lernen."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q4.a",
+                "textDe": "Menschen, die ausschließlich Kurse unterrichten."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q4.b",
+                "textDe": "Menschen, die gerade erst anfangen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.words.q4.b",
+            "assessmentUnit": "Anfänger wenig Vorkenntnisse",
+            "equivalenceKey": "sitov:b12-08:words:4",
+            "sourceSpans": [
+              {
+                "start": 323,
+                "end": 331,
+                "quote": "Anfänger"
+              }
+            ],
+            "rationaleDe": "Anfänger stehen am Anfang des Lernens; fortgeschrittene Lernende haben schon mehr Kenntnisse."
+          },
+          {
+            "id": "sitov.pretest.b12-08.words.q5",
+            "competencyId": "sitov.pretest.b12-08.words",
+            "kind": "single_choice",
+            "promptDe": "Wer sind Fortgeschrittene in einem Sprachkurs?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.words.q5.b",
+                "textDe": "Lernende, die noch überhaupt nicht angefangen haben."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q5.a",
+                "textDe": "Lernende, deren Kurs nur wegen der Uhrzeit später beginnt."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q5.c",
+                "textDe": "Lernende, die bereits über grundlegende Kenntnisse hinaus sind."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.words.q5.c",
+            "assessmentUnit": "Fortgeschrittene vorhandene Kenntnisse",
+            "equivalenceKey": "sitov:b12-08:words:5",
+            "sourceSpans": [
+              {
+                "start": 350,
+                "end": 366,
+                "quote": "Fortgeschrittene"
+              }
+            ],
+            "rationaleDe": "Fortgeschritten bezeichnet den Lernstand, nicht die Uhrzeit."
+          },
+          {
+            "id": "sitov.pretest.b12-08.words.q6",
+            "competencyId": "sitov.pretest.b12-08.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet Bewertungen geben mir eine erste Orientierung?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.words.q6.c",
+                "textDe": "Sie treffen die endgültige Entscheidung ohne mich."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q6.b",
+                "textDe": "Sie helfen mir, Möglichkeiten zunächst einzuschätzen."
+              },
+              {
+                "id": "sitov.pretest.b12-08.words.q6.a",
+                "textDe": "Sie garantieren, dass alle Angebote gleich gut sind."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.words.q6.b",
+            "assessmentUnit": "Orientierung erste Entscheidungshilfe",
+            "equivalenceKey": "sitov:b12-08:words:6",
+            "sourceSpans": [
+              {
+                "start": 590,
+                "end": 602,
+                "quote": "Orientierung"
+              }
+            ],
+            "rationaleDe": "Orientierung ist eine erste Hilfe beim Einschätzen, keine Garantie oder endgültige Entscheidung."
+          },
+          {
+            "id": "sitov.pretest.b12-08.verbs.q1",
+            "competencyId": "sitov.pretest.b12-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »buchen« steht am Ende von »bevor ich einen Kurs«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.verbs.q1.c",
+                "textDe": "buche"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q1.a",
+                "textDe": "bucht"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q1.b",
+                "textDe": "buchen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.verbs.q1.c",
+            "assessmentUnit": "buche Präsens erste Singular",
+            "equivalenceKey": "sitov:b12-08:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 6,
+                "end": 26,
+                "quote": "ich einen Kurs buche"
+              }
+            ],
+            "rationaleDe": "Das Subjekt ich verlangt die erste Person Singular buche."
+          },
+          {
+            "id": "sitov.pretest.b12-08.verbs.q2",
+            "competencyId": "sitov.pretest.b12-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Reflexivform passt zwischen »Angebote können« und »verändern«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.verbs.q2.a",
+                "textDe": "uns"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q2.b",
+                "textDe": "mich"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q2.c",
+                "textDe": "sich"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.verbs.q2.c",
+            "assessmentUnit": "sich Reflexivform dritte Plural",
+            "equivalenceKey": "sitov:b12-08:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 423,
+                "end": 453,
+                "quote": "Angebote können sich verändern"
+              }
+            ],
+            "rationaleDe": "Das Subjekt Angebote verlangt in der dritten Person die Reflexivform sich."
+          },
+          {
+            "id": "sitov.pretest.b12-08.verbs.q3",
+            "competencyId": "sitov.pretest.b12-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Partizipform von »orientieren« steht nach »Ich habe mich an Sternen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.verbs.q3.b",
+                "textDe": "orientierte"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q3.c",
+                "textDe": "orientieren"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q3.a",
+                "textDe": "orientiert"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.verbs.q3.a",
+            "assessmentUnit": "orientiert reflexives Perfekt",
+            "equivalenceKey": "sitov:b12-08:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 97,
+                "end": 154,
+                "quote": "habe ich mich vor allem an der Zahl der Sterne orientiert"
+              }
+            ],
+            "rationaleDe": "Das Perfekt verwendet orientiert; Verben auf ieren bilden dieses Partizip ohne ge."
+          },
+          {
+            "id": "sitov.pretest.b12-08.verbs.q4",
+            "competencyId": "sitov.pretest.b12-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »beschreiben« passt nach »jemand« vor »Erfahrungen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.verbs.q4.c",
+                "textDe": "beschreiben"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q4.b",
+                "textDe": "beschreibt"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q4.a",
+                "textDe": "beschreibst"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.verbs.q4.b",
+            "assessmentUnit": "beschreibt dritte Singular",
+            "equivalenceKey": "sitov:b12-08:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 208,
+                "end": 246,
+                "quote": "jemand konkrete Erfahrungen beschreibt"
+              }
+            ],
+            "rationaleDe": "Jemand bezeichnet hier ein singularisches Subjekt; die Verbform lautet beschreibt."
+          },
+          {
+            "id": "sitov.pretest.b12-08.verbs.q5",
+            "competencyId": "sitov.pretest.b12-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »verändern« folgt auf »Angebote können sich«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.verbs.q5.c",
+                "textDe": "veränderten"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q5.a",
+                "textDe": "verändern"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q5.b",
+                "textDe": "verändert"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.verbs.q5.a",
+            "assessmentUnit": "verändern Infinitiv nach Modal",
+            "equivalenceKey": "sitov:b12-08:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 423,
+                "end": 453,
+                "quote": "Angebote können sich verändern"
+              }
+            ],
+            "rationaleDe": "Nach können steht der reine Infinitiv verändern."
+          },
+          {
+            "id": "sitov.pretest.b12-08.verbs.q6",
+            "competencyId": "sitov.pretest.b12-08.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »nachfragen« steht zwischen »Ich« und »beim Anbieter nach«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.verbs.q6.b",
+                "textDe": "frage"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q6.a",
+                "textDe": "fragt"
+              },
+              {
+                "id": "sitov.pretest.b12-08.verbs.q6.c",
+                "textDe": "fragen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.verbs.q6.b",
+            "assessmentUnit": "nachfragen trennbare Präsensform",
+            "equivalenceKey": "sitov:b12-08:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 681,
+                "end": 712,
+                "quote": "frage direkt beim Anbieter nach"
+              }
+            ],
+            "rationaleDe": "Das trennbare Verb nachfragen hat hier die finite Form frage und die getrennte Partikel nach."
+          },
+          {
+            "id": "sitov.pretest.b12-08.syntax.q1",
+            "competencyId": "sitov.pretest.b12-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Bevor ich einen Kurs buche, lese ich Bewertungen. Was geschieht zuerst?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.syntax.q1.a",
+                "textDe": "Ich buche den Kurs."
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q1.c",
+                "textDe": "Ich lese die Bewertungen."
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q1.b",
+                "textDe": "Beide Handlungen müssen gleichzeitig stattfinden."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.syntax.q1.c",
+            "assessmentUnit": "bevor zeitliche Reihenfolge",
+            "equivalenceKey": "sitov:b12-08:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 0,
+                "end": 26,
+                "quote": "Bevor ich einen Kurs buche"
+              }
+            ],
+            "rationaleDe": "Bevor ordnet das Lesen zeitlich vor der Buchung ein."
+          },
+          {
+            "id": "sitov.pretest.b12-08.syntax.q2",
+            "competencyId": "sitov.pretest.b12-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge folgt auf »Mich interessiert, ob«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.syntax.q2.a",
+                "textDe": "beschreibt jemand konkrete Erfahrungen"
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q2.c",
+                "textDe": "jemand konkrete Erfahrungen beschreiben"
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q2.b",
+                "textDe": "jemand konkrete Erfahrungen beschreibt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.syntax.q2.b",
+            "assessmentUnit": "ob indirekte Entscheidungsfrage",
+            "equivalenceKey": "sitov:b12-08:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 205,
+                "end": 246,
+                "quote": "ob jemand konkrete Erfahrungen beschreibt"
+              }
+            ],
+            "rationaleDe": "Im ob-Nebensatz steht beschreibt am Ende; jemand verlangt Singular."
+          },
+          {
+            "id": "sitov.pretest.b12-08.syntax.q3",
+            "competencyId": "sitov.pretest.b12-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge ergänzt nach »denn« einen begründenden Hauptsatz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.syntax.q3.a",
+                "textDe": "Angebote können sich verändern"
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q3.c",
+                "textDe": "Angebote kann sich verändern"
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q3.b",
+                "textDe": "Angebote sich verändern können"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.syntax.q3.a",
+            "assessmentUnit": "denn kausale Hauptsatzstellung",
+            "equivalenceKey": "sitov:b12-08:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 418,
+                "end": 453,
+                "quote": "denn Angebote können sich verändern"
+              }
+            ],
+            "rationaleDe": "Nach denn bleibt die Hauptsatzstellung mit dem finiten können an zweiter Stelle."
+          },
+          {
+            "id": "sitov.pretest.b12-08.syntax.q4",
+            "competencyId": "sitov.pretest.b12-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Wenn eine Entscheidung wichtig ist, suche ich weitere Informationen. Welche Beziehung besteht?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.syntax.q4.b",
+                "textDe": "Eine wichtige Entscheidung ist der Anlass für die weitere Suche."
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q4.c",
+                "textDe": "Die Suche hat den Zweck, jede Entscheidung unwichtig zu machen."
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q4.a",
+                "textDe": "Die Suche setzt voraus, dass die Entscheidung unwichtig ist."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.syntax.q4.b",
+            "assessmentUnit": "wenn Bedingung Entscheidung",
+            "equivalenceKey": "sitov:b12-08:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 604,
+                "end": 638,
+                "quote": "Wenn eine Entscheidung wichtig ist"
+              }
+            ],
+            "rationaleDe": "Wenn nennt den Fall, in dem weitere Informationen gesucht werden."
+          },
+          {
+            "id": "sitov.pretest.b12-08.syntax.q5",
+            "competencyId": "sitov.pretest.b12-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Kommentare entscheiden deshalb nicht allein über meine Wahl. Was drückt deshalb aus?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.syntax.q5.b",
+                "textDe": "Eine Bedingung, die noch erfüllt werden muss."
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q5.a",
+                "textDe": "Eine Folge der zuvor genannten Gründe."
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q5.c",
+                "textDe": "Eine zeitliche Handlung vor allen Gründen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.syntax.q5.a",
+            "assessmentUnit": "deshalb Folge Wahl",
+            "equivalenceKey": "sitov:b12-08:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 503,
+                "end": 551,
+                "quote": "entscheiden deshalb nicht allein über meine Wahl"
+              }
+            ],
+            "rationaleDe": "Deshalb verweist auf Gründe und kennzeichnet deren Folge."
+          },
+          {
+            "id": "sitov.pretest.b12-08.syntax.q6",
+            "competencyId": "sitov.pretest.b12-08.syntax",
+            "kind": "single_choice",
+            "promptDe": "Heute schaue ich genauer hin als früher. Welche Steigerungsform hat »genau« hier?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.syntax.q6.a",
+                "textDe": "Positiv."
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q6.b",
+                "textDe": "Superlativ."
+              },
+              {
+                "id": "sitov.pretest.b12-08.syntax.q6.c",
+                "textDe": "Komparativ."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.syntax.q6.c",
+            "assessmentUnit": "genauer Komparativ Adverb",
+            "equivalenceKey": "sitov:b12-08:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 173,
+                "end": 180,
+                "quote": "genauer"
+              }
+            ],
+            "rationaleDe": "Genauer ist die Komparativform von genau."
+          },
+          {
+            "id": "sitov.pretest.b12-08.nominal.q1",
+            "competencyId": "sitov.pretest.b12-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Akkusativ Singular passt nach »Ich buche«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.nominal.q1.c",
+                "textDe": "eines Kurses"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q1.b",
+                "textDe": "einen Kurs"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q1.a",
+                "textDe": "einem Kurs"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.nominal.q1.b",
+            "assessmentUnit": "einen Kurs Akkusativ maskulin",
+            "equivalenceKey": "sitov:b12-08:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 10,
+                "end": 20,
+                "quote": "einen Kurs"
+              }
+            ],
+            "rationaleDe": "Buchen hat hier ein direktes Objekt im Akkusativ: einen Kurs."
+          },
+          {
+            "id": "sitov.pretest.b12-08.nominal.q2",
+            "competencyId": "sitov.pretest.b12-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Genitiv Plural ergänzt »die Zahl« mit »Sterne«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.nominal.q2.c",
+                "textDe": "der Sterne"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q2.a",
+                "textDe": "den Sternen"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q2.b",
+                "textDe": "die Sterne"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.nominal.q2.c",
+            "assessmentUnit": "der Sterne Genitiv Plural",
+            "equivalenceKey": "sitov:b12-08:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 124,
+                "end": 143,
+                "quote": "der Zahl der Sterne"
+              }
+            ],
+            "rationaleDe": "Der Genitiv benennt, wovon die Zahl angegeben wird: der Sterne."
+          },
+          {
+            "id": "sitov.pretest.b12-08.nominal.q3",
+            "competencyId": "sitov.pretest.b12-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Dativ Plural folgt auf »zu«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.nominal.q3.c",
+                "textDe": "meiner eigenen Erwartungen"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q3.a",
+                "textDe": "meinen eigenen Erwartungen"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q3.b",
+                "textDe": "meine eigenen Erwartungen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.nominal.q3.a",
+            "assessmentUnit": "meinen eigenen Erwartungen Dativ Plural",
+            "equivalenceKey": "sitov:b12-08:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 268,
+                "end": 297,
+                "quote": "zu meinen eigenen Erwartungen"
+              }
+            ],
+            "rationaleDe": "Zu verlangt Dativ Plural: meinen eigenen Erwartungen."
+          },
+          {
+            "id": "sitov.pretest.b12-08.nominal.q4",
+            "competencyId": "sitov.pretest.b12-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »Anfänger« steht ohne Artikel im Akkusativ Plural nach »für«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.nominal.q4.b",
+                "textDe": "Anfängern"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q4.c",
+                "textDe": "Anfängers"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q4.a",
+                "textDe": "Anfänger"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.nominal.q4.a",
+            "assessmentUnit": "Anfänger Akkusativ Plural ohne Artikel",
+            "equivalenceKey": "sitov:b12-08:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 319,
+                "end": 331,
+                "quote": "für Anfänger"
+              }
+            ],
+            "rationaleDe": "Für verlangt Akkusativ; der artikellose Plural lautet Anfänger."
+          },
+          {
+            "id": "sitov.pretest.b12-08.nominal.q5",
+            "competencyId": "sitov.pretest.b12-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »fortgeschritten« steht als Personenbezeichnung ohne Artikel im Akkusativ Plural nach »für«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.nominal.q5.c",
+                "textDe": "Fortgeschrittener"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q5.a",
+                "textDe": "Fortgeschrittenen"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q5.b",
+                "textDe": "Fortgeschrittene"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.nominal.q5.b",
+            "assessmentUnit": "Fortgeschrittene substantiviertes Adjektiv",
+            "equivalenceKey": "sitov:b12-08:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 346,
+                "end": 366,
+                "quote": "für Fortgeschrittene"
+              }
+            ],
+            "rationaleDe": "Das substantivierte Adjektiv trägt ohne Artikel im Akkusativ Plural die Endung e."
+          },
+          {
+            "id": "sitov.pretest.b12-08.nominal.q6",
+            "competencyId": "sitov.pretest.b12-08.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Dativ Singular von »der Anbieter« folgt auf »bei«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-08.nominal.q6.c",
+                "textDe": "dem Anbieter"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q6.a",
+                "textDe": "des Anbieters"
+              },
+              {
+                "id": "sitov.pretest.b12-08.nominal.q6.b",
+                "textDe": "den Anbieter"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-08.nominal.q6.c",
+            "assessmentUnit": "beim Anbieter verschmolzener Dativ",
+            "equivalenceKey": "sitov:b12-08:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 694,
+                "end": 707,
+                "quote": "beim Anbieter"
+              }
+            ],
+            "rationaleDe": "Bei verlangt Dativ; die Gruppe lautet dem Anbieter. Bei dem kann zu beim verschmolzen werden."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.b12-08.a",
+            "questionIds": [
+              "sitov.pretest.b12-08.words.q1",
+              "sitov.pretest.b12-08.words.q2",
+              "sitov.pretest.b12-08.words.q3",
+              "sitov.pretest.b12-08.verbs.q1",
+              "sitov.pretest.b12-08.verbs.q2",
+              "sitov.pretest.b12-08.verbs.q3",
+              "sitov.pretest.b12-08.syntax.q1",
+              "sitov.pretest.b12-08.syntax.q2",
+              "sitov.pretest.b12-08.syntax.q3",
+              "sitov.pretest.b12-08.nominal.q1",
+              "sitov.pretest.b12-08.nominal.q2",
+              "sitov.pretest.b12-08.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.b12-08.b",
+            "questionIds": [
+              "sitov.pretest.b12-08.words.q4",
+              "sitov.pretest.b12-08.words.q5",
+              "sitov.pretest.b12-08.words.q6",
+              "sitov.pretest.b12-08.verbs.q4",
+              "sitov.pretest.b12-08.verbs.q5",
+              "sitov.pretest.b12-08.verbs.q6",
+              "sitov.pretest.b12-08.syntax.q4",
+              "sitov.pretest.b12-08.syntax.q5",
+              "sitov.pretest.b12-08.syntax.q6",
+              "sitov.pretest.b12-08.nominal.q4",
+              "sitov.pretest.b12-08.nominal.q5",
+              "sitov.pretest.b12-08.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "8cf76d58-8428-59ef-b449-4301051413ba",
+      "unitId": "8cf76d58-8428-59ef-b449-4301051413ba",
+      "level": "B1.2",
+      "textVersion": "11b17419c05951456cecfa3a95c9975a856189a34dfcca6d94b900bca0ecab3c",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "11b17419c05951456cecfa3a95c9975a856189a34dfcca6d94b900bca0ecab3c",
+        "definitionContentHash": "10cde53b35d5778bd28e3497122e14c6c597a26764d4632f0d89d0e796e7260e"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.b12-09.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Bordsteinkante Rand zwischen Wegen",
+              "Hindernisse erschweren Weg",
+              "ungefragt ohne Nachfrage",
+              "zugänglich erreichbar nutzbar",
+              "Absichten beabsichtigte Ziele",
+              "Verbesserungen konkrete Änderungen"
+            ],
+            "sourceSpans": [
+              {
+                "start": 263,
+                "end": 277,
+                "quote": "Bordsteinkante"
+              },
+              {
+                "start": 221,
+                "end": 232,
+                "quote": "Hindernisse"
+              },
+              {
+                "start": 459,
+                "end": 468,
+                "quote": "ungefragt"
+              },
+              {
+                "start": 605,
+                "end": 615,
+                "quote": "zugänglich"
+              },
+              {
+                "start": 627,
+                "end": 636,
+                "quote": "Absichten"
+              },
+              {
+                "start": 671,
+                "end": 685,
+                "quote": "Verbesserungen"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Bordsteinkante Rand zwischen Wegen, Hindernisse erschweren Weg, ungefragt ohne Nachfrage, zugänglich erreichbar nutzbar, Absichten beabsichtigte Ziele, Verbesserungen konkrete Änderungen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b12-09.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "gemacht Perfekt Partizip",
+              "wollten Präteritum Modal Plural",
+              "fiel auffallen Präteritum",
+              "übersehen untrennbarer Infinitiv",
+              "übernehme Präsens erste Singular",
+              "verändert Partizip ohne ge"
+            ],
+            "sourceSpans": [
+              {
+                "start": 11,
+                "end": 65,
+                "quote": "habe ich einen Spaziergang mit einem Bekannten gemacht"
+              },
+              {
+                "start": 96,
+                "end": 107,
+                "quote": "Wir wollten"
+              },
+              {
+                "start": 190,
+                "end": 202,
+                "quote": "fiel mir auf"
+              },
+              {
+                "start": 233,
+                "end": 251,
+                "quote": "ich sonst übersehe"
+              },
+              {
+                "start": 449,
+                "end": 486,
+                "quote": "ich alles ungefragt für ihn übernehme"
+              },
+              {
+                "start": 503,
+                "end": 543,
+                "quote": "hat meinen Blick auf die Stadt verändert"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: gemacht Perfekt Partizip, wollten Präteritum Modal Plural, fiel auffallen Präteritum, übersehen untrennbarer Infinitiv, übernehme Präsens erste Singular, verändert Partizip ohne ge. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b12-09.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "der Relativsatz Bekannter",
+              "wie viele indirekte Menge",
+              "welche indirekte Auswahlfrage",
+              "dass Übernahme verneint",
+              "ob Zugang indirekte Frage",
+              "stärker Vergleich Aufmerksamkeit"
+            ],
+            "sourceSpans": [
+              {
+                "start": 67,
+                "end": 94,
+                "quote": "der einen Rollstuhl benutzt"
+              },
+              {
+                "start": 204,
+                "end": 251,
+                "quote": "wie viele kleine Hindernisse ich sonst übersehe"
+              },
+              {
+                "start": 359,
+                "end": 388,
+                "quote": "welche Wege gut funktionieren"
+              },
+              {
+                "start": 444,
+                "end": 486,
+                "quote": "dass ich alles ungefragt für ihn übernehme"
+              },
+              {
+                "start": 579,
+                "end": 620,
+                "quote": "ob Orte wirklich für alle zugänglich sind"
+              },
+              {
+                "start": 563,
+                "end": 570,
+                "quote": "stärker"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: der Relativsatz Bekannter, wie viele indirekte Menge, welche indirekte Auswahlfrage, dass Übernahme verneint, ob Zugang indirekte Frage, stärker Vergleich Aufmerksamkeit. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b12-09.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "einem Bekannten substantiviertes Adjektiv Dativ",
+              "einen Rollstuhl Akkusativ maskulin",
+              "die Bibliothek Richtung Akkusativ",
+              "dem Gehweg Ort Dativ",
+              "ihn Akkusativ Personalpronomen",
+              "alle Akkusativ Plural Personengruppe"
+            ],
+            "sourceSpans": [
+              {
+                "start": 38,
+                "end": 57,
+                "quote": "mit einem Bekannten"
+              },
+              {
+                "start": 71,
+                "end": 86,
+                "quote": "einen Rollstuhl"
+              },
+              {
+                "start": 147,
+                "end": 170,
+                "quote": "in die Bibliothek gehen"
+              },
+              {
+                "start": 289,
+                "end": 303,
+                "quote": "auf dem Gehweg"
+              },
+              {
+                "start": 469,
+                "end": 476,
+                "quote": "für ihn"
+              },
+              {
+                "start": 596,
+                "end": 604,
+                "quote": "für alle"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: einem Bekannten substantiviertes Adjektiv Dativ, einen Rollstuhl Akkusativ maskulin, die Bibliothek Richtung Akkusativ, dem Gehweg Ort Dativ, ihn Akkusativ Personalpronomen, alle Akkusativ Plural Personengruppe. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [],
+        "tasks": [
+          {
+            "id": "sitov.pretest.b12-09.words.q1",
+            "competencyId": "sitov.pretest.b12-09.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine Bordsteinkante?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.words.q1.b",
+                "textDe": "Die waagerechte Sitzfläche einer Straßenbank."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q1.c",
+                "textDe": "Der erhöhte Rand zwischen Gehweg und Fahrbahn."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q1.a",
+                "textDe": "Eine Markierung ohne Höhenunterschied mitten auf der Fahrbahn."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.words.q1.c",
+            "assessmentUnit": "Bordsteinkante Rand zwischen Wegen",
+            "equivalenceKey": "sitov:b12-09:words:1",
+            "sourceSpans": [
+              {
+                "start": 263,
+                "end": 277,
+                "quote": "Bordsteinkante"
+              }
+            ],
+            "rationaleDe": "Eine Bordsteinkante bildet einen erhöhten Rand und kann deshalb ein Hindernis sein."
+          },
+          {
+            "id": "sitov.pretest.b12-09.words.q2",
+            "competencyId": "sitov.pretest.b12-09.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind Hindernisse auf einem Weg?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.words.q2.a",
+                "textDe": "Dinge, die das Weiterkommen erschweren."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q2.c",
+                "textDe": "Nur Angaben darüber, wann man losgeht."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q2.b",
+                "textDe": "Hilfen, die das Weiterkommen erleichtern."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.words.q2.a",
+            "assessmentUnit": "Hindernisse erschweren Weg",
+            "equivalenceKey": "sitov:b12-09:words:2",
+            "sourceSpans": [
+              {
+                "start": 221,
+                "end": 232,
+                "quote": "Hindernisse"
+              }
+            ],
+            "rationaleDe": "Hindernisse behindern den Weg; Hilfen und Zeitangaben haben andere Funktionen."
+          },
+          {
+            "id": "sitov.pretest.b12-09.words.q3",
+            "competencyId": "sitov.pretest.b12-09.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet ich übernehme etwas ungefragt?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.words.q3.b",
+                "textDe": "Ich handle, ohne vorher nachzufragen."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q3.a",
+                "textDe": "Ich frage zuerst, ob die Handlung gewünscht ist."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q3.c",
+                "textDe": "Ich handle erst nach einer ausdrücklichen Bitte."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.words.q3.b",
+            "assessmentUnit": "ungefragt ohne Nachfrage",
+            "equivalenceKey": "sitov:b12-09:words:3",
+            "sourceSpans": [
+              {
+                "start": 459,
+                "end": 468,
+                "quote": "ungefragt"
+              }
+            ],
+            "rationaleDe": "Ungefragt bedeutet ohne vorherige Frage oder Bitte."
+          },
+          {
+            "id": "sitov.pretest.b12-09.words.q4",
+            "competencyId": "sitov.pretest.b12-09.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet ein Ort ist für alle zugänglich?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.words.q4.c",
+                "textDe": "Nur ausgewählte Personen dürfen oder können hinein."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q4.a",
+                "textDe": "Der Ort ist für alle sichtbar, aber niemand kann hinein."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q4.b",
+                "textDe": "Alle können den Ort erreichen und betreten."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.words.q4.b",
+            "assessmentUnit": "zugänglich erreichbar nutzbar",
+            "equivalenceKey": "sitov:b12-09:words:4",
+            "sourceSpans": [
+              {
+                "start": 605,
+                "end": 615,
+                "quote": "zugänglich"
+              }
+            ],
+            "rationaleDe": "Zugänglich betrifft den tatsächlichen Zugang, nicht allein Sichtbarkeit."
+          },
+          {
+            "id": "sitov.pretest.b12-09.words.q5",
+            "competencyId": "sitov.pretest.b12-09.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind gute Absichten?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.words.q5.b",
+                "textDe": "Ausschließlich zufällige Wirkungen ohne geplantes Ziel."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q5.a",
+                "textDe": "Bereits sicher gemessene gute Ergebnisse jeder Handlung."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q5.c",
+                "textDe": "Gute Ziele, die jemand mit seinem Handeln verfolgt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.words.q5.c",
+            "assessmentUnit": "Absichten beabsichtigte Ziele",
+            "equivalenceKey": "sitov:b12-09:words:5",
+            "sourceSpans": [
+              {
+                "start": 627,
+                "end": 636,
+                "quote": "Absichten"
+              }
+            ],
+            "rationaleDe": "Absichten sind beabsichtigte Ziele; sie garantieren noch kein Ergebnis."
+          },
+          {
+            "id": "sitov.pretest.b12-09.words.q6",
+            "competencyId": "sitov.pretest.b12-09.words",
+            "kind": "single_choice",
+            "promptDe": "Was sind konkrete Verbesserungen für einen Zugang?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.words.q6.b",
+                "textDe": "Nur gute Wünsche ohne Änderung am Zugang."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q6.a",
+                "textDe": "Bestimmte Änderungen, die den Zugang leichter machen."
+              },
+              {
+                "id": "sitov.pretest.b12-09.words.q6.c",
+                "textDe": "Nur unveränderte Beschreibungen des bisherigen Zugangs."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.words.q6.a",
+            "assessmentUnit": "Verbesserungen konkrete Änderungen",
+            "equivalenceKey": "sitov:b12-09:words:6",
+            "sourceSpans": [
+              {
+                "start": 671,
+                "end": 685,
+                "quote": "Verbesserungen"
+              }
+            ],
+            "rationaleDe": "Verbesserungen verändern die Situation zum Besseren."
+          },
+          {
+            "id": "sitov.pretest.b12-09.verbs.q1",
+            "competencyId": "sitov.pretest.b12-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Partizipform von »machen« folgt auf »Ich habe einen Spaziergang«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.verbs.q1.b",
+                "textDe": "gemacht"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q1.a",
+                "textDe": "machte"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q1.c",
+                "textDe": "machen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.verbs.q1.b",
+            "assessmentUnit": "gemacht Perfekt Partizip",
+            "equivalenceKey": "sitov:b12-09:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 11,
+                "end": 65,
+                "quote": "habe ich einen Spaziergang mit einem Bekannten gemacht"
+              }
+            ],
+            "rationaleDe": "Das Perfekt besteht hier aus habe und gemacht."
+          },
+          {
+            "id": "sitov.pretest.b12-09.verbs.q2",
+            "competencyId": "sitov.pretest.b12-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präteritumform von »wollen« passt nach »Wir«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.verbs.q2.b",
+                "textDe": "wollte"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q2.a",
+                "textDe": "wollten"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q2.c",
+                "textDe": "wollen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.verbs.q2.a",
+            "assessmentUnit": "wollten Präteritum Modal Plural",
+            "equivalenceKey": "sitov:b12-09:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 96,
+                "end": 107,
+                "quote": "Wir wollten"
+              }
+            ],
+            "rationaleDe": "Wir verlangt die pluralische Präteritumform wollten."
+          },
+          {
+            "id": "sitov.pretest.b12-09.verbs.q3",
+            "competencyId": "sitov.pretest.b12-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präteritumform von »auffallen« steht zwischen »Das Hindernis« und »mir auf«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.verbs.q3.a",
+                "textDe": "fielen"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q3.b",
+                "textDe": "fällt"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q3.c",
+                "textDe": "fiel"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.verbs.q3.c",
+            "assessmentUnit": "fiel auffallen Präteritum",
+            "equivalenceKey": "sitov:b12-09:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 190,
+                "end": 202,
+                "quote": "fiel mir auf"
+              }
+            ],
+            "rationaleDe": "Auffallen bildet das Präteritum fiel auf; das singularische Subjekt verlangt fiel."
+          },
+          {
+            "id": "sitov.pretest.b12-09.verbs.q4",
+            "competencyId": "sitov.pretest.b12-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Wie lautet der reine Infinitiv zur Form »ich übersehe« im Sinn von nicht bemerken?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.verbs.q4.c",
+                "textDe": "übersehen"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q4.a",
+                "textDe": "übersehend"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q4.b",
+                "textDe": "übersehe"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.verbs.q4.c",
+            "assessmentUnit": "übersehen untrennbarer Infinitiv",
+            "equivalenceKey": "sitov:b12-09:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 233,
+                "end": 251,
+                "quote": "ich sonst übersehe"
+              }
+            ],
+            "rationaleDe": "Das untrennbare Verb lautet im reinen Infinitiv übersehen; übersehe ist finit."
+          },
+          {
+            "id": "sitov.pretest.b12-09.verbs.q5",
+            "competencyId": "sitov.pretest.b12-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »übernehmen« passt zum Subjekt »ich«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.verbs.q5.b",
+                "textDe": "übernehmen"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q5.c",
+                "textDe": "übernimmt"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q5.a",
+                "textDe": "übernehme"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.verbs.q5.a",
+            "assessmentUnit": "übernehme Präsens erste Singular",
+            "equivalenceKey": "sitov:b12-09:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 449,
+                "end": 486,
+                "quote": "ich alles ungefragt für ihn übernehme"
+              }
+            ],
+            "rationaleDe": "Die erste Person Singular lautet übernehme; übernimmt gehört zu er oder sie."
+          },
+          {
+            "id": "sitov.pretest.b12-09.verbs.q6",
+            "competencyId": "sitov.pretest.b12-09.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Partizipform von »verändern« folgt auf »Der Nachmittag hat meinen Blick«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.verbs.q6.c",
+                "textDe": "veränderte"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q6.b",
+                "textDe": "verändert"
+              },
+              {
+                "id": "sitov.pretest.b12-09.verbs.q6.a",
+                "textDe": "verändern"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.verbs.q6.b",
+            "assessmentUnit": "verändert Partizip ohne ge",
+            "equivalenceKey": "sitov:b12-09:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 503,
+                "end": 543,
+                "quote": "hat meinen Blick auf die Stadt verändert"
+              }
+            ],
+            "rationaleDe": "Das Partizip des Verbs mit ver lautet verändert."
+          },
+          {
+            "id": "sitov.pretest.b12-09.syntax.q1",
+            "competencyId": "sitov.pretest.b12-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Ein Bekannter benutzt einen Rollstuhl. Welche Wortfolge ergänzt nach »ein Bekannter« einen Relativsatz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.syntax.q1.c",
+                "textDe": "der einen Rollstuhl benutzt"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q1.b",
+                "textDe": "der einen Rollstuhl benutzen"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q1.a",
+                "textDe": "der benutzt einen Rollstuhl"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.syntax.q1.c",
+            "assessmentUnit": "der Relativsatz Bekannter",
+            "equivalenceKey": "sitov:b12-09:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 67,
+                "end": 94,
+                "quote": "der einen Rollstuhl benutzt"
+              }
+            ],
+            "rationaleDe": "Der Relativsatz hat benutzt am Ende und bezieht sich auf den singularischen Bekannten."
+          },
+          {
+            "id": "sitov.pretest.b12-09.syntax.q2",
+            "competencyId": "sitov.pretest.b12-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge folgt auf »Mir fiel auf, wie viele kleine Hindernisse«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.syntax.q2.c",
+                "textDe": "ich sonst übersehen"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q2.b",
+                "textDe": "ich sonst übersehe"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q2.a",
+                "textDe": "übersehe ich sonst"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.syntax.q2.b",
+            "assessmentUnit": "wie viele indirekte Menge",
+            "equivalenceKey": "sitov:b12-09:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 204,
+                "end": 251,
+                "quote": "wie viele kleine Hindernisse ich sonst übersehe"
+              }
+            ],
+            "rationaleDe": "Im indirekten Satz steht übersehe am Ende; ich verlangt die erste Person Singular."
+          },
+          {
+            "id": "sitov.pretest.b12-09.syntax.q3",
+            "competencyId": "sitov.pretest.b12-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge setzt »Er erklärte« als indirekte Welche-Frage fort?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.syntax.q3.b",
+                "textDe": "welche Wege funktioniert gut"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q3.a",
+                "textDe": "welche Wege gut funktionieren"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q3.c",
+                "textDe": "welche funktionieren Wege gut"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.syntax.q3.a",
+            "assessmentUnit": "welche indirekte Auswahlfrage",
+            "equivalenceKey": "sitov:b12-09:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 359,
+                "end": 388,
+                "quote": "welche Wege gut funktionieren"
+              }
+            ],
+            "rationaleDe": "Der indirekte Fragesatz hat das finite funktionieren am Ende; Wege ist Plural."
+          },
+          {
+            "id": "sitov.pretest.b12-09.syntax.q4",
+            "competencyId": "sitov.pretest.b12-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge folgt auf »Er wollte nicht, dass«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.syntax.q4.b",
+                "textDe": "ich alles ungefragt für ihn übernehme"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q4.c",
+                "textDe": "übernehme ich alles ungefragt für ihn"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q4.a",
+                "textDe": "ich alles ungefragt für ihn übernimmt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.syntax.q4.b",
+            "assessmentUnit": "dass Übernahme verneint",
+            "equivalenceKey": "sitov:b12-09:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 444,
+                "end": 486,
+                "quote": "dass ich alles ungefragt für ihn übernehme"
+              }
+            ],
+            "rationaleDe": "Im dass-Satz steht übernehme am Ende; das Subjekt ich bestimmt die Form."
+          },
+          {
+            "id": "sitov.pretest.b12-09.syntax.q5",
+            "competencyId": "sitov.pretest.b12-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge folgt auf »Ich achte darauf, ob«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.syntax.q5.a",
+                "textDe": "Orte für alle zugänglich ist"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q5.b",
+                "textDe": "sind Orte für alle zugänglich"
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q5.c",
+                "textDe": "Orte für alle zugänglich sind"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.syntax.q5.c",
+            "assessmentUnit": "ob Zugang indirekte Frage",
+            "equivalenceKey": "sitov:b12-09:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 579,
+                "end": 620,
+                "quote": "ob Orte wirklich für alle zugänglich sind"
+              }
+            ],
+            "rationaleDe": "Im ob-Satz steht sind am Ende und stimmt mit dem Plural Orte überein."
+          },
+          {
+            "id": "sitov.pretest.b12-09.syntax.q6",
+            "competencyId": "sitov.pretest.b12-09.syntax",
+            "kind": "single_choice",
+            "promptDe": "Seitdem achte ich stärker auf Zugänge als früher. Welche Steigerungsform hat »stark« hier?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.syntax.q6.c",
+                "textDe": "Positiv."
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q6.b",
+                "textDe": "Superlativ."
+              },
+              {
+                "id": "sitov.pretest.b12-09.syntax.q6.a",
+                "textDe": "Komparativ."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.syntax.q6.a",
+            "assessmentUnit": "stärker Vergleich Aufmerksamkeit",
+            "equivalenceKey": "sitov:b12-09:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 563,
+                "end": 570,
+                "quote": "stärker"
+              }
+            ],
+            "rationaleDe": "Stärker ist die Komparativform von stark."
+          },
+          {
+            "id": "sitov.pretest.b12-09.nominal.q1",
+            "competencyId": "sitov.pretest.b12-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Dativ Singular folgt auf »mit« und bezeichnet einen bekannten Mann?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.nominal.q1.b",
+                "textDe": "einem Bekannten"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q1.a",
+                "textDe": "einen Bekannten"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q1.c",
+                "textDe": "eines Bekannten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.nominal.q1.b",
+            "assessmentUnit": "einem Bekannten substantiviertes Adjektiv Dativ",
+            "equivalenceKey": "sitov:b12-09:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 38,
+                "end": 57,
+                "quote": "mit einem Bekannten"
+              }
+            ],
+            "rationaleDe": "Mit verlangt Dativ; nach einem erhält das substantivierte Adjektiv die Endung en."
+          },
+          {
+            "id": "sitov.pretest.b12-09.nominal.q2",
+            "competencyId": "sitov.pretest.b12-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Akkusativ Singular passt nach »Er benutzt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.nominal.q2.b",
+                "textDe": "eines Rollstuhls"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q2.a",
+                "textDe": "einem Rollstuhl"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q2.c",
+                "textDe": "einen Rollstuhl"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.nominal.q2.c",
+            "assessmentUnit": "einen Rollstuhl Akkusativ maskulin",
+            "equivalenceKey": "sitov:b12-09:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 71,
+                "end": 86,
+                "quote": "einen Rollstuhl"
+              }
+            ],
+            "rationaleDe": "Benutzen hat hier ein direktes Akkusativobjekt: einen Rollstuhl."
+          },
+          {
+            "id": "sitov.pretest.b12-09.nominal.q3",
+            "competencyId": "sitov.pretest.b12-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ich gehe vom Café in das Gebäude der Bibliothek hinein. Welche Wortgruppe im Akkusativ Singular folgt auf »in«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.nominal.q3.b",
+                "textDe": "die Bibliothek"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q3.a",
+                "textDe": "der Bibliotheken"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q3.c",
+                "textDe": "der Bibliothek"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.nominal.q3.b",
+            "assessmentUnit": "die Bibliothek Richtung Akkusativ",
+            "equivalenceKey": "sitov:b12-09:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 147,
+                "end": 170,
+                "quote": "in die Bibliothek gehen"
+              }
+            ],
+            "rationaleDe": "Die gerichtete Bewegung in das Gebäude verlangt nach in den Akkusativ."
+          },
+          {
+            "id": "sitov.pretest.b12-09.nominal.q4",
+            "competencyId": "sitov.pretest.b12-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Die Fahrräder stehen an einem festen Ort. Welche Wortgruppe im Dativ Singular von »der Gehweg« folgt auf »auf«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.nominal.q4.c",
+                "textDe": "des Gehwegs"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q4.a",
+                "textDe": "dem Gehweg"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q4.b",
+                "textDe": "den Gehweg"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.nominal.q4.a",
+            "assessmentUnit": "dem Gehweg Ort Dativ",
+            "equivalenceKey": "sitov:b12-09:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 289,
+                "end": 303,
+                "quote": "auf dem Gehweg"
+              }
+            ],
+            "rationaleDe": "Der Standort verlangt Dativ: auf dem Gehweg."
+          },
+          {
+            "id": "sitov.pretest.b12-09.nominal.q5",
+            "competencyId": "sitov.pretest.b12-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ein männlicher Bekannter ist gemeint. Welches Personalpronomen im Akkusativ folgt auf »für«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.nominal.q5.c",
+                "textDe": "ihm"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q5.b",
+                "textDe": "er"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q5.a",
+                "textDe": "ihn"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.nominal.q5.a",
+            "assessmentUnit": "ihn Akkusativ Personalpronomen",
+            "equivalenceKey": "sitov:b12-09:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 469,
+                "end": 476,
+                "quote": "für ihn"
+              }
+            ],
+            "rationaleDe": "Für verlangt Akkusativ; für den männlichen Bekannten lautet das Pronomen ihn."
+          },
+          {
+            "id": "sitov.pretest.b12-09.nominal.q6",
+            "competencyId": "sitov.pretest.b12-09.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »alle« steht als Personenbezeichnung im Akkusativ Plural nach »für«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-09.nominal.q6.a",
+                "textDe": "aller"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q6.c",
+                "textDe": "alle"
+              },
+              {
+                "id": "sitov.pretest.b12-09.nominal.q6.b",
+                "textDe": "allen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-09.nominal.q6.c",
+            "assessmentUnit": "alle Akkusativ Plural Personengruppe",
+            "equivalenceKey": "sitov:b12-09:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 596,
+                "end": 604,
+                "quote": "für alle"
+              }
+            ],
+            "rationaleDe": "Für verlangt Akkusativ; die pluralische Form lautet alle."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.b12-09.a",
+            "questionIds": [
+              "sitov.pretest.b12-09.words.q1",
+              "sitov.pretest.b12-09.words.q2",
+              "sitov.pretest.b12-09.words.q3",
+              "sitov.pretest.b12-09.verbs.q1",
+              "sitov.pretest.b12-09.verbs.q2",
+              "sitov.pretest.b12-09.verbs.q3",
+              "sitov.pretest.b12-09.syntax.q1",
+              "sitov.pretest.b12-09.syntax.q2",
+              "sitov.pretest.b12-09.syntax.q3",
+              "sitov.pretest.b12-09.nominal.q1",
+              "sitov.pretest.b12-09.nominal.q2",
+              "sitov.pretest.b12-09.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.b12-09.b",
+            "questionIds": [
+              "sitov.pretest.b12-09.words.q4",
+              "sitov.pretest.b12-09.words.q5",
+              "sitov.pretest.b12-09.words.q6",
+              "sitov.pretest.b12-09.verbs.q4",
+              "sitov.pretest.b12-09.verbs.q5",
+              "sitov.pretest.b12-09.verbs.q6",
+              "sitov.pretest.b12-09.syntax.q4",
+              "sitov.pretest.b12-09.syntax.q5",
+              "sitov.pretest.b12-09.syntax.q6",
+              "sitov.pretest.b12-09.nominal.q4",
+              "sitov.pretest.b12-09.nominal.q5",
+              "sitov.pretest.b12-09.nominal.q6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "textId": "6e667abd-3011-597c-9cf9-0c20c2c30e2d",
+      "unitId": "6e667abd-3011-597c-9cf9-0c20c2c30e2d",
+      "level": "B1.2",
+      "textVersion": "4dadb55d852f8f3d18d93552ecee032215bb3f36ecf5cc7542cb0fcd19457e4a",
+      "active": false,
+      "definitionVersion": "database_computes_sha256_of_jsonb_text_at_private_import",
+      "policy": {
+        "minimumPerCore": 3,
+        "coreFraction": "2/3",
+        "totalFraction": "3/4"
+      },
+      "review": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher kanonischer Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "4dadb55d852f8f3d18d93552ecee032215bb3f36ecf5cc7542cb0fcd19457e4a",
+        "definitionContentHash": "4d2e5ebb2b119a632971df58c637b1f0cfea985931bb378219ff41321d6d1ca7"
+      },
+      "definition": {
+        "policyId": "sitov-pronunciation-language-prerequisites-v1",
+        "competencies": [
+          {
+            "id": "sitov.pretest.b12-10.words",
+            "category": "vocabulary",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "Erfolg gelungenes Ziel",
+              "Prüfungsnote bewertetes Ergebnis",
+              "verständlich gut zu verstehen",
+              "Fortschritt Weiterentwicklung",
+              "Besprechung gemeinsames Erörtern",
+              "bedeutend wichtig"
+            ],
+            "sourceSpans": [
+              {
+                "start": 25,
+                "end": 31,
+                "quote": "Erfolg"
+              },
+              {
+                "start": 76,
+                "end": 88,
+                "quote": "Prüfungsnote"
+              },
+              {
+                "start": 153,
+                "end": 167,
+                "quote": "verständliches"
+              },
+              {
+                "start": 430,
+                "end": 441,
+                "quote": "Fortschritt"
+              },
+              {
+                "start": 601,
+                "end": 612,
+                "quote": "Besprechung"
+              },
+              {
+                "start": 697,
+                "end": 716,
+                "quote": "bedeutender Schritt"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Erfolg gelungenes Ziel, Prüfungsnote bewertetes Ergebnis, verständlich gut zu verstehen, Fortschritt Weiterentwicklung, Besprechung gemeinsames Erörtern, bedeutend wichtig. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b12-10.verbs",
+            "category": "verb_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "hätte Konjunktiv Vergangenheit",
+              "gemessen unregelmäßiges Partizip",
+              "nutzen Infinitiv Modal",
+              "vergleichen Infinitiv zu",
+              "mitbringen trennbarer Präsens",
+              "erklären Infinitiv Ziel"
+            ],
+            "sourceSpans": [
+              {
+                "start": 15,
+                "end": 31,
+                "quote": "hätte ich Erfolg"
+              },
+              {
+                "start": 89,
+                "end": 97,
+                "quote": "gemessen"
+              },
+              {
+                "start": 292,
+                "end": 327,
+                "quote": "die Sprache tatsächlich nutzen kann"
+              },
+              {
+                "start": 481,
+                "end": 495,
+                "quote": "zu vergleichen"
+              },
+              {
+                "start": 497,
+                "end": 532,
+                "quote": "Jeder bringt andere Erfahrungen mit"
+              },
+              {
+                "start": 613,
+                "end": 643,
+                "quote": "meine Meinung klar zu erklären"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: hätte Konjunktiv Vergangenheit, gemessen unregelmäßiges Partizip, nutzen Infinitiv Modal, vergleichen Infinitiv zu, mitbringen trennbarer Präsens, erklären Infinitiv Ziel. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b12-10.syntax",
+            "category": "syntax",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "heute V2 nach Zeitangabe",
+              "dass Modal Verbfinal",
+              "trotzdem Gegensatz Ziel Fortsetzen",
+              "mit dem pronominaler Rückbezug",
+              "Ziel Infinitivgruppe",
+              "aber Gegensatz klein wichtig"
+            ],
+            "sourceSpans": [
+              {
+                "start": 99,
+                "end": 114,
+                "quote": "Heute denke ich"
+              },
+              {
+                "start": 283,
+                "end": 327,
+                "quote": "dass ich die Sprache tatsächlich nutzen kann"
+              },
+              {
+                "start": 400,
+                "end": 421,
+                "quote": "Trotzdem versuche ich"
+              },
+              {
+                "start": 423,
+                "end": 495,
+                "quote": "meinen Fortschritt nicht ständig mit dem anderer Menschen zu vergleichen"
+              },
+              {
+                "start": 568,
+                "end": 643,
+                "quote": "Mein nächstes Ziel ist, in einer Besprechung meine Meinung klar zu erklären"
+              },
+              {
+                "start": 652,
+                "end": 716,
+                "quote": "ein kleines Ziel, aber für meinen Alltag ein bedeutender Schritt"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: heute V2 nach Zeitangabe, dass Modal Verbfinal, trotzdem Gegensatz Ziel Fortsetzen, mit dem pronominaler Rückbezug, Ziel Infinitivgruppe, aber Gegensatz klein wichtig. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          },
+          {
+            "id": "sitov.pretest.b12-10.nominal",
+            "category": "nominal_forms",
+            "itemsPerAttempt": 3,
+            "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+            "languageUnits": [
+              "einer guten Prüfungsnote Dativ Maßstab",
+              "meines Sohnes Genitiv maskulin",
+              "anderer Menschen Genitiv Plural",
+              "einer Besprechung Ort Dativ",
+              "meinen Alltag Akkusativ maskulin",
+              "nächstes Superlativ nächstes Ziel"
+            ],
+            "sourceSpans": [
+              {
+                "start": 61,
+                "end": 88,
+                "quote": "an einer guten Prüfungsnote"
+              },
+              {
+                "start": 207,
+                "end": 220,
+                "quote": "meines Sohnes"
+              },
+              {
+                "start": 464,
+                "end": 480,
+                "quote": "anderer Menschen"
+              },
+              {
+                "start": 592,
+                "end": 612,
+                "quote": "in einer Besprechung"
+              },
+              {
+                "start": 675,
+                "end": 692,
+                "quote": "für meinen Alltag"
+              },
+              {
+                "start": 568,
+                "end": 586,
+                "quote": "Mein nächstes Ziel"
+              }
+            ],
+            "mapping": {
+              "topicIds": [],
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: einer guten Prüfungsnote Dativ Maßstab, meines Sohnes Genitiv maskulin, anderer Menschen Genitiv Plural, einer Besprechung Ort Dativ, meinen Alltag Akkusativ maskulin, nächstes Superlativ nächstes Ziel. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+            }
+          }
+        ],
+        "omittedCategories": [
+          {
+            "category": "relative_clauses",
+            "reasonDe": "Die tatsächliche Quelle enthält keinen Relativsatz; vorhandene Zeit-, Grund- und Gegensatzkonstruktionen werden in ihren belegten Funktionen geprüft."
+          }
+        ],
+        "tasks": [
+          {
+            "id": "sitov.pretest.b12-10.words.q1",
+            "competencyId": "sitov.pretest.b12-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet Erfolg beim Lernen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.words.q1.b",
+                "textDe": "Nur eine geplante Aufgabe ohne erreichten Fortschritt."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q1.c",
+                "textDe": "Nur die Zeit, die bis zum Unterricht vergeht."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q1.a",
+                "textDe": "Das Erreichen eines angestrebten Lernziels."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.words.q1.a",
+            "assessmentUnit": "Erfolg gelungenes Ziel",
+            "equivalenceKey": "sitov:b12-10:words:1",
+            "sourceSpans": [
+              {
+                "start": 25,
+                "end": 31,
+                "quote": "Erfolg"
+              }
+            ],
+            "rationaleDe": "Erfolg bezeichnet ein erreichtes oder gelungenes Ziel."
+          },
+          {
+            "id": "sitov.pretest.b12-10.words.q2",
+            "competencyId": "sitov.pretest.b12-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine Prüfungsnote?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.words.q2.c",
+                "textDe": "Eine Bewertung der Leistung in einer Prüfung."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q2.b",
+                "textDe": "Nur die Nummer des Prüfungsraums."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q2.a",
+                "textDe": "Die Uhrzeit, zu der eine Prüfung beginnt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.words.q2.c",
+            "assessmentUnit": "Prüfungsnote bewertetes Ergebnis",
+            "equivalenceKey": "sitov:b12-10:words:2",
+            "sourceSpans": [
+              {
+                "start": 76,
+                "end": 88,
+                "quote": "Prüfungsnote"
+              }
+            ],
+            "rationaleDe": "Die Prüfungsnote bewertet die erbrachte Leistung."
+          },
+          {
+            "id": "sitov.pretest.b12-10.words.q3",
+            "competencyId": "sitov.pretest.b12-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet ein verständliches Telefonat?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.words.q3.c",
+                "textDe": "Ein Telefonat, das nur wegen seiner Dauer bewertet wird."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q3.a",
+                "textDe": "Ein Telefonat, dessen Inhalt man gut verstehen kann."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q3.b",
+                "textDe": "Ein Telefonat, dessen Inhalt grundsätzlich unklar bleibt."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.words.q3.a",
+            "assessmentUnit": "verständlich gut zu verstehen",
+            "equivalenceKey": "sitov:b12-10:words:3",
+            "sourceSpans": [
+              {
+                "start": 153,
+                "end": 167,
+                "quote": "verständliches"
+              }
+            ],
+            "rationaleDe": "Verständlich beschreibt die Möglichkeit, den Inhalt zu verstehen."
+          },
+          {
+            "id": "sitov.pretest.b12-10.words.q4",
+            "competencyId": "sitov.pretest.b12-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist mein Fortschritt beim Lernen?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.words.q4.a",
+                "textDe": "Nur die unveränderte Wiederholung eines Datums."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q4.c",
+                "textDe": "Meine Entwicklung zu besseren Kenntnissen und Fähigkeiten."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q4.b",
+                "textDe": "Nur ein Vergleich der Unterrichtszeiten."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.words.q4.c",
+            "assessmentUnit": "Fortschritt Weiterentwicklung",
+            "equivalenceKey": "sitov:b12-10:words:4",
+            "sourceSpans": [
+              {
+                "start": 430,
+                "end": 441,
+                "quote": "Fortschritt"
+              }
+            ],
+            "rationaleDe": "Fortschritt bezeichnet eine Weiterentwicklung des Könnens."
+          },
+          {
+            "id": "sitov.pretest.b12-10.words.q5",
+            "competencyId": "sitov.pretest.b12-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was ist eine Besprechung bei der Arbeit?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.words.q5.b",
+                "textDe": "Ein Gespräch, in dem Beteiligte ein Thema gemeinsam erörtern."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q5.c",
+                "textDe": "Nur eine einzeln ausgefüllte Anwesenheitsliste."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q5.a",
+                "textDe": "Nur eine stille Pause ohne Gespräch."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.words.q5.b",
+            "assessmentUnit": "Besprechung gemeinsames Erörtern",
+            "equivalenceKey": "sitov:b12-10:words:5",
+            "sourceSpans": [
+              {
+                "start": 601,
+                "end": 612,
+                "quote": "Besprechung"
+              }
+            ],
+            "rationaleDe": "Eine Besprechung ist der gemeinsame Austausch über ein Thema."
+          },
+          {
+            "id": "sitov.pretest.b12-10.words.q6",
+            "competencyId": "sitov.pretest.b12-10.words",
+            "kind": "single_choice",
+            "promptDe": "Was bedeutet ein bedeutender Schritt für meinen Alltag?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.words.q6.a",
+                "textDe": "Nur ein Schritt, der körperlich besonders lang sein muss."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q6.c",
+                "textDe": "Ein Schritt, der für meinen Alltag ohne Bedeutung bleibt."
+              },
+              {
+                "id": "sitov.pretest.b12-10.words.q6.b",
+                "textDe": "Ein Schritt, der für meinen Alltag wichtig ist."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.words.q6.b",
+            "assessmentUnit": "bedeutend wichtig",
+            "equivalenceKey": "sitov:b12-10:words:6",
+            "sourceSpans": [
+              {
+                "start": 697,
+                "end": 716,
+                "quote": "bedeutender Schritt"
+              }
+            ],
+            "rationaleDe": "Bedeutend meint hier wichtig, nicht die körperliche Schrittlänge."
+          },
+          {
+            "id": "sitov.pretest.b12-10.verbs.q1",
+            "competencyId": "sitov.pretest.b12-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »haben« eröffnet einen vorgestellten Rückblick mit »ich« und dem Partizip »gemessen«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.verbs.q1.b",
+                "textDe": "hätte"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q1.c",
+                "textDe": "hätten"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q1.a",
+                "textDe": "hat"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.verbs.q1.b",
+            "assessmentUnit": "hätte Konjunktiv Vergangenheit",
+            "equivalenceKey": "sitov:b12-10:verbs:1",
+            "sourceSpans": [
+              {
+                "start": 15,
+                "end": 31,
+                "quote": "hätte ich Erfolg"
+              }
+            ],
+            "rationaleDe": "Hätte bildet mit gemessen den Konjunktiv zwei der Vergangenheit für ich."
+          },
+          {
+            "id": "sitov.pretest.b12-10.verbs.q2",
+            "competencyId": "sitov.pretest.b12-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Partizipform von »messen« steht am Ende von »Ich hätte Erfolg an der Note«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.verbs.q2.c",
+                "textDe": "gemessen"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q2.b",
+                "textDe": "messen"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q2.a",
+                "textDe": "maß"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.verbs.q2.c",
+            "assessmentUnit": "gemessen unregelmäßiges Partizip",
+            "equivalenceKey": "sitov:b12-10:verbs:2",
+            "sourceSpans": [
+              {
+                "start": 89,
+                "end": 97,
+                "quote": "gemessen"
+              }
+            ],
+            "rationaleDe": "Die vergangene Vorstellung verwendet hätte gemessen."
+          },
+          {
+            "id": "sitov.pretest.b12-10.verbs.q3",
+            "competencyId": "sitov.pretest.b12-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Form von »nutzen« steht vor »kann« am Ende von »dass ich die Sprache«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.verbs.q3.a",
+                "textDe": "genutzt"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q3.c",
+                "textDe": "nutzen"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q3.b",
+                "textDe": "nutzt"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.verbs.q3.c",
+            "assessmentUnit": "nutzen Infinitiv Modal",
+            "equivalenceKey": "sitov:b12-10:verbs:3",
+            "sourceSpans": [
+              {
+                "start": 292,
+                "end": 327,
+                "quote": "die Sprache tatsächlich nutzen kann"
+              }
+            ],
+            "rationaleDe": "Das Modalverb kann verbindet sich mit dem reinen Infinitiv nutzen."
+          },
+          {
+            "id": "sitov.pretest.b12-10.verbs.q4",
+            "competencyId": "sitov.pretest.b12-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Infinitivform von »vergleichen« folgt auf »meinen Fortschritt mit anderem Fortschritt zu«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.verbs.q4.b",
+                "textDe": "verglich"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q4.c",
+                "textDe": "verglichen"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q4.a",
+                "textDe": "vergleichen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.verbs.q4.a",
+            "assessmentUnit": "vergleichen Infinitiv zu",
+            "equivalenceKey": "sitov:b12-10:verbs:4",
+            "sourceSpans": [
+              {
+                "start": 481,
+                "end": 495,
+                "quote": "zu vergleichen"
+              }
+            ],
+            "rationaleDe": "Nach dem schon vorhandenen zu steht der Infinitiv vergleichen."
+          },
+          {
+            "id": "sitov.pretest.b12-10.verbs.q5",
+            "competencyId": "sitov.pretest.b12-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Präsensform von »mitbringen« steht zwischen »Jeder« und »andere Erfahrungen mit«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.verbs.q5.a",
+                "textDe": "bringst"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q5.b",
+                "textDe": "bringt"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q5.c",
+                "textDe": "bringen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.verbs.q5.b",
+            "assessmentUnit": "mitbringen trennbarer Präsens",
+            "equivalenceKey": "sitov:b12-10:verbs:5",
+            "sourceSpans": [
+              {
+                "start": 497,
+                "end": 532,
+                "quote": "Jeder bringt andere Erfahrungen mit"
+              }
+            ],
+            "rationaleDe": "Jeder verlangt dritte Person Singular bringt; die Partikel mit steht getrennt."
+          },
+          {
+            "id": "sitov.pretest.b12-10.verbs.q6",
+            "competencyId": "sitov.pretest.b12-10.verbs",
+            "kind": "single_choice",
+            "promptDe": "Welche Infinitivform von »erklären« folgt auf »meine Meinung klar zu«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.verbs.q6.c",
+                "textDe": "erklärt"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q6.b",
+                "textDe": "erklärte"
+              },
+              {
+                "id": "sitov.pretest.b12-10.verbs.q6.a",
+                "textDe": "erklären"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.verbs.q6.a",
+            "assessmentUnit": "erklären Infinitiv Ziel",
+            "equivalenceKey": "sitov:b12-10:verbs:6",
+            "sourceSpans": [
+              {
+                "start": 613,
+                "end": 643,
+                "quote": "meine Meinung klar zu erklären"
+              }
+            ],
+            "rationaleDe": "Die Infinitivgruppe verwendet zu erklären."
+          },
+          {
+            "id": "sitov.pretest.b12-10.syntax.q1",
+            "competencyId": "sitov.pretest.b12-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge beginnt nach der Zeitangabe »Heute« einen Hauptsatz?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.syntax.q1.c",
+                "textDe": "denke ich auch an kleine Situationen"
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q1.a",
+                "textDe": "denken ich auch an kleine Situationen"
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q1.b",
+                "textDe": "ich auch an kleine Situationen denke"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.syntax.q1.c",
+            "assessmentUnit": "heute V2 nach Zeitangabe",
+            "equivalenceKey": "sitov:b12-10:syntax:1",
+            "sourceSpans": [
+              {
+                "start": 99,
+                "end": 114,
+                "quote": "Heute denke ich"
+              }
+            ],
+            "rationaleDe": "Nach Heute steht das finite denke an zweiter Stelle; ich verlangt Singular."
+          },
+          {
+            "id": "sitov.pretest.b12-10.syntax.q2",
+            "competencyId": "sitov.pretest.b12-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortfolge folgt auf »Die Erlebnisse zeigen mir, dass«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.syntax.q2.a",
+                "textDe": "kann ich die Sprache tatsächlich nutzen"
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q2.c",
+                "textDe": "ich die Sprache tatsächlich nutzen kann"
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q2.b",
+                "textDe": "ich die Sprache tatsächlich nutzen können"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.syntax.q2.c",
+            "assessmentUnit": "dass Modal Verbfinal",
+            "equivalenceKey": "sitov:b12-10:syntax:2",
+            "sourceSpans": [
+              {
+                "start": 283,
+                "end": 327,
+                "quote": "dass ich die Sprache tatsächlich nutzen kann"
+              }
+            ],
+            "rationaleDe": "Im dass-Satz steht kann am Ende; der Infinitiv nutzen steht davor."
+          },
+          {
+            "id": "sitov.pretest.b12-10.syntax.q3",
+            "competencyId": "sitov.pretest.b12-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Ich möchte mich verbessern. Trotzdem vergleiche ich mich nicht ständig mit anderen. Welche Beziehung besteht?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.syntax.q3.b",
+                "textDe": "Ständiges Vergleichen ist die notwendige Voraussetzung des Verbesserungsziels."
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q3.c",
+                "textDe": "Das Verbesserungsziel wird durch jeden Vergleich vollständig aufgegeben."
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q3.a",
+                "textDe": "Das Verbesserungsziel führt nicht zu ständigem Vergleichen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.syntax.q3.a",
+            "assessmentUnit": "trotzdem Gegensatz Ziel Fortsetzen",
+            "equivalenceKey": "sitov:b12-10:syntax:3",
+            "sourceSpans": [
+              {
+                "start": 400,
+                "end": 421,
+                "quote": "Trotzdem versuche ich"
+              }
+            ],
+            "rationaleDe": "Trotzdem markiert, dass das Verbesserungsziel trotz des Verzichts auf ständiges Vergleichen besteht."
+          },
+          {
+            "id": "sitov.pretest.b12-10.syntax.q4",
+            "competencyId": "sitov.pretest.b12-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Ich vergleiche meinen Fortschritt mit dem anderer Menschen. Worauf bezieht sich »dem«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.syntax.q4.c",
+                "textDe": "Auf die Zeit für meinen eigenen Unterricht."
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q4.a",
+                "textDe": "Auf den Fortschritt anderer Menschen."
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q4.b",
+                "textDe": "Auf die anderen Menschen als Personen."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.syntax.q4.a",
+            "assessmentUnit": "mit dem pronominaler Rückbezug",
+            "equivalenceKey": "sitov:b12-10:syntax:4",
+            "sourceSpans": [
+              {
+                "start": 423,
+                "end": 495,
+                "quote": "meinen Fortschritt nicht ständig mit dem anderer Menschen zu vergleichen"
+              }
+            ],
+            "rationaleDe": "Dem ersetzt hier dem Fortschritt und vermeidet die Wiederholung des Nomens."
+          },
+          {
+            "id": "sitov.pretest.b12-10.syntax.q5",
+            "competencyId": "sitov.pretest.b12-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Mein Ziel ist, meine Meinung klar zu erklären. Was beschreibt die Infinitivgruppe?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.syntax.q5.b",
+                "textDe": "Den Inhalt des Ziels."
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q5.c",
+                "textDe": "Die Person, der das Ziel gehört."
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q5.a",
+                "textDe": "Ein früheres Ereignis, das das Ziel verhindert hat."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.syntax.q5.b",
+            "assessmentUnit": "Ziel Infinitivgruppe",
+            "equivalenceKey": "sitov:b12-10:syntax:5",
+            "sourceSpans": [
+              {
+                "start": 568,
+                "end": 643,
+                "quote": "Mein nächstes Ziel ist, in einer Besprechung meine Meinung klar zu erklären"
+              }
+            ],
+            "rationaleDe": "Die Infinitivgruppe sagt, was als Ziel erreicht werden soll."
+          },
+          {
+            "id": "sitov.pretest.b12-10.syntax.q6",
+            "competencyId": "sitov.pretest.b12-10.syntax",
+            "kind": "single_choice",
+            "promptDe": "Das Ziel ist klein, aber für meinen Alltag bedeutend. Welche Beziehung besteht?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.syntax.q6.a",
+                "textDe": "Kleine Ziele sind deshalb immer ohne persönliche Bedeutung."
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q6.c",
+                "textDe": "Die Bedeutung ist die Ursache dafür, dass das Ziel nicht existiert."
+              },
+              {
+                "id": "sitov.pretest.b12-10.syntax.q6.b",
+                "textDe": "Geringe Größe und große persönliche Bedeutung stehen nebeneinander."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.syntax.q6.b",
+            "assessmentUnit": "aber Gegensatz klein wichtig",
+            "equivalenceKey": "sitov:b12-10:syntax:6",
+            "sourceSpans": [
+              {
+                "start": 652,
+                "end": 716,
+                "quote": "ein kleines Ziel, aber für meinen Alltag ein bedeutender Schritt"
+              }
+            ],
+            "rationaleDe": "Aber stellt die kleine Größe der großen persönlichen Bedeutung gegenüber."
+          },
+          {
+            "id": "sitov.pretest.b12-10.nominal.q1",
+            "competencyId": "sitov.pretest.b12-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Dativ Singular folgt auf »Erfolg messen an«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.nominal.q1.a",
+                "textDe": "eine gute Prüfungsnote"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q1.c",
+                "textDe": "einer guten Prüfungsnote"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q1.b",
+                "textDe": "guter Prüfungsnoten"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.nominal.q1.c",
+            "assessmentUnit": "einer guten Prüfungsnote Dativ Maßstab",
+            "equivalenceKey": "sitov:b12-10:nominal:1",
+            "sourceSpans": [
+              {
+                "start": 61,
+                "end": 88,
+                "quote": "an einer guten Prüfungsnote"
+              }
+            ],
+            "rationaleDe": "Der Maßstab wird mit an und Dativ genannt: einer guten Prüfungsnote."
+          },
+          {
+            "id": "sitov.pretest.b12-10.nominal.q2",
+            "competencyId": "sitov.pretest.b12-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Genitiv Singular bezeichnet, wessen Lehrer gemeint ist?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.nominal.q2.c",
+                "textDe": "meinem Sohn"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q2.b",
+                "textDe": "meinen Sohn"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q2.a",
+                "textDe": "meines Sohnes"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.nominal.q2.a",
+            "assessmentUnit": "meines Sohnes Genitiv maskulin",
+            "equivalenceKey": "sitov:b12-10:nominal:2",
+            "sourceSpans": [
+              {
+                "start": 207,
+                "end": 220,
+                "quote": "meines Sohnes"
+              }
+            ],
+            "rationaleDe": "Der Genitiv beschreibt die Zugehörigkeit: meines Sohnes."
+          },
+          {
+            "id": "sitov.pretest.b12-10.nominal.q3",
+            "competencyId": "sitov.pretest.b12-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Genitiv Plural ergänzt »der Fortschritt«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.nominal.q3.c",
+                "textDe": "anderer Menschen"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q3.b",
+                "textDe": "anderen Menschen"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q3.a",
+                "textDe": "andere Menschen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.nominal.q3.c",
+            "assessmentUnit": "anderer Menschen Genitiv Plural",
+            "equivalenceKey": "sitov:b12-10:nominal:3",
+            "sourceSpans": [
+              {
+                "start": 464,
+                "end": 480,
+                "quote": "anderer Menschen"
+              }
+            ],
+            "rationaleDe": "Die Zugehörigkeit wird im artikellosen Genitiv Plural durch anderer Menschen ausgedrückt."
+          },
+          {
+            "id": "sitov.pretest.b12-10.nominal.q4",
+            "competencyId": "sitov.pretest.b12-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Ich äußere meine Meinung während eines Treffens. Welche Wortgruppe im Dativ Singular von »eine Besprechung« folgt auf »in«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.nominal.q4.a",
+                "textDe": "eine Besprechung"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q4.b",
+                "textDe": "einer Besprechung"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q4.c",
+                "textDe": "der Besprechungen"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.nominal.q4.b",
+            "assessmentUnit": "einer Besprechung Ort Dativ",
+            "equivalenceKey": "sitov:b12-10:nominal:4",
+            "sourceSpans": [
+              {
+                "start": 592,
+                "end": 612,
+                "quote": "in einer Besprechung"
+              }
+            ],
+            "rationaleDe": "Der situative Rahmen steht nach in im Dativ: einer Besprechung."
+          },
+          {
+            "id": "sitov.pretest.b12-10.nominal.q5",
+            "competencyId": "sitov.pretest.b12-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Wortgruppe im Akkusativ Singular folgt auf »für«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.nominal.q5.b",
+                "textDe": "meinem Alltag"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q5.c",
+                "textDe": "meines Alltags"
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q5.a",
+                "textDe": "meinen Alltag"
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.nominal.q5.a",
+            "assessmentUnit": "meinen Alltag Akkusativ maskulin",
+            "equivalenceKey": "sitov:b12-10:nominal:5",
+            "sourceSpans": [
+              {
+                "start": 675,
+                "end": 692,
+                "quote": "für meinen Alltag"
+              }
+            ],
+            "rationaleDe": "Für verlangt Akkusativ: meinen Alltag."
+          },
+          {
+            "id": "sitov.pretest.b12-10.nominal.q6",
+            "competencyId": "sitov.pretest.b12-10.nominal",
+            "kind": "single_choice",
+            "promptDe": "Welche Steigerungsstufe gehört zu »nächstes« in »mein nächstes Ziel«?",
+            "fragmentDe": null,
+            "options": [
+              {
+                "id": "sitov.pretest.b12-10.nominal.q6.b",
+                "textDe": "Superlativ von nah."
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q6.c",
+                "textDe": "Komparativ von nah."
+              },
+              {
+                "id": "sitov.pretest.b12-10.nominal.q6.a",
+                "textDe": "Positiv von nah."
+              }
+            ],
+            "correctOptionId": "sitov.pretest.b12-10.nominal.q6.b",
+            "assessmentUnit": "nächstes Superlativ nächstes Ziel",
+            "equivalenceKey": "sitov:b12-10:nominal:6",
+            "sourceSpans": [
+              {
+                "start": 568,
+                "end": 586,
+                "quote": "Mein nächstes Ziel"
+              }
+            ],
+            "rationaleDe": "Nächste ist die Superlativform von nah; die Form nächstes stimmt mit dem neutralen Ziel überein."
+          }
+        ],
+        "reviewForms": [
+          {
+            "id": "sitov.form.b12-10.a",
+            "questionIds": [
+              "sitov.pretest.b12-10.words.q1",
+              "sitov.pretest.b12-10.words.q2",
+              "sitov.pretest.b12-10.words.q3",
+              "sitov.pretest.b12-10.verbs.q1",
+              "sitov.pretest.b12-10.verbs.q2",
+              "sitov.pretest.b12-10.verbs.q3",
+              "sitov.pretest.b12-10.syntax.q1",
+              "sitov.pretest.b12-10.syntax.q2",
+              "sitov.pretest.b12-10.syntax.q3",
+              "sitov.pretest.b12-10.nominal.q1",
+              "sitov.pretest.b12-10.nominal.q2",
+              "sitov.pretest.b12-10.nominal.q3"
+            ]
+          },
+          {
+            "id": "sitov.form.b12-10.b",
+            "questionIds": [
+              "sitov.pretest.b12-10.words.q4",
+              "sitov.pretest.b12-10.words.q5",
+              "sitov.pretest.b12-10.words.q6",
+              "sitov.pretest.b12-10.verbs.q4",
+              "sitov.pretest.b12-10.verbs.q5",
+              "sitov.pretest.b12-10.verbs.q6",
+              "sitov.pretest.b12-10.syntax.q4",
+              "sitov.pretest.b12-10.syntax.q5",
+              "sitov.pretest.b12-10.syntax.q6",
+              "sitov.pretest.b12-10.nominal.q4",
+              "sitov.pretest.b12-10.nominal.q5",
+              "sitov.pretest.b12-10.nominal.q6"
+            ]
+          }
+        ]
+      }
     }
   ],
   "inventory": [
@@ -60805,7 +63920,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": null,
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -60820,7 +63935,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     },
     {
@@ -60835,7 +63950,7 @@
       "sourceAudioUrl": null,
       "source": "supabase/seeds/vps-content.sql",
       "revisionSource": "supabase/seeds/sitov-pronunciation-revisions-2026.json",
-      "coverageStatus": "pending",
+      "coverageStatus": "draft_authored",
       "referenceProof": "pending_M_prepared_audio_verification"
     }
   ],
