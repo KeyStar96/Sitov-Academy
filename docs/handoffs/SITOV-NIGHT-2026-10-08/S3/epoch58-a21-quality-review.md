@@ -1,0 +1,17 @@
+# Sitov Academy — S3 Epoch 58: A2.1 review candidate
+
+Exact base: `20dfe60b6cae95c8791f484d336201952f9eb1a3`. Branch: `codex/sitov-night-s3-a21-quality58`. Candidate only; no seed application or publication.
+
+Input S7 epoch3 audit SHA256: `fcc294728ae107e23e92819d1ffe8fc5914df0b104f0616bad4ffa536dfda131`. Scope: ten A2.1 source bodies, 240 tasks and 40 cores structurally inspected; all 92 audit question IDs and 105 question-specific findings represented by concrete proposed patches. The remaining finding106 concerns a linked fictional learning character and stays with M/S2. No claim of independent semantic approval of all240 tasks.
+
+The review artifact contains 198 proposed tasks:55 lexical,42 verb,46 syntax and55 nominal tasks. It includes exact prior/proposed objects and hashes, original source bodies/versions, core snapshots/deltas, protected key IDs, explicit correct-answer-word changes and all381 audio-alias text deltas. Correct option IDs, option IDs/order, task IDs, text IDs and form membership are preserved.34 correct answer texts change explicitly; this includes grammatical replacement questions and the removal of a lexical root giveaway.13 construct/matrix deltas affect7 cores and require M approval. Existing historic reviews are retained as previous evidence, never reused to approve changed definitions.
+
+Lexical distractors now use related meanings. Synthetic blanks/ellipses in changed prompts become spoken left/right or sentence-initial instructions; empty quoted anchors are removed. Invented verb forms become real alternative forms. Public location/direction/plural premises are added where needed. Lexical pseudo-syntax items receive explicit proposed syntax/reference constructs, source evidence, matrix language-unit and equivalence changes. Exercise adaptations are flagged. Existing mapping gaps remain open and changed units need renewed mapping review. Candidate schema validation uses temporary author-pending metadata in memory, without fabricating independent review.
+
+Validation actually run: `node docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch58-validate.mjs` PASS structural candidate/invariants/exact source reconstruction. It checks old task/hash preconditions, proposed task hashes, key/ID/order preservation, source/version/body evidence, definition hashes, core/form deltas, untouched other levels/inventory, exact381 alias deltas, and complete representation of105 question findings/92IDs. `git diff --check` PASS. The repository seed/audio files are unchanged. Existing157 tests/7author checks are M base evidence, not rerun or claimed as new S3 checks.
+
+Limitations: representing a finding with a proposal does not certify its resolution. Independent M/S7 must assess unique grammatical correctness, plausible distractors, six distinct core units and exercise adaptations before applying. Some source role or case tasks retain short article/pronoun answers; audio intelligibility needs the actual future Qwen recording checks. No app/SQL/QA/runtime/TTS/database/import/production action. No audio generated. All381 text changes require exact immutable definition/audio binding before later publication. The artifact is NOT_APPLIED, humanReview=false, calibrationStatus=pending, publicationAuthorized=false.
+
+Artifact byte SHA256: `27a461b9b81528b3f001979aae618cf331a5a6c93cc207eca9f337d93b4dbb56`.
+
+Rollback: remove/revert only these review documents; no data migration or seed rollback needed. S3 saves a docs-only commit and enters WAIT for fresh M START.

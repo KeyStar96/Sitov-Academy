@@ -1,0 +1,19 @@
+{
+  "status": "PASS_STRUCTURAL_ONLY",
+  "errors": [],
+  "counts": {
+    "scopePools": 10,
+    "scopeQuestions": 240,
+    "scopeCores": 40,
+    "auditFindings": 106,
+    "auditQuestionIds": 92,
+    "proposedQuestions": 198,
+    "linkedQuestionFindings": 105,
+    "unresolvedQuestionFindingIds": [],
+    "aliasDeltas": 381,
+    "coreMatrixDeltas": 7,
+    "constructDeltas": 13
+  },
+  "sourceSeedUnchanged": true,
+  "audioSeedUnchanged": true
+}
