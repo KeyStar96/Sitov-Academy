@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "group_id": "SITOV-NIGHT-2026-10-08",
+  "owner": "M",
+  "verified_at": "2026-10-09T05:41:41.743154+00:00",
+  "scope": "S6 epoch9 existing Obsidian note43 reconciliation; not final documentation or release acceptance",
+  "assigned_integration_sha": "dd5ecc256e49ceb3ebe0ff34e40c9a553c55562d",
+  "assigned_handoff_sha256": "dcf6ac653fac9b507e820d65940eca5fdf3401bb750f9d0c7597046cd4a7c44c",
+  "note_path": "/Users/denniskostjuk/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Life-OS/01 Projects/Sitov-Academy/43_SITOV-NIGHT-2026-10-08_Integrationsstand.md",
+  "note_before_sha256": "a98cd8e9a34a5c12515b8eead8efaa2d651d5700efc5b301ae4d4af6810fd4c3",
+  "note_after_sha256": "b64fb2a7f2ad270d4f96f4bc229c1e214bfe496725b26f84d6f30f50ee68d96d",
+  "checks": {
+    "private_handoff_files_sha256_match": true,
+    "five_versioned_evidence_sha256_match": true,
+    "assigned_git_handoff_sha256_match": true,
+    "frontmatter_unchanged": true,
+    "eight_wikilinks_unchanged_and_targets_exist": true,
+    "previous_checkpoint_body_and_all_older_history_preserved_byte_exact": true,
+    "actual_unified_patch_matches_before_after": true,
+    "completed_within_lease": true
+  },
+  "private_handoff_sha256": "12e36809536ac9c16abd9b9e673612c5ddd07439185cd25b1785084a5054608e",
+  "private_patch_sha256": "a949ff56284293fcd0dd3d8c59ae0ba6b174b05624842034683798cc16fb1544",
+  "versioned_evidence_sha256": {
+    "pretest-final269-repair39-qa-import.json": "cfceeee6327c2be56a27c6c3c5a26b303eb96f69d927fe6fcd7a58df7e44f89a",
+    "pretest-final9-all757-audio-readbacks.json": "e02bdcb6145d3159b648d91d46ff98f924f5c5f4a3df4d83a6cbe7d446570723",
+    "pretest-final9-controlled-qa-timing-corrections.json": "5dd67ab26b8de43c70b0a012b12e95ee7b77111eb37523db035a845d31fefeea",
+    "pretest-final9-inactive-import.json": "cca4d4df2ebcc54438aedf176879df41ddf1f4da43bc676b19a4c4ca8766e080",
+    "qa-final9-gateway-oom-and-bounded-restart.json": "5f4eb7accd663b1fd68df1c386caf2c570c5fe4217be765b723564e1f8b74986"
+  },
+  "completed_at": "2026-10-09T05:34:27.667400+00:00",
+  "lease_valid_until": "2026-10-09T05:36:10.025857+00:00",
+  "documentation_complete": false,
+  "release_ready": false,
+  "group_status": "OPEN",
+  "phase": "WAITING_RESULTS",
+  "production_deployment": false
+}
