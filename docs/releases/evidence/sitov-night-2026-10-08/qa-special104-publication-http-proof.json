@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "at": "2026-10-09T01:31:12.089342+00:00",
+  "checks": [
+    {
+      "check": "exact QA105 installed and healthy namespace",
+      "passed": true
+    },
+    {
+      "check": "independent M source review matches unchanged exact twenty item seed and real PDF",
+      "passed": true
+    },
+    {
+      "check": "eighty real imported assets have exact measured manifest proof",
+      "passed": true
+    },
+    {
+      "check": "actual distinct author and reviewer GoTrue teacher sessions",
+      "passed": true
+    },
+    {
+      "check": "inactive unreviewed source cannot authorize publication",
+      "passed": true
+    },
+    {
+      "check": "immutable actual author payload derives all eighty measured German texts",
+      "passed": true
+    },
+    {
+      "check": "all eighty actual Storage HTTP bytes hashes and Qwen timing metadata verified",
+      "passed": true
+    },
+    {
+      "check": "exact twenty eight95 proof assets distinct from eighty audible scope",
+      "passed": true
+    },
+    {
+      "check": "controlled private real review and exact audio proof imported without activation",
+      "passed": true
+    },
+    {
+      "check": "actual readonly HTTP readiness true with inactive current base",
+      "passed": true
+    },
+    {
+      "check": "actual authenticated HTTP publication exact reviewed definition",
+      "passed": true
+    },
+    {
+      "check": "actual exact retry current stable publication ack",
+      "passed": true
+    },
+    {
+      "check": "same request modified activation CAS payload conflicts",
+      "passed": true
+    },
+    {
+      "check": "new request stale base activation denied",
+      "passed": true
+    },
+    {
+      "check": "actual current actor role revocation closes published receipt",
+      "passed": true
+    },
+    {
+      "check": "exact Special activation and unrelated pretest history unchanged",
+      "passed": true
+    }
+  ],
+  "realHTTP": true,
+  "actualAudioBytesVerified": 80,
+  "proofAssets95": 28,
+  "qaThrough": 105,
+  "productionWrite": false,
+  "qaSpecialActive": true,
+  "scope": "first reviewed twenty-item A1.1 Special only; student/browser/other pools still pending",
+  "humanReview": false,
+  "independentSemanticReview": true,
+  "terminalActorCleanup": "whole isolated namespace preserves immutable QA audit until teardown"
+}
