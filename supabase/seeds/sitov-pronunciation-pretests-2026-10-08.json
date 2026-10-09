@@ -15980,16 +15980,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S4+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat54 Fragen,6 vollständige Quellen und die betroffenen Sechserkerne geprüft. Acht neue Konstrukte mit passender Matrix und neuen Äquivalenzkennungen; Dienstag prüft das Akkusativobjekt, Donnerstag Verbzweitstellung. Alte Definitionen bleiben erhalten. Neue unveränderliche Definition und exakte vorberechnete Audios vor Veröffentlichung erforderlich.",
+        "notesDe": "Fünf Aufgaben unabhängig geprüft: zwei Modalinfinitiv-Wortformpaare und drei Nebensatzfragen mit realen Hauptsatzdistraktoren. Alle fünf geänderten Diagnoseformen erhalten eigene Units und Äquivalenzkennungen; richtigeWortlaute ändern sich bei zweiA1.2Fragen. Neue unveränderliche Definition undexakteAudiosvorPublikation; keine Hör-/Kalibrierungsbehauptung.",
         "textVersion": "52479a906a2ed2b673e3000ea142c0f06201136c8898cd6c45c24e1ca8376ff7",
-        "definitionContentHash": "87e909ac202e5c3a735c2f7ac6965952636273d1e1826322b838ea373f7e647c",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-rest54-M",
-        "documentSha256": "0921c57b1a4e88efd3ae0c931ac025b5e192775a1b2757dd2e2b8f5f53239ed7",
-        "reviewedAt": "2026-10-09T20:47:14.471Z",
+        "definitionContentHash": "31063bbb9c1eef7651ec683b2e8e02b4793a87e4df3c509be312af2a5b683cce",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-final5-M",
+        "documentSha256": "9a803c4191c7192b40591c327b1bee823829ab1d8104d053e619c3e4051e37f4",
+        "reviewedAt": "2026-10-09T21:27:38.804Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -16106,7 +16106,7 @@
               "Küche Subjekt Prädikat",
               "Neben Haus Ortsglied",
               "für uns Perspektive",
-              "möchten mit zwei koordinierten Infinitiven"
+              "möchten: zwei koordinierte Infinitive anhand eines Wortformpaares"
             ],
             "sourceSpans": [
               {
@@ -16761,25 +16761,25 @@
             "id": "sitov.pretest.a12-06.syntax.q6",
             "competencyId": "sitov.pretest.a12-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Satzfolge ist richtig, wenn beide Tätigkeiten zu »möchten« gehören?",
+            "promptDe": "Welche Antwort nennt zwei Infinitive ohne zu, die gemeinsam von »Wir möchten« abhängen?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-06.syntax.q6.b",
-                "textDe": "Wir möchten noch eine Nacht darüber schläft und morgen anrufen."
+                "textDe": "schläft und anrufen"
               },
               {
                 "id": "sitov.pretest.a12-06.syntax.q6.c",
-                "textDe": "Wir möchten noch eine Nacht darüber schlafen und morgen ruft an."
+                "textDe": "schlafen und ruft an"
               },
               {
                 "id": "sitov.pretest.a12-06.syntax.q6.a",
-                "textDe": "Wir möchten noch eine Nacht darüber schlafen und morgen anrufen."
+                "textDe": "schlafen und anrufen"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-06.syntax.q6.a",
-            "assessmentUnit": "möchten mit zwei koordinierten Infinitiven",
-            "equivalenceKey": "sitov:a12-06:syntax:6:editorial-v2",
+            "assessmentUnit": "möchten: zwei koordinierte Infinitive anhand eines Wortformpaares",
+            "equivalenceKey": "sitov:a12-06:syntax:6:editorial-v2:audio-safe-v1",
             "sourceSpans": [
               {
                 "start": 253,
@@ -16787,7 +16787,7 @@
                 "quote": "noch eine Nacht darüber schlafen und morgen anrufen"
               }
             ],
-            "rationaleDe": "Möchten verlangt hier beide Infinitive: schlafen und anrufen. Schläft und ruft an sind finite Formen und passen dort nicht."
+            "rationaleDe": "Beide von möchten abhängigen Verbformen stehen hier im Infinitiv: schlafen und anrufen. Schläft und ruft an sind echte finite Formen, keine Infinitive."
           },
           {
             "id": "sitov.pretest.a12-06.nominal.q1",
@@ -17035,16 +17035,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S4+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat54 Fragen,6 vollständige Quellen und die betroffenen Sechserkerne geprüft. Acht neue Konstrukte mit passender Matrix und neuen Äquivalenzkennungen; Dienstag prüft das Akkusativobjekt, Donnerstag Verbzweitstellung. Alte Definitionen bleiben erhalten. Neue unveränderliche Definition und exakte vorberechnete Audios vor Veröffentlichung erforderlich.",
+        "notesDe": "Fünf Aufgaben unabhängig geprüft: zwei Modalinfinitiv-Wortformpaare und drei Nebensatzfragen mit realen Hauptsatzdistraktoren. Alle fünf geänderten Diagnoseformen erhalten eigene Units und Äquivalenzkennungen; richtigeWortlaute ändern sich bei zweiA1.2Fragen. Neue unveränderliche Definition undexakteAudiosvorPublikation; keine Hör-/Kalibrierungsbehauptung.",
         "textVersion": "afb90ca92d92f558035a85d02f3117cd5e534aded0b0ff65a3dd3878a8486132",
-        "definitionContentHash": "da5d567ed820f7eb21cf56d76f01c7a5da53983d6f0ddb9e933886205bd6b180",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-rest54-M",
-        "documentSha256": "0921c57b1a4e88efd3ae0c931ac025b5e192775a1b2757dd2e2b8f5f53239ed7",
-        "reviewedAt": "2026-10-09T20:47:14.471Z",
+        "definitionContentHash": "49289d3be9fff4c8d0be3f647233846d5dcce7db2e700625107b0fe520a58032",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-final5-M",
+        "documentSha256": "9a803c4191c7192b40591c327b1bee823829ab1d8104d053e619c3e4051e37f4",
+        "reviewedAt": "2026-10-09T21:27:38.804Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -17160,7 +17160,7 @@
             "languageUnits": [
               "Morgen Zeitglied",
               "halb zehn Zeitverständnis",
-              "zwei Infinitive Modalverb",
+              "müssen: zwei koordinierte Infinitive anhand eines Wortformpaares",
               "Ortsvorfeld Anzeige mit nachgestelltem Subjekt",
               "warten auf uns Rollen",
               "gemeinsame Sprechergruppe als Subjekt"
@@ -17722,25 +17722,25 @@
             "id": "sitov.pretest.a12-07.syntax.q3",
             "competencyId": "sitov.pretest.a12-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welcher Satz ist richtig, wenn beide Tätigkeiten zu »müssen« gehören?",
+            "promptDe": "Welche Antwort nennt zwei Infinitive ohne zu, die gemeinsam von »Wir müssen« abhängen?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-07.syntax.q3.c",
-                "textDe": "Wir müssen früh aufstehen und die Taschen packen."
+                "textDe": "aufstehen und packen"
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q3.b",
-                "textDe": "Wir müssen früh aufsteht und die Taschen packen."
+                "textDe": "aufsteht und packen"
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q3.a",
-                "textDe": "Wir müssen früh aufstehen und die Taschen packt."
+                "textDe": "aufstehen und packt"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.syntax.q3.c",
-            "assessmentUnit": "zwei Infinitive Modalverb",
-            "equivalenceKey": "sitov:a12-07:syntax:3",
+            "assessmentUnit": "müssen: zwei koordinierte Infinitive anhand eines Wortformpaares",
+            "equivalenceKey": "sitov:a12-07:syntax:3:audio-safe-v1",
             "sourceSpans": [
               {
                 "start": 75,
@@ -17748,7 +17748,7 @@
                 "quote": "Wir müssen früh aufstehen und die Taschen packen."
               }
             ],
-            "rationaleDe": "Müssen steht mit beiden Infinitiven aufstehen und packen. Aufsteht und packt sind finite Formen."
+            "rationaleDe": "Müssen verlangt hier beide Infinitive: aufstehen und packen. Aufsteht und packt sind echte finite Formen und erfüllen die verlangte Infinitivform nicht."
           },
           {
             "id": "sitov.pretest.a12-07.syntax.q4",
@@ -56816,16 +56816,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3+S7",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat4 B1.2-Fragen samtVollquellen unabhängig geprüft: Dativfrage ohneLösungsleck, Grundformohnezu präzisiert undDativbegründunggrammatischkorrigiert. Schlüssel/WortlautderkorrektenAntworten/Matrixerhalten. NeueunveränderlicheDefinition undexakteAudiosvorPublikation. KeineHörabnahme/Kalibrierungsbehauptung",
+        "notesDe": "Fünf Aufgaben unabhängig geprüft: zwei Modalinfinitiv-Wortformpaare und drei Nebensatzfragen mit realen Hauptsatzdistraktoren. Alle fünf geänderten Diagnoseformen erhalten eigene Units und Äquivalenzkennungen; richtigeWortlaute ändern sich bei zweiA1.2Fragen. Neue unveränderliche Definition undexakteAudiosvorPublikation; keine Hör-/Kalibrierungsbehauptung.",
         "textVersion": "56c3df1e34bbecd183c024e54818e1ff13f1803a36f1726f05850465fcf7972c",
-        "definitionContentHash": "585c3652e32aca0e4220b1b29c5f310be92b6f798306cd4a051d90b524f171f8",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b12-audit4-M",
-        "documentSha256": "73b34174cd52185458f5d1cd9ac9b8fc9686bc2afb142b92f3f9505c98fd0fa7",
-        "reviewedAt": "2026-10-09T20:59:56.228Z",
+        "definitionContentHash": "032bcf050626c8ae5849dfcd2c6a258b4feec1ed29a1d57bc2969a6093e5e193",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-final5-M",
+        "documentSha256": "9a803c4191c7192b40591c327b1bee823829ab1d8104d053e619c3e4051e37f4",
+        "reviewedAt": "2026-10-09T21:27:38.804Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -56939,8 +56939,8 @@
             "languageUnits": [
               "wenn Bedingung kurze Frage",
               "die Relativsatz vorkommen",
-              "was indirekter Inhalt Modalverbfinal",
-              "dass bleibe Verbfinal",
+              "was-Satz: Modalverbfinalstellung statt Hauptsatzfolge",
+              "dass-Satz: Verbfinalstellung statt Hauptsatzfolge",
               "statt zu alternative Delegation",
               "koordiniertes Subjekt Übungen Unterricht"
             ],
@@ -56978,7 +56978,7 @@
             ],
             "mapping": {
               "topicIds": [],
-              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: wenn Bedingung kurze Frage, die Relativsatz vorkommen, was indirekter Inhalt Modalverbfinal, dass bleibe Verbfinal, statt zu alternative Delegation, koordiniertes Subjekt Übungen Unterricht. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: wenn Bedingung kurze Frage, die Relativsatz vorkommen, was-Satz: Modalverbfinalstellung statt Hauptsatzfolge, dass-Satz: Verbfinalstellung statt Hauptsatzfolge, statt zu alternative Delegation, koordiniertes Subjekt Übungen Unterricht. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
             }
           },
           {
@@ -57495,7 +57495,7 @@
             "id": "sitov.pretest.b12-05.syntax.q3",
             "competencyId": "sitov.pretest.b12-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge setzt »Der Lehrer hört« als indirekten Satz fort?",
+            "promptDe": "Welche Wortfolge setzt »Der Lehrer hört« als indirekten Fragesatz mit was und dem Modalverb am Ende fort?",
             "fragmentDe": null,
             "options": [
               {
@@ -57508,12 +57508,12 @@
               },
               {
                 "id": "sitov.pretest.b12-05.syntax.q3.a",
-                "textDe": "was ich eigentlich ausdrücken möchten"
+                "textDe": "ich möchte eigentlich etwas ausdrücken"
               }
             ],
             "correctOptionId": "sitov.pretest.b12-05.syntax.q3.b",
-            "assessmentUnit": "was indirekter Inhalt Modalverbfinal",
-            "equivalenceKey": "sitov:b12-05:syntax:3",
+            "assessmentUnit": "was-Satz: Modalverbfinalstellung statt Hauptsatzfolge",
+            "equivalenceKey": "sitov:b12-05:syntax:3:audio-safe-v1",
             "sourceSpans": [
               {
                 "start": 439,
@@ -57521,13 +57521,13 @@
                 "quote": "was ich eigentlich ausdrücken möchte"
               }
             ],
-            "rationaleDe": "Im indirekten was-Satz steht möchte am Ende; ich verlangt Singular."
+            "rationaleDe": "Die indirekte was-Frage lautet was ich eigentlich ausdrücken möchte. Das finite Modalverb steht am Ende. Was möchte ich eigentlich ausdrücken ist eine direkte Frage; ich möchte eigentlich etwas ausdrücken ist eine Hauptsatzfolge."
           },
           {
             "id": "sitov.pretest.b12-05.syntax.q4",
             "competencyId": "sitov.pretest.b12-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Wortfolge folgt auf »Entscheidend ist, dass«?",
+            "promptDe": "Welche Wortfolge setzt »Entscheidend ist, dass« als Nebensatz mit dem finiten Verb am Ende fort?",
             "fragmentDe": null,
             "options": [
               {
@@ -57540,12 +57540,12 @@
               },
               {
                 "id": "sitov.pretest.b12-05.syntax.q4.a",
-                "textDe": "ich selbst aktiv bleibt"
+                "textDe": "ich bleibe selbst aktiv"
               }
             ],
             "correctOptionId": "sitov.pretest.b12-05.syntax.q4.c",
-            "assessmentUnit": "dass bleibe Verbfinal",
-            "equivalenceKey": "sitov:b12-05:syntax:4",
+            "assessmentUnit": "dass-Satz: Verbfinalstellung statt Hauptsatzfolge",
+            "equivalenceKey": "sitov:b12-05:syntax:4:audio-safe-v1",
             "sourceSpans": [
               {
                 "start": 593,
@@ -57553,7 +57553,7 @@
                 "quote": "dass ich selbst aktiv bleibe"
               }
             ],
-            "rationaleDe": "Im dass-Nebensatz steht bleibe am Ende und richtet sich nach ich."
+            "rationaleDe": "Nach dass lautet die passende Folge ich selbst aktiv bleibe. Das finite Verb steht am Ende. Ich bleibe selbst aktiv ist eine Hauptsatzfolge, bleibe ich selbst aktiv eine Folge mit Verb am Anfang."
           },
           {
             "id": "sitov.pretest.b12-05.syntax.q5",
@@ -58910,16 +58910,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen,216 Optionen, Schlüssel und Begründungen,12 Kerne und drei vollständige Quellen unabhängig geprüft. Tatsächliche Formen und Satzrelationen mit sichtbaren Prämissen und sprechbaren Aufgaben sind stimmig. Exakte Audio-/Versionsbindung, Kalibrierung und Lernziel-Lücken bleiben separat.",
+        "notesDe": "Fünf Aufgaben unabhängig geprüft: zwei Modalinfinitiv-Wortformpaare und drei Nebensatzfragen mit realen Hauptsatzdistraktoren. Alle fünf geänderten Diagnoseformen erhalten eigene Units und Äquivalenzkennungen; richtigeWortlaute ändern sich bei zweiA1.2Fragen. Neue unveränderliche Definition undexakteAudiosvorPublikation; keine Hör-/Kalibrierungsbehauptung.",
         "textVersion": "377e6ebbf8cafa715d68dc536a5974159d1e696162ccde3dbeff85205152c3ac",
-        "definitionContentHash": "d7e57105df1fa8de03796372ae236cf6312a47c058587666642aa1d9729358eb",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools55-57-M",
-        "documentSha256": "7e96256c0b5448008b2aa6ceaad70e9462e5385cebb0e739c066d1ae197dbb5e",
-        "reviewedAt": "2026-10-09T20:11:54.680Z",
+        "definitionContentHash": "fa504c3d5f73f185e321d524d191182741629f4320a97b55d154435086cf544b",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-final5-M",
+        "documentSha256": "9a803c4191c7192b40591c327b1bee823829ab1d8104d053e619c3e4051e37f4",
+        "reviewedAt": "2026-10-09T21:27:38.804Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -59033,7 +59033,7 @@
             "languageUnits": [
               "die Relativsatz Passivfinal",
               "Als Perfekt Verbfinal",
-              "denen Relativsatz Modalverbfinal",
+              "denen-Relativsatz: Modalverbfinalstellung statt Hauptsatzfolge",
               "dass Perfekt Hilfe Verbfinal",
               "nicht nur sondern auch Ergänzung",
               "Trotzdem Gegensatz Schwierigkeiten Zufriedenheit"
@@ -59072,7 +59072,7 @@
             ],
             "mapping": {
               "topicIds": [],
-              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: die Relativsatz Passivfinal, Als Perfekt Verbfinal, denen Relativsatz Modalverbfinal, dass Perfekt Hilfe Verbfinal, nicht nur sondern auch Ergänzung, Trotzdem Gegensatz Schwierigkeiten Zufriedenheit. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: die Relativsatz Passivfinal, Als Perfekt Verbfinal, denen-Relativsatz: Modalverbfinalstellung statt Hauptsatzfolge, dass Perfekt Hilfe Verbfinal, nicht nur sondern auch Ergänzung, Trotzdem Gegensatz Schwierigkeiten Zufriedenheit. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
             }
           },
           {
@@ -59585,12 +59585,12 @@
             "id": "sitov.pretest.b12-07.syntax.q3",
             "competencyId": "sitov.pretest.b12-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Es geht um Menschen, denen ich begegnen könnte. Welche Wortfolge ergänzt nach »Menschen« einen Relativsatz?",
+            "promptDe": "Es geht um Menschen, denen ich begegnen könnte. Welche Wortfolge ergänzt nach »Menschen« einen Relativsatz mit dem finiten Verb am Ende?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.b12-07.syntax.q3.b",
-                "textDe": "denen ich sonst kaum begegnen würden"
+                "textDe": "ich würde ihnen sonst kaum begegnen"
               },
               {
                 "id": "sitov.pretest.b12-07.syntax.q3.c",
@@ -59602,8 +59602,8 @@
               }
             ],
             "correctOptionId": "sitov.pretest.b12-07.syntax.q3.c",
-            "assessmentUnit": "denen Relativsatz Modalverbfinal",
-            "equivalenceKey": "sitov:b12-07:syntax:3",
+            "assessmentUnit": "denen-Relativsatz: Modalverbfinalstellung statt Hauptsatzfolge",
+            "equivalenceKey": "sitov:b12-07:syntax:3:audio-safe-v1",
             "sourceSpans": [
               {
                 "start": 325,
@@ -59611,7 +59611,7 @@
                 "quote": "denen ich sonst kaum begegnen würde"
               }
             ],
-            "rationaleDe": "Im Relativsatz steht würde nach begegnen am Ende; das Subjekt ich verlangt Singular."
+            "rationaleDe": "Der Relativsatz lautet denen ich sonst kaum begegnen würde. Denen ist Dativ Plural zu Menschen; würde steht am Ende. Ich würde ihnen sonst kaum begegnen ist eine Hauptsatzfolge; denen würde ich sonst kaum begegnen hat keine Verbfinalstellung."
           },
           {
             "id": "sitov.pretest.b12-07.syntax.q4",
