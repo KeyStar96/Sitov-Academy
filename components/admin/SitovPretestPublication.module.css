@@ -1,0 +1,8 @@
+.sitovPublication { display: grid; gap: .75rem; min-width: 0; border: 1px solid var(--border); border-radius: 1rem; padding: 1rem; background: var(--surface); }
+.sitovPublication :is(button, summary) { min-height: 48px; min-width: 48px; padding: .75rem; cursor: pointer; }
+.sitovPublication button { border: 1px solid var(--border); border-radius: .75rem; }
+.sitovPublication button:disabled { opacity: .65; cursor: default; }
+.sitovPublication :is(button, summary, [tabindex]):focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
+.sitovActions { display: flex; flex-wrap: wrap; gap: .75rem; }
+@media (prefers-reduced-motion: reduce) { .sitovPublication * { animation: none !important; transition: none !important; } }
+@media (forced-colors: active) { .sitovPublication button { border-color: ButtonText; } }

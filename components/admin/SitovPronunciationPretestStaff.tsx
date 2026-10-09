@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { z } from 'zod'
 import { useRouter } from 'next/navigation'
+import SitovPretestPublication, { type SitovPublishedPretest } from './SitovPretestPublication'
 import SitovPretestDraftEditor, { type SitovSavedDraft } from './SitovPretestDraftEditor'
 import { getSitovPronunciationPretestStaff } from '@/app/actions/sitov-pronunciation-pretest'
 import SitovTrainerHelp from '@/components/motion/SitovTrainerHelp'
@@ -10,7 +11,7 @@ import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import PressableCard from '@/components/motion/PressableCard'
 import { sitovPronunciationPretestAttemptResponseSchema, sitovPronunciationPretestTaskSchema, sitovPronunciationPretestPoolSchema } from '@/lib/sitov-pronunciation-pretest-contract'
 import { toUiLocale } from '@/lib/locale-routing'
-import { sitovPretestStaffCopy, sitovPretestEditorCopy, sitovStaffText } from '@/lib/sitov-pronunciation-pretest-staff-i18n'
+import { sitovPretestStaffCopy, sitovPretestEditorCopy, sitovPretestPublicationCopy, sitovStaffText } from '@/lib/sitov-pronunciation-pretest-staff-i18n'
 import styles from './SitovPronunciationPretestStaff.module.css'
 
 export interface SitovPretestStaffTarget { textId: string; level: string; title: string; textVersion: string }
@@ -69,15 +70,17 @@ function SitovStaffSelection({ targets, levels, lang, studentId, accountId, init
         {available.map(row => <option key={row.textId} value={row.textId} lang="de" translate="no">{row.title}</option>)}
       </select></label>}
     </div>
-    {target ? <SitovStaffText key={`${accountId}:${studentId}:${lang}:${level}:${target.textId}:${target.textVersion}`} target={target} lang={lang} studentId={studentId} />
+    {target ? <SitovStaffText key={`${accountId}:${studentId}:${lang}:${level}:${target.textId}:${target.textVersion}`} target={target} lang={lang} studentId={studentId} accountId={accountId} />
       : <p role="status">{copy.noTexts}</p>}
     <section aria-label={copy.helpTitle}><SitovTrainerHelp title={copy.help}><h3>{copy.helpTitle}</h3><p>{copy.helpBody}</p><p>{copy.history}</p></SitovTrainerHelp></section>
   </SitovMotionStage>
 }
 
-function SitovStaffText({ target, studentId, lang }: { target: SitovPretestStaffTarget; studentId?: string; lang: string }) {
+function SitovStaffText({ target, studentId, lang, accountId }: { target: SitovPretestStaffTarget; studentId?: string; lang: string; accountId: string }) {
   const copy = sitovPretestStaffCopy(lang)
   const router = useRouter()
+  const [publishedId, setPublishedId] = useState('')
+  const publishedRef = useRef<HTMLParagraphElement>(null)
   const [savedId, setSavedId] = useState('')
   const savedRef = useRef<HTMLParagraphElement>(null)
   const [state, setState] = useState<'loading' | 'failed' | 'ready'>('loading')
@@ -104,24 +107,27 @@ function SitovStaffText({ target, studentId, lang }: { target: SitovPretestStaff
     return () => { generation.current = request + 1 }
   }, [target.textId, studentId, reload])
   useEffect(() => { if (savedId) savedRef.current?.focus({ preventScroll: true }) }, [savedId])
+  useEffect(() => { if (publishedId) publishedRef.current?.focus({ preventScroll: true }) }, [publishedId])
   function retry() { setData(null); setState('loading'); setReload(value => value + 1) }
-  if (state === 'loading') return <p role="status">{copy.loading}</p>
+  if (state === 'loading') return <>{publishedId && <p ref={publishedRef} tabIndex={-1} role="status">{sitovPretestPublicationCopy(lang).published}</p>}<p role="status">{copy.loading}</p></>
   if (state === 'failed') return <div role="alert"><p>{copy.failed}</p><PressableCard onClick={retry}>{copy.retry}</PressableCard></div>
   if (!data) return null
+  const activeDefinition = data.definitions.find(row => row.active)
   const current = data.definitions.find(row => row.active && row.text_version === target.textVersion)
   const sorted = [...data.definitions].sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at) || ((b.created_at.match(/\.(\d+)/)?.[1] ?? '').padEnd(9, '0').slice(3, 9)).localeCompare((a.created_at.match(/\.(\d+)/)?.[1] ?? '').padEnd(9, '0').slice(3, 9)) || (b.id > a.id ? 1 : b.id < a.id ? -1 : 0))
   const selected = newCurrent ? undefined : data.definitions.find(row => row.id === definitionId) ?? current ?? sorted[0]
   const preview = selected ? safePreview(selected.definition) : null
   function acceptSaved(saved: SitovSavedDraft) {
     setData(previous => previous && { ...previous, definitions: [...previous.definitions.filter(row => row.id !== saved.id), saved] })
-    setNewCurrent(false); setDefinitionId(saved.id); setSavedId(saved.id)
+    setNewCurrent(false); setPublishedId(''); setDefinitionId(saved.id); setSavedId(saved.id)
   }
+  function acceptPublished(ack: SitovPublishedPretest) { setPublishedId(ack.definitionId); setDefinitionId(ack.definitionId); setSavedId(''); retry(); router.refresh() }
   const attempts = [...data.attempts].sort((a, b) => Date.parse(b.attempt.updatedAt) - Date.parse(a.attempt.updatedAt))
   function timestamp(value: string) { return new Intl.DateTimeFormat(toUiLocale(lang), { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Berlin' }).format(new Date(value)) }
   return <div className={styles.sitovContent}>
     <h3 lang="de" translate="no">{target.title}</h3>
     {selected ? <>
-      <label>{copy.definition}<select value={selected.id} onChange={event => { setNewCurrent(false); setDefinitionId(event.target.value) }}>
+      <label>{copy.definition}<select value={selected.id} onChange={event => { setNewCurrent(false); setPublishedId(''); setDefinitionId(event.target.value) }}>
         {sorted.map(row => <option key={row.id} value={row.id}>{row.test_version.slice(0, 12)} · {row.active ? row.text_version === target.textVersion ? copy.current : copy.outdated : copy.inactive}</option>)}
       </select></label>
       <div className={styles.sitovVersionState}><strong>{selected.active ? selected.text_version === target.textVersion ? copy.current : copy.outdated : copy.inactive}</strong>
@@ -139,9 +145,11 @@ function SitovStaffText({ target, studentId, lang }: { target: SitovPretestStaff
         </section>)}
       </section> : <p role="status">{copy.invalid}</p>}
     </> : <p role="status">{copy.noDefinitions}</p>}
-    <PressableCard onClick={() => { setNewCurrent(true); setSavedId('') }}>{sitovPretestEditorCopy(lang).newCurrent}</PressableCard>
+    <PressableCard onClick={() => { setNewCurrent(true); setPublishedId(''); setSavedId('') }}>{sitovPretestEditorCopy(lang).newCurrent}</PressableCard>
     {savedId && <p ref={savedRef} tabIndex={-1} role="status">{sitovPretestEditorCopy(lang).saved}</p>}
     <SitovPretestDraftEditor key={`${target.textId}:${target.textVersion}:${lang}:${selected?.id ?? 'new'}:${sorted[0]?.id ?? 'none'}`} textId={target.textId} textVersion={target.textVersion} sourceVersion={selected?.text_version} definition={selected?.definition} baseDefinitionId={sorted[0]?.id ?? null} lang={lang} onSaved={acceptSaved} onReload={() => { router.refresh(); retry() }} />
+    {publishedId && <p ref={publishedRef} tabIndex={-1} role="status">{sitovPretestPublicationCopy(lang).published}</p>}
+    <SitovPretestPublication scopeKey={`${accountId}:${studentId ?? 'all'}`} textId={target.textId} textVersion={target.textVersion} definition={selected} latestDefinitionId={sorted[0]?.id ?? null} baseActiveDefinitionId={activeDefinition?.id ?? null} lang={lang} onPublished={acceptPublished} onReload={() => { router.refresh(); retry() }} />
     <section aria-label={copy.results}><h3>{copy.results} <span>({attempts.length})</span></h3>
       {!attempts.length ? <p>{copy.noResults}</p> : <ol className={styles.sitovResults}>{attempts.slice(0, 20).map(row => {
         const isCurrent = current && row.attempt.textVersion === current.text_version && row.attempt.testVersion === current.test_version && row.attempt.status !== 'outdated'

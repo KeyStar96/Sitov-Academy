@@ -2,15 +2,15 @@ import { randomUUID } from 'node:crypto'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { readFileSync } from 'node:fs'
 import SitovPronunciationPretestStaff from '@/components/admin/SitovPronunciationPretestStaff'
-import { getSitovPronunciationPretestStaff, saveSitovPronunciationPretestDraft } from '@/app/actions/sitov-pronunciation-pretest'
+import { getSitovPronunciationPretestStaff, saveSitovPronunciationPretestDraft, getSitovPronunciationPretestPublication, publishSitovPronunciationPretest } from '@/app/actions/sitov-pronunciation-pretest'
 jest.unmock('lucide-react')
 beforeAll(() => { Object.defineProperty(global.crypto, 'randomUUID', { value: randomUUID, configurable: true }) })
-jest.mock('@/app/actions/sitov-pronunciation-pretest', () => ({ getSitovPronunciationPretestStaff: jest.fn(), saveSitovPronunciationPretestDraft: jest.fn() }))
+jest.mock('@/app/actions/sitov-pronunciation-pretest', () => ({ getSitovPronunciationPretestStaff: jest.fn(), saveSitovPronunciationPretestDraft: jest.fn(), getSitovPronunciationPretestPublication: jest.fn(), publishSitovPronunciationPretest: jest.fn() }))
 const source = JSON.parse(readFileSync('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json', 'utf8')).drafts[0]
 const low = '00000000-0000-4000-8000-000000000001', high = '00000000-0000-4000-8000-000000000009', saved = '00000000-0000-4000-8000-000000000010'
 const row = { id: low, text_id: source.textId, text_version: source.textVersion, test_version: 'a'.repeat(64), created_at: '2026-10-09T00:00:00Z', definition: source.definition, active: true }
 const props = { accountId: low, lang: 'en', levels: ['A1.1'], targets: [{ textId: source.textId, textVersion: source.textVersion, title: 'Mein Tag', level: 'A1.1' }] }
-beforeEach(() => { jest.clearAllMocks(); jest.mocked(getSitovPronunciationPretestStaff).mockResolvedValue({ ok: true, data: { definitions: [row, { ...row, id: high, active: false }], attempts: [] } }); jest.mocked(saveSitovPronunciationPretestDraft).mockImplementation(async input => ({ ok: true, data: { ...row, id: saved, active: false, definition: (input as { definition: typeof source.definition }).definition } })) })
+beforeEach(() => { jest.clearAllMocks(); jest.mocked(getSitovPronunciationPretestPublication).mockResolvedValue({ ok: false, error: 'authoring_not_ready', retryable: false }); jest.mocked(getSitovPronunciationPretestStaff).mockResolvedValue({ ok: true, data: { definitions: [row, { ...row, id: high, active: false }], attempts: [] } }); jest.mocked(saveSitovPronunciationPretestDraft).mockImplementation(async input => ({ ok: true, data: { ...row, id: saved, active: false, definition: (input as { definition: typeof source.definition }).definition } })) })
 it('uses latest ANY definition with UUID tie break while saving active preview as a new inactive draft', async () => {
   render(<SitovPronunciationPretestStaff {...props} />)
   fireEvent.click(await screen.findByRole('button', { name: 'Save as a new inactive draft' }))
@@ -27,7 +27,7 @@ it('remounts editor and rereads when locale/account scope changes without writin
   fireEvent.change(screen.getAllByLabelText('Question prompt')[0], { target: { value: 'Lokale Änderung' } })
   view.rerender(<SitovPronunciationPretestStaff {...props} lang="de" accountId={high} />)
   await waitFor(() => expect(screen.getAllByLabelText('Aufgabenstellung')[0]).toHaveValue(source.definition.tasks[0].promptDe))
-  expect(getSitovPronunciationPretestStaff).toHaveBeenCalledTimes(2); expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled()
+  expect(getSitovPronunciationPretestStaff).toHaveBeenCalledTimes(2); expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled(); expect(publishSitovPronunciationPretest).not.toHaveBeenCalled()
 })
 it('does not apply a late acknowledged save to another account and locale', async () => {
   let finish!: (value: Awaited<ReturnType<typeof saveSitovPronunciationPretestDraft>>) => void

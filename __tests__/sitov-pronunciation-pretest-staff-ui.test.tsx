@@ -1,12 +1,12 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import SitovPronunciationPretestStaff from '@/components/admin/SitovPronunciationPretestStaff'
-import { getSitovPronunciationPretestStaff, saveSitovPronunciationPretestDraft } from '@/app/actions/sitov-pronunciation-pretest'
+import { getSitovPronunciationPretestStaff, saveSitovPronunciationPretestDraft, getSitovPronunciationPretestPublication, publishSitovPronunciationPretest } from '@/app/actions/sitov-pronunciation-pretest'
 import { sitovPretestStaffCopy, sitovPretestEditorCopy } from '@/lib/sitov-pronunciation-pretest-staff-i18n'
 import type { SitovPronunciationPretestCompletedAttempt } from '@/lib/sitov-pronunciation-pretest-contract'
 jest.unmock('framer-motion')
 jest.unmock('lucide-react')
-jest.mock('@/app/actions/sitov-pronunciation-pretest', () => ({ getSitovPronunciationPretestStaff: jest.fn(), saveSitovPronunciationPretestDraft: jest.fn() }))
+jest.mock('@/app/actions/sitov-pronunciation-pretest', () => ({ getSitovPronunciationPretestStaff: jest.fn(), saveSitovPronunciationPretestDraft: jest.fn(), getSitovPronunciationPretestPublication: jest.fn(), publishSitovPronunciationPretest: jest.fn() }))
 const id = '00000000-0000-4000-8000-000000000001', second = '00000000-0000-4000-8000-000000000002', actor = '00000000-0000-4000-8000-000000000003'
 const version = 'a'.repeat(64), testVersion = 'b'.repeat(64), time = '2026-10-08T22:00:00Z'
 function task(index: number) { return { id: `sitov.q${index}`, competencyId: 'sitov.words', kind: 'single_choice' as const, promptDe: `Was passt zu Satz ${index + 1}?`, fragmentDe: 'Paul trinkt Wasser.', options: [{ id: 'sitov.a', textDe: 'Er trinkt.' }, { id: 'sitov.b', textDe: 'Er trinken.' }, { id: 'sitov.c', textDe: 'Er trinkst.' }], correctOptionId: 'sitov.a', privateEvidence: 'PRIVATE_EVIDENCE_DO_NOT_RENDER' } }
@@ -18,7 +18,7 @@ function completed(old = false): SitovPronunciationPretestCompletedAttempt {
     result: { attemptId: actor, textId: id, textVersion, testVersion, passed: true, correct: 3, total: 3, competencies: [{ id: 'sitov.words', correct: 3, total: 3, required: 2, met: true }], failedCompetencyIds: [], learningLinks: [], proof: { id, textId: id, textVersion, testVersion, passedAttemptId: actor, passedAt: time, compatibilityId: null } } }
 }
 function props(lang = 'en') { return { lang, studentId: second, accountId: actor, levels: ['A1.1'], targets: [{ textId: id, level: 'A1.1', title: 'Mein Frühstück', textVersion: version }] } }
-beforeEach(() => { jest.clearAllMocks(); jest.mocked(getSitovPronunciationPretestStaff).mockResolvedValue({ ok: true, data: { definitions: [definition()], attempts: [] } }) })
+beforeEach(() => { jest.clearAllMocks(); jest.mocked(getSitovPronunciationPretestPublication).mockResolvedValue({ ok: false, error: 'authoring_not_ready', retryable: false }); jest.mocked(getSitovPronunciationPretestStaff).mockResolvedValue({ ok: true, data: { definitions: [definition()], attempts: [] } }) })
 it.each(['de', 'en', 'ru', 'uk', 'tr'])('uses %s UI, German task content and closed named Help without intervention actions', async lang => {
   const copy = sitovPretestStaffCopy(lang); const { container } = render(<SitovPronunciationPretestStaff {...props(lang)} />)
   expect(screen.getByText(copy.loading)).toBeInTheDocument()
@@ -52,7 +52,10 @@ it('shows honest empty definitions and attempts without a fake publish action', 
   expect(screen.getByRole('button', { name: sitovPretestEditorCopy('en').save })).toBeDisabled()
   expect(screen.getByLabelText(sitovPretestEditorCopy('en').json)).toHaveValue('')
   expect(screen.getByRole('button', { name: sitovPretestEditorCopy('en').import })).toBeInTheDocument()
-  expect(screen.queryByRole('button', { name: /publish|activate|approve/i })).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Publish this pretest' })).toBeDisabled()
+  expect(publishSitovPronunciationPretest).not.toHaveBeenCalled()
+  expect(getSitovPronunciationPretestPublication).not.toHaveBeenCalled()
+  expect(screen.queryByRole('button', { name: /activate|approve/i })).not.toBeInTheDocument()
   expect(saveSitovPronunciationPretestDraft).not.toHaveBeenCalled()
 })
 it('shows no fabricated score for a saved in-progress attempt', async () => {
