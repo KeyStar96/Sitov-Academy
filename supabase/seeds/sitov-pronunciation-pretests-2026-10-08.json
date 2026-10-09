@@ -32792,16 +32792,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen und drei vollständige Quellen unabhängig geprüft.38 schwache Aufgaben wurden vor Audioerzeugung mit plausiblen fachlichen Distraktoren nachgebessert und erneut geprüft; zwei Pronomenkontexte öffentlich eindeutig. Echte Lernziel-Lücken, menschliche Kalibrierung und endgültige Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
         "textVersion": "a368e2f752bf04554f9a87a44ffca1ba94f8fada5515dd94ed05c8d788523717",
-        "definitionContentHash": "b02a05e7786b32fb5ed97b212e395dafb50e66c19fb471735b067b8130bb896a",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools31-33-M",
-        "documentSha256": "65a03a15c0b833e433a610fa0a241d08317f54a778b19b5a3a6909e47bae0fd3",
-        "reviewedAt": "2026-10-09T17:30:19.064Z",
+        "definitionContentHash": "3a61792653b062428d51124acad7f230e52fdbf15a0cf5b3e137cea529cee4fa",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
+        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
+        "reviewedAt": "2026-10-09T20:34:04.245Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -33565,20 +33565,20 @@
             "id": "sitov.pretest.a22-02.syntax.q6",
             "competencyId": "sitov.pretest.a22-02.syntax",
             "kind": "single_choice",
-            "promptDe": "Wie lange wird laut »Wir probieren die Regelung zunächst für einen Monat aus« zuerst getestet?",
+            "promptDe": "Was drückt »Wir probieren die Regelung zunächst für einen Monat aus« über die erste Probephase aus?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-02.syntax.q6.c",
-                "textDe": "Einen Monat."
+                "textDe": "Die erste Probephase dauert einen Monat."
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q6.a",
-                "textDe": "Eine Woche."
+                "textDe": "Die Probephase beginnt erst in einem Monat."
               },
               {
                 "id": "sitov.pretest.a22-02.syntax.q6.b",
-                "textDe": "Ein Jahr."
+                "textDe": "Die Probephase begann vor einem Monat."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-02.syntax.q6.c",
@@ -33591,7 +33591,7 @@
                 "quote": "zunächst für einen Monat aus"
               }
             ],
-            "rationaleDe": "Für einen Monat nennt eine Monatsdauer; Woche und Jahr sind andere Zeitspannen und entsprechen nicht der öffentlichen Angabe."
+            "rationaleDe": "Für einen Monat bezeichnet hier die Dauer der ersten Probephase. In einem Monat würde einen künftigen Beginn nennen; vor einem Monat einen vergangenen Zeitpunkt."
           },
           {
             "id": "sitov.pretest.a22-02.nominal.q1",
@@ -33839,16 +33839,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen und drei vollständige Quellen unabhängig geprüft.38 schwache Aufgaben wurden vor Audioerzeugung mit plausiblen fachlichen Distraktoren nachgebessert und erneut geprüft; zwei Pronomenkontexte öffentlich eindeutig. Echte Lernziel-Lücken, menschliche Kalibrierung und endgültige Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
         "textVersion": "1607dcecc5c6175d72bdc6c9d5bff4260132e341189499e30f49ff814fa46ced",
-        "definitionContentHash": "f7406cf06ef107c62a3bbe7a069a529f0eac52bdeb0f0d6c7e1e4b9338781ce4",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools31-33-M",
-        "documentSha256": "65a03a15c0b833e433a610fa0a241d08317f54a778b19b5a3a6909e47bae0fd3",
-        "reviewedAt": "2026-10-09T17:30:19.064Z",
+        "definitionContentHash": "b44a3114accb8091df9cfe9d9f9229d22cb4cadbdf1937745a31755527e18ae7",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
+        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
+        "reviewedAt": "2026-10-09T20:34:04.245Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -34290,7 +34290,7 @@
             "id": "sitov.pretest.a22-03.verbs.q2",
             "competencyId": "sitov.pretest.a22-03.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Die Nachbarn wünschten ___ eine Bank«?",
+            "promptDe": "Die Nachbarn möchten die Bank selbst nutzen. Welches rückbezügliche Pronomen steht zwischen »Die Nachbarn wünschten« und »eine Bank«?",
             "fragmentDe": null,
             "options": [
               {
@@ -34316,7 +34316,7 @@
                 "quote": "wünschten sich eine Bank"
               }
             ],
-            "rationaleDe": "Bei die Nachbarn in der dritten Person Plural lautet das Reflexivpronomen sich; uns und mich bezeichnen andere Personen."
+            "rationaleDe": "Die öffentliche Angabe legt fest, dass die Nachbarn die Bank für sich selbst wünschen. Das rückbezügliche Dativpronomen zur dritten Person Plural lautet sich. Uns würde eine andere Empfängergruppe bezeichnen; mich ist hier kein Dativ."
           },
           {
             "id": "sitov.pretest.a22-03.verbs.q3",
@@ -35933,16 +35933,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel und Begründungen sowie drei vollständige Quellen unabhängig geprüft. Feldnahe Distraktoren und öffentliche Prämissen sind stimmig; tatsächliche Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
         "textVersion": "5d569bf2469a3b7cb0206a010f18dae381ebaf817cc18a517db0a3a752c3b326",
-        "definitionContentHash": "45c3db367580a4ccffaa67b74fffa2cf79c997261114dab3e35d0f3da474dfb1",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools34-36-M",
-        "documentSha256": "00bfa0878b4af95652c0f2cf01e349a535372c8aa60702c728a23c0baaa55dc6",
-        "reviewedAt": "2026-10-09T17:45:06.472Z",
+        "definitionContentHash": "2ccd58cb18ac82ff1350dd1f6e2f4d7439456731e830f670d02eb7d71f2d6113",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
+        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
+        "reviewedAt": "2026-10-09T20:34:04.245Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -36237,7 +36237,7 @@
               },
               {
                 "id": "sitov.pretest.a22-05.words.q3.c",
-                "textDe": "Darauf achten, was der Text inhaltlich mitteilt."
+                "textDe": "Darauf achten, welche Informationen und Aussagen der Text vermittelt."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-05.words.q3.c",
@@ -36250,7 +36250,7 @@
                 "quote": "Inhalt"
               }
             ],
-            "rationaleDe": "Inhalt betrifft die Mitteilung und Bedeutung; Lautbildung gehört zur Aussprache, Wortreihenfolge zur sprachlichen Form."
+            "rationaleDe": "Inhalt betrifft die Informationen und Aussagen des Textes. Lautbildung gehört zur Aussprache, die Wortreihenfolge zur sprachlichen Form."
           },
           {
             "id": "sitov.pretest.a22-05.words.q4",
@@ -36832,7 +36832,7 @@
             "id": "sitov.pretest.a22-05.nominal.q4",
             "competencyId": "sitov.pretest.a22-05.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form von alt ergänzt als Vergleich zu neueren Wörtern »Ich wiederhole ___ Wörter«?",
+            "promptDe": "Welche Komparativform von »alt« im Akkusativ Plural steht zwischen »Ich wiederhole« und »Wörter«?",
             "fragmentDe": null,
             "options": [
               {
@@ -36858,7 +36858,7 @@
                 "quote": "ältere Wörter"
               }
             ],
-            "rationaleDe": "Ältere ist der Komparativ von alt; alte ist Positiv, älteste Superlativ und keine vergleichende Zwischenstufe."
+            "rationaleDe": "Ältere ist die Komparativform von alt. Alte ist Positiv, älteste Superlativ."
           },
           {
             "id": "sitov.pretest.a22-05.nominal.q5",
@@ -38023,16 +38023,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel, Begründungen, zwölf Kerne und drei vollständige Quellen nach den drei konkreten Reparaturen unabhängig erneut geprüft. Öffentliche Zielprämisse, echte Verbzweitstellung und finite Präsensform sind korrekt; zwei richtige Antworttexte und Kernzuordnungen ausdrücklich neu geprüft. Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
         "textVersion": "c4cd54805ef71fd2f332b6f3d1e08ff84939edb0a2c07fc4e7595f68c465e106",
-        "definitionContentHash": "ab35bac23a75d2a497c92cac5b0afd32d6952bbab3849d7df96e798f150d8582",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools37-39-M",
-        "documentSha256": "dbe12c32005106556d31776fee258bea597c021237e93afa7fa9d7dc4b6a05dd",
-        "reviewedAt": "2026-10-09T18:21:36.802Z",
+        "definitionContentHash": "4bf6289b273067bc32b05ebca5d0c17a2eb80980a8cad0c359d8e4d5b3089aaf",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
+        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
+        "reviewedAt": "2026-10-09T20:34:04.245Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -38096,7 +38096,7 @@
             "languageUnits": [
               "hatte vereinbart Plusquamperfekt",
               "ankam Präteritum ankommen",
-              "nachfragen trennbares Verb",
+              "fragte Präteritum fragen mit nach + Dativ",
               "verstanden starkes Partizip",
               "hätte geärgert gedachte Vergangenheit",
               "blieben Präteritum bleiben"
@@ -38135,7 +38135,7 @@
             ],
             "mapping": {
               "topicIds": [],
-              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: hatte vereinbart Plusquamperfekt, ankam Präteritum ankommen, nachfragen trennbares Verb, verstanden starkes Partizip, hätte geärgert gedachte Vergangenheit, blieben Präteritum bleiben. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: hatte vereinbart Plusquamperfekt, ankam Präteritum ankommen, fragte Präteritum fragen mit nach + Dativ, verstanden starkes Partizip, hätte geärgert gedachte Vergangenheit, blieben Präteritum bleiben. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
             }
           },
           {
@@ -38506,24 +38506,24 @@
             "id": "sitov.pretest.a22-07.verbs.q3",
             "competencyId": "sitov.pretest.a22-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Welche Grundform gehört zu »Er fragte noch einmal nach«?",
+            "promptDe": "Welche Grundform gehört zu »Der Mitarbeiter fragte nach meiner Telefonnummer«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-07.verbs.q3.b",
-                "textDe": "fragen"
+                "textDe": "befragen"
               },
               {
                 "id": "sitov.pretest.a22-07.verbs.q3.c",
-                "textDe": "nachfragen"
+                "textDe": "fragen"
               },
               {
                 "id": "sitov.pretest.a22-07.verbs.q3.a",
-                "textDe": "nachgefragt"
+                "textDe": "gefragt"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-07.verbs.q3.c",
-            "assessmentUnit": "nachfragen trennbares Verb",
+            "assessmentUnit": "fragte Präteritum fragen mit nach + Dativ",
             "equivalenceKey": "sitov:a22-07:verbs:3",
             "sourceSpans": [
               {
@@ -38532,7 +38532,7 @@
                 "quote": "fragte noch einmal nach meiner Telefonnummer"
               }
             ],
-            "rationaleDe": "Die Satzklammer fragte … nach gehört zu nachfragen; fragen verliert die Vorsilbe, nachgefragt ist ein Partizip."
+            "rationaleDe": "Fragte ist die Präteritumform von fragen. Nach meiner Telefonnummer ist die Präpositionalergänzung mit nach + Dativ; nach ist in diesem Quellsatz keine abgetrennte Verbpartikel. Befragen ist ein anderes Verb, gefragt ein Partizip."
           },
           {
             "id": "sitov.pretest.a22-07.verbs.q4",
@@ -40113,16 +40113,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 Fragen, Optionen, Schlüssel, Begründungen, zwölf Kerne und drei vollständige Quellen nach den drei konkreten Reparaturen unabhängig erneut geprüft. Öffentliche Zielprämisse, echte Verbzweitstellung und finite Präsensform sind korrekt; zwei richtige Antworttexte und Kernzuordnungen ausdrücklich neu geprüft. Lernziel-Lücken, Kalibrierung und Audio-/Versionsbindung bleiben separat.",
+        "notesDe": "M hat die sourcegebundenen A2.2-Auditkorrekturen unabhängig geprüft: eindeutiger öffentlicher Reflexivbezug, fragen mit nach + Dativ statt erfundenem trennbaren Verb, präzise und natürliche Alternativen. Neue unveränderliche Definition/Audiobindung erforderlich; keine empirische Äquivalenz oder Hörabnahme.",
         "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
-        "definitionContentHash": "a558b4fd59684c644315e443c5040bf528fdaf79cf07d34a5eaa37b5e8ff9fe9",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools37-39-M",
-        "documentSha256": "dbe12c32005106556d31776fee258bea597c021237e93afa7fa9d7dc4b6a05dd",
-        "reviewedAt": "2026-10-09T18:21:36.802Z",
+        "definitionContentHash": "26a8fbe42cbc0186abb5d12b56f6878212bb2171f44d22140a06ca42511016c7",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a22-audit7-M",
+        "documentSha256": "5d01edfd8f30aded84a7ec54ab9499d405de784ab5cd9fe5e287f9d726429252",
+        "reviewedAt": "2026-10-09T20:34:04.245Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -40409,7 +40409,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a22-09.words.q3.b",
-                "textDe": "Ein Kurs, der allein wegen seines Namens am Wochenende stattfinden muss."
+                "textDe": "Ein Kurs, dessen Unterricht nur am Nachmittag stattfindet."
               },
               {
                 "id": "sitov.pretest.a22-09.words.q3.a",
@@ -40430,7 +40430,7 @@
                 "quote": "Abendkurs"
               }
             ],
-            "rationaleDe": "Abendkurs nennt die Tageszeit des Unterrichts; Morgen und zwingender Wochenendtermin folgen daraus nicht."
+            "rationaleDe": "Abendkurs bezeichnet Unterricht am Abend. Früher Morgen und Nachmittag sind andere Tageszeiten."
           },
           {
             "id": "sitov.pretest.a22-09.words.q4",
@@ -40509,11 +40509,11 @@
               },
               {
                 "id": "sitov.pretest.a22-09.words.q6.c",
-                "textDe": "Die Personen, die den Kurs unterrichten."
+                "textDe": "Die Programme, mit denen man an einem Computer arbeitet."
               },
               {
                 "id": "sitov.pretest.a22-09.words.q6.a",
-                "textDe": "Nur die Zeitpunkte, zu denen Unterricht stattfindet."
+                "textDe": "Die digitalen Dateien, die man für den Kurs herunterlädt."
               }
             ],
             "correctOptionId": "sitov.pretest.a22-09.words.q6.b",
@@ -40526,7 +40526,7 @@
                 "quote": "Geräte"
               }
             ],
-            "rationaleDe": "Geräte sind technische Gegenstände; Lehrpersonen und Unterrichtszeiten sind andere Bestandteile eines Kurses."
+            "rationaleDe": "Computergeräte sind physische technische Gegenstände. Programme und digitale Dateien sind Inhalte oder Software, keine Geräte."
           },
           {
             "id": "sitov.pretest.a22-09.verbs.q1",

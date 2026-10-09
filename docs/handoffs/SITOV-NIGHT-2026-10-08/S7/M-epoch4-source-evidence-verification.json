@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-09T20:32:33.943Z",
+  "reviewer": "sitov.agent.M",
+  "sourceSHA": "3511d252ab0e756d31d93f15bde09bc58262cdb1",
+  "auditSha256": "ca77855f620d754dda1334a32f71dc0a75f2d99a82c85f2d6a1c716e607a67bf",
+  "sourceFilesVerified": 7,
+  "questionsVerified": 240,
+  "coresVerified": 40,
+  "fullSourceBodiesVerified": 10,
+  "productionReadOnlySnapshotBodyEquality": true,
+  "findingsEvidenceVerified": 9,
+  "humanReview": false,
+  "disposition": "Actual source evidence verified. Implausible distractors and public natural-language/construct issues require scoped repair and independent final candidate review; no blanket acceptance of every classification or publication.",
+  "publicationAuthorized": false,
+  "productionWrite": false
+}
