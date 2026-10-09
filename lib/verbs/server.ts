@@ -57,13 +57,17 @@ async function sitovLoad(client: Awaited<ReturnType<typeof createClient>>, learn
   if (!parsed.success) throw new SitovVerbError('invalid_input')
   const profile = await loadLevelAccessProfile(client, learnerId)
   if (!hasTrainerAccess(profile, parsed.data, 'verbs')) throw new SitovVerbError('not_authorized')
+  // Restrict the database read to the exact cumulative static catalog used below.
+  // Cookie-scoped RLS still decides which of those rows the learner may read.
+  const catalogEntries = getSitovVerbCatalog(parsed.data)
+  const catalogLevels = [...new Set(catalogEntries.map(verb => verb.level))]
   const [catalog, box, progress] = await Promise.all([
-    readAllRows((from, to) => client.from('sitov_verb_catalog').select('id,unit_id,level').order('id').range(from, to), 'verb_catalog'),
+    readAllRows((from, to) => client.from('sitov_verb_catalog').select('id,unit_id,level').in('level', catalogLevels).order('id').range(from, to), 'verb_catalog'),
     readAllRows((from, to) => client.from('sitov_verb_box').select('verb_id,selected').eq('auth_user_id', learnerId).order('verb_id').range(from, to), 'verb_box'),
     readAllRows((from, to) => client.from('sitov_verb_progress').select('verb_id,tense,box,attempts,correct,lapses,next_review_at,last_answered_at').eq('auth_user_id', learnerId).order('verb_id').order('tense').range(from, to), 'verb_progress'),
   ])
   const metadata = new Map(catalog.map(row => [row.id, row]))
-  const verbs = getSitovVerbCatalog(parsed.data).flatMap(verb => {
+  const verbs = catalogEntries.flatMap(verb => {
     const meta = metadata.get(verb.id)
     return meta ? [{ ...verb, unitId: meta.unit_id }] : []
   })
