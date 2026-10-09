@@ -14923,16 +14923,17 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4+S7",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 öffentlichen Aufgaben und drei Originaltexte unabhängig fachlich geprüft und danach exakte Schlüssel-/Optionsbijectionen sowie sämtliche unveränderten Inhaltsfelder bestätigt. Nur redaktioneller inaktiver Entwurf; Audioimport, Kalibrierung und Veröffentlichung separat.",
+        "notesDe": "M hat54 Fragen,6 vollständige Quellen und die betroffenen Sechserkerne geprüft. Acht neue Konstrukte mit passender Matrix und neuen Äquivalenzkennungen; Dienstag prüft das Akkusativobjekt, Donnerstag Verbzweitstellung. Alte Definitionen bleiben erhalten. Neue unveränderliche Definition und exakte vorberechnete Audios vor Veröffentlichung erforderlich.",
         "textVersion": "4853b6164bbe3e1b7a25bba35046462505f6236bc0abab77c91749dfe455eb39",
-        "definitionContentHash": "b956f39233aa4f67d4f159073e95afcf2abe62c979e9476c54ef47a52d3b13e2",
-        "reviewerKind": "independent_agent_editorial_review",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools13-15-M",
-        "documentSha256": "f96796a68487478130c835b196e1883ea7e44fc4f2efc9698f1155ce27aaf781",
-        "reviewedAt": "2026-10-09T11:12:45.625Z"
+        "definitionContentHash": "4a5387d5d9e607a91564f163f1d0519128aa23af583dc8bc3f33f946acb2c2d0",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-rest54-M",
+        "documentSha256": "0921c57b1a4e88efd3ae0c931ac025b5e192775a1b2757dd2e2b8f5f53239ed7",
+        "reviewedAt": "2026-10-09T20:47:14.471Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -15166,15 +15167,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.words.q1.b",
-                "textDe": "Ein privates Schlafzimmer."
+                "textDe": "Ein Geschäft, das jeden Tag geöffnet ist."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q1.a",
-                "textDe": "Eine Haltestelle ohne Verkauf."
+                "textDe": "Ein Markt nur im Internet."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q1.c",
-                "textDe": "Ein regelmäßig stattfindender Markt mit Verkaufsständen."
+                "textDe": "Ein Markt mit Ständen, der jede Woche stattfindet."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-05.words.q1.c",
@@ -15187,7 +15188,7 @@
                 "quote": "Markt"
               }
             ],
-            "rationaleDe": "Ein Wochenmarkt ist ein wiederkehrender Verkaufsmarkt; Schlafraum und reine Haltestelle sind andere Orte."
+            "rationaleDe": "Ein Wochenmarkt findet jede Woche mit Verkaufsständen statt. Ein täglich geöffnetes Geschäft und ein Markt im Internet sind andere Verkaufsformen."
           },
           {
             "id": "sitov.pretest.a12-05.words.q2",
@@ -15202,11 +15203,11 @@
               },
               {
                 "id": "sitov.pretest.a12-05.words.q2.c",
-                "textDe": "Zum Anzeigen der Uhrzeit."
+                "textDe": "Zum Abwiegen der Waren."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q2.a",
-                "textDe": "Zum Braten der Kartoffeln."
+                "textDe": "Zum Bezahlen der Waren."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-05.words.q2.b",
@@ -15219,7 +15220,7 @@
                 "quote": "meinem Korb"
               }
             ],
-            "rationaleDe": "Der Korb ist ein Transportbehälter; Uhranzeige und Braten sind keine typische Funktion des Einkaufskorbs."
+            "rationaleDe": "Im Korb trägt man die Waren. Zum Wiegen benutzt man eine Waage; bezahlt wird mit Geld oder Karte."
           },
           {
             "id": "sitov.pretest.a12-05.words.q3",
@@ -15234,11 +15235,11 @@
               },
               {
                 "id": "sitov.pretest.a12-05.words.q3.b",
-                "textDe": "Es ist eine Mengenangabe."
+                "textDe": "Es ist besonders süß."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q3.a",
-                "textDe": "Es besteht aus Metall."
+                "textDe": "Es ist sehr billig."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-05.words.q3.c",
@@ -15251,7 +15252,7 @@
                 "quote": "frische Äpfel"
               }
             ],
-            "rationaleDe": "Frisch beschreibt die Qualität des Obstes, nicht Material oder Menge."
+            "rationaleDe": "Frisch heißt hier nicht alt oder verdorben. Süß nennt den Geschmack, billig den Preis."
           },
           {
             "id": "sitov.pretest.a12-05.words.q4",
@@ -15262,7 +15263,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.words.q4.a",
-                "textDe": "Eine Uhrzeit."
+                "textDe": "Eine Länge."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q4.b",
@@ -15270,7 +15271,7 @@
               },
               {
                 "id": "sitov.pretest.a12-05.words.q4.c",
-                "textDe": "Eine Farbe."
+                "textDe": "Eine Menge Flüssigkeit in Litern."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-05.words.q4.b",
@@ -15283,7 +15284,7 @@
                 "quote": "ein Kilo Äpfel"
               }
             ],
-            "rationaleDe": "Kilo ist die umgangssprachliche Bezeichnung für die Gewichtseinheit Kilogramm, keine Zeit oder Farbe."
+            "rationaleDe": "Kilo nennt ein Gewicht. Länge und Liter sind andere Größen beim Messen."
           },
           {
             "id": "sitov.pretest.a12-05.words.q5",
@@ -15294,11 +15295,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.words.q5.c",
-                "textDe": "Den Preis auswendig aufsagen."
+                "textDe": "Den Apfel nur ansehen."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q5.b",
-                "textDe": "Den Apfel zeichnen, ohne ihn zu essen."
+                "textDe": "Nur am Apfel riechen."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q5.a",
@@ -15315,7 +15316,7 @@
                 "quote": "probieren"
               }
             ],
-            "rationaleDe": "Probieren meint hier das Kosten des Apfels; Zeichnen und Preisaufsagen prüfen keinen Geschmack."
+            "rationaleDe": "Beim Probieren kostet man ein Stück. Nur ansehen oder riechen prüft den Geschmack nicht."
           },
           {
             "id": "sitov.pretest.a12-05.words.q6",
@@ -15326,7 +15327,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.words.q6.c",
-                "textDe": "Ein sehr großes Gewicht."
+                "textDe": "Ein saurer Geschmack."
               },
               {
                 "id": "sitov.pretest.a12-05.words.q6.a",
@@ -15334,7 +15335,7 @@
               },
               {
                 "id": "sitov.pretest.a12-05.words.q6.b",
-                "textDe": "Eine besonders laute Stimme."
+                "textDe": "Ein bitterer Geschmack."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-05.words.q6.a",
@@ -15347,7 +15348,7 @@
                 "quote": "süß"
               }
             ],
-            "rationaleDe": "Süß beschreibt hier den Geschmack, nicht Lautstärke oder Gewicht."
+            "rationaleDe": "Süß schmeckt ähnlich wie Zucker. Sauer und bitter sind andere Geschmacksrichtungen."
           },
           {
             "id": "sitov.pretest.a12-05.verbs.q1",
@@ -15609,20 +15610,20 @@
             "id": "sitov.pretest.a12-05.syntax.q3",
             "competencyId": "sitov.pretest.a12-05.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche zwei Obstsorten nennt »An einem Stand gibt es frische Äpfel und Birnen«?",
+            "promptDe": "Übung: »An einem Stand gibt es frische Äpfel und Birnen.« Was verbindet »und« hier?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-05.syntax.q3.a",
-                "textDe": "Äpfel und Bananen."
+                "textDe": "Zwei Handlungen."
               },
               {
                 "id": "sitov.pretest.a12-05.syntax.q3.c",
-                "textDe": "Äpfel und Birnen."
+                "textDe": "Zwei Dinge, die es am Stand gibt."
               },
               {
                 "id": "sitov.pretest.a12-05.syntax.q3.b",
-                "textDe": "Kartoffeln und Birnen."
+                "textDe": "Zwei verschiedene Verkäufer."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-05.syntax.q3.c",
@@ -15635,7 +15636,7 @@
                 "quote": "An einem Stand gibt es frische Äpfel und Birnen."
               }
             ],
-            "rationaleDe": "Der Satz nennt ausdrücklich Äpfel und Birnen; die anderen Antworten ersetzen eine genannte Sorte."
+            "rationaleDe": "Und verbindet Äpfel und Birnen als zwei Dinge derselben Es-gibt-Aussage. Es verbindet weder Verben noch Verkäufer."
           },
           {
             "id": "sitov.pretest.a12-05.syntax.q4",
@@ -15650,11 +15651,11 @@
               },
               {
                 "id": "sitov.pretest.a12-05.syntax.q4.b",
-                "textDe": "Der Korb."
+                "textDe": "Der Verkäufer."
               },
               {
                 "id": "sitov.pretest.a12-05.syntax.q4.c",
-                "textDe": "Der Platz."
+                "textDe": "Der Verkäufer und der Sprecher gemeinsam."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-05.syntax.q4.a",
@@ -15667,7 +15668,7 @@
                 "quote": "Der Verkäufer lässt mich einen Apfel probieren."
               }
             ],
-            "rationaleDe": "Mich bezeichnet die vom Verkäufer zugelassene probierende Person; Korb und Platz können hier nicht probieren."
+            "rationaleDe": "Mich bezeichnet den Sprecher als probierende Person. Der Verkäufer lässt ihn probieren; er probiert im Satz nicht selbst."
           },
           {
             "id": "sitov.pretest.a12-05.syntax.q5",
@@ -15678,11 +15679,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-05.syntax.q5.c",
-                "textDe": "Genau in der eigenen Küche."
+                "textDe": "Am gleichen Stand wie vorher."
               },
               {
                 "id": "sitov.pretest.a12-05.syntax.q5.a",
-                "textDe": "Vor der Geburt des Verkäufers."
+                "textDe": "Auf dem Weg zum ersten Stand."
               },
               {
                 "id": "sitov.pretest.a12-05.syntax.q5.b",
@@ -15699,7 +15700,7 @@
                 "quote": "Am nächsten Stand kaufe ich Kartoffeln."
               }
             ],
-            "rationaleDe": "Die Wortgruppe nennt einen weiteren Ort auf dem Markt; sie bezeichnet weder die Küche noch eine vergangene Zeit."
+            "rationaleDe": "Am nächsten Stand nennt einen weiteren Verkaufsstand nach dem bisherigen. Es ist weder derselbe Stand noch erst der Weg zum ersten."
           },
           {
             "id": "sitov.pretest.a12-05.syntax.q6",
@@ -15979,16 +15980,17 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4+S7",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 öffentlichen Aufgaben, richtigen Antworttexte, Begründungen und drei tatsächlichen Quelltexte unabhängig geprüft. Exakte inaktive redaktionelle Entwürfe; Audioimport, Kalibrierung und Publikation separat.",
+        "notesDe": "M hat54 Fragen,6 vollständige Quellen und die betroffenen Sechserkerne geprüft. Acht neue Konstrukte mit passender Matrix und neuen Äquivalenzkennungen; Dienstag prüft das Akkusativobjekt, Donnerstag Verbzweitstellung. Alte Definitionen bleiben erhalten. Neue unveränderliche Definition und exakte vorberechnete Audios vor Veröffentlichung erforderlich.",
         "textVersion": "52479a906a2ed2b673e3000ea142c0f06201136c8898cd6c45c24e1ca8376ff7",
-        "definitionContentHash": "b1be666d18cacc1a07c75240265b02181ba3eb1ad34b0ee789b2e89ca9dd1c35",
-        "reviewerKind": "independent_agent_editorial_review",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools16-18-M",
-        "documentSha256": "d273f871f2921e2ab2d282e3e87520a904df8ecd79d0b5735be0392290423874",
-        "reviewedAt": "2026-10-09T11:30:32.969Z"
+        "definitionContentHash": "87e909ac202e5c3a735c2f7ac6965952636273d1e1826322b838ea373f7e647c",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-rest54-M",
+        "documentSha256": "0921c57b1a4e88efd3ae0c931ac025b5e192775a1b2757dd2e2b8f5f53239ed7",
+        "reviewedAt": "2026-10-09T20:47:14.471Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -16104,7 +16106,7 @@
               "Küche Subjekt Prädikat",
               "Neben Haus Ortsglied",
               "für uns Perspektive",
-              "darüber schlafen Entscheidungsaufschub"
+              "möchten mit zwei koordinierten Infinitiven"
             ],
             "sourceSpans": [
               {
@@ -16224,11 +16226,11 @@
               },
               {
                 "id": "sitov.pretest.a12-06.words.q1.c",
-                "textDe": "Eine Fahrkarte für die Bahn."
+                "textDe": "Ein einzelnes Zimmer in einem Hotel."
               },
               {
                 "id": "sitov.pretest.a12-06.words.q1.a",
-                "textDe": "Eine Mahlzeit am Abend."
+                "textDe": "Ein Haus nur für Büros."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-06.words.q1.b",
@@ -16241,7 +16243,7 @@
                 "quote": "Wohnung"
               }
             ],
-            "rationaleDe": "Eine Wohnung ist Wohnraum; Fahrkarte und Mahlzeit gehören zu anderen Bedeutungsbereichen."
+            "rationaleDe": "Eine Wohnung besteht aus Räumen zum Wohnen. Ein einzelnes Hotelzimmer oder ein Bürohaus ist etwas anderes."
           },
           {
             "id": "sitov.pretest.a12-06.words.q2",
@@ -16252,11 +16254,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-06.words.q2.a",
-                "textDe": "Ein unterirdischer Bahnsteig."
+                "textDe": "Ein Raum unter dem Dach."
               },
               {
                 "id": "sitov.pretest.a12-06.words.q2.b",
-                "textDe": "Ein Schrank in der Küche."
+                "textDe": "Ein Garten hinter dem Haus."
               },
               {
                 "id": "sitov.pretest.a12-06.words.q2.c",
@@ -16273,7 +16275,7 @@
                 "quote": "einen Balkon"
               }
             ],
-            "rationaleDe": "Ein Balkon ist ein betretbarer Außenbereich am Gebäude, kein Bahnsteig oder Möbelstück."
+            "rationaleDe": "Ein Balkon ist ein erhöhter Außenbereich am Gebäude. Ein Dachraum und ein Garten sind andere Gebäudebereiche."
           },
           {
             "id": "sitov.pretest.a12-06.words.q3",
@@ -16284,11 +16286,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-06.words.q3.c",
-                "textDe": "Die Größe eines Fensters."
+                "textDe": "Geld für den Kauf der Wohnung."
               },
               {
                 "id": "sitov.pretest.a12-06.words.q3.b",
-                "textDe": "Die Farbe einer Wand."
+                "textDe": "Geld nur für Strom und Wasser."
               },
               {
                 "id": "sitov.pretest.a12-06.words.q3.a",
@@ -16305,7 +16307,7 @@
                 "quote": "Die Miete"
               }
             ],
-            "rationaleDe": "Miete bezeichnet die Zahlung für die Nutzung; Fenstergröße und Wandfarbe sind andere Eigenschaften."
+            "rationaleDe": "Miete ist die vereinbarte Zahlung für die Nutzung der Wohnung. Kaufpreis und Kosten nur für Strom und Wasser sind andere Zahlungen."
           },
           {
             "id": "sitov.pretest.a12-06.words.q4",
@@ -16316,7 +16318,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-06.words.q4.a",
-                "textDe": "Nur zum Abstellen von Zügen."
+                "textDe": "Zum Parken von Autos."
               },
               {
                 "id": "sitov.pretest.a12-06.words.q4.b",
@@ -16324,7 +16326,7 @@
               },
               {
                 "id": "sitov.pretest.a12-06.words.q4.c",
-                "textDe": "Zum Ausstellen von Reisepässen."
+                "textDe": "Zum Anbauen von Gemüse."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-06.words.q4.b",
@@ -16337,7 +16339,7 @@
                 "quote": "ein Spielplatz"
               }
             ],
-            "rationaleDe": "Ein Spielplatz dient dem Spielen; Zugabstellung und Passausstellung haben andere Orte."
+            "rationaleDe": "Ein Spielplatz dient dem Spielen, oft mit Spielgeräten. Parkplatz und Gemüsegarten haben andere Aufgaben."
           },
           {
             "id": "sitov.pretest.a12-06.words.q5",
@@ -16352,7 +16354,7 @@
               },
               {
                 "id": "sitov.pretest.a12-06.words.q5.c",
-                "textDe": "Die Küche hat keinen Boden."
+                "textDe": "Die Küche ist sehr warm."
               },
               {
                 "id": "sitov.pretest.a12-06.words.q5.b",
@@ -16369,7 +16371,7 @@
                 "quote": "Die Küche ist hell."
               }
             ],
-            "rationaleDe": "Hell bezeichnet hier viel Licht; dunkel ist das Gegenteil, fehlender Boden folgt daraus nicht."
+            "rationaleDe": "Hell heißt viel Licht. Warm nennt die Temperatur; dunkel ist das Gegenteil von hell."
           },
           {
             "id": "sitov.pretest.a12-06.words.q6",
@@ -16380,7 +16382,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-06.words.q6.b",
-                "textDe": "Eine Uhrzeit."
+                "textDe": "Die Nummer eines Hauses."
               },
               {
                 "id": "sitov.pretest.a12-06.words.q6.c",
@@ -16388,7 +16390,7 @@
               },
               {
                 "id": "sitov.pretest.a12-06.words.q6.a",
-                "textDe": "Den Namen eines Getränks."
+                "textDe": "Den Namen einer Stadt."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-06.words.q6.c",
@@ -16401,7 +16403,7 @@
                 "quote": "in der Nordstraße"
               }
             ],
-            "rationaleDe": "Nordstraße ist im öffentlichen Ausdruck ein Straßenname, kein Getränk und keine Zeitangabe."
+            "rationaleDe": "Nordstraße nennt hier eine Straße. Hausnummer und Stadtname sind andere Adressangaben."
           },
           {
             "id": "sitov.pretest.a12-06.verbs.q1",
@@ -16736,11 +16738,11 @@
               },
               {
                 "id": "sitov.pretest.a12-06.syntax.q5.a",
-                "textDe": "Die Größe des Balkons."
+                "textDe": "Die Einschätzung des Vermieters."
               },
               {
                 "id": "sitov.pretest.a12-06.syntax.q5.c",
-                "textDe": "Eine ausdrücklich genannte Meinung aller Menschen."
+                "textDe": "Die Einschätzung aller Menschen."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-06.syntax.q5.b",
@@ -16753,31 +16755,31 @@
                 "quote": "Die Miete ist für uns etwas hoch."
               }
             ],
-            "rationaleDe": "Für uns begrenzt die Einschätzung auf die Sprechergruppe; eine allgemeine Meinung oder Balkongröße wird nicht behauptet."
+            "rationaleDe": "Für uns nennt die Sprechergruppe als Träger der Einschätzung. Es ist keine Aussage über den Vermieter oder alle Menschen."
           },
           {
             "id": "sitov.pretest.a12-06.syntax.q6",
             "competencyId": "sitov.pretest.a12-06.syntax",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet die Redewendung »eine Nacht darüber schlafen«, bevor man sich entscheidet?",
+            "promptDe": "Welche Satzfolge ist richtig, wenn beide Tätigkeiten zu »möchten« gehören?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-06.syntax.q6.b",
-                "textDe": "Sofort ohne Nachdenken entscheiden."
+                "textDe": "Wir möchten noch eine Nacht darüber schläft und morgen anrufen."
               },
               {
                 "id": "sitov.pretest.a12-06.syntax.q6.c",
-                "textDe": "Den Gegenstand im Schlaf herstellen."
+                "textDe": "Wir möchten noch eine Nacht darüber schlafen und morgen ruft an."
               },
               {
                 "id": "sitov.pretest.a12-06.syntax.q6.a",
-                "textDe": "Sich bis zum nächsten Tag Zeit zum Nachdenken nehmen."
+                "textDe": "Wir möchten noch eine Nacht darüber schlafen und morgen anrufen."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-06.syntax.q6.a",
-            "assessmentUnit": "darüber schlafen Entscheidungsaufschub",
-            "equivalenceKey": "sitov:a12-06:syntax:6",
+            "assessmentUnit": "möchten mit zwei koordinierten Infinitiven",
+            "equivalenceKey": "sitov:a12-06:syntax:6:editorial-v2",
             "sourceSpans": [
               {
                 "start": 253,
@@ -16785,7 +16787,7 @@
                 "quote": "noch eine Nacht darüber schlafen und morgen anrufen"
               }
             ],
-            "rationaleDe": "Die Redewendung meint das Aufschieben einer Entscheidung zum Überdenken, nicht sofortige Entscheidung oder Herstellung im Schlaf."
+            "rationaleDe": "Möchten verlangt hier beide Infinitive: schlafen und anrufen. Schläft und ruft an sind finite Formen und passen dort nicht."
           },
           {
             "id": "sitov.pretest.a12-06.nominal.q1",
@@ -17033,16 +17035,17 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4+S7",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 öffentlichen Aufgaben, richtigen Antworttexte, Begründungen und drei tatsächlichen Quelltexte unabhängig geprüft. Exakte inaktive redaktionelle Entwürfe; Audioimport, Kalibrierung und Publikation separat.",
+        "notesDe": "M hat54 Fragen,6 vollständige Quellen und die betroffenen Sechserkerne geprüft. Acht neue Konstrukte mit passender Matrix und neuen Äquivalenzkennungen; Dienstag prüft das Akkusativobjekt, Donnerstag Verbzweitstellung. Alte Definitionen bleiben erhalten. Neue unveränderliche Definition und exakte vorberechnete Audios vor Veröffentlichung erforderlich.",
         "textVersion": "afb90ca92d92f558035a85d02f3117cd5e534aded0b0ff65a3dd3878a8486132",
-        "definitionContentHash": "805b898f2b4bf909efb384477861b1575907fc10e0592f4c0fb9208770302665",
-        "reviewerKind": "independent_agent_editorial_review",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools16-18-M",
-        "documentSha256": "d273f871f2921e2ab2d282e3e87520a904df8ecd79d0b5735be0392290423874",
-        "reviewedAt": "2026-10-09T11:30:32.969Z"
+        "definitionContentHash": "da5d567ed820f7eb21cf56d76f01c7a5da53983d6f0ddb9e933886205bd6b180",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-rest54-M",
+        "documentSha256": "0921c57b1a4e88efd3ae0c931ac025b5e192775a1b2757dd2e2b8f5f53239ed7",
+        "reviewedAt": "2026-10-09T20:47:14.471Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -17106,8 +17109,8 @@
               "besuchen wir Form",
               "fährt Grundform fahren",
               "müssen Notwendigkeit",
-              "aufstehen Tätigkeit",
-              "kaufen Erwerb gegen Bezahlung",
+              "aufstehen Infinitiv zur getrennten Übungsform",
+              "kaufen Infinitiv zur finiten Übungsform",
               "wartet dritte Person Singular"
             ],
             "sourceSpans": [
@@ -17158,9 +17161,9 @@
               "Morgen Zeitglied",
               "halb zehn Zeitverständnis",
               "zwei Infinitive Modalverb",
-              "Gleisnummer ausdrückliche Angabe",
+              "Ortsvorfeld Anzeige mit nachgestelltem Subjekt",
               "warten auf uns Rollen",
-              "Zusammen gemeinsame Handlung"
+              "gemeinsame Sprechergruppe als Subjekt"
             ],
             "sourceSpans": [
               {
@@ -17276,15 +17279,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-07.words.q1.b",
-                "textDe": "Ein Schienenfahrzeug zum Befördern von Personen oder Gütern."
+                "textDe": "Ein Fahrzeug, das auf Schienen fährt."
               },
               {
                 "id": "sitov.pretest.a12-07.words.q1.c",
-                "textDe": "Ein kleines Brot."
+                "textDe": "Ein Fahrzeug, das auf Straßen fährt."
               },
               {
                 "id": "sitov.pretest.a12-07.words.q1.a",
-                "textDe": "Ein Möbelstück am Fenster."
+                "textDe": "Ein Fahrzeug, das auf dem Wasser fährt."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.words.q1.b",
@@ -17297,7 +17300,7 @@
                 "quote": "Unser Zug"
               }
             ],
-            "rationaleDe": "Zug bezeichnet hier ein Schienenfahrzeug; Brot und Möbel gehören nicht zu diesem Verkehrsbegriff."
+            "rationaleDe": "Ein Zug fährt auf Schienen. Fahrzeuge auf Straßen oder auf dem Wasser sind andere Verkehrsmittel."
           },
           {
             "id": "sitov.pretest.a12-07.words.q2",
@@ -17308,11 +17311,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-07.words.q2.c",
-                "textDe": "Wohnungen streichen."
+                "textDe": "Mit dem Flugzeug starten."
               },
               {
                 "id": "sitov.pretest.a12-07.words.q2.a",
-                "textDe": "Bücher im eigenen Schlafzimmer lesen."
+                "textDe": "Mit dem Schiff abfahren."
               },
               {
                 "id": "sitov.pretest.a12-07.words.q2.b",
@@ -17329,7 +17332,7 @@
                 "quote": "Am Bahnhof"
               }
             ],
-            "rationaleDe": "Ein Bahnhof dient dem Bahnverkehr mit Ein- und Ausstieg; die anderen Tätigkeiten definieren ihn nicht."
+            "rationaleDe": "Am Bahnhof steigt man in Züge ein oder aus. Flugzeug und Schiff benutzen andere Verkehrsorte."
           },
           {
             "id": "sitov.pretest.a12-07.words.q3",
@@ -17344,11 +17347,11 @@
               },
               {
                 "id": "sitov.pretest.a12-07.words.q3.b",
-                "textDe": "Ein großes Schienenfahrzeug."
+                "textDe": "Ein süßes Stück Kuchen."
               },
               {
                 "id": "sitov.pretest.a12-07.words.q3.a",
-                "textDe": "Eine Anzeige für Abfahrten."
+                "textDe": "Eine gekochte Kartoffel."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.words.q3.c",
@@ -17361,7 +17364,7 @@
                 "quote": "ein Brötchen"
               }
             ],
-            "rationaleDe": "Brötchen ist eine kleine Backware, kein Fahrzeug und keine technische Anzeige."
+            "rationaleDe": "Ein Brötchen ist eine kleine Backware aus Brotteig. Kuchen und Kartoffel sind andere Lebensmittel."
           },
           {
             "id": "sitov.pretest.a12-07.words.q4",
@@ -17372,11 +17375,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-07.words.q4.b",
-                "textDe": "Ein Sitzplatz am Fenster."
+                "textDe": "Eine Karte zum Bezahlen der Fahrt."
               },
               {
                 "id": "sitov.pretest.a12-07.words.q4.c",
-                "textDe": "Eine Tasche für Kleidung."
+                "textDe": "Eine Karte mit dem Weg durch die Stadt."
               },
               {
                 "id": "sitov.pretest.a12-07.words.q4.a",
@@ -17393,7 +17396,7 @@
                 "quote": "Auf der Anzeige"
               }
             ],
-            "rationaleDe": "Die Anzeige stellt hier Reiseinformationen dar; Tasche und Sitzplatz sind keine Bedeutung dieses Wortes im Satz."
+            "rationaleDe": "Die Anzeige stellt hier Reiseinformationen wie das Gleis dar. Fahrkarte und Stadtplan haben andere Aufgaben."
           },
           {
             "id": "sitov.pretest.a12-07.words.q5",
@@ -17404,7 +17407,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-07.words.q5.c",
-                "textDe": "Der Name eines Familienmitglieds."
+                "textDe": "Ein Raum zum Warten auf den Zug."
               },
               {
                 "id": "sitov.pretest.a12-07.words.q5.a",
@@ -17412,7 +17415,7 @@
               },
               {
                 "id": "sitov.pretest.a12-07.words.q5.b",
-                "textDe": "Die Füllung eines Brötchens."
+                "textDe": "Ein Schalter zum Kaufen von Fahrkarten."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.words.q5.a",
@@ -17425,7 +17428,7 @@
                 "quote": "Gleis sieben"
               }
             ],
-            "rationaleDe": "Gleis bezeichnet den Schienenweg; Essen und Familienbeziehungen gehören nicht zu diesem Begriff."
+            "rationaleDe": "Ein Gleis ist der Schienenweg für den Zug. Warteraum und Fahrkartenschalter sind andere Teile des Bahnhofs."
           },
           {
             "id": "sitov.pretest.a12-07.words.q6",
@@ -17436,7 +17439,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-07.words.q6.b",
-                "textDe": "Ein Raum zum Schlafen."
+                "textDe": "Ein Bus auf der Straße."
               },
               {
                 "id": "sitov.pretest.a12-07.words.q6.c",
@@ -17444,7 +17447,7 @@
               },
               {
                 "id": "sitov.pretest.a12-07.words.q6.a",
-                "textDe": "Ein privates Boot auf einem See."
+                "textDe": "Ein Zug für lange Reisen zwischen Städten."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.words.q6.c",
@@ -17457,7 +17460,7 @@
                 "quote": "mit der Straßenbahn"
               }
             ],
-            "rationaleDe": "Eine Straßenbahn fährt als öffentliches Verkehrsmittel auf Schienen in der Stadt, nicht auf einem See."
+            "rationaleDe": "Eine Straßenbahn fährt auf Schienen im Stadtverkehr. Bus und Fernzug sind andere Verkehrsmittel."
           },
           {
             "id": "sitov.pretest.a12-07.verbs.q1",
@@ -17559,25 +17562,25 @@
             "id": "sitov.pretest.a12-07.verbs.q4",
             "competencyId": "sitov.pretest.a12-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet das Verb »aufstehen« nach dem Schlafen?",
+            "promptDe": "Übung: »Paul steht früh auf.« Welcher Infinitiv gehört zum Verb in diesem Satz?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-07.verbs.q4.b",
-                "textDe": "Das Bett verlassen und den Tag beginnen."
+                "textDe": "aufstehen"
               },
               {
                 "id": "sitov.pretest.a12-07.verbs.q4.c",
-                "textDe": "Im Bett einschlafen."
+                "textDe": "aufwachen"
               },
               {
                 "id": "sitov.pretest.a12-07.verbs.q4.a",
-                "textDe": "Eine Fahrkarte zerreißen."
+                "textDe": "einschlafen"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.verbs.q4.b",
-            "assessmentUnit": "aufstehen Tätigkeit",
-            "equivalenceKey": "sitov:a12-07:verbs:4",
+            "assessmentUnit": "aufstehen Infinitiv zur getrennten Übungsform",
+            "equivalenceKey": "sitov:a12-07:verbs:4:editorial-v2",
             "sourceSpans": [
               {
                 "start": 86,
@@ -17585,31 +17588,31 @@
                 "quote": "früh aufstehen"
               }
             ],
-            "rationaleDe": "Aufstehen bedeutet hier, nach dem Schlafen aus dem Bett zu kommen; Einschlafen ist eine andere Handlung."
+            "rationaleDe": "Steht und auf bilden aufstehen. Aufwachen und einschlafen sind andere Verben."
           },
           {
             "id": "sitov.pretest.a12-07.verbs.q5",
             "competencyId": "sitov.pretest.a12-07.verbs",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet »Wir kaufen ein Brötchen«?",
+            "promptDe": "Übung: »Paul kauft ein Brötchen.« Welcher Infinitiv gehört zu »kauft«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-07.verbs.q5.c",
-                "textDe": "Wir verschenken ein Brötchen."
+                "textDe": "verkaufen"
               },
               {
                 "id": "sitov.pretest.a12-07.verbs.q5.b",
-                "textDe": "Wir backen ein Brötchen selbst."
+                "textDe": "backen"
               },
               {
                 "id": "sitov.pretest.a12-07.verbs.q5.a",
-                "textDe": "Wir bekommen ein Brötchen gegen Bezahlung."
+                "textDe": "kaufen"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.verbs.q5.a",
-            "assessmentUnit": "kaufen Erwerb gegen Bezahlung",
-            "equivalenceKey": "sitov:a12-07:verbs:5",
+            "assessmentUnit": "kaufen Infinitiv zur finiten Übungsform",
+            "equivalenceKey": "sitov:a12-07:verbs:5:editorial-v2",
             "sourceSpans": [
               {
                 "start": 136,
@@ -17617,7 +17620,7 @@
                 "quote": "kaufen wir noch ein Brötchen"
               }
             ],
-            "rationaleDe": "Kaufen bezeichnet den Erwerb gegen Bezahlung; Verschenken und eigenes Backen sind andere Handlungen."
+            "rationaleDe": "Kauft ist eine Form von kaufen. Verkaufen und backen sind andere Verben."
           },
           {
             "id": "sitov.pretest.a12-07.verbs.q6",
@@ -17719,20 +17722,20 @@
             "id": "sitov.pretest.a12-07.syntax.q3",
             "competencyId": "sitov.pretest.a12-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche zwei Handlungen nennt »Wir müssen früh aufstehen und die Taschen packen«?",
+            "promptDe": "Welcher Satz ist richtig, wenn beide Tätigkeiten zu »müssen« gehören?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-07.syntax.q3.c",
-                "textDe": "Aufstehen und die Taschen packen."
+                "textDe": "Wir müssen früh aufstehen und die Taschen packen."
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q3.b",
-                "textDe": "Schlafen und die Taschen wegwerfen."
+                "textDe": "Wir müssen früh aufsteht und die Taschen packen."
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q3.a",
-                "textDe": "Warten und die Fenster öffnen."
+                "textDe": "Wir müssen früh aufstehen und die Taschen packt."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.syntax.q3.c",
@@ -17745,31 +17748,31 @@
                 "quote": "Wir müssen früh aufstehen und die Taschen packen."
               }
             ],
-            "rationaleDe": "Der öffentliche Satz verbindet ausdrücklich aufstehen und packen unter dem Modalverb müssen."
+            "rationaleDe": "Müssen steht mit beiden Infinitiven aufstehen und packen. Aufsteht und packt sind finite Formen."
           },
           {
             "id": "sitov.pretest.a12-07.syntax.q4",
             "competencyId": "sitov.pretest.a12-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welches Gleis nennt »Auf der Anzeige steht Gleis sieben«?",
+            "promptDe": "Welcher Aussagesatz mit »Auf der Anzeige« am Anfang ist richtig?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-07.syntax.q4.c",
-                "textDe": "Gleis zehn."
+                "textDe": "Auf der Anzeige Gleis sieben steht."
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q4.a",
-                "textDe": "Gleis sechs."
+                "textDe": "Auf der Anzeige Gleis steht sieben."
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q4.b",
-                "textDe": "Gleis sieben."
+                "textDe": "Auf der Anzeige steht Gleis sieben."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.syntax.q4.b",
-            "assessmentUnit": "Gleisnummer ausdrückliche Angabe",
-            "equivalenceKey": "sitov:a12-07:syntax:4",
+            "assessmentUnit": "Ortsvorfeld Anzeige mit nachgestelltem Subjekt",
+            "equivalenceKey": "sitov:a12-07:syntax:4:editorial-v2",
             "sourceSpans": [
               {
                 "start": 166,
@@ -17777,7 +17780,7 @@
                 "quote": "Auf der Anzeige steht Gleis sieben."
               }
             ],
-            "rationaleDe": "Die öffentliche Angabe lautet sieben; die anderen Gleisnummern stehen dort nicht."
+            "rationaleDe": "Nach der Ortsangabe Auf der Anzeige steht das finite Verb steht. Danach folgt das Subjekt Gleis sieben."
           },
           {
             "id": "sitov.pretest.a12-07.syntax.q5",
@@ -17792,11 +17795,11 @@
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q5.a",
-                "textDe": "Auf ein Brötchen."
+                "textDe": "Auf den Bruder selbst."
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q5.c",
-                "textDe": "Auf die Anzeige."
+                "textDe": "Nur auf eine einzelne Person der Gruppe."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.syntax.q5.b",
@@ -17809,31 +17812,31 @@
                 "quote": "Mein Bruder wartet am Bahnhof auf uns."
               }
             ],
-            "rationaleDe": "Uns bezeichnet die Sprechergruppe; Brötchen und Anzeige sind keine Bezugspersonen dieser Aussage."
+            "rationaleDe": "Auf uns nennt die gesamte Sprechergruppe als Ziel des Wartens, nicht den Bruder selbst oder nur einen einzelnen Sprecher."
           },
           {
             "id": "sitov.pretest.a12-07.syntax.q6",
             "competencyId": "sitov.pretest.a12-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet »zusammen« in »Zusammen fahren wir mit der Straßenbahn«?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Zusammen fahren wir mit der Straßenbahn.« Mit »wir« meint er sich und Leon. Welche Aussage passt?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-07.syntax.q6.b",
-                "textDe": "Niemand fährt."
+                "textDe": "Nur Paul fährt mit der Straßenbahn."
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q6.a",
-                "textDe": "Jede Person fährt ausdrücklich allein."
+                "textDe": "Nur Leon fährt mit der Straßenbahn."
               },
               {
                 "id": "sitov.pretest.a12-07.syntax.q6.c",
-                "textDe": "Die Fahrt wird gemeinsam gemacht."
+                "textDe": "Paul und Leon fahren gemeinsam."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-07.syntax.q6.c",
-            "assessmentUnit": "Zusammen gemeinsame Handlung",
-            "equivalenceKey": "sitov:a12-07:syntax:6",
+            "assessmentUnit": "gemeinsame Sprechergruppe als Subjekt",
+            "equivalenceKey": "sitov:a12-07:syntax:6:editorial-v2",
             "sourceSpans": [
               {
                 "start": 271,
@@ -17841,7 +17844,7 @@
                 "quote": "Zusammen fahren wir"
               }
             ],
-            "rationaleDe": "Zusammen drückt gemeinsames Handeln aus; allein oder keine Fahrt widersprechen dieser Bedeutung."
+            "rationaleDe": "Zusammen und wir ordnen die Fahrt Paul und Leon gemeinsam zu. Nur eine der beiden Personen reicht nicht."
           },
           {
             "id": "sitov.pretest.a12-07.nominal.q1",
@@ -18089,16 +18092,17 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4+S7",
+        "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 öffentlichen Aufgaben, richtigen Antworttexte, Begründungen und drei tatsächlichen Quelltexte unabhängig geprüft. Exakte inaktive redaktionelle Entwürfe; Audioimport, Kalibrierung und Publikation separat.",
+        "notesDe": "M hat54 Fragen,6 vollständige Quellen und die betroffenen Sechserkerne geprüft. Acht neue Konstrukte mit passender Matrix und neuen Äquivalenzkennungen; Dienstag prüft das Akkusativobjekt, Donnerstag Verbzweitstellung. Alte Definitionen bleiben erhalten. Neue unveränderliche Definition und exakte vorberechnete Audios vor Veröffentlichung erforderlich.",
         "textVersion": "d4621e96754919e5664e2a4b50061897e47377f43d879b578ad919f3d0e06fa6",
-        "definitionContentHash": "142b23f43b7b2a0c43f6a2ce91d5de26558759783c7e48f74a1c68157cfe9fce",
-        "reviewerKind": "independent_agent_editorial_review",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools16-18-M",
-        "documentSha256": "d273f871f2921e2ab2d282e3e87520a904df8ecd79d0b5735be0392290423874",
-        "reviewedAt": "2026-10-09T11:30:32.969Z"
+        "definitionContentHash": "138155c2b9d52fa908f2e22f3188ba43c8093ac7afa4cf0240531547c067e992",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-rest54-M",
+        "documentSha256": "0921c57b1a4e88efd3ae0c931ac025b5e192775a1b2757dd2e2b8f5f53239ed7",
+        "reviewedAt": "2026-10-09T20:47:14.471Z",
+        "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -18334,11 +18338,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-08.words.q1.b",
-                "textDe": "Eine Werkstatt nur für Züge."
+                "textDe": "Ein Geschäft zum Kaufen von Büchern."
               },
               {
                 "id": "sitov.pretest.a12-08.words.q1.a",
-                "textDe": "Ein Platz zum Schwimmen."
+                "textDe": "Ein Raum, in dem man Unterricht hat."
               },
               {
                 "id": "sitov.pretest.a12-08.words.q1.c",
@@ -18355,7 +18359,7 @@
                 "quote": "Bibliothek"
               }
             ],
-            "rationaleDe": "Eine Bibliothek bietet Bücher zum Lesen oder Ausleihen; Zugwerkstatt und Schwimmplatz sind andere Einrichtungen."
+            "rationaleDe": "In einer Bibliothek liest oder leiht man Bücher aus. Eine Buchhandlung verkauft Bücher; ein Kursraum dient dem Unterricht."
           },
           {
             "id": "sitov.pretest.a12-08.words.q2",
@@ -18366,7 +18370,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-08.words.q2.c",
-                "textDe": "Die Farbe eines Buches."
+                "textDe": "Die Rückgabe eines ausgeliehenen Buches."
               },
               {
                 "id": "sitov.pretest.a12-08.words.q2.b",
@@ -18374,7 +18378,7 @@
               },
               {
                 "id": "sitov.pretest.a12-08.words.q2.a",
-                "textDe": "Das Backen eines Kuchens."
+                "textDe": "Die Verlängerung der Leihzeit."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-08.words.q2.b",
@@ -18387,7 +18391,7 @@
                 "quote": "die Anmeldung"
               }
             ],
-            "rationaleDe": "Anmeldung bezeichnet die Registrierung; Kuchenbacken und Buchfarbe sind andere Bedeutungen."
+            "rationaleDe": "Bei der Anmeldung registriert man sich als Nutzer. Buchrückgabe und Verlängerung der Leihzeit sind andere Vorgänge in einer Bibliothek."
           },
           {
             "id": "sitov.pretest.a12-08.words.q3",
@@ -18398,11 +18402,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-08.words.q3.a",
-                "textDe": "Zum Tragen großer Möbel."
+                "textDe": "Zum Nachweisen einer bezahlten Rechnung."
               },
               {
                 "id": "sitov.pretest.a12-08.words.q3.b",
-                "textDe": "Zum Kochen einer Suppe."
+                "textDe": "Zum Nachweisen einer Fahrberechtigung."
               },
               {
                 "id": "sitov.pretest.a12-08.words.q3.c",
@@ -18419,7 +18423,7 @@
                 "quote": "meinen Ausweis"
               }
             ],
-            "rationaleDe": "Ein Ausweis weist die Identität nach; er ist weder Transporthilfe für Möbel noch Kochgerät."
+            "rationaleDe": "Ein Ausweis weist die eigene Identität nach. Quittung und Fahrkarte weisen andere Dinge nach."
           },
           {
             "id": "sitov.pretest.a12-08.words.q4",
@@ -18430,7 +18434,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-08.words.q4.c",
-                "textDe": "Ein Stück Kuchen."
+                "textDe": "Einen Nachweis für eine Zugfahrt."
               },
               {
                 "id": "sitov.pretest.a12-08.words.q4.b",
@@ -18438,7 +18442,7 @@
               },
               {
                 "id": "sitov.pretest.a12-08.words.q4.a",
-                "textDe": "Eine Straßenbahn."
+                "textDe": "Einen Nachweis für eine bezahlte Rechnung."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-08.words.q4.b",
@@ -18451,7 +18455,7 @@
                 "quote": "bekomme eine Karte"
               }
             ],
-            "rationaleDe": "Die ausdrücklich genannte Nutzerkarte gehört zur Bibliotheksnutzung; Kuchen und Fahrzeug sind andere Dinge."
+            "rationaleDe": "Die Nutzerkarte gehört zur Bibliotheksnutzung. Fahrkarte und Quittung haben andere Zwecke."
           },
           {
             "id": "sitov.pretest.a12-08.words.q5",
@@ -18498,11 +18502,11 @@
               },
               {
                 "id": "sitov.pretest.a12-08.words.q6.c",
-                "textDe": "Eine Eintrittskarte fürs Schwimmbad."
+                "textDe": "Eine Liste mit einzelnen Wörtern."
               },
               {
                 "id": "sitov.pretest.a12-08.words.q6.b",
-                "textDe": "Ein Schienenweg."
+                "textDe": "Eine Tabelle mit Unterrichtszeiten."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-08.words.q6.a",
@@ -18515,7 +18519,7 @@
                 "quote": "eine kurze Geschichte"
               }
             ],
-            "rationaleDe": "Eine Geschichte ist hier ein erzählender Text; Eintrittskarte und Gleis gehören nicht zu diesem Begriff."
+            "rationaleDe": "Eine Geschichte ist hier eine Erzählung. Wortliste und Stundenplan sind andere Arten geschriebener Texte."
           },
           {
             "id": "sitov.pretest.a12-08.verbs.q1",
@@ -18745,7 +18749,7 @@
             "id": "sitov.pretest.a12-08.syntax.q2",
             "competencyId": "sitov.pretest.a12-08.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer erklärt laut »Ein Mitarbeiter erklärt mir die Anmeldung« die Anmeldung?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Ein Mitarbeiter erklärt mir die Anmeldung.« Wer erklärt die Anmeldung?",
             "fragmentDe": null,
             "options": [
               {
@@ -18754,11 +18758,11 @@
               },
               {
                 "id": "sitov.pretest.a12-08.syntax.q2.b",
-                "textDe": "Die Karte."
+                "textDe": "Paul, der Sprecher."
               },
               {
                 "id": "sitov.pretest.a12-08.syntax.q2.a",
-                "textDe": "Der Ausweis."
+                "textDe": "Leon, der Zuhörer."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-08.syntax.q2.c",
@@ -18771,7 +18775,7 @@
                 "quote": "Ein Mitarbeiter erklärt mir die Anmeldung."
               }
             ],
-            "rationaleDe": "Ein Mitarbeiter ist das ausdrückliche Subjekt von erklärt; Ausweis und Karte führen die Erklärung nicht aus."
+            "rationaleDe": "Ein Mitarbeiter ist das Subjekt von erklärt. Paul empfängt die Erklärung; Leon hört zu."
           },
           {
             "id": "sitov.pretest.a12-08.syntax.q3",
@@ -18846,7 +18850,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-08.syntax.q5.b",
-                "textDe": "Viele Bahnsteige."
+                "textDe": "Viele Erklärungen ohne Bilder."
               },
               {
                 "id": "sitov.pretest.a12-08.syntax.q5.c",
@@ -18854,7 +18858,7 @@
               },
               {
                 "id": "sitov.pretest.a12-08.syntax.q5.a",
-                "textDe": "Viele Schwimmbecken."
+                "textDe": "Nur eine Liste einzelner Wörter."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-08.syntax.q5.c",
@@ -18867,7 +18871,7 @@
                 "quote": "eine kurze Geschichte mit vielen Bildern"
               }
             ],
-            "rationaleDe": "Die Wortgruppe mit vielen Bildern beschreibt die Geschichte; Bahnsteige und Schwimmbecken nennt der Satz nicht."
+            "rationaleDe": "Mit vielen Bildern nennt Bilder als Teil der Geschichte. Erklärungen ohne Bilder oder eine reine Wortliste verändern die Angabe."
           },
           {
             "id": "sitov.pretest.a12-08.syntax.q6",
@@ -19147,16 +19151,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 neuen Fragen, Optionen, Schlüssel und Begründungen sowie drei Quellen und zwölf Kernzuordnungen unabhängig gelesen. Menschliche Kalibrierung, neue Audio-/DB-Bindung und Publikation bleiben separat.",
+        "notesDe": "M hat54 Fragen,6 vollständige Quellen und die betroffenen Sechserkerne geprüft. Acht neue Konstrukte mit passender Matrix und neuen Äquivalenzkennungen; Dienstag prüft das Akkusativobjekt, Donnerstag Verbzweitstellung. Alte Definitionen bleiben erhalten. Neue unveränderliche Definition und exakte vorberechnete Audios vor Veröffentlichung erforderlich.",
         "textVersion": "64a1bac5bc8ceede374a92fd313f479316564a46d804dd77fa5e09c4bebb8d18",
-        "definitionContentHash": "00d0c7ddd864cec4031a4abdeeafe70c0aa73a2b7f6bce5fa80e17fa8714a98a",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools19-21-M",
-        "documentSha256": "8fe2e9491715c93263eb7842efd9d7a18a310dec75f4fd2c44133ba91462ab78",
-        "reviewedAt": "2026-10-09T11:56:06.101Z",
+        "definitionContentHash": "dd92925401877de49d6e84249d7ca091e8a1476ddea4163cce9d9bbf3e84b2ba",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-rest54-M",
+        "documentSha256": "0921c57b1a4e88efd3ae0c931ac025b5e192775a1b2757dd2e2b8f5f53239ed7",
+        "reviewedAt": "2026-10-09T20:47:14.471Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -19223,7 +19227,7 @@
               "finde Form finden",
               "anrufen getrennte Grundform",
               "öffnet dritte Person",
-              "liegen Lage"
+              "liegen dritte Person Singular"
             ],
             "sourceSpans": [
               {
@@ -19259,7 +19263,7 @@
             ],
             "mapping": {
               "topicIds": [],
-              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: stehe Grundform stehen, suche erste Person, finde Form finden, anrufen getrennte Grundform, öffnet dritte Person, liegen Lage. Keine stufenfremden Ersatzzuordnungen. Konkrete Lernziele benötigen separat aktuellen Zugriff."
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: stehe Grundform stehen, suche erste Person, finde Form finden, anrufen getrennte Grundform, öffnet dritte Person, liegen dritte Person Singular. Keine stufenfremden Ersatzzuordnungen. Konkrete Lernziele benötigen separat aktuellen Zugriff."
             }
           },
           {
@@ -19389,11 +19393,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-09.words.q1.c",
-                "textDe": "Ein Regal für Bücher."
+                "textDe": "Eine Tür zwischen zwei Zimmern."
               },
               {
                 "id": "sitov.pretest.a12-09.words.q1.b",
-                "textDe": "Ein Fenster im Zug."
+                "textDe": "Eine Tür an einem Schrank."
               },
               {
                 "id": "sitov.pretest.a12-09.words.q1.a",
@@ -19410,7 +19414,7 @@
                 "quote": "Haustür"
               }
             ],
-            "rationaleDe": "Haustür bezeichnet die Eingangstür zum Haus; Fenster und Regal haben andere Funktionen."
+            "rationaleDe": "Die Haustür ist die Eingangstür eines Hauses. Zimmertür und Schranktür befinden sich an anderen Stellen."
           },
           {
             "id": "sitov.pretest.a12-09.words.q2",
@@ -19421,7 +19425,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-09.words.q2.b",
-                "textDe": "Zum Ablesen der Uhrzeit."
+                "textDe": "Zum Klingeln an der Tür."
               },
               {
                 "id": "sitov.pretest.a12-09.words.q2.c",
@@ -19429,7 +19433,7 @@
               },
               {
                 "id": "sitov.pretest.a12-09.words.q2.a",
-                "textDe": "Zum Kochen von Wasser."
+                "textDe": "Zum Festhalten der geöffneten Tür."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-09.words.q2.c",
@@ -19442,7 +19446,7 @@
                 "quote": "meinen Schlüssel"
               }
             ],
-            "rationaleDe": "Ein Schlüssel betätigt das Schloss; Kochen und Zeitablesen sind keine Bedeutung dieses Gegenstands."
+            "rationaleDe": "Ein Schlüssel schließt das Schloss auf oder ab. Klingel und Türstopper haben andere Aufgaben an einer Tür."
           },
           {
             "id": "sitov.pretest.a12-09.words.q3",
@@ -19453,11 +19457,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-09.words.q3.c",
-                "textDe": "Ein Stück Obst."
+                "textDe": "Ein Kleidungsstück für die Beine."
               },
               {
                 "id": "sitov.pretest.a12-09.words.q3.a",
-                "textDe": "Ein Schienenweg."
+                "textDe": "Ein Kleidungsstück für die Füße."
               },
               {
                 "id": "sitov.pretest.a12-09.words.q3.b",
@@ -19474,7 +19478,7 @@
                 "quote": "meiner Jacke"
               }
             ],
-            "rationaleDe": "Jacke ist ein Kleidungsstück; Obst und Gleis sind keine entsprechenden Bedeutungen."
+            "rationaleDe": "Eine Jacke ist für den Oberkörper. Hose und Schuhe sind andere Kleidungsstücke."
           },
           {
             "id": "sitov.pretest.a12-09.words.q4",
@@ -19489,11 +19493,11 @@
               },
               {
                 "id": "sitov.pretest.a12-09.words.q4.a",
-                "textDe": "Ein Gerät zum Backen."
+                "textDe": "Ein fester Schrank zum Aufbewahren von Dingen."
               },
               {
                 "id": "sitov.pretest.a12-09.words.q4.c",
-                "textDe": "Ein fest eingebautes Türschloss."
+                "textDe": "Ein kleiner Teller für Essen."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-09.words.q4.b",
@@ -19506,7 +19510,7 @@
                 "quote": "meiner Tasche"
               }
             ],
-            "rationaleDe": "Im öffentlichen Kontext bezeichnet Tasche einen tragbaren Behälter, kein Türschloss oder Backgerät."
+            "rationaleDe": "Eine Tasche ist ein Behälter zum Mitnehmen. Schrank und Teller sind andere Dinge zum Aufbewahren oder Ablegen."
           },
           {
             "id": "sitov.pretest.a12-09.words.q5",
@@ -19517,7 +19521,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-09.words.q5.c",
-                "textDe": "Nur der eigene Vater."
+                "textDe": "Ein Mann, mit dem man zusammen arbeitet."
               },
               {
                 "id": "sitov.pretest.a12-09.words.q5.a",
@@ -19525,7 +19529,7 @@
               },
               {
                 "id": "sitov.pretest.a12-09.words.q5.b",
-                "textDe": "Jeder unbekannte Mann auf der Welt."
+                "textDe": "Ein Mann, mit dem man zusammen lernt."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-09.words.q5.a",
@@ -19538,7 +19542,7 @@
                 "quote": "unser Nachbar"
               }
             ],
-            "rationaleDe": "Nachbar bezeichnet hier Wohnnähe; bloße Unbekanntheit oder Verwandtschaft allein begründet sie nicht."
+            "rationaleDe": "Ein Nachbar wohnt in der Nähe. Arbeitskollege und Mitschüler bezeichnen andere Beziehungen."
           },
           {
             "id": "sitov.pretest.a12-09.words.q6",
@@ -19549,15 +19553,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-09.words.q6.c",
-                "textDe": "Der Umstand wird als günstig bewertet."
+                "textDe": "Das ist gut für den Sprecher."
               },
               {
                 "id": "sitov.pretest.a12-09.words.q6.a",
-                "textDe": "Es wird eine genaue Uhrzeit genannt."
+                "textDe": "Das überrascht den Sprecher."
               },
               {
                 "id": "sitov.pretest.a12-09.words.q6.b",
-                "textDe": "Der Umstand wird ausdrücklich als Unglück bewertet."
+                "textDe": "Das ist schlecht für den Sprecher."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-09.words.q6.c",
@@ -19570,7 +19574,7 @@
                 "quote": "Zum Glück"
               }
             ],
-            "rationaleDe": "Zum Glück bewertet das Vorhandensein des zweiten Schlüssels positiv; weder Unglück noch Uhrzeit ist gemeint."
+            "rationaleDe": "Zum Glück bewertet den zweiten Schlüssel positiv. Überraschung allein sagt noch nicht gut oder schlecht; schlecht ist das Gegenteil."
           },
           {
             "id": "sitov.pretest.a12-09.verbs.q1",
@@ -19736,25 +19740,25 @@
             "id": "sitov.pretest.a12-09.verbs.q6",
             "competencyId": "sitov.pretest.a12-09.verbs",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet »liegt« in »Mein Schlüssel liegt auf dem Küchentisch«?",
+            "promptDe": "Welche Form von »liegen« passt zwischen »Mein Schlüssel« und »auf dem Küchentisch«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-09.verbs.q6.b",
-                "textDe": "Der Schlüssel ruft jemanden an."
+                "textDe": "liege"
               },
               {
                 "id": "sitov.pretest.a12-09.verbs.q6.c",
-                "textDe": "Der Schlüssel läuft selbst zum Tisch."
+                "textDe": "liegen"
               },
               {
                 "id": "sitov.pretest.a12-09.verbs.q6.a",
-                "textDe": "Der Schlüssel befindet sich dort in einer Lage."
+                "textDe": "liegt"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-09.verbs.q6.a",
-            "assessmentUnit": "liegen Lage",
-            "equivalenceKey": "sitov:a12-09:verbs:6",
+            "assessmentUnit": "liegen dritte Person Singular",
+            "equivalenceKey": "sitov:a12-09:verbs:6:editorial-v2",
             "sourceSpans": [
               {
                 "start": 259,
@@ -19762,18 +19766,18 @@
                 "quote": "Mein Schlüssel liegt"
               }
             ],
-            "rationaleDe": "Liegt beschreibt die Lage des Gegenstands, keine eigenständige Bewegung oder telefonische Handlung."
+            "rationaleDe": "Das Subjekt Mein Schlüssel ist dritte Person Singular. Die passende Form lautet liegt; liege und liegen passen nicht."
           },
           {
             "id": "sitov.pretest.a12-09.syntax.q1",
             "competencyId": "sitov.pretest.a12-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer sucht in »Ich stehe vor meiner Haustür und suche meinen Schlüssel«?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Ich stehe vor meiner Haustür und suche meinen Schlüssel.« Wer sucht?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-09.syntax.q1.a",
-                "textDe": "Der Schlüssel selbst."
+                "textDe": "Leon."
               },
               {
                 "id": "sitov.pretest.a12-09.syntax.q1.b",
@@ -19781,7 +19785,7 @@
               },
               {
                 "id": "sitov.pretest.a12-09.syntax.q1.c",
-                "textDe": "Die Haustür selbst."
+                "textDe": "Paul und Leon gemeinsam."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-09.syntax.q1.b",
@@ -19794,7 +19798,7 @@
                 "quote": "Ich stehe vor meiner Haustür und suche meinen Schlüssel."
               }
             ],
-            "rationaleDe": "Das gemeinsame Subjekt ich gilt für stehe und suche; Tür und Schlüssel führen die Suche nicht aus."
+            "rationaleDe": "Ich gehört zu beiden Verben stehe und suche. Paul ist der Sprecher und sucht; Leon wird nicht als Suchender genannt."
           },
           {
             "id": "sitov.pretest.a12-09.syntax.q2",
@@ -19864,12 +19868,12 @@
             "id": "sitov.pretest.a12-09.syntax.q4",
             "competencyId": "sitov.pretest.a12-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Wer hat laut »Zum Glück hat unser Nachbar einen zweiten Schlüssel« den zweiten Schlüssel?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Zum Glück hat unser Nachbar einen zweiten Schlüssel.« Wer hat den zweiten Schlüssel?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-09.syntax.q4.a",
-                "textDe": "Der Küchentisch."
+                "textDe": "Paul, der Sprecher."
               },
               {
                 "id": "sitov.pretest.a12-09.syntax.q4.c",
@@ -19877,7 +19881,7 @@
               },
               {
                 "id": "sitov.pretest.a12-09.syntax.q4.b",
-                "textDe": "Die Haustür."
+                "textDe": "Leon, der Zuhörer."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-09.syntax.q4.c",
@@ -19890,22 +19894,22 @@
                 "quote": "Zum Glück hat unser Nachbar einen zweiten Schlüssel."
               }
             ],
-            "rationaleDe": "Unser Nachbar ist das Subjekt von hat; Tür und Tisch sind keine Besitzer in dieser Aussage."
+            "rationaleDe": "Unser Nachbar ist das Subjekt von hat. Paul und Leon sind Sprecher und Zuhörer, nicht die genannten Besitzer."
           },
           {
             "id": "sitov.pretest.a12-09.syntax.q5",
             "competencyId": "sitov.pretest.a12-09.syntax",
             "kind": "single_choice",
-            "promptDe": "Für wen wird laut »Der Nachbar öffnet mir die Tür« die Tür geöffnet?",
+            "promptDe": "Übung: Paul sagt zu Leon: »Der Nachbar öffnet mir die Tür.« Für wen wird sie geöffnet?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-09.syntax.q5.b",
-                "textDe": "Für die Jacke."
+                "textDe": "Für den Nachbarn selbst."
               },
               {
                 "id": "sitov.pretest.a12-09.syntax.q5.c",
-                "textDe": "Für den Schlüssel."
+                "textDe": "Für Leon, den Zuhörer."
               },
               {
                 "id": "sitov.pretest.a12-09.syntax.q5.a",
@@ -19922,7 +19926,7 @@
                 "quote": "Er öffnet mir die Tür."
               }
             ],
-            "rationaleDe": "Mir bezeichnet hier den begünstigten Sprecher; Schlüssel und Jacke sind nicht die empfangende Person."
+            "rationaleDe": "Mir bezeichnet Paul, den Sprecher. Der Nachbar öffnet; Leon hört zu."
           },
           {
             "id": "sitov.pretest.a12-09.syntax.q6",
@@ -20202,16 +20206,16 @@
       "review": {
         "status": "independent_editorial_checked_draft_only",
         "reviewer": "sitov.agent.M",
-        "authorIdentity": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3+S4+S7",
         "reviewerKind": "independent_agent_editorial_review",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "M hat alle72 neuen Fragen, Optionen, Schlüssel und Begründungen sowie drei Quellen und zwölf Kernzuordnungen unabhängig gelesen. Menschliche Kalibrierung, neue Audio-/DB-Bindung und Publikation bleiben separat.",
+        "notesDe": "M hat54 Fragen,6 vollständige Quellen und die betroffenen Sechserkerne geprüft. Acht neue Konstrukte mit passender Matrix und neuen Äquivalenzkennungen; Dienstag prüft das Akkusativobjekt, Donnerstag Verbzweitstellung. Alte Definitionen bleiben erhalten. Neue unveränderliche Definition und exakte vorberechnete Audios vor Veröffentlichung erforderlich.",
         "textVersion": "b528df60ad8fad5373c79df369eeb4f5b5d7696ed16f191ba49b6e49c0a020ea",
-        "definitionContentHash": "77d779fc24fc19d48a21f8859ef71a2bf6fcd34f9e0249d1a125db758598233e",
-        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools19-21-M",
-        "documentSha256": "8fe2e9491715c93263eb7842efd9d7a18a310dec75f4fd2c44133ba91462ab78",
-        "reviewedAt": "2026-10-09T11:56:06.101Z",
+        "definitionContentHash": "5b2d0dea6bdc1017423d121dc2c0c36a91840d7d5289388a260eb3b80e42dc55",
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a12-rest54-M",
+        "documentSha256": "0921c57b1a4e88efd3ae0c931ac025b5e192775a1b2757dd2e2b8f5f53239ed7",
+        "reviewedAt": "2026-10-09T20:47:14.471Z",
         "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
       },
       "definition": {
@@ -20275,7 +20279,7 @@
             "languageUnits": [
               "hat Grundform haben",
               "lernen wir Form",
-              "üben Tätigkeit trainieren",
+              "üben erste Person Plural",
               "lesen wir Form",
               "schreibe erste Person",
               "abholen Infinitiv nach kann"
@@ -20314,7 +20318,7 @@
             ],
             "mapping": {
               "topicIds": [],
-              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: hat Grundform haben, lernen wir Form, üben Tätigkeit trainieren, lesen wir Form, schreibe erste Person, abholen Infinitiv nach kann. Keine stufenfremden Ersatzzuordnungen. Konkrete Lernziele benötigen separat aktuellen Zugriff."
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: hat Grundform haben, lernen wir Form, üben erste Person Plural, lesen wir Form, schreibe erste Person, abholen Infinitiv nach kann. Keine stufenfremden Ersatzzuordnungen. Konkrete Lernziele benötigen separat aktuellen Zugriff."
             }
           },
           {
@@ -20325,7 +20329,7 @@
             "languageUnits": [
               "ab Montag Beginn",
               "von bis Zeitspanne",
-              "Dienstag Aktivität",
+              "Sprechen als Akkusativobjekt des Verbs üben",
               "Vorfeld Donnerstag Verbzweit",
               "langsam Art des Erklärens",
               "Nach Kurs Reihenfolge"
@@ -20446,7 +20450,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-10.words.q1.b",
-                "textDe": "Er ist ein Schlüssel für eine Tür."
+                "textDe": "Er zeigt die Wege durch eine Stadt."
               },
               {
                 "id": "sitov.pretest.a12-10.words.q1.c",
@@ -20454,7 +20458,7 @@
               },
               {
                 "id": "sitov.pretest.a12-10.words.q1.a",
-                "textDe": "Er ist eine Backform."
+                "textDe": "Er zeigt die Preise in einem Geschäft."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-10.words.q1.c",
@@ -20467,7 +20471,7 @@
                 "quote": "Stundenplan"
               }
             ],
-            "rationaleDe": "Ein Stundenplan ordnet den Unterricht zeitlich; Schlüssel und Backform haben andere Funktionen."
+            "rationaleDe": "Ein Stundenplan zeigt Unterrichtszeiten und Aktivitäten. Stadtplan und Preisliste zeigen andere Informationen."
           },
           {
             "id": "sitov.pretest.a12-10.words.q2",
@@ -20510,11 +20514,11 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-10.words.q3.b",
-                "textDe": "Nur Buchstaben still ansehen."
+                "textDe": "Wörter und Sätze still lesen."
               },
               {
                 "id": "sitov.pretest.a12-10.words.q3.a",
-                "textDe": "Ein Brötchen backen."
+                "textDe": "Wörter und Sätze aufschreiben."
               },
               {
                 "id": "sitov.pretest.a12-10.words.q3.c",
@@ -20531,7 +20535,7 @@
                 "quote": "viel Sprechen"
               }
             ],
-            "rationaleDe": "Sprechen ist mündlicher Ausdruck; stilles Ansehen und Backen sind andere Tätigkeiten."
+            "rationaleDe": "Sprechen heißt, sich mit der Stimme in Worten auszudrücken. Lesen und Schreiben sind andere Sprachaktivitäten."
           },
           {
             "id": "sitov.pretest.a12-10.words.q4",
@@ -20542,15 +20546,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-10.words.q4.c",
-                "textDe": "Nur ungeöffnete Türen."
+                "textDe": "Zeichnungen ohne Wörter."
               },
               {
                 "id": "sitov.pretest.a12-10.words.q4.b",
-                "textDe": "Nur leere Tische."
+                "textDe": "Einzelne Buchstaben ohne Wörter."
               },
               {
                 "id": "sitov.pretest.a12-10.words.q4.a",
-                "textDe": "Zusammenhängende sprachliche Mitteilungen in geschriebener Form."
+                "textDe": "Wörter und Sätze, die wir lesen."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-10.words.q4.a",
@@ -20563,7 +20567,7 @@
                 "quote": "kurze Texte"
               }
             ],
-            "rationaleDe": "Im genannten Lesekontext sind Texte geschriebene sprachliche Mitteilungen, keine Möbel oder Türen."
+            "rationaleDe": "Texte bestehen hier aus geschriebenen Wörtern und Sätzen. Reine Zeichnungen oder einzelne Buchstaben sind keine solchen Lesetexte."
           },
           {
             "id": "sitov.pretest.a12-10.words.q5",
@@ -20574,7 +20578,7 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-10.words.q5.b",
-                "textDe": "Zum Öffnen eines Schlosses."
+                "textDe": "Zum Nachsehen der Bedeutung von Wörtern."
               },
               {
                 "id": "sitov.pretest.a12-10.words.q5.a",
@@ -20582,7 +20586,7 @@
               },
               {
                 "id": "sitov.pretest.a12-10.words.q5.c",
-                "textDe": "Zum Waschen von Kleidung."
+                "textDe": "Zum Nachsehen der Wege in einer Stadt."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-10.words.q5.a",
@@ -20595,7 +20599,7 @@
                 "quote": "meinen Kalender"
               }
             ],
-            "rationaleDe": "Ein Kalender ordnet Zeit und Termine; Schlossöffnen und Wäschewaschen sind andere Funktionen."
+            "rationaleDe": "Ein Kalender ordnet Tage und Termine. Wörterbuch und Stadtplan zeigen andere Informationen."
           },
           {
             "id": "sitov.pretest.a12-10.words.q6",
@@ -20606,15 +20610,15 @@
             "options": [
               {
                 "id": "sitov.pretest.a12-10.words.q6.b",
-                "textDe": "Mit geringem Tempo."
+                "textDe": "Mit wenig Tempo."
               },
               {
                 "id": "sitov.pretest.a12-10.words.q6.c",
-                "textDe": "Ganz ohne jede Erklärung."
+                "textDe": "Mit sehr wenigen Worten."
               },
               {
                 "id": "sitov.pretest.a12-10.words.q6.a",
-                "textDe": "Mit höchstmöglicher Geschwindigkeit."
+                "textDe": "Mit sehr viel Tempo."
               }
             ],
             "correctOptionId": "sitov.pretest.a12-10.words.q6.b",
@@ -20627,7 +20631,7 @@
                 "quote": "langsam"
               }
             ],
-            "rationaleDe": "Langsam bezeichnet ein geringes Tempo; sehr schnell oder gar nicht erklären ist nicht dieselbe Bedeutung."
+            "rationaleDe": "Langsam nennt wenig Tempo. Sehr wenige Worte beschreibt die Menge; sehr viel Tempo ist das Gegenteil von langsam."
           },
           {
             "id": "sitov.pretest.a12-10.verbs.q1",
@@ -20697,25 +20701,25 @@
             "id": "sitov.pretest.a12-10.verbs.q3",
             "competencyId": "sitov.pretest.a12-10.verbs",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet »üben« in »Wir üben Sprechen«?",
+            "promptDe": "Welche Form von »üben« passt zwischen »Wir« und »Sprechen«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-10.verbs.q3.a",
-                "textDe": "Eine Tür abschließen."
+                "textDe": "übst"
               },
               {
                 "id": "sitov.pretest.a12-10.verbs.q3.b",
-                "textDe": "Eine Fähigkeit durch Training verbessern."
+                "textDe": "üben"
               },
               {
                 "id": "sitov.pretest.a12-10.verbs.q3.c",
-                "textDe": "Eine Fähigkeit ausdrücklich nie benutzen."
+                "textDe": "übt"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-10.verbs.q3.b",
-            "assessmentUnit": "üben Tätigkeit trainieren",
-            "equivalenceKey": "sitov:a12-10:verbs:3",
+            "assessmentUnit": "üben erste Person Plural",
+            "equivalenceKey": "sitov:a12-10:verbs:3:editorial-v2",
             "sourceSpans": [
               {
                 "start": 111,
@@ -20723,7 +20727,7 @@
                 "quote": "üben wir besonders viel Sprechen"
               }
             ],
-            "rationaleDe": "Üben bezeichnet das Trainieren einer Fähigkeit; Nichtbenutzen und Abschließen sind andere Handlungen."
+            "rationaleDe": "Zum Subjekt wir gehört üben. Übst passt zu du, übt zu er oder ihr."
           },
           {
             "id": "sitov.pretest.a12-10.verbs.q4",
@@ -20889,25 +20893,25 @@
             "id": "sitov.pretest.a12-10.syntax.q3",
             "competencyId": "sitov.pretest.a12-10.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Aktivität nennt »Am Dienstag üben wir besonders viel Sprechen«?",
+            "promptDe": "Welche Wortgruppe ist in »Am Dienstag üben wir besonders viel Sprechen« das Akkusativobjekt?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a12-10.syntax.q3.c",
-                "textDe": "Sprechen."
+                "textDe": "besonders viel Sprechen"
               },
               {
                 "id": "sitov.pretest.a12-10.syntax.q3.a",
-                "textDe": "Kuchenbacken."
+                "textDe": "Am Dienstag"
               },
               {
                 "id": "sitov.pretest.a12-10.syntax.q3.b",
-                "textDe": "Schwimmen."
+                "textDe": "wir"
               }
             ],
             "correctOptionId": "sitov.pretest.a12-10.syntax.q3.c",
-            "assessmentUnit": "Dienstag Aktivität",
-            "equivalenceKey": "sitov:a12-10:syntax:3",
+            "assessmentUnit": "Sprechen als Akkusativobjekt des Verbs üben",
+            "equivalenceKey": "sitov:a12-10:syntax:3:editorial-v2",
             "sourceSpans": [
               {
                 "start": 99,
@@ -20915,7 +20919,7 @@
                 "quote": "Am Dienstag üben wir besonders viel Sprechen."
               }
             ],
-            "rationaleDe": "Der öffentliche Satz nennt ausdrücklich Sprechen; die anderen Aktivitäten werden dort nicht genannt."
+            "rationaleDe": "Die Frage »Was üben wir?« führt zu besonders viel Sprechen. Wir ist das Subjekt; Am Dienstag nennt die Zeit. Diese Aufgabe prüft die Objektrolle und nicht erneut die Verbzweitstellung."
           },
           {
             "id": "sitov.pretest.a12-10.syntax.q4",
@@ -21113,7 +21117,7 @@
             "id": "sitov.pretest.a12-10.nominal.q4",
             "competencyId": "sitov.pretest.a12-10.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich schreibe die Zeiten in ___ Kalender«, wenn der Kalender dem Sprecher gehört?",
+            "promptDe": "Welche Form von »mein« gehört zwischen »in« und »Kalender«, wenn der Kalender dem Sprecher gehört und die Frage »Wohin schreibe ich die Zeiten?« gemeint ist?",
             "fragmentDe": null,
             "options": [
               {
@@ -21139,7 +21143,7 @@
                 "quote": "in meinen Kalender"
               }
             ],
-            "rationaleDe": "Die Eintragung in den Kalender wird hier mit in und Akkusativ bezeichnet: in meinen Kalender."
+            "rationaleDe": "Die ausdrücklich vorgegebene Wohin-Frage bezeichnet das Eintragen als Zielrichtung. In verlangt dann Akkusativ: meinen Kalender. Eine Ortslesart mit meinem ist hier nicht gefragt."
           },
           {
             "id": "sitov.pretest.a12-10.nominal.q5",
