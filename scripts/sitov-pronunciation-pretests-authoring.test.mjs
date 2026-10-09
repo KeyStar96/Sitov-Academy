@@ -2,7 +2,13 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
-const sources=await sitovReadAuthoringSources(),sitovQualityCurrent=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sources=await sitovReadAuthoringSources(),sitovActualManifest49=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8'))
+const sitovDelta49=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch49-three-core-repairs-delta.json','utf8'))
+// Freeze exact M-reviewed quality18/39 state BEFORE quality18 and all97 older immutable proofs.
+const sitovQualityCurrent=structuredClone(sitovActualManifest49)
+for(const r of sitovDelta49.questions){const d=sitovQualityCurrent.drafts.find(d=>d.textId===r.textId);d.definition.tasks[d.definition.tasks.findIndex(q=>q.id===r.questionId)]=r.previousTask}
+for(const r of sitovDelta49.cores){const d=sitovQualityCurrent.drafts.find(d=>d.textId===r.textId);d.definition.competencies[d.definition.competencies.findIndex(c=>c.id===r.coreId)]=r.previousCore}
+for(const r of sitovDelta49.pools)sitovQualityCurrent.drafts.find(d=>d.textId===r.textId).review=r.previousReview
 const sitovQualityPatchRaw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch21-quality-patch.json','utf8'),sitovQualityPatch=JSON.parse(sitovQualityPatchRaw),sitovQualityReviewRaw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/a11-quality18-editorial-review.json','utf8'),sitovQualityReview=JSON.parse(sitovQualityReviewRaw)
 // Reconstruct exact previous39 tasks and reviews BEFORE every immutable author/M proof.
 const sitovActualManifest48=structuredClone(sitovQualityCurrent)
@@ -101,7 +107,9 @@ const currentManifest=structuredClone(sitovActualManifest36)
 currentManifest.drafts=currentManifest.drafts.slice(0,15);currentManifest.coverage=sitovEpoch36.previousCoverage
 for(const row of sitovEpoch36.previousInventoryRows)currentManifest.inventory[currentManifest.inventory.findIndex(r=>r.textId===row.textId)]=row
 const sitovEpoch34=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S3/epoch34-pools13-15-author-review.json','utf8'))
-const sitovQualityCurrentAudio=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovActualAudio48=structuredClone(sitovQualityCurrentAudio)
+const sitovActualAudio49=JSON.parse(await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')),sitovQualityCurrentAudio=structuredClone(sitovActualAudio49)
+for(const r of sitovDelta49.changedAliases)sitovQualityCurrentAudio[r.key]=r.previousTextDe
+const sitovActualAudio48=structuredClone(sitovQualityCurrentAudio)
 for(const r of sitovQualityPatch.patches)for(const e of r.previousAudioAliasEntries)sitovActualAudio48[e.alias]=e.text
 const sitovActualAudio47=Object.fromEntries(Object.entries(sitovActualAudio48).slice(0,3456))
 const sitovActualAudio46=Object.fromEntries(Object.entries(sitovActualAudio47).slice(0,3168))
@@ -1091,3 +1099,58 @@ test('actual39 negative guards reject spans, missing audio, wrong modality keys 
 
 test('actual quality18 repairs bind independent proof, unchanged54 and all previous97 source hashes',()=>{assert.equal(sitovQualityCurrent.drafts.length,39);assert.deepEqual(sitovValidatePretestDrafts(sitovQualityCurrent,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovQualityCurrent,sitovQualityCurrentAudio),[]);assert.equal(sitovHash(sitovQualityPatchRaw),sitovQualityReview.sourcePatchSha256);assert.deepEqual(sitovQualityCurrent.drafts.slice(3),sitovActualManifest48.drafts.slice(3));for(const r of sitovQualityPatch.pools){const d=sitovQualityCurrent.drafts.find(d=>d.textId===r.textId);assert.deepEqual(d.definition,r.candidateDefinition);assert.equal(d.review.documentSha256,sitovHash(sitovQualityReviewRaw));assert.equal(d.review.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false)}for(const r of sitovQualityPatch.patches){const q=sitovQualityCurrent.drafts.find(d=>d.textId===r.textId).definition.tasks.find(q=>q.id===r.questionId);assert.deepEqual(q,r.currentTask);for(const e of r.currentAudioAliasEntries)assert.equal(sitovQualityCurrentAudio[e.alias],e.text)}})
 test('quality repair mutation cannot silently change unrelated fields, keys or omit current spoken aliases',()=>{for(const r of sitovQualityPatch.patches){const a=r.previousTask,b=r.currentTask;for(const k of Object.keys(a).filter(k=>!['promptDe','options','rationaleDe'].includes(k)))assert.deepEqual(a[k],b[k]);assert.deepEqual(a.options.map(o=>o.id),b.options.map(o=>o.id));assert.equal(a.correctOptionId,b.correctOptionId)}const bad={...sitovQualityCurrentAudio};delete bad[sitovQualityPatch.patches[0].currentAudioAliasEntries[0].alias];assert.ok(sitovValidatePretestAudioAliases(sitovQualityCurrent,bad).length);assert.equal(sitovQualityPatch.patches.filter(r=>r.correctWordingChange).length,1)})
+
+const sitovAssert49Constructs=manifest=>{
+ const question=id=>manifest.drafts.flatMap(d=>d.definition.tasks).find(q=>q.id===id)
+ const direction=question('sitov.pretest.a22-08.nominal.q1')
+ assert.ok(direction.promptDe.includes('gehört den Freunden')&&direction.promptDe.includes('ist das Ziel meines Weges'))
+ assert.equal(direction.options.find(o=>o.id===direction.correctOptionId).textDe,'ihre')
+ const syntax=question('sitov.pretest.a22-07.syntax.q6')
+ assert.ok(syntax.promptDe.includes('Wortfolge')&&syntax.promptDe.includes('»In Zukunft …«')&&syntax.promptDe.includes('vollständigen Aussagesatz'))
+ assert.equal(syntax.options.find(o=>o.id===syntax.correctOptionId).textDe,'wiederhole ich Datum und Uhrzeit')
+ assert.deepEqual(syntax.options.filter(o=>o.id!==syntax.correctOptionId).map(o=>o.textDe).sort(),['ich Datum und Uhrzeit wiederhole','ich wiederhole Datum und Uhrzeit'].sort())
+ assert.equal(syntax.assessmentUnit,'In Zukunft Vorfeld Verbzweitstellung koordiniertes Objekt')
+ assert.equal(syntax.sourceSpans[0].quote,'In Zukunft wiederhole ich Datum und Uhrzeit')
+ assert.ok(syntax.rationaleDe.includes('Vorfeld')&&syntax.rationaleDe.includes('zweiter Satzgliedposition')&&syntax.rationaleDe.includes('Subjekt ich'))
+ const verb=question('sitov.pretest.a22-09.verbs.q6')
+ assert.ok(verb.promptDe.includes('Präsensform von »stellen«')&&verb.promptDe.includes('»Die Schule ___ Geräte zur Verfügung«'))
+ assert.equal(verb.options.find(o=>o.id===verb.correctOptionId).textDe,'stellt')
+ assert.deepEqual(verb.options.filter(o=>o.id!==verb.correctOptionId).map(o=>o.textDe).sort(),['stellen','stellst'].sort())
+ assert.equal(verb.assessmentUnit,'stellt Präsens dritte Person Singular')
+ assert.equal(verb.sourceSpans[0].quote,'Die Schule stellt Geräte zur Verfügung')
+ assert.ok(verb.rationaleDe.includes('dritten Person Singular')&&verb.rationaleDe.includes('zweiten Person Singular'))
+ for(const q of[syntax,verb]){const d=manifest.drafts.find(d=>d.definition.tasks.includes(q)),c=d.definition.competencies.find(c=>c.id===q.competencyId);assert.equal(c.languageUnits[5],q.assessmentUnit);assert.deepEqual(c.sourceSpans[5],q.sourceSpans[0]);assert.ok(c.mapping.pendingReasonDe.includes(q.assessmentUnit));assert.deepEqual(c.mapping.topicIds,[])}
+}
+test('epoch49 exact full-task/core/review/alias overlay preserves quality18 and all99 earlier proofs',()=>{
+ assert.equal(sitovDelta49.questions.length,3);assert.equal(sitovDelta49.cores.length,2);assert.equal(sitovDelta49.changedAliases.length,9)
+ for(const[value,content,bytes]of [[sitovQualityCurrent,sitovDelta49.previousManifestContentHash,sitovDelta49.previousManifestByteSha256],[sitovActualManifest49,sitovDelta49.currentManifestContentHash,sitovDelta49.currentManifestByteSha256],[sitovQualityCurrentAudio,sitovDelta49.previousAudioContentHash,sitovDelta49.previousAudioByteSha256],[sitovActualAudio49,sitovDelta49.currentAudioContentHash,sitovDelta49.currentAudioByteSha256]]){assert.equal(sitovHash(JSON.stringify(value)),content);assert.equal(sitovHash(JSON.stringify(value,null,2)+'\n'),bytes)}
+ assert.deepEqual(sitovActualManifest49.drafts.slice(0,36),sitovQualityCurrent.drafts.slice(0,36));assert.equal(sitovHash(JSON.stringify(sitovActualManifest49.drafts.slice(0,36))),sitovDelta49.original36ContentHash)
+ assert.deepEqual(Object.entries(sitovActualAudio49).slice(0,3456),Object.entries(sitovQualityCurrentAudio).slice(0,3456));assert.equal(sitovHash(JSON.stringify(Object.fromEntries(Object.entries(sitovActualAudio49).slice(0,3456)))),sitovDelta49.original3456AliasContentHash)
+ assert.deepEqual(Object.keys(sitovActualAudio49),Object.keys(sitovQualityCurrentAudio));assert.deepEqual(Object.keys(sitovActualAudio49).filter(k=>sitovActualAudio49[k]!==sitovQualityCurrentAudio[k]),sitovDelta49.changedAliases.map(r=>r.key))
+ for(const r of sitovDelta49.changedAliases){assert.equal(sitovQualityCurrentAudio[r.key],r.previousTextDe);assert.equal(sitovActualAudio49[r.key],r.currentTextDe)}
+ const restored=structuredClone(sitovActualManifest49);for(const r of sitovDelta49.questions){const d=restored.drafts.find(d=>d.textId===r.textId);assert.deepEqual(d.definition.tasks.find(q=>q.id===r.questionId),r.currentTask);d.definition.tasks[d.definition.tasks.findIndex(q=>q.id===r.questionId)]=r.previousTask}
+ for(const r of sitovDelta49.cores){const d=restored.drafts.find(d=>d.textId===r.textId);assert.deepEqual(d.definition.competencies.find(c=>c.id===r.coreId),r.currentCore);d.definition.competencies[d.definition.competencies.findIndex(c=>c.id===r.coreId)]=r.previousCore}
+ for(const r of sitovDelta49.pools)restored.drafts.find(d=>d.textId===r.textId).review=r.previousReview
+ assert.deepEqual(restored,sitovQualityCurrent)
+})
+test('actual39 repairs bind all72 current audited questions, honest pending reviews and standalone source/matrix evidence',()=>{
+ assert.equal(sitovActualManifest49.drafts.length,39);assert.deepEqual(sitovActualManifest49.coverage,{total:60,authored:39,pending:21});assert.equal(Object.keys(sitovActualAudio49).length,3744)
+ assert.deepEqual(sitovValidatePretestDrafts(sitovActualManifest49,sources),[]);assert.deepEqual(sitovValidatePretestAudioAliases(sitovActualManifest49,sitovActualAudio49),[])
+ assert.equal(sitovDelta49.current72Audit.flatMap(p=>p.questions).length,72)
+ for(const p of sitovDelta49.current72Audit){const d=sitovActualManifest49.drafts.find(d=>d.textId===p.textId),source=sources.rows.find(s=>s.id===d.textId),chars=Array.from(source.text);assert.equal(source.text,p.sourceBodyDe);assert.equal(d.textVersion,sitovHash(source.text));assert.equal(d.review.definitionContentHash,p.definitionContentHash);assert.equal(p.definitionContentHash,sitovHash(JSON.stringify(d.definition)));assert.equal(d.review.status,'author_checked_independent_review_pending');assert.equal(d.review.reviewer,'sitov.agent.S3');assert.equal(d.review.humanReview,false);assert.equal(d.review.calibrationStatus,'pending');assert.equal(d.active,false)
+  for(const[q,r]of d.definition.tasks.map((q,i)=>[q,p.questions[i]])){assert.deepEqual(r,{questionId:q.id,publicPromptDe:q.promptDe,publicOptions:q.options,correctOptionId:q.correctOptionId,correctAnswerTextDe:q.options.find(o=>o.id===q.correctOptionId).textDe,rationaleDe:q.rationaleDe,assessmentUnit:q.assessmentUnit,sourceSpans:q.sourceSpans})}
+  for(const s of[...d.definition.tasks.flatMap(q=>q.sourceSpans),...d.definition.competencies.flatMap(c=>c.sourceSpans)]){assert.equal(chars.slice(s.start,s.end).join(''),s.quote);assert.ok(!/[\p{L}\p{N}_]/u.test(chars[s.start-1]??''));assert.ok(!/[\p{L}\p{N}_]/u.test(chars[s.end]??''))}
+  const old=sitovQualityCurrent.drafts.find(x=>x.textId===d.textId);assert.deepEqual(d.definition.reviewForms,old.definition.reviewForms);assert.deepEqual(d.definition.tasks.map(q=>[q.id,q.correctOptionId,q.options.map(o=>o.id)]),old.definition.tasks.map(q=>[q.id,q.correctOptionId,q.options.map(o=>o.id)]));for(const q of d.definition.tasks.filter(q=>!sitovDelta49.questions.some(r=>r.questionId===q.id)))assert.deepEqual(q,old.definition.tasks.find(x=>x.id===q.id))
+ }
+ assert.equal(sitovDelta49.questions.filter(r=>r.previousTask.options.find(o=>o.id===r.previousTask.correctOptionId).textDe!==r.currentTask.options.find(o=>o.id===r.currentTask.correctOptionId).textDe).length,2)
+})
+test('repaired public direction, source V2 fronting and finite school agreement measure the declared constructs',()=>{
+ sitovAssert49Constructs(sitovActualManifest49);assert.throws(()=>sitovAssert49Constructs(sitovQualityCurrent))
+ for(const r of sitovDelta49.questions){const copy=structuredClone(sitovActualManifest49),d=copy.drafts.find(d=>d.textId===r.textId);d.definition.tasks[d.definition.tasks.findIndex(q=>q.id===r.questionId)]=r.previousTask;assert.throws(()=>sitovAssert49Constructs(copy))}
+})
+test('epoch49 semantic guards reject hidden destination, wrong V2/finite keys, lexical relabeling, stale cores and spoken aliases',()=>{
+ const mutations=[m=>{m.drafts[37].definition.tasks.find(q=>q.id.endsWith('nominal.q1')).promptDe='Die Wohnung gehört Freunden. Ich bin in ___ Wohnung gegangen.'},m=>{const q=m.drafts[36].definition.tasks.find(q=>q.id.endsWith('syntax.q6'));q.correctOptionId=q.options.find(o=>o.id!==q.correctOptionId).id},m=>{const q=m.drafts[38].definition.tasks.find(q=>q.id.endsWith('verbs.q6'));q.correctOptionId=q.options.find(o=>o.textDe==='stellen').id},m=>{m.drafts[36].definition.tasks.find(q=>q.id.endsWith('syntax.q6')).promptDe='Welche Angaben unterscheidet Datum und Uhrzeit?'},m=>{m.drafts[38].definition.tasks.find(q=>q.id.endsWith('verbs.q6')).promptDe='Was bedeutet zur Verfügung stellen?'}]
+ for(const mutate of mutations){const copy=structuredClone(sitovActualManifest49);mutate(copy);assert.throws(()=>sitovAssert49Constructs(copy))}
+ for(const r of sitovDelta49.cores){const copy=structuredClone(sitovActualManifest49),d=copy.drafts.find(d=>d.textId===r.textId);d.definition.competencies[d.definition.competencies.findIndex(c=>c.id===r.coreId)]=r.previousCore;assert.ok(sitovValidatePretestDrafts(copy,sources).length);assert.throws(()=>sitovAssert49Constructs(copy))}
+ for(const r of sitovDelta49.changedAliases){const stale={...sitovActualAudio49,[r.key]:r.previousTextDe};assert.ok(sitovValidatePretestAudioAliases(sitovActualManifest49,stale).length)}
+})

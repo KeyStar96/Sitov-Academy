@@ -1,0 +1,2786 @@
+{
+  "brand": "Sitov Academy",
+  "baseHead": "e77b8d437c1378c49ee091afdcd93fb2505522b0",
+  "status": "author_checked_independent_review_pending",
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationAuthorized": false,
+  "changedQuestionCount": 3,
+  "unchangedNewPoolQuestions": 69,
+  "changedCoreCount": 2,
+  "changedAliasCount": 9,
+  "correctTextChanges": 2,
+  "correctIdsChanged": 0,
+  "previousManifestContentHash": "920a36fa8199dcea5e7335ec3618373921ac8c2fddc4ac9404c17a9b2cedc0c1",
+  "previousManifestByteSha256": "5918dd8a0e73ba7464f68842b84b9d0d058ccc15a637c61be2942d351bdc7533",
+  "currentManifestContentHash": "bc505a2d217dffc6048349346de62edd8c94436fbb1fb835142ddbadd36a5554",
+  "currentManifestByteSha256": "1f78dadbb5c087fbaab4142d1daeffdbff02fb55693b893828ef8e7137e05157",
+  "previousAudioContentHash": "ed7fcccf2677bad3ef3220b2ecbecb035137640c91197230ab7aa57d383a2060",
+  "previousAudioByteSha256": "7ddc2a19ffbef3f2e49ac2cdef9da9464017e83384024354efa11f9a232918e7",
+  "currentAudioContentHash": "7a60d73263600a92eb603b23a01492ac3f07cec3338766fa5a2c3293a7cf0c24",
+  "currentAudioByteSha256": "56019fb99047d10b72f090e39d7fffe5a73a7e2c7ce899dfd546b0ed37729adf",
+  "original36ContentHash": "c7a3fbfaa0d768f1104a48067980c685e6c4022f60ca1efa7dec6c0241d954a3",
+  "original3456AliasContentHash": "580c62e8d3c25e810b27fe1891b086457f6c34ae30ed2343b3e1f1806ee0ff54",
+  "questions": [
+    {
+      "textId": "cff8a034-8b6e-5258-affc-6958091ef60b",
+      "questionId": "sitov.pretest.a22-07.syntax.q6",
+      "previousTask": {
+        "id": "sitov.pretest.a22-07.syntax.q6",
+        "competencyId": "sitov.pretest.a22-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welche Angaben unterscheidet »Datum und Uhrzeit« bei einem Termin?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a22-07.syntax.q6.b",
+            "textDe": "Nur die Dauer des Besuchs und die Dauer des Wartens."
+          },
+          {
+            "id": "sitov.pretest.a22-07.syntax.q6.c",
+            "textDe": "Nur zwei verschiedene Schreibweisen derselben Telefonnummer."
+          },
+          {
+            "id": "sitov.pretest.a22-07.syntax.q6.a",
+            "textDe": "Den Kalendertag und den Zeitpunkt innerhalb des Tages."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a22-07.syntax.q6.a",
+        "assessmentUnit": "Datum Uhrzeit unterschiedliche Angaben",
+        "equivalenceKey": "sitov:a22-07:syntax:6",
+        "sourceSpans": [
+          {
+            "start": 469,
+            "end": 486,
+            "quote": "Datum und Uhrzeit"
+          }
+        ],
+        "rationaleDe": "Datum nennt den Kalendertag, Uhrzeit die Zeit am Tag; Dauerangaben und Telefonnummern erfüllen andere Funktionen der Terminabsprache."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a22-07.syntax.q6",
+        "competencyId": "sitov.pretest.a22-07.syntax",
+        "kind": "single_choice",
+        "promptDe": "Welche Wortfolge ergänzt »In Zukunft …« zu einem vollständigen Aussagesatz?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a22-07.syntax.q6.b",
+            "textDe": "ich wiederhole Datum und Uhrzeit"
+          },
+          {
+            "id": "sitov.pretest.a22-07.syntax.q6.c",
+            "textDe": "ich Datum und Uhrzeit wiederhole"
+          },
+          {
+            "id": "sitov.pretest.a22-07.syntax.q6.a",
+            "textDe": "wiederhole ich Datum und Uhrzeit"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a22-07.syntax.q6.a",
+        "assessmentUnit": "In Zukunft Vorfeld Verbzweitstellung koordiniertes Objekt",
+        "equivalenceKey": "sitov:a22-07:syntax:6",
+        "sourceSpans": [
+          {
+            "start": 443,
+            "end": 486,
+            "quote": "In Zukunft wiederhole ich Datum und Uhrzeit"
+          }
+        ],
+        "rationaleDe": "In Zukunft besetzt das Vorfeld. Das finite Verb wiederhole steht an zweiter Satzgliedposition vor dem Subjekt ich; Datum und Uhrzeit bilden das koordinierte Objekt. Die falschen Folgen stellen das Subjekt zusätzlich vor das finite Verb oder verschieben dieses ans Satzende."
+      },
+      "previousAliasEntries": [
+        {
+          "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:prompt",
+          "textDe": "Welche Angaben unterscheidet »Datum und Uhrzeit« bei einem Termin?"
+        },
+        {
+          "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:sitov.pretest.a22-07.syntax.q6.b",
+          "textDe": "Nur die Dauer des Besuchs und die Dauer des Wartens."
+        },
+        {
+          "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:sitov.pretest.a22-07.syntax.q6.c",
+          "textDe": "Nur zwei verschiedene Schreibweisen derselben Telefonnummer."
+        },
+        {
+          "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:sitov.pretest.a22-07.syntax.q6.a",
+          "textDe": "Den Kalendertag und den Zeitpunkt innerhalb des Tages."
+        }
+      ],
+      "currentAliasEntries": [
+        {
+          "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:prompt",
+          "textDe": "Welche Wortfolge ergänzt »In Zukunft …« zu einem vollständigen Aussagesatz?"
+        },
+        {
+          "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:sitov.pretest.a22-07.syntax.q6.b",
+          "textDe": "ich wiederhole Datum und Uhrzeit"
+        },
+        {
+          "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:sitov.pretest.a22-07.syntax.q6.c",
+          "textDe": "ich Datum und Uhrzeit wiederhole"
+        },
+        {
+          "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:sitov.pretest.a22-07.syntax.q6.a",
+          "textDe": "wiederhole ich Datum und Uhrzeit"
+        }
+      ]
+    },
+    {
+      "textId": "4533b44b-4ec1-5147-8a69-3345d5df7933",
+      "questionId": "sitov.pretest.a22-08.nominal.q1",
+      "previousTask": {
+        "id": "sitov.pretest.a22-08.nominal.q1",
+        "competencyId": "sitov.pretest.a22-08.nominal",
+        "kind": "single_choice",
+        "promptDe": "Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«, wenn sie den Freunden gehört?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a22-08.nominal.q1.c",
+            "textDe": "ihrer"
+          },
+          {
+            "id": "sitov.pretest.a22-08.nominal.q1.b",
+            "textDe": "ihre"
+          },
+          {
+            "id": "sitov.pretest.a22-08.nominal.q1.a",
+            "textDe": "ihren"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a22-08.nominal.q1.b",
+        "assessmentUnit": "ihre Wohnung Akkusativ Ziel",
+        "equivalenceKey": "sitov:a22-08:nominal:1",
+        "sourceSpans": [
+          {
+            "start": 116,
+            "end": 140,
+            "quote": "in ihre Wohnung gegangen"
+          }
+        ],
+        "rationaleDe": "In nennt hier das Ziel im Akkusativ; beim femininen Wohnung lautet die Possessivform ihre."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a22-08.nominal.q1",
+        "competencyId": "sitov.pretest.a22-08.nominal",
+        "kind": "single_choice",
+        "promptDe": "Die Wohnung gehört den Freunden und ist das Ziel meines Weges. Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a22-08.nominal.q1.c",
+            "textDe": "ihrer"
+          },
+          {
+            "id": "sitov.pretest.a22-08.nominal.q1.b",
+            "textDe": "ihre"
+          },
+          {
+            "id": "sitov.pretest.a22-08.nominal.q1.a",
+            "textDe": "ihren"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a22-08.nominal.q1.b",
+        "assessmentUnit": "ihre Wohnung Akkusativ Ziel",
+        "equivalenceKey": "sitov:a22-08:nominal:1",
+        "sourceSpans": [
+          {
+            "start": 116,
+            "end": 140,
+            "quote": "in ihre Wohnung gegangen"
+          }
+        ],
+        "rationaleDe": "Die öffentliche Angabe legt die Wohnung als Ziel des Weges fest. In verlangt deshalb hier den Akkusativ; beim femininen Singular Wohnung lautet die Possessivform ihre. Ihrer wäre die Ortslesart im Dativ, ihren passt nicht zum Akkusativ feminin Singular."
+      },
+      "previousAliasEntries": [
+        {
+          "key": "sitov-pretest:4533b44b-4ec1-5147-8a69-3345d5df7933:sitov.pretest.a22-08.nominal.q1:prompt",
+          "textDe": "Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«, wenn sie den Freunden gehört?"
+        },
+        {
+          "key": "sitov-pretest:4533b44b-4ec1-5147-8a69-3345d5df7933:sitov.pretest.a22-08.nominal.q1:sitov.pretest.a22-08.nominal.q1.c",
+          "textDe": "ihrer"
+        },
+        {
+          "key": "sitov-pretest:4533b44b-4ec1-5147-8a69-3345d5df7933:sitov.pretest.a22-08.nominal.q1:sitov.pretest.a22-08.nominal.q1.b",
+          "textDe": "ihre"
+        },
+        {
+          "key": "sitov-pretest:4533b44b-4ec1-5147-8a69-3345d5df7933:sitov.pretest.a22-08.nominal.q1:sitov.pretest.a22-08.nominal.q1.a",
+          "textDe": "ihren"
+        }
+      ],
+      "currentAliasEntries": [
+        {
+          "key": "sitov-pretest:4533b44b-4ec1-5147-8a69-3345d5df7933:sitov.pretest.a22-08.nominal.q1:prompt",
+          "textDe": "Die Wohnung gehört den Freunden und ist das Ziel meines Weges. Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«?"
+        },
+        {
+          "key": "sitov-pretest:4533b44b-4ec1-5147-8a69-3345d5df7933:sitov.pretest.a22-08.nominal.q1:sitov.pretest.a22-08.nominal.q1.c",
+          "textDe": "ihrer"
+        },
+        {
+          "key": "sitov-pretest:4533b44b-4ec1-5147-8a69-3345d5df7933:sitov.pretest.a22-08.nominal.q1:sitov.pretest.a22-08.nominal.q1.b",
+          "textDe": "ihre"
+        },
+        {
+          "key": "sitov-pretest:4533b44b-4ec1-5147-8a69-3345d5df7933:sitov.pretest.a22-08.nominal.q1:sitov.pretest.a22-08.nominal.q1.a",
+          "textDe": "ihren"
+        }
+      ]
+    },
+    {
+      "textId": "4c550a8b-95b1-5a53-ac3c-b2ad48ea592d",
+      "questionId": "sitov.pretest.a22-09.verbs.q6",
+      "previousTask": {
+        "id": "sitov.pretest.a22-09.verbs.q6",
+        "competencyId": "sitov.pretest.a22-09.verbs",
+        "kind": "single_choice",
+        "promptDe": "Was bedeutet »Die Schule stellt Geräte zur Verfügung« für den Kurs?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a22-09.verbs.q6.b",
+            "textDe": "Die Lernenden müssen alle Geräte selbst von zu Hause mitbringen."
+          },
+          {
+            "id": "sitov.pretest.a22-09.verbs.q6.a",
+            "textDe": "Die Schule verkauft jedem Lernenden zwingend ein Gerät als Eigentum."
+          },
+          {
+            "id": "sitov.pretest.a22-09.verbs.q6.c",
+            "textDe": "Die Schule ermöglicht den Lernenden, diese Geräte zu benutzen."
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a22-09.verbs.q6.c",
+        "assessmentUnit": "zur Verfügung stellen Nutzung ermöglichen",
+        "equivalenceKey": "sitov:a22-09:verbs:6",
+        "sourceSpans": [
+          {
+            "start": 469,
+            "end": 496,
+            "quote": "stellt Geräte zur Verfügung"
+          }
+        ],
+        "rationaleDe": "Zur Verfügung stellen ermöglicht die Nutzung; es behauptet weder Eigentumsverkauf noch die Pflicht zum eigenen Mitbringen."
+      },
+      "currentTask": {
+        "id": "sitov.pretest.a22-09.verbs.q6",
+        "competencyId": "sitov.pretest.a22-09.verbs",
+        "kind": "single_choice",
+        "promptDe": "Welche Präsensform von »stellen« ergänzt »Die Schule ___ Geräte zur Verfügung«?",
+        "fragmentDe": null,
+        "options": [
+          {
+            "id": "sitov.pretest.a22-09.verbs.q6.b",
+            "textDe": "stellen"
+          },
+          {
+            "id": "sitov.pretest.a22-09.verbs.q6.a",
+            "textDe": "stellst"
+          },
+          {
+            "id": "sitov.pretest.a22-09.verbs.q6.c",
+            "textDe": "stellt"
+          }
+        ],
+        "correctOptionId": "sitov.pretest.a22-09.verbs.q6.c",
+        "assessmentUnit": "stellt Präsens dritte Person Singular",
+        "equivalenceKey": "sitov:a22-09:verbs:6",
+        "sourceSpans": [
+          {
+            "start": 458,
+            "end": 496,
+            "quote": "Die Schule stellt Geräte zur Verfügung"
+          }
+        ],
+        "rationaleDe": "Das Subjekt Die Schule steht in der dritten Person Singular; die finite Präsensform von stellen lautet stellt. Stellen ist hier die Infinitiv- oder Pluralform, stellst gehört zur zweiten Person Singular."
+      },
+      "previousAliasEntries": [
+        {
+          "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:prompt",
+          "textDe": "Was bedeutet »Die Schule stellt Geräte zur Verfügung« für den Kurs?"
+        },
+        {
+          "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:sitov.pretest.a22-09.verbs.q6.b",
+          "textDe": "Die Lernenden müssen alle Geräte selbst von zu Hause mitbringen."
+        },
+        {
+          "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:sitov.pretest.a22-09.verbs.q6.a",
+          "textDe": "Die Schule verkauft jedem Lernenden zwingend ein Gerät als Eigentum."
+        },
+        {
+          "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:sitov.pretest.a22-09.verbs.q6.c",
+          "textDe": "Die Schule ermöglicht den Lernenden, diese Geräte zu benutzen."
+        }
+      ],
+      "currentAliasEntries": [
+        {
+          "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:prompt",
+          "textDe": "Welche Präsensform von »stellen« ergänzt »Die Schule ___ Geräte zur Verfügung«?"
+        },
+        {
+          "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:sitov.pretest.a22-09.verbs.q6.b",
+          "textDe": "stellen"
+        },
+        {
+          "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:sitov.pretest.a22-09.verbs.q6.a",
+          "textDe": "stellst"
+        },
+        {
+          "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:sitov.pretest.a22-09.verbs.q6.c",
+          "textDe": "stellt"
+        }
+      ]
+    }
+  ],
+  "cores": [
+    {
+      "textId": "cff8a034-8b6e-5258-affc-6958091ef60b",
+      "coreId": "sitov.pretest.a22-07.syntax",
+      "previousCore": {
+        "id": "sitov.pretest.a22-07.syntax",
+        "category": "syntax",
+        "itemsPerAttempt": 3,
+        "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+        "languageUnits": [
+          "Als Nebensatz Verbfinal",
+          "statt Ersetzung Wochentage",
+          "dass Vorvergangenheit final",
+          "Früher Diesmal Reaktionsvergleich",
+          "Nach Wartezeit zeitliche Folge",
+          "Datum Uhrzeit unterschiedliche Angaben"
+        ],
+        "sourceSpans": [
+          {
+            "start": 60,
+            "end": 94,
+            "quote": "Als ich am Dienstag im Salon ankam"
+          },
+          {
+            "start": 225,
+            "end": 250,
+            "quote": "Donnerstag statt Dienstag"
+          },
+          {
+            "start": 217,
+            "end": 267,
+            "quote": "dass er Donnerstag statt Dienstag verstanden hatte"
+          },
+          {
+            "start": 328,
+            "end": 359,
+            "quote": "Diesmal blieben wir beide ruhig"
+          },
+          {
+            "start": 385,
+            "end": 412,
+            "quote": "Nach einer kurzen Wartezeit"
+          },
+          {
+            "start": 469,
+            "end": 486,
+            "quote": "Datum und Uhrzeit"
+          }
+        ],
+        "mapping": {
+          "topicIds": [],
+          "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Als Nebensatz Verbfinal, statt Ersetzung Wochentage, dass Vorvergangenheit final, Früher Diesmal Reaktionsvergleich, Nach Wartezeit zeitliche Folge, Datum Uhrzeit unterschiedliche Angaben. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+        }
+      },
+      "currentCore": {
+        "id": "sitov.pretest.a22-07.syntax",
+        "category": "syntax",
+        "itemsPerAttempt": 3,
+        "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+        "languageUnits": [
+          "Als Nebensatz Verbfinal",
+          "statt Ersetzung Wochentage",
+          "dass Vorvergangenheit final",
+          "Früher Diesmal Reaktionsvergleich",
+          "Nach Wartezeit zeitliche Folge",
+          "In Zukunft Vorfeld Verbzweitstellung koordiniertes Objekt"
+        ],
+        "sourceSpans": [
+          {
+            "start": 60,
+            "end": 94,
+            "quote": "Als ich am Dienstag im Salon ankam"
+          },
+          {
+            "start": 225,
+            "end": 250,
+            "quote": "Donnerstag statt Dienstag"
+          },
+          {
+            "start": 217,
+            "end": 267,
+            "quote": "dass er Donnerstag statt Dienstag verstanden hatte"
+          },
+          {
+            "start": 328,
+            "end": 359,
+            "quote": "Diesmal blieben wir beide ruhig"
+          },
+          {
+            "start": 385,
+            "end": 412,
+            "quote": "Nach einer kurzen Wartezeit"
+          },
+          {
+            "start": 443,
+            "end": 486,
+            "quote": "In Zukunft wiederhole ich Datum und Uhrzeit"
+          }
+        ],
+        "mapping": {
+          "topicIds": [],
+          "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Als Nebensatz Verbfinal, statt Ersetzung Wochentage, dass Vorvergangenheit final, Früher Diesmal Reaktionsvergleich, Nach Wartezeit zeitliche Folge, In Zukunft Vorfeld Verbzweitstellung koordiniertes Objekt. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+        }
+      }
+    },
+    {
+      "textId": "4c550a8b-95b1-5a53-ac3c-b2ad48ea592d",
+      "coreId": "sitov.pretest.a22-09.verbs",
+      "previousCore": {
+        "id": "sitov.pretest.a22-09.verbs",
+        "category": "verb_forms",
+        "itemsPerAttempt": 3,
+        "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+        "languageUnits": [
+          "mich reflexive Weiterentwicklung",
+          "gefunden starkes Partizip",
+          "stattfinden trennbares Verb",
+          "entschieden starkes Partizip",
+          "braucht dritte Person Singular",
+          "zur Verfügung stellen Nutzung ermöglichen"
+        ],
+        "sourceSpans": [
+          {
+            "start": 4,
+            "end": 42,
+            "quote": "möchte mich beruflich weiterentwickeln"
+          },
+          {
+            "start": 108,
+            "end": 125,
+            "quote": "Angebote gefunden"
+          },
+          {
+            "start": 136,
+            "end": 162,
+            "quote": "findet am Wochenende statt"
+          },
+          {
+            "start": 250,
+            "end": 288,
+            "quote": "mich für den Wochenendkurs entschieden"
+          },
+          {
+            "start": 403,
+            "end": 425,
+            "quote": "eigenen Laptop braucht"
+          },
+          {
+            "start": 469,
+            "end": 496,
+            "quote": "stellt Geräte zur Verfügung"
+          }
+        ],
+        "mapping": {
+          "topicIds": [],
+          "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: mich reflexive Weiterentwicklung, gefunden starkes Partizip, stattfinden trennbares Verb, entschieden starkes Partizip, braucht dritte Person Singular, zur Verfügung stellen Nutzung ermöglichen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+        }
+      },
+      "currentCore": {
+        "id": "sitov.pretest.a22-09.verbs",
+        "category": "verb_forms",
+        "itemsPerAttempt": 3,
+        "necessityDe": "Sechs verschiedene tatsächlich belegte Teilfertigkeiten mit je eigener Matrixeinheit; öffentliche Übungskontexte enthalten alle zur Lösung notwendigen Angaben.",
+        "languageUnits": [
+          "mich reflexive Weiterentwicklung",
+          "gefunden starkes Partizip",
+          "stattfinden trennbares Verb",
+          "entschieden starkes Partizip",
+          "braucht dritte Person Singular",
+          "stellt Präsens dritte Person Singular"
+        ],
+        "sourceSpans": [
+          {
+            "start": 4,
+            "end": 42,
+            "quote": "möchte mich beruflich weiterentwickeln"
+          },
+          {
+            "start": 108,
+            "end": 125,
+            "quote": "Angebote gefunden"
+          },
+          {
+            "start": 136,
+            "end": 162,
+            "quote": "findet am Wochenende statt"
+          },
+          {
+            "start": 250,
+            "end": 288,
+            "quote": "mich für den Wochenendkurs entschieden"
+          },
+          {
+            "start": 403,
+            "end": 425,
+            "quote": "eigenen Laptop braucht"
+          },
+          {
+            "start": 458,
+            "end": 496,
+            "quote": "Die Schule stellt Geräte zur Verfügung"
+          }
+        ],
+        "mapping": {
+          "topicIds": [],
+          "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: mich reflexive Weiterentwicklung, gefunden starkes Partizip, stattfinden trennbares Verb, entschieden starkes Partizip, braucht dritte Person Singular, stellt Präsens dritte Person Singular. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+        }
+      }
+    }
+  ],
+  "pools": [
+    {
+      "textId": "cff8a034-8b6e-5258-affc-6958091ef60b",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "c4cd54805ef71fd2f332b6f3d1e08ff84939edb0a2c07fc4e7595f68c465e106",
+        "definitionContentHash": "1820f0e9a1ccab4b366b94134ab885c76fae52640313c10ed83192c3ecf50942"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "c4cd54805ef71fd2f332b6f3d1e08ff84939edb0a2c07fc4e7595f68c465e106",
+        "definitionContentHash": "ab35bac23a75d2a497c92cac5b0afd32d6952bbab3849d7df96e798f150d8582"
+      },
+      "previousDefinitionContentHash": "1820f0e9a1ccab4b366b94134ab885c76fae52640313c10ed83192c3ecf50942",
+      "currentDefinitionContentHash": "ab35bac23a75d2a497c92cac5b0afd32d6952bbab3849d7df96e798f150d8582"
+    },
+    {
+      "textId": "4533b44b-4ec1-5147-8a69-3345d5df7933",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "43b4c86ef586bbe1bee12b4705caf6bc96512a38b4910e59247c39ef15871cfc",
+        "definitionContentHash": "1a8befda8c1b071c95e46fb085ab19d43eed06995bae07763f9fff06bae14b93"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "43b4c86ef586bbe1bee12b4705caf6bc96512a38b4910e59247c39ef15871cfc",
+        "definitionContentHash": "99bafb9966d55591923f4e3c0cf8a01b6efd95a5db1790fc4d17bd1cb7e5d620"
+      },
+      "previousDefinitionContentHash": "1a8befda8c1b071c95e46fb085ab19d43eed06995bae07763f9fff06bae14b93",
+      "currentDefinitionContentHash": "99bafb9966d55591923f4e3c0cf8a01b6efd95a5db1790fc4d17bd1cb7e5d620"
+    },
+    {
+      "textId": "4c550a8b-95b1-5a53-ac3c-b2ad48ea592d",
+      "previousReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
+        "definitionContentHash": "a3b52cc67e2294413ca03292f66fd114bd49e0b16c4bcdfd4a09ef750642f726"
+      },
+      "currentReview": {
+        "status": "author_checked_independent_review_pending",
+        "reviewer": "sitov.agent.S3",
+        "authorIdentity": "sitov.agent.S3",
+        "humanReview": false,
+        "calibrationStatus": "pending",
+        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
+        "definitionContentHash": "a558b4fd59684c644315e443c5040bf528fdaf79cf07d34a5eaa37b5e8ff9fe9"
+      },
+      "previousDefinitionContentHash": "a3b52cc67e2294413ca03292f66fd114bd49e0b16c4bcdfd4a09ef750642f726",
+      "currentDefinitionContentHash": "a558b4fd59684c644315e443c5040bf528fdaf79cf07d34a5eaa37b5e8ff9fe9"
+    }
+  ],
+  "changedAliases": [
+    {
+      "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:prompt",
+      "previousTextDe": "Welche Angaben unterscheidet »Datum und Uhrzeit« bei einem Termin?",
+      "currentTextDe": "Welche Wortfolge ergänzt »In Zukunft …« zu einem vollständigen Aussagesatz?"
+    },
+    {
+      "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:sitov.pretest.a22-07.syntax.q6.b",
+      "previousTextDe": "Nur die Dauer des Besuchs und die Dauer des Wartens.",
+      "currentTextDe": "ich wiederhole Datum und Uhrzeit"
+    },
+    {
+      "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:sitov.pretest.a22-07.syntax.q6.c",
+      "previousTextDe": "Nur zwei verschiedene Schreibweisen derselben Telefonnummer.",
+      "currentTextDe": "ich Datum und Uhrzeit wiederhole"
+    },
+    {
+      "key": "sitov-pretest:cff8a034-8b6e-5258-affc-6958091ef60b:sitov.pretest.a22-07.syntax.q6:sitov.pretest.a22-07.syntax.q6.a",
+      "previousTextDe": "Den Kalendertag und den Zeitpunkt innerhalb des Tages.",
+      "currentTextDe": "wiederhole ich Datum und Uhrzeit"
+    },
+    {
+      "key": "sitov-pretest:4533b44b-4ec1-5147-8a69-3345d5df7933:sitov.pretest.a22-08.nominal.q1:prompt",
+      "previousTextDe": "Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«, wenn sie den Freunden gehört?",
+      "currentTextDe": "Die Wohnung gehört den Freunden und ist das Ziel meines Weges. Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«?"
+    },
+    {
+      "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:prompt",
+      "previousTextDe": "Was bedeutet »Die Schule stellt Geräte zur Verfügung« für den Kurs?",
+      "currentTextDe": "Welche Präsensform von »stellen« ergänzt »Die Schule ___ Geräte zur Verfügung«?"
+    },
+    {
+      "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:sitov.pretest.a22-09.verbs.q6.b",
+      "previousTextDe": "Die Lernenden müssen alle Geräte selbst von zu Hause mitbringen.",
+      "currentTextDe": "stellen"
+    },
+    {
+      "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:sitov.pretest.a22-09.verbs.q6.a",
+      "previousTextDe": "Die Schule verkauft jedem Lernenden zwingend ein Gerät als Eigentum.",
+      "currentTextDe": "stellst"
+    },
+    {
+      "key": "sitov-pretest:4c550a8b-95b1-5a53-ac3c-b2ad48ea592d:sitov.pretest.a22-09.verbs.q6:sitov.pretest.a22-09.verbs.q6.c",
+      "previousTextDe": "Die Schule ermöglicht den Lernenden, diese Geräte zu benutzen.",
+      "currentTextDe": "stellt"
+    }
+  ],
+  "current72Audit": [
+    {
+      "textId": "cff8a034-8b6e-5258-affc-6958091ef60b",
+      "textVersion": "c4cd54805ef71fd2f332b6f3d1e08ff84939edb0a2c07fc4e7595f68c465e106",
+      "sourceBodyDe": "Ich hatte telefonisch einen Termin beim Friseur vereinbart. Als ich am Dienstag im Salon ankam, war mein Name nicht im Kalender. Der Mitarbeiter fragte noch einmal nach meiner Telefonnummer. Dann stellte sich heraus, dass er Donnerstag statt Dienstag verstanden hatte. Früher hätte ich mich in so einer Situation sehr geärgert. Diesmal blieben wir beide ruhig und suchten eine Lösung. Nach einer kurzen Wartezeit konnte ich doch noch bleiben. In Zukunft wiederhole ich Datum und Uhrzeit am Ende des Gesprächs.",
+      "definitionContentHash": "ab35bac23a75d2a497c92cac5b0afd32d6952bbab3849d7df96e798f150d8582",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a22-07.words.q1",
+          "publicPromptDe": "Was ist ein »Termin« beim Friseur?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.words.q1.c",
+              "textDe": "Ein vereinbarter Zeitpunkt für den Besuch."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q1.b",
+              "textDe": "Die gesamte Dauer des Haarschnitts."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q1.a",
+              "textDe": "Ein Besuch ohne vorherige Zeitabsprache."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.words.q1.c",
+          "correctAnswerTextDe": "Ein vereinbarter Zeitpunkt für den Besuch.",
+          "rationaleDe": "Ein Termin legt den Besuchszeitpunkt fest; Dauer und unangemeldeter Besuch sind andere Angaben.",
+          "assessmentUnit": "Termin vereinbarter Zeitpunkt",
+          "sourceSpans": [
+            {
+              "start": 28,
+              "end": 34,
+              "quote": "Termin"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q2",
+          "publicPromptDe": "Was meint »Salon« in »Ich kam zum Friseur in den Salon«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.words.q2.c",
+              "textDe": "Nur den einzelnen Stuhl, auf dem ein Kunde sitzt."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q2.a",
+              "textDe": "Den Kalender mit den eingetragenen Besuchszeiten."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q2.b",
+              "textDe": "Die Räume, in denen der Friseur arbeitet."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.words.q2.b",
+          "correctAnswerTextDe": "Die Räume, in denen der Friseur arbeitet.",
+          "rationaleDe": "Im Friseurkontext ist der Salon das Geschäft mit seinen Räumen; Kalender und Kundenstuhl sind einzelne Einrichtungen darin.",
+          "assessmentUnit": "Salon Friseurgeschäft",
+          "sourceSpans": [
+            {
+              "start": 83,
+              "end": 88,
+              "quote": "Salon"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q3",
+          "publicPromptDe": "Wozu dient ein »Kalender« bei der Terminplanung?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.words.q3.c",
+              "textDe": "Zum Speichern allein der Telefonnummern ohne Datumsangaben."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q3.a",
+              "textDe": "Zum Messen der Dauer eines Haarschnitts in Sekunden."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q3.b",
+              "textDe": "Zum Zuordnen von Terminen zu Tagen und Zeiten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.words.q3.b",
+          "correctAnswerTextDe": "Zum Zuordnen von Terminen zu Tagen und Zeiten.",
+          "rationaleDe": "Ein Kalender ordnet Termine zeitlich ein; Stoppuhr und reines Telefonverzeichnis haben andere Planungsfunktionen.",
+          "assessmentUnit": "Kalender Datumsübersicht",
+          "sourceSpans": [
+            {
+              "start": 119,
+              "end": 127,
+              "quote": "Kalender"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q4",
+          "publicPromptDe": "Was bedeutet »einen Termin telefonisch vereinbaren«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.words.q4.b",
+              "textDe": "Den Termin persönlich im Salon absprechen."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q4.a",
+              "textDe": "Den Termin in einem Telefongespräch absprechen."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q4.c",
+              "textDe": "Den Termin nur schriftlich in einer E-Mail absprechen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.words.q4.a",
+          "correctAnswerTextDe": "Den Termin in einem Telefongespräch absprechen.",
+          "rationaleDe": "Telefonisch nennt das Telefon als Kommunikationsweg; persönlicher Besuch und E-Mail sind andere Wege.",
+          "assessmentUnit": "telefonisch über Telefon",
+          "sourceSpans": [
+            {
+              "start": 10,
+              "end": 21,
+              "quote": "telefonisch"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q5",
+          "publicPromptDe": "Was ist eine »Wartezeit« vor dem Haarschnitt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.words.q5.a",
+              "textDe": "Die Zeit bis zum Beginn der Bedienung."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q5.c",
+              "textDe": "Die Dauer des bereits begonnenen Haarschnitts."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q5.b",
+              "textDe": "Der genaue Kalendertag des vereinbarten Termins."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.words.q5.a",
+          "correctAnswerTextDe": "Die Zeit bis zum Beginn der Bedienung.",
+          "rationaleDe": "Wartezeit liegt vor der Bedienung; Behandlungsdauer und Kalendertag sind andere Zeitangaben.",
+          "assessmentUnit": "Wartezeit Zeit bis Bedienung",
+          "sourceSpans": [
+            {
+              "start": 403,
+              "end": 412,
+              "quote": "Wartezeit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.words.q6",
+          "publicPromptDe": "Was bedeutet »In Zukunft wiederhole ich die Uhrzeit«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.words.q6.b",
+              "textDe": "Nur bei bereits abgeschlossenen Gesprächen wurde sie wiederholt."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q6.c",
+              "textDe": "Bei künftigen Gesprächen will der Sprecher die Uhrzeit wiederholen."
+            },
+            {
+              "id": "sitov.pretest.a22-07.words.q6.a",
+              "textDe": "Die Uhrzeit wird nur für den heutigen Zeitpunkt geändert."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.words.q6.c",
+          "correctAnswerTextDe": "Bei künftigen Gesprächen will der Sprecher die Uhrzeit wiederholen.",
+          "rationaleDe": "In Zukunft bezieht das Verhalten auf kommende Situationen; abgeschlossene Vergangenheit und bloße Änderung heute sind nicht gemeint.",
+          "assessmentUnit": "In Zukunft kommende Situationen",
+          "sourceSpans": [
+            {
+              "start": 443,
+              "end": 453,
+              "quote": "In Zukunft"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q1",
+          "publicPromptDe": "Welche Zeitform zeigt »Ich hatte einen Termin vereinbart«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.verbs.q1.b",
+              "textDe": "Plusquamperfekt (Vorvergangenheit)."
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q1.c",
+              "textDe": "Perfekt mit habe als Hilfsverb im Präsens."
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q1.a",
+              "textDe": "Präteritum als einfache Form vereinbarte."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.verbs.q1.b",
+          "correctAnswerTextDe": "Plusquamperfekt (Vorvergangenheit).",
+          "rationaleDe": "Hatte mit vereinbart bildet die Vorvergangenheit; habe vereinbart ist Perfekt, vereinbarte einfaches Präteritum.",
+          "assessmentUnit": "hatte vereinbart Plusquamperfekt",
+          "sourceSpans": [
+            {
+              "start": 4,
+              "end": 58,
+              "quote": "hatte telefonisch einen Termin beim Friseur vereinbart"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q2",
+          "publicPromptDe": "Welche Grundform gehört zu »als ich im Salon ankam«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.verbs.q2.a",
+              "textDe": "kommen"
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q2.b",
+              "textDe": "ankommen"
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q2.c",
+              "textDe": "ankam"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.verbs.q2.b",
+          "correctAnswerTextDe": "ankommen",
+          "rationaleDe": "Ankam gehört zum trennbaren Verb ankommen; kommen verliert die Vorsilbe, ankam selbst ist keine Grundform.",
+          "assessmentUnit": "ankam Präteritum ankommen",
+          "sourceSpans": [
+            {
+              "start": 80,
+              "end": 94,
+              "quote": "im Salon ankam"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q3",
+          "publicPromptDe": "Welche Grundform gehört zu »Er fragte noch einmal nach«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.verbs.q3.b",
+              "textDe": "fragen"
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q3.c",
+              "textDe": "nachfragen"
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q3.a",
+              "textDe": "nachgefragt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.verbs.q3.c",
+          "correctAnswerTextDe": "nachfragen",
+          "rationaleDe": "Die Satzklammer fragte … nach gehört zu nachfragen; fragen verliert die Vorsilbe, nachgefragt ist ein Partizip.",
+          "assessmentUnit": "nachfragen trennbares Verb",
+          "sourceSpans": [
+            {
+              "start": 145,
+              "end": 189,
+              "quote": "fragte noch einmal nach meiner Telefonnummer"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Er hatte Donnerstag ___« zu verstehen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.verbs.q4.a",
+              "textDe": "verstanden"
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q4.c",
+              "textDe": "geverstanden"
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q4.b",
+              "textDe": "verstehen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.verbs.q4.a",
+          "correctAnswerTextDe": "verstanden",
+          "rationaleDe": "Verstehen bildet das starke Partizip verstanden ohne zusätzliches ge; der Infinitiv passt nicht in diese zusammengesetzte Vergangenheit.",
+          "assessmentUnit": "verstanden starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 225,
+              "end": 267,
+              "quote": "Donnerstag statt Dienstag verstanden hatte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q5",
+          "publicPromptDe": "Was drückt »Früher hätte ich mich in so einer Situation geärgert« aus?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.verbs.q5.b",
+              "textDe": "Eine sicher berichtete Reaktion, die damals wirklich stattgefunden hat."
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q5.a",
+              "textDe": "Eine Aufforderung, sich jetzt zu ärgern."
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q5.c",
+              "textDe": "Eine gedachte Reaktion in einer vergangenen Situation."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.verbs.q5.c",
+          "correctAnswerTextDe": "Eine gedachte Reaktion in einer vergangenen Situation.",
+          "rationaleDe": "Hätte mit Partizip formuliert hier eine gedachte vergangene Reaktion; es behauptet kein wirkliches Ereignis und gibt keinen aktuellen Befehl.",
+          "assessmentUnit": "hätte geärgert gedachte Vergangenheit",
+          "sourceSpans": [
+            {
+              "start": 276,
+              "end": 326,
+              "quote": "hätte ich mich in so einer Situation sehr geärgert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.verbs.q6",
+          "publicPromptDe": "Welche Grundform gehört zu »Wir blieben ruhig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.verbs.q6.c",
+              "textDe": "blühen"
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q6.b",
+              "textDe": "bleichen"
+            },
+            {
+              "id": "sitov.pretest.a22-07.verbs.q6.a",
+              "textDe": "bleiben"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.verbs.q6.a",
+          "correctAnswerTextDe": "bleiben",
+          "rationaleDe": "Blieben ist das Präteritum von bleiben im Plural; blühen und bleichen bilden andere Stämme.",
+          "assessmentUnit": "blieben Präteritum bleiben",
+          "sourceSpans": [
+            {
+              "start": 336,
+              "end": 359,
+              "quote": "blieben wir beide ruhig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q1",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Als …, fehlte mein Name im Kalender« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.syntax.q1.c",
+              "textDe": "ich kam am Dienstag im Salon an"
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q1.a",
+              "textDe": "ich am Dienstag im Salon ankam"
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q1.b",
+              "textDe": "kam ich am Dienstag im Salon an"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.syntax.q1.a",
+          "correctAnswerTextDe": "ich am Dienstag im Salon ankam",
+          "rationaleDe": "Als leitet einen Nebensatz ein; das finite ankam steht ungetrennt am Ende.",
+          "assessmentUnit": "Als Nebensatz Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 60,
+              "end": 94,
+              "quote": "Als ich am Dienstag im Salon ankam"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q2",
+          "publicPromptDe": "Welchen Tag hat der Mitarbeiter laut »Er hatte Donnerstag statt Dienstag verstanden« verstanden?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.syntax.q2.b",
+              "textDe": "Donnerstag, obwohl Dienstag gemeint war."
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q2.c",
+              "textDe": "Dienstag, obwohl Donnerstag gemeint war."
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q2.a",
+              "textDe": "Beide Tage als zwei getrennte Termine."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.syntax.q2.b",
+          "correctAnswerTextDe": "Donnerstag, obwohl Dienstag gemeint war.",
+          "rationaleDe": "Statt zeigt die Verwechslung: Donnerstag wurde verstanden, Dienstag war gemeint; Umkehrung und zwei Termine passen nicht.",
+          "assessmentUnit": "statt Ersetzung Wochentage",
+          "sourceSpans": [
+            {
+              "start": 225,
+              "end": 250,
+              "quote": "Donnerstag statt Dienstag"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q3",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Es stellte sich heraus, dass …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.syntax.q3.a",
+              "textDe": "er hatte Donnerstag verstanden"
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q3.b",
+              "textDe": "hatte er Donnerstag verstanden"
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q3.c",
+              "textDe": "er Donnerstag verstanden hatte"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.syntax.q3.c",
+          "correctAnswerTextDe": "er Donnerstag verstanden hatte",
+          "rationaleDe": "Dass leitet einen Nebensatz ein; das finite Hilfsverb hatte steht hinter verstanden am Ende.",
+          "assessmentUnit": "dass Vorvergangenheit final",
+          "sourceSpans": [
+            {
+              "start": 217,
+              "end": 267,
+              "quote": "dass er Donnerstag statt Dienstag verstanden hatte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q4",
+          "publicPromptDe": "Was vergleicht »Früher hätte ich mich geärgert. Diesmal blieb ich ruhig«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.syntax.q4.c",
+              "textDe": "Eine frühere gedachte Reaktion mit dem ruhigen Verhalten dieses Mal."
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q4.a",
+              "textDe": "Zwei tatsächlich berichtete Ärgerreaktionen am selben Tag."
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q4.b",
+              "textDe": "Eine jetzige Ärgerreaktion mit einem künftig sicher ruhigen Verhalten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.syntax.q4.c",
+          "correctAnswerTextDe": "Eine frühere gedachte Reaktion mit dem ruhigen Verhalten dieses Mal.",
+          "rationaleDe": "Früher hätte beschreibt die gedachte frühere Reaktion, diesmal blieb das tatsächliche jetzige Verhalten; die Alternativen vertauschen Zeit und Wirklichkeit.",
+          "assessmentUnit": "Früher Diesmal Reaktionsvergleich",
+          "sourceSpans": [
+            {
+              "start": 328,
+              "end": 359,
+              "quote": "Diesmal blieben wir beide ruhig"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q5",
+          "publicPromptDe": "Was kommt laut »Nach einer Wartezeit konnte ich bleiben« zuerst?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.syntax.q5.a",
+              "textDe": "Warten und Bleiben werden als gleichzeitig beginnend bezeichnet."
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q5.b",
+              "textDe": "Das Warten."
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q5.c",
+              "textDe": "Das Bleiben ohne vorheriges Warten."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.syntax.q5.b",
+          "correctAnswerTextDe": "Das Warten.",
+          "rationaleDe": "Nach ordnet das Warten vor die anschließende Möglichkeit zu bleiben; fehlendes Warten und gleichzeitiger Beginn passen nicht.",
+          "assessmentUnit": "Nach Wartezeit zeitliche Folge",
+          "sourceSpans": [
+            {
+              "start": 385,
+              "end": 412,
+              "quote": "Nach einer kurzen Wartezeit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.syntax.q6",
+          "publicPromptDe": "Welche Wortfolge ergänzt »In Zukunft …« zu einem vollständigen Aussagesatz?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.syntax.q6.b",
+              "textDe": "ich wiederhole Datum und Uhrzeit"
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q6.c",
+              "textDe": "ich Datum und Uhrzeit wiederhole"
+            },
+            {
+              "id": "sitov.pretest.a22-07.syntax.q6.a",
+              "textDe": "wiederhole ich Datum und Uhrzeit"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.syntax.q6.a",
+          "correctAnswerTextDe": "wiederhole ich Datum und Uhrzeit",
+          "rationaleDe": "In Zukunft besetzt das Vorfeld. Das finite Verb wiederhole steht an zweiter Satzgliedposition vor dem Subjekt ich; Datum und Uhrzeit bilden das koordinierte Objekt. Die falschen Folgen stellen das Subjekt zusätzlich vor das finite Verb oder verschieben dieses ans Satzende.",
+          "assessmentUnit": "In Zukunft Vorfeld Verbzweitstellung koordiniertes Objekt",
+          "sourceSpans": [
+            {
+              "start": 443,
+              "end": 486,
+              "quote": "In Zukunft wiederhole ich Datum und Uhrzeit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q1",
+          "publicPromptDe": "Welche Wörter stecken in »beim Friseur«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.nominal.q1.b",
+              "textDe": "bei das"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q1.c",
+              "textDe": "bei den"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q1.a",
+              "textDe": "bei dem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.nominal.q1.a",
+          "correctAnswerTextDe": "bei dem",
+          "rationaleDe": "Beim zieht bei dem zusammen; die anderen Wortverbindungen ergeben nicht beim.",
+          "assessmentUnit": "beim Kontraktion bei dem",
+          "sourceSpans": [
+            {
+              "start": 35,
+              "end": 47,
+              "quote": "beim Friseur"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Er fragt nach ___ Telefonnummer«, wenn es die Nummer des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.nominal.q2.a",
+              "textDe": "meine"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q2.c",
+              "textDe": "meiner"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q2.b",
+              "textDe": "meinen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.nominal.q2.c",
+          "correctAnswerTextDe": "meiner",
+          "rationaleDe": "Nach verlangt Dativ; beim femininen Wort Telefonnummer lautet die Possessivform meiner.",
+          "assessmentUnit": "meiner Telefonnummer Dativ",
+          "sourceSpans": [
+            {
+              "start": 164,
+              "end": 189,
+              "quote": "nach meiner Telefonnummer"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »___ Name war nicht im Kalender«, wenn es der Name des Sprechers ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.nominal.q3.b",
+              "textDe": "Mein"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q3.a",
+              "textDe": "Meinen"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q3.c",
+              "textDe": "Meinem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.nominal.q3.b",
+          "correctAnswerTextDe": "Mein",
+          "rationaleDe": "Name ist hier maskulines Subjekt im Nominativ; die Possessivform lautet mein.",
+          "assessmentUnit": "mein Name Nominativ",
+          "sourceSpans": [
+            {
+              "start": 100,
+              "end": 109,
+              "quote": "mein Name"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »nach einer ___ Wartezeit«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.nominal.q4.c",
+              "textDe": "kurzem"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q4.b",
+              "textDe": "kurze"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q4.a",
+              "textDe": "kurzen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.nominal.q4.a",
+          "correctAnswerTextDe": "kurzen",
+          "rationaleDe": "Nach verlangt Dativ; nach einer lautet die Adjektivform kurzen Wartezeit.",
+          "assessmentUnit": "kurzen Wartezeit Dativ",
+          "sourceSpans": [
+            {
+              "start": 390,
+              "end": 412,
+              "quote": "einer kurzen Wartezeit"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q5",
+          "publicPromptDe": "Wer ist mit »wir beide« in »Der Mitarbeiter und ich suchten eine Lösung. Wir beide blieben ruhig« gemeint?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.nominal.q5.a",
+              "textDe": "Zwei weitere Kunden ohne die genannten Personen."
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q5.c",
+              "textDe": "Der Mitarbeiter und der Sprecher."
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q5.b",
+              "textDe": "Nur der Sprecher ohne den Mitarbeiter."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.nominal.q5.c",
+          "correctAnswerTextDe": "Der Mitarbeiter und der Sprecher.",
+          "rationaleDe": "Wir beide umfasst genau die zuvor genannten zwei Personen einschließlich des Sprechers; die Alternativen verändern diese Gruppe.",
+          "assessmentUnit": "beide zwei genannte Personen",
+          "sourceSpans": [
+            {
+              "start": 344,
+              "end": 353,
+              "quote": "wir beide"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-07.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt »am Ende ___ Gesprächs«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-07.nominal.q6.b",
+              "textDe": "des"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q6.a",
+              "textDe": "dem"
+            },
+            {
+              "id": "sitov.pretest.a22-07.nominal.q6.c",
+              "textDe": "den"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-07.nominal.q6.b",
+          "correctAnswerTextDe": "des",
+          "rationaleDe": "Gesprächs steht als Genitivattribut zu Ende; beim neutralen Gespräch lautet der Artikel des.",
+          "assessmentUnit": "des Gesprächs Genitiv",
+          "sourceSpans": [
+            {
+              "start": 495,
+              "end": 508,
+              "quote": "des Gesprächs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "4533b44b-4ec1-5147-8a69-3345d5df7933",
+      "textVersion": "43b4c86ef586bbe1bee12b4705caf6bc96512a38b4910e59247c39ef15871cfc",
+      "sourceBodyDe": "Unsere Freunde sind für eine Woche verreist und haben uns gebeten, auf ihre Katze aufzupassen. Jeden Morgen bin ich in ihre Wohnung gegangen. Ich habe frisches Wasser hingestellt, Futter gegeben und das Katzenklo sauber gemacht. Am ersten Tag hat sich die Katze unter dem Sofa versteckt. Nach einigen Tagen kam sie schon zur Tür, wenn sie mich hörte. Ich habe unseren Freunden ein Foto geschickt, damit sie sich keine Sorgen machen. Als sie zurückkamen, war die Katze trotzdem am glücklichsten.",
+      "definitionContentHash": "99bafb9966d55591923f4e3c0cf8a01b6efd95a5db1790fc4d17bd1cb7e5d620",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a22-08.words.q1",
+          "publicPromptDe": "Was bedeutet »Unsere Freunde sind für eine Woche verreist«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.words.q1.c",
+              "textDe": "Sie sind dauerhaft in eine neue Wohnung umgezogen."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q1.a",
+              "textDe": "Sie sind eine Woche zu Hause geblieben."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q1.b",
+              "textDe": "Sie sind vorübergehend für eine Woche an einen anderen Ort gefahren."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.words.q1.b",
+          "correctAnswerTextDe": "Sie sind vorübergehend für eine Woche an einen anderen Ort gefahren.",
+          "rationaleDe": "Verreisen nennt eine vorübergehende Reise; dauerhafter Umzug und Zuhausesein sind andere Aufenthaltsformen.",
+          "assessmentUnit": "verreisen vorübergehend wegfahren",
+          "sourceSpans": [
+            {
+              "start": 35,
+              "end": 43,
+              "quote": "verreist"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q2",
+          "publicPromptDe": "Was bedeutet »auf die Katze aufpassen«, während die Besitzer verreist sind?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.words.q2.a",
+              "textDe": "Die Katze an einen neuen Besitzer verkaufen."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q2.b",
+              "textDe": "Die Katze nur kurz betrachten, ohne sich um sie zu kümmern."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q2.c",
+              "textDe": "Die Katze betreuen und dafür sorgen, dass es ihr gut geht."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.words.q2.c",
+          "correctAnswerTextDe": "Die Katze betreuen und dafür sorgen, dass es ihr gut geht.",
+          "rationaleDe": "Aufpassen meint hier verantwortliche Betreuung; bloßes Betrachten und Verkauf erfüllen diese Aufgabe nicht.",
+          "assessmentUnit": "aufpassen Betreuung schützen",
+          "sourceSpans": [
+            {
+              "start": 67,
+              "end": 93,
+              "quote": "auf ihre Katze aufzupassen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q3",
+          "publicPromptDe": "Was ist »Futter« für eine Katze?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.words.q3.c",
+              "textDe": "Das Streumaterial in ihrem Katzenklo."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q3.b",
+              "textDe": "Nahrung, die die Katze frisst."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q3.a",
+              "textDe": "Das Trinkwasser, das sie trinkt."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.words.q3.b",
+          "correctAnswerTextDe": "Nahrung, die die Katze frisst.",
+          "rationaleDe": "Futter ist Tiernahrung; Wasser ist Getränk, Streu dient der Katzentoilette.",
+          "assessmentUnit": "Futter Tiernahrung",
+          "sourceSpans": [
+            {
+              "start": 180,
+              "end": 186,
+              "quote": "Futter"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q4",
+          "publicPromptDe": "Was ist ein »Katzenklo«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.words.q4.c",
+              "textDe": "Eine Toilette mit geeignetem Material für die Katze."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q4.a",
+              "textDe": "Ein Napf, aus dem die Katze frisst."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q4.b",
+              "textDe": "Ein Korb, in dem die Katze schläft."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.words.q4.c",
+          "correctAnswerTextDe": "Eine Toilette mit geeignetem Material für die Katze.",
+          "rationaleDe": "Katzenklo bezeichnet die Katzentoilette; Futternapf und Schlafkorb dienen anderen Bedürfnissen desselben Tiers.",
+          "assessmentUnit": "Katzenklo Tier-Toilette",
+          "sourceSpans": [
+            {
+              "start": 203,
+              "end": 212,
+              "quote": "Katzenklo"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q5",
+          "publicPromptDe": "Was bedeutet »Die Katze hat sich unter dem Sofa versteckt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.words.q5.a",
+              "textDe": "Sie hat sich dorthin zurückgezogen, wo man sie weniger sieht."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q5.b",
+              "textDe": "Sie hat einen Gegenstand unter dem Sofa gesucht."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q5.c",
+              "textDe": "Sie ist sichtbar zur Tür gekommen, um jemanden zu begrüßen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.words.q5.a",
+          "correctAnswerTextDe": "Sie hat sich dorthin zurückgezogen, wo man sie weniger sieht.",
+          "rationaleDe": "Sich verstecken entzieht die Katze selbst dem Blick; Begrüßen und Suchen eines Gegenstands sind andere Handlungen.",
+          "assessmentUnit": "verstecken sich Blick entziehen",
+          "sourceSpans": [
+            {
+              "start": 277,
+              "end": 286,
+              "quote": "versteckt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.words.q6",
+          "publicPromptDe": "Was bedeutet »sich Sorgen um die Katze machen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.words.q6.b",
+              "textDe": "Sicher sein, dass der Katze nichts fehlen kann."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q6.a",
+              "textDe": "Beunruhigt darüber sein, ob es der Katze gut geht."
+            },
+            {
+              "id": "sitov.pretest.a22-08.words.q6.c",
+              "textDe": "Sich nur auf das Wiedersehen freuen, ohne beunruhigt zu sein."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.words.q6.a",
+          "correctAnswerTextDe": "Beunruhigt darüber sein, ob es der Katze gut geht.",
+          "rationaleDe": "Sorgen sind beunruhigende Gedanken um das Wohlergehen; Sicherheit und reine Vorfreude beschreiben andere Gefühle.",
+          "assessmentUnit": "Sorgen beunruhigende Gedanken",
+          "sourceSpans": [
+            {
+              "start": 418,
+              "end": 424,
+              "quote": "Sorgen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q1",
+          "publicPromptDe": "Welches Hilfsverb ergänzt »Unsere Freunde ___ verreist« im Perfekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.verbs.q1.c",
+              "textDe": "haben"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q1.b",
+              "textDe": "sind"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q1.a",
+              "textDe": "werden"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.verbs.q1.b",
+          "correctAnswerTextDe": "sind",
+          "rationaleDe": "Verreisen bildet das Perfekt mit sein; beim Pluralsubjekt unsere Freunde lautet die Form sind.",
+          "assessmentUnit": "verreist Perfekt sein",
+          "sourceSpans": [
+            {
+              "start": 15,
+              "end": 43,
+              "quote": "sind für eine Woche verreist"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Die Freunde haben uns ___« zu bitten?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.verbs.q2.b",
+              "textDe": "gebeten"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q2.c",
+              "textDe": "bitten"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q2.a",
+              "textDe": "gebittet"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.verbs.q2.b",
+          "correctAnswerTextDe": "gebeten",
+          "rationaleDe": "Bitten bildet das starke Partizip gebeten; gebittet und Infinitiv passen nicht ins Perfekt.",
+          "assessmentUnit": "gebeten starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 48,
+              "end": 65,
+              "quote": "haben uns gebeten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q3",
+          "publicPromptDe": "Welche Form ergänzt »Sie bitten mich, auf die Katze ___« zu aufpassen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.verbs.q3.a",
+              "textDe": "aufpassen zu"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q3.c",
+              "textDe": "aufzupassen"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q3.b",
+              "textDe": "zu aufpassen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.verbs.q3.c",
+          "correctAnswerTextDe": "aufzupassen",
+          "rationaleDe": "Beim trennbaren Verb aufpassen steht zu zwischen auf und passen; die Form lautet aufzupassen.",
+          "assessmentUnit": "aufzupassen trennbarer zu Infinitiv",
+          "sourceSpans": [
+            {
+              "start": 67,
+              "end": 93,
+              "quote": "auf ihre Katze aufzupassen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe Wasser ___« zu hinstellen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.verbs.q4.b",
+              "textDe": "gehinstellt"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q4.c",
+              "textDe": "hinstellen"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q4.a",
+              "textDe": "hingestellt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.verbs.q4.a",
+          "correctAnswerTextDe": "hingestellt",
+          "rationaleDe": "Bei hinstellen steht ge zwischen hin und stellt; das Partizip lautet hingestellt.",
+          "assessmentUnit": "hingestellt trennbares Partizip",
+          "sourceSpans": [
+            {
+              "start": 160,
+              "end": 178,
+              "quote": "Wasser hingestellt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe Futter ___« zu geben?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.verbs.q5.b",
+              "textDe": "gegebt"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q5.c",
+              "textDe": "geben"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q5.a",
+              "textDe": "gegeben"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.verbs.q5.a",
+          "correctAnswerTextDe": "gegeben",
+          "rationaleDe": "Geben bildet das starke Partizip gegeben; gegebt und der Infinitiv passen nicht ins Perfekt.",
+          "assessmentUnit": "gegeben starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 180,
+              "end": 194,
+              "quote": "Futter gegeben"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.verbs.q6",
+          "publicPromptDe": "Welche Grundform gehört zu »als die Freunde zurückkamen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.verbs.q6.c",
+              "textDe": "zurückkommen"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q6.a",
+              "textDe": "zurückkam"
+            },
+            {
+              "id": "sitov.pretest.a22-08.verbs.q6.b",
+              "textDe": "kommen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.verbs.q6.c",
+          "correctAnswerTextDe": "zurückkommen",
+          "rationaleDe": "Zurückkamen gehört zum trennbaren zurückkommen; kommen verliert die Vorsilbe, zurückkam ist eine finite Form.",
+          "assessmentUnit": "zurückkamen Grundform zurückkommen",
+          "sourceSpans": [
+            {
+              "start": 433,
+              "end": 452,
+              "quote": "Als sie zurückkamen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q1",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Die Katze kam zur Tür, wenn …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.syntax.q1.a",
+              "textDe": "hörte sie mich"
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q1.c",
+              "textDe": "sie mich hörte"
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q1.b",
+              "textDe": "sie hörte mich"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.syntax.q1.c",
+          "correctAnswerTextDe": "sie mich hörte",
+          "rationaleDe": "Wenn leitet einen Nebensatz ein; das finite Verb hörte steht am Ende.",
+          "assessmentUnit": "wenn Nebensatz Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 330,
+              "end": 349,
+              "quote": "wenn sie mich hörte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q2",
+          "publicPromptDe": "Wozu schickt der Sprecher laut »Ich schicke den Freunden ein Foto, damit sie sich keine Sorgen machen« das Foto?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.syntax.q2.c",
+              "textDe": "Um die Freunde über die Katze stärker zu beunruhigen."
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q2.a",
+              "textDe": "Um selbst ein beruhigendes Foto von den Freunden zu bekommen."
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q2.b",
+              "textDe": "Um ihre Sorgen um die Katze zu vermeiden."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.syntax.q2.b",
+          "correctAnswerTextDe": "Um ihre Sorgen um die Katze zu vermeiden.",
+          "rationaleDe": "Damit nennt den beabsichtigten Zweck, Sorgen zu vermeiden; die erste falsche Alternative vertauscht die Richtung der gewünschten Beruhigung, die zweite kehrt den Zweck um.",
+          "assessmentUnit": "damit Zweck Sorgen vermeiden",
+          "sourceSpans": [
+            {
+              "start": 397,
+              "end": 431,
+              "quote": "damit sie sich keine Sorgen machen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q3",
+          "publicPromptDe": "Welche Beziehung nennt »Als die Freunde zurückkamen, war die Katze am glücklichsten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.syntax.q3.a",
+              "textDe": "Der Satz beschreibt eine Rückkehr, die erst nächste Woche stattfinden wird."
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q3.c",
+              "textDe": "Der Satz nennt eine Bedingung für jede mögliche künftige Rückkehr."
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q3.b",
+              "textDe": "Der Satz ordnet das Glücklichsein ihrer damaligen Rückkehr zu."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.syntax.q3.b",
+          "correctAnswerTextDe": "Der Satz ordnet das Glücklichsein ihrer damaligen Rückkehr zu.",
+          "rationaleDe": "Als bezieht sich hier auf die konkrete vergangene Rückkehr; Zukunftsplan und allgemeine Bedingung wären andere Zeitbezüge.",
+          "assessmentUnit": "Als einzelne vergangene Rückkehr",
+          "sourceSpans": [
+            {
+              "start": 433,
+              "end": 452,
+              "quote": "Als sie zurückkamen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q4",
+          "publicPromptDe": "Welche Beziehung nennt »Ich betreute die Katze gut. Trotzdem war sie bei der Rückkehr ihrer Besitzer am glücklichsten«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.syntax.q4.a",
+              "textDe": "Die gute Betreuung verhindert nicht, dass die Rückkehr sie am glücklichsten macht."
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q4.b",
+              "textDe": "Die Katze ist bei der Rückkehr weniger glücklich als während der Betreuung."
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q4.c",
+              "textDe": "Die Betreuung wird als einzige Ursache genannt, weshalb die Besitzer zurückkommen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.syntax.q4.a",
+          "correctAnswerTextDe": "Die gute Betreuung verhindert nicht, dass die Rückkehr sie am glücklichsten macht.",
+          "rationaleDe": "Trotzdem verbindet die gute Betreuung mit dem dennoch höchsten Glück bei der Rückkehr; Rückkehrursache und geringeres Glück stehen nicht da.",
+          "assessmentUnit": "trotzdem unerwartetes Ergebnis",
+          "sourceSpans": [
+            {
+              "start": 468,
+              "end": 493,
+              "quote": "trotzdem am glücklichsten"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q5",
+          "publicPromptDe": "Was verändert sich in »Am ersten Tag versteckte sich die Katze. Nach einigen Tagen kam sie zur Tür«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.syntax.q5.c",
+              "textDe": "Später kommt die Katze hervor, statt sich wie am Anfang zu verstecken."
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q5.a",
+              "textDe": "Schon am ersten Tag kommt sie zur Tür und versteckt sich erst später."
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q5.b",
+              "textDe": "Die Katze bleibt an allen genannten Tagen unter dem Sofa."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.syntax.q5.c",
+          "correctAnswerTextDe": "Später kommt die Katze hervor, statt sich wie am Anfang zu verstecken.",
+          "rationaleDe": "Die öffentliche Reihenfolge zeigt Verstecken zuerst und Hervorkommen später; umgekehrte Reihenfolge und unverändertes Verstecken widersprechen ihr.",
+          "assessmentUnit": "Nach Tagen Verhaltensänderung",
+          "sourceSpans": [
+            {
+              "start": 288,
+              "end": 328,
+              "quote": "Nach einigen Tagen kam sie schon zur Tür"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.syntax.q6",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Ich schicke ein Foto, damit …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.syntax.q6.b",
+              "textDe": "machen sie sich keine Sorgen"
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q6.a",
+              "textDe": "sie sich keine Sorgen machen"
+            },
+            {
+              "id": "sitov.pretest.a22-08.syntax.q6.c",
+              "textDe": "sie machen sich keine Sorgen"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.syntax.q6.a",
+          "correctAnswerTextDe": "sie sich keine Sorgen machen",
+          "rationaleDe": "Damit leitet einen Nebensatz ein; das finite Verb machen steht am Ende.",
+          "assessmentUnit": "damit Nebensatz Verbfinal",
+          "sourceSpans": [
+            {
+              "start": 397,
+              "end": 431,
+              "quote": "damit sie sich keine Sorgen machen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q1",
+          "publicPromptDe": "Die Wohnung gehört den Freunden und ist das Ziel meines Weges. Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.nominal.q1.c",
+              "textDe": "ihrer"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q1.b",
+              "textDe": "ihre"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q1.a",
+              "textDe": "ihren"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.nominal.q1.b",
+          "correctAnswerTextDe": "ihre",
+          "rationaleDe": "Die öffentliche Angabe legt die Wohnung als Ziel des Weges fest. In verlangt deshalb hier den Akkusativ; beim femininen Singular Wohnung lautet die Possessivform ihre. Ihrer wäre die Ortslesart im Dativ, ihren passt nicht zum Akkusativ feminin Singular.",
+          "assessmentUnit": "ihre Wohnung Akkusativ Ziel",
+          "sourceSpans": [
+            {
+              "start": 116,
+              "end": 140,
+              "quote": "in ihre Wohnung gegangen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe ___ Wasser hingestellt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.nominal.q2.b",
+              "textDe": "frischen"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q2.a",
+              "textDe": "frischem"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q2.c",
+              "textDe": "frisches"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.nominal.q2.c",
+          "correctAnswerTextDe": "frisches",
+          "rationaleDe": "Wasser ist hier neutrales Akkusativobjekt ohne Artikel; die Adjektivform lautet frisches.",
+          "assessmentUnit": "frisches Wasser neutrales Adjektiv",
+          "sourceSpans": [
+            {
+              "start": 151,
+              "end": 166,
+              "quote": "frisches Wasser"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q3",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe ___ Freunden ein Foto geschickt«, wenn es die Freunde unserer Gruppe sind?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.nominal.q3.b",
+              "textDe": "unserem"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q3.c",
+              "textDe": "unsere"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q3.a",
+              "textDe": "unseren"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.nominal.q3.a",
+          "correctAnswerTextDe": "unseren",
+          "rationaleDe": "Die Empfänger stehen im Dativ Plural; die Possessivform lautet unseren Freunden.",
+          "assessmentUnit": "unseren Freunden Dativ Plural",
+          "sourceSpans": [
+            {
+              "start": 360,
+              "end": 376,
+              "quote": "unseren Freunden"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Die Katze ist unter ___ Sofa versteckt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.nominal.q4.c",
+              "textDe": "dem"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q4.a",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q4.b",
+              "textDe": "das"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.nominal.q4.c",
+          "correctAnswerTextDe": "dem",
+          "rationaleDe": "Unter nennt hier den Ort im Dativ; beim neutralen Sofa lautet der bestimmte Artikel dem.",
+          "assessmentUnit": "dem Sofa Dativ Ort",
+          "sourceSpans": [
+            {
+              "start": 262,
+              "end": 276,
+              "quote": "unter dem Sofa"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Ich passe auf ___ Katze auf«, wenn sie den Freunden gehört?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.nominal.q5.c",
+              "textDe": "ihren"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q5.a",
+              "textDe": "ihre"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q5.b",
+              "textDe": "ihrer"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.nominal.q5.a",
+          "correctAnswerTextDe": "ihre",
+          "rationaleDe": "Aufpassen auf verlangt hier Akkusativ; beim femininen Katze lautet die Possessivform ihre.",
+          "assessmentUnit": "ihre Katze Akkusativ aufpassen auf",
+          "sourceSpans": [
+            {
+              "start": 67,
+              "end": 81,
+              "quote": "auf ihre Katze"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-08.nominal.q6",
+          "publicPromptDe": "Welche Form ergänzt als höchste Steigerung »Die Katze war am ___« zu glücklich?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-08.nominal.q6.b",
+              "textDe": "glücklichsten"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q6.c",
+              "textDe": "glücklich"
+            },
+            {
+              "id": "sitov.pretest.a22-08.nominal.q6.a",
+              "textDe": "glücklicher"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-08.nominal.q6.b",
+          "correctAnswerTextDe": "glücklichsten",
+          "rationaleDe": "Am glücklichsten ist der Superlativ; glücklicher ist Komparativ, glücklich Positiv.",
+          "assessmentUnit": "am glücklichsten Superlativ",
+          "sourceSpans": [
+            {
+              "start": 477,
+              "end": 493,
+              "quote": "am glücklichsten"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "textId": "4c550a8b-95b1-5a53-ac3c-b2ad48ea592d",
+      "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
+      "sourceBodyDe": "Ich möchte mich beruflich weiterentwickeln und suche einen Computerkurs. Im Internet habe ich zwei passende Angebote gefunden. Ein Kurs findet am Wochenende statt, der andere an zwei Abenden in der Woche. Obwohl der Abendkurs günstiger ist, habe ich mich für den Wochenendkurs entschieden. Nach der Arbeit bin ich oft zu müde, um konzentriert zu lernen. Vor der Anmeldung habe ich gefragt, ob man einen eigenen Laptop braucht. Das ist zum Glück nicht nötig. Die Schule stellt Geräte zur Verfügung.",
+      "definitionContentHash": "a558b4fd59684c644315e443c5040bf528fdaf79cf07d34a5eaa37b5e8ff9fe9",
+      "questions": [
+        {
+          "questionId": "sitov.pretest.a22-09.words.q1",
+          "publicPromptDe": "Was bedeutet »sich beruflich weiterentwickeln«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.words.q1.c",
+              "textDe": "Die bisherige Arbeit ohne weiteren Lernschritt beenden."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q1.a",
+              "textDe": "Die eigenen Kenntnisse und Fähigkeiten für die Arbeit verbessern."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q1.b",
+              "textDe": "Nur ein neues privates Freizeitvergnügen suchen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.words.q1.a",
+          "correctAnswerTextDe": "Die eigenen Kenntnisse und Fähigkeiten für die Arbeit verbessern.",
+          "rationaleDe": "Beruflich bezieht die Entwicklung auf die Arbeit; reines Freizeitinteresse und bloßes Beenden sind andere Ziele.",
+          "assessmentUnit": "beruflich Arbeit betreffend",
+          "sourceSpans": [
+            {
+              "start": 16,
+              "end": 25,
+              "quote": "beruflich"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q2",
+          "publicPromptDe": "Was meint »zwei passende Angebote« bei der Suche nach einem Computerkurs?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.words.q2.c",
+              "textDe": "Zwei Kursmöglichkeiten, zwischen denen man wählen kann."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q2.a",
+              "textDe": "Zwei bereits bestandene Prüfungen des Suchenden."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q2.b",
+              "textDe": "Zwei verbindliche Zusagen, dass der Suchende schon angemeldet ist."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.words.q2.c",
+          "correctAnswerTextDe": "Zwei Kursmöglichkeiten, zwischen denen man wählen kann.",
+          "rationaleDe": "Angebote sind hier verfügbare Kursmöglichkeiten; bestandene Prüfungen und bestätigte Anmeldungen liegen in anderen Schritten.",
+          "assessmentUnit": "Angebote wählbare Kurse",
+          "sourceSpans": [
+            {
+              "start": 99,
+              "end": 116,
+              "quote": "passende Angebote"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q3",
+          "publicPromptDe": "Was ist ein »Abendkurs«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.words.q3.b",
+              "textDe": "Ein Kurs, der allein wegen seines Namens am Wochenende stattfinden muss."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q3.a",
+              "textDe": "Ein Kurs, der nur am frühen Morgen stattfindet."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q3.c",
+              "textDe": "Ein Kurs, dessen Unterricht am Abend stattfindet."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.words.q3.c",
+          "correctAnswerTextDe": "Ein Kurs, dessen Unterricht am Abend stattfindet.",
+          "rationaleDe": "Abendkurs nennt die Tageszeit des Unterrichts; Morgen und zwingender Wochenendtermin folgen daraus nicht.",
+          "assessmentUnit": "Abendkurs Unterricht am Abend",
+          "sourceSpans": [
+            {
+              "start": 216,
+              "end": 225,
+              "quote": "Abendkurs"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q4",
+          "publicPromptDe": "Was ist die »Anmeldung« zu einem Kurs?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.words.q4.c",
+              "textDe": "Nur das unverbindliche Lesen einer Kursbeschreibung ohne Anmeldung."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q4.a",
+              "textDe": "Die Prüfung, mit der man den Kurs bereits abschließt."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q4.b",
+              "textDe": "Das Eintragen oder Anmelden zur Teilnahme."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.words.q4.b",
+          "correctAnswerTextDe": "Das Eintragen oder Anmelden zur Teilnahme.",
+          "rationaleDe": "Anmeldung meldet die Teilnahme an; Abschlussprüfung und bloßes Informieren sind andere Schritte.",
+          "assessmentUnit": "Anmeldung Teilnahme eintragen",
+          "sourceSpans": [
+            {
+              "start": 362,
+              "end": 371,
+              "quote": "Anmeldung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q5",
+          "publicPromptDe": "Was bedeutet »konzentriert lernen«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.words.q5.c",
+              "textDe": "Nur die Lernzeit verlängern, ohne auf die Aufgabe zu achten."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q5.a",
+              "textDe": "Die Aufmerksamkeit beim Lernen auf die Aufgabe richten."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q5.b",
+              "textDe": "Beim Lernen ständig mit den Gedanken abschweifen."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.words.q5.a",
+          "correctAnswerTextDe": "Die Aufmerksamkeit beim Lernen auf die Aufgabe richten.",
+          "rationaleDe": "Konzentriert betrifft die gerichtete Aufmerksamkeit; Abschweifen und bloß längere Dauer ohne Aufmerksamkeit sind andere Lernweisen.",
+          "assessmentUnit": "konzentriert aufmerksam",
+          "sourceSpans": [
+            {
+              "start": 330,
+              "end": 342,
+              "quote": "konzentriert"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.words.q6",
+          "publicPromptDe": "Was meint »Geräte« in »Die Schule stellt Computergeräte zur Verfügung«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.words.q6.b",
+              "textDe": "Technische Gegenstände, die man im Kurs benutzen kann."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q6.c",
+              "textDe": "Die Personen, die den Kurs unterrichten."
+            },
+            {
+              "id": "sitov.pretest.a22-09.words.q6.a",
+              "textDe": "Nur die Zeitpunkte, zu denen Unterricht stattfindet."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.words.q6.b",
+          "correctAnswerTextDe": "Technische Gegenstände, die man im Kurs benutzen kann.",
+          "rationaleDe": "Geräte sind technische Gegenstände; Lehrpersonen und Unterrichtszeiten sind andere Bestandteile eines Kurses.",
+          "assessmentUnit": "Geräte technische Gegenstände",
+          "sourceSpans": [
+            {
+              "start": 476,
+              "end": 482,
+              "quote": "Geräte"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich möchte ___ weiterentwickeln«, wenn es um die eigene Entwicklung geht?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.verbs.q1.a",
+              "textDe": "sich"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q1.b",
+              "textDe": "mich"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q1.c",
+              "textDe": "uns"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.verbs.q1.b",
+          "correctAnswerTextDe": "mich",
+          "rationaleDe": "Bei ich lautet das Reflexivpronomen mich; sich und uns beziehen sich auf andere Personen.",
+          "assessmentUnit": "mich reflexive Weiterentwicklung",
+          "sourceSpans": [
+            {
+              "start": 4,
+              "end": 42,
+              "quote": "möchte mich beruflich weiterentwickeln"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q2",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe Angebote ___« zu finden?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.verbs.q2.c",
+              "textDe": "gefunden"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q2.a",
+              "textDe": "gefindet"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q2.b",
+              "textDe": "finden"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.verbs.q2.c",
+          "correctAnswerTextDe": "gefunden",
+          "rationaleDe": "Finden bildet das starke Partizip gefunden; gefindet und der Infinitiv passen nicht ins Perfekt.",
+          "assessmentUnit": "gefunden starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 108,
+              "end": 125,
+              "quote": "Angebote gefunden"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q3",
+          "publicPromptDe": "Welche Grundform gehört zu »Der Kurs findet am Wochenende statt«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.verbs.q3.c",
+              "textDe": "finden"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q3.b",
+              "textDe": "stattfinden"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q3.a",
+              "textDe": "stattgefunden"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.verbs.q3.b",
+          "correctAnswerTextDe": "stattfinden",
+          "rationaleDe": "Die Satzklammer findet … statt gehört zu stattfinden; finden verliert die Vorsilbe, stattgefunden ist ein Partizip.",
+          "assessmentUnit": "stattfinden trennbares Verb",
+          "sourceSpans": [
+            {
+              "start": 136,
+              "end": 162,
+              "quote": "findet am Wochenende statt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich habe mich für den Kurs ___« zu entscheiden?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.verbs.q4.a",
+              "textDe": "entschieden"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q4.b",
+              "textDe": "geentschieden"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q4.c",
+              "textDe": "entscheiden"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.verbs.q4.a",
+          "correctAnswerTextDe": "entschieden",
+          "rationaleDe": "Entscheiden bildet das starke Partizip entschieden ohne zusätzliches ge; der Infinitiv passt hier nicht.",
+          "assessmentUnit": "entschieden starkes Partizip",
+          "sourceSpans": [
+            {
+              "start": 250,
+              "end": 288,
+              "quote": "mich für den Wochenendkurs entschieden"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q5",
+          "publicPromptDe": "Welche Form ergänzt »Man ___ einen Laptop« zu brauchen?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.verbs.q5.c",
+              "textDe": "brauchst"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q5.b",
+              "textDe": "brauchen"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q5.a",
+              "textDe": "braucht"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.verbs.q5.a",
+          "correctAnswerTextDe": "braucht",
+          "rationaleDe": "Man ist dritte Person Singular; im Präsens lautet die Form braucht.",
+          "assessmentUnit": "braucht dritte Person Singular",
+          "sourceSpans": [
+            {
+              "start": 403,
+              "end": 425,
+              "quote": "eigenen Laptop braucht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.verbs.q6",
+          "publicPromptDe": "Welche Präsensform von »stellen« ergänzt »Die Schule ___ Geräte zur Verfügung«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.verbs.q6.b",
+              "textDe": "stellen"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q6.a",
+              "textDe": "stellst"
+            },
+            {
+              "id": "sitov.pretest.a22-09.verbs.q6.c",
+              "textDe": "stellt"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.verbs.q6.c",
+          "correctAnswerTextDe": "stellt",
+          "rationaleDe": "Das Subjekt Die Schule steht in der dritten Person Singular; die finite Präsensform von stellen lautet stellt. Stellen ist hier die Infinitiv- oder Pluralform, stellst gehört zur zweiten Person Singular.",
+          "assessmentUnit": "stellt Präsens dritte Person Singular",
+          "sourceSpans": [
+            {
+              "start": 458,
+              "end": 496,
+              "quote": "Die Schule stellt Geräte zur Verfügung"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q1",
+          "publicPromptDe": "Welche Beziehung nennt »Obwohl der Abendkurs günstiger ist, wähle ich den Wochenendkurs«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.syntax.q1.a",
+              "textDe": "Der günstigere Preis entscheidet nicht zugunsten des Abendkurses."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q1.b",
+              "textDe": "Der Wochenendkurs wird als der günstigere der beiden bezeichnet."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q1.c",
+              "textDe": "Der Sprecher wählt den Abendkurs wegen seines günstigeren Preises."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.syntax.q1.a",
+          "correctAnswerTextDe": "Der günstigere Preis entscheidet nicht zugunsten des Abendkurses.",
+          "rationaleDe": "Obwohl nennt den Preisvorteil als nicht entscheidenden Umstand; Wahl des Abendkurses und umgekehrter Preisvergleich widersprechen dem Satz.",
+          "assessmentUnit": "Obwohl Preis trotz Entscheidung",
+          "sourceSpans": [
+            {
+              "start": 205,
+              "end": 239,
+              "quote": "Obwohl der Abendkurs günstiger ist"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q2",
+          "publicPromptDe": "Was drückt »Ich bin zu müde, um konzentriert zu lernen« aus?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.syntax.q2.c",
+              "textDe": "Die Müdigkeit soll erst durch das konzentrierte Lernen entstehen."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q2.a",
+              "textDe": "Die Müdigkeit ist so stark, dass konzentriertes Lernen nicht gelingt."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q2.b",
+              "textDe": "Gerade die Müdigkeit verbessert die Konzentration."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.syntax.q2.a",
+          "correctAnswerTextDe": "Die Müdigkeit ist so stark, dass konzentriertes Lernen nicht gelingt.",
+          "rationaleDe": "Zu müde, um nennt einen zu hohen Müdigkeitsgrad als Hindernis; Lernzweck und verbesserte Konzentration kehren den Zusammenhang um.",
+          "assessmentUnit": "zu müde um zu Hindernis",
+          "sourceSpans": [
+            {
+              "start": 318,
+              "end": 352,
+              "quote": "zu müde, um konzentriert zu lernen"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q3",
+          "publicPromptDe": "Welche Wortfolge ergänzt »Ich frage, ob …« korrekt?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.syntax.q3.a",
+              "textDe": "man braucht einen eigenen Laptop"
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q3.b",
+              "textDe": "braucht man einen eigenen Laptop"
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q3.c",
+              "textDe": "man einen eigenen Laptop braucht"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.syntax.q3.c",
+          "correctAnswerTextDe": "man einen eigenen Laptop braucht",
+          "rationaleDe": "Ob leitet eine indirekte Ja-Nein-Frage ein; das finite braucht steht am Ende.",
+          "assessmentUnit": "ob indirekte Ja Nein Frage final",
+          "sourceSpans": [
+            {
+              "start": 390,
+              "end": 425,
+              "quote": "ob man einen eigenen Laptop braucht"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q4",
+          "publicPromptDe": "Was kommt laut »Vor der Anmeldung frage ich nach einem Laptop« zuerst?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.syntax.q4.c",
+              "textDe": "Die Frage nach dem Laptop."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q4.a",
+              "textDe": "Die Anmeldung."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q4.b",
+              "textDe": "Beide Schritte werden als gleichzeitig bezeichnet."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.syntax.q4.c",
+          "correctAnswerTextDe": "Die Frage nach dem Laptop.",
+          "rationaleDe": "Vor der Anmeldung ordnet die Frage zeitlich vor die Anmeldung; umgekehrte und gleichzeitige Abfolge passen nicht.",
+          "assessmentUnit": "Vor Anmeldung Reihenfolge",
+          "sourceSpans": [
+            {
+              "start": 354,
+              "end": 388,
+              "quote": "Vor der Anmeldung habe ich gefragt"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q5",
+          "publicPromptDe": "Was meint »der andere« in »Ein Kurs findet am Wochenende statt, der andere an zwei Abenden«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.syntax.q5.c",
+              "textDe": "Den zuerst genannten Wochenendkurs noch einmal."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q5.b",
+              "textDe": "Die zweite der beiden genannten Kursmöglichkeiten."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q5.a",
+              "textDe": "Beide Kurse gemeinsam als einen einzigen Kurs."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.syntax.q5.b",
+          "correctAnswerTextDe": "Die zweite der beiden genannten Kursmöglichkeiten.",
+          "rationaleDe": "Der andere unterscheidet die zweite Möglichkeit von der ersten; Wiederholung des ersten und Zusammenfassung beider passen nicht.",
+          "assessmentUnit": "der andere zweiter Kurs",
+          "sourceSpans": [
+            {
+              "start": 164,
+              "end": 190,
+              "quote": "der andere an zwei Abenden"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.syntax.q6",
+          "publicPromptDe": "Was bedeutet »Nach der Arbeit bin ich oft müde«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.syntax.q6.c",
+              "textDe": "Die Müdigkeit tritt nach der Arbeit nie auf."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q6.a",
+              "textDe": "Die Müdigkeit tritt ohne Ausnahme nach jedem Arbeitstag auf."
+            },
+            {
+              "id": "sitov.pretest.a22-09.syntax.q6.b",
+              "textDe": "Die Müdigkeit tritt häufig auf, aber nicht notwendig jedes Mal."
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.syntax.q6.b",
+          "correctAnswerTextDe": "Die Müdigkeit tritt häufig auf, aber nicht notwendig jedes Mal.",
+          "rationaleDe": "Oft nennt hohe Häufigkeit, ohne immer zu behaupten; immer und nie sind stärkere beziehungsweise gegenteilige Häufigkeitsangaben.",
+          "assessmentUnit": "oft Häufigkeit nicht immer",
+          "sourceSpans": [
+            {
+              "start": 314,
+              "end": 325,
+              "quote": "oft zu müde"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q1",
+          "publicPromptDe": "Welche Form ergänzt »Ich suche ___ Computerkurs«, wenn genau einer gemeint ist?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.nominal.q1.a",
+              "textDe": "einen"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q1.c",
+              "textDe": "ein"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q1.b",
+              "textDe": "einem"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.nominal.q1.a",
+          "correctAnswerTextDe": "einen",
+          "rationaleDe": "Computerkurs ist maskulines Akkusativobjekt; der unbestimmte Artikel lautet einen.",
+          "assessmentUnit": "einen Computerkurs Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 53,
+              "end": 71,
+              "quote": "einen Computerkurs"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q2",
+          "publicPromptDe": "Welche Form ergänzt »zwei ___ Angebote«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.nominal.q2.b",
+              "textDe": "passendem"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q2.a",
+              "textDe": "passenden"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q2.c",
+              "textDe": "passende"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.nominal.q2.c",
+          "correctAnswerTextDe": "passende",
+          "rationaleDe": "Nach zwei steht der Plural ohne Artikel; die Adjektivform lautet passende.",
+          "assessmentUnit": "passende Angebote Adjektiv Plural",
+          "sourceSpans": [
+            {
+              "start": 94,
+              "end": 116,
+              "quote": "zwei passende Angebote"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q3",
+          "publicPromptDe": "Welche Form von günstig ergänzt den Vergleich »Der Abendkurs ist ___ als der Wochenendkurs«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.nominal.q3.c",
+              "textDe": "am günstigsten"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q3.b",
+              "textDe": "günstiger"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q3.a",
+              "textDe": "günstig"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.nominal.q3.b",
+          "correctAnswerTextDe": "günstiger",
+          "rationaleDe": "Günstiger ist der Komparativ mit als; günstig ist Positiv, am günstigsten Superlativ.",
+          "assessmentUnit": "günstiger Komparativ",
+          "sourceSpans": [
+            {
+              "start": 226,
+              "end": 235,
+              "quote": "günstiger"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q4",
+          "publicPromptDe": "Welche Form ergänzt »Ich entscheide mich für ___ Wochenendkurs«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.nominal.q4.a",
+              "textDe": "dem"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q4.c",
+              "textDe": "den"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q4.b",
+              "textDe": "der"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.nominal.q4.c",
+          "correctAnswerTextDe": "den",
+          "rationaleDe": "Für verlangt Akkusativ; beim maskulinen Wochenendkurs lautet der bestimmte Artikel den.",
+          "assessmentUnit": "den Wochenendkurs Akkusativ für",
+          "sourceSpans": [
+            {
+              "start": 255,
+              "end": 276,
+              "quote": "für den Wochenendkurs"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q5",
+          "publicPromptDe": "Welche Form ergänzt »Man braucht einen ___ Laptop«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.nominal.q5.b",
+              "textDe": "eigenen"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q5.c",
+              "textDe": "eigenem"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q5.a",
+              "textDe": "eigener"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.nominal.q5.b",
+          "correctAnswerTextDe": "eigenen",
+          "rationaleDe": "Laptop ist maskulines Akkusativobjekt; nach einen lautet die Adjektivform eigenen.",
+          "assessmentUnit": "eigenen Laptop Adjektiv Akkusativ",
+          "sourceSpans": [
+            {
+              "start": 397,
+              "end": 417,
+              "quote": "einen eigenen Laptop"
+            }
+          ]
+        },
+        {
+          "questionId": "sitov.pretest.a22-09.nominal.q6",
+          "publicPromptDe": "Welche Pluralform von Gerät ergänzt »Die Schule stellt mehrere ___ bereit«?",
+          "publicOptions": [
+            {
+              "id": "sitov.pretest.a22-09.nominal.q6.b",
+              "textDe": "Gerät"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q6.c",
+              "textDe": "Geräten"
+            },
+            {
+              "id": "sitov.pretest.a22-09.nominal.q6.a",
+              "textDe": "Geräte"
+            }
+          ],
+          "correctOptionId": "sitov.pretest.a22-09.nominal.q6.a",
+          "correctAnswerTextDe": "Geräte",
+          "rationaleDe": "Der Akkusativ Plural lautet Geräte; Gerät ist Singular, Geräten ist hier die falsche Kasusform.",
+          "assessmentUnit": "Geräte Plural",
+          "sourceSpans": [
+            {
+              "start": 476,
+              "end": 482,
+              "quote": "Geräte"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

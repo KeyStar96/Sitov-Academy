@@ -38024,9 +38024,9 @@
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
         "textVersion": "c4cd54805ef71fd2f332b6f3d1e08ff84939edb0a2c07fc4e7595f68c465e106",
-        "definitionContentHash": "1820f0e9a1ccab4b366b94134ab885c76fae52640313c10ed83192c3ecf50942"
+        "definitionContentHash": "ab35bac23a75d2a497c92cac5b0afd32d6952bbab3849d7df96e798f150d8582"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -38142,7 +38142,7 @@
               "dass Vorvergangenheit final",
               "Früher Diesmal Reaktionsvergleich",
               "Nach Wartezeit zeitliche Folge",
-              "Datum Uhrzeit unterschiedliche Angaben"
+              "In Zukunft Vorfeld Verbzweitstellung koordiniertes Objekt"
             ],
             "sourceSpans": [
               {
@@ -38171,14 +38171,14 @@
                 "quote": "Nach einer kurzen Wartezeit"
               },
               {
-                "start": 469,
+                "start": 443,
                 "end": 486,
-                "quote": "Datum und Uhrzeit"
+                "quote": "In Zukunft wiederhole ich Datum und Uhrzeit"
               }
             ],
             "mapping": {
               "topicIds": [],
-              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Als Nebensatz Verbfinal, statt Ersetzung Wochentage, dass Vorvergangenheit final, Früher Diesmal Reaktionsvergleich, Nach Wartezeit zeitliche Folge, Datum Uhrzeit unterschiedliche Angaben. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: Als Nebensatz Verbfinal, statt Ersetzung Wochentage, dass Vorvergangenheit final, Früher Diesmal Reaktionsvergleich, Nach Wartezeit zeitliche Folge, In Zukunft Vorfeld Verbzweitstellung koordiniertes Objekt. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
             }
           },
           {
@@ -38787,33 +38787,33 @@
             "id": "sitov.pretest.a22-07.syntax.q6",
             "competencyId": "sitov.pretest.a22-07.syntax",
             "kind": "single_choice",
-            "promptDe": "Welche Angaben unterscheidet »Datum und Uhrzeit« bei einem Termin?",
+            "promptDe": "Welche Wortfolge ergänzt »In Zukunft …« zu einem vollständigen Aussagesatz?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-07.syntax.q6.b",
-                "textDe": "Nur die Dauer des Besuchs und die Dauer des Wartens."
+                "textDe": "ich wiederhole Datum und Uhrzeit"
               },
               {
                 "id": "sitov.pretest.a22-07.syntax.q6.c",
-                "textDe": "Nur zwei verschiedene Schreibweisen derselben Telefonnummer."
+                "textDe": "ich Datum und Uhrzeit wiederhole"
               },
               {
                 "id": "sitov.pretest.a22-07.syntax.q6.a",
-                "textDe": "Den Kalendertag und den Zeitpunkt innerhalb des Tages."
+                "textDe": "wiederhole ich Datum und Uhrzeit"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-07.syntax.q6.a",
-            "assessmentUnit": "Datum Uhrzeit unterschiedliche Angaben",
+            "assessmentUnit": "In Zukunft Vorfeld Verbzweitstellung koordiniertes Objekt",
             "equivalenceKey": "sitov:a22-07:syntax:6",
             "sourceSpans": [
               {
-                "start": 469,
+                "start": 443,
                 "end": 486,
-                "quote": "Datum und Uhrzeit"
+                "quote": "In Zukunft wiederhole ich Datum und Uhrzeit"
               }
             ],
-            "rationaleDe": "Datum nennt den Kalendertag, Uhrzeit die Zeit am Tag; Dauerangaben und Telefonnummern erfüllen andere Funktionen der Terminabsprache."
+            "rationaleDe": "In Zukunft besetzt das Vorfeld. Das finite Verb wiederhole steht an zweiter Satzgliedposition vor dem Subjekt ich; Datum und Uhrzeit bilden das koordinierte Objekt. Die falschen Folgen stellen das Subjekt zusätzlich vor das finite Verb oder verschieben dieses ans Satzende."
           },
           {
             "id": "sitov.pretest.a22-07.nominal.q1",
@@ -39064,9 +39064,9 @@
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
         "textVersion": "43b4c86ef586bbe1bee12b4705caf6bc96512a38b4910e59247c39ef15871cfc",
-        "definitionContentHash": "1a8befda8c1b071c95e46fb085ab19d43eed06995bae07763f9fff06bae14b93"
+        "definitionContentHash": "99bafb9966d55591923f4e3c0cf8a01b6efd95a5db1790fc4d17bd1cb7e5d620"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -39859,7 +39859,7 @@
             "id": "sitov.pretest.a22-08.nominal.q1",
             "competencyId": "sitov.pretest.a22-08.nominal",
             "kind": "single_choice",
-            "promptDe": "Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«, wenn sie den Freunden gehört?",
+            "promptDe": "Die Wohnung gehört den Freunden und ist das Ziel meines Weges. Welche Form ergänzt »Ich bin in ___ Wohnung gegangen«?",
             "fragmentDe": null,
             "options": [
               {
@@ -39885,7 +39885,7 @@
                 "quote": "in ihre Wohnung gegangen"
               }
             ],
-            "rationaleDe": "In nennt hier das Ziel im Akkusativ; beim femininen Wohnung lautet die Possessivform ihre."
+            "rationaleDe": "Die öffentliche Angabe legt die Wohnung als Ziel des Weges fest. In verlangt deshalb hier den Akkusativ; beim femininen Singular Wohnung lautet die Possessivform ihre. Ihrer wäre die Ortslesart im Dativ, ihren passt nicht zum Akkusativ feminin Singular."
           },
           {
             "id": "sitov.pretest.a22-08.nominal.q2",
@@ -40104,9 +40104,9 @@
         "authorIdentity": "sitov.agent.S3",
         "humanReview": false,
         "calibrationStatus": "pending",
-        "notesDe": "S3-Autorenprüfung tatsächlicher A2.2-Quelle, plausibler feldnaher Distraktoren, vollständiger öffentlicher Prämissen, eindeutiger Schlüssel/Begründungen und exakter eigenständiger Quellenbelege; CSPRNG-ausgewogene Optionen. Unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
+        "notesDe": "S3 korrigiert die drei konkreten M-Befunde: öffentliche Zielrichtungsprämisse, tatsächliche Verbzweitstellung nach In Zukunft und finite Präsensform stellt zur dritten Person Singular. Alle weiteren Aufgaben unverändert; neue unabhängige M-Prüfung, Kalibrierung und vorberechnete Audio-/Publikationsbindung ausstehend.",
         "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
-        "definitionContentHash": "a3b52cc67e2294413ca03292f66fd114bd49e0b16c4bcdfd4a09ef750642f726"
+        "definitionContentHash": "a558b4fd59684c644315e443c5040bf528fdaf79cf07d34a5eaa37b5e8ff9fe9"
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -40172,7 +40172,7 @@
               "stattfinden trennbares Verb",
               "entschieden starkes Partizip",
               "braucht dritte Person Singular",
-              "zur Verfügung stellen Nutzung ermöglichen"
+              "stellt Präsens dritte Person Singular"
             ],
             "sourceSpans": [
               {
@@ -40201,14 +40201,14 @@
                 "quote": "eigenen Laptop braucht"
               },
               {
-                "start": 469,
+                "start": 458,
                 "end": 496,
-                "quote": "stellt Geräte zur Verfügung"
+                "quote": "Die Schule stellt Geräte zur Verfügung"
               }
             ],
             "mapping": {
               "topicIds": [],
-              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: mich reflexive Weiterentwicklung, gefunden starkes Partizip, stattfinden trennbares Verb, entschieden starkes Partizip, braucht dritte Person Singular, zur Verfügung stellen Nutzung ermöglichen. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
+              "pendingReasonDe": "Keine genauen gleichstufigen Einzelziele belegt für: mich reflexive Weiterentwicklung, gefunden starkes Partizip, stattfinden trennbares Verb, entschieden starkes Partizip, braucht dritte Person Singular, stellt Präsens dritte Person Singular. Kein stufenfremder oder erfundener Ersatz; Teilzuordnung bestätigt keine vollständige Kernabdeckung."
             }
           },
           {
@@ -40675,33 +40675,33 @@
             "id": "sitov.pretest.a22-09.verbs.q6",
             "competencyId": "sitov.pretest.a22-09.verbs",
             "kind": "single_choice",
-            "promptDe": "Was bedeutet »Die Schule stellt Geräte zur Verfügung« für den Kurs?",
+            "promptDe": "Welche Präsensform von »stellen« ergänzt »Die Schule ___ Geräte zur Verfügung«?",
             "fragmentDe": null,
             "options": [
               {
                 "id": "sitov.pretest.a22-09.verbs.q6.b",
-                "textDe": "Die Lernenden müssen alle Geräte selbst von zu Hause mitbringen."
+                "textDe": "stellen"
               },
               {
                 "id": "sitov.pretest.a22-09.verbs.q6.a",
-                "textDe": "Die Schule verkauft jedem Lernenden zwingend ein Gerät als Eigentum."
+                "textDe": "stellst"
               },
               {
                 "id": "sitov.pretest.a22-09.verbs.q6.c",
-                "textDe": "Die Schule ermöglicht den Lernenden, diese Geräte zu benutzen."
+                "textDe": "stellt"
               }
             ],
             "correctOptionId": "sitov.pretest.a22-09.verbs.q6.c",
-            "assessmentUnit": "zur Verfügung stellen Nutzung ermöglichen",
+            "assessmentUnit": "stellt Präsens dritte Person Singular",
             "equivalenceKey": "sitov:a22-09:verbs:6",
             "sourceSpans": [
               {
-                "start": 469,
+                "start": 458,
                 "end": 496,
-                "quote": "stellt Geräte zur Verfügung"
+                "quote": "Die Schule stellt Geräte zur Verfügung"
               }
             ],
-            "rationaleDe": "Zur Verfügung stellen ermöglicht die Nutzung; es behauptet weder Eigentumsverkauf noch die Pflicht zum eigenen Mitbringen."
+            "rationaleDe": "Das Subjekt Die Schule steht in der dritten Person Singular; die finite Präsensform von stellen lautet stellt. Stellen ist hier die Infinitiv- oder Pluralform, stellst gehört zur zweiten Person Singular."
           },
           {
             "id": "sitov.pretest.a22-09.syntax.q1",
