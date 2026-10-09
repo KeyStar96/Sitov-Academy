@@ -19,6 +19,7 @@ ORDER.append('92_sitov_verb_vocabulary_parity.sql')
 ORDER.extend(['93_sitov_commercial_access.sql', '94_sitov_pronunciation_pretests.sql', '95_sitov_learning_specials.sql', '96_sitov_private_audio_delivery.sql', '97_sitov_storage_proof_compatibility.sql', '98_sitov_pretest_option_presentation.sql', '99_sitov_readonly_audio_proofs.sql', '100_sitov_pretest_staff_drafts.sql', '101_sitov_special_authoring.sql', '102_sitov_pretest_staff_publication.sql', '103_sitov_staff_draft_authority.sql', '104_sitov_special_staff_publication.sql', '105_sitov_pretest_publication_authority.sql', '106_sitov_special_staff_targets.sql', '107_sitov_pretest_learning_topics.sql', '108_sitov_learning_recommendation_sources.sql', '109_sitov_new_items_single_evaluation.sql'])
 ORDER.append('110_sitov_storage_definer_execution.sql')
 ORDER.append('111_sitov_commercial_definer_execution.sql')
+ORDER.append('112_sitov_legacy_metadata_performance.sql')
 AUTOCOMMIT={'08_performance_indexes.sql'}
 
 def run(args,**kwargs):
