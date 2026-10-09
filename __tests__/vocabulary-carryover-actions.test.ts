@@ -38,7 +38,7 @@ const receipt = { success: true, isCorrect: true, correctAnswer: 'Wort', isAlter
   previousPhase: 3, newPhase: 4, becameLearned: false, movedBack: false, intervalInDays: 7 }
 
 function setup(options: { enabled?: boolean; locked?: boolean; sourceCards?: VocabularyCardRow[];
-  sourceProgress?: ReturnType<typeof progress>; rpcFailure?: string; paused?: string[]; signedIn?: boolean } = {}) {
+  sourceProgress?: ReturnType<typeof progress>; rpcFailure?: string; paused?: string[]; signedIn?: boolean; allowedTargetUnits?: string[] } = {}) {
   const sourceCards = options.sourceCards ?? [source, ownSource]
   const sourceProgress = options.sourceProgress ?? sourceCards.flatMap(c => progress(c))
   const state = { success: true as const, targetLevel: target, enabled: options.enabled ?? true,
@@ -46,6 +46,7 @@ function setup(options: { enabled?: boolean; locked?: boolean; sourceCards?: Voc
     cards: sourceCards.map(c => ({ cardId: c.id, originLevel: c.level })) }
   const rpc = jest.fn(async (name: string, args: Record<string, unknown>) => {
     if (options.rpcFailure === name) return { data: { error: 'access_denied', message: 'Denied', sqlstate: 'PT403' }, error: null }
+    if (name === 'get_sitov_access_context') return { data: { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 }, error: null }
     if (name === 'get_vocabulary_carryover') return { data: { ...state }, error: null }
     if (name === 'begin_vocabulary_level') {
       state.startedAt ??= '2026-09-26T10:00:00Z'
@@ -66,7 +67,8 @@ function setup(options: { enabled?: boolean; locked?: boolean; sourceCards?: Voc
         unit: { ...vocabularyDatabaseRow(c).unit, owner_auth_user_id: c.is_own ? userId : null } })),
         progress: sourceProgress.filter(row => page.some(c => c.id === row.card_id)) }, error: null }
     }
-    return { data: receipt, error: null }
+    if (['submit_vocabulary_answer', 'submit_vocabulary_answer_once', 'submit_vocabulary_self_rating_once', 'check_vocabulary_retry'].includes(name)) return { data: receipt, error: null }
+    throw new Error(`Unexpected fixture RPC: ${name}`)
   })
   function chain(data: unknown) {
     const result = { data, error: null }
@@ -80,7 +82,8 @@ function setup(options: { enabled?: boolean; locked?: boolean; sourceCards?: Voc
     if (table === 'profiles') return chain({ role: 'student', native_language: 'ru', ui_language: 'ru',
       // Earlier source levels deliberately have no entitlement anymore.
       level_access: options.locked ? [] : [{ level: target }] })
-    if (table === 'learning_trainer_grants') return chain([])
+    if (table === 'learning_trainer_grants') return chain(options.allowedTargetUnits === undefined ? [] : [{ level: target,
+      trainer: 'vocabulary', enabled: true, unit_mode: 'selected', units: options.allowedTargetUnits.map(unit_id => ({ unit_id })) }])
     if (table === 'vocabulary_learning_state') return chain({ last_card_id: null })
     if (table === 'vocabulary_lesson_pauses') return chain((options.paused ?? []).map(unit_id => ({ unit_id })))
     if (table === 'learning_vocabulary_cards') return chain([vocabularyDatabaseRow(ownCard)])
@@ -93,13 +96,35 @@ function setup(options: { enabled?: boolean; locked?: boolean; sourceCards?: Voc
 beforeEach(() => jest.clearAllMocks())
 
 it('keeps original progress IDs, compartments and origin levels in the target session after source access expires', async () => {
-  setup()
+  const { rpc } = setup()
   const result = await getVocabularySession(target, 'ru')
   expect(result.cards).toHaveLength(6)
   expect(result.cards).toEqual(expect.arrayContaining([
     expect.objectContaining({ progressId: progress(source)[0].id, box: 3, targetLevel: target, originLevel: 'A1.1', card: expect.objectContaining({ id: source.id, level: 'A1.1' }) }),
     expect.objectContaining({ progressId: progress(ownSource)[1].id, box: 4, targetLevel: target, originLevel: 'A1.2' }),
   ]))
+  expect(rpc).toHaveBeenCalledWith('get_sitov_access_context', { p_student: userId })
+})
+
+it('keeps target unit selections authoritative without granting source levels or VIP', async () => {
+  setup({ enabled: false, allowedTargetUnits: [ownCard.unit_id!] })
+  expect((await getVocabularyOverview(target)).ownBox.total).toBe(1)
+  setup({ enabled: false, allowedTargetUnits: [uuid(999)] })
+  const deniedSibling = await getVocabularyOverview(target)
+  expect(deniedSibling.stats).toEqual([])
+  expect(deniedSibling.ownBox.total).toBe(0)
+  const { rpc } = setup({ allowedTargetUnits: [] })
+  expect(await beginVocabularyLevel(target)).toEqual({ success: false, error: 'save_failed' })
+  expect(rpc.mock.calls.map(([name]) => name)).toEqual(['get_sitov_access_context'])
+})
+
+it('denies failed commercial context and signed-out sessions before carryover decisions', async () => {
+  const contextFailure = setup({ rpcFailure: 'get_sitov_access_context' })
+  expect(await beginVocabularyLevel(target)).toEqual({ success: false, error: 'save_failed' })
+  expect(contextFailure.rpc.mock.calls.map(([name]) => name)).toEqual(['get_sitov_access_context'])
+  const signedOut = setup({ signedIn: false })
+  expect(await setVocabularyCarryover(target, true)).toEqual({ success: false, error: 'save_failed' })
+  expect(signedOut.rpc).not.toHaveBeenCalled()
 })
 
 it('counts carried boxes and due directions separately from own lessons and target progress', async () => {
@@ -174,9 +199,11 @@ it('begins only through the explicit action and persists accept/decline for subs
 it('blocks locked targets, account changes, malformed switches and failed DB decisions', async () => {
   const { rpc } = setup({ locked: true })
   expect(await beginVocabularyLevel(target)).toEqual({ success: false, error: 'save_failed' })
-  expect(rpc).not.toHaveBeenCalled()
-  setup()
+  expect(rpc).toHaveBeenCalledWith('get_sitov_access_context', { p_student: userId })
+  expect(rpc.mock.calls.map(([name]) => name)).toEqual(['get_sitov_access_context'])
+  const changedAccount = setup()
   expect(await setVocabularyCarryover(target, true, otherId)).toEqual({ success: false, error: 'save_failed' })
+  expect(changedAccount.rpc).not.toHaveBeenCalled()
   expect(await setVocabularyCarryover(target, 'yes' as unknown as boolean)).toEqual({ success: false, error: 'invalid_input' })
   expect(await beginVocabularyLevel('')).toEqual({ success: false, error: 'invalid_input' })
   setup({ rpcFailure: 'set_vocabulary_carryover' })
@@ -186,13 +213,17 @@ it('blocks locked targets, account changes, malformed switches and failed DB dec
 it('passes the chosen target into every grading and retry RPC, including idempotent writes', async () => {
   const { rpc } = setup()
   const input = { progressId: progress(source)[0].id, targetLevel: target, expectedLearnerId: userId, typedAnswer: 'Wort', uiLanguage: 'ru' }
-  await submitVocabularyAnswer(input)
-  await submitVocabularyAnswer({ ...input, requestId })
-  await submitVocabularySelfRating({ ...input, requestId, known: true })
-  await checkVocabularyRetry(input)
+  expect(await submitVocabularyAnswer(input)).toMatchObject(receipt)
+  expect(await submitVocabularyAnswer({ ...input, requestId })).toMatchObject(receipt)
+  expect(await submitVocabularySelfRating({ ...input, requestId, known: true })).toMatchObject(receipt)
+  expect(await checkVocabularyRetry(input)).toMatchObject({ success: true, isCorrect: true, correctAnswer: receipt.correctAnswer })
   for (const name of ['submit_vocabulary_answer', 'submit_vocabulary_answer_once', 'submit_vocabulary_self_rating_once', 'check_vocabulary_retry']) {
     expect(rpc).toHaveBeenCalledWith(name, expect.objectContaining({ p_target_level: target, p_progress_id: input.progressId }))
   }
+  for (const name of ['submit_vocabulary_answer_once', 'submit_vocabulary_self_rating_once']) {
+    expect(rpc).toHaveBeenCalledWith(name, expect.objectContaining({ p_request_id: requestId, p_ui_language: 'ru' }))
+  }
+  expect(rpc.mock.calls.filter(([name]) => name === 'get_sitov_access_context')).toHaveLength(4)
 })
 
 it('reads every catalog page beyond PostgREST default page sizes without duplicating rows', async () => {

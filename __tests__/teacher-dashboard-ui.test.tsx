@@ -13,6 +13,12 @@ import { ACCESS_LEVELS } from '@/lib/access/levels'
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/teacher-dashboard', () => ({ interveneTeacherPath: jest.fn() }))
 jest.mock('@/app/actions/admin', () => ({ updateStudentAllowedLevels: jest.fn(), updateStudentTrainerAccess: jest.fn(), updateStudentRole: jest.fn(), resetStudentProgress: jest.fn() }))
+jest.mock('next/navigation', () => ({ useParams: () => ({ lang: 'de' }), useRouter: () => ({ refresh: jest.fn() }) }))
+jest.mock('@/app/actions/sitov-commercial-access', () => ({
+ getSitovStaffCommercialAccess: jest.fn().mockResolvedValue({ ok: true, data: { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 } }),
+ getSitovStaffCommercialCatalog: jest.fn(async ({ level, trainer }) => ({ ok: true, data: { version: 1, level, trainer, units: [] } })),
+ saveSitovStaffCommercialAccess: jest.fn().mockResolvedValue({ ok: false, error: 'forbidden' }),
+}))
 const id = '00000000-0000-4000-8000-000000000001', unitId = '00000000-0000-4000-8000-000000000002', nodeId = '00000000-0000-4000-8000-000000000003'
 const requestId = '00000000-0000-4000-8000-000000000004'
 const student: TeacherStudent = { id, role: 'student', created_at: null, person: { display_name: 'Ada', email: 'ada@example.test', phone: null, street: null, postal_code: null, city: null }, allowed_levels: ['A1.1'], trainer_grants: [], lastActiveAt: '2026-09-25T22:30:00Z', learningSeconds7d: 600, learningSeconds30d: 900, streakDays: 2, currentLevel: 'A1.1', pathPosition: null, lastTest: null, dueCards: 3, phases: { '1': 3, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, learned: 0 }, attentionReasons: [], completedPathsByLevel: [] }

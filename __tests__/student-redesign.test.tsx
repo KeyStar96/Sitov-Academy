@@ -14,12 +14,17 @@ import { studentTranslator, STUDENT_MESSAGES } from '@/lib/student-ui-i18n'
 import { teacherFirstName, teacherPortrait } from '@/lib/teacher-portraits'
 import { logout } from '@/app/actions/auth'
 import { markPronunciationSeen } from '@/app/actions/pronunciation-conversations'
+import { createSitovPronunciationUploadTicket, createSitovPronunciationReplyUploadTicket } from '@/app/actions/sitov-pronunciation-pretest'
 import type { PronunciationConversation } from '@/lib/pronunciation-conversations'
 
 jest.unmock('lucide-react')
 jest.mock('@/components/exercises/SolutionAudioButton', () => ({ __esModule: true, default: () => null }))
 jest.mock('@/app/actions/auth', () => ({ logout: jest.fn() }))
 jest.mock('@/app/actions/pronunciation-conversations', () => ({ markPronunciationSeen: jest.fn().mockResolvedValue({ success: true }), getPronunciationConversations: jest.fn() }))
+jest.mock('@/app/actions/sitov-pronunciation-pretest', () => ({
+  createSitovPronunciationUploadTicket: jest.fn().mockResolvedValue({ ok: false, error: 'authentication_required', retryable: false }),
+  createSitovPronunciationReplyUploadTicket: jest.fn().mockResolvedValue({ ok: false, error: 'authentication_required', retryable: false }),
+}))
 jest.mock('@/components/audio/WaveformPlayer', () => ({ __esModule: true, default: ({ onProgress }: { onProgress?: (state: { playing: boolean; fraction: number; ended: boolean }) => void }) =>
   <button type="button" onClick={() => { onProgress?.({ playing: true, fraction: 0.2, ended: false }); onProgress?.({ playing: false, fraction: 1, ended: true }) }}>play</button> }))
 jest.mock('next/navigation', () => ({ usePathname: () => '/de/dashboard/level/A1.2/path', useRouter: () => ({ refresh: jest.fn(), push: jest.fn() }) }))
@@ -105,6 +110,8 @@ describe('Briefkasten', () => {
     expect(screen.getByRole('button', { name: new RegExp(t('mailbox_archive')) })).toHaveAttribute('aria-expanded', 'false')
     await act(async () => { fireEvent.click(screen.getByRole('button', { name: 'play' })) })
     expect(markPronunciationSeen).toHaveBeenCalledWith('new')
+    expect(createSitovPronunciationUploadTicket).not.toHaveBeenCalled()
+    expect(createSitovPronunciationReplyUploadTicket).not.toHaveBeenCalled()
     expect(screen.getByText(t('mailbox_heard'))).toBeInTheDocument()
     await act(async () => { jest.advanceTimersByTime(1300) })
     expect(screen.queryByRole('heading', { name: 'Von Anastasia' })).not.toBeInTheDocument()

@@ -7,11 +7,18 @@ import { getSitovTrainerCarouselCopy } from '@/lib/sitov-trainer-carousel-i18n'
 import StudentList from '@/components/admin/StudentList'
 import { AdminI18nProvider } from '@/components/admin/AdminI18nProvider'
 import { getAvailableLessons, updateStudentTrainerAccess, updateStudentAllowedLevels } from '@/app/actions/admin'
+import { getSitovStaffCommercialAccess, saveSitovStaffCommercialAccess } from '@/app/actions/sitov-commercial-access'
 import type { AdminStudentRow } from '@/lib/types/admin-staff'
 import de from '@/dictionaries/de.json'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/admin', () => ({ getAvailableLessons: jest.fn(), updateStudentTrainerAccess: jest.fn(), updateStudentRole: jest.fn(), updateStudentAllowedLevels: jest.fn() }))
+jest.mock('next/navigation', () => ({ useParams: () => ({ lang: 'de' }), useRouter: () => ({ refresh: jest.fn() }) }))
+jest.mock('@/app/actions/sitov-commercial-access', () => ({
+ getSitovStaffCommercialAccess: jest.fn().mockResolvedValue({ ok: true, data: { vip_enabled: false, trial: { version: 1, rules: [] }, purchased_levels: [], revision: 0 } }),
+ getSitovStaffCommercialCatalog: jest.fn(async ({ level, trainer }) => ({ ok: true, data: { version: 1, level, trainer, units: [] } })),
+ saveSitovStaffCommercialAccess: jest.fn().mockResolvedValue({ ok: false, error: 'forbidden' }),
+}))
 const student: LevelAccessProfile = { role: 'student', allowed_levels: ['A1.1','A1.2'] }
 const denied = { ...student, trainer_grants: [{ level: 'A1.1', trainer: 'exercises', enabled: false }] }
 
@@ -113,7 +120,13 @@ describe('Teacher trainer controls', () => {
  const renderList=(rules: AdminStudentRow['trainer_grants'] = [])=>render(<AdminI18nProvider translations={de.admin}><StudentList initialStudents={[{
   id, person:{id,auth_user_id:id,display_name:'Lernende',email:'learner@example.test',phone:null,street:null,postal_code:null,city:null,birth_date:null,preferred_locale:'de',created_at:'2026-01-01',updated_at:'2026-01-01'},role:'student',allowed_levels:['A1.1'],created_at:null, trainer_grants: rules,
  }]} lang="de" currentUserRole="teacher" /></AdminI18nProvider>)
- const openAccess=()=>fireEvent.click(screen.getByRole('button',{name:'Freigaben für Lernende verwalten'}))
+ const openAccess=async()=>{
+  fireEvent.click(screen.getByRole('button',{name:'Freigaben für Lernende verwalten'}))
+  await waitFor(()=>expect(screen.getByRole('button',{name:'VIP freigeben'})).not.toBeDisabled())
+  expect(getSitovStaffCommercialAccess).toHaveBeenCalledWith(id)
+  expect(saveSitovStaffCommercialAccess).not.toHaveBeenCalled()
+ }
+ const manualLevelSelect=()=>screen.getAllByRole('combobox',{name:de.admin.access_level_select}).find(select=>!screen.getByRole('region',{name:'Plattformzugang'}).contains(select))!
  beforeAll(()=>{
    HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','')}
    HTMLDialogElement.prototype.close=function(){this.removeAttribute('open')}
@@ -128,8 +141,8 @@ describe('Teacher trainer controls', () => {
   const table=screen.getByRole('table')
   expect(within(table).queryByRole('checkbox')).toBeNull()
   expect(table.querySelector('details')).toBeNull()
-  openAccess()
-  expect(Array.from(screen.getByLabelText(de.admin.access_level_select).querySelectorAll('option')).map(option=>option.value)).toEqual(['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2'])
+  await openAccess()
+  expect(Array.from(manualLevelSelect().querySelectorAll('option')).map(option=>option.value)).toEqual(['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2'])
   expect(screen.getAllByRole('dialog')).toHaveLength(1)
   expect(document.body.style.overflow).toBe('hidden')
   const checkbox=screen.getByLabelText('Lernende · A1.1 · Grammatikübungen')
@@ -139,7 +152,7 @@ describe('Teacher trainer controls', () => {
   await waitFor(()=>expect(checkbox).not.toBeDisabled())
   expect(checkbox).not.toBeChecked()
   expect(screen.getByLabelText('Lernende · A1.1 · Vokabeltrainer')).toBeChecked()
-  fireEvent.change(screen.getByLabelText(de.admin.access_level_select),{target:{value:'A1.2'}})
+  fireEvent.change(manualLevelSelect(),{target:{value:'A1.2'}})
   expect(screen.getByLabelText('Lernende · A1.2 · Grammatikübungen')).toBeDisabled()
   expect(updateStudentAllowedLevels).not.toHaveBeenCalled()
   expect(within(table).queryByRole('checkbox')).toBeNull()
@@ -147,7 +160,7 @@ describe('Teacher trainer controls', () => {
  test('failed save rolls back and reports a translated error inside the dialog',async()=>{
   jest.mocked(updateStudentTrainerAccess).mockResolvedValue({success:false})
   renderList()
-  openAccess()
+  await openAccess()
   const checkbox=screen.getByLabelText('Lernende · A1.1 · Grammatikübungen')
   fireEvent.click(checkbox)
   await waitFor(()=>expect(within(screen.getByRole('dialog')).getByRole('alert')).toHaveTextContent(de.admin.trainer_save_failed))
@@ -155,7 +168,7 @@ describe('Teacher trainer controls', () => {
  })
  test('trainer off/on keeps its selected lessons and an empty selection means none',async()=>{
   renderList([{level:'A1.1',trainer:'exercises',enabled:true,unit_ids:[]}])
-  openAccess()
+  await openAccess()
   const checkbox=screen.getByLabelText('Lernende · A1.1 · Grammatikübungen')
   fireEvent.click(checkbox)
   await waitFor(()=>expect(checkbox).not.toBeDisabled())
@@ -172,7 +185,7 @@ describe('Teacher trainer controls', () => {
  test('pronunciation selects individual prompt ids with descriptive titles',async()=>{
   jest.mocked(getAvailableLessons).mockResolvedValue({success:true,lessons:[{id:'prompt-one',label:'Mein erster Tag'},{id:'prompt-two',label:'Ein Besuch im Park'}]})
   renderList()
-  openAccess()
+  await openAccess()
   fireEvent.click(screen.getByRole('button',{name:de.admin.pronunciation_access_button}))
   await waitFor(()=>expect(screen.getByLabelText('Mein erster Tag')).toBeInTheDocument())
   fireEvent.click(screen.getByLabelText('Mein erster Tag'))
@@ -183,7 +196,7 @@ describe('Teacher trainer controls', () => {
  test('loading errors cannot overwrite existing access and can be retried',async()=>{
   jest.mocked(getAvailableLessons).mockResolvedValueOnce({success:false})
   renderList()
-  openAccess()
+  await openAccess()
   fireEvent.click(screen.getAllByRole('button',{name:de.admin.restrict_lessons})[0])
   await waitFor(()=>expect(screen.getByRole('alert')).toHaveTextContent(de.admin.access_load_failed))
   expect(screen.getByRole('button',{name:de.admin.save})).toBeDisabled()
@@ -192,11 +205,11 @@ describe('Teacher trainer controls', () => {
   await waitFor(()=>expect(screen.getByLabelText('01 · Artikel')).toBeInTheDocument())
   expect(screen.getByRole('button',{name:de.admin.save})).not.toBeDisabled()
  })
- test('closing restores focus and body scrolling without changing access',()=>{
+ test('closing restores focus and body scrolling without changing access',async()=>{
   renderList()
   const opener=screen.getByRole('button',{name:'Freigaben für Lernende verwalten'})
   opener.focus()
-  openAccess()
+  await openAccess()
   fireEvent.click(screen.getByRole('button',{name:de.admin.dialog_close}))
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   expect(document.body.style.overflow).toBe('')
