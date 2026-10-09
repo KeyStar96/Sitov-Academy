@@ -1,0 +1,322 @@
+{
+  "target": "efe6a54f7f3c5ff583cf13c9beb33063b35f47e1",
+  "readOnly": true,
+  "samples": [
+    {
+      "at": "2026-10-09T08:19:57.563847+00:00",
+      "host_memory_mib": {
+        "MemTotal": 7884.06640625,
+        "MemFree": 285.6640625,
+        "MemAvailable": 2569.86328125,
+        "Cached": 2757.078125,
+        "SwapTotal": 0.0,
+        "SwapFree": 0.0,
+        "SReclaimable": 682.4140625
+      },
+      "admission3072passed": false,
+      "scopeGuardPassed": true,
+      "stateTimes": [
+        {
+          "name": "/sitov-night-20261008-qa-db",
+          "startedAt": "2026-10-08T23:28:39.827934263Z",
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "restartCount": 0,
+          "oomKilled": false,
+          "running": true,
+          "memoryMiB": 384.0,
+          "cpus": 0.75
+        },
+        {
+          "name": "/sitov-night-20261008-qa-auth",
+          "startedAt": "2026-10-08T23:30:48.908375157Z",
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "restartCount": 0,
+          "oomKilled": false,
+          "running": true,
+          "memoryMiB": 128.0,
+          "cpus": 0.25
+        },
+        {
+          "name": "/sitov-night-20261008-qa-storage",
+          "startedAt": "2026-10-09T03:25:07.346010501Z",
+          "finishedAt": "2026-10-09T03:25:05.585765398Z",
+          "restartCount": 0,
+          "oomKilled": false,
+          "running": true,
+          "memoryMiB": 256.0,
+          "cpus": 0.5
+        },
+        {
+          "name": "/sitov-night-20261008-qa-rest",
+          "startedAt": "2026-10-08T23:30:48.175863114Z",
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "restartCount": 0,
+          "oomKilled": false,
+          "running": true,
+          "memoryMiB": 64.0,
+          "cpus": 0.25
+        },
+        {
+          "name": "/sitov-night-20261008-qa-gateway",
+          "startedAt": "2026-10-09T05:24:39.174076049Z",
+          "finishedAt": "2026-10-09T05:24:39.084999072Z",
+          "restartCount": 0,
+          "oomKilled": true,
+          "running": true,
+          "memoryMiB": 128.0,
+          "cpus": 0.25
+        }
+      ],
+      "scopeHealthFailure": {
+        "type": "AssertionError",
+        "detail": "sanitized existing QA health failure"
+      },
+      "statsExit": 0,
+      "stats": [
+        {
+          "Name": "sitov-night-20261008-qa-db",
+          "MemUsage": "99.6MiB / 384MiB",
+          "MemPerc": "25.94%",
+          "CPUPerc": "4.12%",
+          "PIDs": "14"
+        },
+        {
+          "Name": "sitov-night-20261008-qa-auth",
+          "MemUsage": "13.03MiB / 128MiB",
+          "MemPerc": "10.18%",
+          "CPUPerc": "0.00%",
+          "PIDs": "9"
+        },
+        {
+          "Name": "sitov-night-20261008-qa-storage",
+          "MemUsage": "171.1MiB / 256MiB",
+          "MemPerc": "66.82%",
+          "CPUPerc": "0.01%",
+          "PIDs": "12"
+        },
+        {
+          "Name": "sitov-night-20261008-qa-rest",
+          "MemUsage": "32.46MiB / 64MiB",
+          "MemPerc": "50.73%",
+          "CPUPerc": "0.08%",
+          "PIDs": "27"
+        },
+        {
+          "Name": "sitov-night-20261008-qa-gateway",
+          "MemUsage": "101.7MiB / 128MiB",
+          "MemPerc": "79.46%",
+          "CPUPerc": "0.23%",
+          "PIDs": "2"
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T08:20:38.039439+00:00",
+      "host_memory_mib": {
+        "MemTotal": 7884.06640625,
+        "MemFree": 373.6328125,
+        "MemAvailable": 2657.81640625,
+        "Cached": 2756.77734375,
+        "SwapTotal": 0.0,
+        "SwapFree": 0.0,
+        "SReclaimable": 682.43359375
+      },
+      "admission3072passed": false,
+      "scopeGuardPassed": true,
+      "stateTimes": [
+        {
+          "name": "/sitov-night-20261008-qa-db",
+          "startedAt": "2026-10-08T23:28:39.827934263Z",
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "restartCount": 0,
+          "oomKilled": false,
+          "running": true,
+          "memoryMiB": 384.0,
+          "cpus": 0.75
+        },
+        {
+          "name": "/sitov-night-20261008-qa-auth",
+          "startedAt": "2026-10-08T23:30:48.908375157Z",
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "restartCount": 0,
+          "oomKilled": false,
+          "running": true,
+          "memoryMiB": 128.0,
+          "cpus": 0.25
+        },
+        {
+          "name": "/sitov-night-20261008-qa-storage",
+          "startedAt": "2026-10-09T03:25:07.346010501Z",
+          "finishedAt": "2026-10-09T03:25:05.585765398Z",
+          "restartCount": 0,
+          "oomKilled": false,
+          "running": true,
+          "memoryMiB": 256.0,
+          "cpus": 0.5
+        },
+        {
+          "name": "/sitov-night-20261008-qa-rest",
+          "startedAt": "2026-10-08T23:30:48.175863114Z",
+          "finishedAt": "0001-01-01T00:00:00Z",
+          "restartCount": 0,
+          "oomKilled": false,
+          "running": true,
+          "memoryMiB": 64.0,
+          "cpus": 0.25
+        },
+        {
+          "name": "/sitov-night-20261008-qa-gateway",
+          "startedAt": "2026-10-09T05:24:39.174076049Z",
+          "finishedAt": "2026-10-09T05:24:39.084999072Z",
+          "restartCount": 0,
+          "oomKilled": true,
+          "running": true,
+          "memoryMiB": 128.0,
+          "cpus": 0.25
+        }
+      ],
+      "scopeHealthFailure": {
+        "type": "AssertionError",
+        "detail": "sanitized existing QA health failure"
+      },
+      "statsExit": 0,
+      "stats": [
+        {
+          "Name": "sitov-night-20261008-qa-db",
+          "MemUsage": "97.16MiB / 384MiB",
+          "MemPerc": "25.30%",
+          "CPUPerc": "0.00%",
+          "PIDs": "12"
+        },
+        {
+          "Name": "sitov-night-20261008-qa-auth",
+          "MemUsage": "13.03MiB / 128MiB",
+          "MemPerc": "10.18%",
+          "CPUPerc": "0.01%",
+          "PIDs": "9"
+        },
+        {
+          "Name": "sitov-night-20261008-qa-storage",
+          "MemUsage": "171.1MiB / 256MiB",
+          "MemPerc": "66.82%",
+          "CPUPerc": "0.01%",
+          "PIDs": "12"
+        },
+        {
+          "Name": "sitov-night-20261008-qa-rest",
+          "MemUsage": "32.46MiB / 64MiB",
+          "MemPerc": "50.73%",
+          "CPUPerc": "0.07%",
+          "PIDs": "27"
+        },
+        {
+          "Name": "sitov-night-20261008-qa-gateway",
+          "MemUsage": "101.7MiB / 128MiB",
+          "MemPerc": "79.48%",
+          "CPUPerc": "0.20%",
+          "PIDs": "2"
+        }
+      ],
+      "diagnosticHttpOnly": [
+        {
+          "path": "/auth/v1/health",
+          "http_status": 200
+        },
+        {
+          "path": "/rest/v1/",
+          "http_status": 200
+        },
+        {
+          "path": "/storage/v1/status",
+          "http_status": 200
+        }
+      ]
+    }
+  ],
+  "observationSeconds": 40.475592,
+  "stateTimestampsAndRestartCountsUnchanged": true,
+  "perServiceLatest": [
+    {
+      "service": "db",
+      "workingSetMiB": 97.16,
+      "capMiB": 384.0,
+      "reserveMiB": 286.84,
+      "cpuActualPercent": "0.00%",
+      "cpuCap": 0.75
+    },
+    {
+      "service": "auth",
+      "workingSetMiB": 13.03,
+      "capMiB": 128.0,
+      "reserveMiB": 114.97,
+      "cpuActualPercent": "0.01%",
+      "cpuCap": 0.25
+    },
+    {
+      "service": "storage",
+      "workingSetMiB": 171.1,
+      "capMiB": 256.0,
+      "reserveMiB": 84.9,
+      "cpuActualPercent": "0.01%",
+      "cpuCap": 0.5
+    },
+    {
+      "service": "rest",
+      "workingSetMiB": 32.46,
+      "capMiB": 64.0,
+      "reserveMiB": 31.54,
+      "cpuActualPercent": "0.07%",
+      "cpuCap": 0.25
+    },
+    {
+      "service": "gateway",
+      "workingSetMiB": 101.7,
+      "capMiB": 128.0,
+      "reserveMiB": 26.3,
+      "cpuActualPercent": "0.20%",
+      "cpuCap": 0.25
+    }
+  ],
+  "workingSetTotalMiB": 415.45,
+  "capTotalMiB": 960.0,
+  "hostLatestDeficitTo3072MiB": 414.18359375,
+  "localOwnedRuntime": {
+    "at": "2026-10-09T08:19:14.421675+00:00",
+    "owned_pid_checks": [
+      {
+        "name": "native_postgres",
+        "pid": 33224,
+        "exists": true,
+        "executable": "/opt/homebrew/Cellar/postgresql@17/17.11/bin/postgres"
+      },
+      {
+        "name": "qa_tunnel",
+        "pid": 80542,
+        "exists": true,
+        "executable": "ssh"
+      },
+      {
+        "name": "former_qa_next",
+        "pid": 35932,
+        "exists": false,
+        "executable": null
+      }
+    ],
+    "loopback_tcp": {
+      "55438": true,
+      "19483": true,
+      "3143": false
+    }
+  },
+  "ruleSemantics": {
+    "guard3072": "initial fresh before-create preflight, coupled to empty namespace/free port; create.sh runs guard before compose up",
+    "runtime": "existing scope/images/labels/internal-only/noports/caps plus health requires allrunning and notOOMKilled; no ongoing3072 check",
+    "master": "latest_health separately records3072 admission false on existing runtime; maintenance applicability requires M decision, not S5 waiver"
+  },
+  "actualHealthClassification": "three direct diagnostic GET200, existing runtime.health guard FAIL due gatewayOOMKilled=true; not durable runtime PASS",
+  "durabilityClassification": "two idle samples over40seconds with unchanged starts/restarts; does not prove load durability or exclude another OOM",
+  "nextAction": "M should authorize separate existing-resource maintenance diagnosis: exact gateway cgroup memory.events/peak and nonsecret approved cache settings; do not install107 or load-test while OOM guard fails. Samecap recovery only after cause review and explicit M maintenance authorization, then fresh guard and serial bounded endurance before107/actualflow. Never reuse create.sh on occupied namespace.",
+  "productionOrContainerConfigOrDataMutation": false,
+  "qa107Installed": false,
+  "currentLearnerFlowTested": false
+}
