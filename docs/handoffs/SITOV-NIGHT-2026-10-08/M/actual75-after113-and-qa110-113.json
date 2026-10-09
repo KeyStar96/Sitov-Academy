@@ -1,0 +1,69 @@
+{
+  "at": "2026-10-09T21:47:02.053829+00:00",
+  "integration_source": "6ec24270e3e3e7aba978fa93075bce1629b68709",
+  "nativeRightsAfter113": {
+    "actualAccounts": 75,
+    "equalStudents": 73,
+    "equalTeachers": 2,
+    "failedAccounts": 0,
+    "nativeClaimsOnly": true,
+    "statementTimeoutSeconds": 8,
+    "verbQueriesPerActor": 4,
+    "verbsPerActor": 960,
+    "unitDecisionsPerActor": 1280,
+    "ownerReferencesPerActor": 50,
+    "receiptSummarySha256": "c1acfeb08e774c481a82aff7b5ec9e2e0a33c5c05ad275468464188a03f67b0c",
+    "originalBeforeReceiptHashesVerified": true,
+    "old112TeacherFailuresRetained": true,
+    "storageBeforeWasErrorNotBooleanBaseline": true
+  },
+  "protected185QualifiedSha256": "cfeb746a211c54255d8c4d519f92efe05637482f3f2ca34194f894ce32ef8814",
+  "original96PrivateBucketExceptionRetained": true,
+  "qa188UnchangedSha256": "f78808720aa242bfb6a17dde4b398497d1f0478465ba4eb9c9d376d25e1236b1",
+  "qa110Through113": {
+    "through": 113,
+    "sourceIntegrationSha": "6ec24270e3e3e7aba978fa93075bce1629b68709",
+    "migrationShas": {
+      "110": "632539f155e3118a70f485dac3b515c98967af124fd9b273f6bdfa790a5e5296",
+      "111": "afacb55ae7dd3006cca0400e33ab031781f45f4eae9e0442d8852b570f2a96e0",
+      "112": "97434da5db3bb71aeccd2bced5289ea1cad86057a9eff3844f6c521cb90ad1ba",
+      "113": "b6ad3ebc3a520be0ff6408dcd146dfc01e894c4f99b9486d4fb80d3e883d8b85"
+    },
+    "at": "2026-10-09T21:45:20.573529+00:00",
+    "qa188Sha256": "f78808720aa242bfb6a17dde4b398497d1f0478465ba4eb9c9d376d25e1236b1",
+    "exactDataUnchanged": true,
+    "changedFunctionBodies": [
+      "learning_private.allowed_unit_ids()",
+      "sitov_access_private.item_allowed(uuid,text,text)",
+      "sitov_access_private.legacy_unit_allowed(uuid,uuid)",
+      "sitov_access_private.vocabulary_unit_visible(uuid)"
+    ],
+    "onlyTwoInternalPostgresGrants": true,
+    "otherFunctionMetadataPoliciesSchemasUnchanged": true,
+    "apiRoleExecutePrivilegesUnchanged": true,
+    "all75CloneProofPrior": true,
+    "healthPassed": true,
+    "memoryMiB": 2285,
+    "activeQueries": 0,
+    "productionWrite": false,
+    "authenticatedHTTPPending": true
+  },
+  "audioCandidateCli": {
+    "cpuAndRuntimeMockTestsMRepeated": 28,
+    "actualPinnedModelSmokeCandidates": 5,
+    "allFiveSupported": true,
+    "sourceFilesUnchanged": true,
+    "full410CandidateRunPending": true,
+    "thresholdsEmpiricallyCalibrated": false,
+    "humanListening": false,
+    "audioAdoption": false
+  },
+  "productionWrite": false,
+  "releaseReady": false,
+  "pending": [
+    "PG15 rollback fixtures for corrected commercial/storage and113 counterexamples",
+    "Latest all60 definition/audio projection and imports",
+    "Real normal retake PASS and exact audio access/browser matrix",
+    "Final fresh install/build/authenticated gates and VPS prepare/activation"
+  ]
+}
