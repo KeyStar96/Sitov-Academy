@@ -23,3 +23,9 @@ M meldete anschließend einen eigenen Produktions-Lesenachweis: pg_graphql 1.5.1
 Private Fortsetzung: Koordinationsdatei `S1/epoch21-resume-ledger.json`; Remote-Artefakte unter `/tmp/sitov-night-20261008-qa-master/S1-epoch21-rehearsal/`. Vollständiger Restore, sämtliche Zeilenhashes, effektive Rechte aller 75 Konten und Migrationsprobe sind offen. Kein Deployment, keine Freigabe und kein Push durch S1.
 
 Die SAVE-Phase wurde durch Kontextkompaktierung über die ursprüngliche Deadline 18:36:41 UTC hinaus verzögert. Danach wurden ausschließlich vorhandene Nachweise gesichert, diese Dokumentation committet und der Status auf WAIT gesetzt; keine neue Prüfeinheit.
+
+## Nachtrag: unabhängiger Laufzeitbefund von M
+
+M meldete nach eigener, auf die fünf isolierten QA-Container beschränkter Docker-Prüfung vom 09.10.2026 um 20:39:31 Uhr Europe/Berlin: ausschließlich der QA-Datenbankcontainer war `running=true` und `OOMKilled=true`; die anderen vier Container liefen ohne OOM-Markierung. Gemeldeter freier Hostspeicher: 2333 MiB. S1 hat diesen Befund nicht durch einen weiteren Remote-Aufruf geprüft. Damit liegt ein von M bestätigter OOM-Befund vor; der genaue Ablauf und die kausale Zuordnung der Hash-Abfrage sind nicht unabhängig durch S1 untersucht.
+
+M kündigte die private Sicherung des Vorfalls und einen kontrollierten Neustart ausschließlich des vorhandenen QA-Datenbankcontainers bei identischem Image, Limits, persistentem Volume und Einstellungen an. Durchführung und Erfolg werden hier nicht behauptet. Post-Hash-Gesundheit und QA-Datenerhaltung bleiben unbestätigt. Eine künftige Baseline muss unter neuer Freigabe Zeilen streamen und inkrementell mit begrenztem Speicher hashen; keine erneute Volltabellen-JSON-Aggregation. Historischer OOM-Befund bleibt erhalten. Keine höheren Limits oder work_mem-Werte und kein weiterer Remote-Aufruf durch S1.
