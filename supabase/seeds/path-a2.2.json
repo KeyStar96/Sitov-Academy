@@ -1466,19 +1466,19 @@
                 "Infinitiv am Ende"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Lena hat heute keine Zeit für Sport.",
+              "question": "Leon hat heute keine Zeit für Sport.",
               "options": [
-                "Sie würde gern schwimmen gehen.",
-                "Sie gern würde schwimmen gehen.",
-                "Sie würde gern gehen schwimmen."
+                "Er würde gern schwimmen gehen.",
+                "Er gern würde schwimmen gehen.",
+                "Er würde gern gehen schwimmen."
               ],
-              "correct_answer": "Sie würde gern schwimmen gehen.",
+              "correct_answer": "Er würde gern schwimmen gehen.",
               "accepted_answers": [
-                "Sie würde gern schwimmen gehen."
+                "Er würde gern schwimmen gehen."
               ]
             },
             "accepted_answers": [
-              "Sie würde gern schwimmen gehen."
+              "Er würde gern schwimmen gehen."
             ],
             "hint": "würde auf Position 2, Infinitiv am Ende: Ich würde gern … spielen.",
             "explanation": "Für fast alle anderen Verben nimmt man würde + Infinitiv: ich würde, du würdest, er/es/sie würde, wir würden, ihr würdet, sie/Sie würden. würde steht auf Position 2, der Infinitiv am Satzende: Ich würde gern Gitarre spielen. Wir würden am Wochenende gern wandern. In der Frage steht würde vorn: Würdest du gern mitkommen?",
@@ -1488,25 +1488,25 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "würde in position 2, infinitive at the end: Ich würde gern … spielen.",
                 "explanation": "For almost all other verbs you use würde + infinitive: ich würde, du würdest, er/es/sie würde, wir würden, ihr würdet, sie/Sie würden. würde is in position 2, the infinitive at the end of the sentence: Ich würde gern Gitarre spielen. (I would like to play the guitar.) Wir würden am Wochenende gern wandern. In a question würde comes first: Würdest du gern mitkommen?",
-                "task": "Lena has no time for sport today."
+                "task": "Leon has no time for sport today."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "würde на втором месте, инфинитив в конце: Ich würde gern … spielen.",
                 "explanation": "Почти со всеми остальными глаголами используют würde + инфинитив: ich würde, du würdest, er/es/sie würde, wir würden, ihr würdet, sie/Sie würden. würde стоит на втором месте, инфинитив – в конце предложения: Ich würde gern Gitarre spielen. (Я хотел бы играть на гитаре.) Wir würden am Wochenende gern wandern. В вопросе würde стоит в начале: Würdest du gern mitkommen?",
-                "task": "У Lena сегодня нет времени на спорт."
+                "task": "У Leon сегодня нет времени на спорт."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "würde на другому місці, інфінітив у кінці: Ich würde gern … spielen.",
                 "explanation": "Майже з усіма іншими дієсловами вживають würde + інфінітив: ich würde, du würdest, er/es/sie würde, wir würden, ihr würdet, sie/Sie würden. würde стоїть на другому місці, інфінітив – у кінці речення: Ich würde gern Gitarre spielen. (Я хотів би грати на гітарі.) Wir würden am Wochenende gern wandern. У запитанні würde стоїть на початку: Würdest du gern mitkommen?",
-                "task": "У Lena сьогодні немає часу на спорт."
+                "task": "У Leon сьогодні немає часу на спорт."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "würde ikinci sırada, mastar sonda: Ich würde gern … spielen.",
                 "explanation": "Diğer fiillerin neredeyse hepsinde würde + mastar kullanılır: ich würde, du würdest, er/es/sie würde, wir würden, ihr würdet, sie/Sie würden. würde ikinci sırada, mastar cümlenin sonunda durur: Ich würde gern Gitarre spielen. (Gitar çalmak isterdim.) Wir würden am Wochenende gern wandern. Soruda würde başa gelir: Würdest du gern mitkommen?",
-                "task": "Lena’nın bugün spora vakti yok."
+                "task": "Leon’un bugün spora vakti yok."
               }
             }
           },
@@ -14806,19 +14806,19 @@
                 "praktischer als"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt?",
+              "question": "Leon findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt?",
               "options": [
-                "Sie findet Rucksäcke praktischer als Taschen.",
-                "Sie findet Taschen praktischer als Rucksäcke.",
-                "Sie findet Rucksäcke so praktisch wie Taschen."
+                "Er findet Rucksäcke praktischer als Taschen.",
+                "Er findet Taschen praktischer als Rucksäcke.",
+                "Er findet Rucksäcke so praktisch wie Taschen."
               ],
-              "correct_answer": "Sie findet Rucksäcke praktischer als Taschen.",
+              "correct_answer": "Er findet Rucksäcke praktischer als Taschen.",
               "accepted_answers": [
-                "Sie findet Rucksäcke praktischer als Taschen."
+                "Er findet Rucksäcke praktischer als Taschen."
               ]
             },
             "accepted_answers": [
-              "Sie findet Rucksäcke praktischer als Taschen."
+              "Er findet Rucksäcke praktischer als Taschen."
             ],
             "hint": "Geld ausgeben für + Akkusativ. viel – mehr – am meisten. sparen = wenig Geld ausgeben.",
             "explanation": "Über Einkaufen und Geld sprechen: Geld ausgeben für + Akkusativ – Am meisten gebe ich für meine Miete aus. Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. Ich kaufe am liebsten auf dem Markt ein. Vergleichen: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
@@ -14828,25 +14828,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Geld ausgeben für (spend money on) + accusative. viel – mehr – am meisten. sparen = spend little money.",
                 "explanation": "Talking about shopping and money: Geld ausgeben für + accusative (spend money on) – Am meisten gebe ich für meine Miete aus. (I spend most on my rent.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (I save there.) Ich kaufe am liebsten auf dem Markt ein. (I like shopping at the market best.) Comparing: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Lena thinks bags are okay, but rucksacks are better. What is true?"
+                "task": "Leon thinks bags are okay, but rucksacks are better. What is true?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Geld ausgeben für (тратить деньги на) + Akkusativ. viel – mehr – am meisten. sparen = тратить мало денег.",
                 "explanation": "Как говорить о покупках и деньгах: Geld ausgeben für + Akkusativ (тратить деньги на) – Am meisten gebe ich für meine Miete aus. (Больше всего я трачу на аренду.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (На этом я экономлю.) Ich kaufe am liebsten auf dem Markt ein. (Больше всего я люблю покупать на рынке.) Сравнение: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Lena считает: сумки – нормально, но рюкзаки лучше. Что верно?"
+                "task": "Leon считает: сумки – нормально, но рюкзаки лучше. Что верно?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Geld ausgeben für (витрачати гроші на) + Akkusativ. viel – mehr – am meisten. sparen = витрачати мало грошей.",
                 "explanation": "Як говорити про покупки й гроші: Geld ausgeben für + Akkusativ (витрачати гроші на) – Am meisten gebe ich für meine Miete aus. (Найбільше я витрачаю на оренду.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (На цьому я заощаджую.) Ich kaufe am liebsten auf dem Markt ein. (Найбільше я люблю купувати на ринку.) Порівняння: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Lena вважає: сумки – нормально, але рюкзаки кращі. Що правильно?"
+                "task": "Leon вважає: сумки – нормально, але рюкзаки кращі. Що правильно?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Geld ausgeben für (… için para harcamak) + Akkusativ. viel – mehr – am meisten. sparen = az para harcamak.",
                 "explanation": "Alışveriş ve paradan söz etmek: Geld ausgeben für + Akkusativ (… için para harcamak) – Am meisten gebe ich für meine Miete aus. (En çok kiraya para harcıyorum.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (Orada tasarruf ediyorum.) Ich kaufe am liebsten auf dem Markt ein. (En çok pazardan alışveriş yapmayı severim.) Karşılaştırma: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
-                "task": "Lena’ya göre çantalar fena değil ama sırt çantaları daha iyi. Hangisi doğru?"
+                "task": "Leon’a göre çantalar fena değil ama sırt çantaları daha iyi. Hangisi doğru?"
               }
             }
           },
@@ -16015,19 +16015,19 @@
                 "Den hat mir … geschenkt."
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Mia erzählt von ihrem Schal.",
+              "question": "Milan erzählt von seinem Schal.",
               "options": [
-                "Der hat mir meine Tante geschenkt.",
-                "Den hat meine Tante mir geschenken.",
-                "Den hat mir meine Tante geschenkt."
+                "Der hat mir mein Onkel geschenkt.",
+                "Den hat mein Onkel mir geschenken.",
+                "Den hat mir mein Onkel geschenkt."
               ],
-              "correct_answer": "Den hat mir meine Tante geschenkt.",
+              "correct_answer": "Den hat mir mein Onkel geschenkt.",
               "accepted_answers": [
-                "Den hat mir meine Tante geschenkt."
+                "Den hat mir mein Onkel geschenkt."
               ]
             },
             "accepted_answers": [
-              "Den hat mir meine Tante geschenkt."
+              "Den hat mir mein Onkel geschenkt."
             ],
             "hint": "der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ: von meiner Oma, von meinem Opa.",
             "explanation": "Von einem Gegenstand erzählen: Diesen Ring habe ich von meiner Oma bekommen. Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. Er/Es/Sie ist mir besonders wichtig, weil … Er gefällt mir so gut, denn er ist sehr alt. Im Akkusativ: diesen (der), dieses (das), diese (die).",
@@ -16037,25 +16037,25 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "der → diesen (accusative), das → dieses, die → diese. von + dative: von meiner Oma, von meinem Opa.",
                 "explanation": "Talking about an object: Diesen Ring habe ich von meiner Oma bekommen. (I got this ring from my grandma.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (My husband gave me this necklace.) Er/Es/Sie ist mir besonders wichtig, weil … (It is especially important to me because …) Er gefällt mir so gut, denn er ist sehr alt. In the accusative: diesen (der), dieses (das), diese (die).",
-                "task": "Mia is talking about her scarf."
+                "task": "Milan is talking about his scarf."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ (от кого): von meiner Oma, von meinem Opa.",
                 "explanation": "Как рассказать о предмете: Diesen Ring habe ich von meiner Oma bekommen. (Это кольцо я получил от бабушки.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Эту цепочку мне подарил муж.) Er/Es/Sie ist mir besonders wichtig, weil … (Он/она мне особенно дорог(а), потому что …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die).",
-                "task": "Mia рассказывает о своём шарфе."
+                "task": "Milan рассказывает о своём шарфе."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ (від кого): von meiner Oma, von meinem Opa.",
                 "explanation": "Як розповісти про предмет: Diesen Ring habe ich von meiner Oma bekommen. (Цей перстень я отримав від бабусі.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Цей ланцюжок мені подарував чоловік.) Er/Es/Sie ist mir besonders wichtig, weil … (Він/вона мені особливо дорогий/дорога, бо …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die).",
-                "task": "Mia розповідає про свій шарф."
+                "task": "Milan розповідає про свій шарф."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "der → diesen (Akkusativ), das → dieses, die → diese. von + Dativ (kimden): von meiner Oma, von meinem Opa.",
                 "explanation": "Bir eşyayı anlatmak: Diesen Ring habe ich von meiner Oma bekommen. (Bu yüzüğü büyükannemden aldım.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Bu kolyeyi bana kocam hediye etti.) Er/Es/Sie ist mir besonders wichtig, weil … (Benim için özellikle önemli, çünkü …) Er gefällt mir so gut, denn er ist sehr alt. Akkusativ’de: diesen (der), dieses (das), diese (die).",
-                "task": "Mia atkısını anlatıyor."
+                "task": "Milan atkısını anlatıyor."
               }
             }
           },
@@ -27981,19 +27981,19 @@
                 "Wo?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Nachricht auf der Mailbox: „Hallo Lena, hier ist Mama. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen bei der Nachbarin im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt?",
+              "question": "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt?",
               "options": [
-                "Bei der Nachbarin.",
+                "Beim Nachbarn.",
                 "Auf der Post.",
-                "Bei der Mutter."
+                "Beim Vater."
               ],
-              "correct_answer": "Bei der Nachbarin.",
+              "correct_answer": "Beim Nachbarn.",
               "accepted_answers": [
-                "Bei der Nachbarin."
+                "Beim Nachbarn."
               ]
             },
             "accepted_answers": [
-              "Bei der Nachbarin."
+              "Beim Nachbarn."
             ],
             "hint": "Wer ruft an? Was ist passiert? Was soll man tun? ausfallen = findet nicht statt.",
             "explanation": "Nachrichten auf der Mailbox verstehen: Wer spricht? (Hier ist …) Für wen ist die Nachricht? Was ist das Problem? (Der Termin fällt aus. Ich schaffe es nicht.) Was soll ich tun? (Bitte rufen Sie zurück. Kommen Sie bitte um zehn.) Bis wann? (Wir sind bis 18 Uhr erreichbar.) ausfallen = nicht stattfinden. es schaffen = es ist möglich. die Verspätung = man kommt zu spät.",
@@ -28035,19 +28035,19 @@
                 "Was tun?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Nachricht auf der Mailbox: „Hallo Lena, hier ist Mama. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen bei der Nachbarin im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Lena tun?",
+              "question": "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Leon tun?",
               "options": [
-                "Sie soll die Tür aufmachen.",
-                "Sie soll zur Post gehen.",
-                "Sie soll ihre Mutter am Abend anrufen."
+                "Er soll die Tür aufmachen.",
+                "Er soll zur Post gehen.",
+                "Er soll seinen Vater am Abend anrufen."
               ],
-              "correct_answer": "Sie soll ihre Mutter am Abend anrufen.",
+              "correct_answer": "Er soll seinen Vater am Abend anrufen.",
               "accepted_answers": [
-                "Sie soll ihre Mutter am Abend anrufen."
+                "Er soll seinen Vater am Abend anrufen."
               ]
             },
             "accepted_answers": [
-              "Sie soll ihre Mutter am Abend anrufen."
+              "Er soll seinen Vater am Abend anrufen."
             ],
             "hint": "Wer ruft an? Was ist passiert? Was soll man tun? ausfallen = findet nicht statt.",
             "explanation": "Nachrichten auf der Mailbox verstehen: Wer spricht? (Hier ist …) Für wen ist die Nachricht? Was ist das Problem? (Der Termin fällt aus. Ich schaffe es nicht.) Was soll ich tun? (Bitte rufen Sie zurück. Kommen Sie bitte um zehn.) Bis wann? (Wir sind bis 18 Uhr erreichbar.) ausfallen = nicht stattfinden. es schaffen = es ist möglich. die Verspätung = man kommt zu spät.",
@@ -28057,25 +28057,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Who is calling? What has happened? What should you do? ausfallen = does not take place.",
                 "explanation": "Understanding voicemail messages: who is speaking? (Hier ist … = This is …) Who is the message for? What is the problem? (Der Termin fällt aus. = The appointment is cancelled. Ich schaffe es nicht. = I cannot make it.) What should I do? (Bitte rufen Sie zurück. Kommen Sie bitte um zehn.) By when? (Wir sind bis 18 Uhr erreichbar.) ausfallen = not take place. es schaffen = manage it. die Verspätung = delay: someone is late.",
-                "task": "What should Lena do?"
+                "task": "What should Leon do?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Кто звонит? Что случилось? Что нужно сделать? ausfallen = не состоится.",
                 "explanation": "Как понимать сообщения на голосовой почте: кто говорит? (Hier ist … = Это …) Для кого сообщение? В чём проблема? (Der Termin fällt aus. = Приём отменяется. Ich schaffe es nicht. = Я не успеваю.) Что нужно сделать? (Bitte rufen Sie zurück. Kommen Sie bitte um zehn.) До какого времени? (Wir sind bis 18 Uhr erreichbar.) ausfallen = не состояться. es schaffen = успеть, суметь. die Verspätung = опоздание.",
-                "task": "Что должна сделать Lena?"
+                "task": "Что должен сделать Leon?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Хто телефонує? Що сталося? Що треба зробити? ausfallen = не відбудеться.",
                 "explanation": "Як розуміти повідомлення на голосовій пошті: хто говорить? (Hier ist … = Це …) Для кого повідомлення? У чому проблема? (Der Termin fällt aus. = Прийом скасовано. Ich schaffe es nicht. = Я не встигаю.) Що треба зробити? (Bitte rufen Sie zurück. Kommen Sie bitte um zehn.) До котрої години? (Wir sind bis 18 Uhr erreichbar.) ausfallen = не відбутися. es schaffen = встигнути, зуміти. die Verspätung = запізнення.",
-                "task": "Що має зробити Lena?"
+                "task": "Що має зробити Leon?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Kim arıyor? Ne oldu? Ne yapmak gerekiyor? ausfallen = yapılmıyor.",
                 "explanation": "Sesli mesajları anlamak: Kim konuşuyor? (Hier ist … = Ben …) Mesaj kime? Sorun ne? (Der Termin fällt aus. = Randevu iptal. Ich schaffe es nicht. = Yetişemiyorum.) Ne yapmalıyım? (Bitte rufen Sie zurück. Kommen Sie bitte um zehn.) Saat kaça kadar? (Wir sind bis 18 Uhr erreichbar.) ausfallen = yapılmamak. es schaffen = başarmak, yetişmek. die Verspätung = gecikme.",
-                "task": "Lena ne yapmalı?"
+                "task": "Leon ne yapmalı?"
               }
             }
           },
@@ -50448,10 +50448,10 @@
             "exercise_type": "multiple_choice",
             "content": {
               "target_form": [
-                "sie lässt"
+                "er lässt"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Mia … ihr Auto in der Werkstatt reparieren.",
+              "question": "Milan … sein Auto in der Werkstatt reparieren.",
               "options": [
                 "lasst",
                 "lasse",
@@ -50473,25 +50473,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
                 "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
-                "task": "Mia is having her car repaired at the garage."
+                "task": "Milan is having his car repaired at the garage."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
                 "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
-                "task": "Mia ремонтирует машину в автосервисе."
+                "task": "Milan ремонтирует машину в автосервисе."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
                 "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
-                "task": "Mia ремонтує машину в автосервісі."
+                "task": "Milan ремонтує машину в автосервісі."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
                 "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
-                "task": "Mia arabasını serviste tamir ettiriyor."
+                "task": "Milan arabasını serviste tamir ettiriyor."
               }
             }
           },

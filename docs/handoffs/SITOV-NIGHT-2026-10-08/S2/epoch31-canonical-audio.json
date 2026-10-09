@@ -1,0 +1,759 @@
+{
+  "epoch": 31,
+  "sourceBase": "52bc52cc1cf7e38513ce39f4c704abc6834ee867",
+  "aliases": {
+    "sitov-path-review-31:a054896c-401c-551d-a610-78838cc07a1c:0": "Du kommst zum Vorstellungsgespräch und begrüßt den Chef. Was sagst du? Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch.",
+    "sitov-path-review-31:deff0ba9-9c0d-503c-ac49-6875aeb3d5d6:0": "Leon hat heute keine Zeit für Sport. Er würde gern schwimmen gehen.",
+    "sitov-path-review-31:e6cd7bdb-266e-5f8a-a4a1-cc0efdca6e85:0": "Leon findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt? Er findet Rucksäcke praktischer als Taschen.",
+    "sitov-path-review-31:50234931-131f-5d43-abdd-12d5f11434b2:0": "Milan erzählt von seinem Schal. Den hat mir mein Onkel geschenkt.",
+    "sitov-path-review-31:b850f71b-d97f-517d-a125-2bf9614b38fd:0": "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt? Beim Nachbarn.",
+    "sitov-path-review-31:0ec0675a-35b4-52bc-a135-e06164302163:0": "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Leon tun? Er soll seinen Vater am Abend anrufen.",
+    "sitov-path-review-31:33caadca-d684-50f1-a6ac-a21cffb316af:0": "Milan … sein Auto in der Werkstatt reparieren. lässt",
+    "sitov-path-review-31:422ceede-aabe-5361-aa27-2e7678dfc2a0:0": "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deinem Freund Kamil: Tschüs, Kamil!",
+    "sitov-path-review-31:fef593e4-cb75-5ca2-a274-dce04ec8ef91:0": "Du bist Kamil Nowak. Ein Mann fragt: „Wie heißen Sie?“ Ich heiße Kamil Nowak.",
+    "sitov-path-review-31:5df3a866-867b-5221-a586-6aa88b8c9cda:0": "Du stellst zwei Freunde vor. Was sagst du? Das sind Samir und Leon.",
+    "sitov-path-review-31:2c55dd12-c807-51ee-a9cb-63dd534f46be:0": "Tochter",
+    "sitov-path-review-31:2c55dd12-c807-51ee-a9cb-63dd534f46be:1": "Das weibliche Kind eines Vaters ist seine Tochter.",
+    "sitov-path-review-31:85b19e5c-99e3-52a6-a943-e17c16f479c8:0": "Oleh wohnt in Leipzig.",
+    "sitov-path-review-31:574fc990-d5d8-547a-a3cd-dcc875afdd1d:0": "Ein Kunde sucht Käse. Der Verkäufer bietet Hilfe an: „Kann ich Ihnen helfen?“ Wer spricht? der Verkäufer",
+    "sitov-path-review-31:40051675-a208-5509-a2fd-df920c6c9a5b:0": "Der Kunde fragt: „Was kostet der Käse?“ Was sagt der Verkäufer? Zwei Euro zwanzig.",
+    "sitov-path-review-31:81d91c9d-1c20-5b9d-af8d-65aa95e7565c:0": "Der Verkäufer fragt: „Sonst noch etwas?“ Du brauchst nichts mehr. Nein, danke. Das ist alles.",
+    "sitov-path-review-31:0cd053ee-f43c-50a7-a8b0-36a0d460b011:0": "Samir steht am Obststand. Der Verkäufer fragt: „Kann ich Ihnen helfen?“ Ja, ich hätte gern ein Kilo Äpfel.",
+    "sitov-path-review-31:c2ff8dc9-0ee9-5703-a8f9-eb414a9b7961:0": "Der Verkäufer fragt: „Sonst noch etwas?“ Du möchtest noch Eier. Ja, sechs Eier, bitte.",
+    "sitov-path-review-31:773da752-f9bf-5044-a948-92b396ebd16e:0": "Rufst du Oleh an?",
+    "sitov-path-review-31:d4fa715e-799f-58cf-a0e1-c1798e8b08ea:0": "Um sieben Uhr frühstückt Oleh.",
+    "sitov-path-review-31:b088b06b-6140-520c-a242-1ff5689c4688:0": "Oleh hat am Samstag gearbeitet.",
+    "sitov-path-review-31:b19c26ba-95e9-57d1-aeb6-56b014d795a4:0": "Leon sucht seine erste Stelle. Was sagt er? Ich habe noch keine Berufserfahrung.",
+    "sitov-path-review-31:72fd90d9-19f1-52b5-af30-93a51ec820d8:0": "E-Mail: „Lieber Herr Kaya, leider kann Leon heute nicht in die Schule kommen. Er hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanno Lindner“ Warum kommt Leon nicht? Er ist krank.",
+    "sitov-path-review-31:b034ca7d-7550-5ff9-a250-4f1291df8eb4:0": "Wo ist Leon? – Er ist … Freund Milan. bei dem",
+    "sitov-path-review-31:a1f73c83-e017-5cff-ac44-d761c66f746e:0": "Welcher Satz nennt einen Grund? Wir feiern, denn Milan wird 18.",
+    "sitov-path-review-31:553ab5fa-06d0-5455-add7-6a22f02eab50:0": "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Leon und Tom“ Wo ist die Feier nach der Hochzeit? Im Hotel.",
+    "sitov-path-review-31:4f4896ac-70ce-5b30-a924-1db0cc362611:0": "Milan zeigt ein Familienfoto. Das ist Leons Onkel.",
+    "sitov-path-review-31:4e624c26-42a9-50bd-acd0-c1d30325cb8b:0": "Olegs",
+    "sitov-path-review-31:4e624c26-42a9-50bd-acd0-c1d30325cb8b:1": "Der Sohn von Oleg heißt Milan. Olegs Sohn heißt Milan.",
+    "sitov-path-review-31:948fdca0-e443-5184-a1bb-8bd02b9a4bfe:0": "Milan geht nicht zur Party. Er ist müde. → Milan geht nicht zur Party, … weil er müde ist.",
+    "sitov-path-review-31:76ea54c1-c380-5b3a-a898-6a2039353f38:0": "Leon erzählt von seinem Abend. Dann habe ich meinen Bruder angerufen.",
+    "sitov-path-review-31:380353bb-aae1-5746-ab83-8eba1d0cd61f:0": "Wie beginnst du einen Anruf in einer Firma? Guten Tag, hier ist Milan Bondar.",
+    "sitov-path-review-31:46a8c3ac-1525-50c6-ad75-8f4d184e4bfc:0": "Leon steht vor dem Spiegel. Er schminkt sich.",
+    "sitov-path-review-31:b5cca977-3fc3-5584-a793-2cf08a293936:0": "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem? Der Bräutigam ist noch nicht gekommen.",
+    "sitov-path-review-31:5b165ca8-75bc-5a9b-a94b-00eb3e4f1c4c:0": "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Leon nicht bei der Feier? Er ist krank.",
+    "sitov-path-review-31:cd68cc99-87df-578a-a5b2-7b3a9d6c1af7:0": "Nachricht von Leon: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig? Die Trauung hat noch nicht begonnen.",
+    "sitov-path-review-31:a8f34d4d-e7c5-5946-aa8b-79f1a03c0fac:0": "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet. tätig",
+    "sitov-path-review-31:17c6436a-4985-567c-a781-3cc33e5a9dc1:0": "Marchenko",
+    "sitov-path-review-31:17c6436a-4985-567c-a781-3cc33e5a9dc1:1": "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: Marchenko",
+    "sitov-path-review-31:d85bed67-a64c-54d8-a3b0-7bac16710b5b:0": "Oleh stellt sich am Telefon vor. Was ist richtig? Mein Name ist Marchenko.",
+    "sitov-path-review-31:f2d51b6a-0afb-5bcb-a321-06b37b225082:0": "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh. Ja, hier ist Oleh.",
+    "sitov-path-review-31:78fbe0fc-54d5-5ebb-a1bd-48b93eabef16:0": "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig? Oleh ist ledig.",
+    "sitov-path-review-31:465e830d-bd8b-59b3-a979-965ca0399531:0": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Nach der Arbeit kauft er am Nachmittag ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag nach der Arbeit? Er kauft ein und kocht.",
+    "sitov-path-review-31:1f819d59-9fc9-5435-a7f0-83e64b76ab03:0": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht? Selim",
+    "sitov-path-review-31:53e0e382-9f60-5574-a29d-01727939ac9a:0": "Kamil erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meinen Bruder getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kamil in Warschau gemacht? Er hat seinen Bruder getroffen.",
+    "sitov-path-review-31:8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba:0": "Oleg erzählt von einem neuen Freund. Wir haben Leon in Köln kennengelernt."
+  },
+  "changedAliases": {
+    "sitov-path-review-31:a054896c-401c-551d-a610-78838cc07a1c:0": "Du kommst zum Vorstellungsgespräch und begrüßt den Chef. Was sagst du? Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch.",
+    "sitov-path-review-31:deff0ba9-9c0d-503c-ac49-6875aeb3d5d6:0": "Leon hat heute keine Zeit für Sport. Er würde gern schwimmen gehen.",
+    "sitov-path-review-31:e6cd7bdb-266e-5f8a-a4a1-cc0efdca6e85:0": "Leon findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt? Er findet Rucksäcke praktischer als Taschen.",
+    "sitov-path-review-31:50234931-131f-5d43-abdd-12d5f11434b2:0": "Milan erzählt von seinem Schal. Den hat mir mein Onkel geschenkt.",
+    "sitov-path-review-31:b850f71b-d97f-517d-a125-2bf9614b38fd:0": "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt? Beim Nachbarn.",
+    "sitov-path-review-31:0ec0675a-35b4-52bc-a135-e06164302163:0": "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Leon tun? Er soll seinen Vater am Abend anrufen.",
+    "sitov-path-review-31:33caadca-d684-50f1-a6ac-a21cffb316af:0": "Milan … sein Auto in der Werkstatt reparieren. lässt",
+    "sitov-path-review-31:422ceede-aabe-5361-aa27-2e7678dfc2a0:0": "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deinem Freund Kamil: Tschüs, Kamil!",
+    "sitov-path-review-31:fef593e4-cb75-5ca2-a274-dce04ec8ef91:0": "Du bist Kamil Nowak. Ein Mann fragt: „Wie heißen Sie?“ Ich heiße Kamil Nowak.",
+    "sitov-path-review-31:5df3a866-867b-5221-a586-6aa88b8c9cda:0": "Du stellst zwei Freunde vor. Was sagst du? Das sind Samir und Leon.",
+    "sitov-path-review-31:2c55dd12-c807-51ee-a9cb-63dd534f46be:1": "Das weibliche Kind eines Vaters ist seine Tochter.",
+    "sitov-path-review-31:85b19e5c-99e3-52a6-a943-e17c16f479c8:0": "Oleh wohnt in Leipzig.",
+    "sitov-path-review-31:574fc990-d5d8-547a-a3cd-dcc875afdd1d:0": "Ein Kunde sucht Käse. Der Verkäufer bietet Hilfe an: „Kann ich Ihnen helfen?“ Wer spricht? der Verkäufer",
+    "sitov-path-review-31:40051675-a208-5509-a2fd-df920c6c9a5b:0": "Der Kunde fragt: „Was kostet der Käse?“ Was sagt der Verkäufer? Zwei Euro zwanzig.",
+    "sitov-path-review-31:81d91c9d-1c20-5b9d-af8d-65aa95e7565c:0": "Der Verkäufer fragt: „Sonst noch etwas?“ Du brauchst nichts mehr. Nein, danke. Das ist alles.",
+    "sitov-path-review-31:0cd053ee-f43c-50a7-a8b0-36a0d460b011:0": "Samir steht am Obststand. Der Verkäufer fragt: „Kann ich Ihnen helfen?“ Ja, ich hätte gern ein Kilo Äpfel.",
+    "sitov-path-review-31:c2ff8dc9-0ee9-5703-a8f9-eb414a9b7961:0": "Der Verkäufer fragt: „Sonst noch etwas?“ Du möchtest noch Eier. Ja, sechs Eier, bitte.",
+    "sitov-path-review-31:773da752-f9bf-5044-a948-92b396ebd16e:0": "Rufst du Oleh an?",
+    "sitov-path-review-31:d4fa715e-799f-58cf-a0e1-c1798e8b08ea:0": "Um sieben Uhr frühstückt Oleh.",
+    "sitov-path-review-31:b088b06b-6140-520c-a242-1ff5689c4688:0": "Oleh hat am Samstag gearbeitet.",
+    "sitov-path-review-31:b19c26ba-95e9-57d1-aeb6-56b014d795a4:0": "Leon sucht seine erste Stelle. Was sagt er? Ich habe noch keine Berufserfahrung.",
+    "sitov-path-review-31:72fd90d9-19f1-52b5-af30-93a51ec820d8:0": "E-Mail: „Lieber Herr Kaya, leider kann Leon heute nicht in die Schule kommen. Er hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanno Lindner“ Warum kommt Leon nicht? Er ist krank.",
+    "sitov-path-review-31:b034ca7d-7550-5ff9-a250-4f1291df8eb4:0": "Wo ist Leon? – Er ist … Freund Milan. bei dem",
+    "sitov-path-review-31:a1f73c83-e017-5cff-ac44-d761c66f746e:0": "Welcher Satz nennt einen Grund? Wir feiern, denn Milan wird 18.",
+    "sitov-path-review-31:553ab5fa-06d0-5455-add7-6a22f02eab50:0": "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Leon und Tom“ Wo ist die Feier nach der Hochzeit? Im Hotel.",
+    "sitov-path-review-31:4f4896ac-70ce-5b30-a924-1db0cc362611:0": "Milan zeigt ein Familienfoto. Das ist Leons Onkel.",
+    "sitov-path-review-31:4e624c26-42a9-50bd-acd0-c1d30325cb8b:0": "Olegs",
+    "sitov-path-review-31:4e624c26-42a9-50bd-acd0-c1d30325cb8b:1": "Der Sohn von Oleg heißt Milan. Olegs Sohn heißt Milan.",
+    "sitov-path-review-31:948fdca0-e443-5184-a1bb-8bd02b9a4bfe:0": "Milan geht nicht zur Party. Er ist müde. → Milan geht nicht zur Party, … weil er müde ist.",
+    "sitov-path-review-31:76ea54c1-c380-5b3a-a898-6a2039353f38:0": "Leon erzählt von seinem Abend. Dann habe ich meinen Bruder angerufen.",
+    "sitov-path-review-31:380353bb-aae1-5746-ab83-8eba1d0cd61f:0": "Wie beginnst du einen Anruf in einer Firma? Guten Tag, hier ist Milan Bondar.",
+    "sitov-path-review-31:46a8c3ac-1525-50c6-ad75-8f4d184e4bfc:0": "Leon steht vor dem Spiegel. Er schminkt sich.",
+    "sitov-path-review-31:b5cca977-3fc3-5584-a793-2cf08a293936:0": "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem? Der Bräutigam ist noch nicht gekommen.",
+    "sitov-path-review-31:5b165ca8-75bc-5a9b-a94b-00eb3e4f1c4c:0": "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Leon nicht bei der Feier? Er ist krank.",
+    "sitov-path-review-31:cd68cc99-87df-578a-a5b2-7b3a9d6c1af7:0": "Nachricht von Leon: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig? Die Trauung hat noch nicht begonnen.",
+    "sitov-path-review-31:f2d51b6a-0afb-5bcb-a321-06b37b225082:0": "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh. Ja, hier ist Oleh.",
+    "sitov-path-review-31:78fbe0fc-54d5-5ebb-a1bd-48b93eabef16:0": "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig? Oleh ist ledig.",
+    "sitov-path-review-31:465e830d-bd8b-59b3-a979-965ca0399531:0": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Nach der Arbeit kauft er am Nachmittag ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag nach der Arbeit? Er kauft ein und kocht.",
+    "sitov-path-review-31:1f819d59-9fc9-5435-a7f0-83e64b76ab03:0": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht? Selim",
+    "sitov-path-review-31:53e0e382-9f60-5574-a29d-01727939ac9a:0": "Kamil erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meinen Bruder getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kamil in Warschau gemacht? Er hat seinen Bruder getroffen.",
+    "sitov-path-review-31:8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba:0": "Oleg erzählt von einem neuen Freund. Wir haben Leon in Köln kennengelernt."
+  },
+  "rows": [
+    {
+      "id": "a054896c-401c-551d-a610-78838cc07a1c",
+      "oldPlayerTexts": [
+        "Du kommst zum Vorstellungsgespräch und begrüßt die Chefin. Was sagst du? Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+      ],
+      "newRawPlayerTexts": [
+        "Du kommst zum Vorstellungsgespräch und begrüßt den Chef. Was sagst du? Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Du kommst zum Vorstellungsgespräch und begrüßt den Chef. Was sagst du? Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
+      ],
+      "changedTexts": [
+        "Du kommst zum Vorstellungsgespräch und begrüßt den Chef. Was sagst du? Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
+      ]
+    },
+    {
+      "id": "deff0ba9-9c0d-503c-ac49-6875aeb3d5d6",
+      "oldPlayerTexts": [
+        "Lena hat heute keine Zeit für Sport. Sie würde gern schwimmen gehen."
+      ],
+      "newRawPlayerTexts": [
+        "Leon hat heute keine Zeit für Sport. Er würde gern schwimmen gehen."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Leon hat heute keine Zeit für Sport. Er würde gern schwimmen gehen."
+      ],
+      "changedTexts": [
+        "Leon hat heute keine Zeit für Sport. Er würde gern schwimmen gehen."
+      ]
+    },
+    {
+      "id": "e6cd7bdb-266e-5f8a-a4a1-cc0efdca6e85",
+      "oldPlayerTexts": [
+        "Lena findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt? Sie findet Rucksäcke praktischer als Taschen."
+      ],
+      "newRawPlayerTexts": [
+        "Leon findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt? Er findet Rucksäcke praktischer als Taschen."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Leon findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt? Er findet Rucksäcke praktischer als Taschen."
+      ],
+      "changedTexts": [
+        "Leon findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt? Er findet Rucksäcke praktischer als Taschen."
+      ]
+    },
+    {
+      "id": "50234931-131f-5d43-abdd-12d5f11434b2",
+      "oldPlayerTexts": [
+        "Mia erzählt von ihrem Schal. Den hat mir meine Tante geschenkt."
+      ],
+      "newRawPlayerTexts": [
+        "Milan erzählt von seinem Schal. Den hat mir mein Onkel geschenkt."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Milan erzählt von seinem Schal. Den hat mir mein Onkel geschenkt."
+      ],
+      "changedTexts": [
+        "Milan erzählt von seinem Schal. Den hat mir mein Onkel geschenkt."
+      ]
+    },
+    {
+      "id": "b850f71b-d97f-517d-a125-2bf9614b38fd",
+      "oldPlayerTexts": [
+        "Nachricht auf der Mailbox: „Hallo Lena, hier ist Mama. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen bei der Nachbarin im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt? Bei der Nachbarin."
+      ],
+      "newRawPlayerTexts": [
+        "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt? Beim Nachbarn."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt? Beim Nachbarn."
+      ],
+      "changedTexts": [
+        "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt? Beim Nachbarn."
+      ]
+    },
+    {
+      "id": "0ec0675a-35b4-52bc-a135-e06164302163",
+      "oldPlayerTexts": [
+        "Nachricht auf der Mailbox: „Hallo Lena, hier ist Mama. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen bei der Nachbarin im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Lena tun? Sie soll ihre Mutter am Abend anrufen."
+      ],
+      "newRawPlayerTexts": [
+        "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Leon tun? Er soll seinen Vater am Abend anrufen."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Leon tun? Er soll seinen Vater am Abend anrufen."
+      ],
+      "changedTexts": [
+        "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Leon tun? Er soll seinen Vater am Abend anrufen."
+      ]
+    },
+    {
+      "id": "33caadca-d684-50f1-a6ac-a21cffb316af",
+      "oldPlayerTexts": [
+        "Mia … ihr Auto in der Werkstatt reparieren. lässt"
+      ],
+      "newRawPlayerTexts": [
+        "Milan … sein Auto in der Werkstatt reparieren. lässt"
+      ],
+      "newCanonicalPlayerTexts": [
+        "Milan … sein Auto in der Werkstatt reparieren. lässt"
+      ],
+      "changedTexts": [
+        "Milan … sein Auto in der Werkstatt reparieren. lässt"
+      ]
+    },
+    {
+      "id": "422ceede-aabe-5361-aa27-2e7678dfc2a0",
+      "oldPlayerTexts": [
+        "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deiner Freundin Kasia: Tschüs, Kasia!"
+      ],
+      "newRawPlayerTexts": [
+        "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deinem Freund Kamil: Tschüs, Kamil!"
+      ],
+      "newCanonicalPlayerTexts": [
+        "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deinem Freund Kamil: Tschüs, Kamil!"
+      ],
+      "changedTexts": [
+        "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deinem Freund Kamil: Tschüs, Kamil!"
+      ]
+    },
+    {
+      "id": "fef593e4-cb75-5ca2-a274-dce04ec8ef91",
+      "oldPlayerTexts": [
+        "Du bist Kasia Nowak. Ein Mann fragt: „Wie heißen Sie?“ Ich heiße Kasia Nowak."
+      ],
+      "newRawPlayerTexts": [
+        "Du bist Kamil Nowak. Ein Mann fragt: „Wie heißen Sie?“ Ich heiße Kamil Nowak."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Du bist Kamil Nowak. Ein Mann fragt: „Wie heißen Sie?“ Ich heiße Kamil Nowak."
+      ],
+      "changedTexts": [
+        "Du bist Kamil Nowak. Ein Mann fragt: „Wie heißen Sie?“ Ich heiße Kamil Nowak."
+      ]
+    },
+    {
+      "id": "5df3a866-867b-5221-a586-6aa88b8c9cda",
+      "oldPlayerTexts": [
+        "Du stellst zwei Freunde vor. Was sagst du? Das sind Samir und Lina."
+      ],
+      "newRawPlayerTexts": [
+        "Du stellst zwei Freunde vor. Was sagst du? Das sind Samir und Leon."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Du stellst zwei Freunde vor. Was sagst du? Das sind Samir und Leon."
+      ],
+      "changedTexts": [
+        "Du stellst zwei Freunde vor. Was sagst du? Das sind Samir und Leon."
+      ]
+    },
+    {
+      "id": "2c55dd12-c807-51ee-a9cb-63dd534f46be",
+      "oldPlayerTexts": [
+        "Tochter",
+        "Emre ist der Vater von Deniz und Elif. Elif ist die Tochter von Emre."
+      ],
+      "newRawPlayerTexts": [
+        "Tochter",
+        "Das weibliche Kind eines Vaters ist seine Tochter."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Tochter",
+        "Das weibliche Kind eines Vaters ist seine Tochter."
+      ],
+      "changedTexts": [
+        "Das weibliche Kind eines Vaters ist seine Tochter."
+      ]
+    },
+    {
+      "id": "85b19e5c-99e3-52a6-a943-e17c16f479c8",
+      "oldPlayerTexts": [
+        "Olena wohnt in Leipzig."
+      ],
+      "newRawPlayerTexts": [
+        "Oleh wohnt in Leipzig."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Oleh wohnt in Leipzig."
+      ],
+      "changedTexts": [
+        "Oleh wohnt in Leipzig."
+      ]
+    },
+    {
+      "id": "574fc990-d5d8-547a-a3cd-dcc875afdd1d",
+      "oldPlayerTexts": [
+        "Wer sagt: „Kann ich Ihnen helfen?“ die Verkäuferin"
+      ],
+      "newRawPlayerTexts": [
+        "Ein Kunde sucht Käse. Der Verkäufer bietet Hilfe an: „Kann ich Ihnen helfen?“ Wer spricht? der Verkäufer"
+      ],
+      "newCanonicalPlayerTexts": [
+        "Ein Kunde sucht Käse. Der Verkäufer bietet Hilfe an: „Kann ich Ihnen helfen?“ Wer spricht? der Verkäufer"
+      ],
+      "changedTexts": [
+        "Ein Kunde sucht Käse. Der Verkäufer bietet Hilfe an: „Kann ich Ihnen helfen?“ Wer spricht? der Verkäufer"
+      ]
+    },
+    {
+      "id": "40051675-a208-5509-a2fd-df920c6c9a5b",
+      "oldPlayerTexts": [
+        "Der Kunde fragt: „Was kostet der Käse?“ Was sagt die Verkäuferin? Zwei Euro zwanzig."
+      ],
+      "newRawPlayerTexts": [
+        "Der Kunde fragt: „Was kostet der Käse?“ Was sagt der Verkäufer? Zwei Euro zwanzig."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Der Kunde fragt: „Was kostet der Käse?“ Was sagt der Verkäufer? Zwei Euro zwanzig."
+      ],
+      "changedTexts": [
+        "Der Kunde fragt: „Was kostet der Käse?“ Was sagt der Verkäufer? Zwei Euro zwanzig."
+      ]
+    },
+    {
+      "id": "81d91c9d-1c20-5b9d-af8d-65aa95e7565c",
+      "oldPlayerTexts": [
+        "Die Verkäuferin fragt: „Sonst noch etwas?“ Du brauchst nichts mehr. Nein, danke. Das ist alles."
+      ],
+      "newRawPlayerTexts": [
+        "Der Verkäufer fragt: „Sonst noch etwas?“ Du brauchst nichts mehr. Nein, danke. Das ist alles."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Der Verkäufer fragt: „Sonst noch etwas?“ Du brauchst nichts mehr. Nein, danke. Das ist alles."
+      ],
+      "changedTexts": [
+        "Der Verkäufer fragt: „Sonst noch etwas?“ Du brauchst nichts mehr. Nein, danke. Das ist alles."
+      ]
+    },
+    {
+      "id": "0cd053ee-f43c-50a7-a8b0-36a0d460b011",
+      "oldPlayerTexts": [
+        "Samir steht am Obststand. Die Verkäuferin fragt: „Kann ich Ihnen helfen?“ Ja, ich hätte gern ein Kilo Äpfel."
+      ],
+      "newRawPlayerTexts": [
+        "Samir steht am Obststand. Der Verkäufer fragt: „Kann ich Ihnen helfen?“ Ja, ich hätte gern ein Kilo Äpfel."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Samir steht am Obststand. Der Verkäufer fragt: „Kann ich Ihnen helfen?“ Ja, ich hätte gern ein Kilo Äpfel."
+      ],
+      "changedTexts": [
+        "Samir steht am Obststand. Der Verkäufer fragt: „Kann ich Ihnen helfen?“ Ja, ich hätte gern ein Kilo Äpfel."
+      ]
+    },
+    {
+      "id": "c2ff8dc9-0ee9-5703-a8f9-eb414a9b7961",
+      "oldPlayerTexts": [
+        "Die Verkäuferin fragt: „Sonst noch etwas?“ Du möchtest noch Eier. Ja, sechs Eier, bitte."
+      ],
+      "newRawPlayerTexts": [
+        "Der Verkäufer fragt: „Sonst noch etwas?“ Du möchtest noch Eier. Ja, sechs Eier, bitte."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Der Verkäufer fragt: „Sonst noch etwas?“ Du möchtest noch Eier. Ja, sechs Eier, bitte."
+      ],
+      "changedTexts": [
+        "Der Verkäufer fragt: „Sonst noch etwas?“ Du möchtest noch Eier. Ja, sechs Eier, bitte."
+      ]
+    },
+    {
+      "id": "773da752-f9bf-5044-a948-92b396ebd16e",
+      "oldPlayerTexts": [
+        "Rufst du Olena an?"
+      ],
+      "newRawPlayerTexts": [
+        "Rufst du Oleh an?"
+      ],
+      "newCanonicalPlayerTexts": [
+        "Rufst du Oleh an?"
+      ],
+      "changedTexts": [
+        "Rufst du Oleh an?"
+      ]
+    },
+    {
+      "id": "d4fa715e-799f-58cf-a0e1-c1798e8b08ea",
+      "oldPlayerTexts": [
+        "Um sieben Uhr frühstückt Olena."
+      ],
+      "newRawPlayerTexts": [
+        "Um sieben Uhr frühstückt Oleh."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Um sieben Uhr frühstückt Oleh."
+      ],
+      "changedTexts": [
+        "Um sieben Uhr frühstückt Oleh."
+      ]
+    },
+    {
+      "id": "b088b06b-6140-520c-a242-1ff5689c4688",
+      "oldPlayerTexts": [
+        "Olena hat am Samstag gearbeitet."
+      ],
+      "newRawPlayerTexts": [
+        "Oleh hat am Samstag gearbeitet."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Oleh hat am Samstag gearbeitet."
+      ],
+      "changedTexts": [
+        "Oleh hat am Samstag gearbeitet."
+      ]
+    },
+    {
+      "id": "b19c26ba-95e9-57d1-aeb6-56b014d795a4",
+      "oldPlayerTexts": [
+        "Lena sucht ihre erste Stelle. Was sagt sie? Ich habe noch keine Berufserfahrung."
+      ],
+      "newRawPlayerTexts": [
+        "Leon sucht seine erste Stelle. Was sagt er? Ich habe noch keine Berufserfahrung."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Leon sucht seine erste Stelle. Was sagt er? Ich habe noch keine Berufserfahrung."
+      ],
+      "changedTexts": [
+        "Leon sucht seine erste Stelle. Was sagt er? Ich habe noch keine Berufserfahrung."
+      ]
+    },
+    {
+      "id": "72fd90d9-19f1-52b5-af30-93a51ec820d8",
+      "oldPlayerTexts": [
+        "E-Mail: „Liebe Frau Kaya, leider kann Lena heute nicht in die Schule kommen. Sie hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanna Lindner“ Warum kommt Lena nicht? Sie ist krank."
+      ],
+      "newRawPlayerTexts": [
+        "E-Mail: „Lieber Herr Kaya, leider kann Leon heute nicht in die Schule kommen. Er hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanno Lindner“ Warum kommt Leon nicht? Er ist krank."
+      ],
+      "newCanonicalPlayerTexts": [
+        "E-Mail: „Lieber Herr Kaya, leider kann Leon heute nicht in die Schule kommen. Er hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanno Lindner“ Warum kommt Leon nicht? Er ist krank."
+      ],
+      "changedTexts": [
+        "E-Mail: „Lieber Herr Kaya, leider kann Leon heute nicht in die Schule kommen. Er hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanno Lindner“ Warum kommt Leon nicht? Er ist krank."
+      ]
+    },
+    {
+      "id": "b034ca7d-7550-5ff9-a250-4f1291df8eb4",
+      "oldPlayerTexts": [
+        "Wo ist Lena? – Sie ist … Freundin Mia. bei der"
+      ],
+      "newRawPlayerTexts": [
+        "Wo ist Leon? – Er ist … Freund Milan. bei dem"
+      ],
+      "newCanonicalPlayerTexts": [
+        "Wo ist Leon? – Er ist … Freund Milan. bei dem"
+      ],
+      "changedTexts": [
+        "Wo ist Leon? – Er ist … Freund Milan. bei dem"
+      ]
+    },
+    {
+      "id": "a1f73c83-e017-5cff-ac44-d761c66f746e",
+      "oldPlayerTexts": [
+        "Welcher Satz nennt einen Grund? Wir feiern, denn Mia wird 18."
+      ],
+      "newRawPlayerTexts": [
+        "Welcher Satz nennt einen Grund? Wir feiern, denn Milan wird 18."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Welcher Satz nennt einen Grund? Wir feiern, denn Milan wird 18."
+      ],
+      "changedTexts": [
+        "Welcher Satz nennt einen Grund? Wir feiern, denn Milan wird 18."
+      ]
+    },
+    {
+      "id": "553ab5fa-06d0-5455-add7-6a22f02eab50",
+      "oldPlayerTexts": [
+        "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Lena und Tom“ Wo ist die Feier nach der Hochzeit? Im Hotel."
+      ],
+      "newRawPlayerTexts": [
+        "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Leon und Tom“ Wo ist die Feier nach der Hochzeit? Im Hotel."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Leon und Tom“ Wo ist die Feier nach der Hochzeit? Im Hotel."
+      ],
+      "changedTexts": [
+        "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Leon und Tom“ Wo ist die Feier nach der Hochzeit? Im Hotel."
+      ]
+    },
+    {
+      "id": "4f4896ac-70ce-5b30-a924-1db0cc362611",
+      "oldPlayerTexts": [
+        "Mia zeigt ein Familienfoto. Das ist Lenas Onkel."
+      ],
+      "newRawPlayerTexts": [
+        "Milan zeigt ein Familienfoto. Das ist Leons Onkel."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Milan zeigt ein Familienfoto. Das ist Leons Onkel."
+      ],
+      "changedTexts": [
+        "Milan zeigt ein Familienfoto. Das ist Leons Onkel."
+      ]
+    },
+    {
+      "id": "4e624c26-42a9-50bd-acd0-c1d30325cb8b",
+      "oldPlayerTexts": [
+        "Olgas",
+        "Die Tochter von Olga heißt Mia. Olgas Tochter heißt Mia."
+      ],
+      "newRawPlayerTexts": [
+        "Olegs",
+        "Der Sohn von Oleg heißt Milan. Olegs Sohn heißt Milan."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Olegs",
+        "Der Sohn von Oleg heißt Milan. Olegs Sohn heißt Milan."
+      ],
+      "changedTexts": [
+        "Olegs",
+        "Der Sohn von Oleg heißt Milan. Olegs Sohn heißt Milan."
+      ]
+    },
+    {
+      "id": "948fdca0-e443-5184-a1bb-8bd02b9a4bfe",
+      "oldPlayerTexts": [
+        "Mia geht nicht zur Party. Sie ist müde. → Mia geht nicht zur Party, … weil sie müde ist."
+      ],
+      "newRawPlayerTexts": [
+        "Milan geht nicht zur Party. Er ist müde. → Milan geht nicht zur Party, … weil er müde ist."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Milan geht nicht zur Party. Er ist müde. → Milan geht nicht zur Party, … weil er müde ist."
+      ],
+      "changedTexts": [
+        "Milan geht nicht zur Party. Er ist müde. → Milan geht nicht zur Party, … weil er müde ist."
+      ]
+    },
+    {
+      "id": "76ea54c1-c380-5b3a-a898-6a2039353f38",
+      "oldPlayerTexts": [
+        "Lena erzählt von ihrem Abend. Dann habe ich meine Schwester angerufen."
+      ],
+      "newRawPlayerTexts": [
+        "Leon erzählt von seinem Abend. Dann habe ich meinen Bruder angerufen."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Leon erzählt von seinem Abend. Dann habe ich meinen Bruder angerufen."
+      ],
+      "changedTexts": [
+        "Leon erzählt von seinem Abend. Dann habe ich meinen Bruder angerufen."
+      ]
+    },
+    {
+      "id": "380353bb-aae1-5746-ab83-8eba1d0cd61f",
+      "oldPlayerTexts": [
+        "Wie beginnst du einen Anruf in einer Firma? Guten Tag, hier ist Mia Bondar."
+      ],
+      "newRawPlayerTexts": [
+        "Wie beginnst du einen Anruf in einer Firma? Guten Tag, hier ist Milan Bondar."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Wie beginnst du einen Anruf in einer Firma? Guten Tag, hier ist Milan Bondar."
+      ],
+      "changedTexts": [
+        "Wie beginnst du einen Anruf in einer Firma? Guten Tag, hier ist Milan Bondar."
+      ]
+    },
+    {
+      "id": "46a8c3ac-1525-50c6-ad75-8f4d184e4bfc",
+      "oldPlayerTexts": [
+        "Lena steht vor dem Spiegel. Sie schminkt sich."
+      ],
+      "newRawPlayerTexts": [
+        "Leon steht vor dem Spiegel. Er schminkt sich."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Leon steht vor dem Spiegel. Er schminkt sich."
+      ],
+      "changedTexts": [
+        "Leon steht vor dem Spiegel. Er schminkt sich."
+      ]
+    },
+    {
+      "id": "b5cca977-3fc3-5584-a793-2cf08a293936",
+      "oldPlayerTexts": [
+        "Nachrichten von Mia: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Die Braut ist noch nicht da! – 11.05 Uhr: Sie ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem? Die Braut ist noch nicht gekommen."
+      ],
+      "newRawPlayerTexts": [
+        "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem? Der Bräutigam ist noch nicht gekommen."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem? Der Bräutigam ist noch nicht gekommen."
+      ],
+      "changedTexts": [
+        "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem? Der Bräutigam ist noch nicht gekommen."
+      ]
+    },
+    {
+      "id": "5b165ca8-75bc-5a9b-a94b-00eb3e4f1c4c",
+      "oldPlayerTexts": [
+        "Nachricht von Samir an Lena: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Lena nicht bei der Feier? Sie ist krank."
+      ],
+      "newRawPlayerTexts": [
+        "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Leon nicht bei der Feier? Er ist krank."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Leon nicht bei der Feier? Er ist krank."
+      ],
+      "changedTexts": [
+        "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Leon nicht bei der Feier? Er ist krank."
+      ]
+    },
+    {
+      "id": "cd68cc99-87df-578a-a5b2-7b3a9d6c1af7",
+      "oldPlayerTexts": [
+        "Nachricht von Lena: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig? Die Trauung hat noch nicht begonnen."
+      ],
+      "newRawPlayerTexts": [
+        "Nachricht von Leon: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig? Die Trauung hat noch nicht begonnen."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Nachricht von Leon: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig? Die Trauung hat noch nicht begonnen."
+      ],
+      "changedTexts": [
+        "Nachricht von Leon: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig? Die Trauung hat noch nicht begonnen."
+      ]
+    },
+    {
+      "id": "a8f34d4d-e7c5-5946-aa8b-79f1a03c0fac",
+      "oldPlayerTexts": [
+        "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet. tätig"
+      ],
+      "newRawPlayerTexts": [
+        "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet. tätig"
+      ],
+      "newCanonicalPlayerTexts": [
+        "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet. tätig"
+      ],
+      "changedTexts": []
+    },
+    {
+      "id": "17c6436a-4985-567c-a781-3cc33e5a9dc1",
+      "oldPlayerTexts": [
+        "Marchenko",
+        "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: Marchenko"
+      ],
+      "newRawPlayerTexts": [
+        "Marchenko",
+        "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: Marchenko"
+      ],
+      "newCanonicalPlayerTexts": [
+        "Marchenko",
+        "Ich heiße Oleh Marchenko. Ich komme aus Lwiw, aus der Ukraine. Formular: Familienname: Marchenko"
+      ],
+      "changedTexts": []
+    },
+    {
+      "id": "d85bed67-a64c-54d8-a3b0-7bac16710b5b",
+      "oldPlayerTexts": [
+        "Oleh stellt sich am Telefon vor. Was ist richtig? Mein Name ist Marchenko."
+      ],
+      "newRawPlayerTexts": [
+        "Oleh stellt sich am Telefon vor. Was ist richtig? Mein Name ist Marchenko."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Oleh stellt sich am Telefon vor. Was ist richtig? Mein Name ist Marchenko."
+      ],
+      "changedTexts": []
+    },
+    {
+      "id": "f2d51b6a-0afb-5bcb-a321-06b37b225082",
+      "oldPlayerTexts": [
+        "Am Telefon fragt eine Frau: „Ist Olena da?“ Du bist Olena. Ja, hier ist Olena."
+      ],
+      "newRawPlayerTexts": [
+        "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh. Ja, hier ist Oleh."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh. Ja, hier ist Oleh."
+      ],
+      "changedTexts": [
+        "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh. Ja, hier ist Oleh."
+      ]
+    },
+    {
+      "id": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+      "oldPlayerTexts": [
+        "Olena ist 29 Jahre alt. Sie ist nicht verheiratet und nicht geschieden. Sie hat keine Kinder. Was ist richtig? Olena ist ledig."
+      ],
+      "newRawPlayerTexts": [
+        "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig? Oleh ist ledig."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig? Oleh ist ledig."
+      ],
+      "changedTexts": [
+        "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig? Oleh ist ledig."
+      ]
+    },
+    {
+      "id": "465e830d-bd8b-59b3-a979-965ca0399531",
+      "oldPlayerTexts": [
+        "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Was macht Olena am Nachmittag? Sie kauft ein und kocht."
+      ],
+      "newRawPlayerTexts": [
+        "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Nach der Arbeit kauft er am Nachmittag ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag nach der Arbeit? Er kauft ein und kocht."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Nach der Arbeit kauft er am Nachmittag ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag nach der Arbeit? Er kauft ein und kocht."
+      ],
+      "changedTexts": [
+        "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Nach der Arbeit kauft er am Nachmittag ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag nach der Arbeit? Er kauft ein und kocht."
+      ]
+    },
+    {
+      "id": "1f819d59-9fc9-5435-a7f0-83e64b76ab03",
+      "oldPlayerTexts": [
+        "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht? Selin"
+      ],
+      "newRawPlayerTexts": [
+        "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht? Selim"
+      ],
+      "newCanonicalPlayerTexts": [
+        "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht? Selim"
+      ],
+      "changedTexts": [
+        "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht? Selim"
+      ]
+    },
+    {
+      "id": "53e0e382-9f60-5574-a29d-01727939ac9a",
+      "oldPlayerTexts": [
+        "Kasia erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meine Schwester getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kasia in Warschau gemacht? Sie hat ihre Schwester getroffen."
+      ],
+      "newRawPlayerTexts": [
+        "Kamil erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meinen Bruder getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kamil in Warschau gemacht? Er hat seinen Bruder getroffen."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Kamil erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meinen Bruder getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kamil in Warschau gemacht? Er hat seinen Bruder getroffen."
+      ],
+      "changedTexts": [
+        "Kamil erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meinen Bruder getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kamil in Warschau gemacht? Er hat seinen Bruder getroffen."
+      ]
+    },
+    {
+      "id": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+      "oldPlayerTexts": [
+        "Olga erzählt von einer neuen Freundin. Wir haben Lena in Köln kennengelernt."
+      ],
+      "newRawPlayerTexts": [
+        "Oleg erzählt von einem neuen Freund. Wir haben Leon in Köln kennengelernt."
+      ],
+      "newCanonicalPlayerTexts": [
+        "Oleg erzählt von einem neuen Freund. Wir haben Leon in Köln kennengelernt."
+      ],
+      "changedTexts": [
+        "Oleg erzählt von einem neuen Freund. Wir haben Leon in Köln kennengelernt."
+      ]
+    }
+  ],
+  "all10SchemaValidatedExercises": 9569,
+  "cardAudio": {
+    "consumed": false,
+    "source": "components/learning-path/RuleCard.tsx",
+    "reason": "Render-only component; no audio control or adapter invocation. Rules/examples excluded from canonical audio aliases."
+  },
+  "extractorHashes": {
+    "scripts/sitov-audio-catalog.ts": "a8b1643dfc2b4a9ea5a59f4f87383ff554075b99dc37b068dc2b3c1cd5bc6ea1",
+    "lib/audio/prepared-content.ts": "9d8baa5a3acba832cf18ba68b2fd13d3821997b364fbad9c565bed79c7c0aa3c",
+    "lib/audio/neural-config.ts": "95a57cc406f37b95f1d7118e6f84b1a47cf0fdd8399657519829dcc726c0dd57",
+    "supabase/vps/71_sitov_prepared_learning_publication.sql": "ce97207a48621311bd99554ae4e9197fb072fbf214b1d11d03bdbc940c4956b0",
+    "components/learning-path/RuleCard.tsx": "0bdc2cb16712cfcc90a086d5a20441a2a4436bf4aa08374e255d29cac601fcb0"
+  }
+}

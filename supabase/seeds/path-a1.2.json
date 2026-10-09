@@ -2179,11 +2179,11 @@
                 "Berufserfahrung"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena sucht ihre erste Stelle. Was sagt sie?",
+              "question": "Leon sucht seine erste Stelle. Was sagt er?",
               "options": [
                 "Ich habe noch keine Berufserfahrung.",
                 "Ich hatte viele Jahre Arbeit.",
-                "Ich war zehn Jahre Chefin."
+                "Ich war zehn Jahre Chef."
               ],
               "correct_answer": "Ich habe noch keine Berufserfahrung.",
               "accepted_answers": [
@@ -2201,25 +2201,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Then = past: war, hatte. Now = present: bin, habe.",
                 "explanation": "Talking about work experience: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (a lot of fun). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. No experience yet? Ich habe noch keine Berufserfahrung.",
-                "task": "Lena is looking for her first job. What does she say?"
+                "task": "Leon is looking for his first job. What does he say?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Раньше = прошедшее время: war, hatte. Сегодня = настоящее: bin, habe.",
                 "explanation": "Как говорить об опыте работы: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (много удовольствия). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Ещё нет опыта? Ich habe noch keine Berufserfahrung.",
-                "task": "Lena ищет свою первую работу. Что она говорит?"
+                "task": "Leon ищет свою первую работу. Что он говорит?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Раніше = минулий час: war, hatte. Сьогодні = теперішній: bin, habe.",
                 "explanation": "Як говорити про досвід роботи: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (багато задоволення). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Ще немає досвіду? Ich habe noch keine Berufserfahrung.",
-                "task": "Lena шукає свою першу роботу. Що вона каже?"
+                "task": "Leon шукає свою першу роботу. Що він каже?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Eskiden = geçmiş zaman: war, hatte. Bugün = şimdiki zaman: bin, habe.",
                 "explanation": "İş deneyiminden söz etme: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (çok keyif). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Henüz deneyim yok mu? Ich habe noch keine Berufserfahrung.",
-                "task": "Lena ilk işini arıyor. Ne diyor?"
+                "task": "Leon ilk işini arıyor. Ne diyor?"
               }
             }
           },
@@ -19060,7 +19060,7 @@
           "examples": [
             "Leider kann ich heute nicht zum Deutschkurs kommen.",
             "Ich habe Fieber und muss im Bett bleiben.",
-            "Bitte informieren Sie auch Frau Lindner."
+            "Bitte informieren Sie auch Herrn Lindner."
           ],
           "highlight": null,
           "translations": {
@@ -22300,19 +22300,19 @@
                 "Krankmeldung lesen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "E-Mail: „Liebe Frau Kaya, leider kann Lena heute nicht in die Schule kommen. Sie hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanna Lindner“ Warum kommt Lena nicht?",
+              "question": "E-Mail: „Lieber Herr Kaya, leider kann Leon heute nicht in die Schule kommen. Er hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanno Lindner“ Warum kommt Leon nicht?",
               "options": [
-                "Sie hat keine Lust.",
-                "Sie ist krank.",
-                "Sie ist beim Arzt."
+                "Er hat keine Lust.",
+                "Er ist krank.",
+                "Er ist beim Arzt."
               ],
-              "correct_answer": "Sie ist krank.",
+              "correct_answer": "Er ist krank.",
               "accepted_answers": [
-                "Sie ist krank."
+                "Er ist krank."
               ]
             },
             "accepted_answers": [
-              "Sie ist krank."
+              "Er ist krank."
             ],
             "hint": "In der Krankmeldung steht: Wer? Warum nicht? Wie lange?",
             "explanation": "Krankmeldung schreiben: Anrede: Sehr geehrte Frau … / Sehr geehrter Herr … Grund: Leider bin ich krank. Ich kann heute nicht in die Firma kommen. Dauer: Ich bin bis Freitag krank. Bitte: Bitte informieren Sie auch Herrn Wolf. Gruß: Mit freundlichen Grüßen.",
@@ -22322,25 +22322,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "A sick note says: who? why not? how long?",
                 "explanation": "Writing a sick note: salutation: Sehr geehrte Frau … / Sehr geehrter Herr … Reason: Leider bin ich krank (unfortunately I am ill). Ich kann heute nicht in die Firma kommen. Duration: Ich bin bis Freitag krank. Request: Bitte informieren Sie auch Herrn Wolf. Closing: Mit freundlichen Grüßen.",
-                "task": "Why isn’t Lena coming?"
+                "task": "Why isn’t Leon coming?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "В сообщении о болезни есть: кто? почему не придёт? как долго?",
                 "explanation": "Как сообщить о болезни письменно: обращение: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (к сожалению, я болею). Ich kann heute nicht in die Firma kommen. Срок: Ich bin bis Freitag krank. Просьба: Bitte informieren Sie auch Herrn Wolf. В конце: Mit freundlichen Grüßen.",
-                "task": "Почему Lena не придёт?"
+                "task": "Почему Leon не придёт?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "У повідомленні про хворобу є: хто? чому не прийде? як довго?",
                 "explanation": "Як повідомити про хворобу письмово: звертання: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (на жаль, я хворію). Ich kann heute nicht in die Firma kommen. Термін: Ich bin bis Freitag krank. Прохання: Bitte informieren Sie auch Herrn Wolf. У кінці: Mit freundlichen Grüßen.",
-                "task": "Чому Lena не прийде?"
+                "task": "Чому Leon не прийде?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Hastalık bildiriminde şunlar yazar: Kim? Neden gelemiyor? Ne kadar süre?",
                 "explanation": "Hastalık bildirimi yazma: Hitap: Sehr geehrte Frau … / Sehr geehrter Herr … Neden: Leider bin ich krank (maalesef hastayım). Ich kann heute nicht in die Firma kommen. Süre: Ich bin bis Freitag krank. Rica: Bitte informieren Sie auch Herrn Wolf. Kapanış: Mit freundlichen Grüßen.",
-                "task": "Lena neden gelmiyor?"
+                "task": "Leon neden gelmiyor?"
               }
             }
           },
@@ -25014,7 +25014,7 @@
           "examples": [
             "Emre ist beim Zahnarzt.",
             "Die Kinder sind im Kindergarten.",
-            "Meine Schwester wohnt in der Schweiz."
+            "Mein Bruder wohnt in der Schweiz."
           ],
           "highlight": null,
           "translations": {
@@ -29626,19 +29626,19 @@
                 "bei + Person"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Wo ist Lena? – Sie ist … Freundin Mia.",
+              "question": "Wo ist Leon? – Er ist … Freund Milan.",
               "options": [
-                "bei der",
-                "zur",
-                "in die"
+                "bei dem",
+                "zum",
+                "in den"
               ],
-              "correct_answer": "bei der",
+              "correct_answer": "bei dem",
               "accepted_answers": [
-                "bei der"
+                "bei dem"
               ]
             },
             "accepted_answers": [
-              "bei der"
+              "bei dem"
             ],
             "hint": "Person → bei. Ort oder Haus → in. in + dem = im, bei + dem = beim.",
             "explanation": "Wo ist jemand? Person: bei + Dativ → beim Arzt, bei der Freundin, bei Walter. Haus, Ort, Geschäft: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Land und Stadt: in Österreich, in Wien, aber: in der Schweiz, in der Türkei, in den USA. Kurzformen: an + dem = am, bei + dem = beim, in + dem = im. Achtung: Ich bin zu Hause.",
@@ -29648,25 +29648,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Person → bei. Place or building → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Where is someone? A person: bei + dative → beim Arzt (at the doctor’s), bei der Freundin, bei Walter. Building, place, shop: in + dative → im Kindergarten, im Kino, in der Apotheke. Country and city: in Österreich, in Wien, but: in der Schweiz, in der Türkei, in den USA. Short forms: an + dem = am, bei + dem = beim, in + dem = im. Careful: Ich bin zu Hause (I am at home).",
-                "task": "Where is Lena? – She is at her friend Mia’s."
+                "task": "Where is Leon? – He is at his friend Milan’s."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Человек → bei. Место или здание → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Где находится человек? У кого-то: bei + Dativ → beim Arzt (у врача), bei der Freundin, bei Walter. Здание, место, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Страна и город: in Österreich, in Wien, но: in der Schweiz, in der Türkei, in den USA. Краткие формы: an + dem = am, bei + dem = beim, in + dem = im. Внимание: Ich bin zu Hause (я дома).",
-                "task": "Где Lena? – Она у подруги Mia."
+                "task": "Где Leon? – Он у друга Milan."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Людина → bei. Місце або будівля → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Де перебуває людина? У когось: bei + Dativ → beim Arzt (у лікаря), bei der Freundin, bei Walter. Будівля, місце, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Країна й місто: in Österreich, in Wien, але: in der Schweiz, in der Türkei, in den USA. Короткі форми: an + dem = am, bei + dem = beim, in + dem = im. Увага: Ich bin zu Hause (я вдома).",
-                "task": "Де Lena? – Вона в подруги Mia."
+                "task": "Де Leon? – Він у друга Milan."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kişi → bei. Yer ya da bina → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Biri nerede? Kişi: bei + Dativ → beim Arzt (doktorda), bei der Freundin, bei Walter. Bina, yer, dükkân: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Ülke ve şehir: in Österreich, in Wien, ama: in der Schweiz, in der Türkei, in den USA. Kısa biçimler: an + dem = am, bei + dem = beim, in + dem = im. Dikkat: Ich bin zu Hause (evdeyim).",
-                "task": "Lena nerede? – Arkadaşı Mia’da."
+                "task": "Leon nerede? – Arkadaşı Milan’da."
               }
             }
           },
@@ -51104,17 +51104,17 @@
               "instruction": "Wähle die richtige Antwort.",
               "question": "Welcher Satz nennt einen Grund?",
               "options": [
-                "Wir feiern, denn Mia wird 18.",
-                "Wir feiern, aber Mia ist müde.",
-                "Wir feiern und Mia tanzt."
+                "Wir feiern, denn Milan wird 18.",
+                "Wir feiern, aber Milan ist müde.",
+                "Wir feiern und Milan tanzt."
               ],
-              "correct_answer": "Wir feiern, denn Mia wird 18.",
+              "correct_answer": "Wir feiern, denn Milan wird 18.",
               "accepted_answers": [
-                "Wir feiern, denn Mia wird 18."
+                "Wir feiern, denn Milan wird 18."
               ]
             },
             "accepted_answers": [
-              "Wir feiern, denn Mia wird 18."
+              "Wir feiern, denn Milan wird 18."
             ],
             "hint": "Ein Grund → denn. Ein Gegensatz → aber. Zwei Möglichkeiten → oder.",
             "explanation": "denn = ein Grund. denn verbindet zwei Hauptsätze. Vor denn steht ein Komma. Nach denn bleibt die Wortstellung normal: Subjekt, dann Verb. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
@@ -54226,9 +54226,9 @@
                 "Einladung lesen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Lena und Tom“ Wo ist die Feier nach der Hochzeit?",
+              "question": "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Leon und Tom“ Wo ist die Feier nach der Hochzeit?",
               "options": [
-                "Bei Lena zu Hause.",
+                "Bei Leon zu Hause.",
                 "Im Rathaus.",
                 "Im Hotel."
               ],

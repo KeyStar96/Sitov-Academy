@@ -41265,19 +41265,19 @@
                 "Begrüßung im Gespräch"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du kommst zum Vorstellungsgespräch und begrüßt die Chefin. Was sagst du?",
+              "question": "Du kommst zum Vorstellungsgespräch und begrüßt den Chef. Was sagst du?",
               "options": [
                 "Oh, ich muss jetzt leider los.",
                 "Hallo, wie läuft es denn so?",
-                "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+                "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
               ],
-              "correct_answer": "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.",
+              "correct_answer": "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch.",
               "accepted_answers": [
-                "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+                "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
               ]
             },
             "accepted_answers": [
-              "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch."
+              "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
             ],
             "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig. Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
             "explanation": "Über die eigene Arbeit sprechen – auch im Vorstellungsgespräch: Ich bin Mechaniker von Beruf. Ich habe eine Ausbildung als Friseur gemacht. Davor habe ich als Kellner in einem Hotel gearbeitet. Ich war im Verkauf / im Lager tätig. Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. Zu Beginn: Vielen Dank für die Einladung zum Gespräch.",
@@ -41293,13 +41293,13 @@
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (работал в продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
                 "explanation": "Как говорить о своей работе – в том числе на собеседовании: Ich bin Mechaniker von Beruf. (По профессии я механик.) Ich habe eine Ausbildung als Friseur gemacht. (Я выучился на парикмахера.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До этого я работал официантом в отеле.) Ich war im Verkauf / im Lager tätig. (Я работал в продажах / на складе.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я отвечал за заказы). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. В начале: Vielen Dank für die Einladung zum Gespräch. (Большое спасибо за приглашение на собеседование.)",
-                "task": "Вы приходите на собеседование и здороваетесь с начальницей. Что вы скажете?"
+                "task": "Вы приходите на собеседование и здороваетесь с начальником. Что вы скажете?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Ich bin … von Beruf. Ich war im Verkauf tätig (працював у продажах). Ich war für … zuständig. Ich habe ein Praktikum bei … gemacht.",
                 "explanation": "Як говорити про свою роботу – зокрема на співбесіді: Ich bin Mechaniker von Beruf. (За фахом я механік.) Ich habe eine Ausbildung als Friseur gemacht. (Я вивчився на перукаря.) Davor habe ich als Kellner in einem Hotel gearbeitet. (До того я працював офіціантом у готелі.) Ich war im Verkauf / im Lager tätig. (Я працював у продажах / на складі.) Dort war ich für die Bestellungen zuständig (zuständig für + Akkusativ: там я відповідав за замовлення). Ich beende gerade meinen Deutschkurs. Ich habe ein Praktikum bei einer Autofirma gemacht. Ich habe leider noch keine Berufserfahrung. На початку: Vielen Dank für die Einladung zum Gespräch. (Щиро дякую за запрошення на співбесіду.)",
-                "task": "Ви приходите на співбесіду і вітаєтеся з начальницею. Що ви скажете?"
+                "task": "Ви приходите на співбесіду і вітаєтеся з начальником. Що ви скажете?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
@@ -43170,7 +43170,7 @@
               "instruction": "Wähle die richtige Antwort.",
               "question": "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet.",
               "options": [
-                "selbstständig",
+                "Tätigkeit",
                 "tätig",
                 "bereit"
               ],

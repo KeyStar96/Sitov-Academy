@@ -665,25 +665,25 @@
         ],
         "merkkarte": {
           "card": "p1_genitiv",
-          "rule": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+          "rule": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
           "examples": [
-            "Das ist Lenas Cousin.",
-            "Das ist der Cousin von Lena.",
+            "Das ist Leons Cousin.",
+            "Das ist der Cousin von Leon.",
             "Die Wohnung von meiner Tante ist groß."
           ],
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+              "rule": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
             },
             "ru": {
-              "rule": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+              "rule": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
             },
             "uk": {
-              "rule": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+              "rule": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
             },
             "tr": {
-              "rule": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+              "rule": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
             }
           }
         },
@@ -860,47 +860,47 @@
                 "Name + s"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Mia zeigt ein Familienfoto.",
+              "question": "Milan zeigt ein Familienfoto.",
               "options": [
-                "Das ist Lenas Onkel.",
-                "Das ist Lena Onkel.",
-                "Das ist der Lenas Onkel."
+                "Das ist Leons Onkel.",
+                "Das ist Leon Onkel.",
+                "Das ist der Leons Onkel."
               ],
-              "correct_answer": "Das ist Lenas Onkel.",
+              "correct_answer": "Das ist Leons Onkel.",
               "accepted_answers": [
-                "Das ist Lenas Onkel."
+                "Das ist Leons Onkel."
               ]
             },
             "accepted_answers": [
-              "Das ist Lenas Onkel."
+              "Das ist Leons Onkel."
             ],
-            "hint": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "hint": "Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Which sentence is correct?",
-                "hint": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Mia is showing a family photo."
+                "hint": "Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Milan is showing a family photo."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
-                "hint": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Mia показывает семейное фото."
+                "hint": "Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Milan показывает семейное фото."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
-                "hint": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Mia показує сімейне фото."
+                "hint": "Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Milan показує сімейне фото."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
-                "hint": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Mia bir aile fotoğrafı gösteriyor."
+                "hint": "İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Milan bir aile fotoğrafı gösteriyor."
               }
             }
           },
@@ -970,49 +970,49 @@
                 "Name + s"
               ],
               "instruction": "Ergänze die richtige Form.",
-              "text_before": "Die Tochter von Olga heißt Mia. ",
-              "text_after": " Tochter heißt Mia.",
-              "gap_hint": "Olga",
-              "correct_answer": "Olgas",
+              "text_before": "Der Sohn von Oleg heißt Milan. ",
+              "text_after": " Sohn heißt Milan.",
+              "gap_hint": "Oleg",
+              "correct_answer": "Olegs",
               "options": [
-                "Olgas",
-                "Olgan",
-                "Olga"
+                "Olegs",
+                "Olegn",
+                "Oleg"
               ],
               "accepted_answers": [
-                "Olgas"
+                "Olegs"
               ]
             },
             "accepted_answers": [
-              "Olgas"
+              "Olegs"
             ],
-            "hint": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "hint": "Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct form.",
-                "hint": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Olga’s daughter is called Mia."
+                "hint": "Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Oleg’s son is called Milan."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму.",
-                "hint": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Дочь Olga зовут Mia."
+                "hint": "Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Сына Oleg зовут Milan."
               },
               "uk": {
                 "instruction": "Вставте правильну форму.",
-                "hint": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Доньку Olga звати Mia."
+                "hint": "Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Сина Oleg звати Milan."
               },
               "tr": {
                 "instruction": "Doğru biçimi yazın.",
-                "hint": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Olga’nın kızının adı Mia."
+                "hint": "İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Oleg’in oğlunun adı Milan."
               }
             }
           },
@@ -2012,19 +2012,19 @@
                 "Verb am Ende"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Mia geht nicht zur Party. Sie ist müde. → Mia geht nicht zur Party, …",
+              "question": "Milan geht nicht zur Party. Er ist müde. → Milan geht nicht zur Party, …",
               "options": [
-                "weil sie ist müde.",
-                "weil ist sie müde.",
-                "weil sie müde ist."
+                "weil er ist müde.",
+                "weil ist er müde.",
+                "weil er müde ist."
               ],
-              "correct_answer": "weil sie müde ist.",
+              "correct_answer": "weil er müde ist.",
               "accepted_answers": [
-                "weil sie müde ist."
+                "weil er müde ist."
               ]
             },
             "accepted_answers": [
-              "weil sie müde ist."
+              "weil er müde ist."
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
             "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
@@ -2034,25 +2034,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
                 "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Mia is not going to the party. She is tired. → Mia is not going to the party because she is tired."
+                "task": "Milan is not going to the party. He is tired. → Milan is not going to the party because he is tired."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
                 "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Mia не идёт на вечеринку. Она устала. → Mia не идёт на вечеринку, потому что устала."
+                "task": "Milan не идёт на вечеринку. Он устал. → Milan не идёт на вечеринку, потому что устал."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
                 "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Mia не йде на вечірку. Вона втомилася. → Mia не йде на вечірку, тому що втомилася."
+                "task": "Milan не йде на вечірку. Він втомився. → Milan не йде на вечірку, тому що втомився."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
                 "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Mia partiye gitmiyor. Yorgun. → Mia partiye gitmiyor, çünkü yorgun."
+                "task": "Milan partiye gitmiyor. Yorgun. → Milan partiye gitmiyor, çünkü yorgun."
               }
             }
           },
@@ -2972,7 +2972,7 @@
           "card": "p1_trennbar",
           "rule": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
           "examples": [
-            "Ich habe gestern meine Tante angerufen.",
+            "Ich habe gestern meinen Onkel angerufen.",
             "Wir haben im Kurs viele Leute kennengelernt.",
             "Heute bin ich zu spät aufgestanden."
           ],
@@ -3165,19 +3165,19 @@
                 "kennenlernen"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Olga erzählt von einer neuen Freundin.",
+              "question": "Oleg erzählt von einem neuen Freund.",
               "options": [
-                "Wir haben Lena in Köln gekennenlernt.",
-                "Wir haben Lena in Köln kennengelernt.",
-                "Wir sind Lena in Köln kennengelernt."
+                "Wir haben Leon in Köln gekennenlernt.",
+                "Wir haben Leon in Köln kennengelernt.",
+                "Wir sind Leon in Köln kennengelernt."
               ],
-              "correct_answer": "Wir haben Lena in Köln kennengelernt.",
+              "correct_answer": "Wir haben Leon in Köln kennengelernt.",
               "accepted_answers": [
-                "Wir haben Lena in Köln kennengelernt."
+                "Wir haben Leon in Köln kennengelernt."
               ]
             },
             "accepted_answers": [
-              "Wir haben Lena in Köln kennengelernt."
+              "Wir haben Leon in Köln kennengelernt."
             ],
             "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
             "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
@@ -3187,25 +3187,25 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
                 "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
-                "task": "Olga is talking about a new friend."
+                "task": "Oleg is talking about a new male friend."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
                 "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
-                "task": "Olga рассказывает о новой подруге."
+                "task": "Oleg рассказывает о новом друге."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
                 "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
-                "task": "Olga розповідає про нову подругу."
+                "task": "Oleg розповідає про нового друга."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
                 "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
-                "task": "Olga yeni bir arkadaşından söz ediyor."
+                "task": "Oleg yeni bir erkek arkadaşından söz ediyor."
               }
             }
           },
@@ -5410,19 +5410,19 @@
                 "Verb auf Position 2"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Lena erzählt von ihrem Abend.",
+              "question": "Leon erzählt von seinem Abend.",
               "options": [
-                "Dann meine Schwester habe ich angerufen.",
-                "Dann habe ich meine Schwester angerufen.",
-                "Dann ich habe meine Schwester angerufen."
+                "Dann meinen Bruder habe ich angerufen.",
+                "Dann habe ich meinen Bruder angerufen.",
+                "Dann ich habe meinen Bruder angerufen."
               ],
-              "correct_answer": "Dann habe ich meine Schwester angerufen.",
+              "correct_answer": "Dann habe ich meinen Bruder angerufen.",
               "accepted_answers": [
-                "Dann habe ich meine Schwester angerufen."
+                "Dann habe ich meinen Bruder angerufen."
               ]
             },
             "accepted_answers": [
-              "Dann habe ich meine Schwester angerufen."
+              "Dann habe ich meinen Bruder angerufen."
             ],
             "hint": "Zuerst = am Anfang, dann und später = in der Mitte, schließlich = am Ende. Danach: Verb, dann Subjekt.",
             "explanation": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
@@ -5432,25 +5432,25 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "Zuerst = at the beginning, dann and später = in the middle, schließlich = at the end. After it: verb, then subject.",
                 "explanation": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
-                "task": "Lena is talking about her evening."
+                "task": "Leon is talking about his evening."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "Zuerst = в начале, dann и später = в середине, schließlich = в конце. После них: глагол, затем подлежащее.",
                 "explanation": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
-                "task": "Lena рассказывает о своём вечере."
+                "task": "Leon рассказывает о своём вечере."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Zuerst = на початку, dann і später = у середині, schließlich = у кінці. Після них: дієслово, потім підмет.",
                 "explanation": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
-                "task": "Lena розповідає про свій вечір."
+                "task": "Leon розповідає про свій вечір."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "Zuerst = başta, dann ve später = ortada, schließlich = sonda. Ardından: fiil, sonra özne.",
                 "explanation": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
-                "task": "Lena akşamını anlatıyor."
+                "task": "Leon akşamını anlatıyor."
               }
             }
           },
@@ -31638,25 +31638,25 @@
         ],
         "merkkarte": {
           "card": "p4_telefon",
-          "rule": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+          "rule": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
           "examples": [
             "Können Sie mich bitte mit Herrn Lindner verbinden?",
-            "Ist Frau Kaya schon im Haus?",
+            "Ist Herr Kaya schon im Haus?",
             "Auf Wiederhören!"
           ],
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)"
+              "rule": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)"
             },
             "ru": {
-              "rule": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)"
+              "rule": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)"
             },
             "uk": {
-              "rule": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)"
+              "rule": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)"
             },
             "tr": {
-              "rule": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)"
+              "rule": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)"
             }
           }
         },
@@ -31890,43 +31890,43 @@
               "question": "Wie beginnst du einen Anruf in einer Firma?",
               "options": [
                 "Auf Wiederhören.",
-                "Guten Tag, hier ist Mia Bondar.",
+                "Guten Tag, hier ist Milan Bondar.",
                 "Hallo, wer bist du?"
               ],
-              "correct_answer": "Guten Tag, hier ist Mia Bondar.",
+              "correct_answer": "Guten Tag, hier ist Milan Bondar.",
               "accepted_answers": [
-                "Guten Tag, hier ist Mia Bondar."
+                "Guten Tag, hier ist Milan Bondar."
               ]
             },
             "accepted_answers": [
-              "Guten Tag, hier ist Mia Bondar."
+              "Guten Tag, hier ist Milan Bondar."
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
                 "task": "How do you begin a phone call to a company?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
                 "task": "Как вы начнёте звонок в фирму?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
                 "task": "Як ви почнете дзвінок у фірму?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
                 "task": "Bir şirketi aradığınızda konuşmaya nasıl başlarsınız?"
               }
             }
@@ -37084,7 +37084,7 @@
         ],
         "merkkarte": {
           "card": "p5_reflexiv2",
-          "rule": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+          "rule": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
           "examples": [
             "Ich ziehe mich schnell an.",
             "Ich ziehe das Baby an.",
@@ -37093,16 +37093,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain)."
+              "rule": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain)."
             },
             "ru": {
-              "rule": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться)."
+              "rule": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться)."
             },
             "uk": {
-              "rule": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися)."
+              "rule": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися)."
             },
             "tr": {
-              "rule": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek)."
+              "rule": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek)."
             }
           }
         },
@@ -37117,47 +37117,47 @@
                 "reflexiv"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Lena steht vor dem Spiegel.",
+              "question": "Leon steht vor dem Spiegel.",
               "options": [
-                "Sie schminkt ihr.",
-                "Sie schminkt sie sich.",
-                "Sie schminkt sich."
+                "Er schminkt ihm.",
+                "Er schminkt ihn sich.",
+                "Er schminkt sich."
               ],
-              "correct_answer": "Sie schminkt sich.",
+              "correct_answer": "Er schminkt sich.",
               "accepted_answers": [
-                "Sie schminkt sich."
+                "Er schminkt sich."
               ]
             },
             "accepted_answers": [
-              "Sie schminkt sich."
+              "Er schminkt sich."
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Which sentence is correct?",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
-                "task": "Lena is standing in front of the mirror."
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "task": "Leon is standing in front of the mirror."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
-                "task": "Lena стоит перед зеркалом."
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "task": "Leon стоит перед зеркалом."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
-                "task": "Lena стоїть перед дзеркалом."
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "task": "Leon стоїть перед дзеркалом."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
-                "task": "Lena aynanın önünde duruyor."
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "task": "Leon aynanın önünde duruyor."
               }
             }
           },
@@ -60854,19 +60854,19 @@
                 "Problem"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Nachrichten von Mia: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Die Braut ist noch nicht da! – 11.05 Uhr: Sie ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem?",
+              "question": "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem?",
               "options": [
                 "Es gibt kein Essen.",
                 "Die Torte ist nicht fertig.",
-                "Die Braut ist noch nicht gekommen."
+                "Der Bräutigam ist noch nicht gekommen."
               ],
-              "correct_answer": "Die Braut ist noch nicht gekommen.",
+              "correct_answer": "Der Bräutigam ist noch nicht gekommen.",
               "accepted_answers": [
-                "Die Braut ist noch nicht gekommen."
+                "Der Bräutigam ist noch nicht gekommen."
               ]
             },
             "accepted_answers": [
-              "Die Braut ist noch nicht gekommen."
+              "Der Bräutigam ist noch nicht gekommen."
             ],
             "hint": "gerade = jetzt. gleich = in wenigen Minuten. schon = es ist passiert. noch nicht = bis jetzt nicht.",
             "explanation": "Kurznachrichten verstehen: Nachrichten auf dem Handy sind kurz. Oft fehlen Wörter: Bin gleich da! (Ich bin gleich da.) Achte auf Zeitangaben: gerade (jetzt, in diesem Moment), gleich (in wenigen Minuten), schon (es ist passiert), noch nicht (bis jetzt ist es nicht passiert), in zehn Minuten, vor einer Stunde, später.",
@@ -61016,19 +61016,19 @@
                 "Warum?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Nachricht von Samir an Lena: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Lena nicht bei der Feier?",
+              "question": "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Leon nicht bei der Feier?",
               "options": [
-                "Sie mag keine Hochzeiten.",
-                "Sie muss arbeiten.",
-                "Sie ist krank."
+                "Er mag keine Hochzeiten.",
+                "Er muss arbeiten.",
+                "Er ist krank."
               ],
-              "correct_answer": "Sie ist krank.",
+              "correct_answer": "Er ist krank.",
               "accepted_answers": [
-                "Sie ist krank."
+                "Er ist krank."
               ]
             },
             "accepted_answers": [
-              "Sie ist krank."
+              "Er ist krank."
             ],
             "hint": "gerade = jetzt. gleich = in wenigen Minuten. schon = es ist passiert. noch nicht = bis jetzt nicht.",
             "explanation": "Kurznachrichten verstehen: Nachrichten auf dem Handy sind kurz. Oft fehlen Wörter: Bin gleich da! (Ich bin gleich da.) Achte auf Zeitangaben: gerade (jetzt, in diesem Moment), gleich (in wenigen Minuten), schon (es ist passiert), noch nicht (bis jetzt ist es nicht passiert), in zehn Minuten, vor einer Stunde, später.",
@@ -61038,25 +61038,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "gerade = now. gleich = in a few minutes. schon = it has happened. noch nicht = not so far.",
                 "explanation": "Understanding short messages: messages on a mobile are short. Words are often left out: Bin gleich da! (Ich bin gleich da. – I will be there in a moment.) Look for time expressions: gerade (right now, at this moment), gleich (in a few minutes), schon (already: it has happened), noch nicht (not yet: it has not happened so far), in zehn Minuten, vor einer Stunde (an hour ago), später (later).",
-                "task": "Why is Lena not at the party?"
+                "task": "Why is Leon not at the party?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "gerade = сейчас. gleich = через несколько минут. schon = это случилось. noch nicht = пока нет.",
                 "explanation": "Как понимать короткие сообщения: сообщения в телефоне короткие. Часто слова пропускают: Bin gleich da! (Ich bin gleich da. – Сейчас буду.) Обращайте внимание на указания времени: gerade (сейчас, в этот момент), gleich (через несколько минут), schon (уже: это случилось), noch nicht (ещё не: пока этого не произошло), in zehn Minuten, vor einer Stunde (час назад), später (позже).",
-                "task": "Почему Lena нет на празднике?"
+                "task": "Почему Leon нет на празднике?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "gerade = зараз. gleich = за кілька хвилин. schon = це сталося. noch nicht = поки ні.",
                 "explanation": "Як розуміти короткі повідомлення: повідомлення в телефоні короткі. Часто слова пропускають: Bin gleich da! (Ich bin gleich da. – Зараз буду.) Звертайте увагу на вказівки часу: gerade (зараз, у цю мить), gleich (за кілька хвилин), schon (уже: це сталося), noch nicht (ще не: поки цього не сталося), in zehn Minuten, vor einer Stunde (годину тому), später (пізніше).",
-                "task": "Чому Lena немає на святі?"
+                "task": "Чому Leon немає на святі?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "gerade = şimdi. gleich = birkaç dakika içinde. schon = oldu. noch nicht = şimdiye kadar olmadı.",
                 "explanation": "Kısa mesajları anlamak: Telefondaki mesajlar kısadır. Çoğu zaman kelimeler atlanır: Bin gleich da! (Ich bin gleich da. – Hemen geliyorum.) Zaman ifadelerine dikkat edin: gerade (şu anda), gleich (birkaç dakika içinde), schon (çoktan: oldu), noch nicht (henüz değil: şimdiye kadar olmadı), in zehn Minuten, vor einer Stunde (bir saat önce), später (daha sonra).",
-                "task": "Lena neden kutlamada değil?"
+                "task": "Leon neden kutlamada değil?"
               }
             }
           },
@@ -61546,10 +61546,10 @@
                 "gleich"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Nachricht von Lena: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig?",
+              "question": "Nachricht von Leon: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig?",
               "options": [
                 "Die Trauung hat noch nicht begonnen.",
-                "Lena ist noch zu Hause.",
+                "Leon ist noch zu Hause.",
                 "Die Trauung ist schon zu Ende."
               ],
               "correct_answer": "Die Trauung hat noch nicht begonnen.",

@@ -1,0 +1,36 @@
+{
+  "epoch": 31,
+  "sourceBase": "52bc52cc1cf7e38513ce39f4c704abc6834ee867",
+  "all10SeedExercisesCompared": 9569,
+  "changedExercises": 43,
+  "changedCards": 14,
+  "scalarPatchEntries": 479,
+  "outside43ExercisesUnchanged": true,
+  "allParentMetadataOrderLineageAndCountsUnchanged": true,
+  "beforeSourceHashes": {
+    "path-a1.1.json": "fec5e1b504ddcfe0f4bff9db512b506f652061f95c90249096e1db62c4c2c70f",
+    "path-a1.2.json": "268a6d46ae5ddef7649f5afee0637c229a7422448d30d5d27b48da8e6ba1e97c",
+    "path-a2.1.json": "1aeac6f89d1bbd45bc7919132bb013f09b6406064034c7280a56f4936ddb449e",
+    "path-a2.2.json": "b46da86fe872d1e46ef9665730f7bd7a513ea66d77095c8b9071df8ea1913bee",
+    "path-b1.1.json": "4a558793e579fba63b8b11e768658d307e3990e25bd942d8d024f0c5fec1f432",
+    "path-b1.2.json": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5",
+    "path-b2.1.json": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665",
+    "path-b2.2.json": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a",
+    "path-c1.1.json": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c",
+    "path-c1.2.json": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5"
+  },
+  "afterSourceHashes": {
+    "path-a1.1.json": "23121caa03412160460ba5c72685c1baaccbe5b5fbf6d14654d6125c2110a2b3",
+    "path-a1.2.json": "337f4afb8c3f973de5b92d8584ab890c06d49d8537db34df149ce7d30429caff",
+    "path-a2.1.json": "ea89868220b895ef9d73a8e511968c79b997a906d762946eda0942eb59e14feb",
+    "path-a2.2.json": "a072cb88fcec4b29862ad52c121657a310dd97975496971e7c1acff664b0086f",
+    "path-b1.1.json": "580f2687b29489e78fef3738eac07a704da9d4f9e6991aff3b5242a1b267bda9",
+    "path-b1.2.json": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5",
+    "path-b2.1.json": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665",
+    "path-b2.2.json": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a",
+    "path-c1.1.json": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c",
+    "path-c1.2.json": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5"
+  },
+  "sourceOnly": true,
+  "noOrdinaryImport": true
+}

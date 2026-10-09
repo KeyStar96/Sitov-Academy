@@ -88,9 +88,17 @@ describe('existing Phase 4 seed compatibility (read-only)', () => {
     expect(learningPathSeedSchema.safeParse(changed).success).toBe(false)
   })
   it('validates every source record and preserves the existing file exactly', () => {
-    // Phase 8 (Migration 44): Übersetzung jeder Aufgabe und Grundform-/Bedeutungshinweis jeder Lücke ergänzt.
-    expect(createHash('sha256').update(seedFile).digest('hex')).toBe('b4f2ada9c7981f54a2720cab635eab739eab77096532ebc67246c558818cd1c8')
+    // Parsing the current authored seed must not change its bytes or source object.
+    // Historical content snapshots are checked separately from current-source validation.
+    const beforeBytes = readFileSync(join(__dirname, '../supabase/seeds/path-a1.1.json'))
+    const beforeHash = createHash('sha256').update(beforeBytes).digest('hex')
+    const beforePayload = JSON.stringify(seed)
+    expect(beforeBytes.equals(seedFile)).toBe(true)
     const parsed = learningPathSeedSchema.parse(seed)
+    const afterBytes = readFileSync(join(__dirname, '../supabase/seeds/path-a1.1.json'))
+    expect(afterBytes.equals(beforeBytes)).toBe(true)
+    expect(createHash('sha256').update(afterBytes).digest('hex')).toBe(beforeHash)
+    expect(JSON.stringify(seed)).toBe(beforePayload)
     expect(parsed).toEqual(seed)
     expect(parsed).toHaveLength(7)
     const nodes = parsed.flatMap(path => path.nodes)

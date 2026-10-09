@@ -1,0 +1,109 @@
+{
+  "epoch": 31,
+  "base": "52bc52cc1cf7e38513ce39f4c704abc6834ee867",
+  "reviewSha256": "030b07d260168beeab445083cb00ba280f782354532ba160f89ad70bc2bc7d11",
+  "targetedJest": {
+    "suites": 5,
+    "pass": 139,
+    "fail": 0
+  },
+  "specialAuthoring": {
+    "pass": 23,
+    "fail": 0
+  },
+  "eslint": {
+    "errors": 0,
+    "warnings": 1,
+    "warning": "Existing unused _target at learning-path-schema.test.ts:55"
+  },
+  "allTenSchemaExercises": 9569,
+  "newFullExercises": 43,
+  "preArchiveCompanionCards": 14,
+  "canonicalAudioAliases": 46,
+  "changedAudioAliases": 41,
+  "scalarPatchEntries": 479,
+  "pathSeedSuite": {
+    "pass": 84,
+    "fail": 4,
+    "failures": "A1.2/A2.1/A2.2/B1.1 exact author-source serialization comparisons",
+    "baselineAlreadyFailsAllFour": true,
+    "baselineProof": {
+      "epoch": 31,
+      "base": "52bc52cc1cf7e38513ce39f4c704abc6834ee867",
+      "rows": [
+        {
+          "level": "A1.2",
+          "file": "supabase/seeds/path-a1.2.json",
+          "baselineAlreadyDiverges": true,
+          "currentDiverges": true,
+          "baselineSha256": "268a6d46ae5ddef7649f5afee0637c229a7422448d30d5d27b48da8e6ba1e97c",
+          "currentSha256": "337f4afb8c3f973de5b92d8584ab890c06d49d8537db34df149ce7d30429caff",
+          "authorBuildSha256": "ca7adf784dc7ec19566dd551c482ef8a273ece76a9fe210e0705e9a9f80a3c80"
+        },
+        {
+          "level": "A2.1",
+          "file": "supabase/seeds/path-a2.1.json",
+          "baselineAlreadyDiverges": true,
+          "currentDiverges": true,
+          "baselineSha256": "1aeac6f89d1bbd45bc7919132bb013f09b6406064034c7280a56f4936ddb449e",
+          "currentSha256": "ea89868220b895ef9d73a8e511968c79b997a906d762946eda0942eb59e14feb",
+          "authorBuildSha256": "96a7d8365280f892196d170740c58a5d84fea0187472f57782f71ce068fe3ff9"
+        },
+        {
+          "level": "A2.2",
+          "file": "supabase/seeds/path-a2.2.json",
+          "baselineAlreadyDiverges": true,
+          "currentDiverges": true,
+          "baselineSha256": "b46da86fe872d1e46ef9665730f7bd7a513ea66d77095c8b9071df8ea1913bee",
+          "currentSha256": "a072cb88fcec4b29862ad52c121657a310dd97975496971e7c1acff664b0086f",
+          "authorBuildSha256": "fdef15d141a386c2b175bd6e3307ccca39c11977fae8a3d4a835b804d315744f"
+        },
+        {
+          "level": "B1.1",
+          "file": "supabase/seeds/path-b1.1.json",
+          "baselineAlreadyDiverges": true,
+          "currentDiverges": true,
+          "baselineSha256": "4a558793e579fba63b8b11e768658d307e3990e25bd942d8d024f0c5fec1f432",
+          "currentSha256": "580f2687b29489e78fef3738eac07a704da9d4f9e6991aff3b5242a1b267bda9",
+          "authorBuildSha256": "9ee12ebc674ae9cf18d1456d70a77b695af7589ad9951379c7c95c9ca1c8c386"
+        }
+      ],
+      "authorsOutsideAllowlistAndUnchanged": true
+    },
+    "runtimeChecks": "All ten levels pass isolated PGlite service import, five interface languages, solution/wrong-choice grading, wrong-form rejection and test/unlock thresholds."
+  },
+  "protectedPublication": "Only NEW SQL114 revisions; ordinary import and historical overwrite forbidden. M owns actual CAS, synthesis, alignment, audio-storage import and publication.",
+  "sourceOnly": true,
+  "externalDatabaseMutation": false,
+  "releaseApproved": false,
+  "privateArtifacts": {
+    "epoch31-apply-reviewed.py": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S2/epoch31-apply-reviewed.py",
+      "sha256": "664e7202c6dfa7eb05a497a409bcedd75411cfcc14da58c3bf664af9e70e769e"
+    },
+    "epoch31-baseline-builder-proof.json": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S2/epoch31-baseline-builder-proof.json",
+      "sha256": "b43b1ca2e2f522a36c427d23412e995d87fc206bc26973e714cbc1881565189d"
+    },
+    "epoch31-canonical-audio.json": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S2/epoch31-canonical-audio.json",
+      "sha256": "205729d8db2870b5b052a567352f737589a1726c23d130415681afc121450813"
+    },
+    "epoch31-content-patch.json": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S2/epoch31-content-patch.json",
+      "sha256": "f73c8183b7afbfc280cc19b9d04ca55ca8459dfc1f352fb7d25962c9e0634473"
+    },
+    "epoch31-final-audio.ts": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S2/epoch31-final-audio.ts",
+      "sha256": "6d166b13cd4a247f433aab4b88f786ec03a926159869ccd5330c802d953f16dd"
+    },
+    "epoch31-old-new-full43.json": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S2/epoch31-old-new-full43.json",
+      "sha256": "05794397badb75a81453e77f243cece5f630795c09803de7deabc7fb4b4231c6"
+    },
+    "epoch31-source-proof.json": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S2/epoch31-source-proof.json",
+      "sha256": "2bcba4a14c13eca80589c4cbb3397e12ca85b29a804fa2dc8c2176970a1bf027"
+    }
+  }
+}

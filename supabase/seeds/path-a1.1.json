@@ -134,9 +134,9 @@
         ],
         "merkkarte": {
           "card": "p1_greet",
-          "rule": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
+          "rule": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Verabschieden: Auf Wiedersehen (formell), Tschüs (informell), Gute Nacht (spät am Abend, vor dem Schlafen). Am Telefon sagt man: Auf Wiederhören.",
           "examples": [
-            "Guten Morgen, Frau Kaya!",
+            "Guten Morgen, Herr Kaya!",
             "Es ist acht Uhr am Abend. Guten Abend, Herr Albers!",
             "Holzbau Brandt, Jonas Weber, guten Tag.",
             "Guten Tag! Freut mich."
@@ -144,16 +144,16 @@
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"
+              "rule": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Saying goodbye: Auf Wiedersehen (formal), Tschüs (informal), Gute Nacht (late in the evening, before bed). On the phone: Auf Wiederhören."
             },
             "ru": {
-              "rule": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"
+              "rule": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Прощание: Auf Wiedersehen (официально), Tschüs (неформально), Gute Nacht (поздно вечером, перед сном). По телефону говорят: Auf Wiederhören."
             },
             "uk": {
-              "rule": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"
+              "rule": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Прощання: Auf Wiedersehen (офіційно), Tschüs (неформально), Gute Nacht (пізно ввечері, перед сном). Телефоном кажуть: Auf Wiederhören."
             },
             "tr": {
-              "rule": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"
+              "rule": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Vedalaşma: Auf Wiedersehen (resmî), Tschüs (samimi), Gute Nacht (gece, uyumadan önce). Telefonda: Auf Wiederhören."
             }
           }
         },
@@ -276,47 +276,47 @@
                 "Abschied"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deiner Freundin Kasia:",
+              "question": "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deinem Freund Kamil:",
               "options": [
-                "Tschüs, Kasia!",
-                "Auf Wiederhören, Kasia!",
-                "Guten Morgen, Kasia!"
+                "Tschüs, Kamil!",
+                "Auf Wiederhören, Kamil!",
+                "Guten Morgen, Kamil!"
               ],
-              "correct_answer": "Tschüs, Kasia!",
+              "correct_answer": "Tschüs, Kamil!",
               "accepted_answers": [
-                "Tschüs, Kasia!"
+                "Tschüs, Kamil!"
               ]
             },
             "accepted_answers": [
-              "Tschüs, Kasia!"
+              "Tschüs, Kamil!"
             ],
             "hint": "Freunde und Familie sprechen informell: Hallo, Tschüs, du.",
             "explanation": "Verabschieden: Auf Wiedersehen (formell), Tschüs (informell), Gute Nacht (spät am Abend, vor dem Schlafen). Am Telefon sagt man: Auf Wiederhören.",
-            "explanation_card": "p1_bye",
+            "explanation_card": "p1_greet",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "With friends and family German is informal: Hallo, Tschüs, du.",
                 "explanation": "Saying goodbye: Auf Wiedersehen (formal), Tschüs (informal), Gute Nacht (late in the evening, before bed). On the phone: Auf Wiederhören.",
-                "task": "The German course is over. You are going home and say to your friend Kasia:"
+                "task": "The German course is over. You are going home and say to your male friend Kamil:"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "С друзьями и семьёй говорят неформально: Hallo, Tschüs, du – как на «ты».",
                 "explanation": "Прощание: Auf Wiedersehen (официально), Tschüs (неформально), Gute Nacht (поздно вечером, перед сном). По телефону говорят: Auf Wiederhören.",
-                "task": "Курс немецкого закончился. Вы идёте домой и говорите своей подруге Kasia:"
+                "task": "Курс немецкого закончился. Вы идёте домой и говорите своему другу Kamil:"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "З друзями та родиною говорять неформально: Hallo, Tschüs, du – як на «ти».",
                 "explanation": "Прощання: Auf Wiedersehen (офіційно), Tschüs (неформально), Gute Nacht (пізно ввечері, перед сном). Телефоном кажуть: Auf Wiederhören.",
-                "task": "Курс німецької закінчився. Ви йдете додому й кажете своїй подрузі Kasia:"
+                "task": "Курс німецької закінчився. Ви йдете додому й кажете своєму другу Kamil:"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Arkadaşlar ve aileyle samimi konuşulur: Hallo, Tschüs, du – „sen“ gibi.",
                 "explanation": "Vedalaşma: Auf Wiedersehen (resmî), Tschüs (samimi), Gute Nacht (gece, uyumadan önce). Telefonda: Auf Wiederhören.",
-                "task": "Almanca kursu bitti. Eve gidiyorsunuz ve arkadaşınız Kasia’ya diyorsunuz ki:"
+                "task": "Almanca kursu bitti. Eve gidiyorsunuz ve arkadaşınız Kamil’e diyorsunuz ki:"
               }
             }
           },
@@ -1022,26 +1022,26 @@
         ],
         "merkkarte": {
           "card": "p1_name",
-          "rule": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+          "rule": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
           "examples": [
             "Ich heiße Emre Demir.",
-            "Frau Kaya, das ist Jonas.",
-            "Guten Tag! Mein Name ist Kasia Nowak.",
+            "Herr Kaya, das ist Jonas.",
+            "Guten Tag! Mein Name ist Kamil Nowak.",
             "Guten Tag! Wie heißen Sie?"
           ],
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya."
+              "rule": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya."
             },
             "ru": {
-              "rule": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya."
+              "rule": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya."
             },
             "uk": {
-              "rule": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya."
+              "rule": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya."
             },
             "tr": {
-              "rule": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya."
+              "rule": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya."
             }
           }
         },
@@ -3244,26 +3244,29 @@
         ],
         "merkkarte": {
           "card": "p1_strategy",
-          "rule": "Gesprächsstrategien: Nicht verstanden? → „Wie bitte?“ Zeit zum Nachdenken? → „Moment, bitte.“ Keine Antwort? → „Das weiß ich nicht.“ Zustimmen → „Ja, genau.“ Interesse zeigen → „Ach so!“ oder „Interessant!“",
+          "rule": "Gesprächsstrategien: Nicht verstanden? → „Wie bitte?“ Zeit zum Nachdenken? → „Moment, bitte.“ Keine Antwort? → „Das weiß ich nicht.“ Zustimmen → „Ja, genau.“ Interesse zeigen → „Ach so!“ oder „Interessant!“ Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
           "examples": [
             "Wie bitte?",
             "Das weiß ich leider nicht.",
             "Ja, genau.",
-            "Oh, interessant!"
+            "Oh, interessant!",
+            "Hier ist Oleh.",
+            "Ist Herr Lindner da?",
+            "Auf Wiederhören!"
           ],
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Conversation strategies: didn’t understand → „Wie bitte?“ Need time → „Moment, bitte.“ Don’t know → „Das weiß ich nicht.“ Agree → „Ja, genau.“ Show interest → „Ach so!“ or „Interessant!“"
+              "rule": "Conversation strategies: didn’t understand → „Wie bitte?“ Need time → „Moment, bitte.“ Don’t know → „Das weiß ich nicht.“ Agree → „Ja, genau.“ Show interest → „Ach so!“ or „Interessant!“ On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Herr Lindner da?“ (Is Mr Lindner there?) At the end: „Auf Wiederhören!“"
             },
             "ru": {
-              "rule": "Стратегии в разговоре: не поняли → „Wie bitte?“ Нужно время → „Moment, bitte.“ Не знаете ответа → „Das weiß ich nicht.“ Согласие → „Ja, genau.“ Интерес → „Ach so!“ или „Interessant!“"
+              "rule": "Стратегии в разговоре: не поняли → „Wie bitte?“ Нужно время → „Moment, bitte.“ Не знаете ответа → „Das weiß ich nicht.“ Согласие → „Ja, genau.“ Интерес → „Ach so!“ или „Interessant!“ По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Herr Lindner da?“ В конце разговора: „Auf Wiederhören!“"
             },
             "uk": {
-              "rule": "Стратегії в розмові: не зрозуміли → „Wie bitte?“ Потрібен час → „Moment, bitte.“ Не знаєте відповіді → „Das weiß ich nicht.“ Згода → „Ja, genau.“ Зацікавленість → „Ach so!“ або „Interessant!“"
+              "rule": "Стратегії в розмові: не зрозуміли → „Wie bitte?“ Потрібен час → „Moment, bitte.“ Не знаєте відповіді → „Das weiß ich nicht.“ Згода → „Ja, genau.“ Зацікавленість → „Ach so!“ або „Interessant!“ Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Herr Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“"
             },
             "tr": {
-              "rule": "Konuşma stratejileri: Anlamadınız mı? → „Wie bitte?“ Zaman mı lazım? → „Moment, bitte.“ Bilmiyor musunuz? → „Das weiß ich nicht.“ Onaylamak → „Ja, genau.“ İlgi göstermek → „Ach so!“ ya da „Interessant!“"
+              "rule": "Konuşma stratejileri: Anlamadınız mı? → „Wie bitte?“ Zaman mı lazım? → „Moment, bitte.“ Bilmiyor musunuz? → „Das weiß ich nicht.“ Onaylamak → „Ja, genau.“ İlgi göstermek → „Ach so!“ ya da „Interessant!“ Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“"
             }
           }
         },
@@ -3680,9 +3683,9 @@
         ],
         "merkkarte": {
           "card": "p1_card",
-          "rule": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Olena), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+          "rule": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Oleh), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
           "examples": [
-            "Vorname: Olena",
+            "Vorname: Oleh",
             "Familienname: Marchenko",
             "Land: Ukraine",
             "Stadt: Lwiw"
@@ -3690,16 +3693,16 @@
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages."
+              "rule": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Oleh), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages."
             },
             "ru": {
-              "rule": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки."
+              "rule": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Oleh), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки."
             },
             "uk": {
-              "rule": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови."
+              "rule": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Oleh), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови."
             },
             "tr": {
-              "rule": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller."
+              "rule": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Oleh), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller."
             }
           }
         },
@@ -3826,7 +3829,7 @@
               "text_after": "",
               "correct_answer": "Marchenko",
               "options": [
-                "Olena",
+                "Oleh",
                 "Marchenko",
                 "Lwiw"
               ],
@@ -3838,31 +3841,31 @@
               "Marchenko"
             ],
             "hint": "Auf Visitenkarten und Formularen stehen feste Wörter: Vorname, Familienname, Firma, Telefon.",
-            "explanation": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Olena), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+            "explanation": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Oleh), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
             "explanation_card": "p1_card",
             "translations": {
               "en": {
                 "instruction": "Complete the form.",
                 "hint": "Forms and cards use fixed words: Vorname = first name, Familienname = surname, Firma = company.",
-                "explanation": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
+                "explanation": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Oleh), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
                 "task": "My name is Oleh Marchenko. I come from Lviv, from Ukraine. Form: surname: …"
               },
               "ru": {
                 "instruction": "Заполните анкету.",
                 "hint": "В анкетах и на визитках постоянные слова: Vorname – имя, Familienname – фамилия, Firma – фирма.",
-                "explanation": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
+                "explanation": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Oleh), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
                 "task": "Меня зовут Oleh Marchenko. Я из Львова, из Украины. Анкета: фамилия: …"
               },
               "uk": {
                 "instruction": "Заповніть анкету.",
                 "hint": "В анкетах і на візитівках сталі слова: Vorname – ім’я, Familienname – прізвище, Firma – фірма.",
-                "explanation": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
+                "explanation": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Oleh), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
                 "task": "Мене звати Oleh Marchenko. Я зі Львова, з України. Анкета: прізвище: …"
               },
               "tr": {
                 "instruction": "Formu doldurun.",
                 "hint": "Form ve kartvizitlerde sabit kelimeler vardır: Vorname = ad, Familienname = soyadı, Firma = firma.",
-                "explanation": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
+                "explanation": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Oleh), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
                 "task": "Benim adım Oleh Marchenko. Lviv’den, Ukrayna’dan geliyorum. Form: soyadı: …"
               }
             }
@@ -5278,9 +5281,9 @@
               "instruction": "Wähle die richtige Antwort.",
               "question": "Oleh stellt sich am Telefon vor. Was ist richtig?",
               "options": [
-                "Mein Name ist Frau Marchenko.",
+                "Mein Name ist Herr Marchenko.",
                 "Mein Name ist Marchenko.",
-                "Ich heiße Frau Olena."
+                "Ich heiße Herr Oleh."
               ],
               "correct_answer": "Mein Name ist Marchenko.",
               "accepted_answers": [
@@ -5291,31 +5294,31 @@
               "Mein Name ist Marchenko."
             ],
             "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
-            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
             "explanation_card": "p1_name",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
-                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
                 "task": "Oleh introduces himself on the phone. What is correct?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
-                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
                 "task": "Oleh представляется по телефону. Что правильно?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
-                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
                 "task": "Oleh представляється телефоном. Що правильно?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
-                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
                 "task": "Oleh telefonda kendini tanıtıyor. Hangisi doğru?"
               }
             }
@@ -5492,47 +5495,47 @@
                 "Namen nennen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Du bist Kasia Nowak. Ein Mann fragt: „Wie heißen Sie?“",
+              "question": "Du bist Kamil Nowak. Ein Mann fragt: „Wie heißen Sie?“",
               "options": [
-                "Ich heiße Kasia Nowak.",
-                "Sie heißen Kasia Nowak.",
-                "Ich komme aus Kasia Nowak."
+                "Ich heiße Kamil Nowak.",
+                "Sie heißen Kamil Nowak.",
+                "Ich komme aus Kamil Nowak."
               ],
-              "correct_answer": "Ich heiße Kasia Nowak.",
+              "correct_answer": "Ich heiße Kamil Nowak.",
               "accepted_answers": [
-                "Ich heiße Kasia Nowak."
+                "Ich heiße Kamil Nowak."
               ]
             },
             "accepted_answers": [
-              "Ich heiße Kasia Nowak."
+              "Ich heiße Kamil Nowak."
             ],
             "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
-            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
             "explanation_card": "p1_name",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
                 "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
-                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
-                "task": "You are Kasia Nowak. A man asks: “What is your name?”"
+                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
+                "task": "You are Kamil Nowak. A man asks: “What is your name?”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
-                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
-                "task": "Вы Kasia Nowak. Мужчина спрашивает: «Как вас зовут?»"
+                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
+                "task": "Вы Kamil Nowak. Мужчина спрашивает: «Как вас зовут?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
-                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
-                "task": "Ви Kasia Nowak. Чоловік запитує: «Як вас звати?»"
+                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
+                "task": "Ви Kamil Nowak. Чоловік запитує: «Як вас звати?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
-                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
-                "task": "Siz Kasia Nowak’sınız. Bir adam soruyor: “Adınız ne?”"
+                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
+                "task": "Siz Kamil Nowak’sınız. Bir adam soruyor: “Adınız ne?”"
               }
             }
           },
@@ -5924,47 +5927,47 @@
                 "sich am Telefon melden"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Am Telefon fragt eine Frau: „Ist Olena da?“ Du bist Olena.",
+              "question": "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh.",
               "options": [
-                "Ja, hier bin Olena.",
-                "Nein, ich heiße Olena.",
-                "Ja, hier ist Olena."
+                "Ja, hier bin Oleh.",
+                "Nein, ich heiße Oleh.",
+                "Ja, hier ist Oleh."
               ],
-              "correct_answer": "Ja, hier ist Olena.",
+              "correct_answer": "Ja, hier ist Oleh.",
               "accepted_answers": [
-                "Ja, hier ist Olena."
+                "Ja, hier ist Oleh."
               ]
             },
             "accepted_answers": [
-              "Ja, hier ist Olena."
+              "Ja, hier ist Oleh."
             ],
-            "hint": "Am Telefon stellt man sich so vor: „Hier ist Olena.“ – nicht: „Hier bin …“.",
-            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Frau Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
-            "explanation_card": "p1_phone",
+            "hint": "Am Telefon stellt man sich so vor: „Hier ist Oleh.“ – nicht: „Hier bin …“.",
+            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+            "explanation_card": "p1_strategy",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
-                "hint": "On the phone you introduce yourself with „Hier ist Olena“ – „This is Olena“ (not „Hier bin …“).",
-                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
-                "task": "On the phone a woman asks: “Is Olena there?” You are Olena."
+                "hint": "On the phone you introduce yourself with „Hier ist Oleh“ – „This is Oleh“ (not „Hier bin …“).",
+                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Herr Lindner da?“ (Is Mr Lindner there?) At the end: „Auf Wiederhören!“",
+                "task": "On the phone a man asks: “Is Oleh there?” You are Oleh."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
-                "hint": "По телефону представляются так: „Hier ist Olena“ – «Это Олена» (не „Hier bin …“).",
-                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
-                "task": "По телефону женщина спрашивает: «Olena на месте?» Вы и есть Olena."
+                "hint": "По телефону представляются так: „Hier ist Oleh“ – «Это Олег» (не „Hier bin …“).",
+                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Herr Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+                "task": "По телефону мужчина спрашивает: «Oleh на месте?» Вы и есть Oleh."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
-                "hint": "Телефоном представляються так: „Hier ist Olena“ – «Це Олена» (не „Hier bin …“).",
-                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
-                "task": "Телефоном жінка запитує: «Olena на місці?» Ви і є Olena."
+                "hint": "Телефоном представляються так: „Hier ist Oleh“ – «Це Олег» (не „Hier bin …“).",
+                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Herr Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+                "task": "Телефоном чоловік запитує: «Oleh на місці?» Ви і є Oleh."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
-                "hint": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Olena“ = Ben Olena („Hier bin …“ denmez).",
-                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
-                "task": "Telefonda bir kadın soruyor: “Olena orada mı?” Olena sizsiniz."
+                "hint": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Oleh“ = Ben Oleh („Hier bin …“ denmez).",
+                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+                "task": "Telefonda bir adam soruyor: “Oleh orada mı?” Oleh sizsiniz."
               }
             }
           },
@@ -7797,26 +7800,26 @@
         ],
         "merkkarte": {
           "card": "p2_family",
-          "rule": "Familie: der Vater und die Mutter = die Eltern. Der Sohn und die Tochter = die Kinder. Der Bruder und die Schwester = die Geschwister. Der Mann und die Frau = das Ehepaar.",
+          "rule": "Familie: der Vater und die Mutter = die Eltern. Der Sohn und die Tochter = die Kinder. Der Bruder und die Schwester = die Geschwister. Der Mann und die Frau = das Ehepaar. Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
           "examples": [
             "Mein Vater und meine Mutter sind meine Eltern.",
             "Mit „Tochter“ bezeichnet man ein weibliches Kind im Verhältnis zu seinen Eltern.",
-            "Das sind Samir und Lina.",
+            "Das sind Samir und Leon.",
             "Das ist Selim. Er kommt aus der Türkei."
           ],
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Family: der Vater + die Mutter = die Eltern (parents). Der Sohn + die Tochter = die Kinder (children). Der Bruder + die Schwester = die Geschwister (siblings). Der Mann + die Frau = das Ehepaar (married couple)."
+              "rule": "Family: der Vater + die Mutter = die Eltern (parents). Der Sohn + die Tochter = die Kinder (children). Der Bruder + die Schwester = die Geschwister (siblings). Der Mann + die Frau = das Ehepaar (married couple). Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt."
             },
             "ru": {
-              "rule": "Семья: der Vater + die Mutter = die Eltern (родители). Der Sohn + die Tochter = die Kinder (дети). Der Bruder + die Schwester = die Geschwister (братья и сёстры). Der Mann + die Frau = das Ehepaar (супруги)."
+              "rule": "Семья: der Vater + die Mutter = die Eltern (родители). Der Sohn + die Tochter = die Kinder (дети). Der Bruder + die Schwester = die Geschwister (братья и сёстры). Der Mann + die Frau = das Ehepaar (супруги). Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt."
             },
             "uk": {
-              "rule": "Родина: der Vater + die Mutter = die Eltern (батьки). Der Sohn + die Tochter = die Kinder (діти). Der Bruder + die Schwester = die Geschwister (брати й сестри). Der Mann + die Frau = das Ehepaar (подружжя)."
+              "rule": "Родина: der Vater + die Mutter = die Eltern (батьки). Der Sohn + die Tochter = die Kinder (діти). Der Bruder + die Schwester = die Geschwister (брати й сестри). Der Mann + die Frau = das Ehepaar (подружжя). Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt."
             },
             "tr": {
-              "rule": "Aile: der Vater + die Mutter = die Eltern (anne-baba). Der Sohn + die Tochter = die Kinder (çocuklar). Der Bruder + die Schwester = die Geschwister (kardeşler). Der Mann + die Frau = das Ehepaar (evli çift)."
+              "rule": "Aile: der Vater + die Mutter = die Eltern (anne-baba). Der Sohn + die Tochter = die Kinder (çocuklar). Der Bruder + die Schwester = die Geschwister (kardeşler). Der Mann + die Frau = das Ehepaar (evli çift). Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt."
             }
           }
         },
@@ -7884,21 +7887,21 @@
               "instruction": "Wähle die richtige Antwort.",
               "question": "Du stellst zwei Freunde vor. Was sagst du?",
               "options": [
-                "Das sind Samir und Lina.",
-                "Das ist Samir und Lina.",
-                "Sie sind das Samir und Lina."
+                "Das sind Samir und Leon.",
+                "Das ist Samir und Leon.",
+                "Sie sind das Samir und Leon."
               ],
-              "correct_answer": "Das sind Samir und Lina.",
+              "correct_answer": "Das sind Samir und Leon.",
               "accepted_answers": [
-                "Das sind Samir und Lina."
+                "Das sind Samir und Leon."
               ]
             },
             "accepted_answers": [
-              "Das sind Samir und Lina."
+              "Das sind Samir und Leon."
             ],
             "hint": "Eine Person: Das ist … Mehrere Personen: Das sind …",
             "explanation": "Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
-            "explanation_card": "p2_introduce",
+            "explanation_card": "p2_family",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
@@ -7995,8 +7998,8 @@
                 "Familie"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Emre ist der Vater von Deniz und Elif. Elif ist die ",
-              "text_after": " von Emre.",
+              "text_before": "Das weibliche Kind eines Vaters ist seine ",
+              "text_after": ".",
               "correct_answer": "Tochter",
               "options": [
                 "Sohn",
@@ -8018,28 +8021,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Think in pairs: Vater – Mutter, Sohn – Tochter, Bruder – Schwester. Eltern = parents, Geschwister = siblings.",
                 "explanation": "Family: der Vater + die Mutter = die Eltern (parents). Der Sohn + die Tochter = die Kinder (children). Der Bruder + die Schwester = die Geschwister (siblings). Der Mann + die Frau = das Ehepaar (married couple).",
-                "task": "Emre is the father of Deniz and Elif. Elif is Emre’s daughter.",
+                "task": "A father’s female child is his …",
                 "gap_hint": "daughter"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Думайте парами: Vater – Mutter, Sohn – Tochter, Bruder – Schwester. Eltern – родители, Geschwister – братья и сёстры.",
                 "explanation": "Семья: der Vater + die Mutter = die Eltern (родители). Der Sohn + die Tochter = die Kinder (дети). Der Bruder + die Schwester = die Geschwister (братья и сёстры). Der Mann + die Frau = das Ehepaar (супруги).",
-                "task": "Emre — отец Deniz и Elif. Elif — дочь Emre.",
+                "task": "Девочка для своего отца — его …",
                 "gap_hint": "дочь"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Думайте парами: Vater – Mutter, Sohn – Tochter, Bruder – Schwester. Eltern – батьки, Geschwister – брати й сестри.",
                 "explanation": "Родина: der Vater + die Mutter = die Eltern (батьки). Der Sohn + die Tochter = die Kinder (діти). Der Bruder + die Schwester = die Geschwister (брати й сестри). Der Mann + die Frau = das Ehepaar (подружжя).",
-                "task": "Emre — батько Deniz та Elif. Elif — донька Emre.",
+                "task": "Дівчинка для свого батька — його …",
                 "gap_hint": "донька"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Çiftler halinde düşünün: Vater – Mutter, Sohn – Tochter, Bruder – Schwester. Eltern = anne-baba, Geschwister = kardeşler.",
                 "explanation": "Aile: der Vater + die Mutter = die Eltern (anne-baba). Der Sohn + die Tochter = die Kinder (çocuklar). Der Bruder + die Schwester = die Geschwister (kardeşler). Der Mann + die Frau = das Ehepaar (evli çift).",
-                "task": "Emre, Deniz ve Elif’in babası. Elif, Emre’nin kızı.",
+                "task": "Bir babanın kız çocuğu, onun … olur.",
                 "gap_hint": "kız (evlat)"
               }
             }
@@ -8830,18 +8833,18 @@
               "instruction": "Bring die Wörter in die richtige Reihenfolge.",
               "parts": [
                 "in Leipzig",
-                "Olena",
+                "Oleh",
                 "wohnt"
               ],
-              "correct_answer": "Olena wohnt in Leipzig.",
+              "correct_answer": "Oleh wohnt in Leipzig.",
               "accepted_answers": [
-                "Olena wohnt in Leipzig.",
-                "In Leipzig wohnt Olena."
+                "Oleh wohnt in Leipzig.",
+                "In Leipzig wohnt Oleh."
               ]
             },
             "accepted_answers": [
-              "Olena wohnt in Leipzig.",
-              "In Leipzig wohnt Olena."
+              "Oleh wohnt in Leipzig.",
+              "In Leipzig wohnt Oleh."
             ],
             "hint": "Bei er, sie und es endet das Verb auf -t.",
             "explanation": "Präsens für alle Personen: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Genauso: leben, lernen, kommen.",
@@ -8851,25 +8854,25 @@
                 "instruction": "Put the words in the correct order.",
                 "hint": "With er/sie/es the verb ends in -t – like the -s in „he lives“.",
                 "explanation": "Present tense for all persons: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. The same with leben, lernen, kommen.",
-                "task": "Olena lives in Leipzig."
+                "task": "Oleh lives in Leipzig."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "С er/sie/es (он/она/оно) глагол оканчивается на -t.",
                 "explanation": "Настоящее время для всех лиц: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Так же: leben, lernen, kommen.",
-                "task": "Olena живёт в Лейпциге."
+                "task": "Oleh живёт в Лейпциге."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "З er/sie/es (він/вона/воно) дієслово закінчується на -t.",
                 "explanation": "Теперішній час для всіх осіб: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Так само: leben, lernen, kommen.",
-                "task": "Olena живе в Ляйпцигу."
+                "task": "Oleh живе в Ляйпцигу."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "er/sie/es (o) ile fiil -t ile biter: er wohnt.",
                 "explanation": "Tüm kişiler için şimdiki zaman: ich wohn-e, du wohn-st, er/sie/es wohn-t, wir wohn-en, ihr wohn-t, sie/Sie wohn-en. Aynı şekilde: leben, lernen, kommen.",
-                "task": "Olena Leipzig’de oturuyor."
+                "task": "Oleh Leipzig’de oturuyor."
               }
             }
           }
@@ -9890,15 +9893,15 @@
           "card": "p2_status",
           "rule": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
           "examples": [
-            "Olena ist ledig.",
-            "Kasia und Piotr sind ein Ehepaar. Kasia ist verheiratet.",
-            "Samir und seine Frau sind nicht mehr zusammen. Er ist geschieden.",
+            "Oleh ist ledig.",
+            "Kamil und Piotr sind ein Ehepaar. Kamil ist verheiratet.",
+            "Samir und sein Mann sind nicht mehr zusammen. Er ist geschieden.",
             "Deniz ist acht Jahre alt."
           ],
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“"
+              "rule": "Marital status and age: ledig (never married), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“"
             },
             "ru": {
               "rule": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“"
@@ -9922,19 +9925,19 @@
                 "Familienstand"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Olena ist 29 Jahre alt. Sie ist nicht verheiratet und nicht geschieden. Sie hat keine Kinder. Was ist richtig?",
+              "question": "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig?",
               "options": [
-                "Olena ist verheiratet.",
-                "Olena ist verwitwet.",
-                "Olena ist ledig."
+                "Oleh ist verheiratet.",
+                "Oleh ist verwitwet.",
+                "Oleh ist ledig."
               ],
-              "correct_answer": "Olena ist ledig.",
+              "correct_answer": "Oleh ist ledig.",
               "accepted_answers": [
-                "Olena ist ledig."
+                "Oleh ist ledig."
               ]
             },
             "accepted_answers": [
-              "Olena ist ledig."
+              "Oleh ist ledig."
             ],
             "hint": "Such die Information im Text: Wer? Woher? Wo? Wie alt?",
             "explanation": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
@@ -9943,26 +9946,26 @@
               "en": {
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Find the key information in the text: who, where from, where, how old?",
-                "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
-                "task": "What is correct?"
+                "explanation": "Marital status and age: ledig (never married), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
+                "task": "Oleh is 29 years old. He has never been married. He has no children. What is correct?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Найдите в тексте нужную информацию: кто? откуда? где? сколько лет?",
                 "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
-                "task": "Что правильно?"
+                "task": "Oleh 29 лет. Он никогда не был женат. У него нет детей. Что правильно?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Знайдіть у тексті потрібну інформацію: хто? звідки? де? скільки років?",
                 "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
-                "task": "Що правильно?"
+                "task": "Oleh 29 років. Він ніколи не був одружений. У нього немає дітей. Що правильно?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Metinde bilgiyi bulun: Kim? Nereden? Nerede? Kaç yaşında?",
                 "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
-                "task": "Hangisi doğru?"
+                "task": "Oleh 29 yaşında. Hiç evlenmedi. Çocuğu yok. Hangisi doğru?"
               }
             }
           },
@@ -15100,21 +15103,21 @@
                 "Einkaufsgespräch"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Wer sagt: „Kann ich Ihnen helfen?“",
+              "question": "Ein Kunde sucht Käse. Der Verkäufer bietet Hilfe an: „Kann ich Ihnen helfen?“ Wer spricht?",
               "options": [
-                "die Verkäuferin",
+                "der Verkäufer",
                 "der Kunde",
-                "die Kundin"
+                "der Lieferant"
               ],
-              "correct_answer": "die Verkäuferin",
+              "correct_answer": "der Verkäufer",
               "accepted_answers": [
-                "die Verkäuferin"
+                "der Verkäufer"
               ]
             },
             "accepted_answers": [
-              "die Verkäuferin"
+              "der Verkäufer"
             ],
-            "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+            "hint": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?",
             "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
@@ -15122,25 +15125,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Who says this – the shop assistant or the customer? And what comes next in the dialogue?",
                 "explanation": "Shopping dialogue: shop assistant: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – customer: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ (Anything else?) – „Nein, danke. Das ist alles.“",
-                "task": "Who says: “Can I help you?”"
+                "task": "A customer is looking for cheese. The shop assistant offers help: “Can I help you?” Who is speaking?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Кто это говорит – продавец или покупатель? И что идёт в разговоре дальше?",
                 "explanation": "Разговор в магазине: продавец: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупатель: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Что-нибудь ещё?») – „Nein, danke. Das ist alles.“",
-                "task": "Кто говорит: «Чем я могу вам помочь?»"
+                "task": "Покупатель ищет сыр. Продавец предлагает помощь: «Чем я могу вам помочь?» Кто говорит?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Хто це каже – продавець чи покупець? І що йде в розмові далі?",
                 "explanation": "Розмова в магазині: продавець: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупець: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Щось іще?») – „Nein, danke. Das ist alles.“",
-                "task": "Хто каже: «Чим я можу вам допомогти?»"
+                "task": "Покупець шукає сир. Продавець пропонує допомогу: «Чим я можу вам допомогти?» Хто говорить?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Bunu kim söylüyor – satıcı mı, müşteri mi? Konuşmada sırada ne var?",
                 "explanation": "Alışveriş konuşması: Satıcı: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Müşteri: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ (Başka bir şey?) – „Nein, danke. Das ist alles.“",
-                "task": "“Size yardımcı olabilir miyim?” sözünü kim söyler?"
+                "task": "Bir müşteri peynir arıyor. Satıcı yardım teklif ediyor: “Size yardımcı olabilir miyim?” Kim konuşuyor?"
               }
             }
           },
@@ -15154,7 +15157,7 @@
                 "Einkaufsgespräch"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Der Kunde fragt: „Was kostet der Käse?“ Was sagt die Verkäuferin?",
+              "question": "Der Kunde fragt: „Was kostet der Käse?“ Was sagt der Verkäufer?",
               "options": [
                 "Zwei Euro zwanzig.",
                 "Das ist alles.",
@@ -15168,7 +15171,7 @@
             "accepted_answers": [
               "Zwei Euro zwanzig."
             ],
-            "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+            "hint": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?",
             "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
@@ -15182,13 +15185,13 @@
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Кто это говорит – продавец или покупатель? И что идёт в разговоре дальше?",
                 "explanation": "Разговор в магазине: продавец: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупатель: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Что-нибудь ещё?») – „Nein, danke. Das ist alles.“",
-                "task": "Покупатель спрашивает: «Сколько стоит сыр?» Что говорит продавщица?"
+                "task": "Покупатель спрашивает: «Сколько стоит сыр?» Что говорит продавец?"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хто це каже – продавець чи покупець? І що йде в розмові далі?",
                 "explanation": "Розмова в магазині: продавець: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупець: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Щось іще?») – „Nein, danke. Das ist alles.“",
-                "task": "Покупець запитує: «Скільки коштує сир?» Що каже продавчиня?"
+                "task": "Покупець запитує: «Скільки коштує сир?» Що каже продавець?"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
@@ -15208,7 +15211,7 @@
                 "Einkaufsgespräch"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Die Verkäuferin fragt: „Sonst noch etwas?“ Du brauchst nichts mehr.",
+              "question": "Der Verkäufer fragt: „Sonst noch etwas?“ Du brauchst nichts mehr.",
               "options": [
                 "Ja, bitte. Das ist alles.",
                 "Nein, danke. Das ist alles.",
@@ -15222,7 +15225,7 @@
             "accepted_answers": [
               "Nein, danke. Das ist alles."
             ],
-            "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+            "hint": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?",
             "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
@@ -15236,13 +15239,13 @@
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Кто это говорит – продавец или покупатель? И что идёт в разговоре дальше?",
                 "explanation": "Разговор в магазине: продавец: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупатель: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Что-нибудь ещё?») – „Nein, danke. Das ist alles.“",
-                "task": "Продавщица спрашивает: «Что-нибудь ещё?» Вам больше ничего не нужно."
+                "task": "Продавец спрашивает: «Что-нибудь ещё?» Вам больше ничего не нужно."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хто це каже – продавець чи покупець? І що йде в розмові далі?",
                 "explanation": "Розмова в магазині: продавець: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупець: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Щось іще?») – „Nein, danke. Das ist alles.“",
-                "task": "Продавчиня запитує: «Щось іще?» Вам більше нічого не потрібно."
+                "task": "Продавець запитує: «Щось іще?» Вам більше нічого не потрібно."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
@@ -17375,7 +17378,7 @@
                 "Einkaufsgespräch"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Samir steht am Obststand. Die Verkäuferin fragt: „Kann ich Ihnen helfen?“",
+              "question": "Samir steht am Obststand. Der Verkäufer fragt: „Kann ich Ihnen helfen?“",
               "options": [
                 "Ja, das ist alles.",
                 "Nein, tut mir leid.",
@@ -17389,7 +17392,7 @@
             "accepted_answers": [
               "Ja, ich hätte gern ein Kilo Äpfel."
             ],
-            "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+            "hint": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?",
             "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
@@ -17403,13 +17406,13 @@
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Кто это говорит – продавец или покупатель? И что идёт в разговоре дальше?",
                 "explanation": "Разговор в магазине: продавец: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупатель: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Что-нибудь ещё?») – „Nein, danke. Das ist alles.“",
-                "task": "Samir у фруктового прилавка. Продавщица спрашивает: «Чем я могу вам помочь?»"
+                "task": "Samir у фруктового прилавка. Продавец спрашивает: «Чем я могу вам помочь?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хто це каже – продавець чи покупець? І що йде в розмові далі?",
                 "explanation": "Розмова в магазині: продавець: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупець: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Щось іще?») – „Nein, danke. Das ist alles.“",
-                "task": "Samir біля фруктового прилавка. Продавчиня запитує: «Чим я можу вам допомогти?»"
+                "task": "Samir біля фруктового прилавка. Продавець запитує: «Чим я можу вам допомогти?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
@@ -17957,7 +17960,7 @@
                 "Einkaufsgespräch"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Die Verkäuferin fragt: „Sonst noch etwas?“ Du möchtest noch Eier.",
+              "question": "Der Verkäufer fragt: „Sonst noch etwas?“ Du möchtest noch Eier.",
               "options": [
                 "Nein, danke. Das ist alles.",
                 "Was kostet das?",
@@ -17971,7 +17974,7 @@
             "accepted_answers": [
               "Ja, sechs Eier, bitte."
             ],
-            "hint": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+            "hint": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?",
             "explanation": "Einkaufsgespräch: Verkäufer: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – Kunde: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ – „Nein, danke. Das ist alles.“",
             "explanation_card": "p3_shop",
             "translations": {
@@ -17985,13 +17988,13 @@
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Кто это говорит – продавец или покупатель? И что идёт в разговоре дальше?",
                 "explanation": "Разговор в магазине: продавец: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупатель: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Что-нибудь ещё?») – „Nein, danke. Das ist alles.“",
-                "task": "Продавщица спрашивает: «Что-нибудь ещё?» Вам ещё нужны яйца."
+                "task": "Продавец спрашивает: «Что-нибудь ещё?» Вам ещё нужны яйца."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хто це каже – продавець чи покупець? І що йде в розмові далі?",
                 "explanation": "Розмова в магазині: продавець: „Was möchten Sie?“ / „Kann ich Ihnen helfen?“ – покупець: „Ich hätte gern …“ / „Ich möchte …“ – „Haben Sie auch …?“ – „Was kostet das?“ – „Sonst noch etwas?“ («Щось іще?») – „Nein, danke. Das ist alles.“",
-                "task": "Продавчиня запитує: «Щось іще?» Вам ще потрібні яйця."
+                "task": "Продавець запитує: «Щось іще?» Вам ще потрібні яйця."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
@@ -27957,25 +27960,25 @@
         ],
         "merkkarte": {
           "card": "p5_separable_q",
-          "rule": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Olena an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
+          "rule": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Oleh an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
           "examples": [
             "Kaufst du heute ein?",
-            "Rufst du Olena an?",
+            "Rufst du Oleh an?",
             "Wann stehst du auf?"
           ],
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Separable verbs in questions: yes/no question: Rufst du Olena an? Wh-question: Wann stehst du auf? The prefix always stays at the end."
+              "rule": "Separable verbs in questions: yes/no question: Rufst du Oleh an? Wh-question: Wann stehst du auf? The prefix always stays at the end."
             },
             "ru": {
-              "rule": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Olena an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце."
+              "rule": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Oleh an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце."
             },
             "uk": {
-              "rule": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Olena an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці."
+              "rule": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Oleh an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці."
             },
             "tr": {
-              "rule": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Olena an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır."
+              "rule": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Oleh an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır."
             }
           }
         },
@@ -28156,43 +28159,43 @@
                 "an",
                 "Rufst",
                 "du",
-                "Olena"
+                "Oleh"
               ],
-              "correct_answer": "Rufst du Olena an?",
+              "correct_answer": "Rufst du Oleh an?",
               "accepted_answers": [
-                "Rufst du Olena an?"
+                "Rufst du Oleh an?"
               ]
             },
             "accepted_answers": [
-              "Rufst du Olena an?"
+              "Rufst du Oleh an?"
             ],
             "hint": "In der Frage steht das Verb vorn oder nach dem Fragewort – der erste Teil trotzdem am Ende.",
-            "explanation": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Olena an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
+            "explanation": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Oleh an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
             "explanation_card": "p5_separable_q",
             "translations": {
               "en": {
                 "instruction": "Make a question from the words.",
-                "hint": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Olena an?",
-                "explanation": "Separable verbs in questions: yes/no question: Rufst du Olena an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
-                "task": "Are you calling Olena?"
+                "hint": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Oleh an?",
+                "explanation": "Separable verbs in questions: yes/no question: Rufst du Oleh an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
+                "task": "Are you calling Oleh?"
               },
               "ru": {
                 "instruction": "Составьте вопрос из этих слов.",
-                "hint": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Olena an?",
-                "explanation": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Olena an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
-                "task": "Ты позвонишь Olena?"
+                "hint": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Oleh an?",
+                "explanation": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Oleh an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
+                "task": "Ты позвонишь Oleh?"
               },
               "uk": {
                 "instruction": "Складіть запитання з цих слів.",
-                "hint": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Olena an?",
-                "explanation": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Olena an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
-                "task": "Ти зателефонуєш Olena?"
+                "hint": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Oleh an?",
+                "explanation": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Oleh an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
+                "task": "Ти зателефонуєш Oleh?"
               },
               "tr": {
                 "instruction": "Bu kelimelerle bir soru oluşturun.",
-                "hint": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Olena an?",
-                "explanation": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Olena an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
-                "task": "Olena’yı arıyor musun?"
+                "hint": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Oleh an?",
+                "explanation": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Oleh an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
+                "task": "Oleh’i arıyor musun?"
               }
             }
           },
@@ -29372,18 +29375,18 @@
               "instruction": "Bring die Wörter in die richtige Reihenfolge.",
               "parts": [
                 "frühstückt",
-                "Olena",
+                "Oleh",
                 "Um sieben Uhr"
               ],
-              "correct_answer": "Um sieben Uhr frühstückt Olena.",
+              "correct_answer": "Um sieben Uhr frühstückt Oleh.",
               "accepted_answers": [
-                "Um sieben Uhr frühstückt Olena.",
-                "Olena frühstückt um sieben Uhr."
+                "Um sieben Uhr frühstückt Oleh.",
+                "Oleh frühstückt um sieben Uhr."
               ]
             },
             "accepted_answers": [
-              "Um sieben Uhr frühstückt Olena.",
-              "Olena frühstückt um sieben Uhr."
+              "Um sieben Uhr frühstückt Oleh.",
+              "Oleh frühstückt um sieben Uhr."
             ],
             "hint": "Steht die Zeit vorn, kommt das Verb direkt danach – dann das Subjekt.",
             "explanation": "Zeitangabe am Satzanfang: Das Verb bleibt auf Position 2, das Subjekt kommt direkt danach: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Nicht: Am Montag ich arbeite.)",
@@ -29393,25 +29396,25 @@
                 "instruction": "Put the words in the correct order.",
                 "hint": "When the time comes first, the verb follows immediately, then the subject: Am Montag arbeite ich (not: Am Montag ich arbeite).",
                 "explanation": "Time at the start of the sentence: the verb stays in position 2 and the subject comes right after it: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Not: Am Montag ich arbeite.)",
-                "task": "At seven o’clock Olena has breakfast."
+                "task": "At seven o’clock Oleh has breakfast."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Если время стоит в начале, сразу за ним идёт глагол, потом подлежащее: Am Montag arbeite ich.",
                 "explanation": "Время в начале предложения: глагол остаётся на 2-м месте, подлежащее идёт сразу после него: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
-                "task": "В семь часов Olena завтракает."
+                "task": "В семь часов Oleh завтракает."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Якщо час стоїть на початку, одразу за ним іде дієслово, потім підмет: Am Montag arbeite ich.",
                 "explanation": "Час на початку речення: дієслово залишається на 2-му місці, підмет іде одразу після нього: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Не: Am Montag ich arbeite.)",
-                "task": "О сьомій годині Olena снідає."
+                "task": "О сьомій годині Oleh снідає."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Zaman başta ise hemen fiil, sonra özne gelir: Am Montag arbeite ich (Am Montag ich arbeite değil).",
                 "explanation": "Zaman ifadesi cümle başında: Fiil 2. sırada kalır, özne hemen arkasından gelir: Am Montag arbeite ich. Um sieben Uhr steht Oleh auf. (Am Montag ich arbeite değil.)",
-                "task": "Saat yedide Olena kahvaltı yapıyor."
+                "task": "Saat yedide Oleh kahvaltı yapıyor."
               }
             }
           },
@@ -30744,19 +30747,19 @@
                 "Lesetext"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Was macht Olena am Nachmittag?",
+              "question": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Nach der Arbeit kauft er am Nachmittag ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag nach der Arbeit?",
               "options": [
-                "Sie arbeitet im Krankenhaus.",
-                "Sie kauft ein und kocht.",
-                "Sie ruft ihre Mutter an."
+                "Er arbeitet im Krankenhaus.",
+                "Er kauft ein und kocht.",
+                "Er ruft seinen Vater an."
               ],
-              "correct_answer": "Sie kauft ein und kocht.",
+              "correct_answer": "Er kauft ein und kocht.",
               "accepted_answers": [
-                "Sie kauft ein und kocht."
+                "Er kauft ein und kocht."
               ]
             },
             "accepted_answers": [
-              "Sie kauft ein und kocht."
+              "Er kauft ein und kocht."
             ],
             "hint": "Such im Text die Uhrzeiten und die Verben.",
             "explanation": "Über den eigenen Tag sprechen: Aktivitäten mit Uhrzeiten verbinden: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Reihenfolge: zuerst, dann, danach.",
@@ -30766,25 +30769,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Look for the times and the verbs in the text.",
                 "explanation": "Talking about your day: link activities with times: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Order words: zuerst (first), dann (then), danach (after that).",
-                "task": "What does Olena do in the afternoon?"
+                "task": "What does Oleh do in the afternoon after work?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Найдите в тексте время и глаголы.",
                 "explanation": "Рассказ о своём дне: связывайте действия со временем: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (сначала), dann (потом), danach (после этого).",
-                "task": "Что Olena делает после обеда?"
+                "task": "Что Oleh делает во второй половине дня после работы?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Знайдіть у тексті час і дієслова.",
                 "explanation": "Розповідь про свій день: пов’язуйте дії з часом: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Порядок: zuerst (спочатку), dann (потім), danach (після цього).",
-                "task": "Що Olena робить після обіду?"
+                "task": "Що Oleh робить у другій половині дня після роботи?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Metinde saatleri ve fiilleri bulun.",
                 "explanation": "Kendi gününüzü anlatma: Etkinlikleri saatlerle bağlayın: Um sechs Uhr stehe ich auf. Dann frühstücke ich. Von acht bis vier arbeite ich. Am Abend koche ich und sehe fern. Sıra: zuerst (önce), dann (sonra), danach (ondan sonra).",
-                "task": "Olena öğleden sonra ne yapıyor?"
+                "task": "Oleh öğleden sonra, işten çıktıktan sonra ne yapıyor?"
               }
             }
           },
@@ -42202,7 +42205,7 @@
         ],
         "merkkarte": {
           "card": "p7_perfekt_t",
-          "rule": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet.",
+          "rule": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet. Satzklammer im Perfekt: haben oder sein steht auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. W-Frage: Was hast du am Wochenende gemacht? Ja-/Nein-Frage: Bist du mit dem Bus gefahren?",
           "examples": [
             "Ich habe gestern Fußball gespielt.",
             "Wir haben am Samstag Kuchen gekauft.",
@@ -42212,16 +42215,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Perfect tense with haben – regular verbs: ge + stem + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. If the stem ends in -t or -d: ge…et: arbeiten → gearbeitet."
+              "rule": "Perfect tense with haben – regular verbs: ge + stem + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. If the stem ends in -t or -d: ge…et: arbeiten → gearbeitet. Sentence bracket in the perfect tense: haben or sein in position 2, the participle at the end: Ich habe gestern Fußball gespielt. Wh-question: Was hast du am Wochenende gemacht? Yes/no question: Bist du mit dem Bus gefahren?"
             },
             "ru": {
-              "rule": "Perfekt с haben – правильные глаголы: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Если основа оканчивается на -t или -d: ge…et: arbeiten → gearbeitet."
+              "rule": "Perfekt с haben – правильные глаголы: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Если основа оканчивается на -t или -d: ge…et: arbeiten → gearbeitet. Рамочная конструкция в Perfekt: haben или sein – на 2-м месте, причастие – в конце: Ich habe gestern Fußball gespielt. Вопрос с вопросительным словом: Was hast du am Wochenende gemacht? Общий вопрос: Bist du mit dem Bus gefahren?"
             },
             "uk": {
-              "rule": "Perfekt із haben – правильні дієслова: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Якщо основа закінчується на -t або -d: ge…et: arbeiten → gearbeitet."
+              "rule": "Perfekt із haben – правильні дієслова: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Якщо основа закінчується на -t або -d: ge…et: arbeiten → gearbeitet. Рамкова конструкція в Perfekt: haben або sein – на 2-му місці, дієприкметник – у кінці: Ich habe gestern Fußball gespielt. Запитання з питальним словом: Was hast du am Wochenende gemacht? Загальне запитання: Bist du mit dem Bus gefahren?"
             },
             "tr": {
-              "rule": "haben ile Perfekt – düzenli fiiller: ge + kök + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Kök -t ya da -d ile bitiyorsa: ge…et: arbeiten → gearbeitet."
+              "rule": "haben ile Perfekt – düzenli fiiller: ge + kök + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Kök -t ya da -d ile bitiyorsa: ge…et: arbeiten → gearbeitet. Perfekt’te cümle çerçevesi: haben ya da sein 2. sırada, ortaç sonda: Ich habe gestern Fußball gespielt. Soru kelimeli soru: Was hast du am Wochenende gemacht? Evet/hayır sorusu: Bist du mit dem Bus gefahren?"
             }
           }
         },
@@ -43665,19 +43668,19 @@
                 "von der Vergangenheit erzählen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht?",
+              "question": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht?",
               "options": [
-                "Selin",
+                "Selim",
                 "Emre",
                 "Deniz"
               ],
-              "correct_answer": "Selin",
+              "correct_answer": "Selim",
               "accepted_answers": [
-                "Selin"
+                "Selim"
               ]
             },
             "accepted_answers": [
-              "Selin"
+              "Selim"
             ],
             "hint": "Such die Zeitwörter (gestern, am Samstag) und die Partizipien.",
             "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
@@ -46103,19 +46106,19 @@
                 "von der Vergangenheit erzählen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Kasia erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meine Schwester getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kasia in Warschau gemacht?",
+              "question": "Kamil erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meinen Bruder getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kamil in Warschau gemacht?",
               "options": [
-                "Sie hat gearbeitet.",
-                "Sie hat Fußball gespielt.",
-                "Sie hat ihre Schwester getroffen."
+                "Er hat gearbeitet.",
+                "Er hat Fußball gespielt.",
+                "Er hat seinen Bruder getroffen."
               ],
-              "correct_answer": "Sie hat ihre Schwester getroffen.",
+              "correct_answer": "Er hat seinen Bruder getroffen.",
               "accepted_answers": [
-                "Sie hat ihre Schwester getroffen."
+                "Er hat seinen Bruder getroffen."
               ]
             },
             "accepted_answers": [
-              "Sie hat ihre Schwester getroffen."
+              "Er hat seinen Bruder getroffen."
             ],
             "hint": "Such die Zeitwörter (gestern, am Samstag) und die Partizipien.",
             "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
@@ -46125,25 +46128,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Look for the time words (gestern, am Samstag) and the participles.",
                 "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "What did Kasia do in Warsaw?"
+                "task": "What did Kamil do in Warsaw?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Найдите слова времени (gestern, am Samstag) и причастия.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "Что Kasia делала в Варшаве?"
+                "task": "Что Kamil делал в Варшаве?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Знайдіть слова часу (gestern, am Samstag) і дієприкметники.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "Що Kasia робила у Варшаві?"
+                "task": "Що Kamil робив у Варшаві?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Zaman kelimelerini (gestern, am Samstag) ve ortaçları bulun.",
                 "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "Kasia Varşova’da ne yaptı?"
+                "task": "Kamil Varşova’da ne yaptı?"
               }
             }
           },
@@ -47208,47 +47211,47 @@
               "instruction": "Bring die Wörter in die richtige Reihenfolge.",
               "parts": [
                 "gearbeitet",
-                "Olena",
+                "Oleh",
                 "hat",
                 "am Samstag"
               ],
-              "correct_answer": "Olena hat am Samstag gearbeitet.",
+              "correct_answer": "Oleh hat am Samstag gearbeitet.",
               "accepted_answers": [
-                "Olena hat am Samstag gearbeitet.",
-                "Am Samstag hat Olena gearbeitet."
+                "Oleh hat am Samstag gearbeitet.",
+                "Am Samstag hat Oleh gearbeitet."
               ]
             },
             "accepted_answers": [
-              "Olena hat am Samstag gearbeitet.",
-              "Am Samstag hat Olena gearbeitet."
+              "Oleh hat am Samstag gearbeitet.",
+              "Am Samstag hat Oleh gearbeitet."
             ],
             "hint": "haben oder sein steht auf Position 2, das Partizip ganz am Ende.",
             "explanation": "Satzklammer im Perfekt: haben oder sein steht auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. W-Frage: Was hast du am Wochenende gemacht? Ja-/Nein-Frage: Bist du mit dem Bus gefahren?",
-            "explanation_card": "p7_bracket_perfekt",
+            "explanation_card": "p7_perfekt_t",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "haben/sein in position 2, the participle at the very end: Ich habe gestern … gespielt.",
                 "explanation": "Sentence bracket in the perfect tense: haben or sein in position 2, the participle at the end: Ich habe gestern Fußball gespielt. Wh-question: Was hast du am Wochenende gemacht? Yes/no question: Bist du mit dem Bus gefahren?",
-                "task": "Olena worked on Saturday."
+                "task": "Oleh worked on Saturday."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "haben/sein – на 2-м месте, причастие – в самом конце: Ich habe gestern … gespielt.",
                 "explanation": "Рамочная конструкция в Perfekt: haben или sein – на 2-м месте, причастие – в конце: Ich habe gestern Fußball gespielt. Вопрос с вопросительным словом: Was hast du am Wochenende gemacht? Общий вопрос: Bist du mit dem Bus gefahren?",
-                "task": "В субботу Olena работала."
+                "task": "В субботу Oleh работал."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "haben/sein – на 2-му місці, дієприкметник – в самому кінці: Ich habe gestern … gespielt.",
                 "explanation": "Рамкова конструкція в Perfekt: haben або sein – на 2-му місці, дієприкметник – у кінці: Ich habe gestern Fußball gespielt. Запитання з питальним словом: Was hast du am Wochenende gemacht? Загальне запитання: Bist du mit dem Bus gefahren?",
-                "task": "У суботу Olena працювала."
+                "task": "У суботу Oleh працював."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "haben/sein 2. sırada, ortaç en sonda: Ich habe gestern … gespielt.",
                 "explanation": "Perfekt’te cümle çerçevesi: haben ya da sein 2. sırada, ortaç sonda: Ich habe gestern Fußball gespielt. Soru kelimeli soru: Was hast du am Wochenende gemacht? Evet/hayır sorusu: Bist du mit dem Bus gefahren?",
-                "task": "Olena cumartesi çalıştı."
+                "task": "Oleh cumartesi çalıştı."
               }
             }
           },

@@ -4,12 +4,14 @@ import { learningPathSeedSchema } from '@/lib/learning-path-schema'
 import { SITOV_TOPIC_MAPPING } from '@/lib/learning/sitov-topic-mapping'
 const load=(level:string)=>learningPathSeedSchema.parse(JSON.parse(readFileSync(`supabase/seeds/path-${level}.json`,'utf8')))
 const node=(level:string,id:string)=>load(level).flatMap(path=>path.nodes).find(n=>n.id===id)!
+const frozenDrafts=JSON.parse(readFileSync('docs/handoffs/SITOV-NIGHT-2026-10-08/S2/epoch30-immutable-drafts.json','utf8')).drafts as Array<{id:string;currentExercise:{content:Record<string,unknown>}}>
+const frozenExercise=(id:string)=>frozenDrafts.find(row=>row.id===id)!.currentExercise
 const exercise=(level:string,nid:string,id:string)=>{
  const value=node(level,nid).exercises.find(e=>e.id===id)!
  return {...value,content:value.content as Record<string,unknown>}
 }
 
-it.each(['a1.1','a1.2','a2.1','a2.2'])('keeps the complete %s seed valid after character edits',level=>expect(load(level).length).toBeGreaterThan(0))
+it.each(['a1.1','a1.2','a2.1','a2.2','b1.1','b1.2','b2.1','b2.2','c1.1','c1.2'])('keeps the complete %s seed valid after character edits',level=>expect(load(level).length).toBeGreaterThan(0))
 it('anchors nominative practice only to the actual article lesson, preserving its Special binding',()=>{
  const topic=SITOV_TOPIC_MAPPING.find(t=>t.topicId==='sitov.topic.nominativ')!
  expect(topic.anchors.map(a=>a.nodeSourceId)).toEqual(['P4-N1'])
@@ -69,9 +71,9 @@ it('keeps factual feminine grammar targets without named fictional characters',(
   expect(Object.keys(e.translations??{}).sort()).toEqual(['en','ru','tr','uk'])
  }
 })
-it('retains historical answer-bound character and necessary feminine salutation exercises pending version review',()=>{
- expect(exercise('a1.1','P5-N6','d4fa715e-799f-58cf-a0e1-c1798e8b08ea').content.correct_answer).toBe('Um sieben Uhr frühstückt Olena.')
- expect(exercise('b1.1','P5-N9','a054896c-401c-551d-a610-78838cc07a1c').content.correct_answer).toBe('Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.')
+it('retains frozen historical answers separately from the reviewed new source revisions',()=>{
+ expect(frozenExercise('d4fa715e-799f-58cf-a0e1-c1798e8b08ea').content.correct_answer).toBe('Um sieben Uhr frühstückt Olena.')
+ expect(frozenExercise('a054896c-401c-551d-a610-78838cc07a1c').content.correct_answer).toBe('Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.')
  expect(node('b1.1','P5-N8').exercises[6].content).toBeDefined()
 })
 it('preserves B1 job answers while correcting male roles and translated agreement',()=>{
@@ -104,7 +106,7 @@ it('agrees with Kamil in each gendered translation and preserves the old answer-
  expect(hobby.translations?.ru?.task).toContain('У него')
  expect(hobby.translations?.uk?.task).toContain('У нього')
  expect(exercise('a1.1','P6-N3','9f376699-d050-5f02-abaa-812640943f54').translations?.tr?.task).toBe('Oleh’in romanını okuyorum.')
- const historical=exercise('a1.1','P5-N10','465e830d-bd8b-59b3-a979-965ca0399531')
+ const historical=frozenExercise('465e830d-bd8b-59b3-a979-965ca0399531')
  expect(historical.content.correct_answer).toBe('Sie kauft ein und kocht.')
  expect(historical.content.question).toContain('Olena ist Pflegerin')
 })
@@ -129,7 +131,7 @@ it('preserves grammatical family gender and agrees with named men across reviewe
  expect(wish.translations?.en?.task).toContain('his grandson')
  expect(exercise('a1.1','P2-N10','06854c0d-e295-57b8-a7f7-b70439b1c235').translations?.ru?.task).toContain('Он родился')
  expect(exercise('a1.1','P3-N11','b2cde403-9af7-5e65-a1df-01a8f5260329').translations?.tr?.task).toContain('Kamil’in')
- expect(exercise('a1.1','P7-N12','53e0e382-9f60-5574-a29d-01727939ac9a').content.correct_answer).toBe('Sie hat ihre Schwester getroffen.')
+ expect(frozenExercise('53e0e382-9f60-5574-a29d-01727939ac9a').content.correct_answer).toBe('Sie hat ihre Schwester getroffen.')
 })
 
 it('preserves singular feminine possessives and plural owners in the A1.2 character pass',()=>{
@@ -142,7 +144,7 @@ it('preserves singular feminine possessives and plural owners in the A1.2 charac
  expect(couple.content.question).toBe('Leon und Tom sind kein Paar mehr, aber sie sind noch nicht geschieden. Jeder hat eine eigene Wohnung und wohnt dort allein. Sie leben …')
  expect(couple.translations?.uk?.task).toContain('Вони живуть')
 })
-it('agrees in the excuse note and masculine neighbour translations while retaining bound options',()=>{
+it('agrees in the excuse note and masculine neighbour translations while retaining frozen historical options',()=>{
  const excuse=exercise('a1.1','P7-N10','23a78719-5c1a-5510-acee-ac9e9a366d3a')
  expect(excuse.content.text_before).toContain('Lieber Herr Roth')
  expect(excuse.translations?.ru?.task).toContain('я болен')
@@ -150,8 +152,8 @@ it('agrees in the excuse note and masculine neighbour translations while retaini
  const neighbour=exercise('a2.1','P2-N10','ae5a3641-ac44-5a38-a4dc-f2c696f5b173')
  expect(neighbour.content.text_after).toBe(' von deinem Nachbarn Milan')
  expect(neighbour.translations?.ru?.task).toContain('твоего соседа')
- expect(exercise('a1.2','P1-N5','b19c26ba-95e9-57d1-aeb6-56b014d795a4').content.options).toContain('Ich war zehn Jahre Chefin.')
- expect(exercise('a2.1','P1-N10','76ea54c1-c380-5b3a-a898-6a2039353f38').content.correct_answer).toBe('Dann habe ich meine Schwester angerufen.')
+ expect(frozenExercise('b19c26ba-95e9-57d1-aeb6-56b014d795a4').content.options).toContain('Ich war zehn Jahre Chefin.')
+ expect(frozenExercise('76ea54c1-c380-5b3a-a898-6a2039353f38').content.correct_answer).toBe('Dann habe ich meine Schwester angerufen.')
 })
 
 it('preserves parcel noun gender, plural wedding actors and the actual feminine dative target',()=>{
@@ -171,7 +173,7 @@ it('preserves clothing grammar and history bound to a feminine conjugation targe
  const dress=exercise('a2.2','P2-N3','ed73de2b-b43c-5aa2-a585-37658f5f2702')
  expect(dress.content.question).toBe('Leon kauft ein … Kleid.')
  expect(dress.content.correct_answer).toBe('rotes')
- const historical=exercise('a2.2','P6-N7','33caadca-d684-50f1-a6ac-a21cffb316af')
+ const historical=frozenExercise('33caadca-d684-50f1-a6ac-a21cffb316af')
  expect(historical.content.target_form).toEqual(['sie lässt'])
  expect(historical.content.question).toContain('Mia')
 })
@@ -196,4 +198,31 @@ it('scopes possessive rules correctly and keeps factual feminine vocabulary whil
  const school=exercise('a2.1','P6-N12','dda7a7a2-ab0f-5403-ab7b-b61934093f6f')
  expect(school.translations?.uk?.explanation).toContain('Моїм улюбленим учителем був')
  expect(school.explanation).toContain('Mein Lieblingslehrer war Herr Lindner.')
+})
+
+it('adopts reviewed future keys while retaining old full-object evidence and alternate sentence orders',()=>{
+ expect(exercise('a1.1','P5-N6','d4fa715e-799f-58cf-a0e1-c1798e8b08ea').content.accepted_answers).toEqual(['Um sieben Uhr frühstückt Oleh.','Oleh frühstückt um sieben Uhr.'])
+ expect(exercise('b1.1','P5-N9','a054896c-401c-551d-a610-78838cc07a1c').content.correct_answer).toBe('Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch.')
+ const routine=exercise('a1.1','P5-N10','465e830d-bd8b-59b3-a979-965ca0399531')
+ expect(routine.content.question).toContain('am Nachmittag nach der Arbeit?')
+ expect(routine.content.correct_answer).toBe('Er kauft ein und kocht.')
+ expect(exercise('a1.1','P7-N12','53e0e382-9f60-5574-a29d-01727939ac9a').content.correct_answer).toBe('Er hat seinen Bruder getroffen.')
+ expect(exercise('a1.2','P1-N5','b19c26ba-95e9-57d1-aeb6-56b014d795a4').content.options).toContain('Ich war zehn Jahre Chef.')
+ expect(exercise('a2.1','P1-N10','76ea54c1-c380-5b3a-a898-6a2039353f38').content.correct_answer).toBe('Dann habe ich meinen Bruder angerufen.')
+ expect(exercise('a2.2','P6-N7','33caadca-d684-50f1-a6ac-a21cffb316af').content.target_form).toEqual(['er lässt'])
+})
+it('resolves actual practice companions, preserves factual daughter grammar and keeps tests card-free',()=>{
+ const phone=exercise('a1.1','P1-N11','f2d51b6a-0afb-5bcb-a321-06b37b225082')
+ expect(phone.explanation_card).toBe(node('a1.1','P1-N8').merkkarte?.card)
+ expect(node('a1.1','P1-N8').merkkarte?.rule).toContain('Ist Herr Lindner da?')
+ expect(node('a1.1','P1-N11').merkkarte).toBeUndefined()
+ expect(exercise('a1.1','P2-N3','5df3a866-867b-5221-a586-6aa88b8c9cda').content.correct_answer).toBe('Das sind Samir und Leon.')
+ const daughter=exercise('a1.1','P2-N3','2c55dd12-c807-51ee-a9cb-63dd534f46be')
+ expect(daughter.content.text_before).toBe('Das weibliche Kind eines Vaters ist seine ')
+ expect(daughter.content.correct_answer).toBe('Tochter')
+ expect(daughter.content.options).toEqual(['Sohn','Tochter','Mutter'])
+ expect(node('a2.1','P1-N6').merkkarte?.examples?.[0]).toBe('Ich habe gestern meinen Onkel angerufen.')
+ const reflexive=exercise('a2.1','P5-N3','46a8c3ac-1525-50c6-ad75-8f4d184e4bfc')
+ expect(reflexive.content.options).toEqual(['Er schminkt ihm.','Er schminkt ihn sich.','Er schminkt sich.'])
+ expect(reflexive.content.correct_answer).toBe('Er schminkt sich.')
 })

@@ -1,0 +1,2397 @@
+[
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/accepted_answers/0",
+    "old": "Tschüs, Kasia!",
+    "new": "Tschüs, Kamil!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/explanation_card",
+    "old": "p1_bye",
+    "new": "p1_greet"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/content/correct_answer",
+    "old": "Tschüs, Kasia!",
+    "new": "Tschüs, Kamil!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/content/options/0",
+    "old": "Tschüs, Kasia!",
+    "new": "Tschüs, Kamil!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/content/options/1",
+    "old": "Auf Wiederhören, Kasia!",
+    "new": "Auf Wiederhören, Kamil!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/content/options/2",
+    "old": "Guten Morgen, Kasia!",
+    "new": "Guten Morgen, Kamil!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/content/accepted_answers/0",
+    "old": "Tschüs, Kasia!",
+    "new": "Tschüs, Kamil!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/content/question",
+    "old": "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deiner Freundin Kasia:",
+    "new": "Der Deutschkurs ist zu Ende. Du gehst nach Hause und sagst zu deinem Freund Kamil:"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/translations/uk/task",
+    "old": "Курс німецької закінчився. Ви йдете додому й кажете своїй подрузі Kasia:",
+    "new": "Курс німецької закінчився. Ви йдете додому й кажете своєму другу Kamil:"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/translations/ru/task",
+    "old": "Курс немецкого закончился. Вы идёте домой и говорите своей подруге Kasia:",
+    "new": "Курс немецкого закончился. Вы идёте домой и говорите своему другу Kamil:"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/translations/en/task",
+    "old": "The German course is over. You are going home and say to your friend Kasia:",
+    "new": "The German course is over. You are going home and say to your male friend Kamil:"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/exercises/2/translations/tr/task",
+    "old": "Almanca kursu bitti. Eve gidiyorsunuz ve arkadaşınız Kasia’ya diyorsunuz ki:",
+    "new": "Almanca kursu bitti. Eve gidiyorsunuz ve arkadaşınız Kamil’e diyorsunuz ki:"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/merkkarte/examples/0",
+    "old": "Guten Morgen, Frau Kaya!",
+    "new": "Guten Morgen, Herr Kaya!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/merkkarte/translations/uk/rule",
+    "old": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
+    "new": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Прощання: Auf Wiedersehen (офіційно), Tschüs (неформально), Gute Nacht (пізно ввечері, перед сном). Телефоном кажуть: Auf Wiederhören."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/merkkarte/translations/ru/rule",
+    "old": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
+    "new": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Прощание: Auf Wiedersehen (официально), Tschüs (неформально), Gute Nacht (поздно вечером, перед сном). По телефону говорят: Auf Wiederhören."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/merkkarte/translations/en/rule",
+    "old": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
+    "new": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Saying goodbye: Auf Wiedersehen (formal), Tschüs (informal), Gute Nacht (late in the evening, before bed). On the phone: Auf Wiederhören."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/merkkarte/translations/tr/rule",
+    "old": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
+    "new": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Vedalaşma: Auf Wiedersehen (resmî), Tschüs (samimi), Gute Nacht (gece, uyumadan önce). Telefonda: Auf Wiederhören."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/0/merkkarte/rule",
+    "old": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
+    "new": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Verabschieden: Auf Wiedersehen (formell), Tschüs (informell), Gute Nacht (spät am Abend, vor dem Schlafen). Am Telefon sagt man: Auf Wiederhören."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/merkkarte/examples/1",
+    "old": "Frau Kaya, das ist Jonas.",
+    "new": "Herr Kaya, das ist Jonas."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/merkkarte/examples/2",
+    "old": "Guten Tag! Mein Name ist Kasia Nowak.",
+    "new": "Guten Tag! Mein Name ist Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/merkkarte/translations/uk/rule",
+    "old": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+    "new": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/merkkarte/translations/ru/rule",
+    "old": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+    "new": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/merkkarte/translations/en/rule",
+    "old": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+    "new": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/merkkarte/translations/tr/rule",
+    "old": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+    "new": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/2/merkkarte/rule",
+    "old": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+    "new": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/merkkarte/examples/4",
+    "oldMissing": true,
+    "new": "Hier ist Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/merkkarte/examples/5",
+    "oldMissing": true,
+    "new": "Ist Herr Lindner da?"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/merkkarte/examples/6",
+    "oldMissing": true,
+    "new": "Auf Wiederhören!"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/merkkarte/translations/uk/rule",
+    "old": "Стратегії в розмові: не зрозуміли → „Wie bitte?“ Потрібен час → „Moment, bitte.“ Не знаєте відповіді → „Das weiß ich nicht.“ Згода → „Ja, genau.“ Зацікавленість → „Ach so!“ або „Interessant!“",
+    "new": "Стратегії в розмові: не зрозуміли → „Wie bitte?“ Потрібен час → „Moment, bitte.“ Не знаєте відповіді → „Das weiß ich nicht.“ Згода → „Ja, genau.“ Зацікавленість → „Ach so!“ або „Interessant!“ Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Herr Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/merkkarte/translations/ru/rule",
+    "old": "Стратегии в разговоре: не поняли → „Wie bitte?“ Нужно время → „Moment, bitte.“ Не знаете ответа → „Das weiß ich nicht.“ Согласие → „Ja, genau.“ Интерес → „Ach so!“ или „Interessant!“",
+    "new": "Стратегии в разговоре: не поняли → „Wie bitte?“ Нужно время → „Moment, bitte.“ Не знаете ответа → „Das weiß ich nicht.“ Согласие → „Ja, genau.“ Интерес → „Ach so!“ или „Interessant!“ По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Herr Lindner da?“ В конце разговора: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/merkkarte/translations/en/rule",
+    "old": "Conversation strategies: didn’t understand → „Wie bitte?“ Need time → „Moment, bitte.“ Don’t know → „Das weiß ich nicht.“ Agree → „Ja, genau.“ Show interest → „Ach so!“ or „Interessant!“",
+    "new": "Conversation strategies: didn’t understand → „Wie bitte?“ Need time → „Moment, bitte.“ Don’t know → „Das weiß ich nicht.“ Agree → „Ja, genau.“ Show interest → „Ach so!“ or „Interessant!“ On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Herr Lindner da?“ (Is Mr Lindner there?) At the end: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/merkkarte/translations/tr/rule",
+    "old": "Konuşma stratejileri: Anlamadınız mı? → „Wie bitte?“ Zaman mı lazım? → „Moment, bitte.“ Bilmiyor musunuz? → „Das weiß ich nicht.“ Onaylamak → „Ja, genau.“ İlgi göstermek → „Ach so!“ ya da „Interessant!“",
+    "new": "Konuşma stratejileri: Anlamadınız mı? → „Wie bitte?“ Zaman mı lazım? → „Moment, bitte.“ Bilmiyor musunuz? → „Das weiß ich nicht.“ Onaylamak → „Ja, genau.“ İlgi göstermek → „Ach so!“ ya da „Interessant!“ Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/7/merkkarte/rule",
+    "old": "Gesprächsstrategien: Nicht verstanden? → „Wie bitte?“ Zeit zum Nachdenken? → „Moment, bitte.“ Keine Antwort? → „Das weiß ich nicht.“ Zustimmen → „Ja, genau.“ Interesse zeigen → „Ach so!“ oder „Interessant!“",
+    "new": "Gesprächsstrategien: Nicht verstanden? → „Wie bitte?“ Zeit zum Nachdenken? → „Moment, bitte.“ Keine Antwort? → „Das weiß ich nicht.“ Zustimmen → „Ja, genau.“ Interesse zeigen → „Ach so!“ oder „Interessant!“ Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/explanation",
+    "old": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Olena), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+    "new": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Oleh), Familienname (z. B. Marchenko), Land, Stadt, Sprachen."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/content/options/0",
+    "old": "Olena",
+    "new": "Oleh"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/translations/uk/explanation",
+    "old": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
+    "new": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Oleh), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/translations/ru/explanation",
+    "old": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
+    "new": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Oleh), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/translations/en/explanation",
+    "old": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
+    "new": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Oleh), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/exercises/2/translations/tr/explanation",
+    "old": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
+    "new": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Oleh), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/merkkarte/examples/0",
+    "old": "Vorname: Olena",
+    "new": "Vorname: Oleh"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/merkkarte/translations/uk/rule",
+    "old": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Olena), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови.",
+    "new": "Візитівка й анкета: на візитівці – ім’я, фірма, професія, адреса, телефон і e-mail. В анкеті: Vorname – ім’я (Oleh), Familienname – прізвище (Marchenko), Land – країна, Stadt – місто, Sprachen – мови."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/merkkarte/translations/ru/rule",
+    "old": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Olena), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки.",
+    "new": "Визитка и анкета: на визитке – имя, фирма, профессия, адрес, телефон и e-mail. В анкете: Vorname – имя (Oleh), Familienname – фамилия (Marchenko), Land – страна, Stadt – город, Sprachen – языки."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/merkkarte/translations/en/rule",
+    "old": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Olena), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages.",
+    "new": "Business card and form: a business card shows name, company, job, address, phone and e-mail. On a form: Vorname = first name (e.g. Oleh), Familienname = surname (e.g. Marchenko), Land = country, Stadt = city, Sprachen = languages."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/merkkarte/translations/tr/rule",
+    "old": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Olena), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller.",
+    "new": "Kartvizit ve form: Kartvizitte isim, firma, meslek, adres, telefon ve e-posta bulunur. Formda: Vorname = ad (Oleh), Familienname = soyadı (Marchenko), Land = ülke, Stadt = şehir, Sprachen = diller."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/8/merkkarte/rule",
+    "old": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Olena), Familienname (z. B. Marchenko), Land, Stadt, Sprachen.",
+    "new": "Visitenkarte und Formular: Auf einer Visitenkarte stehen Name, Firma, Beruf, Adresse, Telefon und E-Mail. Im Formular: Vorname (z. B. Oleh), Familienname (z. B. Marchenko), Land, Stadt, Sprachen."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/explanation",
+    "old": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+    "new": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/content/options/0",
+    "old": "Mein Name ist Frau Marchenko.",
+    "new": "Mein Name ist Herr Marchenko."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/content/options/2",
+    "old": "Ich heiße Frau Olena.",
+    "new": "Ich heiße Herr Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/translations/uk/explanation",
+    "old": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+    "new": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/translations/ru/explanation",
+    "old": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+    "new": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/translations/en/explanation",
+    "old": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+    "new": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/5/translations/tr/explanation",
+    "old": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+    "new": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/accepted_answers/0",
+    "old": "Ich heiße Kasia Nowak.",
+    "new": "Ich heiße Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/explanation",
+    "old": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+    "new": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/content/correct_answer",
+    "old": "Ich heiße Kasia Nowak.",
+    "new": "Ich heiße Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/content/options/0",
+    "old": "Ich heiße Kasia Nowak.",
+    "new": "Ich heiße Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/content/options/1",
+    "old": "Sie heißen Kasia Nowak.",
+    "new": "Sie heißen Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/content/options/2",
+    "old": "Ich komme aus Kasia Nowak.",
+    "new": "Ich komme aus Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/content/accepted_answers/0",
+    "old": "Ich heiße Kasia Nowak.",
+    "new": "Ich heiße Kamil Nowak."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/content/question",
+    "old": "Du bist Kasia Nowak. Ein Mann fragt: „Wie heißen Sie?“",
+    "new": "Du bist Kamil Nowak. Ein Mann fragt: „Wie heißen Sie?“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/translations/uk/explanation",
+    "old": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+    "new": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/translations/uk/task",
+    "old": "Ви Kasia Nowak. Чоловік запитує: «Як вас звати?»",
+    "new": "Ви Kamil Nowak. Чоловік запитує: «Як вас звати?»"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/translations/ru/explanation",
+    "old": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+    "new": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/translations/ru/task",
+    "old": "Вы Kasia Nowak. Мужчина спрашивает: «Как вас зовут?»",
+    "new": "Вы Kamil Nowak. Мужчина спрашивает: «Как вас зовут?»"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/translations/en/explanation",
+    "old": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+    "new": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/translations/en/task",
+    "old": "You are Kasia Nowak. A man asks: “What is your name?”",
+    "new": "You are Kamil Nowak. A man asks: “What is your name?”"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/translations/tr/explanation",
+    "old": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+    "new": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/9/translations/tr/task",
+    "old": "Siz Kasia Nowak’sınız. Bir adam soruyor: “Adınız ne?”",
+    "new": "Siz Kamil Nowak’sınız. Bir adam soruyor: “Adınız ne?”"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/accepted_answers/0",
+    "old": "Ja, hier ist Olena.",
+    "new": "Ja, hier ist Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/hint",
+    "old": "Am Telefon stellt man sich so vor: „Hier ist Olena.“ – nicht: „Hier bin …“.",
+    "new": "Am Telefon stellt man sich so vor: „Hier ist Oleh.“ – nicht: „Hier bin …“."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/explanation",
+    "old": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Frau Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+    "new": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/explanation_card",
+    "old": "p1_phone",
+    "new": "p1_strategy"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/content/correct_answer",
+    "old": "Ja, hier ist Olena.",
+    "new": "Ja, hier ist Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/content/options/0",
+    "old": "Ja, hier bin Olena.",
+    "new": "Ja, hier bin Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/content/options/1",
+    "old": "Nein, ich heiße Olena.",
+    "new": "Nein, ich heiße Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/content/options/2",
+    "old": "Ja, hier ist Olena.",
+    "new": "Ja, hier ist Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/content/accepted_answers/0",
+    "old": "Ja, hier ist Olena.",
+    "new": "Ja, hier ist Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/content/question",
+    "old": "Am Telefon fragt eine Frau: „Ist Olena da?“ Du bist Olena.",
+    "new": "Am Telefon fragt ein Mann: „Ist Oleh da?“ Du bist Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/uk/explanation",
+    "old": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+    "new": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Herr Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/uk/task",
+    "old": "Телефоном жінка запитує: «Olena на місці?» Ви і є Olena.",
+    "new": "Телефоном чоловік запитує: «Oleh на місці?» Ви і є Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/uk/hint",
+    "old": "Телефоном представляються так: „Hier ist Olena“ – «Це Олена» (не „Hier bin …“).",
+    "new": "Телефоном представляються так: „Hier ist Oleh“ – «Це Олег» (не „Hier bin …“)."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/ru/explanation",
+    "old": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+    "new": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Herr Lindner da?“ В конце разговора: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/ru/task",
+    "old": "По телефону женщина спрашивает: «Olena на месте?» Вы и есть Olena.",
+    "new": "По телефону мужчина спрашивает: «Oleh на месте?» Вы и есть Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/ru/hint",
+    "old": "По телефону представляются так: „Hier ist Olena“ – «Это Олена» (не „Hier bin …“).",
+    "new": "По телефону представляются так: „Hier ist Oleh“ – «Это Олег» (не „Hier bin …“)."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/en/explanation",
+    "old": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
+    "new": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Herr Lindner da?“ (Is Mr Lindner there?) At the end: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/en/task",
+    "old": "On the phone a woman asks: “Is Olena there?” You are Olena.",
+    "new": "On the phone a man asks: “Is Oleh there?” You are Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/en/hint",
+    "old": "On the phone you introduce yourself with „Hier ist Olena“ – „This is Olena“ (not „Hier bin …“).",
+    "new": "On the phone you introduce yourself with „Hier ist Oleh“ – „This is Oleh“ (not „Hier bin …“)."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/tr/explanation",
+    "old": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+    "new": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“"
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/tr/task",
+    "old": "Telefonda bir kadın soruyor: “Olena orada mı?” Olena sizsiniz.",
+    "new": "Telefonda bir adam soruyor: “Oleh orada mı?” Oleh sizsiniz."
+  },
+  {
+    "pointer": "path-a1.1.json/0/nodes/10/exercises/17/translations/tr/hint",
+    "old": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Olena“ = Ben Olena („Hier bin …“ denmez).",
+    "new": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Oleh“ = Ben Oleh („Hier bin …“ denmez)."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/accepted_answers/0",
+    "old": "Das sind Samir und Lina.",
+    "new": "Das sind Samir und Leon."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/explanation_card",
+    "old": "p2_introduce",
+    "new": "p2_family"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/content/correct_answer",
+    "old": "Das sind Samir und Lina.",
+    "new": "Das sind Samir und Leon."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/content/options/0",
+    "old": "Das sind Samir und Lina.",
+    "new": "Das sind Samir und Leon."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/content/options/1",
+    "old": "Das ist Samir und Lina.",
+    "new": "Das ist Samir und Leon."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/content/options/2",
+    "old": "Sie sind das Samir und Lina.",
+    "new": "Sie sind das Samir und Leon."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/1/content/accepted_answers/0",
+    "old": "Das sind Samir und Lina.",
+    "new": "Das sind Samir und Leon."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/3/content/text_before",
+    "old": "Emre ist der Vater von Deniz und Elif. Elif ist die ",
+    "new": "Das weibliche Kind eines Vaters ist seine "
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/3/content/text_after",
+    "old": " von Emre.",
+    "new": "."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/3/translations/uk/task",
+    "old": "Emre — батько Deniz та Elif. Elif — донька Emre.",
+    "new": "Дівчинка для свого батька — його …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/3/translations/ru/task",
+    "old": "Emre — отец Deniz и Elif. Elif — дочь Emre.",
+    "new": "Девочка для своего отца — его …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/3/translations/en/task",
+    "old": "Emre is the father of Deniz and Elif. Elif is Emre’s daughter.",
+    "new": "A father’s female child is his …"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/exercises/3/translations/tr/task",
+    "old": "Emre, Deniz ve Elif’in babası. Elif, Emre’nin kızı.",
+    "new": "Bir babanın kız çocuğu, onun … olur."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/merkkarte/examples/2",
+    "old": "Das sind Samir und Lina.",
+    "new": "Das sind Samir und Leon."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/merkkarte/translations/uk/rule",
+    "old": "Родина: der Vater + die Mutter = die Eltern (батьки). Der Sohn + die Tochter = die Kinder (діти). Der Bruder + die Schwester = die Geschwister (брати й сестри). Der Mann + die Frau = das Ehepaar (подружжя).",
+    "new": "Родина: der Vater + die Mutter = die Eltern (батьки). Der Sohn + die Tochter = die Kinder (діти). Der Bruder + die Schwester = die Geschwister (брати й сестри). Der Mann + die Frau = das Ehepaar (подружжя). Як представити інших: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для кількох людей: „Das sind meine Eltern.“ З er і sie дієслово закінчується на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/merkkarte/translations/ru/rule",
+    "old": "Семья: der Vater + die Mutter = die Eltern (родители). Der Sohn + die Tochter = die Kinder (дети). Der Bruder + die Schwester = die Geschwister (братья и сёстры). Der Mann + die Frau = das Ehepaar (супруги).",
+    "new": "Семья: der Vater + die Mutter = die Eltern (родители). Der Sohn + die Tochter = die Kinder (дети). Der Bruder + die Schwester = die Geschwister (братья и сёстры). Der Mann + die Frau = das Ehepaar (супруги). Как представить других: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Для нескольких людей: „Das sind meine Eltern.“ С er и sie глагол оканчивается на -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/merkkarte/translations/en/rule",
+    "old": "Family: der Vater + die Mutter = die Eltern (parents). Der Sohn + die Tochter = die Kinder (children). Der Bruder + die Schwester = die Geschwister (siblings). Der Mann + die Frau = das Ehepaar (married couple).",
+    "new": "Family: der Vater + die Mutter = die Eltern (parents). Der Sohn + die Tochter = die Kinder (children). Der Bruder + die Schwester = die Geschwister (siblings). Der Mann + die Frau = das Ehepaar (married couple). Introducing others: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ For several people: „Das sind meine Eltern.“ With er and sie the verb ends in -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/merkkarte/translations/tr/rule",
+    "old": "Aile: der Vater + die Mutter = die Eltern (anne-baba). Der Sohn + die Tochter = die Kinder (çocuklar). Der Bruder + die Schwester = die Geschwister (kardeşler). Der Mann + die Frau = das Ehepaar (evli çift).",
+    "new": "Aile: der Vater + die Mutter = die Eltern (anne-baba). Der Sohn + die Tochter = die Kinder (çocuklar). Der Bruder + die Schwester = die Geschwister (kardeşler). Der Mann + die Frau = das Ehepaar (evli çift). Başkalarını tanıtma: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Birden fazla kişi için: „Das sind meine Eltern.“ er ve sie ile fiil -t ile biter: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/2/merkkarte/rule",
+    "old": "Familie: der Vater und die Mutter = die Eltern. Der Sohn und die Tochter = die Kinder. Der Bruder und die Schwester = die Geschwister. Der Mann und die Frau = das Ehepaar.",
+    "new": "Familie: der Vater und die Mutter = die Eltern. Der Sohn und die Tochter = die Kinder. Der Bruder und die Schwester = die Geschwister. Der Mann und die Frau = das Ehepaar. Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/accepted_answers/0",
+    "old": "Olena wohnt in Leipzig.",
+    "new": "Oleh wohnt in Leipzig."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/accepted_answers/1",
+    "old": "In Leipzig wohnt Olena.",
+    "new": "In Leipzig wohnt Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/content/parts/1",
+    "old": "Olena",
+    "new": "Oleh"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/content/correct_answer",
+    "old": "Olena wohnt in Leipzig.",
+    "new": "Oleh wohnt in Leipzig."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/content/accepted_answers/0",
+    "old": "Olena wohnt in Leipzig.",
+    "new": "Oleh wohnt in Leipzig."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/content/accepted_answers/1",
+    "old": "In Leipzig wohnt Olena.",
+    "new": "In Leipzig wohnt Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/translations/uk/task",
+    "old": "Olena живе в Ляйпцигу.",
+    "new": "Oleh живе в Ляйпцигу."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/translations/ru/task",
+    "old": "Olena живёт в Лейпциге.",
+    "new": "Oleh живёт в Лейпциге."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/translations/en/task",
+    "old": "Olena lives in Leipzig.",
+    "new": "Oleh lives in Leipzig."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/4/exercises/5/translations/tr/task",
+    "old": "Olena Leipzig’de oturuyor.",
+    "new": "Oleh Leipzig’de oturuyor."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/accepted_answers/0",
+    "old": "Olena ist ledig.",
+    "new": "Oleh ist ledig."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/content/correct_answer",
+    "old": "Olena ist ledig.",
+    "new": "Oleh ist ledig."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/content/options/0",
+    "old": "Olena ist verheiratet.",
+    "new": "Oleh ist verheiratet."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/content/options/1",
+    "old": "Olena ist verwitwet.",
+    "new": "Oleh ist verwitwet."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/content/options/2",
+    "old": "Olena ist ledig.",
+    "new": "Oleh ist ledig."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/content/accepted_answers/0",
+    "old": "Olena ist ledig.",
+    "new": "Oleh ist ledig."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/content/question",
+    "old": "Olena ist 29 Jahre alt. Sie ist nicht verheiratet und nicht geschieden. Sie hat keine Kinder. Was ist richtig?",
+    "new": "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/translations/uk/task",
+    "old": "Що правильно?",
+    "new": "Oleh 29 років. Він ніколи не був одружений. У нього немає дітей. Що правильно?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/translations/ru/task",
+    "old": "Что правильно?",
+    "new": "Oleh 29 лет. Он никогда не был женат. У него нет детей. Что правильно?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/translations/en/explanation",
+    "old": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
+    "new": "Marital status and age: ledig (never married), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/translations/en/task",
+    "old": "What is correct?",
+    "new": "Oleh is 29 years old. He has never been married. He has no children. What is correct?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/exercises/0/translations/tr/task",
+    "old": "Hangisi doğru?",
+    "new": "Oleh 29 yaşında. Hiç evlenmedi. Çocuğu yok. Hangisi doğru?"
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/merkkarte/examples/0",
+    "old": "Olena ist ledig.",
+    "new": "Oleh ist ledig."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/merkkarte/examples/1",
+    "old": "Kasia und Piotr sind ein Ehepaar. Kasia ist verheiratet.",
+    "new": "Kamil und Piotr sind ein Ehepaar. Kamil ist verheiratet."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/merkkarte/examples/2",
+    "old": "Samir und seine Frau sind nicht mehr zusammen. Er ist geschieden.",
+    "new": "Samir und sein Mann sind nicht mehr zusammen. Er ist geschieden."
+  },
+  {
+    "pointer": "path-a1.1.json/1/nodes/8/merkkarte/translations/en/rule",
+    "old": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
+    "new": "Marital status and age: ledig (never married), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/accepted_answers/0",
+    "old": "die Verkäuferin",
+    "new": "der Verkäufer"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/hint",
+    "old": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+    "new": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/content/correct_answer",
+    "old": "die Verkäuferin",
+    "new": "der Verkäufer"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/content/options/0",
+    "old": "die Verkäuferin",
+    "new": "der Verkäufer"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/content/options/2",
+    "old": "die Kundin",
+    "new": "der Lieferant"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/content/accepted_answers/0",
+    "old": "die Verkäuferin",
+    "new": "der Verkäufer"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/content/question",
+    "old": "Wer sagt: „Kann ich Ihnen helfen?“",
+    "new": "Ein Kunde sucht Käse. Der Verkäufer bietet Hilfe an: „Kann ich Ihnen helfen?“ Wer spricht?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/translations/uk/task",
+    "old": "Хто каже: «Чим я можу вам допомогти?»",
+    "new": "Покупець шукає сир. Продавець пропонує допомогу: «Чим я можу вам допомогти?» Хто говорить?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/translations/ru/task",
+    "old": "Кто говорит: «Чем я могу вам помочь?»",
+    "new": "Покупатель ищет сыр. Продавец предлагает помощь: «Чем я могу вам помочь?» Кто говорит?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/translations/en/task",
+    "old": "Who says: “Can I help you?”",
+    "new": "A customer is looking for cheese. The shop assistant offers help: “Can I help you?” Who is speaking?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/0/translations/tr/task",
+    "old": "“Size yardımcı olabilir miyim?” sözünü kim söyler?",
+    "new": "Bir müşteri peynir arıyor. Satıcı yardım teklif ediyor: “Size yardımcı olabilir miyim?” Kim konuşuyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/1/hint",
+    "old": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+    "new": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/1/content/question",
+    "old": "Der Kunde fragt: „Was kostet der Käse?“ Was sagt die Verkäuferin?",
+    "new": "Der Kunde fragt: „Was kostet der Käse?“ Was sagt der Verkäufer?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/1/translations/uk/task",
+    "old": "Покупець запитує: «Скільки коштує сир?» Що каже продавчиня?",
+    "new": "Покупець запитує: «Скільки коштує сир?» Що каже продавець?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/1/translations/ru/task",
+    "old": "Покупатель спрашивает: «Сколько стоит сыр?» Что говорит продавщица?",
+    "new": "Покупатель спрашивает: «Сколько стоит сыр?» Что говорит продавец?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/2/hint",
+    "old": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+    "new": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/2/content/question",
+    "old": "Die Verkäuferin fragt: „Sonst noch etwas?“ Du brauchst nichts mehr.",
+    "new": "Der Verkäufer fragt: „Sonst noch etwas?“ Du brauchst nichts mehr."
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/2/translations/uk/task",
+    "old": "Продавчиня запитує: «Щось іще?» Вам більше нічого не потрібно.",
+    "new": "Продавець запитує: «Щось іще?» Вам більше нічого не потрібно."
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/4/exercises/2/translations/ru/task",
+    "old": "Продавщица спрашивает: «Что-нибудь ещё?» Вам больше ничего не нужно.",
+    "new": "Продавец спрашивает: «Что-нибудь ещё?» Вам больше ничего не нужно."
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/2/hint",
+    "old": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+    "new": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/2/content/question",
+    "old": "Samir steht am Obststand. Die Verkäuferin fragt: „Kann ich Ihnen helfen?“",
+    "new": "Samir steht am Obststand. Der Verkäufer fragt: „Kann ich Ihnen helfen?“"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/2/translations/uk/task",
+    "old": "Samir біля фруктового прилавка. Продавчиня запитує: «Чим я можу вам допомогти?»",
+    "new": "Samir біля фруктового прилавка. Продавець запитує: «Чим я можу вам допомогти?»"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/9/exercises/2/translations/ru/task",
+    "old": "Samir у фруктового прилавка. Продавщица спрашивает: «Чем я могу вам помочь?»",
+    "new": "Samir у фруктового прилавка. Продавец спрашивает: «Чем я могу вам помочь?»"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/1/hint",
+    "old": "Wer sagt das – die Verkäuferin oder der Kunde? Und was kommt im Gespräch als Nächstes?",
+    "new": "Wer sagt das – der Verkäufer oder der Kunde? Und was kommt im Gespräch als Nächstes?"
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/1/content/question",
+    "old": "Die Verkäuferin fragt: „Sonst noch etwas?“ Du möchtest noch Eier.",
+    "new": "Der Verkäufer fragt: „Sonst noch etwas?“ Du möchtest noch Eier."
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/1/translations/uk/task",
+    "old": "Продавчиня запитує: «Щось іще?» Вам ще потрібні яйця.",
+    "new": "Продавець запитує: «Щось іще?» Вам ще потрібні яйця."
+  },
+  {
+    "pointer": "path-a1.1.json/2/nodes/10/exercises/1/translations/ru/task",
+    "old": "Продавщица спрашивает: «Что-нибудь ещё?» Вам ещё нужны яйца.",
+    "new": "Продавец спрашивает: «Что-нибудь ещё?» Вам ещё нужны яйца."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/accepted_answers/0",
+    "old": "Rufst du Olena an?",
+    "new": "Rufst du Oleh an?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/explanation",
+    "old": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Olena an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
+    "new": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Oleh an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/content/parts/3",
+    "old": "Olena",
+    "new": "Oleh"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/content/correct_answer",
+    "old": "Rufst du Olena an?",
+    "new": "Rufst du Oleh an?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/content/accepted_answers/0",
+    "old": "Rufst du Olena an?",
+    "new": "Rufst du Oleh an?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/uk/explanation",
+    "old": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Olena an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
+    "new": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Oleh an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/uk/task",
+    "old": "Ти зателефонуєш Olena?",
+    "new": "Ти зателефонуєш Oleh?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/uk/hint",
+    "old": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Olena an?",
+    "new": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Oleh an?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/ru/explanation",
+    "old": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Olena an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
+    "new": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Oleh an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/ru/task",
+    "old": "Ты позвонишь Olena?",
+    "new": "Ты позвонишь Oleh?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/ru/hint",
+    "old": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Olena an?",
+    "new": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Oleh an?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/en/explanation",
+    "old": "Separable verbs in questions: yes/no question: Rufst du Olena an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
+    "new": "Separable verbs in questions: yes/no question: Rufst du Oleh an? Wh-question: Wann stehst du auf? The prefix always stays at the end."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/en/task",
+    "old": "Are you calling Olena?",
+    "new": "Are you calling Oleh?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/en/hint",
+    "old": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Olena an?",
+    "new": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Oleh an?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/tr/explanation",
+    "old": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Olena an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
+    "new": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Oleh an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/tr/task",
+    "old": "Olena’yı arıyor musun?",
+    "new": "Oleh’i arıyor musun?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/exercises/3/translations/tr/hint",
+    "old": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Olena an?",
+    "new": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Oleh an?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/merkkarte/examples/1",
+    "old": "Rufst du Olena an?",
+    "new": "Rufst du Oleh an?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/merkkarte/translations/uk/rule",
+    "old": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Olena an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
+    "new": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Oleh an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/merkkarte/translations/ru/rule",
+    "old": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Olena an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
+    "new": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Oleh an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/merkkarte/translations/en/rule",
+    "old": "Separable verbs in questions: yes/no question: Rufst du Olena an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
+    "new": "Separable verbs in questions: yes/no question: Rufst du Oleh an? Wh-question: Wann stehst du auf? The prefix always stays at the end."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/merkkarte/translations/tr/rule",
+    "old": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Olena an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
+    "new": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Oleh an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/3/merkkarte/rule",
+    "old": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Olena an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
+    "new": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Oleh an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/accepted_answers/0",
+    "old": "Um sieben Uhr frühstückt Olena.",
+    "new": "Um sieben Uhr frühstückt Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/accepted_answers/1",
+    "old": "Olena frühstückt um sieben Uhr.",
+    "new": "Oleh frühstückt um sieben Uhr."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/content/parts/1",
+    "old": "Olena",
+    "new": "Oleh"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/content/correct_answer",
+    "old": "Um sieben Uhr frühstückt Olena.",
+    "new": "Um sieben Uhr frühstückt Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/content/accepted_answers/0",
+    "old": "Um sieben Uhr frühstückt Olena.",
+    "new": "Um sieben Uhr frühstückt Oleh."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/content/accepted_answers/1",
+    "old": "Olena frühstückt um sieben Uhr.",
+    "new": "Oleh frühstückt um sieben Uhr."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/translations/uk/task",
+    "old": "О сьомій годині Olena снідає.",
+    "new": "О сьомій годині Oleh снідає."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/translations/ru/task",
+    "old": "В семь часов Olena завтракает.",
+    "new": "В семь часов Oleh завтракает."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/translations/en/task",
+    "old": "At seven o’clock Olena has breakfast.",
+    "new": "At seven o’clock Oleh has breakfast."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/5/exercises/8/translations/tr/task",
+    "old": "Saat yedide Olena kahvaltı yapıyor.",
+    "new": "Saat yedide Oleh kahvaltı yapıyor."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/accepted_answers/0",
+    "old": "Sie kauft ein und kocht.",
+    "new": "Er kauft ein und kocht."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/content/correct_answer",
+    "old": "Sie kauft ein und kocht.",
+    "new": "Er kauft ein und kocht."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/content/options/0",
+    "old": "Sie arbeitet im Krankenhaus.",
+    "new": "Er arbeitet im Krankenhaus."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/content/options/1",
+    "old": "Sie kauft ein und kocht.",
+    "new": "Er kauft ein und kocht."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/content/options/2",
+    "old": "Sie ruft ihre Mutter an.",
+    "new": "Er ruft seinen Vater an."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/content/accepted_answers/0",
+    "old": "Sie kauft ein und kocht.",
+    "new": "Er kauft ein und kocht."
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/content/question",
+    "old": "Olena ist Pflegerin im Krankenhaus. Sie steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet sie. Am Nachmittag kauft sie ein und kocht. Am Abend ruft sie ihre Mutter in Lwiw an. Um zehn Uhr geht sie ins Bett. Was macht Olena am Nachmittag?",
+    "new": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Nach der Arbeit kauft er am Nachmittag ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag nach der Arbeit?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/translations/uk/task",
+    "old": "Що Olena робить після обіду?",
+    "new": "Що Oleh робить у другій половині дня після роботи?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/translations/ru/task",
+    "old": "Что Olena делает после обеда?",
+    "new": "Что Oleh делает во второй половине дня после работы?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/translations/en/task",
+    "old": "What does Olena do in the afternoon?",
+    "new": "What does Oleh do in the afternoon after work?"
+  },
+  {
+    "pointer": "path-a1.1.json/4/nodes/9/exercises/1/translations/tr/task",
+    "old": "Olena öğleden sonra ne yapıyor?",
+    "new": "Oleh öğleden sonra, işten çıktıktan sonra ne yapıyor?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/4/merkkarte/translations/uk/rule",
+    "old": "Perfekt із haben – правильні дієслова: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Якщо основа закінчується на -t або -d: ge…et: arbeiten → gearbeitet.",
+    "new": "Perfekt із haben – правильні дієслова: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Якщо основа закінчується на -t або -d: ge…et: arbeiten → gearbeitet. Рамкова конструкція в Perfekt: haben або sein – на 2-му місці, дієприкметник – у кінці: Ich habe gestern Fußball gespielt. Запитання з питальним словом: Was hast du am Wochenende gemacht? Загальне запитання: Bist du mit dem Bus gefahren?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/4/merkkarte/translations/ru/rule",
+    "old": "Perfekt с haben – правильные глаголы: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Если основа оканчивается на -t или -d: ge…et: arbeiten → gearbeitet.",
+    "new": "Perfekt с haben – правильные глаголы: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Если основа оканчивается на -t или -d: ge…et: arbeiten → gearbeitet. Рамочная конструкция в Perfekt: haben или sein – на 2-м месте, причастие – в конце: Ich habe gestern Fußball gespielt. Вопрос с вопросительным словом: Was hast du am Wochenende gemacht? Общий вопрос: Bist du mit dem Bus gefahren?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/4/merkkarte/translations/en/rule",
+    "old": "Perfect tense with haben – regular verbs: ge + stem + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. If the stem ends in -t or -d: ge…et: arbeiten → gearbeitet.",
+    "new": "Perfect tense with haben – regular verbs: ge + stem + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. If the stem ends in -t or -d: ge…et: arbeiten → gearbeitet. Sentence bracket in the perfect tense: haben or sein in position 2, the participle at the end: Ich habe gestern Fußball gespielt. Wh-question: Was hast du am Wochenende gemacht? Yes/no question: Bist du mit dem Bus gefahren?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/4/merkkarte/translations/tr/rule",
+    "old": "haben ile Perfekt – düzenli fiiller: ge + kök + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Kök -t ya da -d ile bitiyorsa: ge…et: arbeiten → gearbeitet.",
+    "new": "haben ile Perfekt – düzenli fiiller: ge + kök + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Kök -t ya da -d ile bitiyorsa: ge…et: arbeiten → gearbeitet. Perfekt’te cümle çerçevesi: haben ya da sein 2. sırada, ortaç sonda: Ich habe gestern Fußball gespielt. Soru kelimeli soru: Was hast du am Wochenende gemacht? Evet/hayır sorusu: Bist du mit dem Bus gefahren?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/4/merkkarte/rule",
+    "old": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet.",
+    "new": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet. Satzklammer im Perfekt: haben oder sein steht auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. W-Frage: Was hast du am Wochenende gemacht? Ja-/Nein-Frage: Bist du mit dem Bus gefahren?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/7/exercises/2/accepted_answers/0",
+    "old": "Selin",
+    "new": "Selim"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/7/exercises/2/content/correct_answer",
+    "old": "Selin",
+    "new": "Selim"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/7/exercises/2/content/options/0",
+    "old": "Selin",
+    "new": "Selim"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/7/exercises/2/content/accepted_answers/0",
+    "old": "Selin",
+    "new": "Selim"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/7/exercises/2/content/question",
+    "old": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Elif Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selin gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht?",
+    "new": "Emres Wochenende: Am Samstag hat Emre lange geschlafen. Dann hat er mit Deniz und Emir Fußball gespielt. Am Nachmittag ist die Familie in den Zoo gefahren. Am Sonntag hat Selim gekocht und am Abend haben alle zusammen einen Film gesehen. Wer hat am Sonntag gekocht?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/accepted_answers/0",
+    "old": "Sie hat ihre Schwester getroffen.",
+    "new": "Er hat seinen Bruder getroffen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/content/correct_answer",
+    "old": "Sie hat ihre Schwester getroffen.",
+    "new": "Er hat seinen Bruder getroffen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/content/options/0",
+    "old": "Sie hat gearbeitet.",
+    "new": "Er hat gearbeitet."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/content/options/1",
+    "old": "Sie hat Fußball gespielt.",
+    "new": "Er hat Fußball gespielt."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/content/options/2",
+    "old": "Sie hat ihre Schwester getroffen.",
+    "new": "Er hat seinen Bruder getroffen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/content/accepted_answers/0",
+    "old": "Sie hat ihre Schwester getroffen.",
+    "new": "Er hat seinen Bruder getroffen."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/content/question",
+    "old": "Kasia erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meine Schwester getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kasia in Warschau gemacht?",
+    "new": "Kamil erzählt: „Am Samstag bin ich nach Warschau gefahren. Dort habe ich meinen Bruder getroffen. Wir haben viel gesprochen und Kaffee getrunken.“ Was hat Kamil in Warschau gemacht?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/translations/uk/task",
+    "old": "Що Kasia робила у Варшаві?",
+    "new": "Що Kamil робив у Варшаві?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/translations/ru/task",
+    "old": "Что Kasia делала в Варшаве?",
+    "new": "Что Kamil делал в Варшаве?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/translations/en/task",
+    "old": "What did Kasia do in Warsaw?",
+    "new": "What did Kamil do in Warsaw?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/7/translations/tr/task",
+    "old": "Kasia Varşova’da ne yaptı?",
+    "new": "Kamil Varşova’da ne yaptı?"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/accepted_answers/0",
+    "old": "Olena hat am Samstag gearbeitet.",
+    "new": "Oleh hat am Samstag gearbeitet."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/accepted_answers/1",
+    "old": "Am Samstag hat Olena gearbeitet.",
+    "new": "Am Samstag hat Oleh gearbeitet."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/explanation_card",
+    "old": "p7_bracket_perfekt",
+    "new": "p7_perfekt_t"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/content/parts/1",
+    "old": "Olena",
+    "new": "Oleh"
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/content/correct_answer",
+    "old": "Olena hat am Samstag gearbeitet.",
+    "new": "Oleh hat am Samstag gearbeitet."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/content/accepted_answers/0",
+    "old": "Olena hat am Samstag gearbeitet.",
+    "new": "Oleh hat am Samstag gearbeitet."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/content/accepted_answers/1",
+    "old": "Am Samstag hat Olena gearbeitet.",
+    "new": "Am Samstag hat Oleh gearbeitet."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/translations/uk/task",
+    "old": "У суботу Olena працювала.",
+    "new": "У суботу Oleh працював."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/translations/ru/task",
+    "old": "В субботу Olena работала.",
+    "new": "В субботу Oleh работал."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/translations/en/task",
+    "old": "Olena worked on Saturday.",
+    "new": "Oleh worked on Saturday."
+  },
+  {
+    "pointer": "path-a1.1.json/6/nodes/11/exercises/27/translations/tr/task",
+    "old": "Olena cumartesi çalıştı.",
+    "new": "Oleh cumartesi çalıştı."
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/4/exercises/1/content/options/2",
+    "old": "Ich war zehn Jahre Chefin.",
+    "new": "Ich war zehn Jahre Chef."
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/4/exercises/1/content/question",
+    "old": "Lena sucht ihre erste Stelle. Was sagt sie?",
+    "new": "Leon sucht seine erste Stelle. Was sagt er?"
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/4/exercises/1/translations/uk/task",
+    "old": "Lena шукає свою першу роботу. Що вона каже?",
+    "new": "Leon шукає свою першу роботу. Що він каже?"
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/4/exercises/1/translations/ru/task",
+    "old": "Lena ищет свою первую работу. Что она говорит?",
+    "new": "Leon ищет свою первую работу. Что он говорит?"
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/4/exercises/1/translations/en/task",
+    "old": "Lena is looking for her first job. What does she say?",
+    "new": "Leon is looking for his first job. What does he say?"
+  },
+  {
+    "pointer": "path-a1.2.json/0/nodes/4/exercises/1/translations/tr/task",
+    "old": "Lena ilk işini arıyor. Ne diyor?",
+    "new": "Leon ilk işini arıyor. Ne diyor?"
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/7/merkkarte/examples/2",
+    "old": "Bitte informieren Sie auch Frau Lindner.",
+    "new": "Bitte informieren Sie auch Herrn Lindner."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/accepted_answers/0",
+    "old": "Sie ist krank.",
+    "new": "Er ist krank."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/content/correct_answer",
+    "old": "Sie ist krank.",
+    "new": "Er ist krank."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/content/options/0",
+    "old": "Sie hat keine Lust.",
+    "new": "Er hat keine Lust."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/content/options/1",
+    "old": "Sie ist krank.",
+    "new": "Er ist krank."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/content/options/2",
+    "old": "Sie ist beim Arzt.",
+    "new": "Er ist beim Arzt."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/content/accepted_answers/0",
+    "old": "Sie ist krank.",
+    "new": "Er ist krank."
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/content/question",
+    "old": "E-Mail: „Liebe Frau Kaya, leider kann Lena heute nicht in die Schule kommen. Sie hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanna Lindner“ Warum kommt Lena nicht?",
+    "new": "E-Mail: „Lieber Herr Kaya, leider kann Leon heute nicht in die Schule kommen. Er hat Fieber und Halsschmerzen. Morgen gehen wir zum Arzt. Viele Grüße, Hanno Lindner“ Warum kommt Leon nicht?"
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/translations/uk/task",
+    "old": "Чому Lena не прийде?",
+    "new": "Чому Leon не прийде?"
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/translations/ru/task",
+    "old": "Почему Lena не придёт?",
+    "new": "Почему Leon не придёт?"
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/translations/en/task",
+    "old": "Why isn’t Lena coming?",
+    "new": "Why isn’t Leon coming?"
+  },
+  {
+    "pointer": "path-a1.2.json/2/nodes/12/exercises/12/translations/tr/task",
+    "old": "Lena neden gelmiyor?",
+    "new": "Leon neden gelmiyor?"
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/3/merkkarte/examples/2",
+    "old": "Meine Schwester wohnt in der Schweiz.",
+    "new": "Mein Bruder wohnt in der Schweiz."
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/accepted_answers/0",
+    "old": "bei der",
+    "new": "bei dem"
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/content/correct_answer",
+    "old": "bei der",
+    "new": "bei dem"
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/content/options/0",
+    "old": "bei der",
+    "new": "bei dem"
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/content/options/1",
+    "old": "zur",
+    "new": "zum"
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/content/options/2",
+    "old": "in die",
+    "new": "in den"
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/content/accepted_answers/0",
+    "old": "bei der",
+    "new": "bei dem"
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/content/question",
+    "old": "Wo ist Lena? – Sie ist … Freundin Mia.",
+    "new": "Wo ist Leon? – Er ist … Freund Milan."
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/translations/uk/task",
+    "old": "Де Lena? – Вона в подруги Mia.",
+    "new": "Де Leon? – Він у друга Milan."
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/translations/ru/task",
+    "old": "Где Lena? – Она у подруги Mia.",
+    "new": "Где Leon? – Он у друга Milan."
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/translations/en/task",
+    "old": "Where is Lena? – She is at her friend Mia’s.",
+    "new": "Where is Leon? – He is at his friend Milan’s."
+  },
+  {
+    "pointer": "path-a1.2.json/3/nodes/11/exercises/3/translations/tr/task",
+    "old": "Lena nerede? – Arkadaşı Mia’da.",
+    "new": "Leon nerede? – Arkadaşı Milan’da."
+  },
+  {
+    "pointer": "path-a1.2.json/6/nodes/6/exercises/2/accepted_answers/0",
+    "old": "Wir feiern, denn Mia wird 18.",
+    "new": "Wir feiern, denn Milan wird 18."
+  },
+  {
+    "pointer": "path-a1.2.json/6/nodes/6/exercises/2/content/correct_answer",
+    "old": "Wir feiern, denn Mia wird 18.",
+    "new": "Wir feiern, denn Milan wird 18."
+  },
+  {
+    "pointer": "path-a1.2.json/6/nodes/6/exercises/2/content/options/0",
+    "old": "Wir feiern, denn Mia wird 18.",
+    "new": "Wir feiern, denn Milan wird 18."
+  },
+  {
+    "pointer": "path-a1.2.json/6/nodes/6/exercises/2/content/options/1",
+    "old": "Wir feiern, aber Mia ist müde.",
+    "new": "Wir feiern, aber Milan ist müde."
+  },
+  {
+    "pointer": "path-a1.2.json/6/nodes/6/exercises/2/content/options/2",
+    "old": "Wir feiern und Mia tanzt.",
+    "new": "Wir feiern und Milan tanzt."
+  },
+  {
+    "pointer": "path-a1.2.json/6/nodes/6/exercises/2/content/accepted_answers/0",
+    "old": "Wir feiern, denn Mia wird 18.",
+    "new": "Wir feiern, denn Milan wird 18."
+  },
+  {
+    "pointer": "path-a1.2.json/6/nodes/12/exercises/6/content/options/0",
+    "old": "Bei Lena zu Hause.",
+    "new": "Bei Leon zu Hause."
+  },
+  {
+    "pointer": "path-a1.2.json/6/nodes/12/exercises/6/content/question",
+    "old": "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Lena und Tom“ Wo ist die Feier nach der Hochzeit?",
+    "new": "Einladung: „Wir heiraten! Am 8. Mai um 14 Uhr im Rathaus. Danach feiern wir im Hotel Seeblick. Leon und Tom“ Wo ist die Feier nach der Hochzeit?"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/accepted_answers/0",
+    "old": "Das ist Lenas Onkel.",
+    "new": "Das ist Leons Onkel."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/hint",
+    "old": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "new": "Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/explanation",
+    "old": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/content/correct_answer",
+    "old": "Das ist Lenas Onkel.",
+    "new": "Das ist Leons Onkel."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/content/options/0",
+    "old": "Das ist Lenas Onkel.",
+    "new": "Das ist Leons Onkel."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/content/options/1",
+    "old": "Das ist Lena Onkel.",
+    "new": "Das ist Leon Onkel."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/content/options/2",
+    "old": "Das ist der Lenas Onkel.",
+    "new": "Das ist der Leons Onkel."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/content/accepted_answers/0",
+    "old": "Das ist Lenas Onkel.",
+    "new": "Das ist Leons Onkel."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/content/question",
+    "old": "Mia zeigt ein Familienfoto.",
+    "new": "Milan zeigt ein Familienfoto."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/uk/explanation",
+    "old": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/uk/task",
+    "old": "Mia показує сімейне фото.",
+    "new": "Milan показує сімейне фото."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/uk/hint",
+    "old": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "new": "Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/ru/explanation",
+    "old": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/ru/task",
+    "old": "Mia показывает семейное фото.",
+    "new": "Milan показывает семейное фото."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/ru/hint",
+    "old": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "new": "Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/en/explanation",
+    "old": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/en/task",
+    "old": "Mia is showing a family photo.",
+    "new": "Milan is showing a family photo."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/en/hint",
+    "old": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+    "new": "Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/tr/explanation",
+    "old": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/tr/task",
+    "old": "Mia bir aile fotoğrafı gösteriyor.",
+    "new": "Milan bir aile fotoğrafı gösteriyor."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/3/translations/tr/hint",
+    "old": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "new": "İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/accepted_answers/0",
+    "old": "Olgas",
+    "new": "Olegs"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/hint",
+    "old": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "new": "Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/explanation",
+    "old": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/content/correct_answer",
+    "old": "Olgas",
+    "new": "Olegs"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/content/text_before",
+    "old": "Die Tochter von Olga heißt Mia. ",
+    "new": "Der Sohn von Oleg heißt Milan. "
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/content/options/0",
+    "old": "Olgas",
+    "new": "Olegs"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/content/options/1",
+    "old": "Olgan",
+    "new": "Olegn"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/content/options/2",
+    "old": "Olga",
+    "new": "Oleg"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/content/accepted_answers/0",
+    "old": "Olgas",
+    "new": "Olegs"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/content/gap_hint",
+    "old": "Olga",
+    "new": "Oleg"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/content/text_after",
+    "old": " Tochter heißt Mia.",
+    "new": " Sohn heißt Milan."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/uk/explanation",
+    "old": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/uk/task",
+    "old": "Доньку Olga звати Mia.",
+    "new": "Сина Oleg звати Milan."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/uk/hint",
+    "old": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "new": "Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/ru/explanation",
+    "old": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/ru/task",
+    "old": "Дочь Olga зовут Mia.",
+    "new": "Сына Oleg зовут Milan."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/ru/hint",
+    "old": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "new": "Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/en/explanation",
+    "old": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/en/task",
+    "old": "Olga’s daughter is called Mia.",
+    "new": "Oleg’s son is called Milan."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/en/hint",
+    "old": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+    "new": "Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/tr/explanation",
+    "old": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/tr/task",
+    "old": "Olga’nın kızının adı Mia.",
+    "new": "Oleg’in oğlunun adı Milan."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/exercises/5/translations/tr/hint",
+    "old": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+    "new": "İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/merkkarte/examples/0",
+    "old": "Das ist Lenas Cousin.",
+    "new": "Das ist Leons Cousin."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/merkkarte/examples/1",
+    "old": "Das ist der Cousin von Lena.",
+    "new": "Das ist der Cousin von Leon."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/merkkarte/translations/uk/rule",
+    "old": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/merkkarte/translations/ru/rule",
+    "old": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/merkkarte/translations/en/rule",
+    "old": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/merkkarte/translations/tr/rule",
+    "old": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/1/merkkarte/rule",
+    "old": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+    "new": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/accepted_answers/0",
+    "old": "weil sie müde ist.",
+    "new": "weil er müde ist."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/content/correct_answer",
+    "old": "weil sie müde ist.",
+    "new": "weil er müde ist."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/content/options/0",
+    "old": "weil sie ist müde.",
+    "new": "weil er ist müde."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/content/options/1",
+    "old": "weil ist sie müde.",
+    "new": "weil ist er müde."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/content/options/2",
+    "old": "weil sie müde ist.",
+    "new": "weil er müde ist."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/content/accepted_answers/0",
+    "old": "weil sie müde ist.",
+    "new": "weil er müde ist."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/content/question",
+    "old": "Mia geht nicht zur Party. Sie ist müde. → Mia geht nicht zur Party, …",
+    "new": "Milan geht nicht zur Party. Er ist müde. → Milan geht nicht zur Party, …"
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/translations/uk/task",
+    "old": "Mia не йде на вечірку. Вона втомилася. → Mia не йде на вечірку, тому що втомилася.",
+    "new": "Milan не йде на вечірку. Він втомився. → Milan не йде на вечірку, тому що втомився."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/translations/ru/task",
+    "old": "Mia не идёт на вечеринку. Она устала. → Mia не идёт на вечеринку, потому что устала.",
+    "new": "Milan не идёт на вечеринку. Он устал. → Milan не идёт на вечеринку, потому что устал."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/translations/en/task",
+    "old": "Mia is not going to the party. She is tired. → Mia is not going to the party because she is tired.",
+    "new": "Milan is not going to the party. He is tired. → Milan is not going to the party because he is tired."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/3/exercises/2/translations/tr/task",
+    "old": "Mia partiye gitmiyor. Yorgun. → Mia partiye gitmiyor, çünkü yorgun.",
+    "new": "Milan partiye gitmiyor. Yorgun. → Milan partiye gitmiyor, çünkü yorgun."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/accepted_answers/0",
+    "old": "Wir haben Lena in Köln kennengelernt.",
+    "new": "Wir haben Leon in Köln kennengelernt."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/content/correct_answer",
+    "old": "Wir haben Lena in Köln kennengelernt.",
+    "new": "Wir haben Leon in Köln kennengelernt."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/content/options/0",
+    "old": "Wir haben Lena in Köln gekennenlernt.",
+    "new": "Wir haben Leon in Köln gekennenlernt."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/content/options/1",
+    "old": "Wir haben Lena in Köln kennengelernt.",
+    "new": "Wir haben Leon in Köln kennengelernt."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/content/options/2",
+    "old": "Wir sind Lena in Köln kennengelernt.",
+    "new": "Wir sind Leon in Köln kennengelernt."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/content/accepted_answers/0",
+    "old": "Wir haben Lena in Köln kennengelernt.",
+    "new": "Wir haben Leon in Köln kennengelernt."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/content/question",
+    "old": "Olga erzählt von einer neuen Freundin.",
+    "new": "Oleg erzählt von einem neuen Freund."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/translations/uk/task",
+    "old": "Olga розповідає про нову подругу.",
+    "new": "Oleg розповідає про нового друга."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/translations/ru/task",
+    "old": "Olga рассказывает о новой подруге.",
+    "new": "Oleg рассказывает о новом друге."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/translations/en/task",
+    "old": "Olga is talking about a new friend.",
+    "new": "Oleg is talking about a new male friend."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/exercises/3/translations/tr/task",
+    "old": "Olga yeni bir arkadaşından söz ediyor.",
+    "new": "Oleg yeni bir erkek arkadaşından söz ediyor."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/5/merkkarte/examples/0",
+    "old": "Ich habe gestern meine Tante angerufen.",
+    "new": "Ich habe gestern meinen Onkel angerufen."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/accepted_answers/0",
+    "old": "Dann habe ich meine Schwester angerufen.",
+    "new": "Dann habe ich meinen Bruder angerufen."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/content/correct_answer",
+    "old": "Dann habe ich meine Schwester angerufen.",
+    "new": "Dann habe ich meinen Bruder angerufen."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/content/options/0",
+    "old": "Dann meine Schwester habe ich angerufen.",
+    "new": "Dann meinen Bruder habe ich angerufen."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/content/options/1",
+    "old": "Dann habe ich meine Schwester angerufen.",
+    "new": "Dann habe ich meinen Bruder angerufen."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/content/options/2",
+    "old": "Dann ich habe meine Schwester angerufen.",
+    "new": "Dann ich habe meinen Bruder angerufen."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/content/accepted_answers/0",
+    "old": "Dann habe ich meine Schwester angerufen.",
+    "new": "Dann habe ich meinen Bruder angerufen."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/content/question",
+    "old": "Lena erzählt von ihrem Abend.",
+    "new": "Leon erzählt von seinem Abend."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/translations/uk/task",
+    "old": "Lena розповідає про свій вечір.",
+    "new": "Leon розповідає про свій вечір."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/translations/ru/task",
+    "old": "Lena рассказывает о своём вечере.",
+    "new": "Leon рассказывает о своём вечере."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/translations/en/task",
+    "old": "Lena is talking about her evening.",
+    "new": "Leon is talking about his evening."
+  },
+  {
+    "pointer": "path-a2.1.json/0/nodes/9/exercises/2/translations/tr/task",
+    "old": "Lena akşamını anlatıyor.",
+    "new": "Leon akşamını anlatıyor."
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/exercises/4/accepted_answers/0",
+    "old": "Guten Tag, hier ist Mia Bondar.",
+    "new": "Guten Tag, hier ist Milan Bondar."
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/exercises/4/explanation",
+    "old": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+    "new": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/exercises/4/content/correct_answer",
+    "old": "Guten Tag, hier ist Mia Bondar.",
+    "new": "Guten Tag, hier ist Milan Bondar."
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/exercises/4/content/options/1",
+    "old": "Guten Tag, hier ist Mia Bondar.",
+    "new": "Guten Tag, hier ist Milan Bondar."
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/exercises/4/content/accepted_answers/0",
+    "old": "Guten Tag, hier ist Mia Bondar.",
+    "new": "Guten Tag, hier ist Milan Bondar."
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/exercises/4/translations/uk/explanation",
+    "old": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+    "new": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/exercises/4/translations/ru/explanation",
+    "old": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+    "new": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/exercises/4/translations/en/explanation",
+    "old": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+    "new": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/exercises/4/translations/tr/explanation",
+    "old": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+    "new": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/merkkarte/examples/1",
+    "old": "Ist Frau Kaya schon im Haus?",
+    "new": "Ist Herr Kaya schon im Haus?"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/merkkarte/translations/uk/rule",
+    "old": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+    "new": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/merkkarte/translations/ru/rule",
+    "old": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+    "new": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/merkkarte/translations/en/rule",
+    "old": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+    "new": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/merkkarte/translations/tr/rule",
+    "old": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+    "new": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)"
+  },
+  {
+    "pointer": "path-a2.1.json/3/nodes/7/merkkarte/rule",
+    "old": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+    "new": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!"
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/accepted_answers/0",
+    "old": "Sie schminkt sich.",
+    "new": "Er schminkt sich."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/explanation",
+    "old": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+    "new": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/content/correct_answer",
+    "old": "Sie schminkt sich.",
+    "new": "Er schminkt sich."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/content/options/0",
+    "old": "Sie schminkt ihr.",
+    "new": "Er schminkt ihm."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/content/options/1",
+    "old": "Sie schminkt sie sich.",
+    "new": "Er schminkt ihn sich."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/content/options/2",
+    "old": "Sie schminkt sich.",
+    "new": "Er schminkt sich."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/content/accepted_answers/0",
+    "old": "Sie schminkt sich.",
+    "new": "Er schminkt sich."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/content/question",
+    "old": "Lena steht vor dem Spiegel.",
+    "new": "Leon steht vor dem Spiegel."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/translations/uk/explanation",
+    "old": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+    "new": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися)."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/translations/uk/task",
+    "old": "Lena стоїть перед дзеркалом.",
+    "new": "Leon стоїть перед дзеркалом."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/translations/ru/explanation",
+    "old": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+    "new": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться)."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/translations/ru/task",
+    "old": "Lena стоит перед зеркалом.",
+    "new": "Leon стоит перед зеркалом."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/translations/en/explanation",
+    "old": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+    "new": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain)."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/translations/en/task",
+    "old": "Lena is standing in front of the mirror.",
+    "new": "Leon is standing in front of the mirror."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/translations/tr/explanation",
+    "old": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+    "new": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek)."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/exercises/0/translations/tr/task",
+    "old": "Lena aynanın önünde duruyor.",
+    "new": "Leon aynanın önünde duruyor."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/merkkarte/translations/uk/rule",
+    "old": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+    "new": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися)."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/merkkarte/translations/ru/rule",
+    "old": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+    "new": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться)."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/merkkarte/translations/en/rule",
+    "old": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+    "new": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain)."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/merkkarte/translations/tr/rule",
+    "old": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+    "new": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek)."
+  },
+  {
+    "pointer": "path-a2.1.json/4/nodes/2/merkkarte/rule",
+    "old": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+    "new": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/1/accepted_answers/0",
+    "old": "Die Braut ist noch nicht gekommen.",
+    "new": "Der Bräutigam ist noch nicht gekommen."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/1/content/correct_answer",
+    "old": "Die Braut ist noch nicht gekommen.",
+    "new": "Der Bräutigam ist noch nicht gekommen."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/1/content/options/2",
+    "old": "Die Braut ist noch nicht gekommen.",
+    "new": "Der Bräutigam ist noch nicht gekommen."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/1/content/accepted_answers/0",
+    "old": "Die Braut ist noch nicht gekommen.",
+    "new": "Der Bräutigam ist noch nicht gekommen."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/1/content/question",
+    "old": "Nachrichten von Mia: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Die Braut ist noch nicht da! – 11.05 Uhr: Sie ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem?",
+    "new": "Nachrichten von Milan: „10.50 Uhr: In zehn Minuten beginnt die Trauung. Der Bräutigam ist noch nicht da! – 11.05 Uhr: Er ist da. Das Kleid ist wunderschön. – 11.40 Uhr: Sie haben Ja gesagt! Alle weinen. – 13.00 Uhr: Jetzt gibt es Essen. Die Torte kommt später.“ Was ist um 10.50 Uhr das Problem?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/accepted_answers/0",
+    "old": "Sie ist krank.",
+    "new": "Er ist krank."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/content/correct_answer",
+    "old": "Sie ist krank.",
+    "new": "Er ist krank."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/content/options/0",
+    "old": "Sie mag keine Hochzeiten.",
+    "new": "Er mag keine Hochzeiten."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/content/options/1",
+    "old": "Sie muss arbeiten.",
+    "new": "Er muss arbeiten."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/content/options/2",
+    "old": "Sie ist krank.",
+    "new": "Er ist krank."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/content/accepted_answers/0",
+    "old": "Sie ist krank.",
+    "new": "Er ist krank."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/content/question",
+    "old": "Nachricht von Samir an Lena: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Lena nicht bei der Feier?",
+    "new": "Nachricht von Samir an Leon: „Die Feier ist super! Wir sind im Restaurant ‚Seeblick‘. Das Brautpaar hat gerade getanzt, jetzt tanzen alle. Onkel Paul hat eine lustige Rede gehalten. Schade, dass du krank bist. Ich schicke dir gleich Fotos!“ Warum ist Leon nicht bei der Feier?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/translations/uk/task",
+    "old": "Чому Lena немає на святі?",
+    "new": "Чому Leon немає на святі?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/translations/ru/task",
+    "old": "Почему Lena нет на празднике?",
+    "new": "Почему Leon нет на празднике?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/translations/en/task",
+    "old": "Why is Lena not at the party?",
+    "new": "Why is Leon not at the party?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/11/exercises/4/translations/tr/task",
+    "old": "Lena neden kutlamada değil?",
+    "new": "Leon neden kutlamada değil?"
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/12/exercises/6/content/options/1",
+    "old": "Lena ist noch zu Hause.",
+    "new": "Leon ist noch zu Hause."
+  },
+  {
+    "pointer": "path-a2.1.json/6/nodes/12/exercises/6/content/question",
+    "old": "Nachricht von Lena: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig?",
+    "new": "Nachricht von Leon: „Bin schon im Standesamt. Die Trauung beginnt gleich. Wo bist du?“ Was ist richtig?"
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/accepted_answers/0",
+    "old": "Sie würde gern schwimmen gehen.",
+    "new": "Er würde gern schwimmen gehen."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/content/correct_answer",
+    "old": "Sie würde gern schwimmen gehen.",
+    "new": "Er würde gern schwimmen gehen."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/content/options/0",
+    "old": "Sie würde gern schwimmen gehen.",
+    "new": "Er würde gern schwimmen gehen."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/content/options/1",
+    "old": "Sie gern würde schwimmen gehen.",
+    "new": "Er gern würde schwimmen gehen."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/content/options/2",
+    "old": "Sie würde gern gehen schwimmen.",
+    "new": "Er würde gern gehen schwimmen."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/content/accepted_answers/0",
+    "old": "Sie würde gern schwimmen gehen.",
+    "new": "Er würde gern schwimmen gehen."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/content/question",
+    "old": "Lena hat heute keine Zeit für Sport.",
+    "new": "Leon hat heute keine Zeit für Sport."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/translations/uk/task",
+    "old": "У Lena сьогодні немає часу на спорт.",
+    "new": "У Leon сьогодні немає часу на спорт."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/translations/ru/task",
+    "old": "У Lena сегодня нет времени на спорт.",
+    "new": "У Leon сегодня нет времени на спорт."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/translations/en/task",
+    "old": "Lena has no time for sport today.",
+    "new": "Leon has no time for sport today."
+  },
+  {
+    "pointer": "path-a2.2.json/0/nodes/2/exercises/2/translations/tr/task",
+    "old": "Lena’nın bugün spora vakti yok.",
+    "new": "Leon’un bugün spora vakti yok."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/accepted_answers/0",
+    "old": "Sie findet Rucksäcke praktischer als Taschen.",
+    "new": "Er findet Rucksäcke praktischer als Taschen."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/content/correct_answer",
+    "old": "Sie findet Rucksäcke praktischer als Taschen.",
+    "new": "Er findet Rucksäcke praktischer als Taschen."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/content/options/0",
+    "old": "Sie findet Rucksäcke praktischer als Taschen.",
+    "new": "Er findet Rucksäcke praktischer als Taschen."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/content/options/1",
+    "old": "Sie findet Taschen praktischer als Rucksäcke.",
+    "new": "Er findet Taschen praktischer als Rucksäcke."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/content/options/2",
+    "old": "Sie findet Rucksäcke so praktisch wie Taschen.",
+    "new": "Er findet Rucksäcke so praktisch wie Taschen."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/content/accepted_answers/0",
+    "old": "Sie findet Rucksäcke praktischer als Taschen.",
+    "new": "Er findet Rucksäcke praktischer als Taschen."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/content/question",
+    "old": "Lena findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt?",
+    "new": "Leon findet: Taschen sind okay, aber Rucksäcke sind besser. Was stimmt?"
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/translations/uk/task",
+    "old": "Lena вважає: сумки – нормально, але рюкзаки кращі. Що правильно?",
+    "new": "Leon вважає: сумки – нормально, але рюкзаки кращі. Що правильно?"
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/translations/ru/task",
+    "old": "Lena считает: сумки – нормально, но рюкзаки лучше. Что верно?",
+    "new": "Leon считает: сумки – нормально, но рюкзаки лучше. Что верно?"
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/translations/en/task",
+    "old": "Lena thinks bags are okay, but rucksacks are better. What is true?",
+    "new": "Leon thinks bags are okay, but rucksacks are better. What is true?"
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/8/exercises/4/translations/tr/task",
+    "old": "Lena’ya göre çantalar fena değil ama sırt çantaları daha iyi. Hangisi doğru?",
+    "new": "Leon’a göre çantalar fena değil ama sırt çantaları daha iyi. Hangisi doğru?"
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/accepted_answers/0",
+    "old": "Den hat mir meine Tante geschenkt.",
+    "new": "Den hat mir mein Onkel geschenkt."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/content/correct_answer",
+    "old": "Den hat mir meine Tante geschenkt.",
+    "new": "Den hat mir mein Onkel geschenkt."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/content/options/0",
+    "old": "Der hat mir meine Tante geschenkt.",
+    "new": "Der hat mir mein Onkel geschenkt."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/content/options/1",
+    "old": "Den hat meine Tante mir geschenken.",
+    "new": "Den hat mein Onkel mir geschenken."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/content/options/2",
+    "old": "Den hat mir meine Tante geschenkt.",
+    "new": "Den hat mir mein Onkel geschenkt."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/content/accepted_answers/0",
+    "old": "Den hat mir meine Tante geschenkt.",
+    "new": "Den hat mir mein Onkel geschenkt."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/content/question",
+    "old": "Mia erzählt von ihrem Schal.",
+    "new": "Milan erzählt von seinem Schal."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/translations/uk/task",
+    "old": "Mia розповідає про свій шарф.",
+    "new": "Milan розповідає про свій шарф."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/translations/ru/task",
+    "old": "Mia рассказывает о своём шарфе.",
+    "new": "Milan рассказывает о своём шарфе."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/translations/en/task",
+    "old": "Mia is talking about her scarf.",
+    "new": "Milan is talking about his scarf."
+  },
+  {
+    "pointer": "path-a2.2.json/1/nodes/10/exercises/4/translations/tr/task",
+    "old": "Mia atkısını anlatıyor.",
+    "new": "Milan atkısını anlatıyor."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/15/accepted_answers/0",
+    "old": "Bei der Nachbarin.",
+    "new": "Beim Nachbarn."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/15/content/correct_answer",
+    "old": "Bei der Nachbarin.",
+    "new": "Beim Nachbarn."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/15/content/options/0",
+    "old": "Bei der Nachbarin.",
+    "new": "Beim Nachbarn."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/15/content/options/2",
+    "old": "Bei der Mutter.",
+    "new": "Beim Vater."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/15/content/accepted_answers/0",
+    "old": "Bei der Nachbarin.",
+    "new": "Beim Nachbarn."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/15/content/question",
+    "old": "Nachricht auf der Mailbox: „Hallo Lena, hier ist Mama. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen bei der Nachbarin im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt?",
+    "new": "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Wo ist das Päckchen jetzt?"
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/accepted_answers/0",
+    "old": "Sie soll ihre Mutter am Abend anrufen.",
+    "new": "Er soll seinen Vater am Abend anrufen."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/content/correct_answer",
+    "old": "Sie soll ihre Mutter am Abend anrufen.",
+    "new": "Er soll seinen Vater am Abend anrufen."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/content/options/0",
+    "old": "Sie soll die Tür aufmachen.",
+    "new": "Er soll die Tür aufmachen."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/content/options/1",
+    "old": "Sie soll zur Post gehen.",
+    "new": "Er soll zur Post gehen."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/content/options/2",
+    "old": "Sie soll ihre Mutter am Abend anrufen.",
+    "new": "Er soll seinen Vater am Abend anrufen."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/content/accepted_answers/0",
+    "old": "Sie soll ihre Mutter am Abend anrufen.",
+    "new": "Er soll seinen Vater am Abend anrufen."
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/content/question",
+    "old": "Nachricht auf der Mailbox: „Hallo Lena, hier ist Mama. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen bei der Nachbarin im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Lena tun?",
+    "new": "Nachricht auf der Mailbox: „Hallo Leon, hier ist Papa. Ich stehe vor deiner Tür, aber du bist nicht da. Ich habe dein Päckchen beim Nachbarn im ersten Stock abgegeben. Ruf mich bitte heute Abend an!“ Was soll Leon tun?"
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/translations/uk/task",
+    "old": "Що має зробити Lena?",
+    "new": "Що має зробити Leon?"
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/translations/ru/task",
+    "old": "Что должна сделать Lena?",
+    "new": "Что должен сделать Leon?"
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/translations/en/task",
+    "old": "What should Lena do?",
+    "new": "What should Leon do?"
+  },
+  {
+    "pointer": "path-a2.2.json/2/nodes/13/exercises/16/translations/tr/task",
+    "old": "Lena ne yapmalı?",
+    "new": "Leon ne yapmalı?"
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/6/exercises/0/content/target_form/0",
+    "old": "sie lässt",
+    "new": "er lässt"
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/6/exercises/0/content/question",
+    "old": "Mia … ihr Auto in der Werkstatt reparieren.",
+    "new": "Milan … sein Auto in der Werkstatt reparieren."
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/6/exercises/0/translations/uk/task",
+    "old": "Mia ремонтує машину в автосервісі.",
+    "new": "Milan ремонтує машину в автосервісі."
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/6/exercises/0/translations/ru/task",
+    "old": "Mia ремонтирует машину в автосервисе.",
+    "new": "Milan ремонтирует машину в автосервисе."
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/6/exercises/0/translations/en/task",
+    "old": "Mia is having her car repaired at the garage.",
+    "new": "Milan is having his car repaired at the garage."
+  },
+  {
+    "pointer": "path-a2.2.json/5/nodes/6/exercises/0/translations/tr/task",
+    "old": "Mia arabasını serviste tamir ettiriyor.",
+    "new": "Milan arabasını serviste tamir ettiriyor."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/accepted_answers/0",
+    "old": "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/content/correct_answer",
+    "old": "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/content/options/2",
+    "old": "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/content/accepted_answers/0",
+    "old": "Guten Tag, Frau Sommer. Vielen Dank für die Einladung zum Gespräch.",
+    "new": "Guten Tag, Herr Sommer. Vielen Dank für die Einladung zum Gespräch."
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/content/question",
+    "old": "Du kommst zum Vorstellungsgespräch und begrüßt die Chefin. Was sagst du?",
+    "new": "Du kommst zum Vorstellungsgespräch und begrüßt den Chef. Was sagst du?"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/translations/uk/task",
+    "old": "Ви приходите на співбесіду і вітаєтеся з начальницею. Що ви скажете?",
+    "new": "Ви приходите на співбесіду і вітаєтеся з начальником. Що ви скажете?"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/8/exercises/3/translations/ru/task",
+    "old": "Вы приходите на собеседование и здороваетесь с начальницей. Что вы скажете?",
+    "new": "Вы приходите на собеседование и здороваетесь с начальником. Что вы скажете?"
+  },
+  {
+    "pointer": "path-b1.1.json/4/nodes/11/exercises/8/content/options/0",
+    "old": "selbstständig",
+    "new": "Tätigkeit"
+  }
+]
