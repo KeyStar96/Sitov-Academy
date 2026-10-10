@@ -205,12 +205,25 @@ def info_metadata(info):
     return (info or {}).get('metadata') or (info or {}).get('user_metadata') or (info or {}).get('userMetadata') or {}
 
 
+def sitov_storage_metadata(metadata):
+    # Authoring sidecars also contain private local paths and review evidence.
+    # Only the prepared-audio contract belongs in remotely served metadata.
+    fields = ('engine', 'voice', 'revision', 'profileFingerprint', 'sourceModel',
+              'mlxModel', 'modelRevision', 'referenceSha256', 'alignmentModel',
+              'id', 'text', 'cachePath', 'textSha256', 'audioSha256', 'sha256',
+              'rate', 'sampleRate', 'bitrate', 'channels', 'bytes',
+              'actualDecodedDuration', 'wordTimings', 'spokenAlignment',
+              'spokenText', 'numberEquivalenceProofSHA256',
+              'oneToOneWhitespaceTokenRendering', 'numberBinding')
+    return {key: metadata[key] for key in fields if key in metadata}
+
+
 def storage_upload(audio, metadata):
     # Match storage-js's FormData contract. Long passages can have more timing
     # metadata than an HTTP proxy permits in a single x-metadata header.
     boundary = 'sitov-audio-' + uuid.uuid4().hex
     parts = []
-    for name, value in [('cacheControl', b'31536000'), ('metadata', compact(metadata).encode())]:
+    for name, value in [('cacheControl', b'31536000'), ('metadata', compact(sitov_storage_metadata(metadata)).encode())]:
         parts.append(f'--{boundary}\r\nContent-Disposition: form-data; name="{name}"\r\n\r\n'.encode() + value + b'\r\n')
     parts.append(f'--{boundary}\r\nContent-Disposition: form-data; name=""; filename="sitov-audio.mp3"\r\nContent-Type: audio/mpeg\r\n\r\n'.encode() + audio + b'\r\n')
     parts.append(f'--{boundary}--\r\n'.encode())

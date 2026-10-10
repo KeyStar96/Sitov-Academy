@@ -307,6 +307,31 @@ class ImportSitovQwenAudioTests(unittest.TestCase):
         self.assertIn("q.cache_path=a.path AND q.status='pending'", query)
         self.assertIn('ON_ERROR_STOP=1', run.call_args.args[0])
 
+    def test_upload_keeps_audio_contract_and_does_not_publish_private_authoring_evidence(self):
+        metadata = {
+            'voice': PROFILE['voice'], 'audioSha256': 'a' * 64,
+            'wordTimings': [{'start': 0, 'end': .5}],
+            'spokenAlignment': {'version': 1, 'displayText': '5:30', 'spokenText': 'fünf Uhr dreißig'},
+            'originalProductionReadbackProvenance': {'path': '/Users/private/source.json'},
+            'genuineNativeTimingAdoption': {'receipt': '/tmp/private/receipt.json'},
+            'provenance': {'token': 'private-test-token'},
+            'humanListening': False, 'publicationApproved': False,
+        }
+        original = copy.deepcopy(metadata)
+        audio = b'ID3' + b'a' * 200
+        body, headers = MODULE.storage_upload(audio, metadata)
+        parts = upload_parts(body, headers)
+        served = json.loads(parts['metadata'])
+        self.assertEqual(parts[''], audio)
+        self.assertEqual(served['wordTimings'], metadata['wordTimings'])
+        self.assertEqual(served['spokenAlignment'], metadata['spokenAlignment'])
+        self.assertEqual(served['audioSha256'], metadata['audioSha256'])
+        self.assertNotIn('/Users/', body.decode(errors='replace'))
+        self.assertNotIn('/tmp/', body.decode(errors='replace'))
+        self.assertNotIn('private-test-token', body.decode(errors='replace'))
+        self.assertNotIn('publicationApproved', served)
+        self.assertEqual(metadata, original)
+
 
     def test_streaming_audit_reads_one_audio_and_full_validation_still_rejects_later_errors(self):
         manifest = self.bundle(('Hallo.', 'Guten Morgen.'))
