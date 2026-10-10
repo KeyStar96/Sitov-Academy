@@ -25173,7 +25173,7 @@ DO $internal$ BEGIN
 END $internal$;
 
 
--- Additive115: exact six immutable audio repair identities.
+-- Additive115: exact seven immutable audio repair identities.
 -- Sitov Academy immutable repair variants; no object/URL/proof/archive writes.
 CREATE OR REPLACE FUNCTION vocabulary_private.sitov_canonical_german_audio_path(p_text text)
 RETURNS text LANGUAGE plpgsql IMMUTABLE SET search_path='' AS $sitov$
@@ -25187,7 +25187,8 @@ BEGIN
   ('wollte','2300ececf6b5042bfe9f89d43eef770772bb76f131065d4914f25f281f9e0b22','sitov-audio-repair-20261010-v1'),
   ('des','7b24c1ad239d4a6b2c73716e122644f4d45329a71d01c9437f033381e8832fe4','sitov-audio-repair-20261010-v1'),
   ('ihrer','a9c97da4fcf665f6362ecf5b2407bf04dcebd7635a94ccfecaf6ccd3071892ed','sitov-audio-repair-20261010-v1'),
-  ('meiste','a5939d4dfb1493fd126545c712994df973351ef2364586f43c02e695eef6b9a5','sitov-audio-repair-20261010-v1')
+  ('meiste','a5939d4dfb1493fd126545c712994df973351ef2364586f43c02e695eef6b9a5','sitov-audio-repair-20261010-v1'),
+  ('esst','c5c587a8022a5689f4fe8d33586b3a8f69282e4a1b09b42ca2f461ecdaf7ac78','sitov-audio-repair-20261010-v1')
  ) AS v(source_text,text_sha256,tag)
  WHERE v.source_text=spoken AND v.text_sha256=encode(sha256(convert_to(spoken,'UTF8')),'hex');
  preimage := '{"text":' || to_json(spoken)::text ||

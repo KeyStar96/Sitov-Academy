@@ -31,6 +31,11 @@
       "text": "meiste",
       "textSha256": "a5939d4dfb1493fd126545c712994df973351ef2364586f43c02e695eef6b9a5",
       "variant": "sitov-audio-repair-20261010-v1"
+    },
+    {
+      "text": "esst",
+      "textSha256": "c5c587a8022a5689f4fe8d33586b3a8f69282e4a1b09b42ca2f461ecdaf7ac78",
+      "variant": "sitov-audio-repair-20261010-v1"
     }
   ]
 }

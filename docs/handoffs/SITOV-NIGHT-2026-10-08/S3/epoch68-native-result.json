@@ -1,0 +1,93 @@
+{
+  "nativeExitCode": 0,
+  "storageRows": 9,
+  "storageBeforeSha256": "4522034abf67ef063cf567317eade434fc6b3487b663128a6c0c927abaf04b6e",
+  "storageAfterSha256": "4522034abf67ef063cf567317eade434fc6b3487b663128a6c0c927abaf04b6e",
+  "storageFullRowsExact": true,
+  "fixtureAssetsAreSyntheticMetadataOnly": true,
+  "originalAffectedPaths": 20,
+  "sqlSourceSha256": "cd2a84f599eff5a9a3e7d3854812ed1d06d3c5a7afce15207d913372afa2c648",
+  "sourceHead": "4d5b90a5201f6fc2da031951ce15ddf2cbc516e3",
+  "sql114Sha256": "56b030f3b6a1f2f08756e71f2066f0f7d1a522343803d8b9d0b47240b6bd0795",
+  "driverSha256": "57faeda137850be8212114798735ee10cbc7139566dd9c1b6eb0e7fe4c0bf778",
+  "full185ProtectedStreamRun": false,
+  "epoch": 68,
+  "baseSha": "4d5b90a5201f6fc2da031951ce15ddf2cbc516e3",
+  "branch": "codex/sitov-night-s3-esst68",
+  "native": [
+    {
+      "role": "supabase_admin",
+      "checks": 64,
+      "allPassed": true,
+      "serverVersion": "15.19",
+      "fixtureMetadataOnly": true
+    },
+    {
+      "archiveAbsent": true,
+      "variantHelperAbsent": true
+    }
+  ],
+  "metadata": {
+    "rows": 5222,
+    "beforeRawSha256": "a517312a90acf87d7f7028e47357f00a6e57e0d6964e5906ffd5b2d7de3c59b3",
+    "afterRawSha256": "567f49c0badcdce8b28f0d0e52c63bfa28820ed48ab683ff06092434bb0f4b19",
+    "rawExact": false,
+    "logicalMetadataExact": true,
+    "rawDelta": [
+      {
+        "kind": "relation",
+        "identity": "usage",
+        "changedKeys": [
+          "relminmxid"
+        ],
+        "schema": "sitov_storage_private",
+        "oid": "33787"
+      }
+    ]
+  },
+  "esst": {
+    "text": "esst",
+    "textSha256": "c5c587a8022a5689f4fe8d33586b3a8f69282e4a1b09b42ca2f461ecdaf7ac78",
+    "oldPath": "sitov-qwen-v1/de/83bf3f87a1183ee23346b809d820d3bdf332b5b10cd3d8871965728c775ae3e6.mp3",
+    "newPath": "sitov-qwen-v1/de/9b12d09d782e799cc1c8319efea2cd0b654ad91171fc9f411b20ad6a08fd8ece.mp3",
+    "variant": "sitov-audio-repair-20261010-v1"
+  },
+  "oldSixRegistryAndGoldenKeysUnchanged": true,
+  "actualGermanTSAndPythonAndSQLCases": 19,
+  "foreignTSLegacyGoldenCases": 28,
+  "localTests": {
+    "jest": 3,
+    "pythonVariant": 5,
+    "pythonExistingImporter": 13,
+    "sqlStaticContract": 4
+  },
+  "runtime": {
+    "beforeMemoryMiB": 2707,
+    "afterMemoryMiB": 2613,
+    "healthBefore": [
+      200,
+      200,
+      200
+    ],
+    "healthAfter": [
+      200,
+      200,
+      200
+    ],
+    "productionAppBefore": 200,
+    "productionAppAfter": 200,
+    "noOOM": true,
+    "scopedQueries": 0
+  },
+  "nativeAttempts": 2,
+  "nativeFailures": 0,
+  "productionWrite": false,
+  "sharedQAWrite": false,
+  "audioGenerated": false,
+  "audioUploaded": false,
+  "audioBytesVerified": false,
+  "humanListening": false,
+  "publicationApproved": false,
+  "releaseReady": false,
+  "openJobs": []
+}

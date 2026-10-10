@@ -9,14 +9,15 @@ const golden: Record<string, string> = {
   "wollte": "sitov-qwen-v1/de/a247eb64e156ac01dadbb76db20637e6570311f93fb1b0dad063ea5348e4195e.mp3",
   "des": "sitov-qwen-v1/de/89137d72d3f65e8d2589e0f9532beeb322a2805aaeaf8030d9684bae2b0921a2.mp3",
   "ihrer": "sitov-qwen-v1/de/3829dc7759b63983b26570c2832515852424e86ad266b591abd8a89098afece0.mp3",
-  "meiste": "sitov-qwen-v1/de/88b6999624c9f3cde59987001dfd4980545eaf5720e271da307b1816a251a381.mp3"
+  "meiste": "sitov-qwen-v1/de/88b6999624c9f3cde59987001dfd4980545eaf5720e271da307b1816a251a381.mp3",
+  "esst": "sitov-qwen-v1/de/9b12d09d782e799cc1c8319efea2cd0b654ad91171fc9f411b20ad6a08fd8ece.mp3"
 }
 function legacy(text: string, language: NeuralAudioLanguage) {
  const de = language === 'de'
  const identity = { text: normalizeAudioText(text), voice: neuralVoiceName(language), rate: de ? AUDIO_RATE : SITOV_LEGACY_AUDIO_RATE, format: AUDIO_FORMAT, ...(de ? { leadIn: SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS, profile: SITOV_QWEN_PROFILE_FINGERPRINT } : {}) }
  return `${de ? 'sitov-qwen-v1' : 'piper-local-v2'}/${language}/${createHash('sha256').update(JSON.stringify(identity)).digest('hex')}.mp3`
 }
-test('exactly six German golden keys change and normalized aliases agree', () => {
+test('exactly seven German golden keys change and normalized aliases agree', () => {
  for (const [text, path] of Object.entries(golden)) {
   expect(neuralAudioPath(text, 'de')).toBe(path)
   expect(neuralAudioPath(` \u00a0${text}\n `, 'de', 'male')).toBe(path)
@@ -26,4 +27,9 @@ test('exactly six German golden keys change and normalized aliases agree', () =>
 test('all foreign languages and unlisted German text preserve old identity', () => {
  for (const language of ['en', 'ru', 'uk', 'tr'] as NeuralAudioLanguage[]) for (const text of Object.keys(golden)) expect(neuralAudioPath(text, language)).toBe(legacy(text, language))
  for (const text of ['Sind', 'sind.', 'Guten Morgen.', 'Cafe\u0301', '']) expect(neuralAudioPath(text, 'de')).toBe(legacy(text, 'de'))
+})
+
+test('esst old key remains distinct and case/punctuation aliases do not expand the registry', () => {
+ expect(legacy('esst', 'de')).toBe("sitov-qwen-v1/de/83bf3f87a1183ee23346b809d820d3bdf332b5b10cd3d8871965728c775ae3e6.mp3")
+ for (const text of ['Esst', 'esst.', 'isst']) expect(neuralAudioPath(text, 'de')).toBe(legacy(text, 'de'))
 })

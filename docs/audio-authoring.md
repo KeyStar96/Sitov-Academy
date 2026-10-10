@@ -346,7 +346,7 @@ rein lokal. Aktuell sind keine privaten Lernpfad-Hördateien im Seed hinterlegt.
 
 ## Unveränderliche Reparaturvarianten (115)
 
-Nur `sind`, `stehe`, `wollte`, `des`, `ihrer` und `meiste` erhalten nach NFC-/Whitespace-Normalisierung den festen Identitätszusatz `sitov-audio-repair-20261010-v1`. Die enge Registry liegt in `lib/audio/models/sitov-qwen-male-de/approved-variants.json`; sie bindet den exakten Text und Text-SHA256, keine Audio-SHA256. Modell, männliches Profil, Syntheseparameter, Cacheversion und alle anderen Identitäten bleiben unverändert. Der Variantenschlüssel steht am Ende der bisherigen JSON-Identität.
+Nur `sind`, `stehe`, `wollte`, `des`, `ihrer`, `meiste` und `esst` erhalten nach NFC-/Whitespace-Normalisierung den festen Identitätszusatz `sitov-audio-repair-20261010-v1`. Die enge Registry liegt in `lib/audio/models/sitov-qwen-male-de/approved-variants.json`; sie bindet den exakten Text und Text-SHA256, keine Audio-SHA256. Modell, männliches Profil, Syntheseparameter, Cacheversion und alle anderen Identitäten bleiben unverändert. Der Variantenschlüssel steht am Ende der bisherigen JSON-Identität.
 
 Neue Kandidaten werden ausschließlich unter dem neuen berechneten Pfad mit `upsert=false` importiert. Alte MP3-Bytes, URLs, historische Aufnahmen und archivierte Proofs bleiben erhalten. Aufrufer dürfen keinen Variantentag übergeben; der Importer verweigert abweichende Adressen, fehlende Assets und ungültige Registrydaten. Ein fehlendes neues Asset führt zu einem geschlossenen Audiozustand, niemals zum Rückgriff auf die alte Aufnahme.
 

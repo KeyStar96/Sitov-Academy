@@ -5,9 +5,9 @@ import { createHash } from 'node:crypto'
 const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8')
 const registry=JSON.parse(read('lib/audio/models/sitov-qwen-male-de/approved-variants.json'))
 const sql=read('supabase/vps/115_sitov_prepared_audio_variants.sql')
-test('SQL six text/hash/tag bindings exactly match the narrow registry',()=>{
+test('SQL seven text/hash/tag bindings exactly match the narrow registry',()=>{
  const bindings=[...sql.matchAll(/\('([^']+)','([a-f0-9]{64})','(sitov-audio-repair-20261010-v1)'\)/g)].map(([,text,textSha256,variant])=>({text,textSha256,variant}))
- assert.deepEqual(bindings,registry.variants);assert.equal(bindings.length,6)
+ assert.deepEqual(bindings,registry.variants);assert.equal(bindings.length,7)
  for(const row of bindings)assert.equal(row.textSha256,createHash('sha256').update(row.text.normalize('NFC')).digest('hex'))
  assert.match(sql,/v\.source_text=spoken AND v\.text_sha256=/)
  assert.match(sql,/,"variant":/)

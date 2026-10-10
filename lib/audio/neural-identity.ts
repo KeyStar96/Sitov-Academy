@@ -12,9 +12,9 @@ function canonical(value: unknown): unknown {
 /** Matches Python json.dumps(profile, sort_keys=True, separators=(',', ':'), ensure_ascii=False). */
 export const SITOV_QWEN_PROFILE_FINGERPRINT = createHash('sha256').update(JSON.stringify(canonical(SITOV_QWEN_PROFILE))).digest('hex')
 
-const sitovVariantTexts = new Set(['sind', 'stehe', 'wollte', 'des', 'ihrer', 'meiste'])
+const sitovVariantTexts = new Set(['sind', 'stehe', 'wollte', 'des', 'ihrer', 'meiste', 'esst'])
 const sitovVariants = new Map<string, string>()
-if (approvedVariants.schemaVersion !== 1 || approvedVariants.variants.length !== 6) throw new Error('Invalid Sitov audio variant registry')
+if (approvedVariants.schemaVersion !== 1 || approvedVariants.variants.length !== 7) throw new Error('Invalid Sitov audio variant registry')
 for (const row of approvedVariants.variants) {
   if (!sitovVariantTexts.has(row.text) || row.text !== normalizeAudioText(row.text)
     || row.textSha256 !== createHash('sha256').update(row.text).digest('hex')
