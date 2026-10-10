@@ -1,0 +1,328 @@
+{
+  "epoch": 70,
+  "published": true,
+  "actualPublicHTTP": true,
+  "publicationACK": {
+    "requestId": "853693b9-e5e8-4eff-ba0b-dc3a0d574fc5",
+    "args": {
+      "p_text_id": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "p_definition_id": "33a26b75-e3f3-4fab-8766-1104800a4aab",
+      "p_text_version": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+      "p_test_version": "b907698d35a8b605db25746b3844c801df181d6b7cfa95c4f43151dd275df17f",
+      "p_base_active_definition_id": "ac525e09-1093-4e31-8ce3-b6d55fe77110"
+    },
+    "actorId": "fb32275b-268e-4fb1-9c69-be3e2adb6d8a",
+    "actualPublicHTTP": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "active": true,
+        "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+        "testVersion": "b907698d35a8b605db25746b3844c801df181d6b7cfa95c4f43151dd275df17f",
+        "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+        "definitionId": "33a26b75-e3f3-4fab-8766-1104800a4aab",
+        "activeDefinitionId": "33a26b75-e3f3-4fab-8766-1104800a4aab"
+      }
+    }
+  },
+  "currentDefinition": {
+    "id": "33a26b75-e3f3-4fab-8766-1104800a4aab",
+    "text_id": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+    "text_version": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+    "test_version": "b907698d35a8b605db25746b3844c801df181d6b7cfa95c4f43151dd275df17f",
+    "active": true
+  },
+  "currentReadiness": {
+    "id": "33a26b75-e3f3-4fab-8766-1104800a4aab",
+    "kind": "readiness",
+    "audio": true,
+    "publication": true
+  },
+  "old48HistoryApprovals4490ProofsAndFirstSourceExactExceptAuthorizedFirstActive": true,
+  "oldDelta": [],
+  "recovery": "Read-only actual publication ACK and complete old pretest history equality confirmed; initial post-publication unsorted-list comparison failed, original list ordering unavailable, full combined source/assets comparison NOT certified by that check. No mutation/retry after SAVE.",
+  "counts": {
+    "kind": "counts",
+    "active": 5,
+    "objects": 2511
+  },
+  "health": {
+    "at": "2026-10-10T03:09:47.958053+00:00",
+    "network": "sitov-night-20261008-qa-isolated",
+    "gateway_url": "http://10.0.3.3:8000",
+    "containers": [
+      {
+        "name": "/sitov-night-20261008-qa-db",
+        "image_id": "sha256:bce4f0725a10d80bb16e01d678db8d40dd09223d18562125902e2682dd74ecdb",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 335544320,
+        "nano_cpus": 750000000,
+        "hostports": {
+          "5432/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-auth",
+        "image_id": "sha256:f2112b9289422f205df4ea15b8b550d425ae42528ea54521faa32cc7b62490de",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 134217728,
+        "nano_cpus": 250000000,
+        "hostports": {}
+      },
+      {
+        "name": "/sitov-night-20261008-qa-storage",
+        "image_id": "sha256:4f0eb90b935c676914ed0609c2c7d47cddb3f336155726bb2d5542617d4afdfa",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 268435456,
+        "nano_cpus": 500000000,
+        "hostports": {
+          "5000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-rest",
+        "image_id": "sha256:7afcb0447b7849f6875bba4a0c603d79b1e2e44aec97af123bf9a0a2ccfeae52",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 67108864,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "3000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-gateway",
+        "image_id": "sha256:6addf50e6bd8d578314cb9ce4f2d2d1e3781d2edecef59f707e00c6e05d384f5",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 201326592,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "8000/tcp": null,
+          "8001/tcp": null,
+          "8002/tcp": null,
+          "8003/tcp": null,
+          "8004/tcp": null,
+          "8443/tcp": null,
+          "8444/tcp": null,
+          "8445/tcp": null,
+          "8446/tcp": null,
+          "8447/tcp": null
+        }
+      }
+    ],
+    "health": [
+      {
+        "path": "/auth/v1/health",
+        "http_status": 200
+      },
+      {
+        "path": "/rest/v1/",
+        "http_status": 200
+      },
+      {
+        "path": "/storage/v1/status",
+        "http_status": 200
+      }
+    ],
+    "memoryMiB": 2477
+  },
+  "remaining": "M independent classification of failed unsorted combined postcheck before S5; actual visible Retake/PASS pending; no human listening or production approval",
+  "phaseLedger": {
+    "epoch": 70,
+    "baseSha": "5f1b6b545461b4d695ab02472c21362de1418a08",
+    "phases": [
+      {
+        "phase": "115-rollback",
+        "at": "2026-10-10T03:05:44.731607+00:00",
+        "ack": true,
+        "committed": false,
+        "readinessRows": 48,
+        "pathChanges": [
+          {
+            "row": {
+              "spoken": "esst",
+              "newpath": null,
+              "oldpath": "storage://audio_cache/sitov-qwen-v1/de/83bf3f87a1183ee23346b809d820d3bdf332b5b10cd3d8871965728c775ae3e6.mp3"
+            },
+            "kind": "pathChange"
+          },
+          {
+            "row": {
+              "spoken": "sind",
+              "newpath": null,
+              "oldpath": "storage://audio_cache/sitov-qwen-v1/de/f688be4502c52ae64c4468fc23e9f29b1f451a7e432fac020e386ffd5f0c0d6f.mp3"
+            },
+            "kind": "pathChange"
+          },
+          {
+            "row": {
+              "spoken": "stehe",
+              "newpath": null,
+              "oldpath": "storage://audio_cache/sitov-qwen-v1/de/1f0fe91608dd741454ecd5382efb0e3b72f1e3a62833e5fea1bd0880c0bf4c0d.mp3"
+            },
+            "kind": "pathChange"
+          },
+          {
+            "row": {
+              "spoken": "wollte",
+              "newpath": null,
+              "oldpath": "storage://audio_cache/sitov-qwen-v1/de/fbbc99edb62bc64bb51e6502a036d6eef3b78477847dcdeef4cd3fa0de59506c.mp3"
+            },
+            "kind": "pathChange"
+          }
+        ],
+        "proofFile": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-rollback.stdout"
+      },
+      {
+        "phase": "audio-import-readback",
+        "at": "2026-10-10T03:06:25.635389+00:00",
+        "uploads": 15,
+        "actualByteReadbacks": 100,
+        "oldRowsAssetsHistoryExact": true,
+        "proofFile": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-audio-result.json"
+      },
+      {
+        "phase": "115-persist",
+        "at": "2026-10-10T03:07:02.427431+00:00",
+        "ack": true,
+        "committed": true,
+        "readinessRows": 48,
+        "pathChanges": [
+          {
+            "row": {
+              "spoken": "esst",
+              "newpath": "storage://audio_cache/sitov-qwen-v1/de/9b12d09d782e799cc1c8319efea2cd0b654ad91171fc9f411b20ad6a08fd8ece.mp3",
+              "oldpath": "storage://audio_cache/sitov-qwen-v1/de/83bf3f87a1183ee23346b809d820d3bdf332b5b10cd3d8871965728c775ae3e6.mp3"
+            },
+            "kind": "pathChange"
+          },
+          {
+            "row": {
+              "spoken": "sind",
+              "newpath": "storage://audio_cache/sitov-qwen-v1/de/fecd6cec0867225c8887edf4ad57bd71e11318983f7c5ea91e1f23dac3e5be61.mp3",
+              "oldpath": "storage://audio_cache/sitov-qwen-v1/de/f688be4502c52ae64c4468fc23e9f29b1f451a7e432fac020e386ffd5f0c0d6f.mp3"
+            },
+            "kind": "pathChange"
+          },
+          {
+            "row": {
+              "spoken": "stehe",
+              "newpath": "storage://audio_cache/sitov-qwen-v1/de/8f6a6116076d1d0afc06239850e75f03bd1cf75d54e7630b61da2bdd4669c714.mp3",
+              "oldpath": "storage://audio_cache/sitov-qwen-v1/de/1f0fe91608dd741454ecd5382efb0e3b72f1e3a62833e5fea1bd0880c0bf4c0d.mp3"
+            },
+            "kind": "pathChange"
+          },
+          {
+            "row": {
+              "spoken": "wollte",
+              "newpath": "storage://audio_cache/sitov-qwen-v1/de/a247eb64e156ac01dadbb76db20637e6570311f93fb1b0dad063ea5348e4195e.mp3",
+              "oldpath": "storage://audio_cache/sitov-qwen-v1/de/fbbc99edb62bc64bb51e6502a036d6eef3b78477847dcdeef4cd3fa0de59506c.mp3"
+            },
+            "kind": "pathChange"
+          }
+        ],
+        "proofFile": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-persist.stdout"
+      },
+      {
+        "phase": "definition-import",
+        "at": "2026-10-10T03:07:51.438633+00:00",
+        "ready": true,
+        "active": false,
+        "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+        "testVersion": "b907698d35a8b605db25746b3844c801df181d6b7cfa95c4f43151dd275df17f",
+        "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+        "definitionId": "33a26b75-e3f3-4fab-8766-1104800a4aab",
+        "questionProofs": 93,
+        "baseActiveDefinitionId": "ac525e09-1093-4e31-8ce3-b6d55fe77110",
+        "ack": true
+      }
+    ]
+  },
+  "audioSummary": {
+    "validated": 100,
+    "allowedNewPaths": [
+      "sitov-qwen-v1/de/34b8624d351f619283d398e0202cec2b90078f9431c16e724fc1f21a078c7e66.mp3",
+      "sitov-qwen-v1/de/3829dc7759b63983b26570c2832515852424e86ad266b591abd8a89098afece0.mp3",
+      "sitov-qwen-v1/de/41f2806732a14620fcedae453b812fed78c4c62090e4a14eba2c1c8a20d9d1fd.mp3",
+      "sitov-qwen-v1/de/43e6d21d3594c0320aaedbc8113671a8919f995eb036a314442d15e1bb163965.mp3",
+      "sitov-qwen-v1/de/88b6999624c9f3cde59987001dfd4980545eaf5720e271da307b1816a251a381.mp3",
+      "sitov-qwen-v1/de/89137d72d3f65e8d2589e0f9532beeb322a2805aaeaf8030d9684bae2b0921a2.mp3",
+      "sitov-qwen-v1/de/8f6a6116076d1d0afc06239850e75f03bd1cf75d54e7630b61da2bdd4669c714.mp3",
+      "sitov-qwen-v1/de/9b12d09d782e799cc1c8319efea2cd0b654ad91171fc9f411b20ad6a08fd8ece.mp3",
+      "sitov-qwen-v1/de/a247eb64e156ac01dadbb76db20637e6570311f93fb1b0dad063ea5348e4195e.mp3",
+      "sitov-qwen-v1/de/cc89dbbd31e51f535de176e20eea532378ec5ba9a4ac2ab25c30110e2e63487a.mp3",
+      "sitov-qwen-v1/de/ce04de3c104c7753f94548ca9f5ea024f79f0c835831626fb3e2f58d58d74c5f.mp3",
+      "sitov-qwen-v1/de/d5eee9fc971f7b70b7f66fbe0be2ed32cf5a29f81d6b2f40a6b107d3e8509bfc.mp3",
+      "sitov-qwen-v1/de/dd0998fdfac6c7bd468b4b9480db9c15c6789df3491580929e87606dc20e26be.mp3",
+      "sitov-qwen-v1/de/f6823a56027379545eb92ed19499d8f6fd0dd8a133a18b3df0f008d4104354c4.mp3",
+      "sitov-qwen-v1/de/fecd6cec0867225c8887edf4ad57bd71e11318983f7c5ea91e1f23dac3e5be61.mp3"
+    ],
+    "retained": [
+      {
+        "text": "Ich lerne Deutsch.",
+        "cachePath": "sitov-qwen-v1/de/ce2328e313dc781a8a08dac71abef0b5605dad9fd40d9c2c849e85612a4da840.mp3",
+        "audioSha256": "239b47c1da4cdcba0414a9759e84dc27a96063195e6f3aa19992fcfb0f847069"
+      },
+      {
+        "text": "Guten Tag, ich heiße Leon. Ich komme aus Polen und wohne jetzt in Hannover. Ich bin dreißig Jahre alt. Meine Familie ist klein. Mein Mann heißt Paul. Wir lernen zusammen Deutsch. Am Abend trinken wir Tee und lesen ein Buch.",
+        "cachePath": "sitov-qwen-v1/de/4be453b468b73a8d95e99c2fc02b788b05dc746a59f6951cbaed267a19e78d75.mp3",
+        "audioSha256": "9b092de30df8673721a37f0e2d03fe76f641d6bec6b76aaece3212aaa6e24a0b"
+      }
+    ],
+    "manifestSha256": "2beec8d4201454cca70462dd93b59029ad606bb09c32efa8f8f5b32216a37ba9"
+  },
+  "baseSha": "5f1b6b545461b4d695ab02472c21362de1418a08",
+  "decisionSha256": "66efe65cbb556c7d69bc39dd6515223341373925a7e42bc3665c885ea0b7196b",
+  "privateEvidenceSha256": {
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-persist-remote.py": "fc947d55e4af689069e2a98460c8702b7a50af1339979ca8970c58c84305e481",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-persist.sql": "65b014c883991695a209a19421cd0469e766f440fe1cac238438409e118a2986",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-persist.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-persist.stdout": "0e1eb8f78cea721c07a05d11adeebb38e741c4a88014b7128fa0b6cdbcf6d1b6",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-rollback-remote.py": "cfe646818190209e53c3b5fcf11fde5975d683e9c03008081ad90c9a70d81b68",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-rollback.sql": "0d1aede8f59f764d5b6dae8dfc1393bbfcedfe950e89f4a9508e6b097057eb4e",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-rollback.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-115-rollback.stdout": "478ac970eef66246fcfac90d6066aab5691ff70a1e724b4b34b3d32015b6f076",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-audio-import-readback-remote.py": "035c774b0fd5fb8b76f3d11e4b6bc7ae332eb73b23222d74d44a9568cf1e47a1",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-audio-import-readback.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-audio-import-readback.stdout": "a1a9829ef1addb77f14fd75cc254ff245b6fabaa7f14083227e2ea2fc447c859",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-audio-input-summary.json": "9de4e16e975ec0b7317540215de47023f576fbdf7ceefa9448587a66549ed072",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-audio-result.json": "aec0630f88910a088793caee5a6b451ff9380f52100299c5e0228c11d94314f5",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-audio.py": "23e2bbb62186353d4054053eb41fdd44a35dcda6cd32970b928958daf4db7fa1",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-definition-import-remote.py": "a1d0f987b1afaad0baa864df4b54f236e3775ef459d579ff8c4b65405459f86c",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-definition-import.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-definition-import.stdout": "8343f4176e1adeafcef0f3aeb40161ec56114c4fea48471be7a537962dbe1928",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-definition-result.json": "19e65a1551846baa2393838ea3610ebe584b2c7a1d98ec87abcfc73a52051fc8",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-definition.py": "2a1b1c8700c147c5aa6abe04db7c3af253f45311ef5d7e2064f5b78f54dc189e",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-definition.sql": "ab20e2d9e7f0476414357f49e0f601202edce2329638df4e2c14324ae8ddfbd2",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-driver.py": "38f57ba46b6ca5f6a8bdae599c2bf02e7c6340d67639d3710dfb1def47c898ff",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-phase-ledger.json": "58eb12547411c48fefbf3ad8a184a61bc73240bd6b6114c3fd4cc04ccd091975",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-publication-remote.py": "0c4a063026c5b9a9ac442b8410ce8625391fa2661934b5f9326b03a80c42c46e",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-publication-request.json": "e42e4dde76d6b92e6fa86c143ecee777a4d081f9e60825c6d08ff8bb81886a42",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-publication.stderr": "8817b9920670b8c0dce4da0a50e78ef8796bbf4c3d38f3db2b2819d543e96a0f",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-publication.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-publish.py": "4fe02f0ac6ab2efaed6fa2da66a63b7a7d58a99304c122f7a190911f49199b03",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-recovery-remote.py": "ed96a6ec5e657cd68b38fe3d4c847bdc551b53b15814b73e99aaea527f29a2f9",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-recovery-result.json": "1ea94af18a19b0451de474dd6a94f395c37013cb2d8fe64fe4f37e38f7e8ed7f",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-recovery.jsonl": "e3062e99db33ffbfc3800cdb4973be6b25c02c5e9842843a1d1c94d73a7eaa66",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-recovery.py": "47bc3ee2c76e1ecd24db418b0c8a1b9cd96a6a7d9473e02c19342735f13ac5f4",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch70-recovery.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "productionWrite": false,
+  "humanListening": false,
+  "releaseReady": false,
+  "visibleRetakePass": false
+}
