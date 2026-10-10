@@ -1,0 +1,9 @@
+{
+  "command": "python3 -m unittest -v test_table_hashes.py",
+  "tests": 14,
+  "seconds": 1.305,
+  "exitCode": 0,
+  "pyCompile": true,
+  "gitDiffCheck": true,
+  "databaseNetworkUsedByTests": false
+}
