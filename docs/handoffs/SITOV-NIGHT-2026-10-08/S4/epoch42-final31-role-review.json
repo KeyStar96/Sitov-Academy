@@ -1,0 +1,2021 @@
+{
+  "epoch": 42,
+  "school": "Sitov Academy",
+  "reviewer": "S4",
+  "createdAt": "2026-10-10T03:32:01.775126+00:00",
+  "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+  "roleDisclosure": "Independent editorial review of actual final S2 implementation from S7/M drafts; no external human review claimed. Prior draft verdicts do not substitute for current full source reading.",
+  "hashConvention": "SHA256 of UTF8 Python json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(comma,colon)); byteSHA256 explicitly refers to file bytes. Parent hashes cover all parent fields except children/exercises.",
+  "scope": {
+    "finalRoleTasks": 31,
+    "S7ExactAssignedIDs": 30,
+    "MIndex57AdditionalID": "a5b8ff78-0a61-56cc-a744-38e87b19392f",
+    "finalParentContextsRead": 25,
+    "changedParentsReviewed": 3,
+    "changedObjectivesReviewed": 1,
+    "fullTaskLocales": [
+      "de",
+      "en",
+      "ru",
+      "uk",
+      "tr"
+    ],
+    "Vogel65To67Read": false,
+    "Vogel65To67Verdict": "UNCHANGED_PROVENANCE_HOLD_NOT_REVIEWED",
+    "gap75AndPairSeparateUnitApproved": false,
+    "mirrors23SeparateUnitApproved": false
+  },
+  "counts": {
+    "ACCEPT": 27,
+    "HOLD": 2,
+    "PARTIAL": 2,
+    "fullyReadTasks": 31,
+    "fullyReadParentContextsWithoutChildren": 25,
+    "answerRevisions1to1MechanicallyVerified": 6,
+    "answerRevisionEntailmentACCEPT": 5,
+    "answerRevisionEntailmentPARTIAL": 1
+  },
+  "inputBindings": [
+    {
+      "path": "master/M-S7epoch21-exact30-authoring-input-private.json",
+      "bytes": 755230,
+      "byteSHA256": "eafa32ecf9824dd0b13ae22c808b96bf4836289aa1a770c57cd46abd89f0bf9a"
+    },
+    {
+      "path": "S2/epoch42-old-new-full.json",
+      "bytes": 12736088,
+      "byteSHA256": "5f03c5977a834771b072151d7393ec756ac34f16c5c6b78efa5336a963d0c32d"
+    },
+    {
+      "path": "S2/epoch42-validation.json",
+      "bytes": 13671,
+      "byteSHA256": "1795decbe2de6c4d131773114ff6585915d627aae64e571b66925e37a6d7516d"
+    },
+    {
+      "path": "S2/epoch42-bound-input-1.json",
+      "bytes": 755230,
+      "byteSHA256": "eafa32ecf9824dd0b13ae22c808b96bf4836289aa1a770c57cd46abd89f0bf9a",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-bound-input-2.json",
+      "bytes": 24079,
+      "byteSHA256": "6d62fb6caba2eefc98b85f6c2a241d1029c93dcca4de4b1c80617c48a650635b",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-bound-input-3.json",
+      "bytes": 800628,
+      "byteSHA256": "18c8336776f49d4b9bf081e046cfcb159d33eb8eeb99304f3e57cf3f0c749216",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-bound-input-4.json",
+      "bytes": 19861,
+      "byteSHA256": "a20f8eba291252b4bf1800e8ec6c61df351c5d38578e0ae458f591b836d6636d",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-old-new-full.json",
+      "bytes": 12736088,
+      "byteSHA256": "5f03c5977a834771b072151d7393ec756ac34f16c5c6b78efa5336a963d0c32d",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-final-canonical-audio.json",
+      "bytes": 240252,
+      "byteSHA256": "4fe656ac72f9196daea84c1613e6bffa518b183f4e93b6c28041c4a7f711a0ee",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-derived-mirror-predicate-proof.json",
+      "bytes": 406124,
+      "byteSHA256": "46d4e656b58b78fd186eb99b24e4fc3d93df384ce4604417af16dbb447cc0ba3",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-native-source-proof.json",
+      "bytes": 275918,
+      "byteSHA256": "037b932901596221a345950dd0185b1348e541f4a82724eb9a5be8c2e7c8bdef",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-final-native-parity.json",
+      "bytes": 759,
+      "byteSHA256": "b8494870cceeb8f40ab3e3595e936a6408ba3f1a4d4ee9651730bc2d39042f75",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-explicit-retain-audio-proof.json",
+      "bytes": 930,
+      "byteSHA256": "6e2c088abf29bd2deba086c4f202c45d88f55acd9b58347390a79b9f319a11f2",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-native-tests.log",
+      "bytes": 1449,
+      "byteSHA256": "cde18fe11a6d6e0bdb0f8ae9906a6194cd7ad8b284d9f558ad38a0fd6f61aeea",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-eslint.log",
+      "bytes": 0,
+      "byteSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-author-edits.json",
+      "bytes": 16512,
+      "byteSHA256": "0d17a0eda1d0195342c6c72d827bd8006da05c09ee3ea4d296032fd9866ecf08",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-repair.py",
+      "bytes": 8199,
+      "byteSHA256": "0d4872e1a42931db9f3d166e6436dd8a8a07c0ce7d090b587931a4fd6991476b",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-sync.mjs",
+      "bytes": 8147,
+      "byteSHA256": "fe2b6c950ed19f6d82fbdf6ad55478d4aad96c999426c127861f194132ed4b58",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-source-proof.mjs",
+      "bytes": 3673,
+      "byteSHA256": "12e2846908cfd98da0d936d9ec313d70f8242bc1742bc20d3e959cce6edee7e6",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-apply-derived-mirrors.py",
+      "bytes": 4546,
+      "byteSHA256": "87da63c114c57b91c96528c4caa25a68c4ee12ac00a98cf7a590cc9e0a12cb5c",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    },
+    {
+      "path": "S2/epoch42-validate-audio.ts",
+      "bytes": 3569,
+      "byteSHA256": "8c2b521c39c276be6878e4d07b62c2230b262751813ee2a5a45ef89b1ff4e1d4",
+      "verification": "BYTE_BINDING_ONLY_NOT_EDITORIAL_APPROVAL"
+    }
+  ],
+  "checks": {
+    "all31FinalTasksSourceBound": true,
+    "all31FiveLocalesFullyRead": true,
+    "all25FinalParentsWithoutChildrenAndAllPathObjectivesFullyRead": true,
+    "all6AnswerRevisions1to1AndOptionsPositionsPreserved": true,
+    "Archive113And114": "PENDING; no archive execution or completion claimed",
+    "technicalEvidenceOnly": {
+      "S2NodeTests": {
+        "pass": 16,
+        "fail": 0
+      },
+      "S2NativeBuilderParity": [
+        {
+          "level": "a1.2",
+          "parity": "PASS"
+        },
+        {
+          "level": "a2.1",
+          "parity": "PASS"
+        },
+        {
+          "level": "a2.2",
+          "parity": "PASS"
+        },
+        {
+          "level": "b1.1",
+          "parity": "PASS"
+        },
+        {
+          "level": "b1.2",
+          "parity": "PASS"
+        },
+        {
+          "level": "b2.1",
+          "parity": "PASS"
+        },
+        {
+          "level": "b2.2",
+          "parity": "PASS"
+        },
+        {
+          "level": "c1.1",
+          "parity": "PASS"
+        },
+        {
+          "level": "c1.2",
+          "parity": "PASS"
+        }
+      ],
+      "S2SchemaValidatedExercises": 9569,
+      "S2EvidenceFilesByteVerified": 18
+    },
+    "testExecutionByS4": false,
+    "sourceAppTestEdits": false,
+    "SSH_DB_Runtime_AudioJobs": false,
+    "publicationApproved": false
+  },
+  "rows": [
+    {
+      "index": 1,
+      "MIndex": 35,
+      "id": "b5b7b1c6-a49e-556d-a5f7-fbddf7d8d6e3",
+      "ref": "P4-N4-E09",
+      "level": "A2.1",
+      "node": "P4-N4",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Wenn-Nebensatz: Chef Singular verlangt ist; mit Herrn Weber ist Dativ. RU с господином, UK з паном, TR Bey’le passen.",
+      "wholeBeforeSHA256": "de34eb7589786d6af3ac53131df41b69baeb4df8404b00e03ce0f91d84c0d571",
+      "wholeFinalSeedExerciseSHA256": "e8f0f904de31e69222c59896adfbe009b4a4d54884b2f7da5783b48973830e4a",
+      "wholeParentWithoutChildrenBeforeSHA256": "fc3cc8d17273a9eaa4b707d877530191778a281a2a1d09e70a797215ddaa4bef",
+      "wholeFinalParentWithoutChildrenSHA256": "fc3cc8d17273a9eaa4b707d877530191778a281a2a1d09e70a797215ddaa4bef",
+      "wholePathObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalPathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "ffeb84b0f59b4a2bae6187b79867bf90c33e0f48b4e9f7baf87ffea957b21272",
+        "en": "c705deb670df56b666760f5a0cbdb5d45c5404e639dbbb6fd20b45a897f4ce64",
+        "ru": "0af37e19c0edef15aea7996d90ecc584b8060a504aec2268d67a8a0d6139a026",
+        "uk": "e014160aeba023bc3b2b307c543e0ab8eb5ddda0ec1334bc0b18a0383047de76",
+        "tr": "824c78a3d2a6884a54c1d5314ab9d11031993790e7e4ae65aadd908002aba3a8"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "b5b7b1c6-a49e-556d-a5f7-fbddf7d8d6e3",
+        "parent": "P4-N4",
+        "path": "P4"
+      }
+    },
+    {
+      "index": 2,
+      "MIndex": 36,
+      "id": "03468f82-8eb2-51dd-a4ff-aa699fd18ff9",
+      "ref": "P4-N6-E01",
+      "level": "A2.1",
+      "node": "P4-N6",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Herr Nowak / er stimmig; unsichere Vermutung verlangt Vielleicht. Die anderen Optionen behaupten Sicherheit. Schlüsselposition0 erhalten.",
+      "wholeBeforeSHA256": "e325e1f3ae62df9ec689bd80f2d814654413afb0ddda38efa2157137a7adc0ee",
+      "wholeFinalSeedExerciseSHA256": "87ca2204c915ec003151dc4175b7f0746676cffb7f41ccdedfc0f3452a0fed0e",
+      "wholeParentWithoutChildrenBeforeSHA256": "805c757cb4da7d07c6a8eb28dbdeadfdba6bc56a5e08655fa241c73401bd41bb",
+      "wholeFinalParentWithoutChildrenSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "wholePathObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalPathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "88f4bbcc8b61484689baef1df22acaf8737a8a094cd72c24166557461170a0b8",
+        "en": "d6c9ef11321d256c1c62d5451bf44cfb874001a055e1fafb0f9c8bd23abd699a",
+        "ru": "4d25821e10ae9eb9fff16030a162c677b659e884667f020fdf03e863547afb06",
+        "uk": "bd6bf9b8fa4f1ffad5b5967fd6e78f7b742b18b19a433e6566263d1899289502",
+        "tr": "de68c9418601677d84d077075b772dbffeae2a9e841d42edea6bebd9b01d3f59"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": true,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "03468f82-8eb2-51dd-a4ff-aa699fd18ff9",
+        "parent": "P4-N6",
+        "path": "P4"
+      }
+    },
+    {
+      "index": 3,
+      "MIndex": 37,
+      "id": "fb2cfe07-4d89-5b41-ab97-d548a10a1028",
+      "ref": "P4-N9-E03",
+      "level": "A2.1",
+      "node": "P4-N9",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "HOLD",
+      "reasonDe": "RU enthält weiterhin Госпоже Kaya (weiblich), obwohl DE/EN/TR Herrn Kaya nennen. UK Пан Kaya передзвонити вам? verbindet Nominativ mit einem ungrammatischen Infinitiv. Schlüssel und deutsche Frage sind stimmig, vollständige fünfsprachige Fassung noch nicht freigabefähig.",
+      "wholeBeforeSHA256": "7f259642705bca80b4697bcff4ef82512c736071d6dc0781445a169166b707d2",
+      "wholeFinalSeedExerciseSHA256": "3e7d4faf43f6eb8464b9aaec53b59da3b79f98940bc658c5e2cbd19411758503",
+      "wholeParentWithoutChildrenBeforeSHA256": "93e0dee87a7305769d35a500ccbcf361de725374fcb47a0baa87df6235862dcb",
+      "wholeFinalParentWithoutChildrenSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholePathObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalPathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "5a9d1ca7bec0bb08408d39cdf506ff7563b06bc0e925cf35526455c362631c32",
+        "en": "69234867ff27ce14a65b99268deaf155e264dde06d5e5a0302fa7e6c22a8d720",
+        "ru": "d488a0ec479fe462053a7e416bd50e41aeef0dc8486e00e103e84ad3e92a20f6",
+        "uk": "4861452f9ca0e81c1ebd7f0f54fda13fffd1381f63643b73d38bd9366b734d29",
+        "tr": "4e5ad44ce5e58424971db00441771f6c29be7ddf6cf472c09a3b7c2d4a1e08c4"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "fb2cfe07-4d89-5b41-ab97-d548a10a1028",
+        "parent": "P4-N9",
+        "path": "P4"
+      },
+      "finding": {
+        "verdict": "HOLD",
+        "defects": [
+          {
+            "pointer": "/translations/ru/task",
+            "before": "«Госпоже Kaya перезвонить вам?»",
+            "after": "«Господину Kaya перезвонить вам?»",
+            "reason": "Männlicher Dativ für die russische Infinitivfrage."
+          },
+          {
+            "pointer": "/translations/uk/task",
+            "before": "«Пан Kaya передзвонити вам?»",
+            "after": "«Чи має пан Kaya вам передзвонити?»",
+            "reason": "Vollständige ukrainische Frage mit konjugiertem Modalverb."
+          }
+        ]
+      },
+      "findingOrigin": "The final task equals the S7 draft, so this is an inherited draft defect, not an implementation mismatch."
+    },
+    {
+      "index": 4,
+      "MIndex": 38,
+      "id": "43ba6e7a-7dfc-5a20-a945-04b0320e8a4b",
+      "ref": "P4-N9-E07",
+      "level": "A2.1",
+      "node": "P4-N9",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Abstrakter weiblicher Pronomenbezug, keine erfundene weibliche Lernfigur: Soll sie Sie zurückrufen? Sie formal und sie dritte Person sind unterschieden.",
+      "wholeBeforeSHA256": "a0a138a398e992c7c2337970363486808b7e47eb69fbe2bc7b7265edc4636ac2",
+      "wholeFinalSeedExerciseSHA256": "ea7019b1e264cd573ae10e190b2206d9c22dcc39f74aa4643ae22ec3a59bc860",
+      "wholeParentWithoutChildrenBeforeSHA256": "93e0dee87a7305769d35a500ccbcf361de725374fcb47a0baa87df6235862dcb",
+      "wholeFinalParentWithoutChildrenSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholePathObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalPathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "1433c7b003fbd2e5edf9a3ff1d1993bdd0cb88a6196b863887dac6ded53806ae",
+        "en": "0a76e4b1f7e2b373c42164e66d08c114294d3888196516faf729efe7c151bb26",
+        "ru": "6e98744a8c9ea78b85efb1789d12bb79c65fde94c703900f4545c48e6558298b",
+        "uk": "ca22d4c000d05fd65281fe2408bc8ef0a194e7998cfb805fccb0eafc17a80463",
+        "tr": "76dedd4df0838296ab0f6cf1803c7d39e23677d9089657081eb1a1306f4aa0a4"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "43ba6e7a-7dfc-5a20-a945-04b0320e8a4b",
+        "parent": "P4-N9",
+        "path": "P4"
+      }
+    },
+    {
+      "index": 5,
+      "MIndex": 39,
+      "id": "1e8ba83c-5c91-52d7-abf3-c31a60d38760",
+      "ref": "P4-N12-E15",
+      "level": "A2.1",
+      "node": "P4-N12",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "PARTIAL",
+      "reasonDe": "Herrn Rojas / er und Übersetzungen stimmen; Schlüssel ist unter den Optionen eindeutig am besten. Beim Arzt belegt aber nur aktuelle Abwesenheit, während heute nicht im Haus eine Tagesabwesenheit nahelegt. Zeitumfang präzisieren, bevor die Aufgabe vollständig akzeptiert wird.",
+      "wholeBeforeSHA256": "963ee9c427a5fe70305a745e32904e9fd9e652fa1c47c2e1bf87c83c2ea2991a",
+      "wholeFinalSeedExerciseSHA256": "9daee3881dd79a4ef43f3d31577eef480491eb0170eaebd6d0b39679da85526b",
+      "wholeParentWithoutChildrenBeforeSHA256": "fdfa643b407a12d7e1a60c3518e201274c6365bd4d97e68a06157b06fcba49fa",
+      "wholeFinalParentWithoutChildrenSHA256": "fdfa643b407a12d7e1a60c3518e201274c6365bd4d97e68a06157b06fcba49fa",
+      "wholePathObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalPathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "e8fd468be0b49c96f87f44a071ddd0610b45813b98e72039b2b0d4640e9824de",
+        "en": "6cea08626809b122521cf164e3c743f39a13ce5921fcb9abcf928e77432fa0e2",
+        "ru": "6bc3aa2e9562a521990693de624411103ab795c98aa4bd9fe5af7999a80ba7ea",
+        "uk": "22b5a88160d784b9ec5fd0a2f228ecdfd6b2295e5df821fa53586379b5ebf47a",
+        "tr": "ec6f1828fdf2c639491fe21c4ec556586a01e47663a7cf30e5bc84d6341d46f2"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 1,
+      "correctOptionPositionAfterZeroBased": 1,
+      "answerRevision": true,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "1e8ba83c-5c91-52d7-abf3-c31a60d38760",
+        "parent": "P4-N12",
+        "path": "P4"
+      },
+      "finding": {
+        "verdict": "PARTIAL",
+        "defects": [],
+        "clarification": "Temporal entailment is limited to current absence. Suggested alternative: use gerade instead of heute in correct answer, corresponding option and both accepted-answer arrays; that is a new explicit answer revision requiring M authorization and Archive114, not an automatic change."
+      },
+      "findingOrigin": "The final task equals the S7 draft, so this is an inherited draft defect, not an implementation mismatch."
+    },
+    {
+      "index": 6,
+      "MIndex": 40,
+      "id": "bc27f74e-4ee8-5eb1-a49f-f220fa5f1cdd",
+      "ref": "P4-N12-E29",
+      "level": "A2.1",
+      "node": "P4-N12",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Abstrakter weiblicher Dativ: jemandem etwas ausrichten verlangt ihr; sie bleibt fachlich erforderlich.",
+      "wholeBeforeSHA256": "91eeff17bee23270b9be4a4d3adcf555227bd0c9292e7f89a7cd367585f53c29",
+      "wholeFinalSeedExerciseSHA256": "149731620ae0fdfb01a2d530db231f90aecbba4461031b3275f771ea7107887f",
+      "wholeParentWithoutChildrenBeforeSHA256": "fdfa643b407a12d7e1a60c3518e201274c6365bd4d97e68a06157b06fcba49fa",
+      "wholeFinalParentWithoutChildrenSHA256": "fdfa643b407a12d7e1a60c3518e201274c6365bd4d97e68a06157b06fcba49fa",
+      "wholePathObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalPathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "e5aa9d48d393187c59ffff772961be1af5704ce7f8abf6c8316f85f70ebd4cf1",
+        "en": "de6d8fe08f2d2c3e681890849f21e40666d450d7741159b13909b16b7d6c3939",
+        "ru": "89a6836e16fef0a9acbf3f71137b256384a2c9e07faa7b3cb49bde110feb8ffc",
+        "uk": "cc86a428155718b4fa77dd059a548289fcde0f79a3d9ca9bf502b136ae478e7f",
+        "tr": "2d3a516ea91e596a39af0881b4d4ae7d90fc026cf73f9be632ec5e9d44440b67"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 1,
+      "correctOptionPositionAfterZeroBased": 1,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "bc27f74e-4ee8-5eb1-a49f-f220fa5f1cdd",
+        "parent": "P4-N12",
+        "path": "P4"
+      }
+    },
+    {
+      "index": 7,
+      "MIndex": 41,
+      "id": "89121f51-1814-53e0-a288-2b082cf447cb",
+      "ref": "P5-N2-E09",
+      "level": "A2.1",
+      "node": "P5-N2",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Formelles Sie → sich; Herr Kaya, RU господин, UK пане und TR Bey sind stimmig.",
+      "wholeBeforeSHA256": "7ecb9e7560a376c1d6bf2b63a22edfd5681cb2b479e924cfc8d3eab4c1be1c48",
+      "wholeFinalSeedExerciseSHA256": "c5f9e72498503eb0842c1c7365b50d3717b6e3706ff911ad10325ddb7b6ea979",
+      "wholeParentWithoutChildrenBeforeSHA256": "c91b0bc9309e0e4713bce2333d82c657d70c4dee0ecc656468381bc2abebfc9c",
+      "wholeFinalParentWithoutChildrenSHA256": "c91b0bc9309e0e4713bce2333d82c657d70c4dee0ecc656468381bc2abebfc9c",
+      "wholePathObjectivesBeforeSHA256": "7518eb7f2e3351163f21581175f89356a7be65516728c667149ea2680ed61294",
+      "wholeFinalPathObjectivesSHA256": "7518eb7f2e3351163f21581175f89356a7be65516728c667149ea2680ed61294",
+      "localeFullSHA256": {
+        "de": "ed5e75d3ac399ad74f1f31dc0ad6247d48c8e1b2c3c03b16504faf8f514794ad",
+        "en": "db67dcfbda899f87ca43c3c63c16d3e2c6544d0b28faf19e9297066f5174226a",
+        "ru": "a786bc49d016d8c1b773363a319bc95e1cac8a6fd4a8d6e896ab92f205cb2858",
+        "uk": "4c9be135b87838082b60406fe583e206471b1d8d5b23cb1c4eecf048d50ffa86",
+        "tr": "ecdc69b7ca5c80a6ad023e28e7eb32390095f7fe74f2692d2d985de25b0d51a2"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "89121f51-1814-53e0-a288-2b082cf447cb",
+        "parent": "P5-N2",
+        "path": "P5"
+      }
+    },
+    {
+      "index": 8,
+      "MIndex": 42,
+      "id": "b5135b5c-4e1b-5b97-a466-41e6792a3a08",
+      "ref": "P5-N4-E05",
+      "level": "A2.1",
+      "node": "P5-N4",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Sich ärgern über + Akkusativ; Herr Weber männlich und Übersetzungen konsistent. Sichtbarer Gapmarker wird hier nur als Bestandteil des gelesenen finalen Objekts gebunden, nicht als separate Gap-Audit-Freigabe.",
+      "wholeBeforeSHA256": "b1173329fda68364f2ded6ae0d8b1bb41e05fc93702e376055c8898f963ac75e",
+      "wholeFinalSeedExerciseSHA256": "bf03801334af83d1f8afd1fd5e998cd720c467ae2e20fe53c47a622b63bb2bcc",
+      "wholeParentWithoutChildrenBeforeSHA256": "cbd3b26bbc521138f2ac01edd7ff377166f48c9b06accb5aa34b2f29ae129d03",
+      "wholeFinalParentWithoutChildrenSHA256": "cbd3b26bbc521138f2ac01edd7ff377166f48c9b06accb5aa34b2f29ae129d03",
+      "wholePathObjectivesBeforeSHA256": "7518eb7f2e3351163f21581175f89356a7be65516728c667149ea2680ed61294",
+      "wholeFinalPathObjectivesSHA256": "7518eb7f2e3351163f21581175f89356a7be65516728c667149ea2680ed61294",
+      "localeFullSHA256": {
+        "de": "45991cf566c6122da2d2fe1119868f0582dcfaaa5dd6f8a662dd783e9bec0e04",
+        "en": "c91ef4e17aba4d2cfb33bb0b9a08b1a3f03769021ba1fc8ca770a0e4f9fbe7ed",
+        "ru": "dca59ea0229895e03906a506bc6b2a0669516fec7a2860fbf4b97c2d32b42dd6",
+        "uk": "d3b3dd3b24466adbede7db15624cf4d365bd954589126abbcfa06ad52c216b24",
+        "tr": "a6922b8fc887981e26e415d061fb141f6e3a5714c8765529d1816c739ba0d4b3"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": false,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "b5135b5c-4e1b-5b97-a466-41e6792a3a08",
+        "parent": "P5-N4",
+        "path": "P5"
+      }
+    },
+    {
+      "index": 9,
+      "MIndex": 43,
+      "id": "07958942-cb7c-5414-a7b5-0a650bf0501f",
+      "ref": "P6-N7-E01",
+      "level": "A2.1",
+      "node": "P6-N7",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "HOLD",
+      "reasonDe": "DE Herr Kaya sagt ihre Meinung und EN Mr Kaya gives her opinion enthalten falschen weiblichen Possessivbezug. RU/UK/TR sind männlich beziehungsweise neutral korrekt. Dass-Schlüssel und Optionsposition stimmen.",
+      "wholeBeforeSHA256": "8446fc1c7e3152e614eaa788541952961a639afd8386d80b4e79d6abb70164ed",
+      "wholeFinalSeedExerciseSHA256": "64ca01adb9581f9611627e3c3012936ca662ebda49d9f9f4848897cb990f1ec2",
+      "wholeParentWithoutChildrenBeforeSHA256": "bbc89efe052510305b1b2f1592a264e3a62f32eafb1cd6cbf882003f9e3b7f64",
+      "wholeFinalParentWithoutChildrenSHA256": "bbc89efe052510305b1b2f1592a264e3a62f32eafb1cd6cbf882003f9e3b7f64",
+      "wholePathObjectivesBeforeSHA256": "6016f82ce45aa53c4ba2fd9dcf228f92a5a206b304fab758eb6b0c460ba779aa",
+      "wholeFinalPathObjectivesSHA256": "6016f82ce45aa53c4ba2fd9dcf228f92a5a206b304fab758eb6b0c460ba779aa",
+      "localeFullSHA256": {
+        "de": "9a2e7f48f597ece2b66c90d131e6dd03e741bf01c355309862d31b781e7fc649",
+        "en": "c293dfbeb9f800fdd61a0bc23d9454e87ef684a8e2cf9429d1a8d2484767f051",
+        "ru": "ab023a4e5638f248fa0ed31660c3401dc1f08914eb28484826d6749cc0a7d385",
+        "uk": "508358a0886e43cd1248d0aaf6047e645c4dddc8a6e211a6da4162d5f53be375",
+        "tr": "23cc3ed9c70ef119d0048353762a199d7054ca91036360f2fe05938924aa5e92"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "07958942-cb7c-5414-a7b5-0a650bf0501f",
+        "parent": "P6-N7",
+        "path": "P6"
+      },
+      "finding": {
+        "verdict": "HOLD",
+        "defects": [
+          {
+            "pointer": "/content/question",
+            "before": "Herr Kaya sagt ihre Meinung.",
+            "after": "Herr Kaya sagt seine Meinung.",
+            "reason": "Maskuliner Possessivbezug."
+          },
+          {
+            "pointer": "/translations/en/task",
+            "before": "Mr Kaya gives her opinion.",
+            "after": "Mr Kaya gives his opinion.",
+            "reason": "Maskuliner Possessivbezug."
+          }
+        ]
+      },
+      "findingOrigin": "The final task equals the S7 draft, so this is an inherited draft defect, not an implementation mismatch."
+    },
+    {
+      "index": 10,
+      "MIndex": 44,
+      "id": "8382aa2a-e3d7-53e2-a48a-3b097a2a7fd0",
+      "ref": "P7-N4-E08",
+      "level": "A2.1",
+      "node": "P7-N4",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Jemandem eine Wohnung zeigen verlangt Dativ Ihnen; Herr Kaya mit formellem Sie und alle Übersetzungen stimmen.",
+      "wholeBeforeSHA256": "1e5dd9eadaee18993db493560c1ef8087a888ff356e41645f655f71556d7c4af",
+      "wholeFinalSeedExerciseSHA256": "a040ee53b6de3a9e1fefe2b9f1e324f6159e5fd24aa6d61327cceb51492f141f",
+      "wholeParentWithoutChildrenBeforeSHA256": "11157830a53e4bb09a8f686c71cd5f15324b9c75e98dcf6199f4e4c9a754a19e",
+      "wholeFinalParentWithoutChildrenSHA256": "11157830a53e4bb09a8f686c71cd5f15324b9c75e98dcf6199f4e4c9a754a19e",
+      "wholePathObjectivesBeforeSHA256": "e6b59aa4c66abef031cdacbad5501d023a1066e82b83753d390e0424fe09e023",
+      "wholeFinalPathObjectivesSHA256": "e6b59aa4c66abef031cdacbad5501d023a1066e82b83753d390e0424fe09e023",
+      "localeFullSHA256": {
+        "de": "c84a2ac8bf935ff613f80f2140e7a678aa172c53c57b3084f1d0d8d53d1bf4e8",
+        "en": "b612d3854bfcfc4fababbdd9201f789c0604f482b33b35ade8464b00230a1ab7",
+        "ru": "98315c44db4f8fc279710ede5d0b31d55fa3c2d697c227391c68e9217d529ad5",
+        "uk": "1ad6fb48f0632f8ef2e3cc337cc26f93e88fcf1512a16df0ef01ef6424d8a48d",
+        "tr": "c79b686abc831e4295c7059c02c424c61f88619083d1277333c04178947db872"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 1,
+      "correctOptionPositionAfterZeroBased": 1,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "8382aa2a-e3d7-53e2-a48a-3b097a2a7fd0",
+        "parent": "P7-N4",
+        "path": "P7"
+      }
+    },
+    {
+      "index": 11,
+      "MIndex": 45,
+      "id": "6db5cdd2-1545-56b3-a8e8-25c807969202",
+      "ref": "P7-N7-E04",
+      "level": "A2.1",
+      "node": "P7-N7",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Sie bezieht sich auf die Suppe (grammatisches Genus), Ihnen auf Herrn Weber. Damit bleibt genau eine passende Option; weibliches Sachgenus wird erhalten.",
+      "wholeBeforeSHA256": "79d4ce93a7ededb8e942612bad3dc7639f97999a19976187d267d97e0d6139bc",
+      "wholeFinalSeedExerciseSHA256": "f3d4354d08c0ebd26b4516550bcf4d6090e801358cd016deee5461bb15b040c4",
+      "wholeParentWithoutChildrenBeforeSHA256": "aeaf26845cd7e69f1bdbda4eb3345adeb52e79bab5d6bda2e5eaedee0f72bb7f",
+      "wholeFinalParentWithoutChildrenSHA256": "aeaf26845cd7e69f1bdbda4eb3345adeb52e79bab5d6bda2e5eaedee0f72bb7f",
+      "wholePathObjectivesBeforeSHA256": "e6b59aa4c66abef031cdacbad5501d023a1066e82b83753d390e0424fe09e023",
+      "wholeFinalPathObjectivesSHA256": "e6b59aa4c66abef031cdacbad5501d023a1066e82b83753d390e0424fe09e023",
+      "localeFullSHA256": {
+        "de": "fc4a8dced035207c759f4ef0378251fd29a910279c084a02ba6299e2d7204feb",
+        "en": "8ba8103a1f2312dc5575a71c255a4eb633f100be2f2784aa7a457bba463a6442",
+        "ru": "5e7ba20b01d1057cdb62f942630fcde44dc896b28040ea97c4c5238ef1abb91f",
+        "uk": "ab78f4c3431a70bf288d1019d96ed9a9246ad49b346d759a9a28459c8575f60c",
+        "tr": "b818649562dfd34a72bd753988ccad5f8b258371557a1ab58d7936e1bcda7b7e"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "id": "6db5cdd2-1545-56b3-a8e8-25c807969202",
+        "parent": "P7-N7",
+        "path": "P7"
+      }
+    },
+    {
+      "index": 12,
+      "MIndex": 46,
+      "id": "a0c18961-85d2-5d26-a6f3-da43f136a72b",
+      "ref": "P1-N2-E09",
+      "level": "A2.2",
+      "node": "P1-N2",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Formelles Sie verlangt wären; Herr Weber sowie RU/UK-Anrede und TR Bey konsistent.",
+      "wholeBeforeSHA256": "ef4865f2a10d8b03cb93a08bf7709bb59605bff5cacd402e46733ec9d97ca5af",
+      "wholeFinalSeedExerciseSHA256": "d37626f34e2288e4aaa73bda20b6727df28b126c338b2592798375976482976e",
+      "wholeParentWithoutChildrenBeforeSHA256": "48329c81f951fc7d803263b6750509ae044931203140d04a2144ddc0ee5e6a75",
+      "wholeFinalParentWithoutChildrenSHA256": "48329c81f951fc7d803263b6750509ae044931203140d04a2144ddc0ee5e6a75",
+      "wholePathObjectivesBeforeSHA256": "78f0e5202a26ca036b1bb92385a89880a71f7e07496e47196fb8524080955293",
+      "wholeFinalPathObjectivesSHA256": "78f0e5202a26ca036b1bb92385a89880a71f7e07496e47196fb8524080955293",
+      "localeFullSHA256": {
+        "de": "888c52a2e4c29abc59de67415ce6d144752b3bc30e140dfbec63f6dc70079fbc",
+        "en": "52a31da1610472cae9c44281631a87da2f7001bc18c346c1474a5e66cb58d440",
+        "ru": "1d791f08404bf480406eaff8e4c0f72f27997dfe13399305d408a89d327e8ffb",
+        "uk": "17e9d7e9bec564bcf5f1f52ea23ab54297a5a198317bf9398377e7ee04d8c787",
+        "tr": "590e4c87ee1354453b31a27bdfaa95ba602bd86fbfe746bd12591e2a33bbc684"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.2.json",
+        "id": "a0c18961-85d2-5d26-a6f3-da43f136a72b",
+        "parent": "P1-N2",
+        "path": "P1"
+      }
+    },
+    {
+      "index": 13,
+      "MIndex": 47,
+      "id": "328a976e-0f94-5718-a49c-0cd89401eaa2",
+      "ref": "P1-N11-E07",
+      "level": "A2.2",
+      "node": "P1-N11",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Einen Vortrag halten über Ernährung passt zu Dr. Albers. Kurs und Eintritt passen nicht zur vorgegebenen Konstruktion.",
+      "wholeBeforeSHA256": "9c1896a131352c99f1c4ca0bf5350504c88f2b8f8e43c16d0f3566bf5b308bf1",
+      "wholeFinalSeedExerciseSHA256": "b23bc3608e74737c1e4d97322da8292268d498654ba93118c2c811ae6821a695",
+      "wholeParentWithoutChildrenBeforeSHA256": "cd4255b15fd21c9b95f8d493766b70e9e0261df832efa0292b0b023a1947c93b",
+      "wholeFinalParentWithoutChildrenSHA256": "cd4255b15fd21c9b95f8d493766b70e9e0261df832efa0292b0b023a1947c93b",
+      "wholePathObjectivesBeforeSHA256": "78f0e5202a26ca036b1bb92385a89880a71f7e07496e47196fb8524080955293",
+      "wholeFinalPathObjectivesSHA256": "78f0e5202a26ca036b1bb92385a89880a71f7e07496e47196fb8524080955293",
+      "localeFullSHA256": {
+        "de": "d20e7220c7ae2583810e1dd15dd50ef1e0336971134980a38fb6cf5b80491dcb",
+        "en": "c52d633eb0d949b46f73368b5edaef5daee4683075f2970c8707d715f3996c15",
+        "ru": "02470e562a2d08c84a2da5be240d81fa2170c2b94bb5f4667576f36e776b8440",
+        "uk": "d62b2d8abbcf8a2316c817b0fd5157d108668e3afb887b2fc8f322e083a4f4a2",
+        "tr": "c04ebb738526f143768a1c14cd954c96925d922af38767563cc0d9bcadab1e00"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.2.json",
+        "id": "328a976e-0f94-5718-a49c-0cd89401eaa2",
+        "parent": "P1-N11",
+        "path": "P1"
+      }
+    },
+    {
+      "index": 14,
+      "MIndex": 48,
+      "id": "5ad6ab57-3700-5af1-a3cb-46202ed8b83e",
+      "ref": "P2-N14-E29",
+      "level": "A2.2",
+      "node": "P2-N14",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Wie wichtig ist Ihnen …? verlangt wichtig, kein Komparativ/Superlativ. Männliche Anrede in allen Sprachfassungen korrekt.",
+      "wholeBeforeSHA256": "2bca2a658f0e7b4c1e2e68bd5169ed729fb339c18fe6e14b530a7708c55009ea",
+      "wholeFinalSeedExerciseSHA256": "cc49852664d417de20bf1c332e9379e2dd27ddadc749fad39f2db10fdf639529",
+      "wholeParentWithoutChildrenBeforeSHA256": "bd30bc4c60f52c04b4276d5f22d208bdd50f1e5fefff78756199901cbae24556",
+      "wholeFinalParentWithoutChildrenSHA256": "bd30bc4c60f52c04b4276d5f22d208bdd50f1e5fefff78756199901cbae24556",
+      "wholePathObjectivesBeforeSHA256": "21713cd50fc87d154cab3a9e67363cbae19d6ad2aed5bef3bea73bf54345f087",
+      "wholeFinalPathObjectivesSHA256": "21713cd50fc87d154cab3a9e67363cbae19d6ad2aed5bef3bea73bf54345f087",
+      "localeFullSHA256": {
+        "de": "b8f45a6cd5e8e50eeb96c514d578d9cbf966752e5cc0c1d26f3c036089ee21f8",
+        "en": "b9bfae1897a92bf0c73d9718236c30ddeec47b79091388d33ed68d34c7f34c5a",
+        "ru": "f8a124ef096fd3e043871dfb60ef1fadfa7a02adbda1b3adcde385f617e74e6a",
+        "uk": "faabc0c0e85745c5bfeb783868d735502f2ea719fe0725261ce03840343b96b6",
+        "tr": "c4dca45cbcb636a787abd28c735163949ad2e71a0125a132c9483a78ff6f24ba"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 1,
+      "correctOptionPositionAfterZeroBased": 1,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.2.json",
+        "id": "5ad6ab57-3700-5af1-a3cb-46202ed8b83e",
+        "parent": "P2-N14",
+        "path": "P2"
+      }
+    },
+    {
+      "index": 15,
+      "MIndex": 49,
+      "id": "0bece0fc-4818-5962-a8ba-547cf4e889b8",
+      "ref": "P3-N12-E01",
+      "level": "A2.2",
+      "node": "P3-N12",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Mailbox nennt die Praxis Dr. Sommer als Anrufer; Eine Arztpraxis ist aus dem Text eindeutig belegt. Herr Weber ist Empfänger.",
+      "wholeBeforeSHA256": "61d6fadcd7a917b0220c0005e4efbbece4d25b13a2515844f8c0ca86db5ce3a3",
+      "wholeFinalSeedExerciseSHA256": "1e40987c8141ae81249bb37d50386b0d8a3baa7acd9d00b2c5c6e54631cac15b",
+      "wholeParentWithoutChildrenBeforeSHA256": "80292b4bb26a45862bfd99a773a768ffe80eb3a7d86d15b498bcd6e159b5e09c",
+      "wholeFinalParentWithoutChildrenSHA256": "80292b4bb26a45862bfd99a773a768ffe80eb3a7d86d15b498bcd6e159b5e09c",
+      "wholePathObjectivesBeforeSHA256": "154591ee839ee6c4bdbb4094d212d55e600ea45ea854ab76bcbde5ef518ae358",
+      "wholeFinalPathObjectivesSHA256": "154591ee839ee6c4bdbb4094d212d55e600ea45ea854ab76bcbde5ef518ae358",
+      "localeFullSHA256": {
+        "de": "a78a4c16a5f8ed710bb4ce628b752721c62e11efc3b559441c4a224d921f3f10",
+        "en": "8321ae07730b004cf03c0a1575c072d9a1ab330583571b385d02d1720db7ab97",
+        "ru": "174fb0bd1085932842237641c8d1868a93b266769abd6b77d1301fafbc3d43cf",
+        "uk": "6da83a9e0ac0a886367e48c9809c5a944b16c7148ceaef8db26ce4c610064460",
+        "tr": "ce6cad17c0e26de0483f6fe12531dd90ef0d83f106c526e275fbd2eda7695b2a"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.2.json",
+        "id": "0bece0fc-4818-5962-a8ba-547cf4e889b8",
+        "parent": "P3-N12",
+        "path": "P3"
+      }
+    },
+    {
+      "index": 16,
+      "MIndex": 50,
+      "id": "8e3a07d6-d1fa-55f7-adf7-eb7a234014f5",
+      "ref": "P3-N12-E02",
+      "level": "A2.2",
+      "node": "P3-N12",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fällt aus bedeutet findet nicht statt; 18 Uhr bezeichnet Erreichbarkeit, keine Termindauer.",
+      "wholeBeforeSHA256": "421d0e157892b4a5552617c0a55ef0bae6052ee0ced0aefa095b36f82dcd709b",
+      "wholeFinalSeedExerciseSHA256": "2ecad0bdcb748d479152d8b7929f0cf1a761384df9900d4c15d387181cc009e1",
+      "wholeParentWithoutChildrenBeforeSHA256": "80292b4bb26a45862bfd99a773a768ffe80eb3a7d86d15b498bcd6e159b5e09c",
+      "wholeFinalParentWithoutChildrenSHA256": "80292b4bb26a45862bfd99a773a768ffe80eb3a7d86d15b498bcd6e159b5e09c",
+      "wholePathObjectivesBeforeSHA256": "154591ee839ee6c4bdbb4094d212d55e600ea45ea854ab76bcbde5ef518ae358",
+      "wholeFinalPathObjectivesSHA256": "154591ee839ee6c4bdbb4094d212d55e600ea45ea854ab76bcbde5ef518ae358",
+      "localeFullSHA256": {
+        "de": "3b556e563d40cc342f62690b35ed6062e0fc8f211d4ddea5b40807ba145ae83c",
+        "en": "db0aa27c1eaf9b54ee3801ed5eddf419a811200510d75d853e7c36502126e873",
+        "ru": "ff7dbc6e09ea7d1908fa8952f2826af2a37e20709cce82f2af7d31b3935a462e",
+        "uk": "1b3676f19ce3de5e4d6601268c531713c5ca2c0959cd725f1ca943643ae5679f",
+        "tr": "24ef739bba6a3b20e7bbdac2687ec1143cfe2eeeac5c1b58eda9704b07f88090"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.2.json",
+        "id": "8e3a07d6-d1fa-55f7-adf7-eb7a234014f5",
+        "parent": "P3-N12",
+        "path": "P3"
+      }
+    },
+    {
+      "index": 17,
+      "MIndex": 51,
+      "id": "60833e25-c21a-566a-ae39-905a3027cbf7",
+      "ref": "P3-N12-E03",
+      "level": "A2.2",
+      "node": "P3-N12",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Bitte rufen Sie uns zurück belegt Er soll die Praxis anrufen; Herr Weber und männliche Pronomen stimmen. Antwortposition0 erhalten.",
+      "wholeBeforeSHA256": "150862d52e56799a05b49a74f98c2e7532bda35d19f20748090958a7d51a8ca0",
+      "wholeFinalSeedExerciseSHA256": "965374bf6d9be4216b36ecdaaa4c652b5cc4c16fab879ac72bf11e5d17e4c130",
+      "wholeParentWithoutChildrenBeforeSHA256": "80292b4bb26a45862bfd99a773a768ffe80eb3a7d86d15b498bcd6e159b5e09c",
+      "wholeFinalParentWithoutChildrenSHA256": "80292b4bb26a45862bfd99a773a768ffe80eb3a7d86d15b498bcd6e159b5e09c",
+      "wholePathObjectivesBeforeSHA256": "154591ee839ee6c4bdbb4094d212d55e600ea45ea854ab76bcbde5ef518ae358",
+      "wholeFinalPathObjectivesSHA256": "154591ee839ee6c4bdbb4094d212d55e600ea45ea854ab76bcbde5ef518ae358",
+      "localeFullSHA256": {
+        "de": "3659468432a89587cadf6f97b71e2dfae03cb50d16a0261e0b665b115347d88f",
+        "en": "c29e1a190475b9571b13c3205258a3bb1011c111e51eafd798c65c8435b0babd",
+        "ru": "155f3600691accc1491da72b91d2b13f97499af1d14fdb28896354a3a6f7c2b0",
+        "uk": "a31238a293835286ccbd89157b58161571fb4237c96074e1b9d3718c4c57c713",
+        "tr": "cfe8970c0bc5218bdd78e754c061c1caed1011b3a1c3def03116099bd292d9f8"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": true,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.2.json",
+        "id": "60833e25-c21a-566a-ae39-905a3027cbf7",
+        "parent": "P3-N12",
+        "path": "P3"
+      }
+    },
+    {
+      "index": 18,
+      "MIndex": 52,
+      "id": "a6ae0603-287c-55f7-a2bd-967081e76e8f",
+      "ref": "P7-N5-E06",
+      "level": "A2.2",
+      "node": "P7-N5",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "PARTIAL",
+      "reasonDe": "Sofian / Er und hätte gern zwei Kinder stimmen. Ukrainische Aufgabenerklärung enthält Я хотів бии statt Я хотів би; die Elternkarte enthält die korrekte Form. Geringer, aber realer Sprachfehler.",
+      "wholeBeforeSHA256": "0818c96b2237631d3c755e3a469dbb45d71219ae4ffecb3e60b6a68033f4e4d0",
+      "wholeFinalSeedExerciseSHA256": "b7a8115c74ef1841b2dfbf74c01bc18ed48e4daf0c993e5addde9d7911805c3d",
+      "wholeParentWithoutChildrenBeforeSHA256": "f64597a578f44e304f6e87447826867c53638e314b5c98ec54f9703f2036bea2",
+      "wholeFinalParentWithoutChildrenSHA256": "f64597a578f44e304f6e87447826867c53638e314b5c98ec54f9703f2036bea2",
+      "wholePathObjectivesBeforeSHA256": "38d4ae7f5ed7723c538f50c9ae9a91f2abffee3db8a7f37e91547383fe1ad691",
+      "wholeFinalPathObjectivesSHA256": "38d4ae7f5ed7723c538f50c9ae9a91f2abffee3db8a7f37e91547383fe1ad691",
+      "localeFullSHA256": {
+        "de": "85b1d5241a18280658cd598f9b4dddf20c6b66f5b41b3524417d90c1f079c73a",
+        "en": "bf5e187ef36f5b099197f2cefa26dc9aacf426bea5116c60b1f0f837f8da8a19",
+        "ru": "53615a04ff966ce48cd100ae474b9d8d5975eefe97dea4b386ea46babacac384",
+        "uk": "2cf5a8fbaa1e81f1d70e50eeafc1a8677677db28ef168d82adca0f66d85a26f4",
+        "tr": "8999f80cf058365b9af374cf7b256bde0e0d520c88a44da3dcfa6e2a5196509b"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.2.json",
+        "id": "a6ae0603-287c-55f7-a2bd-967081e76e8f",
+        "parent": "P7-N5",
+        "path": "P7"
+      },
+      "finding": {
+        "verdict": "PARTIAL",
+        "defects": [
+          {
+            "pointer": "/translations/uk/explanation",
+            "replaceBefore": "Я хотів бии бути одруженим.",
+            "replaceAfter": "Я хотів би бути одруженим.",
+            "reason": "Doppeltes и in der Partikel би entfernen."
+          }
+        ]
+      },
+      "findingOrigin": "The final task equals the S7 draft, so this is an inherited draft defect, not an implementation mismatch."
+    },
+    {
+      "index": 19,
+      "MIndex": 53,
+      "id": "413c0bde-67bc-5a3c-a18d-2f8762a01238",
+      "ref": "P1-N1-E05",
+      "level": "B1.1",
+      "node": "P1-N1",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Zeugin ist ausdrücklich das gesuchte feminine Nomen für eine abstrakte Person; keine weibliche Figurbiografie. Einzig passende Unfall-Vokabel.",
+      "wholeBeforeSHA256": "8e0920abb024b0167f672ba786e1ced8cecd57e419889b9ff4be942214a0160d",
+      "wholeFinalSeedExerciseSHA256": "b51911f472c7daa2907cbfb1b74cd83827fbff1f7bafcc1e4c17e401bf61c78c",
+      "wholeParentWithoutChildrenBeforeSHA256": "a7a0707c557bded6b6777f2a3520cf821462438d375332ef8acf87e4595f5934",
+      "wholeFinalParentWithoutChildrenSHA256": "a7a0707c557bded6b6777f2a3520cf821462438d375332ef8acf87e4595f5934",
+      "wholePathObjectivesBeforeSHA256": "fc72ff3e5c466b7a7039d2cbd851a66609828ec9c5201acc868682185426edee",
+      "wholeFinalPathObjectivesSHA256": "fc72ff3e5c466b7a7039d2cbd851a66609828ec9c5201acc868682185426edee",
+      "localeFullSHA256": {
+        "de": "dac685c0e84b458c753c9bcde21dac8113050f8fc92f757b180f471032dc541e",
+        "en": "18fee7a4a88b4defb31acaab51593ffc15a33f152df32ff0bcd432670c309a25",
+        "ru": "69e884e45ee49e41ef2a3ab6a5cc4d5910f5aac045efcba8ec77dde699d652ef",
+        "uk": "b4cba904eb710fc4b59840d0adbe09c7d1ecf31e42e11bb92e35653ac3c596bb",
+        "tr": "e149b126b54d9f5aa63400decb3dea5847ae8a94ae91ab9c091c43ab21d3d17b"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 1,
+      "correctOptionPositionAfterZeroBased": 1,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": false,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "413c0bde-67bc-5a3c-a18d-2f8762a01238",
+        "parent": "P1-N1",
+        "path": "P1"
+      }
+    },
+    {
+      "index": 20,
+      "MIndex": 54,
+      "id": "30276873-46e1-5ece-a724-9a5772844cf8",
+      "ref": "P1-N7-E04",
+      "level": "B1.1",
+      "node": "P1-N7",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Vergessen hatte ist vor konnte nicht ins Haus passiert. Leon / er / seinen Schlüssel und männliche Vergangenheitsformen stimmen; Antwortposition2 erhalten.",
+      "wholeBeforeSHA256": "e6a62590f6570850f3dad84c8f79161c230f715e35246ac7be73eae30fe2130b",
+      "wholeFinalSeedExerciseSHA256": "504a3d72339eac2e2c5abc5a493713c736102c3d46e9bdc0cc42550c9415ed45",
+      "wholeParentWithoutChildrenBeforeSHA256": "607405f26bf6a19f220f538f5c2b1b18736b3979f57dadeec7b1ddffda99ce3c",
+      "wholeFinalParentWithoutChildrenSHA256": "607405f26bf6a19f220f538f5c2b1b18736b3979f57dadeec7b1ddffda99ce3c",
+      "wholePathObjectivesBeforeSHA256": "fc72ff3e5c466b7a7039d2cbd851a66609828ec9c5201acc868682185426edee",
+      "wholeFinalPathObjectivesSHA256": "fc72ff3e5c466b7a7039d2cbd851a66609828ec9c5201acc868682185426edee",
+      "localeFullSHA256": {
+        "de": "00d3bdd7919b030553af5b97837d20bb7e34822e0362604d94ccefaa15a14261",
+        "en": "71a0a6781e021ec26c14dc3d41b9d5bca063098ccf48e14b019b3e7b40bbd2e5",
+        "ru": "306a64a71530b6b9f9eff3ca6f5e1cace4b27c783f28dd572936b75adcab5d91",
+        "uk": "ce09e74f1cfc15e1ff6b647441a19b7d24eb9b576e21de37f1d437676a2ba00f",
+        "tr": "4af32cbea7bcb3de0eac3b61dc39028e27caff601c1bebaa4ec7d3f85524448f"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": true,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "30276873-46e1-5ece-a724-9a5772844cf8",
+        "parent": "P1-N7",
+        "path": "P1"
+      }
+    },
+    {
+      "index": 21,
+      "MIndex": 55,
+      "id": "2c2fdff1-e4b3-52b4-a5b2-a177a1c9ef47",
+      "ref": "P2-N4-E03",
+      "level": "B1.1",
+      "node": "P2-N4",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Begeisterung verlangt echt gut; gar nicht/nicht so widersprechen dem Kontext. Leon und Schauspieler sind männlich, RU/UK Vergangenheit ebenfalls.",
+      "wholeBeforeSHA256": "f8c756692b59d04bd3f0f521bf367c2e2ebf08bbc168da94f2e694ecd279a5fb",
+      "wholeFinalSeedExerciseSHA256": "b0f8a8c3a777163868c3051e795af4b58861cd1c45b13c65bec1ec752d4ceca6",
+      "wholeParentWithoutChildrenBeforeSHA256": "9bf92a32136f732feaa597a624fd6d9e465c6c04b619752c61088876b52fd375",
+      "wholeFinalParentWithoutChildrenSHA256": "9bf92a32136f732feaa597a624fd6d9e465c6c04b619752c61088876b52fd375",
+      "wholePathObjectivesBeforeSHA256": "377cd6d96d2e510210e97f00d657c7c896590a14eade589d1d70430f1f288952",
+      "wholeFinalPathObjectivesSHA256": "fd45fde8885cf3edf8d1e34fdc7ec712bb5518ce38f57f1c7a89ed3b601664f1",
+      "localeFullSHA256": {
+        "de": "972e1a9bb5143fe80fbb17ff15f73e2d6a9385da9c97f8a71efefa62c9f8c874",
+        "en": "b189f9f3061221f72917241a75513f9bf9b57e8b5b4c25854d0bca9e8878733a",
+        "ru": "55ef0bd29bc02795a81eb05c9bcb8285f550229f05e5fcb32507de5f360040d5",
+        "uk": "9e534028c0d100fcf19b71b5dd891ba59e256454fe1efdb1dcd7f93f6b4599ea",
+        "tr": "1db338e162eb384584219a1a792bb0c6017dd189d105a6fa644b43d39e7ec66f"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": false,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "2c2fdff1-e4b3-52b4-a5b2-a177a1c9ef47",
+        "parent": "P2-N4",
+        "path": "P2"
+      }
+    },
+    {
+      "index": 22,
+      "MIndex": 56,
+      "id": "7e79fa19-a5d7-5a86-a59c-bc4db5b1aeeb",
+      "ref": "P4-N9-E09",
+      "level": "B1.1",
+      "node": "P4-N9",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Darf ich …? verlangt erste Person darf; von Herrn Kovac ist Dativ. RU господина, UK пана, TR Bey’in korrekt.",
+      "wholeBeforeSHA256": "2ee85d094aeb9808ced28d71d29ef0141cf5192cb0365dd9793dee25683deaee",
+      "wholeFinalSeedExerciseSHA256": "38c4d323c6cc31a8201993665889e88737b0b46bfd1dd941610745579e9b5774",
+      "wholeParentWithoutChildrenBeforeSHA256": "c3cd5d9c93c03827968a034433baa2869c1433b13814a0d018b6aae9b0d89f31",
+      "wholeFinalParentWithoutChildrenSHA256": "c3cd5d9c93c03827968a034433baa2869c1433b13814a0d018b6aae9b0d89f31",
+      "wholePathObjectivesBeforeSHA256": "b67fd88863f999e80ffb702d28186a4d048cfd0daf3d614ff032dda208347968",
+      "wholeFinalPathObjectivesSHA256": "b67fd88863f999e80ffb702d28186a4d048cfd0daf3d614ff032dda208347968",
+      "localeFullSHA256": {
+        "de": "99f15243345aa964a3b016043edeb6e134df3a398874d573ff4c3616d60835fe",
+        "en": "e26aebe0d104c101523ed66ae006e62079ee66243e2aaa65fcdc9ae7ecb3fb10",
+        "ru": "2aca7345e5d497d06895de1764ceb45a47f446f44cc6e220678d003c28b6e7f0",
+        "uk": "394ae05aa5c2cd467edf0d34f5d3464aa3e9697054198a170552596d77add882",
+        "tr": "6455def1fddcc84bc5dfeac2aaca2bfb648ed6ccfd0b28a8177ede6797605396"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "7e79fa19-a5d7-5a86-a59c-bc4db5b1aeeb",
+        "parent": "P4-N9",
+        "path": "P4"
+      }
+    },
+    {
+      "index": 23,
+      "MIndex": 59,
+      "id": "d131dd87-8e67-5da8-af3f-33d0816b9762",
+      "ref": "P5-N11-E01",
+      "level": "B1.1",
+      "node": "P5-N11",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Anzeige fordert Erfahrung in Gastronomie; richtige Antwort direkt belegt. Servicekraft und m/w/d sind sachliche Berufs-/Stellenangaben, Herr Albrecht männlicher Kontakt.",
+      "wholeBeforeSHA256": "9d16db6ef36a903fd8eeaec132ebb4703ba165aad3b8d6f21316489d277c55f9",
+      "wholeFinalSeedExerciseSHA256": "3c2fc2cec9ac849f832b16fc00f7d443f4b46534d420adc1800da2a5e4b3e655",
+      "wholeParentWithoutChildrenBeforeSHA256": "27d30812349cdab6380f06cc64f9a56465441c71bbefd4ec34a1639e210f904f",
+      "wholeFinalParentWithoutChildrenSHA256": "27d30812349cdab6380f06cc64f9a56465441c71bbefd4ec34a1639e210f904f",
+      "wholePathObjectivesBeforeSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "wholeFinalPathObjectivesSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "localeFullSHA256": {
+        "de": "7ed6ed7dd16ca8b24353e77299da2d340fad8130c914c136f5172c13d8c721b9",
+        "en": "530002a647e3d08092393705f4e768baa9ec1e39bf12b4461c4e39abf0daf447",
+        "ru": "664378531a0b851df7846492a211ef9eefb33c276c1d2184eb8dd887c413bde5",
+        "uk": "5d11699302b2c04950ba6df8ced624ee46e7890406e8e73bb7acd9e9a2bac1d1",
+        "tr": "6ef777dbb729ec57b2a69f29bb3e37e2a0eb1cb9718aee3d759850991d5450c2"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "d131dd87-8e67-5da8-af3f-33d0816b9762",
+        "parent": "P5-N11",
+        "path": "P5"
+      }
+    },
+    {
+      "index": 24,
+      "MIndex": 60,
+      "id": "48a42831-cc30-54c5-aa85-0f72972cffcb",
+      "ref": "P5-N11-E02",
+      "level": "B1.1",
+      "node": "P5-N11",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Auch am Wochenende arbeiten belegt Samstag/Sonntag; weder perfektes Englisch noch tägliches Putzen verlangt.",
+      "wholeBeforeSHA256": "1056c9fab43e5fe59e50ba32278d8e7f6806fc49f6edcd3bd19f2fc7c27b1d70",
+      "wholeFinalSeedExerciseSHA256": "1d9641183b7749dac85ff9641c44b4fba8f23249fa9b001c8f44aae7c15af843",
+      "wholeParentWithoutChildrenBeforeSHA256": "27d30812349cdab6380f06cc64f9a56465441c71bbefd4ec34a1639e210f904f",
+      "wholeFinalParentWithoutChildrenSHA256": "27d30812349cdab6380f06cc64f9a56465441c71bbefd4ec34a1639e210f904f",
+      "wholePathObjectivesBeforeSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "wholeFinalPathObjectivesSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "localeFullSHA256": {
+        "de": "d6d76de05217c641d2aadc9eb4da8b505aa600669b7e88540b065a8df08b0ec0",
+        "en": "244171de1500893e241302ed29a6541a37770a1c16351d1846ac6e9c1b8aabe0",
+        "ru": "a44e4d48e4383ff93a0ebbeb453cce67b8b441dfb118fbedbf9f077bdf29320a",
+        "uk": "b1f52bbfd54060c8ba26033c7c773a0f438ad775d013fde025ad4549b4c6383f",
+        "tr": "ebe07f366f6bb51d1230f05297cb2d96aa824c9039dd22b6fe75a223094b0ec9"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "48a42831-cc30-54c5-aa85-0f72972cffcb",
+        "parent": "P5-N11",
+        "path": "P5"
+      }
+    },
+    {
+      "index": 25,
+      "MIndex": 61,
+      "id": "4057f6e2-ad97-59e9-a7bf-c67e51fddfc7",
+      "ref": "P5-N11-E03",
+      "level": "B1.1",
+      "node": "P5-N11",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Gutes Gehalt und ein Zimmer sind ausdrücklich angeboten; Sprachkurs und reine Vormittagsarbeit fehlen.",
+      "wholeBeforeSHA256": "8132696fd9ebeb9e0be9465b88c44c46b2bd07a033bf236aafc3163237234fab",
+      "wholeFinalSeedExerciseSHA256": "2bf77225bd4fd3d1aba1c3e1c113e8d1273ca1866a2731a7ead0ee17fc4771bf",
+      "wholeParentWithoutChildrenBeforeSHA256": "27d30812349cdab6380f06cc64f9a56465441c71bbefd4ec34a1639e210f904f",
+      "wholeFinalParentWithoutChildrenSHA256": "27d30812349cdab6380f06cc64f9a56465441c71bbefd4ec34a1639e210f904f",
+      "wholePathObjectivesBeforeSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "wholeFinalPathObjectivesSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "localeFullSHA256": {
+        "de": "b3c5ce6dfdbe9f713b55af42e8560dfe1dad1ea5bffbbdfaf5fcc8ed1ed21532",
+        "en": "f737d81509bd9735fd77984306bb8ac71007466c83876f280ea5367e4d10fd69",
+        "ru": "ed7f9c1dac7cdfbdd4020623cdb2431269738e249e935e4a126921e067d2812e",
+        "uk": "b29f35463ad265b3a9f89279c8e05329a99a07cf35c0b278ba227d74d79db11b",
+        "tr": "b4ecc0b3a0cbd64e6aaf24a2e39e655ff44c8910edefa8edd8de5f8ea15a7c04"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "4057f6e2-ad97-59e9-a7bf-c67e51fddfc7",
+        "parent": "P5-N11",
+        "path": "P5"
+      }
+    },
+    {
+      "index": 26,
+      "MIndex": 62,
+      "id": "5355c770-55c2-5dfe-a71c-b30dac9a606a",
+      "ref": "P5-N11-E04",
+      "level": "B1.1",
+      "node": "P5-N11",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Innerhalb von zwei Wochen bedeutet in den nächsten zwei Wochen. Kontakt Herrn Albrecht und alle Sprachfassungen stimmig.",
+      "wholeBeforeSHA256": "701c8c8ffbeddf0b2723ca3ca0b6d74879bde14c98f66d147c4829861e116576",
+      "wholeFinalSeedExerciseSHA256": "ccec1a2be246a6031bb9b99658ddee025247e31899a20cce7bef7edf9c15428d",
+      "wholeParentWithoutChildrenBeforeSHA256": "27d30812349cdab6380f06cc64f9a56465441c71bbefd4ec34a1639e210f904f",
+      "wholeFinalParentWithoutChildrenSHA256": "27d30812349cdab6380f06cc64f9a56465441c71bbefd4ec34a1639e210f904f",
+      "wholePathObjectivesBeforeSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "wholeFinalPathObjectivesSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "localeFullSHA256": {
+        "de": "f95c40c59fb8559f385927c123afe7ecabad3a617065400fcbc672575f312824",
+        "en": "eedc8229908a756a5f318a0db572564ab74214838ebb5b062118bb12d5a626d8",
+        "ru": "f694fc8c25d37d0877f7c2357632e48308db0b16fab2deb7401acc16e1a431c3",
+        "uk": "95d166134e32d50ed732dee475eb0b9122644c523df6ac4abdab2a90d671f26d",
+        "tr": "af2a7f95574ada564ca270d5ef7a7b43233953ac2a4ff8a29020a9bf24690de2"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "5355c770-55c2-5dfe-a71c-b30dac9a606a",
+        "parent": "P5-N11",
+        "path": "P5"
+      }
+    },
+    {
+      "index": 27,
+      "MIndex": 63,
+      "id": "857eb2a0-54dc-5208-a8ce-ad4932588929",
+      "ref": "P5-N13-E18",
+      "level": "B1.1",
+      "node": "P5-N13",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Einladung zum Vorstellungsgespräch belegt persönliches Kennenlernen von Herrn Petrov; Herrn im Akkusativ korrekt, Firma als sie grammatisch sachlich erhalten. Antwortposition2 unverändert.",
+      "wholeBeforeSHA256": "360d8c1d4c84c79a8e827e1f2f15dc9ce5652da9ab3bab07133ee3354f25f858",
+      "wholeFinalSeedExerciseSHA256": "bff3e5acd4028783cc94f57feb92edb77172651ff7e72c92a13f42ea6f827344",
+      "wholeParentWithoutChildrenBeforeSHA256": "493602b291e4f4681e504adfd5362f1bea8f63e78ab4df6fe99f7a3ead051571",
+      "wholeFinalParentWithoutChildrenSHA256": "493602b291e4f4681e504adfd5362f1bea8f63e78ab4df6fe99f7a3ead051571",
+      "wholePathObjectivesBeforeSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "wholeFinalPathObjectivesSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "localeFullSHA256": {
+        "de": "27cb37c54ea55e981497b2fcc7b8b4fa101f014659e64756da1dc45276f0ebbe",
+        "en": "d8b637fafb1441b8ca69226e3dc45670bc7ca2932a52c80cc0ac1c6b0809b9ed",
+        "ru": "3146f5da7c002ef1b3f958636ed77ef8a8ce68bb85bb815e6cc31a27ad6e3cf0",
+        "uk": "cfd916459b2dc3664e20edd2d516d23071380e063fbf88fc9e04a801629f0965",
+        "tr": "61a5660ee939a36a757dc198133d1226676317df5e76dfff04d5938795c723d2"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": true,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "857eb2a0-54dc-5208-a8ce-ad4932588929",
+        "parent": "P5-N13",
+        "path": "P5"
+      }
+    },
+    {
+      "index": 28,
+      "MIndex": 64,
+      "id": "d3983ef6-b3aa-5b90-a1b9-a820f281e9e4",
+      "ref": "P6-N2-E09",
+      "level": "B1.1",
+      "node": "P6-N2",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Wie geht es Ihnen? verlangt geht; Herr Brandt, RU господин, UK пане, TR Bey konsistent.",
+      "wholeBeforeSHA256": "755b4d09476783881f30a558cf2a885527e220160ee4d9515fb5f2caf136a275",
+      "wholeFinalSeedExerciseSHA256": "1607ba322e117868cf45b95ad3a2826cd40b5310f3f7fe2b2339fcd86391bcbe",
+      "wholeParentWithoutChildrenBeforeSHA256": "6f1ebaac32e0518b9ee7a0cf4b952702a049b45d36be509b516b3b95c81d961e",
+      "wholeFinalParentWithoutChildrenSHA256": "6f1ebaac32e0518b9ee7a0cf4b952702a049b45d36be509b516b3b95c81d961e",
+      "wholePathObjectivesBeforeSHA256": "c25bab5fd663960345f7e9a4aa1cc1546c62d5dc3b2be53e4bc21432fbf7e1e4",
+      "wholeFinalPathObjectivesSHA256": "c25bab5fd663960345f7e9a4aa1cc1546c62d5dc3b2be53e4bc21432fbf7e1e4",
+      "localeFullSHA256": {
+        "de": "ed588517c0350c772dbe3725b9960ac18201f02043eedd554aae50d190f41458",
+        "en": "6bb739004c9dc2d4366c6c6501ff56fb7e84cc8daae5af2b02d12aab3e659bf7",
+        "ru": "2533aac000fa28515ff81ba8ef082fa636e6dfdff01741507cd74d601283f7d0",
+        "uk": "151e1908bbb8375343984db03cc63f10ddd2bb56166d5a33d0f19ccf2e9dc095",
+        "tr": "d5feffb720cbbe6dd417a75c1090a3141bafca761acbf9bace8de91fd6637b63"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": true,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "d3983ef6-b3aa-5b90-a1b9-a820f281e9e4",
+        "parent": "P6-N2",
+        "path": "P6"
+      }
+    },
+    {
+      "index": 29,
+      "MIndex": 68,
+      "id": "32cf2317-c1a1-56ee-a954-af980217694e",
+      "ref": "P7-N1-E02",
+      "level": "B1.1",
+      "node": "P7-N1",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Vermieterin ist ausdrücklich als feminine Wortschatzform gesucht, ohne Figurenbiografie. Besitz plus Miete erhalten belegt Vermieterin eindeutig.",
+      "wholeBeforeSHA256": "a5a3f98d77f9f8e9c55b1378409b5b81836403fa6b8fed30403cdad30a07c027",
+      "wholeFinalSeedExerciseSHA256": "edbe2815253654d6ee480a8ffafbacbecfc47006756dc9fd53d1b8ac6a9e31a5",
+      "wholeParentWithoutChildrenBeforeSHA256": "ad78d1a2d255f0811f5bf59d243bd3c4276673f98b1ee6347a2e48ecc496d1d5",
+      "wholeFinalParentWithoutChildrenSHA256": "ad78d1a2d255f0811f5bf59d243bd3c4276673f98b1ee6347a2e48ecc496d1d5",
+      "wholePathObjectivesBeforeSHA256": "5cd1f96834333950edb3a3fed1e891439065fba09e45fd93f92a0bb2106a04a3",
+      "wholeFinalPathObjectivesSHA256": "5cd1f96834333950edb3a3fed1e891439065fba09e45fd93f92a0bb2106a04a3",
+      "localeFullSHA256": {
+        "de": "cad226b3483fb0c1a5dcaf7ea68193206ded10c72e34d13a00dcc7b72e788df1",
+        "en": "4b90f5a6380fcb258d057392af0adf7fa86a0bb8db3c909224eaaebd69061c80",
+        "ru": "cb10f299771d9d017ffecb9c8bff0f92d74ff246b7f73f10f8c791b17037b1ab",
+        "uk": "fc94b926eef28629113a1f65ae0d67559f520c2841c529175f0533ddd61bf4f0",
+        "tr": "2f2cdf0c7e9a225e62f56d0c987cadca56c002fc742ed9d8d151e406898dfa23"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": false,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "32cf2317-c1a1-56ee-a954-af980217694e",
+        "parent": "P7-N1",
+        "path": "P7"
+      }
+    },
+    {
+      "index": 30,
+      "MIndex": 69,
+      "id": "2995fa6c-44e2-5a42-af53-5a2ce5945603",
+      "ref": "P7-N13-E05",
+      "level": "B1.1",
+      "node": "P7-N13",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Vergangenes irreal: hätten … gefunden mit haben; von Herrn Kurz Dativ und Übersetzungen passen.",
+      "wholeBeforeSHA256": "10a83f91df430accb4eee60a538ccd4d52bab33406b1749223048bb68be3e2ed",
+      "wholeFinalSeedExerciseSHA256": "7f6e37967b112faaf25e1924d582aa2644a0c6f3ce8e652a458257f3c543bc74",
+      "wholeParentWithoutChildrenBeforeSHA256": "3b31ff7b6c7478639f8e22ca014d80ecd4aa2fb15e22217042702eb674366de4",
+      "wholeFinalParentWithoutChildrenSHA256": "3b31ff7b6c7478639f8e22ca014d80ecd4aa2fb15e22217042702eb674366de4",
+      "wholePathObjectivesBeforeSHA256": "5cd1f96834333950edb3a3fed1e891439065fba09e45fd93f92a0bb2106a04a3",
+      "wholeFinalPathObjectivesSHA256": "5cd1f96834333950edb3a3fed1e891439065fba09e45fd93f92a0bb2106a04a3",
+      "localeFullSHA256": {
+        "de": "de2251e335f69d654d4cca257187a1c3e8c362c6c3d8ccaafb0d8518675d15fb",
+        "en": "e3ad385fc20a7323e119034f03cb1fb99b4df318e5287192899d13a8eed66a4e",
+        "ru": "b1d8f682526a8b4c6d27c9d7681862e6fa729ff23ebb5f89d31bc0ab78edbbde",
+        "uk": "ccc5f025f45797d02ebc4a0ec7e2df29cf117f5648e0352da6a54ae989077d89",
+        "tr": "cc33bca749a71ab1bcad77b1a6ed30a08394fe3113b45adb5e95c54fd7810ed2"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 2,
+      "correctOptionPositionAfterZeroBased": 2,
+      "answerRevision": false,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": false,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "2995fa6c-44e2-5a42-af53-5a2ce5945603",
+        "parent": "P7-N13",
+        "path": "P7"
+      }
+    },
+    {
+      "index": 31,
+      "MIndex": 57,
+      "id": "a5b8ff78-0a61-56cc-a744-38e87b19392f",
+      "ref": "P4-N12-E04",
+      "level": "B1.1",
+      "node": "P4-N12",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "implementationSourceCommit": "2a2e4f8893bc1aa56cc5a3ce66c6509f367a5052",
+      "implementationBase": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Anton / er, männliche RU/UK-Pronomen und TR Anton’un konsistent. Einzige grammatische Option hat hätte am Ende des wenn-Satzes und würde vor er im Hauptsatz; hypothetische Umformung stimmig. Antwortposition1 erhalten.",
+      "wholeBeforeSHA256": "e886e52aed8428f501e5042bebb5c697dd13426d08a83ce77eb65dc02957cd88",
+      "wholeFinalSeedExerciseSHA256": "da0c386c41cce5637c988322bb37103aa47a9c323b56c90f265f07d238a242eb",
+      "wholeParentWithoutChildrenBeforeSHA256": "c682fd0405994f90a1ca9173589f1607cfffd3832e0011139ef23cea990a0b98",
+      "wholeFinalParentWithoutChildrenSHA256": "c682fd0405994f90a1ca9173589f1607cfffd3832e0011139ef23cea990a0b98",
+      "wholePathObjectivesBeforeSHA256": "b67fd88863f999e80ffb702d28186a4d048cfd0daf3d614ff032dda208347968",
+      "wholeFinalPathObjectivesSHA256": "b67fd88863f999e80ffb702d28186a4d048cfd0daf3d614ff032dda208347968",
+      "localeFullSHA256": {
+        "de": "ad49bd697b1d453345eb17024cecff00a07bd94c560954cbc8404f63ce2f3a0e",
+        "en": "396aa2ddcf56d22ad21e7596a701a006e00f517784c8a906326c56f0263fc6d6",
+        "ru": "5437db1a533b971b18b7ef77c2e9e0a0f447b49bc6316214bd72d934b5f7ce87",
+        "uk": "a60ed2faeb31017e28419293689745ae586c11d07d66c816530a2b795ef0c0a8",
+        "tr": "d1c9b5f24d4eff4a72162945372414216780215be9208af8aa32d4ca8bb584fa"
+      },
+      "sourceBinding": "Both complete before and final exercise equal actual Git implementation base and current seed, not merely proposals.",
+      "readScope": {
+        "actualFinalWholeTaskIncludingOptionsKeyHintExplanationAndAllFourTranslationRecords": true,
+        "wholeCurrentParentWithoutChildrenIncludingAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "siblingsRead": false,
+        "sameEpochExactStringDeduplication": true,
+        "readerTruncations": 0
+      },
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionPositionBeforeZeroBased": 1,
+      "correctOptionPositionAfterZeroBased": 1,
+      "answerRevision": true,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "equalsS7ProposedWholeTask": null,
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-b1.1.json",
+        "id": "a5b8ff78-0a61-56cc-a744-38e87b19392f",
+        "parent": "P4-N12",
+        "path": "P4"
+      }
+    }
+  ],
+  "parentReviews": [
+    {
+      "id": "P4-N6",
+      "level": "A2.1",
+      "verdict": "ACCEPT",
+      "reasonDe": "Vollständige finale Elternmetadaten inklusive aller fünf Sprachen, Regeln, Beispiele und Pfadziele gelesen. Männliche benannte Bezüge stimmig; abstrakte weibliche Pronomenbeispiele fachlich erhalten. Kinder nicht mitfreigegeben.",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "beforeSHA256": "805c757cb4da7d07c6a8eb28dbdeadfdba6bc56a5e08655fa241c73401bd41bb",
+      "finalSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "finalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "childrenRead": false,
+      "wholeFiveLocaleRead": true,
+      "file": "supabase/seeds/path-a2.1.json"
+    },
+    {
+      "id": "P4-N9",
+      "level": "A2.1",
+      "verdict": "ACCEPT",
+      "reasonDe": "Vollständige finale Elternmetadaten inklusive aller fünf Sprachen, Regeln, Beispiele und Pfadziele gelesen. Männliche benannte Bezüge stimmig; abstrakte weibliche Pronomenbeispiele fachlich erhalten. Kinder nicht mitfreigegeben.",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "beforeSHA256": "93e0dee87a7305769d35a500ccbcf361de725374fcb47a0baa87df6235862dcb",
+      "finalSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "finalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "childrenRead": false,
+      "wholeFiveLocaleRead": true,
+      "file": "supabase/seeds/path-a2.1.json"
+    },
+    {
+      "id": "P6-N11",
+      "level": "B1.1",
+      "verdict": "ACCEPT",
+      "reasonDe": "Vollständige finale Elternmetadaten inklusive aller fünf Sprachen, Regeln, Beispiele und Pfadziele gelesen. Männliche benannte Bezüge stimmig; abstrakte weibliche Pronomenbeispiele fachlich erhalten. Kinder nicht mitfreigegeben.",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "beforeSHA256": "703456421c31b66162ef4979be9ad516a1ebf7346359f3677b58f18ac776a7c3",
+      "finalSHA256": "f9c147cffc6b6f3b63f80613da7794cccb74a4407e9adbdfe8e9bb36baed8733",
+      "finalObjectivesSHA256": "c25bab5fd663960345f7e9a4aa1cc1546c62d5dc3b2be53e4bc21432fbf7e1e4",
+      "childrenRead": false,
+      "wholeFiveLocaleRead": true,
+      "file": "supabase/seeds/path-b1.1.json"
+    }
+  ],
+  "objectiveReviews": [
+    {
+      "id": "P2-G1",
+      "level": "B1.1",
+      "path": "P2",
+      "verdict": "ACCEPT",
+      "reasonDe": "Leo / er nennt denselben männlichen Bezug; obwohl-Nebensatz hat kennt am Ende. Alle Pfadziele vollständig gelesen.",
+      "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+      "beforeFullObjectiveSHA256": "e73fc00f634f9988ea4fdfa539ae1b2e46fade13331a8d9601ed8d96c43fa8da",
+      "finalFullObjectiveSHA256": "51f78917d7ed1045845d41880c1c350261f3c78a015f6543850e540c3b1d76b4",
+      "allFinalPathObjectivesSHA256": "fd45fde8885cf3edf8d1e34fdc7ec712bb5518ce38f57f1c7a89ed3b601664f1",
+      "file": "supabase/seeds/path-b1.1.json"
+    }
+  ],
+  "answerRevisions": [
+    {
+      "level": "a2.1",
+      "id": "03468f82-8eb2-51dd-a4ff-aa699fd18ff9",
+      "ref": "P4-N6-E01",
+      "required": true,
+      "before": "Vielleicht ist sie krank.",
+      "after": "Vielleicht ist er krank.",
+      "acceptedAnswersBefore": [
+        "Vielleicht ist sie krank."
+      ],
+      "acceptedAnswersAfter": [
+        "Vielleicht ist er krank."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 0,
+      "correctPositionAfter": 0,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true,
+      "mechanicalVerdict": "ACCEPT_1_TO_1_POSITION_PRESERVED",
+      "entailmentVerdict": "ACCEPT",
+      "Archive114Performed": false
+    },
+    {
+      "level": "a2.1",
+      "id": "1e8ba83c-5c91-52d7-abf3-c31a60d38760",
+      "ref": "P4-N12-E15",
+      "required": true,
+      "before": "Tut mir leid, Frau Rojas ist heute nicht im Haus.",
+      "after": "Tut mir leid, Herr Rojas ist heute nicht im Haus.",
+      "acceptedAnswersBefore": [
+        "Tut mir leid, Frau Rojas ist heute nicht im Haus."
+      ],
+      "acceptedAnswersAfter": [
+        "Tut mir leid, Herr Rojas ist heute nicht im Haus."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 1,
+      "correctPositionAfter": 1,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true,
+      "mechanicalVerdict": "ACCEPT_1_TO_1_POSITION_PRESERVED",
+      "entailmentVerdict": "PARTIAL_TEMPORAL_SCOPE",
+      "Archive114Performed": false
+    },
+    {
+      "level": "a2.2",
+      "id": "60833e25-c21a-566a-ae39-905a3027cbf7",
+      "ref": "P3-N12-E03",
+      "required": true,
+      "before": "Sie soll die Praxis anrufen.",
+      "after": "Er soll die Praxis anrufen.",
+      "acceptedAnswersBefore": [
+        "Sie soll die Praxis anrufen."
+      ],
+      "acceptedAnswersAfter": [
+        "Er soll die Praxis anrufen."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 0,
+      "correctPositionAfter": 0,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true,
+      "mechanicalVerdict": "ACCEPT_1_TO_1_POSITION_PRESERVED",
+      "entailmentVerdict": "ACCEPT",
+      "Archive114Performed": false
+    },
+    {
+      "level": "b1.1",
+      "id": "30276873-46e1-5ece-a724-9a5772844cf8",
+      "ref": "P1-N7-E04",
+      "required": true,
+      "before": "Lena hat den Schlüssel vergessen.",
+      "after": "Leon hat den Schlüssel vergessen.",
+      "acceptedAnswersBefore": [
+        "Lena hat den Schlüssel vergessen."
+      ],
+      "acceptedAnswersAfter": [
+        "Leon hat den Schlüssel vergessen."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 2,
+      "correctPositionAfter": 2,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true,
+      "mechanicalVerdict": "ACCEPT_1_TO_1_POSITION_PRESERVED",
+      "entailmentVerdict": "ACCEPT",
+      "Archive114Performed": false
+    },
+    {
+      "level": "b1.1",
+      "id": "857eb2a0-54dc-5208-a8ce-ad4932588929",
+      "ref": "P5-N13-E18",
+      "required": true,
+      "before": "Sie möchte Frau Petrova persönlich kennenlernen.",
+      "after": "Sie möchte Herrn Petrov persönlich kennenlernen.",
+      "acceptedAnswersBefore": [
+        "Sie möchte Frau Petrova persönlich kennenlernen."
+      ],
+      "acceptedAnswersAfter": [
+        "Sie möchte Herrn Petrov persönlich kennenlernen."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 2,
+      "correctPositionAfter": 2,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true,
+      "mechanicalVerdict": "ACCEPT_1_TO_1_POSITION_PRESERVED",
+      "entailmentVerdict": "ACCEPT",
+      "Archive114Performed": false
+    },
+    {
+      "level": "b1.1",
+      "id": "a5b8ff78-0a61-56cc-a744-38e87b19392f",
+      "ref": "P4-N12-E04",
+      "required": true,
+      "before": "Wenn Anna mehr Geld hätte, würde sie einen teuren Sprachkurs machen.",
+      "after": "Wenn Anton mehr Geld hätte, würde er einen teuren Sprachkurs machen.",
+      "acceptedAnswersBefore": [
+        "Wenn Anna mehr Geld hätte, würde sie einen teuren Sprachkurs machen."
+      ],
+      "acceptedAnswersAfter": [
+        "Wenn Anton mehr Geld hätte, würde er einen teuren Sprachkurs machen."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 1,
+      "correctPositionAfter": 1,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true,
+      "mechanicalVerdict": "ACCEPT_1_TO_1_POSITION_PRESERVED",
+      "entailmentVerdict": "ACCEPT",
+      "Archive114Performed": false
+    }
+  ],
+  "limits": [
+    "This review approves neither the125-task overall S2 change set nor the75gap/Pair unit nor23derived explanation mirrors.",
+    "Vogel65–67 remain unreviewed with provenance HOLD; reading their parent without children confers no child approval.",
+    "No audio extraction, listening, synthesis, import, runtime or DB work.",
+    "Six explicit answer revisions require Archive114 before publication;113/114 remain pending."
+  ]
+}
