@@ -168,19 +168,19 @@
                 "Begrüßung"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Es ist sieben Uhr am Morgen. Deine Nachbarin Frau Kaya kommt aus dem Haus.",
+              "question": "Es ist sieben Uhr am Morgen. Dein Nachbar Herr Kaya kommt aus dem Haus.",
               "options": [
-                "Guten Abend, Frau Kaya!",
-                "Guten Morgen, Frau Kaya!",
-                "Gute Nacht, Frau Kaya!"
+                "Guten Abend, Herr Kaya!",
+                "Guten Morgen, Herr Kaya!",
+                "Gute Nacht, Herr Kaya!"
               ],
-              "correct_answer": "Guten Morgen, Frau Kaya!",
+              "correct_answer": "Guten Morgen, Herr Kaya!",
               "accepted_answers": [
-                "Guten Morgen, Frau Kaya!"
+                "Guten Morgen, Herr Kaya!"
               ]
             },
             "accepted_answers": [
-              "Guten Morgen, Frau Kaya!"
+              "Guten Morgen, Herr Kaya!"
             ],
             "hint": "Schau auf die Uhrzeit: morgens, tagsüber oder abends?",
             "explanation": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
@@ -190,25 +190,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.",
                 "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
-                "task": "It is seven in the morning. Your neighbour Ms Kaya comes out of the house."
+                "task": "It is seven in the morning. Your neighbour Mr Kaya comes out of the house."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.",
                 "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
-                "task": "Семь часов утра. Ваша соседка госпожа Kaya выходит из дома."
+                "task": "Семь часов утра. Ваш сосед господин Kaya выходит из дома."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.",
                 "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
-                "task": "Сьома година ранку. Ваша сусідка пані Kaya виходить з дому."
+                "task": "Сьома година ранку. Ваш сусід пан Kaya виходить з дому."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.",
                 "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
-                "task": "Saat sabah yedi. Komşunuz Kaya Hanım evden çıkıyor."
+                "task": "Saat sabah yedi. Komşunuz Kaya Bey evden çıkıyor."
               }
             }
           },
@@ -222,7 +222,7 @@
                 "Kennenlernen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Herr Albers sagt: „Das ist Frau Marchenko.“ Was sagst du zu Frau Marchenko?",
+              "question": "Herr Albers sagt: „Das ist Herr Marchenko.“ Was sagst du zu Herrn Marchenko?",
               "options": [
                 "Guten Tag! Freut mich.",
                 "Gute Nacht! Freut mich.",
@@ -244,25 +244,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "When you meet someone for the first time, say Freut mich! – Nice to meet you!",
                 "explanation": "Welcoming and meeting people: „Herzlich willkommen!“ = Welcome! When you meet someone: „Freut mich!“ = Nice to meet you! – „Mich auch!“ = Me too!",
-                "task": "Mr Albers says: “This is Ms Marchenko.” What do you say to Ms Marchenko?"
+                "task": "Mr Albers says: “This is Mr Marchenko.” What do you say to Mr Marchenko?"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "При первом знакомстве говорят: Freut mich! – «Очень приятно!»",
                 "explanation": "Встреча и знакомство: „Herzlich willkommen!“ – «Добро пожаловать!». При знакомстве: „Freut mich!“ – «Очень приятно!». Ответ: „Mich auch!“ – «Мне тоже!».",
-                "task": "Господин Albers говорит: «Это госпожа Marchenko». Что вы скажете госпоже Marchenko?"
+                "task": "Господин Albers говорит: «Это господин Marchenko». Что вы скажете господину Marchenko?"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Під час першого знайомства кажуть: Freut mich! – «Дуже приємно!»",
                 "explanation": "Зустріч і знайомство: „Herzlich willkommen!“ – «Ласкаво просимо!». Під час знайомства: „Freut mich!“ – «Дуже приємно!». Відповідь: „Mich auch!“ – «Мені теж!».",
-                "task": "Пан Albers каже: «Це пані Marchenko». Що ви скажете пані Marchenko?"
+                "task": "Пан Albers каже: «Це пан Marchenko». Що ви скажете панові Marchenko?"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Biriyle ilk tanıştığınızda Freut mich! dersiniz = Memnun oldum!",
                 "explanation": "Karşılama ve tanışma: „Herzlich willkommen!“ = Hoş geldiniz! Tanışırken: „Freut mich!“ = Memnun oldum! Cevap: „Mich auch!“ = Ben de!",
-                "task": "Albers Bey diyor ki: “Bu, Marchenko Hanım.” Marchenko Hanım’a ne dersiniz?"
+                "task": "Albers Bey diyor ki: “Bu, Marchenko Bey.” Marchenko Bey’e ne dersiniz?"
               }
             }
           },
@@ -561,7 +561,7 @@
                 "Abschied am Telefon"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Am Telefon: „Vielen Dank, Frau Lindner. Auf ",
+              "text_before": "Am Telefon: „Vielen Dank, Herr Lindner. Auf ",
               "text_after": "!“",
               "correct_answer": "Wiederhören",
               "options": [
@@ -583,28 +583,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "On the phone you don’t see each other, you hear each other: sehen = see, hören = hear.",
                 "explanation": "Saying goodbye: Auf Wiedersehen (formal), Tschüs (informal), Gute Nacht (late in the evening, before bed). On the phone: Auf Wiederhören.",
-                "task": "On the phone: “Thank you very much, Ms Lindner. Goodbye!”",
+                "task": "On the phone: “Thank you very much, Mr Lindner. Goodbye!”",
                 "gap_hint": "goodbye (on the phone)"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "По телефону друг друга не видят, а слышат: sehen – видеть, hören – слышать.",
                 "explanation": "Прощание: Auf Wiedersehen (официально), Tschüs (неформально), Gute Nacht (поздно вечером, перед сном). По телефону говорят: Auf Wiederhören.",
-                "task": "По телефону: «Большое спасибо, госпожа Lindner. До свидания!»",
+                "task": "По телефону: «Большое спасибо, господин Lindner. До свидания!»",
                 "gap_hint": "до свидания (по телефону)"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Телефоном одне одного не бачать, а чують: sehen – бачити, hören – чути.",
                 "explanation": "Прощання: Auf Wiedersehen (офіційно), Tschüs (неформально), Gute Nacht (пізно ввечері, перед сном). Телефоном кажуть: Auf Wiederhören.",
-                "task": "Телефоном: «Щиро дякую, пані Lindner. До побачення!»",
+                "task": "Телефоном: «Щиро дякую, пане Lindner. До побачення!»",
                 "gap_hint": "до побачення (телефоном)"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Telefonda birbirinizi görmezsiniz, duyarsınız: sehen = görmek, hören = duymak.",
                 "explanation": "Vedalaşma: Auf Wiedersehen (resmî), Tschüs (samimi), Gute Nacht (gece, uyumadan önce). Telefonda: Auf Wiederhören.",
-                "task": "Telefonda: “Çok teşekkürler, Lindner Hanım. Hoşça kalın!”",
+                "task": "Telefonda: “Çok teşekkürler, Lindner Bey. Hoşça kalın!”",
                 "gap_hint": "hoşça kalın (telefonda)"
               }
             }
@@ -672,7 +672,7 @@
                 "auf Dank reagieren"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Frau Kaya sagt: „Vielen Dank für die Hilfe!“ Was antwortest du?",
+              "question": "Herr Kaya sagt: „Vielen Dank für die Hilfe!“ Was antwortest du?",
               "options": [
                 "Entschuldigung.",
                 "Auf Wiederhören.",
@@ -694,25 +694,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Think about the situation: are you apologising, asking for something or thanking someone? Bitte also means „you’re welcome“.",
                 "explanation": "Being polite: „Bitte“ = please, and also „you’re welcome“ after „Danke“. „Danke“ / „Vielen Dank“ = thank you. „Entschuldigung“ = sorry, or „excuse me“ when you speak to someone.",
-                "task": "Ms Kaya says: “Thank you very much for your help!” What do you answer?"
+                "task": "Mr Kaya says: “Thank you very much for your help!” What do you answer?"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Подумайте о ситуации: вы извиняетесь, просите или благодарите? Bitte также значит «пожалуйста» в ответ на «спасибо».",
                 "explanation": "Вежливость: „Bitte“ – «пожалуйста» (при просьбе и в ответ на «спасибо»). „Danke“ / „Vielen Dank“ – «спасибо». „Entschuldigung“ – «извините» (при ошибке или чтобы обратиться к кому-то).",
-                "task": "Госпожа Kaya говорит: «Большое спасибо за помощь!» Что вы ответите?"
+                "task": "Господин Kaya говорит: «Большое спасибо за помощь!» Что вы ответите?"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Подумайте про ситуацію: ви вибачаєтеся, просите чи дякуєте? Bitte також означає «прошу» у відповідь на «дякую».",
                 "explanation": "Ввічливість: „Bitte“ – «будь ласка» (прохання) і «прошу» у відповідь на «дякую». „Danke“ / „Vielen Dank“ – «дякую». „Entschuldigung“ – «вибачте» (у разі помилки або щоб до когось звернутися).",
-                "task": "Пані Kaya каже: «Щиро дякую за допомогу!» Що ви відповісте?"
+                "task": "Пан Kaya каже: «Щиро дякую за допомогу!» Що ви відповісте?"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Duruma bakın: Özür mü diliyorsunuz, bir şey mi istiyorsunuz, yoksa teşekkür mü ediyorsunuz? Bitte, „rica ederim“ anlamına da gelir.",
                 "explanation": "Nezaket: „Bitte“ = lütfen; teşekküre cevap olarak da „rica ederim“. „Danke“ / „Vielen Dank“ = teşekkürler. „Entschuldigung“ = özür dilerim ya da birine seslenirken „affedersiniz“.",
-                "task": "Kaya Hanım diyor ki: “Yardımınız için çok teşekkürler!” Ne cevap verirsiniz?"
+                "task": "Kaya Bey diyor ki: “Yardımınız için çok teşekkürler!” Ne cevap verirsiniz?"
               }
             }
           },
@@ -1110,7 +1110,7 @@
                 "nach dem Namen fragen"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Eine neue Nachbarin sagt: „Guten Tag!“ Du fragst nach dem Namen.",
+              "question": "Ein neuer Nachbar sagt: „Guten Tag!“ Du fragst nach dem Namen.",
               "options": [
                 "Guten Tag! Woher kommen Sie?",
                 "Guten Tag! Was sprechen Sie?",
@@ -1132,19 +1132,19 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "German asks for names with wie (how): Wie heißen Sie? = What is your name?",
                 "explanation": "Question words: Wer? = who (a person). Wie? = how – also for names: Wie heißt du? = What is your name? Woher? = where … from. Was? = what (a thing).",
-                "task": "A new neighbour says: “Good day!” You ask for her name."
+                "task": "A new neighbour says: “Good day!” You ask for his name."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Об имени спрашивают с wie: Wie heißen Sie? – «Как Вас зовут?» (не was!).",
                 "explanation": "Вопросительные слова: Wer? – кто (о человеке). Wie? – как (и об имени: Wie heißt du? – Как тебя зовут?). Woher? – откуда. Was? – что (о предмете).",
-                "task": "Новая соседка говорит: «Добрый день!» Вы спрашиваете, как её зовут."
+                "task": "Новый сосед говорит: «Добрый день!» Вы спрашиваете, как его зовут."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Про ім’я питають з wie: Wie heißen Sie? – «Як Вас звати?» (не was!).",
                 "explanation": "Питальні слова: Wer? – хто (про людину). Wie? – як (і про ім’я: Wie heißt du? – Як тебе звати?). Woher? – звідки. Was? – що (про предмет).",
-                "task": "Нова сусідка каже: «Добрий день!» Ви запитуєте, як її звати."
+                "task": "Новий сусід каже: «Добрий день!» Ви запитуєте, як його звати."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
@@ -1164,19 +1164,19 @@
                 "jemanden vorstellen"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Frau Kaya und Jonas sind neu im Haus. Du stellst Jonas vor.",
+              "question": "Herr Kaya und Jonas sind neu im Haus. Du stellst Jonas vor.",
               "options": [
-                "Frau Kaya, ich heiße Jonas.",
-                "Frau Kaya, wer ist Jonas?",
-                "Frau Kaya, das ist Jonas."
+                "Herr Kaya, ich heiße Jonas.",
+                "Herr Kaya, wer ist Jonas?",
+                "Herr Kaya, das ist Jonas."
               ],
-              "correct_answer": "Frau Kaya, das ist Jonas.",
+              "correct_answer": "Herr Kaya, das ist Jonas.",
               "accepted_answers": [
-                "Frau Kaya, das ist Jonas."
+                "Herr Kaya, das ist Jonas."
               ]
             },
             "accepted_answers": [
-              "Frau Kaya, das ist Jonas."
+              "Herr Kaya, das ist Jonas."
             ],
             "hint": "Eine andere Person stellst du mit „Das ist …“ vor.",
             "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
@@ -1186,25 +1186,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "To introduce someone else, say „Das ist …“ – This is …",
                 "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
-                "task": "Ms Kaya and Jonas are new in the building. You introduce Jonas."
+                "task": "Mr Kaya and Jonas are new in the building. You introduce Jonas."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Другого человека представляют так: „Das ist …“ – «Это …».",
                 "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
-                "task": "Госпожа Kaya и Jonas — новые жильцы в доме. Вы представляете Jonas."
+                "task": "Господин Kaya и Jonas — новые жильцы в доме. Вы представляете Jonas."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Іншу людину представляють так: „Das ist …“ – «Це …».",
                 "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
-                "task": "Пані Kaya і Jonas — нові мешканці в будинку. Ви представляєте Jonas."
+                "task": "Пан Kaya і Jonas — нові мешканці в будинку. Ви представляєте Jonas."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Başka birini „Das ist …“ ile tanıtırsınız = Bu …",
                 "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
-                "task": "Kaya Hanım ve Jonas binada yeni. Jonas’ı tanıtıyorsunuz."
+                "task": "Kaya Bey ve Jonas binada yeni. Jonas’ı tanıtıyorsunuz."
               }
             }
           },
@@ -1348,7 +1348,7 @@
               "bin"
             ],
             "hint": "sein ist unregelmäßig. Lerne die Formen auswendig: bin, bist, sind.",
-            "explanation": "Das Verb sein ist unregelmäßig: ich bin, du bist, Sie sind. Ich bin Olena. Bist du Emre? Sind Sie Frau Kaya?",
+            "explanation": "Das Verb sein ist unregelmäßig: ich bin, du bist, Sie sind. Ich bin Oleh. Bist du Emre? Sind Sie Herr Kaya?",
             "explanation_card": "p1_sein",
             "translations": {
               "en": {
@@ -1360,19 +1360,19 @@
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "В русском «быть» в настоящем времени обычно пропускают, а в немецком sein нужен всегда: ich bin, du bist, Sie sind.",
-                "explanation": "Глагол sein («быть») неправильный: ich bin, du bist, Sie sind. В немецком его нельзя пропустить: Ich bin Olena – «Я Олена».",
+                "explanation": "Глагол sein («быть») неправильный: ich bin, du bist, Sie sind. В немецком его нельзя пропустить: Ich bin Oleh – «Я Олег».",
                 "task": "Я Emre Demir."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Українською «бути» в теперішньому часі зазвичай пропускають, а в німецькій sein потрібен завжди: ich bin, du bist, Sie sind.",
-                "explanation": "Дієслово sein («бути») неправильне: ich bin, du bist, Sie sind. У німецькій його не можна пропустити: Ich bin Olena – «Я Олена».",
+                "explanation": "Дієслово sein («бути») неправильне: ich bin, du bist, Sie sind. У німецькій його не можна пропустити: Ich bin Oleh – «Я Олег».",
                 "task": "Я Emre Demir."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Türkçede „olmak“ ek olarak gelir (-ım, -sın). Almancada ayrı bir fiil gerekir: ich bin, du bist, Sie sind.",
-                "explanation": "sein (olmak) fiili düzensizdir: ich bin, du bist, Sie sind. Almancada bu fiil atlanamaz: Ich bin Olena = Ben Olena’yım.",
+                "explanation": "sein (olmak) fiili düzensizdir: ich bin, du bist, Sie sind. Almancada bu fiil atlanamaz: Ich bin Oleh = Ben Oleh’im.",
                 "task": "Ben Emre Demir’im."
               }
             }
@@ -1388,7 +1388,7 @@
               ],
               "instruction": "Ergänze die richtige Verbform.",
               "text_before": "",
-              "text_after": " Sie Frau Kaya?",
+              "text_after": " Sie Herr Kaya?",
               "gap_hint": "sein",
               "correct_answer": "Sind",
               "options": [
@@ -1404,32 +1404,32 @@
               "Sind"
             ],
             "hint": "sein ist unregelmäßig. Lerne die Formen auswendig: bin, bist, sind.",
-            "explanation": "Das Verb sein ist unregelmäßig: ich bin, du bist, Sie sind. Ich bin Olena. Bist du Emre? Sind Sie Frau Kaya?",
+            "explanation": "Das Verb sein ist unregelmäßig: ich bin, du bist, Sie sind. Ich bin Oleh. Bist du Emre? Sind Sie Herr Kaya?",
             "explanation_card": "p1_sein",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "sein works like English „to be“: I am = ich bin, you are = du bist / Sie sind.",
                 "explanation": "The verb sein (to be) is irregular: ich bin (I am), du bist (you are), Sie sind (you are, polite).",
-                "task": "Are you Ms Kaya?"
+                "task": "Are you Mr Kaya?"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "В русском «быть» в настоящем времени обычно пропускают, а в немецком sein нужен всегда: ich bin, du bist, Sie sind.",
-                "explanation": "Глагол sein («быть») неправильный: ich bin, du bist, Sie sind. В немецком его нельзя пропустить: Ich bin Olena – «Я Олена».",
-                "task": "Вы госпожа Kaya?"
+                "explanation": "Глагол sein («быть») неправильный: ich bin, du bist, Sie sind. В немецком его нельзя пропустить: Ich bin Oleh – «Я Олег».",
+                "task": "Вы господин Kaya?"
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Українською «бути» в теперішньому часі зазвичай пропускають, а в німецькій sein потрібен завжди: ich bin, du bist, Sie sind.",
-                "explanation": "Дієслово sein («бути») неправильне: ich bin, du bist, Sie sind. У німецькій його не можна пропустити: Ich bin Olena – «Я Олена».",
-                "task": "Ви пані Kaya?"
+                "explanation": "Дієслово sein («бути») неправильне: ich bin, du bist, Sie sind. У німецькій його не можна пропустити: Ich bin Oleh – «Я Олег».",
+                "task": "Ви пан Kaya?"
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Türkçede „olmak“ ek olarak gelir (-ım, -sın). Almancada ayrı bir fiil gerekir: ich bin, du bist, Sie sind.",
-                "explanation": "sein (olmak) fiili düzensizdir: ich bin, du bist, Sie sind. Almancada bu fiil atlanamaz: Ich bin Olena = Ben Olena’yım.",
-                "task": "Siz Kaya Hanım mısınız?"
+                "explanation": "sein (olmak) fiili düzensizdir: ich bin, du bist, Sie sind. Almancada bu fiil atlanamaz: Ich bin Oleh = Ben Oleh’im.",
+                "task": "Siz Kaya Bey mısınız?"
               }
             }
           },
@@ -2274,7 +2274,7 @@
                 "auf ein Lob reagieren"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Frau Kaya sagt: „Sie sprechen aber gut Deutsch!“ Was antwortest du?",
+              "question": "Herr Kaya sagt: „Sie sprechen aber gut Deutsch!“ Was antwortest du?",
               "options": [
                 "Ja, ich spreche sehr, sehr gut.",
                 "Danke! Nur ein bisschen.",
@@ -2296,25 +2296,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Germans often answer a compliment modestly: Nur ein bisschen – only a little.",
                 "explanation": "Languages: most language names end in -isch and start with a capital letter: Polnisch, Türkisch, Ukrainisch, Englisch, Arabisch. Exception: Deutsch. Answer a compliment modestly: „Nur ein bisschen.“ = Only a little.",
-                "task": "Ms Kaya says: “You speak German really well!” What do you answer?"
+                "task": "Mr Kaya says: “You speak German really well!” What do you answer?"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "На комплимент часто отвечают скромно: Nur ein bisschen – «только чуть-чуть».",
                 "explanation": "Языки: большинство названий языков оканчивается на -isch и пишется с большой буквы: Polnisch, Türkisch, Ukrainisch, Englisch, Arabisch. Исключение: Deutsch. На похвалу отвечают скромно: „Nur ein bisschen.“ – «Только немного».",
-                "task": "Госпожа Kaya говорит: «А вы хорошо говорите по-немецки!» Что вы ответите?"
+                "task": "Господин Kaya говорит: «А вы хорошо говорите по-немецки!» Что вы ответите?"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "На комплімент часто відповідають скромно: Nur ein bisschen – «лише трішки».",
                 "explanation": "Мови: більшість назв мов закінчується на -isch і пишеться з великої літери: Polnisch, Türkisch, Ukrainisch, Englisch, Arabisch. Виняток: Deutsch. На похвалу відповідають скромно: „Nur ein bisschen.“ – «Лише трохи».",
-                "task": "Пані Kaya каже: «А ви добре розмовляєте німецькою!» Що ви відповісте?"
+                "task": "Пан Kaya каже: «А ви добре розмовляєте німецькою!» Що ви відповісте?"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Övgüye genellikle alçakgönüllü cevap verilir: Nur ein bisschen = sadece biraz.",
                 "explanation": "Diller: Dil adlarının çoğu -isch ile biter ve büyük harfle yazılır: Polnisch, Türkisch, Ukrainisch, Englisch, Arabisch. İstisna: Deutsch. Övgüye alçakgönüllü cevap verilir: „Nur ein bisschen.“ = Sadece biraz.",
-                "task": "Kaya Hanım diyor ki: “Ne kadar güzel Almanca konuşuyorsunuz!” Ne cevap verirsiniz?"
+                "task": "Kaya Bey diyor ki: “Ne kadar güzel Almanca konuşuyorsunuz!” Ne cevap verirsiniz?"
               }
             }
           },
@@ -3281,7 +3281,7 @@
                 "nachfragen"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Frau Lindner spricht sehr schnell. Du verstehst nichts.",
+              "question": "Herr Lindner spricht sehr schnell. Du verstehst nichts.",
               "options": [
                 "Freut mich!",
                 "Gute Nacht!",
@@ -3303,25 +3303,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Didn’t understand, need time or don’t know? Use a fixed phrase: Wie bitte? – like „Sorry?“ or „Pardon?“.",
                 "explanation": "Conversation strategies: didn’t understand → „Wie bitte?“ Need time → „Moment, bitte.“ Don’t know → „Das weiß ich nicht.“ Agree → „Ja, genau.“ Show interest → „Ach so!“ or „Interessant!“",
-                "task": "Ms Lindner speaks very fast. You don’t understand anything."
+                "task": "Mr Lindner speaks very fast. You don’t understand anything."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Не поняли, нужно время или не знаете ответа? Для этого есть готовые фразы: Wie bitte? – «Простите, что?»",
                 "explanation": "Стратегии в разговоре: не поняли → „Wie bitte?“ Нужно время → „Moment, bitte.“ Не знаете ответа → „Das weiß ich nicht.“ Согласие → „Ja, genau.“ Интерес → „Ach so!“ или „Interessant!“",
-                "task": "Госпожа Lindner говорит очень быстро. Вы ничего не понимаете."
+                "task": "Господин Lindner говорит очень быстро. Вы ничего не понимаете."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Не зрозуміли, потрібен час або не знаєте відповіді? Для цього є сталі фрази: Wie bitte? – «Перепрошую, що?»",
                 "explanation": "Стратегії в розмові: не зрозуміли → „Wie bitte?“ Потрібен час → „Moment, bitte.“ Не знаєте відповіді → „Das weiß ich nicht.“ Згода → „Ja, genau.“ Зацікавленість → „Ach so!“ або „Interessant!“",
-                "task": "Пані Lindner говорить дуже швидко. Ви нічого не розумієте."
+                "task": "Пан Lindner говорить дуже швидко. Ви нічого не розумієте."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Anlamadınız mı, zaman mı lazım, cevabı bilmiyor musunuz? Bunun için kalıplar vardır: Wie bitte? = Efendim?",
                 "explanation": "Konuşma stratejileri: Anlamadınız mı? → „Wie bitte?“ Zaman mı lazım? → „Moment, bitte.“ Bilmiyor musunuz? → „Das weiß ich nicht.“ Onaylamak → „Ja, genau.“ İlgi göstermek → „Ach so!“ ya da „Interessant!“",
-                "task": "Lindner Hanım çok hızlı konuşuyor. Hiçbir şey anlamıyorsunuz."
+                "task": "Lindner Bey çok hızlı konuşuyor. Hiçbir şey anlamıyorsunuz."
               }
             }
           },
@@ -3497,47 +3497,47 @@
                 "am Telefon nach einer Person fragen"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du telefonierst mit der Praxis und fragst nach Frau Lindner.",
+              "question": "Du telefonierst mit der Praxis und fragst nach Herrn Lindner.",
               "options": [
-                "Guten Tag, wer ist Frau Lindner?",
-                "Guten Tag, ist Frau Lindner da?",
-                "Guten Tag, woher kommt Frau Lindner?"
+                "Guten Tag, wer ist Herr Lindner?",
+                "Guten Tag, ist Herr Lindner da?",
+                "Guten Tag, woher kommt Herr Lindner?"
               ],
-              "correct_answer": "Guten Tag, ist Frau Lindner da?",
+              "correct_answer": "Guten Tag, ist Herr Lindner da?",
               "accepted_answers": [
-                "Guten Tag, ist Frau Lindner da?"
+                "Guten Tag, ist Herr Lindner da?"
               ]
             },
             "accepted_answers": [
-              "Guten Tag, ist Frau Lindner da?"
+              "Guten Tag, ist Herr Lindner da?"
             ],
             "hint": "Du willst eine Person am Telefon sprechen? Frag: Ist … da?",
-            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Frau Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
             "explanation_card": "p1_phone",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "Want to speak to someone on the phone? Ask: Ist … da? (Is … there?)",
-                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
-                "task": "You phone the doctor’s surgery and ask for Ms Lindner."
+                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Herr Lindner da?“ (Is Mr Lindner there?) At the end: „Auf Wiederhören!“",
+                "task": "You phone the doctor’s surgery and ask for Mr Lindner."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Хотите поговорить с человеком по телефону? Спросите: Ist … da? – «… на месте?»",
-                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
-                "task": "Вы звоните в медицинскую практику и спрашиваете госпожу Lindner."
+                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Herr Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+                "task": "Вы звоните в медицинскую практику и спрашиваете господина Lindner."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Хочете поговорити з людиною телефоном? Запитайте: Ist … da? – «… на місці?»",
-                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
-                "task": "Ви телефонуєте до лікарської практики й запитуєте пані Lindner."
+                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Herr Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+                "task": "Ви телефонуєте до лікарської практики й запитуєте пана Lindner."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Telefonda biriyle konuşmak mı istiyorsunuz? Sorun: Ist … da? = … orada mı?",
-                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
-                "task": "Muayenehaneyi arıyor ve Lindner Hanım’ı soruyorsunuz."
+                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+                "task": "Muayenehaneyi arıyor ve Lindner Bey’ı soruyorsunuz."
               }
             }
           },
@@ -3626,32 +3626,32 @@
             "accepted_answers": [
               "ist"
             ],
-            "hint": "Am Telefon stellt man sich so vor: „Hier ist Olena.“ – nicht: „Hier bin …“.",
-            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Frau Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+            "hint": "Am Telefon stellt man sich so vor: „Hier ist Oleh.“ – nicht: „Hier bin …“.",
+            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
             "explanation_card": "p1_phone",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
-                "hint": "On the phone you introduce yourself with „Hier ist Olena“ – „This is Olena“ (not „Hier bin …“).",
-                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
+                "hint": "On the phone you introduce yourself with „Hier ist Oleh“ – „This is Oleh“ (not „Hier bin …“).",
+                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Herr Lindner da?“ (Is Mr Lindner there?) At the end: „Auf Wiederhören!“",
                 "task": "“Dr Lindner’s surgery, reception, good day.” – “Good day, this is Oleh Marchenko.”"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
-                "hint": "По телефону представляются так: „Hier ist Olena“ – «Это Олена» (не „Hier bin …“).",
-                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+                "hint": "По телефону представляются так: „Hier ist Oleh“ – «Это Олег» (не „Hier bin …“).",
+                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Herr Lindner da?“ В конце разговора: „Auf Wiederhören!“",
                 "task": "«Практика доктора Lindner, регистратура, добрый день». – «Добрый день, это Oleh Marchenko»."
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
-                "hint": "Телефоном представляються так: „Hier ist Olena“ – «Це Олена» (не „Hier bin …“).",
-                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+                "hint": "Телефоном представляються так: „Hier ist Oleh“ – «Це Олег» (не „Hier bin …“).",
+                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Herr Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
                 "task": "«Практика доктора Lindner, реєстратура, добрий день». – «Добрий день, це Oleh Marchenko»."
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
-                "hint": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Olena“ = Ben Olena („Hier bin …“ denmez).",
-                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+                "hint": "Telefonda kendinizi böyle tanıtırsınız: „Hier ist Oleh“ = Ben Oleh („Hier bin …“ denmez).",
+                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
                 "task": "“Dr. Lindner muayenehanesi, danışma, iyi günler.” – “İyi günler, ben Oleh Marchenko.”"
               }
             }
@@ -4046,31 +4046,31 @@
               "Mein Name ist Kaya."
             ],
             "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
-            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
             "explanation_card": "p1_name",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
-                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
                 "task": "You introduce yourself in the course. What is correct?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
-                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
                 "task": "Вы представляетесь на курсе. Что правильно?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
-                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
                 "task": "Ви представляєтеся на курсі. Що правильно?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
-                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
                 "task": "Kursta kendinizi tanıtıyorsunuz. Hangisi doğru?"
               }
             }
@@ -5333,19 +5333,19 @@
                 "Begrüßung"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Es ist 14 Uhr. Du kommst in die Praxis von Frau Lindner.",
+              "question": "Es ist 14 Uhr. Du kommst in die Praxis von Herrn Lindner.",
               "options": [
-                "Guten Tag, Frau Lindner!",
-                "Gute Nacht, Frau Lindner!",
-                "Guten Abend, Frau Lindner!"
+                "Guten Tag, Herr Lindner!",
+                "Gute Nacht, Herr Lindner!",
+                "Guten Abend, Herr Lindner!"
               ],
-              "correct_answer": "Guten Tag, Frau Lindner!",
+              "correct_answer": "Guten Tag, Herr Lindner!",
               "accepted_answers": [
-                "Guten Tag, Frau Lindner!"
+                "Guten Tag, Herr Lindner!"
               ]
             },
             "accepted_answers": [
-              "Guten Tag, Frau Lindner!"
+              "Guten Tag, Herr Lindner!"
             ],
             "hint": "Schau auf die Uhrzeit: morgens, tagsüber oder abends?",
             "explanation": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
@@ -5355,25 +5355,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Check the time: morning, daytime or evening? Guten Tag is used all day, not only at noon.",
                 "explanation": "Greetings by time of day: Guten Morgen (morning), Guten Tag (daytime), Guten Abend (evening). Hallo is informal. On the phone: company + name + greeting: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
-                "task": "It is 2 p.m. You arrive at Ms Lindner’s surgery."
+                "task": "It is 2 p.m. You arrive at Mr Lindner’s surgery."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Посмотрите на время: утро, день или вечер? Guten Tag говорят весь день, а не только в полдень.",
                 "explanation": "Приветствие по времени суток: Guten Morgen (утром), Guten Tag (днём), Guten Abend (вечером). Hallo – неформально. По телефону: фирма + имя + приветствие: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
-                "task": "Сейчас 14 часов. Вы приходите в практику госпожи Lindner."
+                "task": "Сейчас 14 часов. Вы приходите в практику господина Lindner."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Подивіться на час: ранок, день чи вечір? Guten Tag кажуть протягом усього дня.",
                 "explanation": "Привітання за часом доби: Guten Morgen (зранку), Guten Tag (удень), Guten Abend (увечері). Hallo – неформально. Телефоном: фірма + ім’я + привітання: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
-                "task": "Зараз 14 година. Ви приходите до практики пані Lindner."
+                "task": "Зараз 14 година. Ви приходите до практики пана Lindner."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Saate bakın: sabah mı, gündüz mü, akşam mı? Guten Tag bütün gün kullanılır.",
                 "explanation": "Günün saatine göre selamlaşma: Guten Morgen (sabah), Guten Tag (gündüz), Guten Abend (akşam). Hallo samimidir. Telefonda: firma + isim + selam: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“",
-                "task": "Saat 14. Lindner Hanım’ın muayenehanesine geliyorsunuz."
+                "task": "Saat 14. Lindner Bey’in muayenehanesine geliyorsunuz."
               }
             }
           },
@@ -5387,19 +5387,19 @@
                 "Abschied"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Der Deutschkurs ist um 12 Uhr zu Ende. Du sagst zur Lehrerin Frau Roth:",
+              "question": "Der Deutschkurs ist um 12 Uhr zu Ende. Du sagst zum Lehrer Herrn Roth:",
               "options": [
-                "Auf Wiedersehen, Frau Roth!",
-                "Gute Nacht, Frau Roth!",
-                "Guten Morgen, Frau Roth!"
+                "Auf Wiedersehen, Herr Roth!",
+                "Gute Nacht, Herr Roth!",
+                "Guten Morgen, Herr Roth!"
               ],
-              "correct_answer": "Auf Wiedersehen, Frau Roth!",
+              "correct_answer": "Auf Wiedersehen, Herr Roth!",
               "accepted_answers": [
-                "Auf Wiedersehen, Frau Roth!"
+                "Auf Wiedersehen, Herr Roth!"
               ]
             },
             "accepted_answers": [
-              "Auf Wiedersehen, Frau Roth!"
+              "Auf Wiedersehen, Herr Roth!"
             ],
             "hint": "Gute Nacht ist kein Gruß zum Ankommen, sondern ein Abschied vor dem Schlafen.",
             "explanation": "Verabschieden: Auf Wiedersehen (formell), Tschüs (informell), Gute Nacht (spät am Abend, vor dem Schlafen). Am Telefon sagt man: Auf Wiederhören.",
@@ -5409,25 +5409,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Gute Nacht is not a greeting when you arrive – it is only a goodbye before going to bed.",
                 "explanation": "Saying goodbye: Auf Wiedersehen (formal), Tschüs (informal), Gute Nacht (late in the evening, before bed). On the phone: Auf Wiederhören.",
-                "task": "The German course ends at 12 o’clock. You say to the teacher Ms Roth:"
+                "task": "The German course ends at 12 o’clock. You say to the teacher Mr Roth:"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Gute Nacht – не приветствие при встрече, а только прощание перед сном (как «спокойной ночи»).",
                 "explanation": "Прощание: Auf Wiedersehen (официально), Tschüs (неформально), Gute Nacht (поздно вечером, перед сном). По телефону говорят: Auf Wiederhören.",
-                "task": "Курс немецкого заканчивается в 12 часов. Вы говорите преподавательнице госпоже Roth:"
+                "task": "Курс немецкого заканчивается в 12 часов. Вы говорите преподавателю господину Roth:"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Gute Nacht – не привітання під час зустрічі, а лише прощання перед сном (як «на добраніч»).",
                 "explanation": "Прощання: Auf Wiedersehen (офіційно), Tschüs (неформально), Gute Nacht (пізно ввечері, перед сном). Телефоном кажуть: Auf Wiederhören.",
-                "task": "Курс німецької закінчується о 12 годині. Ви кажете викладачці пані Roth:"
+                "task": "Курс німецької закінчується о 12 годині. Ви кажете викладачеві панові Roth:"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Gute Nacht bir karşılama değildir; sadece yatmadan önce „iyi geceler“ demektir.",
                 "explanation": "Vedalaşma: Auf Wiedersehen (resmî), Tschüs (samimi), Gute Nacht (gece, uyumadan önce). Telefonda: Auf Wiederhören.",
-                "task": "Almanca kursu saat 12’de bitiyor. Öğretmen Roth Hanım’a diyorsunuz ki:"
+                "task": "Almanca kursu saat 12’de bitiyor. Öğretmen Roth Bey’e diyorsunuz ki:"
               }
             }
           },
@@ -5657,7 +5657,7 @@
                 "Sprachen nennen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Frau Kaya fragt: „Welche Sprachen sprechen Sie?“",
+              "question": "Herr Kaya fragt: „Welche Sprachen sprechen Sie?“",
               "options": [
                 "Arabisch und ein bisschen Deutsch.",
                 "Aus Syrien und aus Deutschland.",
@@ -5679,25 +5679,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "The language usually ends in -isch and starts with a capital letter, e.g. Türkisch.",
                 "explanation": "Languages: most language names end in -isch and start with a capital letter: Polnisch, Türkisch, Ukrainisch, Englisch, Arabisch. Exception: Deutsch. Answer a compliment modestly: „Nur ein bisschen.“ = Only a little.",
-                "task": "Ms Kaya asks: “Which languages do you speak?”"
+                "task": "Mr Kaya asks: “Which languages do you speak?”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Название языка обычно оканчивается на -isch и пишется с большой буквы: Ukrainisch.",
                 "explanation": "Языки: большинство названий языков оканчивается на -isch и пишется с большой буквы: Polnisch, Türkisch, Ukrainisch, Englisch, Arabisch. Исключение: Deutsch. На похвалу отвечают скромно: „Nur ein bisschen.“ – «Только немного».",
-                "task": "Госпожа Kaya спрашивает: «На каких языках вы говорите?»"
+                "task": "Господин Kaya спрашивает: «На каких языках вы говорите?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Назва мови зазвичай закінчується на -isch і пишеться з великої літери: Ukrainisch.",
                 "explanation": "Мови: більшість назв мов закінчується на -isch і пишеться з великої літери: Polnisch, Türkisch, Ukrainisch, Englisch, Arabisch. Виняток: Deutsch. На похвалу відповідають скромно: „Nur ein bisschen.“ – «Лише трохи».",
-                "task": "Пані Kaya запитує: «Якими мовами ви розмовляєте?»"
+                "task": "Пан Kaya запитує: «Якими мовами ви розмовляєте?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Dil adı genellikle -isch ile biter ve büyük harfle başlar: Türkisch.",
                 "explanation": "Diller: Dil adlarının çoğu -isch ile biter ve büyük harfle yazılır: Polnisch, Türkisch, Ukrainisch, Englisch, Arabisch. İstisna: Deutsch. Övgüye alçakgönüllü cevap verilir: „Nur ein bisschen.“ = Sadece biraz.",
-                "task": "Kaya Hanım soruyor: “Hangi dilleri konuşuyorsunuz?”"
+                "task": "Kaya Bey soruyor: “Hangi dilleri konuşuyorsunuz?”"
               }
             }
           },
@@ -5711,7 +5711,7 @@
                 "danken"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Frau Kaya hilft dir mit dem Formular.",
+              "question": "Herr Kaya hilft dir mit dem Formular.",
               "options": [
                 "Vielen Dank!",
                 "Entschuldigung!",
@@ -5733,25 +5733,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Think about the situation: are you apologising, asking for something or thanking someone? Bitte also means „you’re welcome“.",
                 "explanation": "Being polite: „Bitte“ = please, and also „you’re welcome“ after „Danke“. „Danke“ / „Vielen Dank“ = thank you. „Entschuldigung“ = sorry, or „excuse me“ when you speak to someone.",
-                "task": "Ms Kaya helps you with the form."
+                "task": "Mr Kaya helps you with the form."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Подумайте о ситуации: вы извиняетесь, просите или благодарите? Bitte также значит «пожалуйста» в ответ на «спасибо».",
                 "explanation": "Вежливость: „Bitte“ – «пожалуйста» (при просьбе и в ответ на «спасибо»). „Danke“ / „Vielen Dank“ – «спасибо». „Entschuldigung“ – «извините» (при ошибке или чтобы обратиться к кому-то).",
-                "task": "Госпожа Kaya помогает вам с анкетой."
+                "task": "Господин Kaya помогает вам с анкетой."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Подумайте про ситуацію: ви вибачаєтеся, просите чи дякуєте? Bitte також означає «прошу» у відповідь на «дякую».",
                 "explanation": "Ввічливість: „Bitte“ – «будь ласка» (прохання) і «прошу» у відповідь на «дякую». „Danke“ / „Vielen Dank“ – «дякую». „Entschuldigung“ – «вибачте» (у разі помилки або щоб до когось звернутися).",
-                "task": "Пані Kaya допомагає вам з анкетою."
+                "task": "Пан Kaya допомагає вам з анкетою."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Duruma bakın: Özür mü diliyorsunuz, bir şey mi istiyorsunuz, yoksa teşekkür mü ediyorsunuz? Bitte, „rica ederim“ anlamına da gelir.",
                 "explanation": "Nezaket: „Bitte“ = lütfen; teşekküre cevap olarak da „rica ederim“. „Danke“ / „Vielen Dank“ = teşekkürler. „Entschuldigung“ = özür dilerim ya da birine seslenirken „affedersiniz“.",
-                "task": "Kaya Hanım form konusunda size yardım ediyor."
+                "task": "Kaya Bey form konusunda size yardım ediyor."
               }
             }
           },
@@ -5873,19 +5873,19 @@
                 "du oder Sie"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Du sprichst mit deiner Nachbarin Frau Kaya. Was passt?",
+              "question": "Du sprichst mit deinem Nachbarn Herrn Kaya. Was passt?",
               "options": [
-                "Woher kommst du, Frau Kaya?",
-                "Woher komme ich, Frau Kaya?",
-                "Woher kommen Sie, Frau Kaya?"
+                "Woher kommst du, Herr Kaya?",
+                "Woher komme ich, Herr Kaya?",
+                "Woher kommen Sie, Herr Kaya?"
               ],
-              "correct_answer": "Woher kommen Sie, Frau Kaya?",
+              "correct_answer": "Woher kommen Sie, Herr Kaya?",
               "accepted_answers": [
-                "Woher kommen Sie, Frau Kaya?"
+                "Woher kommen Sie, Herr Kaya?"
               ]
             },
             "accepted_answers": [
-              "Woher kommen Sie, Frau Kaya?"
+              "Woher kommen Sie, Herr Kaya?"
             ],
             "hint": "Kennst du die Person gut? Dann du. Ist die Situation offiziell? Dann Sie.",
             "explanation": "Sie oder du? Sie (immer groß) ist formell: bei der Arbeit, beim Arzt, auf dem Amt, bei fremden Erwachsenen. du ist informell: Familie, Freunde, Kinder. Das Verb ändert sich: Sie kommen – du kommst.",
@@ -5895,25 +5895,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Do you know the person well? Then du. Is it an official situation? Then Sie – the polite „you“.",
                 "explanation": "Sie or du? Sie (always capitalised) is formal: at work, at the doctor’s, at public offices, with adults you don’t know. du is informal: family, friends, children. The verb changes: Sie kommen – du kommst.",
-                "task": "You are talking to your neighbour Ms Kaya. What fits?"
+                "task": "You are talking to your neighbour Mr Kaya. What fits?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Хорошо знаете человека? Тогда du (как «ты»). Официальная ситуация? Тогда Sie (как «Вы»).",
                 "explanation": "Sie или du? Sie (всегда с большой буквы) – как «Вы»: на работе, у врача, в учреждении, с незнакомыми взрослыми. du – как «ты»: семья, друзья, дети. Глагол меняется: Sie kommen – du kommst.",
-                "task": "Вы разговариваете со своей соседкой госпожой Kaya. Что подходит?"
+                "task": "Вы разговариваете со своим соседом господином Kaya. Что подходит?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Добре знаєте людину? Тоді du (як «ти»). Офіційна ситуація? Тоді Sie (як «Ви»).",
                 "explanation": "Sie чи du? Sie (завжди з великої літери) – як «Ви»: на роботі, у лікаря, в установі, з незнайомими дорослими. du – як «ти»: родина, друзі, діти. Дієслово змінюється: Sie kommen – du kommst.",
-                "task": "Ви розмовляєте зі своєю сусідкою пані Kaya. Що підходить?"
+                "task": "Ви розмовляєте зі своїм сусідом паном Kaya. Що підходить?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kişiyi iyi tanıyor musunuz? O zaman du („sen“). Resmî bir durum mu? O zaman Sie („siz“).",
                 "explanation": "Sie mi du mu? Sie (her zaman büyük harfle) „siz“ gibidir: işte, doktorda, resmî dairede, tanımadığınız yetişkinlerle. du „sen“ gibidir: aile, arkadaşlar, çocuklar. Fiil de değişir: Sie kommen – du kommst.",
-                "task": "Komşunuz Kaya Hanım’la konuşuyorsunuz. Hangisi uygun?"
+                "task": "Komşunuz Kaya Bey’le konuşuyorsunuz. Hangisi uygun?"
               }
             }
           },
@@ -6196,7 +6196,7 @@
                 "kommen"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Frau Lindner, woher ",
+              "text_before": "Herr Lindner, woher ",
               "text_after": " Sie?",
               "gap_hint": "kommen",
               "correct_answer": "kommen",
@@ -6220,25 +6220,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "With polite Sie the verb looks like the infinitive: Sie kommen, Sie heißen, Sie sprechen.",
                 "explanation": "Present tense: ich komm-e, du komm-st, Sie komm-en. Special cases: du heißt (only -t, because the stem ends in ß) and du sprichst (e changes to i).",
-                "task": "Ms Lindner, where are you from?"
+                "task": "Mr Lindner, where are you from?"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "С вежливым Sie глагол выглядит как инфинитив: Sie kommen, Sie heißen, Sie sprechen.",
                 "explanation": "Настоящее время: ich komm-e, du komm-st, Sie komm-en. Особые случаи: du heißt (только -t, так как основа оканчивается на ß) и du sprichst (e меняется на i).",
-                "task": "Госпожа Lindner, откуда вы?"
+                "task": "Господин Lindner, откуда вы?"
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "З ввічливим Sie дієслово має форму інфінітива: Sie kommen, Sie heißen, Sie sprechen.",
                 "explanation": "Теперішній час: ich komm-e, du komm-st, Sie komm-en. Особливі випадки: du heißt (лише -t, бо основа закінчується на ß) і du sprichst (e змінюється на i).",
-                "task": "Пані Lindner, звідки ви?"
+                "task": "Пане Lindner, звідки ви?"
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Kibar Sie ile fiil mastar gibi görünür: Sie kommen, Sie heißen, Sie sprechen.",
                 "explanation": "Şimdiki zaman: ich komm-e, du komm-st, Sie komm-en. Özel durumlar: du heißt (kök ß ile bittiği için sadece -t) ve du sprichst (e, i olur).",
-                "task": "Lindner Hanım, nerelisiniz?"
+                "task": "Lindner Bey, nerelisiniz?"
               }
             }
           },
@@ -6981,8 +6981,8 @@
           "examples": [
             "Danke, gut. Und Ihnen?",
             "Nicht so gut.",
-            "Guten Tag, Frau Albers! Wie geht es Ihnen?",
-            "Hallo Kasia! Wie geht es dir?"
+            "Guten Tag, Herr Albers! Wie geht es Ihnen?",
+            "Hallo Kamil! Wie geht es dir?"
           ],
           "highlight": null,
           "translations": {
@@ -7227,7 +7227,7 @@
                 "nach dem Befinden fragen"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Guten Tag, Frau Albers! Wie geht es ",
+              "text_before": "Guten Tag, Herr Albers! Wie geht es ",
               "text_after": "?",
               "gap_hint": "Sie",
               "correct_answer": "Ihnen",
@@ -7251,25 +7251,25 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Formal: Wie geht es Ihnen? Informal: Wie geht es dir? / Wie geht’s?",
                 "explanation": "Asking how someone is: formal „Wie geht es Ihnen?“, informal „Wie geht es dir?“ or „Wie geht’s?“. Answers: sehr gut – gut – es geht – nicht so gut – schlecht. Ask back: „Und Ihnen?“ / „Und dir?“",
-                "task": "Good day, Ms Albers! How are you?"
+                "task": "Good day, Mr Albers! How are you?"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Официально: Wie geht es Ihnen? Неформально: Wie geht es dir? / Wie geht’s? Это обычное «Как дела?».",
                 "explanation": "Как спросить о самочувствии: официально „Wie geht es Ihnen?“, неформально „Wie geht es dir?“ или „Wie geht’s?“. Ответы: sehr gut – gut – es geht – nicht so gut – schlecht. Встречный вопрос: „Und Ihnen?“ / „Und dir?“",
-                "task": "Добрый день, госпожа Albers! Как у вас дела?"
+                "task": "Добрый день, господин Albers! Как у вас дела?"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Офіційно: Wie geht es Ihnen? Неформально: Wie geht es dir? / Wie geht’s? Це звичайне «Як справи?».",
                 "explanation": "Як запитати про самопочуття: офіційно „Wie geht es Ihnen?“, неформально „Wie geht es dir?“ або „Wie geht’s?“. Відповіді: sehr gut – gut – es geht – nicht so gut – schlecht. Зустрічне запитання: „Und Ihnen?“ / „Und dir?“",
-                "task": "Добрий день, пані Albers! Як у вас справи?"
+                "task": "Добрий день, пане Albers! Як у вас справи?"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Resmî: Wie geht es Ihnen? Samimi: Wie geht es dir? / Wie geht’s? Anlamı: Nasılsınız? / Nasılsın?",
                 "explanation": "Hal hatır sorma: resmî „Wie geht es Ihnen?“, samimi „Wie geht es dir?“ ya da „Wie geht’s?“. Cevaplar: sehr gut – gut – es geht – nicht so gut – schlecht. Karşı soru: „Und Ihnen?“ / „Und dir?“",
-                "task": "İyi günler, Albers Hanım! Nasılsınız?"
+                "task": "İyi günler, Albers Bey! Nasılsınız?"
               }
             }
           },
@@ -7415,7 +7415,7 @@
           "rule": "Possessivartikel im Nominativ: maskulin und neutral ohne Endung (mein Sohn, mein Kind), feminin und Plural mit -e (meine Tochter, meine Kinder). Genauso: dein – deine, Ihr – Ihre.",
           "examples": [
             "Das ist mein Sohn Deniz.",
-            "Und das ist meine Tochter Elif.",
+            "Das Wort „Tochter“ ist feminin: meine Tochter.",
             "Das sind meine Eltern.",
             "Wie heißt dein Bruder?"
           ],
@@ -7670,7 +7670,7 @@
                 "Ihr"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Frau Lindner fragt Herrn Demir: „Wie heißt ",
+              "text_before": "Herr Lindner fragt Herrn Demir: „Wie heißt ",
               "text_after": " Frau?“",
               "gap_hint": "Ihr",
               "correct_answer": "Ihre",
@@ -7694,25 +7694,25 @@
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "The people use Sie with each other, so the possessive is Ihr/Ihre with a capital I – a polite „your“.",
                 "explanation": "Formal or informal: Sie goes with Ihr/Ihre (always a capital I): Ihr Name, Ihre Adresse, Ihre Kinder. du goes with dein/deine: dein Name, deine Adresse.",
-                "task": "Ms Lindner asks Mr Demir: “What is your wife’s name?”"
+                "task": "Mr Lindner asks Mr Demir: “What is your wife’s name?”"
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Люди обращаются друг к другу на Sie – значит, нужно Ihr/Ihre с большой буквы, как «Ваш/Ваша».",
                 "explanation": "Официально или неформально: к Sie относится Ihr/Ihre (всегда с большой буквы): Ihr Name, Ihre Adresse, Ihre Kinder. К du – dein/deine: dein Name, deine Adresse.",
-                "task": "Госпожа Lindner спрашивает господина Demir: «Как зовут вашу жену?»"
+                "task": "Господин Lindner спрашивает господина Demir: «Как зовут вашу жену?»"
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Люди звертаються одне до одного на Sie – отже, потрібно Ihr/Ihre з великої літери, як «Ваш/Ваша».",
                 "explanation": "Офіційно чи неформально: до Sie належить Ihr/Ihre (завжди з великої літери): Ihr Name, Ihre Adresse, Ihre Kinder. До du – dein/deine: dein Name, deine Adresse.",
-                "task": "Пані Lindner запитує пана Demir: «Як звати вашу дружину?»"
+                "task": "Пан Lindner запитує пана Demir: «Як звати вашу дружину?»"
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "Kişiler birbirine Sie diyor; bu yüzden büyük I ile Ihr/Ihre gerekir – „sizin“ gibi.",
                 "explanation": "Resmî ya da samimi: Sie ile Ihr/Ihre (her zaman büyük I) kullanılır: Ihr Name, Ihre Adresse, Ihre Kinder. du ile dein/deine: dein Name, deine Adresse.",
-                "task": "Lindner Hanım, Demir Bey’e soruyor: “Eşinizin adı ne?”"
+                "task": "Lindner Bey, Demir Bey’e soruyor: “Eşinizin adı ne?”"
               }
             }
           },
@@ -11973,7 +11973,7 @@
                 "Ihr"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Lindner fragt Herrn Demir: „Wie heißt … Sohn?“",
+              "question": "Herr Lindner fragt Herrn Demir: „Wie heißt … Sohn?“",
               "options": [
                 "Ihr",
                 "Ihre",
@@ -11995,25 +11995,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "The people use Sie with each other, so the possessive is Ihr/Ihre with a capital I – a polite „your“.",
                 "explanation": "Formal or informal: Sie goes with Ihr/Ihre (always a capital I): Ihr Name, Ihre Adresse, Ihre Kinder. du goes with dein/deine: dein Name, deine Adresse.",
-                "task": "Ms Lindner asks Mr Demir: “What is … son’s name?”"
+                "task": "Mr Lindner asks Mr Demir: “What is … son’s name?”"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Люди обращаются друг к другу на Sie – значит, нужно Ihr/Ihre с большой буквы, как «Ваш/Ваша».",
                 "explanation": "Официально или неформально: к Sie относится Ihr/Ihre (всегда с большой буквы): Ihr Name, Ihre Adresse, Ihre Kinder. К du – dein/deine: dein Name, deine Adresse.",
-                "task": "Госпожа Lindner спрашивает господина Demir: «Как зовут … сына?»"
+                "task": "Господин Lindner спрашивает господина Demir: «Как зовут … сына?»"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Люди звертаються одне до одного на Sie – отже, потрібно Ihr/Ihre з великої літери, як «Ваш/Ваша».",
                 "explanation": "Офіційно чи неформально: до Sie належить Ihr/Ihre (завжди з великої літери): Ihr Name, Ihre Adresse, Ihre Kinder. До du – dein/deine: dein Name, deine Adresse.",
-                "task": "Пані Lindner запитує пана Demir: «Як звати … сина?»"
+                "task": "Пан Lindner запитує пана Demir: «Як звати … сина?»"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kişiler birbirine Sie diyor; bu yüzden büyük I ile Ihr/Ihre gerekir – „sizin“ gibi.",
                 "explanation": "Resmî ya da samimi: Sie ile Ihr/Ihre (her zaman büyük I) kullanılır: Ihr Name, Ihre Adresse, Ihre Kinder. du ile dein/deine: dein Name, deine Adresse.",
-                "task": "Lindner Hanım, Demir Bey’e soruyor: “… oğlunuzun adı ne?”"
+                "task": "Lindner Bey, Demir Bey’e soruyor: “… oğlunuzun adı ne?”"
               }
             }
           },
@@ -12027,7 +12027,7 @@
                 "Befinden mit Abstufung"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Frau Kaya fragt: „Wie geht es Ihnen?“ Dir geht es nicht so gut.",
+              "question": "Herr Kaya fragt: „Wie geht es Ihnen?“ Dir geht es nicht so gut.",
               "options": [
                 "Nicht so gut. Und Ihnen?",
                 "Sehr gut, danke. Und dir?",
@@ -12049,25 +12049,25 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Ask back in the same register: Und Ihnen? (formal) or Und dir? (informal).",
                 "explanation": "Asking how someone is: formal „Wie geht es Ihnen?“, informal „Wie geht es dir?“ or „Wie geht’s?“. Answers: sehr gut – gut – es geht – nicht so gut – schlecht. Ask back: „Und Ihnen?“ / „Und dir?“",
-                "task": "Ms Kaya asks: “How are you?” You are not so well."
+                "task": "Mr Kaya asks: “How are you?” You are not so well."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Встречный вопрос – в том же стиле: Und Ihnen? (на «Вы») или Und dir? (на «ты»).",
                 "explanation": "Как спросить о самочувствии: официально „Wie geht es Ihnen?“, неформально „Wie geht es dir?“ или „Wie geht’s?“. Ответы: sehr gut – gut – es geht – nicht so gut – schlecht. Встречный вопрос: „Und Ihnen?“ / „Und dir?“",
-                "task": "Госпожа Kaya спрашивает: «Как у вас дела?» У вас дела не очень."
+                "task": "Господин Kaya спрашивает: «Как у вас дела?» У вас дела не очень."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Зустрічне запитання – у тому ж стилі: Und Ihnen? (на «Ви») або Und dir? (на «ти»).",
                 "explanation": "Як запитати про самопочуття: офіційно „Wie geht es Ihnen?“, неформально „Wie geht es dir?“ або „Wie geht’s?“. Відповіді: sehr gut – gut – es geht – nicht so gut – schlecht. Зустрічне запитання: „Und Ihnen?“ / „Und dir?“",
-                "task": "Пані Kaya запитує: «Як у вас справи?» У вас справи не дуже."
+                "task": "Пан Kaya запитує: «Як у вас справи?» У вас справи не дуже."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "Karşı soru aynı üslupta olur: Und Ihnen? (resmî) ya da Und dir? (samimi).",
                 "explanation": "Hal hatır sorma: resmî „Wie geht es Ihnen?“, samimi „Wie geht es dir?“ ya da „Wie geht’s?“. Cevaplar: sehr gut – gut – es geht – nicht so gut – schlecht. Karşı soru: „Und Ihnen?“ / „Und dir?“",
-                "task": "Kaya Hanım soruyor: “Nasılsınız?” Pek iyi değilsiniz."
+                "task": "Kaya Bey soruyor: “Nasılsınız?” Pek iyi değilsiniz."
               }
             }
           },
@@ -12348,7 +12348,7 @@
                 "Ihr"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Frau Kaya, wie ist ",
+              "text_before": "Herr Kaya, wie ist ",
               "text_after": " Adresse?",
               "gap_hint": "Ihr",
               "correct_answer": "Ihre",
@@ -12372,25 +12372,25 @@
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "The people use Sie with each other, so the possessive is Ihr/Ihre with a capital I – a polite „your“.",
                 "explanation": "Formal or informal: Sie goes with Ihr/Ihre (always a capital I): Ihr Name, Ihre Adresse, Ihre Kinder. du goes with dein/deine: dein Name, deine Adresse.",
-                "task": "Ms Kaya, what is your address?"
+                "task": "Mr Kaya, what is your address?"
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Люди обращаются друг к другу на Sie – значит, нужно Ihr/Ihre с большой буквы, как «Ваш/Ваша».",
                 "explanation": "Официально или неформально: к Sie относится Ihr/Ihre (всегда с большой буквы): Ihr Name, Ihre Adresse, Ihre Kinder. К du – dein/deine: dein Name, deine Adresse.",
-                "task": "Госпожа Kaya, какой у вас адрес?"
+                "task": "Господин Kaya, какой у вас адрес?"
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Люди звертаються одне до одного на Sie – отже, потрібно Ihr/Ihre з великої літери, як «Ваш/Ваша».",
                 "explanation": "Офіційно чи неформально: до Sie належить Ihr/Ihre (завжди з великої літери): Ihr Name, Ihre Adresse, Ihre Kinder. До du – dein/deine: dein Name, deine Adresse.",
-                "task": "Пані Kaya, яка ваша адреса?"
+                "task": "Пане Kaya, яка ваша адреса?"
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "Kişiler birbirine Sie diyor; bu yüzden büyük I ile Ihr/Ihre gerekir – „sizin“ gibi.",
                 "explanation": "Resmî ya da samimi: Sie ile Ihr/Ihre (her zaman büyük I) kullanılır: Ihr Name, Ihre Adresse, Ihre Kinder. du ile dein/deine: dein Name, deine Adresse.",
-                "task": "Kaya Hanım, adresiniz ne?"
+                "task": "Kaya Bey, adresiniz ne?"
               }
             }
           },
@@ -21504,7 +21504,7 @@
               ],
               "instruction": "Ergänze das passende Pronomen.",
               "text_before": "Wie gefällt ",
-              "text_after": " die Wohnung, Frau Kaya?",
+              "text_after": " die Wohnung, Herr Kaya?",
               "gap_hint": "Sie",
               "correct_answer": "Ihnen",
               "options": [
@@ -21527,25 +21527,25 @@
                 "instruction": "Fill in the correct pronoun.",
                 "hint": "Informal: Wie gefällt dir …? Formal: Wie gefällt Ihnen …?",
                 "explanation": "Liking: „Wie gefällt dir/Ihnen das Sofa?“ – „Es gefällt mir (sehr) gut.“ Plural: „Wie gefallen dir die Stühle?“ – „Sie gefallen mir nicht.“ Scale: sehr gut – gut – nicht so gut – gar nicht (not at all).",
-                "task": "How do you like the flat, Ms Kaya?"
+                "task": "How do you like the flat, Mr Kaya?"
               },
               "ru": {
                 "instruction": "Вставьте подходящее местоимение.",
                 "hint": "На «ты»: Wie gefällt dir …? На «Вы»: Wie gefällt Ihnen …? (как «тебе / Вам нравится»).",
                 "explanation": "Нравится ли: „Wie gefällt dir/Ihnen das Sofa?“ – „Es gefällt mir (sehr) gut.“ Во множественном числе: „Wie gefallen dir die Stühle?“ – „Sie gefallen mir nicht.“ Шкала: sehr gut – gut – nicht so gut – gar nicht («совсем не»).",
-                "task": "Как вам квартира, госпожа Kaya?"
+                "task": "Как вам квартира, господин Kaya?"
               },
               "uk": {
                 "instruction": "Вставте відповідний займенник.",
                 "hint": "На «ти»: Wie gefällt dir …? На «Ви»: Wie gefällt Ihnen …? (як «тобі / Вам подобається»).",
                 "explanation": "Чи подобається: „Wie gefällt dir/Ihnen das Sofa?“ – „Es gefällt mir (sehr) gut.“ У множині: „Wie gefallen dir die Stühle?“ – „Sie gefallen mir nicht.“ Шкала: sehr gut – gut – nicht so gut – gar nicht («зовсім не»).",
-                "task": "Як вам квартира, пані Kaya?"
+                "task": "Як вам квартира, пане Kaya?"
               },
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Samimi: Wie gefällt dir …? Resmî: Wie gefällt Ihnen …?",
                 "explanation": "Beğenmek: „Wie gefällt dir/Ihnen das Sofa?“ – „Es gefällt mir (sehr) gut.“ Çoğul: „Wie gefallen dir die Stühle?“ – „Sie gefallen mir nicht.“ Derece: sehr gut – gut – nicht so gut – gar nicht (hiç).",
-                "task": "Daireyi nasıl buldunuz, Kaya Hanım?"
+                "task": "Daireyi nasıl buldunuz, Kaya Bey?"
               }
             }
           }
@@ -37993,7 +37993,7 @@
             "Kofi spielt Fußball im Verein.",
             "Er liest gern Krimis.",
             "Kochen findet er langweilig.",
-            "Frau Nowak tanzt gern."
+            "Herr Nowak tanzt gern."
           ],
           "highlight": null,
           "translations": {
@@ -38184,19 +38184,19 @@
                 "Interview"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Interview: „Frau Nowak, was machen Sie gern in der Freizeit?“ – „Ich tanze gern. Und am Wochenende treffe ich meine Freundinnen. Wir fahren oft Fahrrad.“ – „Haben Sie einen Lieblingsfilm?“ – „Nein, ich sehe nicht gern fern.“ Was macht Frau Nowak am Wochenende?",
+              "question": "Interview: „Herr Nowak, was machen Sie gern in der Freizeit?“ – „Ich tanze gern. Und am Wochenende treffe ich meine Freunde. Wir fahren oft Fahrrad.“ – „Haben Sie einen Lieblingsfilm?“ – „Nein, ich sehe nicht gern fern.“ Was macht Herr Nowak am Wochenende?",
               "options": [
-                "Sie trifft ihre Freundinnen.",
-                "Sie sieht fern.",
-                "Sie arbeitet."
+                "Er trifft seine Freunde.",
+                "Er sieht fern.",
+                "Er arbeitet."
               ],
-              "correct_answer": "Sie trifft ihre Freundinnen.",
+              "correct_answer": "Er trifft seine Freunde.",
               "accepted_answers": [
-                "Sie trifft ihre Freundinnen."
+                "Er trifft seine Freunde."
               ]
             },
             "accepted_answers": [
-              "Sie trifft ihre Freundinnen."
+              "Er trifft seine Freunde."
             ],
             "hint": "Such im Text: Wer? Was macht die Person gern? Wie findet sie das?",
             "explanation": "Porträts und Interviews verstehen: Achte auf Name, Herkunft, Hobbys und Bewertungen (gern, nicht gern, toll, langweilig). Die Fragen im Interview helfen: „Was machen Sie gern in der Freizeit?“",
@@ -38206,25 +38206,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Look for: who? what does the person like doing? what do they think of it?",
                 "explanation": "Understanding portraits and interviews: look for name, origin, hobbies and opinions (gern, nicht gern, toll, langweilig). The interview questions help: „Was machen Sie gern in der Freizeit?“",
-                "task": "What does Ms Nowak do at the weekend?"
+                "task": "What does Mr Nowak do at the weekend?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Ищите в тексте: кто? что человек любит делать? как он это оценивает?",
                 "explanation": "Как понимать портреты и интервью: обращайте внимание на имя, происхождение, хобби и оценки (gern, nicht gern, toll, langweilig). Помогают вопросы интервью: „Was machen Sie gern in der Freizeit?“",
-                "task": "Что госпожа Nowak делает на выходных?"
+                "task": "Что господин Nowak делает на выходных?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Шукайте в тексті: хто? що людина любить робити? як вона це оцінює?",
                 "explanation": "Як розуміти портрети й інтерв’ю: звертайте увагу на ім’я, походження, хобі та оцінки (gern, nicht gern, toll, langweilig). Допомагають запитання інтерв’ю: „Was machen Sie gern in der Freizeit?“",
-                "task": "Що пані Nowak робить на вихідних?"
+                "task": "Що пан Nowak робить на вихідних?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Metinde arayın: Kim? Kişi ne yapmayı seviyor? Bunu nasıl buluyor?",
                 "explanation": "Portre ve röportajları anlama: İsim, köken, hobiler ve değerlendirmelere (gern, nicht gern, toll, langweilig) dikkat edin. Röportaj soruları yardımcı olur: „Was machen Sie gern in der Freizeit?“",
-                "task": "Nowak Hanım hafta sonu ne yapıyor?"
+                "task": "Nowak Bey hafta sonu ne yapıyor?"
               }
             }
           },
@@ -38238,19 +38238,19 @@
                 "Interview"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Interview: „Frau Nowak, was machen Sie gern in der Freizeit?“ – „Ich tanze gern. Und am Wochenende treffe ich meine Freundinnen. Wir fahren oft Fahrrad.“ – „Haben Sie einen Lieblingsfilm?“ – „Nein, ich sehe nicht gern fern.“ Hat Frau Nowak einen Lieblingsfilm?",
+              "question": "Interview: „Herr Nowak, was machen Sie gern in der Freizeit?“ – „Ich tanze gern. Und am Wochenende treffe ich meine Freunde. Wir fahren oft Fahrrad.“ – „Haben Sie einen Lieblingsfilm?“ – „Nein, ich sehe nicht gern fern.“ Hat Herr Nowak einen Lieblingsfilm?",
               "options": [
-                "Nein, sie sieht nicht gern fern.",
+                "Nein, er sieht nicht gern fern.",
                 "Ja, eine Komödie.",
-                "Doch, sie sieht gern fern."
+                "Doch, er sieht gern fern."
               ],
-              "correct_answer": "Nein, sie sieht nicht gern fern.",
+              "correct_answer": "Nein, er sieht nicht gern fern.",
               "accepted_answers": [
-                "Nein, sie sieht nicht gern fern."
+                "Nein, er sieht nicht gern fern."
               ]
             },
             "accepted_answers": [
-              "Nein, sie sieht nicht gern fern."
+              "Nein, er sieht nicht gern fern."
             ],
             "hint": "Such im Text: Wer? Was macht die Person gern? Wie findet sie das?",
             "explanation": "Porträts und Interviews verstehen: Achte auf Name, Herkunft, Hobbys und Bewertungen (gern, nicht gern, toll, langweilig). Die Fragen im Interview helfen: „Was machen Sie gern in der Freizeit?“",
@@ -38260,25 +38260,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Look for: who? what does the person like doing? what do they think of it?",
                 "explanation": "Understanding portraits and interviews: look for name, origin, hobbies and opinions (gern, nicht gern, toll, langweilig). The interview questions help: „Was machen Sie gern in der Freizeit?“",
-                "task": "Does Ms Nowak have a favourite film?"
+                "task": "Does Mr Nowak have a favourite film?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Ищите в тексте: кто? что человек любит делать? как он это оценивает?",
                 "explanation": "Как понимать портреты и интервью: обращайте внимание на имя, происхождение, хобби и оценки (gern, nicht gern, toll, langweilig). Помогают вопросы интервью: „Was machen Sie gern in der Freizeit?“",
-                "task": "Есть ли у госпожи Nowak любимый фильм?"
+                "task": "Есть ли у господина Nowak любимый фильм?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Шукайте в тексті: хто? що людина любить робити? як вона це оцінює?",
                 "explanation": "Як розуміти портрети й інтерв’ю: звертайте увагу на ім’я, походження, хобі та оцінки (gern, nicht gern, toll, langweilig). Допомагають запитання інтерв’ю: „Was machen Sie gern in der Freizeit?“",
-                "task": "Чи є в пані Nowak улюблений фільм?"
+                "task": "Чи є в пана Nowak улюблений фільм?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Metinde arayın: Kim? Kişi ne yapmayı seviyor? Bunu nasıl buluyor?",
                 "explanation": "Portre ve röportajları anlama: İsim, köken, hobiler ve değerlendirmelere (gern, nicht gern, toll, langweilig) dikkat edin. Röportaj soruları yardımcı olur: „Was machen Sie gern in der Freizeit?“",
-                "task": "Nowak Hanım’ın en sevdiği bir film var mı?"
+                "task": "Nowak Bey’in en sevdiği bir film var mı?"
               }
             }
           },
@@ -38292,19 +38292,19 @@
                 "Interview"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Interview: „Frau Nowak, was machen Sie gern in der Freizeit?“ – „Ich tanze gern. Und am Wochenende treffe ich meine Freundinnen. Wir fahren oft Fahrrad.“ – „Haben Sie einen Lieblingsfilm?“ – „Nein, ich sehe nicht gern fern.“ Was ist richtig?",
+              "question": "Interview: „Herr Nowak, was machen Sie gern in der Freizeit?“ – „Ich tanze gern. Und am Wochenende treffe ich meine Freunde. Wir fahren oft Fahrrad.“ – „Haben Sie einen Lieblingsfilm?“ – „Nein, ich sehe nicht gern fern.“ Was ist richtig?",
               "options": [
-                "Frau Nowak tanzt nicht gern.",
-                "Frau Nowak hat keine Freundinnen.",
-                "Frau Nowak fährt oft Fahrrad."
+                "Herr Nowak tanzt nicht gern.",
+                "Herr Nowak hat keine Freunde.",
+                "Herr Nowak fährt oft Fahrrad."
               ],
-              "correct_answer": "Frau Nowak fährt oft Fahrrad.",
+              "correct_answer": "Herr Nowak fährt oft Fahrrad.",
               "accepted_answers": [
-                "Frau Nowak fährt oft Fahrrad."
+                "Herr Nowak fährt oft Fahrrad."
               ]
             },
             "accepted_answers": [
-              "Frau Nowak fährt oft Fahrrad."
+              "Herr Nowak fährt oft Fahrrad."
             ],
             "hint": "Such im Text: Wer? Was macht die Person gern? Wie findet sie das?",
             "explanation": "Porträts und Interviews verstehen: Achte auf Name, Herkunft, Hobbys und Bewertungen (gern, nicht gern, toll, langweilig). Die Fragen im Interview helfen: „Was machen Sie gern in der Freizeit?“",
@@ -44825,7 +44825,7 @@
                 "Entschuldigung schreiben"
               ],
               "instruction": "Ergänze das Modalverb in der richtigen Form.",
-              "text_before": "Liebe Frau Roth, leider bin ich heute krank. Ich ",
+              "text_before": "Lieber Herr Roth, leider bin ich heute krank. Ich ",
               "text_after": " nicht zum Deutschkurs kommen.",
               "gap_hint": "können",
               "correct_answer": "kann",
@@ -44842,32 +44842,32 @@
               "kann"
             ],
             "hint": "Eine Entschuldigung hat vier Teile: Anrede, Grund, Information, Gruß.",
-            "explanation": "Eine Entschuldigung schreiben: Anrede (Liebe Frau Roth, / Lieber Herr Albers,) – Grund (Ich bin krank.) – Information (Ich kann heute nicht zum Deutschkurs kommen.) – Gruß (Viele Grüße) – Name.",
+            "explanation": "Eine Entschuldigung schreiben: Anrede (Lieber Herr Roth, / Lieber Herr Albers,) – Grund (Ich bin krank.) – Information (Ich kann heute nicht zum Deutschkurs kommen.) – Gruß (Viele Grüße) – Name.",
             "explanation_card": "p7_email",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the correct form.",
                 "hint": "An excuse note has four parts: greeting, reason, information, closing.",
-                "explanation": "Writing an excuse note: greeting (Liebe Frau Roth, / Lieber Herr Albers,) – reason (Ich bin krank.) – information (Ich kann heute nicht zum Deutschkurs kommen.) – closing (Viele Grüße) – name.",
-                "task": "Dear Ms Roth, unfortunately I am ill today. I can’t come to the German course."
+                "explanation": "Writing an excuse note: greeting (Lieber Herr Roth, / Lieber Herr Albers,) – reason (Ich bin krank.) – information (Ich kann heute nicht zum Deutschkurs kommen.) – closing (Viele Grüße) – name.",
+                "task": "Dear Mr Roth, unfortunately I am ill today. I can’t come to the German course."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в правильной форме.",
                 "hint": "Записка-извинение состоит из четырёх частей: обращение, причина, информация, прощание.",
-                "explanation": "Как написать извинение: обращение (Liebe Frau Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – информация (Ich kann heute nicht zum Deutschkurs kommen.) – прощание (Viele Grüße) – имя.",
-                "task": "Дорогая госпожа Roth, к сожалению, сегодня я болен (больна). Я не могу прийти на курс немецкого."
+                "explanation": "Как написать извинение: обращение (Lieber Herr Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – информация (Ich kann heute nicht zum Deutschkurs kommen.) – прощание (Viele Grüße) – имя.",
+                "task": "Дорогой господин Roth, к сожалению, сегодня я болен (больна). Я не могу прийти на курс немецкого."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в правильній формі.",
                 "hint": "Лист-вибачення має чотири частини: звертання, причина, інформація, прощання.",
-                "explanation": "Як написати вибачення: звертання (Liebe Frau Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – інформація (Ich kann heute nicht zum Deutschkurs kommen.) – прощання (Viele Grüße) – ім’я.",
-                "task": "Шановна пані Roth, на жаль, сьогодні я хворий (хвора). Я не можу прийти на курс німецької."
+                "explanation": "Як написати вибачення: звертання (Lieber Herr Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – інформація (Ich kann heute nicht zum Deutschkurs kommen.) – прощання (Viele Grüße) – ім’я.",
+                "task": "Шановний пане Roth, на жаль, сьогодні я хворий (хвора). Я не можу прийти на курс німецької."
               },
               "tr": {
                 "instruction": "Kip fiilini doğru biçimde yazın.",
                 "hint": "Mazeret mesajının dört bölümü vardır: hitap, sebep, bilgi, selam.",
-                "explanation": "Mazeret yazma: hitap (Liebe Frau Roth, / Lieber Herr Albers,) – sebep (Ich bin krank.) – bilgi (Ich kann heute nicht zum Deutschkurs kommen.) – selam (Viele Grüße) – isim.",
-                "task": "Sevgili Roth Hanım, maalesef bugün hastayım. Almanca kursuna gelemiyorum."
+                "explanation": "Mazeret yazma: hitap (Lieber Herr Roth, / Lieber Herr Albers,) – sebep (Ich bin krank.) – bilgi (Ich kann heute nicht zum Deutschkurs kommen.) – selam (Viele Grüße) – isim.",
+                "task": "Sevgili Roth Bey, maalesef bugün hastayım. Almanca kursuna gelemiyorum."
               }
             }
           },
@@ -45523,7 +45523,7 @@
                 "Entschuldigung schreiben"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Liebe Frau Roth, ich bin krank. Ich kann heute nicht kommen. Viele ",
+              "text_before": "Lieber Herr Roth, ich bin krank. Ich kann heute nicht kommen. Viele ",
               "text_after": ", Kofi Mensah",
               "gap_hint": "Gruß",
               "correct_answer": "Grüße",
@@ -45540,32 +45540,32 @@
               "Grüße"
             ],
             "hint": "Eine Entschuldigung hat vier Teile: Anrede, Grund, Information, Gruß.",
-            "explanation": "Eine Entschuldigung schreiben: Anrede (Liebe Frau Roth, / Lieber Herr Albers,) – Grund (Ich bin krank.) – Information (Ich kann heute nicht zum Deutschkurs kommen.) – Gruß (Viele Grüße) – Name.",
+            "explanation": "Eine Entschuldigung schreiben: Anrede (Lieber Herr Roth, / Lieber Herr Albers,) – Grund (Ich bin krank.) – Information (Ich kann heute nicht zum Deutschkurs kommen.) – Gruß (Viele Grüße) – Name.",
             "explanation_card": "p7_email",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "An excuse note has four parts: greeting, reason, information, closing.",
-                "explanation": "Writing an excuse note: greeting (Liebe Frau Roth, / Lieber Herr Albers,) – reason (Ich bin krank.) – information (Ich kann heute nicht zum Deutschkurs kommen.) – closing (Viele Grüße) – name.",
-                "task": "Dear Ms Roth, I am ill. I can’t come today. Best regards, Kofi Mensah"
+                "explanation": "Writing an excuse note: greeting (Lieber Herr Roth, / Lieber Herr Albers,) – reason (Ich bin krank.) – information (Ich kann heute nicht zum Deutschkurs kommen.) – closing (Viele Grüße) – name.",
+                "task": "Dear Mr Roth, I am ill. I can’t come today. Best regards, Kofi Mensah"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Записка-извинение состоит из четырёх частей: обращение, причина, информация, прощание.",
-                "explanation": "Как написать извинение: обращение (Liebe Frau Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – информация (Ich kann heute nicht zum Deutschkurs kommen.) – прощание (Viele Grüße) – имя.",
-                "task": "Дорогая госпожа Roth, я болен. Сегодня я не могу прийти. С наилучшими пожеланиями, Kofi Mensah"
+                "explanation": "Как написать извинение: обращение (Lieber Herr Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – информация (Ich kann heute nicht zum Deutschkurs kommen.) – прощание (Viele Grüße) – имя.",
+                "task": "Дорогой господин Roth, я болен. Сегодня я не могу прийти. С наилучшими пожеланиями, Kofi Mensah"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Лист-вибачення має чотири частини: звертання, причина, інформація, прощання.",
-                "explanation": "Як написати вибачення: звертання (Liebe Frau Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – інформація (Ich kann heute nicht zum Deutschkurs kommen.) – прощання (Viele Grüße) – ім’я.",
-                "task": "Шановна пані Roth, я хворий. Сьогодні я не можу прийти. З найкращими побажаннями, Kofi Mensah"
+                "explanation": "Як написати вибачення: звертання (Lieber Herr Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – інформація (Ich kann heute nicht zum Deutschkurs kommen.) – прощання (Viele Grüße) – ім’я.",
+                "task": "Шановний пане Roth, я хворий. Сьогодні я не можу прийти. З найкращими побажаннями, Kofi Mensah"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Mazeret mesajının dört bölümü vardır: hitap, sebep, bilgi, selam.",
-                "explanation": "Mazeret yazma: hitap (Liebe Frau Roth, / Lieber Herr Albers,) – sebep (Ich bin krank.) – bilgi (Ich kann heute nicht zum Deutschkurs kommen.) – selam (Viele Grüße) – isim.",
-                "task": "Sevgili Roth Hanım, hastayım. Bugün gelemiyorum. Selamlar, Kofi Mensah"
+                "explanation": "Mazeret yazma: hitap (Lieber Herr Roth, / Lieber Herr Albers,) – sebep (Ich bin krank.) – bilgi (Ich kann heute nicht zum Deutschkurs kommen.) – selam (Viele Grüße) – isim.",
+                "task": "Sevgili Roth Bey, hastayım. Bugün gelemiyorum. Selamlar, Kofi Mensah"
               }
             }
           },

@@ -405,7 +405,7 @@ const path = {
       card: {
         id: 'p1_trotzdem',
         rule: 'trotzdem verbindet zwei Sätze mit einem Gegensatz: Etwas spricht dagegen, aber man macht es. Es regnet. Trotzdem machen wir eine Radtour. trotzdem steht auf Position 1, dann kommt sofort das Verb (Position 2), danach das Subjekt. trotzdem kann auch nach dem Verb stehen: Wir machen trotzdem eine Radtour.',
-        examples: ['Ich bin müde. Trotzdem gehe ich zum Sport.', 'Eva hat keine Zeit. Sie kommt trotzdem mit.', 'Das Wetter ist schlecht. Trotzdem grillen wir.'],
+        examples: ['Ich bin müde. Trotzdem gehe ich zum Sport.', 'Emil hat keine Zeit. Er kommt trotzdem mit.', 'Das Wetter ist schlecht. Trotzdem grillen wir.'],
         highlight: null,
         t: [
           'trotzdem (nevertheless, anyway) links two sentences that contrast: something speaks against it, but you do it. Es regnet. Trotzdem machen wir eine Radtour. (It is raining. We are going on a bike ride anyway.) trotzdem is in position 1, then the verb follows straight away (position 2), then the subject. trotzdem can also come after the verb: Wir machen trotzdem eine Radtour.',

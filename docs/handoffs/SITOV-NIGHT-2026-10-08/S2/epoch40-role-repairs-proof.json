@@ -1,0 +1,430 @@
+{
+  "epoch": 40,
+  "brand": "Sitov Academy",
+  "base": "e40cca1a9ca2f144d8fb50c3bb86ff4643de89f9",
+  "boundS7SHA256": "e0ca609fa5743ac4f219496e7aee8d2575a4dcc53dcbea6f6f4e6af2b522fe1c",
+  "boundS4SHA256": "402966b9459360ae8c539d20a9b2b27158ed04661f576bde4d58161bfb19b746",
+  "actualChangedSourceFiles": [
+    "supabase/seeds/path-a1.1.json",
+    "supabase/seeds/path-a2.2.json",
+    "supabase/seeds/path-src/a2.2/p1.mjs"
+  ],
+  "totalExercisesCompared": 9569,
+  "totalNodesCompared": 856,
+  "exactProposedWholeTasksApplied": 30,
+  "changedExercises": [
+    {
+      "id": "0d619795-3373-5141-a891-6f8c3722c6fd",
+      "ref": "P1-N1-E01"
+    },
+    {
+      "id": "7840ba0e-2cb9-5c7c-a3fa-3e01e33b17db",
+      "ref": "P1-N1-E02"
+    },
+    {
+      "id": "d5656583-fcdf-5ffd-a1a4-48d246e06c2d",
+      "ref": "P1-N1-E08"
+    },
+    {
+      "id": "87960740-85cc-5c61-a339-0aec28910c9c",
+      "ref": "P1-N2-E01"
+    },
+    {
+      "id": "d6edb692-86d2-5636-a5ba-755aa24ff8db",
+      "ref": "P1-N3-E02"
+    },
+    {
+      "id": "217d6b5a-2a91-53ea-a56b-b31f167dae3e",
+      "ref": "P1-N3-E03"
+    },
+    {
+      "id": "4634b67f-1e37-5f06-acce-fa68f7bc6403",
+      "ref": "P1-N3-E06"
+    },
+    {
+      "id": "b9a4a972-39a5-517d-a9f1-ee76dc54809e",
+      "ref": "P1-N3-E07"
+    },
+    {
+      "id": "87b3cc6a-3c4a-5960-aa97-3419177c9dab",
+      "ref": "P1-N6-E01"
+    },
+    {
+      "id": "b2a6344b-a62e-53db-aebd-cf9c578edb3b",
+      "ref": "P1-N8-E01"
+    },
+    {
+      "id": "006e6140-bbf0-5a5f-a12e-4847ba3d187e",
+      "ref": "P1-N8-E05"
+    },
+    {
+      "id": "4d943c1c-d012-5500-aafd-e2f02a26de37",
+      "ref": "P1-N8-E07"
+    },
+    {
+      "id": "1305d47f-435f-5d5b-a179-7f771093cbf4",
+      "ref": "P1-N10-E01"
+    },
+    {
+      "id": "53e0be79-221d-5f53-a454-e8d23fee8e2a",
+      "ref": "P1-N11-E07"
+    },
+    {
+      "id": "1cfedce6-c385-5e55-a351-c79f9f3d4a9a",
+      "ref": "P1-N11-E08"
+    },
+    {
+      "id": "7863bdb2-e5ae-555b-a0d4-a49e406ff663",
+      "ref": "P1-N11-E13"
+    },
+    {
+      "id": "488cabff-bdf9-5dbb-ab1e-e79cd81295cd",
+      "ref": "P1-N11-E14"
+    },
+    {
+      "id": "48b7b2e4-bb18-5ef8-a062-7ca2b1aa4d0a",
+      "ref": "P1-N11-E17"
+    },
+    {
+      "id": "f7b45c94-d5a7-57de-ab41-15d6245cd190",
+      "ref": "P1-N11-E23"
+    },
+    {
+      "id": "8236aa5b-a9a1-54c8-ad74-83ed5b23ff23",
+      "ref": "P2-N1-E05"
+    },
+    {
+      "id": "86a59c42-5542-50de-a153-01b930919851",
+      "ref": "P2-N2-E05"
+    },
+    {
+      "id": "c0be9a3b-01ed-5a00-a717-c8dc3c6e188a",
+      "ref": "P2-N12-E05"
+    },
+    {
+      "id": "4925dd44-6f47-5abf-ae7a-8aebb3d158d0",
+      "ref": "P2-N12-E06"
+    },
+    {
+      "id": "1c827a28-8478-531c-a422-8da06a7267e0",
+      "ref": "P2-N12-E12"
+    },
+    {
+      "id": "53d42a10-0ae5-51b8-a5cb-cabee04122c0",
+      "ref": "P4-N5-E05"
+    },
+    {
+      "id": "1183ed3a-27fa-547c-a9db-0584a35c766c",
+      "ref": "P6-N12-E04"
+    },
+    {
+      "id": "64d59542-e525-582e-afb6-d9f5bda8d17e",
+      "ref": "P6-N12-E05"
+    },
+    {
+      "id": "35cc159a-b8c5-52ff-ab96-579a0f64298e",
+      "ref": "P6-N12-E06"
+    },
+    {
+      "id": "80c5a07d-15d1-5240-a67f-556b880387ce",
+      "ref": "P7-N10-E07"
+    },
+    {
+      "id": "ba113900-0731-5e25-a06f-428c2a001809",
+      "ref": "P7-N11-E11"
+    }
+  ],
+  "changedParents": [
+    {
+      "file": "supabase/seeds/path-a1.1.json",
+      "id": "P2-N1"
+    },
+    {
+      "file": "supabase/seeds/path-a1.1.json",
+      "id": "P2-N2"
+    },
+    {
+      "file": "supabase/seeds/path-a1.1.json",
+      "id": "P6-N12"
+    },
+    {
+      "file": "supabase/seeds/path-a2.2.json",
+      "id": "P1-N10"
+    }
+  ],
+  "changedParentCount": 4,
+  "affectedNodeCount": 15,
+  "scalarChanges": 226,
+  "answerRevisions": [
+    {
+      "id": "0d619795-3373-5141-a891-6f8c3722c6fd",
+      "ref": "P1-N1-E01",
+      "required": true,
+      "before": "Guten Morgen, Frau Kaya!",
+      "after": "Guten Morgen, Herr Kaya!",
+      "mapping": "1→1 explicit word revision",
+      "acceptedAnswersBefore": [
+        "Guten Morgen, Frau Kaya!"
+      ],
+      "acceptedAnswersAfter": [
+        "Guten Morgen, Herr Kaya!"
+      ],
+      "correctOptionPositionBefore": 1,
+      "correctOptionPositionAfter": 1,
+      "optionCountPreserved": true,
+      "optionsPositionsPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "id": "217d6b5a-2a91-53ea-a56b-b31f167dae3e",
+      "ref": "P1-N3-E03",
+      "required": true,
+      "before": "Frau Kaya, das ist Jonas.",
+      "after": "Herr Kaya, das ist Jonas.",
+      "mapping": "1→1 explicit word revision",
+      "acceptedAnswersBefore": [
+        "Frau Kaya, das ist Jonas."
+      ],
+      "acceptedAnswersAfter": [
+        "Herr Kaya, das ist Jonas."
+      ],
+      "correctOptionPositionBefore": 2,
+      "correctOptionPositionAfter": 2,
+      "optionCountPreserved": true,
+      "optionsPositionsPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "id": "006e6140-bbf0-5a5f-a12e-4847ba3d187e",
+      "ref": "P1-N8-E05",
+      "required": true,
+      "before": "Guten Tag, ist Frau Lindner da?",
+      "after": "Guten Tag, ist Herr Lindner da?",
+      "mapping": "1→1 explicit word revision",
+      "acceptedAnswersBefore": [
+        "Guten Tag, ist Frau Lindner da?"
+      ],
+      "acceptedAnswersAfter": [
+        "Guten Tag, ist Herr Lindner da?"
+      ],
+      "correctOptionPositionBefore": 1,
+      "correctOptionPositionAfter": 1,
+      "optionCountPreserved": true,
+      "optionsPositionsPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "id": "53e0be79-221d-5f53-a454-e8d23fee8e2a",
+      "ref": "P1-N11-E07",
+      "required": true,
+      "before": "Guten Tag, Frau Lindner!",
+      "after": "Guten Tag, Herr Lindner!",
+      "mapping": "1→1 explicit word revision",
+      "acceptedAnswersBefore": [
+        "Guten Tag, Frau Lindner!"
+      ],
+      "acceptedAnswersAfter": [
+        "Guten Tag, Herr Lindner!"
+      ],
+      "correctOptionPositionBefore": 0,
+      "correctOptionPositionAfter": 0,
+      "optionCountPreserved": true,
+      "optionsPositionsPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "id": "1cfedce6-c385-5e55-a351-c79f9f3d4a9a",
+      "ref": "P1-N11-E08",
+      "required": true,
+      "before": "Auf Wiedersehen, Frau Roth!",
+      "after": "Auf Wiedersehen, Herr Roth!",
+      "mapping": "1→1 answer-word revision; IDs and correct option position preserved; Archive114/revision proof required",
+      "acceptedAnswersBefore": [
+        "Auf Wiedersehen, Frau Roth!"
+      ],
+      "acceptedAnswersAfter": [
+        "Auf Wiedersehen, Herr Roth!"
+      ],
+      "correctOptionPositionBefore": 0,
+      "correctOptionPositionAfter": 0,
+      "optionCountPreserved": true,
+      "optionsPositionsPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "id": "48b7b2e4-bb18-5ef8-a062-7ca2b1aa4d0a",
+      "ref": "P1-N11-E17",
+      "required": true,
+      "before": "Woher kommen Sie, Frau Kaya?",
+      "after": "Woher kommen Sie, Herr Kaya?",
+      "mapping": "1→1 explicit word revision",
+      "acceptedAnswersBefore": [
+        "Woher kommen Sie, Frau Kaya?"
+      ],
+      "acceptedAnswersAfter": [
+        "Woher kommen Sie, Herr Kaya?"
+      ],
+      "correctOptionPositionBefore": 2,
+      "correctOptionPositionAfter": 2,
+      "optionCountPreserved": true,
+      "optionsPositionsPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "id": "1183ed3a-27fa-547c-a9db-0584a35c766c",
+      "ref": "P6-N12-E04",
+      "required": true,
+      "before": "Sie trifft ihre Freundinnen.",
+      "after": "Er trifft seine Freunde.",
+      "mapping": "1→1 explicit word revision",
+      "acceptedAnswersBefore": [
+        "Sie trifft ihre Freundinnen."
+      ],
+      "acceptedAnswersAfter": [
+        "Er trifft seine Freunde."
+      ],
+      "correctOptionPositionBefore": 0,
+      "correctOptionPositionAfter": 0,
+      "optionCountPreserved": true,
+      "optionsPositionsPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "id": "64d59542-e525-582e-afb6-d9f5bda8d17e",
+      "ref": "P6-N12-E05",
+      "required": true,
+      "before": "Nein, sie sieht nicht gern fern.",
+      "after": "Nein, er sieht nicht gern fern.",
+      "mapping": "1→1 explicit word revision",
+      "acceptedAnswersBefore": [
+        "Nein, sie sieht nicht gern fern."
+      ],
+      "acceptedAnswersAfter": [
+        "Nein, er sieht nicht gern fern."
+      ],
+      "correctOptionPositionBefore": 0,
+      "correctOptionPositionAfter": 0,
+      "optionCountPreserved": true,
+      "optionsPositionsPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "id": "35cc159a-b8c5-52ff-ab96-579a0f64298e",
+      "ref": "P6-N12-E06",
+      "required": true,
+      "before": "Frau Nowak fährt oft Fahrrad.",
+      "after": "Herr Nowak fährt oft Fahrrad.",
+      "mapping": "1→1 explicit word revision",
+      "acceptedAnswersBefore": [
+        "Frau Nowak fährt oft Fahrrad."
+      ],
+      "acceptedAnswersAfter": [
+        "Herr Nowak fährt oft Fahrrad."
+      ],
+      "correctOptionPositionBefore": 2,
+      "correctOptionPositionAfter": 2,
+      "optionCountPreserved": true,
+      "optionsPositionsPreserved": true,
+      "archive114RequiredBeforePublication": true
+    }
+  ],
+  "retainedGrammarTask": {
+    "id": "865b2066-c43c-5e3f-a837-e7f5559335d9",
+    "ref": "P7-N10-E06",
+    "sha256": "f355ffca2da120f12185e7315afde30b4cdfcf11f0a116e5048ffd60252f7846",
+    "wholeTaskUnchanged": true,
+    "reason": "M explicit grammatical feminine Anrede Liebe exception"
+  },
+  "allIdsTypesGoalsOrderPartsCardReferencesUnchanged": true,
+  "allUnassignedExercisesParentsAndOtherAcceptedAnswersExact": true,
+  "otherEightSeedBytesExact": true,
+  "allTenSeedSchemasValidatedExercises": 9569,
+  "nativeAuthorFilesCompared": 128,
+  "nativeAuthorFilesChanged": 1,
+  "allOtherNativeSourceBytesExact": true,
+  "nativeBuilderParityLevels": [
+    "A1.2",
+    "A2.1",
+    "A2.2",
+    "B1.1",
+    "B1.2",
+    "B2.1",
+    "B2.2",
+    "C1.1",
+    "C1.2"
+  ],
+  "nodeTests": {
+    "pass": 16,
+    "fail": 0
+  },
+  "a11NativeSource": "supabase/seeds/path-a1.1.json; no separate authoring builder exists",
+  "eslint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffCheck": "PASS",
+  "bothActualAudioExtractorsComparedTasks": 9569,
+  "finalAudioAliases": 41,
+  "changedAudioTasks": 27,
+  "changedAudioAliases": 27,
+  "allUnassignedCanonicalPayloadsExact": true,
+  "humanHearing": false,
+  "privateEvidence": {
+    "epoch40-bound-S7-review.json": {
+      "path": "S2/epoch40-bound-S7-review.json",
+      "bytes": 491254,
+      "sha256": "e0ca609fa5743ac4f219496e7aee8d2575a4dcc53dcbea6f6f4e6af2b522fe1c"
+    },
+    "epoch40-bound-S4-review.json": {
+      "path": "S2/epoch40-bound-S4-review.json",
+      "bytes": 1763994,
+      "sha256": "402966b9459360ae8c539d20a9b2b27158ed04661f576bde4d58161bfb19b746"
+    },
+    "epoch40-old-new-full.json": {
+      "path": "S2/epoch40-old-new-full.json",
+      "bytes": 1723879,
+      "sha256": "f9cd89024d35be70d7588c86ecda93af1e3e29640c5fb47ba75aca4a91e750b9"
+    },
+    "epoch40-independent-proof.json": {
+      "path": "S2/epoch40-independent-proof.json",
+      "bytes": 35550,
+      "sha256": "424aa012be494f9b8d13e09c47559250f2cc90fc10d04a87cabceca4dee63ac4"
+    },
+    "epoch40-independent-proof.py": {
+      "path": "S2/epoch40-independent-proof.py",
+      "bytes": 3414,
+      "sha256": "ff746988fdd62644c3e2018c4316fdeb1e01f7e79eb3dbabf87128dda137e1dd"
+    },
+    "epoch40-final-canonical-audio.json": {
+      "path": "S2/epoch40-final-canonical-audio.json",
+      "bytes": 64607,
+      "sha256": "30cb8d51c7f840248cb1cf17fef5e4f98ff443915c992b47eb318ddd66b0e6d2"
+    },
+    "epoch40-native-tests.log": {
+      "path": "S2/epoch40-native-tests.log",
+      "bytes": 1453,
+      "sha256": "a50b268f2982fdc807a6b382d0703ed06d0f57f9d34099e41f9ad198a7f98f52"
+    },
+    "epoch40-eslint.log": {
+      "path": "S2/epoch40-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch40-repair.py": {
+      "path": "S2/epoch40-repair.py",
+      "bytes": 7472,
+      "sha256": "dfbe64093124ea932554a4bbafc12cf1c902f816221b528fd947298045c4a660"
+    },
+    "epoch40-validate-audio.ts": {
+      "path": "S2/epoch40-validate-audio.ts",
+      "bytes": 3568,
+      "sha256": "86608f89b882531280dfa7e40602f173c28d08503549d3e6e8bcb81a4926bac3"
+    }
+  },
+  "MFollowup": [
+    "Independent re-review and exact resolution of retained grammatical P7-N10-E06.",
+    "Archive actual historic answers and progress under migration114 before applying the nine explicit 1→1 canonical answer revisions; do not overwrite historic evaluations.",
+    "Prepare/import all27 changed German canonical utterances with verified word timings locally before publication."
+  ],
+  "noDatabaseSshModelSynthesisImportPublicationPushDeploy": true
+}
