@@ -1,0 +1,43 @@
+{
+  "epoch": 77,
+  "status": "OFFLINE_PREPARED_HOLD_PRIMARY60_AND_NATIVE_BINDINGS",
+  "counts": {
+    "definitions": 60,
+    "publicAliases": 5760,
+    "selectedUniquePretestAndPrimaryAudio": 4693,
+    "currentReviewDocuments": 9,
+    "clockAssets": 2,
+    "missingExactReviewRecords": 0,
+    "missingExactSelectedAudio": 60
+  },
+  "missingPrimaryBindings": 60,
+  "originalRecordingAbsenceClaimed": false,
+  "payload": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch77-final60-payload-private.json",
+  "payloadSHA256": "0e44e11fda3b0685f6eaf8d2aac249603c4baf538f9eae6d8219d89a95b30c3b",
+  "hashManifest": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch77-artifact-sha256.json",
+  "hashManifestSHA256": "94bd24aa86884831f4745d930b6de0170d2623da50d01da8d5a0e844c0cca91f",
+  "selfHashExcluded": true,
+  "offlineVerification": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch77-offline-verification.json",
+  "offlineTests": {
+    "offlineAssertions": 9,
+    "60Definitions5760Aliases": true,
+    "60MissingPrimaryExplicitAndFailClosed": true,
+    "9OriginalReviewDocumentsExactVersionBound": true,
+    "2ClockGroupsAndSpokenTimingsUnmodified": true,
+    "humanFalseCalibrationPending": true,
+    "SQLExecuted": false,
+    "nativeSQLCompileVerified": false,
+    "networkRuntimeDBSSH": false,
+    "ownedJobs": []
+  },
+  "nativeSQLExecuted": false,
+  "nativeSQLCompilationVerified": false,
+  "approvalProofInsertExecutor": "PENDING_ACTUAL_NATIVE_BINDINGS",
+  "publicationApproved": false,
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "noFurtherUserAudioTests": true,
+  "ownedJobs": [],
+  "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+  "baseCommit": "8dc142587c44695684f1ed63d57973c778f4bfc6"
+}
