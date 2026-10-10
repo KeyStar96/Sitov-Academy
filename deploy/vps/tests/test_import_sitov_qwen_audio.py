@@ -90,7 +90,7 @@ class ImportSitovQwenAudioTests(unittest.TestCase):
         metadata['spokenAlignment'] = {'version': 1, 'displayText': '5:30 Uhr', 'spokenText': 'fünf Uhr dreißig', 'groups': [{'display': [0, 2], 'spoken': [0, 3]}]}
         metadata['wordTimings'] = [{'start': i, 'end': i + .5} for i in range(3)]
         self.metadata_path(path).write_text(json.dumps(metadata))
-        self.assertEqual(len(MODULE.validate_bundle(self.root, PROFILE)), 1)
+        self.assertEqual(MODULE.validate_bundle(self.root, PROFILE), 1)
         storage = FakeStorage()
         storage.objects[path] = ((self.root / path).read_bytes(), metadata)
         self.assertTrue(MODULE.verified_remote(storage, manifest['rows'][0], metadata))
@@ -305,7 +305,56 @@ class ImportSitovQwenAudioTests(unittest.TestCase):
         self.assertIn("r.audio_url IS NULL OR r.audio_url LIKE", query)
         self.assertIn("SET status='prepared',prepared_at=now()", query)
         self.assertIn("q.cache_path=a.path AND q.status='pending'", query)
+        self.assertIn("SET LOCAL statement_timeout='15s'", query)
+        self.assertIn("SET LOCAL lock_timeout='2s'", query)
         self.assertIn('ON_ERROR_STOP=1', run.call_args.args[0])
+
+    def test_local_storage_bounds_response_reads_and_never_follows_redirects(self):
+        class Response:
+            headers = {}
+            def __init__(self, body):
+                self.body = io.BytesIO(body)
+                self.read_bytes = 0
+            def __enter__(self): return self
+            def __exit__(self, *_): return False
+            def read(self, limit):
+                chunk = self.body.read(limit)
+                self.read_bytes += len(chunk)
+                return chunk
+
+        class Opener:
+            def __init__(self, response): self.response = response
+            def open(self, request, timeout):
+                self.request, self.timeout = request, timeout
+                return self.response
+
+        response = Response(b'{}')
+        opener = Opener(response)
+        inspected = subprocess.CompletedProcess([], 0, stdout=json.dumps([{'Config': {'Env': ['SERVICE_KEY=test-only']}}]))
+        with patch.object(MODULE.subprocess, 'run', return_value=inspected), \
+                patch.object(MODULE.urllib.request, 'build_opener', return_value=opener):
+            storage = MODULE.LocalStorage()
+            self.assertEqual(storage.request('/object/info/audio_cache/example.mp3'), b'{}')
+        self.assertEqual(opener.timeout, 20)
+        self.assertLessEqual(response.read_bytes, MODULE.MAX_STORAGE_JSON_BYTES)
+
+        oversized = Response(b'x' * (MODULE.MAX_STORAGE_JSON_BYTES + 100))
+        with patch.object(MODULE.subprocess, 'run', return_value=inspected), \
+                patch.object(MODULE.urllib.request, 'build_opener', return_value=Opener(oversized)):
+            storage = MODULE.LocalStorage()
+            with self.assertRaisesRegex(RuntimeError, 'size limit'):
+                storage.request('/object/info/audio_cache/example.mp3')
+        self.assertEqual(oversized.read_bytes, MODULE.MAX_STORAGE_JSON_BYTES + 1)
+
+        handler = MODULE.NoRedirectHandler()
+        request = MODULE.urllib.request.Request('http://127.0.0.1/private', headers={'Authorization': 'Bearer test-only'})
+        self.assertIsNone(handler.redirect_request(request, object(), 302, 'Found', {}, 'https://example.invalid/'))
+
+    def test_link_recording_payload_has_explicit_size_caps(self):
+        with self.assertRaisesRegex(ValueError, 'row limit'):
+            MODULE.link_recordings([{'text': 'x', 'cachePath': 'p'}] * (MODULE.MAX_LINK_ROWS + 1))
+        with self.assertRaisesRegex(ValueError, 'byte limit'):
+            MODULE.link_recordings([{'text': 'x' * MODULE.MAX_LINK_PAYLOAD_BYTES, 'cachePath': 'p'}])
 
     def test_upload_keeps_audio_contract_and_does_not_publish_private_authoring_evidence(self):
         metadata = {

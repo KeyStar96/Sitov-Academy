@@ -15,6 +15,11 @@ from pathlib import Path
 DB = 'supabase-db-eknmzxvqilojjicinatnllbt'
 STORAGE = 'supabase-storage-eknmzxvqilojjicinatnllbt'
 API = 'http://127.0.0.1:9080/storage/v1'
+MAX_AUDIO_BYTES = 2 * 1024 * 1024
+MAX_STORAGE_JSON_BYTES = 256 * 1024
+MAX_STORAGE_RESPONSE_BYTES = 64 * 1024
+MAX_LINK_ROWS = 6000
+MAX_LINK_PAYLOAD_BYTES = 8 * 1024 * 1024
 PROFILE_PATH = Path(__file__).resolve().parents[2] / 'lib/audio/models/sitov-qwen-male-de/config.json'
 
 
@@ -173,8 +178,18 @@ def iter_validated_bundle(root, profile):
 
 
 def validate_bundle(root, profile):
-    # Public import CLI still fully validates before any remote mutation.
-    return list(iter_validated_bundle(root, profile))
+    # Fully validate every asset before reading credentials, while retaining
+    # only one MP3 and its timings at a time.
+    count = sum(1 for _ in iter_validated_bundle(root, profile))
+    if count < 1:
+        raise ValueError('Empty audio bundle')
+    return count
+
+
+class NoRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, request, response, code, message, headers, new_url):
+        # Never forward the local Storage service key to a redirect target.
+        return None
 
 
 class LocalStorage:
@@ -184,12 +199,33 @@ class LocalStorage:
         environment = dict(entry.split('=', 1) for entry in json.loads(inspected.stdout)[0]['Config']['Env'])
         key = environment['SERVICE_KEY']
         self.headers = {'Authorization': 'Bearer ' + key, 'apikey': key}
+        self.opener = urllib.request.build_opener(NoRedirectHandler())
 
     def request(self, path, method='GET', data=None, headers=None):
+        if not path.startswith('/object/') or path.startswith('//'):
+            raise ValueError('Invalid local audio storage path')
         request = urllib.request.Request(API + path, data=data, method=method, headers={**self.headers, **(headers or {})})
+        if path.startswith('/object/authenticated/audio_cache/'):
+            maximum = MAX_AUDIO_BYTES
+        elif path.startswith('/object/info/audio_cache/'):
+            maximum = MAX_STORAGE_JSON_BYTES
+        else:
+            maximum = MAX_STORAGE_RESPONSE_BYTES
         try:
-            with urllib.request.urlopen(request, timeout=60) as response:
-                return response.read()
+            with self.opener.open(request, timeout=20) as response:
+                declared = response.headers.get('Content-Length')
+                if declared is not None and int(declared) > maximum:
+                    raise RuntimeError('Local audio storage response exceeded its size limit')
+                chunks = []
+                total = 0
+                while True:
+                    chunk = response.read(min(64 * 1024, maximum + 1 - total))
+                    if not chunk:
+                        return b''.join(chunks)
+                    chunks.append(chunk)
+                    total += len(chunk)
+                    if total > maximum:
+                        raise RuntimeError('Local audio storage response exceeded its size limit')
         except urllib.error.HTTPError as error:
             if error.code in (400, 404) and method == 'GET':
                 return None
@@ -242,9 +278,17 @@ def verified_remote(storage, row, metadata, verify_bytes=False):
 
 
 def link_recordings(rows):
-    encoded = base64.b64encode(json.dumps([{'text': row['text'], 'path': row['cachePath']} for row in rows], ensure_ascii=False).encode()).decode()
+    values = [{'text': row['text'], 'path': row['cachePath']} for row in rows]
+    if not values or len(values) > MAX_LINK_ROWS:
+        raise ValueError('Audio link batch exceeds its row limit')
+    payload = json.dumps(values, ensure_ascii=False).encode()
+    if len(payload) > MAX_LINK_PAYLOAD_BYTES:
+        raise ValueError('Audio link batch exceeds its byte limit')
+    encoded = base64.b64encode(payload).decode()
     # Updates only audio references; all content, IDs and learner progress are retained.
     query = """BEGIN;
+SET LOCAL lock_timeout='2s';
+SET LOCAL statement_timeout='15s';
 CREATE TEMP TABLE sitov_qwen_imported(text text PRIMARY KEY,path text) ON COMMIT DROP;
 CREATE FUNCTION pg_temp.sitov_normalize_audio_text(p_text text) RETURNS text
 LANGUAGE sql IMMUTABLE SET search_path TO '' AS $sitov$
@@ -269,7 +313,7 @@ DO $$ BEGIN
  END IF;
 END $$;
 COMMIT;""" % encoded
-    result = subprocess.run(['docker', 'exec', '-i', DB, 'psql', '-X', '-qAt', '-U', 'supabase_admin', '-d', 'postgres', '-v', 'ON_ERROR_STOP=1'], input=query, text=True, capture_output=True, check=True)
+    result = subprocess.run(['docker', 'exec', '-i', DB, 'psql', '-X', '-qAt', '-U', 'supabase_admin', '-d', 'postgres', '-v', 'ON_ERROR_STOP=1'], input=query, text=True, capture_output=True, check=True, timeout=20)
     return [json.loads(line) for line in result.stdout.splitlines() if line.startswith('{')]
 
 
@@ -282,13 +326,15 @@ def main():
     parser.add_argument('--link-recordings', action='store_true', help='After a complete audit, update generated vocabulary/reading URL references')
     args = parser.parse_args()
     try:
-        planned = validate_bundle(args.bundle.resolve(), json.loads(args.profile.read_text()))
+        profile = json.loads(args.profile.read_text())
+        validated = validate_bundle(args.bundle.resolve(), profile)
         if not (args.upload or args.audit or args.link_recordings):
-            print(json.dumps({'validated': len(planned)}))
+            print(json.dumps({'validated': validated}))
             return
         storage = LocalStorage()
         uploaded, reused = 0, 0
-        for row, audio, metadata in planned:
+        link_rows = []
+        for row, audio, metadata in iter_validated_bundle(args.bundle.resolve(), profile):
             existing = storage.info(row['cachePath'])
             if existing:
                 if not verified_remote(storage, row, metadata, verify_bytes=True):
@@ -302,8 +348,9 @@ def main():
                 uploaded += 1
             else:
                 raise ValueError('Prepared audio missing from Storage')
-        links = link_recordings([row for row, _, _ in planned]) if args.link_recordings else []
-        print(json.dumps({'verified': len(planned), 'uploaded': uploaded, 'reused': reused, 'links': links}))
+            link_rows.append({'text': row['text'], 'cachePath': row['cachePath']})
+        links = link_recordings(link_rows) if args.link_recordings else []
+        print(json.dumps({'verified': validated, 'uploaded': uploaded, 'reused': reused, 'links': links}))
     except Exception as error:
         if isinstance(error, ValueError):
             print(str(error))
