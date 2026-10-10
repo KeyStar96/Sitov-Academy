@@ -1,0 +1,1535 @@
+{
+  "title": "Sitov Academy – S7 Epoch32 vollständige unabhängige Kontextprüfung",
+  "epoch": 32,
+  "unit": "FRESH_WHOLE_FINAL13_TASKS_AND_ALL_SIX_OBJECTIVE_SETS_AFTER42_REPAIRS",
+  "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+  "input": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-S7-epoch32-final13-plus-objectives-after42-review-input-private.json",
+    "sha256": "2943747f554fbffc39f7f69e79fd67293b47bc1372f57c2aba2484f29c5a86cd",
+    "bytes": 128810
+  },
+  "reviewCompletedAtUTC": "2026-10-10T06:47:43.652378+00:00",
+  "saveOnlyFromUTC": "2026-10-10T06:49:54.292225+00:00",
+  "hardDeadlineUTC": "2026-10-10T06:51:54.292225+00:00",
+  "readMethod": "Alle vollständigen aktuellen Aufgaben in de/en/ru/uk/tr, alle zugehörigen Elternobjekte ohne untergeordnete Aufgaben und alle sechs vollständigen Pfad-Zielsets gelesen. Nur wörtlich identische wiederholte Strings wurden im privaten Read-View durch 52 vollständig gelesene Dictionary-Strings ersetzt; keine semantischen Zusammenfassungen anstelle von Text.",
+  "verification": {
+    "immutableGitShowSource": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+    "seedLevels": [
+      "A1.1",
+      "A1.2",
+      "A2.1",
+      "A2.2"
+    ],
+    "allActualObjectsComparedToSource": true,
+    "allRowThreeSHA256BindingsVerified": true,
+    "bothStandaloneObjectiveSHA256BindingsVerified": true,
+    "canonicalSHA256": "UTF-8 JSON, ensure_ascii=False, sort_keys=True, separators=(comma,colon)",
+    "readViewDecodedRoundTripEqualsEveryInputObject": true,
+    "allReadOutputsUntruncated": true,
+    "dictionaryStringsFullyRead": 52,
+    "staticAnswerMembershipAndGoalReferencesVerified": true,
+    "historical42ScalarChangesIndividuallyRecounted": false
+  },
+  "counts": {
+    "assignedTasks": 13,
+    "tasksFullyRead": 13,
+    "taskACCEPT": 13,
+    "taskHOLD": 0,
+    "parentsFullyRead": 8,
+    "parentACCEPT": 8,
+    "parentHOLD": 0,
+    "completeObjectiveSetsFullyRead": 6,
+    "completeObjectivesACCEPT": 6,
+    "completeObjectivesHOLD": 0,
+    "individualObjectivesFullyRead": 73,
+    "objectiveACCEPT": 73,
+    "objectiveHOLD": 0,
+    "overallACCEPT": 13,
+    "overallHOLD": 0,
+    "PARTIAL": 0,
+    "unread": 0,
+    "findings": 0,
+    "scalarProposals": 0,
+    "answerWordRevisions": 0,
+    "answerCardinalityChanges": 0
+  },
+  "rows": [
+    {
+      "row": 0,
+      "id": "6961e383-ba2b-50f1-a876-e429778a07eb",
+      "ref": "P6-N1-E02",
+      "level": "A1.1",
+      "contextKey": "A1.1/P6/P6-N1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "5db09fc01660b08a51002100fbc7315c606a1405ff55c92dd00bd3b29b7b14d1",
+      "wholeParentMinusChildrenSHA256": "f2f250839d8f1da341222cd176964928863fe9d75a1ff2b7e253ba91aaab70ed",
+      "allPathObjectivesSHA256": "af6eebddc8a73f90f9ed4f88d6441bccf6ed3bc4dbf5aa6f830af0dd05132c86",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die negative Karten-Spiel-Situation passt allein zu „Ich finde Kartenspielen langweilig.“. Alle fünf Anweisungen, Aufgabenübersetzungen, Hinweise und Erklärungen sind stimmig; der deutsche Hinweis enthält jetzt ausdrücklich die negative Bewertungsform.",
+      "parentReason": "Alle fünf Titel und Regeln, vier Beispiele, null highlight und beide Zielverweise gelesen. Positive und negative Hobbybewertungen sind korrekt; Kofi und Kamil sind männlich und mit den Tätigkeiten vereinbar.",
+      "completeObjectivesContextKey": "A1.1/P6",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A1.1/P6 wurde gelesen; alle 13 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "Ich finde Kartenspielen langweilig.",
+        "acceptedAnswers": [
+          "Ich finde Kartenspielen langweilig."
+        ],
+        "options": [
+          "Kartenspielen macht Spaß.",
+          "Ich finde Kartenspielen langweilig.",
+          "Ich finde Kartenspielen super."
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 1,
+      "id": "a934d5a2-71b9-529a-a279-c41c3b9db74d",
+      "ref": "P6-N5-E03",
+      "level": "A1.1",
+      "contextKey": "A1.1/P6/P6-N5",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "34053c4f881ea77fcca0edf23199f8df03e71c3372dd9ebb3c7e588d5bfdc433",
+      "wholeParentMinusChildrenSHA256": "b4d8259568f754af89b3913c5a2d105ebc8c5ae33c48b21a02536a6c602763c0",
+      "allPathObjectivesSHA256": "af6eebddc8a73f90f9ed4f88d6441bccf6ed3bc4dbf5aa6f830af0dd05132c86",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Bier ist Neutrum im Akkusativ; deshalb ist „kein“ der richtige unveränderte Schlüssel. Alle fünf Anweisungen verlangen nun eine Form von kein; Optionen keinen/kein/keine, Lückenhinweis und vollständige Paradigmen stimmen überein.",
+      "parentReason": "Alle fünf Titel und Regeln, vier Beispiele, Artikel-Hervorhebung und Ziel G3 gelesen. Die Formen keinen/kein/keine decken maskulinen, neutralen, femininen und pluralen Akkusativ sachlich korrekt ab.",
+      "completeObjectivesContextKey": "A1.1/P6",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A1.1/P6 wurde gelesen; alle 13 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "kein",
+        "acceptedAnswers": [
+          "kein"
+        ],
+        "options": [
+          "kein",
+          "keinen",
+          "keine"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 2,
+      "id": "a2044b0c-ba8b-5b41-a0ed-d1895ecd3975",
+      "ref": "P7-N6-E02",
+      "level": "A1.1",
+      "contextKey": "A1.1/P7/P7-N6",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "1375942cdc5c6328bfda9a24177b31e425771bd7e556ba3a284c08beeefb742a",
+      "wholeParentMinusChildrenSHA256": "1970cf55e759d296f04cdcf87b563c8aeff87463c635f4a352ac0bb36f4f8d22",
+      "allPathObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "treffen bildet das starke Partizip getroffen; Optionen und beide accepted_answers-Ebenen stimmen. Kamil ist männlich; RU „Я встретил Камиля“ und UK „Я зустрів Каміля“ geben Sprecher und Akkusativ des Namens korrekt wieder. Alle fünf Hinweise und Erklärungen sind gelesen.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, vier Beispiele und Ziel G3 gelesen. Die Beschränkung auf die hier geübten starken Verben ist ausdrücklich vorhanden; lesen/sehen/essen werden korrekt als ohne Stammvokalwechsel aufgeführt. Kamil, Oleh, Vater und Lehrer passen.",
+      "completeObjectivesContextKey": "A1.1/P7",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A1.1/P7 wurde gelesen; alle 13 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "getroffen",
+        "acceptedAnswers": [
+          "getroffen"
+        ],
+        "options": [
+          "getroffen",
+          "getreffen",
+          "getrefft"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 3,
+      "id": "183ef2db-0e87-53f2-ad5d-e9903b4e17d8",
+      "ref": "P7-N6-E05",
+      "level": "A1.1",
+      "contextKey": "A1.1/P7/P7-N6",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "ac6b3d5601f073d45c56576dd71ce5bde913ce6ff5e98b6e70e7385180e249ee",
+      "wholeParentMinusChildrenSHA256": "1970cf55e759d296f04cdcf87b563c8aeff87463c635f4a352ac0bb36f4f8d22",
+      "allPathObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "schreiben bildet geschrieben; der männliche Sprecher schreibt eine E-Mail an den Lehrer. RU und UK nennen ausdrücklich ein elektronisches Schreiben mit männlichen Vergangenheitsformen. Alle Aufgaben-, Hinweis- und Erklärungstexte stimmen mit der unveränderten Lösung überein.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, vier Beispiele und Ziel G3 gelesen. Die Beschränkung auf die hier geübten starken Verben ist ausdrücklich vorhanden; lesen/sehen/essen werden korrekt als ohne Stammvokalwechsel aufgeführt. Kamil, Oleh, Vater und Lehrer passen.",
+      "completeObjectivesContextKey": "A1.1/P7",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A1.1/P7 wurde gelesen; alle 13 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "geschrieben",
+        "acceptedAnswers": [
+          "geschrieben"
+        ],
+        "options": [
+          "geschreibt",
+          "geschrieben",
+          "geschreiben"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 4,
+      "id": "2a5e1002-f42e-52b9-a9e1-4fcb20fe96e6",
+      "ref": "P7-N8-E06",
+      "level": "A1.1",
+      "contextKey": "A1.1/P7/P7-N8",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d9a046088597ce9a9fac4f6bf6785762fa792724ccd824fb10cb38011e8035e1",
+      "wholeParentMinusChildrenSHA256": "b8117be81e3a6c07c9e47e1efc7f6bbc15ff45effdfc6a29378a1411e0f1cc76",
+      "allPathObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Früher kontrastiert die vergangene Wohnsituation in Charkiw mit jetzt in Leipzig. Alle fünf Sprachen bewahren diesen Zeitkontrast; RU жил und UK жив sind männlich. Die Alternativen Morgen/Jetzt erfüllen den bezeichneten Vergangenheitssinn nicht.",
+      "parentReason": "Alle fünf Titel und Regeln, vier Beispiele sowie K6/Z1 gelesen. Gestern, früher und Wochenende sind korrekt in die Perfekt-Erzählung eingebunden; Er, Freund und Ich-Beispiele sind mit männlichen Figuren vereinbar.",
+      "completeObjectivesContextKey": "A1.1/P7",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A1.1/P7 wurde gelesen; alle 13 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "Früher",
+        "acceptedAnswers": [
+          "Früher"
+        ],
+        "options": [
+          "Früher",
+          "Morgen",
+          "Jetzt"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 5,
+      "id": "b0c9247b-ec19-5aba-aa49-50e736a3be20",
+      "ref": "P7-N8-E07",
+      "level": "A1.1",
+      "contextKey": "A1.1/P7/P7-N8",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "1dc11a5c19e476e706a93f8b76f8cd299e73785da6cf6bf65e00393fe17be8cf",
+      "wholeParentMinusChildrenSHA256": "b8117be81e3a6c07c9e47e1efc7f6bbc15ff45effdfc6a29378a1411e0f1cc76",
+      "allPathObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Gestern bezeichnet die vorgegebene vergangene Arbeitssituation; Morgen/Übermorgen passen nicht zur übersetzten Aufgabe. RU работал und UK працював sind männlich; der Perfekt-Kontext und alle Hinweise bleiben schlüssig.",
+      "parentReason": "Alle fünf Titel und Regeln, vier Beispiele sowie K6/Z1 gelesen. Gestern, früher und Wochenende sind korrekt in die Perfekt-Erzählung eingebunden; Er, Freund und Ich-Beispiele sind mit männlichen Figuren vereinbar.",
+      "completeObjectivesContextKey": "A1.1/P7",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A1.1/P7 wurde gelesen; alle 13 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "Gestern",
+        "acceptedAnswers": [
+          "Gestern"
+        ],
+        "options": [
+          "Morgen",
+          "Übermorgen",
+          "Gestern"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 6,
+      "id": "2fc1c986-9a93-574d-ab42-234dd0b8b4fc",
+      "ref": "P7-N8-E08",
+      "level": "A1.1",
+      "contextKey": "A1.1/P7/P7-N8",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "2c921783af11a7718cfdc4e061d50e4b6ef35032fc1be7ae32849417d52457b2",
+      "wholeParentMinusChildrenSHA256": "b8117be81e3a6c07c9e47e1efc7f6bbc15ff45effdfc6a29378a1411e0f1cc76",
+      "allPathObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die Ortsbewegung nach Hamburg im Perfekt verlangt bei ich das Hilfsverb bin. Alle fünf Anweisungen und Übersetzungen bewahren die Wochenendfahrt; RU ездил und UK їздив sind männlich. Optionen habe/bin/ist und Antwortlisten stimmen.",
+      "parentReason": "Alle fünf Titel und Regeln, vier Beispiele sowie K6/Z1 gelesen. Gestern, früher und Wochenende sind korrekt in die Perfekt-Erzählung eingebunden; Er, Freund und Ich-Beispiele sind mit männlichen Figuren vereinbar.",
+      "completeObjectivesContextKey": "A1.1/P7",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A1.1/P7 wurde gelesen; alle 13 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "bin",
+        "acceptedAnswers": [
+          "bin"
+        ],
+        "options": [
+          "habe",
+          "bin",
+          "ist"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 7,
+      "id": "885773fc-44f7-5d1e-a21d-c5dc77aa0d7e",
+      "ref": "P7-N8-E09",
+      "level": "A1.1",
+      "contextKey": "A1.1/P7/P7-N8",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "ab0202df34ee912469c8bb67951a0942bcd18c9d8fbe3ab3716c47293e2479cf",
+      "wholeParentMinusChildrenSHA256": "b8117be81e3a6c07c9e47e1efc7f6bbc15ff45effdfc6a29378a1411e0f1cc76",
+      "allPathObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "lesen bildet gelesen, passend zu habe und dem gelesenen Buch. Die Form ist unter den Optionen eindeutig; oft im Hinweis behauptet keinen obligatorischen Vokalwechsel. RU читал und UK читав sind männlich, alle fünf Texte sind inhaltlich gleichwertig.",
+      "parentReason": "Alle fünf Titel und Regeln, vier Beispiele sowie K6/Z1 gelesen. Gestern, früher und Wochenende sind korrekt in die Perfekt-Erzählung eingebunden; Er, Freund und Ich-Beispiele sind mit männlichen Figuren vereinbar.",
+      "completeObjectivesContextKey": "A1.1/P7",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A1.1/P7 wurde gelesen; alle 13 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "gelesen",
+        "acceptedAnswers": [
+          "gelesen"
+        ],
+        "options": [
+          "gelesen",
+          "gelest",
+          "lesen"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 8,
+      "id": "0a563537-f65e-512b-a4ee-4a657267e1d5",
+      "ref": "P3-N4-E03",
+      "level": "A1.2",
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "db31c8c8204e834ee4e069f7f1b24929866261d804d8e9370447af1e526a5392",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Tom und Emil sind eine dritte Person Plural; ihr plus feminine Familie ergibt satzinitial Ihre. Familie handelt ohne weiblichen Einzelcharakter. Alle fünf Übersetzungen beziehen sich auf ihre Familie; abstrakte sie-Singular-/Plural-Paradigmen bleiben für den Lernkontrast nötig.",
+      "parentReason": "Alle fünf Titel und Regeln, drei Beispiele, Artikel-Hervorhebung und G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind richtig. Das abstrakte feminine Paradigma wird benötigt; die handelnde Familie im Pluralbeispiel ist keine weibliche Einzelfigur.",
+      "completeObjectivesContextKey": "A1.2/P3",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A1.2/P3 wurde gelesen; alle 12 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "Ihre",
+        "acceptedAnswers": [
+          "Ihre"
+        ],
+        "options": [
+          "Eure",
+          "Ihre",
+          "Seine"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 9,
+      "id": "9ec465ca-01cd-5949-a4df-157985fb9930",
+      "ref": "P1-N3-E02",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N3",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "8eedf47cc7875d04a0056af4ba5b3701cf9a68b54bd0afde459d3c905d9ebee5",
+      "wholeParentMinusChildrenSHA256": "46f51498018a0cda3d59800c3f86b16924a16329b7add961602048a6372acbf5",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Herr Rojas lebt mit zwei Kindern ohne Partner: alleinerziehend ist die passende Lebensform. Alle fünf Sprachen erhalten die männliche Person; TR partneri olmadan verlangt keine Ehe. Mutter/Vater in den Erklärungen ist eine allgemeine Begriffsdefinition, keine weibliche Lernfigur.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele sowie K2 gelesen. Wohnformen, Familienstand, Arbeit und seit sind korrekt; Onkel/Opa sind männlich. Mutter/Vater bezeichnet die allgemeine Definition alleinerziehend und bleibt sachlich vollständig.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A2.1/P1 wurde gelesen; alle 11 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "alleinerziehend",
+        "acceptedAnswers": [
+          "alleinerziehend"
+        ],
+        "options": [
+          "eine Großfamilie",
+          "in Rente",
+          "alleinerziehend"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 10,
+      "id": "5b89c04b-adfd-525a-a716-5cb8ff14db82",
+      "ref": "P1-N10-E05",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N10",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "ad57c61a7c0e8f75eee25e28888a16f9a87f8115a2f72d37db3f371501b6f7ce",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die deutsche Anweisung verlangt ausdrücklich den ersten Erzählschritt; Zuerst ist dadurch gegenüber Später/Schließlich eindeutig. Alle vier Übersetzungen und gap_hints bezeichnen first/сначала/спочатку/önce. Verbzweitstellung und männliche RU/UK-Sprecher stimmen.",
+      "parentReason": "Alle fünf Titel und Regeln, drei Beispiele, Verb-Hervorhebung und K4 gelesen. Zeitliche Gliederung und Verbzweitstellung werden richtig erklärt; Leon ist männlich, die Folge verschlafen/Bus verpasst/Taxi ist nachvollziehbar.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A2.1/P1 wurde gelesen; alle 11 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "Zuerst",
+        "acceptedAnswers": [
+          "Zuerst"
+        ],
+        "options": [
+          "Zuerst",
+          "Später",
+          "Schließlich"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 11,
+      "id": "da6bb9c5-2c1d-5820-a456-1d5cd67110fd",
+      "ref": "P1-N10-E06",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N10",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "3e319eaadcdd327299e99eaf742c82825e2407369bccb2365ea7adfaa3d351a7",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die deutsche Anweisung verlangt ausdrücklich den letzten Erzählschritt; schließlich passt zum Kochen-Essen-Film-Ablauf. Alle vier Übersetzungen und gap_hints nennen finally/наконец/нарешті/sonunda. Koordination, Position des Verbs und Schlüssel bleiben korrekt.",
+      "parentReason": "Alle fünf Titel und Regeln, drei Beispiele, Verb-Hervorhebung und K4 gelesen. Zeitliche Gliederung und Verbzweitstellung werden richtig erklärt; Leon ist männlich, die Folge verschlafen/Bus verpasst/Taxi ist nachvollziehbar.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A2.1/P1 wurde gelesen; alle 11 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "schließlich",
+        "acceptedAnswers": [
+          "schließlich"
+        ],
+        "options": [
+          "gestern",
+          "zuerst",
+          "schließlich"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 12,
+      "id": "d378404d-686b-54f5-a56a-71c783fd5f9b",
+      "ref": "P1-N14-E08",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "895b6a5887842d2562080fd8c9a8abbfaa9ce1a7468373fcc77ee1584f4db592",
+      "wholeParentMinusChildrenSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Emre als Besitzer ergibt Emres Hund ohne Apostroph; die beiden Distraktoren sind falsch. Alle fünf Hinweise und Erklärungen nennen jetzt Pauls Vater. Tante bleibt als notwendiges feminines Dativbeispiel neben Bruder und Eltern erhalten; Aufgabe und Schlüssel sind unverändert korrekt.",
+      "parentReason": "Der vollständige Eltern-Testkontext mit fünf Titeln, topic, kind, sort_order, allen elf Zielverweisen und test_size 13 ist gelesen. Alle referenzierten Ziele sind im vollständig geprüften Pfadset vorhanden; keine Merkkarte oder versteckten Textfelder fehlen im gelieferten Objekt.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Das vollständige aktuelle Zielset A2.1/P1 wurde gelesen; alle 11 Ziele sind einzeln akzeptiert. Quelle, Vollständigkeit und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "correctAnswer": "Emres Hund",
+        "acceptedAnswers": [
+          "Emres Hund"
+        ],
+        "options": [
+          "Emres Hund",
+          "Emre Hund",
+          "Hunds Emre"
+        ],
+        "keyMatchesOptionsAndBothAnswerLists": true
+      },
+      "sourceObjectEqualityVerified": true
+    }
+  ],
+  "parents": [
+    {
+      "contextKey": "A1.1/P6/P6-N1",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "f2f250839d8f1da341222cd176964928863fe9d75a1ff2b7e253ba91aaab70ed",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und Regeln, vier Beispiele, null highlight und beide Zielverweise gelesen. Positive und negative Hobbybewertungen sind korrekt; Kofi und Kamil sind männlich und mit den Tätigkeiten vereinbar."
+    },
+    {
+      "contextKey": "A1.1/P6/P6-N5",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "b4d8259568f754af89b3913c5a2d105ebc8c5ae33c48b21a02536a6c602763c0",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und Regeln, vier Beispiele, Artikel-Hervorhebung und Ziel G3 gelesen. Die Formen keinen/kein/keine decken maskulinen, neutralen, femininen und pluralen Akkusativ sachlich korrekt ab."
+    },
+    {
+      "contextKey": "A1.1/P7/P7-N6",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "1970cf55e759d296f04cdcf87b563c8aeff87463c635f4a352ac0bb36f4f8d22",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Regeln, vier Beispiele und Ziel G3 gelesen. Die Beschränkung auf die hier geübten starken Verben ist ausdrücklich vorhanden; lesen/sehen/essen werden korrekt als ohne Stammvokalwechsel aufgeführt. Kamil, Oleh, Vater und Lehrer passen."
+    },
+    {
+      "contextKey": "A1.1/P7/P7-N8",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "b8117be81e3a6c07c9e47e1efc7f6bbc15ff45effdfc6a29378a1411e0f1cc76",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und Regeln, vier Beispiele sowie K6/Z1 gelesen. Gestern, früher und Wochenende sind korrekt in die Perfekt-Erzählung eingebunden; Er, Freund und Ich-Beispiele sind mit männlichen Figuren vereinbar."
+    },
+    {
+      "contextKey": "A1.2/P3/P3-N4",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und Regeln, drei Beispiele, Artikel-Hervorhebung und G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind richtig. Das abstrakte feminine Paradigma wird benötigt; die handelnde Familie im Pluralbeispiel ist keine weibliche Einzelfigur."
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N3",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "46f51498018a0cda3d59800c3f86b16924a16329b7add961602048a6372acbf5",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele sowie K2 gelesen. Wohnformen, Familienstand, Arbeit und seit sind korrekt; Onkel/Opa sind männlich. Mutter/Vater bezeichnet die allgemeine Definition alleinerziehend und bleibt sachlich vollständig."
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N10",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und Regeln, drei Beispiele, Verb-Hervorhebung und K4 gelesen. Zeitliche Gliederung und Verbzweitstellung werden richtig erklärt; Leon ist männlich, die Folge verschlafen/Bus verpasst/Taxi ist nachvollziehbar."
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N14",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Der vollständige Eltern-Testkontext mit fünf Titeln, topic, kind, sort_order, allen elf Zielverweisen und test_size 13 ist gelesen. Alle referenzierten Ziele sind im vollständig geprüften Pfadset vorhanden; keine Merkkarte oder versteckten Textfelder fehlen im gelieferten Objekt."
+    }
+  ],
+  "objectiveSets": [
+    {
+      "contextKey": "A1.1/P6",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "af6eebddc8a73f90f9ed4f88d6441bccf6ed3bc4dbf5aa6f830af0dd05132c86",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 13,
+      "reason": "Alle Ziele dieses aktuellen vollständigen Pfadsets wurden einzeln auf Grammatik, Bedeutung, Lernrolle und Charakterregel geprüft; kein offener Befund. Die Einzelbegründungen folgen.",
+      "objectives": [
+        {
+          "id": "P6-G1",
+          "area": "grammar",
+          "description": "Akkusativ mit bestimmtem Artikel (den, das, die).",
+          "sourceObjectiveSHA256": "b002ce6d90faa648a0354961ea52d7e52109118e5d99d176f9d401d5c81a2b9b",
+          "descriptionSHA256": "57cd07603a778e22c00f3cf3aa8c21b4b601d15d0a83c47fa22573a52e39eecd",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "den/das/die benennt die korrekten bestimmten Akkusativartikel; grammatisches Genus ist erforderlich."
+        },
+        {
+          "id": "P6-G2",
+          "area": "grammar",
+          "description": "Akkusativ mit unbestimmtem Artikel (einen, ein, eine, Plural ohne Artikel).",
+          "sourceObjectiveSHA256": "239be7758162db92496bb1e0496779e6e59f11d2b90018128e58d0c2ce641077",
+          "descriptionSHA256": "d439e44a05b383a98914f949348cd29640442a79dfe861b5ba34fe0e4f60b450",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "einen/ein/eine und artikelloser Plural bildet den unbestimmten Akkusativ sachlich richtig ab."
+        },
+        {
+          "id": "P6-G3",
+          "area": "grammar",
+          "description": "Akkusativ mit Negativartikel (keinen, kein, keine).",
+          "sourceObjectiveSHA256": "39b6e86c5d77f81c312aa9d20a1dd6dafacf8c30b7eb661190837d6cfc68d7d1",
+          "descriptionSHA256": "b09c88d51d478ed41f2856eb64598169fd6e429f268b805458b50ef2f5499088",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "keinen/kein/keine benennt die korrekten Negativartikel im Akkusativ und passt zur reparierten Aufgabe."
+        },
+        {
+          "id": "P6-G4",
+          "area": "grammar",
+          "description": "Antworten auf Ja-/Nein-Fragen mit ja, nein und doch (auch auf verneinte Fragen).",
+          "sourceObjectiveSHA256": "65f0395fd96e2c94c2e79991aaedd4e249fddf365f400d74e66528e75f0832b5",
+          "descriptionSHA256": "d52bdae431b714a8d21d90e8e3d6986b288561d8cce8bb3722785fb4bafe100a",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "ja/nein/doch einschließlich verneinter Fragen ist ein korrekt abgegrenztes Antwortlernziel."
+        },
+        {
+          "id": "P6-G5",
+          "area": "grammar",
+          "description": "Vokalwechsel bei lesen, treffen, nehmen, fahren (Wiederholung: fernsehen, essen, sprechen, schlafen, anfangen).",
+          "sourceObjectiveSHA256": "64b86cdde5a7b2fb04cc39b84f4b578be41a37d0feddea5833390a2ab2b79616",
+          "descriptionSHA256": "6563a1c01f0f54cfb1f7fa709447f7782781b991a2863a3a6300306febacd6f3",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die genannten Präsensverben haben in den einschlägigen Personen den zu übenden Vokalwechsel; die Wiederholung ist sprachlich passend."
+        },
+        {
+          "id": "P6-K1",
+          "area": "communication",
+          "description": "Hobbys nennen und bewerten („Das macht Spaß“, „Ich finde … toll“).",
+          "sourceObjectiveSHA256": "db869a80c4504db0dc902ba0ee6debd9bd2946545955a1712a33b0576b5e6468",
+          "descriptionSHA256": "c2f31ef6af60813e26bc846e15e1541945d3ccd06bfcd07f25c3ac8b327d9f21",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die Hobbybewertung nennt passende positive Kommunikationsmuster ohne konkrete weibliche Figur."
+        },
+        {
+          "id": "P6-K2",
+          "area": "communication",
+          "description": "Lieblings…: Buch, Film, Musik, Spiel.",
+          "sourceObjectiveSHA256": "4a845e59c6568ce8e2c14caa9d85aaea99ebb3502b333cce986148e6346f3791",
+          "descriptionSHA256": "1dbd5906c7cd7d934510c3b0439cd67d5757f2b7d1de52a4f1fd90faad3bcde9",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Lieblingsbuch, Lieblingsfilm, Lieblingsmusik und Lieblingsspiel sind passende thematische Wortfelder."
+        },
+        {
+          "id": "P6-K3",
+          "area": "communication",
+          "description": "Wetter beschreiben: Sonne, Regen, Schnee, Wind, Wolken, Temperatur in Grad; Lieblingswetter; „mag ich gar nicht“.",
+          "sourceObjectiveSHA256": "411fa2df671088b165f08c2013d3d42a4c8ca9ba0af6d21ecc72df228bd23757",
+          "descriptionSHA256": "9f2156cde01696306468b5f957c9531d041c9bd104af501acebcbc8423d733d0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wetterwörter, Gradangabe, Lieblingswetter und mag ich gar nicht bilden ein zusammenhängendes Kommunikationsziel."
+        },
+        {
+          "id": "P6-K4",
+          "area": "communication",
+          "description": "Am Imbiss bestellen.",
+          "sourceObjectiveSHA256": "a911c5e431138b8903953d880733d86a55ef16a409c308ad2e116faa4861921b",
+          "descriptionSHA256": "8c7191ddd9cf3b0b14a1d0933b70fe53e0c1d8996847f80a847da4b0ae493999",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Bestellen am Imbiss ist ein eindeutiges, unproblematisches Kommunikationsziel."
+        },
+        {
+          "id": "P6-K5",
+          "area": "communication",
+          "description": "Zustimmen und verneinen.",
+          "sourceObjectiveSHA256": "077b753ed56345113a2d43d61dcf2d32600f13a22d46426462d10d143983fc6d",
+          "descriptionSHA256": "2b30d431ba7cb0e915e48a7855850fe4289fa6053f34d4a2cae153618fddaa4c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Zustimmen und Verneinen benennt zwei zusammengehörige Sprechhandlungen ohne fehlerhafte Beispiele."
+        },
+        {
+          "id": "P6-K6",
+          "area": "communication",
+          "description": "Strategien: „Guck mal“, „Na klar“, „Na gut“, „Kein Problem“, „Moment mal“.",
+          "sourceObjectiveSHA256": "46f04ecd4a8a5ca193fc66563d3f0ff5aec28bb5507ca47954757ed16c5ee4c0",
+          "descriptionSHA256": "77b786e6b75409d484c755eaaa0e15e9ebaf6ca36c1dcc64b640607ee8a627f2",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die sechs kurzen Reaktionsformeln sind idiomatische Gesprächsstrategien."
+        },
+        {
+          "id": "P6-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: einen Wetterbericht verstehen, kurze Personenporträts und Interviews über Hobbys verstehen.",
+          "sourceObjectiveSHA256": "a123886753382ea970190c737317542b8e668ebdb7b2281e639c8c31f1efa0fd",
+          "descriptionSHA256": "38f7a416f499e6e86421526149142ffa614f15e36e2df9a5800d08293edf5d38",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wetterbericht und Hobby-Porträts beziehungsweise Interviews sind sachlich passende rezeptive Kann-Ziele."
+        },
+        {
+          "id": "P6-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: fünf Hobbys, sieben Wetterwörter.",
+          "sourceObjectiveSHA256": "789b8646fe146fbb5e4d0e9fd971794779d6a4de617b7a5efeaaff2591e9264a",
+          "descriptionSHA256": "21804e5e712ac4789c659ce735bb87a2d9405361fa03f3d3537d3e622f5e69cf",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Fünf Hobbys und sieben Wetterwörter ist eine klare Umfangsangabe zum angegebenen Wortschatzfeld."
+        }
+      ]
+    },
+    {
+      "contextKey": "A1.1/P7",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 13,
+      "reason": "Alle Ziele dieses aktuellen vollständigen Pfadsets wurden einzeln auf Grammatik, Bedeutung, Lernrolle und Charakterregel geprüft; kein offener Befund. Die Einzelbegründungen folgen.",
+      "objectives": [
+        {
+          "id": "P7-G1",
+          "area": "grammar",
+          "description": "Modalverben können und wollen; ich und er/sie/es ohne Endung.",
+          "sourceObjectiveSHA256": "ab7c0068f004bd9939df10285353b4826dbf69bb15edec1cfce819b449b31f63",
+          "descriptionSHA256": "806c3236b0bfe3d01c0153ebc3c6323ba5ef4775252c16b8bc97955cb1d8b8ea",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Modalverben können/wollen sind in ich und er/sie/es endungslos; sie gehört zum nötigen Personenparadigma."
+        },
+        {
+          "id": "P7-G2",
+          "area": "grammar",
+          "description": "Satzklammer mit Modalverb: Modalverb auf Position 2, Infinitiv am Ende.",
+          "sourceObjectiveSHA256": "efd0cda515eaf9e2bf90f494a30769b9bc73759825537212242815ce574bee1b",
+          "descriptionSHA256": "cf5fb5bb1940fa7e463df250e5526cadffa27efff01d7460b1d3f7584eae37d1",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Modalverb auf Position 2 plus finaler Infinitiv beschreibt die deklarative Satzklammer korrekt."
+        },
+        {
+          "id": "P7-G3",
+          "area": "grammar",
+          "description": "Perfekt mit haben: ge…t (auch gearbeitet) und ge…en mit Vokalwechsel (getroffen, getrunken, gesprochen, geschrieben).",
+          "sourceObjectiveSHA256": "624b23672b52dd167bc08e7da2f02c3ce4495c04ec0e24dfd372025497264eb3",
+          "descriptionSHA256": "b9e3d7f89c31e91157cc3265b8eccf3675fad12330b02c56e0db17d7bf0b7eb0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die angegebenen schwachen und starken Partizipmuster einschließlich gearbeitet/getroffen/getrunken/gesprochen/geschrieben sind richtig."
+        },
+        {
+          "id": "P7-G4",
+          "area": "grammar",
+          "description": "Perfekt mit sein bei Bewegung (gegangen, gefahren, gekommen).",
+          "sourceObjectiveSHA256": "a7e9d7906f7b526dfdf5320b33f4e6569c025a5522daee3a18179091f33405c6",
+          "descriptionSHA256": "a2a8dda35fde128e38f228cc64a078a6ee686b21b153795509c55ccc22786c22",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "sein bei den genannten gerichteten Bewegungsverben gegangen/gefahren/gekommen ist für die Beispiele korrekt."
+        },
+        {
+          "id": "P7-G5",
+          "area": "grammar",
+          "description": "Satzklammer im Perfekt, auch in der Frage.",
+          "sourceObjectiveSHA256": "e71e55c7068fa25e47b1300e2e4fb44de49ae483542f6ffec237020d404f9d7b",
+          "descriptionSHA256": "2f1bf358de4259c7f202f2285c663a121540061387bb0591b1907d0696d107f7",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die Perfekt-Satzklammer einschließlich Fragen ist als übergreifendes Strukturziel richtig formuliert."
+        },
+        {
+          "id": "P7-K1",
+          "area": "communication",
+          "description": "Starken Wunsch äußern („Ich will …“).",
+          "sourceObjectiveSHA256": "ba9815c8f1cf181ff5db1e1dc86c00580121fc35738826688f5bedc311bd41f7",
+          "descriptionSHA256": "2db6950b759ceecd49886a7315bbc1661930aa20a70ba54671021aaa2d39324e",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Ich will ist ein passendes Muster für einen starken Wunsch."
+        },
+        {
+          "id": "P7-K2",
+          "area": "communication",
+          "description": "Vorschlagen („Wollen wir …?“) und reagieren.",
+          "sourceObjectiveSHA256": "0ef972d94a659d718c86491f1d3b3bc4f9823059554a472cff76d1ddd13cdabb",
+          "descriptionSHA256": "e8313fb7e725279c4f9d835483ff23ebdb88113dc3901a38ddb5c7769ab74c54",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wollen wir ist eine idiomatische Vorschlagsfrage mit anschließender Reaktion."
+        },
+        {
+          "id": "P7-K3",
+          "area": "communication",
+          "description": "Fähigkeit mit Abstufung (sehr gut, ein bisschen, nicht so gut, gar nicht).",
+          "sourceObjectiveSHA256": "c42d5955c5e6e2f556eeb3b2e584b9be0735916725a252a30cc61e1a7213e764",
+          "descriptionSHA256": "4cc05f306fc7df2f45f88199b2777f1785e5eff0ab478b10fd4d375c3fc22944",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die vier Abstufungen der Fähigkeit von sehr gut bis gar nicht sind sprachlich korrekt."
+        },
+        {
+          "id": "P7-K4",
+          "area": "communication",
+          "description": "Sich oder das eigene Kind entschuldigen und darauf reagieren („Gute Besserung“, „Ich sage es dem Lehrer“).",
+          "sourceObjectiveSHA256": "e66fdbfad36889611386d34b1769ce447c568651e361ff4129c300c3ecdf0a36",
+          "descriptionSHA256": "3694b0e96e4e9df4993199883181edc23ed006183ada637cc1fd8b7847aa470a",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Entschuldigung und Gute Besserung passen; dem Lehrer bezeichnet den männlichen Lehrer korrekt."
+        },
+        {
+          "id": "P7-K5",
+          "area": "communication",
+          "description": "Strategien: „Ja, super!“, „Nein, nicht so gern“, „Schade!“.",
+          "sourceObjectiveSHA256": "80b1d793a89f2993a6c266266e9816819940e658ac6419c8de1e20da88fa915f",
+          "descriptionSHA256": "f8ad4e9ee4f443c7ed3fd4d613c658b9994b26d0e2aeb24aeda204f402bbb44a",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Ja super, Nein nicht so gern und Schade sind passende Zustimmungs-, Ablehnungs- und Bedauernsreaktionen."
+        },
+        {
+          "id": "P7-K6",
+          "area": "communication",
+          "description": "Über gestern, früher und das Wochenende sprechen.",
+          "sourceObjectiveSHA256": "5dd270951e176ad8c0a2bc4da476b4a3b5e722631e592da5a7349519982e2dd7",
+          "descriptionSHA256": "b86582478c41e281ad3c54ce23dc4f3a3c6218baeceb08436d45cf759552bfc4",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Gestern, früher und Wochenende bündeln die Zeitbezüge der vollständig gelesenen Vergangenheitsaufgaben."
+        },
+        {
+          "id": "P7-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: eine Entschuldigung für den Deutschkurs formulieren, von vergangenen Tätigkeiten erzählen.",
+          "sourceObjectiveSHA256": "3a3f19299cb78f83b80d93a9d61bbb2b6889a02db8c68b84820455df7e993db2",
+          "descriptionSHA256": "753be560c4a69ced3b6e69fb894f87b03b9035be552d5eb38b08c49c16f6f7a2",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Eine Kursentschuldigung und vergangene Tätigkeiten sind klare produktive Kann-Ziele."
+        },
+        {
+          "id": "P7-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: fünf Wörter zum Thema Schule, fünf Aktivitäten im Deutschkurs, fünf Freizeitaktivitäten.",
+          "sourceObjectiveSHA256": "825c273bfe37aeb50640e12aabb76d49f34a61a77d4b4a1f8476f17799462888",
+          "descriptionSHA256": "35b2d64dc180f761626dce2c03f4f37551c62768a63a4caa0ca623031544f493",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Schule, Aktivitäten im Deutschkurs und Freizeit mit je fünf Wörtern sind kohärente Wortschatzfelder."
+        }
+      ]
+    },
+    {
+      "contextKey": "A1.2/P3",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 12,
+      "reason": "Alle Ziele dieses aktuellen vollständigen Pfadsets wurden einzeln auf Grammatik, Bedeutung, Lernrolle und Charakterregel geprüft; kein offener Befund. Die Einzelbegründungen folgen.",
+      "objectives": [
+        {
+          "id": "P3-G1",
+          "area": "grammar",
+          "description": "Possessivartikel für alle Personen im Nominativ: mein, dein, sein, ihr, unser, euer, ihr, Ihr – mit -e bei „die“ und im Plural (eure).",
+          "sourceObjectiveSHA256": "fdf29e3cdab19fae6dc8b71d3080913fced12fe1b688b9c43d9141468ced6ebe",
+          "descriptionSHA256": "c778dd8e0d9e3de6fe2f256547bc27768464558aeea13ad61168a6ce7a039dd0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Das vollständige Possessivartikel-Paradigma einschließlich höflichem Ihr sowie Endungen -e/eure ist richtig und fachlich nötig."
+        },
+        {
+          "id": "P3-G2",
+          "area": "grammar",
+          "description": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand).",
+          "sourceObjectiveSHA256": "1ee0ff39bb3dafd2059b52185f88fa4960c8cb11b090577705d4671d61b4d3ab",
+          "descriptionSHA256": "a4e8e6ede69aaaaf9825b27e05fdf50ecbda3b7f4c6eaf3f7fd595f9f6661d0c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Simon/seine Hand und abstraktes sie Singular/ihre Hand erklären den Besitzerbezug korrekt; kein weiblicher Einzelcharakter wird etabliert."
+        },
+        {
+          "id": "P3-G3",
+          "area": "grammar",
+          "description": "Possessivartikel im Akkusativ: bei maskulinen Nomen mit -en (meinen, deinen, seinen, ihren, unseren, euren, Ihren).",
+          "sourceObjectiveSHA256": "cb6a6b4676ea6575e4de6c8e4ef9e4ab07bd8c08089e088dd5657fb2e51a9622",
+          "descriptionSHA256": "cb111204f563f9b1c91a496fa7aaa364adc59e559e75cdb00dbdf22257f9c285",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die -en-Endungen maskuliner Akkusativ-Possessivartikel einschließlich höflichem Ihren sind korrekt."
+        },
+        {
+          "id": "P3-G4",
+          "area": "grammar",
+          "description": "Modalverb sollen: soll, sollst, sollen, sollt; der Infinitiv steht am Satzende.",
+          "sourceObjectiveSHA256": "ced0b71ea84d98764dfb4bd813c05d0f6086305605ed4095609f2c48851ac21b",
+          "descriptionSHA256": "1f322bfb412a2e3b9088e71cbe2622c0b4e7c383e728ba4f5d0f195b959cc37d",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "soll/sollst/sollen/sollt und der finale Infinitiv bilden sollen mit Satzklammer korrekt ab."
+        },
+        {
+          "id": "P3-K1",
+          "area": "communication",
+          "description": "Über das Befinden sprechen: sagen, was wehtut, und Krankheiten nennen (Fieber, Husten, Schnupfen, Schmerzen).",
+          "sourceObjectiveSHA256": "296295b91a105e4173bdc51fa33707a62d446d61e32ecb2d0014654e622b6792",
+          "descriptionSHA256": "480e5c8e0c8924300230dc9cffd75011f82fe7c28aa2f2f181c557a41e74aa42",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Befinden, wehtun und Fieber/Husten/Schnupfen/Schmerzen sind passende sprachliche Gesundheitsinhalte."
+        },
+        {
+          "id": "P3-K2",
+          "area": "communication",
+          "description": "Anweisungen und Ratschläge für die Gesundheit verstehen, geben und weitersagen: Der Arzt sagt, ich soll viel trinken.",
+          "sourceObjectiveSHA256": "9387eeb81410393bb4da79cef1022eabcc7a8d9b723c0bfaa6e7f61010c60d5d",
+          "descriptionSHA256": "7932048bd77e9daae15eb2553ab4616197f70d571ab03b0d1e161c228d47823e",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Der Arzt und ich soll viel trinken sind ein korrektes sprachliches Beispiel zum Weitergeben einer Anweisung."
+        },
+        {
+          "id": "P3-K3",
+          "area": "communication",
+          "description": "Sich krankmelden: Leider kann ich heute nicht kommen.",
+          "sourceObjectiveSHA256": "643a59ee4fd3ae895921af850bc3c39896431b47e76889161fccc49c8b8b1555",
+          "descriptionSHA256": "3e31ecf52cc1fe583eac778e8030382ef89a32dbaa9582fbe811226cd357abd4",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Leider kann ich heute nicht kommen ist eine passende Krankmeldungsformel."
+        },
+        {
+          "id": "P3-K4",
+          "area": "communication",
+          "description": "Einen Termin beim Arzt vereinbaren: Könnte ich bitte einen Termin haben? Es ist dringend.",
+          "sourceObjectiveSHA256": "265212f11462c323708128f66e5ac82c86a1bdf574b74e8b83085933bce963b1",
+          "descriptionSHA256": "a2c04eb017b175017b267b340ad4396586d7a6c33683e2692efb3796dbbbd38d",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Könnte ich bitte einen Termin haben und Es ist dringend passen zur Terminvereinbarung."
+        },
+        {
+          "id": "P3-K5",
+          "area": "communication",
+          "description": "Einen Notfall melden: Wo sind Sie? Was ist passiert? Was ist mit der Person?",
+          "sourceObjectiveSHA256": "41541ef6244a62a1fad876e84737abb1fe42e36b8d255bc109286c403644e645",
+          "descriptionSHA256": "5c3dcd86a071f6cded54583695139575d03636a8cd34fd09c7b9a9066bc7244d",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wo sind Sie, Was ist passiert und Was ist mit der Person sind passende sprachliche Notfallfragen; Sie ist höfliche Anrede."
+        },
+        {
+          "id": "P3-K6",
+          "area": "communication",
+          "description": "Im Gespräch reagieren: Oh nein! Oje! Ach so. Hoffentlich! Bis gleich. Bis später.",
+          "sourceObjectiveSHA256": "b635cf10f2f08b17f457edadb7fb41176a65b47604ffc4483097830605dd668f",
+          "descriptionSHA256": "427da5b3ee7d97e9c4d8985395f0ab32b6a0aaa162f95de5a3a18773548cd28f",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die kurzen Reaktions- und Abschiedsformeln sind idiomatisch und klar."
+        },
+        {
+          "id": "P3-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: eine Krankmeldung schreiben und verstehen, Gesundheitstipps und Informationen zu Praxis, Notdienst und Apotheke verstehen.",
+          "sourceObjectiveSHA256": "0d2a6cd86d545f7d50b3bcbf12e8e48aabd8868a61da7ca6295b52e48dd48b76",
+          "descriptionSHA256": "bb3bd4db5d8e6ef58d9e7ad851ca19dc83a7cf6b87f7e6bd92ecc02670de85d9",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Krankmeldung, Gesundheitstipps und Informationen zu Praxis/Notdienst/Apotheke sind kohärente rezeptive und produktive Sprachlernziele."
+        },
+        {
+          "id": "P3-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Körperteile, Krankheiten und Wörter rund um Arzt und Apotheke.",
+          "sourceObjectiveSHA256": "056bed11e2f311cbcb6a5306267812e8abb2153eccb5dd43cbe2c5782963ef78",
+          "descriptionSHA256": "33a91f3dd23c8222fed61be0e0a34aecafc83e2a980f616d1a05f083899530d8",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Körperteile, Krankheiten, Arzt und Apotheke sind ein passendes zusammenhängendes Wortschatzfeld."
+        }
+      ]
+    },
+    {
+      "contextKey": "A2.1/P1",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 11,
+      "reason": "Alle Ziele dieses aktuellen vollständigen Pfadsets wurden einzeln auf Grammatik, Bedeutung, Lernrolle und Charakterregel geprüft; kein offener Befund. Die Einzelbegründungen folgen.",
+      "objectives": [
+        {
+          "id": "P1-G1",
+          "area": "grammar",
+          "description": "Gründe nennen mit weil: Nebensatz mit dem Verb am Ende – auch mit Modalverb, im Perfekt und mit trennbaren Verben.",
+          "sourceObjectiveSHA256": "5f28bd5ec1ee26e65b1256a429188aed7e1dca029b7291389296705ef0a9210f",
+          "descriptionSHA256": "aaf869bedea31f1227ad176aeb9cc4bf487f43af379f378cdd37403905eb6764",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "weil mit finalem finiten Verb gilt auch für die genannten Modal-, Perfekt- und trennbaren Verbkonstruktionen."
+        },
+        {
+          "id": "P1-G2",
+          "area": "grammar",
+          "description": "Perfekt der trennbaren Verben: eingekauft, angerufen, aufgestanden, kennengelernt.",
+          "sourceObjectiveSHA256": "94af2329d1db25846065d14866130bfe77dbfc59bb3ba043103a230951bc5fc2",
+          "descriptionSHA256": "26dcdfbefd364577c44d546aeaeeab7275385cbeab9265d8b0cfaaf6dd8010e2",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "eingekauft, angerufen, aufgestanden und kennengelernt sind korrekte Partizipien trennbarer Verben."
+        },
+        {
+          "id": "P1-G3",
+          "area": "grammar",
+          "description": "Perfekt der Verben auf -ieren ohne ge-: telefoniert, studiert, passiert.",
+          "sourceObjectiveSHA256": "c575c07a6eac95381425565f2847e0617356d48e60450d67ef7f866bdc87cf53",
+          "descriptionSHA256": "4b8eec9b82e3aff832554aa1861a989d0b4442bfe37bcb324c9f7ed1ef379fb0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "telefoniert, studiert und passiert demonstrieren -ieren-Partizipien ohne ge- korrekt."
+        },
+        {
+          "id": "P1-G4",
+          "area": "grammar",
+          "description": "Perfekt der nicht trennbaren Verben ohne ge-: erlebt, bemerkt, verpasst, verstanden.",
+          "sourceObjectiveSHA256": "83749cdf799c94dbe019ce30ab86717b0d66456d5492b63b0ace88efe474ed1e",
+          "descriptionSHA256": "b08c44c6b9a4385474a11314208dfaee3af0cd7173fd25acf46bf2c80e68d70c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "erlebt, bemerkt, verpasst und verstanden sind korrekte Partizipien untrennbarer Verben ohne ge-."
+        },
+        {
+          "id": "P1-G5",
+          "area": "grammar",
+          "description": "Zugehörigkeit bei Namen: Pauls Vater – und mit von + Dativ: der Vater von Paul.",
+          "sourceObjectiveSHA256": "52473e9b57a40e249b5e6f8c4ce87be66ce771caebded8b348b0fb373aab908a",
+          "descriptionSHA256": "635edd60f66cf3d076596b517aea387963b894add26a0edbd70c25cf11bf4608",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Pauls Vater und der Vater von Paul sind korrekte, bedeutungsgleiche Zugehörigkeitsmuster mit männlichem Familienmitglied."
+        },
+        {
+          "id": "P1-K1",
+          "area": "communication",
+          "description": "Von Pannen im Alltag erzählen und darauf reagieren: Stell dir vor … So ein Pech! Und was ist dann passiert?",
+          "sourceObjectiveSHA256": "dac471b927aa139295769b912723a776a1a5af559d17a8bb85deffb50cbc0a31",
+          "descriptionSHA256": "801fc038c9ff9feb774e56c2f20cce31c0a5afcb2263ebbf98b5ccf8bb6544cd",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Stell dir vor, So ein Pech und Was ist dann passiert passen zum Erzählen und Reagieren auf Alltagspannen."
+        },
+        {
+          "id": "P1-K2",
+          "area": "communication",
+          "description": "Von Wohn- und Lebensformen erzählen: allein, als Paar, in einer WG; ledig, verheiratet, geschieden; berufstätig, in Rente.",
+          "sourceObjectiveSHA256": "127c9049cd9df4768932ebe081804921116d3c2e25343bdff08fb0caeb51f10e",
+          "descriptionSHA256": "234fbbfd7bf5a243ae8512cb260869b8628bada75f93929e83a9e43953381e2b",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die genannten Wohn-, Lebens-, Familienstands- und Berufsformen sind sachlich passende Kommunikationsinhalte."
+        },
+        {
+          "id": "P1-K3",
+          "area": "communication",
+          "description": "Sagen, wie jemand etwas findet: Das findet er toll. Das gefällt ihm nicht.",
+          "sourceObjectiveSHA256": "3cb953d84535eb855b54d3d38591ea163821432969678b110e0d76ed414cbd1a",
+          "descriptionSHA256": "daab4a2847999952d84c7781e3a596681980a0888b824fe0bcce74c1655c916c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Das findet er toll und Das gefällt ihm nicht sind korrekte Bewertungsformulierungen mit männlichem Pronomen."
+        },
+        {
+          "id": "P1-K4",
+          "area": "communication",
+          "description": "Eine Erzählung gliedern: zuerst, dann, später, schließlich.",
+          "sourceObjectiveSHA256": "df9914ae1a5058702a3a937142b6ec6af4bfec6b77a19615d91267bcd950b52d",
+          "descriptionSHA256": "48a98e387b8bdd3b154ee0fd1c8b012d7f127e14fc3beb38dab7718a910e14c8",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "zuerst/dann/später/schließlich gliedern Erzählungen nachvollziehbar und passen zu beiden reparierten Aufgaben."
+        },
+        {
+          "id": "P1-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: kurze Erzählungen und Nachrichten über den Alltag verstehen.",
+          "sourceObjectiveSHA256": "eeffddb32dd2360c39c7237443c8b3ab86090ddddcf332e65cd593c464f8b0be",
+          "descriptionSHA256": "23dd34f3db6751baf24eee7165d7fbbee02ef182c31d00265e3c1fda96f158cb",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Kurze Alltagserzählungen und Nachrichten sind klar formulierte rezeptive Kann-Ziele."
+        },
+        {
+          "id": "P1-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Familienmitglieder und Lebensformen.",
+          "sourceObjectiveSHA256": "11179493dd28ede361918756a0f3e84f2fa6616bb7c7b3e162ecc34832f3cee2",
+          "descriptionSHA256": "6b94bd15b357af6c0cd604cf058fb4f9e746f9b66d21c1c3404d97dad74d71be",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Familienmitglieder und Lebensformen bilden den thematischen Wortschatz des Pfads sinnvoll ab."
+        }
+      ]
+    },
+    {
+      "contextKey": "A2.2/P1",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 12,
+      "reason": "Alle Ziele dieses aktuellen vollständigen Pfadsets wurden einzeln auf Grammatik, Bedeutung, Lernrolle und Charakterregel geprüft; kein offener Befund. Die Einzelbegründungen folgen.",
+      "objectives": [
+        {
+          "id": "P1-G1",
+          "area": "grammar",
+          "description": "Konjunktiv II von sein, haben und können: ich wäre, du wärst, wir wären – ich hätte, du hättest – ich könnte, du könntest.",
+          "sourceObjectiveSHA256": "da979040c6673dd680b48d592e738713ea9a5d42cf3077331aaefda257ab5750",
+          "descriptionSHA256": "5dc4294e031da768e7e71da34b2779af4c172a9f8cc3c81b647eefc0b30f9ad3",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die angegebenen Konjunktiv-II-Formen von sein/haben/können sind korrekt."
+        },
+        {
+          "id": "P1-G2",
+          "area": "grammar",
+          "description": "Konjunktiv II mit würde + Infinitiv: Ich würde gern Gitarre spielen. Der Infinitiv steht am Satzende.",
+          "sourceObjectiveSHA256": "ff8c68c2817e17799c1b7e33db1806abf5af0775756d4b17f4a42c5b9b9a576a",
+          "descriptionSHA256": "a5dfcc230a902433bbcbbd6409f6b2bbb1c5d92db44e14d7ac0a88d2004f5f76",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Ich würde gern Gitarre spielen zeigt würde mit finalem Infinitiv richtig."
+        },
+        {
+          "id": "P1-G3",
+          "area": "grammar",
+          "description": "Wünsche ausdrücken: Ich wäre gern am Meer. Er hätte gern mehr Freizeit. Wir würden gern tanzen.",
+          "sourceObjectiveSHA256": "0fdaae4ca4a5cb029b987436e41015cb0e1bac4a41eaf12b6d7d2e89c5d87944",
+          "descriptionSHA256": "372076dfeb28dfa45fabc1cdc9bf7237f0b06fae38aa82c51cb1673f75fa6005",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Ich wäre, Er hätte und Wir würden drücken Wünsche korrekt aus; Er ist jetzt männlich und die Konstruktion bleibt erhalten."
+        },
+        {
+          "id": "P1-G4",
+          "area": "grammar",
+          "description": "Vorschläge mit könnte: Du könntest ins Kino gehen. Wir könnten eine Radtour machen.",
+          "sourceObjectiveSHA256": "06053d4b65713afe46933ebe5862e9e7f372eea8180ecbf5b5fbfc1f20b9d346",
+          "descriptionSHA256": "9f2e2fc4efc33d7b11d76ce657efddc1b7e7077ccca46dd77b7cec6e989c75a4",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Du könntest ins Kino gehen und Wir könnten eine Radtour machen sind korrekte Vorschläge."
+        },
+        {
+          "id": "P1-G5",
+          "area": "grammar",
+          "description": "Gegensätze ausdrücken mit trotzdem: Es regnet. Trotzdem gehe ich spazieren. Das Verb steht auf Position 2.",
+          "sourceObjectiveSHA256": "4a872daac66fb702fce110912a2bf6611bbf3f66abcff3a16079407610ace122",
+          "descriptionSHA256": "555ff5fe7c932edf839f07f04f1bff13fda5d19529a31ec6cd99ea8aef9aeaec",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Trotzdem gehe ich spazieren ist trotz Regen ein sinnvoller Gegensatz mit korrekter Verbzweitstellung."
+        },
+        {
+          "id": "P1-K1",
+          "area": "communication",
+          "description": "Über Wünsche sprechen und danach fragen: Wo wären Sie jetzt gern? Was hätten Sie gern? Was würden Sie gern machen?",
+          "sourceObjectiveSHA256": "9238056aba67bb716ad2ceb645f8c9bcdb75a9fa5c106ab4aaafc0dd4fbc8709",
+          "descriptionSHA256": "d07c997aa569f82defc5fc7a2855197e72080b7f565c967da8713687eb010a75",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wo wären Sie, Was hätten Sie und Was würden Sie sind höfliche Wunschfragen; die Großschreibung Sie ist erforderlich."
+        },
+        {
+          "id": "P1-K2",
+          "area": "communication",
+          "description": "Vorschläge machen und über Pläne sprechen: Wie wäre es mit …? Hast du Lust? Was machst du am Samstag?",
+          "sourceObjectiveSHA256": "a0bbc0cf7a53d8f2c0d1cde0520e4f09b62fdbb931d8c2b2e4b2727b7cd173bc",
+          "descriptionSHA256": "9c210fb0755c79d6217de605c2105bd1d671108480fe8823ccb3e894b1e375a9",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wie wäre es mit, Hast du Lust und die Samstagsfrage sind passende Vorschlags- und Planungsformeln."
+        },
+        {
+          "id": "P1-K3",
+          "area": "communication",
+          "description": "Einen Vorschlag annehmen: Gute Idee. Einverstanden. Warum nicht? Ich komme gern mit.",
+          "sourceObjectiveSHA256": "2a913c3e818b41a8a8e69ca6682a7a870797b3ec5c57ec47b2e55a554cab3eaa",
+          "descriptionSHA256": "a74e93b290770831b48d27d30b299f79ba15e0bd0249f70ebcd032716d1a73d0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Gute Idee, Einverstanden, Warum nicht und Ich komme gern mit sind idiomatische Annahmen eines Vorschlags."
+        },
+        {
+          "id": "P1-K4",
+          "area": "communication",
+          "description": "Einen Vorschlag ablehnen und Bedauern ausdrücken: Schade, das geht leider nicht. Ich würde gern kommen, aber …",
+          "sourceObjectiveSHA256": "d900cc69d73bd0f24e54d53b70d76c5ca7f4e112012bb9a851c648fdb24c5417",
+          "descriptionSHA256": "c9a7b43a876b87253efb90898086716df84cec9478673c5e78556589de938428",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Schade das geht leider nicht und Ich würde gern kommen aber drücken Ablehnung beziehungsweise Bedauern korrekt aus."
+        },
+        {
+          "id": "P1-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Veranstaltungstipps und Programmhinweise verstehen.",
+          "sourceObjectiveSHA256": "b4570e0c75f72218116e33753c52d818d004497ae4f7e8f0be76d15ef3ffd668",
+          "descriptionSHA256": "825570e1cf0cadb774f1037c6cb964c5cd73ae0327defa0f682a9d27d485d566",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Veranstaltungstipps und Programmhinweise sind ein passendes rezeptives Kann-Ziel."
+        },
+        {
+          "id": "P1-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Freizeitaktivitäten am Wochenende.",
+          "sourceObjectiveSHA256": "6c329c54ec2a79815ed145b3067dbfe056e83a2659b25768e0693f30609e4f84",
+          "descriptionSHA256": "bf275994a4e13d8446c0d458dc42e30833b8d708837ce90037b11a1034ceaa0f",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Freizeitaktivitäten am Wochenende passen zum Planungs- und Wunschthema."
+        },
+        {
+          "id": "P1-W2",
+          "area": "vocabulary",
+          "description": "Wortschatz: Veranstaltungen und Kurse.",
+          "sourceObjectiveSHA256": "4a967d54e542994f8e59e47843aa842f57693f35f8ce64386090a71e8a696689",
+          "descriptionSHA256": "b19a8c2aff658fd1c8348996ae7039faec2cc0c7d58be284e830b1af87dcfd5c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Veranstaltungen und Kurse ergänzen das thematische Wortschatzfeld sachlich."
+        }
+      ]
+    },
+    {
+      "contextKey": "A2.2/P2",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 12,
+      "reason": "Alle Ziele dieses aktuellen vollständigen Pfadsets wurden einzeln auf Grammatik, Bedeutung, Lernrolle und Charakterregel geprüft; kein offener Befund. Die Einzelbegründungen folgen.",
+      "objectives": [
+        {
+          "id": "P2-G1",
+          "area": "grammar",
+          "description": "Adjektive nach ein, kein, mein im Nominativ: ein neuer Laden, ein schönes Licht, eine schöne Wohnung, braune Möbel – aber: meine braunen Möbel.",
+          "sourceObjectiveSHA256": "a722700b20e4f6ab0116a0a6eca7470a7bb287daf2fdcf3cb39ac0cdd0e0e01e",
+          "descriptionSHA256": "43d41c2f9dcc20efba080a7a8d2499aea04396c099bc3723bedf528f6291a96b",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die Nominativendungen in neuer/schönes/schöne/braune sowie meine braunen Möbel sind korrekt; feminine Wohnung ist ein grammatisches Nomen."
+        },
+        {
+          "id": "P2-G2",
+          "area": "grammar",
+          "description": "Adjektive nach ein, kein, mein im Akkusativ: einen neuen Laden, ein schönes Licht, eine schöne Wohnung.",
+          "sourceObjectiveSHA256": "33caaeea4cdb92897d8bafd7317d6062c946153d0113aaff6c821689caf228c2",
+          "descriptionSHA256": "0e043b5ecc52b1e07d58e71b98198d67324ad7617a7ab534cb84eeaef3e60a1b",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "einen neuen Laden, ein schönes Licht und eine schöne Wohnung zeigen die gemischte Akkusativdeklination korrekt."
+        },
+        {
+          "id": "P2-G3",
+          "area": "grammar",
+          "description": "Adjektive nach ein, kein, mein im Dativ: einem neuen Laden, einer schönen Wohnung, braunen Möbeln – immer -en.",
+          "sourceObjectiveSHA256": "d1bb580567b344211d7a170dceaf26e965a35bd577986b27297903214f0b3d96",
+          "descriptionSHA256": "3b087e2bb4b3d11035cbffe7b48a6b662453f2bede4e5bf865cf132020251bbb",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "einem neuen Laden, einer schönen Wohnung und braunen Möbeln haben im Dativ korrekt die Adjektivendung -en."
+        },
+        {
+          "id": "P2-G4",
+          "area": "grammar",
+          "description": "Komparativ und Superlativ: schön – schöner – am schönsten; groß – größer – am größten; hoch – höher – am höchsten.",
+          "sourceObjectiveSHA256": "0cf0cac05fb481b43b3b65a7818242c86347128b2a53995bbe49fa7baa9315f1",
+          "descriptionSHA256": "46443cb68c6721028ed831d93e3f2340f9c86b26bbcaaa06d93f44d228145c3d",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "schön/schöner/am schönsten, groß/größer/am größten und hoch/höher/am höchsten sind korrekte Vergleichsformen."
+        },
+        {
+          "id": "P2-G5",
+          "area": "grammar",
+          "description": "Vergleichen mit als und wie: schöner als … – genauso schön wie …",
+          "sourceObjectiveSHA256": "e43979574c056efa3fb2396f3bfb11a93c1a1467217f3d418c9f908c3454efba",
+          "descriptionSHA256": "0f028c4e9a02eb07dd9c40443bc17478d756586d853b8eda03bc136a36de44a5",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "schöner als und genauso schön wie unterscheiden Ungleichheit und Gleichheit korrekt."
+        },
+        {
+          "id": "P2-G6",
+          "area": "grammar",
+          "description": "Wortbildung: Nomen + -los = Adjektiv: die Arbeit → arbeitslos (ohne Arbeit).",
+          "sourceObjectiveSHA256": "93287283fcf4879082a98546570614f969de22847cb1896b127cae41fc9317f7",
+          "descriptionSHA256": "a540a485710dee80ab2498c82e7eb683b7debb82fafcd88a5ebe756244b7b86e",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "die Arbeit zu arbeitslos erklärt die Wortbildung mit -los anhand eines passenden Beispiels."
+        },
+        {
+          "id": "P2-K1",
+          "area": "communication",
+          "description": "Skeptisch reagieren: Tja, ich weiß nicht. Hm, findest du? Na ja, geht so. Bist du sicher?",
+          "sourceObjectiveSHA256": "6bb684151199669733df376785a9ca66be88e0f34a3eac8e4d291c0bfa4ece00",
+          "descriptionSHA256": "4c97891a53929f852a2a9cb57dbeed49731fc57cd7e7b6b2ba7cdcca8227afda",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Tja ich weiß nicht, Hm findest du, Na ja geht so und Bist du sicher sind idiomatische skeptische Reaktionen."
+        },
+        {
+          "id": "P2-K2",
+          "area": "communication",
+          "description": "Vorlieben und Konsumverhalten ausdrücken: Am meisten gebe ich für … aus. Ich kaufe am liebsten … Da spare ich.",
+          "sourceObjectiveSHA256": "0238c25d2ad07fb7b4edbbece9666ea0cb24f38af16b35495db66f4654c704ae",
+          "descriptionSHA256": "e5dc7160710778612b1d900fa4a6ff80331cd723733c6ed1de9e23919184b75a",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Am meisten gebe ich für aus, Ich kaufe am liebsten und Da spare ich sind passende Konsum- und Vorliebenmuster."
+        },
+        {
+          "id": "P2-K3",
+          "area": "communication",
+          "description": "Wichtigkeit ausdrücken: Mir ist … wichtig. Wie wichtig ist dir …? Das ist mir überhaupt nicht wichtig.",
+          "sourceObjectiveSHA256": "ab3939324d60f1d611508dcdee947ae53d172011da1e709a86d8908c36bffdd8",
+          "descriptionSHA256": "a62e478fb0de504b8975567d1dd39150e397e3a386f5fe914c4a0319538f955f",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Mir ist wichtig, Wie wichtig ist dir und überhaupt nicht wichtig bilden positive, fragende und negative Wichtigkeit korrekt ab."
+        },
+        {
+          "id": "P2-K4",
+          "area": "communication",
+          "description": "Von einem Gegenstand erzählen: Diese Kette habe ich von meinem Opa bekommen. Sie ist mir besonders wichtig, weil …",
+          "sourceObjectiveSHA256": "9ab82217679a2c5f684b79412f5a66230f0359a1bc4c38b6c2c5e41f9fe2691e",
+          "descriptionSHA256": "bd9f1a01432ec1730ee66a2f2b4a46b4510f670a5d6b0ebd588b1e8bc1c2eff5",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "von meinem Opa ist ein korrekter männlicher Dativ; nachfolgendes Sie bezieht sich auf die Kette und bleibt grammatisch feminin richtig."
+        },
+        {
+          "id": "P2-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Kleinanzeigen verstehen.",
+          "sourceObjectiveSHA256": "d879bfc4fb8f0b6422a39e0403a3ea449367c98fe25a50b16d1cdcdd0cb14f43",
+          "descriptionSHA256": "7a80e601120b7da035aa0276b880b16199b077a59659c355d8178c4b85c4aab4",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Kleinanzeigen verstehen ist ein zum Gegenstands- und Konsumthema passendes rezeptives Ziel."
+        },
+        {
+          "id": "P2-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Gegenstände und Materialien.",
+          "sourceObjectiveSHA256": "2f4db9d9a28cd06bfeed9f51e7169a99e0778ac2dcbd0745b89f888200dcb285",
+          "descriptionSHA256": "0f120c0264f5f3a46526349a24459b8ea0142122484c96a5e830a6655daa6673",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Gegenstände und Materialien bilden das Wortschatzfeld des Pfads passend ab."
+        }
+      ]
+    }
+  ],
+  "standaloneObjectiveSets": [
+    "A2.2/P1",
+    "A2.2/P2"
+  ],
+  "findings": [],
+  "proposals": [],
+  "preservedNecessaryLanguageContrasts": [
+    "Die Possessiv-Paradigmen sie (Singular/Plural), ihr/Ihre und höfliche Ihr/Ihren/Sie sind sprachlich notwendig. Satzinitiale Großschreibung ist kein weiblicher Charakter.",
+    "Mutter/Vater in der allgemeinen Definition alleinerziehend ist ein begrifflicher Kontrast; keine benannte handelnde weibliche Lernfigur.",
+    "Tante neben Bruder/Eltern ist ein fachlich nötiges feminines Dativbeispiel.",
+    "Die Familie ist ein feminines Substantiv und handelt ohne weibliche Einzelperson; Tom und Emil begründen die Pluralantwort Ihre.",
+    "Sie in der Ketten-Erzählung verweist auf den Gegenstand Kette; Opa ist männlicher Schenker."
+  ],
+  "limitations": [
+    "Statische redaktionelle und sprachliche Quellprüfung; keine Runtime-, UI-, Build- oder Testprüfung und keine Aussage zum Rendering oder zur tatsächlichen Sprachumschaltung.",
+    "Die 42 angekündigten historischen Korrekturen wurden nicht als Diff gezählt; die vollständigen aktuellen Objekte wurden unabhängig gelesen und beurteilt.",
+    "Keine Audio-, Alignment-, Datenbank-, Import-, Veröffentlichungs- oder Produktionsfreigabe. Keine Aussage zu tatsächlichen deutschen Aufnahmen."
+  ],
+  "sourceEditsApplied": false,
+  "publicationApproved": false,
+  "audioApproved": false,
+  "runtimeVerified": false,
+  "newAgentsCreated": 0,
+  "activeJobs": [],
+  "finalStatus": "WAIT"
+}
