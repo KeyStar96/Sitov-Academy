@@ -24,15 +24,16 @@ const sitovProgress = (cardId: string, direction: string, box = 7): SitovProgres
 })
 
 function sitovSetup({ cards = [], progress = [], path = sitovPath, signedIn = true,
-  failTable, failOffset = 0, rpcError }: {
+  failTable, failOffset = 0, rpcError, counts }: {
   cards?: SitovCard[]; progress?: SitovProgress[]; path?: unknown; signedIn?: boolean;
-  failTable?: string; failOffset?: number; rpcError?: unknown;
+  failTable?: string; failOffset?: number; rpcError?: unknown; counts?: unknown;
 } = {}) {
   const ranges: { table: string; from: number; to: number; ordered: boolean }[] = []
   const tables: string[] = []
-  const rpc = jest.fn(async (_name: string, args: { p_level: string }) => ({
-    data: args.p_level === 'A1.1' ? path : { error: 'path_locked' }, error: rpcError ?? null,
-  }))
+  // Ohne `counts` fehlt die Zählfunktion (vor Migration 122): Die Seite liest dann seitenweise.
+  const rpc = jest.fn(async (name: string, args?: { p_level: string }) => name === 'get_sitov_vocabulary_level_counts'
+    ? counts === undefined ? { data: null, error: { code: 'PGRST202' } } : { data: counts, error: null }
+    : { data: args?.p_level === 'A1.1' ? path : { error: 'path_locked' }, error: rpcError ?? null })
   const from = (table: string) => {
     tables.push(table)
     let rows = table === 'learning_vocabulary_cards' ? [...cards] : [...progress]
@@ -105,6 +106,17 @@ it.each(['learning_vocabulary_cards', 'vocabulary_direction_progress'])('throws 
   const cards = Array.from({ length: 600 }, (_, index) => sitovCard(sitovId(index + 1)))
   sitovSetup({ cards, progress: cards.map(card => sitovProgress(card.id, 'de_to_native')), failTable: table, failOffset: 500 })
   await expect(getAllLevelsProgress()).rejects.toThrow('XX001')
+})
+
+it('takes the per-level counts from the database in one call and reads no catalogue pages', async () => {
+  const { tables } = sitovSetup({ counts: { 'A1.1': { total: 2, learned: 1 }, 'A1.2': { total: 4, learned: 0 } }, cards: [sitovCard('ignored')] })
+  expect(await getAllLevelsProgress()).toEqual({ 'A1.1': 33, 'A1.2': 0 }) // (1 core node + 1 card) / (4 nodes + 2 cards)
+  expect(tables).toEqual([])
+})
+
+it('throws on an invalid or failed count instead of reporting incomplete progress', async () => {
+  sitovSetup({ counts: { 'A1.1': { total: -1, learned: 0 } } })
+  await expect(getAllLevelsProgress()).rejects.toThrow()
 })
 
 it('throws on unavailable learning-path statistics and skips all reads while signed out', async () => {

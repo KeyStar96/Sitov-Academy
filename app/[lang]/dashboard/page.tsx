@@ -3,7 +3,7 @@ import { getUnseenFeedbackSummary } from '@/app/actions/feedback'
 import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
 import type { PronunciationTranslations } from '@/lib/pronunciation-i18n'
-import { createClient } from '@/utils/supabase/server'
+import { requestSession } from '@/lib/request-session'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { ACCESS_LEVELS, hasLevelAccess, hasTrainerAccess, sitovLevelCopyKeys, sitovLevelRange } from '@/lib/access/levels'
 import { loadProfileMonthlyState } from '@/lib/profile-dashboard-server'
@@ -40,16 +40,17 @@ export default async function DashboardPage({ params, searchParams }: {
 }) {
   const { lang } = await params
   const confirmed = parseAuthStatus((await searchParams)?.status) === 'confirm_success'
-  const supabase = await createClient()
-  const [{ data: { user } }, progressMap, unseenFeedback, dict, lastActive, news] = await Promise.all([
-    supabase.auth.getUser(), getAllLevelsProgress(), getUnseenFeedbackSummary(), getDictionary(lang), loadLastActiveLevel(), loadLearningNewCounts(),
+  // Sitzung, Zugriffsprofil und letztes Niveau teilt sich die Seite mit dem Layout.
+  const { supabase, user } = await requestSession()
+  // Der Fortschritt je Niveau ist die langsamste Abfrage und wird erst für die
+  // Niveau-Karten gebraucht: Er läuft mit, hält die nächsten Abfragen aber nicht auf.
+  const levelProgress = getAllLevelsProgress()
+  levelProgress.catch(() => {})
+  const [unseenFeedback, dict, lastActive, news, accessProfile, profileRow] = await Promise.all([
+    getUnseenFeedbackSummary(), getDictionary(lang), loadLastActiveLevel(), loadLearningNewCounts(),
+    user ? loadLevelAccessProfile(supabase, user.id) : null,
+    user ? supabase.from('profiles').select('person:people(display_name)').eq('id', user.id).single() : null,
   ])
-  const [accessProfile, profileRow] = user
-    ? await Promise.all([
-        loadLevelAccessProfile(supabase, user.id),
-        supabase.from('profiles').select('person:people(display_name)').eq('id', user.id).single(),
-      ])
-    : [null, null]
 
   const t = createDashboardTranslator(dict.dashboard as DashboardTranslations)
   const auth = createAuthTranslator(authTranslations(dict))
@@ -65,19 +66,22 @@ export default async function DashboardPage({ params, searchParams }: {
   const accessible = levels.filter(level => hasLevelAccess(accessProfile, level.id))
   // Das zuletzt gelernte Niveau entscheidet PostgreSQL (Migration 32). Nur wenn
   // die Abfrage scheitert, gilt der alte Rückfall: erstes angefangenes Niveau.
-  const recommended = accessible.find(level => level.id === lastActive?.level)
-    || accessible.find(level => (progressMap[level.id] || 0) > 0 && (progressMap[level.id] || 0) < 100) || accessible.find(level => (progressMap[level.id] || 0) < 100) || accessible[0]
+  const lastLevel = accessible.find(level => level.id === lastActive?.level)
+  const startedProgress = lastLevel ? null : await levelProgress
+  const recommended = lastLevel
+    || accessible.find(level => (startedProgress?.[level.id] || 0) > 0 && (startedProgress?.[level.id] || 0) < 100) || accessible.find(level => (startedProgress?.[level.id] || 0) < 100) || accessible[0]
 
   // Kalender, Buchung, Lernstand und Lerntage sind unabhängige Zusätze: Ein
   // Ladefehler darf die Startseite nie mitreißen (wie auf der Profilseite).
-  const [monthly, calendar, status, week, progress, dailyQuest] = user ? await Promise.all([
+  const [progressMap, monthly, calendar, status, week, progress, dailyQuest] = user ? await Promise.all([
+    levelProgress,
     loadProfileMonthlyState(supabase, user).catch(() => { console.error('[dashboard] Course plan could not be loaded'); return null }),
     loadProfileCourseCalendar(supabase, user).catch(() => { console.error('[dashboard] Course calendar could not be loaded'); return null }),
     recommended ? loadLevelLearningStatus({ supabase, userId: user.id, profile: accessProfile, level: recommended.id, lang }) : Promise.resolve(null),
     loadWeekActivity(supabase, user.id),
     getMyLearningProgress({ level: null, days: 7 }).then(result => result.success ? result.data : null).catch(() => null),
     accessProfile?.role === 'student' ? loadDailyQuestStatus().then(result => result.data ?? null).catch(() => null) : Promise.resolve(null),
-  ]) : [null, null, null, null, null, null]
+  ]) : [await levelProgress, null, null, null, null, null, null]
 
   const levelBase = recommended ? levelHref(lang, recommended.id) : null
   // Problemwörter gehören zum Vokabeltrainer des empfohlenen Niveaus (nicht mit Deutsch als Oberfläche).

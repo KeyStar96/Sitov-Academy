@@ -676,8 +676,10 @@ const bucketKeySchema = z.union([z.literal('learned'), z.number().int().min(1).m
  * reduziert sie auf den Wort-Lernstand. Gemeinsame Grundlage der
  * Fächer-Übersicht und des Inspektors, damit beide nie auseinanderlaufen.
  */
+type WordBoxCard = Pick<ReturnType<typeof mapVocabularyCard>, 'id' | 'unit_id' | 'level' | 'lesson' | 'is_own' | 'word_de' | 'article'>
+
 interface WordBoxEntry {
-  card: ReturnType<typeof mapVocabularyCard>
+  card: WordBoxCard
   /** `null`, solange nicht beide Richtungen angelegt sind — dann in keinem Fach. */
   state: WordBoxState | null
   /** Leer, wenn der Aufrufer keine Sprache braucht (reines Zählen). */
@@ -719,13 +721,40 @@ async function readCarryoverEntries(learner: Learner, carryover: CarryoverState,
   })
 }
 
+type WordBoxRow = { card: WordBoxCard; full: ReturnType<typeof mapVocabularyCard> | null }
+
+/** Vollständige Karten: nur der Inspektor braucht Übersetzungen. */
+async function readWordBoxCards(learner: Learner, level: string | undefined): Promise<WordBoxRow[]> {
+  let query = vocabularyQuery(learner.supabase).order('id')
+  if (level) query = query.eq('unit.level', level)
+  return (await readAllRows((from, to) => query.range(from, to))).map(row => {
+    const card = mapVocabularyCard(row)
+    return { card, full: card }
+  })
+}
+
+/**
+ * Zähler für Home, Niveau-Seite und Modus-Dock: Wort, Lektion und Besitz
+ * genügen. Der volle Katalog samt aller Übersetzungen kostete bei jedem
+ * Seitenwechsel mehrere Megabyte und einen Verbund je Karte.
+ */
+async function readWordBoxCounts(learner: Learner, level: string | undefined): Promise<WordBoxRow[]> {
+  let query = learner.supabase.from('learning_vocabulary_cards')
+    .select('id,word_de,article,unit:learning_units!inner(id,level,label,owner_auth_user_id)').order('id')
+  if (level) query = query.eq('unit.level', level)
+  return (await readAllRows((from, to) => query.range(from, to))).map(row => ({
+    card: { id: row.id, unit_id: row.unit.id, level: row.unit.level, lesson: row.unit.label,
+      is_own: row.unit.owner_auth_user_id != null, word_de: row.word_de, article: row.article },
+    full: null,
+  }))
+}
+
 async function readWordBox(level: string | undefined, language: z.infer<typeof languageSchema> | null): Promise<WordBoxData | null> {
   const learner = await loadLearner()
   if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return null
-  let query = vocabularyQuery(learner.supabase).order('id')
-  if (level) query = query.eq('unit.level', level)
   const [cards, progress, paused, carryover] = await Promise.all([
-    readAllRows((from, to) => query.range(from, to)), readVocabularyProgress(learner.supabase, learner.user.id), readPausedUnits(learner),
+    language ? readWordBoxCards(learner, level) : readWordBoxCounts(learner, level),
+    readVocabularyProgress(learner.supabase, learner.user.id), readPausedUnits(learner),
     level ? readCarryoverState(learner.supabase, level) : { success: true as const, targetLevel: '', enabled: false,
       decidedAt: null, startedAt: null, promptRequired: false, cards: [] },
   ])
@@ -736,13 +765,13 @@ async function readWordBox(level: string | undefined, language: z.infer<typeof l
     else byCard.set(row.card_id, [row])
   }
   const now = Date.now()
-  const own = cards.map(row => mapVocabularyCard(row)).filter(card => {
+  const own = cards.filter(({ card }) => {
     if (!card.id || !card.lesson || !card.level || !hasTrainerAccess(learner.profile, card.level, 'vocabulary')) return false
     return sitovVocabularyCardAllowed(learner, card)
-  }).map(card => ({
+  }).map(({ card, full }) => ({
     card,
     state: computeWordBoxState(byCard.get(card.id) ?? [], now),
-    translation: language ? resolveCardInterfaceTranslation(card, language, learner.profile.native_language)?.text ?? '' : '',
+    translation: language && full ? resolveCardInterfaceTranslation(full, language, learner.profile.native_language)?.text ?? '' : '',
     paused: paused.has(card.unit_id),
   }))
   return { own, carryover, carried: await readCarryoverEntries(learner, carryover, language) }

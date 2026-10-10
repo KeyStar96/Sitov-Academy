@@ -18,8 +18,20 @@ import {
  * damit die Kernlogik auch im Client nutzbar bleibt.
  */
 
+// Pro Anfrage ein Ladevorgang je Person: Layout, Seite und Server-Aktionen erzeugen
+// eigene Clients derselben Sitzung und würden das Profil sonst mehrfach lesen.
+const requestAccessProfile = cache((userId: string): { userId: string; pending?: Promise<LevelAccessProfile | null> } => ({ userId }))
+
 /** Lädt die für die Zugriffsentscheidung nötigen Profilfelder. */
-export const loadLevelAccessProfile = cache(async function loadLevelAccessProfile(
+export function loadLevelAccessProfile(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  userId: string
+): Promise<LevelAccessProfile | null> {
+  const slot = requestAccessProfile(userId)
+  return slot.pending ??= readLevelAccessProfile(supabase, userId)
+}
+
+async function readLevelAccessProfile(
   supabase: Awaited<ReturnType<typeof createClient>>,
   userId: string
 ): Promise<LevelAccessProfile | null> {
@@ -45,7 +57,7 @@ export const loadLevelAccessProfile = cache(async function loadLevelAccessProfil
     console.error("Unerwarteter Fehler beim Laden des Zugriffsprofils:")
     return null
   }
-})
+}
 
 /** Commercial predicate only; pronunciation callers must also enforce S3's current text pass. */
 export async function currentUserHasContentAccess(ref: SitovContentRef): Promise<boolean> {
