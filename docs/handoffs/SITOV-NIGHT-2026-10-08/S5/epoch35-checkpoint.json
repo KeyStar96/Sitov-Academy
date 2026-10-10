@@ -1,0 +1,64 @@
+{
+  "attempts": 1,
+  "statuses": [
+    "passed"
+  ],
+  "passes": 1,
+  "exactAttemptAndPassHashesUnchanged": true,
+  "ownFixtureRetained": true,
+  "checkpointAfterNormalLogoutRequested": true,
+  "ownUILanguage": "en",
+  "observations": [
+    {
+      "at": "2026-10-10T05:07:06.487042+00:00",
+      "memAvailableMiB": 2329.24609375,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 169529344,
+      "gatewayPeakBytes": 175534080,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-10T03:34:50.216594244Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T17:16:29.252379601Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T17:15:58.569281779Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T17:15:58.18032093Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T17:16:28.902042175Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ]
+}

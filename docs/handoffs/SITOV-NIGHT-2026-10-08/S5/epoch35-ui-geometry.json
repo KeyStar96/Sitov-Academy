@@ -1,0 +1,95 @@
+[
+  {
+    "case": "EN390darkTab900ms",
+    "data": {
+      "active": "Repeat slowly",
+      "activeRect": {
+        "bottom": 494.0546875,
+        "height": 48,
+        "width": 139,
+        "x": 50.796875,
+        "y": 446.0546875
+      },
+      "contrast": "standard",
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1028.25,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 956.25
+      },
+      "reduced": false,
+      "scrollTop": 2377.5,
+      "scrollWidth": 390,
+      "theme": "dark",
+      "width": 390,
+      "wordOverlaps": [],
+      "wordsBottom": 234.6953125
+    }
+  },
+  {
+    "case": "EN390darkPageUp900ms",
+    "data": {
+      "active": "Repeat slowly",
+      "activeRect": {
+        "bottom": 1222.0546875,
+        "height": 48,
+        "width": 139,
+        "x": 50.796875,
+        "y": 1174.0546875
+      },
+      "contrast": "standard",
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1756.25,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 1684.25
+      },
+      "reduced": false,
+      "scrollTop": 1649.5,
+      "scrollWidth": 390,
+      "theme": "dark",
+      "width": 390,
+      "wordOverlaps": [],
+      "wordsBottom": 962.6953125
+    }
+  },
+  {
+    "case": "EN390darkInlineEnd900ms",
+    "data": {
+      "active": "Help",
+      "activeRect": {
+        "bottom": 538.75,
+        "height": 48,
+        "width": 356,
+        "x": 17,
+        "y": 490.75
+      },
+      "contrast": "standard",
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 368.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 296.75
+      },
+      "reduced": false,
+      "scrollTop": 3037,
+      "scrollWidth": 390,
+      "theme": "dark",
+      "width": 390,
+      "wordOverlaps": [],
+      "wordsBottom": -424.8046875
+    }
+  }
+]
