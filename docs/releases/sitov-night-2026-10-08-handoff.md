@@ -1,3 +1,13 @@
+## Bestätigter Zwischenstand 10.10.2026, 09:30 MESZ
+
+Weiterhin OPEN / NOT_RELEASE_READY. Aktuelle Inhaltsquelle `6c26022d91d9d00bf1b112f9efb11e481d9e361c`: letzte Konjunktiv-Mehrdeutigkeit mit exakt sechs Skalaren repariert, elf integrierte Tests und frische vollständige unabhängige Neuprüfung bestanden. Aktuell 538 Aufgaben / 59 Eltern / tatsächlich zehn geänderte Lernziele; vollständige Freigabezusammenführung läuft.
+
+**Alle sieben Pflicht-Hörprüfungen sind jetzt tatsächlich bestanden.** Der Nutzer bestätigte die native wollte-Alternative; die zu schnelle Datei bleibt ausgeschlossen. Neues lokales unveränderliches Audiobündel mit tatsächlich 5.245 importervalidierten Dateien und Wortzeitmarken erstellt, 93 andere Diagnosefälle weiterhin HOLD. Keine pauschale Hörfreigabe und noch kein neuer Import. Beide tatsächlichen Audioadapter bestätigen unveränderte aktuelle Pfadtexte nach der letzten Anweisungsreparatur.
+
+Der echte native Konkurrenzfall eines ganzen Eltern-/Übersetzungskontexts ist bestanden: Gewinner erhalten, veralteter CAS mit SQLSTATE 40001 abgewiesen, null Archive/Receipts; M hat Originalbelege unabhängig geprüft. Geschützte185/QA188 unverändert, eigener Scratch entfernt. Nativer vollständiger Gesamtbatch und übrige Release-Gates bleiben offen. Budget tatsächlich 60 % verbraucht /40 % verfügbar, null weitere Resets. Produktion unverändert, Payment aus.
+
+[Bestätigte Einzelheiten und verbleibende Pflichtarbeit](../handoffs/SITOV-NIGHT-2026-10-08/M/current6c26022-seven-human-pass-checkpoint.md). Die folgenden Abschnitte sind historische Stände.
+
 ## Bestätigter Zwischenstand 10.10.2026, 08:18 MESZ
 
 Weiterhin OPEN und NOT_RELEASE_READY. Aktuelle Inhaltsquelle`af644f8dd574a03af7394e99da9d474b8d7912e7`: exakt72 zusätzliche editorielle Skalare integriert undunabhängig nachgerechnet,107 bestehende Tests/neun native Paritäten/9569 Schema-Prüfungen bestanden. Vollinventar538 Aufgaben/59 Eltern/sieben Zieländerungen.270 der291 ergänzenden ganzen Kontexte gelesen;letzte21 laufen,41 exakte Korrekturen aus Blöcken05–09 vorbereitet. Gesamtfreigabe undfrische Neuprüfung offener Befunde fehlen.
