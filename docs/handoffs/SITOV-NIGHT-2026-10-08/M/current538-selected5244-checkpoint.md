@@ -1,0 +1,9 @@
+# Sitov Academy – bestätigter Quellen- und Audiozwischenstand
+
+Alle 9.569 Aufgaben, 856 Eltern und 66 Einheiten wurden gegen den Bestand abgeglichen: 538 Aufgabenänderungen, 58 Elternänderungen, keine Einheitenänderung und keine unbelegte Identitäts-, Typ-, Reihenfolgen- oder Lernzielzuordnungsänderung. Die jüngsten 60 Skalarkorrekturen wurden unabhängig in 18 ganzen Aufgaben, zehn Eltern und allen 49 zugehörigen Pfadzielen akzeptiert. Diese begrenzte Endabnahme ersetzt keine Gesamtfreigabe aller 538 Aufgaben.
+
+Das neue unveränderliche lokale Audio-Draft enthält 5.244 eindeutige Aufnahmen. Beide tatsächlichen Importer-Validierungen und sämtliche finalen Metadaten-Rücklesevergleiche bestanden. 621 der 704 aktuellen Pfadtexte sind technisch ausgewählt, 83 gehalten; zusätzlich bleiben elf Vortesttexte gehalten. 287 Original-MP3s bleiben bytegleich. Sieben neu in die Prüfliste aufgenommene unveränderte Texte wurden frisch aus dem Produktionsbestand gelesen und tatsächlich dekodiert; alle sieben mit positiven lexikalischen Wortmarken innerhalb der Audiodauer. Keine Neusynthese oder Produktionsschreibung für diese sieben.
+
+Die echte EN390-Abnahme bestätigt die Aufnahme-Karte unter Text und Referenzaudio: kein Wortüberdecken nach stationärem PageUp. Derselbe eigene Schüler mit seinem unveränderten nativen PASS wurde verwendet. Weitere Viewports, UK/TR und authentisches Reduced Motion bleiben offen.
+
+58 vollständige Original-Elternfassungen und fünf vollständige Original-Lernzielzeilen sind als exakt gebundener Offline-CAS vorbereitet; unbekannte Felder bleiben erhalten. Der Vorbereiter erzeugte ausschließlich ROLLBACK-SQL, ohne Datenbankausführung. Vollständige Inhaltsabdeckung, Hörfreigaben, native Batch-/Race-Prüfungen, alle kommerziellen Bestandsrechte, Backup und Deployment-Abnahme bleiben Pflicht. Kein Release-ready-Urteil, Import oder Deployment.

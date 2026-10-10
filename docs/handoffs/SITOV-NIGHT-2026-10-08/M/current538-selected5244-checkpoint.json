@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-10T05:17:32.644238+00:00",
+  "scope": "Offline immutable technical draft; no upload, hearing claim or publication.",
+  "sources": [
+    {
+      "name": "M-current60-audio-selection-draft-v6-private.json",
+      "sha256": "19292ecfc538cd84fe9ee1a5b77f2751855377745eef5433141e6ae09727bc6b"
+    },
+    {
+      "name": "M-current538-audio-selection-draft-v1-private.json",
+      "sha256": "91332b5ed222712100ac9b749b40bb11e428820a1af3e6d991a072a55e0de62d"
+    }
+  ],
+  "actualDecodeProofSha256": "e0e7a54cb10c643e59829840b445894fa95dbbde19c4f14f0a0f4e9333c6b6cb",
+  "manifestSha256": "2292f807f5e77863dc3ab796a704300516481507ede948401a3dd8ddb2ae901f",
+  "selected": 5244,
+  "held": 94,
+  "derivedTimingsProjected": 167,
+  "sourceMetadataRekeyed": 4263,
+  "finalMetadataReadbackVerified": 5244,
+  "actualImporterValidated": 5244,
+  "humanListening": false,
+  "publicationApproved": false,
+  "group": "SITOV-NIGHT-2026-10-08",
+  "actualContentCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3",
+  "inventorySHA256": "afa41167fbb88383daa3a894757dc17cb20e49964de9f89db5f540a141737251",
+  "changedTasks": 538,
+  "changedParents": 58,
+  "allPathAliases": 760,
+  "allUniquePathTexts": 704,
+  "pathSelected": 621,
+  "pathHeld": 83,
+  "pretestHeld": 11,
+  "preservedOriginalPathMP3": 287,
+  "parent58Objective5PayloadSHA256": "77962f671d5b2da534858deb3e40aa073d056435fc6dc88646ba94ec396b7173",
+  "independentFinal18ReviewSHA256": "d68bab3cc0e974ff4f37718abd0912ea33f19bc5b0ea816e76fd75437975d32f",
+  "fresh7ReadbackSHA256": "b60f1e5e76163a4133db317375dec70128ae1cfedc878a26877fceae73986058",
+  "qaStationaryEN390": "PASS actual same native student and stored PASS; inline card no word overlap after nativePageUp+900ms",
+  "qaBuildSource": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+  "qaBuildID": "y6jNTwXmEGFKxEVq8szt1",
+  "qaRemaining": [
+    "320",
+    "1440",
+    "UK",
+    "TR",
+    "additional themes/contrast",
+    "authentic reduced motion",
+    "recording activation"
+  ],
+  "productionWrite": false,
+  "productionDeployment": false,
+  "releaseReady": false
+}

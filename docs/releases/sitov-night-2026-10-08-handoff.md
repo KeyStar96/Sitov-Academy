@@ -1,6 +1,21 @@
 # Sitov Academy – Nachtlauf-Übergabe 2026-10-08
 
-## Aktueller bestätigter Stand 10.10.2026, 06:26 MESZ
+## Aktueller bestätigter Stand 10.10.2026, 07:18 MESZ
+
+**OPEN / AUTO_DEPLOY nach sämtlichen Pflichtprüfungen / NOT_RELEASE_READY.** Aktuelle Inhaltsquelle `7d9a403388efa7ae0f67c93164adfd0bdcff05b3`, bestätigte neue Review-/Browserbelege integriert bis `272d8e27c66c805b7b322aa96db3ccb9d1614aef`. Wochenbudget frisch 51 % verbraucht, 49 % verfügbar, null weitere Reset-Guthaben. Produktion bleibt `966a380f7a6118654f19750a9d62200795feb8c2`; kein produktiver Import, Push oder Deployment. Payment bleibt aus.
+
+Vollständiger Quellenvergleich: 538 geänderte Aufgaben / 58 Eltern / keine Einheiten bei 9.569 Aufgaben, 856 Eltern und 66 Einheiten insgesamt; keine Identitäts-/Typ-/Reihenfolgen-/Lernzielzuordnungsdrift. S2epoch45/46 reparierten genau 60 Skalare: 57 Aufgabenfelder in 17 Aufgaben und drei Elternbeispiele. Jeweils 107 bestehende Tests, neun native Paritäten und alle Schema-Prüfungen bestanden. Beide Audioadapter aller 9.569 Aufgaben sowie sämtliche zehn vollständigen Audiokataloge blieben dabei exakt. S4epoch48 las anschließend alle 18 relevanten ganzen Aufgaben, zehn Eltern und sämtliche 49 zugehörigen Ziele frisch in fünf Sprachen: einzeln ACCEPT. M prüfte die tatsächlichen Quelldaten, Eingabe- und Originalbeleg-Hashes unabhängig. Die vollständige per-ID-Abdeckung aller 538 Aufgaben wird gerade neu abgeglichen; keine pauschale Gesamtfreigabe.
+
+Audio: neuer unveränderlicher **5.244er technischer Entwurf**, 5.244/5.244 tatsächliche Importer-Validierungen und finale Metadaten-Rückleseprüfungen. Aktueller Pfadbestand: 760 Aliasse / 704 eindeutige Texte, davon 621 technisch ausgewählt und 83 gehalten; zusätzlich elf gehaltene Vortesttexte. 287 ursprüngliche Pfad-MP3s bleiben bytegleich. Sieben neu erfasste unveränderte Texte wurden frisch per GET aus dem Bestand gelesen und tatsächlich dekodiert: alle sieben mit gültigen Wortzeitgrenzen. Die formelle Anrede mit notwendigem Frau/geehrte-Kontrast und bewusstem Namensplatzhalter wurde lokal mit Qwen erzeugt; M prüfte originale Aligner-Arrays, Klassenpfade, Wahrscheinlichkeiten, exakte Wortabdeckung und Audiodauer unabhängig. Das ist keine menschliche Hörfreigabe. Sieben Reparaturvarianten und repräsentative/auffällige Hörproben bleiben Pflicht. Keine künstlichen Zeitintervalle, keine weiteren identischen Wiederholungen zur vermeintlichen Qualitätsverbesserung.
+
+Der reale EN390/dunkel/Standard-Fall besteht mit dem neuen QA-Build `eed9cc8f` / `y6jNTwXmEGFKxEVq8szt1`: Aufnahme-Karte liegt nach Text und Referenzaudio, kein Wortüberdecken nach nativem PageUp und 900 ms Ruhe; sichtbarer Tastaturfokus. Derselbe Schüler und sein echter gespeicherter PASS bleiben unverändert. 320/1440, UK/TR, zusätzliche Theme-/Kontrastfälle, authentisches Reduced Motion und Mikrofonaktivierung sind noch offen. Letzter voller Regressionstest: 4.278 PASS / null Fehler / zwei optionale Skips auf der früheren Inhaltsquelle `db9bd0cc`; neue UI-Reparatur zusätzlich mit sechs relevanten Tests, TypeScript und ESLint bestätigt. Keine vollständige neue Browser- oder Regressionsevidenz daraus abgeleitet.
+
+Offline-CAS für alle 58 vollständigen Original-Eltern und fünf Original-Lernziele vorbereitet und ausschließlich als ROLLBACK-SQL validiert, unbekannte Felder erhalten. Noch offen: übrige vollständige Inhaltskontexte, Audio-Hör-/Versionsbindung, vollständige native Batch-/Race-Proben, frischer Vergleich aller geschützten Bestandsdaten und aller 75 kommerziellen Kontorechte, Backup, prepare-only, Aktivierung der exakt geprüften Revision sowie Health/Readiness/authentifizierte Smokeprüfungen. Obsidian erhält bestätigte Meilensteine; heutige Umsetzung und Deployment bleiben bei M.
+
+Details: [aktueller Quellen-/Audio-Beleg](../handoffs/SITOV-NIGHT-2026-10-08/M/current538-selected5244-checkpoint.md). Ältere Abschnitte unten sind historische Nachweise.
+
+
+## Historischer bestätigter Stand 10.10.2026, 06:26 MESZ
 
 **OPEN / AUTO_DEPLOY nach Pflichtprüfungen / NOT_RELEASE_READY.** Aktuelle Inhaltsquelle `db9bd0cc589adbc92120ec9260417f223d377c75`; integrierte Audits bis `d26a30b0`. Wochenlimit zuletzt 47 % verbraucht, 53 % verfügbar, kein weiterer Reset. Produktion unverändert `966a380f7a6118654f19750a9d62200795feb8c2`; kein produktiver Import, Push oder Deployment.
 
