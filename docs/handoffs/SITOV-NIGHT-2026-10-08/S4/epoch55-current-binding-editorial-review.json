@@ -1,0 +1,1803 @@
+{
+  "epoch": 55,
+  "scope": "CURRENT_EXACT_WHOLE_CONTEXT_REAPPROVAL_AFTER_CHANGED_FULL_OBJECTIVE_SETS",
+  "school": "Sitov Academy",
+  "reviewer": "S4",
+  "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+  "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+  "createdAt": "2026-10-10T07:14:56.502937+00:00",
+  "verdict": "ACCEPT_ASSIGNED_WHOLE_CONTENT_AND_CURRENT_BINDINGS",
+  "input": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-after48-final-binding-review-block-04-private.json",
+    "bytes": 239440,
+    "byteSHA256": "c75cdf115aa07d5c2af969d283a85c11acda5db98e986fd6b9a2dac6d841d704",
+    "inventorySHA256": "08694f652cfb3d42ba045675b789551bda8c6c8f7160eb7137b796cfd2c598fb",
+    "sourceCommitAsSupplied": "381c2995723b16cc40974a29cc2a7f0872da1b90"
+  },
+  "hashConvention": "SHA256 of sorted compact JSON, ensure_ascii=False, UTF-8; file byte hashes separately identified",
+  "counts": {
+    "assignedTasks": 22,
+    "wholeFiveLocaleTasksRead": 22,
+    "TaskACCEPT": 22,
+    "TaskHOLD": 0,
+    "ParentACCEPT": 8,
+    "ParentHOLD": 0,
+    "containingParentsRead": 8,
+    "standaloneParentsRead": 0,
+    "allPathObjectiveSetsRead": 3,
+    "individualObjectivesRead": 35,
+    "individualObjectivesACCEPT": 35,
+    "individualObjectivesHOLD": 0
+  },
+  "sourceFileBindings": [
+    {
+      "file": "supabase/seeds/path-a2.2.json",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "bytes": 6040864,
+      "byteSHA256": "b3606e6e496e5a8063d95176cfaf9c838ab287e3abe507f38f6956be3db5ff63",
+      "technicalBaseBytesEqualActualContentSource": true
+    },
+    {
+      "file": "supabase/seeds/path-b1.1.json",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "bytes": 7093687,
+      "byteSHA256": "91eef07260950fe8901a20b9b783ad7b15586f6fd43e2e7037830fa54990444d",
+      "technicalBaseBytesEqualActualContentSource": true
+    }
+  ],
+  "rows": [
+    {
+      "index": 1,
+      "id": "ed73de2b-b43c-5aa2-a585-37658f5f2702",
+      "ref": "P2-N3-E02",
+      "contextKey": "A2.2/P2/P2-N3",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Kleid ist Neutrum; nach ein im Akkusativ ist rotes korrekt. Roten/roter sind falsch. Leon bleibt männlich; ein Kleid zu kaufen weist ihm kein anderes Geschlecht zu. Alle fünf Fassungen, Hinweise und Erklärungen stimmen.",
+      "parentReasonDe": "Alle fünf Titel beschreiben Adjektivendungen im Akkusativ. Alle fünf Regeln unterscheiden maskulin -en von Neutrum -es, feminin -e und Plural, inklusive meine braunen Möbel, korrekt. Pullover, Handy und Küche sind drei richtige Beispiele; er männlich, P2-G2 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "2f1a164f4edccb71c22c8ef389284e211b134654c76c85c9e14c3efa26cf17e4",
+      "wholeParentMinusChildrenSHA256": "63a0e799264009db3cb12ea9b3240ec9c848c9916c045122fed27822be8797f6",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "rotes"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 2,
+      "id": "8507cb89-e50b-5d37-ad09-7d6e437c29cc",
+      "ref": "P2-N3-E08",
+      "contextKey": "A2.2/P2/P2-N3",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Kette ist feminin; nach eine lautet die Endung -e, also lange. Langes/langen sind falsch. Milan ist männlich; Schmucktragen ist sachlich möglich. Alle fünf Fassungen und Akkusativhinweise stimmen.",
+      "parentReasonDe": "Alle fünf Titel beschreiben Adjektivendungen im Akkusativ. Alle fünf Regeln unterscheiden maskulin -en von Neutrum -es, feminin -e und Plural, inklusive meine braunen Möbel, korrekt. Pullover, Handy und Küche sind drei richtige Beispiele; er männlich, P2-G2 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "288fa9e5868e883d59798c4a7b0c35877053a35831e2d6fdd1c9adb8870b2afa",
+      "wholeParentMinusChildrenSHA256": "63a0e799264009db3cb12ea9b3240ec9c848c9916c045122fed27822be8797f6",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "lange"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 3,
+      "id": "e6cd7bdb-266e-5f8a-a4a1-cc0efdca6e85",
+      "ref": "P2-N9-E05",
+      "contextKey": "A2.2/P2/P2-N9",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Leon bewertet Rucksäcke besser als Taschen; Er findet Rucksäcke praktischer als Taschen ist die passende der drei Aussagen. Umkehrung/Gleichheit widersprechen der vorgegebenen Präferenz. Alle fünf Fassungen und Vergleichsregel stimmen.",
+      "parentReasonDe": "Fünf Titel und Regeln geben Geld ausgeben für + Akkusativ, sparen, bevorzugte Einkaufsorte sowie Komparativ/Superlativ korrekt wieder. Alle eingebetteten Sätze und drei Kartenbeispiele sind stimmig; unbestimmte Ich-Rolle bleibt offen. P2-K2 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "afd46dc82483c2df5a289101042a4bfc44c7174a99426d0523ff42b75c500193",
+      "wholeParentMinusChildrenSHA256": "15926f68c7b77d8cdbc1bbb35832091416b2e497cbd3ee652c72552ba8b9c792",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Er findet Rucksäcke praktischer als Taschen."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 4,
+      "id": "50234931-131f-5d43-abdd-12d5f11434b2",
+      "ref": "P2-N11-E05",
+      "contextKey": "A2.2/P2/P2-N11",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Schal ist Akkusativobjekt: Den, dazu korrektes Partizip geschenkt. Der und geschenken sind falsch. Milan/Onkel männlich; fünf Fassungen und die von-Dativ-/Demonstrativhinweise stimmen.",
+      "parentReasonDe": "Fünf Titel betreffen die Herkunft eines Gegenstands. Fünf Regeln erklären diesen/dieses/diese im Akkusativ, von + Dativ, Er/Es/Sie nach Gegenstandsgenus sowie weil/denn richtig. Oma ist ein unbestimmtes feminines Dativbeispiel neben Opa; keine individuell ausgearbeitete Lernfigur. Konkrete männliche Familienrollen bleiben korrekt. Alle drei Beispiele mit Onkel, Bild und Opa-Uhr sowie P2-K4 stimmen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "6c58a7e964a620b0496ba21c42b026c98c940534b1cf77edb2da699b43772e40",
+      "wholeParentMinusChildrenSHA256": "d331d98fd3b8dd638f1021e50411e072325c7957c3088314bc281bd4d40a4d37",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Den hat mir mein Onkel geschenkt."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 5,
+      "id": "e7661162-1cdc-5eba-a04c-e5410420ac9f",
+      "ref": "P2-N14-E12",
+      "contextKey": "A2.2/P2/P2-N14",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Mehr Geld als für andere Hobbys fragt ausdrücklich nach der höchsten Ausgabenmenge, also am meisten. Am besten/am liebsten bezeichnen nicht die vorgegebene Menge. Leon und alle fünf Aufgaben-/Regelfassungen sind konsistent.",
+      "parentReasonDe": "Alle fünf Testtitel, test_size 13 und sämtliche zwölf Zielverweise passen zur Warenwelt mit Adjektivdeklination, Vergleich, Konsum und Gegenständen. Keine eigene Karte, Regel oder Beispiele vorhanden; die zwei zugewiesenen Aufgaben passen zu P2-K2/K3.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "7960882c078196ed89c632a940105adacfd206ee9fb05ca42ed144429ecd6413",
+      "wholeParentMinusChildrenSHA256": "bd30bc4c60f52c04b4276d5f22d208bdd50f1e5fefff78756199901cbae24556",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "meisten"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 6,
+      "id": "5ad6ab57-3700-5af1-a3cb-46202ed8b83e",
+      "ref": "P2-N14-E29",
+      "contextKey": "A2.2/P2/P2-N14",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Wie wichtig ist Ihnen ein großer Garten verlangt die Grundform wichtig. Wichtigsten/wichtiger haben hier keine passende Konstruktion. Herr Albers männlich, höfliches Ihnen und alle fünf Fassungen samt Wichtigkeitsregel korrekt.",
+      "parentReasonDe": "Alle fünf Testtitel, test_size 13 und sämtliche zwölf Zielverweise passen zur Warenwelt mit Adjektivdeklination, Vergleich, Konsum und Gegenständen. Keine eigene Karte, Regel oder Beispiele vorhanden; die zwei zugewiesenen Aufgaben passen zu P2-K2/K3.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "cc49852664d417de20bf1c332e9379e2dd27ddadc749fad39f2db10fdf639529",
+      "wholeParentMinusChildrenSHA256": "bd30bc4c60f52c04b4276d5f22d208bdd50f1e5fefff78756199901cbae24556",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "wichtig"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 7,
+      "id": "d777df1a-c2ab-50e5-a6a9-11bd1f3dc9a7",
+      "ref": "P6-N2-E09",
+      "contextKey": "A2.2/P6/P6-N2",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Leon/er verlangt spart, während sparen/spare nicht zum Subjekt passen. Monatlich 200 Euro für den Autokauf zurücklegen entspricht sparen; alle fünf Fassungen und die vollständige Geldverbregel stimmen.",
+      "parentReasonDe": "Fünf Titel und Regeln unterscheiden abheben/einzahlen/überweisen, Konto eröffnen, bar/mit Karte zahlen, sparen/leihen/wechseln/verdienen/ausgeben und Karte sperren korrekt. Leihen wird sachgerecht als geben oder bekommen erläutert. Alle drei Beispiele und P6-W1 passen; keine Finanzberatung.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "ee8d6902a0cdb6019ce6ddf0a7342e202eabba8b084046f03c4e20a4c29ca5d3",
+      "wholeParentMinusChildrenSHA256": "92d0574bd6cbb2adaa39af930e63235dc8123f9aadbde05163b662b80a2423a4",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "spart"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 8,
+      "id": "33caadca-d684-50f1-a6ac-a21cffb316af",
+      "ref": "P6-N7-E01",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Milan ist dritte Person Singular: lässt mit Umlaut. Lasst/lasse sind falsch; Reparatur in der Werkstatt bezeichnet im Kontext den beauftragten Service. Alle fünf Fassungen und die lassen-Regel stimmen.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "ef5185630f1519e1036ff5fb5ee74c3f07e10459dc7ed882ae8878af4e9fb438",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "lässt"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 9,
+      "id": "c4932c5e-f298-5713-a260-9317a9e2524a",
+      "ref": "P6-N7-E02",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Wir verlangt lassen ohne Umlaut; lässt/lasst sind falsch. Fensterputzen durch andere ist in allen fünf Fassungen als beauftragte Handlung wiedergegeben.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "8be4aeb4016d44e01ea33b605b1ca5d1ef7ff0ae31cf863eab06ac17f8767d1b",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "lassen"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 10,
+      "id": "d4797710-55b0-52e7-a3cb-03963f54ad5d",
+      "ref": "P6-N7-E03",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Die du-Frage verlangt Lässt mit Umlaut und Großschreibung am Satzanfang. Lasst/Lasse passen nicht. Friseur und fünf Sprachfassungen beschreiben dieselbe Dienstleistung, du-Anrede bleibt erhalten.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "a248aad228048e7a5c069141bceb83dedf949fc782a99192755b969179036e6f",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Lässt"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 11,
+      "id": "4de3fdd5-ec6f-5660-a5cd-dbb3ae9764e7",
+      "ref": "P6-N7-E04",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Ich lasse mein Fahrrad reparieren bedeutet, dass eine andere Person es repariert. Selbstreparatur und unbeschädigtes Fahrrad sind keine passende Bedeutungsangabe. Die unbestimmte Person ist sachgerecht; fünf Fassungen korrekt.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "84e22c3f237a9c833c6ae87c6ebd0cdc3a6a4d9cebbc071ad53723ea4a928273",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Eine andere Person repariert mein Fahrrad."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 12,
+      "id": "3588dbb5-4e0d-53ca-a1cc-70dc8578ee10",
+      "ref": "P6-N7-E05",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Ihr verlangt Lasst ohne Umlaut; Lassen/Lässt passen nicht. Eure Pässe und die englisch ausdrücklich plurale Anrede stimmen mit den übrigen Fassungen und der Dienstleistungsbedeutung überein.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "2537f9795840e69c9f7107b38f806e4c4f897015b69fa2fd2a3803cfca6aa7e0",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Lasst"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 13,
+      "id": "806f1040-2a2f-53b7-a9a5-90fb15590aa9",
+      "ref": "P6-N7-E06",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Ich verlangt lasse. Lässt/lasst sind falsch. Bluse ist ein Gegenstand und legt das Geschlecht der unbestimmten Ich-Person nicht fest. Alle fünf Fassungen geben die beauftragte Reinigung korrekt wieder.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "7e9c1545e448933c8e655db5e6925a5b7f5dd15e87fd812e5146fb0249f13b69",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "lasse"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 14,
+      "id": "9eba3063-3a93-5256-a1da-daee5ee2cc1c",
+      "ref": "P6-N7-E07",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Herr Kaya ist dritte Person Singular, also lässt mit Umlaut. Lassen/lasst passen nicht. Kontoprüfung durch andere und männliche Herr/Bey/пан/господин-Fassungen sind konsistent.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "5a05fab450c1da8610444e420d5a78fdf8a78ad7d2690a0663839fd515913dd8",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "lässt"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 15,
+      "id": "c9404445-35ce-54d8-a386-ae95bea09436",
+      "ref": "P6-N7-E08",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Meine Eltern sind Plural, daher lassen. Lässt/lasst passen nicht. Eltern sind eine unbestimmte Verwandtschaftsgruppe; Dachreparatur durch Handwerker ist in allen fünf Fassungen korrekt.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "8a3911f71e79abbab9c531b4e333497d02bbff92fa3e4462966ae1ada72c3a7b",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "lassen"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 16,
+      "id": "ec755570-7a5a-5a6a-a454-29f86d496342",
+      "ref": "P6-N7-E09",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Ihr verlangt lasst ohne Umlaut. Lassen/lässt passen nicht. Sich die Pizza nach Hause bringen lassen und die rückversichernde oder-Frage werden in allen fünf Fassungen richtig wiedergegeben.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "e9c8206342b42ea8cc873d408186ba6b0cfeb8a48ce83693fb846093118e4f42",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "lasst"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 17,
+      "id": "6278283c-4bc6-5f65-a7ce-11507f0e35f1",
+      "ref": "P6-N7-E10",
+      "contextKey": "A2.2/P6/P6-N7",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Alle vier Teile ergeben Ich lasse mein Fahrrad reparieren. Mein Fahrrad lasse ich reparieren ist ebenfalls korrekt akzeptiert. Finite Position 2 und finaler Infinitiv stimmen in beiden Varianten; fünf Fassungen sind konsistent.",
+      "parentReasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "c5d195d87e5b11176a285d105020568ffe48572a6f094a050ef387a7dabca5fa",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Ich lasse mein Fahrrad reparieren.",
+        "Mein Fahrrad lasse ich reparieren."
+      ],
+      "acceptedAnswerCount": 2,
+      "correctOptionPositionZeroBased": null,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 18,
+      "id": "224830dd-ac52-52c4-a8cf-e41875c24ef6",
+      "ref": "P6-N13-E07",
+      "contextKey": "A2.2/P6/P6-N13",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Wir verlangt lassen; lasst/lässt passen nicht. Einmal jährliche Autoüberprüfung als Dienstleistung ist in allen fünf Fassungen richtig wiedergegeben; Testzuordnung P6-G3 stimmt.",
+      "parentReasonDe": "Alle fünf Testtitel, test_size 13 und alle elf Zielverweise passen zu indirekten Fragen, lassen und Bankkommunikation. Keine eigene Karte/Regel/Beispiele vorhanden. Die drei zugewiesenen lassen-Aufgaben passen zu P6-G3.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "92aa88951a662355bd20217ec9f95b46369466de115184944729e4a1c1330e84",
+      "wholeParentMinusChildrenSHA256": "de5cd02abae3f2c54a27c93f162f223a5bbc73672fd7966d0d887c1afd970e67",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "lassen"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 19,
+      "id": "a4165c58-5e63-5dc9-afb3-98536bf78588",
+      "ref": "P6-N13-E08",
+      "contextKey": "A2.2/P6/P6-N13",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Er verlangt lässt mit Umlaut; lassen/lasst sind falsch. Sich einen Anzug machen lassen bezeichnet die Maßanfertigung durch andere. Er bleibt männlich, fünf Fassungen stimmen.",
+      "parentReasonDe": "Alle fünf Testtitel, test_size 13 und alle elf Zielverweise passen zu indirekten Fragen, lassen und Bankkommunikation. Keine eigene Karte/Regel/Beispiele vorhanden. Die drei zugewiesenen lassen-Aufgaben passen zu P6-G3.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "4774fdd516ee9626d846ca160f2535085f69d856047c88fb60998593fbbde3f4",
+      "wholeParentMinusChildrenSHA256": "de5cd02abae3f2c54a27c93f162f223a5bbc73672fd7966d0d887c1afd970e67",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "lässt"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 20,
+      "id": "c1bfaae5-7dd5-59a4-ad46-05a7b27ef77d",
+      "ref": "P6-N13-E23",
+      "contextKey": "A2.2/P6/P6-N13",
+      "level": "A2.2",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Du verlangt Lässt am Frageanfang mit Großschreibung/Umlaut. Lassen/Lasst passen nicht. Haare schneiden lassen und Antwort morgen stimmen in allen fünf Fassungen.",
+      "parentReasonDe": "Alle fünf Testtitel, test_size 13 und alle elf Zielverweise passen zu indirekten Fragen, lassen und Bankkommunikation. Keine eigene Karte/Regel/Beispiele vorhanden. Die drei zugewiesenen lassen-Aufgaben passen zu P6-G3.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "e6373ca395a55f8e3a20b552bbede878f900f398ce35fa239476531a6c610da7",
+      "wholeParentMinusChildrenSHA256": "de5cd02abae3f2c54a27c93f162f223a5bbc73672fd7966d0d887c1afd970e67",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Lässt"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 21,
+      "id": "788719b0-446a-5af1-ac3c-9591e939710c",
+      "ref": "P5-N1-E03",
+      "contextKey": "B1.1/P5/P5-N1",
+      "level": "B1.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Auf Herrn Okafor kann man sich verlassen definiert zuverlässig. Neugierig/arbeitslos drücken diese Eigenschaft nicht aus. Die männliche Figur, fünf Fassungen und vollständige Berufswortschatzregel stimmen.",
+      "parentReasonDe": "Fünf Titel und sämtliche fünf Regeln erklären Bewerbung, um + Akkusativ/bei + Firma, Unterlagen, Vorstellungsgespräch, Erfahrung, Fähigkeiten, Eigenschaften und Gehalt stimmig. Bewerber/Bewerberin bleibt notwendiger generischer Genuskontrast; keine individuelle weibliche Figur. Alle drei Beispiele korrekt, Er männlich, Sie höfliche Anrede; P5-W1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "45bcaefe86aba811e41b4f43725e04bf44bd7d34e771b0918530f3a1f78493a9",
+      "wholeParentMinusChildrenSHA256": "109b4965f1d275121f006a257012d5ba4edc197cc574d4e64d34b818f3e23056",
+      "allPathObjectivesSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "zuverlässig"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 22,
+      "id": "15519794-cebf-5696-af58-f11f373db4cf",
+      "ref": "P5-N1-E05",
+      "contextKey": "B1.1/P5/P5-N1",
+      "level": "B1.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Fünf Jahre als Koch gearbeitet begründet viel Berufserfahrung; Probezeit/Freizeit passen nicht zu dieser Schlussfolgerung. Koch und russisch/ukrainisch männliche Vergangenheitsformen sind konsistent; fünf Fassungen stimmen.",
+      "parentReasonDe": "Fünf Titel und sämtliche fünf Regeln erklären Bewerbung, um + Akkusativ/bei + Firma, Unterlagen, Vorstellungsgespräch, Erfahrung, Fähigkeiten, Eigenschaften und Gehalt stimmig. Bewerber/Bewerberin bleibt notwendiger generischer Genuskontrast; keine individuelle weibliche Figur. Alle drei Beispiele korrekt, Er männlich, Sie höfliche Anrede; P5-W1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "0751130f24ca3440d7141458c79f136b1f59f69ef1a79474fbad8b6fcd4da418",
+      "wholeParentMinusChildrenSHA256": "109b4965f1d275121f006a257012d5ba4edc197cc574d4e64d34b818f3e23056",
+      "allPathObjectivesSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Berufserfahrung"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    }
+  ],
+  "parentReviews": [
+    {
+      "contextKey": "A2.2/P2/P2-N3",
+      "verdict": "ACCEPT",
+      "reasonDe": "Alle fünf Titel beschreiben Adjektivendungen im Akkusativ. Alle fünf Regeln unterscheiden maskulin -en von Neutrum -es, feminin -e und Plural, inklusive meine braunen Möbel, korrekt. Pullover, Handy und Küche sind drei richtige Beispiele; er männlich, P2-G2 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "63a0e799264009db3cb12ea9b3240ec9c848c9916c045122fed27822be8797f6",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P2-N3",
+        "kind": "practice",
+        "sort_order": 3,
+        "topic": "Warenwelt · einen neuen Laden",
+        "title": "einen neuen Laden",
+        "translations": {
+          "en": {
+            "title": "einen neuen Laden (adjective endings: accusative)"
+          },
+          "ru": {
+            "title": "einen neuen Laden (окончания прилагательных: Akkusativ)"
+          },
+          "uk": {
+            "title": "einen neuen Laden (закінчення прикметників: Akkusativ)"
+          },
+          "tr": {
+            "title": "einen neuen Laden (sıfat ekleri: Akkusativ)"
+          }
+        },
+        "goals": [
+          "P2-G2"
+        ],
+        "merkkarte": {
+          "card": "p2_akkusativ",
+          "rule": "Im Akkusativ ändert sich nur maskulin: einen neuen Laden (-en). Neutral, feminin und Plural bleiben wie im Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. Nach meine, keine im Plural: meine braunen Möbel. Der Akkusativ steht nach Verben wie haben, kaufen, suchen, brauchen, finden und nach für und ohne.",
+          "examples": [
+            "Ich suche einen warmen Pullover.",
+            "Er kauft ein neues Handy.",
+            "Wir haben eine kleine Küche."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "In the accusative only the masculine changes: einen neuen Laden (-en). Neuter, feminine and plural stay as in the nominative: ein schönes Licht, eine schöne Wohnung, braune Möbel. After meine, keine in the plural: meine braunen Möbel. The accusative follows verbs such as haben, kaufen, suchen, brauchen, finden and the prepositions für and ohne."
+            },
+            "ru": {
+              "rule": "В Akkusativ меняется только мужской род: einen neuen Laden (-en). Средний, женский род и множественное число остаются как в Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. После meine, keine во множественном числе: meine braunen Möbel. Akkusativ стоит после глаголов haben, kaufen, suchen, brauchen, finden и после für и ohne."
+            },
+            "uk": {
+              "rule": "В Akkusativ змінюється лише чоловічий рід: einen neuen Laden (-en). Середній, жіночий рід і множина залишаються як у Nominativ: ein schönes Licht, eine schöne Wohnung, braune Möbel. Після meine, keine у множині: meine braunen Möbel. Akkusativ стоїть після дієслів haben, kaufen, suchen, brauchen, finden і після für та ohne."
+            },
+            "tr": {
+              "rule": "Akkusativ’de yalnızca eril değişir: einen neuen Laden (-en). Nötr, dişil ve çoğul Nominativ’deki gibi kalır: ein schönes Licht, eine schöne Wohnung, braune Möbel. Çoğulda meine, keine sözcüklerinden sonra: meine braunen Möbel. Akkusativ haben, kaufen, suchen, brauchen, finden gibi fiillerden ve für ile ohne edatlarından sonra gelir."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.2/P2/P2-N9",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel und Regeln geben Geld ausgeben für + Akkusativ, sparen, bevorzugte Einkaufsorte sowie Komparativ/Superlativ korrekt wieder. Alle eingebetteten Sätze und drei Kartenbeispiele sind stimmig; unbestimmte Ich-Rolle bleibt offen. P2-K2 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "15926f68c7b77d8cdbc1bbb35832091416b2e497cbd3ee652c72552ba8b9c792",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P2-N9",
+        "kind": "practice",
+        "sort_order": 9,
+        "topic": "Warenwelt · Am meisten gebe ich für … aus.",
+        "title": "Am meisten gebe ich für … aus.",
+        "translations": {
+          "en": {
+            "title": "I spend most on …"
+          },
+          "ru": {
+            "title": "Больше всего я трачу на …"
+          },
+          "uk": {
+            "title": "Найбільше я витрачаю на …"
+          },
+          "tr": {
+            "title": "En çok … için para harcıyorum"
+          }
+        },
+        "goals": [
+          "P2-K2"
+        ],
+        "merkkarte": {
+          "card": "p2_konsum",
+          "rule": "Über Einkaufen und Geld sprechen: Geld ausgeben für + Akkusativ – Am meisten gebe ich für meine Miete aus. Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. Ich kaufe am liebsten auf dem Markt ein. Vergleichen: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack.",
+          "examples": [
+            "Am meisten gebe ich für Lebensmittel aus.",
+            "Für Kleidung gebe ich nicht viel aus. Da spare ich.",
+            "Am liebsten kaufe ich im Internet."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Talking about shopping and money: Geld ausgeben für + accusative (spend money on) – Am meisten gebe ich für meine Miete aus. (I spend most on my rent.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (I save there.) Ich kaufe am liebsten auf dem Markt ein. (I like shopping at the market best.) Comparing: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack."
+            },
+            "ru": {
+              "rule": "Как говорить о покупках и деньгах: Geld ausgeben für + Akkusativ (тратить деньги на) – Am meisten gebe ich für meine Miete aus. (Больше всего я трачу на аренду.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (На этом я экономлю.) Ich kaufe am liebsten auf dem Markt ein. (Больше всего я люблю покупать на рынке.) Сравнение: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack."
+            },
+            "uk": {
+              "rule": "Як говорити про покупки й гроші: Geld ausgeben für + Akkusativ (витрачати гроші на) – Am meisten gebe ich für meine Miete aus. (Найбільше я витрачаю на оренду.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (На цьому я заощаджую.) Ich kaufe am liebsten auf dem Markt ein. (Найбільше я люблю купувати на ринку.) Порівняння: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack."
+            },
+            "tr": {
+              "rule": "Alışveriş ve paradan söz etmek: Geld ausgeben für + Akkusativ (… için para harcamak) – Am meisten gebe ich für meine Miete aus. (En çok kiraya para harcıyorum.) Ich gebe viel Geld für Kleidung aus. Ich gebe nicht viel für Möbel aus. Da spare ich. (Orada tasarruf ediyorum.) Ich kaufe am liebsten auf dem Markt ein. (En çok pazardan alışveriş yapmayı severim.) Karşılaştırma: Ich finde Rucksäcke praktischer als Taschen. Am praktischsten finde ich einen kleinen Rucksack."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.2/P2/P2-N11",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel betreffen die Herkunft eines Gegenstands. Fünf Regeln erklären diesen/dieses/diese im Akkusativ, von + Dativ, Er/Es/Sie nach Gegenstandsgenus sowie weil/denn richtig. Oma ist ein unbestimmtes feminines Dativbeispiel neben Opa; keine individuell ausgearbeitete Lernfigur. Konkrete männliche Familienrollen bleiben korrekt. Alle drei Beispiele mit Onkel, Bild und Opa-Uhr sowie P2-K4 stimmen.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "d331d98fd3b8dd638f1021e50411e072325c7957c3088314bc281bd4d40a4d37",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P2-N11",
+        "kind": "practice",
+        "sort_order": 11,
+        "topic": "Warenwelt · Diese Kette habe ich von …",
+        "title": "Diese Kette habe ich von …",
+        "translations": {
+          "en": {
+            "title": "I got this necklace from …"
+          },
+          "ru": {
+            "title": "Эту цепочку мне подарил(а) …"
+          },
+          "uk": {
+            "title": "Цей ланцюжок мені подарував / подарувала …"
+          },
+          "tr": {
+            "title": "Bu kolyeyi … verdi"
+          }
+        },
+        "goals": [
+          "P2-K4"
+        ],
+        "merkkarte": {
+          "card": "p2_gegenstand",
+          "rule": "Von einem Gegenstand erzählen: Diesen Ring habe ich von meiner Oma bekommen. Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. Er/Es/Sie ist mir besonders wichtig, weil … Er gefällt mir so gut, denn er ist sehr alt. Im Akkusativ: diesen (der), dieses (das), diese (die).",
+          "examples": [
+            "Diesen Schal hat mir mein Onkel geschenkt.",
+            "Dieses Bild habe ich auf dem Flohmarkt gekauft.",
+            "Die Uhr ist mir besonders wichtig, weil sie von meinem Opa ist."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Talking about an object: Diesen Ring habe ich von meiner Oma bekommen. (I got this ring from my grandma.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (My husband gave me this necklace.) Er/Es/Sie ist mir besonders wichtig, weil … (It is especially important to me because …) Er gefällt mir so gut, denn er ist sehr alt. In the accusative: diesen (der), dieses (das), diese (die)."
+            },
+            "ru": {
+              "rule": "Как рассказать о предмете: Diesen Ring habe ich von meiner Oma bekommen. (Это кольцо я получил от бабушки.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Эту цепочку мне подарил муж.) Er/Es/Sie ist mir besonders wichtig, weil … (Он/она мне особенно дорог(а), потому что …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die)."
+            },
+            "uk": {
+              "rule": "Як розповісти про предмет: Diesen Ring habe ich von meiner Oma bekommen. (Цей перстень я отримав від бабусі.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Цей ланцюжок мені подарував чоловік.) Er/Es/Sie ist mir besonders wichtig, weil … (Він/вона мені особливо дорогий/дорога, бо …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die)."
+            },
+            "tr": {
+              "rule": "Bir eşyayı anlatmak: Diesen Ring habe ich von meiner Oma bekommen. (Bu yüzüğü büyükannemden aldım.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Bu kolyeyi bana kocam hediye etti.) Er/Es/Sie ist mir besonders wichtig, weil … (Benim için özellikle önemli, çünkü …) Er gefällt mir so gut, denn er ist sehr alt. Akkusativ’de: diesen (der), dieses (das), diese (die)."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.2/P2/P2-N14",
+      "verdict": "ACCEPT",
+      "reasonDe": "Alle fünf Testtitel, test_size 13 und sämtliche zwölf Zielverweise passen zur Warenwelt mit Adjektivdeklination, Vergleich, Konsum und Gegenständen. Keine eigene Karte, Regel oder Beispiele vorhanden; die zwei zugewiesenen Aufgaben passen zu P2-K2/K3.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "bd30bc4c60f52c04b4276d5f22d208bdd50f1e5fefff78756199901cbae24556",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P2-N14",
+        "kind": "test",
+        "sort_order": 14,
+        "topic": "Warenwelt · Test",
+        "title": "Test",
+        "translations": {
+          "en": {
+            "title": "Test"
+          },
+          "ru": {
+            "title": "Тест"
+          },
+          "uk": {
+            "title": "Тест"
+          },
+          "tr": {
+            "title": "Test"
+          }
+        },
+        "goals": [
+          "P2-G1",
+          "P2-G2",
+          "P2-G3",
+          "P2-G4",
+          "P2-G5",
+          "P2-G6",
+          "P2-K1",
+          "P2-K2",
+          "P2-K3",
+          "P2-K4",
+          "P2-Z1",
+          "P2-W1"
+        ],
+        "test_size": 13
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.2/P6/P6-N2",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel und Regeln unterscheiden abheben/einzahlen/überweisen, Konto eröffnen, bar/mit Karte zahlen, sparen/leihen/wechseln/verdienen/ausgeben und Karte sperren korrekt. Leihen wird sachgerecht als geben oder bekommen erläutert. Alle drei Beispiele und P6-W1 passen; keine Finanzberatung.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "92d0574bd6cbb2adaa39af930e63235dc8123f9aadbde05163b662b80a2423a4",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P6-N2",
+        "kind": "practice",
+        "sort_order": 2,
+        "topic": "Rund ums Geld · abheben, überweisen, einzahlen",
+        "title": "abheben, überweisen, einzahlen",
+        "translations": {
+          "en": {
+            "title": "abheben, überweisen, einzahlen (withdraw, transfer, pay in)"
+          },
+          "ru": {
+            "title": "abheben, überweisen, einzahlen (снять, перевести, внести)"
+          },
+          "uk": {
+            "title": "abheben, überweisen, einzahlen (зняти, переказати, внести)"
+          },
+          "tr": {
+            "title": "abheben, überweisen, einzahlen (çekmek, havale etmek, yatırmak)"
+          }
+        },
+        "goals": [
+          "P6-W1"
+        ],
+        "merkkarte": {
+          "card": "p6_geldverben",
+          "rule": "Verben rund ums Geld: Geld abheben (vom Konto holen), Geld einzahlen (auf das Konto legen), Geld überweisen (von Konto zu Konto schicken), ein Konto eröffnen (ein neues Konto bekommen), bar zahlen oder mit Karte zahlen, Geld sparen, Geld leihen (für kurze Zeit geben oder bekommen), Geld wechseln (Euro in Dollar), Geld verdienen, Geld ausgeben, die Karte sperren (niemand kann sie mehr benutzen).",
+          "examples": [
+            "Ich hebe 100 Euro am Automaten ab.",
+            "Die Miete überweise ich am ersten Tag im Monat.",
+            "Kann ich hier mit Karte zahlen?"
+          ],
+          "highlight": "verb",
+          "translations": {
+            "en": {
+              "rule": "Verbs to do with money: Geld abheben (withdraw money from your account), Geld einzahlen (pay money into your account), Geld überweisen (transfer money from one account to another), ein Konto eröffnen (open an account), bar zahlen (pay in cash) or mit Karte zahlen (pay by card), Geld sparen (save money), Geld leihen (lend or borrow for a short time), Geld wechseln (change money: euros into dollars), Geld verdienen (earn money), Geld ausgeben (spend money), die Karte sperren (block the card: nobody can use it any more)."
+            },
+            "ru": {
+              "rule": "Глаголы о деньгах: Geld abheben (снять деньги со счёта), Geld einzahlen (внести деньги на счёт), Geld überweisen (перевести деньги со счёта на счёт), ein Konto eröffnen (открыть счёт), bar zahlen (платить наличными) или mit Karte zahlen (платить картой), Geld sparen (копить, экономить), Geld leihen (одолжить или взять в долг на короткое время), Geld wechseln (обменять деньги: евро на доллары), Geld verdienen (зарабатывать), Geld ausgeben (тратить), die Karte sperren (заблокировать карту: ею больше никто не сможет пользоваться)."
+            },
+            "uk": {
+              "rule": "Дієслова про гроші: Geld abheben (зняти гроші з рахунку), Geld einzahlen (внести гроші на рахунок), Geld überweisen (переказати гроші з рахунку на рахунок), ein Konto eröffnen (відкрити рахунок), bar zahlen (платити готівкою) або mit Karte zahlen (платити карткою), Geld sparen (заощаджувати), Geld leihen (позичити на короткий час), Geld wechseln (обміняти гроші: євро на долари), Geld verdienen (заробляти), Geld ausgeben (витрачати), die Karte sperren (заблокувати картку: нею більше ніхто не зможе користуватися)."
+            },
+            "tr": {
+              "rule": "Parayla ilgili fiiller: Geld abheben (hesaptan para çekmek), Geld einzahlen (hesaba para yatırmak), Geld überweisen (bir hesaptan diğerine havale etmek), ein Konto eröffnen (hesap açmak), bar zahlen (nakit ödemek) ya da mit Karte zahlen (kartla ödemek), Geld sparen (para biriktirmek), Geld leihen (kısa süreliğine borç vermek ya da almak), Geld wechseln (para bozdurmak: avroyu dolara), Geld verdienen (para kazanmak), Geld ausgeben (para harcamak), die Karte sperren (kartı bloke etmek: artık kimse kullanamaz)."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.2/P6/P6-N7",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel und Regeln geben sämtliche lassen-Formen einschließlich er/es/sie und höflichem Sie richtig an. Umlaut bei du und dritter Person Singular sowie die hier geübte Dienstleistungsbedeutung stimmen. Bruder ist männlich; Pronomen sind notwendige grammatische Kontraste. Alle drei Kartenbeispiele und P6-G3 passen.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "8095734585ecf850e3d0935abe5ee9f736d7d37d0b2e676bd02b0e0d32db2d0a",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P6-N7",
+        "kind": "practice",
+        "sort_order": 7,
+        "topic": "Rund ums Geld · ich lasse, du lässt",
+        "title": "ich lasse, du lässt",
+        "translations": {
+          "en": {
+            "title": "ich lasse, du lässt (the verb lassen)"
+          },
+          "ru": {
+            "title": "ich lasse, du lässt (глагол lassen)"
+          },
+          "uk": {
+            "title": "ich lasse, du lässt (дієслово lassen)"
+          },
+          "tr": {
+            "title": "ich lasse, du lässt (lassen fiili)"
+          }
+        },
+        "goals": [
+          "P6-G3"
+        ],
+        "merkkarte": {
+          "card": "p6_lassen",
+          "rule": "Das Verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. Bei du und er/es/sie wird a zu ä. lassen + Infinitiv bedeutet: Man macht etwas nicht selbst, eine andere Person macht es. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden.",
+          "examples": [
+            "Ich lasse mein Fahrrad reparieren.",
+            "Lässt du deine Haare schneiden?",
+            "Wir lassen die Wohnung streichen."
+          ],
+          "highlight": "verb",
+          "translations": {
+            "en": {
+              "rule": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)"
+            },
+            "ru": {
+              "rule": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)"
+            },
+            "uk": {
+              "rule": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)"
+            },
+            "tr": {
+              "rule": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)"
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.2/P6/P6-N13",
+      "verdict": "ACCEPT",
+      "reasonDe": "Alle fünf Testtitel, test_size 13 und alle elf Zielverweise passen zu indirekten Fragen, lassen und Bankkommunikation. Keine eigene Karte/Regel/Beispiele vorhanden. Die drei zugewiesenen lassen-Aufgaben passen zu P6-G3.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "de5cd02abae3f2c54a27c93f162f223a5bbc73672fd7966d0d887c1afd970e67",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P6-N13",
+        "kind": "test",
+        "sort_order": 13,
+        "topic": "Rund ums Geld · Test",
+        "title": "Test",
+        "translations": {
+          "en": {
+            "title": "Test"
+          },
+          "ru": {
+            "title": "Тест"
+          },
+          "uk": {
+            "title": "Тест"
+          },
+          "tr": {
+            "title": "Test"
+          }
+        },
+        "goals": [
+          "P6-G1",
+          "P6-G2",
+          "P6-G3",
+          "P6-G4",
+          "P6-K1",
+          "P6-K2",
+          "P6-K3",
+          "P6-K4",
+          "P6-K5",
+          "P6-Z1",
+          "P6-W1"
+        ],
+        "test_size": 13
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "B1.1/P5/P5-N1",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel und sämtliche fünf Regeln erklären Bewerbung, um + Akkusativ/bei + Firma, Unterlagen, Vorstellungsgespräch, Erfahrung, Fähigkeiten, Eigenschaften und Gehalt stimmig. Bewerber/Bewerberin bleibt notwendiger generischer Genuskontrast; keine individuelle weibliche Figur. Alle drei Beispiele korrekt, Er männlich, Sie höfliche Anrede; P5-W1 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "109b4965f1d275121f006a257012d5ba4edc197cc574d4e64d34b818f3e23056",
+      "allPathObjectivesSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P5-N1",
+        "kind": "practice",
+        "sort_order": 1,
+        "topic": "Eine Arbeit finden · Bewerbung und Beruf",
+        "title": "Bewerbung und Beruf",
+        "translations": {
+          "en": {
+            "title": "Applications and work"
+          },
+          "ru": {
+            "title": "Заявление о приёме на работу и профессия"
+          },
+          "uk": {
+            "title": "Заява про прийняття на роботу і професія"
+          },
+          "tr": {
+            "title": "İş başvurusu ve meslek"
+          }
+        },
+        "goals": [
+          "P5-W1"
+        ],
+        "merkkarte": {
+          "card": "p5_bewerbung",
+          "rule": "Bewerbung und Beruf: Man liest eine Stellenanzeige und bewirbt sich um eine Stelle (sich bewerben um + Akkusativ, bei + Firma). Zur Bewerbung gehören das Anschreiben, der Lebenslauf (alle Stationen: Schule, Ausbildung, Arbeit) und die Zeugnisse. Der Bewerber / die Bewerberin wird zum Vorstellungsgespräch eingeladen. Wichtig sind die Berufserfahrung, gute Kenntnisse und Fähigkeiten. Die Tätigkeit = das, was man bei der Arbeit macht. Verantwortung tragen = für etwas zuständig sein. Eigenschaften: zuverlässig (man kann sich auf die Person verlassen), flexibel, belastbar (bleibt auch bei Stress ruhig), selbstständig. Das Gehalt = das Geld für die Arbeit.",
+          "examples": [
+            "Ich habe mich bei drei Firmen beworben.",
+            "Bitte schicken Sie uns Ihren Lebenslauf und Ihre Zeugnisse.",
+            "Er hat viel Berufserfahrung und ist sehr zuverlässig."
+          ],
+          "highlight": "article",
+          "translations": {
+            "en": {
+              "rule": "Applications and work: you read eine Stellenanzeige (a job advertisement) and apply for a job (sich bewerben um + accusative, bei + company). An application (die Bewerbung) includes das Anschreiben (covering letter), der Lebenslauf (CV: all stages – school, training, work) and die Zeugnisse (certificates, references). Der Bewerber / die Bewerberin (applicant) is invited to a Vorstellungsgespräch (job interview). What matters is die Berufserfahrung (work experience), good Kenntnisse (knowledge) and Fähigkeiten (skills). Die Tätigkeit = what you do at work (activity, duties). Verantwortung tragen = to be responsible for something. Qualities: zuverlässig (reliable: people can rely on you), flexibel, belastbar (stays calm under stress, resilient), selbstständig (independent). Das Gehalt = the money for your work (salary)."
+            },
+            "ru": {
+              "rule": "Заявление о приёме на работу и профессия: человек читает eine Stellenanzeige (объявление о вакансии) и подаёт заявление на должность (sich bewerben um + Akkusativ, bei + фирма). В пакет документов (die Bewerbung) входят das Anschreiben (сопроводительное письмо), der Lebenslauf (резюме: все этапы – школа, обучение, работа) и die Zeugnisse (аттестаты, рекомендации). Der Bewerber / die Bewerberin (кандидат) получает приглашение на Vorstellungsgespräch (собеседование). Важны die Berufserfahrung (опыт работы), хорошие Kenntnisse (знания) и Fähigkeiten (навыки). Die Tätigkeit = то, что делают на работе (деятельность). Verantwortung tragen = отвечать за что-то. Качества: zuverlässig (надёжный: на человека можно положиться), flexibel, belastbar (остаётся спокойным при стрессе, стрессоустойчивый), selbstständig (самостоятельный). Das Gehalt = деньги за работу (зарплата)."
+            },
+            "uk": {
+              "rule": "Заява про прийняття на роботу і професія: людина читає eine Stellenanzeige (оголошення про вакансію) і подає заяву на посаду (sich bewerben um + Akkusativ, bei + фірма). До пакета документів (die Bewerbung) належать das Anschreiben (супровідний лист), der Lebenslauf (резюме: усі етапи – школа, навчання, робота) і die Zeugnisse (атестати, рекомендації). Der Bewerber / die Bewerberin (кандидат / кандидатка) отримує запрошення на Vorstellungsgespräch (співбесіду). Важливі die Berufserfahrung (досвід роботи), добрі Kenntnisse (знання) і Fähigkeiten (навички). Die Tätigkeit = те, що роблять на роботі (діяльність). Verantwortung tragen = відповідати за щось. Якості: zuverlässig (надійний: на людину можна покластися), flexibel, belastbar (залишається спокійним під час стресу, стресостійкий), selbstständig (самостійний). Das Gehalt = гроші за роботу (зарплата)."
+            },
+            "tr": {
+              "rule": "İş başvurusu ve meslek: Bir Stellenanzeige (iş ilanı) okunur ve bir işe başvurulur (sich bewerben um + Akkusativ, bei + şirket). Başvuruya (die Bewerbung) das Anschreiben (ön yazı), der Lebenslauf (özgeçmiş: bütün aşamalar – okul, eğitim, iş) ve die Zeugnisse (belgeler, referanslar) dahildir. Der Bewerber / die Bewerberin (aday) Vorstellungsgespräch’e (iş görüşmesi) çağrılır. Önemli olan die Berufserfahrung (iş deneyimi), iyi Kenntnisse (bilgi) ve Fähigkeiten’dir (beceriler). Die Tätigkeit = işte yapılan şey (görev, faaliyet). Verantwortung tragen = bir şeyden sorumlu olmak. Özellikler: zuverlässig (güvenilir: kişiye güvenilebilir), flexibel, belastbar (stres altında da sakin kalan, dayanıklı), selbstständig (bağımsız çalışabilen). Das Gehalt = iş karşılığı alınan para (maaş)."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    }
+  ],
+  "allPathObjectiveReviews": [
+    {
+      "pathKey": "A2.2/P2",
+      "verdict": "ACCEPT",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "allPathObjectivesSHA256": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P2-G1",
+          "area": "grammar",
+          "description": "Adjektive nach ein, kein, mein im Nominativ: ein neuer Laden, ein schönes Licht, eine schöne Wohnung, braune Möbel – aber: meine braunen Möbel.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Neuer/schönes/schöne und artikelloses braune Möbel gegenüber meine braunen Möbel sind korrekte Nominativbeispiele der gemischten/starken Deklination.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "a722700b20e4f6ab0116a0a6eca7470a7bb287daf2fdcf3cb39ac0cdd0e0e01e",
+          "fullRead": true
+        },
+        {
+          "id": "P2-G2",
+          "area": "grammar",
+          "description": "Adjektive nach ein, kein, mein im Akkusativ: einen neuen Laden, ein schönes Licht, eine schöne Wohnung.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Einen neuen Laden, ein schönes Licht und eine schöne Wohnung zeigen die richtigen Akkusativendungen nach ein/kein/mein.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "33caaeea4cdb92897d8bafd7317d6062c946153d0113aaff6c821689caf228c2",
+          "fullRead": true
+        },
+        {
+          "id": "P2-G3",
+          "area": "grammar",
+          "description": "Adjektive nach ein, kein, mein im Dativ: einem neuen Laden, einer schönen Wohnung, braunen Möbeln – immer -en.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Einem neuen Laden, einer schönen Wohnung und braunen Möbeln zeigen im genannten Dativumfang korrekt -en am Adjektiv sowie Möbeln mit -n.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "d1bb580567b344211d7a170dceaf26e965a35bd577986b27297903214f0b3d96",
+          "fullRead": true
+        },
+        {
+          "id": "P2-G4",
+          "area": "grammar",
+          "description": "Komparativ und Superlativ: schön – schöner – am schönsten; groß – größer – am größten; hoch – höher – am höchsten.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Schöner/am schönsten, größer/am größten und höher/am höchsten sind richtige Steigerungsformen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "0cf0cac05fb481b43b3b65a7818242c86347128b2a53995bbe49fa7baa9315f1",
+          "fullRead": true
+        },
+        {
+          "id": "P2-G5",
+          "area": "grammar",
+          "description": "Vergleichen mit als und wie: schöner als … – genauso schön wie …",
+          "verdict": "ACCEPT",
+          "reasonDe": "Komparativ mit als und Gleichheit mit genauso ... wie sind korrekt unterschieden.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "e43979574c056efa3fb2396f3bfb11a93c1a1467217f3d418c9f908c3454efba",
+          "fullRead": true
+        },
+        {
+          "id": "P2-G6",
+          "area": "grammar",
+          "description": "Wortbildung: Nomen + -los = Adjektiv: die Arbeit → arbeitslos (ohne Arbeit).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Arbeit zu arbeitslos zeigt richtig das Adjektivsuffix -los und das nötige Fugen-s.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "93287283fcf4879082a98546570614f969de22847cb1896b127cae41fc9317f7",
+          "fullRead": true
+        },
+        {
+          "id": "P2-K1",
+          "area": "communication",
+          "description": "Skeptisch reagieren: Tja, ich weiß nicht. Hm, findest du? Na ja, geht so. Bist du sicher?",
+          "verdict": "ACCEPT",
+          "reasonDe": "Tja/Hm/Na ja/Bist du sicher sind passende skeptische Gesprächsreaktionen; du-Anrede sachgerecht.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "6bb684151199669733df376785a9ca66be88e0f34a3eac8e4d291c0bfa4ece00",
+          "fullRead": true
+        },
+        {
+          "id": "P2-K2",
+          "area": "communication",
+          "description": "Vorlieben und Konsumverhalten ausdrücken: Am meisten gebe ich für … aus. Ich kaufe am liebsten … Da spare ich.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Am meisten ausgeben, am liebsten kaufen und Da spare ich bilden passende Aussagen zu Konsumpräferenzen und Ausgaben.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "0238c25d2ad07fb7b4edbbece9666ea0cb24f38af16b35495db66f4654c704ae",
+          "fullRead": true
+        },
+        {
+          "id": "P2-K3",
+          "area": "communication",
+          "description": "Wichtigkeit ausdrücken: Mir ist … wichtig. Wie wichtig ist dir …? Das ist mir überhaupt nicht wichtig.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Mir ist ... wichtig und Wie wichtig ist dir ... sind korrekte Dativkonstruktionen zur Wichtigkeit.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "ab3939324d60f1d611508dcdee947ae53d172011da1e709a86d8908c36bffdd8",
+          "fullRead": true
+        },
+        {
+          "id": "P2-K4",
+          "area": "communication",
+          "description": "Von einem Gegenstand erzählen: Diese Kette habe ich von meinem Opa bekommen. Sie ist mir besonders wichtig, weil …",
+          "verdict": "ACCEPT",
+          "reasonDe": "Die Kette vom Opa und Sie ist mir ... wichtig sind korrekt; Opa männlich, sie bezieht sich auf das grammatisch feminine Objekt Kette.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "9ab82217679a2c5f684b79412f5a66230f0359a1bc4c38b6c2c5e41f9fe2691e",
+          "fullRead": true
+        },
+        {
+          "id": "P2-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Kleinanzeigen verstehen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Kleinanzeigen verstehen ist ein passendes A2.2-Kann-Ziel für Waren und Konsum.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "d879bfc4fb8f0b6422a39e0403a3ea449367c98fe25a50b16d1cdcdd0cb14f43",
+          "fullRead": true
+        },
+        {
+          "id": "P2-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Gegenstände und Materialien.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Gegenstände und Materialien fassen den erforderlichen Pfadwortschatz sachgerecht zusammen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "2f4db9d9a28cd06bfeed9f51e7169a99e0778ac2dcbd0745b89f888200dcb285",
+          "fullRead": true
+        }
+      ],
+      "fullRead": true
+    },
+    {
+      "pathKey": "A2.2/P6",
+      "verdict": "ACCEPT",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "allPathObjectivesSHA256": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P6-G1",
+          "area": "grammar",
+          "description": "Indirekte Fragen mit Fragewort: Können Sie mir sagen, was ich da tun muss? Wissen Sie, wo man Geld abheben kann? Das Verb steht am Ende.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Indirekte W-Fragen mit finitem Verb am Ende sind korrekt; tun muss und abheben kann zeigen die passende Verbfolge.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "1e1052a55448c05202a3efd8e7f9528e569686b981dbc84cb5d0c19b347bddc7",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G2",
+          "area": "grammar",
+          "description": "Indirekte Fragen bei Ja/Nein-Fragen mit ob: Darf ich fragen, ob Sie Ihren Ausweis dabeihaben?",
+          "verdict": "ACCEPT",
+          "reasonDe": "Ob führt indirekte Entscheidungsfragen korrekt ein; Ihren Ausweis dabeihaben hat die richtige höfliche Anrede und Verbendstellung.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "825476f107f68c035034403d738eeebece3af4a953cfbfa502f784bfc2ac6ba7",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G3",
+          "area": "grammar",
+          "description": "Das Verb lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Lasse/lässt/lässt/lassen/lasst/lassen sind die sechs richtigen Präsensformen von lassen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "a8b49e8eda8ca77007052eb928803829944cb51975955cd1c3978c7b98c86dfd",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G4",
+          "area": "grammar",
+          "description": "lassen + Infinitiv am Satzende: Er lässt sein Konto prüfen. Sie sollten die Reifen wechseln lassen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Lässt sein Konto prüfen sowie sollten die Reifen wechseln lassen zeigen korrekte Infinitivkonstruktionen; Sie ist höfliche Anrede.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "f680efe84d6add3f208151158a3d026f576d7d975d8ca0c24ee601f77c8ae68c",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K1",
+          "area": "communication",
+          "description": "Höflich fragen: Können Sie mir sagen, …? Wissen Sie, …? Ich würde gern wissen, … Darf ich fragen, …?",
+          "verdict": "ACCEPT",
+          "reasonDe": "Können Sie mir sagen/Wissen Sie/Ich würde gern wissen/Darf ich fragen sind passende höfliche Frageeinleitungen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "f3e193f16d28f49b9fb7f1139033cb3dae81e312376fba62839908bccabe9ce6",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K2",
+          "area": "communication",
+          "description": "Um Hilfe bitten: Können Sie mir helfen? Würden Sie mir das bitte erklären? Was soll ich denn jetzt machen?",
+          "verdict": "ACCEPT",
+          "reasonDe": "Helfen, erklären lassen und Was soll ich ... machen sind korrekte Bitten um Hilfe.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "a6775997a90f1f3787e27b3283904da709a247818ca5128e2dc9aacba6e21ae8",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K3",
+          "area": "communication",
+          "description": "Unkenntnis äußern: Keine Ahnung! Ich kenne mich damit überhaupt nicht aus. Ich weiß nicht, was ich jetzt tun soll.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Keine Ahnung, sich nicht auskennen und indirekte Frage was ich ... tun soll drücken Unkenntnis korrekt aus.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "e8396c792c013e4245af27fcc6874dfba15fc6c1c77e605671667ae9ec6f453d",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K4",
+          "area": "communication",
+          "description": "Jemanden warnen: Pass auf! Vorsicht! Dann musst du besser aufpassen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Pass auf/Vorsicht/besser aufpassen sind passende Warnungen mit sachgerechter du-Anrede.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "d96b5bef7a2b6b49f6c886c3f0a05dfaacba01b865c75e4d8d95cc54696a7ce2",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K5",
+          "area": "communication",
+          "description": "Gespräche in der Bank führen: Ich möchte gern ein Konto eröffnen. Ich habe meine Geheimzahl vergessen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Konto eröffnen und vergessene Geheimzahl sind passende Bankgesprächssituationen ohne Preisgabe einer tatsächlichen Geheimzahl.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "2950283829911ab928e0321586fba15eaa6a34766b53baf4a330cba7ef50b796",
+          "fullRead": true
+        },
+        {
+          "id": "P6-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Ratgebertexte und kurze Texte rund ums Geld verstehen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Ratgebertexte und kurze Geldtexte verstehen bildet ein passendes sprachliches Kann-Ziel.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "11080c1899f07968a48bd8c0513d4b1df2e1298b1279cae57b3db800d70ea8bd",
+          "fullRead": true
+        },
+        {
+          "id": "P6-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Bank und Geld.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Bank und Geld sind die passenden Wortschatzbereiche dieses Pfads.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "7c5fe73d99bff12b5d106415f0354565671f977ba99cd1e3362a5f0d3af5734c",
+          "fullRead": true
+        }
+      ],
+      "fullRead": true
+    },
+    {
+      "pathKey": "B1.1/P5",
+      "verdict": "ACCEPT",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "allPathObjectivesSHA256": "bc560c8f327fde172a0976fd6aff64d8abdb01713898e20a6d6a6e79cc2b99f5",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P5-G1",
+          "area": "grammar",
+          "description": "Infinitiv mit zu nach Verben: anfangen, aufhören, versuchen, vergessen, hoffen, planen, sich vorstellen können – Ich versuche, pünktlich zu sein.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Anfangen/aufhören/versuchen/vergessen/hoffen/planen/sich vorstellen können können die genannten zu-Infinitivkomplemente bilden; Beispiel pünktlich zu sein korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "82b8bab53f0308f56404ce2f4f3bc0130188d5d0c47811b6320ef907430b3e7c",
+          "fullRead": true
+        },
+        {
+          "id": "P5-G2",
+          "area": "grammar",
+          "description": "Infinitiv mit zu nach Ausdrücken: Es ist (nicht) leicht, … zu … – Lust, Zeit, Interesse, Angst haben, … zu … – Es macht mir Spaß, … zu …",
+          "verdict": "ACCEPT",
+          "reasonDe": "Es ist leicht, Lust/Zeit/Interesse/Angst haben und Es macht Spaß sind richtige Ausdrücke mit zu-Infinitiv.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "0b7de53748fbdd9cf6dc5a9fc0cefa83096fcdb82e0e65387274ec117056f853",
+          "fullRead": true
+        },
+        {
+          "id": "P5-G3",
+          "area": "grammar",
+          "description": "zu bei trennbaren Verben (anzufangen, einzukaufen) und kein zu nach Modalverben (Ich muss arbeiten).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Anzufangen/einzukaufen zeigen zu zwischen trennbarem Präfix und Stamm; muss arbeiten steht korrekt ohne zu.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "c6a88f17b92649f70101064fbb9b6c7d34f9b85b72374ea49678a15de7867c55",
+          "fullRead": true
+        },
+        {
+          "id": "P5-G4",
+          "area": "grammar",
+          "description": "Die temporale Präposition während + Genitiv: während des Kurses, während meiner Ausbildung, während der Ferien.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Während des Kurses/meiner Ausbildung/der Ferien sind korrekte Genitivformen der temporalen Präposition.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "addb07ab16d1c35f5226147cda276c607221039c3599929e7cc1b229e5ad1c7b",
+          "fullRead": true
+        },
+        {
+          "id": "P5-G5",
+          "area": "grammar",
+          "description": "Die Präpositionen innerhalb und außerhalb + Genitiv: innerhalb einer Woche, außerhalb unserer Öffnungszeiten.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Innerhalb einer Woche und außerhalb unserer Öffnungszeiten sind korrekte Genitivkonstruktionen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "f23e87eebf4809196e60e042740b68f4fabaa50de6b8366aa1b965d45a592d0b",
+          "fullRead": true
+        },
+        {
+          "id": "P5-K1",
+          "area": "communication",
+          "description": "Von beruflichen Wünschen erzählen: Ich kann mir gut vorstellen, … zu … Ich habe Interesse daran, … Es macht mir Freude, …",
+          "verdict": "ACCEPT",
+          "reasonDe": "Sich vorstellen, Interesse daran und Freude machen sind passende Formulierungen beruflicher Wünsche.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "4acbc12f51bf7e73fca2f9237d38fb055df33996033c8f65c5b5fb63eb7d4ece",
+          "fullRead": true
+        },
+        {
+          "id": "P5-K2",
+          "area": "communication",
+          "description": "Sich schriftlich bewerben: Mit großem Interesse habe ich Ihre Anzeige gelesen. Über eine Einladung zu einem Vorstellungsgespräch würde ich mich sehr freuen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Mit großem Interesse und würde mich ... freuen sind richtige höfliche Bewerbungsmuster.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "f30cc1b44a15bd34abf3e1fbcaf9e2083b8e890bd9119fce8844345cef3664bf",
+          "fullRead": true
+        },
+        {
+          "id": "P5-K3",
+          "area": "communication",
+          "description": "Über die eigene Arbeit und Berufserfahrung sprechen: Ich war im Verkauf tätig. Dort war ich für … zuständig. Ich habe ein Praktikum bei … gemacht.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Im Verkauf tätig, für ... zuständig und Praktikum bei ... sind korrekte Muster zur Berufserfahrung.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "7316927cd089e5072f93bc9e4142dc8be4ad737275e66c4283462af66901a638",
+          "fullRead": true
+        },
+        {
+          "id": "P5-K4",
+          "area": "communication",
+          "description": "Sich nach der Arbeit erkundigen und darüber sprechen: Wie läuft es denn so in der Firma? Noch immer so viel los? – Es ist anstrengend, aber interessant.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Wie läuft es/so viel los/anstrengend aber interessant sind passende Arbeitsgesprächsformeln.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "e93a2f43cd4238c407395e5acb6ce77a7adfa01faa23e846b467da771e3fc08c",
+          "fullRead": true
+        },
+        {
+          "id": "P5-K5",
+          "area": "communication",
+          "description": "Ein Gespräch beenden: Oh, ich muss jetzt leider los. Es war schön, dich mal wieder zu sehen. Bis zum nächsten Mal!",
+          "verdict": "ACCEPT",
+          "reasonDe": "Ich muss los, Es war schön ... zu sehen und Bis zum nächsten Mal beenden ein Gespräch sprachlich richtig.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "459244fece826a9f48d68c120e018313c0a149c3d074b81b075d30d37acae9eb",
+          "fullRead": true
+        },
+        {
+          "id": "P5-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Stellenanzeigen und Bewerbungsschreiben verstehen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Stellenanzeigen und Bewerbungsschreiben verstehen passt zu den beruflichen Pfadzielen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "748afc1934ad5ffb62612b10eca8a520de9b4fafb554a0fe16dc0524c1db153a",
+          "fullRead": true
+        },
+        {
+          "id": "P5-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Bewerbung und Berufstätigkeit.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Bewerbung und Berufstätigkeit fassen den passenden Wortschatzbereich zusammen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "34424139c726907241e05f30fe7106622e8bbec17d94ba3b6f3f6b91ca720f23",
+          "fullRead": true
+        }
+      ],
+      "fullRead": true
+    }
+  ],
+  "findings": [],
+  "answerRevisionAndCardinality": {
+    "proposedAnswerWordRevisions": 0,
+    "proposedAnswerKeyChanges": 0,
+    "proposedAcceptedVariantChanges": 0,
+    "proposedAcceptedCardinalityChanges": 0,
+    "proposedOptionsOrPartsChanges": 0,
+    "appliedSourceChanges": 0
+  },
+  "fullpathobjectivesRead": true,
+  "priorReviewUsedAsApproval": false,
+  "publicationApproved": false,
+  "limits": [
+    "Only assigned 22 tasks and 8 whole parentMinusChildren contexts / their 3 complete current objective sets reviewed; other child tasks not approved.",
+    "No source changes, DB, SSH, audio, runtime, browser, tests, imports or publication.",
+    "Content audit does not establish historical database version preservation or release readiness."
+  ],
+  "literalStringDictionary": "Private epoch55 dictionary resolves only byte-identical repeated strings, all first occurrences read in full during epoch55.",
+  "fullRead": true
+}
