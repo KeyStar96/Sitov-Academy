@@ -7,8 +7,24 @@ import { join, resolve } from 'node:path'
 import { bundleSitovAudio, collectSitovAudioCatalog, missingSitovAudioCatalog, sitovExerciseAudioTexts } from '../scripts/sitov-audio-catalog'
 import { neuralAudioPath, SITOV_QWEN_PROFILE_FINGERPRINT } from '../lib/audio/neural-identity'
 import { SITOV_QWEN_PROFILE, vocabularyAudioText } from '../lib/audio/neural-config'
+import { preparedLearningAudioTexts } from '../lib/audio/prepared-content'
 
 const hash = (value: string | Buffer) => createHash('sha256').update(value).digest('hex')
+
+test.each([
+  ['e42167d3-36c4-5270-a696-406897292843', 'gleich', 'Es ist 8:59. Oleh sagt: „Es ist gleich neun.“'],
+  ['c0ae363d-6c1f-58a7-a381-b7e206815e1f', 'kein', 'Oleh fährt immer Bus. Er hat kein Fahrrad.'],
+])('keeps the reviewed source sentence filled identically for authoring and publication: %s', (id, answer, spoken) => {
+  const paths = JSON.parse(readFileSync(join(__dirname, '../supabase/seeds/path-a1.1.json'), 'utf8')) as {
+    nodes: { exercises: { id: string; exercise_type: string; content: Record<string, unknown> }[] }[]
+  }[]
+  const exercise = paths.flatMap(path => path.nodes.flatMap(node => node.exercises)).find(row => row.id === id)
+  expect(exercise).toBeDefined()
+  expect(exercise!.content.correct_answer).toBe(answer)
+  expect(exercise!.content.accepted_answers).toEqual([answer])
+  expect(sitovExerciseAudioTexts(exercise!.exercise_type, exercise!.content)).toEqual([spoken])
+  expect(preparedLearningAudioTexts('exercises', { type: exercise!.exercise_type, content: exercise!.content })).toEqual([spoken])
+})
 const temporary: string[] = []
 const directory = () => { const path = mkdtempSync(join(tmpdir(), 'sitov-catalog-test-')); temporary.push(path); return path }
 afterEach(() => { for (const path of temporary.splice(0)) rmSync(path, { recursive: true, force: true }) })

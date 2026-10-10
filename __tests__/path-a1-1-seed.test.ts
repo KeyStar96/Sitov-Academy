@@ -46,6 +46,7 @@ const paths: SeedPath[] = JSON.parse(readFileSync(join(__dirname, '../supabase/s
 const rows = paths.flatMap(path => path.nodes.flatMap(node => node.exercises.map(exercise => ({ path, node, exercise }))))
 const sitovReviewedBindings = JSON.parse(readFileSync(join(__dirname, '../docs/handoffs/SITOV-NIGHT-2026-10-08/M/a11-reviewed-regression-bindings.json'), 'utf8')) as {
   cards: { nodeId: string; card: string; ruleSha256: string; firstExerciseId: string; firstExplanationSha256: string }[]
+  expandedExamples: { nodeId: string; card: string; examples: string[]; examplesSha256: string }[]
   receptiveFixedPhrases: { ref: string; field: string; textSha256: string; allowedWords: string[]; taskId: string; goal: string }[]
 }
 const sitovTextHash = (text: string) => createHash('sha256').update(text).digest('hex')
@@ -109,7 +110,12 @@ describe('A1.1 learning path seed', () => {
         expect(sitovTextHash(first.explanation)).toBe(reviewed.firstExplanationSha256)
       } else expect(card.rule).toBe(first.explanation)
       expect(card.examples.length).toBeGreaterThanOrEqual(2)
-      expect(card.examples.length).toBeLessThanOrEqual(4)
+      const expanded = sitovReviewedBindings.expandedExamples.find(binding => binding.nodeId === node.id)
+      if (expanded) {
+        expect(card.card).toBe(expanded.card)
+        expect(card.examples).toEqual(expanded.examples)
+        expect(sitovTextHash(JSON.stringify(card.examples))).toBe(expanded.examplesSha256)
+      } else expect(card.examples.length).toBeLessThanOrEqual(4)
       expect(NOT_GERMAN.test(card.examples.join(' '))).toBe(false)
       expect([null, 'article', 'verb']).toContain(card.highlight)
       for (const locale of LOCALES) expect(card.translations[locale].rule.trim()).not.toBe('')

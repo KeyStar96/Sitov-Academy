@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "brand": "Sitov Academy",
   "reviewer": "Sitov Academy M",
-  "reviewedAt": "2026-10-10T01:42:51.279515+00:00",
+  "reviewedAt": "2026-10-10T02:07:59.761743+00:00",
   "scope": "Exact reviewed current A1.1 source exceptions; no source/answers/IDs/levels changed; every other equality and future grammar prohibition remains enforced.",
-  "sourceHead": "717e884c5df0ce9917c4b6cd4a8c83d3f9cef5fe",
+  "sourceHead": "57e070ebde7f17eeb2e08e21ecfe2532ca34f05c",
   "cards": [
     {
       "nodeId": "P1-N1",
@@ -16,17 +16,6 @@
       "reasonDe": "Die unabhängig geprüfte gemeinsame Lernkarte umfasst mehrere Lernziele des Knotens; die erste Einzelerklärung bleibt auf ihre eigene Aufgabe zugeschnitten. Die Kartenbindung ist unverändert.",
       "rule": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Verabschieden: Auf Wiedersehen (formell), Tschüs (informell), Gute Nacht (spät am Abend, vor dem Schlafen). Am Telefon sagt man: Auf Wiederhören.",
       "firstExplanation": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"
-    },
-    {
-      "nodeId": "P1-N3",
-      "card": "p1_name",
-      "ruleSha256": "ccaf3ef00c785529d726a54f605523c3880b5fcaea3a221874066a468311e86d",
-      "firstExerciseId": "ac7e601e-1b4d-5421-aa06-96e0d1fc3f0f",
-      "firstExerciseRef": "P1-N3-E01",
-      "firstExplanationSha256": "4a0b112ad75d04a9a8332639b4271f5035bb39146ab996ae8e5a5eea116577b3",
-      "reasonDe": "Die unabhängig geprüfte gemeinsame Lernkarte umfasst mehrere Lernziele des Knotens; die erste Einzelerklärung bleibt auf ihre eigene Aufgabe zugeschnitten. Die Kartenbindung ist unverändert.",
-      "rule": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
-      "firstExplanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya."
     },
     {
       "nodeId": "P1-N8",
@@ -51,15 +40,17 @@
       "firstExplanation": "Familie: der Vater und die Mutter = die Eltern. Der Sohn und die Tochter = die Kinder. Der Bruder und die Schwester = die Geschwister. Der Mann und die Frau = das Ehepaar."
     },
     {
-      "nodeId": "P7-N5",
-      "card": "p7_perfekt_t",
-      "ruleSha256": "c2db7f92e176d937145bb86fcd3a2949b41a1e4b172ea8210ff1c1bdb2169feb",
-      "firstExerciseId": "ba70c8da-7b47-5439-ac42-bb5ca28f7345",
-      "firstExerciseRef": "P7-N5-E01",
-      "firstExplanationSha256": "2b9945a6448150751a507683d5f79b15394888c2dee8091ee31eccf290cd861e",
-      "reasonDe": "Die unabhängig geprüfte gemeinsame Lernkarte umfasst mehrere Lernziele des Knotens; die erste Einzelerklärung bleibt auf ihre eigene Aufgabe zugeschnitten. Die Kartenbindung ist unverändert.",
-      "rule": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet. Satzklammer im Perfekt: haben oder sein steht auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. W-Frage: Was hast du am Wochenende gemacht? Ja-/Nein-Frage: Bist du mit dem Bus gefahren?",
-      "firstExplanation": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet."
+      "nodeId": "P7-N7",
+      "card": "p7_perfekt_sein",
+      "ruleSha256": "d854e8fc0ce9dbe5fcca8dacd68b9a91ac8bbc2a781703bf3dd9451d8803e8d6",
+      "firstExerciseId": "c5558b65-827a-5b0d-ab51-e208cf023d6c",
+      "firstExerciseRef": "P7-N7-E01",
+      "firstExplanationSha256": "67eabb8e7ee67f110884d7118f8f1427464b9458eefdae4470a940e1b80c9fa2",
+      "reasonDe": "Der Knoten hat die beiden Lernziele P7-G4 und P7-G5. Die Elternkarte erklärt Perfekt mit sein sowie die Satzklammer in Aussage- und Fragesätzen; die erste Aufgabe erklärt ausschließlich die Wahl des Hilfsverbs. M hat die vollständigen zehn Aufgaben und alle fünf Regelsprachen gelesen.",
+      "rule": "Perfekt mit sein: Verben der Bewegung von A nach B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Die meisten anderen Verben bilden das Perfekt mit haben: Ich habe geschlafen. Satzklammer im Perfekt: Im Aussagesatz und in der W-Frage steht die Form von haben oder sein auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? In der Ja-/Nein-Frage steht haben oder sein am Anfang: Bist du mit dem Bus gefahren?",
+      "firstExplanation": "Perfekt mit sein: Verben der Bewegung von A nach B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Die meisten anderen Verben bilden das Perfekt mit haben: Ich habe geschlafen.",
+      "reviewer": "Sitov Academy M",
+      "independentFollowup": "S7 epoch19 ACCEPT_SCOPED_NEW_BINDING_NEEDED; binding applied by M"
     }
   ],
   "receptiveFixedPhrases": [
@@ -197,5 +188,47 @@
     }
   ],
   "humanListening": false,
-  "publicationApproved": false
+  "publicationApproved": false,
+  "expandedExamples": [
+    {
+      "nodeId": "P1-N8",
+      "card": "p1_strategy",
+      "examples": [
+        "Wie bitte?",
+        "Das weiß ich leider nicht.",
+        "Ja, genau.",
+        "Oh, interessant!",
+        "Hier ist Oleh.",
+        "Ist Herr Lindner da?",
+        "Auf Wiederhören!"
+      ],
+      "examplesSha256": "27b7d09e44aefc4513dc322417a1471f7c61ba3eee23c073778b0e9c759693eb",
+      "reasonDe": "Die gemeinsame Karte ergänzt Gesprächsstrategien um drei feste Telefonwendungen. Nur diese exakte geordnete Liste darf sieben Beispiele enthalten; alle anderen Karten behalten die Grenze von vier."
+    }
+  ],
+  "independentReview": {
+    "source": "S7/epoch18-reviewed.json",
+    "sha256": "276dfffcf5a07799c1fd798064b559a3216d7de94486ba34cd2844e95d69a72e",
+    "acceptedOriginalCards": [
+      "P1-N1",
+      "P1-N8",
+      "P2-N3"
+    ],
+    "acceptedReceptiveFieldBindings": 11,
+    "acceptedExpandedExampleList": "P1-N8",
+    "removedHeldBindings": [
+      "P1-N3",
+      "P7-N5"
+    ],
+    "repairedCardsFollowup": {
+      "source": "S7/epoch19-reviewed.json",
+      "sha256": "e0ca609fa5743ac4f219496e7aee8d2575a4dcc53dcbea6f6f4e6af2b522fe1c",
+      "acceptedAuthoredScalarChanges": 27,
+      "obsoleteBindingsRemoved": [
+        "P1-N3",
+        "P7-N5"
+      ],
+      "scopedNewBindingAccepted": "P7-N7"
+    }
+  }
 }
