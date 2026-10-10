@@ -355,7 +355,7 @@ function RecordingStudio({ prompts, statuses, level, lang, translations, onOpenM
           {!answered && status === 'sent' && phase === 'idle' && <p className="st-answer-banner st-answer-banner--calm st-rise" role="status">{s('studio_sent_waiting')}</p>}
 
           <AudioRecorder key={selected.id} promptId={selected.id} textVersion={textVersion} level={level} translations={translations}
-            onRecordingStateChange={busy => { setRecordingBusy(busy); onBusyChange(busy) }} onPhaseChange={setPhase} mobileFloating />
+            onRecordingStateChange={busy => { setRecordingBusy(busy); onBusyChange(busy) }} onPhaseChange={setPhase} />
           <p className="px-3 text-center text-base leading-relaxed text-[var(--muted)]">{t('recording_privacy')}</p>
           <section aria-label={help.recordingTitle} lang={lang}><SitovTrainerHelp title={help.label}><h3>{help.recordingTitle}</h3><p>{help.recordingBody}</p></SitovTrainerHelp></section>
         </div>

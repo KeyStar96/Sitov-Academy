@@ -28,7 +28,6 @@ import styles from './PronunciationStudio.module.css'
  *   Aufnahme     → schmale Glasleiste mit Stopp-Knopf und Live-Wellenform,
  *   Auswertung   → die schwebende Ebene verschwindet, Player und Aktionen
  *                  stehen als normale Karte unter dem Vorlesetext.
- * So verdeckt die Aufnahme-UI den vorzulesenden Text zu keinem Zeitpunkt.
  */
 export default function AudioRecorder({
   promptId,
@@ -136,6 +135,7 @@ export default function AudioRecorder({
 
   const card = (
     <SitovMotionStage
+      data-testid="pronunciation-recording-card"
       data-sitov-phase={phase}
       className={`${styles.sitovRecorder} min-w-0 break-words rounded-3xl border border-[var(--border)] bg-[var(--surface)] text-center text-[var(--foreground)] shadow-sm transition-colors ${
         compact ? 'p-5 shadow-none' : mobileFloating ? 'p-5 lg:p-8' : 'p-5 sm:p-8'

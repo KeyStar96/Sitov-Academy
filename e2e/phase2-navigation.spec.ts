@@ -207,7 +207,7 @@ test.describe('Untere Leiste (D8)', () => {
     await expect(bar).toBeInViewport()
   })
 
-  test('das Aufnahme-Dock wandert mit: der Aufnahmeknopf bleibt sichtbar und klickbar', async ({ page }) => {
+  test('die Aufnahme steht nach dem Lesetext und bleibt bedienbar', async ({ page }) => {
     await signIn(page)
     await open(page, ROUTES.pronunciation)
     await page.evaluate(() => {
@@ -215,38 +215,23 @@ test.describe('Untere Leiste (D8)', () => {
         configurable: true, value: async () => { throw new DOMException('Test microphone permission denied', 'NotAllowedError') },
       })
     })
-    const dock = page.getByTestId('pronunciation-recording-bar')
-    if (isDesktop()) {
-      // Die schwebende Aufnahme-Bedienung gibt es nur unterhalb des lg-Breakpoints.
-      await expect(dock).toBeHidden()
-      return
-    }
-    const record = dock.getByRole('button', { name: 'Start recording', exact: true })
-    const bar = tabbar(page)
-    const onTop = async () => {
-      const box = (await record.boundingBox())!
-      return page.evaluate(({ x, y }) => !!document.elementFromPoint(x, y)?.closest('button[aria-label="Start recording"]'), { x: box.x + box.width / 2, y: box.y + box.height / 2 })
-    }
-    // Die Aussprache-Ansicht kann beim Laden bereits zum Lesetext springen.
-    // Für den Vergleich brauchen wir zuerst eine ausdrücklich sichtbare App-Leiste.
-    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
-    await expect(bar).toBeVisible()
+    const card = page.getByTestId('pronunciation-recording-card')
+    const record = card.getByRole('button', { name: 'Start recording', exact: true })
+    const text = page.getByTestId('pronunciation-reading-text')
+    await text.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }))
+    await page.waitForTimeout(900)
+    const [readingBounds, recordBounds] = await Promise.all([text.boundingBox(), record.boundingBox()])
+    expect(readingBounds).not.toBeNull()
+    expect(recordBounds).not.toBeNull()
+    expect(recordBounds!.y).toBeGreaterThanOrEqual(readingBounds!.y + readingBounds!.height)
+    await record.scrollIntoViewIfNeeded()
     await expect(record).toBeInViewport({ ratio: 1 })
-    const withBar = (await record.boundingBox())!
-    const barBox = (await bar.boundingBox())!
-    expect(withBar.y + withBar.height).toBeLessThanOrEqual(barBox.y + 1)
-    await scrollBy(page, 600)
-    await expect(page.locator('.academy-student-shell')).toHaveAttribute('data-tabbar', 'hidden')
-    await expect(record).toBeInViewport({ ratio: 1 })
-    expect(await onTop()).toBe(true)
-    const withoutBar = (await record.boundingBox())!
-    expect(withoutBar.y).toBeGreaterThan(withBar.y)
-    await scrollBy(page, -120)
-    await expect(bar).toBeInViewport()
-    await expect(record).toBeInViewport({ ratio: 1 })
-    expect(await onTop()).toBe(true)
+    expect(await record.evaluate(button => {
+      const box = button.getBoundingClientRect()
+      return button.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2))
+    })).toBe(true)
     await record.click()
-    await expect(dock.getByRole('status')).toBeVisible()
+    await expect(card.getByRole('status')).toBeVisible()
   })
 
 })

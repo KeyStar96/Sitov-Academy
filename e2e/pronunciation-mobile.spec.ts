@@ -19,7 +19,7 @@ function fixtureReferenceWav() {
 }
 
 for (const theme of ['light', 'dark'] as const) {
-  test(`recording remains visible and clickable after reading a long text (${theme})`, async ({ page, request }, testInfo) => {
+  test(`recording stays below the reading text and remains clickable (${theme})`, async ({ page, request }, testInfo) => {
     if (testInfo.project.metadata.phase2Fixture) {
       // Local UI contract; the isolated gateway path below still checks real
       // Auth/RLS when invoked with its own config and private credentials.
@@ -74,7 +74,7 @@ for (const theme of ['light', 'dark'] as const) {
 }
 
 async function checkRecording(page: Page, testInfo: TestInfo, lang: string, copy: typeof en.pronunciation) {
-  // Die schwebende Aufnahme-Bedienung gibt es nur unterhalb des lg-Breakpoints.
+  // Start with the mobile reference controls; recording stays in document flow at every width.
   await page.setViewportSize({ width: 390, height: 844 })
   // The prototype keeps the permission fixture across native MediaDevices
   // wrappers in WebKit. Install on every navigation, including the speed reload.
@@ -114,21 +114,31 @@ async function checkRecording(page: Page, testInfo: TestInfo, lang: string, copy
     await expect(speed).toHaveValue('0.85')
     await page.screenshot({ path: testInfo.outputPath('tts-reference-controls.png') })
   }
-  const bar = page.getByTestId('pronunciation-recording-bar')
+  const bar = page.getByTestId('pronunciation-recording-card')
   const record = bar.getByRole('button', { name: copy.start_recording, exact: true })
-  // Im Ruhezustand traegt ein schwebender Knopf die Aufnahme – keine Leiste im Textfluss.
-  await expect(bar).toHaveCSS('position', 'fixed')
-  await expect(record).toBeInViewport({ ratio: 1 })
-  await expect(record).toBeEnabled()
-  const bounds = await record.boundingBox()
-  expect(bounds!.width).toBeGreaterThanOrEqual(56)
-  expect(bounds!.height).toBeGreaterThanOrEqual(56)
-  // Am Seitenende bleibt der Lesetext vollstaendig ueber dem Knopf lesbar.
-  await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }))
-  await expect.poll(async () => {
-    const [ending, dock] = await Promise.all([end.boundingBox(), record.boundingBox()])
-    return ending && dock ? ending.y + ending.height - dock.y : Infinity
-  }, { message: 'The reading end stays fully above the recording control after scrolling' }).toBeLessThanOrEqual(0)
+  const text = page.getByTestId('pronunciation-reading-text')
+  // The former fixed FAB intersected text midway through a stationary read.
+  // Check actual geometry before bringing the normal-flow recording card into view.
+  for (const width of [320, 390, 1440]) {
+    await page.setViewportSize({ width, height: 844 })
+    await text.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }))
+    await page.waitForTimeout(900)
+    const [readingBounds, recordBounds] = await Promise.all([text.boundingBox(), record.boundingBox()])
+    expect(readingBounds).not.toBeNull()
+    expect(recordBounds).not.toBeNull()
+    expect(recordBounds!.y).toBeGreaterThanOrEqual(readingBounds!.y + readingBounds!.height)
+    await record.scrollIntoViewIfNeeded()
+    await expect(record).toBeInViewport({ ratio: 1 })
+    await expect(record).toBeEnabled()
+    const bounds = (await record.boundingBox())!
+    expect(bounds.width).toBeGreaterThanOrEqual(56)
+    expect(bounds.height).toBeGreaterThanOrEqual(56)
+    expect(bounds.x).toBeGreaterThanOrEqual(0)
+    expect(bounds.x + bounds.width).toBeLessThanOrEqual(width)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  }
+  await page.setViewportSize({ width: 390, height: 844 })
+  await record.scrollIntoViewIfNeeded()
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([])
   await page.screenshot({ path: testInfo.outputPath('reading-end-recording-bar.png') })
   await record.click()

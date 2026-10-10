@@ -1,0 +1,88 @@
+{
+  "epoch": 47,
+  "school": "Sitov Academy",
+  "sourceBaseCommit": "354b4c8dbd4839e84a523100c69c28fc3156c7c0",
+  "status": "REPAIR_IMPLEMENTED_BROWSER_VERIFICATION_PENDING",
+  "createdAt": "2026-10-10T04:49:12.959378+00:00",
+  "problem": "Stationary mobile floating Start recording control occluded two German reading lines.",
+  "beforeEvidence": {
+    "sourceCommit": "ab9756de6cb04c43d9dd41b4a92360d3dd2d1cd6",
+    "screenshot": "docs/handoffs/SITOV-NIGHT-2026-10-08/S5/epoch34-en390-stationary-middle.png",
+    "screenshotByteSHA256": "d93766069894b2de97dc59fca98a7ffd3fbef515c881026ef13174e36924c326",
+    "metadata": "docs/handoffs/SITOV-NIGHT-2026-10-08/S5/epoch34-en390-stationary-middle.json",
+    "viewport": "390px EN dark",
+    "settleMs": 900,
+    "scrollTop": 1649.5,
+    "buttonRect": {
+      "x": 82.2890625,
+      "y": 676,
+      "width": 225.421875,
+      "height": 68
+    },
+    "screenshotActuallyViewed": true,
+    "focusFailureClaimed": false
+  },
+  "changes": [
+    "Studio selects the existing normal-flow recording card after reading and reference audio instead of opting into mobileFloating.",
+    "Start/stop/review/submission/permission feedback remain in the existing recorder component; no audio or server logic changed.",
+    "Stable recording-card test selector added; false historical comment claiming floating controls never cover text removed.",
+    "Existing mobile test now checks actual stationary reading/record button geometry at320/390/1440, minimum targets, viewport containment, click and permission feedback.",
+    "Only the obsolete pronunciation floating-dock navigation test block was updated; every other navigation test preserved byte-for-byte."
+  ],
+  "sourceBindings": [
+    {
+      "file": "components/audio/PronunciationStudio.tsx",
+      "beforeByteSHA256": "c6a180085310c9f7272373e1ca880096117eea29072ce78549cf584bbc0e628f",
+      "afterByteSHA256": "59e961c8fcb4b99712423298247960cefdb5e98625d339ab81c21c45ef92c35f"
+    },
+    {
+      "file": "components/audio/AudioRecorder.tsx",
+      "beforeByteSHA256": "bf840c4d9eb40cd523b7c86a05b4bd097557422fd945553d7dbae091e8cd585c",
+      "afterByteSHA256": "f25fac751e649f7122fbc5b4639a2e08f837bdb8a78506ffb162018f774e4319"
+    },
+    {
+      "file": "e2e/pronunciation-mobile.spec.ts",
+      "beforeByteSHA256": "97301fc344979566734a4af5971590ed9e125f0b0eb03bd227a2101d77a8263a",
+      "afterByteSHA256": "fdaac310638b41e551b6a2d24270b206d08b50aeaae8a7b7ff690d9120e8a9b4"
+    },
+    {
+      "file": "e2e/phase2-navigation.spec.ts",
+      "beforeByteSHA256": "c6f394fccfdbf7207f3bb97245106013edc91243c1e05ea0dbb205f504fd0136",
+      "afterByteSHA256": "423a5b5880172c840a92d8aa41163152e7c243f52c908fd1b0a26519c5c3efe8"
+    }
+  ],
+  "checks": [
+    {
+      "command": "node_modules/.bin/jest --runInBand __tests__/pronunciation-save-retry.test.tsx __tests__/audio-recorder-mobile-ux.test.tsx",
+      "result": "PASS two suites six tests",
+      "scope": "Existing save/retry/submission and optional floating-recorder contract; not a browser layout proof."
+    },
+    {
+      "command": "node_modules/.bin/eslint components/audio/PronunciationStudio.tsx components/audio/AudioRecorder.tsx e2e/pronunciation-mobile.spec.ts e2e/phase2-navigation.spec.ts",
+      "result": "PASS exit0"
+    },
+    {
+      "command": "node_modules/.bin/tsc --noEmit --incremental false",
+      "result": "PASS exit0 on final four changed TS/TSX files; noEmit project typecheck, no incremental file mutation"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS before documentation save; final staged check recorded in status."
+    }
+  ],
+  "preservation": {
+    "allFiveLocaleCopyUnchanged": true,
+    "sharedMotionAndReducedMotionUnchanged": true,
+    "contentAudioVersionsUnchanged": true,
+    "recordingServerUploadLogicUnchanged": true,
+    "databaseUntouched": true,
+    "fixturesUntouched": true,
+    "runtimeUntouched": true
+  },
+  "pending": [
+    "S5 real browser verification after M integration: stationary reading middle/end at320/390/1440, DE/EN/RU/UK/TR, theme/contrast, keyboard/touch, reduced motion and200% text.",
+    "Browser tests authored but not executed by S4; no new after screenshot claimed."
+  ],
+  "publicationApproved": false,
+  "releaseReady": false
+}
