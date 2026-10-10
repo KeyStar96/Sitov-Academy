@@ -31,3 +31,24 @@ Der tatsächliche gemeinsame Audio-Katalog und Prepared-Adapter stimmen für all
 `epoch34-first-eight-parent-holds-proof.json` bindet alle privaten Artefakte durch Byte-SHAs, sämtliche zehn Seed-Vorher/Nachher-SHAs und die unabhängige Ausgangsprüfung. Privat erhalten: vollständige alte und neue Seeds, alle acht vollständigen Kontexte, 35 volle alte/neue Aufgaben, vollständige native Quell-Dateien vor/nach Änderung, skalare Diffs und Audio-Aliase. Die Aggregatinventare aus epoch33 sind für die hier geänderten Fassungen vor Übernahme neu abzuleiten.
 
 Alle acht Reparaturen benötigen unabhängige Nachprüfung durch M/S4. Keine DB-, SSH-, API-, TTS-, Import- oder Veröffentlichungsschritte. S2 sichert eigenen Commit und WAIT innerhalb der unveränderten Lease; keine nächste Arbeitseinheit begonnen.
+
+## Auf ausdrücklichen SAVE-Hinweis markierte Folge-Refs
+
+Nur aus dem bereits gesicherten finalen Seed-Inventar abgelesen, keine zusätzliche Inhaltsprüfung oder Änderung: separate p6_modal_prt-Parentkarte A2.1/P6-N3. Die bereits korrigierte Kindfassung A2.1/P6-N6-E09 bleibt der einzige bearbeitete Modal-Kontext dieser Einheit. Für eine neue begrenzte Einheit bleiben folgende unveränderte Referenzen derselben Karte markiert:
+
+- A2.1/P6-N3-E01 (`57923dad-94ca-5bde-a136-8fd090ef8c30`)
+- A2.1/P6-N3-E02 (`b15c7121-dc69-5e54-afee-90d5edca7f81`)
+- A2.1/P6-N3-E03 (`14170380-75a3-5fc0-ae7d-e0e9048e0048`)
+- A2.1/P6-N3-E04 (`d691532b-d7f8-511f-aed5-9e2eee359722`)
+- A2.1/P6-N3-E05 (`ccf6f21a-3797-50ee-ab93-0c4837f4a5d8`)
+- A2.1/P6-N3-E06 (`7b3e2def-1515-5887-a5ca-e5f65763022b`)
+- A2.1/P6-N3-E07 (`f96a8a6a-f832-5bc6-aebd-68ffbe70ee11`)
+- A2.1/P6-N3-E08 (`8b44e7f8-e333-5b43-a519-b62c3fee06a3`)
+- A2.1/P6-N3-E09 (`c946e200-55fc-5a6e-abba-f52025da6736`)
+- A2.1/P6-N3-E10 (`311f95df-562a-54cb-a617-99479fdb0632`)
+- A2.1/P6-N12-E10 (`4ddc7ce2-155f-5837-a79d-6c1df0b2dc48`)
+- A2.1/P6-N13-E05 (`51d42ff1-54fb-55c7-a06f-01f47a756d68`)
+- A2.1/P6-N13-E06 (`54c7eb24-d056-5607-a4bb-6e40963795a8`)
+- A2.1/P6-N13-E20 (`a8c9c7f6-7c0e-571c-a158-b1d3938db61e`)
+- A2.1/P6-N13-E21 (`309e481c-79db-5ce2-aa2b-8635b5ffdd9c`)
+- A2.1/P6-N13-E32 (`b2eb97ce-e832-5ac3-a250-11788f4dbce5`)
