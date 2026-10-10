@@ -120,7 +120,7 @@ LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
 DECLARE role_name text:=coalesce(nullif(current_setting('role',true),'none'),session_user);
  item jsonb; e public.learning_exercises; old jsonb; candidate jsonb; before_full jsonb;
  before_hash text; after_hash text; existing path_private.sitov_content_revision_receipts;
- lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text; card_count integer; card_node public.path_nodes;
+ lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text; card_count integer; card_node public.path_nodes; parent_node public.path_nodes;
 BEGIN
  IF role_name<>'service_role' THEN RAISE EXCEPTION 'not_authorized' USING ERRCODE='42501'; END IF;
  IF p_request_id IS NULL OR jsonb_typeof(p_items) IS DISTINCT FROM 'array' THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
@@ -145,13 +145,23 @@ BEGIN
   SELECT * INTO e FROM public.learning_exercises WHERE id=(item->>'id')::uuid;
   IF NOT FOUND OR e.node_id IS NULL OR NOT e.path_is_active THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
   PERFORM gt.exercise_id FROM public.grammar_translations gt WHERE gt.exercise_id=e.id ORDER BY gt.locale FOR UPDATE;
+  -- Stabilize the same parent before checking its authoritative topic mirror.
+  SELECT * INTO parent_node FROM public.path_nodes WHERE id=e.node_id FOR SHARE;
   old:=path_private.sitov_revision_projection(e.id); candidate:=item->'after';
   IF old#>>'{parent,unit_active}' IS DISTINCT FROM 'true' OR old#>>'{parent,node_active}' IS DISTINCT FROM 'true'
    OR old#>>'{parent,node_unit_id}' IS DISTINCT FROM e.unit_id::text THEN RAISE EXCEPTION 'sitov_revision_parent_conflict' USING ERRCODE='40001'; END IF;
   before_hash:=path_private.sitov_revision_hash(old); after_hash:=path_private.sitov_revision_hash(candidate);
   IF item->>'expected_hash' IS DISTINCT FROM before_hash
-   OR (candidate-ARRAY['content','translations','explanation_card']) IS DISTINCT FROM (old-ARRAY['content','translations','explanation_card'])
+   OR (candidate-ARRAY['content','translations','explanation_card','topic']) IS DISTINCT FROM (old-ARRAY['content','translations','explanation_card','topic'])
   THEN RAISE EXCEPTION 'sitov_revision_version_conflict' USING ERRCODE='40001'; END IF;
+  -- A renamed parent label may be mirrored only from this exact locked
+  -- active parent. Topic changes are archived with content, never pre-patched.
+  IF candidate->'topic' IS DISTINCT FROM old->'topic' THEN
+   IF jsonb_typeof(candidate->'topic') IS DISTINCT FROM 'string'
+    OR NOT path_private.valid_text(candidate->'topic')
+    OR candidate->>'topic' IS DISTINCT FROM parent_node.topic
+   THEN RAISE EXCEPTION 'sitov_revision_topic_binding_invalid' USING ERRCODE='23514'; END IF;
+  END IF;
   -- Reviewed pointer correction is an archived source delta, never a
   -- pre-archive patch. Lock and count every active exact same-unit binding.
   IF candidate->'explanation_card' IS DISTINCT FROM old->'explanation_card' THEN
@@ -193,7 +203,7 @@ BEGIN
    RAISE EXCEPTION 'sitov_revision_special_dependency' USING ERRCODE='23514';
   END IF;
   before_full:=path_private.sitov_revision_full(e.id);
-  UPDATE public.learning_exercises SET content=candidate->'content',explanation_card=candidate->>'explanation_card' WHERE id=e.id;
+  UPDATE public.learning_exercises SET content=candidate->'content',explanation_card=candidate->>'explanation_card',topic=candidate->>'topic' WHERE id=e.id;
   FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
    t:=candidate->'translations'->lang;
    INSERT INTO public.grammar_translations(exercise_id,locale,instruction,hint,explanation,prompt,task,gap_hint)
@@ -415,7 +425,7 @@ LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
 DECLARE role_name text:=coalesce(nullif(current_setting('role',true),'none'),session_user);
  item jsonb; e public.learning_exercises; old jsonb; candidate jsonb; before_full jsonb;
  before_hash text; after_hash text; existing path_private.sitov_content_revision_receipts;
- lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text; card_count integer; card_node public.path_nodes;
+ lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text; card_count integer; card_node public.path_nodes; parent_node public.path_nodes;
 BEGIN
  IF role_name<>'service_role' THEN RAISE EXCEPTION 'not_authorized' USING ERRCODE='42501'; END IF;
  IF p_request_id IS NULL OR jsonb_typeof(p_items) IS DISTINCT FROM 'array' THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
@@ -440,13 +450,23 @@ BEGIN
   SELECT * INTO e FROM public.learning_exercises WHERE id=(item->>'id')::uuid;
   IF NOT FOUND OR e.node_id IS NULL OR NOT e.path_is_active THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
   PERFORM gt.exercise_id FROM public.grammar_translations gt WHERE gt.exercise_id=e.id ORDER BY gt.locale FOR UPDATE;
+  -- Stabilize the same parent before checking its authoritative topic mirror.
+  SELECT * INTO parent_node FROM public.path_nodes WHERE id=e.node_id FOR SHARE;
   old:=path_private.sitov_revision_projection(e.id); candidate:=item->'after';
   IF old#>>'{parent,unit_active}' IS DISTINCT FROM 'true' OR old#>>'{parent,node_active}' IS DISTINCT FROM 'true'
    OR old#>>'{parent,node_unit_id}' IS DISTINCT FROM e.unit_id::text THEN RAISE EXCEPTION 'sitov_revision_parent_conflict' USING ERRCODE='40001'; END IF;
   before_hash:=path_private.sitov_revision_hash(old); after_hash:=path_private.sitov_revision_hash(candidate);
   IF item->>'expected_hash' IS DISTINCT FROM before_hash
-   OR (candidate-ARRAY['content','translations','explanation_card']) IS DISTINCT FROM (old-ARRAY['content','translations','explanation_card'])
+   OR (candidate-ARRAY['content','translations','explanation_card','topic']) IS DISTINCT FROM (old-ARRAY['content','translations','explanation_card','topic'])
   THEN RAISE EXCEPTION 'sitov_revision_version_conflict' USING ERRCODE='40001'; END IF;
+  -- A renamed parent label may be mirrored only from this exact locked
+  -- active parent. Topic changes are archived with content, never pre-patched.
+  IF candidate->'topic' IS DISTINCT FROM old->'topic' THEN
+   IF jsonb_typeof(candidate->'topic') IS DISTINCT FROM 'string'
+    OR NOT path_private.valid_text(candidate->'topic')
+    OR candidate->>'topic' IS DISTINCT FROM parent_node.topic
+   THEN RAISE EXCEPTION 'sitov_revision_topic_binding_invalid' USING ERRCODE='23514'; END IF;
+  END IF;
   -- Reviewed pointer correction is an archived source delta, never a
   -- pre-archive patch. Lock and count every active exact same-unit binding.
   IF candidate->'explanation_card' IS DISTINCT FROM old->'explanation_card' THEN
@@ -488,7 +508,7 @@ BEGIN
    RAISE EXCEPTION 'sitov_revision_special_dependency' USING ERRCODE='23514';
   END IF;
   before_full:=path_private.sitov_revision_full(e.id);
-  UPDATE public.learning_exercises SET content=candidate->'content',explanation_card=candidate->>'explanation_card' WHERE id=e.id;
+  UPDATE public.learning_exercises SET content=candidate->'content',explanation_card=candidate->>'explanation_card',topic=candidate->>'topic' WHERE id=e.id;
   FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
    t:=candidate->'translations'->lang;
    INSERT INTO public.grammar_translations(exercise_id,locale,instruction,hint,explanation,prompt,task,gap_hint)
@@ -824,6 +844,36 @@ SELECT pg_temp.sitov61_assert('reassignment_old_snapshots_exact',NOT EXISTS((SEL
 -- Refresh history comparison after all rejected statements; no learner record changed.
 SELECT pg_temp.sitov61_assert('reassignment_history_exact',NOT EXISTS((SELECT * FROM sitov63_history_before EXCEPT SELECT * FROM sitov63_history_after)UNION ALL(SELECT * FROM sitov63_history_after EXCEPT SELECT * FROM sitov63_history_before)));
 
+-- A fresh same-parent topic fixture leaves every existing archive intact.
+INSERT INTO public.path_nodes(id,unit_id,kind,sort_order,source_id,title,topic,merkkarte,goals,is_active)
+ SELECT '00000000-0068-4000-8000-000000000001',unit_id,'practice',180,'sitov-topic-mirror-native','Sitov Academy Paul','Sitov Academy · Antons Vater',merkkarte,goals,true FROM public.path_nodes WHERE source_id='sitov-61-n0';
+INSERT INTO public.learning_exercises(id,unit_id,node_id,type,content,sort_order,topic,source_ref,goal_id,path_is_active,explanation_card)
+ SELECT '00000000-0068-4000-8000-000000000002',unit_id,'00000000-0068-4000-8000-000000000001',type,content,1,'Sitov Academy · Annas Mutter','sitov-topic-mirror-e1',goal_id,true,explanation_card FROM public.learning_exercises WHERE id='00000000-0061-4000-8000-000000000003';
+INSERT INTO public.grammar_translations(exercise_id,locale,instruction,hint,explanation,prompt,task,gap_hint)
+ SELECT '00000000-0068-4000-8000-000000000002',locale,instruction,hint,explanation,prompt,task,gap_hint FROM public.grammar_translations WHERE exercise_id='00000000-0061-4000-8000-000000000003';
+CREATE TEMP TABLE sitov68_old AS SELECT path_private.sitov_revision_projection('00000000-0068-4000-8000-000000000002') projection,path_private.sitov_revision_full('00000000-0068-4000-8000-000000000002') full_row;
+CREATE FUNCTION pg_temp.sitov68_payload(p_topic jsonb) RETURNS jsonb LANGUAGE sql SECURITY DEFINER SET search_path='' AS $$
+ SELECT jsonb_build_array(jsonb_build_object('id',old->'id','expected_hash',path_private.sitov_revision_hash(old),'after',candidate,'review',jsonb_build_object('approved',true,'reviewer','Sitov Academy synthetic topic reviewer','evidence_uri','native:topic-mirror','before_hash',path_private.sitov_revision_hash(old),'after_hash',path_private.sitov_revision_hash(candidate)))) FROM(SELECT old,jsonb_set(old,'{topic}',p_topic) candidate FROM(SELECT projection old FROM sitov68_old)a)b;
+$$;
+GRANT SELECT ON sitov68_old TO service_role;
+GRANT EXECUTE ON FUNCTION pg_temp.sitov68_payload(jsonb) TO service_role;
+SET ROLE service_role;
+SELECT pg_temp.sitov61_error('SELECT public.sitov_revise_path_content(gen_random_uuid(),pg_temp.sitov68_payload(''"different parent topic"''))','sitov_revision_topic_binding_invalid');
+SELECT pg_temp.sitov61_error('SELECT public.sitov_revise_path_content(gen_random_uuid(),pg_temp.sitov68_payload(''""''))','sitov_revision_topic_binding_invalid');
+SELECT pg_temp.sitov61_error('SELECT public.sitov_revise_path_content(gen_random_uuid(),pg_temp.sitov68_payload(''null''))','sitov_revision_topic_binding_invalid');
+SELECT pg_temp.sitov61_error('SELECT public.sitov_revise_path_content(gen_random_uuid(),pg_temp.sitov68_payload(''17''))','sitov_revision_topic_binding_invalid');
+RESET ROLE;
+SELECT pg_temp.sitov61_assert('topic_all_invalid_source_exact',path_private.sitov_revision_full('00000000-0068-4000-8000-000000000002')=(SELECT full_row FROM sitov68_old));
+SET ROLE service_role;
+SELECT public.sitov_revise_path_content('00000000-0068-4000-8000-000000000003',pg_temp.sitov68_payload('"Sitov Academy · Antons Vater"'));
+SELECT public.sitov_revise_path_content('00000000-0068-4000-8000-000000000003',pg_temp.sitov68_payload('"Sitov Academy · Antons Vater"'));
+RESET ROLE;
+SET CONSTRAINTS ALL IMMEDIATE;
+SELECT pg_temp.sitov61_assert('topic_exact_same_parent_current',(SELECT topic='Sitov Academy · Antons Vater' FROM public.learning_exercises WHERE id='00000000-0068-4000-8000-000000000002'));
+SELECT pg_temp.sitov61_assert('topic_full_old_new_archive',(SELECT count(*)=1 AND bool_and(before_full#>>'{exercise,topic}'='Sitov Academy · Annas Mutter' AND after_full#>>'{exercise,topic}'='Sitov Academy · Antons Vater' AND ((before_full->'exercise')-'topic'-'solution_audio_url')=((after_full->'exercise')-'topic'-'solution_audio_url') AND before_full#>>'{exercise,solution_audio_url}' IS NULL AND after_full#>>'{exercise,solution_audio_url}'=vocabulary_private.sitov_prepared_german_audio_url(after_full#>>'{exercise,content,correct_answer}') AND before_full->'translations'=after_full->'translations') FROM path_private.sitov_content_revisions WHERE exercise_id='00000000-0068-4000-8000-000000000002'));
+SELECT pg_temp.sitov61_assert('topic_same_request_one_receipt',(SELECT count(*)=1 FROM path_private.sitov_content_revision_receipts WHERE request_id='00000000-0068-4000-8000-000000000003'));
+SELECT pg_temp.sitov64_block('topic_direct_write_still_guarded','UPDATE public.learning_exercises SET topic=''different topic'' WHERE id=''00000000-0068-4000-8000-000000000002''','40001');
+SELECT pg_temp.sitov61_assert('topic_all_old_snapshots_exact',NOT EXISTS((SELECT row FROM sitov63_old_snapshots EXCEPT (SELECT to_jsonb(i) FROM path_private.practice_items i UNION ALL SELECT to_jsonb(i) FROM path_private.test_items i)) UNION ALL ((SELECT to_jsonb(i) FROM path_private.practice_items i UNION ALL SELECT to_jsonb(i) FROM path_private.test_items i) EXCEPT SELECT row FROM sitov63_old_snapshots)));
 SELECT jsonb_build_object('checks',(SELECT count(*) FROM sitov61_checks),'allPassed',(SELECT bool_and(passed) FROM sitov61_checks));
 ROLLBACK;
-SELECT jsonb_build_object('rollbackNoArchive',to_regclass('path_private.sitov_content_revisions') IS NULL,'fixtureRows',(SELECT count(*) FROM public.learning_exercises WHERE id::text LIKE '00000000-0061-%'));
+SELECT jsonb_build_object('rollbackNoArchive',to_regclass('path_private.sitov_content_revisions') IS NULL,'fixtureRows',(SELECT count(*) FROM public.learning_exercises WHERE id::text LIKE '00000000-0061-%'),'topicFixtureRows',(SELECT count(*) FROM public.learning_exercises WHERE id::text LIKE '00000000-0068-%'),'topicFixtureNodes',(SELECT count(*) FROM public.path_nodes WHERE id::text LIKE '00000000-0068-%'));

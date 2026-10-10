@@ -119,7 +119,7 @@ LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
 DECLARE role_name text:=coalesce(nullif(current_setting('role',true),'none'),session_user);
  item jsonb; e public.learning_exercises; old jsonb; candidate jsonb; before_full jsonb;
  before_hash text; after_hash text; existing path_private.sitov_content_revision_receipts;
- lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text; card_count integer; card_node public.path_nodes;
+ lang text; t jsonb; spoken text; audio jsonb; result jsonb:='[]'::jsonb; level_code text; card_count integer; card_node public.path_nodes; parent_node public.path_nodes;
 BEGIN
  IF role_name<>'service_role' THEN RAISE EXCEPTION 'not_authorized' USING ERRCODE='42501'; END IF;
  IF p_request_id IS NULL OR jsonb_typeof(p_items) IS DISTINCT FROM 'array' THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
@@ -144,13 +144,23 @@ BEGIN
   SELECT * INTO e FROM public.learning_exercises WHERE id=(item->>'id')::uuid;
   IF NOT FOUND OR e.node_id IS NULL OR NOT e.path_is_active THEN RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
   PERFORM gt.exercise_id FROM public.grammar_translations gt WHERE gt.exercise_id=e.id ORDER BY gt.locale FOR UPDATE;
+  -- Stabilize the same parent before checking its authoritative topic mirror.
+  SELECT * INTO parent_node FROM public.path_nodes WHERE id=e.node_id FOR SHARE;
   old:=path_private.sitov_revision_projection(e.id); candidate:=item->'after';
   IF old#>>'{parent,unit_active}' IS DISTINCT FROM 'true' OR old#>>'{parent,node_active}' IS DISTINCT FROM 'true'
    OR old#>>'{parent,node_unit_id}' IS DISTINCT FROM e.unit_id::text THEN RAISE EXCEPTION 'sitov_revision_parent_conflict' USING ERRCODE='40001'; END IF;
   before_hash:=path_private.sitov_revision_hash(old); after_hash:=path_private.sitov_revision_hash(candidate);
   IF item->>'expected_hash' IS DISTINCT FROM before_hash
-   OR (candidate-ARRAY['content','translations','explanation_card']) IS DISTINCT FROM (old-ARRAY['content','translations','explanation_card'])
+   OR (candidate-ARRAY['content','translations','explanation_card','topic']) IS DISTINCT FROM (old-ARRAY['content','translations','explanation_card','topic'])
   THEN RAISE EXCEPTION 'sitov_revision_version_conflict' USING ERRCODE='40001'; END IF;
+  -- A renamed parent label may be mirrored only from this exact locked
+  -- active parent. Topic changes are archived with content, never pre-patched.
+  IF candidate->'topic' IS DISTINCT FROM old->'topic' THEN
+   IF jsonb_typeof(candidate->'topic') IS DISTINCT FROM 'string'
+    OR NOT path_private.valid_text(candidate->'topic')
+    OR candidate->>'topic' IS DISTINCT FROM parent_node.topic
+   THEN RAISE EXCEPTION 'sitov_revision_topic_binding_invalid' USING ERRCODE='23514'; END IF;
+  END IF;
   -- Reviewed pointer correction is an archived source delta, never a
   -- pre-archive patch. Lock and count every active exact same-unit binding.
   IF candidate->'explanation_card' IS DISTINCT FROM old->'explanation_card' THEN
@@ -192,7 +202,7 @@ BEGIN
    RAISE EXCEPTION 'sitov_revision_special_dependency' USING ERRCODE='23514';
   END IF;
   before_full:=path_private.sitov_revision_full(e.id);
-  UPDATE public.learning_exercises SET content=candidate->'content',explanation_card=candidate->>'explanation_card' WHERE id=e.id;
+  UPDATE public.learning_exercises SET content=candidate->'content',explanation_card=candidate->>'explanation_card',topic=candidate->>'topic' WHERE id=e.id;
   FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
    t:=candidate->'translations'->lang;
    INSERT INTO public.grammar_translations(exercise_id,locale,instruction,hint,explanation,prompt,task,gap_hint)

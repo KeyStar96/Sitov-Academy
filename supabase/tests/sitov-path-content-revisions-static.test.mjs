@@ -35,3 +35,11 @@ test('rollback keeps revision history and source protections',()=>{
  assert.doesNotMatch(rollback,/\b(?:DROP|DELETE|TRUNCATE|UPDATE)\s/i);
  assert.ok(rollback.includes('REVOKE ALL ON FUNCTION public.sitov_revise_path_content'));
 });
+
+test('topic changes mirror only the locked same parent and remain archived',()=>{
+ assert.ok(sql.includes('SELECT * INTO parent_node FROM public.path_nodes WHERE id=e.node_id FOR SHARE'));
+ assert.ok(sql.includes("candidate->>'topic' IS DISTINCT FROM parent_node.topic"));
+ assert.ok(sql.includes("NOT path_private.valid_text(candidate->'topic')"));
+ assert.ok(sql.includes("topic=candidate->>'topic' WHERE id=e.id"));
+ assert.ok(sql.includes('sitov_revision_topic_binding_invalid'));
+});
