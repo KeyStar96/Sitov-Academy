@@ -1852,3 +1852,13 @@ test('reviewed59 rejects altered source bytes and coordinated current/review reb
  const raw=JSON.stringify(r,null,2)+'\n';d.review.documentSha256=sitovHash(raw)
  assert.throws(()=>sitovAssertReviewed59(m,sitovReviewed59CurrentAudio,raw))
 })
+
+test('thirteen repaired prompt scalars have independent current-version editorial records',async()=>{
+ const current=JSON.parse(sitovPrompts13ManifestRaw),r=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch37-independent-prompts-review.json','utf8'))
+ assert.equal(r.verdict,'ACCEPT13_PROMPTS_11_VERSION_BOUND_DEFINITIONS');assert.equal(r.reviewRecords.length,11);assert.equal(r.coverage.changedDefinitionLeaves,13);assert.equal(r.coverage.holds,0)
+ assert.equal(sitovHash(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/audio-prompts13-author-review.json','utf8')),r.sourceAuthorReviewByteSha256)
+ for(const x of r.reviewRecords){const d=current.drafts.find(d=>d.textId===x.textId),a=sitovPrompts13Review.pools.find(a=>a.textId===x.textId)
+  assert.deepEqual(d.review,x.review);assert.equal(sitovHash(JSON.stringify(d.definition)),x.review.definitionContentHash);assert.equal(d.textVersion,x.review.textVersion);assert.notEqual(x.review.reviewer,x.review.authorIdentity);assert.equal(x.review.documentSha256,r.privateReviewDocument.byteSha256);assert.deepEqual(x.review.previousReview,a.currentReview);assert.equal(x.review.humanReview,false);assert.equal(x.review.listeningPerformed,false);assert.equal(x.review.publicationApproved,false);assert.equal(x.review.calibrationStatus,'pending')
+ }
+ for(const x of sitovPrompts13Review.changes){const d=current.drafts.find(d=>d.textId===x.textId),q=d.definition.tasks.find(q=>q.id===x.questionId);assert.deepEqual(q,x.currentTask);assert.deepEqual({...q,promptDe:x.previousTask.promptDe},x.previousTask)}
+})

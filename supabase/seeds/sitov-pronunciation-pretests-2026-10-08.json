@@ -3252,14 +3252,78 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
         "definitionContentHash": "75b80c05a600d8bf0a0f410f32c4f9f8c1dc22f61f8f2750b9efbfdcad1fb110",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+          "definitionContentHash": "75b80c05a600d8bf0a0f410f32c4f9f8c1dc22f61f8f2750b9efbfdcad1fb110",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.S7",
+          "authorIdentity": "sitov.agent.S3+S4",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "S7 hat alle58 geänderten Aufgaben vollständig unabhängig geprüft und die zusätzliche Zeitmatrixkorrektur exakt akzeptiert. Unveränderte Aufgaben und ihre vollständige historische Reviewprovenienz sind im neuen versionsgebundenen Beleg gesichert. Neue Erkennungsziele und11 richtige Textänderungen ausdrücklich dokumentiert; keine menschliche Hörprüfung, Kalibrierung oder Audiofreigabe.",
+          "textVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+          "definitionContentHash": "2106eb379c0f3c00377ee7ce661723a7fa0fd3c2400474a0a2f233beca6c08ca",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-epoch32-S7-reviewed59",
+          "documentSha256": "e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143",
+          "reviewedAt": "2026-10-09T23:23:09.802170+00:00",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+            "questionId": "sitov.pretest.a11-04.verbs.q4",
+            "level": "A1.1",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Heute … wir verlangt treffen: wir ist Plural; trifft und treffe passen nicht. Präsens/Person vollständig öffentlich; A1.1 angemessen.",
+            "wholeTaskNativeSha256": "3311c5cfee556bf2a8f359345cd917e79bba71c14bb5a894884bc9036eeb2321",
+            "previousTaskNativeSha256": "948894b8dff44651a43890caebd2e41c772a5965e119aa6150aab26943f092ba",
+            "competencyNativeSha256": "10a2d959c9f7b256664c3c76a478ec61f9fae00c556fcc5ace61ed0f5aec8a04",
+            "sourceTextVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+            "sourceReadingNativeSha256": "71e5d8305d4fa33416e0c692ce9525802ec7aa9e179718b64199383d8c595e1f",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          },
+          {
+            "textId": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+            "questionId": "sitov.pretest.a11-04.nominal.q2",
+            "level": "A1.1",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Wohnen bezeichnet einen festen Ort; feminine Gartenstraße verlangt in der. die/den können diesen lokalen Dativ Singular nicht bilden; A1.1 angemessen.",
+            "wholeTaskNativeSha256": "985bd196648baf0c4e881bc04cf3d956237de6db75675a571457ac793100a0fa",
+            "previousTaskNativeSha256": "40e7329b88426b9c8b661ed7264ad26319a72720516b1d90cb9978b623e61dae",
+            "competencyNativeSha256": "5d1076e02ff1e5df8e39554f6f0a19146fbac2f9e82e16c4769afe6c361d0c80",
+            "sourceTextVersion": "a0c4ecb232d0c84138f9c7339c8d73303f8d61b091f9d35577376bf813be5c61",
+            "sourceReadingNativeSha256": "71e5d8305d4fa33416e0c692ce9525802ec7aa9e179718b64199383d8c595e1f",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -4312,14 +4376,63 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
         "definitionContentHash": "06d93c66417fe36ede51344406f39e2d1d1ffe00b5856f67975b013d07e689f0",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+          "definitionContentHash": "06d93c66417fe36ede51344406f39e2d1d1ffe00b5856f67975b013d07e689f0",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.S7",
+          "authorIdentity": "sitov.agent.S3+S4",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "S7 hat alle58 geänderten Aufgaben vollständig unabhängig geprüft und die zusätzliche Zeitmatrixkorrektur exakt akzeptiert. Unveränderte Aufgaben und ihre vollständige historische Reviewprovenienz sind im neuen versionsgebundenen Beleg gesichert. Neue Erkennungsziele und11 richtige Textänderungen ausdrücklich dokumentiert; keine menschliche Hörprüfung, Kalibrierung oder Audiofreigabe.",
+          "textVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+          "definitionContentHash": "ef2f70832bb3b172744bdcd83a1ca2f38ddb5741662b402ab0efa3dd1a907b92",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-epoch32-S7-reviewed59",
+          "documentSha256": "e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143",
+          "reviewedAt": "2026-10-09T23:23:09.802170+00:00",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+            "questionId": "sitov.pretest.a11-05.syntax.q1",
+            "level": "A1.1",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Nur Heute ist Samstag ist ein korrekter Aussagesatz mit Verbzweitstellung. Ist heute Samstag ist eine Frage und durch Aussagesatz ausgeschlossen; A1.1 angemessen.",
+            "wholeTaskNativeSha256": "6fe39a5fdf1ac3b191b36bad0ffa7771851e8c8e6ed92fff09eaa1d4bceb56a2",
+            "previousTaskNativeSha256": "200e33cbcc32c6fd82ec4741573b42e300dadb3f0473fb78ac2464a7656cdef8",
+            "competencyNativeSha256": "ce44201c9e75d6e27f97f17d46aab451a04c73ea70e397253933e97fa6bf2527",
+            "sourceTextVersion": "3cb341c9b76f3f4d4e6a48ace30270051b1f4c990c8ab16a4feaba09c49f9e01",
+            "sourceReadingNativeSha256": "73cac0fcf41aed62519f8589e795e61c0ae219ae7eab609c200c166d907e540d",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -8566,14 +8679,63 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
         "definitionContentHash": "88ce9f6ad7d6ad397dcfdad1a53e9f69a393a36a3481b3052e055d988cceb547",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+          "definitionContentHash": "88ce9f6ad7d6ad397dcfdad1a53e9f69a393a36a3481b3052e055d988cceb547",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.S7",
+          "authorIdentity": "sitov.agent.S3+S4",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "S7 hat alle58 geänderten Aufgaben vollständig unabhängig geprüft und die zusätzliche Zeitmatrixkorrektur exakt akzeptiert. Unveränderte Aufgaben und ihre vollständige historische Reviewprovenienz sind im neuen versionsgebundenen Beleg gesichert. Neue Erkennungsziele und11 richtige Textänderungen ausdrücklich dokumentiert; keine menschliche Hörprüfung, Kalibrierung oder Audiofreigabe.",
+          "textVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+          "definitionContentHash": "2e287246556dabaf6b1935b73a4b167eadf8e2500220a1eabe7c8ef084f9612f",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-epoch32-S7-reviewed59",
+          "documentSha256": "e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143",
+          "reviewedAt": "2026-10-09T23:23:09.802170+00:00",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+            "questionId": "sitov.pretest.a11-09.nominal.q6",
+            "level": "A1.1",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Mein Freund und ich nennt ausdrücklich beide Referenten. wir nimmt beide auf; die zwei Nur-Optionen sind ausgeschlossen. Keine Kenntnis des gesperrten Lesetexts nötig; A1.1 angemessen.",
+            "wholeTaskNativeSha256": "e4cea604fd4e697c6a33293aa39aca87b36268a03e640dc79f27f70d33f96d9e",
+            "previousTaskNativeSha256": "bdee998232c3325dc3e0a9501ab7e7da7c17bc9db456ab5c7012b221681d2d56",
+            "competencyNativeSha256": "b952d83589a9d25fa8c81dd9677bf609009125a9bcc8b346185bab5ba7d545a3",
+            "sourceTextVersion": "950d466f410daf1df3d9d66b4a97acce33256f4ca65255bd004c909d780974ab",
+            "sourceReadingNativeSha256": "88ca1cf67591ad05d96cf9c1e1a6e1a850bdcfda1edf9e1e49c6b6fb8075a111",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -13851,14 +14013,63 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "af6069fdab6798f3a084ceb92d09a6a47eec2741d01b971e341f116262485848",
         "definitionContentHash": "7ba97bcdc7eaab50f6bca681919a2f787c220e9d98152401c3c1e3707a8f4ef8",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "af6069fdab6798f3a084ceb92d09a6a47eec2741d01b971e341f116262485848",
+          "definitionContentHash": "7ba97bcdc7eaab50f6bca681919a2f787c220e9d98152401c3c1e3707a8f4ef8",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.S7",
+          "authorIdentity": "sitov.agent.S3+S4",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "S7 hat alle58 geänderten Aufgaben vollständig unabhängig geprüft und die zusätzliche Zeitmatrixkorrektur exakt akzeptiert. Unveränderte Aufgaben und ihre vollständige historische Reviewprovenienz sind im neuen versionsgebundenen Beleg gesichert. Neue Erkennungsziele und11 richtige Textänderungen ausdrücklich dokumentiert; keine menschliche Hörprüfung, Kalibrierung oder Audiofreigabe.",
+          "textVersion": "af6069fdab6798f3a084ceb92d09a6a47eec2741d01b971e341f116262485848",
+          "definitionContentHash": "a4736a3fac46f91c1051c354763eaa55580fab68c0becd8640909eec84cd70b4",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-epoch32-S7-reviewed59",
+          "documentSha256": "e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143",
+          "reviewedAt": "2026-10-09T23:23:09.802170+00:00",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "6e15b015-d482-58e4-9fa2-25ba0c8dea72",
+            "questionId": "sitov.pretest.a12-04.nominal.q2",
+            "level": "A1.2",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Bestimmter Artikel und Nominativ sind ausdrücklich genannt; Feier ist feminin, daher die. der/das falsch; A1.2 angemessen. Feminines Nomen ist grammatisch erforderlich.",
+            "wholeTaskNativeSha256": "6872dde3a2c589d213afab542d1ea621173bc909fdd1dab3952a2eedecdf8e47",
+            "previousTaskNativeSha256": "6548505c2068dea412906a1c11f48cc46e76635fa21440090dd62d91cbc0b6d6",
+            "competencyNativeSha256": "e6b369c8120dc6edb992d0876b1eaaa77a680212123800965a693aaa1f2cd0d4",
+            "sourceTextVersion": "af6069fdab6798f3a084ceb92d09a6a47eec2741d01b971e341f116262485848",
+            "sourceReadingNativeSha256": "f5a70c18ce1e287893330006a5ceca35e49eca097308402ad48d694572d995e3",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -21241,14 +21452,63 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "f67f9d04716c48d88c9f99b84758a89fa29ddd02e77c564d190599ed28648879",
         "definitionContentHash": "ca30456af461d7a22ea14ea400ffd8467c1c49b05b7c75f10a83dc58d63bdb39",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "f67f9d04716c48d88c9f99b84758a89fa29ddd02e77c564d190599ed28648879",
+          "definitionContentHash": "ca30456af461d7a22ea14ea400ffd8467c1c49b05b7c75f10a83dc58d63bdb39",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.M",
+          "authorIdentity": "sitov.agent.S3+S7",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "198 A2.1-Aufgaben nach unabhängigem Vollaudit präzisiert; echte Quellenkonstrukte, natürliche vorlesbare Anweisungen und plausible Distraktoren. Vierzehn geänderte Diagnoseziele mit genauer Matrix/eigener Äquivalenzkennung. Teilmapping ausschließlich belegteweilZiele, übrige Lücken konkret. Alle IDs/Schlüssel/Quellen/Reviewformen erhalten; neue unveränderliche Definition und exakte Audios vor Publikation. Keine Human-/Hör-/Kalibrierungsbehauptung.",
+          "textVersion": "f67f9d04716c48d88c9f99b84758a89fa29ddd02e77c564d190599ed28648879",
+          "definitionContentHash": "fd796cb09e7dd74e68cbef0d7e9750e033f54a70708e4a2a76b6143c4ba58966",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a21-M",
+          "documentSha256": "dfdfda68aaf394e76e9677bb9f90c28b43ae69b93118d7bea621caa1912fad5e",
+          "reviewedAt": "2026-10-09T21:29:13.659Z",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "b2ae5915-20dd-5018-8921-6afe5be0f1fd",
+            "questionId": "sitov.pretest.a21-01.verbs.q5",
+            "level": "A2.1",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Im Perfekt verlangt wir das finite haben, nicht hat oder habt. Partizip sortiert und öffentlicher Satz liefern sämtliche Prämissen; A2.1 angemessen.",
+            "wholeTaskNativeSha256": "f122881d4897d76ca321c514ea97992d89ac56896d66564f1871c3755b211d38",
+            "previousTaskNativeSha256": "8340068cd1553c75ef9021b57767b59affa1ff9ebdd1834a18df63e94d9a5f7f",
+            "competencyNativeSha256": "1bf66de3306a0c1ab3ca59104ee1ecd5353712059c0b39c6b8a299b1631dad18",
+            "sourceTextVersion": "f67f9d04716c48d88c9f99b84758a89fa29ddd02e77c564d190599ed28648879",
+            "sourceReadingNativeSha256": "15eeba1b43bcb9b9badb96a4b9430763bf03aaf5879a771216b478697a5b806f",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -22302,14 +22562,63 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "7c304a43bdb047d35576e4fae98ce9c3ad221aa2729589bcad9c7b7738fd149f",
         "definitionContentHash": "8bdfee2820982ef1aab6d8a64010ba563d99e619e0ecbae23db9d97c13a9c684",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "7c304a43bdb047d35576e4fae98ce9c3ad221aa2729589bcad9c7b7738fd149f",
+          "definitionContentHash": "8bdfee2820982ef1aab6d8a64010ba563d99e619e0ecbae23db9d97c13a9c684",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.S7",
+          "authorIdentity": "sitov.agent.S3+S4",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "S7 hat alle58 geänderten Aufgaben vollständig unabhängig geprüft und die zusätzliche Zeitmatrixkorrektur exakt akzeptiert. Unveränderte Aufgaben und ihre vollständige historische Reviewprovenienz sind im neuen versionsgebundenen Beleg gesichert. Neue Erkennungsziele und11 richtige Textänderungen ausdrücklich dokumentiert; keine menschliche Hörprüfung, Kalibrierung oder Audiofreigabe.",
+          "textVersion": "7c304a43bdb047d35576e4fae98ce9c3ad221aa2729589bcad9c7b7738fd149f",
+          "definitionContentHash": "2eb1a68d5a3363112a88c1d9355148f8e6578d8ea0f645dc83ca1008bcb9929e",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-epoch32-S7-reviewed59",
+          "documentSha256": "e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143",
+          "reviewedAt": "2026-10-09T23:23:09.802170+00:00",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "acb54d47-e197-56ca-9eb7-a890abce63f6",
+            "questionId": "sitov.pretest.a21-02.verbs.q2",
+            "level": "A2.1",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "war ist Präteritum von sein; werden und warten haben andere Präteritumformen. Vollständig ohne Zieltext lösbar; A2.1 angemessen.",
+            "wholeTaskNativeSha256": "2886ead98ff1117a9f243d4c50290b486ccb9dd8bae9ceb2a96b70dc2829d5ae",
+            "previousTaskNativeSha256": "e88de16ce9dda5a8af47f4738f70d3482d5841a269c8b09c257c7d994537352f",
+            "competencyNativeSha256": "bd01ddfe56a513647899794abf3888310ad8693fbcbd96ac0b7830125f77e71c",
+            "sourceTextVersion": "7c304a43bdb047d35576e4fae98ce9c3ad221aa2729589bcad9c7b7738fd149f",
+            "sourceReadingNativeSha256": "9ca8176cb52645ae8612455ae05098962f76d099c120624ca72205a87b9d7412",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -26499,14 +26808,63 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
         "definitionContentHash": "9424f996b3aef9ecf86d9376a0fab2694e709c679da1da08d3365a897191fb01",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
+          "definitionContentHash": "9424f996b3aef9ecf86d9376a0fab2694e709c679da1da08d3365a897191fb01",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.S7",
+          "authorIdentity": "sitov.agent.S3+S4",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "S7 hat alle58 geänderten Aufgaben vollständig unabhängig geprüft und die zusätzliche Zeitmatrixkorrektur exakt akzeptiert. Unveränderte Aufgaben und ihre vollständige historische Reviewprovenienz sind im neuen versionsgebundenen Beleg gesichert. Neue Erkennungsziele und11 richtige Textänderungen ausdrücklich dokumentiert; keine menschliche Hörprüfung, Kalibrierung oder Audiofreigabe.",
+          "textVersion": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
+          "definitionContentHash": "4d3680583e9a2f9e3aa8fe0cbee5694a2b75bfe5983b50b3b11fc7552a2de0ab",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-epoch32-S7-reviewed59",
+          "documentSha256": "e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143",
+          "reviewedAt": "2026-10-09T23:23:09.802170+00:00",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "dbe98ecb-4d32-5767-be6c-f54728c93f7d",
+            "questionId": "sitov.pretest.a21-06.verbs.q5",
+            "level": "A2.1",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Nur Wir haben Pferde gesehen enthält sehen im Perfekt. sahen ist Präteritum; möchten … sehen ist Modalverb plus Infinitiv; A2.1 angemessen.",
+            "wholeTaskNativeSha256": "077a836488cc7c4cf1fa141b53eea0afe0b329e08a728c4aa2aac64d2bdee4af",
+            "previousTaskNativeSha256": "c8554d9928f6f50fea9bd7def30fdec5960cbf3ebc8c4a2c4c79acb75ebbf203",
+            "competencyNativeSha256": "97721041b31b4f8bdc79fd0fb53e888da6932838c391d2b14031f39a0a5ad567",
+            "sourceTextVersion": "7fd0422108ce5efec6d3d6f8b5d84ee3e69bc6f5753fa200646fdd0b286bf513",
+            "sourceReadingNativeSha256": "a1bdbfb11f28c59260207d661526b362543e799d62f5d505e4819e304993ce81",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -30722,14 +31080,78 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
         "definitionContentHash": "f8e2cb8062824576eb6dfd21314580a7a56c7dd5c7f8f661bbde8d1b51e4ec57",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
+          "definitionContentHash": "f8e2cb8062824576eb6dfd21314580a7a56c7dd5c7f8f661bbde8d1b51e4ec57",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.M",
+          "authorIdentity": "sitov.agent.S3+S7",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "198 A2.1-Aufgaben nach unabhängigem Vollaudit präzisiert; echte Quellenkonstrukte, natürliche vorlesbare Anweisungen und plausible Distraktoren. Vierzehn geänderte Diagnoseziele mit genauer Matrix/eigener Äquivalenzkennung. Teilmapping ausschließlich belegteweilZiele, übrige Lücken konkret. Alle IDs/Schlüssel/Quellen/Reviewformen erhalten; neue unveränderliche Definition und exakte Audios vor Publikation. Keine Human-/Hör-/Kalibrierungsbehauptung.",
+          "textVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
+          "definitionContentHash": "c6fb7e633d97f7db29207dfe7c0489c3a1bc14d0efbe6a13c0afe6d8d942f91c",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-a21-M",
+          "documentSha256": "dfdfda68aaf394e76e9677bb9f90c28b43ae69b93118d7bea621caa1912fad5e",
+          "reviewedAt": "2026-10-09T21:29:13.659Z",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "99feaf25-8ae7-58f7-a492-e2aa4a501707",
+            "questionId": "sitov.pretest.a21-10.verbs.q3",
+            "level": "A2.1",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Ich habe mich auf eine Bank verlangt gesetzt. gesessen gehört zu sitzen und passt weder zu reflexivem mich noch zur Richtungsangabe; setzen ist kein Partizip. A2.1 angemessen.",
+            "wholeTaskNativeSha256": "b380428e9c820b4511ddeac05e89dc45e42362854398f33dab2b1e4647cb7456",
+            "previousTaskNativeSha256": "0aaae4030a602e46d11b5413e330247b742093113c833afb204559ce3f208940",
+            "competencyNativeSha256": "9b9d4fc654c66984bcc5b08b38e87d85e9bf15a0bfd8093faed6f8efd58fde2e",
+            "sourceTextVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
+            "sourceReadingNativeSha256": "00c6d08ec4ea491537adefb21bcfad6619ebf128a97c5359c2381142388f89d2",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          },
+          {
+            "textId": "99feaf25-8ae7-58f7-a492-e2aa4a501707",
+            "questionId": "sitov.pretest.a21-10.nominal.q4",
+            "level": "A2.1",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Explizite Ortsangabe und Einzahl verlangen beim neutralen Café in einem Café. einen/ein passen nicht zum lokalen Dativ; A2.1 angemessen.",
+            "wholeTaskNativeSha256": "2e66988f5e0a33d2f48b2a936d7bc77cb8155cd80c132aedd2e3634702fab1a7",
+            "previousTaskNativeSha256": "bd57734a47366412c04a8f57e08c7e4840cf73830f6b943e0ca2d8782b3319e9",
+            "competencyNativeSha256": "6d8c6b2a62b8e185362a5f99959e9677e14d36e4a0ffa0e5f3b1e618bccaab6d",
+            "sourceTextVersion": "c471531bd04c858af900350208c8437a24fd05446eda3d93fe947e9804c4c696",
+            "sourceReadingNativeSha256": "00c6d08ec4ea491537adefb21bcfad6619ebf128a97c5359c2381142388f89d2",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -40165,14 +40587,63 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
         "definitionContentHash": "553d0eed5185b848c3cfbdb996e4269b77b45a9017bc3c74b40fa8d0df80f99c",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
+          "definitionContentHash": "553d0eed5185b848c3cfbdb996e4269b77b45a9017bc3c74b40fa8d0df80f99c",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.M",
+          "authorIdentity": "sitov.agent.S4+S7",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "233 einzeln gegen den aktuellen Stand geprüfte Aufgaben: natürliche vorlesbare Anweisungen,39 reale im Kontext falsche Formen, explizite Pluralendung bei wenige. Alle13 B1.1-Reparaturen und B1.2-Reparaturen erhalten. IDs/korrekteAntworten/Matrixerhalten. Neue unveränderliche Definition und exakte Audios vor Publikation; keine Hörabnahme/Kalibrierungsbehauptung.",
+          "textVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
+          "definitionContentHash": "3ee38ff8609c156990da6ca631c67cdcae9a13902d3a7edda466e9b3c0aa4a33",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-audio-safe233-M",
+          "documentSha256": "3e412475e4d29d7986cae9ef4c3db8b704a362bf34c8a5472558af6c6a1ec691",
+          "reviewedAt": "2026-10-09T21:14:34.517Z",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "4c550a8b-95b1-5a53-ac3c-b2ad48ea592d",
+            "questionId": "sitov.pretest.a22-09.verbs.q5",
+            "level": "A2.2",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Man ist dritte Person Singular im Präsens: braucht. brauchst und brauchen haben andere Personen-/Numerusmerkmale; A2.2 angemessen.",
+            "wholeTaskNativeSha256": "3750dc44d815ff363d9bfb88d9cde79a57a58fa381bd5193831353e42f63fe68",
+            "previousTaskNativeSha256": "743fe4a79b62e0e550bb8349e97f04c593f35acf3bf760a81fb5212026e15791",
+            "competencyNativeSha256": "c28937b709dd5617d6b2c3732228ba7b1f2ae3962736c2446a4f5836a986ef8f",
+            "sourceTextVersion": "b9f4a26a74e1a4632442970ea2bf55697d87ebf41c45a8ac46f20d236f3fa2a0",
+            "sourceReadingNativeSha256": "b80ce97d73824c4ed0492b01e2df712f9c10f3ba842930f9a007d4406da7d574",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -55814,14 +56285,63 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "199717546e69a3c31ed96b79781534b80b03a3bae92b83d11885cc3bcd46a16e",
         "definitionContentHash": "a812dfb4ce4f9eb1e667d75547682af75fc096386f9ceaaa4b36756b0a4a9ceb",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "199717546e69a3c31ed96b79781534b80b03a3bae92b83d11885cc3bcd46a16e",
+          "definitionContentHash": "a812dfb4ce4f9eb1e667d75547682af75fc096386f9ceaaa4b36756b0a4a9ceb",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.M",
+          "authorIdentity": "sitov.agent.S3+S7",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "M hat4 B1.2-Fragen samtVollquellen unabhängig geprüft: Dativfrage ohneLösungsleck, Grundformohnezu präzisiert undDativbegründunggrammatischkorrigiert. Schlüssel/WortlautderkorrektenAntworten/Matrixerhalten. NeueunveränderlicheDefinition undexakteAudiosvorPublikation. KeineHörabnahme/Kalibrierungsbehauptung",
+          "textVersion": "199717546e69a3c31ed96b79781534b80b03a3bae92b83d11885cc3bcd46a16e",
+          "definitionContentHash": "72ea82229c051fa617b5b895582ef929fd24a5dfde3569639366ecc2f3eadc57",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-b12-audit4-M",
+          "documentSha256": "73b34174cd52185458f5d1cd9ac9b8fc9686bc2afb142b92f3f9505c98fd0fa7",
+          "reviewedAt": "2026-10-09T20:59:56.228Z",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "fd156fa0-66df-5eeb-8558-f3d99b3b7119",
+            "questionId": "sitov.pretest.b12-04.nominal.q6",
+            "level": "B1.2",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Direktes Objekt und Bedeutung das Gleiche verlangen dasselbe als Akkusativ Neutrum. demselben ist Dativ, desselben Genitiv; B1.2 angemessen.",
+            "wholeTaskNativeSha256": "79d6b3da84ec541676bb9f90479bc301a3b2662b1746021546f01dc22cf3343f",
+            "previousTaskNativeSha256": "af9e2f430d961899ca13b68fee0329758af7d4d317dba18e6e8d6cbba66ee611",
+            "competencyNativeSha256": "b7a464d0ebac6134064a5192f4654cb6801975382a880c56059ab200283c77de",
+            "sourceTextVersion": "199717546e69a3c31ed96b79781534b80b03a3bae92b83d11885cc3bcd46a16e",
+            "sourceReadingNativeSha256": "dadf7885496ff60d93f9993af15c3a05da5943b5b572c7646823f16a10759c98",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",
@@ -62078,14 +62598,63 @@
         "totalFraction": "3/4"
       },
       "review": {
-        "status": "author_checked_independent_review_pending",
-        "reviewer": "Sitov Academy M audio-prompts13",
+        "status": "independent_editorial_checked_draft_only",
+        "reviewer": "sitov.agent.S4",
         "authorIdentity": "Sitov Academy M audio-prompts13",
+        "reviewerKind": "independent_agent_editorial_review",
+        "reviewedAt": "2026-10-10T01:26:47.962Z",
         "humanReview": false,
         "calibrationStatus": "pending",
+        "publicationApproved": false,
+        "listeningPerformed": false,
         "textVersion": "4dadb55d852f8f3d18d93552ecee032215bb3f36ecf5cc7542cb0fcd19457e4a",
         "definitionContentHash": "d39f50bce6bc794761734e7855e560da6e51dc75a942db8d680613a7ea17f90d",
-        "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-S4-epoch37-prompts13",
+        "documentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+        "documentPath": "S4/epoch37-independent-review-proof.json",
+        "previousReview": {
+          "status": "author_checked_independent_review_pending",
+          "reviewer": "Sitov Academy M audio-prompts13",
+          "authorIdentity": "Sitov Academy M audio-prompts13",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "textVersion": "4dadb55d852f8f3d18d93552ecee032215bb3f36ecf5cc7542cb0fcd19457e4a",
+          "definitionContentHash": "d39f50bce6bc794761734e7855e560da6e51dc75a942db8d680613a7ea17f90d",
+          "notesDe": "Nur die dokumentierten Fragen werden sprachlich vereinfacht. Aufgaben- und Antwortkennungen, Schlüssel, Reihenfolge, Optionen, Kategorien und Quellbelege bleiben unverändert. Unabhängige Prüfung der neuen Gesamtversion und vollständige Audiofreigabe stehen aus."
+        },
+        "historicalReview": {
+          "status": "independent_editorial_checked_draft_only",
+          "reviewer": "sitov.agent.M",
+          "authorIdentity": "sitov.agent.S3",
+          "reviewerKind": "independent_agent_editorial_review",
+          "humanReview": false,
+          "calibrationStatus": "pending",
+          "notesDe": "M hat alle72 Fragen,216 Optionen, Schlüssel und Begründungen,12 Kerne und drei vollständige Quellen unabhängig geprüft. Echte Formen, eindeutige sichtbare Prämissen, Quellenbezug und sprechbare Aufgaben sind stimmig. Audio-/Versionsbindung, Kalibrierung und Lernziel-Lücken bleiben separat.",
+          "textVersion": "4dadb55d852f8f3d18d93552ecee032215bb3f36ecf5cc7542cb0fcd19457e4a",
+          "definitionContentHash": "4d2e5ebb2b119a632971df58c637b1f0cfea985931bb378219ff41321d6d1ca7",
+          "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-pools58-60-M",
+          "documentSha256": "a3524ae609e785333f10529264d61e416b9c7ab184521b9616f390eaaaf37b74",
+          "reviewedAt": "2026-10-09T20:21:35.491Z",
+          "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+        },
+        "notesDe": "S4 hat die geänderten promptDe-Aufgaben selbständig auf eindeutige öffentliche Prämissen, Grammatik und Niveau geprüft. Vollständige Definition außer diesen Prompt-Skalaren exakt unverändert; historische Reviewprovenienz erhalten. Kein Hören, keine Kalibrierung, keine Publikationsfreigabe.",
+        "individualResults": [
+          {
+            "textId": "6e667abd-3011-597c-9cf9-0c20c2c30e2d",
+            "questionId": "sitov.pretest.b12-10.verbs.q5",
+            "level": "B1.2",
+            "verdict": "ACCEPT",
+            "reviewedAt": "2026-10-10T01:26:47.954Z",
+            "notesDe": "Jeder verlangt bringt in der dritten Person Singular; mit ist die getrennte Partikel. bringst/bringen falsch, vollständige Präsensprämisse öffentlich; B1.2 angemessen.",
+            "wholeTaskNativeSha256": "578aebeea51fdde59d98776b85e23f1eb3fa0f92edd37436dd4bac1503be4f0b",
+            "previousTaskNativeSha256": "120008fbd72b3dc23553f8bbf00143160cbafadca4125bd6cdee7f1204956e00",
+            "competencyNativeSha256": "27fb133f19148652de68adff5c78247789ba652be1712a3861fa211b390b378c",
+            "sourceTextVersion": "4dadb55d852f8f3d18d93552ecee032215bb3f36ecf5cc7542cb0fcd19457e4a",
+            "sourceReadingNativeSha256": "7e407379a30f507acce7c884b8e9ceef778c97d7a400232b7a22aa238799c8a9",
+            "sourceSpansPreserved": true,
+            "allExceptPromptDeNativeIdentical": true
+          }
+        ]
       },
       "definition": {
         "policyId": "sitov-pronunciation-language-prerequisites-v1",

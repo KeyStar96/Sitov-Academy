@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-10T01:30:50.778Z",
+  "sourceIndependentCommit": "cf71b18e06b485c0dc5485a62c3cc949bc0c32f8",
+  "sourceIndependentReportSha256": "67fba4fe22e9bfd165655ee537628189ba091918bb950d33c9a6cf4999497275",
+  "privateReviewDocumentSha256": "ca11a9bc4e8635977190742f5ee43af7b68baf749c335dda595c5531ebe79904",
+  "beforeManifestHash": "b93a5b31695488a1b0166cab0e285b8c6033834ec6b622c7511faa411d216ad5",
+  "afterManifestHash": "8a0b7a227362570be567e4e6dde358ef30a3d7367d660dddd235ebb49efe08ed",
+  "definitionChanges": 0,
+  "reviewChanges": 11,
+  "humanListening": false,
+  "calibrationStatus": "pending",
+  "publicationApproved": false
+}
