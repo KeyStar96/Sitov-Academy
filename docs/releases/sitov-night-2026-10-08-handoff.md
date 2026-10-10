@@ -1,3 +1,7 @@
+## 10. Oktober 2026, 10:48 MESZ — 38 echte Hörfreigaben, lokales Paket5276
+
+20 neue Urteile PASS/vier REJECT aus dem24er-Paket exakt gebunden und technisch geprüft; neue Apple-Aufnahme PASS, neuen erneut REJECT. Insgesamt38 menschlich bestätigte Texte, fünf Reparaturtexte und57 ungehörte Diagnosefälle offen. Neues tatsächlich importervalidiertes lokales Bündel5276/62 HOLD; noch kein Import oder Deployment. Korrekte komplette Rehearsal-DB und Pfadfilter9569/856/66 tatsächlich bestätigt, eigene114/115-Scratchprobe läuft begrenzt. Produktion unverändert, Payment aus;63% Wochenbudget verbraucht/37% verfügbar, keine Resets. [Bestätigter aktueller Nachweis](../handoffs/SITOV-NIGHT-2026-10-08/M/current6c26022-thirtyeight-human-pass-checkpoint.md). Die folgenden Abschnitte bleiben historische Stände.
+
 ## 10. Oktober 2026, 10:03 MESZ — zehn weitere echte Audiofreigaben
 
 Die tatsächlichen zwölf Nutzerurteile sind gesichert: zehn PASS, zwei REJECT (“1 Apfel, also ein Stück.” und “neuen”). Alle zehn PASS sind unabhängig technisch verifiziert; insgesamt jetzt 17 exakt gebundene menschliche PASS. Neues unveröffentlichtes lokales Bündel: 5.255 ausgewählte Aufnahmen, 83 gehaltene Texte. Zwei neue Reparaturkandidaten und die lesende QA-Voraussetzungsprüfung laufen begrenzt. Weitere 24 Hörfälle (214 Sekunden) sind vorbereitet. Native Vollübernahme, Bestandsschutz und Deployment bleiben offen. Details: [bestätigter Audio-Checkpoint](../handoffs/SITOV-NIGHT-2026-10-08/M/current6c26022-seventeen-human-pass-checkpoint.md).
