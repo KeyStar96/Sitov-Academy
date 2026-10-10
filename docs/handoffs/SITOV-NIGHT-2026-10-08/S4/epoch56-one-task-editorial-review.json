@@ -1,0 +1,374 @@
+{
+  "epoch": 56,
+  "scope": "One repaired whole task A2.2/P1/P1-N4/P1-N4-E07 plus whole containing parentMinusChildren and ALL current path objectives",
+  "school": "Sitov Academy",
+  "reviewer": "S4",
+  "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+  "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+  "fullRead": true,
+  "publicationApproved": false,
+  "createdAt": "2026-10-10T07:23:26.298844+00:00",
+  "verdict": "ACCEPT_ASSIGNED_WHOLE_CONTENT_AND_CURRENT_BINDINGS",
+  "input": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-S4-epoch56-current-whole-one-reapproval-private.json",
+    "bytes": 11673,
+    "byteSHA256": "e7af10ec921d45abeaf1576ef3afbbe0a07725367c06ef534282360aa6ce615d",
+    "inventorySHA256": null,
+    "sourceCommitAsSupplied": "6c26022d91d9d00bf1b112f9efb11e481d9e361c"
+  },
+  "hashConvention": "SHA256 sorted compact ensure_ascii=False UTF-8 JSON; file byte SHA separately identified",
+  "counts": {
+    "assignedTasks": 1,
+    "wholeFiveLocaleTasksRead": 1,
+    "TaskACCEPT": 1,
+    "TaskHOLD": 0,
+    "ParentACCEPT": 1,
+    "ParentHOLD": 0,
+    "containingParentsRead": 1,
+    "standaloneParentsRead": 0,
+    "allPathObjectiveSetsRead": 1,
+    "individualObjectivesRead": 12,
+    "individualObjectivesACCEPT": 12,
+    "individualObjectivesHOLD": 0
+  },
+  "sourceFileBindings": [
+    {
+      "file": "supabase/seeds/path-a2.2.json",
+      "bytes": 6040884,
+      "byteSHA256": "10b0224657b85f92f3acfee3f4455983b5edaf3c11b01a45280edb26d769fe1f",
+      "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+      "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+      "allInputObjectsEqualImmutableGit": true
+    }
+  ],
+  "rows": [
+    {
+      "reviewer": "S4",
+      "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+      "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+      "fullRead": true,
+      "publicationApproved": false,
+      "index": 1,
+      "id": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+      "ref": "P1-N4-E07",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "ACCEPT: Die deutsche Anweisung nennt ausdrücklich die Konjunktiv-II-Form von sein, der gap_hint wiederholt sein (Konjunktiv II). Bei Oleg/er ist die dritte Person Singular wäre zwingend: Oleg ist krank. Er wäre gern wieder gesund. Hätte ist die Form von haben und würde die Form von werden; ohne zusätzlichen Infinitiv ergeben sie zudem nicht die beabsichtigte Konstruktion. Alle fünf Anweisungen verlangen dasselbe Verb und denselben Modus; sämtliche Aufgabe-/Hinweis-/Erklärungsfassungen geben den Gesundheitswunsch korrekt wieder. Oleg und er/он/він sind männlich, Türkisch sachgerecht ohne Genusmarkierung. Drei Optionen, Lösung wäre und genau eine akzeptierte Variante passen. Keine Teile vorhanden.",
+      "parentReasonDe": "ACCEPT: Alle fünf Titel drücken Ich wäre gern aus; russisch/ukrainisch männliche Ich-Form sachgerecht. Alle fünf vollständigen Regeln unterscheiden wäre gern + Ort/Adjektiv, hätte gern + Akkusativnomen und würde gern + Infinitiv korrekt; auch sämtliche eingebetteten Beispielsätze einschließlich am liebsten sind stimmig. Die drei Kartenbeispiele zeigen Urlaubsort, Milans Wunsch nach einer Katze und länger bleiben passend. Milan ist männlich; Katze ist das grammatische Tiernomen und keine menschliche Lernfigur. Highlight verb und Ziel P1-G3 passen.",
+      "ALLGoalsReasonDe": "Alle zwölf aktuellen Pfadziele tatsächlich frisch und vollständig gelesen; jedes Ziel unten separat fachlich begründet.",
+      "wholeTaskSHA256": "32fc2c5bad37f09170c7080fe390b8dfb781c8808485e443a1e7639b7a0d1aa6",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "wäre"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false
+    }
+  ],
+  "parentReviews": [
+    {
+      "reviewer": "S4",
+      "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+      "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+      "fullRead": true,
+      "publicationApproved": false,
+      "contextKey": "A2.2/P1/P1-N4",
+      "verdict": "ACCEPT",
+      "reasonDe": "ACCEPT: Alle fünf Titel drücken Ich wäre gern aus; russisch/ukrainisch männliche Ich-Form sachgerecht. Alle fünf vollständigen Regeln unterscheiden wäre gern + Ort/Adjektiv, hätte gern + Akkusativnomen und würde gern + Infinitiv korrekt; auch sämtliche eingebetteten Beispielsätze einschließlich am liebsten sind stimmig. Die drei Kartenbeispiele zeigen Urlaubsort, Milans Wunsch nach einer Katze und länger bleiben passend. Milan ist männlich; Katze ist das grammatische Tiernomen und keine menschliche Lernfigur. Highlight verb und Ziel P1-G3 passen.",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "wholeParentMinusChildren": {
+        "id": "P1-N4",
+        "kind": "practice",
+        "sort_order": 4,
+        "topic": "Am Wochenende · Ich wäre gern …",
+        "title": "Ich wäre gern …",
+        "translations": {
+          "en": {
+            "title": "I would like to be …"
+          },
+          "ru": {
+            "title": "Я хотел бы быть …"
+          },
+          "uk": {
+            "title": "Я хотів би бути …"
+          },
+          "tr": {
+            "title": "… olmak isterdim"
+          }
+        },
+        "goals": [
+          "P1-G3"
+        ],
+        "merkkarte": {
+          "card": "p1_wunsch",
+          "rule": "Wünsche: Die Wirklichkeit ist anders. Mit gern sagt man, was man sich wünscht. wäre gern + Ort oder Adjektiv: Ich wäre gern am Meer. Er wäre gern reich. hätte gern + Nomen im Akkusativ: Er hätte gern einen Garten. würde gern + Infinitiv: Wir würden gern reisen. Noch stärker ist am liebsten: Am liebsten würde ich jetzt schlafen.",
+          "examples": [
+            "Ich wäre jetzt gern im Urlaub.",
+            "Milan hätte gern eine Katze.",
+            "Wir würden gern länger bleiben."
+          ],
+          "highlight": "verb",
+          "translations": {
+            "en": {
+              "rule": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)"
+            },
+            "ru": {
+              "rule": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)"
+            },
+            "uk": {
+              "rule": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)"
+            },
+            "tr": {
+              "rule": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "allPathObjectiveReviews": [
+    {
+      "reviewer": "S4",
+      "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+      "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+      "fullRead": true,
+      "publicationApproved": false,
+      "pathKey": "A2.2/P1",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P1-G1",
+          "area": "grammar",
+          "description": "Konjunktiv II von sein, haben und können: ich wäre, du wärst, wir wären – ich hätte, du hättest – ich könnte, du könntest.",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Wäre/wärst/wären, hätte/hättest und könnte/könntest sind korrekte Konjunktiv-II-Formen der genannten Verben.",
+          "objectiveSHA256": "da979040c6673dd680b48d592e738713ea9a5d42cf3077331aaefda257ab5750"
+        },
+        {
+          "id": "P1-G2",
+          "area": "grammar",
+          "description": "Konjunktiv II mit würde + Infinitiv: Ich würde gern Gitarre spielen. Der Infinitiv steht am Satzende.",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Würde gern Gitarre spielen zeigt die richtige würde-Konstruktion mit finalem Infinitiv.",
+          "objectiveSHA256": "ff8c68c2817e17799c1b7e33db1806abf5af0775756d4b17f4a42c5b9b9a576a"
+        },
+        {
+          "id": "P1-G3",
+          "area": "grammar",
+          "description": "Wünsche ausdrücken: Ich wäre gern am Meer. Er hätte gern mehr Freizeit. Wir würden gern tanzen.",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Am Meer sein, Freizeit haben und tanzen werden korrekt mit wäre/hätte/würden als Wünsche ausgedrückt; er männlich.",
+          "objectiveSHA256": "0fdaae4ca4a5cb029b987436e41015cb0e1bac4a41eaf12b6d7d2e89c5d87944"
+        },
+        {
+          "id": "P1-G4",
+          "area": "grammar",
+          "description": "Vorschläge mit könnte: Du könntest ins Kino gehen. Wir könnten eine Radtour machen.",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Du könntest ins Kino gehen und Wir könnten eine Radtour machen sind korrekte Vorschläge mit könnte.",
+          "objectiveSHA256": "06053d4b65713afe46933ebe5862e9e7f372eea8180ecbf5b5fbfc1f20b9d346"
+        },
+        {
+          "id": "P1-G5",
+          "area": "grammar",
+          "description": "Gegensätze ausdrücken mit trotzdem: Es regnet. Trotzdem gehe ich spazieren. Das Verb steht auf Position 2.",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Trotzdem stellt den Gegensatz zum Regen her; gehe folgt auf Position 2 im passenden Hauptsatz.",
+          "objectiveSHA256": "4a872daac66fb702fce110912a2bf6611bbf3f66abcff3a16079407610ace122"
+        },
+        {
+          "id": "P1-K1",
+          "area": "communication",
+          "description": "Über Wünsche sprechen und danach fragen: Wo wären Sie jetzt gern? Was hätten Sie gern? Was würden Sie gern machen?",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Wo wären Sie, Was hätten Sie und Was würden Sie machen sind korrekte höfliche Wunschfragen; Sie-Anrede bleibt.",
+          "objectiveSHA256": "9238056aba67bb716ad2ceb645f8c9bcdb75a9fa5c106ab4aaafc0dd4fbc8709"
+        },
+        {
+          "id": "P1-K2",
+          "area": "communication",
+          "description": "Vorschläge machen und über Pläne sprechen: Wie wäre es mit …? Hast du Lust? Was machst du am Samstag?",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Wie wäre es mit, Hast du Lust und Samstagsfrage sind passende Formulierungen zu Vorschlägen und Plänen.",
+          "objectiveSHA256": "a0bbc0cf7a53d8f2c0d1cde0520e4f09b62fdbb931d8c2b2e4b2727b7cd173bc"
+        },
+        {
+          "id": "P1-K3",
+          "area": "communication",
+          "description": "Einen Vorschlag annehmen: Gute Idee. Einverstanden. Warum nicht? Ich komme gern mit.",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Gute Idee, Einverstanden, Warum nicht und gern mitkommen drücken Zustimmung zu einem Vorschlag richtig aus.",
+          "objectiveSHA256": "2a913c3e818b41a8a8e69ca6682a7a870797b3ec5c57ec47b2e55a554cab3eaa"
+        },
+        {
+          "id": "P1-K4",
+          "area": "communication",
+          "description": "Einen Vorschlag ablehnen und Bedauern ausdrücken: Schade, das geht leider nicht. Ich würde gern kommen, aber …",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Schade, das geht nicht und Ich würde gern kommen, aber vermitteln Ablehnung mit Bedauern korrekt.",
+          "objectiveSHA256": "d900cc69d73bd0f24e54d53b70d76c5ca7f4e112012bb9a851c648fdb24c5417"
+        },
+        {
+          "id": "P1-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Veranstaltungstipps und Programmhinweise verstehen.",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Veranstaltungstipps und Programmhinweise verstehen passt als A2.2-Kann-Ziel zum Wochenendthema.",
+          "objectiveSHA256": "b4570e0c75f72218116e33753c52d818d004497ae4f7e8f0be76d15ef3ffd668"
+        },
+        {
+          "id": "P1-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Freizeitaktivitäten am Wochenende.",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Freizeitaktivitäten am Wochenende bilden den passenden thematischen Wortschatz.",
+          "objectiveSHA256": "6c329c54ec2a79815ed145b3067dbfe056e83a2659b25768e0693f30609e4f84"
+        },
+        {
+          "id": "P1-W2",
+          "area": "vocabulary",
+          "description": "Wortschatz: Veranstaltungen und Kurse.",
+          "reviewer": "S4",
+          "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "actualContentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+          "fullRead": true,
+          "publicationApproved": false,
+          "verdict": "ACCEPT",
+          "reasonDe": "Veranstaltungen und Kurse sind der sachgerechte ergänzende Wortschatzbereich.",
+          "objectiveSHA256": "4a967d54e542994f8e59e47843aa842f57693f35f8ce64386090a71e8a696689"
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "answerRevisionAndCardinality": {
+    "proposedAnswerWordRevisions": 0,
+    "proposedAnswerKeyChanges": 0,
+    "proposedAcceptedVariantChanges": 0,
+    "proposedAcceptedCardinalityChanges": 0,
+    "proposedOptionsOrPartsChanges": 0,
+    "appliedSourceChanges": 0
+  },
+  "priorReviewUsedAsApproval": false,
+  "fullpathobjectivesRead": true,
+  "semanticRepairVerdict": "ACCEPT: explicit Konjunktiv II of sein uniquely requires wäre for er.",
+  "verifiedPriorGitToCurrentTaskChanges": {
+    "priorGitSourceCommit": "1db3e13283f27a2837e2e51c193893f1c0be4448",
+    "wholePriorGitTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+    "scalarCount": 6,
+    "scalars": [
+      {
+        "pointerWithinTask": "/content/instruction",
+        "old": "Ergänze die richtige Verbform.",
+        "new": "Ergänze die Konjunktiv-II-Form von sein."
+      },
+      {
+        "pointerWithinTask": "/content/gap_hint",
+        "old": "sein / haben / werden (Konjunktiv II)",
+        "new": "sein (Konjunktiv II)"
+      },
+      {
+        "pointerWithinTask": "/translations/en/instruction",
+        "old": "Fill in the correct verb form.",
+        "new": "Fill in the Konjunktiv II form of sein."
+      },
+      {
+        "pointerWithinTask": "/translations/ru/instruction",
+        "old": "Вставьте правильную форму глагола.",
+        "new": "Вставьте форму глагола sein в Konjunktiv II."
+      },
+      {
+        "pointerWithinTask": "/translations/uk/instruction",
+        "old": "Вставте правильну форму дієслова.",
+        "new": "Вставте форму дієслова sein у Konjunktiv II."
+      },
+      {
+        "pointerWithinTask": "/translations/tr/instruction",
+        "old": "Fiilin doğru biçimini yazın.",
+        "new": "sein fiilinin Konjunktiv II biçimini yazın."
+      }
+    ],
+    "taskIdentityGoalTypeOptionsCorrectAnswerAndAcceptedCardinalityUnchanged": true,
+    "historicalDatabaseArchiveOrVersionProof": false
+  },
+  "limits": [
+    "Only assigned task, whole parentMinusChildren and all 12 current path objectives reviewed; other child tasks not approved.",
+    "No source edits, DB, SSH, audio, runtime, browser, tests, imports, push, deployment or publication.",
+    "Git invariants and content review do not establish historical database version preservation or release readiness."
+  ]
+}
