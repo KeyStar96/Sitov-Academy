@@ -1,0 +1,176 @@
+{
+  "epoch": 46,
+  "brand": "Sitov Academy",
+  "base": "9b3a24b0744f48bf5cab5cca8f09edf147fb72a2",
+  "inputSHA256": "0982d79995dec9f9363117b334620ce994bf1891d465b0d174bccb087b67771b",
+  "independentS7e25AuditSHA256": "9b70f1d65e2511ece77920ff0b5c9951228c31578a1b7c7ec3741875c413d324",
+  "scope": "EXACT40_INDEPENDENT_EDITORIAL_SCALARS_IN12_TASKS",
+  "comparedExercises": 9569,
+  "comparedNodes": 856,
+  "comparedPaths": 66,
+  "exactApprovedScalarChanges": 40,
+  "changedTasks": 12,
+  "affectedNodes": 9,
+  "fieldRoleCounts": {
+    "explanation": 20,
+    "hint": 4,
+    "instruction": 15,
+    "translatedTask": 1
+  },
+  "exactPriorIndependentCopiedPairs": 19,
+  "override171804OriginalAlternativePreserved": true,
+  "changedParents": 0,
+  "changedObjectives": 0,
+  "changedCanonicalKeys": 0,
+  "changedAcceptedVariants": 0,
+  "onlyThreeContentInstructionsChangedAllOtherContentFieldsExact": true,
+  "allAnswersOptionsPartsRefsIdsRanksAndOrdersExact": true,
+  "allUnassignedWholeObjectsExact": true,
+  "allNecessaryFeminineGrammarContrastsPreserved": true,
+  "nineOtherSeedsByteExact": true,
+  "changedSourceFiles": [
+    "supabase/seeds/path-a1.1.json"
+  ],
+  "A11NativeCanonicalSource": "Existing JSON seed; no p1/p2/p3/p4 mirrors exist; no files or generator added",
+  "nativeLevels": [
+    {
+      "level": "a1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.2",
+      "parity": "PASS"
+    }
+  ],
+  "jest": {
+    "testsPass": 107,
+    "testsFail": 0,
+    "testsSkipped": 0,
+    "suitesPass": 2,
+    "suiteFiles": [
+      "__tests__/path-a1-1-seed.test.ts",
+      "__tests__/path-level-seeds.test.ts"
+    ]
+  },
+  "schemaValidatedExercises": 9569,
+  "lint": {
+    "epoch": 46,
+    "changedSource": "supabase/seeds/path-a1.1.json",
+    "eslintApplicable": false,
+    "reason": "Existing ESLint configuration has no JSON language configuration; no JavaScript source changed.",
+    "jsonLint": "PASS: strict JSON parse, canonical serialization and9569exercise schema validation"
+  },
+  "diffCheck": "PASS",
+  "authorReviewAll40Accept": true,
+  "wholeTaskPublicationApproval": false,
+  "bothActualAudioExtractorsComparedTasks": 9569,
+  "finalCanonicalAudioAliasesIn12Tasks": 18,
+  "changedCanonicalAudioAliases": 0,
+  "changedAudioTasks": 0,
+  "allTenFullActualCatalogsOldNewExact": true,
+  "humanHearing": false,
+  "newAudioPreparationRequiredByThisUnit": false,
+  "answerKeyArchiveRevisionRequiredByThisUnit": false,
+  "historicalAnswersAndProgressUntouched": true,
+  "noNewOrModifiedTests": true,
+  "noDbSshRuntimeAudioAssetsImportPublicationPushDeployChanges": true,
+  "privateEvidence": {
+    "epoch46-bound-M-input.json": {
+      "path": "S2/epoch46-bound-M-input.json",
+      "bytes": 27188,
+      "sha256": "0982d79995dec9f9363117b334620ce994bf1891d465b0d174bccb087b67771b"
+    },
+    "epoch46-bound-master-assignment.json": {
+      "path": "S2/epoch46-bound-master-assignment.json",
+      "bytes": 982,
+      "sha256": "19859bb2492b4bc147db3d4aff137dd28fdf466737d339ab0214ebe0caf48353"
+    },
+    "epoch46-before-full-context.json": {
+      "path": "S2/epoch46-before-full-context.json",
+      "bytes": 65368,
+      "sha256": "1e622b464e34415c741d797d65d63040c85d65011f049605c706ff9ea9141743"
+    },
+    "epoch46-applied-proposals.json": {
+      "path": "S2/epoch46-applied-proposals.json",
+      "bytes": 32239,
+      "sha256": "c70aa772f509e369b117617d5d164d9c1789434d235a53572a970120daba047b"
+    },
+    "epoch46-old-new-full.json": {
+      "path": "S2/epoch46-old-new-full.json",
+      "bytes": 164834,
+      "sha256": "145ab2a849a45b1a38db35a2854f8e2102201c40d7202412b1cced367d16a6a6"
+    },
+    "epoch46-author-review.json": {
+      "path": "S2/epoch46-author-review.json",
+      "bytes": 1809,
+      "sha256": "650a1603a0c9fd402407117f6b38d3f96c6b8ea6ffabc48c0c9a3f6282aa6ffd"
+    },
+    "epoch46-final-canonical-audio.json": {
+      "path": "S2/epoch46-final-canonical-audio.json",
+      "bytes": 23931,
+      "sha256": "b3a4dd52b027014d6e6d921a03becf283b37c4ac828e46f65cbdd8640b6e1ee9"
+    },
+    "epoch46-native-parity.json": {
+      "path": "S2/epoch46-native-parity.json",
+      "bytes": 657,
+      "sha256": "ba0af010b5e2d954c575687df05f08f7a6b84dd7306f2bab13ebaa22414a8bdc"
+    },
+    "epoch46-jest-result.json": {
+      "path": "S2/epoch46-jest-result.json",
+      "bytes": 40146,
+      "sha256": "77c7e72db5293aea71e92bcea2bc848e48c211b4317fcc28d4c62b686f7f32bb"
+    },
+    "epoch46-jest.log": {
+      "path": "S2/epoch46-jest.log",
+      "bytes": 465,
+      "sha256": "0b7dfd4d57f0c31c8455a2dfd3e1728a5fd8aa31807847eb4d64d5d809290e4e"
+    },
+    "epoch46-lint-applicability.json": {
+      "path": "S2/epoch46-lint-applicability.json",
+      "bytes": 310,
+      "sha256": "1ac7176372da4bc9f6e73d62c9c2f6531d85dde3aa3f7e544e7e216e868c0fd1"
+    },
+    "epoch46-diff-check.json": {
+      "path": "S2/epoch46-diff-check.json",
+      "bytes": 119,
+      "sha256": "183076ef802c1b916ffcfe9438abe16f2bc108876f779f27c3f2c01a29586f9d"
+    },
+    "epoch46-validate-audio.ts": {
+      "path": "S2/epoch46-validate-audio.ts",
+      "bytes": 4219,
+      "sha256": "d68356258522e4536c130f5aa64570e2009c8214830e7a3b5180765cddfd6571"
+    }
+  },
+  "MFollowup": [
+    "Integrate and independently review the exact40scalar candidate; full-task publication approval remains M-owned.",
+    "Continue existing archive114/audio/publication gates; epoch46 changes neither answer keys nor canonical audio."
+  ]
+}

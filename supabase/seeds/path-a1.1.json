@@ -4478,31 +4478,31 @@
               "Guten Tag, ist Herr Weber da?"
             ],
             "hint": "Du willst eine Person am Telefon sprechen? Frag: Ist … da?",
-            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Frau Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
             "explanation_card": "p1_phone",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "Want to speak to someone on the phone? Ask: Ist … da? (Is … there?)",
-                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
+                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Herr Lindner da?“ (Is Mr Lindner there?) At the end: „Auf Wiederhören!“",
                 "task": "You phone Holzbau Brandt and ask for Jonas Weber."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Хотите поговорить с человеком по телефону? Спросите: Ist … da? – «… на месте?»",
-                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Herr Lindner da?“ В конце разговора: „Auf Wiederhören!“",
                 "task": "Вы звоните в Holzbau Brandt и спрашиваете Jonas Weber."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Хочете поговорити з людиною телефоном? Запитайте: Ist … da? – «… на місці?»",
-                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Herr Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
                 "task": "Ви телефонуєте до Holzbau Brandt і запитуєте Jonas Weber."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Telefonda biriyle konuşmak mı istiyorsunuz? Sorun: Ist … da? = … orada mı?",
-                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
                 "task": "Holzbau Brandt’ı arıyor ve Jonas Weber’i soruyorsunuz."
               }
             }
@@ -5024,31 +5024,31 @@
               "Guten Tag, ich heiße Jonas Weber."
             ],
             "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
-            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
             "explanation_card": "p1_name",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
-                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
                 "task": "Which introduction is correct?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
-                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
                 "task": "Какое представление правильное?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
-                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
                 "task": "Яке представлення правильне?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
-                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
                 "task": "Hangi tanıtım doğru?"
               }
             }
@@ -5456,31 +5456,31 @@
               "Das ist Samir, aus Syrien."
             ],
             "hint": "Eine andere Person stellst du mit „Das ist …“ vor.",
-            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
             "explanation_card": "p1_name",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "To introduce someone else, say „Das ist …“ – This is …",
-                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
                 "task": "In the course you introduce Samir."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Другого человека представляют так: „Das ist …“ – «Это …».",
-                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
                 "task": "На курсе вы представляете Samir."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Іншу людину представляють так: „Das ist …“ – «Це …».",
-                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
                 "task": "На курсі ви представляєте Samir."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Başka birini „Das ist …“ ile tanıtırsınız = Bu …",
-                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
                 "task": "Kursta Samir’i tanıtıyorsunuz."
               }
             }
@@ -7486,7 +7486,7 @@
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
+                "hint": "Türkçede iyelik eki ismin cinsiyetine göre değişmez; Almancada yalın durumda iyelik sözcüğü cinsiyete ve sayıya göre değişir: eril/nötr tekil → mein, dişil tekil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
                 "task": "Emre bir fotoğraf gösteriyor: “Bu benim oğlum Deniz.”"
               }
@@ -7542,7 +7542,7 @@
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
+                "hint": "Türkçede iyelik eki ismin cinsiyetine göre değişmez; Almancada yalın durumda iyelik sözcüğü cinsiyete ve sayıya göre değişir: eril/nötr tekil → mein, dişil tekil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
                 "task": "Emre bir fotoğraf gösteriyor: “Bu da benim kızım Elif.”"
               }
@@ -7766,7 +7766,7 @@
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
+                "hint": "Türkçede iyelik eki ismin cinsiyetine göre değişmez; Almancada yalın durumda iyelik sözcüğü cinsiyete ve sayıya göre değişir: eril/nötr tekil → mein, dişil tekil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
                 "task": "“Bu sizin çocuğunuz mu?” – “Evet, bu benim kızım.”"
               }
@@ -10605,31 +10605,31 @@
               "Taras ist verheiratet."
             ],
             "hint": "Such die Information im Text: Wer? Woher? Wo? Wie alt?",
-            "explanation": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
+            "explanation": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihr Sohn?“",
             "explanation_card": "p2_status",
             "translations": {
               "en": {
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "Find the key information in the text: who, where from, where, how old?",
-                "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
+                "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihr Sohn?“",
                 "task": "What is correct?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Найдите в тексте нужную информацию: кто? откуда? где? сколько лет?",
-                "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
+                "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihr Sohn?“",
                 "task": "Что правильно?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Знайдіть у тексті потрібну інформацію: хто? звідки? де? скільки років?",
-                "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
+                "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihr Sohn?“",
                 "task": "Що правильно?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Metinde bilgiyi bulun: Kim? Nereden? Nerede? Kaç yaşında?",
-                "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
+                "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihr Sohn?“",
                 "task": "Hangisi doğru?"
               }
             }
@@ -12444,7 +12444,7 @@
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
+                "hint": "Türkçede iyelik eki ismin cinsiyetine göre değişmez; Almancada yalın durumda iyelik sözcüğü cinsiyete ve sayıya göre değişir: eril/nötr tekil → mein, dişil tekil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
                 "task": "Kamil, bu senin eşin mi?"
               }
@@ -17178,7 +17178,7 @@
               "target_form": [
                 "Einkaufszettel"
               ],
-              "instruction": "Ergänze das Formular.",
+              "instruction": "Ergänze den Einkaufszettel.",
               "text_before": "Oleh braucht Milch: 1 Liter. Einkaufszettel: 1 ",
               "text_after": " Milch",
               "correct_answer": "l",
@@ -17199,25 +17199,25 @@
             "explanation_card": "p3_list",
             "translations": {
               "en": {
-                "instruction": "Complete the form.",
+                "instruction": "Complete the shopping list.",
                 "hint": "A shopping list is short: quantity + item, no verb. Abbreviations: g, kg, l, Pck.",
                 "explanation": "Shopping list: short notes with quantity and item, no verb: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Abbreviations: g = gram, kg = kilo, l = litre, Pck. = packet.",
                 "task": "Oleh needs milk: 1 litre. Shopping list: 1 … milk"
               },
               "ru": {
-                "instruction": "Заполните анкету.",
+                "instruction": "Дополните список покупок.",
                 "hint": "В списке покупок – только количество и товар, без глаголов. Сокращения: g, kg, l, Pck.",
                 "explanation": "Список покупок: короткие записи – количество и товар, без глагола: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Сокращения: g = грамм, kg = килограмм, l = литр, Pck. = пачка.",
                 "task": "Oleh нужно молоко: 1 литр. Список покупок: 1 … молока"
               },
               "uk": {
-                "instruction": "Заповніть анкету.",
+                "instruction": "Доповніть список покупок.",
                 "hint": "У списку покупок – лише кількість і товар, без дієслів. Скорочення: g, kg, l, Pck.",
                 "explanation": "Список покупок: короткі записи – кількість і товар, без дієслова: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Скорочення: g = грам, kg = кілограм, l = літр, Pck. = пачка.",
                 "task": "Oleh потрібне молоко: 1 літр. Список покупок: 1 … молока"
               },
               "tr": {
-                "instruction": "Formu doldurun.",
+                "instruction": "Alışveriş listesini tamamlayın.",
                 "hint": "Alışveriş listesinde sadece miktar ve ürün yazılır, fiil olmaz. Kısaltmalar: g, kg, l, Pck.",
                 "explanation": "Alışveriş listesi: miktar ve ürünle kısa notlar, fiil yok: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Kısaltmalar: g = gram, kg = kilo, l = litre, Pck. = paket.",
                 "task": "Oleh’in süte ihtiyacı var: 1 litre. Alışveriş listesi: 1 … süt"
@@ -17760,7 +17760,7 @@
               "target_form": [
                 "Einkaufszettel"
               ],
-              "instruction": "Ergänze das Formular.",
+              "instruction": "Ergänze den Einkaufszettel.",
               "text_before": "Kamil braucht zwei Flaschen Wasser. Einkaufszettel: 2 ",
               "text_after": " Wasser",
               "correct_answer": "Flaschen",
@@ -17781,25 +17781,25 @@
             "explanation_card": "p3_list",
             "translations": {
               "en": {
-                "instruction": "Complete the form.",
+                "instruction": "Complete the shopping list.",
                 "hint": "A shopping list is short: quantity + item, no verb. Abbreviations: g, kg, l, Pck.",
                 "explanation": "Shopping list: short notes with quantity and item, no verb: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Abbreviations: g = gram, kg = kilo, l = litre, Pck. = packet.",
                 "task": "Kamil needs two bottles of water. Shopping list: 2 … of water"
               },
               "ru": {
-                "instruction": "Заполните анкету.",
+                "instruction": "Дополните список покупок.",
                 "hint": "В списке покупок – только количество и товар, без глаголов. Сокращения: g, kg, l, Pck.",
                 "explanation": "Список покупок: короткие записи – количество и товар, без глагола: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Сокращения: g = грамм, kg = килограмм, l = литр, Pck. = пачка.",
                 "task": "Kamil нужны две бутылки воды. Список покупок: 2 … воды"
               },
               "uk": {
-                "instruction": "Заповніть анкету.",
+                "instruction": "Доповніть список покупок.",
                 "hint": "У списку покупок – лише кількість і товар, без дієслів. Скорочення: g, kg, l, Pck.",
                 "explanation": "Список покупок: короткі записи – кількість і товар, без дієслова: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Скорочення: g = грам, kg = кілограм, l = літр, Pck. = пачка.",
                 "task": "Kamil потрібні дві пляшки води. Список покупок: 2 … води"
               },
               "tr": {
-                "instruction": "Formu doldurun.",
+                "instruction": "Alışveriş listesini tamamlayın.",
                 "hint": "Alışveriş listesinde sadece miktar ve ürün yazılır, fiil olmaz. Kısaltmalar: g, kg, l, Pck.",
                 "explanation": "Alışveriş listesi: miktar ve ürünle kısa notlar, fiil yok: 1 kg Kartoffeln, 2 l Milch, 6 Eier, 1 Pck. Reis. Kısaltmalar: g = gram, kg = kilo, l = litre, Pck. = paket.",
                 "task": "Kamil’in iki şişe suya ihtiyacı var. Alışveriş listesi: 2 … su"
@@ -18306,7 +18306,7 @@
                 "instruction": "What fits? Choose the right response.",
                 "hint": "Is it an offer (Möchten Sie …?) – then Ja, bitte / Nein, danke. A question about goods (Haben Sie …?) – then Ja, natürlich / Nein, tut mir leid.",
                 "explanation": "Short answers: „Ja, natürlich.“ = yes, of course. „Nein, tut mir leid.“ = no, I’m sorry. To an offer: „Ja, bitte.“ (yes, please) – „Nein, danke.“ (no, thank you).",
-                "task": "The shop assistant asks: “Would you like a bag?” Kamil has a bag with him and doesn’t need a plastic bag."
+                "task": "The shop assistant asks: “Would you like a bag?” Kamil has a bag with him and doesn’t need a carrier bag."
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
@@ -24932,7 +24932,7 @@
               "target_form": [
                 "Gesprächssignale"
               ],
-              "instruction": "Was sagst du in dieser Situation?",
+              "instruction": "Wähle die richtige Antwort.",
               "question": "Oleh und du seid in Olehs Wohnung. Der Balkon ist sehr schön. Was sagt Oleh?",
               "options": [
                 "Sag mal, das ist mein Balkon!",
@@ -24952,25 +24952,25 @@
             "explanation_card": "p4_tag",
             "translations": {
               "en": {
-                "instruction": "What do you say in this situation?",
+                "instruction": "Choose the correct answer.",
                 "hint": "„Sag mal“ introduces a question (Tell me, …), „Schau mal“ points something out (Look!).",
                 "explanation": "Tag questions and signals: „…, nicht?“, „…, oder?“ or „…, richtig?“ at the end ask for agreement: „Das Zimmer ist schön, oder?“ (…, isn’t it?) „Sag mal, …“ introduces a question. „Schau mal!“ = Look!",
                 "task": "Oleh and you are in Oleh’s flat. The balcony is very nice. What does Oleh say?"
               },
               "ru": {
-                "instruction": "Что вы скажете в этой ситуации?",
+                "instruction": "Выберите правильный ответ.",
                 "hint": "„Sag mal“ вводит вопрос («Скажи-ка …»), „Schau mal“ – «Смотри!».",
                 "explanation": "Переспрос и сигналы: „…, nicht?“, „…, oder?“ или „…, richtig?“ в конце просят подтверждения: „Das Zimmer ist schön, oder?“ («…, правда?»). „Sag mal, …“ вводит вопрос. „Schau mal!“ – «Смотри!».",
                 "task": "Вы с Oleh в его квартире. Балкон очень красивый. Что говорит Oleh?"
               },
               "uk": {
-                "instruction": "Що ви скажете в цій ситуації?",
+                "instruction": "Виберіть правильну відповідь.",
                 "hint": "„Sag mal“ вводить запитання («Скажи-но …»), „Schau mal“ – «Дивись!».",
                 "explanation": "Перепитування й сигнали: „…, nicht?“, „…, oder?“ або „…, richtig?“ наприкінці просять підтвердження: „Das Zimmer ist schön, oder?“ («…, правда?»). „Sag mal, …“ вводить запитання. „Schau mal!“ – «Дивись!».",
                 "task": "Ви з Oleh в його квартирі. Балкон дуже гарний. Що каже Oleh?"
               },
               "tr": {
-                "instruction": "Bu durumda ne dersiniz?",
+                "instruction": "Doğru cevabı seçin.",
                 "hint": "„Sag mal“ bir soruya giriştir (Söylesene …), „Schau mal“ bir şey gösterir (Baksana!).",
                 "explanation": "Onay sorma ve sinyaller: Cümle sonunda „…, nicht?“, „…, oder?“ ya da „…, richtig?“ onay ister: „Das Zimmer ist schön, oder?“ (…, değil mi?). „Sag mal, …“ bir soruya giriştir. „Schau mal!“ = Baksana!",
                 "task": "Oleh ile onun dairesindesiniz. Balkon çok güzel. Oleh ne diyor?"
