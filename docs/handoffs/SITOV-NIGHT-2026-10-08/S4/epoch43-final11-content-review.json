@@ -1,0 +1,1079 @@
+{
+  "epoch": 43,
+  "school": "Sitov Academy",
+  "reviewer": "S4",
+  "createdAt": "2026-10-10T03:53:11.390714+00:00",
+  "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+  "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+  "roleDisclosure": "Independent final editorial review of actual S2 implementation. S4 authored the earlier four findings and now verifies their correction; seven male-role changes originated with S7/M. This is not external human review.",
+  "hashConvention": "SHA256 UTF8 Python json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(comma,colon)). Parent hashes include all fields except exercises/children. byteSHA256 explicitly means file bytes.",
+  "counts": {
+    "fullyReadTasks": 11,
+    "ACCEPT": 11,
+    "PARTIAL": 0,
+    "HOLD": 0,
+    "wholeParentContextsRead": 5,
+    "StageAFixes": 4,
+    "StageBMaleRoleTasks": 7,
+    "canonicalKeyRevisionTasks": 5,
+    "changedAcceptedVariants1to1": 6,
+    "sentencePartsTasks": 2,
+    "preservedPreviousMirrorTasks": 23,
+    "preservedExplanationFields": 115,
+    "preservedHintFields": 115
+  },
+  "checks": {
+    "actualWhole11BeforeAndFinalMatchGitBaseAndCurrentSeed": true,
+    "actual56ScalarChangesMatchSource": true,
+    "allUnassignedSeedTasksParentsObjectivesExact": true,
+    "all10SeedIdentitiesOrderPreserved9569Tasks856Nodes66Paths": true,
+    "eightOtherSeedFilesByteExact": true,
+    "StageAFourOptionsKeysAndAllAcceptedArraysExact": true,
+    "StageBSevenFiveLocaleHintsAndExplanationsExact": true,
+    "previous23Mirrors115ExplanationFieldsExact": true,
+    "previous23Mirrors115HintFieldsExact": true,
+    "twoSentencePartsOnlySingleMaleTokenAtSameIndex": true,
+    "canonicalKeyRevisions": 5,
+    "changedAcceptedAnswerVariants1to1": 6,
+    "allAcceptedArrayCardinalitiesAndVariantRanksPreserved": true,
+    "allCorrectOptionPositionsPreserved": true,
+    "all11FinalTasksAndFiveParentsAndAllObjectivesFullyRead": true,
+    "all11CanonicalAudioTextsRead": true,
+    "changedCanonicalAudioTextTasks": 9,
+    "testsExecutedByS4": false,
+    "sourceAppTestEdits": false,
+    "SSH_DB_Runtime_AudioJobs": false,
+    "humanAudioApproval": false,
+    "historicalArchivePerformed": false,
+    "publicationApproved": false,
+    "StageBAllOtherTranslationFieldsExceptTaskExact": true
+  },
+  "inputBindings": [
+    {
+      "path": "S2/epoch43-old-new-full.json",
+      "bytes": 959980,
+      "byteSHA256": "4f4d56192123229136a681c03c72b04d406f03244a19fdee4f8b0eb0fbea8486"
+    },
+    {
+      "path": "S2/epoch43-final-canonical-audio.json",
+      "bytes": 21383,
+      "byteSHA256": "49831f1fb3a1bd4a260662d33304a80eed4ccb05c3c99e1b7c989b4e1f5ee564"
+    },
+    {
+      "path": "S2/epoch43-validation.json",
+      "bytes": 12299,
+      "byteSHA256": "bb0accb6362a0801454838f9112070db416304cb6a4f81b6cc7dec01d95b3771"
+    },
+    {
+      "path": "S2/epoch43-bound-S4-review.json",
+      "bytes": 103616,
+      "byteSHA256": "892e8661f8bd77329584da2eebcf537df40e8e392f086e4f1c6c96cf47aa1180",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-bound-S7-review.json",
+      "bytes": 43445,
+      "byteSHA256": "e1137409d41ec28d99e7efcf4282d02fa9c0e563ec5d2dfa643f65eb6bf4f747",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-old-new-full.json",
+      "bytes": 959980,
+      "byteSHA256": "4f4d56192123229136a681c03c72b04d406f03244a19fdee4f8b0eb0fbea8486",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-final-canonical-audio.json",
+      "bytes": 21383,
+      "byteSHA256": "49831f1fb3a1bd4a260662d33304a80eed4ccb05c3c99e1b7c989b4e1f5ee564",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-native-source-proof.json",
+      "bytes": 30686,
+      "byteSHA256": "a0e8cd0a29151bd8079152e82f74cf54f2a49871878089292130c6182be61c29",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-independent-preservation-proof.json",
+      "bytes": 6649,
+      "byteSHA256": "4a6e34efb354dba3e84a4a521e4c239ddcb2fe7c1a863202f3f52978ac2e392f",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-final-native-parity.json",
+      "bytes": 759,
+      "byteSHA256": "aba78d613a665ea54009d4e42f9ab9eb6dcb7879aafdb0cdcd41b202fff56516",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-native-tests.log",
+      "bytes": 1447,
+      "byteSHA256": "572f54aaaecab349df246c2fecab21cd4850e06335df45ace5875cb0973d6d76",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-eslint.log",
+      "bytes": 0,
+      "byteSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-author-edits.json",
+      "bytes": 1762,
+      "byteSHA256": "e006a2d624c8fa8a569231116eaeac38928d4776c120e317a2a5546215aeef9f",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-repair.py",
+      "bytes": 10596,
+      "byteSHA256": "e76e35d476502eb62ae868d17ef9c9c3bcc5547b2f5ea16c93fc566d967e9e46",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-sync.mjs",
+      "bytes": 8215,
+      "byteSHA256": "6f932042bed8a826baf43c8301551fe62c528974031f6e537d844c67279a33f4",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-validate-audio.ts",
+      "bytes": 3568,
+      "byteSHA256": "ce9805e8a249df7e3ef6c377c72718a8f443b89530f7029819f9d827e5a10901",
+      "verification": "BYTE_BINDING_ONLY"
+    },
+    {
+      "path": "S2/epoch43-source-proof.mjs",
+      "bytes": 3572,
+      "byteSHA256": "a7178362bbac276bf7aa3af4822b5d91614c22cb4b48718b66136da8a466c7e6",
+      "verification": "BYTE_BINDING_ONLY"
+    }
+  ],
+  "rows": [
+    {
+      "index": 1,
+      "id": "8d020392-84b9-54f1-a480-fb04d4e36142",
+      "ref": "P4-N6-E04",
+      "level": "A2.1",
+      "node": "P4-N6",
+      "stage": "B_SEVEN_AUTHORIZED_MALE_ROLES",
+      "verdict": "ACCEPT",
+      "reasonDe": "Tom und er sind männlich konsistent. Nach Wahrscheinlich steht hat auf Position2; genau eine Option hat korrekte Wortstellung. RU/UK-Morphologie und alle fünf Fassungen stimmig.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "421335ec799470200b6dafd5b59fa07c27b0daea8f317a1f385a7f490ed00bd5",
+      "wholeFinalSeedExerciseSHA256": "99fce0e53fc8f2a173ec2ff011d93a75bc1caec01d69687d944dd4efd64bbc06",
+      "wholeParentWithoutChildrenBeforeSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "wholeFinalParentWithoutChildrenSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "94483e21a60bf58c69bb2575cbee752761baa95bfecaa99ddbe467b7d89d829d",
+        "en": "58ba2586d08afbe54d854684635815dadf4b61a6153fd704b039a4ae09133332",
+        "ru": "6a59bf755e96d0ff13e61091a2a89b332c7e7d05634f90bbde81c6798df43dfd",
+        "uk": "82eda33406f485c7480051b8abfafbb45aea95b6afaf9a2e6017f952d92ee8fd",
+        "tr": "45a5d83cdc0bfad8546ed9c90226b3747152f46d4a08a62596d91ca63ff31e83"
+      },
+      "canonicalAudioTextSHA256": "b022b2a63cc66ed1df700641984e389998d0c77f25d89d99a1999d4e227839ae",
+      "canonicalAudioText": [
+        "Tom vermutet etwas. Wahrscheinlich hat er heute frei."
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionRankBeforeZeroBased": 0,
+      "correctOptionRankAfterZeroBased": 0,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "8d020392-84b9-54f1-a480-fb04d4e36142",
+        "parentID": "P4-N6",
+        "pathID": "P4"
+      }
+    },
+    {
+      "index": 2,
+      "id": "f7fde7b0-35b2-59e0-af70-8a1b2beeb7c8",
+      "ref": "P4-N6-E07",
+      "level": "A2.1",
+      "node": "P4-N6",
+      "stage": "B_SEVEN_AUTHORIZED_MALE_ROLES",
+      "verdict": "ACCEPT",
+      "reasonDe": "Er hat heute Spätschicht; RU у него, UK у нього und neutraler türkischer Bezug passen. Glaube, denke, meine, vermute bleiben vier gültige, unveränderte Varianten mit gleicher Reihenfolge.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "0b5ea282bc238bc7f982a7f7c9aac0c089c0d78666e89ade04e1eed363bb9f67",
+      "wholeFinalSeedExerciseSHA256": "96ad41f66cb2adf87e79c28185005abf4128a4f2ee7678947cfdbd625789053a",
+      "wholeParentWithoutChildrenBeforeSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "wholeFinalParentWithoutChildrenSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "dcc3bc4fc459f9f87fcd262c8594fcb8aa071f7e29e534c3495c1945ef9f3942",
+        "en": "fae56435ed7cda58c615344509871e654007705457fb7b19c4080683b16b9e06",
+        "ru": "e85d32979b745650fcffd8f2cc31a792b4c73014086195ee539919ecd7c80e09",
+        "uk": "8d0a3fc266a24e376e8c56cf32ec869fb1f5769642767d56ab5f1b29f4a71fd8",
+        "tr": "feb2460994b23bebe945e189a8f2dea1d3973073b73d1d7eb0170fd271e15a33"
+      },
+      "canonicalAudioTextSHA256": "93f5e807edcaa852bc90b80bd3348dae532701bcc849714f6b8f3b64003c5d85",
+      "canonicalAudioText": [
+        "glaube",
+        "Ich bin nicht sicher, aber ich glaube, er hat heute Spätschicht."
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 4,
+      "acceptedAnswerCardinalityAfter": 4,
+      "correctOptionRankBeforeZeroBased": 1,
+      "correctOptionRankAfterZeroBased": 1,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "f7fde7b0-35b2-59e0-af70-8a1b2beeb7c8",
+        "parentID": "P4-N6",
+        "pathID": "P4"
+      }
+    },
+    {
+      "index": 3,
+      "id": "bd0882ff-ae36-5c8c-a63f-bf5a55b7c938",
+      "ref": "P4-N6-E10",
+      "level": "A2.1",
+      "node": "P4-N6",
+      "stage": "B_SEVEN_AUTHORIZED_MALE_ROLES",
+      "verdict": "ACCEPT",
+      "reasonDe": "Vielleicht ist er noch in der Kantine und Er ist vielleicht noch in der Kantine sind grammatisch gültig. Beide bisherigen weiblichen Varianten wurden je1→1 männlich; nur parts[1] ändert sie zu er, Index und Anzahl bleiben erhalten.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "3ef4ddbb1916d037d8b79bfe7c014cad56191b20c5be8efd19b0a63a5337a2aa",
+      "wholeFinalSeedExerciseSHA256": "1dc9f007ba74e78be4013f1c4a60b7a959c805fde10110c0660654ba81eec29c",
+      "wholeParentWithoutChildrenBeforeSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "wholeFinalParentWithoutChildrenSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "665d44454074dd416513872f6a3e4e3d1e634d7359c68aca122d9caea8305bc0",
+        "en": "3767f83c3cc108e56591a5e9b6bf4ca6b86a6a8f5bb22d4d581f1e8ed75c4e74",
+        "ru": "617520a9f3744b9fb937d7d03239852b298923033f2f56a36e9e29f098332e82",
+        "uk": "c9bc20fb0051ba62353e17b53cd5643edd7766533f940081419c9ec4a260a87d",
+        "tr": "4089d99a8f481a765feebbb689832aa26e3611e8c315ab932833f79308988dd7"
+      },
+      "canonicalAudioTextSHA256": "0a7a1b94836d3fd955ece71b76f142897ce61f89ebcd323f64e35561ec71eb9e",
+      "canonicalAudioText": [
+        "Vielleicht ist er noch in der Kantine."
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 2,
+      "acceptedAnswerCardinalityAfter": 2,
+      "correctOptionRankBeforeZeroBased": null,
+      "correctOptionRankAfterZeroBased": null,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "bd0882ff-ae36-5c8c-a63f-bf5a55b7c938",
+        "parentID": "P4-N6",
+        "pathID": "P4"
+      }
+    },
+    {
+      "index": 4,
+      "id": "d097b2e3-3a77-5471-a273-d371b3443565",
+      "ref": "P4-N9-E02",
+      "level": "A2.1",
+      "node": "P4-N9",
+      "stage": "B_SEVEN_AUTHORIZED_MALE_ROLES",
+      "verdict": "ACCEPT",
+      "reasonDe": "Dein Kollege ist ausdrücklich männlich. Ihm bezeichnet den abwesenden Kollegen als Nachrichtenempfänger; die Frage passt zur Hilfe für den Anrufer. RU/UK männliche Kollege-Formen stimmen.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "f58f1d9e2df6c68822e8ab5feaf593b3f3f8ce8fda11d70246b1d43e5ec82ab2",
+      "wholeFinalSeedExerciseSHA256": "fd7db18449c31cb605b33cb4b242f38e1b107e5f202698876e2e32618231fee0",
+      "wholeParentWithoutChildrenBeforeSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholeFinalParentWithoutChildrenSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "a7e5993ca15d61016c89239118cfa513d2692b7e772fd0ef11995d6e759a1b09",
+        "en": "36f9bf22ac3fdb4f0d1f3476704f3bd4abbd9bc409ba27f02516af6388239c18",
+        "ru": "57b1552f016e1369a6852bfdef30b6c0ef7f2152d9a5b87177139b4bc7f8b340",
+        "uk": "e29226e53c3cf32d48ff3710d5467491cb5fe1ffeccbf096a89efaa5bf96cdc3",
+        "tr": "d2f1d92995f041e9b3668d15511265f6bccf34fbbe9daf52b8e7e7fd832ed311"
+      },
+      "canonicalAudioTextSHA256": "c3964eb59dc7756c15c3a8df627b89987ca2a17e416661137d858551f135a6ee",
+      "canonicalAudioText": [
+        "Dein Kollege ist nicht da. Du möchtest dem Anrufer helfen. Was fragst du? Kann ich ihm etwas ausrichten?"
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionRankBeforeZeroBased": 0,
+      "correctOptionRankAfterZeroBased": 0,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "d097b2e3-3a77-5471-a273-d371b3443565",
+        "parentID": "P4-N9",
+        "pathID": "P4"
+      }
+    },
+    {
+      "index": 5,
+      "id": "fb2cfe07-4d89-5b41-ab97-d548a10a1028",
+      "ref": "P4-N9-E03",
+      "level": "A2.1",
+      "node": "P4-N9",
+      "stage": "A_FOUR_S4_FINDINGS",
+      "verdict": "ACCEPT",
+      "reasonDe": "Früherer HOLD behoben: RU Господину Kaya ist männlicher Dativ der Infinitivfrage; UK Чи має пан Kaya вам передзвонити? ist eine vollständige Modalfrage. DE/EN/TR stimmig; Optionen und Schlüssel exakt unverändert. Grammatisch falsche Distraktoroption ist kein Lehrsatz.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "3e7d4faf43f6eb8464b9aaec53b59da3b79f98940bc658c5e2cbd19411758503",
+      "wholeFinalSeedExerciseSHA256": "57363694499e5b3d77f3c491276820a9998ec5f3052a04241b9f153134066a46",
+      "wholeParentWithoutChildrenBeforeSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholeFinalParentWithoutChildrenSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "5a9d1ca7bec0bb08408d39cdf506ff7563b06bc0e925cf35526455c362631c32",
+        "en": "69234867ff27ce14a65b99268deaf155e264dde06d5e5a0302fa7e6c22a8d720",
+        "ru": "84a6386091a1d06a1708e9af7cfa1d9aaab2b52ea3a9314fc3e15949c2759f9f",
+        "uk": "d64bd114ac8554c9f7acf3a8c500b472307b616e8bddd0ed5c97905f721074f6",
+        "tr": "4e5ad44ce5e58424971db00441771f6c29be7ddf6cf472c09a3b7c2d4a1e08c4"
+      },
+      "canonicalAudioTextSHA256": "6daf4cdf9177b3404173874879a7ea176154ce8d783d04fa35617436aa2ec81f",
+      "canonicalAudioText": [
+        "„Soll Herr Kaya Sie zurückrufen?“ Ja, bitte. Meine Nummer ist 0171 2233."
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionRankBeforeZeroBased": 0,
+      "correctOptionRankAfterZeroBased": 0,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "fb2cfe07-4d89-5b41-ab97-d548a10a1028",
+        "parentID": "P4-N9",
+        "pathID": "P4"
+      }
+    },
+    {
+      "index": 6,
+      "id": "92fca694-d0ad-56de-aa8e-4a86953f6b07",
+      "ref": "P4-N9-E08",
+      "level": "A2.1",
+      "node": "P4-N9",
+      "stage": "B_SEVEN_AUTHORIZED_MALE_ROLES",
+      "verdict": "ACCEPT",
+      "reasonDe": "Er ist gerade nicht am Platz; feste Wendung verlangt Platz. RU Его und UK Його sind männlich; türkische Form ist neutral. Optionen und Schlüssel unverändert.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "e0450f86737bb208b4392c484dd25cf783c580fc22983399708c0d8c75656c56",
+      "wholeFinalSeedExerciseSHA256": "113f2f078ce004b43e5bebcb4d5cac8f15954f48a42d46bced06ad1c998b2a77",
+      "wholeParentWithoutChildrenBeforeSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholeFinalParentWithoutChildrenSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "ce9baead46b98f641bd1f21c15c1ad5f3f109b00f20b3de9bb13a3b156922dec",
+        "en": "7ab9ea6fc1201b105e29125cee5277bb254614eca257819a63c7068674f9b0fa",
+        "ru": "141ee875f18b017badcd05b06e19bd83028d1ee44e9163ff6e17c8bde75888d0",
+        "uk": "e8d00a31a64d62cc522a74c44d0d2ace63809d61fa953e2b9194560575c94298",
+        "tr": "62fd9181a9ca2538320ab42ff3c9ce38733efa5a6aaf4a419aa9d81e9101ec50"
+      },
+      "canonicalAudioTextSHA256": "dd3a836f168d09566c1e79128443bde5c668dacc166d57df804a46f1eace1eac",
+      "canonicalAudioText": [
+        "Platz",
+        "Er ist gerade nicht am Platz. Kann ich etwas ausrichten?"
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionRankBeforeZeroBased": 2,
+      "correctOptionRankAfterZeroBased": 2,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "92fca694-d0ad-56de-aa8e-4a86953f6b07",
+        "parentID": "P4-N9",
+        "pathID": "P4"
+      }
+    },
+    {
+      "index": 7,
+      "id": "3f2a6b3f-84c4-5174-abdc-8ca4f1adfe77",
+      "ref": "P4-N9-E10",
+      "level": "A2.1",
+      "node": "P4-N9",
+      "stage": "B_SEVEN_AUTHORIZED_MALE_ROLES",
+      "verdict": "ACCEPT",
+      "reasonDe": "Kann ich ihm etwas ausrichten? verlangt Dativ ihm für den autorisierten männlichen Bezug. Alle Übersetzungen passen; nur parts[4] ändert ihr zu ihm bei gleichem Index und gleicher Anzahl.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "88ac9b95080ab962db9c0bc97132178ab6da18d4120c70b28fa45f7e0e6f774b",
+      "wholeFinalSeedExerciseSHA256": "71e1997e0f564eb1f4f72731bf7628a972625c6fdb3a0ae93fb87ac03bc0c8c1",
+      "wholeParentWithoutChildrenBeforeSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholeFinalParentWithoutChildrenSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "521187dc8400413fc5980746ff5d31fad77e0b3785c41ec04101d261aba9081d",
+        "en": "b5c30f8005f2dbfc92a184ec6d48facd0918f8a3d25d85c05caca038bdea6087",
+        "ru": "5812133c5d03fc24350fc1cc5f865786a39aee4b78e64246d9a8d66360eab7c5",
+        "uk": "e12759dbb8b7d6a6040243aa0eb2696e0f03492f7b684f16f3c951da52315a40",
+        "tr": "5046a3be7a0e93b7a9e6bc6b9f521ac4d90da3eb68fce862d329be371f0b174e"
+      },
+      "canonicalAudioTextSHA256": "857811ff395aec852a6b9fc625239e802d0b1d4aea679e74d817b50a37af71cb",
+      "canonicalAudioText": [
+        "Kann ich ihm etwas ausrichten?"
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionRankBeforeZeroBased": null,
+      "correctOptionRankAfterZeroBased": null,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "3f2a6b3f-84c4-5174-abdc-8ca4f1adfe77",
+        "parentID": "P4-N9",
+        "pathID": "P4"
+      }
+    },
+    {
+      "index": 8,
+      "id": "e6f34a9a-fe83-5273-aa56-ae55617e8bbb",
+      "ref": "P4-N12-E12",
+      "level": "A2.1",
+      "node": "P4-N12",
+      "stage": "B_SEVEN_AUTHORIZED_MALE_ROLES",
+      "verdict": "ACCEPT",
+      "reasonDe": "Der neue Kollege / er ist konsistent. Du hast eine andere Idee verlangt Widerspruch, nur Nein, das glaube ich nicht … Spanien passt. RU новый коллега, UK новий колега und TR iş arkadaşımız sind korrekt.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "b311662fc888a9e44f2200128fa70f3c2bf49ddfc718b5c9dee11420e8ee8245",
+      "wholeFinalSeedExerciseSHA256": "2bda9d6fed1187090aceb5af6d5500b3c26ce366f5deb897ffec4221e71f70b3",
+      "wholeParentWithoutChildrenBeforeSHA256": "fdfa643b407a12d7e1a60c3518e201274c6365bd4d97e68a06157b06fcba49fa",
+      "wholeFinalParentWithoutChildrenSHA256": "fdfa643b407a12d7e1a60c3518e201274c6365bd4d97e68a06157b06fcba49fa",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "284340e24d6d64baa79e0c20eefc2ed45a03723c16b6edd044aad9f16e97d2c4",
+        "en": "348c3305f8b799d684afa1a09ea5ca1f7c0009620fc975292e907db21c3920fe",
+        "ru": "ec430e858b68b408a5f7c133c7c2d6f5e49458307914be1f0e15345e69dc8c80",
+        "uk": "8462bda0187ea9ecb48ba4d53b2ec53c537e9980e6e351a7ec3ccfb65e31e59e",
+        "tr": "5a949d096ba3b0e6ae39ffd1469c009da3bcb44285d724ed0082310be67a3851"
+      },
+      "canonicalAudioTextSHA256": "fda53f0a02e8842f5e74fd22b9d15e3d73f98768f5529068a4f0d823624d66b0",
+      "canonicalAudioText": [
+        "„Ich denke, der neue Kollege kommt aus Italien.“ – Du hast eine andere Idee. Nein, das glaube ich nicht. Ich glaube, er kommt aus Spanien."
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionRankBeforeZeroBased": 2,
+      "correctOptionRankAfterZeroBased": 2,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "e6f34a9a-fe83-5273-aa56-ae55617e8bbb",
+        "parentID": "P4-N12",
+        "pathID": "P4"
+      }
+    },
+    {
+      "index": 9,
+      "id": "1e8ba83c-5c91-52d7-abf3-c31a60d38760",
+      "ref": "P4-N12-E15",
+      "level": "A2.1",
+      "node": "P4-N12",
+      "stage": "A_FOUR_S4_FINDINGS",
+      "verdict": "ACCEPT",
+      "reasonDe": "Früherer Zeitumfang-PARTIAL behoben: DE den ganzen Tag nicht im Büro und EN all day, RU весь день, UK увесь день, TR bütün gün belegen die unveränderte Antwort heute nicht im Haus ausdrücklich. Herrn Rojas und alle männlichen Bezüge stimmen.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "9daee3881dd79a4ef43f3d31577eef480491eb0170eaebd6d0b39679da85526b",
+      "wholeFinalSeedExerciseSHA256": "f405cf683a341f6bb7d3e7f70e9f048ac23553bb744dbcac7a7d226dfb271848",
+      "wholeParentWithoutChildrenBeforeSHA256": "fdfa643b407a12d7e1a60c3518e201274c6365bd4d97e68a06157b06fcba49fa",
+      "wholeFinalParentWithoutChildrenSHA256": "fdfa643b407a12d7e1a60c3518e201274c6365bd4d97e68a06157b06fcba49fa",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFinalObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "localeFullSHA256": {
+        "de": "f2b009b10a4e7909bab3ac05e96f0acd44c317170b20996510000feef71872b0",
+        "en": "fd5f9b2ae7b2cc1f323af8984e18102b0696f8e9bed1d7b63de60a75132858e2",
+        "ru": "c84666fba74c156d0babb8cc3d5bd92baf995f561fac63582b87aa6899e0718e",
+        "uk": "664f24dc0827236314273561e0b9a3383063b866d27bc0bb88e1ce8698b26689",
+        "tr": "d2264587bd66f7f4220d4f43fc0999f1390175f867479b6f551c76d7af2d476b"
+      },
+      "canonicalAudioTextSHA256": "58f40e04173f1ddfda3fc88e85d0b26de660fc132bc3210fd6a481c2085f99c0",
+      "canonicalAudioText": [
+        "Du arbeitest im Büro. Ein Anrufer möchte Herrn Rojas sprechen, aber er hat heute einen Arzttermin und ist den ganzen Tag nicht im Büro. Was sagst du? Tut mir leid, Herr Rojas ist heute nicht im Haus."
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionRankBeforeZeroBased": 1,
+      "correctOptionRankAfterZeroBased": 1,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "1e8ba83c-5c91-52d7-abf3-c31a60d38760",
+        "parentID": "P4-N12",
+        "pathID": "P4"
+      }
+    },
+    {
+      "index": 10,
+      "id": "07958942-cb7c-5414-a7b5-0a650bf0501f",
+      "ref": "P6-N7-E01",
+      "level": "A2.1",
+      "node": "P6-N7",
+      "stage": "A_FOUR_S4_FINDINGS",
+      "verdict": "ACCEPT",
+      "reasonDe": "Früherer HOLD behoben: DE seine Meinung und EN his opinion passen zu Herrn Kaya. RU/UK/TR waren bereits korrekt. Dass-Nebensatz endet mit sind; eine richtige Option, Optionen und Schlüssel unverändert.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "64ca01adb9581f9611627e3c3012936ca662ebda49d9f9f4848897cb990f1ec2",
+      "wholeFinalSeedExerciseSHA256": "7e201cd4f274dc62687f23816905913db124240b614bd39870176265b4718e8d",
+      "wholeParentWithoutChildrenBeforeSHA256": "bbc89efe052510305b1b2f1592a264e3a62f32eafb1cd6cbf882003f9e3b7f64",
+      "wholeFinalParentWithoutChildrenSHA256": "bbc89efe052510305b1b2f1592a264e3a62f32eafb1cd6cbf882003f9e3b7f64",
+      "wholeObjectivesBeforeSHA256": "6016f82ce45aa53c4ba2fd9dcf228f92a5a206b304fab758eb6b0c460ba779aa",
+      "wholeFinalObjectivesSHA256": "6016f82ce45aa53c4ba2fd9dcf228f92a5a206b304fab758eb6b0c460ba779aa",
+      "localeFullSHA256": {
+        "de": "b1b7dd261ea50147119d0a2f0d38f772d66cdd2f0e2b817cc74fbed596ab9e01",
+        "en": "6e94868eb3ce5683231d63b950e5910371f1536116bbc36326c79ffc26c5f14b",
+        "ru": "ab023a4e5638f248fa0ed31660c3401dc1f08914eb28484826d6749cc0a7d385",
+        "uk": "508358a0886e43cd1248d0aaf6047e645c4dddc8a6e211a6da4162d5f53be375",
+        "tr": "23cc3ed9c70ef119d0048353762a199d7054ca91036360f2fe05938924aa5e92"
+      },
+      "canonicalAudioTextSHA256": "dc081fcfeca43a94ad6d1766ed1dd7106aac584f9d112aca7e413cfcacabe5c4",
+      "canonicalAudioText": [
+        "Herr Kaya sagt seine Meinung. Ich finde, dass Noten wichtig sind."
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionRankBeforeZeroBased": 0,
+      "correctOptionRankAfterZeroBased": 0,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.1.json",
+        "taskID": "07958942-cb7c-5414-a7b5-0a650bf0501f",
+        "parentID": "P6-N7",
+        "pathID": "P6"
+      }
+    },
+    {
+      "index": 11,
+      "id": "a6ae0603-287c-55f7-a2bd-967081e76e8f",
+      "ref": "P7-N5-E06",
+      "level": "A2.2",
+      "node": "P7-N5",
+      "stage": "A_FOUR_S4_FINDINGS",
+      "verdict": "ACCEPT",
+      "reasonDe": "Früherer PARTIAL behoben: UK Я хотів би бути одруженим. stimmt jetzt exakt mit der Elternkarte überein. Sofian / Er und RU Он / UK Він sind konsistent; hätte gern zwei Kinder ist der richtige Wunsch. Schlüssel unverändert.",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "implementationSourceCommit": "7a68a6bedb3621a68b3439519af19d9128b6fca9",
+      "implementationBase": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+      "wholeBeforeSHA256": "b7a8115c74ef1841b2dfbf74c01bc18ed48e4daf0c993e5addde9d7911805c3d",
+      "wholeFinalSeedExerciseSHA256": "fb4fe739adc586fe52f045462c8b5344bc1c3b09e67a5752684923841db1230d",
+      "wholeParentWithoutChildrenBeforeSHA256": "f64597a578f44e304f6e87447826867c53638e314b5c98ec54f9703f2036bea2",
+      "wholeFinalParentWithoutChildrenSHA256": "f64597a578f44e304f6e87447826867c53638e314b5c98ec54f9703f2036bea2",
+      "wholeObjectivesBeforeSHA256": "38d4ae7f5ed7723c538f50c9ae9a91f2abffee3db8a7f37e91547383fe1ad691",
+      "wholeFinalObjectivesSHA256": "38d4ae7f5ed7723c538f50c9ae9a91f2abffee3db8a7f37e91547383fe1ad691",
+      "localeFullSHA256": {
+        "de": "85b1d5241a18280658cd598f9b4dddf20c6b66f5b41b3524417d90c1f079c73a",
+        "en": "bf5e187ef36f5b099197f2cefa26dc9aacf426bea5116c60b1f0f837f8da8a19",
+        "ru": "53615a04ff966ce48cd100ae474b9d8d5975eefe97dea4b386ea46babacac384",
+        "uk": "63e8f7fc3d30082fdced565109ed0323f48ec38702784692f353581a17f89b44",
+        "tr": "8999f80cf058365b9af374cf7b256bde0e0d520c88a44da3dcfa6e2a5196509b"
+      },
+      "canonicalAudioTextSHA256": "142edfdc13bced98a4bcbcda52488ebb4d4b6adb04248c10240370a5b8db6122",
+      "canonicalAudioText": [
+        "hätte",
+        "Sofian hat keine Kinder. Er hätte gern zwei Kinder."
+      ],
+      "canonicalAudioTextVerdict": "ACCEPT_TEXT_ONLY",
+      "acceptedAnswerCardinalityBefore": 1,
+      "acceptedAnswerCardinalityAfter": 1,
+      "correctOptionRankBeforeZeroBased": 2,
+      "correctOptionRankAfterZeroBased": 2,
+      "readScope": {
+        "actualWholeCurrentSeedExerciseAllFiveLocalesIncludingOptionsPartsKeysHintsExplanations": true,
+        "wholeCurrentParentWithoutChildrenAllLocalesCardsRulesExamples": true,
+        "allCurrentPathObjectives": true,
+        "audioTextRead": true,
+        "audioListeningOrQA": false,
+        "siblingsRead": false,
+        "withinEpochExactStringDeduplication": true,
+        "truncations": 0
+      },
+      "publicationApproved": false,
+      "evidence": {
+        "file": "supabase/seeds/path-a2.2.json",
+        "taskID": "a6ae0603-287c-55f7-a2bd-967081e76e8f",
+        "parentID": "P7-N5",
+        "pathID": "P7"
+      }
+    }
+  ],
+  "answerRevisionProof": [
+    {
+      "id": "8d020392-84b9-54f1-a480-fb04d4e36142",
+      "ref": "P4-N6-E04",
+      "canonicalBefore": "Wahrscheinlich hat sie heute frei.",
+      "canonicalAfter": "Wahrscheinlich hat er heute frei.",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Wahrscheinlich hat sie heute frei.",
+          "after": "Wahrscheinlich hat er heute frei.",
+          "mapping": "1→1",
+          "changed": true
+        }
+      ],
+      "beforeCardinality": 1,
+      "afterCardinality": 1,
+      "beforeCorrectOptionRank": 0,
+      "afterCorrectOptionRank": 0,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "verdict": "ACCEPT_SOURCE_MAPPING_ONLY"
+    },
+    {
+      "id": "f7fde7b0-35b2-59e0-af70-8a1b2beeb7c8",
+      "ref": "P4-N6-E07",
+      "canonicalBefore": "glaube",
+      "canonicalAfter": "glaube",
+      "canonicalChanged": false,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "glaube",
+          "after": "glaube",
+          "mapping": "1→1",
+          "changed": false
+        },
+        {
+          "rank": 1,
+          "before": "denke",
+          "after": "denke",
+          "mapping": "1→1",
+          "changed": false
+        },
+        {
+          "rank": 2,
+          "before": "meine",
+          "after": "meine",
+          "mapping": "1→1",
+          "changed": false
+        },
+        {
+          "rank": 3,
+          "before": "vermute",
+          "after": "vermute",
+          "mapping": "1→1",
+          "changed": false
+        }
+      ],
+      "beforeCardinality": 4,
+      "afterCardinality": 4,
+      "beforeCorrectOptionRank": 1,
+      "afterCorrectOptionRank": 1,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "verdict": "ACCEPT_SOURCE_MAPPING_ONLY"
+    },
+    {
+      "id": "bd0882ff-ae36-5c8c-a63f-bf5a55b7c938",
+      "ref": "P4-N6-E10",
+      "canonicalBefore": "Vielleicht ist sie noch in der Kantine.",
+      "canonicalAfter": "Vielleicht ist er noch in der Kantine.",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Vielleicht ist sie noch in der Kantine.",
+          "after": "Vielleicht ist er noch in der Kantine.",
+          "mapping": "1→1",
+          "changed": true
+        },
+        {
+          "rank": 1,
+          "before": "Sie ist vielleicht noch in der Kantine.",
+          "after": "Er ist vielleicht noch in der Kantine.",
+          "mapping": "1→1",
+          "changed": true
+        }
+      ],
+      "beforeCardinality": 2,
+      "afterCardinality": 2,
+      "beforeCorrectOptionRank": null,
+      "afterCorrectOptionRank": null,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "verdict": "ACCEPT_SOURCE_MAPPING_ONLY"
+    },
+    {
+      "id": "d097b2e3-3a77-5471-a273-d371b3443565",
+      "ref": "P4-N9-E02",
+      "canonicalBefore": "Kann ich ihr etwas ausrichten?",
+      "canonicalAfter": "Kann ich ihm etwas ausrichten?",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Kann ich ihr etwas ausrichten?",
+          "after": "Kann ich ihm etwas ausrichten?",
+          "mapping": "1→1",
+          "changed": true
+        }
+      ],
+      "beforeCardinality": 1,
+      "afterCardinality": 1,
+      "beforeCorrectOptionRank": 0,
+      "afterCorrectOptionRank": 0,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "verdict": "ACCEPT_SOURCE_MAPPING_ONLY"
+    },
+    {
+      "id": "92fca694-d0ad-56de-aa8e-4a86953f6b07",
+      "ref": "P4-N9-E08",
+      "canonicalBefore": "Platz",
+      "canonicalAfter": "Platz",
+      "canonicalChanged": false,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Platz",
+          "after": "Platz",
+          "mapping": "1→1",
+          "changed": false
+        }
+      ],
+      "beforeCardinality": 1,
+      "afterCardinality": 1,
+      "beforeCorrectOptionRank": 2,
+      "afterCorrectOptionRank": 2,
+      "Archive114Required": false,
+      "Archive114Performed": false,
+      "verdict": "ACCEPT_SOURCE_MAPPING_ONLY"
+    },
+    {
+      "id": "3f2a6b3f-84c4-5174-abdc-8ca4f1adfe77",
+      "ref": "P4-N9-E10",
+      "canonicalBefore": "Kann ich ihr etwas ausrichten?",
+      "canonicalAfter": "Kann ich ihm etwas ausrichten?",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Kann ich ihr etwas ausrichten?",
+          "after": "Kann ich ihm etwas ausrichten?",
+          "mapping": "1→1",
+          "changed": true
+        }
+      ],
+      "beforeCardinality": 1,
+      "afterCardinality": 1,
+      "beforeCorrectOptionRank": null,
+      "afterCorrectOptionRank": null,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "verdict": "ACCEPT_SOURCE_MAPPING_ONLY"
+    },
+    {
+      "id": "e6f34a9a-fe83-5273-aa56-ae55617e8bbb",
+      "ref": "P4-N12-E12",
+      "canonicalBefore": "Nein, das glaube ich nicht. Ich glaube, sie kommt aus Spanien.",
+      "canonicalAfter": "Nein, das glaube ich nicht. Ich glaube, er kommt aus Spanien.",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Nein, das glaube ich nicht. Ich glaube, sie kommt aus Spanien.",
+          "after": "Nein, das glaube ich nicht. Ich glaube, er kommt aus Spanien.",
+          "mapping": "1→1",
+          "changed": true
+        }
+      ],
+      "beforeCardinality": 1,
+      "afterCardinality": 1,
+      "beforeCorrectOptionRank": 2,
+      "afterCorrectOptionRank": 2,
+      "Archive114Required": true,
+      "Archive114Performed": false,
+      "verdict": "ACCEPT_SOURCE_MAPPING_ONLY"
+    }
+  ],
+  "sentencePartsProof": [
+    {
+      "id": "bd0882ff-ae36-5c8c-a63f-bf5a55b7c938",
+      "ref": "P4-N6-E10",
+      "beforeParts": [
+        "in der Kantine",
+        "sie",
+        "Vielleicht",
+        "noch",
+        "ist"
+      ],
+      "afterParts": [
+        "in der Kantine",
+        "er",
+        "Vielleicht",
+        "noch",
+        "ist"
+      ],
+      "changes": [
+        {
+          "index": 1,
+          "before": "sie",
+          "after": "er"
+        }
+      ],
+      "sameIndexesAndCardinality": true
+    },
+    {
+      "id": "3f2a6b3f-84c4-5174-abdc-8ca4f1adfe77",
+      "ref": "P4-N9-E10",
+      "beforeParts": [
+        "Kann",
+        "etwas",
+        "ausrichten",
+        "ich",
+        "ihr"
+      ],
+      "afterParts": [
+        "Kann",
+        "etwas",
+        "ausrichten",
+        "ich",
+        "ihm"
+      ],
+      "changes": [
+        {
+          "index": 4,
+          "before": "ihr",
+          "after": "ihm"
+        }
+      ],
+      "sameIndexesAndCardinality": true
+    }
+  ],
+  "authorEvidenceOnly": {
+    "S2Tests": {
+      "pass": 16,
+      "fail": 0
+    },
+    "S2NativeParity": [
+      {
+        "level": "a1.2",
+        "parity": "PASS"
+      },
+      {
+        "level": "a2.1",
+        "parity": "PASS"
+      },
+      {
+        "level": "a2.2",
+        "parity": "PASS"
+      },
+      {
+        "level": "b1.1",
+        "parity": "PASS"
+      },
+      {
+        "level": "b1.2",
+        "parity": "PASS"
+      },
+      {
+        "level": "b2.1",
+        "parity": "PASS"
+      },
+      {
+        "level": "b2.2",
+        "parity": "PASS"
+      },
+      {
+        "level": "c1.1",
+        "parity": "PASS"
+      },
+      {
+        "level": "c1.2",
+        "parity": "PASS"
+      }
+    ],
+    "S2SchemaValidatedExercises": 9569,
+    "S2PrivateEvidenceByteBindingsVerified": 14
+  },
+  "limits": [
+    "Source editorial ACCEPT does not approve audio assets, historical archives, import or publication.",
+    "Archive114 is required for the five new canonical answer revisions and six corresponding changed accepted variants; no archive performed.",
+    "Abstract male/female grammatical comparisons remain unchanged and legitimate.",
+    "Previous23mirror field preservation is a byte/value comparison, not a new editorial approval of those whole tasks.",
+    "No broader gap/Pair audit, Vogel65–67 approval or blanket corpus approval."
+  ],
+  "parentReviews": [
+    {
+      "level": "A2.1",
+      "id": "P4-N6",
+      "verdict": "ACCEPT_PARENT_METADATA_ONLY",
+      "reasonDe": "Alle fünf Sprachfassungen, Karten/Regeln/Beispiele und alle Pfadziele vollständig gelesen; männliche Bezüge und abstrakte Mann/Frau-Vergleiche stimmig. Keine Freigabe unzugewiesener Kinder.",
+      "wholeParentWithoutChildrenSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "wholePathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "childrenRead": false
+    },
+    {
+      "level": "A2.1",
+      "id": "P4-N9",
+      "verdict": "ACCEPT_PARENT_METADATA_ONLY",
+      "reasonDe": "Alle fünf Sprachfassungen, Karten/Regeln/Beispiele und alle Pfadziele vollständig gelesen; männliche Bezüge und abstrakte Mann/Frau-Vergleiche stimmig. Keine Freigabe unzugewiesener Kinder.",
+      "wholeParentWithoutChildrenSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "wholePathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "childrenRead": false
+    },
+    {
+      "level": "A2.1",
+      "id": "P4-N12",
+      "verdict": "ACCEPT_PARENT_METADATA_ONLY",
+      "reasonDe": "Alle fünf Sprachfassungen, Karten/Regeln/Beispiele und alle Pfadziele vollständig gelesen; männliche Bezüge und abstrakte Mann/Frau-Vergleiche stimmig. Keine Freigabe unzugewiesener Kinder.",
+      "wholeParentWithoutChildrenSHA256": "fdfa643b407a12d7e1a60c3518e201274c6365bd4d97e68a06157b06fcba49fa",
+      "wholePathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "childrenRead": false
+    },
+    {
+      "level": "A2.1",
+      "id": "P6-N7",
+      "verdict": "ACCEPT_PARENT_METADATA_ONLY",
+      "reasonDe": "Alle fünf Sprachfassungen, Karten/Regeln/Beispiele und alle Pfadziele vollständig gelesen; männliche Bezüge und abstrakte Mann/Frau-Vergleiche stimmig. Keine Freigabe unzugewiesener Kinder.",
+      "wholeParentWithoutChildrenSHA256": "bbc89efe052510305b1b2f1592a264e3a62f32eafb1cd6cbf882003f9e3b7f64",
+      "wholePathObjectivesSHA256": "6016f82ce45aa53c4ba2fd9dcf228f92a5a206b304fab758eb6b0c460ba779aa",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "childrenRead": false
+    },
+    {
+      "level": "A2.2",
+      "id": "P7-N5",
+      "verdict": "ACCEPT_PARENT_METADATA_ONLY",
+      "reasonDe": "Alle fünf Sprachfassungen, Karten/Regeln/Beispiele und alle Pfadziele vollständig gelesen; männliche Bezüge und abstrakte Mann/Frau-Vergleiche stimmig. Keine Freigabe unzugewiesener Kinder.",
+      "wholeParentWithoutChildrenSHA256": "f64597a578f44e304f6e87447826867c53638e314b5c98ec54f9703f2036bea2",
+      "wholePathObjectivesSHA256": "38d4ae7f5ed7723c538f50c9ae9a91f2abffee3db8a7f37e91547383fe1ad691",
+      "sourceCommit": "e95b52a1bc21cfbd10bfc416daa7141200f28fc3",
+      "childrenRead": false
+    }
+  ]
+}
