@@ -11973,7 +11973,7 @@
                 "Ihr"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Herr Lindner fragt Herrn Demir: „Wie heißt … Sohn?“",
+              "question": "Herr Lindner fragt Herrn Demir: „Wie heißt ___ Sohn?“",
               "options": [
                 "Ihr",
                 "Ihre",
