@@ -112,7 +112,10 @@ class MigrationFailureTests(unittest.TestCase):
         stale when 19_vocabulary_self_rating_fix.sql was added; deriving both
         sides from the directory keeps it honest.
         """
-        available = sorted(path.name for path in SQL_DIR.glob('*.sql') if path.name.split('_')[0].isdigit())
+        available = sorted(
+            path.name for path in SQL_DIR.glob('*.sql')
+            if path.name.split('_')[0].isdigit() and not path.name.endswith('.rollback.sql')
+        )
         self.assertEqual(sorted(MIGRATION.ORDER), available, 'ORDER and supabase/vps/*.sql disagree')
         # The first five files carry a hand-picked order (identity before the
         # critical fixes). Everything from 04 onward runs by ascending number.
@@ -265,7 +268,9 @@ class MigrationFailureTests(unittest.TestCase):
         source = SQL_DIR.parent / 'migrations/20261009200300_sitov_staff_legacy_verb_scope.sql'
         content = source.read_text()
         self.assertEqual((SQL_DIR / name).read_text(), content)
-        self.assertEqual(MIGRATION.ORDER[-1], name)
+        self.assertIn(name, MIGRATION.ORDER)
+        self.assertEqual(MIGRATION.ORDER[-1], '118_sitov_pronunciation_submission_owner.sql')
+        self.assertLess(MIGRATION.ORDER.index(name), MIGRATION.ORDER.index(MIGRATION.ORDER[-1]))
         self.assertLess(MIGRATION.ORDER.index('112_sitov_legacy_metadata_performance.sql'), MIGRATION.ORDER.index(name))
         self.assertLess(MIGRATION.ORDER.index('110_sitov_storage_definer_execution.sql'), MIGRATION.ORDER.index(name))
         (self.root / name).write_text(content)
