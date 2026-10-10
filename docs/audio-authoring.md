@@ -342,3 +342,14 @@ Die statischen Deutschreise-Aufnahmen nutzen denselben lokalen Generator:
 `node scripts/sitov-deutschreise-audio.mjs --help`. Hörverstehen-Autoren verwenden
 `node scripts/path-listening-audio.mjs --help`; dessen Generierung ist ebenfalls
 rein lokal. Aktuell sind keine privaten Lernpfad-Hördateien im Seed hinterlegt.
+
+
+## Unveränderliche Reparaturvarianten (115)
+
+Nur `sind`, `stehe`, `wollte`, `des`, `ihrer` und `meiste` erhalten nach NFC-/Whitespace-Normalisierung den festen Identitätszusatz `sitov-audio-repair-20261010-v1`. Die enge Registry liegt in `lib/audio/models/sitov-qwen-male-de/approved-variants.json`; sie bindet den exakten Text und Text-SHA256, keine Audio-SHA256. Modell, männliches Profil, Syntheseparameter, Cacheversion und alle anderen Identitäten bleiben unverändert. Der Variantenschlüssel steht am Ende der bisherigen JSON-Identität.
+
+Neue Kandidaten werden ausschließlich unter dem neuen berechneten Pfad mit `upsert=false` importiert. Alte MP3-Bytes, URLs, historische Aufnahmen und archivierte Proofs bleiben erhalten. Aufrufer dürfen keinen Variantentag übergeben; der Importer verweigert abweichende Adressen, fehlende Assets und ungültige Registrydaten. Ein fehlendes neues Asset führt zu einem geschlossenen Audiozustand, niemals zum Rückgriff auf die alte Aufnahme.
+
+Vor Veröffentlichung: unabhängige Hörprüfung (ASR ist nur Diagnose), Metadaten-/Wortzeitprüfung, native115-Migrations-/ACL-/Fail-closed-Prüfung und Audits der neuen Assets. App, Importer und SQL115 müssen dieselbe Identität verwenden;115 folgt114 im Migrationsrunner. Neue Veröffentlichungsproofs müssen die neuen Pfade verwenden. Bestehende immutable Proofs werden nicht umgeschrieben; betroffene aktive Definitionen benötigen eine separat geprüfte neue Version, bevor sie wieder freigegeben werden. Keine Veröffentlichung allein aufgrund dieses Codepatches.
+
+Nach Veröffentlichung ist ein App-only- oder SQL-only-Rollback ungeeignet: App stoppen und passende Datenbanksicherung plus Anwendung gemeinsam wiederherstellen oder vorwärts reparieren. Der115-Rollback verweigert deshalb eine isolierte Rücknahme. Beide Objektgenerationen erhalten.

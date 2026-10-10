@@ -1,0 +1,38 @@
+{
+  "epoch": 66,
+  "baseSha": "c55fb044658fbba9ce0dcb4906873a8b350cc189",
+  "branch": "codex/sitov-night-s3-audio-variants66",
+  "variant": "sitov-audio-repair-20261010-v1",
+  "texts": [
+    "sind",
+    "stehe",
+    "wollte",
+    "des",
+    "ihrer",
+    "meiste"
+  ],
+  "tests": {
+    "typescriptJest": 2,
+    "pythonVariant": 4,
+    "pythonExistingImporter": 13,
+    "sqlStaticContract": 4,
+    "pythonCompile": true,
+    "diffCheck": true
+  },
+  "nativeSQLExecuted": false,
+  "runtimeBuildExecuted": false,
+  "audioGenerated": false,
+  "audioUploaded": false,
+  "publicationApproved": false,
+  "humanListeningProven": false,
+  "productionWrite": false,
+  "sharedQAWrite": false,
+  "releaseReady": false,
+  "openJobs": [],
+  "pending": [
+    "Native PG15 apply/replay and exact helper identity, owner/ACL preservation, storage missing/wrong variant fail-closed with complete114 baseline",
+    "Matching app/build/bundler runtime verification and coordinated adoption of independently audited immutable variant assets",
+    "Independent actual listening/quality approval; ASR diagnostics do not establish it",
+    "New proof/version adoption for any affected current immutable publication; never rewrite old proofs"
+  ]
+}

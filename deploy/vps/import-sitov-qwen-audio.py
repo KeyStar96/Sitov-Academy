@@ -26,9 +26,35 @@ def compact(value, ordered=False):
     return json.dumps(value, ensure_ascii=False, sort_keys=not ordered, separators=(',', ':'))
 
 
+VARIANTS_PATH = PROFILE_PATH.with_name('approved-variants.json')
+
+def normalize_text(text):
+    whitespace = r'[\t\n\v\f\r \u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]'
+    return re.sub(whitespace + '+', ' ', unicodedata.normalize('NFC', text)).strip(' ')
+
+def approved_variants():
+    registry = json.loads(VARIANTS_PATH.read_text())
+    rows = registry.get('variants')
+    if registry.get('schemaVersion') != 1 or not isinstance(rows, list) or len(rows) != 6:
+        raise ValueError('Invalid Sitov audio variant registry')
+    result = {}
+    for row in rows:
+        text = row.get('text')
+        if (text not in {'sind', 'stehe', 'wollte', 'des', 'ihrer', 'meiste'} or text in result
+                or text != normalize_text(text) or row.get('textSha256') != digest(text.encode())
+                or row.get('variant') != 'sitov-audio-repair-20261010-v1'):
+            raise ValueError('Invalid Sitov audio variant registry')
+        result[text] = row['variant']
+    return result
+
+
 def expected_path(text, profile, fingerprint):
+    text = normalize_text(text)
+    variants = approved_variants()
     identity = {'text': text, 'voice': profile['voice'], 'rate': 'qwen-native-1-lufs-18-aligned-v1',
                 'format': 'audio-24khz-48kbitrate-mono-mp3', 'leadIn': profile['output']['leadInSeconds'], 'profile': fingerprint}
+    if text in variants:
+        identity['variant'] = variants[text]
     return 'sitov-qwen-v1/de/' + digest(compact(identity, ordered=True).encode()) + '.mp3'
 
 
@@ -62,11 +88,15 @@ def validate_bundle(root, profile):
     manifest = json.loads((root / 'sitov-audio-bundle.json').read_text())
     if manifest.get('profileFingerprint') != fingerprint or manifest.get('engine') != profile['engine']:
         raise ValueError('Wrong Qwen profile; nothing imported')
+    if 'variant' in manifest:
+        raise ValueError('Caller-selected audio variant forbidden')
     rows = manifest.get('rows')
     if not isinstance(rows, list) or not rows:
         raise ValueError('Empty audio bundle')
     planned, seen = [], set()
     for row in rows:
+        if 'variant' in row:
+            raise ValueError('Caller-selected audio variant forbidden')
         path, text = row.get('cachePath'), row.get('text')
         if not isinstance(text, str) or not text or len(text) > 3000 or not isinstance(path, str) or not re.fullmatch(r'sitov-qwen-v1/de/[0-9a-f]{64}\.mp3', path):
             raise ValueError('Invalid bundle entry')
@@ -83,6 +113,8 @@ def validate_bundle(root, profile):
             raise ValueError('Unsafe bundle path')
         audio = audio_path.read_bytes()
         metadata = json.loads(metadata_path.read_text())
+        if 'variant' in metadata:
+            raise ValueError('Caller-selected audio variant forbidden')
         if not 100 <= len(audio) <= 2 * 1024 * 1024 or not (audio.startswith(b'ID3') or audio[0] == 255 and audio[1] & 224 == 224):
             raise ValueError('Invalid MP3')
         if row.get('audioSha256') != digest(audio) or metadata.get('audioSha256') != digest(audio) or metadata.get('textSha256') != digest(text.encode()):
