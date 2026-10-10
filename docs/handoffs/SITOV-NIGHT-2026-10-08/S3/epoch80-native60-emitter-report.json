@@ -1,0 +1,45 @@
+{
+  "brand": "Sitov Academy",
+  "epoch": 80,
+  "status": "OFFLINE_EMITTER60_PREPARED_NATIVE_AND_FULLGET_GATES_PENDING",
+  "baseCommit": "7c5466a02772854fe8c7595450f03ba112b7abb5",
+  "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+  "inputSHA256": "5ff5e2f504b53f6ee2ee2b27035d1a0d4c9864428cbadcc84ec1b33ee52608f2",
+  "nativeSourcePreflightSHA256": "dd90eef42f3b735c1ff5095c5e506237955a5184866e216df6eb64d9e61d3aea",
+  "privatePreparedData": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch80-reviewed-native60-private.json",
+  "privatePreparedDataSHA256": "578fd3f0ecafa6f126d0c6451ac9a1c4624a138f91e17e323bc58a8777182880",
+  "privateArtifactManifest": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch80-artifact-sha256.json",
+  "privateArtifactManifestSHA256": "a48783f4a1d9d21332e817d70c952382e0de19b7de99bf6f190c6fe7c8d05f3e",
+  "definitions": 60,
+  "selectedUniqueAudioObjects": 5398,
+  "batches": [
+    20,
+    20,
+    20
+  ],
+  "offlineTests": 23,
+  "allOfflineTestsPassed": true,
+  "actualFULLGETProofProvided": false,
+  "SQLExecuted": false,
+  "nativeSQLCompilationVerified": false,
+  "productionWrites": 0,
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "publicationApproved": false,
+  "ownedJobs": [],
+  "safeguards": [
+    "Default ROLLBACK; no active/source/history UPDATE, auth spoof or write_control enablement",
+    "Native target OID62580; source full JSONB SHA and all five empty histories rechecked under source FOR UPDATE",
+    "Every5398 actual FULLGET body SHA/length/objectUUID/full observed metadata bound to current storage row under FOR SHARE",
+    "Question proofs derived from native public_audio_texts and native wordTimings JSONB hash",
+    "Genuine original9 editorial review documents rehashed and60 exact records matched; independent author/reviewer; no human/calibration claim",
+    "Current117 reference_valid/public_audio_ready/staff_publication_proven required or entire batch aborts"
+  ],
+  "limits": [
+    "Actual5398 FULLGET receipt CSV absent: SQL cannot run until M supplies genuine receipts; synthetic fixtures were memory-only tests",
+    "Native SQL has not been compiled or executed; M must verify target schema/function/ACL/trigger and transaction behavior",
+    "Existing history, including a prior successful attempt of these insert batches, causes HOLD; no blind retry or duplicate insertion",
+    "DB approval table lacks reviewerKind/humanReview/calibration columns; exact provenance remains in private prepared data and original reviewed documents",
+    "Future publication payload requires committed native IDs/JSONB versions and fresh base-active CAS via real authenticated staff102/105; stable request UUID is prepared only"
+  ]
+}
