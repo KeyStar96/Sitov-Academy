@@ -1,0 +1,7 @@
+# Sitov Academy — S3 epoch78
+
+All60 current full source identities verified.106 original local candidate metadata/audio files examined;88 passed strict lexical-positive/profile/native-or-readback checks,18 sidecars held for zero-duration lexical words. Selected 50 complete MP3s fully decoded with actual24kHz/mono/duration and unchanged in-bound timings. All60 source statuses and unresolved IDs are explicit in the private proof. Original alternatives/provenance/raw WAV/chunk hashes and available exact-SHA full-passage ASR retained. ASR differences/missing observations remain diagnostic doubts, without perceptual or human PASS.
+
+Late M actualproduction60 readback references were saved: existing selection hashes compared to M reported actual GET hashes. Additional per-ID production-original technical QC was deferred at SAVE_ONLY; no additional S3 production decode started. Differentbytes at canonical production keys remain collision HOLD. Original files, existing5338 bundle and registry unchanged. No source,DB,SSH,runtime,API,TTS,newalignment,ASRmodeldownload or hearing page. First primary uses exact9b092de30df8673721a37f0e2d03fe76f641d6bec6b76aaece3212aaa6e24a0b with prior M readback/decode/raw proof.
+
+Complete60 canonicalbundle/strict importer status: False. When any ID remains held, no complete bundle or importer PASS is claimed. M owns any necessary real alignment/collision resolution and independent QC. Private proof and self-excluding hashmanifest are externally bound by final handoff. Own jobs absent; S3 WAIT0.
