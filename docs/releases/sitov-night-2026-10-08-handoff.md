@@ -1,3 +1,11 @@
+## Bestätigter Zwischenstand 10.10.2026, 09:49 MESZ
+
+Die vollständige aktuelle Freigabebindung aller **538 geänderten Aufgaben, 59 Eltern und zehn Ziele** ist von M anhand der Originalbelege unabhängig bestätigt. Der tatsächliche aktuelle CAS-Preparer akzeptiert alle 538 Zeilen mit einer ausdrücklichen M-Quellfreigabe ausschließlich für die isolierte Probe; noch keine native Gesamtbatch-Ausführung und keine Produktionsfreigabe. Alle 66 ursprünglichen DB→Source-Antwort-/Antwortlistenänderungen sind separat erfasst und benötigen historische native Nachweise.
+
+Genau sieben tatsächliche Nutzer-Hör-PASS bleiben bestätigt. Alle 93 übrigen Audiotexte sind unabhängig diagnostisch geprüft, ohne erfundene Hörfreigaben; zwölf gezielte erste Hörfälle mit zusammen 27,72 Sekunden Audio vorbereitet. Obsidian43 tatsächlich zurückgelesen und mit allen Altbytes erhalten. **OPEN / NOT_RELEASE_READY**, Produktion unverändert, Payment aus, Budget61 % verbraucht /39 % verfügbar, keine Resets.
+
+[Exakte Freigabe-, Preparer- und offene Nachweise](../handoffs/SITOV-NIGHT-2026-10-08/M/current6c26022-complete-source-review-checkpoint.md). Die folgenden Abschnitte bleiben historische Stände.
+
 ## Bestätigter Zwischenstand 10.10.2026, 09:30 MESZ
 
 Weiterhin OPEN / NOT_RELEASE_READY. Aktuelle Inhaltsquelle `6c26022d91d9d00bf1b112f9efb11e481d9e361c`: letzte Konjunktiv-Mehrdeutigkeit mit exakt sechs Skalaren repariert, elf integrierte Tests und frische vollständige unabhängige Neuprüfung bestanden. Aktuell 538 Aufgaben / 59 Eltern / tatsächlich zehn geänderte Lernziele; vollständige Freigabezusammenführung läuft.
