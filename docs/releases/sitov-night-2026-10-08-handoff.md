@@ -660,3 +660,11 @@ Die für S4 epoch58 angeforderte read-only Prüfung der fünf UI-Sprachen und Zu
 Das aktuelle Nutzungslimit wurde um 15:20 UTC frisch geprüft: 54 % verbraucht, 46 % verbleibend; kein Reset-Guthaben. Die aktuelle Antwort enthielt kein Wochenfenster; der letzte bestätigte Wochenstand bleibt 77 % verbraucht / 23 % verbleibend (13:29 UTC). Der Integrations-HEAD vor diesem Eintrag ist `cd0b26aa3d01497ae404b9446eff170bbef938e7`.
 
 Deployment bleibt gesperrt. Es gibt weiterhin keinen vollständigen kompatiblen isolierten Produktionsbackup-Restore mit Migrationen 93–118, keinen realen Rechte-/Historienvergleich für 75 Konten und 189 Tabellen, keinen direkten Payment-OFF-Beleg, keinen Produktions-Audio-CAS und keine finalen Produktions-Health-/Readiness-/Smoke-Nachweise. Der letzte read-only VPS-Wert (2.122 MiB verfügbar gegenüber 3.584 MiB Mindestreserve) ist nicht neu gemessen worden; `--prepare-only` wurde nicht ausgeführt. Kein Produktionsschreibzugriff oder Deployment fand statt.
+
+### M-Checkpoint 2026-10-10 15:28 UTC
+
+M hat S2s sechs A2.2-Skalarkorrekturen im vollständigen Aufgaben-/Eltern-/Zielkontext unabhängig gelesen. Die deutsche Anweisung verlangt jetzt ausdrücklich die Konjunktiv-II-Form von `sein`; alle vier Übersetzungen sind präzise, der Hinweis benennt nur noch `sein`, und der Kontext mit `Er wäre gern wieder gesund` trägt die eindeutige Lösung `wäre`. Antwortschlüssel, Optionen, IDs, Ziele und gesprochener Aufgabeninhalt blieben unangetastet. Inhaltlicher ACCEPT für diesen Quelltextumfang; keine Datenbank- oder Publikationsfreigabe daraus abgeleitet.
+
+Der Korrekturcommit `6c26022d` ist bereits Vorfahr des Integration-HEAD und die beiden Seeddateien stimmen bytegenau mit S2s Commit `0b08f557074b6c42b88337542f55e1ce6dd84854` überein. Ein erneuter Cherry-pick war leer und wurde übersprungen; es gab daher keinen doppelten Quellcommit. S2 meldet für die Änderung 107/107 passende Jest-Tests und neun native Seed-Paritäten PASS.
+
+Frischer read-only VPS-Wert um 15:27 UTC: 2.260.544 kB verfügbar (2.207,6 MiB), 202.886.176 KiB auf `/` frei. Die dokumentierte `--prepare-only`-Schwelle beträgt 3.584 MiB. Kein Prepare-only und keine Schreibaktion; Deployment bleibt BLOCKED.
