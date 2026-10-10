@@ -1,0 +1,142 @@
+{
+  "at": "2026-10-10T02:44:24.634830+00:00",
+  "epoch": 69,
+  "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+  "tasks": 24,
+  "aliases": 97,
+  "uniqueAssets": 93,
+  "localByteAndTimingValidation": 93,
+  "subsetManifestSha256": "5a756192886d5376f5f258026ae16c1f990768eaa338adcc0fa1a37a150adabe",
+  "definitionContentHash": "2d0161800ed1153e789261fd1877acc2d76f2bf161a2506926f43165207bf338",
+  "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+  "review": {
+    "status": "independent_editorial_checked_draft_only",
+    "reviewer": "sitov.agent.S7",
+    "authorIdentity": "sitov.agent.S3+S4",
+    "reviewerKind": "independent_agent_editorial_review",
+    "humanReview": false,
+    "calibrationStatus": "pending",
+    "notesDe": "S7 hat alle58 geänderten Aufgaben vollständig unabhängig geprüft und die zusätzliche Zeitmatrixkorrektur exakt akzeptiert. Unveränderte Aufgaben und ihre vollständige historische Reviewprovenienz sind im neuen versionsgebundenen Beleg gesichert. Neue Erkennungsziele und11 richtige Textänderungen ausdrücklich dokumentiert; keine menschliche Hörprüfung, Kalibrierung oder Audiofreigabe.",
+    "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+    "definitionContentHash": "2d0161800ed1153e789261fd1877acc2d76f2bf161a2506926f43165207bf338",
+    "documentRef": "sitov.editorial.review.SITOV-NIGHT-2026-10-08-epoch32-S7-reviewed59",
+    "documentSha256": "e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143",
+    "reviewedAt": "2026-10-09T23:23:09.802170+00:00",
+    "audioPublication": "blocked_pending_new_immutable_definition_and_exact_audio_binding"
+  },
+  "qaQueryExit": 0,
+  "counts": {
+    "kind": "counts",
+    "users": 2,
+    "active": 5,
+    "passes": 0,
+    "proofs": 4490,
+    "objects": 2496,
+    "attempts": 0,
+    "definitions": 48,
+    "canonicalHelper": null
+  },
+  "baselineRows": {
+    "pretest_definitions": 48,
+    "pretest_approvals": 48,
+    "pretest_question_audio_proofs": 4490,
+    "pretest_attempts": 0,
+    "pretest_passes": 0,
+    "readiness": 48
+  },
+  "existingFirstDefinitions": [
+    {
+      "id": "a41038f0-c66d-46ee-b392-223741c85413",
+      "active": false,
+      "testVersion": "ee79b43cd3423aea8d8a0244dacf80a3a2760c4d8fae6ad15d0ad7759f7c9f5c"
+    },
+    {
+      "id": "ac525e09-1093-4e31-8ce3-b6d55fe77110",
+      "active": true,
+      "testVersion": "1d4179ebd7691f7e63f094fed90d96893396dc1e5fca7a90d8413a0ab63ca28b"
+    }
+  ],
+  "currentDefinitionAlreadyPresent": 0,
+  "existingMatchingMetadata": 83,
+  "missingObjects": [
+    "sitov-qwen-v1/de/cc89dbbd31e51f535de176e20eea532378ec5ba9a4ac2ab25c30110e2e63487a.mp3",
+    "sitov-qwen-v1/de/41f2806732a14620fcedae453b812fed78c4c62090e4a14eba2c1c8a20d9d1fd.mp3",
+    "sitov-qwen-v1/de/ce04de3c104c7753f94548ca9f5ea024f79f0c835831626fb3e2f58d58d74c5f.mp3",
+    "sitov-qwen-v1/de/fecd6cec0867225c8887edf4ad57bd71e11318983f7c5ea91e1f23dac3e5be61.mp3",
+    "sitov-qwen-v1/de/34b8624d351f619283d398e0202cec2b90078f9431c16e724fc1f21a078c7e66.mp3",
+    "sitov-qwen-v1/de/d5eee9fc971f7b70b7f66fbe0be2ed32cf5a29f81d6b2f40a6b107d3e8509bfc.mp3",
+    "sitov-qwen-v1/de/dd0998fdfac6c7bd468b4b9480db9c15c6789df3491580929e87606dc20e26be.mp3",
+    "sitov-qwen-v1/de/f6823a56027379545eb92ed19499d8f6fd0dd8a133a18b3df0f008d4104354c4.mp3",
+    "sitov-qwen-v1/de/43e6d21d3594c0320aaedbc8113671a8919f995eb036a314442d15e1bb163965.mp3"
+  ],
+  "collisions": [
+    {
+      "text": "Ich lerne Deutsch.",
+      "cachePath": "sitov-qwen-v1/de/ce2328e313dc781a8a08dac71abef0b5605dad9fd40d9c2c849e85612a4da840.mp3",
+      "differentMetadataKeys": [
+        "audioSha256",
+        "wordTimings"
+      ],
+      "existingAudioSha256": "239b47c1da4cdcba0414a9759e84dc27a96063195e6f3aa19992fcfb0f847069",
+      "candidateAudioSha256": "7b4ceaefc247f2a909f9b9c160e2e6628669137e9632c8a756f1552767ddd2af"
+    }
+  ],
+  "fixedVariantTexts": [
+    "sind"
+  ],
+  "remoteByteReadbacks": 2,
+  "qaMutation": false,
+  "definitionImported": false,
+  "published": false,
+  "humanListening": false,
+  "fakeAttemptOrPass": false,
+  "releaseReady": false,
+  "missingFinalBundleTexts": [
+    "Guten Tag, ich heiße Leon. Ich komme aus Polen und wohne jetzt in Hannover. Ich bin dreißig Jahre alt. Meine Familie ist klein. Mein Mann heißt Paul. Wir lernen zusammen Deutsch. Am Abend trinken wir Tee und lesen ein Buch."
+  ],
+  "blockers": [
+    "Current source-body reference absent from finalized4825 subset input; ownedQA source/reference exists, but complete exact timing/reference binding validation remains pending.",
+    "Immutable owned-QA object metadata/bytes binding collisions; overwrite/CAS not authorized and old readiness must remain exact.",
+    "Actual QA byte readback and complete frozen preservation/import/public-teacher publication guards not completed within lease; no dependent write attempted.",
+    "First subset includes sind; canonical115 helper absent from ownedQA. Any narrow install needs independent old-readiness preservation before publication."
+  ],
+  "scopedFullRowsBeforeAfterExact": true,
+  "scopedRowsBeforeSha256": "c8c8bfe04466998d077c30f4792da55a433be46167ae70ee4b3f507423aa0f29",
+  "scopedRowsAfterSha256": "c8c8bfe04466998d077c30f4792da55a433be46167ae70ee4b3f507423aa0f29",
+  "actualReadback": [
+    {
+      "path": "sitov-qwen-v1/de/ce2328e313dc781a8a08dac71abef0b5605dad9fd40d9c2c849e85612a4da840.mp3",
+      "actualAudioSha256": "239b47c1da4cdcba0414a9759e84dc27a96063195e6f3aa19992fcfb0f847069",
+      "actualBytes": 8012
+    },
+    {
+      "path": "sitov-qwen-v1/de/4be453b468b73a8d95e99c2fc02b788b05dc746a59f6951cbaed267a19e78d75.mp3",
+      "actualAudioSha256": "9b092de30df8673721a37f0e2d03fe76f641d6bec6b76aaece3212aaa6e24a0b",
+      "actualBytes": 83756
+    }
+  ],
+  "oldAudioReadyTrue": 45,
+  "oldPublicationReadyTrue": 45,
+  "privateEvidence": {
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-local-audio-proof.json": "b78770b058d149c737b5c50bc6a77a34e79df80d0da49be1a3ad305a4128a68f",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-payload.json": "fb8ceaeda52fd2760a0ba9d48a557d6f54d740c9eaafb127024f5b5f74f40b8e",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-preflight-report.json": "ca13ae8937dad9feaa727e26b80048660b39c4d067cc2ebee2dbe8cac7dd6114",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-preflight.py": "5449ce3d29e4365307ccb4b3f6dc8152e5a9df998b7ef03f3fc15700d08c0c46",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-qa-after.jsonl": "c8c8bfe04466998d077c30f4792da55a433be46167ae70ee4b3f507423aa0f29",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-qa-after.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-qa-readonly.jsonl": "c8c8bfe04466998d077c30f4792da55a433be46167ae70ee4b3f507423aa0f29",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-qa-readonly.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-readback-remote.py": "2cedfd045739357dcb3ec073c60b0eef3a121954cec10344a1c75b6dcac16096",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-readback.json": "66f1e1549921fe039ee7cd0a0e45b23c6006437b20a5bbad66a5b3e7a5aae476",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-readback.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-readonly.sql": "0fd5314bf9ef9105f1a576a103f16263a03c90bd3bf749781f594acd667b7e69",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-runtime-before.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-runtime-before.stdout": "e2d1be6a29d85fdc14a2928b50b3515ea9c7c8c76072965d34bab74cff27efa8",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch69-runtime-remote.py": "c162885dc898472e42ad3798c0e3f0ba05a33c109e856075dcdcf54839bbca49"
+  },
+  "baseSha": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+  "branch": "codex/sitov-night-s3-first-qa69",
+  "scope": "Owned isolated QA only; no production DB query/write, no schema/storage/application mutation; production app health GET in existing runtime guard only.",
+  "preservationLimit": "Fresh exact scoped full-row/readiness comparison; complete188 and protected185 were not rerun in this lease.",
+  "nextRequired": "Resolve immutable Ich lerne Deutsch. collision without overwrite or old-readiness regression; decide exact existing reference binding; narrowly rehearse115 for sind with all48 readiness preserved; actual93byte readback; fresh import/history/ACL/preservation guards; inactive current definition+S7 version-bound approval/proofs; real public teacher publication only; S5 real UI retake/PASS thereafter."
+}
