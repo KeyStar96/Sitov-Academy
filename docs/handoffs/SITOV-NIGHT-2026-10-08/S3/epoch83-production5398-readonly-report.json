@@ -1,0 +1,93 @@
+{
+  "brand": "Sitov Academy",
+  "epoch": 83,
+  "status": "ACTUAL_PRODUCTION5398_SELECTED_AUDIO_READONLY_AUDIT_COMPLETE_WITH_IMMUTABLE_HOLDS",
+  "baseCommit": "274e32cc5e330cc5ee5b77e8775d21c369f8d88b",
+  "inputSHA256": "64e979df6744837cf2e9ca2123bb3a4778f78d4b15d804f9374c888f986245ba",
+  "expected": 5398,
+  "nativeCoveredKeys": 5398,
+  "actualFullGETs": 738,
+  "counts": {
+    "EXACT": 710,
+    "SAME_BYTES_DIFFERENT_TIMINGS_ONLY": 28,
+    "MISSING": 4660,
+    "DIFFERENT_BYTES": 0,
+    "OTHER_METADATA_DIFFERENT": 0,
+    "EXISTING_GET_FAILED": 0
+  },
+  "allExistingBodySHAAndBytesMatchFrozenSelection": true,
+  "nativeFullRowsUnchanged": true,
+  "nativeBeforeAfterSHA256": "53435d1688cb631abcdf294ba175040f6ac6b0894c8cd43b01353142151fa842",
+  "productionTarget": {
+    "name": "postgres",
+    "oid": "5",
+    "owner": "postgres"
+  },
+  "productionStorageContainer": "supabase-storage-eknmzxvqilojjicinatnllbt",
+  "expectedSHA256": "17acfea345c7b7070aa189c69c5945b1b879bc291869333adcc3fd87f30de95f",
+  "actualRemoteReportSHA256": "5bda8063746fc2520fbb35341baf69765b626984caed082bc412fbd38fbd9475",
+  "actualReceiptSHA256": "49ed1795b7b43ff3614698e3fa693a34e689659d1e06945ceb482c9330dda49b",
+  "held28SHA256": "82f8510f7febf289add48d486c945244db0be9a441783f543dad09f3c15a5143",
+  "artifactManifestSHA256": "d39c971c039ced39fb568e16f20e0b72d15336756eba7f266f398a6ca6466bfa",
+  "privateProofRoot": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3",
+  "remoteProofRoot": "/tmp/sitov-night-20261008-qa-master/S3-epoch83-production5398-readonly-v1",
+  "guardBefore": {
+    "at": "2026-10-10T13:09:14.754932+00:00",
+    "memAvailableMiB": 2241.6015625,
+    "health": [
+      200,
+      200,
+      200
+    ],
+    "capsMiB": 960,
+    "cpu": 2,
+    "oomKilled": {
+      "db": false,
+      "auth": false,
+      "storage": false,
+      "rest": false,
+      "gateway": false
+    }
+  },
+  "guardAfter": {
+    "at": "2026-10-10T13:09:22.834140+00:00",
+    "memAvailableMiB": 2124.28515625,
+    "health": [
+      200,
+      200,
+      200
+    ],
+    "capsMiB": 960,
+    "cpu": 2,
+    "oomKilled": {
+      "db": false,
+      "auth": false,
+      "storage": false,
+      "rest": false,
+      "gateway": false
+    }
+  },
+  "actualAuditStartedAt": "2026-10-10T13:09:14.342827+00:00",
+  "actualAuditFinishedAt": "2026-10-10T13:09:22.996372+00:00",
+  "timestampDurationSeconds": 8.653545,
+  "durationNote": "Original remote seconds field contains fixed330-versus-shortened202 deadline offset; preserved verbatim with explicit correction. Duration above uses recorded UTC timestamps.",
+  "actualNativeSQLReadOnly": true,
+  "GETOnly": true,
+  "writes": 0,
+  "MP3Downloaded": false,
+  "productionKeyCopiedOrLogged": false,
+  "remoteAuditSSHExit": 0,
+  "allOwnedJobsDrained": true,
+  "ownedJobs": [],
+  "humanReview": false,
+  "publicationApproved": false,
+  "productionReady": false,
+  "scopeLimits": [
+    "EXACT compares actual whole MP3 bytes/length and runtime engine/voice/revision/profile/textSHA/audioSHA/wordTimings/spokenAlignment; not arbitrary supplementary sidecar provenance",
+    "MISSING is actual LEFT JOIN null for an explicitly queried selected key; no omitted/failed query treated as missing",
+    "28 timing-only existing keys are immutable HOLDs with exact old UUID/version/full row and expected metadata in private evidence; no overwrite/newvariant/import performed",
+    "4660 missing selected production keys remain missing; QA5398 fullGET success is separate",
+    "No QA actor/login/recovery/service mutation, models, deployment or production publication performed",
+    "Only selected5398 object rows were read before/after; no expensive whole-production-table reread"
+  ]
+}

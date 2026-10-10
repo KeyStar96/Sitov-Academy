@@ -1,0 +1,11 @@
+# Sitov Academy · S3 · Epoch 83
+
+Actual production READ ONLY audit completed for all5,398 selected audio keys: **710 exact**, **28 same MP3 bytes with differing word timings**, **4,660 missing**. Every738 existing MP3 received an actual full authenticated production Storage GET inside the VPS. All738 body SHA256 hashes and byte lengths match the frozen selection; no different-byte or failed-GET object was observed. Missing means the native selected-key LEFT JOIN returned null after covering all5,398 keys.
+
+All5,398 local selected MP3s, sidecars and runtime metadata were freshly rehashed and bound to the complete actual QA5398 GET receipts before the production audit. Production target was fixed postgres/OID5/ownerpostgres through supabase_admin and the exact production Storage container. Its legitimate service key stayed in remote memory. No MP3 was saved remotely or downloaded to the Mac; only private JSON evidence was retrieved.
+
+Selected full storage rows before and after are byte-identical, SHA256 `53435d1688cb631abcdf294ba175040f6ac6b0894c8cd43b01353142151fa842`. Strict guards passed before/after: available memory2,241.60/2,124.29MiB, exact960MiB/2CPU, three healthy endpoints, all five no-OOM. Actual audit timestamps13:09:14.342827–13:09:22.996372UTC give8.653545 seconds. The remote reporter’s original seconds field has a fixed330-versus-shortened202 deadline offset; it is preserved with an explicit correction note and is not used as elapsed-time evidence.
+
+Exact held keys, original object UUID/version/full metadata, actual GET receipts and expected runtime metadata are in private `epoch83-immutable-held28-private.json`. Existing bytes and word times remain untouched. M must retain these holds and prepare any later explicit metadata CAS/history decision separately. The4,660 missing selected production keys are not ready merely because the separate QA5398 import passed.
+
+No DB/Storage writes, replacement, variant creation, import, deployment, publication, models or QA authentication/recovery changes were performed. Only the selected production rows were queried; no whole-production-table reread. Native stream children and SSH exited successfully before saving. Private evidence and its self-excluded SHA manifest remain under S3/epoch83-*; public report is sanitized. S3 is WAIT0.
