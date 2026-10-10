@@ -1,0 +1,120 @@
+{
+  "readOnly": true,
+  "dockerMutations": 0,
+  "sqlMutations": 0,
+  "browserActions": 0,
+  "namespace": "sitov-night-20261008-qa",
+  "networkInternal": true,
+  "memAvailableBeforeMiB": 2101.6171875,
+  "finalRuntime": {
+    "at": "2026-10-10T10:11:41.250833+00:00",
+    "health": [
+      200,
+      200,
+      200
+    ],
+    "containers": {
+      "db": {
+        "running": true,
+        "oomKilled": false,
+        "memory": 335544320,
+        "cpu": 750000000,
+        "restartCount": 0
+      },
+      "auth": {
+        "running": true,
+        "oomKilled": false,
+        "memory": 134217728,
+        "cpu": 250000000,
+        "restartCount": 0
+      },
+      "storage": {
+        "running": true,
+        "oomKilled": false,
+        "memory": 268435456,
+        "cpu": 500000000,
+        "restartCount": 0
+      },
+      "rest": {
+        "running": true,
+        "oomKilled": false,
+        "memory": 67108864,
+        "cpu": 250000000,
+        "restartCount": 0
+      },
+      "gateway": {
+        "running": true,
+        "oomKilled": false,
+        "memory": 201326592,
+        "cpu": 250000000,
+        "restartCount": 0
+      }
+    },
+    "memAvailableMiB": 2224.765625
+  },
+  "gatewayUpstreams": [
+    {
+      "name": "auth",
+      "url": "http://auth:9999/"
+    },
+    {
+      "name": "rest",
+      "url": "http://rest:3000/"
+    },
+    {
+      "name": "storage",
+      "url": "http://storage:5000/"
+    }
+  ],
+  "storageVersion": "1.11.2",
+  "storageImageID": "sha256:4f0eb90b935c676914ed0609c2c7d47cddb3f336155726bb2d5542617d4afdfa",
+  "storageIP": "10.0.3.5",
+  "storageAlias": "storage",
+  "storageVolume": "sitov-night-20261008-qa-files",
+  "storageMount": "/var/lib/storage",
+  "storageEnvKeys": [
+    "STORAGE_BACKEND",
+    "DATABASE_POOL_MAX",
+    "GLOBAL_S3_BUCKET",
+    "AUTH_JWT_SECRET",
+    "REGION",
+    "DATABASE_URL",
+    "ANON_KEY",
+    "NODE_OPTIONS",
+    "POSTGREST_URL",
+    "FILE_SIZE_LIMIT",
+    "IS_MULTITENANT",
+    "SERVICE_KEY",
+    "FILE_STORAGE_BACKEND_PATH",
+    "TENANT_ID",
+    "PATH",
+    "NODE_VERSION",
+    "YARN_VERSION",
+    "VERSION"
+  ],
+  "databaseEnvKeyByService": {
+    "storage": "DATABASE_URL",
+    "auth": "GOTRUE_DB_DATABASE_URL",
+    "rest": "PGRST_DB_URI"
+  },
+  "dbEndpointsSameInitially": true,
+  "jwtSecretEqualityInitially": true,
+  "startupRunsTenantMigrations": true,
+  "compiledPostgrestVariableReferences": [],
+  "auditCounts": {
+    "EXACT": 1450,
+    "DIFFERENT_BYTES": 120,
+    "MISSING": 3762,
+    "SAME_BYTES_DIFFERENT_TIMINGS_ONLY": 6
+  },
+  "auditSourceSHA256": "5f4a69d18cc19f1da3e19bf46fd5cb97fdf3250e0672bd8044e41fdbb0034478",
+  "inputSHA256": "f2cb55bd8ea1165dc661fd54b30c852ee4f11904ad8ad986d625d0790e1fca04",
+  "nativeRoleAuthority": {
+    "supabase_admin": {
+      "superuser": true,
+      "createDB": true
+    }
+  },
+  "existingOtherScratchDatabasesUntouched": true,
+  "privateInspectionSHA256": "67178536f51532ed60ccbb675dbc07835de29e31f5643b82b7f61ee1dccedd38"
+}
