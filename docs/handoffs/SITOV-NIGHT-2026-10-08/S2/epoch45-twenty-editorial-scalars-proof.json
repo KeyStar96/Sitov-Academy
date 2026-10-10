@@ -1,0 +1,178 @@
+{
+  "epoch": 45,
+  "brand": "Sitov Academy",
+  "base": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+  "inputSHA256": "37baeae57e3405fb6f3b561ec77cad7000e10425ed4d2cd2628895787e84bad2",
+  "scope": "EXACT_INDEPENDENT20_SCALAR_EDITORIAL_REPAIRS",
+  "comparedExercises": 9569,
+  "comparedNodes": 856,
+  "comparedPaths": 66,
+  "exactApprovedScalarChanges": 20,
+  "changedTaskScalars": 17,
+  "changedTasks": 5,
+  "changedParentExampleScalars": 3,
+  "changedParentNodes": 1,
+  "affectedNodes": 4,
+  "changedObjectives": 0,
+  "changedCanonicalKeys": 0,
+  "changedAcceptedVariants": 0,
+  "allTaskContentsAndAnswersOptionsPartsRefsIdsRanksAndOrderExact": true,
+  "allUnassignedWholeObjectsExact": true,
+  "allNecessaryFeminineGrammarContrastsPreserved": true,
+  "allOtherParentFieldsRuleTranslationsExact": true,
+  "nineOtherSeedsByteExact": true,
+  "changedSourceFiles": [
+    "supabase/seeds/path-a1.1.json"
+  ],
+  "A11NativeCanonicalSource": "Existing JSON seed; no native p1/p2.mjs files, no files or generator added",
+  "nativeLevels": [
+    {
+      "level": "a1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.2",
+      "parity": "PASS"
+    }
+  ],
+  "jest": {
+    "A11TestsPass": 8,
+    "otherLevelTestsPass": 99,
+    "totalTestsPass": 107,
+    "testsFail": 0,
+    "testsSkipped": 0,
+    "suitesPass": 2
+  },
+  "schemaValidatedExercises": 9569,
+  "lint": {
+    "epoch": 45,
+    "changedSource": "supabase/seeds/path-a1.1.json",
+    "eslintApplicable": false,
+    "reason": "Existing ESLint config has no JSON language configuration; no JavaScript source changed.",
+    "jsonLint": "PASS: strict JSON parse, canonical serialization and full9569exercise schema validation"
+  },
+  "diffCheck": "PASS",
+  "authorReviewAll20Accept": true,
+  "bothActualAudioExtractorsComparedTasks": 9569,
+  "finalCanonicalAudioAliasesInFiveTasks": 9,
+  "changedCanonicalAudioAliases": 0,
+  "changedAudioTasks": 0,
+  "allTenFullActualCatalogsOldNewExact": true,
+  "humanHearing": false,
+  "newAudioPreparationRequiredByThisUnit": false,
+  "answerKeyArchiveRevisionRequiredByThisUnit": false,
+  "historicalAnswersAndProgressUntouched": true,
+  "noNewOrModifiedTests": true,
+  "noDbSshRuntimeAudioAssetsImportPublicationPushDeployChanges": true,
+  "independentFinalEditorialApprovalPending": true,
+  "publicationApproved": false,
+  "privateEvidence": {
+    "epoch45-bound-M-input.json": {
+      "path": "S2/epoch45-bound-M-input.json",
+      "bytes": 12798,
+      "sha256": "37baeae57e3405fb6f3b561ec77cad7000e10425ed4d2cd2628895787e84bad2"
+    },
+    "epoch45-bound-master-assignment.json": {
+      "path": "S2/epoch45-bound-master-assignment.json",
+      "bytes": 1001,
+      "sha256": "cf3204bfa922a5b26c9e13a35dc9942ae19ed9aa65c54e0a7734f75c7b08bd7b"
+    },
+    "epoch45-before-full-context.json": {
+      "path": "S2/epoch45-before-full-context.json",
+      "bytes": 40439,
+      "sha256": "42287439a960c3744b15014bed69c6419c0401b722c037e8d7abfbd0b5b8f41b"
+    },
+    "epoch45-applied-proposals.json": {
+      "path": "S2/epoch45-applied-proposals.json",
+      "bytes": 12396,
+      "sha256": "77f39b10dbf445a99ddada24ac51af90e9b78ff67ac7f51f9e43a29cb54f1627"
+    },
+    "epoch45-old-new-full.json": {
+      "path": "S2/epoch45-old-new-full.json",
+      "bytes": 102607,
+      "sha256": "50db4fa6fc37b94c5eb0c0a5fb149c83194d51a596d2ec1dc807ab2cd39c32c1"
+    },
+    "epoch45-author-review.json": {
+      "path": "S2/epoch45-author-review.json",
+      "bytes": 1428,
+      "sha256": "bdf9b27f54450d66146cc06addff63d48b44136c8b88c7304d313215832e5f20"
+    },
+    "epoch45-final-canonical-audio.json": {
+      "path": "S2/epoch45-final-canonical-audio.json",
+      "bytes": 11949,
+      "sha256": "dd975823692273493e0e806648e740089508de4e3cf85734c0f5f4381158a996"
+    },
+    "epoch45-native-parity.json": {
+      "path": "S2/epoch45-native-parity.json",
+      "bytes": 651,
+      "sha256": "75a5edcba5d7f12a707e9a061ea69fbb8e9f1f2401e6c740d6a9ff06b536eebd"
+    },
+    "epoch45-jest-result.json": {
+      "path": "S2/epoch45-jest-result.json",
+      "bytes": 36928,
+      "sha256": "956c2d248817708bccc95151b8175bbe3dd42dd5496b6e31f1a4c43a780fe8b7"
+    },
+    "epoch45-jest.log": {
+      "path": "S2/epoch45-jest.log",
+      "bytes": 8315,
+      "sha256": "ccdee0901d05b23c1f0838735e4b496c97dd4fb3d42e5d9b9cf9f34184025596"
+    },
+    "epoch45-jest-a11-result.json": {
+      "path": "S2/epoch45-jest-a11-result.json",
+      "bytes": 3773,
+      "sha256": "d31ccf0392f436e7fe04da251e5d2216d215a95765619ef0c6c8e4147fb20bc8"
+    },
+    "epoch45-jest-a11.log": {
+      "path": "S2/epoch45-jest-a11.log",
+      "bytes": 1050,
+      "sha256": "b7c83cb37de3b0bc0d287bd6161de84e31a182d26c72847a7a06a759ef7c7930"
+    },
+    "epoch45-lint-applicability.json": {
+      "path": "S2/epoch45-lint-applicability.json",
+      "bytes": 308,
+      "sha256": "5d154ff240b74874b80c55631da7dd458948625887df7e5dd191db43f9860d83"
+    },
+    "epoch45-diff-check.json": {
+      "path": "S2/epoch45-diff-check.json",
+      "bytes": 119,
+      "sha256": "183076ef802c1b916ffcfe9438abe16f2bc108876f779f27c3f2c01a29586f9d"
+    },
+    "epoch45-validate-audio.ts": {
+      "path": "S2/epoch45-validate-audio.ts",
+      "bytes": 4218,
+      "sha256": "074aa02a29df37a3efef11427ed1e8629adbf316a6d8855917df04bd287287ae"
+    }
+  },
+  "MFollowup": [
+    "Integrate and independently review the exact20scalars; whole-task publication approval remains M-owned.",
+    "Continue existing archive114/audio/publication gates; this unit changes neither answer keys nor canonical audio."
+  ]
+}

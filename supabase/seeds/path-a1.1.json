@@ -4208,31 +4208,31 @@
               "Das ist Emre."
             ],
             "hint": "Eine andere Person stellst du mit „Das ist …“ vor.",
-            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
             "explanation_card": "p1_name",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "To introduce someone else, say „Das ist …“ – This is …",
-                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
                 "task": "Oleh and Emre are in the German course. Oleh introduces Emre."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Другого человека представляют так: „Das ist …“ – «Это …».",
-                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
                 "task": "Oleh и Emre на курсе немецкого. Oleh представляет Emre."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Іншу людину представляють так: „Das ist …“ – «Це …».",
-                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
                 "task": "Oleh та Emre на курсі німецької. Oleh представляє Emre."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Başka birini „Das ist …“ ile tanıtırsınız = Bu …",
-                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
                 "task": "Oleh ve Emre Almanca kursundalar. Oleh, Emre’yi tanıtıyor."
               }
             }
@@ -6325,7 +6325,7 @@
               "Bist"
             ],
             "hint": "sein ist unregelmäßig. Lerne die Formen auswendig: bin, bist, sind.",
-            "explanation": "Das Verb sein ist unregelmäßig: ich bin, du bist, Sie sind. Ich bin Olena. Bist du Emre? Sind Sie Frau Kaya?",
+            "explanation": "Das Verb sein ist unregelmäßig: ich bin, du bist, Sie sind. Ich bin Oleh. Bist du Emre? Sind Sie Herr Kaya?",
             "explanation_card": "p1_sein",
             "translations": {
               "en": {
@@ -6337,20 +6337,20 @@
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "В русском «быть» в настоящем времени обычно пропускают, а в немецком sein нужен всегда: ich bin, du bist, Sie sind.",
-                "explanation": "Глагол sein («быть») неправильный: ich bin, du bist, Sie sind. В немецком его нельзя пропустить: Ich bin Olena – «Я Олена».",
+                "explanation": "Глагол sein («быть») неправильный: ich bin, du bist, Sie sind. В немецком его нельзя пропустить: Ich bin Oleh – «Я Олег».",
                 "task": "Ты Kamil? – Да, точно!"
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Українською «бути» в теперішньому часі зазвичай пропускають, а в німецькій sein потрібен завжди: ich bin, du bist, Sie sind.",
-                "explanation": "Дієслово sein («бути») неправильне: ich bin, du bist, Sie sind. У німецькій його не можна пропустити: Ich bin Olena – «Я Олена».",
+                "explanation": "Дієслово sein («бути») неправильне: ich bin, du bist, Sie sind. У німецькій його не можна пропустити: Ich bin Oleh – «Я Олег».",
                 "task": "Ти Kamil? – Так, саме так!"
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Türkçede „olmak“ ek olarak gelir (-ım, -sın). Almancada ayrı bir fiil gerekir: ich bin, du bist, Sie sind.",
-                "explanation": "sein (olmak) fiili düzensizdir: ich bin, du bist, Sie sind. Almancada bu fiil atlanamaz: Ich bin Olena = Ben Olena’yım.",
-                "task": "Sen Kamil mısın? – Evet, aynen!"
+                "explanation": "sein (olmak) fiili düzensizdir: ich bin, du bist, Sie sind. Almancada bu fiil atlanamaz: Ich bin Oleh = Ben Oleh’im.",
+                "task": "Sen Kamil misin? – Evet, aynen!"
               }
             }
           },
@@ -6668,34 +6668,34 @@
               "da"
             ],
             "hint": "Du willst eine Person am Telefon sprechen? Frag: Ist … da?",
-            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Frau Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+            "explanation": "Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
             "explanation_card": "p1_phone",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "Want to speak to someone on the phone? Ask: Ist … da? (Is … there?)",
-                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Frau Lindner da?“ (Is Ms Lindner there?) At the end: „Auf Wiederhören!“",
+                "explanation": "On the phone: answer with company and name, or say „Hier ist …“ (This is …). Ask for a person: „Ist Herr Lindner da?“ (Is Mr Lindner there?) At the end: „Auf Wiederhören!“",
                 "task": "Good day, this is Kamil Nowak. Is Mr Weber there?",
                 "gap_hint": "there (present)"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Хотите поговорить с человеком по телефону? Спросите: Ist … da? – «… на месте?»",
-                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Frau Lindner da?“ В конце разговора: „Auf Wiederhören!“",
+                "explanation": "По телефону: называют фирму и имя или говорят „Hier ist …“ («Это …»). Спросить нужного человека: „Ist Herr Lindner da?“ В конце разговора: „Auf Wiederhören!“",
                 "task": "Добрый день, это Kamil Nowak. Господин Weber на месте?",
                 "gap_hint": "на месте"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Хочете поговорити з людиною телефоном? Запитайте: Ist … da? – «… на місці?»",
-                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Frau Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
+                "explanation": "Телефоном: називають фірму та ім’я або кажуть „Hier ist …“ («Це …»). Запитати потрібну людину: „Ist Herr Lindner da?“ Наприкінці розмови: „Auf Wiederhören!“",
                 "task": "Добрий день, це Kamil Nowak. Пан Weber на місці?",
                 "gap_hint": "на місці"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Telefonda biriyle konuşmak mı istiyorsunuz? Sorun: Ist … da? = … orada mı?",
-                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Frau Lindner da?“ (Frau Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
+                "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
                 "task": "İyi günler, ben Kamil Nowak. Weber Bey orada mı?",
                 "gap_hint": "orada"
               }
@@ -7598,7 +7598,7 @@
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
+                "hint": "Türkçede iyelik eki ismin cinsiyetine göre değişmez; Almancada yalın durumda iyelik sözcüğü cinsiyete ve sayıya göre değişir: eril/nötr tekil → mein, dişil tekil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
                 "task": "Oleh bir fotoğraf gösteriyor: “Bunlar benim annemle babam.”"
               }
@@ -7654,7 +7654,7 @@
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
+                "hint": "Türkçede iyelik eki ismin cinsiyetine göre değişmez; Almancada yalın durumda iyelik sözcüğü cinsiyete ve sayıya göre değişir: eril/nötr tekil → mein, dişil tekil/çoğul → meine.",
                 "explanation": "Yalın durumda iyelik sözcükleri: eril ve nötr isimlerde ek yok (mein Sohn, mein Kind), dişil ve çoğulda -e var (meine Tochter, meine Kinder). Aynı şekilde: dein – deine, Ihr – Ihre.",
                 "task": "Kamil, Oleh’e soruyor: “Erkek kardeşinin adı ne?”"
               }
@@ -8519,10 +8519,10 @@
           "card": "p2_haben",
           "rule": "haben: ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie haben. Achtung: du hast und er hat – ohne b!",
           "examples": [
-            "Samir hat eine Tochter.",
+            "Samir hat einen Sohn.",
             "Habt ihr Kinder?",
-            "Du hast zwei Schwestern.",
-            "Wie heißt deine Schwester?"
+            "Du hast zwei Brüder.",
+            "Wie heißt dein Bruder?"
           ],
           "highlight": "verb",
           "translations": {
