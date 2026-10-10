@@ -1,3 +1,13 @@
+## Bestätigter Zwischenstand 10.10.2026, 08:18 MESZ
+
+Weiterhin OPEN und NOT_RELEASE_READY. Aktuelle Inhaltsquelle`af644f8dd574a03af7394e99da9d474b8d7912e7`: exakt72 zusätzliche editorielle Skalare integriert undunabhängig nachgerechnet,107 bestehende Tests/neun native Paritäten/9569 Schema-Prüfungen bestanden. Vollinventar538 Aufgaben/59 Eltern/sieben Zieländerungen.270 der291 ergänzenden ganzen Kontexte gelesen;letzte21 laufen,41 exakte Korrekturen aus Blöcken05–09 vorbereitet. Gesamtfreigabe undfrische Neuprüfung offener Befunde fehlen.
+
+Acht geänderte Aufnahmen lokal erzeugt,tatsächlich dekodiert undaus Alignment-Rohlogits nachgerechnet: sieben ASR-Wortfolgen passend,eineDeniz/Dennis bleibt HOLD. Aktuelle Pfadauswahl620/704,84 HOLD;Vortestauswahl4682,neun HOLD. Zusammen5245 technische Kandidaten/93 HOLD;noch kein neues5245er Bündel oderImport. Zwei bytegebundene orthografische ASR-Diagnosen ersetzen keine menschliche Hörprüfung.279 primär zurückgelesene Original-Pfad-MP3s unverändert,nachacht Textrevisionen. Frühere5244er Bündelzahlen bleiben historisch.
+
+S5epoch37 bestätigt tatsächliche mobile Fokusfreiheit in13 Geometrien undauthentisches macOS ReducedMotion mitwiederhergestelltem Originalzustand. Physisches Mikrofon/Hörfreigaben weiterhin unbestätigt. Echter isolierter CAS-Konkurrenztest S1e48 läuft. Produktion unverändert`966a380f7a6118654f19750a9d62200795feb8c2`,Payment aus;56% Wochenkontingent verbraucht/44% verfügbar,kein weitererReset. AUTO_DEPLOY erst nach sämtlichen Pflichtprüfungen.
+
+[Bestätigte Einzelheiten und offene Gates](../handoffs/SITOV-NIGHT-2026-10-08/M/current-af644-audio5245-selection-checkpoint.md). Die folgenden Abschnitte sind historische Stände.
+
 ## Bestätigter Zwischenstand 10.10.2026, 07:42 MESZ
 
 Weiterhin unvollständig und nicht freigegeben. AUTO_DEPLOY ist autorisiert; Produktion bleibt auf `966a380f7a6118654f19750a9d62200795feb8c2`, Payment aus. Wochenkontingent zuletzt tatsächlich 53 % verbraucht /47 % übrig; Reset bereits verbraucht, keine weiteren Guthaben.

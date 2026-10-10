@@ -1,0 +1,27 @@
+# Sitov Academy: bestätigter Prüfstand am 10.10.2026, 08:18 MESZ
+
+OPEN / NOT_RELEASE_READY. AUTO_DEPLOY ist autorisiert, Produktion bleibt unverändert auf `966a380f7a6118654f19750a9d62200795feb8c2`, Payment aus. Zuletzt tatsächlich 56 % Wochenkontingent verbraucht, 44 % verfügbar; kein weiterer Reset.
+
+## Quellen und vollständige Inhaltsprüfungen
+
+S2epoch47 wurde als `af644f8dd574a03af7394e99da9d474b8d7912e7` integriert: exakt72 Skalare, davon69 Aufgabenfelder in14 Aufgaben,ein Elternbeispiel undzwei Zielbeschreibungen. M hat sämtliche tatsächlichen Deltas und Quelldateien unabhängig nachgerechnet. 107 bestehende Tests,neun native Seedparitäten und9569 Schema-Prüfungen bestanden;keine ID-,Typ-,Reihenfolgen-,Optionspositions- oder Antwortanzahldrift. Zwei Antwortwortformulierungen wurden jeweils1→1 geändert. Vor Datenbankübernahme bleiben unveränderliche vollständige Altversionen und tatsächliche native Archiv-/Altantwortnachweise Pflicht; kein historischer Datensatz wurde umgeschrieben.
+
+Der aktuelle Vollvergleich umfasst538 geänderte Aufgaben,59 Eltern undsieben Ziele bei9569 Aufgaben/856 Eltern/66 Einheiten;keine unbelegte Herkunft oder Identitätsdrift. Die zuvor ermittelten247 ACCEPT-Kandidaten sind noch mit dieser aktuellen Quelle abzugleichen. Von291 übrigen vollständigen Kontexten sind270 in Blöcken01–09 tatsächlich mit fünf Sprachfassungen,ganzen Eltern undALL Pfadzielen gelesen. Block10 mit21 Aufgaben läuft;kein Ergebnis vorweggenommen. M hat die120 neuen Task-/Parent-/ALLGoals-Bindungen der Blöcke06–09 gegen die tatsächlichen Seedobjekte unabhängig nachgerechnet. Die Originalberichte sind unverändert in S4/S7-Commits erhalten.
+
+Aus Blöcken05–09 sind41 genaue Source-only-Korrekturen vorbereitet:37 Aufgabenfelder,ein Elternfeld,drei Zielfelder;keine Antwortwort- oder Kardinalitätsänderung. Darunter präzise Erzählreihenfolge-Anweisungen,negative Hobbybewertung,kein-Deklination undmännliche Übersetzungssprecher. Zwei bekannte Zielfunde wurden ausdrücklich dedupliziert. Nötige feminine Grammatik-/Anredekontraste bleiben erhalten. Reparaturen und unabhängige vollständige Neuprüfung sind noch offen.
+
+## Tatsächliche Audio-Prüfungen
+
+Die72 Korrekturen ändern exaktacht kanonische deutsche Hörtexte. Alleacht wurden lokal mit dem festgelegten männlichen Qwen-Profil erzeugt. M hat die tatsächlichen MP3s auf24kHz/Mono/48k dekodiert,sämtliche Metadaten-/Manifest-/Rohlogit-Hashes geprüft unddie tatsächlichen monotone Alignment-Klassen undWahrscheinlichkeiten unabhängig nachgerechnet. Jeder lexikalische Token hat ein positives Intervall innerhalb der tatsächlichen Audiodauer;keine Zeitinterpolation. Sieben Aufnahmen stimmen in der ASR-Wortfolge überein. Eine bleibt HOLD: beide lokalen ASR-Diagnosen erkennenDennis stattDeniz. Keine behauptete Hörfreigabe.
+
+Aktueller Pfadentwurf zur Inhaltsquelleaf644:704 eindeutige Texte/760 Aliasse,620 technisch ausgewählt,84 HOLD.279 Original-MP3s aus den ausdrücklich dokumentierten primären Storage-Rückleseläufen bleiben bytegleich;347 Inventar-Hashgleichheitsflags aus weiteren Diagnose-/Kopierquellen werden getrennt gezählt. Der bisherige287er Primärumfang sinkt umacht ersetzte alte Texte. Kein neuer Storage-GET wird daraus abgeleitet.
+
+Zwei Vortestaudios wurden eng und bytegebunden orthografisch diagnostiziert: Bei„3 Äpfel, also drei Stück.“ erkennen alle drei tatsächlichen ASR-Quellen„Drei Äpfel, also drei Stück.“;bei„Ergänze den Satz im Präsens: Man … einen Laptop.“ erkennt die größere ASR dieselben gesprochenen Wörter mitdem deutschen HomophonMann. M hat beide MP3s,Quellen undWortzeiten tatsächlich geprüft:2,59s und3,71s. Das sind weder menschliches Hören noch Natürlichkeits- oder Kalibrierungsnachweise. Die Vortestauswahl enthält damit4682 technische Kandidaten/neun HOLD.
+
+Die tatsächliche Textmengenvereinigung ergibt5245 technische Kandidaten und93 HOLD. Dies ist eine Auswahl,noch kein neu verpacktes/importiertes5245er Bündel. Das frühere vollständig validierte5244er Bündel bleibt unverändert als historischer Entwurf erhalten. Kein Upload/DB-Import/Produktivschreibzugriff/Publikation. Unabhängige Hörfreigaben fehlen;die vorhandene lokale Sieben-Wörter-Prüfseite fordert vollständig abgespielte Dateien undmanuelle Urteile.
+
+## Browser und nächste Gates
+
+S5epoch37 hat den mobilen Fokusfix in13 tatsächlichen Browsergeometrien bestätigt. Alle vier Hilfe→Shift+Tab-Einstiege undder normale Tastaturpfad halten das Aufnahmeelement sichtbar;kleinster gemessener Abstand zur sichtbaren Navigation34,0625px. M hat Messdaten undzwei Originalscreenshots unabhängig geprüft. Reduced Motion wurde tatsächlich in macOS ein- undausgeschaltet,im Browser bestätigt undder Originalzustand wiederhergestellt. Kein gemockter MediaQuery-Nachweis. Kein physischer Mikrofon-/menschlicher Hörnachweis wird behauptet. Die eigene gültigePASS-Testfixture bleibt bis zum abschließenden188-Tabellenvergleich undgeprüften Abbau erhalten.
+
+S1epoch48 prüft ausschließlich im eigenen isolierten QA-Scratch echte konkurrierende Combined-CAS-Schreiber. Noch kein Ergebnis. Danach bleiben aktuelle vollständige CAS-/Eltern-/Zielgenehmigungen,native Gesamtbatch-/Konkurrenznachweise,Audio-/Versionsübernahme,frischer Schutzvergleich aller185 Tabellen und75 effektiven kommerziellen Rechte,Backup/isolierte Migrationsprobe/prepare-only/Revisionaktivierung sowie authentifizierte Smoke-/Health-/Readiness-Prüfungen erforderlich.
