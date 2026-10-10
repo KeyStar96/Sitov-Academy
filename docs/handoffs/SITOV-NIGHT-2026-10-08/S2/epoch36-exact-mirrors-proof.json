@@ -1,0 +1,154 @@
+{
+  "validation": {
+    "epoch": 36,
+    "base": "418e794730e1917ad5872bbff2418534a1735e37",
+    "boundReviewSha256": "c414bce097964f79070e650d1a491021af79113d6132efeaebff3b909ae13859",
+    "boundMirrorFields": 69,
+    "boundMirrorTasks": 11,
+    "additionalWholeTaskRepairs": 3,
+    "changedTasks": 14,
+    "changedNodes": 5,
+    "changedParentFields": 0,
+    "scalarChanges": 97,
+    "allExerciseIdentitiesCompared": 9569,
+    "allUnassignedExercisesExact": true,
+    "allOtherKeysVariantsOptionsPartsExact": true,
+    "answerChanges": [
+      {
+        "id": "399b49a1-2a9c-5de7-a8b1-47c959435faa",
+        "ref": "P1-N2-E10",
+        "old": [
+          {
+            "rank": 1,
+            "text": "Das ist Annas Schwager."
+          }
+        ],
+        "new": [
+          {
+            "rank": 1,
+            "text": "Das ist Antons Schwager."
+          }
+        ]
+      }
+    ],
+    "schemaValidatedExercises": 3839,
+    "nativeParity": [
+      "A1.2",
+      "A2.1",
+      "A2.2"
+    ],
+    "eslint": "PASS zero errors/warnings",
+    "inventoryOnlyRecords": 26,
+    "requiresIndependentReReview": true,
+    "ordinaryImportAllowed": false,
+    "audioAssetsGeneratedOrImported": false,
+    "completedAt": "2026-10-10T01:04:12.261747+00:00",
+    "nativeAuthoredTasksCompared": 3070,
+    "changedNativeAuthoredTasks": 12,
+    "allOtherNativeTasksAndParentMetadataExact": true,
+    "audioAliases": 21,
+    "changedAudioAliases": 3,
+    "audioChangedTasks": 3
+  },
+  "privateEvidence": {
+    "epoch36-author-edits.json": {
+      "path": "S2/epoch36-author-edits.json",
+      "bytes": 1923,
+      "sha256": "e26ca0b58827689b6952795e313a1bd23d3acea619c44e8544057be5bb7908ba"
+    },
+    "epoch36-bound-S4-review.json": {
+      "path": "S2/epoch36-bound-S4-review.json",
+      "bytes": 349632,
+      "sha256": "c414bce097964f79070e650d1a491021af79113d6132efeaebff3b909ae13859"
+    },
+    "epoch36-eslint.log": {
+      "path": "S2/epoch36-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch36-exact69-fields.json": {
+      "path": "S2/epoch36-exact69-fields.json",
+      "bytes": 43768,
+      "sha256": "b62e9b1e383340996ef4a7e1a47a675c721134e2b1fb856292f5b9e1fac29a0c"
+    },
+    "epoch36-final-canonical-audio.json": {
+      "path": "S2/epoch36-final-canonical-audio.json",
+      "bytes": 8775,
+      "sha256": "3188bb91cbedda88d4ecf8477aa1ccf61749c0a0cd1c0f1f2fcef5edcc34af29"
+    },
+    "epoch36-full-source-before-after.json": {
+      "path": "S2/epoch36-full-source-before-after.json",
+      "bytes": 406573,
+      "sha256": "84ece422633c28fbd21be7bf3cf5b0c563a3ac422f5cb4536b79100b70eef2cc"
+    },
+    "epoch36-minimize-orders.mjs": {
+      "path": "S2/epoch36-minimize-orders.mjs",
+      "bytes": 3097,
+      "sha256": "a4ac53b53e335a95a768488bc3ac829e698c4cf86aeee457895d892276d813d2"
+    },
+    "epoch36-native-source-task-proof.json": {
+      "path": "S2/epoch36-native-source-task-proof.json",
+      "bytes": 41934,
+      "sha256": "27ed6a48c1c70bbd7023861dc2c0a75f49f2cef8d79532c9dce4a6e593a93b6e"
+    },
+    "epoch36-next-unit-inventory.json": {
+      "path": "S2/epoch36-next-unit-inventory.json",
+      "bytes": 218313,
+      "sha256": "7cb20cf2c4a82d37d86c44bd3037024ee6e03a16835de9cb0559daf60d5a86c6"
+    },
+    "epoch36-old-new-full.json": {
+      "path": "S2/epoch36-old-new-full.json",
+      "bytes": 614485,
+      "sha256": "0541dbac55b5d810d67d903e91ef2cd1a642c819782615afcb621a5ca576b9a2"
+    },
+    "epoch36-proof.py": {
+      "path": "S2/epoch36-proof.py",
+      "bytes": 6383,
+      "sha256": "2303cd76d524612795cea804afbc66108ff7b410a2b041ee6abc29079a8c026c"
+    },
+    "epoch36-repair.py": {
+      "path": "S2/epoch36-repair.py",
+      "bytes": 5071,
+      "sha256": "01686a8a78bfdd98f4ab853da9bd9ad55093f919660aebad502eec6190574c62"
+    },
+    "epoch36-scalar-diff.json": {
+      "path": "S2/epoch36-scalar-diff.json",
+      "bytes": 48557,
+      "sha256": "445a887d5f491e6a1f5c22936ef095192bcbe7bcf7b74a5c077f693ba0dd9414"
+    },
+    "epoch36-source-proof.mjs": {
+      "path": "S2/epoch36-source-proof.mjs",
+      "bytes": 1935,
+      "sha256": "745f7d05c762ab480f3a9abccad01dfc0a6e93dde58d179b6fc61a6fb855e179"
+    },
+    "epoch36-sync.mjs": {
+      "path": "S2/epoch36-sync.mjs",
+      "bytes": 7864,
+      "sha256": "eb9668b9235b3595fe5912e8d560aac0a3d8d38ff961c93a39e21b14b24d50fa"
+    },
+    "epoch36-validate-audio.ts": {
+      "path": "S2/epoch36-validate-audio.ts",
+      "bytes": 2172,
+      "sha256": "45fab0b489e7923468bac720678c85b8a9ad41aed73aff76ad2150eaf75b0c94"
+    },
+    "epoch36-validation.json": {
+      "path": "S2/epoch36-validation.json",
+      "bytes": 1348,
+      "sha256": "07eb191c7e575c79d490204ce5b56c546942b306fc68f870b5acba39e797f325"
+    }
+  },
+  "scopeDecision": "Exact 69 scalar mirrors in 11 tasks plus three specifically authorized whole-task character revisions. Ten auxiliary hints add explicit intransitive scope per M. No other source scope.",
+  "kinshipDecision": "In P1-N2-E10 the German and all translated hints specify Schwager as brother of Anton’s husband. The four task translations express this exact relation; generic narrower zyat/eniste mappings removed.",
+  "inventoryOnly": {
+    "S4SeparateTasks": 5,
+    "S4LexicalFields": 3,
+    "S7ReflexiveTasks": 9,
+    "S7PhoneTasks": 9
+  },
+  "limitations": [
+    "Independent content rereview and native immutable revision/CAS adoption remain M gates.",
+    "No database/API/SSH/model/TTS/import/publication/push/deployment actions.",
+    "No full Jest/build/PGlite/QA operations.",
+    "Inventory-only items remain unchanged and have no authoring/adoption approval."
+  ]
+}

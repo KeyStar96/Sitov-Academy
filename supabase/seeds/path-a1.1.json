@@ -28224,31 +28224,31 @@
               "Wann stehst du auf?"
             ],
             "hint": "In der Frage steht das Verb vorn oder nach dem Fragewort – der erste Teil trotzdem am Ende.",
-            "explanation": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Olena an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
+            "explanation": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Oleh an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
             "explanation_card": "p5_separable_q",
             "translations": {
               "en": {
                 "instruction": "Make a question from the words.",
-                "hint": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Olena an?",
-                "explanation": "Separable verbs in questions: yes/no question: Rufst du Olena an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
+                "hint": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Oleh an?",
+                "explanation": "Separable verbs in questions: yes/no question: Rufst du Oleh an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
                 "task": "When do you get up?"
               },
               "ru": {
                 "instruction": "Составьте вопрос из этих слов.",
-                "hint": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Olena an?",
-                "explanation": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Olena an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
+                "hint": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Oleh an?",
+                "explanation": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Oleh an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
                 "task": "Когда ты встаёшь?"
               },
               "uk": {
                 "instruction": "Складіть запитання з цих слів.",
-                "hint": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Olena an?",
-                "explanation": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Olena an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
+                "hint": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Oleh an?",
+                "explanation": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Oleh an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
                 "task": "Коли ти встаєш?"
               },
               "tr": {
                 "instruction": "Bu kelimelerle bir soru oluşturun.",
-                "hint": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Olena an?",
-                "explanation": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Olena an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
+                "hint": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Oleh an?",
+                "explanation": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Oleh an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
                 "task": "Ne zaman kalkıyorsun?"
               }
             }
@@ -44020,31 +44020,31 @@
             "accepted_answers": [
               "gelesen"
             ],
-            "hint": "Unregelmäßige Verben enden auf -en und ändern oft den Vokal: getroffen, getrunken.",
+            "hint": "Die Partizipien der hier geübten starken Verben enden auf -en und ändern oft den Stammvokal: getroffen, getrunken.",
             "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
             "explanation_card": "p7_past",
             "translations": {
               "en": {
                 "instruction": "Fill in the past participle.",
-                "hint": "Irregular verbs end in -en and often change their vowel – like drink → drunk: trinken → getrunken.",
+                "hint": "The participles of the strong verbs practised here end in -en and often change the stem vowel: getroffen, getrunken.",
                 "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "On Sunday I read a book."
               },
               "ru": {
                 "instruction": "Вставьте причастие прошедшего времени (Partizip II).",
-                "hint": "Неправильные глаголы оканчиваются на -en и часто меняют гласную: treffen → getroffen, trinken → getrunken.",
+                "hint": "Причастия изучаемых здесь сильных глаголов оканчиваются на -en и часто меняют гласную корня: getroffen, getrunken.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "В воскресенье я читал(а) книгу."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник минулого часу (Partizip II).",
-                "hint": "Неправильні дієслова закінчуються на -en і часто змінюють голосну: treffen → getroffen, trinken → getrunken.",
+                "hint": "Дієприкметники сильних дієслів, які тут вивчаємо, закінчуються на -en і часто змінюють голосну кореня: getroffen, getrunken.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "У неділю я читав (читала) книжку."
               },
               "tr": {
                 "instruction": "Geçmiş zaman ortacını (Partizip II) yazın.",
-                "hint": "Düzensiz fiiller -en ile biter ve sık sık ünlü değiştirir: treffen → getroffen, trinken → getrunken.",
+                "hint": "Burada çalışılan güçlü fiillerin ortaçları -en ile biter ve kök ünlüsü sık sık değişir: getroffen, getrunken.",
                 "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Pazar günü bir kitap okudum."
               }

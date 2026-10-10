@@ -712,31 +712,31 @@
             "accepted_answers": [
               "Antons Vater"
             ],
-            "hint": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+            "hint": "Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
             "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+                "hint": "Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante.",
                 "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "This is the father of Anton. = This is …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "hint": "Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
                 "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Это отец Антона. = Это …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "hint": "Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
                 "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Це батько Антона. = Це …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "hint": "İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
                 "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Bu Anton’un babası. = Bu …"
               }
@@ -766,32 +766,32 @@
             "accepted_answers": [
               "Pauls Auto"
             ],
-            "hint": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "hint": "Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "The car belongs to Paul. It is …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Машина принадлежит Paul. Это …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Машина належить Paul. Це …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Araba Paul’a ait. Bu …"
               }
             }
@@ -821,31 +821,31 @@
               "von"
             ],
             "hint": "Nach von steht der Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "von takes the dative: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "This is my brother’s bike."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "После von стоит Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Это велосипед моего брата."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Після von стоїть Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Це велосипед мого брата."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "von’dan sonra Dativ gelir: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Bu erkek kardeşimin bisikleti."
               }
             }
@@ -930,32 +930,32 @@
             "accepted_answers": [
               "Emres"
             ],
-            "hint": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "hint": "Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct form.",
-                "hint": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "This is the brother of Emre. This is Emre’s brother."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму.",
-                "hint": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Это брат Emre. Скажите то же самое по-другому: имя + s."
               },
               "uk": {
                 "instruction": "Вставте правильну форму.",
-                "hint": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Це брат Emre. Скажіть те саме по-іншому: ім’я + s."
               },
               "tr": {
                 "instruction": "Doğru biçimi yazın.",
-                "hint": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Bu Emre’nin erkek kardeşi. Aynı şeyi başka biçimde söyleyin: isim + s."
               }
             }
@@ -1043,31 +1043,31 @@
               "von"
             ],
             "hint": "Nach von steht der Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct preposition.",
                 "hint": "von takes the dative: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "This is my aunt’s flat."
               },
               "ru": {
                 "instruction": "Вставьте подходящий предлог.",
                 "hint": "После von стоит Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Это квартира моей тёти."
               },
               "uk": {
                 "instruction": "Вставте відповідний прийменник.",
                 "hint": "Після von стоїть Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Це квартира моєї тітки."
               },
               "tr": {
                 "instruction": "Uygun edatı yazın.",
                 "hint": "von’dan sonra Dativ gelir: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Bu teyzemin dairesi."
               }
             }
@@ -1099,31 +1099,31 @@
               "meiner"
             ],
             "hint": "Nach von steht der Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "von takes the dative: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "This is my sister’s room."
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "После von стоит Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Это комната моей сестры."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Після von стоїть Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Це кімната моєї сестри."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "von’dan sonra Dativ gelir: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Bu kız kardeşimin odası."
               }
             }
@@ -1155,31 +1155,31 @@
               "meinem"
             ],
             "hint": "Nach von steht der Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "von takes the dative: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "These are my brother’s children."
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "После von стоит Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Это дети моего брата."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Після von стоїть Dativ: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Це діти мого брата."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "von’dan sonra Dativ gelir: von meinem Bruder / Kind, von meiner Tante, von meinen Eltern.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Bunlar erkek kardeşimin çocukları."
               }
             }
@@ -1196,45 +1196,45 @@
               "instruction": "Bring die Wörter in die richtige Reihenfolge.",
               "parts": [
                 "ist",
-                "Annas",
+                "Antons",
                 "Schwager",
                 "Das"
               ],
-              "correct_answer": "Das ist Annas Schwager.",
+              "correct_answer": "Das ist Antons Schwager.",
               "accepted_answers": [
-                "Das ist Annas Schwager."
+                "Das ist Antons Schwager."
               ]
             },
             "accepted_answers": [
-              "Das ist Annas Schwager."
+              "Das ist Antons Schwager."
             ],
-            "hint": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "hint": "Name + s: Antons Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante. Hier ist der Schwager der Bruder von Antons Mann.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
-                "hint": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "This is Anna’s brother-in-law."
+                "hint": "Name + s: Antons Vater. With an article: von + dative – von meinem Bruder, von meiner Tante. Here the brother-in-law is the brother of Anton’s husband.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "This is Anton’s brother-in-law, his husband’s brother."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
-                "hint": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Это зять Анны."
+                "hint": "Имя + s: Antons Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante. Здесь Schwager — брат мужа Антона.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Это брат мужа Антона."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
-                "hint": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Це зять Анни."
+                "hint": "Ім’я + s: Antons Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante. Тут Schwager — брат чоловіка Антона.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Це брат чоловіка Антона."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
-                "hint": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Bu Anna’nın eniştesi."
+                "hint": "İsim + s: Antons Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante. Burada Schwager, Anton’un kocasının erkek kardeşidir.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Bu Anton’un kayınbiraderi, kocasının erkek kardeşi."
               }
             }
           }
@@ -3125,31 +3125,31 @@
             "accepted_answers": [
               "bin"
             ],
-            "hint": "Bewegung oder Veränderung (aufstehen, ankommen, einschlafen) → sein. Sonst → haben.",
+            "hint": "Die hier geübten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein.",
             "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "Movement or change (aufstehen, ankommen, einschlafen) → sein. Otherwise → haben.",
+                "hint": "The intransitive verbs aufstehen, ankommen and einschlafen practised here form the perfect with sein.",
                 "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "Today I got up at six o’clock already."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "Движение или изменение состояния (aufstehen, ankommen, einschlafen) → sein. Иначе → haben.",
+                "hint": "Изучаемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein.",
                 "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Сегодня я встал уже в шесть часов."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "Рух або зміна стану (aufstehen, ankommen, einschlafen) → sein. Інакше → haben.",
+                "hint": "Неперехідні дієслова aufstehen, ankommen та einschlafen, які тут вивчаємо, утворюють Perfekt із sein.",
                 "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Сьогодні я встав уже о шостій."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "Hareket ya da değişim (aufstehen, ankommen, einschlafen) → sein. Diğerlerinde → haben.",
+                "hint": "Burada çalışılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar.",
                 "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Bugün daha saat altıda kalktım."
               }
@@ -3459,31 +3459,31 @@
             "accepted_answers": [
               "ist"
             ],
-            "hint": "Bewegung oder Veränderung (aufstehen, ankommen, einschlafen) → sein. Sonst → haben.",
+            "hint": "Die hier geübten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein.",
             "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Fill in haben or sein in the correct form.",
-                "hint": "Movement or change (aufstehen, ankommen, einschlafen) → sein. Otherwise → haben.",
+                "hint": "The intransitive verbs aufstehen, ankommen and einschlafen practised here form the perfect with sein.",
                 "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "The child fell asleep quickly."
               },
               "ru": {
                 "instruction": "Вставьте haben или sein в правильной форме.",
-                "hint": "Движение или изменение состояния (aufstehen, ankommen, einschlafen) → sein. Иначе → haben.",
+                "hint": "Изучаемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein.",
                 "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Ребёнок быстро заснул."
               },
               "uk": {
                 "instruction": "Вставте haben або sein у правильній формі.",
-                "hint": "Рух або зміна стану (aufstehen, ankommen, einschlafen) → sein. Інакше → haben.",
+                "hint": "Неперехідні дієслова aufstehen, ankommen та einschlafen, які тут вивчаємо, утворюють Perfekt із sein.",
                 "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Дитина швидко заснула."
               },
               "tr": {
                 "instruction": "Haben ya da sein fiilini doğru biçimde yazın.",
-                "hint": "Hareket ya da değişim (aufstehen, ankommen, einschlafen) → sein. Diğerlerinde → haben.",
+                "hint": "Burada çalışılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar.",
                 "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Çocuk çabucak uykuya daldı."
               }
