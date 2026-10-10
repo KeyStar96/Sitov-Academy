@@ -134,8 +134,9 @@ def literal(value):
 
 
 PRECHECK = r"""
-DECLARE p jsonb:=SITOV_PLAN; item jsonb; actual jsonb; expected jsonb;
+DECLARE p jsonb; item jsonb; actual jsonb; expected jsonb;
 BEGIN
+ SELECT plan::jsonb INTO STRICT p FROM pg_temp.sitov_combined_plan;
  IF current_setting('role')<>'none' THEN RAISE EXCEPTION 'sitov_owner_session_required'; END IF;
  LOCK TABLE public.learning_units,public.path_nodes,public.path_node_translations,public.path_objectives,
   public.learning_exercises,public.grammar_translations,path_private.sitov_content_revisions,
@@ -160,11 +161,12 @@ END;
 """
 
 REVISE = r"""
-DECLARE p jsonb:=SITOV_PLAN; source jsonb; old jsonb; candidate jsonb; item jsonb;
+DECLARE p jsonb; source jsonb; old jsonb; candidate jsonb; item jsonb;
  batch jsonb:='[]'; all_batches jsonb:='[]'; payload jsonb; result jsonb;
  expected jsonb:='{}'; entry jsonb; req uuid; idx integer:=0; archived record; receipt record;
  spoken text; old_url text; prepared_url text;
 BEGIN
+ SELECT plan::jsonb INTO STRICT p FROM pg_temp.sitov_combined_plan;
  FOR source IN SELECT value FROM jsonb_array_elements(p->'rows') ORDER BY value->>'id' LOOP
   old:=path_private.sitov_revision_projection((source->>'id')::uuid);
   IF source#>>'{after,topic}' IS DISTINCT FROM (SELECT n.topic FROM public.path_nodes n WHERE n.id=(source#>>'{beforeFull,exercise,node_id}')::uuid) THEN
@@ -254,11 +256,27 @@ def emit(plan, reviewed_commit=False):
     sql = parent.emit(plan['parents'])
     require(sql.endswith(suffix) and sql.count('DO $sitov_parent_cas$') == 1, 'parent emitter contract drift')
     head, body = sql[:-len(suffix)].split('DO $sitov_parent_cas$', 1)
-    data = literal(plan)
-    return (head + 'SET LOCAL search_path=pg_catalog;\nDO $sitov_combined_before$\n' +
-            PRECHECK.replace('SITOV_PLAN', data) + '$sitov_combined_before$;\n' +
+    # COPY text escapes must be applied after JSON encoding. In particular,
+    # doubling JSON's backslashes prevents COPY from interpreting JSON escapes.
+    # One physical data line cannot introduce psql's standalone \ . marker.
+    data = canonical(plan)
+    copied = data.replace('\\', '\\\\').replace('\t', '\\t').replace('\n', '\\n').replace('\r', '\\r')
+    # pg_temp isolates sessions; CREATE deliberately rejects a prior same-name
+    # table. A singleton key rejects a second row, STRICT rejects zero rows.
+    # Bind the raw canonical bytes so intervening triggers cannot replace the
+    # frozen plan between the two independently loaded DO blocks.
+    transport = (
+        'CREATE TEMP TABLE sitov_combined_plan (\n'
+        ' singleton boolean PRIMARY KEY DEFAULT true CHECK (singleton),\n'
+        ' plan text NOT NULL CHECK (pg_catalog.encode(pg_catalog.sha256('
+        "pg_catalog.convert_to(plan,'UTF8')),'hex')='" + sha(plan) + "')\n"
+        ') ON COMMIT DROP;\n'
+        "COPY pg_temp.sitov_combined_plan (plan) FROM STDIN WITH (FORMAT text, ENCODING 'UTF8');\n"
+        + copied + '\n\\.\n')
+    return (head + 'SET LOCAL search_path=pg_catalog;\n' + transport +
+            'DO $sitov_combined_before$\n' + PRECHECK + '$sitov_combined_before$;\n' +
             'DO $sitov_parent_cas$' + body + 'DO $sitov_combined_revision$\n' +
-            REVISE.replace('SITOV_PLAN', data) + '$sitov_combined_revision$;\n' +
+            REVISE + '$sitov_combined_revision$;\n' +
             'SET CONSTRAINTS ALL IMMEDIATE;\n' + ('COMMIT;\n' if reviewed_commit else 'ROLLBACK;\n'))
 
 

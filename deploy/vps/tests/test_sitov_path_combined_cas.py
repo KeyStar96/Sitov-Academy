@@ -25,6 +25,57 @@ def inputs():
 
 
 class CombinedTests(unittest.TestCase):
+
+ def copy_parts(self, sql):
+  command="COPY pg_temp.sitov_combined_plan (plan) FROM STDIN WITH (FORMAT text, ENCODING 'UTF8');\n"
+  self.assertEqual(sql.count(command),1)
+  prefix,stream=sql.split(command)
+  data,suffix=stream.split('\n\\.\n')
+  self.assertNotIn('\n',data);self.assertNotIn('\r',data);self.assertNotIn('\t',data)
+  self.assertNotEqual(data,r'\N');self.assertNotEqual(data,r'\.')
+  return prefix,data,suffix
+ def decode_copy_text(self, data):
+  # Independent COPY text decoder, following PostgreSQL 15's documented
+  # backslash semantics; this is an offline oracle, not a native PG claim.
+  result=[];i=0;special={'b':'\b','f':'\f','n':'\n','r':'\r','t':'\t','v':'\v'}
+  while i<len(data):
+   if data[i]!='\\':result.append(data[i]);i+=1;continue
+   i+=1;self.assertLess(i,len(data));result.append(special.get(data[i],data[i]));i+=1
+  return ''.join(result)
+ def test_copy_canonical_roundtrip_and_endmarker_injection_isolation(self):
+  plan,_=self.recovery_fixture()
+  attacks=['"quotes"',"single ' quote",'back\\slash','line\nnext','carriage\rreturn','tab\tcolumn',r'\.',r'\N',r'\n',r'\u0041',r'\x41',r'\123','äÖß Я Україна Türkçe 😀','\b\f',"\n\\.\nCOMMIT;\nDROP TABLE public.profiles; --",'\\! touch /tmp/injected',"$sitov_combined_before$; COMMIT; --",':psql_variable']
+  baseline_prefix,_,baseline_suffix=self.copy_parts(m.emit(plan))
+  for attack in attacks:
+   with self.subTest(attack=attack):
+    candidate=copy.deepcopy(plan);candidate['transportProbe']=attack
+    prefix,data,suffix=self.copy_parts(m.emit(candidate));decoded=self.decode_copy_text(data)
+    self.assertEqual(decoded,m.canonical(candidate));self.assertEqual(json.loads(decoded),candidate)
+    self.assertEqual(prefix.replace(m.sha(candidate),'FROZEN_HASH'),baseline_prefix.replace(m.sha(plan),'FROZEN_HASH'))
+    self.assertEqual(suffix,baseline_suffix)
+    self.assertEqual(hashlib.sha256(decoded.encode()).hexdigest(),m.sha(candidate))
+ def test_copy_singleton_collision_hash_and_safety_contracts(self):
+  plan,_=self.recovery_fixture();sql=m.emit(plan);prefix,data,suffix=self.copy_parts(sql)
+  self.assertIn('CREATE TEMP TABLE sitov_combined_plan (',prefix)
+  self.assertIn('singleton boolean PRIMARY KEY DEFAULT true CHECK (singleton)',prefix)
+  self.assertIn('plan text NOT NULL CHECK (pg_catalog.encode(pg_catalog.sha256(',prefix)
+  self.assertIn(m.sha(plan),prefix);self.assertIn('ON COMMIT DROP;',prefix)
+  self.assertNotIn('IF NOT EXISTS',prefix);self.assertNotIn('DROP TABLE',prefix)
+  load='SELECT plan::jsonb INTO STRICT p FROM pg_temp.sitov_combined_plan;'
+  self.assertEqual(suffix.count(load),2)
+  self.assertIn(m.PRECHECK,suffix);self.assertIn(m.REVISE,suffix)
+  self.assertNotIn(m.literal(plan),sql);self.assertEqual(self.decode_copy_text(data),m.canonical(plan))
+  for guard in ['sitov_owner_session_required','sitov_combined_existing_history_no_blind_retry','sitov_combined_stale_full_source','sitov_combined_authoritative_audio_url','sitov_combined_final_archive_projection','sitov_combined_final_full_translations','sitov_combined_final_receipt_count','sitov_combined_batch_bound']:
+   self.assertIn(guard,suffix)
+  for commit in [False,True]:
+   emitted=m.emit(plan,commit);before,_,after=self.copy_parts(emitted);control=before+after
+   self.assertEqual(control.count('BEGIN ISOLATION LEVEL SERIALIZABLE;'),1)
+   self.assertEqual(control.count('COMMIT;')+control.count('ROLLBACK;'),1)
+   self.assertTrue(control.endswith('COMMIT;\n'if commit else'ROLLBACK;\n'))
+  # The parent emitter body is retained verbatim; only its outer suffix is
+  # replaced by the combined checks and final transaction decision.
+  parent_sql=m.parent.emit(plan['parents']);parent_body=parent_sql.split('DO $sitov_parent_cas$',1)[1].removesuffix('SET CONSTRAINTS ALL IMMEDIATE;\nROLLBACK;\n')
+  self.assertIn('DO $sitov_parent_cas$'+parent_body,suffix)
  def test_authoritative_null_url_transition_and_stale_unexpected_rejection(self):
   url='storage://audio_cache/sitov-qwen-v1/de/'+'a'*64+'.mp3'
   self.assertEqual(m.expected_solution_url(None,'fill_in_blank',url),url)
