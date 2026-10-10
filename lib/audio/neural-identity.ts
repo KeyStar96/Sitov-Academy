@@ -12,13 +12,16 @@ function canonical(value: unknown): unknown {
 /** Matches Python json.dumps(profile, sort_keys=True, separators=(',', ':'), ensure_ascii=False). */
 export const SITOV_QWEN_PROFILE_FINGERPRINT = createHash('sha256').update(JSON.stringify(canonical(SITOV_QWEN_PROFILE))).digest('hex')
 
-const sitovVariantTexts = new Set(['sind', 'stehe', 'wollte', 'des', 'ihrer', 'meiste', 'esst'])
+const sitovVariantVersions = new Map([
+  ...['sind', 'stehe', 'wollte', 'des', 'ihrer', 'meiste', 'esst'].map(text => [text, 'sitov-audio-repair-20261010-v1'] as const),
+  ...['Bist', 'einkauft', 'Marchenko', 'Lwiw', 'sieh', 'neuen'].map(text => [text, 'sitov-audio-repair-20261010-v2'] as const),
+])
 const sitovVariants = new Map<string, string>()
-if (approvedVariants.schemaVersion !== 1 || approvedVariants.variants.length !== 7) throw new Error('Invalid Sitov audio variant registry')
+if (approvedVariants.schemaVersion !== 1 || approvedVariants.variants.length !== sitovVariantVersions.size) throw new Error('Invalid Sitov audio variant registry')
 for (const row of approvedVariants.variants) {
-  if (!sitovVariantTexts.has(row.text) || row.text !== normalizeAudioText(row.text)
+  if (!sitovVariantVersions.has(row.text) || row.text !== normalizeAudioText(row.text)
     || row.textSha256 !== createHash('sha256').update(row.text).digest('hex')
-    || row.variant !== 'sitov-audio-repair-20261010-v1' || sitovVariants.has(row.text)) throw new Error('Invalid Sitov audio variant registry')
+    || row.variant !== sitovVariantVersions.get(row.text) || sitovVariants.has(row.text)) throw new Error('Invalid Sitov audio variant registry')
   sitovVariants.set(row.text, row.variant)
 }
 

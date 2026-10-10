@@ -38,4 +38,16 @@ class SitovAudioVariantTests(unittest.TestCase):
   registry=json.loads(m.VARIANTS_PATH.read_text());registry['variants'].append({'text':'isst','textSha256':m.digest(b'isst'),'variant':'sitov-audio-repair-20261010-v1'})
   path=self.fixture.root/'variants8.json';path.write_text(json.dumps(registry))
   with patch.object(m,'VARIANTS_PATH',path),self.assertRaisesRegex(ValueError,'registry'):m.expected_path('esst',self.profile,self.fingerprint)
+ def test_six_final_replacements_are_distinct_and_version_bound(self):
+  goldens={'Bist': 'sitov-qwen-v1/de/ebe84648eaa00f666d279f9a07dfa4d3599ee501d9ba885eb84e59f97809717c.mp3', 'einkauft': 'sitov-qwen-v1/de/26688b4fbe237c8bd5fee391d5d5c70befead8107748161876cf7eeec04b4fd8.mp3', 'Marchenko': 'sitov-qwen-v1/de/649273b0355aabad5b9bc97bb5fa2c3eae5479dcb2de02ed7fb52719d3f6ef1b.mp3', 'Lwiw': 'sitov-qwen-v1/de/a36480b1b4f791fc83d1c63fa9c2c5b4ec83c65a2cd286c08cd4afed3336b466.mp3', 'sieh': 'sitov-qwen-v1/de/073548da4a34637c8c6aa787c2a170e45046e2cc90076aa7cc685b86cbff9e9b.mp3', 'neuen': 'sitov-qwen-v1/de/5063928dad7bd5949c905fcae811b712bd68b1cabf4bb1529cd9681cad9571d7.mp3'}
+  self.assertEqual(len(m.approved_variants()),13)
+  for text,expected in goldens.items():
+   self.assertEqual(m.expected_path(text,self.profile,self.fingerprint),expected)
+   self.assertEqual(m.expected_path(' \u00a0'+text+'\n ',self.profile,self.fingerprint),expected)
+   old={'text':text,'voice':self.profile['voice'],'rate':'qwen-native-1-lufs-18-aligned-v1','format':'audio-24khz-48kbitrate-mono-mp3','leadIn':.35,'profile':self.fingerprint}
+   self.assertNotEqual(expected,'sitov-qwen-v1/de/'+m.digest(m.compact(old,ordered=True).encode())+'.mp3')
+  manifest=self.fixture.bundle(tuple(goldens));self.assertEqual(len(m.validate_bundle(self.fixture.root,self.profile)),6)
+  registry=json.loads(m.VARIANTS_PATH.read_text());next(r for r in registry['variants'] if r['text']=='neuen')['variant']='sitov-audio-repair-20261010-v1'
+  path=self.fixture.root/'wrong-final-version.json';path.write_text(json.dumps(registry))
+  with patch.object(m,'VARIANTS_PATH',path),self.assertRaisesRegex(ValueError,'registry'):m.expected_path('neuen',self.profile,self.fingerprint)
 if __name__=='__main__':unittest.main()

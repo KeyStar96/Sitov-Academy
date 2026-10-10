@@ -25231,3 +25231,135 @@ BEGIN
  EXECUTE replace(definition,previous,current_identity);
 END $sitov$;
 NOTIFY pgrst,'reload schema';
+
+-- 20261010094000_sitov_reviewed_audio_variants
+-- Sitov Academy: six exact human-approved replacement keys; preserve all original Storage objects and historical references.
+-- Requires115. CREATE OR REPLACE preserves its trusted execute ACL; no grant or metadata/content writes.
+CREATE OR REPLACE FUNCTION vocabulary_private.sitov_canonical_german_audio_path(p_text text)
+RETURNS text LANGUAGE plpgsql IMMUTABLE SET search_path='' AS $sitov$
+DECLARE spoken text:=vocabulary_private.sitov_normalize_audio_text(p_text);
+ fingerprint constant text:='96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5';
+ variant text;preimage text;
+BEGIN
+ SELECT v.tag INTO variant FROM (VALUES
+  ('sind','bf586d886bcf16651b9330ef8bf219adc52390842387d00e51f915eb3a440a85','sitov-audio-repair-20261010-v1'),
+  ('stehe','f4c88b9a59231ac1a4e378aba2c7216c71e04ac07c2f74c81f78dba0473b2653','sitov-audio-repair-20261010-v1'),
+  ('wollte','2300ececf6b5042bfe9f89d43eef770772bb76f131065d4914f25f281f9e0b22','sitov-audio-repair-20261010-v1'),
+  ('des','7b24c1ad239d4a6b2c73716e122644f4d45329a71d01c9437f033381e8832fe4','sitov-audio-repair-20261010-v1'),
+  ('ihrer','a9c97da4fcf665f6362ecf5b2407bf04dcebd7635a94ccfecaf6ccd3071892ed','sitov-audio-repair-20261010-v1'),
+  ('meiste','a5939d4dfb1493fd126545c712994df973351ef2364586f43c02e695eef6b9a5','sitov-audio-repair-20261010-v1'),
+  ('esst','c5c587a8022a5689f4fe8d33586b3a8f69282e4a1b09b42ca2f461ecdaf7ac78','sitov-audio-repair-20261010-v1'),
+  ('Bist','135fc9e07b20003ba9387bb1bbeb7d7d3cacfeee70eededb2348a0d4653238d4','sitov-audio-repair-20261010-v2'),
+  ('einkauft','0b62b12a96ac10d2001e4bd0ec6faac6c8c6c627c2b125748a56793b253d2484','sitov-audio-repair-20261010-v2'),
+  ('Marchenko','1013e2802cf67c617f400f68a4251ed8729bef1e18a1ed842030c9a991b0100d','sitov-audio-repair-20261010-v2'),
+  ('Lwiw','4c74b98b36253b49f755ae5f455f4c319b1bb136e9ee170f72b401feb271a85a','sitov-audio-repair-20261010-v2'),
+  ('sieh','508334136dab7cb6228ed1152c589548c78ea9655ac66af71a94dea0db951563','sitov-audio-repair-20261010-v2'),
+  ('neuen','66a009a2deed198d0eab580cca4d9a91f6ed3d91002389add323803521219035','sitov-audio-repair-20261010-v2')
+ ) AS v(source_text,text_sha256,tag)
+ WHERE v.source_text=spoken AND v.text_sha256=encode(sha256(convert_to(spoken,'UTF8')),'hex');
+ preimage := '{"text":' || to_json(spoken)::text ||
+   ',"voice":"sitov-qwen-male-de-v1","rate":"qwen-native-1-lufs-18-aligned-v1","format":"audio-24khz-48kbitrate-mono-mp3","leadIn":0.35,"profile":"' || fingerprint || '"' ||
+   CASE WHEN variant IS NULL THEN '' ELSE ',"variant":'||to_json(variant)::text END || '}';
+ RETURN 'sitov-qwen-v1/de/' || encode(sha256(convert_to(preimage,'UTF8')),'hex') || '.mp3';
+END $sitov$;
+REVOKE ALL ON FUNCTION vocabulary_private.sitov_canonical_german_audio_path(text) FROM PUBLIC,anon,authenticated,service_role;
+NOTIFY pgrst,'reload schema';
+
+-- 20261010094500_sitov_spoken_clock_alignment
+-- Sitov Academy truthful clock rendering. Requires114/115/116.
+-- Spoken intervals are preserved; only checked clock groups change display-token count.
+CREATE OR REPLACE FUNCTION vocabulary_private.sitov_spoken_alignment_valid(p_text text, m jsonb)
+RETURNS boolean LANGUAGE plpgsql IMMUTABLE SET search_path='' AS $sitov$
+DECLARE a jsonb:=m->'spokenAlignment'; d text[]; s text[]; g jsonb; t jsonb;
+ ds integer:=0; de integer; ss integer:=0; se integer; i integer:=0; changed boolean:=false;
+ before_words text[]; after_words text[]; parts text[]; h integer; minute integer;
+ small text[]:=ARRAY['null','eins','zwei','drei','vier','fünf','sechs','sieben','acht','neun','zehn','elf','zwölf','dreizehn','vierzehn','fünfzehn','sechzehn','siebzehn','achtzehn','neunzehn'];
+ tens text[]:=ARRAY['','','zwanzig','dreißig','vierzig','fünfzig']; hn text; mn text; expected text; suffix text; previous_end numeric:=0;
+BEGIN
+ IF jsonb_typeof(a) IS DISTINCT FROM 'object' OR a->'version' IS DISTINCT FROM '1'::jsonb
+ OR jsonb_typeof(a->'displayText') IS DISTINCT FROM 'string' OR jsonb_typeof(a->'spokenText') IS DISTINCT FROM 'string'
+ OR a->>'displayText' IS DISTINCT FROM vocabulary_private.sitov_normalize_audio_text(p_text)
+ OR coalesce(a->>'spokenText','')='' OR a->>'spokenText' IS DISTINCT FROM vocabulary_private.sitov_normalize_audio_text(a->>'spokenText')
+ OR jsonb_typeof(a->'groups') IS DISTINCT FROM 'array' OR jsonb_array_length(a->'groups') NOT BETWEEN 1 AND 1500 THEN RETURN false; END IF;
+ d:=string_to_array(a->>'displayText',' ');s:=string_to_array(a->>'spokenText',' ');
+ IF jsonb_typeof(m->'wordTimings') IS DISTINCT FROM 'array' OR jsonb_array_length(m->'wordTimings') NOT BETWEEN 1 AND 1500
+ OR jsonb_array_length(m->'wordTimings')<>cardinality(s) THEN RETURN false; END IF;
+ FOR t IN SELECT value FROM jsonb_array_elements(m->'wordTimings') LOOP
+  i:=i+1;
+  IF jsonb_typeof(t->'start') IS DISTINCT FROM 'number' OR jsonb_typeof(t->'end') IS DISTINCT FROM 'number'
+  OR (t->>'start')::numeric<previous_end OR (t->>'end')::numeric<(t->>'start')::numeric OR (t->>'end')::numeric>1200
+  OR (s[i]~'[[:alnum:]]' AND (t->>'end')::numeric<=(t->>'start')::numeric) THEN RETURN false; END IF;
+  previous_end:=(t->>'end')::numeric;
+ END LOOP;
+ FOR g IN SELECT value FROM jsonb_array_elements(a->'groups') LOOP
+  IF jsonb_typeof(g->'display') IS DISTINCT FROM 'array' OR jsonb_typeof(g->'spoken') IS DISTINCT FROM 'array'
+  OR jsonb_array_length(g->'display')<>2 OR jsonb_array_length(g->'spoken')<>2 THEN RETURN false; END IF;
+  FOR t IN SELECT value FROM jsonb_array_elements((g->'display')||(g->'spoken')) LOOP
+   IF jsonb_typeof(t) IS DISTINCT FROM 'number' OR t::text::numeric<>floor(t::text::numeric) THEN RETURN false; END IF;
+  END LOOP;
+  de:=(g#>>'{display,1}')::integer;se:=(g#>>'{spoken,1}')::integer;
+  IF (g#>>'{display,0}')::integer<>ds OR (g#>>'{spoken,0}')::integer<>ss OR de<=ds OR se<=ss OR de>cardinality(d) OR se>cardinality(s) THEN RETURN false; END IF;
+  before_words:=d[ds+1:de];after_words:=s[ss+1:se];
+  IF before_words IS DISTINCT FROM after_words THEN
+   parts:=regexp_match(before_words[1],'^([01]?[0-9]|2[0-3]):([0-5][0-9])([.,!?;:]?)$');
+   IF parts IS NULL OR cardinality(before_words)>2 OR (cardinality(before_words)=2 AND (parts[3]<>'' OR before_words[2]!~'^Uhr[.,!?;:]?$')) THEN RETURN false; END IF;
+   h:=parts[1]::integer;minute:=parts[2]::integer;
+   hn:=CASE WHEN h=1 THEN 'ein' WHEN h<20 THEN small[h+1] ELSE CASE WHEN h%10=0 THEN '' WHEN h%10=1 THEN 'einund' ELSE small[h%10+1]||'und' END||tens[h/10+1] END;
+   mn:=CASE WHEN minute<20 THEN small[minute+1] ELSE CASE WHEN minute%10=0 THEN '' WHEN minute%10=1 THEN 'einund' ELSE small[minute%10+1]||'und' END||tens[minute/10+1] END;
+   suffix:=CASE WHEN cardinality(before_words)=2 THEN substring(before_words[2] FROM 4) ELSE parts[3] END;
+   expected:=hn||' Uhr'||CASE WHEN minute=0 THEN '' ELSE ' '||mn END||suffix;
+   IF array_to_string(after_words,' ') IS DISTINCT FROM expected THEN RETURN false; END IF;
+   changed:=true;
+  END IF;
+  ds:=de;ss:=se;
+ END LOOP;
+ RETURN changed AND ds=cardinality(d) AND ss=cardinality(s);
+EXCEPTION WHEN others THEN RETURN false;
+END $sitov$;
+REVOKE ALL ON FUNCTION vocabulary_private.sitov_spoken_alignment_valid(text,jsonb) FROM PUBLIC,anon,authenticated,service_role;
+
+-- Preserve installed model/profile/text/audio/address/approval gates verbatim.
+-- A missing anchor ABORTS this proposal; M must inspect and adapt, never skip it.
+DO $sitov_patch$
+DECLARE sig text; body text; old text; replacement text;
+BEGIN
+ FOR sig,old,replacement IN SELECT * FROM (VALUES
+ ('vocabulary_private.sitov_prepared_german_audio_url(text)',
+  'timings := authored->''wordTimings'';',
+  'IF authored ? ''spokenAlignment'' THEN IF NOT vocabulary_private.sitov_spoken_alignment_valid(p_text,authored) THEN RAISE EXCEPTION ''prepared_audio_required'' USING ERRCODE=''22023''; END IF; spoken:=authored#>>''{spokenAlignment,spokenText}''; END IF; timings := authored->''wordTimings'';'),
+ ('path_private.sitov_revision_strict_audio(text)',
+  'FOR token,idx IN SELECT v,n FROM unnest(string_to_array(vocabulary_private.sitov_normalize_audio_text(p_text),'' ''))',
+  'IF authored ? ''spokenAlignment'' AND NOT vocabulary_private.sitov_spoken_alignment_valid(p_text,authored) THEN RAISE EXCEPTION ''prepared_audio_required'' USING ERRCODE=''22023''; END IF; FOR token,idx IN SELECT v,n FROM unnest(string_to_array(CASE WHEN authored ? ''spokenAlignment'' THEN authored#>>''{spokenAlignment,spokenText}'' ELSE vocabulary_private.sitov_normalize_audio_text(p_text) END,'' ''))'),
+ ('sitov_pronunciation_private.reference_valid(text,text,sitov_pronunciation_private.pretest_approvals)',
+  'spoken:=vocabulary_private.sitov_normalize_audio_text(p_text);timings:=metadata->''wordTimings'';',
+  'IF metadata ? ''spokenAlignment'' THEN RETURN vocabulary_private.sitov_spoken_alignment_valid(p_text,metadata); END IF; spoken:=vocabulary_private.sitov_normalize_audio_text(p_text);timings:=metadata->''wordTimings'';'),
+ ('sitov_pronunciation_private.public_audio_ready(uuid,text,jsonb)',
+  'words:=string_to_array(spoken,'' '');i:=0;',
+  'IF authored ? ''spokenAlignment'' AND NOT vocabulary_private.sitov_spoken_alignment_valid(spoken,authored) THEN RETURN false; END IF; words:=string_to_array(CASE WHEN authored ? ''spokenAlignment'' THEN authored#>>''{spokenAlignment,spokenText}'' ELSE spoken END,'' '');i:=0;')
+ ) p(sig,old,replacement) LOOP
+  body:=pg_get_functiondef(sig::regprocedure);
+  IF strpos(body,replacement)>0 THEN CONTINUE; END IF;
+  IF (length(body)-length(replace(body,old,'')))/length(old)<>1 THEN RAISE EXCEPTION 'spoken_alignment_anchor_missing_or_repeated: %',sig; END IF;
+  EXECUTE replace(body,old,replacement);
+ END LOOP;
+END $sitov_patch$;
+
+-- Keep the new INVOKER helper private, with the exact trusted caller owners and
+-- internal execution roles already authorized for these installed gates.
+DO $sitov_acl$
+DECLARE target oid; role_name name; signature text;
+BEGIN
+ FOREACH signature IN ARRAY ARRAY['vocabulary_private.sitov_prepared_german_audio_url(text)',
+  'path_private.sitov_revision_strict_audio(text)',
+  'sitov_pronunciation_private.reference_valid(text,text,sitov_pronunciation_private.pretest_approvals)',
+  'sitov_pronunciation_private.public_audio_ready(uuid,text,jsonb)'] LOOP
+  target:=signature::regprocedure;
+  FOR role_name IN SELECT r.rolname FROM pg_roles r WHERE r.oid IN (
+   SELECT proowner FROM pg_proc WHERE oid=target
+   UNION SELECT a.grantee FROM pg_proc p CROSS JOIN LATERAL aclexplode(coalesce(p.proacl,acldefault('f',p.proowner))) a
+    WHERE p.oid=target AND a.privilege_type='EXECUTE' AND a.grantee<>0)
+   AND r.rolname NOT IN ('anon','authenticated','service_role')
+  LOOP EXECUTE format('GRANT EXECUTE ON FUNCTION vocabulary_private.sitov_spoken_alignment_valid(text,jsonb) TO %I',role_name); END LOOP;
+ END LOOP;
+END $sitov_acl$;
+NOTIFY pgrst,'reload schema';

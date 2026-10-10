@@ -35,14 +35,16 @@ def normalize_text(text):
 def approved_variants():
     registry = json.loads(VARIANTS_PATH.read_text())
     rows = registry.get('variants')
-    if registry.get('schemaVersion') != 1 or not isinstance(rows, list) or len(rows) != 7:
+    versions = {**dict.fromkeys(['sind', 'stehe', 'wollte', 'des', 'ihrer', 'meiste', 'esst'], 'sitov-audio-repair-20261010-v1'),
+                **dict.fromkeys(['Bist', 'einkauft', 'Marchenko', 'Lwiw', 'sieh', 'neuen'], 'sitov-audio-repair-20261010-v2')}
+    if registry.get('schemaVersion') != 1 or not isinstance(rows, list) or len(rows) != len(versions):
         raise ValueError('Invalid Sitov audio variant registry')
     result = {}
     for row in rows:
         text = row.get('text')
-        if (text not in {'sind', 'stehe', 'wollte', 'des', 'ihrer', 'meiste', 'esst'} or text in result
+        if (text not in versions or text in result
                 or text != normalize_text(text) or row.get('textSha256') != digest(text.encode())
-                or row.get('variant') != 'sitov-audio-repair-20261010-v1'):
+                or row.get('variant') != versions[text]):
             raise ValueError('Invalid Sitov audio variant registry')
         result[text] = row['variant']
     return result

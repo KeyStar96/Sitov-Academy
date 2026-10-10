@@ -36,6 +36,36 @@
       "text": "esst",
       "textSha256": "c5c587a8022a5689f4fe8d33586b3a8f69282e4a1b09b42ca2f461ecdaf7ac78",
       "variant": "sitov-audio-repair-20261010-v1"
+    },
+    {
+      "text": "Bist",
+      "textSha256": "135fc9e07b20003ba9387bb1bbeb7d7d3cacfeee70eededb2348a0d4653238d4",
+      "variant": "sitov-audio-repair-20261010-v2"
+    },
+    {
+      "text": "einkauft",
+      "textSha256": "0b62b12a96ac10d2001e4bd0ec6faac6c8c6c627c2b125748a56793b253d2484",
+      "variant": "sitov-audio-repair-20261010-v2"
+    },
+    {
+      "text": "Marchenko",
+      "textSha256": "1013e2802cf67c617f400f68a4251ed8729bef1e18a1ed842030c9a991b0100d",
+      "variant": "sitov-audio-repair-20261010-v2"
+    },
+    {
+      "text": "Lwiw",
+      "textSha256": "4c74b98b36253b49f755ae5f455f4c319b1bb136e9ee170f72b401feb271a85a",
+      "variant": "sitov-audio-repair-20261010-v2"
+    },
+    {
+      "text": "sieh",
+      "textSha256": "508334136dab7cb6228ed1152c589548c78ea9655ac66af71a94dea0db951563",
+      "variant": "sitov-audio-repair-20261010-v2"
+    },
+    {
+      "text": "neuen",
+      "textSha256": "66a009a2deed198d0eab580cca4d9a91f6ed3d91002389add323803521219035",
+      "variant": "sitov-audio-repair-20261010-v2"
     }
   ]
 }
