@@ -1,0 +1,52 @@
+{
+  "epoch": 52,
+  "sourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+  "baseCommit": "495304164807e4aa06fc4bd4b22cab6d15017a9e",
+  "inputSHA256": "8f13a0ce367179583c5ffbbaae1d8fb844da4826fc7dd5bc8b8b85b654fdb42d",
+  "inventoryByteSHA256": "f2b483ec5d0fe8193a9b114e74928e78b44262dc90efefb65c39939470588529",
+  "parentPayloadByteSHA256": "67a3e3277b49379ace6ff75ef605e5a2d9de0b5155604198da4b2df4d665a039",
+  "manifestByteSHA256": "ea0a4e47892aa0b0bdfc8efa5b420a0d79314c936161782ea4f4f0a01bc7d32d",
+  "counts": {
+    "tasksExactlyApproved": 538,
+    "parentsExactlyApproved": 59,
+    "changedObjectivesExactlyApprovedInWholeCurrentSets": 10,
+    "originalReviewDocuments": 96,
+    "taskHoles": 0,
+    "parentHoles": 0,
+    "changedObjectiveHoles": 0,
+    "unknownTaskRowsPreserved": 538,
+    "fiveTranslationRowsSmartHintsPreserved": 2690,
+    "historicalNonAcceptRecordsRetained": 457,
+    "actualDBToSourceCanonicalAnswerOrAcceptedListChanges": 66,
+    "explicitHistoricalOneToOneAnswerWordRevisionRecords": 2,
+    "originalInventoryBindingHashesMatchRecomputed": 538,
+    "validateSourcesReturnedRows": 538,
+    "perTaskApprovalValidatorPassed": 538,
+    "prepareCalled": false,
+    "emitCalled": false,
+    "nativeSQLExecuted": false,
+    "globalParentsApproved": false
+  },
+  "sourceHelperSHA256": {
+    "deploy/vps/sitov-path-combined-cas.py": "31c93fe83e26a554f78374c3087e49661b859b1ea01c3dde00706c35f55ef84d",
+    "deploy/vps/sitov-path-parent-cas.py": "2a893978cc11854df22ce7164da13712650f3e619961ad80a53a1caf7f78a453"
+  },
+  "parentPayloadBytes": 506683,
+  "inventoryBytes": 16648935,
+  "manifestBytes": 474488,
+  "maxIndexedOriginalReviewBytes": 5948645,
+  "maxUsedApprovalReviewBytes": 256194,
+  "currentPreparedSourcesValid": true,
+  "noSemanticApprovalInferred": true,
+  "globalParentsApproval": "M_REVIEW_REQUIRED",
+  "publicationApproved": false,
+  "databaseAdoptionApproved": false,
+  "jobs": 0,
+  "offlineDraftBatchBounds": {
+    "batches": 6,
+    "maxCount": 100,
+    "maxEstimatedBytes": 1477050,
+    "sourceRowsWithPerTaskReview": 538,
+    "actualNativeJSONBBytesDeferredToEmitter": true
+  }
+}
