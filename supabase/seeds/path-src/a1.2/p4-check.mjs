@@ -39,7 +39,7 @@ const check = {
       ['We are taking a taxi to the airport.', 'Мы едем в аэропорт на такси.', 'Ми їдемо до аеропорту на таксі.', 'Havalimanına taksiyle gidiyoruz.']),
     mc('G2', 'in + Dativ', I.choose, 'Das Auto steht … Garage.', ['in der', 'in die', 'in dem'],
       ['The car is in the garage.', 'Машина стоит в гараже.', 'Машина стоїть у гаражі.', 'Araba garajda duruyor.']),
-    mc("G3", "bei + Person", I.choose, "Wo ist Leon? – Er ist … Freund Milan.", ["bei dem","zum","in den"], ["Where is Leon? – He is at his friend Milan’s.","Где Leon? – Он у друга Milan.","Де Leon? – Він у друга Milan.","Leon nerede? – Arkadaşı Milan’da."], {"c":"p4_woist","sitovOptionOrder":["bei dem","zum","in den"]}),
+    mc("G3", "bei + Person", I.choose, "Wo ist Leon? – Er ist ___ Freund Milan.", ["bei dem","zum","in den"], ["Where is Leon? – He is at his friend Milan’s.","Где Leon? – Он у друга Milan.","Де Leon? – Він у друга Milan.","Leon nerede? – Arkadaşı Milan’da."], {"c":"p4_woist","sitovOptionOrder":["bei dem","zum","in den"]}),
     mc('G4', 'zum', I.choose, 'Ich habe Fieber. Ich muss … Arzt gehen.', ['zum', 'beim', 'im'],
       ['I have a temperature. I have to go to the doctor.', 'У меня температура. Мне нужно идти к врачу.', 'У мене температура. Мені треба йти до лікаря.', 'Ateşim var. Doktora gitmem gerekiyor.']),
     mc('K1', 'nach dem Weg fragen', I.situation, 'Du suchst eine Bank und fragst höflich:', ['Entschuldigung, wo ist hier eine Bank?', 'Wo Bank?', 'Ich will Bank.'],

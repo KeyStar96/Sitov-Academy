@@ -171,7 +171,7 @@ const path = {
   ]
 },
       ex: [
-        mc("G3", "beim", I.choose, "Samir ist krank. Er ist … Arzt.", ["beim","im","zum"], ["Samir is ill. He is at the doctor’s.","Samir болен. Он у врача.","Samir хворий. Він у лікаря.","Samir hasta. Doktorda."], {"c":"p4_woist"}),
+        mc("G3", "beim", I.choose, "Samir ist krank. Er ist ___ Arzt.", ["beim","im","zum"], ["Samir is ill. He is at the doctor’s.","Samir болен. Он у врача.","Samir хворий. Він у лікаря.","Samir hasta. Doktorda."], {"c":"p4_woist"}),
         mc('G3', 'im', I.choose, 'Wo sind die Kinder? – Sie sind … Kindergarten.', ['im', 'beim', 'in den'],
           ['Where are the children? – They are at kindergarten.', 'Где дети? – Они в детском саду.', 'Де діти? – Вони в дитячому садку.', 'Çocuklar nerede? – Anaokulundalar.']),
         mc('G3', 'zu Hause', I.choose, 'Es ist Abend. Papa ist nicht im Büro. Er ist …', ['zu Hause', 'nach Hause', 'bei Hause'],

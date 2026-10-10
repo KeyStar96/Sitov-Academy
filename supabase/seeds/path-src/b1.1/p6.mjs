@@ -101,8 +101,7 @@ const path = {
           ['In August it is often over forty degrees in Seville.', 'В августе в Севилье часто бывает больше сорока градусов жары.', 'У серпні в Севільї часто буває понад сорок градусів спеки.', 'Ağustosta Sevilla’da hava çoğu zaman kırk derecenin üzerinde olur.'], 'er / es / sie'),
         gap('G1', 'es gibt', I.verb, 'In dieser kleinen Stadt ', ' es leider kein Kino mehr.', 'gibt', ['geht', 'hat'],
           ['Unfortunately there is no longer a cinema in this small town.', 'В этом маленьком городе, к сожалению, больше нет кинотеатра.', 'У цьому маленькому місті, на жаль, більше немає кінотеатру.', 'Bu küçük şehirde ne yazık ki artık sinema yok.'], 'geben / gehen / haben'),
-        gap('G1', 'Wie geht es Ihnen?', I.verb, 'Guten Morgen, Frau Brandt, wie ', ' es Ihnen heute?', 'geht', ['gibt', 'ist'],
-          ['Good morning, Ms Brandt, how are you today?', 'Доброе утро, госпожа Brandt, как вы сегодня себя чувствуете?', 'Доброго ранку, пані Brandt, як ви сьогодні почуваєтеся?', 'Günaydın Bayan Brandt, bugün nasılsınız?'], 'gehen / geben / sein'),
+        gap("G1", "Wie geht es Ihnen?", I.verb, "Guten Morgen, Herr Brandt, wie ", " es Ihnen heute?", "geht", ["gibt","ist"], ["Good morning, Mr Brandt, how are you today?","Доброе утро, господин Brandt, как вы сегодня себя чувствуете?","Доброго ранку, пане Brandt, як ви сьогодні почуваєтеся?","Günaydın Brandt Bey, bugün nasılsınız?"], "gehen / geben / sein", {"c":"p6_es"}),
         sb('G1', 'Es lohnt sich, … zu', I.order, 'Es / lohnt / sich, / die Preise / zu vergleichen.',
           ['It is worth comparing prices.', 'Стоит сравнивать цены.', 'Варто порівнювати ціни.', 'Fiyatları karşılaştırmaya değer.']),
       ],
@@ -438,18 +437,28 @@ const path = {
       title: 'Geschäftsideen',
       t: ['Business ideas', 'Бизнес-идеи', 'Бізнес-ідеї', 'İş fikirleri'],
       card: {
-        id: 'p6_ideen',
-        rule: 'Texte über Geschäftsideen und Dienstleistungen verstehen: Achte auf: Wer hat die Idee? Was wird angeboten? Für wen? Warum (Ziel: um … zu, damit)? Was kostet es? Lohnt es sich? Wichtige Wörter: eine Firma gründen (= neu aufmachen), kündigen (= eine Stelle beenden), sich einen Traum erfüllen, der Lieferservice, der Probetermin (= ein erster Termin zum Testen), sich binden (= einen langen Vertrag machen), inzwischen (= bis heute, in der Zeit seitdem).',
-        examples: ['Sie hat gekündigt, um sich einen Traum zu erfüllen.', 'Wir putzen, damit Sie den Feierabend genießen können.', 'Reich wird sie nicht, aber es lohnt sich.'],
-        highlight: null,
-        t: [
-          'Understanding texts about business ideas and services. Look for: who has the idea? what is offered? for whom? why (aim: um … zu, damit)? what does it cost? is it worth it? Important words: eine Firma gründen (= to set up a company), kündigen (= to give up a job, to hand in your notice), sich einen Traum erfüllen (to make a dream come true), der Lieferservice (delivery service), der Probetermin (= a first appointment to try something out), sich binden (= to sign a long contract, to commit yourself), inzwischen (= by now, in the meantime).',
-          'Как понимать тексты о бизнес-идеях и услугах. Обращайте внимание: у кого идея? что предлагают? для кого? зачем (цель: um … zu, damit)? сколько это стоит? стоит ли это того? Важные слова: eine Firma gründen (= основать фирму), kündigen (= уволиться с работы), sich einen Traum erfüllen (осуществить мечту), der Lieferservice (служба доставки), der Probetermin (= первая пробная встреча), sich binden (= заключить длительный договор, связать себя обязательствами), inzwischen (= к настоящему времени, тем временем).',
-          'Як розуміти тексти про бізнес-ідеї та послуги. Звертайте увагу: у кого ідея? що пропонують? для кого? навіщо (мета: um … zu, damit)? скільки це коштує? чи варте це того? Важливі слова: eine Firma gründen (= заснувати фірму), kündigen (= звільнитися з роботи), sich einen Traum erfüllen (здійснити мрію), der Lieferservice (служба доставки), der Probetermin (= перша пробна зустріч), sich binden (= укласти тривалий договір, зв’язати себе зобов’язаннями), inzwischen (= на сьогодні, тим часом).',
-          'İş fikirleri ve hizmetlerle ilgili metinleri anlamak. Şunlara dikkat edin: Fikir kimin? Ne sunuluyor? Kimin için? Neden (amaç: um … zu, damit)? Ne kadar? Değer mi? Önemli kelimeler: eine Firma gründen (= şirket kurmak), kündigen (= işten ayrılmak, istifa etmek), sich einen Traum erfüllen (bir hayalini gerçekleştirmek), der Lieferservice (teslimat servisi), der Probetermin (= denemek için ilk randevu), sich binden (= uzun süreli sözleşme yapmak, bağlanmak), inzwischen (= bugüne kadar, bu arada).',
-        ],
-        hint: ['Wer? Was wird angeboten? Für wen? Wozu (um … zu / damit)? Was kostet es? Lohnt es sich?', 'Who? What is offered? For whom? What for (um … zu / damit)? What does it cost? Is it worth it?', 'Кто? Что предлагают? Для кого? Для чего (um … zu / damit)? Сколько стоит? Стоит ли это того?', 'Хто? Що пропонують? Для кого? Для чого (um … zu / damit)? Скільки коштує? Чи варте це того?', 'Kim? Ne sunuluyor? Kimin için? Ne için (um … zu / damit)? Ne kadar? Değer mi?'],
-      },
+  "id": "p6_ideen",
+  "rule": "Texte über Geschäftsideen und Dienstleistungen verstehen: Achte auf: Wer hat die Idee? Was wird angeboten? Für wen? Warum (Ziel: um … zu, damit)? Was kostet es? Lohnt es sich? Wichtige Wörter: eine Firma gründen (= neu aufmachen), kündigen (= eine Stelle beenden), sich einen Traum erfüllen, der Lieferservice, der Probetermin (= ein erster Termin zum Testen), sich binden (= einen langen Vertrag machen), inzwischen (= bis heute, in der Zeit seitdem).",
+  "examples": [
+    "Er hat gekündigt, um sich einen Traum zu erfüllen.",
+    "Wir putzen, damit Sie den Feierabend genießen können.",
+    "Reich wird er nicht, aber es lohnt sich."
+  ],
+  "highlight": null,
+  "t": [
+    "Understanding texts about business ideas and services. Look for: who has the idea? what is offered? for whom? why (aim: um … zu, damit)? what does it cost? is it worth it? Important words: eine Firma gründen (= to set up a company), kündigen (= to give up a job, to hand in your notice), sich einen Traum erfüllen (to make a dream come true), der Lieferservice (delivery service), der Probetermin (= a first appointment to try something out), sich binden (= to sign a long contract, to commit yourself), inzwischen (= by now, in the meantime).",
+    "Как понимать тексты о бизнес-идеях и услугах. Обращайте внимание: у кого идея? что предлагают? для кого? зачем (цель: um … zu, damit)? сколько это стоит? стоит ли это того? Важные слова: eine Firma gründen (= основать фирму), kündigen (= уволиться с работы), sich einen Traum erfüllen (осуществить мечту), der Lieferservice (служба доставки), der Probetermin (= первая пробная встреча), sich binden (= заключить длительный договор, связать себя обязательствами), inzwischen (= к настоящему времени, тем временем).",
+    "Як розуміти тексти про бізнес-ідеї та послуги. Звертайте увагу: у кого ідея? що пропонують? для кого? навіщо (мета: um … zu, damit)? скільки це коштує? чи варте це того? Важливі слова: eine Firma gründen (= заснувати фірму), kündigen (= звільнитися з роботи), sich einen Traum erfüllen (здійснити мрію), der Lieferservice (служба доставки), der Probetermin (= перша пробна зустріч), sich binden (= укласти тривалий договір, зв’язати себе зобов’язаннями), inzwischen (= на сьогодні, тим часом).",
+    "İş fikirleri ve hizmetlerle ilgili metinleri anlamak. Şunlara dikkat edin: Fikir kimin? Ne sunuluyor? Kimin için? Neden (amaç: um … zu, damit)? Ne kadar? Değer mi? Önemli kelimeler: eine Firma gründen (= şirket kurmak), kündigen (= işten ayrılmak, istifa etmek), sich einen Traum erfüllen (bir hayalini gerçekleştirmek), der Lieferservice (teslimat servisi), der Probetermin (= denemek için ilk randevu), sich binden (= uzun süreli sözleşme yapmak, bağlanmak), inzwischen (= bugüne kadar, bu arada)."
+  ],
+  "hint": [
+    "Wer? Was wird angeboten? Für wen? Wozu (um … zu / damit)? Was kostet es? Lohnt es sich?",
+    "Who? What is offered? For whom? What for (um … zu / damit)? What does it cost? Is it worth it?",
+    "Кто? Что предлагают? Для кого? Для чего (um … zu / damit)? Сколько стоит? Стоит ли это того?",
+    "Хто? Що пропонують? Для кого? Для чого (um … zu / damit)? Скільки коштує? Чи варте це того?",
+    "Kim? Ne sunuluyor? Kimin için? Ne için (um … zu / damit)? Ne kadar? Değer mi?"
+  ]
+},
       ex: [
         mc('Z1', 'Grund für die Kündigung', I.read, `${IDEE} Warum hat Frau Vogel ihre Stelle gekündigt?`, ['Sie wollte sich einen Traum erfüllen.', 'Sie war zu alt für das Büro.', 'Sie wollte schnell reich werden.'],
           ['Why did Ms Vogel give up her job?', 'Почему госпожа Vogel уволилась с работы?', 'Чому пані Vogel звільнилася з роботи?', 'Bayan Vogel neden işinden ayrıldı?']),

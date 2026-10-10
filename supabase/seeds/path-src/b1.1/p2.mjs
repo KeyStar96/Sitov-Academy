@@ -11,7 +11,7 @@ const path = {
   title: 'Unterhaltung',
   t: ['Entertainment', 'Развлечения', 'Розваги', 'Eğlence'],
   objectives: {
-    G1: 'Gegensatz mit obwohl: Lea schaut den Film noch einmal, obwohl sie das Ende schon kennt. Das Verb steht im Nebensatz am Ende; Unterschied zu weil und trotzdem.',
+    G1: "Gegensatz mit obwohl: Leo schaut den Film noch einmal, obwohl er das Ende schon kennt. Das Verb steht im Nebensatz am Ende; Unterschied zu weil und trotzdem.",
     G2: 'Gradpartikeln: echt, total, besonders – ziemlich, wirklich – nicht so, nicht besonders – gar nicht, überhaupt nicht.',
     G3: 'Relativpronomen im Nominativ: der Mann, der …; das Kind, das …; die Frau, die …; die Leute, die …',
     G4: 'Relativpronomen im Akkusativ: der Film, den ich mag; das Buch, das ich lese; die Serie, die wir schauen.',
@@ -167,8 +167,7 @@ const path = {
           ['Which sentence is the most positive?', 'Какое предложение самое положительное?', 'Яке речення найпозитивніше?', 'Hangi cümle en olumlu?']),
         mc('G2', 'überhaupt nicht', I.choose, 'Welcher Satz ist am negativsten?', ['Der Film war überhaupt nicht lustig.', 'Der Film war nicht so lustig.', 'Der Film war ziemlich lustig.'],
           ['Which sentence is the most negative?', 'Какое предложение самое отрицательное?', 'Яке речення найнегативніше?', 'Hangi cümle en olumsuz?']),
-        mc('G2', 'echt', I.choose, 'Lena ist begeistert: „Der Schauspieler ist … gut! So etwas habe ich noch nie gesehen.“', ['echt', 'nicht so', 'gar nicht'],
-          ['Lena is thrilled: “The actor is … good! I have never seen anything like it.”', 'Lena в восторге: «Актёр … хорош! Я такого ещё никогда не видела.»', 'Lena в захваті: «Актор … гарний! Я такого ще ніколи не бачила.»', 'Lena hayran kalmış: “Oyuncu … iyi! Böyle bir şeyi hiç görmemiştim.”']),
+        mc("G2", "echt", I.choose, "Leon ist begeistert: „Der Schauspieler ist ___ gut! So etwas habe ich noch nie gesehen.“", ["echt","gar nicht","nicht so"], ["Leon is thrilled: “The actor is … good! I have never seen anything like it.”","Leon в восторге: «Актёр … хорош! Я такого ещё никогда не видел.»","Leon в захваті: «Актор … гарний! Я такого ще ніколи не бачив.»","Leon hayran kalmış: “Oyuncu … iyi! Böyle bir şeyi hiç görmemiştim.”"], {"c":"p2_gradpartikeln","sitovOptionOrder":["echt","gar nicht","nicht so"]}),
         mc('G2', 'überhaupt nicht', I.choose, 'Jan ist enttäuscht: „Das Ende war … nicht logisch. Ich habe nichts verstanden.“', ['überhaupt', 'ziemlich', 'besonders'],
           ['Jan is disappointed: “The ending was not logical … I did not understand anything.”', 'Jan разочарован: «Конец был … не логичным. Я ничего не понял.»', 'Jan розчарований: «Кінець був … не логічний. Я нічого не зрозумів.»', 'Jan hayal kırıklığına uğramış: “Son … mantıklı değildi. Hiçbir şey anlamadım.”']),
         mc('G2', 'nicht besonders', I.choose, 'Was bedeutet „Der Film war nicht besonders gut.“?', ['Der Film war eher schwach.', 'Der Film war ausgezeichnet.', 'Der Film war der beste im ganzen Jahr.'],

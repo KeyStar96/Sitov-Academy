@@ -67,7 +67,7 @@ const check = {
       ['My daughter is 16. She is not yet allowed to drive a car.', 'Моей дочери 16 лет. Ей ещё нельзя водить машину.', 'Моїй доньці 16 років. Їй ще не можна керувати автомобілем.', 'Kızım 16 yaşında. Henüz araba kullanamaz.'], 'dürfen', { c: 'p2_duerfen' }),
     gap('G3', 'man + Verb', I.modal, 'In Deutschland ', ' man ab 18 wählen.', 'darf', ['dürfen', 'darfst'],
       ['In Germany you may vote from the age of 18.', 'В Германии можно голосовать с 18 лет.', 'У Німеччині можна голосувати з 18 років.', 'Almanya’da 18 yaşından itibaren oy kullanılabilir.'], 'dürfen'),
-    mc("G4", "Imperativ Sie", I.choose, "Herr Lindner, … Sie bitte hier!", ["warten","wartet","warte"], ["Mr Lindner, please wait here!","Господин Lindner, подождите, пожалуйста, здесь!","Пане Lindner, зачекайте, будь ласка, тут!","Lindner Bey, lütfen burada bekleyin!"], {"c":"p2_imp_sie"}),
+    mc("G4", "Imperativ Sie", I.choose, "Herr Lindner, ___ Sie bitte hier!", ["warten","wartet","warte"], ["Mr Lindner, please wait here!","Господин Lindner, подождите, пожалуйста, здесь!","Пане Lindner, зачекайте, будь ласка, тут!","Lindner Bey, lütfen burada bekleyin!"], {"c":"p2_imp_sie"}),
     asChoice(gap('G4', 'Imperativ ihr', I.imperative, 'Kinder, ', ' die Bücher auf!', 'macht', ['mach', 'machen'],
       ['Children, open your books!', 'Дети, откройте книги!', 'Діти, розгорніть книжки!', 'Çocuklar, kitaplarınızı açın!'], 'aufmachen', { c: 'p2_imp_du', h: 'ihr' })),
     asChoice(gap('G5', 'helfen', I.verb, 'Mein Kollege ', ' mir oft bei der Arbeit.', 'hilft', ['helft', 'hilfst'],

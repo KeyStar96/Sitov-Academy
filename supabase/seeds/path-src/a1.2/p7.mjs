@@ -294,8 +294,7 @@ const path = {
   }
 },
       ex: [
-        mc('G4', 'denn', I.choose, 'Ich kann nicht zur Party kommen, … ich bin krank.', ['denn', 'oder', 'aber'],
-          ['I cannot come to the party because I am ill.', 'Я не могу прийти на вечеринку, потому что я болею.', 'Я не можу прийти на вечірку, бо я хворію.', 'Partiye gelemiyorum çünkü hastayım.'], { h: 'which' }),
+        mc("G4", "denn", I.choose, "Ich kann nicht zur Party kommen, ___ ich bin krank.", ["denn","aber","oder"], ["I cannot come to the party because I am ill.","Я не могу прийти на вечеринку, потому что я болею.","Я не можу прийти на вечірку, бо я хворію.","Partiye gelemiyorum çünkü hastayım."], {"h":"which","c":"p7_denn","sitovOptionOrder":["aber","denn","oder"]}),
         mc('G4', 'Wortstellung nach denn', I.sentence, 'Emre sagt ab.', ['Ich komme nicht, denn ich muss arbeiten.', 'Ich komme nicht, denn muss ich arbeiten.', 'Ich komme nicht, denn ich arbeiten muss.'],
           ['Emre says he cannot come.', 'Emre отказывается от приглашения.', 'Emre відмовляється від запрошення.', 'Emre gelemeyeceğini söylüyor.']),
         mc("G4", "Grund nennen", I.choose, "Welcher Satz nennt einen Grund?", ["Wir feiern, denn Milan wird 18.","Wir feiern, aber Milan ist müde.","Wir feiern und Milan tanzt."], ["Which sentence gives a reason?","В каком предложении названа причина?","У якому реченні названо причину?","Hangi cümle bir neden bildiriyor?"], {"h":"which","c":"p7_denn","sitovOptionOrder":["Wir feiern, denn Milan wird 18.","Wir feiern, aber Milan ist müde.","Wir feiern und Milan tanzt."]}),

@@ -1,0 +1,390 @@
+{
+  "epoch": 42,
+  "brand": "Sitov Academy",
+  "base": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+  "boundInputs": {
+    "epoch42-bound-input-1.json": "eafa32ecf9824dd0b13ae22c808b96bf4836289aa1a770c57cd46abd89f0bf9a",
+    "epoch42-bound-input-2.json": "6d62fb6caba2eefc98b85f6c2a241d1029c93dcca4de4b1c80617c48a650635b",
+    "epoch42-bound-input-3.json": "18c8336776f49d4b9bf081e046cfcb159d33eb8eeb99304f3e57cf3f0c749216",
+    "epoch42-bound-input-4.json": "a20f8eba291252b4bf1800e8ec6c61df351c5d38578e0ae458f591b836d6636d"
+  },
+  "actualChangedSourceFiles": [
+    "supabase/seeds/path-a1.1.json",
+    "supabase/seeds/path-a1.2.json",
+    "supabase/seeds/path-a2.1.json",
+    "supabase/seeds/path-a2.2.json",
+    "supabase/seeds/path-b1.1.json",
+    "supabase/seeds/path-src/a1.2/p2-check.mjs",
+    "supabase/seeds/path-src/a1.2/p3-check.mjs",
+    "supabase/seeds/path-src/a1.2/p3.mjs",
+    "supabase/seeds/path-src/a1.2/p4-check.mjs",
+    "supabase/seeds/path-src/a1.2/p4.mjs",
+    "supabase/seeds/path-src/a1.2/p5-check.mjs",
+    "supabase/seeds/path-src/a1.2/p6.mjs",
+    "supabase/seeds/path-src/a1.2/p7-check.mjs",
+    "supabase/seeds/path-src/a1.2/p7.mjs",
+    "supabase/seeds/path-src/a2.1/p1-check.mjs",
+    "supabase/seeds/path-src/a2.1/p1.mjs",
+    "supabase/seeds/path-src/a2.1/p2.mjs",
+    "supabase/seeds/path-src/a2.1/p3.mjs",
+    "supabase/seeds/path-src/a2.1/p4-check.mjs",
+    "supabase/seeds/path-src/a2.1/p4.mjs",
+    "supabase/seeds/path-src/a2.1/p5.mjs",
+    "supabase/seeds/path-src/a2.1/p6-check.mjs",
+    "supabase/seeds/path-src/a2.1/p6.mjs",
+    "supabase/seeds/path-src/a2.1/p7-check.mjs",
+    "supabase/seeds/path-src/a2.1/p7.mjs",
+    "supabase/seeds/path-src/a2.2/p1-check.mjs",
+    "supabase/seeds/path-src/a2.2/p1.mjs",
+    "supabase/seeds/path-src/a2.2/p2-check.mjs",
+    "supabase/seeds/path-src/a2.2/p2.mjs",
+    "supabase/seeds/path-src/a2.2/p3.mjs",
+    "supabase/seeds/path-src/a2.2/p6-check.mjs",
+    "supabase/seeds/path-src/a2.2/p6.mjs",
+    "supabase/seeds/path-src/a2.2/p7-check.mjs",
+    "supabase/seeds/path-src/a2.2/p7.mjs",
+    "supabase/seeds/path-src/b1.1/p1.mjs",
+    "supabase/seeds/path-src/b1.1/p2.mjs",
+    "supabase/seeds/path-src/b1.1/p4-check.mjs",
+    "supabase/seeds/path-src/b1.1/p4.mjs",
+    "supabase/seeds/path-src/b1.1/p5-check.mjs",
+    "supabase/seeds/path-src/b1.1/p5.mjs",
+    "supabase/seeds/path-src/b1.1/p6.mjs",
+    "supabase/seeds/path-src/b1.1/p7-check.mjs",
+    "supabase/seeds/path-src/b1.1/p7.mjs"
+  ],
+  "authorizedStages": {
+    "A_exactS7TaskDrafts": 30,
+    "B_exactMIndex57": 1,
+    "C_singleQuestionGapMarkers": 75,
+    "D_pairMetalinguisticFields": 5,
+    "D_pairTasks": 1,
+    "derivedMirrorTasks": 23,
+    "derivedMirrorScalars": 115
+  },
+  "distinctTasksBeforeMirrors": 102,
+  "changedExerciseCount": 125,
+  "scalarChanges": 396,
+  "scalarCountBeforeMirrors": 281,
+  "changedParents": 3,
+  "changedPathObjectiveScalars": 1,
+  "affectedNodes": 65,
+  "totalExercisesCompared": 9569,
+  "totalNodesCompared": 856,
+  "totalPathsCompared": 66,
+  "allIdsTypesGoalsOrderPartsCardReferencesOptionCountsAndCorrectRanksExact": true,
+  "answerRevisions": [
+    {
+      "level": "a2.1",
+      "id": "03468f82-8eb2-51dd-a4ff-aa699fd18ff9",
+      "ref": "P4-N6-E01",
+      "required": true,
+      "before": "Vielleicht ist sie krank.",
+      "after": "Vielleicht ist er krank.",
+      "acceptedAnswersBefore": [
+        "Vielleicht ist sie krank."
+      ],
+      "acceptedAnswersAfter": [
+        "Vielleicht ist er krank."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 0,
+      "correctPositionAfter": 0,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "level": "a2.1",
+      "id": "1e8ba83c-5c91-52d7-abf3-c31a60d38760",
+      "ref": "P4-N12-E15",
+      "required": true,
+      "before": "Tut mir leid, Frau Rojas ist heute nicht im Haus.",
+      "after": "Tut mir leid, Herr Rojas ist heute nicht im Haus.",
+      "acceptedAnswersBefore": [
+        "Tut mir leid, Frau Rojas ist heute nicht im Haus."
+      ],
+      "acceptedAnswersAfter": [
+        "Tut mir leid, Herr Rojas ist heute nicht im Haus."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 1,
+      "correctPositionAfter": 1,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "level": "a2.2",
+      "id": "60833e25-c21a-566a-ae39-905a3027cbf7",
+      "ref": "P3-N12-E03",
+      "required": true,
+      "before": "Sie soll die Praxis anrufen.",
+      "after": "Er soll die Praxis anrufen.",
+      "acceptedAnswersBefore": [
+        "Sie soll die Praxis anrufen."
+      ],
+      "acceptedAnswersAfter": [
+        "Er soll die Praxis anrufen."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 0,
+      "correctPositionAfter": 0,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "level": "b1.1",
+      "id": "30276873-46e1-5ece-a724-9a5772844cf8",
+      "ref": "P1-N7-E04",
+      "required": true,
+      "before": "Lena hat den Schlüssel vergessen.",
+      "after": "Leon hat den Schlüssel vergessen.",
+      "acceptedAnswersBefore": [
+        "Lena hat den Schlüssel vergessen."
+      ],
+      "acceptedAnswersAfter": [
+        "Leon hat den Schlüssel vergessen."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 2,
+      "correctPositionAfter": 2,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "level": "b1.1",
+      "id": "857eb2a0-54dc-5208-a8ce-ad4932588929",
+      "ref": "P5-N13-E18",
+      "required": true,
+      "before": "Sie möchte Frau Petrova persönlich kennenlernen.",
+      "after": "Sie möchte Herrn Petrov persönlich kennenlernen.",
+      "acceptedAnswersBefore": [
+        "Sie möchte Frau Petrova persönlich kennenlernen."
+      ],
+      "acceptedAnswersAfter": [
+        "Sie möchte Herrn Petrov persönlich kennenlernen."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 2,
+      "correctPositionAfter": 2,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true
+    },
+    {
+      "level": "b1.1",
+      "id": "a5b8ff78-0a61-56cc-a744-38e87b19392f",
+      "ref": "P4-N12-E04",
+      "required": true,
+      "before": "Wenn Anna mehr Geld hätte, würde sie einen teuren Sprachkurs machen.",
+      "after": "Wenn Anton mehr Geld hätte, würde er einen teuren Sprachkurs machen.",
+      "acceptedAnswersBefore": [
+        "Wenn Anna mehr Geld hätte, würde sie einen teuren Sprachkurs machen."
+      ],
+      "acceptedAnswersAfter": [
+        "Wenn Anton mehr Geld hätte, würde er einen teuren Sprachkurs machen."
+      ],
+      "mapping": "1→1 explicit word revision",
+      "correctPositionBefore": 1,
+      "correctPositionAfter": 1,
+      "optionCountPreserved": true,
+      "archive114RequiredBeforePublication": true
+    }
+  ],
+  "allOtherAcceptedAnswersExact": true,
+  "allUnassignedSeedTasksAndParentsExact": true,
+  "otherFiveSeedBytesExact": true,
+  "nativeSourceFilesCompared": 128,
+  "nativeSourceTasksCompared": 8800,
+  "explicitNativeTasksChanged": 101,
+  "nativeParentsChanged": 3,
+  "nativePathObjectivesChanged": 1,
+  "allUnassignedNativeAuthorBusinessValuesExact": true,
+  "nativeBuilderParity": [
+    {
+      "level": "a1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.2",
+      "parity": "PASS"
+    }
+  ],
+  "nodeTests": {
+    "pass": 16,
+    "fail": 0
+  },
+  "allTenSeedSchemasValidatedExercises": 9569,
+  "eslint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffCheck": "PASS",
+  "bothActualAudioExtractorsComparedTasks": 9569,
+  "finalAudioAliases": 144,
+  "changedAudioAliases": 102,
+  "changedAudioTasks": 102,
+  "allUnassignedCanonicalAudioPayloadsExact": true,
+  "explicitRetainAndCanonicalAudioProof": {
+    "epoch": 42,
+    "base": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+    "exact75SingleGapExpectedCanonicalUtterances": true,
+    "pairExpectedCanonicalUtterance": true,
+    "pairKeyAndRankUnchanged": true,
+    "allFourRetainedWholeTasksUnchanged": [
+      {
+        "id": "c49e88c9-c2ad-54e4-af62-08514d5080b7",
+        "index": 58,
+        "verdict": "ACCEPT_RETAIN_GRAMMATICAL_GENDER",
+        "wholeTaskUnchanged": true
+      },
+      {
+        "id": "e8147735-0e73-52d1-a559-f3c76aea04ad",
+        "index": 65,
+        "verdict": "HOLD_PROVENANCE_PRIVATE_PROPOSAL",
+        "wholeTaskUnchanged": true
+      },
+      {
+        "id": "fa0b91fa-438f-511f-a12b-482ae85d877e",
+        "index": 66,
+        "verdict": "HOLD_PROVENANCE_PRIVATE_PROPOSAL",
+        "wholeTaskUnchanged": true
+      },
+      {
+        "id": "c1248dd4-e53d-52be-ac53-e97d375a0c26",
+        "index": 67,
+        "verdict": "HOLD_PROVENANCE_PRIVATE_PROPOSAL",
+        "wholeTaskUnchanged": true
+      }
+    ]
+  },
+  "derivedMirrorsExactlyAuthorizedParentRuleFiveLocalePredicate": true,
+  "derivedMirrorFinalEditorialApprovalPending": true,
+  "humanHearing": false,
+  "publicationApproved": false,
+  "overallStatus": "SOURCE_CANDIDATE_UNIT_PASS_FINAL_EDITORIAL_ARCHIVE_AUDIO_PENDING",
+  "privateEvidence": {
+    "epoch42-bound-input-1.json": {
+      "path": "S2/epoch42-bound-input-1.json",
+      "bytes": 755230,
+      "sha256": "eafa32ecf9824dd0b13ae22c808b96bf4836289aa1a770c57cd46abd89f0bf9a"
+    },
+    "epoch42-bound-input-2.json": {
+      "path": "S2/epoch42-bound-input-2.json",
+      "bytes": 24079,
+      "sha256": "6d62fb6caba2eefc98b85f6c2a241d1029c93dcca4de4b1c80617c48a650635b"
+    },
+    "epoch42-bound-input-3.json": {
+      "path": "S2/epoch42-bound-input-3.json",
+      "bytes": 800628,
+      "sha256": "18c8336776f49d4b9bf081e046cfcb159d33eb8eeb99304f3e57cf3f0c749216"
+    },
+    "epoch42-bound-input-4.json": {
+      "path": "S2/epoch42-bound-input-4.json",
+      "bytes": 19861,
+      "sha256": "a20f8eba291252b4bf1800e8ec6c61df351c5d38578e0ae458f591b836d6636d"
+    },
+    "epoch42-old-new-full.json": {
+      "path": "S2/epoch42-old-new-full.json",
+      "bytes": 12736088,
+      "sha256": "5f03c5977a834771b072151d7393ec756ac34f16c5c6b78efa5336a963d0c32d"
+    },
+    "epoch42-final-canonical-audio.json": {
+      "path": "S2/epoch42-final-canonical-audio.json",
+      "bytes": 240252,
+      "sha256": "4fe656ac72f9196daea84c1613e6bffa518b183f4e93b6c28041c4a7f711a0ee"
+    },
+    "epoch42-derived-mirror-predicate-proof.json": {
+      "path": "S2/epoch42-derived-mirror-predicate-proof.json",
+      "bytes": 406124,
+      "sha256": "46d4e656b58b78fd186eb99b24e4fc3d93df384ce4604417af16dbb447cc0ba3"
+    },
+    "epoch42-native-source-proof.json": {
+      "path": "S2/epoch42-native-source-proof.json",
+      "bytes": 275918,
+      "sha256": "037b932901596221a345950dd0185b1348e541f4a82724eb9a5be8c2e7c8bdef"
+    },
+    "epoch42-final-native-parity.json": {
+      "path": "S2/epoch42-final-native-parity.json",
+      "bytes": 759,
+      "sha256": "b8494870cceeb8f40ab3e3595e936a6408ba3f1a4d4ee9651730bc2d39042f75"
+    },
+    "epoch42-explicit-retain-audio-proof.json": {
+      "path": "S2/epoch42-explicit-retain-audio-proof.json",
+      "bytes": 930,
+      "sha256": "6e2c088abf29bd2deba086c4f202c45d88f55acd9b58347390a79b9f319a11f2"
+    },
+    "epoch42-native-tests.log": {
+      "path": "S2/epoch42-native-tests.log",
+      "bytes": 1449,
+      "sha256": "cde18fe11a6d6e0bdb0f8ae9906a6194cd7ad8b284d9f558ad38a0fd6f61aeea"
+    },
+    "epoch42-eslint.log": {
+      "path": "S2/epoch42-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch42-author-edits.json": {
+      "path": "S2/epoch42-author-edits.json",
+      "bytes": 16512,
+      "sha256": "0d17a0eda1d0195342c6c72d827bd8006da05c09ee3ea4d296032fd9866ecf08"
+    },
+    "epoch42-repair.py": {
+      "path": "S2/epoch42-repair.py",
+      "bytes": 8199,
+      "sha256": "0d4872e1a42931db9f3d166e6436dd8a8a07c0ce7d090b587931a4fd6991476b"
+    },
+    "epoch42-sync.mjs": {
+      "path": "S2/epoch42-sync.mjs",
+      "bytes": 8147,
+      "sha256": "fe2b6c950ed19f6d82fbdf6ad55478d4aad96c999426c127861f194132ed4b58"
+    },
+    "epoch42-source-proof.mjs": {
+      "path": "S2/epoch42-source-proof.mjs",
+      "bytes": 3673,
+      "sha256": "12e2846908cfd98da0d936d9ec313d70f8242bc1742bc20d3e959cce6edee7e6"
+    },
+    "epoch42-apply-derived-mirrors.py": {
+      "path": "S2/epoch42-apply-derived-mirrors.py",
+      "bytes": 4546,
+      "sha256": "87da63c114c57b91c96528c4caa25a68c4ee12ac00a98cf7a590cc9e0a12cb5c"
+    },
+    "epoch42-validate-audio.ts": {
+      "path": "S2/epoch42-validate-audio.ts",
+      "bytes": 3569,
+      "sha256": "8c2b521c39c276be6878e4d07b62c2230b262751813ee2a5a45ef89b1ff4e1d4"
+    }
+  },
+  "MFollowup": [
+    "Final editorial review of exact source candidate including23derivedparentmirrors; no blanket role/content approval.",
+    "Archive actual historic answers/progress under114 for6explicit1→1canonicalanswerrevisions beforeadoption.",
+    "Prepare/import102changedcanonicalGermanpayloads withverifiedwordtimings locally beforepublication."
+  ],
+  "noAudioDbSshImportPublicationPushDeployRuntimeTestsMDocsChanges": true
+}

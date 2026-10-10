@@ -14306,7 +14306,7 @@
                 "Imperativ Sie"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Herr Lindner, … Sie bitte hier!",
+              "question": "Herr Lindner, ___ Sie bitte hier!",
               "options": [
                 "wartet",
                 "warten",
@@ -16947,7 +16947,7 @@
                 "sein"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Jonas ist beim Arzt. … Hals tut weh.",
+              "question": "Jonas ist beim Arzt. ___ Hals tut weh.",
               "options": [
                 "Seine",
                 "Sein",
@@ -17001,7 +17001,7 @@
                 "ihr"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Ergänze den Possessivartikel zu „sie (Singular)“: … Hand tut weh.",
+              "question": "Ergänze den Possessivartikel zu „sie (Singular)“: ___ Hand tut weh.",
               "options": [
                 "Seine",
                 "Ihre",
@@ -17055,7 +17055,7 @@
                 "ihr (Plural)"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Tom und Emil haben Husten. … Mutter kauft Tee.",
+              "question": "Tom und Emil haben Husten. ___ Mutter kauft Tee.",
               "options": [
                 "Eure",
                 "Ihre",
@@ -17549,7 +17549,7 @@
                 "Akkusativ Plural"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Ergänze den Possessivartikel zu „sie (Singular)“: „Sie braucht … Tabletten.“",
+              "question": "Ergänze den Possessivartikel zu „sie (Singular)“: „Sie braucht ___ Tabletten.“",
               "options": [
                 "ihren",
                 "ihre",
@@ -21760,7 +21760,7 @@
                 "euer"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Tim und Milan, ist das … Mutter?",
+              "question": "Tim und Milan, ist das ___ Mutter?",
               "options": [
                 "eure",
                 "euer",
@@ -21814,7 +21814,7 @@
                 "ihr"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Ergänze den Possessivartikel zu „sie (Singular)“: … Sohn ist krank.",
+              "question": "Ergänze den Possessivartikel zu „sie (Singular)“: ___ Sohn ist krank.",
               "options": [
                 "Ihre",
                 "Ihr",
@@ -22462,7 +22462,7 @@
                 "sein"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Jonas kann nicht schreiben. … Hand tut weh.",
+              "question": "Jonas kann nicht schreiben. ___ Hand tut weh.",
               "options": [
                 "Ihre",
                 "Seine",
@@ -25043,7 +25043,7 @@
                 "beim"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Samir ist krank. Er ist … Arzt.",
+              "question": "Samir ist krank. Er ist ___ Arzt.",
               "options": [
                 "beim",
                 "im",
@@ -29626,7 +29626,7 @@
                 "bei + Person"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Wo ist Leon? – Er ist … Freund Milan.",
+              "question": "Wo ist Leon? – Er ist ___ Freund Milan.",
               "options": [
                 "bei dem",
                 "zum",
@@ -38327,7 +38327,7 @@
                 "Nachricht beginnen"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Hier … Jonas Weber. Bitte rufen Sie zurück.",
+              "question": "Hier ___ Jonas Weber. Bitte rufen Sie zurück.",
               "options": [
                 "sprichst",
                 "spricht",
@@ -40806,7 +40806,7 @@
                 "mir"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Ich finde die Schuhe toll. Sie gefallen … sehr.",
+              "question": "Ich finde die Schuhe toll. Sie gefallen ___ sehr.",
               "options": [
                 "ich",
                 "mich",
@@ -40860,7 +40860,7 @@
                 "ihm"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Das ist Jonas. Die Jacke passt … gut.",
+              "question": "Das ist Jonas. Die Jacke passt ___ gut.",
               "options": [
                 "ihr",
                 "ihm",
@@ -40914,7 +40914,7 @@
                 "Ihnen"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Herr Aksoy, gefällt … das Kleid?",
+              "question": "Herr Aksoy, gefällt ___ das Kleid?",
               "options": [
                 "Ihnen",
                 "dir",
@@ -50994,7 +50994,7 @@
                 "denn"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Ich kann nicht zur Party kommen, … ich bin krank.",
+              "question": "Ich kann nicht zur Party kommen, ___ ich bin krank.",
               "options": [
                 "aber",
                 "denn",
@@ -55519,7 +55519,7 @@
                 "Anrede"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "… Herr Albers, vielen Dank für Ihre Einladung.",
+              "question": "___ Herr Albers, vielen Dank für Ihre Einladung.",
               "options": [
                 "Sehr geehrte",
                 "Liebe",

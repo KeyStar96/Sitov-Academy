@@ -182,8 +182,7 @@ const path = {
           ['If I do a lot of overtime, I get more money.', 'Если я много работаю сверхурочно, я получаю больше денег.', 'Якщо я багато працюю понаднормово, я отримую більше грошей.', 'Çok fazla mesai yaparsam daha çok para alırım.'], 'bekommen'),
         gap('G2', 'dann', I.word, 'Wenn Sie Mitglied sind, ', ' zahlen Sie weniger.', 'dann', ['wenn', 'weil'],
           ['If you are a member, then you pay less.', 'Если вы член организации, то вы платите меньше.', 'Якщо ви член організації, то ви платите менше.', 'Üyeyseniz, o zaman daha az ödersiniz.'], 'dann / wenn / weil'),
-        gap('G2', 'Verb am Ende', I.verb, 'Wenn der Chef nicht da ', ', sprechen Sie bitte mit Frau Weber.', 'ist', ['sind', 'sein'],
-          ['If the boss is not there, please talk to Ms Weber.', 'Если начальника нет, поговорите, пожалуйста, с госпожой Weber.', 'Якщо начальника немає, поговоріть, будь ласка, з пані Weber.', 'Patron yoksa lütfen Weber Hanım’la konuşun.'], 'sein'),
+        gap("G2", "Verb am Ende", I.verb, "Wenn der Chef nicht da ", ", sprechen Sie bitte mit Herrn Weber.", "ist", ["sind","sein"], ["If the boss is not there, please talk to Mr Weber.","Если начальника нет, поговорите, пожалуйста, с господином Weber.","Якщо начальника немає, поговоріть, будь ласка, з паном Weber.","Patron yoksa lütfen Weber Bey’le konuşun."], "sein", {"c":"p4_wenn2"}),
         sb('G2', 'wenn-Satz zuerst', I.order, 'Wenn / es / regnet, / bleibe / ich / zu Hause.',
           ['If it rains, I stay at home.', 'Если идёт дождь, я остаюсь дома.', 'Якщо йде дощ, я залишаюся вдома.', 'Yağmur yağarsa evde kalırım.'],
           { alt: ['Ich bleibe zu Hause, wenn es regnet.'] }),
@@ -230,24 +229,33 @@ const path = {
       ],
     },
     {
-      title: 'Vielleicht ist sie krank.',
-      t: ['Perhaps she is ill.', 'Может быть, она заболела.', 'Можливо, вона захворіла.', 'Belki hastadır.'],
+      title: "Vielleicht ist er krank.",
+      t: ["Perhaps he is ill.","Может быть, он заболел.","Можливо, він захворів.","Belki hastadır."],
       card: {
-        id: 'p4_vermuten',
-        rule: 'Etwas vermuten: Vielleicht ist sie krank. Wahrscheinlich kommt er später. Ich glaube, er ist im Urlaub. Ich denke, sie hat viel Arbeit. Zustimmen: Ja, das glaube ich auch. Ja, das denke ich auch. Widersprechen: Nein, das glaube ich nicht. Nichts wissen: Keine Ahnung. Nach vielleicht und wahrscheinlich steht das Verb auf Position 2: Vielleicht hat er frei.',
-        examples: ['Wo ist Herr Petrov? – Vielleicht ist er in der Kantine.', 'Ich glaube, die Chefin kommt heute nicht.', 'Wahrscheinlich hat er Urlaub. – Ja, das denke ich auch.'],
-        highlight: null,
-        t: [
-          'Making a guess: Vielleicht ist sie krank. (Perhaps she is ill.) Wahrscheinlich kommt er später. (He will probably come later.) Ich glaube, er ist im Urlaub. (I think he is on holiday.) Ich denke, sie hat viel Arbeit. Agreeing: Ja, das glaube ich auch. Ja, das denke ich auch. Disagreeing: Nein, das glaube ich nicht. Not knowing: Keine Ahnung. (No idea.) After vielleicht and wahrscheinlich the verb is in position 2: Vielleicht hat er frei.',
-          'Как высказать предположение: Vielleicht ist sie krank. (Может быть, она заболела.) Wahrscheinlich kommt er später. (Вероятно, он придёт позже.) Ich glaube, er ist im Urlaub. (Я думаю, он в отпуске.) Ich denke, sie hat viel Arbeit. Согласиться: Ja, das glaube ich auch. Ja, das denke ich auch. Возразить: Nein, das glaube ich nicht. Не знать: Keine Ahnung. (Понятия не имею.) После vielleicht и wahrscheinlich глагол стоит на втором месте: Vielleicht hat er frei.',
-          'Як висловити припущення: Vielleicht ist sie krank. (Можливо, вона захворіла.) Wahrscheinlich kommt er später. (Імовірно, він прийде пізніше.) Ich glaube, er ist im Urlaub. (Я думаю, він у відпустці.) Ich denke, sie hat viel Arbeit. Погодитися: Ja, das glaube ich auch. Ja, das denke ich auch. Заперечити: Nein, das glaube ich nicht. Не знати: Keine Ahnung. (Гадки не маю.) Після vielleicht і wahrscheinlich дієслово стоїть на другому місці: Vielleicht hat er frei.',
-          'Tahmin yürütmek: Vielleicht ist sie krank. (Belki hastadır.) Wahrscheinlich kommt er später. (Muhtemelen daha sonra gelir.) Ich glaube, er ist im Urlaub. (Sanırım izinde.) Ich denke, sie hat viel Arbeit. Katılmak: Ja, das glaube ich auch. Ja, das denke ich auch. Karşı çıkmak: Nein, das glaube ich nicht. Bilmemek: Keine Ahnung. (Hiçbir fikrim yok.) vielleicht ve wahrscheinlich’ten sonra fiil 2. sırada durur: Vielleicht hat er frei.',
-        ],
-        hint: ['Nicht sicher: vielleicht. Fast sicher: wahrscheinlich. Meinung: Ich glaube, … Ich denke, …', 'Not sure: vielleicht. Almost sure: wahrscheinlich. Opinion: Ich glaube, … Ich denke, …', 'Не уверен: vielleicht. Почти уверен: wahrscheinlich. Мнение: Ich glaube, … Ich denke, …', 'Не впевнений: vielleicht. Майже впевнений: wahrscheinlich. Думка: Ich glaube, … Ich denke, …', 'Emin değil: vielleicht. Neredeyse emin: wahrscheinlich. Görüş: Ich glaube, … Ich denke, …'],
-      },
+  "id": "p4_vermuten",
+  "rule": "Etwas vermuten: Vielleicht ist er krank. Wahrscheinlich kommt er später. Ich glaube, er ist im Urlaub. Ich denke, er hat viel Arbeit. Zustimmen: Ja, das glaube ich auch. Ja, das denke ich auch. Widersprechen: Nein, das glaube ich nicht. Nichts wissen: Keine Ahnung. Nach vielleicht und wahrscheinlich steht das Verb auf Position 2: Vielleicht hat er frei.",
+  "examples": [
+    "Wo ist Herr Petrov? – Vielleicht ist er in der Kantine.",
+    "Ich glaube, der Chef kommt heute nicht.",
+    "Wahrscheinlich hat er Urlaub. – Ja, das denke ich auch."
+  ],
+  "highlight": null,
+  "t": [
+    "Making a guess: Vielleicht ist er krank. (Perhaps he is ill.) Wahrscheinlich kommt er später. (He will probably come later.) Ich glaube, er ist im Urlaub. (I think he is on holiday.) Ich denke, er hat viel Arbeit. Agreeing: Ja, das glaube ich auch. Ja, das denke ich auch. Disagreeing: Nein, das glaube ich nicht. Not knowing: Keine Ahnung. (No idea.) After vielleicht and wahrscheinlich the verb is in position 2: Vielleicht hat er frei.",
+    "Как высказать предположение: Vielleicht ist er krank. (Может быть, он заболел.) Wahrscheinlich kommt er später. (Вероятно, он придёт позже.) Ich glaube, er ist im Urlaub. (Я думаю, он в отпуске.) Ich denke, er hat viel Arbeit. Согласиться: Ja, das glaube ich auch. Ja, das denke ich auch. Возразить: Nein, das glaube ich nicht. Не знать: Keine Ahnung. (Понятия не имею.) После vielleicht и wahrscheinlich глагол стоит на втором месте: Vielleicht hat er frei.",
+    "Як висловити припущення: Vielleicht ist er krank. (Можливо, він захворів.) Wahrscheinlich kommt er später. (Імовірно, він прийде пізніше.) Ich glaube, er ist im Urlaub. (Я думаю, він у відпустці.) Ich denke, er hat viel Arbeit. Погодитися: Ja, das glaube ich auch. Ja, das denke ich auch. Заперечити: Nein, das glaube ich nicht. Не знати: Keine Ahnung. (Гадки не маю.) Після vielleicht і wahrscheinlich дієслово стоїть на другому місці: Vielleicht hat er frei.",
+    "Tahmin yürütmek: Vielleicht ist er krank. (Belki hastadır.) Wahrscheinlich kommt er später. (Muhtemelen daha sonra gelir.) Ich glaube, er ist im Urlaub. (Sanırım izinde.) Ich denke, er hat viel Arbeit. Katılmak: Ja, das glaube ich auch. Ja, das denke ich auch. Karşı çıkmak: Nein, das glaube ich nicht. Bilmemek: Keine Ahnung. (Hiçbir fikrim yok.) vielleicht ve wahrscheinlich’ten sonra fiil 2. sırada durur: Vielleicht hat er frei."
+  ],
+  "hint": [
+    "Nicht sicher: vielleicht. Fast sicher: wahrscheinlich. Meinung: Ich glaube, … Ich denke, …",
+    "Not sure: vielleicht. Almost sure: wahrscheinlich. Opinion: Ich glaube, … Ich denke, …",
+    "Не уверен: vielleicht. Почти уверен: wahrscheinlich. Мнение: Ich glaube, … Ich denke, …",
+    "Не впевнений: vielleicht. Майже впевнений: wahrscheinlich. Думка: Ich glaube, … Ich denke, …",
+    "Emin değil: vielleicht. Neredeyse emin: wahrscheinlich. Görüş: Ich glaube, … Ich denke, …"
+  ]
+},
       ex: [
-        mc('K1', 'vermuten', I.situation, 'Frau Nowak ist nicht im Büro. Du weißt nicht warum, aber du hast eine Idee. Was sagst du?', ['Vielleicht ist sie krank.', 'Sie ist krank, das weiß ich sicher.', 'Keine Ahnung, sie ist sicher krank.'],
-          ['Ms Nowak is not in the office. You do not know why, but you have an idea. What do you say?', 'Госпожи Nowak нет в офисе. Вы не знаете почему, но у вас есть предположение. Что вы скажете?', 'Пані Nowak немає в офісі. Ви не знаєте чому, але маєте припущення. Що ви скажете?', 'Nowak Hanım ofiste değil. Nedenini bilmiyorsunuz ama bir tahmininiz var. Ne dersiniz?']),
+        mc("K1", "vermuten", I.situation, "Herr Nowak ist nicht im Büro. Du weißt nicht warum, aber du hast eine Idee. Was sagst du?", ["Vielleicht ist er krank.","Er ist krank, das weiß ich sicher.","Keine Ahnung, er ist sicher krank."], ["Mr Nowak is not in the office. You do not know why, but you have an idea. What do you say?","Господина Nowak нет в офисе. Вы не знаете почему, но у вас есть предположение. Что вы скажете?","Пана Nowak немає в офісі. Ви не знаєте чому, але маєте припущення. Що ви скажете?","Nowak Bey ofiste değil. Nedenini bilmiyorsunuz ama bir tahmininiz var. Ne dersiniz?"], {"c":"p4_vermuten","sitovOptionOrder":["Vielleicht ist er krank.","Er ist krank, das weiß ich sicher.","Keine Ahnung, er ist sicher krank."]}),
         mc('K1', 'zustimmen', I.react, '„Ich glaube, der Chef ist heute nicht da.“ – Du denkst das auch.', ['Ja, das glaube ich auch.', 'Nein, das glaube ich nicht.', 'Keine Ahnung.'],
           ['“I think the boss is not in today.” – You think so too.', '«Я думаю, начальника сегодня нет». – Вы тоже так думаете.', '«Я думаю, начальника сьогодні немає». – Ви теж так думаєте.', '“Sanırım patron bugün yok.” – Siz de öyle düşünüyorsunuz.']),
         mc('K1', 'Keine Ahnung', I.react, '„Wann kommt der Techniker?“ – Du weißt es wirklich nicht.', ['Keine Ahnung.', 'Das glaube ich auch.', 'Da haben Sie recht.'],
@@ -357,33 +365,41 @@ const path = {
       title: 'Kann ich etwas ausrichten?',
       t: ['Can I take a message?', 'Что-нибудь передать?', 'Щось передати?', 'Bir mesajınız var mı?'],
       card: {
-        id: 'p4_nachricht',
-        rule: 'Am Telefon Auskunft geben: Tut mir leid, Frau Weber ist gerade nicht am Platz. Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Hilfe anbieten: Kann ich ihr etwas ausrichten? Soll er Sie zurückrufen, wenn er kommt? Können Sie morgen früh noch einmal anrufen? Antworten: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. Für einen Mann: er, ihm. Für eine Frau: sie, ihr.',
-        examples: ['Frau Weber ist gerade nicht am Platz.', 'Kann ich ihm etwas ausrichten?', 'Ich versuche es später noch einmal.'],
-        highlight: null,
-        t: [
-          'Giving information on the phone: Tut mir leid, Frau Weber ist gerade nicht am Platz. (not at her desk right now) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (He has already left.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Offering help: Kann ich ihr etwas ausrichten? (Can I give her a message?) Soll er Sie zurückrufen, wenn er kommt? (Shall he call you back?) Können Sie morgen früh noch einmal anrufen? Answers: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (I will try again later.) For a man: er, ihm. For a woman: sie, ihr.',
-          'Как дать справку по телефону: Tut mir leid, Frau Weber ist gerade nicht am Platz. (сейчас нет на месте) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Он уже ушёл.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Предложить помощь: Kann ich ihr etwas ausrichten? (Ей что-нибудь передать?) Soll er Sie zurückrufen, wenn er kommt? (Ему перезвонить вам?) Können Sie morgen früh noch einmal anrufen? Ответы: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я попробую позже ещё раз.) О мужчине: er, ihm. О женщине: sie, ihr.',
-          'Як дати довідку телефоном: Tut mir leid, Frau Weber ist gerade nicht am Platz. (зараз немає на місці) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Він уже пішов.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Запропонувати допомогу: Kann ich ihr etwas ausrichten? (Їй щось передати?) Soll er Sie zurückrufen, wenn er kommt? (Йому передзвонити вам?) Können Sie morgen früh noch einmal anrufen? Відповіді: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я спробую пізніше ще раз.) Про чоловіка: er, ihm. Про жінку: sie, ihr.',
-          'Telefonda bilgi vermek: Tut mir leid, Frau Weber ist gerade nicht am Platz. (şu anda yerinde değil) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Artık çıktı.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Yardım önermek: Kann ich ihr etwas ausrichten? (Ona bir şey ileteyim mi?) Soll er Sie zurückrufen, wenn er kommt? (Sizi geri arasın mı?) Können Sie morgen früh noch einmal anrufen? Cevaplar: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Daha sonra tekrar denerim.) Erkek için: er, ihm. Kadın için: sie, ihr.',
-        ],
-        hint: ['zurückrufen = später selbst anrufen. ausrichten = eine Nachricht weitergeben. Mann → er, ihm. Frau → sie, ihr.', 'zurückrufen = to call back later. ausrichten = to pass on a message. Man → er, ihm. Woman → sie, ihr.', 'zurückrufen = перезвонить позже. ausrichten = передать сообщение. Мужчина → er, ihm. Женщина → sie, ihr.', 'zurückrufen = передзвонити пізніше. ausrichten = передати повідомлення. Чоловік → er, ihm. Жінка → sie, ihr.', 'zurückrufen = sonra geri aramak. ausrichten = mesaj iletmek. Erkek → er, ihm. Kadın → sie, ihr.'],
-      },
+  "id": "p4_nachricht",
+  "rule": "Am Telefon Auskunft geben: Tut mir leid, Herr Weber ist gerade nicht am Platz. Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Hilfe anbieten: Kann ich ihr etwas ausrichten? Soll er Sie zurückrufen, wenn er kommt? Können Sie morgen früh noch einmal anrufen? Antworten: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. Für einen Mann: er, ihm. Für eine Frau: sie, ihr.",
+  "examples": [
+    "Herr Weber ist gerade nicht am Platz.",
+    "Kann ich ihm etwas ausrichten?",
+    "Ich versuche es später noch einmal."
+  ],
+  "highlight": null,
+  "t": [
+    "Giving information on the phone: Tut mir leid, Herr Weber ist gerade nicht am Platz. (not at his desk right now) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (He has already left.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Offering help: Kann ich ihr etwas ausrichten? (Can I give her a message?) Soll er Sie zurückrufen, wenn er kommt? (Shall he call you back?) Können Sie morgen früh noch einmal anrufen? Answers: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (I will try again later.) For a man: er, ihm. For a woman: sie, ihr.",
+    "Как дать справку по телефону: Tut mir leid, Herr Weber ist gerade nicht am Platz. (сейчас нет на месте) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Он уже ушёл.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Предложить помощь: Kann ich ihr etwas ausrichten? (Ей что-нибудь передать?) Soll er Sie zurückrufen, wenn er kommt? (Ему перезвонить вам?) Können Sie morgen früh noch einmal anrufen? Ответы: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я попробую позже ещё раз.) О мужчине: er, ihm. О женщине: sie, ihr.",
+    "Як дати довідку телефоном: Tut mir leid, Herr Weber ist gerade nicht am Platz. (зараз немає на місці) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Він уже пішов.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Запропонувати допомогу: Kann ich ihr etwas ausrichten? (Їй щось передати?) Soll er Sie zurückrufen, wenn er kommt? (Йому передзвонити вам?) Können Sie morgen früh noch einmal anrufen? Відповіді: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я спробую пізніше ще раз.) Про чоловіка: er, ihm. Про жінку: sie, ihr.",
+    "Telefonda bilgi vermek: Tut mir leid, Herr Weber ist gerade nicht am Platz. (şu anda yerinde değil) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Artık çıktı.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Yardım önermek: Kann ich ihr etwas ausrichten? (Ona bir şey ileteyim mi?) Soll er Sie zurückrufen, wenn er kommt? (Sizi geri arasın mı?) Können Sie morgen früh noch einmal anrufen? Cevaplar: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Daha sonra tekrar denerim.) Erkek için: er, ihm. Kadın için: sie, ihr."
+  ],
+  "hint": [
+    "zurückrufen = später selbst anrufen. ausrichten = eine Nachricht weitergeben. Mann → er, ihm. Frau → sie, ihr.",
+    "zurückrufen = to call back later. ausrichten = to pass on a message. Man → er, ihm. Woman → sie, ihr.",
+    "zurückrufen = перезвонить позже. ausrichten = передать сообщение. Мужчина → er, ihm. Женщина → sie, ihr.",
+    "zurückrufen = передзвонити пізніше. ausrichten = передати повідомлення. Чоловік → er, ihm. Жінка → sie, ihr.",
+    "zurückrufen = sonra geri aramak. ausrichten = mesaj iletmek. Erkek → er, ihm. Kadın → sie, ihr."
+  ]
+},
       ex: [
         mc('K4', 'nicht am Platz', I.react, '„Können Sie mich bitte mit Herrn Albers verbinden?“ – Herr Albers ist in einem Meeting.', ['Tut mir leid, er ist gerade nicht am Platz.', 'Ja, ich bin Herr Albers.', 'Auf Wiederhören, Herr Albers.'],
           ['“Could you put me through to Mr Albers, please?” – Mr Albers is in a meeting.', '«Соедините меня, пожалуйста, с господином Albers». – Господин Albers на совещании.', '«З’єднайте мене, будь ласка, з паном Albers». – Пан Albers на нараді.', '“Beni Albers Bey’e bağlar mısınız lütfen?” – Albers Bey toplantıda.']),
         mc('K4', 'ausrichten', I.situation, 'Deine Kollegin ist nicht da. Du möchtest dem Anrufer helfen. Was fragst du?', ['Kann ich ihr etwas ausrichten?', 'Kann ich Ihnen die Kantine zeigen?', 'Haben Sie schon Feierabend?'],
           ['Your colleague is not there. You want to help the caller. What do you ask?', 'Вашей коллеги нет. Вы хотите помочь звонящему. Что вы спросите?', 'Вашої колеги немає. Ви хочете допомогти тому, хто телефонує. Що ви запитаєте?', 'İş arkadaşınız yok. Arayan kişiye yardımcı olmak istiyorsunuz. Ne sorarsınız?']),
-        mc('K4', 'zurückrufen', I.react, '„Soll Frau Kaya Sie zurückrufen?“', ['Ja, bitte. Meine Nummer ist 0171 2233.', 'Ja, ich rufe Frau Kaya nie an.', 'Nein, ich bin Frau Kaya.'],
-          ['“Shall Ms Kaya call you back?”', '«Госпоже Kaya перезвонить вам?»', '«Пані Kaya передзвонити вам?»', '“Kaya Hanım sizi geri arasın mı?”']),
+        mc("K4", "zurückrufen", I.react, "„Soll Herr Kaya Sie zurückrufen?“", ["Ja, bitte. Meine Nummer ist 0171 2233.","Nein, ich bin Herr Kaya.","Ja, ich rufe Herr Kaya nie an."], ["“Shall Mr Kaya call you back?”","«Госпоже Kaya перезвонить вам?»","«Пан Kaya передзвонити вам?»","“Kaya Bey sizi geri arasın mı?”"], {"c":"p4_nachricht","sitovOptionOrder":["Ja, bitte. Meine Nummer ist 0171 2233.","Nein, ich bin Herr Kaya.","Ja, ich rufe Herr Kaya nie an."]}),
         mc('K4', 'später versuchen', I.react, '„Herr Petrov ist leider nicht mehr im Haus.“', ['Dann versuche ich es morgen noch einmal.', 'Dann verbinden Sie mich bitte mit Herrn Petrov.', 'Dann ist er sicher in seinem Büro.'],
           ['“Unfortunately Mr Petrov has already left.”', '«К сожалению, господин Petrov уже ушёл».', '«На жаль, пан Petrov уже пішов».', '“Maalesef Petrov Bey artık çıktı.”']),
         mc('K4', 'Feierabend', I.situation, 'Es ist 18 Uhr. In der Abteilung arbeitet niemand mehr. Was sagst du am Telefon?', ['Die Kollegen haben schon Feierabend.', 'Die Kollegen sind gerade am Platz.', 'Die Kollegen rufen sofort zurück.'],
           ['It is 6 pm. Nobody is working in the department any more. What do you say on the phone?', 'Сейчас 18 часов. В отделе уже никто не работает. Что вы скажете по телефону?', 'Зараз 18 година. У відділі вже ніхто не працює. Що ви скажете телефоном?', 'Saat 18. Bölümde artık kimse çalışmıyor. Telefonda ne dersiniz?']),
         gap('K4', 'ihm', I.pronoun, 'Herr Albers ist nicht da. Kann ich ', ' etwas ausrichten?', 'ihm', ['ihr', 'ihn'],
           ['Mr Albers is not here. Can I give him a message?', 'Господина Albers нет. Ему что-нибудь передать?', 'Пана Albers немає. Йому щось передати?', 'Albers Bey yok. Ona bir şey ileteyim mi?'], 'er'),
-        gap('K4', 'sie', I.pronoun, 'Frau Weber ist in der Pause. Soll ', ' Sie zurückrufen?', 'sie', ['ihr', 'er'],
-          ['Ms Weber is on her break. Shall she call you back?', 'У госпожи Weber перерыв. Ей перезвонить вам?', 'У пані Weber перерва. Їй передзвонити вам?', 'Weber Hanım molada. Sizi geri arasın mı?'], 'Frau Weber'),
+        gap("K4", "sie", I.pronoun, "Ergänze das Personalpronomen für „eine Frau“: Soll ", " Sie zurückrufen?", "sie", ["er","ihr"], ["Complete the pronoun for eine Frau: Soll … Sie zurückrufen?","Дополните местоимение для eine Frau: Soll … Sie zurückrufen?","Доповніть займенник для eine Frau: Soll … Sie zurückrufen?","eine Frau için zamiri tamamlayın: Soll … Sie zurückrufen?"], "eine Frau", {"c":"p4_nachricht","sitovOptionOrder":["sie","er","ihr"]}),
         gap('K4', 'am Platz', I.word, 'Sie ist gerade nicht am ', '. Kann ich etwas ausrichten?', 'Platz', ['Haus', 'Büro'],
           ['She is not at her desk right now. Can I take a message?', 'Её сейчас нет на месте. Что-нибудь передать?', 'Її зараз немає на місці. Щось передати?', 'Şu anda yerinde değil. Bir mesajınız var mı?'],
           ['desk, place', 'рабочее место', 'робоче місце', 'yer, masa']),

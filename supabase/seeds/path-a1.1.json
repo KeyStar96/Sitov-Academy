@@ -42568,7 +42568,7 @@
                 "Partizip"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Welches Partizip ist richtig? lesen → hat …",
+              "question": "Welches Partizip ist richtig? lesen → hat ___",
               "options": [
                 "gelest",
                 "gelesen",

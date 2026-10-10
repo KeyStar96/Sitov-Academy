@@ -85,7 +85,7 @@ const path = {
         hint: ['Von viel zu wenig: immer – meistens – oft – manchmal – selten – nie.', 'From a lot to a little: immer – meistens – oft – manchmal – selten – nie.', 'От частого к редкому: immer – meistens – oft – manchmal – selten – nie.', 'Від частого до рідкого: immer – meistens – oft – manchmal – selten – nie.', 'Çoktan aza: immer – meistens – oft – manchmal – selten – nie.'],
       },
       ex: [
-        mc("K1", "immer", I.choose, "Leon isst jeden Tag Obst. Er isst … Obst.", ["immer","selten","nie"], ["Leon eats fruit every day. He … eats fruit.","Leon ест фрукты каждый день. Он … ест фрукты.","Leon їсть фрукти щодня. Він … їсть фрукти.","Leon her gün meyve yiyor. O … meyve yer."], {"c":"p3_oft"}),
+        mc("K1", "immer", I.choose, "Leon isst jeden Tag Obst. Er isst ___ Obst.", ["immer","selten","nie"], ["Leon eats fruit every day. He … eats fruit.","Leon ест фрукты каждый день. Он … ест фрукты.","Leon їсть фрукти щодня. Він … їсть фрукти.","Leon her gün meyve yiyor. O … meyve yer."], {"c":"p3_oft"}),
         mc('K1', 'nie', I.choose, 'Tom trinkt keinen Kaffee, wirklich keinen. Er trinkt … Kaffee.', ['nie', 'oft', 'meistens'],
           ['Tom does not drink coffee, really none at all. He … drinks coffee.', 'Tom не пьёт кофе, совсем. Он … пьёт кофе.', 'Tom не п’є каву, зовсім. Він … п’є каву.', 'Tom kahve içmiyor, gerçekten hiç. O … kahve içmez.']),
         mc('K1', 'zweimal', I.choose, 'Ich gehe am Montag und am Donnerstag schwimmen. Ich gehe … pro Woche schwimmen.', ['zweimal', 'einmal', 'dreimal'],

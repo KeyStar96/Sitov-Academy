@@ -133,7 +133,7 @@ const path = {
       ex: [
         mc('G2', 'einen -en', I.choose, 'Ich suche einen … Rucksack.', ['großen', 'großer', 'großes'],
           ['I am looking for a big rucksack.', 'Я ищу большой рюкзак.', 'Я шукаю великий рюкзак.', 'Büyük bir sırt çantası arıyorum.']),
-        mc("G2", "ein -es", I.choose, "Leon kauft ein … Kleid.", ["rotes","roten","roter"], ["Leon is buying a red dress.","Leon покупает красное платье.","Leon купує червону сукню.","Leon kırmızı bir elbise alıyor."], {"c":"p2_akkusativ"}),
+        mc("G2", "ein -es", I.choose, "Leon kauft ein ___ Kleid.", ["rotes","roten","roter"], ["Leon is buying a red dress.","Leon покупает красное платье.","Leon купує червону сукню.","Leon kırmızı bir elbise alıyor."], {"c":"p2_akkusativ"}),
         mc('G2', 'eine -e', I.choose, 'Wir brauchen eine … Schüssel.', ['neue', 'neuen', 'neues'],
           ['We need a new bowl.', 'Нам нужна новая миска.', 'Нам потрібна нова миска.', 'Yeni bir kâseye ihtiyacımız var.']),
         mc('G2', 'einen -en', I.choose, 'Emre hat … Schirm gekauft.', ['einen schwarzen', 'ein schwarzer', 'einen schwarzer'],

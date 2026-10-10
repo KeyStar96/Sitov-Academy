@@ -1,7 +1,6 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
 const WERDEN = 'wird / werden'
-const PRAXIS = 'Nachricht auf der Mailbox: „Guten Tag, Frau Weber, hier ist die Praxis Dr. Sommer. Ihr Termin am Dienstag um neun Uhr fällt leider aus, weil die Ärztin krank ist. Bitte rufen Sie uns zurück. Wir sind heute bis 18 Uhr erreichbar.“'
 const PAUL = 'Nachricht auf der Mailbox: „Hallo Emre, hier ist Paul. Es tut mir leid, ich schaffe es heute nicht zum Training. Mein Zug hat eine Stunde Verspätung. Ich melde mich morgen wieder. Tschüs!“'
 
 /** A2.2 · Pfad 3 · Post und Telefon – Lektionen. Wiederholung und Test: p3-check.mjs */
@@ -488,12 +487,9 @@ const path = {
         hint: ['Wer ruft an? Was ist passiert? Was soll man tun? ausfallen = findet nicht statt.', 'Who is calling? What has happened? What should you do? ausfallen = does not take place.', 'Кто звонит? Что случилось? Что нужно сделать? ausfallen = не состоится.', 'Хто телефонує? Що сталося? Що треба зробити? ausfallen = не відбудеться.', 'Kim arıyor? Ne oldu? Ne yapmak gerekiyor? ausfallen = yapılmıyor.'],
       },
       ex: [
-        mc('Z1', 'Wer?', I.read, `${PRAXIS} Wer hat angerufen?`, ['Eine Arztpraxis.', 'Frau Weber.', 'Eine Schule.'],
-          ['Who called?', 'Кто звонил?', 'Хто телефонував?', 'Kim aradı?']),
-        mc('Z1', 'ausfallen', I.read, `${PRAXIS} Was ist mit dem Termin am Dienstag?`, ['Er findet nicht statt.', 'Er ist eine Stunde später.', 'Er dauert bis 18 Uhr.'],
-          ['What about the appointment on Tuesday?', 'Что с приёмом во вторник?', 'Що з прийомом у вівторок?', 'Salı günkü randevuya ne oldu?']),
-        mc('Z1', 'Was tun?', I.read, `${PRAXIS} Was soll Frau Weber tun?`, ['Sie soll die Praxis anrufen.', 'Sie soll am Dienstag kommen.', 'Sie soll eine E-Mail schreiben.'],
-          ['What should Ms Weber do?', 'Что должна сделать госпожа Weber?', 'Що має зробити пані Weber?', 'Weber Hanım ne yapmalı?']),
+        mc("Z1", "Wer?", I.read, "Nachricht auf der Mailbox: „Guten Tag, Herr Weber, hier ist die Praxis Dr. Sommer. Ihr Termin am Dienstag um neun Uhr fällt leider aus, weil der Arzt krank ist. Bitte rufen Sie uns zurück. Wir sind heute bis 18 Uhr erreichbar.“ Wer hat angerufen?", ["Eine Arztpraxis.","Herr Weber.","Eine Schule."], ["Who called?","Кто звонил?","Хто телефонував?","Kim aradı?"], {"c":"p3_mailbox","sitovOptionOrder":["Herr Weber.","Eine Schule.","Eine Arztpraxis."]}),
+        mc("Z1", "ausfallen", I.read, "Nachricht auf der Mailbox: „Guten Tag, Herr Weber, hier ist die Praxis Dr. Sommer. Ihr Termin am Dienstag um neun Uhr fällt leider aus, weil der Arzt krank ist. Bitte rufen Sie uns zurück. Wir sind heute bis 18 Uhr erreichbar.“ Was ist mit dem Termin am Dienstag?", ["Er findet nicht statt.","Er dauert bis 18 Uhr.","Er ist eine Stunde später."], ["What about the appointment on Tuesday?","Что с приёмом во вторник?","Що з прийомом у вівторок?","Salı günkü randevuya ne oldu?"], {"c":"p3_mailbox"}),
+        mc("Z1", "Was tun?", I.read, "Nachricht auf der Mailbox: „Guten Tag, Herr Weber, hier ist die Praxis Dr. Sommer. Ihr Termin am Dienstag um neun Uhr fällt leider aus, weil der Arzt krank ist. Bitte rufen Sie uns zurück. Wir sind heute bis 18 Uhr erreichbar.“ Was soll Herr Weber tun?", ["Er soll die Praxis anrufen.","Er soll am Dienstag kommen.","Er soll eine E-Mail schreiben."], ["What should Mr Weber do?","Что должен сделать господин Weber?","Що має зробити пан Weber?","Weber Bey ne yapmalı?"], {"c":"p3_mailbox"}),
         mc('Z1', 'Warum?', I.read, `${PAUL} Warum kommt Paul nicht zum Training?`, ['Sein Zug kommt zu spät.', 'Er ist krank.', 'Er hat keine Lust.'],
           ['Why is Paul not coming to training?', 'Почему Paul не придёт на тренировку?', 'Чому Paul не прийде на тренування?', 'Paul neden antrenmana gelmiyor?']),
         mc('Z1', 'Wann?', I.read, `${PAUL} Wann meldet sich Paul wieder?`, ['Am nächsten Tag.', 'In einer Stunde.', 'Heute Abend.'],

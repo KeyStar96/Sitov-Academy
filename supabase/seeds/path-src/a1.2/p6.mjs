@@ -177,11 +177,9 @@ const path = {
   }
 },
       ex: [
-        mc('G3', 'mir', I.choose, 'Ich finde die Schuhe toll. Sie gefallen … sehr.', ['mir', 'mich', 'ich'],
-          ['I think the shoes are great. I like them a lot.', 'Мне очень нравятся эти туфли.', 'Мені дуже подобаються ці туфлі.', 'Ayakkabıları harika buluyorum. Çok hoşuma gidiyorlar.']),
-        mc('G3', 'ihm', I.choose, 'Das ist Jonas. Die Jacke passt … gut.', ['ihm', 'ihr', 'ihnen'],
-          ['This is Jonas. The jacket fits him well.', 'Это Jonas. Куртка ему хорошо подходит.', 'Це Jonas. Куртка йому добре підходить.', 'Bu Jonas. Ceket ona iyi oluyor.'], { h: 'who' }),
-        mc("G3", "Ihnen", I.choose, "Herr Aksoy, gefällt … das Kleid?", ["Ihnen","dir","ihr"], ["Mr Aksoy, do you like the dress?","Господин Aksoy, вам нравится это платье?","Пане Aksoy, вам подобається ця сукня?","Aksoy Bey, elbise hoşunuza gidiyor mu?"], {"c":"p6_dativ"}),
+        mc("G3", "mir", I.choose, "Ich finde die Schuhe toll. Sie gefallen ___ sehr.", ["mir","ich","mich"], ["I think the shoes are great. I like them a lot.","Мне очень нравятся эти туфли.","Мені дуже подобаються ці туфлі.","Ayakkabıları harika buluyorum. Çok hoşuma gidiyorlar."], {"c":"p6_dativ","sitovOptionOrder":["ich","mich","mir"]}),
+        mc("G3", "ihm", I.choose, "Das ist Jonas. Die Jacke passt ___ gut.", ["ihm","ihr","ihnen"], ["This is Jonas. The jacket fits him well.","Это Jonas. Куртка ему хорошо подходит.","Це Jonas. Куртка йому добре підходить.","Bu Jonas. Ceket ona iyi oluyor."], {"h":"who","c":"p6_dativ"}),
+        mc("G3", "Ihnen", I.choose, "Herr Aksoy, gefällt ___ das Kleid?", ["Ihnen","dir","ihr"], ["Mr Aksoy, do you like the dress?","Господин Aksoy, вам нравится это платье?","Пане Aksoy, вам подобається ця сукня?","Aksoy Bey, elbise hoşunuza gidiyor mu?"], {"c":"p6_dativ"}),
         gap('G3', 'dir', I.pronoun, 'Du siehst toll aus! Der Mantel steht ', ' sehr gut.', 'dir', ['dich', 'du'],
           ['You look great! The coat really suits you.', 'Ты отлично выглядишь! Пальто тебе очень идёт.', 'Ти чудово виглядаєш! Пальто тобі дуже личить.', 'Harika görünüyorsun! Palto sana çok yakışıyor.'], 'du'),
         gap("G3", "ihr", I.pronoun, "Ergänze das Dativpronomen zu „sie (Singular)“: Die Bluse gefällt ", ".", "ihr", ["ihm","sie"], ["Complete the dative pronoun for sie (singular): Die Bluse gefällt …","Дополните местоимение в дательном падеже для sie (ед. число): Die Bluse gefällt …","Доповніть займенник у давальному відмінку для sie (однина): Die Bluse gefällt …","sie (tekil) için datif zamirini tamamlayın: Die Bluse gefällt …"], "sie", {"h":"who","c":"p6_dativ"}),

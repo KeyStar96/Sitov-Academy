@@ -359,7 +359,7 @@
                 "Zeugin"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Berger hat den Unfall genau gesehen und erzählt der Polizei, was passiert ist. Sie ist eine …",
+              "question": "Wortschatz (feminine Form): Eine Person hat einen Unfall beobachtet und berichtet der Polizei davon. Das feminine Nomen dafür ist ___",
               "options": [
                 "Gewinnerin",
                 "Zeugin",
@@ -381,25 +381,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Glück ↔ Pech, gewinnen ↔ verlieren. Zufall = without a plan. Schaden = something is broken. Zeuge = saw it happen.",
                 "explanation": "Good luck and bad luck: das Glück (luck, happiness) ↔ das Pech (bad luck). Someone who is often lucky is a Glückspilz; someone who is often unlucky is a Pechvogel. In a prize draw you buy ein Los (a ticket) and hope for einen Gewinn (a prize): gewinnen (win) ↔ verlieren (lose). Der Zufall (coincidence): something happens without a plan (zufällig = by chance). Around an accident: ein Unfall passiert (an accident happens). Der Schaden (damage) = something is broken. sich verletzen (to get hurt), die Verletzung (injury). Der Zeuge / die Zeugin (witness) saw everything. stürzen = to fall, bremsen = to brake, zusammenstoßen = to collide.",
-                "task": "Ms Berger saw the accident clearly and tells the police what happened. She is a …"
+                "task": "Vocabulary (feminine form): A person witnessed an accident and reports it to the police. What is the feminine German noun for this person?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Glück ↔ Pech, gewinnen ↔ verlieren. Zufall = без плана. Schaden = что-то сломано. Zeuge = тот, кто это видел.",
                 "explanation": "Удача и невезение: das Glück (удача, счастье) ↔ das Pech (невезение). Кому часто везёт, тот Glückspilz (счастливчик); кому часто не везёт, тот Pechvogel (неудачник). В розыгрыше покупают ein Los (лотерейный билет) и надеются на einen Gewinn (выигрыш): gewinnen (выигрывать) ↔ verlieren (проигрывать, терять). Der Zufall (случайность): что-то происходит без плана (zufällig = случайно). Слова об аварии: ein Unfall passiert (происходит авария, несчастный случай). Der Schaden (ущерб) = что-то сломано. sich verletzen (получить травму), die Verletzung (травма). Der Zeuge / die Zeugin (свидетель, свидетельница) всё видел(а). stürzen = упасть, bremsen = тормозить, zusammenstoßen = столкнуться.",
-                "task": "Госпожа Berger хорошо видела аварию и рассказывает полиции, что произошло. Она …"
+                "task": "Лексика (женский род): Человек видел аварию и сообщает о ней полиции. Какое немецкое существительное женского рода обозначает этого человека?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Glück ↔ Pech, gewinnen ↔ verlieren. Zufall = без плану. Schaden = щось зламано. Zeuge = той, хто це бачив.",
                 "explanation": "Удача і невдача: das Glück (удача, щастя) ↔ das Pech (невдача, невезіння). Кому часто щастить, той Glückspilz (щасливчик); кому часто не щастить, той Pechvogel (невдаха). У розіграші купують ein Los (лотерейний квиток) і сподіваються на einen Gewinn (виграш): gewinnen (вигравати) ↔ verlieren (програвати, губити). Der Zufall (випадковість): щось стається без плану (zufällig = випадково). Слова про аварію: ein Unfall passiert (стається аварія, нещасний випадок). Der Schaden (шкода, збитки) = щось зламано. sich verletzen (травмуватися), die Verletzung (травма). Der Zeuge / die Zeugin (свідок, свідка) все бачив (бачила). stürzen = впасти, bremsen = гальмувати, zusammenstoßen = зіткнутися.",
-                "task": "Пані Berger добре бачила аварію і розповідає поліції, що сталося. Вона …"
+                "task": "Лексика (жіночий рід): Людина бачила аварію та повідомляє про неї поліції. Який німецький іменник жіночого роду позначає цю людину?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Glück ↔ Pech, gewinnen ↔ verlieren. Zufall = plansız. Schaden = bir şey bozuk. Zeuge = olayı gören kişi.",
                 "explanation": "Şans ve şanssızlık: das Glück (şans, mutluluk) ↔ das Pech (şanssızlık). Sık sık şansı yaver giden kişi Glückspilz, sık sık şanssızlık yaşayan kişi Pechvogel’dir. Çekilişte ein Los (bilet) alınır ve einen Gewinn (ikramiye) umulur: gewinnen (kazanmak) ↔ verlieren (kaybetmek). Der Zufall (tesadüf): Bir şey plansız olur (zufällig = tesadüfen). Kazayla ilgili kelimeler: ein Unfall passiert (bir kaza olur). Der Schaden (hasar) = bir şey bozuk. sich verletzen (yaralanmak), die Verletzung (yaralanma). Der Zeuge / die Zeugin (tanık) her şeyi görmüştür. stürzen = düşmek, bremsen = fren yapmak, zusammenstoßen = çarpışmak.",
-                "task": "Bayan Berger kazayı net olarak gördü ve polise ne olduğunu anlatıyor. O bir …"
+                "task": "Sözcük bilgisi (dişil biçim): Bir kişi kazaya tanık oldu ve polise olanları anlatıyor. Bu kişi için Almancadaki dişil isim nedir?"
               }
             }
           },
@@ -3929,19 +3929,19 @@
                 "Was war zuerst?"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Was ist zuerst passiert? „Lena konnte nicht ins Haus, weil sie ihren Schlüssel vergessen hatte.“",
+              "question": "Was ist zuerst passiert? „Leon konnte nicht ins Haus, weil er seinen Schlüssel vergessen hatte.“",
               "options": [
                 "Beides ist gleichzeitig passiert.",
-                "Lena konnte nicht ins Haus.",
-                "Lena hat den Schlüssel vergessen."
+                "Leon konnte nicht ins Haus.",
+                "Leon hat den Schlüssel vergessen."
               ],
-              "correct_answer": "Lena hat den Schlüssel vergessen.",
+              "correct_answer": "Leon hat den Schlüssel vergessen.",
               "accepted_answers": [
-                "Lena hat den Schlüssel vergessen."
+                "Leon hat den Schlüssel vergessen."
               ]
             },
             "accepted_answers": [
-              "Lena hat den Schlüssel vergessen."
+              "Leon hat den Schlüssel vergessen."
             ],
             "hint": "hatte / war + Partizip: Das ist noch früher passiert. Bewegung und Veränderung: war (war gegangen, war abgefahren).",
             "explanation": "Plusquamperfekt: Präteritum von haben oder sein + Partizip am Satzende. ich hatte trainiert, du hattest trainiert, er hatte trainiert, wir hatten trainiert … / ich war geflohen, du warst geflohen, er war geflohen, wir waren geflohen … sein steht wie im Perfekt bei Bewegung und Veränderung. Man benutzt das Plusquamperfekt, wenn etwas vor einem anderen Ereignis in der Vergangenheit passiert ist: Ich musste zusehen (Vergangenheit), denn ich hatte mir den Fuß gebrochen (noch früher).",
@@ -3951,25 +3951,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "hatte / war + participle: this happened even earlier. Movement and change: war (war gegangen, war abgefahren).",
                 "explanation": "Plusquamperfekt (past perfect): Präteritum of haben or sein + past participle at the end of the clause. ich hatte trainiert, du hattest trainiert, er hatte trainiert, wir hatten trainiert … / ich war geflohen, du warst geflohen, er war geflohen, wir waren geflohen … As in the Perfekt, sein is used for movement and change of state. You use the Plusquamperfekt when something happened before another event in the past: Ich musste zusehen (past), denn ich hatte mir den Fuß gebrochen (even earlier). (I had to watch because I had broken my foot.)",
-                "task": "What happened first? “Lena could not get into the house because she had forgotten her key.”"
+                "task": "What happened first? “Leon could not get into the house because he had forgotten his key.”"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "hatte / war + Partizip II: это произошло ещё раньше. Движение и изменение: war (war gegangen, war abgefahren).",
                 "explanation": "Plusquamperfekt (предпрошедшее время): Präteritum глагола haben или sein + Partizip II в конце предложения. ich hatte trainiert, du hattest trainiert, er hatte trainiert, wir hatten trainiert … / ich war geflohen, du warst geflohen, er war geflohen, wir waren geflohen … sein, как и в Perfekt, используется при движении и изменении состояния. Plusquamperfekt нужен, когда что-то произошло раньше другого события в прошлом: Ich musste zusehen (прошлое), denn ich hatte mir den Fuß gebrochen (ещё раньше). (Мне пришлось только смотреть, потому что я сломал ногу.)",
-                "task": "Что произошло сначала? «Lena не могла попасть в дом, потому что забыла ключ.»"
+                "task": "Что произошло сначала? «Leon не мог попасть в дом, потому что забыл ключ.»"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "hatte / war + Partizip II: це сталося ще раніше. Рух і зміна: war (war gegangen, war abgefahren).",
                 "explanation": "Plusquamperfekt (передминулий час): Präteritum дієслова haben або sein + Partizip II у кінці речення. ich hatte trainiert, du hattest trainiert, er hatte trainiert, wir hatten trainiert … / ich war geflohen, du warst geflohen, er war geflohen, wir waren geflohen … sein, як і в Perfekt, уживається для руху та зміни стану. Plusquamperfekt потрібен, коли щось сталося раніше за іншу подію в минулому: Ich musste zusehen (минуле), denn ich hatte mir den Fuß gebrochen (ще раніше). (Мені довелося тільки дивитися, бо я зламав ногу.)",
-                "task": "Що сталося спочатку? «Lena не могла потрапити в будинок, бо забула ключ.»"
+                "task": "Що сталося спочатку? «Leon не міг потрапити в будинок, бо забув ключ.»"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "hatte / war + Partizip II: Bu daha da önce oldu. Hareket ve değişim: war (war gegangen, war abgefahren).",
                 "explanation": "Plusquamperfekt (geçmişin geçmişi): haben ya da sein fiilinin Präteritum’u + cümlenin sonunda Partizip II. ich hatte trainiert, du hattest trainiert, er hatte trainiert, wir hatten trainiert … / ich war geflohen, du warst geflohen, er war geflohen, wir waren geflohen … Perfekt’te olduğu gibi hareket ve durum değişikliğinde sein kullanılır. Plusquamperfekt, geçmişteki başka bir olaydan önce olan şeyler için kullanılır: Ich musste zusehen (geçmiş), denn ich hatte mir den Fuß gebrochen (daha da önce). (Sadece izlemek zorunda kaldım, çünkü ayağımı kırmıştım.)",
-                "task": "Önce ne oldu? “Lena eve giremedi çünkü anahtarını unutmuştu.”"
+                "task": "Önce ne oldu? “Leon eve giremedi çünkü anahtarını unutmuştu.”"
               }
             }
           },
@@ -9019,7 +9019,7 @@
       {
         "id": "P2-G1",
         "area": "grammar",
-        "description": "Gegensatz mit obwohl: Lea schaut den Film noch einmal, obwohl sie das Ende schon kennt. Das Verb steht im Nebensatz am Ende; Unterschied zu weil und trotzdem."
+        "description": "Gegensatz mit obwohl: Leo schaut den Film noch einmal, obwohl er das Ende schon kennt. Das Verb steht im Nebensatz am Ende; Unterschied zu weil und trotzdem."
       },
       {
         "id": "P2-G2",
@@ -11056,7 +11056,7 @@
                 "echt"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Lena ist begeistert: „Der Schauspieler ist … gut! So etwas habe ich noch nie gesehen.“",
+              "question": "Leon ist begeistert: „Der Schauspieler ist ___ gut! So etwas habe ich noch nie gesehen.“",
               "options": [
                 "echt",
                 "gar nicht",
@@ -11078,25 +11078,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "++ echt, total, besonders / + ziemlich, wirklich / – nicht so, nicht besonders / – – gar nicht, überhaupt nicht (not at all).",
                 "explanation": "Gradpartikeln (intensifiers) make an adjective stronger or weaker. Very strong (++): echt, total, besonders (really, totally, especially) – Der Film ist echt spannend. Strong (+): ziemlich, wirklich (quite, really) – Die Serie ist ziemlich lustig. Weak (–): nicht so, nicht besonders (not so, not particularly) – Das Ende war nicht besonders gut. Negative (– –): gar nicht, überhaupt nicht (not at all) – Der Krimi war überhaupt nicht spannend. The intensifier comes directly before the adjective. echt and total are mainly heard in conversation.",
-                "task": "Lena is thrilled: “The actor is … good! I have never seen anything like it.”"
+                "task": "Leon is thrilled: “The actor is … good! I have never seen anything like it.”"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "++ echt, total, besonders / + ziemlich, wirklich / – nicht so, nicht besonders / – – gar nicht, überhaupt nicht (совсем не).",
                 "explanation": "Gradpartikeln (усилительные частицы) делают прилагательное сильнее или слабее. Очень сильно (++): echt, total, besonders (реально, совершенно, особенно) – Der Film ist echt spannend. Сильно (+): ziemlich, wirklich (довольно, действительно) – Die Serie ist ziemlich lustig. Слабо (–): nicht so, nicht besonders (не так, не особенно) – Das Ende war nicht besonders gut. Отрицательно (– –): gar nicht, überhaupt nicht (совсем не, вообще не) – Der Krimi war überhaupt nicht spannend. Частица стоит прямо перед прилагательным. echt и total звучат прежде всего в разговоре.",
-                "task": "Lena в восторге: «Актёр … хорош! Я такого ещё никогда не видела.»"
+                "task": "Leon в восторге: «Актёр … хорош! Я такого ещё никогда не видел.»"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "++ echt, total, besonders / + ziemlich, wirklich / – nicht so, nicht besonders / – – gar nicht, überhaupt nicht (зовсім не).",
                 "explanation": "Gradpartikeln (підсилювальні частки) роблять прикметник сильнішим або слабшим. Дуже сильно (++): echt, total, besonders (реально, цілком, особливо) – Der Film ist echt spannend. Сильно (+): ziemlich, wirklich (досить, справді) – Die Serie ist ziemlich lustig. Слабко (–): nicht so, nicht besonders (не так, не особливо) – Das Ende war nicht besonders gut. Заперечно (– –): gar nicht, überhaupt nicht (зовсім не, взагалі не) – Der Krimi war überhaupt nicht spannend. Частка стоїть безпосередньо перед прикметником. echt і total звучать передусім у розмові.",
-                "task": "Lena в захваті: «Актор … гарний! Я такого ще ніколи не бачила.»"
+                "task": "Leon в захваті: «Актор … гарний! Я такого ще ніколи не бачив.»"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "++ echt, total, besonders / + ziemlich, wirklich / – nicht so, nicht besonders / – – gar nicht, überhaupt nicht (hiç değil).",
                 "explanation": "Gradpartikeln (derece bildiren sözcükler) bir sıfatı güçlendirir ya da zayıflatır. Çok güçlü (++): echt, total, besonders (gerçekten, tamamen, özellikle) – Der Film ist echt spannend. Güçlü (+): ziemlich, wirklich (oldukça, gerçekten) – Die Serie ist ziemlich lustig. Zayıf (–): nicht so, nicht besonders (o kadar değil, pek değil) – Das Ende war nicht besonders gut. Olumsuz (– –): gar nicht, überhaupt nicht (hiç değil) – Der Krimi war überhaupt nicht spannend. Bu sözcük sıfatın hemen önünde durur. echt ve total daha çok konuşmada duyulur.",
-                "task": "Lena hayran kalmış: “Oyuncu … iyi! Böyle bir şeyi hiç görmemiştim.”"
+                "task": "Leon hayran kalmış: “Oyuncu … iyi! Böyle bir şeyi hiç görmemiştim.”"
               }
             }
           },
@@ -32379,7 +32379,7 @@
               ],
               "instruction": "Ergänze das Modalverb in der richtigen Form.",
               "text_before": "Entschuldigung, ",
-              "text_after": " ich Sie kurz etwas fragen? Ich suche das Büro von Frau Kovac.",
+              "text_after": " ich Sie kurz etwas fragen? Ich suche das Büro von Herrn Kovac.",
               "gap_hint": "dürfen",
               "correct_answer": "darf",
               "options": [
@@ -32402,25 +32402,25 @@
                 "instruction": "Fill in the modal verb in the correct form.",
                 "hint": "Darf ich Sie etwas fragen? Können Sie mir sagen, wo / wann / ob … + verb at the end?",
                 "explanation": "Asking for information: first you politely attract attention: Entschuldigung, darf ich Sie kurz etwas fragen? (Excuse me, may I ask you something quickly?) Then you ask indirectly, which sounds more polite: Können Sie mir sagen, wo der Arabischkurs ist? (Can you tell me where the Arabic course is?) Wissen Sie, wann der Kurs beginnt? For yes/no questions you use ob (whether): Können Sie mir sagen, ob man hier auch Salsa lernen kann? In an indirect question the verb goes at the end. With du: Kannst du mir sagen, …? Weißt du, …?",
-                "task": "Excuse me, may I ask you something quickly? I am looking for Ms Kovac’s office."
+                "task": "Excuse me, may I ask you something quickly? I am looking for Mr Kovac’s office."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в правильной форме.",
                 "hint": "Darf ich Sie etwas fragen? Können Sie mir sagen, wo / wann / ob … + глагол в конце?",
                 "explanation": "Как попросить информацию: сначала вежливо обращают на себя внимание: Entschuldigung, darf ich Sie kurz etwas fragen? (Извините, можно вас кое о чём спросить?) Затем спрашивают косвенно, так звучит вежливее: Können Sie mir sagen, wo der Arabischkurs ist? (Вы не подскажете, где курс арабского?) Wissen Sie, wann der Kurs beginnt? В вопросах «да/нет» стоит ob (ли): Können Sie mir sagen, ob man hier auch Salsa lernen kann? В косвенном вопросе глагол стоит в конце. На «ты»: Kannst du mir sagen, …? Weißt du, …?",
-                "task": "Извините, можно вас кое о чём спросить? Я ищу кабинет госпожи Kovac."
+                "task": "Извините, можно вас кое о чём спросить? Я ищу кабинет господина Kovac."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в правильній формі.",
                 "hint": "Darf ich Sie etwas fragen? Können Sie mir sagen, wo / wann / ob … + дієслово в кінці?",
                 "explanation": "Як попросити інформацію: спочатку ввічливо звертають на себе увагу: Entschuldigung, darf ich Sie kurz etwas fragen? (Вибачте, можна вас дещо спитати?) Потім питають непрямо, так звучить ввічливіше: Können Sie mir sagen, wo der Arabischkurs ist? (Ви не підкажете, де курс арабської?) Wissen Sie, wann der Kurs beginnt? У запитаннях «так/ні» стоїть ob (чи): Können Sie mir sagen, ob man hier auch Salsa lernen kann? У непрямому запитанні дієслово стоїть у кінці. На «ти»: Kannst du mir sagen, …? Weißt du, …?",
-                "task": "Вибачте, можна вас дещо спитати? Я шукаю кабінет пані Kovac."
+                "task": "Вибачте, можна вас дещо спитати? Я шукаю кабінет пана Kovac."
               },
               "tr": {
                 "instruction": "Kip fiilini doğru biçimde yazın.",
                 "hint": "Darf ich Sie etwas fragen? Können Sie mir sagen, wo / wann / ob … + fiil sonda?",
                 "explanation": "Bilgi istemek: Önce kibarca dikkat çekilir: Entschuldigung, darf ich Sie kurz etwas fragen? (Affedersiniz, size kısaca bir şey sorabilir miyim?) Sonra dolaylı sorulur, bu daha kibar durur: Können Sie mir sagen, wo der Arabischkurs ist? (Arapça kursunun nerede olduğunu söyleyebilir misiniz?) Wissen Sie, wann der Kurs beginnt? Evet/hayır sorularında ob kullanılır: Können Sie mir sagen, ob man hier auch Salsa lernen kann? Dolaylı soruda fiil sonda durur. du ile: Kannst du mir sagen, …? Weißt du, …?",
-                "task": "Affedersiniz, size kısaca bir şey sorabilir miyim? Bayan Kovac’ın ofisini arıyorum."
+                "task": "Affedersiniz, size kısaca bir şey sorabilir miyim? Kovac Bey’in ofisini arıyorum."
               }
             }
           },
@@ -33890,19 +33890,19 @@
                 "irreale Bedingung bilden"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Anna hat wenig Geld. Sie macht keinen teuren Sprachkurs.",
+              "question": "Anton hat wenig Geld. Er macht keinen teuren Sprachkurs.",
               "options": [
-                "Wenn Anna hätte mehr Geld, sie würde einen teuren Sprachkurs machen.",
-                "Wenn Anna mehr Geld hätte, würde sie einen teuren Sprachkurs machen.",
-                "Wenn Anna mehr Geld hat, würde sie einen teuren Sprachkurs gemacht."
+                "Wenn Anton hätte mehr Geld, er würde einen teuren Sprachkurs machen.",
+                "Wenn Anton mehr Geld hätte, würde er einen teuren Sprachkurs machen.",
+                "Wenn Anton mehr Geld hat, würde er einen teuren Sprachkurs gemacht."
               ],
-              "correct_answer": "Wenn Anna mehr Geld hätte, würde sie einen teuren Sprachkurs machen.",
+              "correct_answer": "Wenn Anton mehr Geld hätte, würde er einen teuren Sprachkurs machen.",
               "accepted_answers": [
-                "Wenn Anna mehr Geld hätte, würde sie einen teuren Sprachkurs machen."
+                "Wenn Anton mehr Geld hätte, würde er einen teuren Sprachkurs machen."
               ]
             },
             "accepted_answers": [
-              "Wenn Anna mehr Geld hätte, würde sie einen teuren Sprachkurs machen."
+              "Wenn Anton mehr Geld hätte, würde er einen teuren Sprachkurs machen."
             ],
             "hint": "Wenn … + Konjunktiv II am Ende, + Verb im Konjunktiv II + Subjekt: Wenn ich Zeit hätte, würde ich kommen.",
             "explanation": "Irreale Bedingungen: So ist es nicht – aber man stellt es sich vor. Der wenn-Satz nennt die Bedingung, der Hauptsatz die Folge; beide stehen im Konjunktiv II. Im wenn-Satz steht das Verb am Ende: Wenn ich mehr Zeit hätte, … Wenn sie nicht arbeiten müsste, … Wenn er die Sprache lernen würde, … Der Hauptsatz danach beginnt mit dem Verb: …, würde ich Chinesisch lernen. …, könnten wir uns treffen. Die Realität ist anders: Ich habe keine Zeit, deshalb lerne ich nicht Chinesisch.",
@@ -33912,25 +33912,25 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "Wenn … + Konjunktiv II at the end, + verb in the Konjunktiv II + subject: Wenn ich Zeit hätte, würde ich kommen.",
                 "explanation": "Unreal conditions: it is not so – but you imagine it. The wenn clause gives the condition, the main clause the result; both are in the Konjunktiv II. In the wenn clause the verb goes at the end: Wenn ich mehr Zeit hätte, … (If I had more time, …) Wenn sie nicht arbeiten müsste, … Wenn er die Sprache lernen würde, … The main clause after it begins with the verb: …, würde ich Chinesisch lernen (I would learn Chinese). …, könnten wir uns treffen. Reality is different: Ich habe keine Zeit, deshalb lerne ich nicht Chinesisch.",
-                "task": "Anna has little money. She is not doing an expensive language course."
+                "task": "Anton has little money. He is not doing an expensive language course."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "Wenn … + Konjunktiv II в конце, + глагол в Konjunktiv II + подлежащее: Wenn ich Zeit hätte, würde ich kommen.",
                 "explanation": "Нереальные условия: на самом деле это не так, но мы это представляем. Придаточное с wenn называет условие, главное предложение – следствие; оба стоят в Konjunktiv II. В придаточном с wenn глагол стоит в конце: Wenn ich mehr Zeit hätte, … (Если бы у меня было больше времени, …) Wenn sie nicht arbeiten müsste, … Wenn er die Sprache lernen würde, … Главное предложение после него начинается с глагола: …, würde ich Chinesisch lernen (я бы учил китайский). …, könnten wir uns treffen. В реальности всё иначе: Ich habe keine Zeit, deshalb lerne ich nicht Chinesisch.",
-                "task": "У Anna мало денег. Она не ходит на дорогой языковой курс."
+                "task": "У Anton мало денег. Он не ходит на дорогой языковой курс."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Wenn … + Konjunktiv II у кінці, + дієслово в Konjunktiv II + підмет: Wenn ich Zeit hätte, würde ich kommen.",
                 "explanation": "Нереальні умови: насправді це не так, але ми це уявляємо. Підрядне з wenn називає умову, головне речення – наслідок; обидва стоять у Konjunktiv II. У підрядному з wenn дієслово стоїть у кінці: Wenn ich mehr Zeit hätte, … (Якби я мав більше часу, …) Wenn sie nicht arbeiten müsste, … Wenn er die Sprache lernen würde, … Головне речення після нього починається з дієслова: …, würde ich Chinesisch lernen (я б учив китайську). …, könnten wir uns treffen. У реальності все інакше: Ich habe keine Zeit, deshalb lerne ich nicht Chinesisch.",
-                "task": "У Anna мало грошей. Вона не ходить на дорогий мовний курс."
+                "task": "У Anton мало грошей. Він не ходить на дорогий мовний курс."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "Wenn … + sonda Konjunktiv II, + Konjunktiv II fiil + özne: Wenn ich Zeit hätte, würde ich kommen.",
                 "explanation": "Gerçek dışı koşullar: Durum öyle değildir ama öyle olduğu hayal edilir. wenn cümlesi koşulu, ana cümle sonucu bildirir; ikisi de Konjunktiv II ile kurulur. wenn cümlesinde fiil sonda durur: Wenn ich mehr Zeit hätte, … (Daha çok vaktim olsaydı, …) Wenn sie nicht arbeiten müsste, … Wenn er die Sprache lernen würde, … Ardından gelen ana cümle fiille başlar: …, würde ich Chinesisch lernen (Çince öğrenirdim). …, könnten wir uns treffen. Gerçek ise farklıdır: Ich habe keine Zeit, deshalb lerne ich nicht Chinesisch.",
-                "task": "Anna’nın az parası var. Pahalı bir dil kursuna gitmiyor."
+                "task": "Anton’un az parası var. Pahalı bir dil kursuna gitmiyor."
               }
             }
           },
@@ -36374,7 +36374,7 @@
                 "zuverlässig"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Auf Herrn Okafor kann man sich immer verlassen. Er ist sehr …",
+              "question": "Auf Herrn Okafor kann man sich immer verlassen. Er ist sehr ___",
               "options": [
                 "zuverlässig",
                 "neugierig",
@@ -36479,7 +36479,7 @@
                 "Berufserfahrung"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Ich habe fünf Jahre als Koch gearbeitet. Ich habe also schon viel …",
+              "question": "Ich habe fünf Jahre als Koch gearbeitet. Ich habe also schon viel ___",
               "options": [
                 "Probezeit",
                 "Berufserfahrung",
@@ -40109,7 +40109,7 @@
                 "Es macht mir Freude, …"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Es macht mir …, anderen Menschen etwas zu erklären. Vielleicht werde ich Lehrer.",
+              "question": "Es macht mir ___, anderen Menschen etwas zu erklären. Vielleicht werde ich Lehrer.",
               "options": [
                 "Angst",
                 "Freude",
@@ -41157,7 +41157,7 @@
                 "zuständig für"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Im Lager war ich drei Jahre lang … die Bestellungen zuständig.",
+              "question": "Im Lager war ich drei Jahre lang ___ die Bestellungen zuständig.",
               "options": [
                 "über",
                 "für",
@@ -41211,7 +41211,7 @@
                 "Ausbildung als"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Nach der Schule habe ich eine Ausbildung … Friseur gemacht.",
+              "question": "Nach der Schule habe ich eine Ausbildung ___ Friseur gemacht.",
               "options": [
                 "für",
                 "wie",
@@ -41319,7 +41319,7 @@
                 "keine Berufserfahrung"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Ich habe nach der Schule sofort studiert. Deshalb habe ich leider noch keine …",
+              "question": "Ich habe nach der Schule sofort studiert. Deshalb habe ich leider noch keine ___",
               "options": [
                 "Freizeit",
                 "Fremdsprache",
@@ -41373,7 +41373,7 @@
                 "Davor"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "… habe ich als Kellner gearbeitet, aber seit zwei Jahren bin ich Koch.",
+              "question": "___ habe ich als Kellner gearbeitet, aber seit zwei Jahren bin ich Koch.",
               "options": [
                 "Davor",
                 "Dafür",
@@ -42316,7 +42316,7 @@
                 "Wer wird gesucht?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Stellenanzeige: „Für unser Hotel am Bodensee suchen wir ab sofort eine freundliche Servicekraft (m/w/d) in Vollzeit. Sie haben Erfahrung in der Gastronomie, sprechen gut Deutsch und ein wenig Englisch. Sie sind bereit, auch am Wochenende zu arbeiten. Wir bieten ein gutes Gehalt, ein junges Team und ein Zimmer im Haus. Schicken Sie Ihre Bewerbung bitte innerhalb von zwei Wochen per E-Mail an Frau Albrecht.“ Was für eine Person sucht das Hotel?",
+              "question": "Stellenanzeige: „Für unser Hotel am Bodensee suchen wir ab sofort eine freundliche Servicekraft (m/w/d) in Vollzeit. Sie haben Erfahrung in der Gastronomie, sprechen gut Deutsch und ein wenig Englisch. Sie sind bereit, auch am Wochenende zu arbeiten. Wir bieten ein gutes Gehalt, ein junges Team und ein Zimmer im Haus. Schicken Sie Ihre Bewerbung bitte innerhalb von zwei Wochen per E-Mail an Herrn Albrecht.“ Was für eine Person sucht das Hotel?",
               "options": [
                 "Jemanden mit Erfahrung in der Gastronomie.",
                 "Einen Koch für die Küche.",
@@ -42370,7 +42370,7 @@
                 "Wochenende"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Stellenanzeige: „Für unser Hotel am Bodensee suchen wir ab sofort eine freundliche Servicekraft (m/w/d) in Vollzeit. Sie haben Erfahrung in der Gastronomie, sprechen gut Deutsch und ein wenig Englisch. Sie sind bereit, auch am Wochenende zu arbeiten. Wir bieten ein gutes Gehalt, ein junges Team und ein Zimmer im Haus. Schicken Sie Ihre Bewerbung bitte innerhalb von zwei Wochen per E-Mail an Frau Albrecht.“ Wozu muss man bereit sein?",
+              "question": "Stellenanzeige: „Für unser Hotel am Bodensee suchen wir ab sofort eine freundliche Servicekraft (m/w/d) in Vollzeit. Sie haben Erfahrung in der Gastronomie, sprechen gut Deutsch und ein wenig Englisch. Sie sind bereit, auch am Wochenende zu arbeiten. Wir bieten ein gutes Gehalt, ein junges Team und ein Zimmer im Haus. Schicken Sie Ihre Bewerbung bitte innerhalb von zwei Wochen per E-Mail an Herrn Albrecht.“ Wozu muss man bereit sein?",
               "options": [
                 "Perfekt Englisch zu sprechen.",
                 "Jeden Tag im Hotel zu putzen.",
@@ -42424,7 +42424,7 @@
                 "Angebot"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Stellenanzeige: „Für unser Hotel am Bodensee suchen wir ab sofort eine freundliche Servicekraft (m/w/d) in Vollzeit. Sie haben Erfahrung in der Gastronomie, sprechen gut Deutsch und ein wenig Englisch. Sie sind bereit, auch am Wochenende zu arbeiten. Wir bieten ein gutes Gehalt, ein junges Team und ein Zimmer im Haus. Schicken Sie Ihre Bewerbung bitte innerhalb von zwei Wochen per E-Mail an Frau Albrecht.“ Was bietet das Hotel?",
+              "question": "Stellenanzeige: „Für unser Hotel am Bodensee suchen wir ab sofort eine freundliche Servicekraft (m/w/d) in Vollzeit. Sie haben Erfahrung in der Gastronomie, sprechen gut Deutsch und ein wenig Englisch. Sie sind bereit, auch am Wochenende zu arbeiten. Wir bieten ein gutes Gehalt, ein junges Team und ein Zimmer im Haus. Schicken Sie Ihre Bewerbung bitte innerhalb von zwei Wochen per E-Mail an Herrn Albrecht.“ Was bietet das Hotel?",
               "options": [
                 "Einen kostenlosen Sprachkurs.",
                 "Nur Arbeit am Vormittag.",
@@ -42478,7 +42478,7 @@
                 "Frist"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Stellenanzeige: „Für unser Hotel am Bodensee suchen wir ab sofort eine freundliche Servicekraft (m/w/d) in Vollzeit. Sie haben Erfahrung in der Gastronomie, sprechen gut Deutsch und ein wenig Englisch. Sie sind bereit, auch am Wochenende zu arbeiten. Wir bieten ein gutes Gehalt, ein junges Team und ein Zimmer im Haus. Schicken Sie Ihre Bewerbung bitte innerhalb von zwei Wochen per E-Mail an Frau Albrecht.“ Bis wann soll man sich bewerben?",
+              "question": "Stellenanzeige: „Für unser Hotel am Bodensee suchen wir ab sofort eine freundliche Servicekraft (m/w/d) in Vollzeit. Sie haben Erfahrung in der Gastronomie, sprechen gut Deutsch und ein wenig Englisch. Sie sind bereit, auch am Wochenende zu arbeiten. Wir bieten ein gutes Gehalt, ein junges Team und ein Zimmer im Haus. Schicken Sie Ihre Bewerbung bitte innerhalb von zwei Wochen per E-Mail an Herrn Albrecht.“ Bis wann soll man sich bewerben?",
               "options": [
                 "Erst in zwei Monaten.",
                 "Das steht nicht in der Anzeige.",
@@ -43168,7 +43168,7 @@
                 "tätig"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet.",
+              "question": "Ich war zehn Jahre in einem Restaurant ___ und habe dort in der Küche gearbeitet.",
               "options": [
                 "Tätigkeit",
                 "tätig",
@@ -44404,19 +44404,19 @@
                 "Einladung"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Antwort der Firma: „Sehr geehrte Frau Petrova, vielen Dank für Ihre Bewerbung. Ihre Unterlagen haben uns sehr gut gefallen. Wir möchten Sie gern zu einem Vorstellungsgespräch einladen. Passt es Ihnen am Dienstag, dem 12. Mai, um 10 Uhr? Bitte bringen Sie Ihre Zeugnisse im Original mit und geben Sie uns innerhalb von drei Tagen Bescheid.“ Was möchte die Firma?",
+              "question": "Antwort der Firma: „Sehr geehrter Herr Petrov, vielen Dank für Ihre Bewerbung. Ihre Unterlagen haben uns sehr gut gefallen. Wir möchten Sie gern zu einem Vorstellungsgespräch einladen. Passt es Ihnen am Dienstag, dem 12. Mai, um 10 Uhr? Bitte bringen Sie Ihre Zeugnisse im Original mit und geben Sie uns innerhalb von drei Tagen Bescheid.“ Was möchte die Firma?",
               "options": [
                 "Sie möchte die Bewerbung zurückschicken.",
                 "Sie möchte neue Unterlagen bekommen.",
-                "Sie möchte Frau Petrova persönlich kennenlernen."
+                "Sie möchte Herrn Petrov persönlich kennenlernen."
               ],
-              "correct_answer": "Sie möchte Frau Petrova persönlich kennenlernen.",
+              "correct_answer": "Sie möchte Herrn Petrov persönlich kennenlernen.",
               "accepted_answers": [
-                "Sie möchte Frau Petrova persönlich kennenlernen."
+                "Sie möchte Herrn Petrov persönlich kennenlernen."
               ]
             },
             "accepted_answers": [
-              "Sie möchte Frau Petrova persönlich kennenlernen."
+              "Sie möchte Herrn Petrov persönlich kennenlernen."
             ],
             "hint": "Anzeige: Wer sucht? Welche Stelle? Ab wann? Was muss man können? Was bietet die Firma? Wie bewirbt man sich?",
             "explanation": "Stellenanzeigen und Bewerbungen verstehen. In einer Anzeige steht: Wer sucht? Welche Stelle? Ab wann (ab sofort = gleich)? Vollzeit oder Teilzeit? Was muss man können (Erfahrung, Sprachkenntnisse, Führerschein)? Was bietet die Firma (Gehalt, Team, Wohnung)? Wie und bis wann bewirbt man sich? m/w/d = männlich, weiblich, divers: Die Stelle ist für alle. Die Aushilfe = eine Person, die nur für kurze Zeit oder wenige Stunden hilft. bereit sein, … zu … = etwas tun wollen.",
@@ -46335,7 +46335,7 @@
                 "Wie geht es Ihnen?"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Guten Morgen, Frau Brandt, wie ",
+              "text_before": "Guten Morgen, Herr Brandt, wie ",
               "text_after": " es Ihnen heute?",
               "gap_hint": "gehen / geben / sein",
               "correct_answer": "geht",
@@ -46359,25 +46359,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "es as the subject: Es regnet. Es gibt … Es ist spät. Es lohnt sich. Wie geht es dir? After the verb: Heute regnet es.",
                 "explanation": "Verbs and expressions with es: here the word es is the subject but does not mean anything specific. General: Es ist (nicht) leicht / schwierig / schön / möglich, … (It is (not) easy / difficult / nice / possible …) Es gibt + accusative (there is / there are): Es gibt hier einen guten Friseur. Es lohnt sich (= it is worth doing). Times of day and seasons: Es ist jetzt vier Uhr. Es ist Sommer. Es ist schon spät. Weather: Es regnet. Es schneit. Es ist heiß. Es sind dreißig Grad. How someone is: Wie geht es Ihnen? Mir geht es gut. If something else comes at the start of the sentence, es follows the verb: Heute regnet es.",
-                "task": "Good morning, Ms Brandt, how are you today?"
+                "task": "Good morning, Mr Brandt, how are you today?"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "es как подлежащее: Es regnet. Es gibt … Es ist spät. Es lohnt sich. Wie geht es dir? После глагола: Heute regnet es.",
                 "explanation": "Глаголы и выражения с es: слово es здесь подлежащее, но оно не означает ничего конкретного. Общее: Es ist (nicht) leicht / schwierig / schön / möglich, … (Это (не)легко / трудно / приятно / возможно …) Es gibt + Akkusativ (есть, имеется): Es gibt hier einen guten Friseur. Es lohnt sich (= это стоит делать). Время суток и года: Es ist jetzt vier Uhr. Es ist Sommer. Es ist schon spät. Погода: Es regnet. Es schneit. Es ist heiß. Es sind dreißig Grad. Самочувствие: Wie geht es Ihnen? Mir geht es gut. Если в начале предложения стоит что-то другое, es идёт после глагола: Heute regnet es.",
-                "task": "Доброе утро, госпожа Brandt, как вы сегодня себя чувствуете?"
+                "task": "Доброе утро, господин Brandt, как вы сегодня себя чувствуете?"
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "es як підмет: Es regnet. Es gibt … Es ist spät. Es lohnt sich. Wie geht es dir? Після дієслова: Heute regnet es.",
                 "explanation": "Дієслова і вислови з es: слово es тут підмет, але воно не означає нічого конкретного. Загальне: Es ist (nicht) leicht / schwierig / schön / möglich, … (Це (не)легко / важко / приємно / можливо …) Es gibt + Akkusativ (є, існує): Es gibt hier einen guten Friseur. Es lohnt sich (= це варто робити). Час доби і пори року: Es ist jetzt vier Uhr. Es ist Sommer. Es ist schon spät. Погода: Es regnet. Es schneit. Es ist heiß. Es sind dreißig Grad. Самопочуття: Wie geht es Ihnen? Mir geht es gut. Якщо на початку речення стоїть щось інше, es іде після дієслова: Heute regnet es.",
-                "task": "Доброго ранку, пані Brandt, як ви сьогодні почуваєтеся?"
+                "task": "Доброго ранку, пане Brandt, як ви сьогодні почуваєтеся?"
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Özne olarak es: Es regnet. Es gibt … Es ist spät. Es lohnt sich. Wie geht es dir? Fiilden sonra: Heute regnet es.",
                 "explanation": "es ile fiiller ve ifadeler: es kelimesi burada öznedir ama belirli bir anlamı yoktur. Genel: Es ist (nicht) leicht / schwierig / schön / möglich, … (… kolay(dır) / zor(dur) / güzel(dir) / mümkün(dür).) Es gibt + Akkusativ (var): Es gibt hier einen guten Friseur. Es lohnt sich (= yapmaya değer). Günün saatleri ve mevsimler: Es ist jetzt vier Uhr. Es ist Sommer. Es ist schon spät. Hava: Es regnet. Es schneit. Es ist heiß. Es sind dreißig Grad. Hal hatır: Wie geht es Ihnen? Mir geht es gut. Cümlenin başında başka bir şey varsa es fiilden sonra gelir: Heute regnet es.",
-                "task": "Günaydın Bayan Brandt, bugün nasılsınız?"
+                "task": "Günaydın Brandt Bey, bugün nasılsınız?"
               }
             }
           },
@@ -51305,9 +51305,9 @@
           "card": "p6_ideen",
           "rule": "Texte über Geschäftsideen und Dienstleistungen verstehen: Achte auf: Wer hat die Idee? Was wird angeboten? Für wen? Warum (Ziel: um … zu, damit)? Was kostet es? Lohnt es sich? Wichtige Wörter: eine Firma gründen (= neu aufmachen), kündigen (= eine Stelle beenden), sich einen Traum erfüllen, der Lieferservice, der Probetermin (= ein erster Termin zum Testen), sich binden (= einen langen Vertrag machen), inzwischen (= bis heute, in der Zeit seitdem).",
           "examples": [
-            "Sie hat gekündigt, um sich einen Traum zu erfüllen.",
+            "Er hat gekündigt, um sich einen Traum zu erfüllen.",
             "Wir putzen, damit Sie den Feierabend genießen können.",
-            "Reich wird sie nicht, aber es lohnt sich."
+            "Reich wird er nicht, aber es lohnt sich."
           ],
           "highlight": null,
           "translations": {
@@ -54342,7 +54342,7 @@
                 "Vermieterin"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Sander gehört das Haus. Wir zahlen ihr jeden Monat Miete. Sie ist unsere …",
+              "question": "Wortschatz (feminine Form): Eine Person besitzt ein vermietetes Haus und bekommt dafür Miete. Das feminine Nomen dafür ist ___",
               "options": [
                 "Nachbarin",
                 "Mieterin",
@@ -54364,25 +54364,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Mieter pays Miete to the Vermieter. Kaution = money when you move in. Rücksicht nehmen = to think of others.",
                 "explanation": "House and flat: der Mieter / die Mieterin (tenant) pays Miete (rent) every month to der Vermieter / die Vermieterin (landlord / landlady). On top of that come die Nebenkosten (additional costs: water, heating, rubbish). When you move in you often pay eine Kaution (a deposit): you get this money back when you move out. Das Grundstück = the piece of land a house stands on (plot). Das Treppenhaus (stairwell) is used by all residents. Die Hausordnung (house rules) sets out the rules in the building, for example die Ruhezeiten (quiet hours). Der Hausmeister (caretaker) looks after the building. Conflicts: Lärm machen (make noise), sich beschweren (complain; die Beschwerde = complaint), Rücksicht nehmen auf + accusative (= think of the others, show consideration).",
-                "task": "The house belongs to Ms Sander. We pay her rent every month. She is our …"
+                "task": "Vocabulary (feminine form): A person owns a rented house and receives rent for it. What is the feminine German noun for this person?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Mieter платит Miete – Vermieter. Kaution = деньги при въезде. Rücksicht nehmen = думать о других.",
                 "explanation": "Дом и квартира: der Mieter / die Mieterin (квартиросъёмщик) каждый месяц платит Miete (арендную плату) – der Vermieter / die Vermieterin (арендодателю). К этому добавляются die Nebenkosten (коммунальные расходы: вода, отопление, мусор). При въезде часто платят eine Kaution (залог): эти деньги возвращают при выезде. Das Grundstück = участок земли, на котором стоит дом. Das Treppenhaus (подъезд, лестничная клетка) используют все жильцы. Die Hausordnung (правила проживания) называет правила в доме, например die Ruhezeiten (часы тишины). Der Hausmeister (управдом, комендант) следит за домом. Конфликты: Lärm machen (шуметь), sich beschweren (жаловаться; die Beschwerde = жалоба), Rücksicht nehmen auf + Akkusativ (= думать о других, считаться с ними).",
-                "task": "Дом принадлежит госпоже Sander. Мы каждый месяц платим ей аренду. Она наша …"
+                "task": "Лексика (женский род): Человек владеет сдаваемым домом и получает за него аренду. Какое немецкое существительное женского рода обозначает этого человека?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Mieter платить Miete – Vermieter. Kaution = гроші під час в’їзду. Rücksicht nehmen = думати про інших.",
                 "explanation": "Будинок і квартира: der Mieter / die Mieterin (орендар / орендарка) щомісяця платить Miete (орендну плату) – der Vermieter / die Vermieterin (орендодавцеві). До цього додаються die Nebenkosten (комунальні витрати: вода, опалення, сміття). Під час в’їзду часто платять eine Kaution (заставу): ці гроші повертають під час виїзду. Das Grundstück = ділянка землі, на якій стоїть будинок. Das Treppenhaus (під’їзд, сходова клітка) використовують усі мешканці. Die Hausordnung (правила проживання) називає правила в будинку, наприклад die Ruhezeiten (години тиші). Der Hausmeister (керівник будинку, комендант) дбає про будинок. Конфлікти: Lärm machen (шуміти), sich beschweren (скаржитися; die Beschwerde = скарга), Rücksicht nehmen auf + Akkusativ (= думати про інших, зважати на них).",
-                "task": "Будинок належить пані Sander. Ми щомісяця платимо їй оренду. Вона наша …"
+                "task": "Лексика (жіночий рід): Людина володіє будинком, який здає в оренду, та отримує за нього плату. Який німецький іменник жіночого роду позначає цю людину?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Mieter, Vermieter’e Miete öder. Kaution = taşınırken ödenen para. Rücksicht nehmen = başkalarını düşünmek.",
                 "explanation": "Ev ve daire: der Mieter / die Mieterin (kiracı) her ay der Vermieter / die Vermieterin’e (ev sahibi) Miete (kira) öder. Buna die Nebenkosten (yan giderler: su, ısınma, çöp) eklenir. Taşınırken çoğu zaman eine Kaution (depozito) ödenir: Bu para çıkarken geri alınır. Das Grundstück = üzerinde bir evin durduğu arazi (arsa). Das Treppenhaus’u (apartman merdiveni) bütün sakinler kullanır. Die Hausordnung (apartman kuralları) binadaki kuralları, örneğin die Ruhezeiten’ı (sessizlik saatleri) belirtir. Der Hausmeister (kapıcı, bina görevlisi) binayla ilgilenir. Anlaşmazlıklar: Lärm machen (gürültü yapmak), sich beschweren (şikâyet etmek; die Beschwerde = şikâyet), Rücksicht nehmen auf + Akkusativ (= başkalarını düşünmek, saygı göstermek).",
-                "task": "Ev Bayan Sander’e ait. Ona her ay kira ödüyoruz. O bizim …"
+                "task": "Sözcük bilgisi (dişil biçim): Bir kişi kiraya verilen evin sahibidir ve bunun için kira alır. Bu kişi için Almancadaki dişil isim nedir?"
               }
             }
           },
@@ -61838,7 +61838,7 @@
                 "hätten gefunden"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Ohne den Tipp von Frau Kurz … wir diese Wohnung nie gefunden.",
+              "question": "Ohne den Tipp von Herrn Kurz ___ wir diese Wohnung nie gefunden.",
               "options": [
                 "würden",
                 "wären",
@@ -61860,25 +61860,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "hätte / wäre + participle: hätte gesagt, wäre gegangen. This did not happen in the past.",
                 "explanation": "Konjunktiv II in the past: Konjunktiv II of haben or sein + past participle at the end. ich hätte gesagt (I would have said), du hättest gesagt, er hätte gesagt, wir hätten gesagt, ihr hättet gesagt, sie hätten gesagt – ich wäre gegangen (I would have gone), du wärst gegangen, er wäre gegangen, wir wären gegangen, ihr wärt gegangen, sie wären gegangen. As in the Perfekt, sein is used for movement and change of state. You use it to talk about something that did not happen in the past: Ich hätte die Wohnung genommen (aber sie war schon weg). (I would have taken the flat, but it had already gone.)",
-                "task": "Without Ms Kurz’s tip we would never have found this flat."
+                "task": "Without Mr Kurz’s tip we would never have found this flat."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "hätte / wäre + Partizip II: hätte gesagt, wäre gegangen. В прошлом этого не произошло.",
                 "explanation": "Konjunktiv II в прошедшем времени: Konjunktiv II глагола haben или sein + Partizip II в конце. ich hätte gesagt (я бы сказал), du hättest gesagt, er hätte gesagt, wir hätten gesagt, ihr hättet gesagt, sie hätten gesagt – ich wäre gegangen (я бы пошёл), du wärst gegangen, er wäre gegangen, wir wären gegangen, ihr wärt gegangen, sie wären gegangen. sein, как и в Perfekt, используется при движении и изменении состояния. Так говорят о том, чего в прошлом не произошло: Ich hätte die Wohnung genommen (aber sie war schon weg). (Я бы взял эту квартиру, но её уже сдали.)",
-                "task": "Без подсказки госпожи Kurz мы бы никогда не нашли эту квартиру."
+                "task": "Без подсказки господина Kurz мы бы никогда не нашли эту квартиру."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "hätte / wäre + Partizip II: hätte gesagt, wäre gegangen. У минулому цього не сталося.",
                 "explanation": "Konjunktiv II у минулому часі: Konjunktiv II дієслова haben або sein + Partizip II у кінці. ich hätte gesagt (я б сказав), du hättest gesagt, er hätte gesagt, wir hätten gesagt, ihr hättet gesagt, sie hätten gesagt – ich wäre gegangen (я б пішов), du wärst gegangen, er wäre gegangen, wir wären gegangen, ihr wärt gegangen, sie wären gegangen. sein, як і в Perfekt, уживається для руху та зміни стану. Так говорять про те, чого в минулому не сталося: Ich hätte die Wohnung genommen (aber sie war schon weg). (Я б узяв цю квартиру, але її вже здали.)",
-                "task": "Без підказки пані Kurz ми б ніколи не знайшли цю квартиру."
+                "task": "Без підказки пана Kurz ми б ніколи не знайшли цю квартиру."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "hätte / wäre + Partizip II: hätte gesagt, wäre gegangen. Bu geçmişte olmadı.",
                 "explanation": "Geçmiş zamanda Konjunktiv II: haben ya da sein fiilinin Konjunktiv II biçimi + sonda Partizip II. ich hätte gesagt (söylerdim), du hättest gesagt, er hätte gesagt, wir hätten gesagt, ihr hättet gesagt, sie hätten gesagt – ich wäre gegangen (giderdim), du wärst gegangen, er wäre gegangen, wir wären gegangen, ihr wärt gegangen, sie wären gegangen. Perfekt’te olduğu gibi hareket ve durum değişikliğinde sein kullanılır. Bununla geçmişte olmamış bir şeyden söz edilir: Ich hätte die Wohnung genommen (aber sie war schon weg). (Daireyi tutardım ama çoktan gitmişti.)",
-                "task": "Bayan Kurz’un tavsiyesi olmasa bu daireyi asla bulamazdık."
+                "task": "Kurz Bey’in tavsiyesi olmasa bu daireyi asla bulamazdık."
               }
             }
           },

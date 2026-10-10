@@ -1,7 +1,6 @@
 import { I, gap, mc } from '../shared.mjs'
 
 const AUSHANG = 'Stellenanzeige: „Die Stadtbibliothek sucht für drei Nachmittage pro Woche eine Aushilfe. Zu Ihren Aufgaben gehört es, Bücher einzuräumen und Besucher zu beraten. Sie sollten zuverlässig sein und gern mit Menschen arbeiten. Erfahrung ist nicht nötig. Während der Schulferien ist die Bibliothek auch vormittags geöffnet. Bewerbungen bitte bis zum 30. April an Herrn Baumann.“'
-const ANTWORT = 'Antwort der Firma: „Sehr geehrte Frau Petrova, vielen Dank für Ihre Bewerbung. Ihre Unterlagen haben uns sehr gut gefallen. Wir möchten Sie gern zu einem Vorstellungsgespräch einladen. Passt es Ihnen am Dienstag, dem 12. Mai, um 10 Uhr? Bitte bringen Sie Ihre Zeugnisse im Original mit und geben Sie uns innerhalb von drei Tagen Bescheid.“'
 
 /** B1.1 · Pfad 5 · Eine Arbeit finden – Wiederholung und Testpool. */
 const check = {
@@ -22,7 +21,7 @@ const check = {
       ['In the job interview you are asked about your plans. What do you say?', 'На собеседовании вас спрашивают о ваших планах. Что вы скажете?', 'На співбесіді вас питають про ваші плани. Що ви скажете?', 'İş görüşmesinde size planlarınız soruluyor. Ne dersiniz?']),
     mc('K2', 'Schluss der Bewerbung', I.choose, 'Welcher Satz steht am Ende von einem Bewerbungsschreiben?', ['Über eine Einladung zu einem Gespräch würde ich mich sehr freuen.', 'Wie läuft es denn so in der Firma?', 'Ich muss jetzt leider los.'],
       ['Which sentence comes at the end of a letter of application?', 'Какое предложение стоит в конце письма-заявления?', 'Яке речення стоїть наприкінці листа-заяви?', 'Bir başvuru yazısının sonunda hangi cümle bulunur?']),
-    mc("K3", "tätig", I.choose, "Ich war zehn Jahre in einem Restaurant … und habe dort in der Küche gearbeitet.", ["tätig","Tätigkeit","bereit"], ["I worked in a restaurant for ten years, in the kitchen.","Я десять лет проработал в ресторане, на кухне.","Я десять років пропрацював у ресторані, на кухні.","On yıl bir restoranda görev yaptım ve orada mutfakta çalıştım."], {"c":"p5_arbeit"}),
+    mc("K3", "tätig", I.choose, "Ich war zehn Jahre in einem Restaurant ___ und habe dort in der Küche gearbeitet.", ["tätig","Tätigkeit","bereit"], ["I worked in a restaurant for ten years, in the kitchen.","Я десять лет проработал в ресторане, на кухне.","Я десять років пропрацював у ресторані, на кухні.","On yıl bir restoranda görev yaptım ve orada mutfakta çalıştım."], {"c":"p5_arbeit"}),
     mc('K4', 'über die Arbeit erzählen', I.react, '„Und was machst du jetzt eigentlich genau?“', ['Ich habe eine neue Stelle als Busfahrer.', 'Es war schön, dich zu sehen.', 'Bis zum nächsten Mal!'],
       ['“And what exactly do you do now?”', '«А чем ты сейчас конкретно занимаешься?»', '«А чим ти зараз конкретно займаєшся?»', '“Peki şu anda tam olarak ne yapıyorsun?”']),
     mc('Z1', 'Aufgaben', I.read, `${AUSHANG} Was gehört zu den Aufgaben der Aushilfe?`, ['Bücher einräumen und Besucher beraten.', 'Bücher schreiben und verkaufen.', 'Die Bibliothek putzen.'],
@@ -70,8 +69,7 @@ const check = {
       ['So, how are things going at your new company?', 'Ну, как дела в твоей новой фирме?', 'Ну, як справи у твоїй новій фірмі?', 'Ee, yeni şirketinde işler nasıl gidiyor?']),
     mc('K5', 'Gespräch beenden', I.situation, 'Du hast in fünf Minuten einen Termin und musst ein Gespräch beenden. Was sagst du?', ['Schade, ich muss jetzt leider los. Bis zum nächsten Mal!', 'Was machst du eigentlich genau?', 'Erzähl doch mal, wie läuft es so?'],
       ['You have an appointment in five minutes and have to end a conversation. What do you say?', 'Через пять минут у вас встреча, и вам нужно закончить разговор. Что вы скажете?', 'Через п’ять хвилин у вас зустріч, і вам треба закінчити розмову. Що ви скажете?', 'Beş dakika sonra bir randevunuz var ve konuşmayı bitirmeniz gerekiyor. Ne dersiniz?']),
-    mc('Z1', 'Einladung', I.read, `${ANTWORT} Was möchte die Firma?`, ['Sie möchte Frau Petrova persönlich kennenlernen.', 'Sie möchte neue Unterlagen bekommen.', 'Sie möchte die Bewerbung zurückschicken.'],
-      ['What does the company want?', 'Чего хочет фирма?', 'Чого хоче фірма?', 'Şirket ne istiyor?']),
+    mc("Z1", "Einladung", I.read, "Antwort der Firma: „Sehr geehrter Herr Petrov, vielen Dank für Ihre Bewerbung. Ihre Unterlagen haben uns sehr gut gefallen. Wir möchten Sie gern zu einem Vorstellungsgespräch einladen. Passt es Ihnen am Dienstag, dem 12. Mai, um 10 Uhr? Bitte bringen Sie Ihre Zeugnisse im Original mit und geben Sie uns innerhalb von drei Tagen Bescheid.“ Was möchte die Firma?", ["Sie möchte Herrn Petrov persönlich kennenlernen.","Sie möchte die Bewerbung zurückschicken.","Sie möchte neue Unterlagen bekommen."], ["What does the company want?","Чего хочет фирма?","Чого хоче фірма?","Şirket ne istiyor?"], {"c":"p5_anzeigen"}),
     mc('Z1', 'Schulferien', I.read, `${AUSHANG} Wann ist die Bibliothek auch am Vormittag geöffnet?`, ['In den Schulferien.', 'An drei Nachmittagen.', 'Ab dem 30. April.'],
       ['When is the library open in the morning as well?', 'Когда библиотека открыта и в первой половине дня?', 'Коли бібліотека відчинена й у першій половині дня?', 'Kütüphane ne zaman öğleden önce de açık?']),
     gap('W1', 'Fähigkeit', I.word, 'Für diese Stelle braucht man vor allem die ', ', gut mit Menschen umzugehen.', 'Fähigkeit', ['Tätigkeit', 'Krankheit'],
