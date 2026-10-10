@@ -214,6 +214,11 @@ html.high-contrast .st-tabbar__pill { background: transparent; border: 2px solid
   /* Die schwebende Aufnahme-Bedienung sitzt über der App-Leiste und wandert mit ihr. */
   .academy-student-shell .pronunciation-recorder-dock { bottom: 0; transform: translateY(calc(-1 * var(--st-tabbar-visible))); transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease); }
   .academy-student-shell .pronunciation-practice { padding-bottom: calc(6.5rem + var(--st-tabbar-h)); }
+  /* Native Tab/Shift+Tab must reserve the dock's full height even while it
+     slides back into view. Scroll clearance does not move the page layout. */
+  .academy-student-shell .pronunciation-practice :is(button, a, input, select, textarea, [tabindex]) {
+    scroll-margin-block-end: calc(var(--st-tabbar-h) + 1.5rem);
+  }
 }
 @media (min-width: 768px) {
   .academy-student-shell { --st-tabbar-visible: 0px; }
