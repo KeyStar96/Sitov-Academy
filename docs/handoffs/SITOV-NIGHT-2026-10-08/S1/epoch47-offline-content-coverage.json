@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "school": "Sitov Academy",
+  "inventorySHA256": "afa41167fbb88383daa3a894757dc17cb20e49964de9f89db5f540a141737251",
+  "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3",
+  "counts": {
+    "tasks": 538,
+    "parents": 58,
+    "explicitAcceptCandidates": 247,
+    "missingWholeApprovals": 291,
+    "casExerciseFragmentCandidates": 247,
+    "exclusiveCoverageCategories": {
+      "FULL_EXPLICIT_ACCEPT_CANDIDATE": 247,
+      "NO_ADAPTED_READ_SCOPE_NOT_A_SEMANTIC_UNREAD_CLAIM": 127,
+      "EXACT_CURRENT_READ_WITHOUT_COMPLETE_EXPLICIT_APPROVAL": 117,
+      "HISTORICAL_READ_WITHOUT_EXACT_CURRENT_TASK_PARENT_BINDING": 47
+    },
+    "perReason": {
+      "NO_SUPPORTED_STRUCTURED_REVIEW_RECORD": 127,
+      "HASH_DISCOVERY_ONLY_CANNOT_UPGRADE_APPROVAL": 291,
+      "STALE_TASK_BINDING": 108,
+      "UNESTABLISHED_CONTEXT_OBJECTIVES": 136,
+      "EXPLICIT_HOLD_OR_PARTIAL": 134,
+      "STALE_OR_MISSING_PARENT_BINDING": 61,
+      "STALE_OBJECTIVES_BINDING": 15
+    },
+    "supportedAdapters": {
+      "S4e34-explicit-whole-node": 121,
+      "S4e35-restricted-node": 140,
+      "S4e36-read-repair-scope": 88,
+      "S4e36-explicit-task-assessment": 25,
+      "S4e38-explicit-whole-node": 46,
+      "S4e39-final-whole": 50,
+      "S4e41-final-whole": 41,
+      "S4e42-final-whole": 31,
+      "S7e20-whole-task-single-goal": 30,
+      "S7e22-final-whole-not-mirror": 23,
+      "S4e43-final-whole": 11,
+      "S4e44-final-whole": 20,
+      "S4e45-final-whole": 19,
+      "S4e46-final-whole": 3,
+      "S7e23-final-whole": 27,
+      "S7e24-final-whole": 30,
+      "S7e25-final-whole": 30,
+      "S4e48-final-whole": 18
+    },
+    "sourceDocuments": 79,
+    "scopedContentAcceptNoAllObjectives": 39,
+    "missingFullApprovalButDocumentedSemanticRead": 164,
+    "noSupportedReadScope": 127,
+    "missingFullApprovalWithExactCurrentTaskParentRead": 117,
+    "scopedExactContentOnlyAwaitingAllObjectives": 0,
+    "explicitParentCandidates": 25,
+    "parentsMissingExplicitCandidate": 33,
+    "identityUnestablishedOriginalDocumentCount": 55,
+    "identityOnlyFullCandidateExclusions": 0,
+    "fullFragmentUnestablishedReviewers": 0
+  },
+  "publicationApproved": false,
+  "honestPartial": true,
+  "limits": [
+    "Discovery covers all selected S4/S7/M JSON audits and both hash conventions. Explicit parsers cover S4 epochs34/35/36/38/39/41/42/43/44/45/46/48 and S7epochs20/22/23/24/25. Scope-restricted reads and missing all-objective bindings remain separate. Other schemas require scoped manual adjudication; their hashes never grant approval.",
+    "Old exact whole-node ACCEPT with explicit all-child reads is only a scoped content candidate when all-path-objective approval is absent. HOLD/PARTIAL/separate remainders and14-repair scope never become blanket child ACCEPT.",
+    "No global parentsApproval generated. This is a candidate evidence compilation, not a valid complete CAS review manifest or fresh editorial review."
+  ],
+  "composableBasePlusExplicitDelta": {
+    "status": "NOT_REEVALUATED_FOR_CURRENT538_SOURCE",
+    "approved": false,
+    "reason": "No automatic composition; earlier proposals do not confer current final approval."
+  }
+}
