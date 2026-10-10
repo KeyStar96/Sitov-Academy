@@ -1,0 +1,3826 @@
+{
+  "schemaVersion": 1,
+  "epoch": 40,
+  "reviewer": "S4",
+  "school": "Sitov Academy",
+  "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+  "snapshotSourceHead": "a36aaf33888fb0d85ebe09b3e38751c4312af2bf",
+  "createdAt": "2026-10-10T02:43:31.068090+00:00",
+  "inputByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+  "hashConvention": "SHA256 UTF8 Python json.dumps ensure_ascii=False sort_keys=True separators=(comma,colon)",
+  "coverage": {
+    "assignedIndicesZeroBased": [
+      0,
+      34
+    ],
+    "wholeTasksRead": 35,
+    "associatedParentsRead": 24,
+    "other35Read": false,
+    "unreviewedAssigned": 0,
+    "siblingsRead": false
+  },
+  "summary": {
+    "ACCEPT_GRAMMATICAL_EXAMPLE": 1,
+    "HOLD_CORRECTION_PROPOSED": 34,
+    "keyRevisions": 5,
+    "parentProposals": 3,
+    "failedBindings": []
+  },
+  "checks": [
+    {
+      "name": "exact bundle SHA/bytes",
+      "pass": true
+    },
+    {
+      "name": "only assigned first35 read",
+      "pass": true
+    },
+    {
+      "name": "base exact",
+      "pass": true
+    },
+    {
+      "name": "0d6870b5-9763-5eb5-a526-b69d4aec65c3 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "0d6870b5-9763-5eb5-a526-b69d4aec65c3 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "0d6870b5-9763-5eb5-a526-b69d4aec65c3 parts retained",
+      "pass": true
+    },
+    {
+      "name": "0d6870b5-9763-5eb5-a526-b69d4aec65c3 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "0d6870b5-9763-5eb5-a526-b69d4aec65c3 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "0d6870b5-9763-5eb5-a526-b69d4aec65c3 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "0d6870b5-9763-5eb5-a526-b69d4aec65c3 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "e61ffd86-5971-50c6-a2ba-a9ce739673ed exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "e61ffd86-5971-50c6-a2ba-a9ce739673ed identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "e61ffd86-5971-50c6-a2ba-a9ce739673ed parts retained",
+      "pass": true
+    },
+    {
+      "name": "e61ffd86-5971-50c6-a2ba-a9ce739673ed answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "e61ffd86-5971-50c6-a2ba-a9ce739673ed correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "e61ffd86-5971-50c6-a2ba-a9ce739673ed parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "e61ffd86-5971-50c6-a2ba-a9ce739673ed exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "8d30a4bd-b3b7-5a06-aee8-47c0e7a3490a exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "8d30a4bd-b3b7-5a06-aee8-47c0e7a3490a identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "8d30a4bd-b3b7-5a06-aee8-47c0e7a3490a parts retained",
+      "pass": true
+    },
+    {
+      "name": "8d30a4bd-b3b7-5a06-aee8-47c0e7a3490a answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "8d30a4bd-b3b7-5a06-aee8-47c0e7a3490a correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "8d30a4bd-b3b7-5a06-aee8-47c0e7a3490a parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "8d30a4bd-b3b7-5a06-aee8-47c0e7a3490a exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "e9588b15-0d37-5ddc-a31e-c820bc29717d exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "e9588b15-0d37-5ddc-a31e-c820bc29717d identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "e9588b15-0d37-5ddc-a31e-c820bc29717d parts retained",
+      "pass": true
+    },
+    {
+      "name": "e9588b15-0d37-5ddc-a31e-c820bc29717d answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "e9588b15-0d37-5ddc-a31e-c820bc29717d correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "e9588b15-0d37-5ddc-a31e-c820bc29717d parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "e9588b15-0d37-5ddc-a31e-c820bc29717d exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "c39965ca-2237-5c75-a526-928c79cca63b exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "c39965ca-2237-5c75-a526-928c79cca63b identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "c39965ca-2237-5c75-a526-928c79cca63b parts retained",
+      "pass": true
+    },
+    {
+      "name": "c39965ca-2237-5c75-a526-928c79cca63b answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "c39965ca-2237-5c75-a526-928c79cca63b correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "c39965ca-2237-5c75-a526-928c79cca63b parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "c39965ca-2237-5c75-a526-928c79cca63b exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "120c216e-95aa-5bc7-a810-52273851b03d exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "120c216e-95aa-5bc7-a810-52273851b03d identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "120c216e-95aa-5bc7-a810-52273851b03d parts retained",
+      "pass": true
+    },
+    {
+      "name": "120c216e-95aa-5bc7-a810-52273851b03d answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "120c216e-95aa-5bc7-a810-52273851b03d correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "120c216e-95aa-5bc7-a810-52273851b03d parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "120c216e-95aa-5bc7-a810-52273851b03d exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "c1eb1bd8-f720-5181-a510-7e863007bcbf exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "c1eb1bd8-f720-5181-a510-7e863007bcbf identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "c1eb1bd8-f720-5181-a510-7e863007bcbf parts retained",
+      "pass": true
+    },
+    {
+      "name": "c1eb1bd8-f720-5181-a510-7e863007bcbf answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "c1eb1bd8-f720-5181-a510-7e863007bcbf correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "c1eb1bd8-f720-5181-a510-7e863007bcbf parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "c1eb1bd8-f720-5181-a510-7e863007bcbf exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "82a4f53f-c30a-5eca-a7e1-4e42b5e0d8cb exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "82a4f53f-c30a-5eca-a7e1-4e42b5e0d8cb identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "82a4f53f-c30a-5eca-a7e1-4e42b5e0d8cb parts retained",
+      "pass": true
+    },
+    {
+      "name": "82a4f53f-c30a-5eca-a7e1-4e42b5e0d8cb answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "82a4f53f-c30a-5eca-a7e1-4e42b5e0d8cb correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "82a4f53f-c30a-5eca-a7e1-4e42b5e0d8cb parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "82a4f53f-c30a-5eca-a7e1-4e42b5e0d8cb exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "e098a0a2-2ce4-561b-ab34-7261b54c0ef8 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "e098a0a2-2ce4-561b-ab34-7261b54c0ef8 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "e098a0a2-2ce4-561b-ab34-7261b54c0ef8 parts retained",
+      "pass": true
+    },
+    {
+      "name": "e098a0a2-2ce4-561b-ab34-7261b54c0ef8 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "e098a0a2-2ce4-561b-ab34-7261b54c0ef8 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "e098a0a2-2ce4-561b-ab34-7261b54c0ef8 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "e098a0a2-2ce4-561b-ab34-7261b54c0ef8 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "d06bed79-1b9c-5cc8-ad06-fc80dbd55377 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "d06bed79-1b9c-5cc8-ad06-fc80dbd55377 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d06bed79-1b9c-5cc8-ad06-fc80dbd55377 parts retained",
+      "pass": true
+    },
+    {
+      "name": "d06bed79-1b9c-5cc8-ad06-fc80dbd55377 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "d06bed79-1b9c-5cc8-ad06-fc80dbd55377 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "d06bed79-1b9c-5cc8-ad06-fc80dbd55377 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d06bed79-1b9c-5cc8-ad06-fc80dbd55377 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "f5afa4f2-dd9e-50ba-a90c-c20cea9aa371 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "f5afa4f2-dd9e-50ba-a90c-c20cea9aa371 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "f5afa4f2-dd9e-50ba-a90c-c20cea9aa371 parts retained",
+      "pass": true
+    },
+    {
+      "name": "f5afa4f2-dd9e-50ba-a90c-c20cea9aa371 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "f5afa4f2-dd9e-50ba-a90c-c20cea9aa371 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "f5afa4f2-dd9e-50ba-a90c-c20cea9aa371 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "f5afa4f2-dd9e-50ba-a90c-c20cea9aa371 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "73d45bc3-a714-50b3-a980-063a4075821e exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "73d45bc3-a714-50b3-a980-063a4075821e identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "73d45bc3-a714-50b3-a980-063a4075821e parts retained",
+      "pass": true
+    },
+    {
+      "name": "73d45bc3-a714-50b3-a980-063a4075821e answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "73d45bc3-a714-50b3-a980-063a4075821e correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "73d45bc3-a714-50b3-a980-063a4075821e parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "73d45bc3-a714-50b3-a980-063a4075821e exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "1758439e-d2f8-51a1-a38e-c75ff18f9bd0 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "1758439e-d2f8-51a1-a38e-c75ff18f9bd0 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "1758439e-d2f8-51a1-a38e-c75ff18f9bd0 parts retained",
+      "pass": true
+    },
+    {
+      "name": "1758439e-d2f8-51a1-a38e-c75ff18f9bd0 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "1758439e-d2f8-51a1-a38e-c75ff18f9bd0 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "1758439e-d2f8-51a1-a38e-c75ff18f9bd0 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "1758439e-d2f8-51a1-a38e-c75ff18f9bd0 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "93e0dbcf-b355-53b7-a1fc-dae98e2f8677 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "93e0dbcf-b355-53b7-a1fc-dae98e2f8677 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "93e0dbcf-b355-53b7-a1fc-dae98e2f8677 parts retained",
+      "pass": true
+    },
+    {
+      "name": "93e0dbcf-b355-53b7-a1fc-dae98e2f8677 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "93e0dbcf-b355-53b7-a1fc-dae98e2f8677 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "93e0dbcf-b355-53b7-a1fc-dae98e2f8677 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "93e0dbcf-b355-53b7-a1fc-dae98e2f8677 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "fd70df08-2457-5539-ad58-b15bf6203adb exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "fd70df08-2457-5539-ad58-b15bf6203adb identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "fd70df08-2457-5539-ad58-b15bf6203adb parts retained",
+      "pass": true
+    },
+    {
+      "name": "fd70df08-2457-5539-ad58-b15bf6203adb answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "fd70df08-2457-5539-ad58-b15bf6203adb correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "fd70df08-2457-5539-ad58-b15bf6203adb parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "fd70df08-2457-5539-ad58-b15bf6203adb exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "d727f0fe-52e3-5f2e-ad9c-c669461615d1 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "d727f0fe-52e3-5f2e-ad9c-c669461615d1 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d727f0fe-52e3-5f2e-ad9c-c669461615d1 parts retained",
+      "pass": true
+    },
+    {
+      "name": "d727f0fe-52e3-5f2e-ad9c-c669461615d1 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "d727f0fe-52e3-5f2e-ad9c-c669461615d1 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "d727f0fe-52e3-5f2e-ad9c-c669461615d1 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d727f0fe-52e3-5f2e-ad9c-c669461615d1 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "8ba853b9-f9c6-580e-a721-9f6883536465 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "8ba853b9-f9c6-580e-a721-9f6883536465 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "8ba853b9-f9c6-580e-a721-9f6883536465 parts retained",
+      "pass": true
+    },
+    {
+      "name": "8ba853b9-f9c6-580e-a721-9f6883536465 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "8ba853b9-f9c6-580e-a721-9f6883536465 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "8ba853b9-f9c6-580e-a721-9f6883536465 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "8ba853b9-f9c6-580e-a721-9f6883536465 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "554545c7-5697-528b-adae-3507a9516324 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "554545c7-5697-528b-adae-3507a9516324 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "554545c7-5697-528b-adae-3507a9516324 parts retained",
+      "pass": true
+    },
+    {
+      "name": "554545c7-5697-528b-adae-3507a9516324 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "554545c7-5697-528b-adae-3507a9516324 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "554545c7-5697-528b-adae-3507a9516324 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "554545c7-5697-528b-adae-3507a9516324 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "fd2e9650-57f6-543f-ae99-d257023edd7b exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "fd2e9650-57f6-543f-ae99-d257023edd7b identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "fd2e9650-57f6-543f-ae99-d257023edd7b parts retained",
+      "pass": true
+    },
+    {
+      "name": "fd2e9650-57f6-543f-ae99-d257023edd7b answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "fd2e9650-57f6-543f-ae99-d257023edd7b correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "fd2e9650-57f6-543f-ae99-d257023edd7b parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "fd2e9650-57f6-543f-ae99-d257023edd7b exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "b6f802ba-4e55-5dfa-a042-347a1ddb9a95 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "b6f802ba-4e55-5dfa-a042-347a1ddb9a95 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "b6f802ba-4e55-5dfa-a042-347a1ddb9a95 parts retained",
+      "pass": true
+    },
+    {
+      "name": "b6f802ba-4e55-5dfa-a042-347a1ddb9a95 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "b6f802ba-4e55-5dfa-a042-347a1ddb9a95 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "b6f802ba-4e55-5dfa-a042-347a1ddb9a95 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "b6f802ba-4e55-5dfa-a042-347a1ddb9a95 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "9ec465ca-01cd-5949-a4df-157985fb9930 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "9ec465ca-01cd-5949-a4df-157985fb9930 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "9ec465ca-01cd-5949-a4df-157985fb9930 parts retained",
+      "pass": true
+    },
+    {
+      "name": "9ec465ca-01cd-5949-a4df-157985fb9930 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "9ec465ca-01cd-5949-a4df-157985fb9930 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "9ec465ca-01cd-5949-a4df-157985fb9930 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "9ec465ca-01cd-5949-a4df-157985fb9930 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "f62f9599-037c-59f7-adcf-8571aae75ce8 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "f62f9599-037c-59f7-adcf-8571aae75ce8 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "f62f9599-037c-59f7-adcf-8571aae75ce8 parts retained",
+      "pass": true
+    },
+    {
+      "name": "f62f9599-037c-59f7-adcf-8571aae75ce8 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "f62f9599-037c-59f7-adcf-8571aae75ce8 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "f62f9599-037c-59f7-adcf-8571aae75ce8 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "f62f9599-037c-59f7-adcf-8571aae75ce8 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "6cd866de-f49e-52dc-a647-4c376165a243 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "6cd866de-f49e-52dc-a647-4c376165a243 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "6cd866de-f49e-52dc-a647-4c376165a243 parts retained",
+      "pass": true
+    },
+    {
+      "name": "6cd866de-f49e-52dc-a647-4c376165a243 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "6cd866de-f49e-52dc-a647-4c376165a243 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "6cd866de-f49e-52dc-a647-4c376165a243 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "6cd866de-f49e-52dc-a647-4c376165a243 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "d378404d-686b-54f5-a56a-71c783fd5f9b exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "d378404d-686b-54f5-a56a-71c783fd5f9b identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d378404d-686b-54f5-a56a-71c783fd5f9b parts retained",
+      "pass": true
+    },
+    {
+      "name": "d378404d-686b-54f5-a56a-71c783fd5f9b answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "d378404d-686b-54f5-a56a-71c783fd5f9b correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "d378404d-686b-54f5-a56a-71c783fd5f9b parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d378404d-686b-54f5-a56a-71c783fd5f9b exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "786e931e-5782-5fbb-aacc-c04cdb662120 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "786e931e-5782-5fbb-aacc-c04cdb662120 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "786e931e-5782-5fbb-aacc-c04cdb662120 parts retained",
+      "pass": true
+    },
+    {
+      "name": "786e931e-5782-5fbb-aacc-c04cdb662120 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "786e931e-5782-5fbb-aacc-c04cdb662120 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "786e931e-5782-5fbb-aacc-c04cdb662120 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "786e931e-5782-5fbb-aacc-c04cdb662120 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "b2cb910a-e1dc-58c6-a791-0f4024427207 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "b2cb910a-e1dc-58c6-a791-0f4024427207 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "b2cb910a-e1dc-58c6-a791-0f4024427207 parts retained",
+      "pass": true
+    },
+    {
+      "name": "b2cb910a-e1dc-58c6-a791-0f4024427207 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "b2cb910a-e1dc-58c6-a791-0f4024427207 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "b2cb910a-e1dc-58c6-a791-0f4024427207 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "b2cb910a-e1dc-58c6-a791-0f4024427207 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "d1568520-2aff-528a-aa04-5bf6f1a78673 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "d1568520-2aff-528a-aa04-5bf6f1a78673 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d1568520-2aff-528a-aa04-5bf6f1a78673 parts retained",
+      "pass": true
+    },
+    {
+      "name": "d1568520-2aff-528a-aa04-5bf6f1a78673 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "d1568520-2aff-528a-aa04-5bf6f1a78673 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "d1568520-2aff-528a-aa04-5bf6f1a78673 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d1568520-2aff-528a-aa04-5bf6f1a78673 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "81b35ac7-d1f8-5080-a0d5-e415a178db51 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "81b35ac7-d1f8-5080-a0d5-e415a178db51 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "81b35ac7-d1f8-5080-a0d5-e415a178db51 parts retained",
+      "pass": true
+    },
+    {
+      "name": "81b35ac7-d1f8-5080-a0d5-e415a178db51 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "81b35ac7-d1f8-5080-a0d5-e415a178db51 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "81b35ac7-d1f8-5080-a0d5-e415a178db51 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "81b35ac7-d1f8-5080-a0d5-e415a178db51 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "12f1b7d0-ee18-5bdd-aff1-dd87350781e0 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "12f1b7d0-ee18-5bdd-aff1-dd87350781e0 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "12f1b7d0-ee18-5bdd-aff1-dd87350781e0 parts retained",
+      "pass": true
+    },
+    {
+      "name": "12f1b7d0-ee18-5bdd-aff1-dd87350781e0 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "12f1b7d0-ee18-5bdd-aff1-dd87350781e0 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "12f1b7d0-ee18-5bdd-aff1-dd87350781e0 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "12f1b7d0-ee18-5bdd-aff1-dd87350781e0 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "3509c712-7ebe-52d5-a1ff-19c7d102ea1a exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "3509c712-7ebe-52d5-a1ff-19c7d102ea1a identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "3509c712-7ebe-52d5-a1ff-19c7d102ea1a parts retained",
+      "pass": true
+    },
+    {
+      "name": "3509c712-7ebe-52d5-a1ff-19c7d102ea1a answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "3509c712-7ebe-52d5-a1ff-19c7d102ea1a correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "3509c712-7ebe-52d5-a1ff-19c7d102ea1a parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "3509c712-7ebe-52d5-a1ff-19c7d102ea1a exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "4652cc5a-2f68-54e2-ab33-9260d02d151d exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "4652cc5a-2f68-54e2-ab33-9260d02d151d identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "4652cc5a-2f68-54e2-ab33-9260d02d151d parts retained",
+      "pass": true
+    },
+    {
+      "name": "4652cc5a-2f68-54e2-ab33-9260d02d151d answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "4652cc5a-2f68-54e2-ab33-9260d02d151d correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "4652cc5a-2f68-54e2-ab33-9260d02d151d parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "4652cc5a-2f68-54e2-ab33-9260d02d151d exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "0c6e7a4d-922f-5168-a3fd-5c5eb28e1bec exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "0c6e7a4d-922f-5168-a3fd-5c5eb28e1bec identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "0c6e7a4d-922f-5168-a3fd-5c5eb28e1bec parts retained",
+      "pass": true
+    },
+    {
+      "name": "0c6e7a4d-922f-5168-a3fd-5c5eb28e1bec answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "0c6e7a4d-922f-5168-a3fd-5c5eb28e1bec correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "0c6e7a4d-922f-5168-a3fd-5c5eb28e1bec parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "0c6e7a4d-922f-5168-a3fd-5c5eb28e1bec exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "d0dc09f2-03df-5499-a4df-3eea4261ad18 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "d0dc09f2-03df-5499-a4df-3eea4261ad18 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d0dc09f2-03df-5499-a4df-3eea4261ad18 parts retained",
+      "pass": true
+    },
+    {
+      "name": "d0dc09f2-03df-5499-a4df-3eea4261ad18 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "d0dc09f2-03df-5499-a4df-3eea4261ad18 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "d0dc09f2-03df-5499-a4df-3eea4261ad18 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "d0dc09f2-03df-5499-a4df-3eea4261ad18 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "07448203-e846-5417-aff2-a6ec8c8b6871 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "07448203-e846-5417-aff2-a6ec8c8b6871 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "07448203-e846-5417-aff2-a6ec8c8b6871 parts retained",
+      "pass": true
+    },
+    {
+      "name": "07448203-e846-5417-aff2-a6ec8c8b6871 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "07448203-e846-5417-aff2-a6ec8c8b6871 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "07448203-e846-5417-aff2-a6ec8c8b6871 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "07448203-e846-5417-aff2-a6ec8c8b6871 exact objective IDs/order preserved",
+      "pass": true
+    },
+    {
+      "name": "0193985f-8f47-5521-ab71-ea7e994b6956 exact task/parent/context SHA",
+      "pass": true
+    },
+    {
+      "name": "0193985f-8f47-5521-ab71-ea7e994b6956 identity/card preserved",
+      "pass": true
+    },
+    {
+      "name": "0193985f-8f47-5521-ab71-ea7e994b6956 parts retained",
+      "pass": true
+    },
+    {
+      "name": "0193985f-8f47-5521-ab71-ea7e994b6956 answer cardinalities retained",
+      "pass": true
+    },
+    {
+      "name": "0193985f-8f47-5521-ab71-ea7e994b6956 correct option position retained",
+      "pass": true
+    },
+    {
+      "name": "0193985f-8f47-5521-ab71-ea7e994b6956 parent identity/order/goals/card preserved",
+      "pass": true
+    },
+    {
+      "name": "0193985f-8f47-5521-ab71-ea7e994b6956 exact objective IDs/order preserved",
+      "pass": true
+    }
+  ],
+  "rows": [
+    {
+      "index": 1,
+      "id": "0d6870b5-9763-5eb5-a526-b69d4aec65c3",
+      "ref": "P1-N1-E07",
+      "level": "A1.2",
+      "node": "P1-N1",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: Sonderform. Existing answer variants: [\"Hausfrau\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "4ea1584c00ddff46c30aa71264a88eaa1de018fd585e37782760ba2638500054",
+      "wholeProposedAfterSHA256": "21334052a1774c20ed3542fdca148649ee28890519050c96b555333b53ee6351",
+      "wholeParentBeforeSHA256": "6e67a007507562b230f5c630d3a2c006c4a74d1d6247e83efd6a56cdf33d3ae0",
+      "wholeParentProposedAfterSHA256": "9240d11630342780f0c22cae497016ee1bac3b5cdec5c945e8e332b300de135d",
+      "wholeObjectivesBeforeSHA256": "9e87cf88b87f59294386c9fd0c319b8d6c7d57c4c970f2986734b37ff4502504",
+      "wholeObjectivesProposedAfterSHA256": "9e87cf88b87f59294386c9fd0c319b8d6c7d57c4c970f2986734b37ff4502504",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Tom ist Hausmann. Seine Nachbarin Eva ist ",
+          "after": "Die weibliche Form von „Hausmann“ heißt "
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Tom is a house husband. His neighbour Eva is a housewife.",
+          "after": "The female form of Hausmann is …"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Tom – домохозяин. Его соседка Eva – домохозяйка.",
+          "after": "Женская форма слова Hausmann — …"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Tom – домогосподар. Його сусідка Eva – домогосподарка.",
+          "after": "Жіноча форма слова Hausmann — …"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Tom ev erkeği. Komşusu Eva ev hanımı.",
+          "after": "Hausmann sözcüğünün kadın biçimi …"
+        }
+      ],
+      "parentProposedFields": [
+        {
+          "pointer": "/merkkarte/examples/0",
+          "before": "Emre ist Verkäufer. Dilara ist Verkäuferin.",
+          "after": "Männliche Form: Verkäufer. Weibliche Form: Verkäuferin."
+        }
+      ],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "a7fbeed407a4355b2118de22107215dc3dc4c1a57f8487b8def6a9690ccd4f2a",
+        "ru": "577016564b0c84642603f2f7270fbc084ba6848402a056750ffd33e2d95785ca",
+        "uk": "5da4ab8df64ac911881e1757565ff5630535e4aba3a27b27a4d9406dbf27e467",
+        "tr": "cb07f8b4d5ed7f8a3b73eda98af3eaa0b05276a93c34ad05a48b84f5bd7ebb89"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "1f18afd0965402edcb250f15ba3a8d675a02ec1fee3dd01474c86b60e01687a9",
+        "ru": "38b0e9141e7c59e7e115d1f505437768765b282af8487bf41c880dbe90356887",
+        "uk": "c2a38a5d082a676b1a09b81f7fa899a11f4301ec3cc336428cf754c2f6e14294",
+        "tr": "d4ccbdfbd3ccb096b855937e6c42790c2ccb9a9a91e005ff303571a11d1a3af3"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 2,
+      "id": "e61ffd86-5971-50c6-a2ba-a9ce739673ed",
+      "ref": "P1-N1-E08",
+      "level": "A1.2",
+      "node": "P1-N1",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: Berufe. Existing answer variants: [\"Friseurin\", \"Frisörin\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "1b78d2b09fd31f8618a114fe9753881135dc46ce266912f48f6c632889a8a025",
+      "wholeProposedAfterSHA256": "c49a208bd1f4833e80bee43816d608607407eb3cc3140e1fec85e5ac74667b30",
+      "wholeParentBeforeSHA256": "6e67a007507562b230f5c630d3a2c006c4a74d1d6247e83efd6a56cdf33d3ae0",
+      "wholeParentProposedAfterSHA256": "9240d11630342780f0c22cae497016ee1bac3b5cdec5c945e8e332b300de135d",
+      "wholeObjectivesBeforeSHA256": "9e87cf88b87f59294386c9fd0c319b8d6c7d57c4c970f2986734b37ff4502504",
+      "wholeObjectivesProposedAfterSHA256": "9e87cf88b87f59294386c9fd0c319b8d6c7d57c4c970f2986734b37ff4502504",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Frau Aksoy schneidet Haare. Sie ist ",
+          "after": "Eine Frau, die beruflich Haare schneidet, ist "
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Aksoy cuts hair. She is a hairdresser by profession.",
+          "after": "A woman who cuts hair professionally is a …"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Aksoy стрижёт волосы. По профессии она парикмахер.",
+          "after": "Женщина, которая профессионально стрижёт волосы, по профессии — …"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Aksoy стриже волосся. За професією вона перукарка.",
+          "after": "Жінка, яка професійно стриже волосся, за професією — …"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Aksoy Hanım saç kesiyor. Mesleği kuaförlük.",
+          "after": "Mesleği saç kesmek olan bir kadına … denir."
+        }
+      ],
+      "parentProposedFields": [
+        {
+          "pointer": "/merkkarte/examples/0",
+          "before": "Emre ist Verkäufer. Dilara ist Verkäuferin.",
+          "after": "Männliche Form: Verkäufer. Weibliche Form: Verkäuferin."
+        }
+      ],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "dda41faff3ca7cc16f964a27bce7d70605d195ff371b7f2ec0da25011e44e096",
+        "ru": "c06a16e10d048caea8d35b3393d84c814c27ff1ee2d84b42aa8f5c61e7cb946b",
+        "uk": "fc04934d2f1b7ee1a499b92120b99677762081f6024d155d0610ed183341c972",
+        "tr": "93479d0618e48923728156c56bb6dbecd093bfc18dd9efee13b262999cd3aa24"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "68f6f2ad39aebee77220039916c76f8c7e9485bc92b59ebcc01899aec22312be",
+        "ru": "a2387284b1fb81e770769d9cf36690dd30a05448460e4f7335fd5e7d560b7756",
+        "uk": "041b0ded0d5c1ad609e554d211bb3224732544fffdb719213007ff44826ab732",
+        "tr": "8931eaada99cf57e111b58b8624763e9c8df99c655b4232c292dbf174a0c65dc"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 3,
+      "id": "8d30a4bd-b3b7-5a06-aee8-47c0e7a3490a",
+      "ref": "P2-N2-E05",
+      "level": "A1.2",
+      "node": "P2-N2",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: müssen. Existing answer variants: [\"muss\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "52fb0faa08c89c61c8cb541e0037ea3cf40099d9877075d62cf4d7005d5d67b5",
+      "wholeProposedAfterSHA256": "be0d49b0ea0befef08ef97be4eb48d81e9c85cfcc7a0b9f61d69025e3ddf4eee",
+      "wholeParentBeforeSHA256": "bd78a2586867fe17755bc79e542c77384eb5a7befc2bb4f30f86702d494bddeb",
+      "wholeParentProposedAfterSHA256": "bd78a2586867fe17755bc79e542c77384eb5a7befc2bb4f30f86702d494bddeb",
+      "wholeObjectivesBeforeSHA256": "2834654d89a30027c3316128c612b0643623d4cccd01c811d38f19bb6d568235",
+      "wholeObjectivesProposedAfterSHA256": "2834654d89a30027c3316128c612b0643623d4cccd01c811d38f19bb6d568235",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Frau Kaya ",
+          "after": "Herr Kaya "
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Kaya has to work late today.",
+          "after": "Mr Kaya has to work late today."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Kaya сегодня должна долго работать.",
+          "after": "Господин Kaya сегодня должен долго работать."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Kaya сьогодні мусить довго працювати.",
+          "after": "Пан Kaya сьогодні мусить довго працювати."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Kaya Hanım bugün uzun süre çalışmak zorunda.",
+          "after": "Kaya Bey bugün uzun süre çalışmak zorunda."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "a8d3480e0f5772e9e2a09ba7a96d8558da4604975792e9db2f0c916995a549eb",
+        "ru": "49c51a2d252f30c4dbf6a4b612ce7bf15ade3e67ee151acb31fc229f89037253",
+        "uk": "f6ea5b1b9ffefb87fc10758162b6cf88cc2873daa01264666e501d12f80b58c0",
+        "tr": "0f06c4986b539e6de04d1fda19d4a357d1bbae60a69a64dddf392285de81184f"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "0996bf56629c46457857472706fabd769c50ba9fc353322d788a436522bf4976",
+        "ru": "c2a46831447b7b4540123f3e8d6a7c7b5432a73b1166b9e947cbdf5c3bf358ba",
+        "uk": "9d5a1728c475dd5ae2ad8d61d6e6c372e1b922832476812744dd1d63ef8b58d8",
+        "tr": "1adc0ed720094cd81764b5014a630ab910c158bfed3b03434c1b7426c3851d27"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 4,
+      "id": "e9588b15-0d37-5ddc-a31e-c820bc29717d",
+      "ref": "P2-N13-E14",
+      "level": "A1.2",
+      "node": "P2-N13",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Imperativ Sie. Existing answer variants: [\"warten\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "f1060a505136fc26bc1eef12b100be8ac1f4a638088a8738263494b333e1649a",
+      "wholeProposedAfterSHA256": "8dff90666edb8529d1782a4fc94b83e4120ece850b2d4c04cc09f46fa968bdf7",
+      "wholeParentBeforeSHA256": "0fd77dc521b8ba3d9636f8739ea8d06cfdd19521c9fdd454b84321a959ee261b",
+      "wholeParentProposedAfterSHA256": "0fd77dc521b8ba3d9636f8739ea8d06cfdd19521c9fdd454b84321a959ee261b",
+      "wholeObjectivesBeforeSHA256": "2834654d89a30027c3316128c612b0643623d4cccd01c811d38f19bb6d568235",
+      "wholeObjectivesProposedAfterSHA256": "2834654d89a30027c3316128c612b0643623d4cccd01c811d38f19bb6d568235",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Frau Lindner, … Sie bitte hier!",
+          "after": "Herr Lindner, … Sie bitte hier!"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Lindner, please wait here!",
+          "after": "Mr Lindner, please wait here!"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Lindner, подождите, пожалуйста, здесь!",
+          "after": "Господин Lindner, подождите, пожалуйста, здесь!"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Lindner, зачекайте, будь ласка, тут!",
+          "after": "Пане Lindner, зачекайте, будь ласка, тут!"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Lindner Hanım, lütfen burada bekleyin!",
+          "after": "Lindner Bey, lütfen burada bekleyin!"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "b138ee03f62055b0f41c2b2df36fff694d51a229f877470442a4b0d3700a376c",
+        "ru": "d8e7b23833aa268867c709e5e2b86ed94203b2ae4d12c3847f0b0f249fa800fc",
+        "uk": "850b5fe3cc7e5dbbe7ecb513f56a111646a366851cb9c5543ba4d849a3e40b22",
+        "tr": "a05c9a0058890ee5756399b3c60ea19537e32d500dd993df8b3a6d4efcfc905a"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "735c129e424f9cda2d6122bf1dcc138d53e5051ce8049384bd47bb6f354f7005",
+        "ru": "96a74c0273a03349ffb6e92b39e930a9ce5c596662d76198682c8483f6ee97b2",
+        "uk": "bc1266c3f94ec5182018330e03ff30a8389fb4fa3d2d749945171d742c1f652c",
+        "tr": "b87419ec25be7c4589946e9d34d050c845ff02adfac1c0b386067dd0ec0bc09f"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 5,
+      "id": "c39965ca-2237-5c75-a526-928c79cca63b",
+      "ref": "P2-N13-E25",
+      "level": "A1.2",
+      "node": "P2-N13",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Vorname. Existing answer variants: [\"Vorname\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "da70e8e8b668e8ae16f461b986d08e4599724000a6ef310c877541b3a152102d",
+      "wholeProposedAfterSHA256": "65f6456e976b72e64386f144389f9c81c563199aa15040c07dc8c10ba78344bf",
+      "wholeParentBeforeSHA256": "0fd77dc521b8ba3d9636f8739ea8d06cfdd19521c9fdd454b84321a959ee261b",
+      "wholeParentProposedAfterSHA256": "0fd77dc521b8ba3d9636f8739ea8d06cfdd19521c9fdd454b84321a959ee261b",
+      "wholeObjectivesBeforeSHA256": "2834654d89a30027c3316128c612b0643623d4cccd01c811d38f19bb6d568235",
+      "wholeObjectivesProposedAfterSHA256": "2834654d89a30027c3316128c612b0643623d4cccd01c811d38f19bb6d568235",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_after",
+          "before": " Maria, Familienname Rojas.",
+          "after": " Mateo, Familienname Rojas."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "On the form: first name Maria, surname Rojas.",
+          "after": "On the form: first name Mateo, surname Rojas."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "В бланке: имя Maria, фамилия Rojas.",
+          "after": "В бланке: имя Mateo, фамилия Rojas."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "У бланку: ім’я Maria, прізвище Rojas.",
+          "after": "У бланку: ім’я Mateo, прізвище Rojas."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Formda: ad Maria, soyadı Rojas.",
+          "after": "Formda: ad Mateo, soyadı Rojas."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "e261a7c8778b8fe2cd907592dfddfa329de70b7e0aa6745ca529a5d1ea6b4b6c",
+        "ru": "6a12a6ad792bee956a0d45f669d8ace16d15d2cde738c6ab8bb04b10de661dad",
+        "uk": "4fc0cbc8c92281a80729fcfd2c1678e2725917c221c80972d24d710eb250f27a",
+        "tr": "33ed5cead85681ed0706ede9d731a19e279464f43fa19dd087133c15d0e19ebe"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "ad811b34ab30228dc2f88ff4ecd2d1ae64c93a8dc6e2f2ce79d159b6f062c21c",
+        "ru": "386ed60decbc960da41642b800accb0e60a1d8255405390416e294819a922d3c",
+        "uk": "707c9ff5464de835f7f43b6d689c49fd71acc05bda93651d2d730d04c4717d66",
+        "tr": "cafaa08b4dec1bcf143d287d78f9a2a354cf9a004f8884f1c2211796f26ea743"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 6,
+      "id": "120c216e-95aa-5bc7-a810-52273851b03d",
+      "ref": "P3-N4-E02",
+      "level": "A1.2",
+      "node": "P3-N4",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: ihr. Existing answer variants: [\"Ihre\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "045a4d0b8d14f62803db108ecf31ae123bbf183a120b917642bd425fe762fd11",
+      "wholeProposedAfterSHA256": "a8d0dafbe4166ae781ecefb842399adce436916f7a3093f05ad9e4934d7c94dc",
+      "wholeParentBeforeSHA256": "631c94fe9552f179f9dbec5c82a31076bed0f4fcd72801ca69cf3495dbdc03d8",
+      "wholeParentProposedAfterSHA256": "631c94fe9552f179f9dbec5c82a31076bed0f4fcd72801ca69cf3495dbdc03d8",
+      "wholeObjectivesBeforeSHA256": "e587459ea4a8011059fbca583e09ba6988938044673193f638631c6655b6878a",
+      "wholeObjectivesProposedAfterSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Frau Aksoy hat Schmerzen. … Hand tut weh.",
+          "after": "Ergänze den Possessivartikel zu „sie (Singular)“: … Hand tut weh."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Aksoy is in pain. Her hand hurts.",
+          "after": "Complete the possessive for sie (singular): … Hand tut weh."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "У госпожи Aksoy боли. У неё болит рука.",
+          "after": "Дополните притяжательный артикль для sie (ед. число): … Hand tut weh."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "У пані Aksoy болі. У неї болить рука.",
+          "after": "Доповніть присвійний артикль для sie (однина): … Hand tut weh."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Aksoy Hanım’ın ağrısı var. Eli ağrıyor.",
+          "after": "sie (tekil) için iyelik artikelini tamamlayın: … Hand tut weh."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/1/description",
+          "before": "sein oder ihr: Der Possessivartikel richtet sich nach der Person (Simon – seine Hand, Sofia – ihre Hand).",
+          "after": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "91fcc8e696c8836b35bfb54701255e4306d16748c29d67c9fbd60d38ae82c18e",
+        "ru": "edf0e3f3aff5d3682a44bf04dcf6008814c9acec0b13d00744cd87b163f4c26d",
+        "uk": "70ee2145d67e3c6235371d53a36647577c5b53daf021657205a4a4e9647e11a2",
+        "tr": "628f623eabfce98af9abe308455c4048b9ceb5cb5a55ef99b18bc084ef9619d9"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "956c0e855a641aa81f9dd82ae5f9a04342843553966760ff774d570300200c84",
+        "ru": "f8f79232344a4665992ba2b5979440d7689048eb579696f1f1ceb13d8b3ad0d6",
+        "uk": "152ae58d51396e2ee1edebf10f4e19017e1eb3c6cba5b3dde1248e9b7ff4725a",
+        "tr": "e4f6f0bbd91e07b17cc04242d58217680df081f5497d5d13860c5766c8e35e6e"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 7,
+      "id": "c1eb1bd8-f720-5181-a510-7e863007bcbf",
+      "ref": "P3-N5-E06",
+      "level": "A1.2",
+      "node": "P3-N5",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Akkusativ maskulin. Existing answer variants: [\"Ihren\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "dc0c3195f157442ad131ef2d22c7a50f2e1987a9320153026103a1195188235f",
+      "wholeProposedAfterSHA256": "6316492a0f37068e8d6326c2fe6e81b63e3086724b67c354910b30b561058276",
+      "wholeParentBeforeSHA256": "55cb8bf152a7c35902faa055cb7573b725ef95127b66c8fc939c51ed1cc9c2d1",
+      "wholeParentProposedAfterSHA256": "55cb8bf152a7c35902faa055cb7573b725ef95127b66c8fc939c51ed1cc9c2d1",
+      "wholeObjectivesBeforeSHA256": "e587459ea4a8011059fbca583e09ba6988938044673193f638631c6655b6878a",
+      "wholeObjectivesProposedAfterSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Frau Kaya, haben Sie ",
+          "after": "Herr Kaya, haben Sie "
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Kaya, do you have your ID card with you?",
+          "after": "Mr Kaya, do you have your ID card with you?"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Kaya, удостоверение у вас с собой?",
+          "after": "Господин Kaya, удостоверение у вас с собой?"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Kaya, посвідчення у вас із собою?",
+          "after": "Пане Kaya, посвідчення у вас із собою?"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Kaya Hanım, kimliğiniz yanınızda mı?",
+          "after": "Kaya Bey, kimliğiniz yanınızda mı?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/1/description",
+          "before": "sein oder ihr: Der Possessivartikel richtet sich nach der Person (Simon – seine Hand, Sofia – ihre Hand).",
+          "after": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "2e8a246c2ca2f1b4d979d30691740ef1ae2a03ec43dbfc84a4c8366865d1714a",
+        "ru": "774efee311ffc7bcb2b9abdde1ea0f7640ec97cea2c94bbae543efba8812748d",
+        "uk": "f777215e6cab5114f5b4355e98ff198b3154dbd7dbc0f526232f437f963bf272",
+        "tr": "caaea1d4b418715ae06b8660cdb48f890dff6d75286e8a343a93e6de7242831f"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "6c3b71b798b04fd88136543be9e269e660172b5af9677929b4d0ae29a7263268",
+        "ru": "78823028a66d083554209647c7b3b3ced88796f656acfad9b22b918f1984bada",
+        "uk": "2a9f8be732a3e0cfd170d90b3f028e60437cc28c856439007a4d57e596aecaf6",
+        "tr": "c779fa9309f69eaa7c0cfb81f9a5231213a9de2bda164837faeba613da860559"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 8,
+      "id": "82a4f53f-c30a-5eca-a7e1-4e42b5e0d8cb",
+      "ref": "P3-N8-E02",
+      "level": "A1.2",
+      "node": "P3-N8",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Krankmeldung lesen. Existing answer variants: [\"Bis Mittwoch.\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "4ad8f149512b814eac0a3cce3092e517e4d2f736d001b40d3e0d462a39a663df",
+      "wholeProposedAfterSHA256": "8cdaaf1f6dc2986a7778cd42183b0aea9914396f97b2a2fe382ad72d4c833f59",
+      "wholeParentBeforeSHA256": "395ce57f2170894ec5f5c3d3de0e596293796d04b1a6126c0382ca98a42777a0",
+      "wholeParentProposedAfterSHA256": "395ce57f2170894ec5f5c3d3de0e596293796d04b1a6126c0382ca98a42777a0",
+      "wholeObjectivesBeforeSHA256": "e587459ea4a8011059fbca583e09ba6988938044673193f638631c6655b6878a",
+      "wholeObjectivesProposedAfterSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Frau Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wie lange ist Mateo krank?",
+          "after": "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Herrn Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wie lange ist Mateo krank?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/1/description",
+          "before": "sein oder ihr: Der Possessivartikel richtet sich nach der Person (Simon – seine Hand, Sofia – ihre Hand).",
+          "after": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "34333d088260efa6834e653f5463b64ed6038889c3d6169d8a0904cf677ea140",
+        "ru": "ba8f9818a0e2e9ddb13faa985880ce536efacf98566096caf8cb63c7eb15dc6c",
+        "uk": "de90d334f3c253ffe5cb116cf6f70ba60efe904d4afc3c1f4767064966e5175e",
+        "tr": "778d438b48c65a4ff21524a832633d086e096ce02d0ed25a2ca1c2b8cc2bdea7"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "34333d088260efa6834e653f5463b64ed6038889c3d6169d8a0904cf677ea140",
+        "ru": "ba8f9818a0e2e9ddb13faa985880ce536efacf98566096caf8cb63c7eb15dc6c",
+        "uk": "de90d334f3c253ffe5cb116cf6f70ba60efe904d4afc3c1f4767064966e5175e",
+        "tr": "778d438b48c65a4ff21524a832633d086e096ce02d0ed25a2ca1c2b8cc2bdea7"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 9,
+      "id": "e098a0a2-2ce4-561b-ab34-7261b54c0ef8",
+      "ref": "P3-N8-E03",
+      "level": "A1.2",
+      "node": "P3-N8",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Krankmeldung lesen. Existing answer variants: [\"Frau Lindner\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "97dbfd8a46071772f9e5892df993932b32b79e1498ac9541b79d108cc20239c8",
+      "wholeProposedAfterSHA256": "b8a2a791c220bc86812bb5bd76f9932c501d32debb0d758a44efdde4063df6e3",
+      "wholeParentBeforeSHA256": "395ce57f2170894ec5f5c3d3de0e596293796d04b1a6126c0382ca98a42777a0",
+      "wholeParentProposedAfterSHA256": "395ce57f2170894ec5f5c3d3de0e596293796d04b1a6126c0382ca98a42777a0",
+      "wholeObjectivesBeforeSHA256": "e587459ea4a8011059fbca583e09ba6988938044673193f638631c6655b6878a",
+      "wholeObjectivesProposedAfterSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Frau Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wer soll die Information auch bekommen?",
+          "after": "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Herrn Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wer soll die Information auch bekommen?"
+        },
+        {
+          "pointer": "/content/options/1",
+          "before": "Frau Lindner",
+          "after": "Herr Lindner"
+        },
+        {
+          "pointer": "/content/correct_answer",
+          "before": "Frau Lindner",
+          "after": "Herr Lindner"
+        },
+        {
+          "pointer": "/content/accepted_answers/0",
+          "before": "Frau Lindner",
+          "after": "Herr Lindner"
+        },
+        {
+          "pointer": "/accepted_answers/0",
+          "before": "Frau Lindner",
+          "after": "Herr Lindner"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/1/description",
+          "before": "sein oder ihr: Der Possessivartikel richtet sich nach der Person (Simon – seine Hand, Sofia – ihre Hand).",
+          "after": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "0711d369fa2eabba4cd65faf9587b102d4f2766f72a0b338c0395feb5400a9d3",
+        "ru": "22a08ad7b8f70eee960adfa7c4e4f91fb6f72f238357ab62ef8fc6a89537a1d4",
+        "uk": "8d52003cac6a75495c369d333b8a735387f0985df58e303ff09c612e363a62b3",
+        "tr": "c010b354ea41cc64110e918aaaff1329894954fd012e4ae2925b74fc85295465"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "0711d369fa2eabba4cd65faf9587b102d4f2766f72a0b338c0395feb5400a9d3",
+        "ru": "22a08ad7b8f70eee960adfa7c4e4f91fb6f72f238357ab62ef8fc6a89537a1d4",
+        "uk": "8d52003cac6a75495c369d333b8a735387f0985df58e303ff09c612e363a62b3",
+        "tr": "c010b354ea41cc64110e918aaaff1329894954fd012e4ae2925b74fc85295465"
+      },
+      "keyRevision": {
+        "before": [
+          "Frau Lindner"
+        ],
+        "after": [
+          "Herr Lindner"
+        ],
+        "cardinality": "1->1",
+        "correctOptionPositionBeforeZeroBased": 1,
+        "correctOptionPositionAfterZeroBased": 1,
+        "Archive114Required": true,
+        "Archive114Performed": false
+      },
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 10,
+      "id": "d06bed79-1b9c-5cc8-ad06-fc80dbd55377",
+      "ref": "P3-N12-E10",
+      "level": "A1.2",
+      "node": "P3-N12",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: ihr. Existing answer variants: [\"Ihre\"]. All five outdated explanations aligned to the complete pronoun-based parent rule, including er/es and sie singular/plural.",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "7b089258a3ef8696530217203352a3124692290aa7aaf239833a66763e9274ea",
+      "wholeProposedAfterSHA256": "9ed993935eec192c0c0c36e5981779208755498e028dc453098886ad00ae15e3",
+      "wholeParentBeforeSHA256": "265edb44e3a7fb3f5b80d24d7e5864b44f183b1d42ffe1b8fcc15abea9119138",
+      "wholeParentProposedAfterSHA256": "265edb44e3a7fb3f5b80d24d7e5864b44f183b1d42ffe1b8fcc15abea9119138",
+      "wholeObjectivesBeforeSHA256": "e587459ea4a8011059fbca583e09ba6988938044673193f638631c6655b6878a",
+      "wholeObjectivesProposedAfterSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Sofia hat Schnupfen. ",
+          "after": "Ergänze den Possessivartikel zu „sie (Singular)“: "
+        },
+        {
+          "pointer": "/explanation",
+          "before": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+          "after": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand."
+        },
+        {
+          "pointer": "/translations/en/explanation",
+          "before": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+          "after": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Sofia has a cold. Her nose is red.",
+          "after": "Complete the possessive for sie (singular): … Nase ist rot."
+        },
+        {
+          "pointer": "/translations/ru/explanation",
+          "before": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+          "after": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "У Sofia насморк. У неё красный нос.",
+          "after": "Дополните притяжательный артикль для sie (ед. число): … Nase ist rot."
+        },
+        {
+          "pointer": "/translations/uk/explanation",
+          "before": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+          "after": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "У Sofia нежить. У неї червоний ніс.",
+          "after": "Доповніть присвійний артикль для sie (однина): … Nase ist rot."
+        },
+        {
+          "pointer": "/translations/tr/explanation",
+          "before": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+          "after": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Sofia nezle. Burnu kırmızı.",
+          "after": "sie (tekil) için iyelik artikelini tamamlayın: … Nase ist rot."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/1/description",
+          "before": "sein oder ihr: Der Possessivartikel richtet sich nach der Person (Simon – seine Hand, Sofia – ihre Hand).",
+          "after": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "fcac9a0e2273e920fdef7d06a8d60fc5af6e7216aefa9d7dc8c954705b81ba6f",
+        "ru": "946080ad44b66ed34e28027bbea8c47d50edccbb7b2f1cade05392f8071a4070",
+        "uk": "13957d7021d3e01d1ad497dcef88b7117ea07908c48d9757c34f8fe7e4c398be",
+        "tr": "06c428858b5a0b2d13f910d0d4152fd6601aa910bd2a8d4bd4154859933c2fd6"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "d02aa75900c4c712ae8ad35365fc3dca15e1d14f206da3a5c7cb4f4775cde437",
+        "ru": "5c05ce36f64eb239d6c1558ba9d6f12a8d7fcd2ef5bff42816d67aa02e4d48e7",
+        "uk": "e21423cfb400d8d72ef8238e57560eaaaa9c7c918db843e612fdfff6ab9e98b8",
+        "tr": "7fc704b9f2bb38d93e915aaef57f8f1033c141ef775225b1e068095571627d74"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 11,
+      "id": "f5afa4f2-dd9e-50ba-a90c-c20cea9aa371",
+      "ref": "P3-N13-E04",
+      "level": "A1.2",
+      "node": "P3-N13",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: ihr. Existing answer variants: [\"Ihr\"]. All five outdated explanations aligned to the complete pronoun-based parent rule, including er/es and sie singular/plural.",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "6555531a43c6139a13ecab4d2ca29b185d2689355a942ebb60bc05eb002cdadc",
+      "wholeProposedAfterSHA256": "5e8c359dbe97968baa0e70de3108adeb3a9acc83c47fb627003ab9fa19642048",
+      "wholeParentBeforeSHA256": "d1e5cb8375f0d3052c25d59523c26204a2a63418e098788372f9b084829d80e2",
+      "wholeParentProposedAfterSHA256": "d1e5cb8375f0d3052c25d59523c26204a2a63418e098788372f9b084829d80e2",
+      "wholeObjectivesBeforeSHA256": "e587459ea4a8011059fbca583e09ba6988938044673193f638631c6655b6878a",
+      "wholeObjectivesProposedAfterSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Das ist Frau Lindner. … Sohn ist krank.",
+          "after": "Ergänze den Possessivartikel zu „sie (Singular)“: … Sohn ist krank."
+        },
+        {
+          "pointer": "/explanation",
+          "before": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+          "after": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand."
+        },
+        {
+          "pointer": "/translations/en/explanation",
+          "before": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+          "after": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "This is Ms Lindner. Her son is ill.",
+          "after": "Complete the possessive for sie (singular): … Sohn ist krank."
+        },
+        {
+          "pointer": "/translations/ru/explanation",
+          "before": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+          "after": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Это госпожа Lindner. Её сын болен.",
+          "after": "Дополните притяжательный артикль для sie (ед. число): … Sohn ist krank."
+        },
+        {
+          "pointer": "/translations/uk/explanation",
+          "before": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+          "after": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Це пані Lindner. Її син хворий.",
+          "after": "Доповніть присвійний артикль для sie (однина): … Sohn ist krank."
+        },
+        {
+          "pointer": "/translations/tr/explanation",
+          "before": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+          "after": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Bu Lindner Hanım. Oğlu hasta.",
+          "after": "sie (tekil) için iyelik artikelini tamamlayın: … Sohn ist krank."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/1/description",
+          "before": "sein oder ihr: Der Possessivartikel richtet sich nach der Person (Simon – seine Hand, Sofia – ihre Hand).",
+          "after": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "a638b2feabb4c086d139c661c20b7c504746e90e46f24b6e2fdf6ba03214078e",
+        "ru": "64d58ba1ea6a319f55fb1ab3ebf3d266cc8818b671c158935a33ddd9f69b3423",
+        "uk": "fcb9ef2d6179d8cbbc08c738c42c94e2e15996780fed3b751e723962df237b63",
+        "tr": "bf2a9a7ca9dfa8eeaf7ff8dc796de41a24d134d158420944686cbfa06c00ed10"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "05f8dcaedf5f0d7511cdcea389d9e2a529ae3d15a65a8526de09bce68af89f41",
+        "ru": "2f2ddf368501539849b3590d90a08ffb8914cd290dde0da33949856c37cc02fe",
+        "uk": "f5ae8821ca668d5f57ea85d7d1e27235c098aa0e6a3b0b636db15c6bad3cffc4",
+        "tr": "46aac86c46ab888836441a274884791990abb141b6f38dc71338256666da38c1"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 12,
+      "id": "73d45bc3-a714-50b3-a980-063a4075821e",
+      "ref": "P3-N13-E24",
+      "level": "A1.2",
+      "node": "P3-N13",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: leider. Existing answer variants: [\"leider\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "f94c2bd6034c7dc0b7978aa479e600b23e1ca6cf75de5b23669773f028c8ad51",
+      "wholeProposedAfterSHA256": "cfa9a6cbbdf8f27a2a4108299e67a271c833056ac2d0ef970af7e433ae756e9c",
+      "wholeParentBeforeSHA256": "d1e5cb8375f0d3052c25d59523c26204a2a63418e098788372f9b084829d80e2",
+      "wholeParentProposedAfterSHA256": "d1e5cb8375f0d3052c25d59523c26204a2a63418e098788372f9b084829d80e2",
+      "wholeObjectivesBeforeSHA256": "e587459ea4a8011059fbca583e09ba6988938044673193f638631c6655b6878a",
+      "wholeObjectivesProposedAfterSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Sehr geehrte Frau Wolf, ",
+          "after": "Sehr geehrter Herr Wolf, "
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Dear Ms Wolf, unfortunately I cannot come to class tomorrow. I am ill.",
+          "after": "Dear Mr Wolf, unfortunately I cannot come to class tomorrow. I am ill."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Уважаемая госпожа Wolf, к сожалению, завтра я не могу прийти на курс. Я болею.",
+          "after": "Уважаемый господин Wolf, к сожалению, завтра я не могу прийти на курс. Я болею."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Шановна пані Wolf, на жаль, завтра я не можу прийти на курс. Я хворію.",
+          "after": "Шановний пане Wolf, на жаль, завтра я не можу прийти на курс. Я хворію."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Sayın Wolf Hanım, maalesef yarın kursa gelemiyorum. Hastayım.",
+          "after": "Sayın Wolf Bey, maalesef yarın kursa gelemiyorum. Hastayım."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/1/description",
+          "before": "sein oder ihr: Der Possessivartikel richtet sich nach der Person (Simon – seine Hand, Sofia – ihre Hand).",
+          "after": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "532071a3ddb625b923ffaf4c0f5d5ceecb0804311f2af3e3baa2051bbc1ed6a4",
+        "ru": "a71e0d5c26b2f28bb3ce2fa159839aa16016a0d5e09be9a00e20f4c95603522a",
+        "uk": "ff2cea8a524024be713de7e330763d904ce67cc4593854ee76947edf0c21f8b9",
+        "tr": "94bcb14acc0c146b748dc6ed9db63850d11ae690379a45cbb62cd8b536250bef"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "dd45bf6732b1dba8ae040712e8dcd1247a2617ee5f59d9a55249eb01313a96d3",
+        "ru": "481f3ee92337435324f043b1e019d4ef2b6059edb365c16719d9e3160ac8eb9e",
+        "uk": "70a18c6f29164ab08557ca0d106d9d1ed1748d4fb07404a60de6990b2cec5f2c",
+        "tr": "2c0326246e8384d0861a80a2fb130224d8e2045035aa8c83b2d329f0b04d2c6b"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 13,
+      "id": "1758439e-d2f8-51a1-a38e-c75ff18f9bd0",
+      "ref": "P4-N2-E05",
+      "level": "A1.2",
+      "node": "P4-N2",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: mit + Dativ. Existing answer variants: [\"der\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "0cbf8c7ced045698405bc58cbf9fa01a9418d6ac7b5d0133083e8a90f47b87b9",
+      "wholeProposedAfterSHA256": "c893e9bba5d6b10ced57eecb9992c459790fe5728f579bbba7915c7158063311",
+      "wholeParentBeforeSHA256": "72ed1ff8eaf0ed5918fcd2664ecb4802c6ccb34773d9bf68ffd0a9f786bac389",
+      "wholeParentProposedAfterSHA256": "72ed1ff8eaf0ed5918fcd2664ecb4802c6ccb34773d9bf68ffd0a9f786bac389",
+      "wholeObjectivesBeforeSHA256": "45fd97f8c3cc4f6783dbe17332f4836759839dc207ae813bc23bb7490792f10c",
+      "wholeObjectivesProposedAfterSHA256": "45fd97f8c3cc4f6783dbe17332f4836759839dc207ae813bc23bb7490792f10c",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Frau Kaya fährt mit ",
+          "after": "Herr Kaya fährt mit "
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Kaya goes to work by underground.",
+          "after": "Mr Kaya goes to work by underground."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Kaya ездит на работу на метро.",
+          "after": "Господин Kaya ездит на работу на метро."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Kaya їздить на роботу на метро.",
+          "after": "Пан Kaya їздить на роботу на метро."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Kaya Hanım işe metroyla gidiyor.",
+          "after": "Kaya Bey işe metroyla gidiyor."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "c3987bde9aa760df50f3977dfbbddf389f557c939602617d35283a7f57b5f2d4",
+        "ru": "e5c799558df8e2dd32553a159f625c826d20922a43b95d83b88d1304914b5db9",
+        "uk": "30a8392f6c714a99ff7c9618720929f5829d9cb60f892e5f33384e8bae8112a9",
+        "tr": "1a477b3f81aab96a035d0cc13ce4c4d4754566da8bc7a99a75929dd03f829231"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "8cc4b1829c76c6a4e3df41c6bd72ca9cbdf5161c589696bf0c5dc13b45c0aa49",
+        "ru": "1ef2f1493ab6c698161f7e5ff7ff86212e99cd421b4018a13ddd41d8ab7cc807",
+        "uk": "86c5c5d58c27edb9f060707a91dc95ff142afb705132b0afadf4fd530cc69155",
+        "tr": "8b64970ec151247c7ef2bbd01cc7b474462fbbc1a6b083b16a617dc00841cb5e"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 14,
+      "id": "93e0dbcf-b355-53b7-a1fc-dae98e2f8677",
+      "ref": "P6-N4-E03",
+      "level": "A1.2",
+      "node": "P6-N4",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Ihnen. Existing answer variants: [\"Ihnen\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "82214290d199e142164a1299a5abb272b93f356c70bf4203ded27cb4308bb6e2",
+      "wholeProposedAfterSHA256": "8f8e433ebdb8d2116c1ba55d6a57e8f5ab19e8015d59eec6b43e22b68ca666c3",
+      "wholeParentBeforeSHA256": "8705e03a0999a1ae4c2e8358061712bb1fc5b3e92e341e775e8e543645a47272",
+      "wholeParentProposedAfterSHA256": "8705e03a0999a1ae4c2e8358061712bb1fc5b3e92e341e775e8e543645a47272",
+      "wholeObjectivesBeforeSHA256": "387f6755778ee03b0492425a631f9df9db3b60b6b4823d0b112cd02a14e6132c",
+      "wholeObjectivesProposedAfterSHA256": "387f6755778ee03b0492425a631f9df9db3b60b6b4823d0b112cd02a14e6132c",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Frau Aksoy, gefällt … das Kleid?",
+          "after": "Herr Aksoy, gefällt … das Kleid?"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Aksoy, do you like the dress?",
+          "after": "Mr Aksoy, do you like the dress?"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Aksoy, вам нравится это платье?",
+          "after": "Господин Aksoy, вам нравится это платье?"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Aksoy, вам подобається ця сукня?",
+          "after": "Пане Aksoy, вам подобається ця сукня?"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Aksoy Hanım, elbise hoşunuza gidiyor mu?",
+          "after": "Aksoy Bey, elbise hoşunuza gidiyor mu?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "ef7820f7656d6b52cefd369890dd84fd67ff118e595b3c746fb3803ac372a93b",
+        "ru": "c4c535f9e199078ecb741defa06f7bc799630fe738982142762306adb671fd92",
+        "uk": "d908ef7ba3ecf7a0c3a1380a2577afdf371711b7abdcf721a7219cdce5e2a9fa",
+        "tr": "a51016557bf9036bace0e811747b2effc5f01636cdee91f5dc02011604a0dae0"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "0ca2be3f5a4a0f4b41428c0ada6be8f59793504809c0b07e41b7f8d593f3c9f0",
+        "ru": "c714fc6856bf2a313a7de06bd0a01264a427af23d68704727e96104e7bb49868",
+        "uk": "3a9d74a02e167ff598cb8ed510e58ad8b24f354cd87993a1b11b0920cb7c26f4",
+        "tr": "a51510a2a74ebcb066f5c99e5c1673922c52d3a326bc83e413a4109e8b8a088f"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 15,
+      "id": "fd70df08-2457-5539-ad58-b15bf6203adb",
+      "ref": "P6-N13-E20",
+      "level": "A1.2",
+      "node": "P6-N13",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: ihnen. Existing answer variants: [\"ihnen\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "b5be2e08ab4dc35eced708152d33c2b3455bea88525302903f27a8813bbad1a8",
+      "wholeProposedAfterSHA256": "29f156dd81af3fd1ffa7fca20ce7971df239df796188e6ece263508b52f9c684",
+      "wholeParentBeforeSHA256": "e355f852f8dddda541bf9384d4664353f8f6b3492cf2af8b3206efc554e0650a",
+      "wholeParentProposedAfterSHA256": "e355f852f8dddda541bf9384d4664353f8f6b3492cf2af8b3206efc554e0650a",
+      "wholeObjectivesBeforeSHA256": "387f6755778ee03b0492425a631f9df9db3b60b6b4823d0b112cd02a14e6132c",
+      "wholeObjectivesProposedAfterSHA256": "387f6755778ee03b0492425a631f9df9db3b60b6b4823d0b112cd02a14e6132c",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Das sind Tom und Eva. Der Koffer gehört ",
+          "after": "Das sind Tom und Emil. Der Koffer gehört "
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "These are Tom and Eva. The suitcase belongs to them.",
+          "after": "These are Tom and Emil. The suitcase belongs to them."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Это Tom и Eva. Чемодан принадлежит им.",
+          "after": "Это Tom и Emil. Чемодан принадлежит им."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Це Tom і Eva. Валіза належить їм.",
+          "after": "Це Tom і Emil. Валіза належить їм."
+        },
+        {
+          "pointer": "/translations/tr/explanation",
+          "before": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+          "after": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Bunlar Tom ve Eva. Bavul onlara ait.",
+          "after": "Bunlar Tom ve Emil. Bavul onlara ait."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "d3fbafe58ab8ee3268b90b72d15abae73f43549d431f6a8724effc0ac5e30b59",
+        "ru": "f2d998696e1c150f9598694ba41a472e5796f2757798ded8584bc0b6fd0f0af6",
+        "uk": "5c2632050138013d9d56078fb8fbff259814850fb43b5bcc2629b1aed2536326",
+        "tr": "199623634a7a84439a3dcf2a0f21f983457aee1ed401b50e58b990dbd7f01cbd"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "e77a6e815b8700f33a10fff3bf629819c6681ac97deccd2fd157ce89e109d4b9",
+        "ru": "d8fd9c8ac1252c2f6214b63820b86428fdbdd26207f294c3a9ab36f16db66698",
+        "uk": "5c957aad3df808461ee0d359a6b88d900c4f67079584ccbf0b86c550ee2af39d",
+        "tr": "9f5fcf21a1b11c8cc6d1e3297d47e1b4633dcde86420c2859894ef23d4673e1a"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 16,
+      "id": "d727f0fe-52e3-5f2e-ad9c-c669461615d1",
+      "ref": "P7-N6-E09",
+      "level": "A1.2",
+      "node": "P7-N6",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: für + Akkusativ. Existing answer variants: [\"Sie\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "57be1c9e66f4930ae63b318a67692e86b170306f92cbffc902c869260c4ef02d",
+      "wholeProposedAfterSHA256": "e28f20cafe6bc62df3d9441e5c6c40af7e73aae15b5342041e296e59eedb41e4",
+      "wholeParentBeforeSHA256": "c74e9a670e6211d4924780612e3675d209a5ad3b7981493c1bfc93194f9e45d1",
+      "wholeParentProposedAfterSHA256": "c74e9a670e6211d4924780612e3675d209a5ad3b7981493c1bfc93194f9e45d1",
+      "wholeObjectivesBeforeSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeObjectivesProposedAfterSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_after",
+          "before": ", Frau Kaya.",
+          "after": ", Herr Kaya."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Here is a letter for you, Ms Kaya.",
+          "after": "Here is a letter for you, Mr Kaya."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Вот письмо для вас, госпожа Kaya.",
+          "after": "Вот письмо для вас, господин Kaya."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Ось лист для вас, пані Kaya.",
+          "after": "Ось лист для вас, пане Kaya."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Burada sizin için bir mektup var, Kaya Hanım.",
+          "after": "Burada sizin için bir mektup var, Kaya Bey."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "194fbb79c91792f0ee8bad3cca00ed380c419351b8c8bd0d80ca04c8b357480f",
+        "ru": "39311992c429f5c46d9f35bb1da89c1b6cf57c2462ebb52c307c1b63a65c24d3",
+        "uk": "820caa1741bf7f586b6c2523985636312abe6a18d513eee79228a06dd7310397",
+        "tr": "ec83e31c8e41842614af36662f1d8e0729e4e6a211088779f080e4421abd119e"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "1cab62245fde51bf0d050480846ff7ab56b3b848b1ab33f793ac2ee347e1ff5d",
+        "ru": "abb7261fd7cc0a9dc5f49b7a80e849d46690cd09f48447ae155bf57d1a933726",
+        "uk": "0061ca1a8ba194c5114af98d098fd7fb8679bf208d733ca741808f152055e83f",
+        "tr": "841f4cc635c190c28d60e0603e46f5d04a86989912814aaaacdbfcc53ca19185"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 17,
+      "id": "8ba853b9-f9c6-580e-a721-9f6883536465",
+      "ref": "P7-N9-E05",
+      "level": "A1.2",
+      "node": "P7-N9",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: Liebe. Existing answer variants: [\"Liebe\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "ca45867ce7bd26b145fa691af2ddd663d7499a1af1b9936af104a57a75d3c21f",
+      "wholeProposedAfterSHA256": "d605c96b2f350a8ac151ce3e41d851e39d8ededd8291593e917cf9aabafe8c8f",
+      "wholeParentBeforeSHA256": "ea72f43eb8a94fd12c4a64a477756deb5996a6c97855fda02c5808f33cf6f87b",
+      "wholeParentProposedAfterSHA256": "718af63b9744e41232f5c9f1a7b5f9e0d01ff2125c34e25f866741f220065f50",
+      "wholeObjectivesBeforeSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeObjectivesProposedAfterSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "",
+          "after": "Die weibliche Form der informellen Anrede „Lieber“ lautet: "
+        },
+        {
+          "pointer": "/content/text_after",
+          "before": " Sofia, ich gratuliere dir zum Geburtstag!",
+          "after": "."
+        },
+        {
+          "pointer": "/explanation",
+          "before": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+          "after": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/en/explanation",
+          "before": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+          "after": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Dear Sofia, happy birthday to you!",
+          "after": "The female form of the informal salutation Lieber is …"
+        },
+        {
+          "pointer": "/translations/ru/explanation",
+          "before": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+          "after": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Дорогая Sofia, поздравляю тебя с днём рождения!",
+          "after": "Женская форма неофициального обращения Lieber — …"
+        },
+        {
+          "pointer": "/translations/uk/explanation",
+          "before": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+          "after": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Люба Sofia, вітаю тебе з днем народження!",
+          "after": "Жіноча форма неофіційного звертання Lieber — …"
+        },
+        {
+          "pointer": "/translations/tr/explanation",
+          "before": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+          "after": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Sevgili Sofia, doğum gününü kutluyorum!",
+          "after": "Samimi hitap Lieber sözcüğünün kadın biçimi …"
+        }
+      ],
+      "parentProposedFields": [
+        {
+          "pointer": "/topic",
+          "before": "Feste · Liebe Vanessa, lieber Paul",
+          "after": "Feste · Liebe …, lieber …"
+        },
+        {
+          "pointer": "/title",
+          "before": "Liebe Vanessa, lieber Paul",
+          "after": "Liebe …, lieber …"
+        },
+        {
+          "pointer": "/translations/en/title",
+          "before": "Dear Vanessa, dear Paul",
+          "after": "Dear …, dear …"
+        },
+        {
+          "pointer": "/translations/ru/title",
+          "before": "Дорогая Vanessa, дорогой Paul",
+          "after": "Дорогая …, дорогой …"
+        },
+        {
+          "pointer": "/translations/uk/title",
+          "before": "Люба Vanessa, любий Paul",
+          "after": "Люба …, любий …"
+        },
+        {
+          "pointer": "/translations/tr/title",
+          "before": "Sevgili Vanessa, sevgili Paul",
+          "after": "Sevgili …, sevgili …"
+        },
+        {
+          "pointer": "/merkkarte/rule",
+          "before": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+          "after": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/merkkarte/translations/en/rule",
+          "before": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+          "after": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/merkkarte/translations/ru/rule",
+          "before": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+          "after": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/merkkarte/translations/uk/rule",
+          "before": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+          "after": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/merkkarte/translations/tr/rule",
+          "before": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+          "after": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
+        }
+      ],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "bcea54c2bef445ee72beed754aaf48909607b1c4572fd923dfc99eda50b0dc1d",
+        "ru": "699c281b63d3e8a595ef74027f4ae88b6af67d2b519910022e8fce1a59f0b1fb",
+        "uk": "e7724616db1d3aabda8ed9597c385f24fe951cfbcd8573944f276868ff8cc4da",
+        "tr": "d19b2b239f5fa4e18c6375645c260d0bfae98f6bd513419901596dfa7b6aacaf"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "0ce55648ac6ca1e4a720e0b4b93dce1650de8e766f28cb6a59e4800878f7415f",
+        "ru": "b105c6e344557b2cf98502fd4c13a3c4f81ff0d65f0fe0e82ca5c84843768c73",
+        "uk": "309c5f3304eb8e7a46af7d291535d0d4bdefcc4fbefa9ea6b80f8f50a5576d62",
+        "tr": "35db25c63c2ac33a2e80205cd56c40600cdd58c63dfbd18f50be7c22fb65a54f"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 18,
+      "id": "554545c7-5697-528b-adae-3507a9516324",
+      "ref": "P7-N9-E07",
+      "level": "A1.2",
+      "node": "P7-N9",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Gruß formell. Existing answer variants: [\"Grüßen\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "d220e163bcb9c136879495cc2d8c29adee6489c6ca1e936f41c84e8a3de8d844",
+      "wholeProposedAfterSHA256": "92059a1b8581be0e81b50068b6bbc36425148a4e4092eb630dada99b89d2877c",
+      "wholeParentBeforeSHA256": "ea72f43eb8a94fd12c4a64a477756deb5996a6c97855fda02c5808f33cf6f87b",
+      "wholeParentProposedAfterSHA256": "718af63b9744e41232f5c9f1a7b5f9e0d01ff2125c34e25f866741f220065f50",
+      "wholeObjectivesBeforeSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeObjectivesProposedAfterSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Sehr geehrte Frau Lindner, vielen Dank für Ihre E-Mail. Mit freundlichen ",
+          "after": "Sehr geehrter Herr Lindner, vielen Dank für Ihre E-Mail. Mit freundlichen "
+        },
+        {
+          "pointer": "/explanation",
+          "before": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+          "after": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/en/explanation",
+          "before": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+          "after": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Dear Ms Lindner, thank you for your e-mail. Yours sincerely, Emre Demir",
+          "after": "Dear Mr Lindner, thank you for your e-mail. Yours sincerely, Emre Demir"
+        },
+        {
+          "pointer": "/translations/ru/explanation",
+          "before": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+          "after": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Уважаемая госпожа Lindner, спасибо за ваш e-mail. С уважением, Emre Demir",
+          "after": "Уважаемый господин Lindner, спасибо за ваш e-mail. С уважением, Emre Demir"
+        },
+        {
+          "pointer": "/translations/uk/explanation",
+          "before": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+          "after": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Шановна пані Lindner, дякую за ваш e-mail. З повагою, Emre Demir",
+          "after": "Шановний пане Lindner, дякую за ваш e-mail. З повагою, Emre Demir"
+        },
+        {
+          "pointer": "/translations/tr/explanation",
+          "before": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+          "after": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Sayın Lindner Hanım, e-postanız için teşekkürler. Saygılarımla, Emre Demir",
+          "after": "Sayın Lindner Bey, e-postanız için teşekkürler. Saygılarımla, Emre Demir"
+        }
+      ],
+      "parentProposedFields": [
+        {
+          "pointer": "/topic",
+          "before": "Feste · Liebe Vanessa, lieber Paul",
+          "after": "Feste · Liebe …, lieber …"
+        },
+        {
+          "pointer": "/title",
+          "before": "Liebe Vanessa, lieber Paul",
+          "after": "Liebe …, lieber …"
+        },
+        {
+          "pointer": "/translations/en/title",
+          "before": "Dear Vanessa, dear Paul",
+          "after": "Dear …, dear …"
+        },
+        {
+          "pointer": "/translations/ru/title",
+          "before": "Дорогая Vanessa, дорогой Paul",
+          "after": "Дорогая …, дорогой …"
+        },
+        {
+          "pointer": "/translations/uk/title",
+          "before": "Люба Vanessa, любий Paul",
+          "after": "Люба …, любий …"
+        },
+        {
+          "pointer": "/translations/tr/title",
+          "before": "Sevgili Vanessa, sevgili Paul",
+          "after": "Sevgili …, sevgili …"
+        },
+        {
+          "pointer": "/merkkarte/rule",
+          "before": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+          "after": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/merkkarte/translations/en/rule",
+          "before": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+          "after": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/merkkarte/translations/ru/rule",
+          "before": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+          "after": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/merkkarte/translations/uk/rule",
+          "before": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+          "after": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/merkkarte/translations/tr/rule",
+          "before": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+          "after": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
+        }
+      ],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "03746bb966a7e9e8735042da0cf2fd63ff44ead159872410f84ca0ac2b01b7d5",
+        "ru": "f5b2f8126b64dcb5de91cff1a98b7db2b2bb00e8d5b1b97f5d7ce54f2dcebf12",
+        "uk": "1daf60473eb83632cdc0c791b027df8b1badae1b4313bdfa3cd34169e49a3490",
+        "tr": "2b80d6cde2c42ff2c64141a67dc313dbaee777300b546b780d5c3c6bf54bfa1e"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "7f00909a1766447f04dae622fea6f9d23caf0265f19c9963e9cfa9dbb8a4fb9c",
+        "ru": "c65c6efffa59b165092a85db0729db41cdf0ca0681150393778b473dbd4cf6b0",
+        "uk": "fb8514224eab4c5cbbe4fdb064ed73057a409b929e5d8cb2be2f7ae1c42c082a",
+        "tr": "049179d96e5619b433b39fc3a55fb3c5a22aaa73f18ab521996d7bc19265df34"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 19,
+      "id": "fd2e9650-57f6-543f-ae99-d257023edd7b",
+      "ref": "P7-N14-E09",
+      "level": "A1.2",
+      "node": "P7-N14",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Gruß informell. Existing answer variants: [\"Liebe Grüße, deine Sara\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "ff4eddd8adcb05db09955683430a7fb41f752ce23450c661eb44e9d22e6585a6",
+      "wholeProposedAfterSHA256": "d1ce7e2fb5d6e0544f7d1de55358097100fc64c461748684909421e31592824a",
+      "wholeParentBeforeSHA256": "2eddac5b77d7ea1c3f3a8e70d7ac7696d587e42c6bd71353d9c8c1caafdc5bbe",
+      "wholeParentProposedAfterSHA256": "2eddac5b77d7ea1c3f3a8e70d7ac7696d587e42c6bd71353d9c8c1caafdc5bbe",
+      "wholeObjectivesBeforeSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeObjectivesProposedAfterSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Du schreibst eine E-Mail an deine Freundin Amira. Welcher Gruß passt am Ende?",
+          "after": "Du schreibst eine E-Mail an deinen Freund Amir. Welcher Gruß passt am Ende?"
+        },
+        {
+          "pointer": "/content/options/0",
+          "before": "Mit freundlichen Grüßen, Frau Sara",
+          "after": "Mit freundlichen Grüßen, Herr Samir"
+        },
+        {
+          "pointer": "/content/options/1",
+          "before": "Liebe Grüße, deine Sara",
+          "after": "Liebe Grüße, dein Samir"
+        },
+        {
+          "pointer": "/content/options/2",
+          "before": "Sehr geehrte Amira",
+          "after": "Sehr geehrter Amir"
+        },
+        {
+          "pointer": "/content/correct_answer",
+          "before": "Liebe Grüße, deine Sara",
+          "after": "Liebe Grüße, dein Samir"
+        },
+        {
+          "pointer": "/content/accepted_answers/0",
+          "before": "Liebe Grüße, deine Sara",
+          "after": "Liebe Grüße, dein Samir"
+        },
+        {
+          "pointer": "/accepted_answers/0",
+          "before": "Liebe Grüße, deine Sara",
+          "after": "Liebe Grüße, dein Samir"
+        },
+        {
+          "pointer": "/explanation",
+          "before": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+          "after": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/en/explanation",
+          "before": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+          "after": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "You are writing an e-mail to your friend Amira. Which closing fits at the end?",
+          "after": "You are writing an e-mail to your friend Amir. Which closing fits at the end?"
+        },
+        {
+          "pointer": "/translations/ru/explanation",
+          "before": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+          "after": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Вы пишете e-mail своей подруге Amira. Какое прощание подходит в конце?",
+          "after": "Вы пишете e-mail своему другу Amir. Какое прощание подходит в конце?"
+        },
+        {
+          "pointer": "/translations/uk/explanation",
+          "before": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+          "after": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Ви пишете e-mail своїй подрузі Amira. Яке прощання підходить у кінці?",
+          "after": "Ви пишете e-mail своєму другові Amir. Яке прощання підходить у кінці?"
+        },
+        {
+          "pointer": "/translations/tr/explanation",
+          "before": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+          "after": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Arkadaşınız Amira’ya bir e-posta yazıyorsunuz. Sonda hangi kapanış uygun?",
+          "after": "Arkadaşınız Amir’e bir e-posta yazıyorsunuz. Sonda hangi kapanış uygun?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "9e8198f2ef587cc2841fb31189f909cc18f3ff93d19187436dbc4af7d5e3172a",
+        "ru": "7859f988a2f921e7569d4b35513d2f7f314ca9b1f3e3618a0c1344685fa90f8c",
+        "uk": "3f002a59f10c4bbfb0980c12dbb3e6b223bed2c00b21c16791d8b9a09688c5ef",
+        "tr": "cceed23a6fe66fc6e72e33381a129091a1013c783a9fbc38b875a1c1a641ced9"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "31197fe8e81518c42fb9877fcf3e529632c19fe3e6c5413f7b7aa68927cb1e6c",
+        "ru": "e26c362a88f3e0d64089f46437442a2cefe6f2c43c7c43ec080d7f227c1aeacf",
+        "uk": "4563de1f6db2e3219b42f1f0e925a4cc9a0dd741b3c6c27123e8f3b21ad0e037",
+        "tr": "5765f7012802047c8f0389381e525dbbf2f2a49d95260a52dc79c2c6dd3eacd2"
+      },
+      "keyRevision": {
+        "before": [
+          "Liebe Grüße, deine Sara"
+        ],
+        "after": [
+          "Liebe Grüße, dein Samir"
+        ],
+        "cardinality": "1->1",
+        "correctOptionPositionBeforeZeroBased": 1,
+        "correctOptionPositionAfterZeroBased": 1,
+        "Archive114Required": true,
+        "Archive114Performed": false
+      },
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 20,
+      "id": "b6f802ba-4e55-5dfa-a042-347a1ddb9a95",
+      "ref": "P7-N14-E10",
+      "level": "A1.2",
+      "node": "P7-N14",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: einladen. Existing answer variants: [\"Ich lade Sie herzlich zu meiner Geburtstagsfeier ein.\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "a6912b91536c5e61c2e563c6adf92488bd8edbc48b2cbe23aa5c4e3bdae50d78",
+      "wholeProposedAfterSHA256": "bfa30f67877a9f419bb6231b195f8599d40e8a9784c2324832ece8cf3b11ba2d",
+      "wholeParentBeforeSHA256": "2eddac5b77d7ea1c3f3a8e70d7ac7696d587e42c6bd71353d9c8c1caafdc5bbe",
+      "wholeParentProposedAfterSHA256": "2eddac5b77d7ea1c3f3a8e70d7ac7696d587e42c6bd71353d9c8c1caafdc5bbe",
+      "wholeObjectivesBeforeSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeObjectivesProposedAfterSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Du feierst deinen Geburtstag und schreibst an Herrn und Frau Wolf. Ihr sagt „Sie“.",
+          "after": "Du feierst deinen Geburtstag und schreibst an Herrn Wolf und Herrn Kaya. Ihr sagt „Sie“."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "You are celebrating your birthday and write to Mr and Ms Wolf. You say “Sie” to them.",
+          "after": "You are celebrating your birthday and write to Mr Wolf and Mr Kaya. You say “Sie” to them."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Вы празднуете день рождения и пишете господину и госпоже Wolf. Вы с ними на «вы».",
+          "after": "Вы празднуете день рождения и пишете господину Wolf и господину Kaya. Вы с ними на «вы»."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Ви святкуєте день народження й пишете панові та пані Wolf. Ви з ними на «ви».",
+          "after": "Ви святкуєте день народження й пишете панові Wolf та панові Kaya. Ви з ними на «ви»."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Doğum gününüzü kutluyorsunuz ve Wolf Bey ile Wolf Hanım’a yazıyorsunuz. Onlara “Sie” diyorsunuz.",
+          "after": "Doğum gününüzü kutluyorsunuz ve Wolf Bey ile Kaya Bey’e yazıyorsunuz. Onlara “Sie” diyorsunuz."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "93c50d6a3c62f902f6b9d5c51dee82cd17bf895369e70e51e7bc1d8febbef4f3",
+        "ru": "e5099a68d195e463a7a3aca48a31712c8a3f2b8c65f521f1042482054fcda60c",
+        "uk": "9ba6eef121a7d1179f6e82203ea7876967414f233ee5bf3a98fab37c92ef8f17",
+        "tr": "17fb13c9bd914fdce431e922aa8f0ef0652ffed46a065a14916c2c5367d8ddec"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "ee7cef2ecc84668698673e2b0a80f3f56270e1893790c876efa369f2e05f8be6",
+        "ru": "c8b1d25fc719b4bd1892058fcf7db44f668e677b5ddf1ecadafd61a2a1169ff0",
+        "uk": "6a6fca56d5fa44088d12e420a5f47a67e2711816b480ea7013ae95aa123e26b2",
+        "tr": "47eb3320db5e3935b0e5e61bdae0d942584d41626a19add880faa86bddf91e10"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 21,
+      "id": "9ec465ca-01cd-5949-a4df-157985fb9930",
+      "ref": "P1-N3-E02",
+      "level": "A2.1",
+      "node": "P1-N3",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: alleinerziehend. Existing answer variants: [\"alleinerziehend\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "7ac413aa9a74d5abc54e5e85d030196e37ec343afb3b637bed1375af7b7e7e15",
+      "wholeProposedAfterSHA256": "11f47201c3a68665be99388732a0acbfb1d2d19ef4e1e1324734ec4ba4b08730",
+      "wholeParentBeforeSHA256": "e605ad71b3595ab0d4c3fe68223a18ff755dc2a0c835a7d5c98d64ede117e6ab",
+      "wholeParentProposedAfterSHA256": "46f51498018a0cda3d59800c3f86b16924a16329b7add961602048a6372acbf5",
+      "wholeObjectivesBeforeSHA256": "f55e0578ac894745749d5fa88509792dfa0b5a504e4230d440cfee6e5c8bdba0",
+      "wholeObjectivesProposedAfterSHA256": "55a3dbd929ebec3856604bcc15d2c14f5e960a370582b90d2e1d9b6e26b1fe3d",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Frau Rojas lebt ohne Partner mit ihren zwei Kindern. Sie ist …",
+          "after": "Herr Rojas lebt ohne Partner mit seinen zwei Kindern. Er ist …"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Rojas lives with her two children and without a partner. She is …",
+          "after": "Mr Rojas lives with his two children and without a partner. He is …"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Rojas живёт с двумя детьми без партнёра. Она …",
+          "after": "Господин Rojas живёт с двумя детьми без партнёра. Он …"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Rojas живе з двома дітьми без партнера. Вона …",
+          "after": "Пан Rojas живе з двома дітьми без партнера. Він …"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Rojas Hanım iki çocuğuyla, eşi olmadan yaşıyor. O …",
+          "after": "Rojas Bey iki çocuğuyla, eşi olmadan yaşıyor. O …"
+        }
+      ],
+      "parentProposedFields": [
+        {
+          "pointer": "/merkkarte/examples/0",
+          "before": "Meine Tante ist geschieden und lebt allein.",
+          "after": "Mein Onkel ist geschieden und lebt allein."
+        }
+      ],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/4/description",
+          "before": "Zugehörigkeit bei Namen: Annas Mutter – und mit von + Dativ: die Mutter von Anna.",
+          "after": "Zugehörigkeit bei Namen: Pauls Mutter – und mit von + Dativ: die Mutter von Paul."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "47007531a9414db76d98670865c706bb024b8668ce3a5c9f45fb9dbb5a0a7a42",
+        "ru": "f4aa09e7f670c0043f847b51fa73db3e040966f3cf8e4938ab29215536ca62c8",
+        "uk": "4be020c9eef450f43255cef9b5e6aede7b76e518f1099e4d62769a44954c724c",
+        "tr": "cc7e108c4c37729565b99e56cb430995db838aa8cf11e4aff3dfce47009c44a1"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "c352ef1c4d65faf1983ef4e2bea2347d4bbc4270dbaa79f26afefad68c77155d",
+        "ru": "223a6466af30d1f1a92d45d7bb6200f97b70b95d562873fe9cc33fd6e7a3e9c6",
+        "uk": "b5aefb65f6e0f9b5124dbac0a5d3186925a88033ba56ab69c2ccba30d8899bb0",
+        "tr": "877847e2bc6d51e42a3e330ffe55aa11635dfa8438524a667287213f5ce483de"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 22,
+      "id": "f62f9599-037c-59f7-adcf-8571aae75ce8",
+      "ref": "P1-N11-E02",
+      "level": "A2.1",
+      "node": "P1-N11",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: negativ. Existing answer variants: [\"Das gefällt ihr nicht.\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "92d5223d0742e6d4f300a3758b005dbaa3713447ff2e7fba7f84d439d87bf790",
+      "wholeProposedAfterSHA256": "99efc9a275bf902d2d3d66282f5ed16fa24db014b9abcdc07a16a2c23b89e4fa",
+      "wholeParentBeforeSHA256": "b3e048db09a89ddeb3cc91fff5d3da65b3989de0ef12fee1ab04e98a26f2db8f",
+      "wholeParentProposedAfterSHA256": "b3e048db09a89ddeb3cc91fff5d3da65b3989de0ef12fee1ab04e98a26f2db8f",
+      "wholeObjectivesBeforeSHA256": "f55e0578ac894745749d5fa88509792dfa0b5a504e4230d440cfee6e5c8bdba0",
+      "wholeObjectivesProposedAfterSHA256": "55a3dbd929ebec3856604bcc15d2c14f5e960a370582b90d2e1d9b6e26b1fe3d",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Frau Kaya fährt jeden Tag zwei Stunden zur Arbeit. Das ist anstrengend. Wie findet sie das?",
+          "after": "Für „sie (Singular)“: Welche Aussage über eine lange, anstrengende Fahrt zur Arbeit ist negativ?"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Kaya travels two hours to work every day. That is exhausting. What does she think of that?",
+          "after": "For sie (singular): which statement about a long, exhausting journey to work is negative?"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Kaya каждый день два часа едет на работу. Это утомительно. Как она к этому относится?",
+          "after": "Для sie (ед. число): какое высказывание о долгой утомительной поездке на работу выражает отрицательное отношение?"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Kaya щодня дві години їде на роботу. Це виснажливо. Як вона до цього ставиться?",
+          "after": "Для sie (однина): яке висловлювання про довгу виснажливу поїздку на роботу виражає негативне ставлення?"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Kaya Hanım her gün işe iki saatte gidiyor. Bu yorucu. Bunu nasıl buluyor?",
+          "after": "sie (tekil) için: İşe yapılan uzun ve yorucu yolculuk hakkında hangi ifade olumsuzdur?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/4/description",
+          "before": "Zugehörigkeit bei Namen: Annas Mutter – und mit von + Dativ: die Mutter von Anna.",
+          "after": "Zugehörigkeit bei Namen: Pauls Mutter – und mit von + Dativ: die Mutter von Paul."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "c4812065b928770f94508f2bc361bf0dba43c633904bda4f024e34e3d9402995",
+        "ru": "48306acccb892600dac96c58b19df4a77bc613ec23351972283d944224c801f5",
+        "uk": "b33fe8cb895a86ddd6a97b19508d3d9a2ea5b4cae11cf3d512c556cd1fe40826",
+        "tr": "0bd3edf0a81f8c0e851b4a2d0964cc00459cb44d044a0ac8d49f781f6d31238e"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "1151d12073062e509bbd511c78a205cccb59ab0fe2454d6fbb00f10c6aee7022",
+        "ru": "eb8d65b80398f9b5df7c954b87532a599ae640a0901e8dd0c62a3028bf8be758",
+        "uk": "4fd6507fcba44745084dedefb74ac7ea696aaa5b5e0ae8851f259b1d01f23c6b",
+        "tr": "83e08a1cc3995e24ed6fe30c9c800588476fe48b889b0d0b7efff848fbdc6fcb"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 23,
+      "id": "6cd866de-f49e-52dc-a647-4c376165a243",
+      "ref": "P1-N14-E03",
+      "level": "A2.1",
+      "node": "P1-N14",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Verb am Ende. Existing answer variants: [\"Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist.\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "30c3e5264b4b5e36eff413b21419f0a3e4f65b26b042f250584e6b15751ddab8",
+      "wholeProposedAfterSHA256": "f4c82aedacc947f9ec7627cff36c6e2dd23017645bbe6f7730ef27816420b13a",
+      "wholeParentBeforeSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "wholeParentProposedAfterSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "wholeObjectivesBeforeSHA256": "f55e0578ac894745749d5fa88509792dfa0b5a504e4230d440cfee6e5c8bdba0",
+      "wholeObjectivesProposedAfterSHA256": "55a3dbd929ebec3856604bcc15d2c14f5e960a370582b90d2e1d9b6e26b1fe3d",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Frau Nowak fährt heute mit dem Bus.",
+          "after": "Herr Nowak fährt heute mit dem Bus."
+        },
+        {
+          "pointer": "/content/options/0",
+          "before": "Sie fährt mit dem Bus, weil ihr Auto ist in der Werkstatt.",
+          "after": "Er fährt mit dem Bus, weil sein Auto ist in der Werkstatt."
+        },
+        {
+          "pointer": "/content/options/1",
+          "before": "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist.",
+          "after": "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist."
+        },
+        {
+          "pointer": "/content/options/2",
+          "before": "Sie fährt mit dem Bus, weil ist ihr Auto in der Werkstatt.",
+          "after": "Er fährt mit dem Bus, weil ist sein Auto in der Werkstatt."
+        },
+        {
+          "pointer": "/content/correct_answer",
+          "before": "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist.",
+          "after": "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist."
+        },
+        {
+          "pointer": "/content/accepted_answers/0",
+          "before": "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist.",
+          "after": "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist."
+        },
+        {
+          "pointer": "/accepted_answers/0",
+          "before": "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist.",
+          "after": "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Nowak is going by bus today.",
+          "after": "Mr Nowak is going by bus today."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Nowak сегодня едет на автобусе.",
+          "after": "Господин Nowak сегодня едет на автобусе."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Nowak сьогодні їде автобусом.",
+          "after": "Пан Nowak сьогодні їде автобусом."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Nowak Hanım bugün otobüsle gidiyor.",
+          "after": "Nowak Bey bugün otobüsle gidiyor."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/4/description",
+          "before": "Zugehörigkeit bei Namen: Annas Mutter – und mit von + Dativ: die Mutter von Anna.",
+          "after": "Zugehörigkeit bei Namen: Pauls Mutter – und mit von + Dativ: die Mutter von Paul."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "763a8280e9f5ecb0ee58101a394339929f8f99cd077c971a3c2bebdd3735bf77",
+        "ru": "cd11cc6de060c2597ec0d9bf6dca216dd57fd6b15263ad8d94b03e52f3f53ed8",
+        "uk": "d8efe2ed982f12f1ccc0af312a0cb4d1f4fd33439d6ca31cea180ba6aac5ba66",
+        "tr": "fd942dee5370403b4ebf7ed7c6cb8b804e3595b6934ec9280e43fa133d3333b1"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "08138520c2162f193c3fb2a99f048e21793f51d94f024b567827bc6db1706059",
+        "ru": "887bb42732760747ecc40d60fba86bac7b58c5f05ec39bcfd49bef59f74baee1",
+        "uk": "524fe29d2bfaf5f66c0fdfc38f309608c0cc1a0ba136fc4ef9390a8c715f5c01",
+        "tr": "af717fcd6c9d4bba15357c149d32a0de47086e05f2496b9cd5217efd456dd286"
+      },
+      "keyRevision": {
+        "before": [
+          "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist."
+        ],
+        "after": [
+          "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist."
+        ],
+        "cardinality": "1->1",
+        "correctOptionPositionBeforeZeroBased": 1,
+        "correctOptionPositionAfterZeroBased": 1,
+        "Archive114Required": true,
+        "Archive114Performed": false
+      },
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 24,
+      "id": "d378404d-686b-54f5-a56a-71c783fd5f9b",
+      "ref": "P1-N14-E08",
+      "level": "A2.1",
+      "node": "P1-N14",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Name + s. Existing answer variants: [\"Frau Kayas Hund\"]. Genitive examples use male owners; Mutter/Tante remain valid feminine possessed/dative nouns.",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "bd792f81b5dc87aa912a855617f70de692b0bf49de8635f9504c07fbae36a247",
+      "wholeProposedAfterSHA256": "1571e609f9fea61eb55703ed6b30deba21d522521bef682e71899011672afe96",
+      "wholeParentBeforeSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "wholeParentProposedAfterSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "wholeObjectivesBeforeSHA256": "f55e0578ac894745749d5fa88509792dfa0b5a504e4230d440cfee6e5c8bdba0",
+      "wholeObjectivesProposedAfterSHA256": "55a3dbd929ebec3856604bcc15d2c14f5e960a370582b90d2e1d9b6e26b1fe3d",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Das ist der Hund von Frau Kaya. = Das ist …",
+          "after": "Das ist der Hund von Emre. = Das ist …"
+        },
+        {
+          "pointer": "/content/options/0",
+          "before": "Frau Kayas Hund",
+          "after": "Emres Hund"
+        },
+        {
+          "pointer": "/content/options/1",
+          "before": "Frau Kaya Hund",
+          "after": "Emre Hund"
+        },
+        {
+          "pointer": "/content/options/2",
+          "before": "Hunds Frau Kaya",
+          "after": "Hunds Emre"
+        },
+        {
+          "pointer": "/content/correct_answer",
+          "before": "Frau Kayas Hund",
+          "after": "Emres Hund"
+        },
+        {
+          "pointer": "/content/accepted_answers/0",
+          "before": "Frau Kayas Hund",
+          "after": "Emres Hund"
+        },
+        {
+          "pointer": "/accepted_answers/0",
+          "before": "Frau Kayas Hund",
+          "after": "Emres Hund"
+        },
+        {
+          "pointer": "/hint",
+          "before": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+          "after": "Name + s: Pauls Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante."
+        },
+        {
+          "pointer": "/explanation",
+          "before": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+          "after": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Pauls Mutter, Pauls Auto, Emres Büro. Du kannst auch von + Name sagen: die Mutter von Paul. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+        },
+        {
+          "pointer": "/translations/en/hint",
+          "before": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+          "after": "Name + s: Pauls Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante."
+        },
+        {
+          "pointer": "/translations/en/explanation",
+          "before": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+          "after": "Who belongs to whom? With names: name + s, without an apostrophe: Pauls Mutter (Paul’s mother), Pauls Auto, Emres Büro. You can also say von + name: die Mutter von Paul. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "This is the dog of Ms Kaya. = This is …",
+          "after": "This is Emre’s dog. = This is …"
+        },
+        {
+          "pointer": "/translations/ru/hint",
+          "before": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+          "after": "Имя + s: Pauls Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante."
+        },
+        {
+          "pointer": "/translations/ru/explanation",
+          "before": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+          "after": "Кто кому принадлежит? С именами: имя + s, без апострофа: Pauls Mutter (мама Пауля), Pauls Auto, Emres Büro. Можно сказать и von + имя: die Mutter von Paul. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Это собака госпожи Kaya. = Это …",
+          "after": "Это собака Emre. = Это …"
+        },
+        {
+          "pointer": "/translations/uk/hint",
+          "before": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+          "after": "Ім’я + s: Pauls Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante."
+        },
+        {
+          "pointer": "/translations/uk/explanation",
+          "before": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+          "after": "Хто кому належить? З іменами: ім’я + s, без апострофа: Pauls Mutter (мама Пауля), Pauls Auto, Emres Büro. Можна сказати й von + ім’я: die Mutter von Paul. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Це собака пані Kaya. = Це …",
+          "after": "Це собака Emre. = Це …"
+        },
+        {
+          "pointer": "/translations/tr/hint",
+          "before": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+          "after": "İsim + s: Pauls Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante."
+        },
+        {
+          "pointer": "/translations/tr/explanation",
+          "before": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+          "after": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Pauls Mutter (Paul’ün annesi), Pauls Auto, Emres Büro. von + isim de denir: die Mutter von Paul. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Bu Kaya Hanım’ın köpeği. = Bu …",
+          "after": "Bu Emre’nin köpeği. = Bu …"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [
+        {
+          "pointer": "/4/description",
+          "before": "Zugehörigkeit bei Namen: Annas Mutter – und mit von + Dativ: die Mutter von Anna.",
+          "after": "Zugehörigkeit bei Namen: Pauls Mutter – und mit von + Dativ: die Mutter von Paul."
+        }
+      ],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "d4041b9fbe1b8729453279575967c8860bcb38ff446f661f375addaa933869c3",
+        "ru": "287db49700c37253d076751d62ecd7cb84801cbffc42929041e7e4177a0510bf",
+        "uk": "9b7806713e69f8390aca3f869796eb06b315e24faebe23869a851c3656765ebf",
+        "tr": "aa26dda8e23b67e61f3dc4aa387815a763a1d3771dcc9abd6b9d7d1842feb35f"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "e22201f592354777fdee99b05f42f5345df30b56a00cc4e65ed1b802636a9c83",
+        "ru": "38b5c1d438d7877d55ba4483198421189d8ee14451f59fa89f39550666c8e3d1",
+        "uk": "36429631b60a2aabea60e0c74d64b44f8ef2265bbb6f931261b33f41ee06049a",
+        "tr": "7352594cef02a06e32f1d3c4c42df6c0d9eb694444d0e008f1f8fc7c09e87d28"
+      },
+      "keyRevision": {
+        "before": [
+          "Frau Kayas Hund"
+        ],
+        "after": [
+          "Emres Hund"
+        ],
+        "cardinality": "1->1",
+        "correctOptionPositionBeforeZeroBased": 0,
+        "correctOptionPositionAfterZeroBased": 0,
+        "Archive114Required": true,
+        "Archive114Performed": false
+      },
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 25,
+      "id": "786e931e-5782-5fbb-aacc-c04cdb662120",
+      "ref": "P2-N1-E03",
+      "level": "A2.1",
+      "node": "P2-N1",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: Vermieterin. Existing answer variants: [\"Vermieterin\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "afd7fe761986669b9e8108b88f164776e8e80a2a031100600b38763619dc1d92",
+      "wholeProposedAfterSHA256": "090f84a95b67b2a5ac04775a2c931381234904de4f606ff33f4afa984640bd66",
+      "wholeParentBeforeSHA256": "64630233e852ce2875c25ed3bed8c6eece4eeae0f2cfb5022d7fd03863459914",
+      "wholeParentProposedAfterSHA256": "64630233e852ce2875c25ed3bed8c6eece4eeae0f2cfb5022d7fd03863459914",
+      "wholeObjectivesBeforeSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeObjectivesProposedAfterSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Frau Lindner gehört das Haus. Sie bekommt jeden Monat die Miete. Sie ist die …",
+          "after": "Wie heißt eine Frau, der ein vermietetes Haus gehört und die dafür Miete bekommt? Sie ist die …"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "The house belongs to Ms Lindner. She gets the rent every month. She is the …",
+          "after": "What do you call a woman who owns a rented house and receives the rent? She is the …"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Дом принадлежит госпоже Lindner. Каждый месяц она получает арендную плату. Она …",
+          "after": "Как называется женщина, которой принадлежит сдаваемый дом и которая получает за него арендную плату? Она …"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Будинок належить пані Lindner. Щомісяця вона отримує орендну плату. Вона …",
+          "after": "Як називається жінка, якій належить будинок, що здається в оренду, і яка отримує за нього орендну плату? Вона …"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Ev Lindner Hanım’a ait. Her ay kirayı o alıyor. O …",
+          "after": "Kiraya verilen bir evin sahibi olan ve kirasını alan kadına ne denir? O …"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "3ff3bc01ffc841a36422cf485d2440c70efeaf76ac42a14404e5768679266357",
+        "ru": "c830b4413d4232bf50a6aab17d23702497f13a34b3e3051415db026551ccae8e",
+        "uk": "69fedd9841ecac6b14c2db8ca76bd5b979dcb95fea481df5b8557e8180cc7fde",
+        "tr": "df2a686f881bfe0d9c304a7776791780be6744add53b0eb901a71cda5304694a"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "d315265660e7e1e60a64c764baf75e57b164263366a1cffa890f5f5b08e9c0e6",
+        "ru": "46440641cde1fc76ab6272804fe096bafda2cf050f3013c6bbe6fa070dcce994",
+        "uk": "2ae4b1eb9428ecabd5147c835cdb255fdff44a9d0d1d447636be59a84b90e6d6",
+        "tr": "6683cd8e4638bfa06561d80de2975b6612a0c622cdfc792e684946f70f4c79b6"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 26,
+      "id": "b2cb910a-e1dc-58c6-a791-0f4024427207",
+      "ref": "P2-N7-E01",
+      "level": "A2.1",
+      "node": "P2-N7",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Pflanzen gießen. Existing answer variants: [\"Könnten Sie bitte meine Pflanzen gießen?\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "5ae72986a7a58c146c3ce0311394f73798d8311b955f6bc8e63100ea785461a2",
+      "wholeProposedAfterSHA256": "78bd2dce79cba953c23c5dbc3f5ba6c2fd4d556c1e62f4c2d4398637b24c2660",
+      "wholeParentBeforeSHA256": "074c5a1c55be7ffc54da928b3f24fc65c7cce3e172344453c197fc87a1b1d6f8",
+      "wholeParentProposedAfterSHA256": "074c5a1c55be7ffc54da928b3f24fc65c7cce3e172344453c197fc87a1b1d6f8",
+      "wholeObjectivesBeforeSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeObjectivesProposedAfterSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Du fährst in den Urlaub. Deine Pflanzen brauchen Wasser. Was fragst du deine Nachbarin, Frau Bondar?",
+          "after": "Du fährst in den Urlaub. Deine Pflanzen brauchen Wasser. Was fragst du deinen Nachbarn, Herrn Bondar?"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "You are going on holiday. Your plants need water. What do you ask your neighbour, Ms Bondar?",
+          "after": "You are going on holiday. Your plants need water. What do you ask your neighbour, Mr Bondar?"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Вы уезжаете в отпуск. Вашим растениям нужна вода. О чём вы попросите соседку, госпожу Bondar?",
+          "after": "Вы уезжаете в отпуск. Вашим растениям нужна вода. О чём вы попросите соседа, господина Bondar?"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Ви їдете у відпустку. Вашим рослинам потрібна вода. Про що ви попросите сусідку, пані Bondar?",
+          "after": "Ви їдете у відпустку. Вашим рослинам потрібна вода. Про що ви попросите сусіда, пана Bondar?"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Tatile gidiyorsunuz. Çiçeklerinizin suya ihtiyacı var. Komşunuz Bondar Hanım’a ne sorarsınız?",
+          "after": "Tatile gidiyorsunuz. Çiçeklerinizin suya ihtiyacı var. Komşunuz Bondar Bey’e ne sorarsınız?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "de0e845a953e77e0a853de79dddcb7aaff3ea2c5b1af5ad925f3a85a5543f8cd",
+        "ru": "ae145038812f6e58f4a5625175b2ee2dc39ef2b126ec2592730e2b5217291086",
+        "uk": "89941cf69289e2f52fa5157793c8635911f482b72a68afe2457e8a5c2c2aa31d",
+        "tr": "144ef80a41d87f786d28eb2d8776b1f0f435c5ac82d5e28522af3dc0f62b3870"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "5087c83600fe8158f7a651650746c10a55445655d5cf4e143e63f6d24bf70d04",
+        "ru": "c027de409e245b06f59d30977be73833016ca8e72f8fd2e1404f8bfe6bd39c61",
+        "uk": "21b3b89d89178512221a64dbf720fa640830aeab2f765a841641a0af1f3d90ba",
+        "tr": "0fd68d75226a8da49916cc68a81f235679421342b3e22bd148e05e2670a5783c"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 27,
+      "id": "d1568520-2aff-528a-aa04-5bf6f1a78673",
+      "ref": "P2-N10-E05",
+      "level": "A2.1",
+      "node": "P2-N10",
+      "classification": "RETAIN_NECESSARY_GRAMMATICAL_FORM",
+      "verdict": "ACCEPT_GRAMMATICAL_EXAMPLE",
+      "reason": "Pure formal salutation sample: feminine address form is the grammatical example, not a character biography; complete task and parent retained. Target: Anrede und Gruß. Existing answer variants: [\"Sehr geehrte Frau Weber,\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "ed39c27f85c75332a5daa96d218dbb061846f8ecb86acc6f5df3ef6fef20a22c",
+      "wholeProposedAfterSHA256": "ed39c27f85c75332a5daa96d218dbb061846f8ecb86acc6f5df3ef6fef20a22c",
+      "wholeParentBeforeSHA256": "a7e939d9ff464b4fce533624fc7851d92bf762cb2c204817d8f96edfef210af4",
+      "wholeParentProposedAfterSHA256": "a7e939d9ff464b4fce533624fc7851d92bf762cb2c204817d8f96edfef210af4",
+      "wholeObjectivesBeforeSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeObjectivesProposedAfterSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "57c9900f16c218610b64dfb890b56806712e40f75a105feee9fb34c2cb50b6b4",
+        "ru": "4eb4ab263ffd232d8038310c7381e6d4e684699646ba94e41b9c086bfb3af985",
+        "uk": "962fadb045527cd63309a3a6e0883805b2d0229454aff2d02a761cd54ee4656a",
+        "tr": "ad7d45466556d4a877442d6de5f02675ad447df3348967eb057c37f4965c763b"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "57c9900f16c218610b64dfb890b56806712e40f75a105feee9fb34c2cb50b6b4",
+        "ru": "4eb4ab263ffd232d8038310c7381e6d4e684699646ba94e41b9c086bfb3af985",
+        "uk": "962fadb045527cd63309a3a6e0883805b2d0229454aff2d02a761cd54ee4656a",
+        "tr": "ad7d45466556d4a877442d6de5f02675ad447df3348967eb057c37f4965c763b"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 28,
+      "id": "81b35ac7-d1f8-5080-a0d5-e415a178db51",
+      "ref": "P2-N10-E06",
+      "level": "A2.1",
+      "node": "P2-N10",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: Frau. Existing answer variants: [\"geehrte\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "79d1d19c9819c6590761c3a88a1cc2fd6a8928724d58020f0cfe6d513e17e4cc",
+      "wholeProposedAfterSHA256": "39c814040a38501c32a02730d1897b5cf286580cc3a42d7140e868ff8d3e7257",
+      "wholeParentBeforeSHA256": "a7e939d9ff464b4fce533624fc7851d92bf762cb2c204817d8f96edfef210af4",
+      "wholeParentProposedAfterSHA256": "a7e939d9ff464b4fce533624fc7851d92bf762cb2c204817d8f96edfef210af4",
+      "wholeObjectivesBeforeSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeObjectivesProposedAfterSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Sehr ",
+          "after": "Die formelle Anrede für eine Frau lautet: „Sehr "
+        },
+        {
+          "pointer": "/content/text_after",
+          "before": " Frau Rojas, vielen Dank für Ihren Brief.",
+          "after": " Frau …,“"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Dear Ms Rojas, thank you very much for your letter.",
+          "after": "The formal salutation for a woman is: „Sehr … Frau …,“"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Уважаемая госпожа Rojas, большое спасибо за ваше письмо.",
+          "after": "Официальное обращение к женщине: „Sehr … Frau …,“"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Шановна пані Rojas, щиро дякую за вашого листа.",
+          "after": "Офіційне звертання до жінки: „Sehr … Frau …,“"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Sayın Rojas, mektubunuz için çok teşekkür ederim.",
+          "after": "Bir kadına resmî hitap: „Sehr … Frau …,“"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "d9966a5e8b3b35b399d24da7fd0135a711957c3ba741125a39dbacf1b0b45d25",
+        "ru": "7ba287e0c64a4f9a9a14eb0436cfb6606702080da730524f42dd7d29b2bd5d03",
+        "uk": "ad0f191b10307208408320b71b1354492844e7758582e8ceb19208e9ecf874f7",
+        "tr": "0db3f7f1135e79441ace26e0c7f0617f22004c55b399a02ce8d70ca1e852dc8b"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "9e8dd20333b5fe7b4edf57e1d743d079695d946d4e2db92060f7a8305ece2b7f",
+        "ru": "d7844c4b6c8888a185b95e6d186a77b29ac9ff659a9b2d6e4c406008b88903e4",
+        "uk": "6d530d37b0626d19d66bcb46164a5a0d88eb36812fd09dae0ff6b5a50c3dd195",
+        "tr": "b9e20f49de379ceb49f01812840728205e40d8dd8a7f0f80d6ad4611fe7588b3"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 29,
+      "id": "12f1b7d0-ee18-5bdd-aff1-dd87350781e0",
+      "ref": "P2-N12-E05",
+      "level": "A2.1",
+      "node": "P2-N12",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: danken. Existing answer variants: [\"Vielen Dank, das ist wirklich nett von Ihnen.\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "b23ed5b149b8cedee5d0ed80e88cc93057da9f8d3505b3e859ac1291de5453ad",
+      "wholeProposedAfterSHA256": "f2a5dcfcefdba638c403ced55c9530cc551df98c0d883c42247a4c1edbdbeadd",
+      "wholeParentBeforeSHA256": "d7bee742d342058b6d9086629133d15f43b1fc356e3fb740420a3fd5065e4679",
+      "wholeParentProposedAfterSHA256": "d7bee742d342058b6d9086629133d15f43b1fc356e3fb740420a3fd5065e4679",
+      "wholeObjectivesBeforeSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeObjectivesProposedAfterSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Frau Kaya hat dein Paket angenommen. Was sagst du?",
+          "after": "Herr Kaya hat dein Paket angenommen. Was sagst du?"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Kaya accepted your parcel. What do you say?",
+          "after": "Mr Kaya accepted your parcel. What do you say?"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Kaya приняла вашу посылку. Что вы скажете?",
+          "after": "Господин Kaya принял вашу посылку. Что вы скажете?"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Kaya прийняла вашу посилку. Що ви скажете?",
+          "after": "Пан Kaya прийняв вашу посилку. Що ви скажете?"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Kaya Hanım paketinizi teslim aldı. Ne dersiniz?",
+          "after": "Kaya Bey paketinizi teslim aldı. Ne dersiniz?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "4b580549382a882841541eff41ba8ff90c5ec76049039b7343432f060fb4eb0f",
+        "ru": "d6e466b8e10062e2c41a0216c4b12629e73404a1c92c2638800f20fccdeaa534",
+        "uk": "c90480997ac256a718a5a05272e9f52690cc1259b436bbb5506bd5d21daa295f",
+        "tr": "f1a82c32fa55cea9af41d93c7dc0f187f08f045dd658b700c9d31258e2b5e60c"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "e7d8730b618e3266a3cde38fdabb949afc27bf5ca9aee9ff47715d3bebac6160",
+        "ru": "e5f19b8dd7c5f9ca23799dfff9263cf9d348d494cec8b67871749e655ce93bf3",
+        "uk": "196b9e421474afdbe7e3817d1b4c5e0519e732545a3e5f2f9bcdc26b4e7da174",
+        "tr": "6bceb694ab6ece5915278c7639a697aa079919236b2c7ef25346aa4fff86cc6b"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 30,
+      "id": "3509c712-7ebe-52d5-a1ff-19c7d102ea1a",
+      "ref": "P2-N12-E07",
+      "level": "A2.1",
+      "node": "P2-N12",
+      "classification": "ABSTRACT_NECESSARY_FEMININE_TARGET",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Remove named female biography while retaining the required feminine lexical/pronoun/address target and every answer variant. Target: Frau. Existing answer variants: [\"Sehr geehrte Frau Weber,\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "5d966298cdbdc738122e645b838e0b8d2c52852bc224fdc9074ddec281b6f1ff",
+      "wholeProposedAfterSHA256": "9f4f7fae0f7f7a091cddaf67882dcf7edd3f4f3c3a72bf14c5203e20d6794eae",
+      "wholeParentBeforeSHA256": "d7bee742d342058b6d9086629133d15f43b1fc356e3fb740420a3fd5065e4679",
+      "wholeParentProposedAfterSHA256": "d7bee742d342058b6d9086629133d15f43b1fc356e3fb740420a3fd5065e4679",
+      "wholeObjectivesBeforeSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeObjectivesProposedAfterSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Du schreibst einen Brief an deine Vermieterin, Frau Weber. Wie beginnst du?",
+          "after": "Welche formelle Anrede für eine Frau mit dem Nachnamen Weber ist korrekt?"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "You are writing a letter to your landlady, Ms Weber. How do you begin?",
+          "after": "Which formal salutation for a woman with the surname Weber is correct?"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Вы пишете письмо своей арендодательнице, госпоже Weber. Как вы начнёте?",
+          "after": "Какое официальное обращение к женщине с фамилией Weber правильное?"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Ви пишете листа своїй орендодавиці, пані Weber. Як ви почнете?",
+          "after": "Яке офіційне звертання до жінки з прізвищем Weber правильне?"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Ev sahibiniz Weber Hanım’a bir mektup yazıyorsunuz. Nasıl başlarsınız?",
+          "after": "Soyadı Weber olan bir kadına hangi resmî hitap doğrudur?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "371cb8609edb4c37191353ad934709d6d09b8d79c56030f7034eeec25ab5ea85",
+        "ru": "4a030f5b94e607e9776cdf4cf20dde2a68d33d920cb37922b8a23ccaa4fdc162",
+        "uk": "50b2d8edf9b1c90b7fae27c777f5b6cd8bb0a1fd610bfc530fc720beceb01c70",
+        "tr": "25f2397beafa115d5aabd8376dd33cbdaa6c9b041760292fc0ae0fe1dce849f7"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "ab44c25b3d59824ddc09c272f748ab8fc0645b4b8fb4ddca1217058e0fa745ee",
+        "ru": "9d655ef0239fbd4f3caf5deb48806dfcd3ad89b79400bf38f93d06a00577ebf5",
+        "uk": "219d7b6c8408e03b353ab8e926218f9f65019185e948ec60fcae39a3ed829f9b",
+        "tr": "c6fb4f6538d7ec7de6cb094a589a3286ba1d517155fda27933e4e59d7649114f"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 31,
+      "id": "4652cc5a-2f68-54e2-ab33-9260d02d151d",
+      "ref": "P2-N13-E10",
+      "level": "A2.1",
+      "node": "P2-N13",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: höflich bitten. Existing answer variants: [\"Könnten Sie mir bitte Ihre Leiter leihen?\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "9128d2e9fad5998ec6a1b19c9fe905d15f98fb0664dcf91a90f7335b5c353ad1",
+      "wholeProposedAfterSHA256": "f299b68e99c01c22caa2b9f836883e5f1c24c2709209132b3fb0b459ac281887",
+      "wholeParentBeforeSHA256": "2feffc120d48e5041e605f60c27cd2a32f639078347ea3bb3aec54339d69b625",
+      "wholeParentProposedAfterSHA256": "2feffc120d48e5041e605f60c27cd2a32f639078347ea3bb3aec54339d69b625",
+      "wholeObjectivesBeforeSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeObjectivesProposedAfterSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Du brauchst eine Leiter. Deine Nachbarin, Frau Haddad, hat eine. Was fragst du höflich?",
+          "after": "Du brauchst eine Leiter. Dein Nachbar, Herr Haddad, hat eine. Was fragst du höflich?"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "You need a ladder. Your neighbour, Ms Haddad, has one. What do you ask politely?",
+          "after": "You need a ladder. Your neighbour, Mr Haddad, has one. What do you ask politely?"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Вам нужна лестница. У вашей соседки, госпожи Haddad, она есть. Как вежливо попросить?",
+          "after": "Вам нужна лестница. У вашего соседа, господина Haddad, она есть. Как вежливо попросить?"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Вам потрібна драбина. У вашої сусідки, пані Haddad, вона є. Як ввічливо попросити?",
+          "after": "Вам потрібна драбина. У вашого сусіда, пана Haddad, вона є. Як ввічливо попросити?"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Bir merdivene ihtiyacınız var. Komşunuz Haddad Hanım’da var. Kibarca ne sorarsınız?",
+          "after": "Bir merdivene ihtiyacınız var. Komşunuz Haddad Bey’de var. Kibarca ne sorarsınız?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "174a71e21480a291ce667ad866ef0135809ead203848dd3c5832c809271580a5",
+        "ru": "9dda83086f61b323a24c718e8857249fd0f428ce58843cf6e4437cfa9d300f13",
+        "uk": "c35bf357ea8cd93b9495bfc459f7c682e1dcb1d169c28a525c7f891397bafed3",
+        "tr": "f7dbb24b11d1b1c04ae2e4780738ddfc3db21e90ca685f0df96435818686a486"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "8b61c4433211ef37867d60c6492a601ead2c0a4b853c64d673806c89b51893d4",
+        "ru": "a18cd8d0b08cac9a6843506ecfa7ceaa1464333dc7f873d9c1b6347af78d109d",
+        "uk": "badf5fa378ced3998a8c9093c4684d8ca9096ab8cde6267b95776c645f1ec0d3",
+        "tr": "5bfb09cc1c6f331271bcbb98fd5987778c9b60e5cb54f40442cd79b09d47352c"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 32,
+      "id": "0c6e7a4d-922f-5168-a3fd-5c5eb28e1bec",
+      "ref": "P3-N11-E01",
+      "level": "A2.1",
+      "node": "P3-N11",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Wie oft?. Existing answer variants: [\"Sie trinkt nur einen Kaffee.\"]. Full interview text kept synchronized with Herrn/Herr Haddad in all three assigned tasks; every question remains locally answerable.",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "827c45dc339315e71ff049a58ab8f0b30a15a2ff1dfdbdbe7cb1e9da3497289e",
+      "wholeProposedAfterSHA256": "87af4c3fb0cb57e3c47fa88249cbdf3f9cdce4eb03408d8cb5bff47f5a795e9b",
+      "wholeParentBeforeSHA256": "ffdedcb8b1281e4ccfc635562a545d940c1ee18369c6f83a975deabddca1dbc0",
+      "wholeParentProposedAfterSHA256": "ffdedcb8b1281e4ccfc635562a545d940c1ee18369c6f83a975deabddca1dbc0",
+      "wholeObjectivesBeforeSHA256": "fa1e6ae210a17b87b05fe393f04fce12ce9d8de19324d693d70b84dfe90d2f07",
+      "wholeObjectivesProposedAfterSHA256": "fa1e6ae210a17b87b05fe393f04fce12ce9d8de19324d693d70b84dfe90d2f07",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Interview mit Frau Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Was macht Frau Haddad morgens von Montag bis Freitag?",
+          "after": "Interview mit Herrn Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Was macht Herr Haddad morgens von Montag bis Freitag?"
+        },
+        {
+          "pointer": "/content/options/0",
+          "before": "Sie trinkt nur einen Kaffee.",
+          "after": "Er trinkt nur einen Kaffee."
+        },
+        {
+          "pointer": "/content/options/1",
+          "before": "Sie isst Salat.",
+          "after": "Er isst Salat."
+        },
+        {
+          "pointer": "/content/options/2",
+          "before": "Sie frühstückt zwei Stunden.",
+          "after": "Er frühstückt zwei Stunden."
+        },
+        {
+          "pointer": "/content/correct_answer",
+          "before": "Sie trinkt nur einen Kaffee.",
+          "after": "Er trinkt nur einen Kaffee."
+        },
+        {
+          "pointer": "/content/accepted_answers/0",
+          "before": "Sie trinkt nur einen Kaffee.",
+          "after": "Er trinkt nur einen Kaffee."
+        },
+        {
+          "pointer": "/accepted_answers/0",
+          "before": "Sie trinkt nur einen Kaffee.",
+          "after": "Er trinkt nur einen Kaffee."
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "What does Ms Haddad do in the morning from Monday to Friday?",
+          "after": "What does Mr Haddad do in the morning from Monday to Friday?"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Что госпожа Haddad делает по утрам с понедельника по пятницу?",
+          "after": "Что господин Haddad делает по утрам с понедельника по пятницу?"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Що пані Haddad робить уранці з понеділка до п’ятниці?",
+          "after": "Що пан Haddad робить уранці з понеділка до п’ятниці?"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Haddad Hanım pazartesiden cumaya sabahları ne yapıyor?",
+          "after": "Haddad Bey pazartesiden cumaya sabahları ne yapıyor?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "87d7df4b406d5f6ddbe71a8dce644afe4d9097eddf88c09afe59357b899dd6b8",
+        "ru": "38a6097f17b5c8347864b485261c7da7d48db28e583d0fa333884ac4ddd41742",
+        "uk": "ff0fb0e7c97f4b1287076d4fc94a557c5ff55c5eb577565acc4a0eeb6c416e34",
+        "tr": "215fc9d391c44f99f8ef2e7638a2c9711789820848319fd758c0701b00f56444"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "76392277ce8ed57fb3a82293520111558863f3b00b2349024c86bf2e69fa5c56",
+        "ru": "2256809ab99ee8cc914bfa2474e163591946886df49d106feb21db46de8ff04d",
+        "uk": "90b7de7f14f2c6086cf8faf655095cbdd13b35fae9fc6b76f083450deacbe099",
+        "tr": "175dd83189157d62e1e4f4c4491b484c17bddefdec5ca5bc2fd41a8d674aaa05"
+      },
+      "keyRevision": {
+        "before": [
+          "Sie trinkt nur einen Kaffee."
+        ],
+        "after": [
+          "Er trinkt nur einen Kaffee."
+        ],
+        "cardinality": "1->1",
+        "correctOptionPositionBeforeZeroBased": 0,
+        "correctOptionPositionAfterZeroBased": 0,
+        "Archive114Required": true,
+        "Archive114Performed": false
+      },
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 33,
+      "id": "d0dc09f2-03df-5499-a4df-3eea4261ad18",
+      "ref": "P3-N11-E02",
+      "level": "A2.1",
+      "node": "P3-N11",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Wann?. Existing answer variants: [\"Am Sonntag.\"]. Full interview text kept synchronized with Herrn/Herr Haddad in all three assigned tasks; every question remains locally answerable.",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "c52505ef1e5b85a9e4225687f9fd8af4b8ba70df1e4af9bea6b57dacd935dde8",
+      "wholeProposedAfterSHA256": "f388971d4e9c463f546ba8a5bdd7b8867aafbcb8c53dab80f83498745428c7bd",
+      "wholeParentBeforeSHA256": "ffdedcb8b1281e4ccfc635562a545d940c1ee18369c6f83a975deabddca1dbc0",
+      "wholeParentProposedAfterSHA256": "ffdedcb8b1281e4ccfc635562a545d940c1ee18369c6f83a975deabddca1dbc0",
+      "wholeObjectivesBeforeSHA256": "fa1e6ae210a17b87b05fe393f04fce12ce9d8de19324d693d70b84dfe90d2f07",
+      "wholeObjectivesProposedAfterSHA256": "fa1e6ae210a17b87b05fe393f04fce12ce9d8de19324d693d70b84dfe90d2f07",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Interview mit Frau Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Wann frühstückt die Familie zusammen?",
+          "after": "Interview mit Herrn Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Wann frühstückt die Familie zusammen?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "e9fe7f07950b4d49c284d3d2cd5065cfb907a5e64215b3d8edf40ee41e9fde84",
+        "ru": "59721a06870b6a2a58f0e6d7caeb28fc4a2ef24c9bf13b5a82abed22abf69583",
+        "uk": "b71a4351eea29f29375fc5f05447686fa7b7cdbeed3e11d38943c7b863d2937e",
+        "tr": "4e02f9fae91213cb71f89ee7388ea5dd0dc3d519fffa28a63a28441473af0e82"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "e9fe7f07950b4d49c284d3d2cd5065cfb907a5e64215b3d8edf40ee41e9fde84",
+        "ru": "59721a06870b6a2a58f0e6d7caeb28fc4a2ef24c9bf13b5a82abed22abf69583",
+        "uk": "b71a4351eea29f29375fc5f05447686fa7b7cdbeed3e11d38943c7b863d2937e",
+        "tr": "4e02f9fae91213cb71f89ee7388ea5dd0dc3d519fffa28a63a28441473af0e82"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 34,
+      "id": "07448203-e846-5417-aff2-a6ec8c8b6871",
+      "ref": "P3-N11-E03",
+      "level": "A2.1",
+      "node": "P3-N11",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Wo?. Existing answer variants: [\"In der Kantine.\"]. Full interview text kept synchronized with Herrn/Herr Haddad in all three assigned tasks; every question remains locally answerable.",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "44a1b0247a8bd8e2ced4fcc9e3117a0196d470b6fe9a30cec170cd10c2cabafa",
+      "wholeProposedAfterSHA256": "55255fa4c1edf3e0a98839b0879a76f7aa737f09f0be04278de4da1aa99ccf96",
+      "wholeParentBeforeSHA256": "ffdedcb8b1281e4ccfc635562a545d940c1ee18369c6f83a975deabddca1dbc0",
+      "wholeParentProposedAfterSHA256": "ffdedcb8b1281e4ccfc635562a545d940c1ee18369c6f83a975deabddca1dbc0",
+      "wholeObjectivesBeforeSHA256": "fa1e6ae210a17b87b05fe393f04fce12ce9d8de19324d693d70b84dfe90d2f07",
+      "wholeObjectivesProposedAfterSHA256": "fa1e6ae210a17b87b05fe393f04fce12ce9d8de19324d693d70b84dfe90d2f07",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/question",
+          "before": "Interview mit Frau Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Wo isst Frau Haddad mittags?",
+          "after": "Interview mit Herrn Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Wo isst Herr Haddad mittags?"
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Where does Ms Haddad have lunch?",
+          "after": "Where does Mr Haddad have lunch?"
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Где госпожа Haddad обедает?",
+          "after": "Где господин Haddad обедает?"
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Де пані Haddad обідає?",
+          "after": "Де пан Haddad обідає?"
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Haddad Hanım öğle yemeğini nerede yiyor?",
+          "after": "Haddad Bey öğle yemeğini nerede yiyor?"
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "87eca2b12a466f5bfb644313bcea212b96dee1df2230669a86c52ad7c8a8eb90",
+        "ru": "1f3ab972a576ec75cae194be66079f15426bc9c218e0644e1121c1051bdaca33",
+        "uk": "a973ecc956d4f2442661bccfe804a70a6ddd582a1d764ef5aa9748289831c2ac",
+        "tr": "7c62e7200e4bb61635defecabcfe3b6078e5114341616c608330417419a53a33"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "51282a1c8847516000f8900bd6d5c5dea88c37c44b8a180ff3778b740360d40d",
+        "ru": "f5622af4e2d5027065af650214a9cee485b047325f8da6dbefc8382e31274876",
+        "uk": "853212b3897bf96518dda3a791bc1220961225e81c76c909d28760569b2991ee",
+        "tr": "82a2db6921b1ca256f4683506a43bd11be40b2381637cb71a35ffec974834a71"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    },
+    {
+      "index": 35,
+      "id": "0193985f-8f47-5521-ab71-ea7e994b6956",
+      "ref": "P4-N1-E08",
+      "level": "A2.1",
+      "node": "P4-N1",
+      "classification": "CORRECT_FICTIONAL_ROLE",
+      "verdict": "HOLD_CORRECTION_PROPOSED",
+      "reason": "Male role and congruent articles/pronouns proposed only in the affected complete task/dialogue; grammatical feminine nouns and paradigms retained. Target: Abteilung. Existing answer variants: [\"Abteilung\"].",
+      "reviewed": true,
+      "sourceCommit": "c84604b3ef65a6abc117b77df1491d3f818e50fd",
+      "sourceDocumentByteSHA256": "43f68bdc0b9c60ac421996fd76841659bf2d3327cfa1376d6f40e0ec24aaeadc",
+      "wholeBeforeSHA256": "55c76fdcef7690712821c8b3138309946fde12c02f0b3ebc485fb0f6e8511e01",
+      "wholeProposedAfterSHA256": "90d9534d923323c105737d88936447e3a58cfb00a397cac881337c12b350423d",
+      "wholeParentBeforeSHA256": "896e063bcca6d2317fe7e38defdbdb70e69a8a8e9334d0bf08217e956207015b",
+      "wholeParentProposedAfterSHA256": "896e063bcca6d2317fe7e38defdbdb70e69a8a8e9334d0bf08217e956207015b",
+      "wholeObjectivesBeforeSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeObjectivesProposedAfterSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeTaskFiveLanguagesRead": true,
+      "associatedCompleteParentFiveLanguagesAndObjectivesRead": true,
+      "siblingsRead": false,
+      "proposedFields": [
+        {
+          "pointer": "/content/text_before",
+          "before": "Frau Kaya arbeitet in der ",
+          "after": "Herr Kaya arbeitet in der "
+        },
+        {
+          "pointer": "/translations/en/task",
+          "before": "Ms Kaya works in the sales department.",
+          "after": "Mr Kaya works in the sales department."
+        },
+        {
+          "pointer": "/translations/ru/task",
+          "before": "Госпожа Kaya работает в отделе продаж.",
+          "after": "Господин Kaya работает в отделе продаж."
+        },
+        {
+          "pointer": "/translations/uk/task",
+          "before": "Пані Kaya працює у відділі продажу.",
+          "after": "Пан Kaya працює у відділі продажу."
+        },
+        {
+          "pointer": "/translations/tr/task",
+          "before": "Kaya Hanım satış bölümünde çalışıyor.",
+          "after": "Kaya Bey satış bölümünde çalışıyor."
+        }
+      ],
+      "parentProposedFields": [],
+      "objectiveProposedFields": [],
+      "allFourTranslationRecordsBeforeSHA256": {
+        "en": "d69e1f732bd0d0e56d3c033837155366004f85cad2647d5ff2f7685e9e457228",
+        "ru": "02f4cf38e9a8d8355bb110baeec6bd83282f7406b97a112988b2e1512f60afd4",
+        "uk": "59b1cf379343c3c804137fe9244a01a043e5adfb96e7aad795c04cc5ac829a8a",
+        "tr": "930ca28cfe7c2457775d20ad1358edc327974ccaf9106b5f8097bcb02f54c6be"
+      },
+      "allFourTranslationRecordsProposedAfterSHA256": {
+        "en": "db6e418ca464cadef0079e5a82a44bc203e184a60084f517165d0772034fb55d",
+        "ru": "64f53e1840798f22bb232fce69ad3a216626fb282945f5a33437e7015fba2b06",
+        "uk": "e64cddb6ac2da13ccaa83a7e70e003dfb223c911d407a024baed31e9d2a80659",
+        "tr": "cfaf79241402e82693a4ec5a0bcc51f02987775dfd63ac875c5d9f8a72d173b5"
+      },
+      "keyRevision": null,
+      "currentSourceBindingVerified": true
+    }
+  ],
+  "limits": {
+    "proposalApplied": false,
+    "sourceDataChanged": false,
+    "testsRun": false,
+    "runtime": false,
+    "db": false,
+    "ssh": false,
+    "audio": false,
+    "import": false,
+    "publicationApproved": false,
+    "blanket421Approval": false,
+    "resolvedEpoch39EvaReopened": false
+  },
+  "authoringRequirements": [
+    "Apply exact proposed fields only after author lease; preserve IDs/goals/order/parts/cardrefs and recorded answer alternatives.",
+    "Every indicated answer-key revision requires Archive114 before adoption; no archive or publication approval supplied here.",
+    "Parents/objectives shared across tasks require mirror reconciliation and independent re-review after authoring; unassigned siblings were not read.",
+    "Changed German content must follow existing local Qwen audio-authoring and storage prerequisites before publication; no synthesis/import authorized by this audit."
+  ],
+  "privateEvidence": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S4/epoch40-first35-full-proposals-private.json",
+    "bytes": 841870,
+    "sha256": "85cbb24c2701451a89aa46061428f4cd03410e73d9ff96562211991faa556509"
+  },
+  "auditScriptByteSHA256": "e58df4c7604e55e1566f28a9fa0bcdeb9154f8102868666f3717065535a81025",
+  "readerScriptByteSHA256": "83fbcfdf23f7c5cbd6ac05edaa656311b8f855a00c81b5ba50939345ad42837c"
+}
