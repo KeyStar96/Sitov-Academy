@@ -1,0 +1,9 @@
+# Sitov Academy – aktueller lokaler Audioprüfstand
+
+249 bestehende Produktionsaufnahmen wurden frisch per GET mit ihren vollständigen Originalmetadaten zurückgelesen: alle Byteidentitäten stimmen, insgesamt 4.757.484 Bytes. Keine Neusynthese und kein Produktionsschreibzugriff. Die tatsächliche vollständige MP3-Decodierung bestätigte 248 ursprüngliche Wortzeitarrays; eine letzte Wortgrenze lag bei 3,31 Sekunden außerhalb der realen Dauer 3,282625 Sekunden.
+
+Für genau diese unveränderte MP3 wurde ein separates neues Forced-Alignment-Kandidat erzeugt. M rechnete die tatsächlichen gespeicherten Logits, Eingabe-IDs, gewählten Klassenpfade und Wahrscheinlichkeiten nach und verifizierte Audio-, Metadaten-, NPZ- und Receipt-Prüfsummen. Die neue gemessene letzte Grenze liegt bei 3,28 Sekunden. Das ist ein technischer Kandidat; vor Übernahme ist eine gesonderte, exakt an die Originalmetadaten gebundene CAS nötig. Der erste Versuch scheiterte vor der Modellarbeit am strengen nativen Metadatenformat. Ein ausdrücklich ausgewiesener Storage-Quelladapter ergänzt nur verifizierten Text/Status in einer separaten Datei und bewahrt die Originalmetadaten unverändert.
+
+Die eine aktuelle Vermieterin-Frage aus S2epoch44 besitzt eine neue lokale männliche Qwen-Aufnahme. Tatsächliche MP3-Decodierung und rohes Alignment sind von M tief geprüft. Das kleine lokale ASR erkennt denselben Text bis auf Satzzeichen; der größere Diagnosejob hat deshalb keinen zusätzlichen Erkennungsfall. Weitere neun aktuelle role43-Aufnahmen besitzen ebenfalls geprüfte rohe Wortzeitnachweise, ein Rojas-Namensbefund bleibt zur Hörprüfung gehalten.
+
+ASR und Klassifikator-Support ersetzen kein Hören oder empirische Kalibrierung. Keine Import-/Publikationsfreigabe; keine Produktions- oder QA-Mutation. Die alte 4.825er-Auswahl und ältere Prüfnachweise bleiben unverändert. Das neue aktuelle Gesamtpaket, Kollisions-/Metadaten-CAS-Fälle sowie die vorgeschriebenen Hörstichproben bleiben offen.

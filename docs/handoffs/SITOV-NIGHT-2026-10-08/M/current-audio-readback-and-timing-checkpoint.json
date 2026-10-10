@@ -1,0 +1,74 @@
+{
+  "at": "2026-10-10T04:36:47.765194+00:00",
+  "brand": "Sitov Academy",
+  "actualContentSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+  "existingProductionReadback": {
+    "expected": 249,
+    "exactBytesAndWholeOriginalMetadataVerified": 249,
+    "bytes": 4757484,
+    "receiptSha256": "9b32abca9d140cff90392700488200c0ce5b320bfaf05c687320e134837a4f49",
+    "actualOriginalTimingDecodePass": 248,
+    "originalTimingHold": 1
+  },
+  "existingOneTimingCandidate": {
+    "text": "Tom steht um sechs Uhr auf. Dann rasiert er sich.",
+    "audioSha256": "13e00e754f52709bb8cca0b474e4372ae37465cdaec70d125cd7378813f15d23",
+    "originalMetadataSha256": "1320a33e1cf72b244bb974c5cbcbce8ed99e45dda7b4d38944b0df0b8f7a420e",
+    "originalFinalWordEnd": 3.31,
+    "actualDecodedDuration": 3.282625,
+    "newMeasuredFinalWordEnd": 3.28,
+    "actualRawLogitsInputIDsClassPathsProbabilitiesAndReceiptsRootRecomputed": true,
+    "originalMP3Unchanged": true,
+    "candidateOnly": true,
+    "requiresSeparateExactOriginalMetadataCAS": true,
+    "humanListening": false,
+    "empiricalCalibration": false
+  },
+  "newOneCurrentQuestion": {
+    "text": "Wie heißt eine Frau, der ein vermietetes Haus gehört und die Miete bekommt? Sie ist die Vermieterin",
+    "audioSha256": "ca070958fb890065ec05099852ca3b5809db9deed3b4d7e60ad3eb877ad9138b",
+    "actualDecodedDuration": 6.43,
+    "allLexicalWordsPositiveWithinActualMP3": true,
+    "actualRawArrayAndInputAndClassProbabilityVerification": true,
+    "smallAsrNormalizedTextExact": true,
+    "largerDiagnosticJobExit": 0,
+    "largerRecognitionNeededBySmallDifferenceFilter": false,
+    "humanListening": false
+  },
+  "newNineCurrentRole43": {
+    "rootRawAccepted": 9,
+    "largerASRNameHold": 1,
+    "humanListening": false
+  },
+  "evidence": [
+    {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-existing249-readback-v1/readback-proof.json",
+      "bytes": 450,
+      "sha256": "eb0a92d21fb2a20b2f10ab37c6f4cd74e93a501d188751d3217ab3d94b9ef4fe"
+    },
+    {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-current249-existing-actual-decode-private.json",
+      "bytes": 167064,
+      "sha256": "43cedd2039c9d98b3124baeea48b6750eeeaaec383f17ae0147c7812c1b479f2"
+    },
+    {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-existing1-raw-deep-private.json",
+      "bytes": 1423,
+      "sha256": "daf9f754377731ba23da58fd528ba90aa99cce0cd601993752cc7f17b2d094cc"
+    },
+    {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-role44-raw-deep-private.json",
+      "bytes": 1824,
+      "sha256": "e0834bae32267a923e84f27ccda7500c7fba486f7e0556f73e29c1cbcf4d6962"
+    },
+    {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-role43-raw-deep-private.json",
+      "bytes": 5329,
+      "sha256": "31c02ebb13fffcef2d784cc9f77417584ca1ead957cdbe565d3c3dbca35887ba"
+    }
+  ],
+  "productionWrite": false,
+  "QAWrite": false,
+  "importApproved": false,
+  "publicationApproved": false
+}
