@@ -163,6 +163,7 @@ REVISE = r"""
 DECLARE p jsonb:=SITOV_PLAN; source jsonb; old jsonb; candidate jsonb; item jsonb;
  batch jsonb:='[]'; all_batches jsonb:='[]'; payload jsonb; result jsonb;
  expected jsonb:='{}'; entry jsonb; req uuid; idx integer:=0; archived record; receipt record;
+ spoken text; old_url text; prepared_url text;
 BEGIN
  FOR source IN SELECT value FROM jsonb_array_elements(p->'rows') ORDER BY value->>'id' LOOP
   old:=path_private.sitov_revision_projection((source->>'id')::uuid);
@@ -170,6 +171,19 @@ BEGIN
    RAISE EXCEPTION 'sitov_combined_topic_binding'; END IF;
   candidate:=old||(source->'after');
   IF candidate=old THEN RAISE EXCEPTION 'sitov_combined_noop'; END IF;
+  -- SQL71 persists only the authoritative fill answer / joined MC utterance.
+  -- Derive via the real proof BEFORE the writer, including SQL115 variants;
+  -- never ignore solution_audio_url or trust a client-supplied replacement.
+  old_url:=source#>>'{beforeFull,exercise,solution_audio_url}';
+  IF old->>'type' IN('fill_in_blank','multiple_choice')
+   AND (nullif(btrim(old_url),'') IS NULL OR strpos(old_url,'/audio_cache/')>0) THEN
+   IF old->>'type'='fill_in_blank' THEN spoken:=candidate#>>'{content,correct_answer}';
+   ELSE spoken:=(learning_private.sitov_learning_audio_texts('exercises',candidate,'[]'::jsonb))[1]; END IF;
+   prepared_url:=vocabulary_private.sitov_prepared_german_audio_url(spoken);
+   IF prepared_url IS NULL OR prepared_url !~ '^storage://audio_cache/sitov-qwen-v1/de/[a-f0-9]{64}[.]mp3$' THEN
+    RAISE EXCEPTION 'sitov_combined_authoritative_audio_url'; END IF;
+   source:=jsonb_set(source,'{afterFull,exercise,solution_audio_url}',to_jsonb(prepared_url));
+  END IF;
   item:=jsonb_build_object('id',source->>'id','expected_hash',path_private.sitov_revision_hash(old),
    'after',candidate,'review',(source->'review')||jsonb_build_object('before_hash',path_private.sitov_revision_hash(old),'after_hash',path_private.sitov_revision_hash(candidate)));
   IF octet_length(jsonb_build_array(item)::text)>1500000 THEN RAISE EXCEPTION 'sitov_combined_single_item_size'; END IF;
@@ -252,6 +266,27 @@ def normalized_full(value):
     result = copy.deepcopy(value)
     result['translations'] = sorted(result['translations'], key=lambda r: r['locale'])
     return result
+
+
+def expected_solution_url(old_url, exercise_type, derived_prepared_url):
+    """SQL71 mirror for CPU checks; SQL derives the actual trusted URL itself.
+
+    No candidate-supplied URL is accepted. Sentence-building and external real
+    recording references remain exact. Prepared metadata proof stays in SQL.
+    """
+    if exercise_type not in {'fill_in_blank', 'multiple_choice'}:
+        return old_url
+    if old_url is not None and old_url.strip(' ') and '/audio_cache/' not in old_url:
+        return old_url
+    require(isinstance(derived_prepared_url, str) and re.fullmatch(
+        r'storage://audio_cache/sitov-qwen-v1/de/[a-f0-9]{64}\.mp3', derived_prepared_url),
+        'invalid authoritative prepared URL')
+    return derived_prepared_url
+
+
+def check_solution_url(old_url, exercise_type, derived_prepared_url, observed_url):
+    require(observed_url == expected_solution_url(old_url, exercise_type, derived_prepared_url),
+            'stale or unexpected authoritative audio URL')
 
 
 def classify(plan, observed):

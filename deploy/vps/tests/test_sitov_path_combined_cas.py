@@ -25,6 +25,20 @@ def inputs():
 
 
 class CombinedTests(unittest.TestCase):
+ def test_authoritative_null_url_transition_and_stale_unexpected_rejection(self):
+  url='storage://audio_cache/sitov-qwen-v1/de/'+'a'*64+'.mp3'
+  self.assertEqual(m.expected_solution_url(None,'fill_in_blank',url),url)
+  self.assertEqual(m.expected_solution_url('   ','multiple_choice',url),url)
+  m.check_solution_url(None,'fill_in_blank',url,url)
+  for wrong in (None,'storage://audio_cache/sitov-qwen-v1/de/'+'b'*64+'.mp3','https://unexpected.example/audio.mp3'):
+   with self.assertRaises(ValueError):m.check_solution_url(None,'fill_in_blank',url,wrong)
+  with self.assertRaises(ValueError):m.expected_solution_url(None,'fill_in_blank','https://untrusted.example/audio.mp3')
+  external='storage://student-recordings/exact-original.wav'
+  self.assertEqual(m.expected_solution_url(external,'fill_in_blank',url),external)
+  self.assertIsNone(m.expected_solution_url(None,'sentence_building',url))
+  self.assertIn("vocabulary_private.sitov_prepared_german_audio_url(spoken)",m.REVISE)
+  self.assertIn("'{afterFull,exercise,solution_audio_url}'",m.REVISE)
+  self.assertIn("archived.after_full->'exercise' IS DISTINCT FROM source#>'{afterFull,exercise}'",m.REVISE)
  def test_sources_valid_unknown_preserved_and_immutable_drift(self):
   p,i=inputs();r=m.validate_sources(p,i)[0];self.assertEqual(r['afterFull']['exercise']['future'],{'keep':True});self.assertEqual(r['afterFull']['translations'][0]['smart_hint'],{'keep':1})
   for key,val in [('id',f.UNIT),('type','fill_in_blank'),('unit_id',f.NODE),('goal_id','P2-G1'),('source_ref','moved'),('sort_order',2),('path_is_active',False)]:
