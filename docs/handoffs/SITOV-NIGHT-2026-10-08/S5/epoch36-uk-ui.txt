@@ -1,0 +1,157 @@
+- link "Перейти до вмісту":
+  - /url: "#main-content"
+- main:
+  - link "Sitov Academy":
+    - /url: /uk/dashboard
+    - generic: Sitov Academy
+  - link "Відкрити профіль":
+    - /url: /uk/dashboard/profile
+    - generic: Профіль
+  - button "Оформлення та читабельність":
+    - generic: Оформлення
+  - button "Вийти":
+    - generic: Вийти
+  - navigation "Навігація сторінками":
+    - list:
+      - link "Головна":
+        - /url: /uk/dashboard
+        - generic: Головна
+      - link "A1.1":
+        - /url: /uk/dashboard/level/A1.1
+        - generic: A1.1
+      - heading "Вимова" [level=1]:
+        - generic: Вимова
+  - tablist "Вимова":
+    - tab "Говорити" [selected]:
+      - generic: Говорити
+    - tab "Пошта":
+      - generic: Пошта
+  - tabpanel "Говорити":
+    - region "Говорити":
+      - paragraph:
+        - generic: Вимова
+        - generic: A1.1
+      - heading "Говорити" [level=1]
+      - generic: Guten Tag, das bin ich
+      - button "До тексту для вимови" [active]:
+        - generic: До тексту для вимови
+      - generic: ü
+    - list:
+      - button "Guten Tag, das bin ich До тексту для вимови" [pressed]:
+        - generic: Guten Tag, das bin ich
+        - generic: До тексту для вимови
+      - button "Mein Frühstück Цей тест ще недоступний." [disabled]:
+        - generic: Mein Frühstück
+        - generic: Цей тест ще недоступний.
+      - button "Unser Kursraum Цей тест ще недоступний." [disabled]:
+        - generic: Unser Kursraum
+        - generic: Цей тест ще недоступний.
+      - button "Ein neuer Nachbar Цей тест ще недоступний." [disabled]:
+        - generic: Ein neuer Nachbar
+        - generic: Цей тест ще недоступний.
+      - button "Am Samstag im Park Цей тест ще недоступний." [disabled]:
+        - generic: Am Samstag im Park
+        - generic: Цей тест ще недоступний.
+      - button "Mein Zimmer Цей тест ще недоступний." [disabled]:
+        - generic: Mein Zimmer
+        - generic: Цей тест ще недоступний.
+      - button "Im kleinen Laden Цей тест ще недоступний." [disabled]:
+        - generic: Im kleinen Laden
+        - generic: Цей тест ще недоступний.
+      - button "Meine Familie Цей тест ще недоступний." [disabled]:
+        - generic: Meine Familie
+        - generic: Цей тест ще недоступний.
+      - button "Der Weg zum Kurs Цей тест ще недоступний." [disabled]:
+        - generic: Der Weg zum Kurs
+        - generic: Цей тест ще недоступний.
+      - button "Ein ruhiger Abend Цей тест ще недоступний." [disabled]:
+        - generic: Ein ruhiger Abend
+        - generic: Цей тест ще недоступний.
+    - list "Твої три кроки":
+      - generic: "01"
+      - text: Послухати й прочитати
+      - generic: "02"
+      - text: Записати
+      - generic: "03"
+      - text: Дочекатися відповіді
+    - region "Твої тексти":
+      - heading "Твої тексти" [level=2]
+      - paragraph: "Текстів: 1 · A1.1"
+      - list:
+        - button "Guten Tag, das bin ich Ще не записано" [pressed]:
+          - generic: "01"
+          - generic: Guten Tag, das bin ich
+          - generic: Ще не записано
+    - article:
+      - generic: A1.1
+      - generic: "Слів: 40"
+      - generic: Приблизно 1 хв.
+      - heading "Guten Tag, das bin ich" [level=2]
+      - paragraph: "Акцент: ie und ch; kurze Satzpausen"
+      - paragraph:
+        - button "Показати значення «Guten»": Guten
+        - button "Показати значення «Tag,»": Tag,
+        - button "Показати значення «ich»": ich
+        - button "Показати значення «heiße»": heiße
+        - button "Показати значення «Leon.»": Leon.
+        - button "Показати значення «Ich»": Ich
+        - button "Показати значення «komme»": komme
+        - button "Показати значення «aus»": aus
+        - button "Показати значення «Polen»": Polen
+        - button "Показати значення «und»": und
+        - button "Показати значення «wohne»": wohne
+        - button "Показати значення «jetzt»": jetzt
+        - button "Показати значення «in»": in
+        - button "Показати значення «Hannover.»": Hannover.
+        - button "Показати значення «Ich»": Ich
+        - button "Показати значення «bin»": bin
+        - button "Показати значення «dreißig»": dreißig
+        - button "Показати значення «Jahre»": Jahre
+        - button "Показати значення «alt.»": alt.
+        - button "Показати значення «Meine»": Meine
+        - button "Показати значення «Familie»": Familie
+        - button "Показати значення «ist»": ist
+        - button "Показати значення «klein.»": klein.
+        - button "Показати значення «Mein»": Mein
+        - button "Показати значення «Mann»": Mann
+        - button "Показати значення «heißt»": heißt
+        - button "Показати значення «Paul.»": Paul.
+        - button "Показати значення «Wir»": Wir
+        - button "Показати значення «lernen»": lernen
+        - button "Показати значення «zusammen»": zusammen
+        - button "Показати значення «Deutsch.»": Deutsch.
+        - button "Показати значення «Am»": Am
+        - button "Показати значення «Abend»": Abend
+        - button "Показати значення «trinken»": trinken
+        - button "Показати значення «wir»": wir
+        - button "Показати значення «Tee»": Tee
+        - button "Показати значення «und»": und
+        - button "Показати значення «lesen»": lesen
+        - button "Показати значення «ein»": ein
+        - button "Показати значення «Buch.»": Buch.
+      - paragraph:
+        - text: Під час прослуховування слова підсвічуються – просто читай разом.
+      - paragraph:
+        - text: "Натисни на слово: аудіо призупиниться і з’явиться значення."
+      - button "Прослухати весь текст":
+        - generic: Прослухати текст
+      - button "Повторити повільно"
+      - button "Послухати текст від початку":
+        - generic: Від початку
+      - generic: Темп
+      - combobox "Темп":
+        - option "0.75×"
+        - option "0.85×" [selected]
+        - option "1×"
+        - option "1.25×"
+      - generic: ▾
+    - generic: ü
+    - heading "Тренуйте вимову" [level=2]
+    - paragraph: Запишіть себе, послухайте та надішліть на перевірку.
+    - button "Почати запис":
+      - text: Почати запис
+    - paragraph: Ваш запис доступний лише вам і викладачам школи.
+    - region "Читання та запис":
+      - button "Допомога":
+        - generic: Допомога
+- alert

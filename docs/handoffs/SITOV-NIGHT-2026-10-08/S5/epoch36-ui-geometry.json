@@ -1,0 +1,563 @@
+[
+  {
+    "case": "EN320darkTab900ms",
+    "data": {
+      "active": "Repeat slowly",
+      "activeRect": {
+        "bottom": 494.1640625,
+        "height": 48,
+        "width": 104,
+        "x": 50.796875,
+        "y": 446.1640625
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1042.046875,
+        "height": 80,
+        "width": 246,
+        "x": 37,
+        "y": 962.046875
+      },
+      "reduced": false,
+      "scrollTop": 2746,
+      "scrollWidth": 320,
+      "theme": "dark",
+      "width": 320,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 234.8046875
+    }
+  },
+  {
+    "case": "EN320darkPageUp900ms",
+    "data": {
+      "active": "Repeat slowly",
+      "activeRect": {
+        "bottom": 1222.1640625,
+        "height": 48,
+        "width": 104,
+        "x": 50.796875,
+        "y": 1174.1640625
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1770.046875,
+        "height": 80,
+        "width": 246,
+        "x": 37,
+        "y": 1690.046875
+      },
+      "reduced": false,
+      "scrollTop": 2018,
+      "scrollWidth": 320,
+      "theme": "dark",
+      "width": 320,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 962.8046875
+    }
+  },
+  {
+    "case": "EN320darkInlineEnd900ms",
+    "data": {
+      "active": "Help",
+      "activeRect": {
+        "bottom": 539.046875,
+        "height": 48,
+        "width": 286,
+        "x": 17,
+        "y": 491.046875
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 369.046875,
+        "height": 80,
+        "width": 246,
+        "x": 37,
+        "y": 289.046875
+      },
+      "reduced": false,
+      "scrollTop": 3419,
+      "scrollWidth": 320,
+      "theme": "dark",
+      "width": 320,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": -438.1953125
+    }
+  },
+  {
+    "case": "EN320darkRecordFocus900ms",
+    "data": {
+      "active": "Start recording",
+      "activeRect": {
+        "bottom": 369.046875,
+        "height": 80,
+        "width": 246,
+        "x": 37,
+        "y": 289.046875
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 369.046875,
+        "height": 80,
+        "width": 246,
+        "x": 37,
+        "y": 289.046875
+      },
+      "reduced": false,
+      "scrollTop": 3419,
+      "scrollWidth": 320,
+      "theme": "dark",
+      "width": 320,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": -438.1953125
+    }
+  },
+  {
+    "case": "EN1440darkTab900ms",
+    "data": {
+      "active": "Repeat slowly",
+      "activeRect": {
+        "bottom": 584.0625,
+        "height": 48,
+        "width": 283.8671875,
+        "x": 518,
+        "y": 536.0625
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1027.0625,
+        "height": 72,
+        "width": 246.125,
+        "x": 758.9375,
+        "y": 955.0625
+      },
+      "reduced": false,
+      "scrollTop": 1287.5,
+      "scrollWidth": 1440,
+      "theme": "dark",
+      "width": 1440,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 365.3828125
+    }
+  },
+  {
+    "case": "EN1440darkPageUp900ms",
+    "data": {
+      "active": "Repeat slowly",
+      "activeRect": {
+        "bottom": 1368.0625,
+        "height": 48,
+        "width": 283.8671875,
+        "x": 518,
+        "y": 1320.0625
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1811.0625,
+        "height": 72,
+        "width": 246.125,
+        "x": 758.9375,
+        "y": 1739.0625
+      },
+      "reduced": false,
+      "scrollTop": 503.5,
+      "scrollWidth": 1440,
+      "theme": "dark",
+      "width": 1440,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 1149.3828125
+    }
+  },
+  {
+    "case": "EN1440darkRecordFocus900ms",
+    "data": {
+      "active": "Start recording",
+      "activeRect": {
+        "bottom": 695.0625,
+        "height": 72,
+        "width": 246.125,
+        "x": 758.9375,
+        "y": 623.0625
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 695.0625,
+        "height": 72,
+        "width": 246.125,
+        "x": 758.9375,
+        "y": 623.0625
+      },
+      "reduced": false,
+      "scrollTop": 1619.5,
+      "scrollWidth": 1440,
+      "theme": "dark",
+      "width": 1440,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 33.3828125
+    }
+  },
+  {
+    "case": "EN1440darkReadingMiddle900ms",
+    "data": {
+      "active": "Start recording",
+      "activeRect": {
+        "bottom": 1479.0625,
+        "height": 72,
+        "width": 246.125,
+        "x": 758.9375,
+        "y": 1407.0625
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "en",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1479.0625,
+        "height": 72,
+        "width": 246.125,
+        "x": 758.9375,
+        "y": 1407.0625
+      },
+      "reduced": false,
+      "scrollTop": 835.5,
+      "scrollWidth": 1440,
+      "theme": "dark",
+      "width": 1440,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 817.3828125
+    }
+  },
+  {
+    "case": "UK390darkTab900ms",
+    "data": {
+      "active": "Повторити повільно",
+      "activeRect": {
+        "bottom": 494.046875,
+        "height": 48,
+        "width": 139,
+        "x": 50.796875,
+        "y": 446.046875
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "uk",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 996.2421875,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 924.2421875
+      },
+      "reduced": false,
+      "scrollTop": 2393.5,
+      "scrollWidth": 390,
+      "theme": "dark",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 234.6875
+    }
+  },
+  {
+    "case": "UK390darkRecordFocus900ms",
+    "data": {
+      "active": "Почати запис",
+      "activeRect": {
+        "bottom": 504.2421875,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 432.2421875
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "uk",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 504.2421875,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 432.2421875
+      },
+      "reduced": false,
+      "scrollTop": 2883.5,
+      "scrollWidth": 390,
+      "theme": "dark",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": -255.3125
+    }
+  },
+  {
+    "case": "UK390lightHighContrastTab900ms",
+    "data": {
+      "active": "Повторити повільно",
+      "activeRect": {
+        "bottom": 554.546875,
+        "height": 48,
+        "width": 139,
+        "x": 50.796875,
+        "y": 506.546875
+      },
+      "contrast": "high",
+      "germanRegions": 15,
+      "lang": "uk",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1056.7421875,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 984.7421875
+      },
+      "reduced": false,
+      "scrollTop": 2335,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 295.1875
+    }
+  },
+  {
+    "case": "TR390lightHighContrastTab900ms",
+    "data": {
+      "active": "Yavaş tekrar et",
+      "activeRect": {
+        "bottom": 494.0546875,
+        "height": 48,
+        "width": 139,
+        "x": 50.796875,
+        "y": 446.0546875
+      },
+      "contrast": "high",
+      "germanRegions": 15,
+      "lang": "tr",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 996.25,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 924.25
+      },
+      "reduced": false,
+      "scrollTop": 2379.5,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 234.6953125
+    }
+  },
+  {
+    "case": "TR390lightHighContrastRecordFocus900ms",
+    "data": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 843.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 771.75
+      },
+      "contrast": "high",
+      "germanRegions": 15,
+      "lang": "tr",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 843.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 771.75
+      },
+      "reduced": false,
+      "scrollTop": 2532,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 82.1953125
+    }
+  },
+  {
+    "case": "TR390lightHighContrastForwardNativeTabRecord900ms",
+    "data": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 503.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 431.75
+      },
+      "contrast": "high",
+      "germanRegions": 15,
+      "lang": "tr",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 503.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 431.75
+      },
+      "reduced": false,
+      "scrollTop": 2870,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": -255.8046875
+    }
+  },
+  {
+    "case": "TR390lightHighContrastReverseTabRepeat900ms",
+    "data": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 505.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 433.75
+      },
+      "contrast": "high",
+      "germanRegions": 15,
+      "lang": "tr",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 505.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 433.75
+      },
+      "reduced": false,
+      "scrollTop": 2868,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": -253.8046875
+    }
+  },
+  {
+    "case": "TR390darkTab900ms",
+    "data": {
+      "active": "Yavaş tekrar et",
+      "activeRect": {
+        "bottom": 554.5546875,
+        "height": 48,
+        "width": 139,
+        "x": 50.796875,
+        "y": 506.5546875
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "tr",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1056.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 984.75
+      },
+      "reduced": false,
+      "scrollTop": 2317,
+      "scrollWidth": 390,
+      "theme": "dark",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": 295.1953125
+    }
+  },
+  {
+    "case": "TR390darkForwardRecordFocus900ms",
+    "data": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 503.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 431.75
+      },
+      "contrast": "standard",
+      "germanRegions": 15,
+      "lang": "tr",
+      "recordAfterWords": true,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 503.75,
+        "height": 72,
+        "width": 316,
+        "x": 37,
+        "y": 431.75
+      },
+      "reduced": false,
+      "scrollTop": 2868,
+      "scrollWidth": 390,
+      "theme": "dark",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": [],
+      "wordsBottom": -255.8046875
+    }
+  }
+]

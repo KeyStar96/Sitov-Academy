@@ -1,0 +1,157 @@
+- link "İçeriğe geç":
+  - /url: "#main-content"
+- main:
+  - link "Sitov Academy":
+    - /url: /tr/dashboard
+    - generic: Sitov Academy
+  - link "Profili aç":
+    - /url: /tr/dashboard/profile
+    - generic: Profil
+  - button "Görünüm ve okunabilirlik":
+    - generic: Görünüm
+  - button "Çıkış yap":
+    - generic: Çıkış yap
+  - navigation "Sayfa gezinmesi":
+    - list:
+      - link "Ana sayfa":
+        - /url: /tr/dashboard
+        - generic: Ana sayfa
+      - link "A1.1":
+        - /url: /tr/dashboard/level/A1.1
+        - generic: A1.1
+      - heading "Telaffuz" [level=1]:
+        - generic: Telaffuz
+  - tablist "Telaffuz":
+    - tab "Konuş" [selected]:
+      - generic: Konuş
+    - tab "Posta":
+      - generic: Posta
+  - tabpanel "Konuş":
+    - region "Konuş":
+      - paragraph:
+        - generic: Telaffuz
+        - generic: A1.1
+      - heading "Konuş" [level=1]
+      - generic: Guten Tag, das bin ich
+      - button "Konuşma metnini aç" [active]:
+        - generic: Konuşma metnini aç
+      - generic: ü
+    - list:
+      - button "Guten Tag, das bin ich Konuşma metnini aç" [pressed]:
+        - generic: Guten Tag, das bin ich
+        - generic: Konuşma metnini aç
+      - button "Mein Frühstück Bu ön test henüz kullanılamıyor." [disabled]:
+        - generic: Mein Frühstück
+        - generic: Bu ön test henüz kullanılamıyor.
+      - button "Unser Kursraum Bu ön test henüz kullanılamıyor." [disabled]:
+        - generic: Unser Kursraum
+        - generic: Bu ön test henüz kullanılamıyor.
+      - button "Ein neuer Nachbar Bu ön test henüz kullanılamıyor." [disabled]:
+        - generic: Ein neuer Nachbar
+        - generic: Bu ön test henüz kullanılamıyor.
+      - button "Am Samstag im Park Bu ön test henüz kullanılamıyor." [disabled]:
+        - generic: Am Samstag im Park
+        - generic: Bu ön test henüz kullanılamıyor.
+      - button "Mein Zimmer Bu ön test henüz kullanılamıyor." [disabled]:
+        - generic: Mein Zimmer
+        - generic: Bu ön test henüz kullanılamıyor.
+      - button "Im kleinen Laden Bu ön test henüz kullanılamıyor." [disabled]:
+        - generic: Im kleinen Laden
+        - generic: Bu ön test henüz kullanılamıyor.
+      - button "Meine Familie Bu ön test henüz kullanılamıyor." [disabled]:
+        - generic: Meine Familie
+        - generic: Bu ön test henüz kullanılamıyor.
+      - button "Der Weg zum Kurs Bu ön test henüz kullanılamıyor." [disabled]:
+        - generic: Der Weg zum Kurs
+        - generic: Bu ön test henüz kullanılamıyor.
+      - button "Ein ruhiger Abend Bu ön test henüz kullanılamıyor." [disabled]:
+        - generic: Ein ruhiger Abend
+        - generic: Bu ön test henüz kullanılamıyor.
+    - list "Üç adımın":
+      - generic: "01"
+      - text: Dinle ve oku
+      - generic: "02"
+      - text: Kaydet
+      - generic: "03"
+      - text: Yanıtı bekle
+    - region "Metinlerin":
+      - heading "Metinlerin" [level=2]
+      - paragraph: 1 okuma metni · A1.1
+      - list:
+        - button "Guten Tag, das bin ich Henüz kaydedilmedi" [pressed]:
+          - generic: "01"
+          - generic: Guten Tag, das bin ich
+          - generic: Henüz kaydedilmedi
+    - article:
+      - generic: A1.1
+      - generic: 40 kelime
+      - generic: Yaklaşık 1 dk.
+      - heading "Guten Tag, das bin ich" [level=2]
+      - paragraph: "Odak: ie und ch; kurze Satzpausen"
+      - paragraph:
+        - button "“Guten” kelimesinin anlamını göster": Guten
+        - button "“Tag,” kelimesinin anlamını göster": Tag,
+        - button "“ich” kelimesinin anlamını göster": ich
+        - button "“heiße” kelimesinin anlamını göster": heiße
+        - button "“Leon.” kelimesinin anlamını göster": Leon.
+        - button "“Ich” kelimesinin anlamını göster": Ich
+        - button "“komme” kelimesinin anlamını göster": komme
+        - button "“aus” kelimesinin anlamını göster": aus
+        - button "“Polen” kelimesinin anlamını göster": Polen
+        - button "“und” kelimesinin anlamını göster": und
+        - button "“wohne” kelimesinin anlamını göster": wohne
+        - button "“jetzt” kelimesinin anlamını göster": jetzt
+        - button "“in” kelimesinin anlamını göster": in
+        - button "“Hannover.” kelimesinin anlamını göster": Hannover.
+        - button "“Ich” kelimesinin anlamını göster": Ich
+        - button "“bin” kelimesinin anlamını göster": bin
+        - button "“dreißig” kelimesinin anlamını göster": dreißig
+        - button "“Jahre” kelimesinin anlamını göster": Jahre
+        - button "“alt.” kelimesinin anlamını göster": alt.
+        - button "“Meine” kelimesinin anlamını göster": Meine
+        - button "“Familie” kelimesinin anlamını göster": Familie
+        - button "“ist” kelimesinin anlamını göster": ist
+        - button "“klein.” kelimesinin anlamını göster": klein.
+        - button "“Mein” kelimesinin anlamını göster": Mein
+        - button "“Mann” kelimesinin anlamını göster": Mann
+        - button "“heißt” kelimesinin anlamını göster": heißt
+        - button "“Paul.” kelimesinin anlamını göster": Paul.
+        - button "“Wir” kelimesinin anlamını göster": Wir
+        - button "“lernen” kelimesinin anlamını göster": lernen
+        - button "“zusammen” kelimesinin anlamını göster": zusammen
+        - button "“Deutsch.” kelimesinin anlamını göster": Deutsch.
+        - button "“Am” kelimesinin anlamını göster": Am
+        - button "“Abend” kelimesinin anlamını göster": Abend
+        - button "“trinken” kelimesinin anlamını göster": trinken
+        - button "“wir” kelimesinin anlamını göster": wir
+        - button "“Tee” kelimesinin anlamını göster": Tee
+        - button "“und” kelimesinin anlamını göster": und
+        - button "“lesen” kelimesinin anlamını göster": lesen
+        - button "“ein” kelimesinin anlamını göster": ein
+        - button "“Buch.” kelimesinin anlamını göster": Buch.
+      - paragraph:
+        - text: Dinlerken kelimeler parlar – sadece birlikte oku.
+      - paragraph:
+        - text: "Bir kelimeye dokun: ses duraklar ve anlamı görünür."
+      - button "Okuma metninin tamamını dinle":
+        - generic: Metni dinle
+      - button "Yavaş tekrar et"
+      - button "Metni baştan dinle":
+        - generic: Baştan
+      - generic: Hız
+      - combobox "Hız":
+        - option "0.75×"
+        - option "0.85×" [selected]
+        - option "1×"
+        - option "1.25×"
+      - generic: ▾
+    - generic: ü
+    - heading "Telaffuzunuzu çalışın" [level=2]
+    - paragraph: Kendinizi kaydedin, dinleyin ve düzeltme için gönderin.
+    - button "Kayda başla":
+      - text: Kayda başla
+    - paragraph: Kaydına yalnızca sen ve öğretmen ekibi erişebilir.
+    - region "Oku ve kaydet":
+      - button "Yardım":
+        - generic: Yardım
+- alert
