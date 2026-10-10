@@ -46721,7 +46721,7 @@
       {
         "id": "P6-G4",
         "area": "grammar",
-        "description": "lassen + Infinitiv am Satzende: Sie lässt ihr Konto prüfen. Sie sollten die Reifen wechseln lassen."
+        "description": "lassen + Infinitiv am Satzende: Er lässt sein Konto prüfen. Sie sollten die Reifen wechseln lassen."
       },
       {
         "id": "P6-K1",
@@ -53841,10 +53841,10 @@
             "exercise_type": "fill_in_blank",
             "content": {
               "target_form": [
-                "sie lässt"
+                "er lässt"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Meine Schwester ",
+              "text_before": "Mein Bruder ",
               "text_after": " sich die Haare färben.",
               "gap_hint": "lassen",
               "correct_answer": "lässt",
@@ -53868,25 +53868,25 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du and er: a → ä.",
                 "explanation": "The verb lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. With du and er/es/sie the a becomes ä. lassen + infinitive means: you do not do something yourself, another person does it. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (I am having the car repaired.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (He has his hair cut.)",
-                "task": "My sister is having her hair dyed."
+                "task": "My brother is having his hair dyed."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du и er: a → ä.",
                 "explanation": "Глагол lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. С du и er/es/sie a меняется на ä. lassen + инфинитив значит: человек делает что-то не сам, это делает другой. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я отдаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Он стрижётся у парикмахера.)",
-                "task": "Моя сестра красит волосы в салоне."
+                "task": "Моему брату красят волосы."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du та er: a → ä.",
                 "explanation": "Дієслово lassen: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. З du та er/es/sie a змінюється на ä. lassen + інфінітив означає: людина робить щось не сама, це робить хтось інший. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Я віддаю машину в ремонт.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Він стрижеться в перукаря.)",
-                "task": "Моя сестра фарбує волосся в салоні."
+                "task": "Моєму братові фарбують волосся."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen. du ve er: a → ä.",
                 "explanation": "lassen fiili: ich lasse, du lässt, er/es/sie lässt, wir lassen, ihr lasst, sie/Sie lassen. du ve er/es/sie ile a harfi ä olur. lassen + mastar şu anlama gelir: İnsan bir işi kendisi yapmaz, başka biri yapar. Ich repariere das Auto nicht selbst. Ich lasse das Auto reparieren. (Arabayı tamir ettiriyorum.) Mein Bruder schneidet seine Haare nicht selbst. Er lässt seine Haare schneiden. (Saçını kestiriyor.)",
-                "task": "Kız kardeşim saçını boyatıyor."
+                "task": "Erkek kardeşim saçını boyatıyor."
               }
             }
           },

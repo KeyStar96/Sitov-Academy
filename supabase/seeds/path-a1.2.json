@@ -34,7 +34,7 @@
       {
         "id": "P1-G2",
         "area": "grammar",
-        "description": "„als“ + Beruf und „bei“ + Firma: Ich arbeite als Köchin bei einer Firma."
+        "description": "„als“ + Beruf und „bei“ + Firma: Ich arbeite als Koch bei einer Firma."
       },
       {
         "id": "P1-G3",
@@ -6110,7 +6110,7 @@
                 "Arbeit bewerten"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Sara war Verkäuferin. Der Job war gut. Was sagt sie?",
+              "question": "Samir war Verkäufer. Der Job war gut. Was sagt er?",
               "options": [
                 "Die Arbeit ist langweilig und ich habe keinen Spaß.",
                 "Ich hatte keine Arbeit.",
@@ -6132,25 +6132,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Then = past: war, hatte. Now = present: bin, habe.",
                 "explanation": "Talking about work experience: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (a lot of fun). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. No experience yet? Ich habe noch keine Berufserfahrung.",
-                "task": "Sara was a saleswoman. The job was good. What does she say?"
+                "task": "Samir was a salesman. The job was good. What does he say?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Раньше = прошедшее время: war, hatte. Сегодня = настоящее: bin, habe.",
                 "explanation": "Как говорить об опыте работы: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (много удовольствия). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Ещё нет опыта? Ich habe noch keine Berufserfahrung.",
-                "task": "Sara была продавцом. Работа была хорошая. Что она говорит?"
+                "task": "Samir был продавцом. Работа была хорошая. Что он говорит?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Раніше = минулий час: war, hatte. Сьогодні = теперішній: bin, habe.",
                 "explanation": "Як говорити про досвід роботи: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (багато задоволення). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Ще немає досвіду? Ich habe noch keine Berufserfahrung.",
-                "task": "Sara була продавчинею. Робота була добра. Що вона каже?"
+                "task": "Samir був продавцем. Робота була добра. Що він каже?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Eskiden = geçmiş zaman: war, hatte. Bugün = şimdiki zaman: bin, habe.",
                 "explanation": "İş deneyiminden söz etme: Ich war drei Jahre Verkäufer. Ich hatte viel Arbeit, aber auch viel Spaß (çok keyif). Der Job war nicht einfach. Der Chef war sehr nett. Die Kollegen waren freundlich. Henüz deneyim yok mu? Ich habe noch keine Berufserfahrung.",
-                "task": "Sara satış elemanıydı. İş iyiydi. Ne diyor?"
+                "task": "Samir satış elemanıydı. İş iyiydi. Ne diyor?"
               }
             }
           },
@@ -51157,7 +51157,7 @@
               ],
               "instruction": "Ergänze die passende Konjunktion.",
               "text_before": "Ich kaufe Blumen, ",
-              "text_after": " meine Mutter hat Geburtstag.",
+              "text_after": " mein Vater hat Geburtstag.",
               "gap_hint": "denn / aber / oder",
               "correct_answer": "denn",
               "options": [
@@ -51180,25 +51180,25 @@
                 "instruction": "Fill in the correct conjunction.",
                 "hint": "A reason → denn. A contrast → aber. Two options → oder.",
                 "explanation": "denn = a reason (because). denn joins two main clauses. There is a comma before denn. After denn the word order stays normal: subject, then verb. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
-                "task": "I am buying flowers because it is my mother’s birthday."
+                "task": "I am buying flowers because it is my father’s birthday."
               },
               "ru": {
                 "instruction": "Вставьте подходящий союз.",
                 "hint": "Причина → denn. Противопоставление → aber. Два варианта → oder.",
                 "explanation": "denn = причина (потому что). denn соединяет два главных предложения. Перед denn ставится запятая. После denn порядок слов обычный: подлежащее, потом глагол. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
-                "task": "Я покупаю цветы, потому что у моей мамы день рождения."
+                "task": "Я покупаю цветы, потому что у моего папы день рождения."
               },
               "uk": {
                 "instruction": "Вставте відповідний сполучник.",
                 "hint": "Причина → denn. Протиставлення → aber. Два варіанти → oder.",
                 "explanation": "denn = причина (бо, тому що). denn з’єднує два головні речення. Перед denn ставиться кома. Після denn порядок слів звичайний: підмет, потім дієслово. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
-                "task": "Я купую квіти, бо в моєї мами день народження."
+                "task": "Я купую квіти, бо в мого тата день народження."
               },
               "tr": {
                 "instruction": "Uygun bağlacı yazın.",
                 "hint": "Neden → denn. Karşıtlık → aber. İki seçenek → oder.",
                 "explanation": "denn = bir neden (çünkü). denn iki ana cümleyi bağlar. denn’den önce virgül konur. denn’den sonra kelime sırası değişmez: özne, sonra fiil. Wir feiern. Lars hat Geburtstag. → Wir feiern, denn Lars hat Geburtstag. Ich kann nicht kommen, denn ich muss arbeiten.",
-                "task": "Çiçek alıyorum çünkü annemin doğum günü."
+                "task": "Çiçek alıyorum çünkü babamın doğum günü."
               }
             }
           },

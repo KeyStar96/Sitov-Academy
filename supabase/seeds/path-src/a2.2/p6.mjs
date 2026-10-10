@@ -15,7 +15,7 @@ const path = {
     G1: 'Indirekte Fragen mit Fragewort: Können Sie mir sagen, was ich da tun muss? Wissen Sie, wo man Geld abheben kann? Das Verb steht am Ende.',
     G2: 'Indirekte Fragen bei Ja/Nein-Fragen mit ob: Darf ich fragen, ob Sie Ihren Ausweis dabeihaben?',
     G3: 'Das Verb lassen: ich lasse, du lässt, er lässt, wir lassen, ihr lasst, sie lassen.',
-    G4: 'lassen + Infinitiv am Satzende: Sie lässt ihr Konto prüfen. Sie sollten die Reifen wechseln lassen.',
+    G4: "lassen + Infinitiv am Satzende: Er lässt sein Konto prüfen. Sie sollten die Reifen wechseln lassen.",
     K1: 'Höflich fragen: Können Sie mir sagen, …? Wissen Sie, …? Ich würde gern wissen, … Darf ich fragen, …?',
     K2: 'Um Hilfe bitten: Können Sie mir helfen? Würden Sie mir das bitte erklären? Was soll ich denn jetzt machen?',
     K3: 'Unkenntnis äußern: Keine Ahnung! Ich kenne mich damit überhaupt nicht aus. Ich weiß nicht, was ich jetzt tun soll.',

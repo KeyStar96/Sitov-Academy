@@ -1,0 +1,237 @@
+{
+  "epoch": 47,
+  "brand": "Sitov Academy",
+  "base": "c945c115307339c8f654843d48e90a438e59b32a",
+  "inputSHA256": "8048bda656ecf0ca04fa0d4dad5f4ac19306c6ab8da0e620738db3375c6b6dac",
+  "exactScalarChanges": 72,
+  "taskScalars": 69,
+  "changedTasks": 14,
+  "parentScalars": 1,
+  "changedParents": 1,
+  "goalDescriptionScalars": 2,
+  "changedObjectives": 2,
+  "comparedTasks": 9569,
+  "comparedNodes": 856,
+  "comparedPaths": 66,
+  "affectedNodes": 10,
+  "wholeObjectBeforeHashesVerified": 72,
+  "allUnassignedWholeObjectsExact": true,
+  "allIdsRefsTypesGoalAssignmentsOrderCardRefsCorrectOptionIndicesAndCardinalitiesExact": true,
+  "sixOtherSeedsByteExact": true,
+  "answerRevisions": [
+    {
+      "id": "643bf03b-aff2-5237-a7cd-4994e3ec71f9",
+      "ref": "P7-N10-E01",
+      "old": "Oh, gute Besserung! Ich sage es der Lehrerin.",
+      "new": "Oh, gute Besserung! Ich sage es dem Lehrer.",
+      "oldAccepted": [
+        "Oh, gute Besserung! Ich sage es der Lehrerin."
+      ],
+      "newAccepted": [
+        "Oh, gute Besserung! Ich sage es dem Lehrer."
+      ],
+      "correctOptionIndex": 0,
+      "acceptedCardinality": 1,
+      "sourceOnly": true,
+      "immutableHistoricalArchiveAndNativeVersionProofRequired": true
+    },
+    {
+      "id": "36d0f219-8c42-56ad-aa65-1a84cb457390",
+      "ref": "P7-N12-E05",
+      "old": "Meine Tochter ist krank. Sie kann heute nicht kommen.",
+      "new": "Mein Sohn ist krank. Er kann heute nicht kommen.",
+      "oldAccepted": [
+        "Meine Tochter ist krank. Sie kann heute nicht kommen."
+      ],
+      "newAccepted": [
+        "Mein Sohn ist krank. Er kann heute nicht kommen."
+      ],
+      "correctOptionIndex": 1,
+      "acceptedCardinality": 1,
+      "sourceOnly": true,
+      "immutableHistoricalArchiveAndNativeVersionProofRequired": true
+    }
+  ],
+  "acceptedVariantRevisionMappings": 2,
+  "sourceOnlyApproved": true,
+  "historicalArchivePerformed": false,
+  "nativeDatabaseVersionProofPerformed": false,
+  "publicationApproved": false,
+  "changedSourceFiles": [
+    "supabase/seeds/path-a1.1.json",
+    "supabase/seeds/path-a1.2.json",
+    "supabase/seeds/path-a2.2.json",
+    "supabase/seeds/path-b1.1.json",
+    "supabase/seeds/path-src/a1.2/p1-check.mjs",
+    "supabase/seeds/path-src/a1.2/p1.mjs",
+    "supabase/seeds/path-src/a1.2/p7.mjs",
+    "supabase/seeds/path-src/a2.2/p6-check.mjs",
+    "supabase/seeds/path-src/a2.2/p6.mjs",
+    "supabase/seeds/path-src/b1.1/p5.mjs"
+  ],
+  "nativeRawSourceTasksCompared": 3065,
+  "nativeTaskSourcesChanged": 3,
+  "nativeParentsChanged": 1,
+  "nativeObjectivesChanged": 2,
+  "allOtherRawNativeAuthorTasksExact": true,
+  "nativeParity": [
+    {
+      "level": "a1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.2",
+      "parity": "PASS"
+    }
+  ],
+  "jest": {
+    "testsPass": 107,
+    "testsFail": 0,
+    "testsSkipped": 0,
+    "suitesPass": 2
+  },
+  "schemaValidatedTasks": 9569,
+  "eslint": {
+    "errors": 0,
+    "warnings": 0,
+    "nativeFiles": 6
+  },
+  "diffCheck": "PASS",
+  "bothAudioAdaptersComparedTasks": 9569,
+  "finalCanonicalAudioAliases": 17,
+  "changedCanonicalAudioAliases": 8,
+  "changedAudioTasks": 8,
+  "fullActualCatalogLevelsCompared": 10,
+  "exactCatalogLevels": 7,
+  "changedCatalogLevels": 3,
+  "allEightChangedAliasesHaveActualCachePathsAndCatalogOriginProof": true,
+  "allUnassignedAudioPayloadsExact": true,
+  "humanHearing": false,
+  "noNewOrModifiedTests": true,
+  "noDbSshRuntimeBrowserQAImportsSynthesisPublicationPushDeployActions": true,
+  "privateEvidence": {
+    "epoch47-author-edits.json": {
+      "path": "S2/epoch47-author-edits.json",
+      "bytes": 693,
+      "sha256": "0fa1f10689866e737095ccd8475153883771f6bcf96b2eddad444a51bdc35d9c"
+    },
+    "epoch47-author-review.json": {
+      "path": "S2/epoch47-author-review.json",
+      "bytes": 1595,
+      "sha256": "9e9289d38aca7d52cd339f9f998ff42d1d0b60c511d99382975de225c476878d"
+    },
+    "epoch47-before-full-context.json": {
+      "path": "S2/epoch47-before-full-context.json",
+      "bytes": 80300,
+      "sha256": "f9a93155b28f962df15edeeb4e72537380914b8b76129e676f7ba482e4911368"
+    },
+    "epoch47-bound-M-input.json": {
+      "path": "S2/epoch47-bound-M-input.json",
+      "bytes": 43404,
+      "sha256": "8048bda656ecf0ca04fa0d4dad5f4ac19306c6ab8da0e620738db3375c6b6dac"
+    },
+    "epoch47-bound-master-assignment.json": {
+      "path": "S2/epoch47-bound-master-assignment.json",
+      "bytes": 1138,
+      "sha256": "2bd88dad820da6112b143514f665f99448622273a34477944e1679e257887ec3"
+    },
+    "epoch47-diff-check.json": {
+      "path": "S2/epoch47-diff-check.json",
+      "bytes": 811,
+      "sha256": "c30cc9171048a1d12c4c859731d7679470fda025803ca5077b9cdb361426b67c"
+    },
+    "epoch47-eslint.log": {
+      "path": "S2/epoch47-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch47-final-canonical-audio.json": {
+      "path": "S2/epoch47-final-canonical-audio.json",
+      "bytes": 53867,
+      "sha256": "854fd3fbd056b4e283c7d70f783424adbfffc6e050b877cb411ab9654d4cd7aa"
+    },
+    "epoch47-jest-result.json": {
+      "path": "S2/epoch47-jest-result.json",
+      "bytes": 40147,
+      "sha256": "b2f46a6ab88da7c259fbec548a289f2663f86d6df43561c186e94a6d8216c7ae"
+    },
+    "epoch47-jest.log": {
+      "path": "S2/epoch47-jest.log",
+      "bytes": 449,
+      "sha256": "d402738e3be5126984018ad943380f829bbe8f1ad380ce00461a352cddf33217"
+    },
+    "epoch47-native-before-a1.2.json": {
+      "path": "S2/epoch47-native-before-a1.2.json",
+      "bytes": 1303434,
+      "sha256": "01a5180e57286ec1dcead4ac47501678206d5fbe5f33fbe5a7a5d702c2d7ff3e"
+    },
+    "epoch47-native-before-a2.2.json": {
+      "path": "S2/epoch47-native-before-a2.2.json",
+      "bytes": 1547850,
+      "sha256": "7f95603b971409e453e907bb881eb541bf5cd88ee276cc1300d3385498489755"
+    },
+    "epoch47-native-before-b1.1.json": {
+      "path": "S2/epoch47-native-before-b1.1.json",
+      "bytes": 1698401,
+      "sha256": "a465575ad5263c4762fefddba549fcfbf184c9fc07b7065eb2f0f96d878f8dd8"
+    },
+    "epoch47-native-parity.json": {
+      "path": "S2/epoch47-native-parity.json",
+      "bytes": 633,
+      "sha256": "8c6f1cb77ab59aaded93dd10360ada01aa1cccdeba15458abdf498e036e1b10b"
+    },
+    "epoch47-native-source-proof.json": {
+      "path": "S2/epoch47-native-source-proof.json",
+      "bytes": 22024,
+      "sha256": "a5c0daf8ad983b5819ef04ab308c57e2c1f0f926ae0ce76a15e5a467f52acc1b"
+    },
+    "epoch47-old-new-full.json": {
+      "path": "S2/epoch47-old-new-full.json",
+      "bytes": 350384,
+      "sha256": "7ca05b5794176cbfb00f32de26f336fb92c65851f19aba35faf72bf9c7ccd4d5"
+    },
+    "epoch47-sync.mjs": {
+      "path": "S2/epoch47-sync.mjs",
+      "bytes": 8413,
+      "sha256": "61d7ff664cdf4bbaf662cfc003277265854941e4191be45f3ac5e346142492ba"
+    },
+    "epoch47-validate-audio.ts": {
+      "path": "S2/epoch47-validate-audio.ts",
+      "bytes": 4198,
+      "sha256": "54834c92b11263d78130bb21bab8e199546f58e3109759a00e00d79d65b0bcb4"
+    }
+  },
+  "MFollowup": [
+    "Independently review/integrate exact72 source scalars.",
+    "Before any DB adoption, immutable full historical answer/attempt archive and native-bound database version proof for both explicit answer revisions.",
+    "Locally prepare/import all8changedcanonicalGermanpayloads with verified word timings before publication."
+  ]
+}

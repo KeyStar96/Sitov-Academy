@@ -8,7 +8,7 @@ const path = {
   t: ['Jobs and work', 'Профессия и работа', 'Професія і робота', 'Meslek ve iş'],
   objectives: {
     G1: 'Berufsbezeichnungen: weibliche Form mit -in (Arzt – Ärztin), Plural auf -innen, Sonderformen wie Hausmann – Hausfrau.',
-    G2: '„als“ + Beruf und „bei“ + Firma: Ich arbeite als Köchin bei einer Firma.',
+    G2: "„als“ + Beruf und „bei“ + Firma: Ich arbeite als Koch bei einer Firma.",
     G3: 'Zeitangaben mit „vor“ und „seit“ + Dativ: Wann? Vor einem Jahr. Seit wann? Seit zwei Monaten.',
     G4: 'Zeitdauer mit „für“ + Akkusativ: Für wie lange? Für einen Monat, für ein Jahr, für eine Woche.',
     G5: 'Präteritum von sein und haben: war, warst, waren, wart; hatte, hattest, hatten, hattet.',

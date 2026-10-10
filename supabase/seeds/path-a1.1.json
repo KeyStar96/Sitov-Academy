@@ -39622,7 +39622,7 @@
               "target_form": [
                 "Hobbys bewerten"
               ],
-              "instruction": "Was sagst du in dieser Situation?",
+              "instruction": "Wähle die richtige Antwort.",
               "question": "Kamil findet Lesen super. Was sagt er?",
               "options": [
                 "Lesen macht mir Spaß!",
@@ -39642,25 +39642,25 @@
             "explanation_card": "p6_hobby",
             "translations": {
               "en": {
-                "instruction": "What do you say in this situation?",
+                "instruction": "Choose the correct answer.",
                 "hint": "Positive: Das macht Spaß! (That’s fun!) / Ich finde … toll. Negative: Ich finde … langweilig.",
                 "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
                 "task": "Kamil thinks reading is super. What does he say?"
               },
               "ru": {
-                "instruction": "Что вы скажете в этой ситуации?",
+                "instruction": "Выберите правильный ответ.",
                 "hint": "Положительно: Das macht Spaß! («Это весело!») / Ich finde … toll. Отрицательно: Ich finde … langweilig.",
                 "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
                 "task": "Kamil считает, что читать — это супер. Что он говорит?"
               },
               "uk": {
-                "instruction": "Що ви скажете в цій ситуації?",
+                "instruction": "Виберіть правильну відповідь.",
                 "hint": "Позитивно: Das macht Spaß! («Це весело!») / Ich finde … toll. Негативно: Ich finde … langweilig.",
                 "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
                 "task": "Kamil вважає, що читати — це супер. Що він каже?"
               },
               "tr": {
-                "instruction": "Bu durumda ne dersiniz?",
+                "instruction": "Doğru cevabı seçin.",
                 "hint": "Olumlu: Das macht Spaß! (Eğlenceli!) / Ich finde … toll. Olumsuz: Ich finde … langweilig.",
                 "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
                 "task": "Kamil okumayı süper buluyor. Ne diyor?"
@@ -41203,7 +41203,7 @@
               "target_form": [
                 "Fähigkeit"
               ],
-              "instruction": "Was sagst du in dieser Situation?",
+              "instruction": "Wähle die richtige Antwort.",
               "question": "Kamil schwimmt nie. Er hat Schwimmen nicht gelernt. Was sagt er?",
               "options": [
                 "Ich kann sehr gut schwimmen.",
@@ -41223,25 +41223,25 @@
             "explanation_card": "p7_ability",
             "translations": {
               "en": {
-                "instruction": "What do you say in this situation?",
+                "instruction": "Choose the correct answer.",
                 "hint": "The scale: sehr gut – gut – ein bisschen (a little) – nicht so gut – gar nicht (not at all).",
                 "explanation": "Abilities with a scale: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (a little) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (not at all) Ski fahren.",
                 "task": "Kamil never swims. He hasn’t learned to swim. What does he say?"
               },
               "ru": {
-                "instruction": "Что вы скажете в этой ситуации?",
+                "instruction": "Выберите правильный ответ.",
                 "hint": "Шкала: sehr gut – gut – ein bisschen (немного) – nicht so gut – gar nicht (совсем не).",
                 "explanation": "Умения по шкале: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (немного) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (совсем не) Ski fahren.",
                 "task": "Kamil никогда не плавает. Он не научился плавать. Что он говорит?"
               },
               "uk": {
-                "instruction": "Що ви скажете в цій ситуації?",
+                "instruction": "Виберіть правильну відповідь.",
                 "hint": "Шкала: sehr gut – gut – ein bisschen (трохи) – nicht so gut – gar nicht (зовсім не).",
                 "explanation": "Уміння за шкалою: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (трохи) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (зовсім не) Ski fahren.",
                 "task": "Kamil ніколи не плаває. Він не навчився плавати. Що він каже?"
               },
               "tr": {
-                "instruction": "Bu durumda ne dersiniz?",
+                "instruction": "Doğru cevabı seçin.",
                 "hint": "Sıralama: sehr gut – gut – ein bisschen (biraz) – nicht so gut – gar nicht (hiç).",
                 "explanation": "Derecelerle beceriler: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (biraz) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (hiç) Ski fahren.",
                 "task": "Kamil hiç yüzmüyor. Yüzmeyi öğrenmemiş. Ne diyor?"
@@ -41770,31 +41770,31 @@
             "accepted_answers": [
               "Kannst du Schach spielen?"
             ],
-            "hint": "Das Modalverb steht auf Position 2, das zweite Verb im Infinitiv ganz am Ende.",
+            "hint": "In der Ja-/Nein-Frage steht das Modalverb am Anfang, der Infinitiv am Ende: Kannst du Schach spielen?",
             "explanation": "Satzklammer mit Modalverb: Das Modalverb steht konjugiert auf Position 2, das zweite Verb steht im Infinitiv am Ende: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Frage: Kannst du Gitarre spielen?",
             "explanation_card": "p7_bracket",
             "translations": {
               "en": {
                 "instruction": "Make a question from the words.",
-                "hint": "The modal is in position 2; the second verb goes to the very end in the infinitive: Ich kann gut kochen.",
+                "hint": "In a yes/no question the modal verb comes first and the infinitive goes at the end: Kannst du Schach spielen?",
                 "explanation": "Sentence bracket with a modal verb: the conjugated modal is in position 2, the second verb goes to the end in the infinitive: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Question: Kannst du Gitarre spielen?",
                 "task": "Can you play chess?"
               },
               "ru": {
                 "instruction": "Составьте вопрос из этих слов.",
-                "hint": "Модальный глагол – на 2-м месте, второй глагол в инфинитиве – в самом конце: Ich kann gut kochen.",
+                "hint": "В общем вопросе модальный глагол стоит в начале, инфинитив — в конце: Kannst du Schach spielen?",
                 "explanation": "Рамочная конструкция с модальным глаголом: спрягаемый модальный глагол – на 2-м месте, второй глагол в инфинитиве – в конце: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Вопрос: Kannst du Gitarre spielen?",
                 "task": "Ты умеешь играть в шахматы?"
               },
               "uk": {
                 "instruction": "Складіть запитання з цих слів.",
-                "hint": "Модальне дієслово – на 2-му місці, друге дієслово в інфінітиві – в самому кінці: Ich kann gut kochen.",
+                "hint": "У загальному запитанні модальне дієслово стоїть на початку, інфінітив — у кінці: Kannst du Schach spielen?",
                 "explanation": "Рамкова конструкція з модальним дієсловом: відмінюване модальне дієслово – на 2-му місці, друге дієслово в інфінітиві – у кінці: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Запитання: Kannst du Gitarre spielen?",
                 "task": "Ти вмієш грати в шахи?"
               },
               "tr": {
                 "instruction": "Bu kelimelerle bir soru oluşturun.",
-                "hint": "Kip fiili 2. sırada, ikinci fiil mastar hâlinde en sondadır – Türkçedeki gibi fiil sonda: Ich kann gut kochen.",
+                "hint": "Evet/hayır sorusunda kip fiili başta, mastar sondadır: Kannst du Schach spielen?",
                 "explanation": "Kip fiiliyle cümle çerçevesi: Çekimli kip fiili 2. sırada, ikinci fiil mastar hâlinde sondadır: Ich kann gut kochen. Wir wollen am Samstag schwimmen gehen. Soru: Kannst du Gitarre spielen?",
                 "task": "Satranç oynayabilir misin?"
               }
@@ -44490,19 +44490,19 @@
                 "entschuldigen und reagieren"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Emre ruft in der Schule an: „Mein Sohn Deniz ist krank. Er kann heute nicht kommen.“ Was sagt die Sekretärin?",
+              "question": "Emre ruft in der Schule an: „Mein Sohn Deniz ist krank. Er kann heute nicht kommen.“ Was sagt der Sekretär?",
               "options": [
-                "Oh, gute Besserung! Ich sage es der Lehrerin.",
-                "Oh, super! Ich sage es der Lehrerin.",
+                "Oh, gute Besserung! Ich sage es dem Lehrer.",
+                "Oh, super! Ich sage es dem Lehrer.",
                 "Schade, Tschüs!"
               ],
-              "correct_answer": "Oh, gute Besserung! Ich sage es der Lehrerin.",
+              "correct_answer": "Oh, gute Besserung! Ich sage es dem Lehrer.",
               "accepted_answers": [
-                "Oh, gute Besserung! Ich sage es der Lehrerin."
+                "Oh, gute Besserung! Ich sage es dem Lehrer."
               ]
             },
             "accepted_answers": [
-              "Oh, gute Besserung! Ich sage es der Lehrerin."
+              "Oh, gute Besserung! Ich sage es dem Lehrer."
             ],
             "hint": "Jemand ist krank? Dann sagt man: Gute Besserung!",
             "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
@@ -44524,7 +44524,7 @@
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
                 "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
-                "task": "Emre телефонує до школи: «Мій син Deniz хворий. Сьогодні він не зможе прийти». Що каже секретарка?"
+                "task": "Emre телефонує до школи: «Мій син Deniz хворий. Сьогодні він не зможе прийти». Що каже секретар?"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
@@ -44714,7 +44714,7 @@
               ],
               "instruction": "Ergänze die richtige Verbform.",
               "text_before": "Danke für die Information. Ich ",
-              "text_after": " es der Lehrerin.",
+              "text_after": " es dem Lehrer.",
               "gap_hint": "sagen",
               "correct_answer": "sage",
               "options": [
@@ -44743,13 +44743,13 @@
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
                 "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
-                "task": "Спасибо за информацию. Я скажу преподавательнице."
+                "task": "Спасибо за информацию. Я скажу преподавателю."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
                 "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
-                "task": "Дякую за інформацію. Я скажу викладачці."
+                "task": "Дякую за інформацію. Я скажу викладачеві."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
@@ -45029,7 +45029,7 @@
                 "auf eine Entschuldigung reagieren"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Deine Kollegin sagt: „Ich bin krank.“",
+              "question": "Dein Kollege sagt: „Ich bin krank.“",
               "options": [
                 "Guten Appetit!",
                 "Gute Nacht!",
@@ -45057,13 +45057,13 @@
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
                 "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
-                "task": "Ваша коллега говорит: «Я заболела»."
+                "task": "Ваш коллега говорит: «Я заболел»."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
                 "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
-                "task": "Ваша колега каже: «Я захворіла»."
+                "task": "Ваш колега каже: «Я захворів»."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
@@ -45136,7 +45136,7 @@
               "target_form": [
                 "Fähigkeit"
               ],
-              "instruction": "Was sagst du in dieser Situation?",
+              "instruction": "Wähle die richtige Antwort.",
               "question": "Oleh tanzt nicht so gut. Was sagt er?",
               "options": [
                 "Ich kann sehr gut tanzen.",
@@ -45156,25 +45156,25 @@
             "explanation_card": "p7_ability",
             "translations": {
               "en": {
-                "instruction": "What do you say in this situation?",
+                "instruction": "Choose the correct answer.",
                 "hint": "The scale: sehr gut – gut – ein bisschen (a little) – nicht so gut – gar nicht (not at all).",
                 "explanation": "Abilities with a scale: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (a little) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (not at all) Ski fahren.",
                 "task": "Oleh doesn’t dance very well. What does he say?"
               },
               "ru": {
-                "instruction": "Что вы скажете в этой ситуации?",
+                "instruction": "Выберите правильный ответ.",
                 "hint": "Шкала: sehr gut – gut – ein bisschen (немного) – nicht so gut – gar nicht (совсем не).",
                 "explanation": "Умения по шкале: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (немного) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (совсем не) Ski fahren.",
                 "task": "Oleh не очень хорошо танцует. Что он говорит?"
               },
               "uk": {
-                "instruction": "Що ви скажете в цій ситуації?",
+                "instruction": "Виберіть правильну відповідь.",
                 "hint": "Шкала: sehr gut – gut – ein bisschen (трохи) – nicht so gut – gar nicht (зовсім не).",
                 "explanation": "Уміння за шкалою: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (трохи) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (зовсім не) Ski fahren.",
                 "task": "Oleh не дуже добре танцює. Що він каже?"
               },
               "tr": {
-                "instruction": "Bu durumda ne dersiniz?",
+                "instruction": "Doğru cevabı seçin.",
                 "hint": "Sıralama: sehr gut – gut – ein bisschen (biraz) – nicht so gut – gar nicht (hiç).",
                 "explanation": "Derecelerle beceriler: Ich kann sehr gut kochen. – Ich kann gut schwimmen. – Ich kann ein bisschen (biraz) Gitarre spielen. – Ich kann nicht so gut tanzen. – Ich kann gar nicht (hiç) Ski fahren.",
                 "task": "Oleh pek iyi dans edemiyor. Ne diyor?"
@@ -45730,7 +45730,7 @@
               "instruction": "Wähle die richtige Antwort.",
               "question": "Welcher Satz ist richtig?",
               "options": [
-                "Wir wollen einkaufen morgen.",
+                "Wir morgen einkaufen wollen.",
                 "Wir morgen wollen einkaufen.",
                 "Wir wollen morgen einkaufen."
               ],
@@ -45944,19 +45944,19 @@
                 "entschuldigen"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du rufst in der Kita an. Deine Tochter ist krank.",
+              "question": "Du rufst in der Kita an. Dein Sohn ist krank.",
               "options": [
-                "Meine Tochter ist krank. Sie will heute kommen.",
-                "Meine Tochter ist krank. Sie kann heute nicht kommen.",
-                "Meine Tochter ist gesund. Sie kann heute nicht kommen."
+                "Mein Sohn ist krank. Er will heute kommen.",
+                "Mein Sohn ist krank. Er kann heute nicht kommen.",
+                "Mein Sohn ist gesund. Er kann heute nicht kommen."
               ],
-              "correct_answer": "Meine Tochter ist krank. Sie kann heute nicht kommen.",
+              "correct_answer": "Mein Sohn ist krank. Er kann heute nicht kommen.",
               "accepted_answers": [
-                "Meine Tochter ist krank. Sie kann heute nicht kommen."
+                "Mein Sohn ist krank. Er kann heute nicht kommen."
               ]
             },
             "accepted_answers": [
-              "Meine Tochter ist krank. Sie kann heute nicht kommen."
+              "Mein Sohn ist krank. Er kann heute nicht kommen."
             ],
             "hint": "Jemand ist krank? Dann sagt man: Gute Besserung!",
             "explanation": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
@@ -45966,25 +45966,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Someone is ill? Say: Gute Besserung! (Get well soon!)",
                 "explanation": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)",
-                "task": "You call the nursery. Your daughter is ill."
+                "task": "You call the nursery. Your son is ill."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
                 "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
-                "task": "Вы звоните в детский сад. Ваша дочь заболела."
+                "task": "Вы звоните в детский сад. Ваш сын заболел."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
                 "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
-                "task": "Ви телефонуєте до дитячого садка. Ваша донька захворіла."
+                "task": "Ви телефонуєте до дитячого садка. Ваш син захворів."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Biri hasta mı? Gute Besserung! (Geçmiş olsun!) denir.",
                 "explanation": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)",
-                "task": "Kreşi arıyorsunuz. Kızınız hasta."
+                "task": "Kreşi arıyorsunuz. Oğlunuz hasta."
               }
             }
           },
@@ -46321,7 +46321,7 @@
               "target_form": [
                 "starker Wunsch"
               ],
-              "instruction": "Was sagst du in dieser Situation?",
+              "instruction": "Wähle die richtige Antwort.",
               "question": "Kamil möchte sehr, sehr gern seinen Enkel in Krakau sehen. Was sagt er?",
               "options": [
                 "Ich bin nach Krakau gefahren.",
@@ -46341,25 +46341,25 @@
             "explanation_card": "p7_wish",
             "translations": {
               "en": {
-                "instruction": "What do you say in this situation?",
+                "instruction": "Choose the correct answer.",
                 "hint": "„Ich will …“ = I want … (a strong wish). Remember: will ≠ English „will“.",
                 "explanation": "Strong wish: „Ich will …“ (I want …) is stronger than „Ich möchte …“ (I would like …): Ich will Deutsch lernen! When you politely ask for something, „Ich möchte …“ is better. Note: ich will ≠ English „I will“.",
                 "task": "Kamil would very, very much like to see his grandson in Kraków. What does he say?"
               },
               "ru": {
-                "instruction": "Что вы скажете в этой ситуации?",
+                "instruction": "Выберите правильный ответ.",
                 "hint": "„Ich will …“ – сильное желание («я хочу …»). Мягче: „Ich möchte …“.",
                 "explanation": "Сильное желание: „Ich will …“ («я хочу …») сильнее, чем „Ich möchte …“ («я бы хотел …»): Ich will Deutsch lernen! Если вежливо о чём-то просите, лучше „Ich möchte …“.",
                 "task": "Kamil очень-очень хочет увидеть внука в Кракове. Что он говорит?"
               },
               "uk": {
-                "instruction": "Що ви скажете в цій ситуації?",
+                "instruction": "Виберіть правильну відповідь.",
                 "hint": "„Ich will …“ – сильне бажання («я хочу …»). М’якше: „Ich möchte …“.",
                 "explanation": "Сильне бажання: „Ich will …“ («я хочу …») сильніше, ніж „Ich möchte …“ («я б хотів …»): Ich will Deutsch lernen! Якщо ввічливо про щось просите, краще „Ich möchte …“.",
                 "task": "Kamil дуже-дуже хоче побачити онука в Кракові. Що він каже?"
               },
               "tr": {
-                "instruction": "Bu durumda ne dersiniz?",
+                "instruction": "Doğru cevabı seçin.",
                 "hint": "„Ich will …“ = güçlü bir istek (… istiyorum). Daha kibar: „Ich möchte …“.",
                 "explanation": "Güçlü istek: „Ich will …“ (… istiyorum) „Ich möchte …“dan (… isterim) daha güçlüdür: Ich will Deutsch lernen! Kibarca bir şey isterken „Ich möchte …“ daha iyidir.",
                 "task": "Kamil Krakov’daki erkek torununu çok ama çok görmek istiyor. Ne diyor?"
@@ -46430,7 +46430,7 @@
                 "auf eine Entschuldigung reagieren"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Deine Nachbarin sagt: „Mein Mann ist krank.“",
+              "question": "Dein Nachbar sagt: „Mein Mann ist krank.“",
               "options": [
                 "Oh, super!",
                 "Guten Appetit!",
@@ -46458,13 +46458,13 @@
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Кто-то заболел? Говорят: Gute Besserung! – «Выздоравливай(те)!»",
                 "explanation": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
-                "task": "Ваша соседка говорит: «Мой муж заболел»."
+                "task": "Ваш сосед говорит: «Мой муж заболел»."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Хтось захворів? Кажуть: Gute Besserung! – «Одужуй(те)!»",
                 "explanation": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
-                "task": "Ваша сусідка каже: «Мій чоловік захворів»."
+                "task": "Ваш сусід каже: «Мій чоловік захворів»."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
