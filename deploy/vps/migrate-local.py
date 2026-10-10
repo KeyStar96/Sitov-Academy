@@ -28,6 +28,7 @@ ORDER.append('117_sitov_spoken_clock_alignment.sql')
 ORDER.append('118_sitov_pronunciation_submission_owner.sql')
 ORDER.append('119_sitov_commercial_item_scope_performance.sql')
 ORDER.append('120_sitov_pretest_release_scope_performance.sql')
+ORDER.append('121_sitov_pretest_publication_marks.sql')
 AUTOCOMMIT={'08_performance_indexes.sql'}
 
 def run(args,**kwargs):
