@@ -1,0 +1,275 @@
+{
+  "epoch": 33,
+  "base": "0ca33ef741af24d319739da186d4c645f62a6e17",
+  "fullExamined": {
+    "exercises": 9569,
+    "nodes": 856,
+    "units": 66
+  },
+  "changed": {
+    "exercises": 320,
+    "nodes": 48,
+    "units": 0
+  },
+  "unchanged": {
+    "units": 66,
+    "exercises": 9249,
+    "nodes": 808
+  },
+  "byLevel": {
+    "A1.1": {
+      "examined": 769,
+      "unchanged": 652,
+      "changed": 117
+    },
+    "A1.2": {
+      "examined": 922,
+      "unchanged": 834,
+      "changed": 88
+    },
+    "A2.1": {
+      "examined": 1061,
+      "unchanged": 1010,
+      "changed": 51
+    },
+    "A2.2": {
+      "examined": 1087,
+      "unchanged": 1040,
+      "changed": 47
+    },
+    "B1.1": {
+      "examined": 1056,
+      "unchanged": 1039,
+      "changed": 17
+    },
+    "B1.2": {
+      "examined": 1050,
+      "unchanged": 1050
+    },
+    "B2.1": {
+      "examined": 906,
+      "unchanged": 906
+    },
+    "B2.2": {
+      "examined": 906,
+      "unchanged": 906
+    },
+    "C1.1": {
+      "examined": 906,
+      "unchanged": 906
+    },
+    "C1.2": {
+      "examined": 906,
+      "unchanged": 906
+    }
+  },
+  "deltaFields": {
+    "exercise": {
+      "content": 327,
+      "explanation_card": 4,
+      "translations": 1482
+    },
+    "node": {
+      "merkkarte": 72,
+      "translations": 118
+    },
+    "unit": {}
+  },
+  "changedExerciseContentRows": 175,
+  "translationOrPointerOnlyExerciseRows": 145,
+  "protectedAnswersOptionsPartsTargetExerciseCount": 38,
+  "earlierOtherChangedExerciseCount": 277,
+  "changedParentCardsBeyondLatest14": 34,
+  "changedParentAttachedExerciseCount": 390,
+  "changedExercisesAttachedToChangedParents": 160,
+  "actualProductionHistoricalMatchCount": 320,
+  "actualProductionHistoricalMatchesByLevel": {
+    "A1.1": 117,
+    "A1.2": 88,
+    "A2.1": 51,
+    "A2.2": 47,
+    "B1.1": 17
+  },
+  "inputDumpAnchors": {
+    "exercises": {
+      "file": "M-production-authored-path-exercises-readonly-private.jsonl",
+      "sha256": "631266259aa8329522e8c40cbe94030004cdea2fb046bbd33bf64fc6ba62ccc0",
+      "bytes": 56848205,
+      "rows": 9569
+    },
+    "nodes": {
+      "file": "M-production-authored-path-nodes-readonly-private.jsonl",
+      "sha256": "7649e5c8159e2b09229a776568f79124eeae7c50b3220296dd65be64c89bea3f",
+      "bytes": 3479686,
+      "rows": 856
+    },
+    "units": {
+      "file": "M-production-authored-path-units-readonly-private.jsonl",
+      "sha256": "f36d473966cb73b30306fd69f876b18eccec05c7050ab03de1fad1184daacbb0",
+      "bytes": 21691,
+      "rows": 66
+    }
+  },
+  "sourceSeedAnchors": [
+    {
+      "file": "supabase/seeds/path-a1.1.json",
+      "bytes": 3077375,
+      "sha256": "23121caa03412160460ba5c72685c1baaccbe5b5fbf6d14654d6125c2110a2b3"
+    },
+    {
+      "file": "supabase/seeds/path-a1.2.json",
+      "bytes": 4199731,
+      "sha256": "337f4afb8c3f973de5b92d8584ab890c06d49d8537db34df149ce7d30429caff"
+    },
+    {
+      "file": "supabase/seeds/path-a2.1.json",
+      "bytes": 5975400,
+      "sha256": "ea89868220b895ef9d73a8e511968c79b997a906d762946eda0942eb59e14feb"
+    },
+    {
+      "file": "supabase/seeds/path-a2.2.json",
+      "bytes": 6040925,
+      "sha256": "a072cb88fcec4b29862ad52c121657a310dd97975496971e7c1acff664b0086f"
+    },
+    {
+      "file": "supabase/seeds/path-b1.1.json",
+      "bytes": 7092847,
+      "sha256": "580f2687b29489e78fef3738eac07a704da9d4f9e6991aff3b5242a1b267bda9"
+    },
+    {
+      "file": "supabase/seeds/path-b1.2.json",
+      "bytes": 6957841,
+      "sha256": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5"
+    },
+    {
+      "file": "supabase/seeds/path-b2.1.json",
+      "bytes": 5768601,
+      "sha256": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665"
+    },
+    {
+      "file": "supabase/seeds/path-b2.2.json",
+      "bytes": 6109418,
+      "sha256": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a"
+    },
+    {
+      "file": "supabase/seeds/path-c1.1.json",
+      "bytes": 7082259,
+      "sha256": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c"
+    },
+    {
+      "file": "supabase/seeds/path-c1.2.json",
+      "bytes": 7218575,
+      "sha256": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5"
+    }
+  ],
+  "sourceLineage": {
+    "469d8f75c1457786ea6390c098f53c1ba55b07c4": "Correct audited path characters and nominative anchor",
+    "c918a7135a31fc31e8f057838872c496ca734526": "Repair further path characters and clarify grammatical gender exercises",
+    "8281cf9581507dbf3def77e2d7f35b00b5b8b799": "fix(learning): preserve answers in nine male character contexts",
+    "7b8819f05aeacf100fc1cbd3d391a4fc11396141": "fix(learning): restore kinship inference and align male contexts",
+    "4d9249b5e8fc797f8a0567fddeaf1a58e8b30fc9": "fix(learning): align reviewed male contexts and preserve grammar targets",
+    "ac80b2750921f8c0d8c802cf94ace6a009e8007e": "Review remaining Sitov learner contexts and preserve bound history",
+    "daea8c386be8a453ab7b772be9605aabbf17ea02": "Repair Sitov path guidance and clarify public exercise constraints",
+    "d699794d362b023050fd4eb00221bd67388c3543": "sitov: apply reviewed learning path revisions as unpublished source",
+    "75c0c690b033f15e835f6c880d0ce8f3c9d60a71": "Correct B1.1 infinitive rule and service example"
+  },
+  "knownSourceObjectiveChangesWithMissingProductionRows": 1,
+  "allExerciseAndNodeTranslationsHaveFiveUniqueCorrectForeignKeyLocales": true,
+  "btrimNormalization": "Only ASCII U+0020 at ends of task/gap_hint, matching PostgreSQL btrim default. No text/case/array/order or timestamp normalization.",
+  "unsupportedExerciseFieldDeltas": 0,
+  "identityOrderGoalTypeDeltas": 0,
+  "knownLineageMissingExerciseCount": 0,
+  "knownLineageMissingParentCount": 0,
+  "latest43Covered": 43,
+  "latest14ParentsCovered": 14,
+  "unobserved": {
+    "path_unit_translation_rows": 330,
+    "path_objective_rows": 746,
+    "paths": 66,
+    "specialDefinitionsAndHistory": true,
+    "revisionArchiveTables": true
+  },
+  "audio": {
+    "epoch": 33,
+    "allFinalExercises": 9569,
+    "actualCatalogAdapterComparisons": 9569,
+    "allFinalAliases": 12605,
+    "finalUniqueUtterances": 11185,
+    "productionUniqueUtterances": 11185,
+    "changedExerciseRows": 320,
+    "changedExerciseAudioRows": 174,
+    "changedAliases": 175,
+    "newUniqueUtterancesVsProduction": 175,
+    "extraction": "Actual sitovExerciseAudioTexts + normalizeAudioText, exactly equal to preparedLearningAudioTexts for every final exercise.",
+    "cardsAreAudioConsumers": false,
+    "audioAssetsOrTimingsVerified": false,
+    "sourceHashes": {
+      "scripts/sitov-audio-catalog.ts": "a8b1643dfc2b4a9ea5a59f4f87383ff554075b99dc37b068dc2b3c1cd5bc6ea1",
+      "lib/audio/prepared-content.ts": "9d8baa5a3acba832cf18ba68b2fd13d3821997b364fbad9c565bed79c7c0aa3c",
+      "lib/audio/neural-config.ts": "95a57cc406f37b95f1d7118e6f84b1a47cf0fdd8399657519829dcc726c0dd57",
+      "supabase/vps/71_sitov_prepared_learning_publication.sql": "ce97207a48621311bd99554ae4e9197fb072fbf214b1d11d03bdbc940c4956b0",
+      "supabase/vps/114_sitov_path_content_revisions.sql": "45c03b30a075920e53d15e4e311e229262f63a19d7016f9c4b21d98efd0d379a",
+      "components/learning-path/RuleCard.tsx": "0bdc2cb16712cfcc90a086d5a20441a2a4436bf4aa08374e255d29cac601fcb0"
+    }
+  },
+  "privateArtifacts": {
+    "epoch33-audio-summary.json": {
+      "path": "S2/epoch33-audio-summary.json",
+      "bytes": 1247,
+      "sha256": "e51493e873de2dcb9a40dafec8011a6244cf19b51667a6f4bcb2493d63040db4"
+    },
+    "epoch33-audio.ts": {
+      "path": "S2/epoch33-audio.ts",
+      "bytes": 3990,
+      "sha256": "8bc6f5009f219c82fdb16eda75cfd994e0f55fb73760d9fddf8f469f205201f6"
+    },
+    "epoch33-compare.py": {
+      "path": "S2/epoch33-compare.py",
+      "bytes": 9912,
+      "sha256": "f588047a401ce43dfa00c48902a5bd9b946854dc458baa8ae380e88864ba6550"
+    },
+    "epoch33-comparison.log": {
+      "path": "S2/epoch33-comparison.log",
+      "bytes": 983,
+      "sha256": "e401065957655a01149d40f6d08113c8240e0ca023c09279c80681a3b89efcce"
+    },
+    "epoch33-full-adoption-inventory.json": {
+      "path": "S2/epoch33-full-adoption-inventory.json",
+      "bytes": 15484502,
+      "sha256": "e1d9a6a45106b69210f08b41f645b5aaa45930d6dbf14ba74178bae6c4a0b909"
+    },
+    "epoch33-full-final-canonical-audio.json": {
+      "path": "S2/epoch33-full-final-canonical-audio.json",
+      "bytes": 4549213,
+      "sha256": "0c7e505a0df3d94af115de6358731ee50c07aa0ffe042c1b85206e392b36f8bc"
+    },
+    "epoch33-lineage-check.py": {
+      "path": "S2/epoch33-lineage-check.py",
+      "bytes": 5705,
+      "sha256": "9781d112d2eebc41dc8b502baf0e1a1cc3bd3e19d8a485403cdf97cf24e13935"
+    },
+    "epoch33-summary.json": {
+      "path": "S2/epoch33-summary.json",
+      "bytes": 205088,
+      "sha256": "d394d97b138582bdc9d321f1f0616e905ef1c414b9d858a6f813fde0f6cab70d"
+    },
+    "epoch33-unobserved-parent-coverage.json": {
+      "path": "S2/epoch33-unobserved-parent-coverage.json",
+      "bytes": 194382,
+      "sha256": "d09b8f4802b23d45c0b9c12aeb3ca1c13a6db112d10ea94281937543c57115c7"
+    }
+  },
+  "remainingExerciseIdsToExamine": 0,
+  "sourceOrTestChanges": false,
+  "databaseOrAudioActions": false,
+  "ordinaryImportAllowed": false,
+  "productionAdoptionApproved": false,
+  "inputManifestAnchor": {
+    "file": "M-production-authored-path-bounded-readonly-result-private.json",
+    "bytes": 18835,
+    "sha256": "264ca9ab0867c643e0217f7d89c0a98289610b204b306372872b8ceb9c829558"
+  },
+  "completedAt": "2026-10-10T00:02:53.973220+00:00",
+  "sourceAndTestBytesUnchanged": true,
+  "completedArtifactCount": 9
+}
