@@ -1,0 +1,673 @@
+{
+  "epoch": 75,
+  "outputDir": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1",
+  "inputSHA256": "22e569ee2a981c66e2b37ffe87c2e211cd95ed6ab623851f1d1876214ca15653",
+  "humanEvidence": [
+    {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-next24-human-user-verdicts-20261010-v1-private.json",
+      "sha256": "adc21071dfbe810524829a73d614fec39b40517178863cba19c90604badc2bee"
+    },
+    {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-repair2-human-user-verdicts-20261010-v1-private.json",
+      "sha256": "6d0019fe1996a022ab36ce2d5128ab0c2fc3c0e0fca754ec17415999d1c35432"
+    }
+  ],
+  "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+  "newNativeTakes": 4,
+  "results": [
+    {
+      "take": 0,
+      "displayText": "neuen",
+      "spokenText": "neuen",
+      "aliases": [
+        "sitov-pretest:5b3316e2-4a9f-5689-ba11-e5d0dc420f2b:sitov.pretest.a12-06.nominal.q2:sitov.pretest.a12-06.nominal.q2.b",
+        "sitov-pretest:3dfcf736-84e5-599d-a492-b780ffc491c4:sitov.pretest.a21-05.nominal.q6:sitov.pretest.a21-05.nominal.q6.b",
+        "sitov-pretest:c5d7b014-5b84-57f5-bfb0-67e3bcb65066:sitov.pretest.a21-09.nominal.q3:sitov.pretest.a21-09.nominal.q3.c",
+        "sitov-pretest:194df28b-7175-5ffa-9813-2c5967cc2cb9:sitov.pretest.a22-04.nominal.q5:sitov.pretest.a22-04.nominal.q5.b",
+        "sitov-pretest:19846618-a6c3-5001-84d5-06b21b99dff5:sitov.pretest.b11-01.nominal.q6:sitov.pretest.b11-01.nominal.q6.b"
+      ],
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/sitov-s3epoch75-crop-0.mp3",
+      "audioSHA256": "122d71cb3bfd81881de129c1aa47eec8ae9cb6936e5f3fef60356ef530336b7f",
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/sitov-s3epoch75-crop-0.diagnostic-final.json",
+      "metadataSHA256": "86ef6180d40858d41462a91adbeaadf1ad306d8b6f1dfb6f4cf54a75156d1bfc",
+      "frozenInputMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/sitov-s3epoch75-crop-0.input.json",
+      "frozenInputMetadataSHA256": "56d3b2db8678ddf130d357e57a0ff39deb81a1a74d4e44e01b5bca24b33ffdf7",
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/raw-classifier-receipts/96026101516030119ce952a56406707c41a59ca0cc426d2532590f459ce45b3e.json",
+      "rawReceiptSHA256": "a1574fa1e48f9479cd4d71fb5ed22e22a05ba9cb435e387408c4327b6ecdea31",
+      "rawArraysSHA256": "b35fbf2f9fa3de4207a45aca2194849beeec63e6676840e7879dcb4abef6aa39",
+      "wordTimings": [
+        {
+          "start": 0.32,
+          "end": 0.72
+        }
+      ],
+      "zeroPunctuationIntervals": [],
+      "actualDecodedDuration": 0.81,
+      "smallASR": {
+        "id": "sitov-s3epoch75-crop-0",
+        "textExpected": "neuen",
+        "textObserved": "Neun.",
+        "audioSha256": "122d71cb3bfd81881de129c1aa47eec8ae9cb6936e5f3fef60356ef530336b7f"
+      },
+      "rawAccepted": true,
+      "humanRehearingRequired": true,
+      "humanPass": false,
+      "publicationApproved": false,
+      "cropProvenance": {
+        "contextReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw-classifier-receipts/5cd2d5d849da0418745f7c60a7d26520d4e7cf7a5867a3cf6b56e9c210376ca6.json",
+        "contextReceiptSHA256": "550529b7b2841ec9fc0b99932568ab6b7a8e36168fa6a16ec3007297765296d2",
+        "contextMP3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/89e94d81a713c6bb518641ee1a953122b6fce192fc3c84dfd6a828c6603944bf.mp3",
+        "contextAudioSHA256": "6cc5b2d34c674f7466ba94aafdb6941f149201dd65fac94f5347f0128c71a366",
+        "contextRawWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw/378945b58d317af75685a53688888822c6af76f0ca6532c8ede18e828cdb2102.wav",
+        "contextRawSHA256": "03f1424c5e0cdab5d479db51e561ace4ddfc67720bf090a36b660e27ef7c2d41",
+        "wholeWordIndices": [
+          6
+        ],
+        "cropStart": 2.08,
+        "cropEnd": 2.54,
+        "addedLeadIn": 0.35,
+        "normalization": {
+          "measurement": {
+            "input_i": "-18.85",
+            "input_tp": "-5.35",
+            "input_lra": "0.00",
+            "input_thresh": "-28.85",
+            "output_i": "-17.95",
+            "output_tp": "-4.50",
+            "output_lra": "0.00",
+            "output_thresh": "-27.95",
+            "normalization_type": "linear",
+            "target_offset": "-0.05"
+          },
+          "result": {
+            "input_i": "-18.85",
+            "input_tp": "-5.35",
+            "input_lra": "0.00",
+            "input_thresh": "-28.85",
+            "output_i": "-17.95",
+            "output_tp": "-4.50",
+            "output_lra": "0.00",
+            "output_thresh": "-27.95",
+            "normalization_type": "linear",
+            "target_offset": "-0.05"
+          },
+          "measurementPaddingSeconds": 0.0,
+          "measurementWindowSeconds": 0.46
+        },
+        "cropWavSHA256": "5907b1d4a80ea7c08026ac0145091198d7f7e72cef9b0ae261cf1530add11259",
+        "noSpliceOrStretch": true,
+        "projectionPendingFreshAlignment": true,
+        "hyphenPronunciationAid": false
+      },
+      "smallASRWordDifferences": [
+        {
+          "op": "replace",
+          "expected": [
+            "neuen"
+          ],
+          "observed": [
+            "neun"
+          ]
+        }
+      ]
+    },
+    {
+      "take": 1,
+      "displayText": "neuen",
+      "spokenText": "neu-en",
+      "aliases": [
+        "sitov-pretest:5b3316e2-4a9f-5689-ba11-e5d0dc420f2b:sitov.pretest.a12-06.nominal.q2:sitov.pretest.a12-06.nominal.q2.b",
+        "sitov-pretest:3dfcf736-84e5-599d-a492-b780ffc491c4:sitov.pretest.a21-05.nominal.q6:sitov.pretest.a21-05.nominal.q6.b",
+        "sitov-pretest:c5d7b014-5b84-57f5-bfb0-67e3bcb65066:sitov.pretest.a21-09.nominal.q3:sitov.pretest.a21-09.nominal.q3.c",
+        "sitov-pretest:194df28b-7175-5ffa-9813-2c5967cc2cb9:sitov.pretest.a22-04.nominal.q5:sitov.pretest.a22-04.nominal.q5.b",
+        "sitov-pretest:19846618-a6c3-5001-84d5-06b21b99dff5:sitov.pretest.b11-01.nominal.q6:sitov.pretest.b11-01.nominal.q6.b"
+      ],
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/sitov-s3epoch75-crop-1.mp3",
+      "audioSHA256": "a923230989cc0e727aab2fa6e8c8a4cf0b9e5ca066d8391064d7f09310de7852",
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/sitov-s3epoch75-crop-1.diagnostic-final.json",
+      "metadataSHA256": "aece52ff087734c987197f92a18d4d4b9041b4714d99d81dc8173178df17c28c",
+      "frozenInputMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/sitov-s3epoch75-crop-1.input.json",
+      "frozenInputMetadataSHA256": "7849f2e91ca0958919cdf2b794d5c2179acb2ea38a73945f4b23ebb06c6aa79e",
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/raw-classifier-receipts/1328e6f68c837c901e83d73cc2f4d018fea40a5890af74152ccb94722935b15c.json",
+      "rawReceiptSHA256": "3900bb4d507202ab30190858c0dd0d00bc5cd2421a444c7fe45c0c6385100c70",
+      "rawArraysSHA256": "24b08c9b1769f4080f147d50a97b3ec12373b11f8319f9c082231ec7c81a97d2",
+      "wordTimings": [
+        {
+          "start": 0.4,
+          "end": 0.96
+        }
+      ],
+      "zeroPunctuationIntervals": [],
+      "actualDecodedDuration": 1.0,
+      "smallASR": {
+        "id": "sitov-s3epoch75-crop-1",
+        "textExpected": "neu-en",
+        "textObserved": "Neuen",
+        "audioSha256": "a923230989cc0e727aab2fa6e8c8a4cf0b9e5ca066d8391064d7f09310de7852"
+      },
+      "rawAccepted": true,
+      "humanRehearingRequired": true,
+      "humanPass": false,
+      "publicationApproved": false,
+      "hyphenPronunciationAid": true,
+      "lexicalEquivalenceApproved": false,
+      "cropProvenance": {
+        "contextReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw-classifier-receipts/9b0dc5d32d3297ef47dc4d8eefa7addc285c14079c35c0a06061aa58d8e944b3.json",
+        "contextReceiptSHA256": "c663630be396109995cda32a8b09f8699a5feed38600d57b27fb43f4a8f0243f",
+        "contextMP3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/f837a914ab741456edddeabdb2cc3c78632fe1860825b41cfa9cacb9a51054a5.mp3",
+        "contextAudioSHA256": "bdce17664b2dfdf6f0e4a3f46916b6b8a71ebe934becfae96abea691ac6e42f6",
+        "contextRawWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw/acf7aa5692c17accb569e2c124171a326a353edb83eadccbc80c212796fc0ec1.wav",
+        "contextRawSHA256": "97889292f2f073206fba9cc7f3b85e050e82428abcea7c446221935ca9992618",
+        "wholeWordIndices": [
+          5
+        ],
+        "cropStart": 2.82,
+        "cropEnd": 3.47,
+        "addedLeadIn": 0.35,
+        "normalization": {
+          "measurement": {
+            "input_i": "-20.93",
+            "input_tp": "-7.54",
+            "input_lra": "0.00",
+            "input_thresh": "-30.93",
+            "output_i": "-17.99",
+            "output_tp": "-4.60",
+            "output_lra": "0.00",
+            "output_thresh": "-27.99",
+            "normalization_type": "linear",
+            "target_offset": "-0.01"
+          },
+          "result": {
+            "input_i": "-20.93",
+            "input_tp": "-7.54",
+            "input_lra": "0.00",
+            "input_thresh": "-30.93",
+            "output_i": "-17.99",
+            "output_tp": "-4.60",
+            "output_lra": "0.00",
+            "output_thresh": "-27.99",
+            "normalization_type": "linear",
+            "target_offset": "-0.01"
+          },
+          "measurementPaddingSeconds": 0.0,
+          "measurementWindowSeconds": 0.65
+        },
+        "cropWavSHA256": "9cf8d00277b8ec53272478c5ece382b44431a8039e177dd6ed1588919973e058",
+        "noSpliceOrStretch": true,
+        "projectionPendingFreshAlignment": true,
+        "hyphenPronunciationAid": true
+      },
+      "smallASRWordDifferences": [
+        {
+          "op": "replace",
+          "expected": [
+            "neu",
+            "en"
+          ],
+          "observed": [
+            "neuen"
+          ]
+        }
+      ]
+    },
+    {
+      "take": 2,
+      "displayText": "Wie heißen Sie? – Marchenko, Oleh Marchenko.",
+      "spokenText": "Wie heißen Sie? – Marchenko. Oleh Marchenko.",
+      "aliases": [
+        "1b35e3c9-607a-5d64-a213-16fcb77532d7:1"
+      ],
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/432e6df59e178b67334a984ff2fb7d8b2325a6417de07add05b42dbd1f536438.mp3",
+      "audioSHA256": "d185c31c3f0e97dcaffd5056eb82e852117b2e51ad9742bd3cd7d8c63627b282",
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/432e6df59e178b67334a984ff2fb7d8b2325a6417de07add05b42dbd1f536438.diagnostic-final.json",
+      "metadataSHA256": "cae6cd8c09672b1090f10c5da2639749c79fee12d4c489019ae87817e662fef4",
+      "frozenInputMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/432e6df59e178b67334a984ff2fb7d8b2325a6417de07add05b42dbd1f536438.json",
+      "frozenInputMetadataSHA256": "8adcc38d77a2395389b8e13c2b7a51c72088e07a2d2b9d535688acdcb984ea79",
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/raw-classifier-receipts/ff85b0068211878445cc5f76fc340233c1c54c919028b75c11b6dd9e3ed47d12.json",
+      "rawReceiptSHA256": "35835264dd68a1272c49f36e2f58a674a0e19794c255d147ebe51aba3589f8cc",
+      "rawArraysSHA256": "5822b198f2e6be16d17bc5b95c58edee6c037a4930e05f08b5881ec0373cf87b",
+      "wordTimings": [
+        {
+          "start": 0.4,
+          "end": 0.48
+        },
+        {
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "start": 1.12,
+          "end": 1.12
+        },
+        {
+          "start": 1.6,
+          "end": 2.24
+        },
+        {
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "start": 2.88,
+          "end": 3.52
+        }
+      ],
+      "zeroPunctuationIntervals": [
+        {
+          "index": 3,
+          "token": "–",
+          "interval": {
+            "start": 1.12,
+            "end": 1.12
+          }
+        }
+      ],
+      "actualDecodedDuration": 3.55,
+      "smallASR": {
+        "id": "sitov.s3epoch75.native.2",
+        "textExpected": "Wie heißen Sie? – Marchenko. Oleh Marchenko.",
+        "textObserved": "Wie heißen Sie? Machenko, Oli Machenko.",
+        "audioSha256": "d185c31c3f0e97dcaffd5056eb82e852117b2e51ad9742bd3cd7d8c63627b282"
+      },
+      "rawAccepted": true,
+      "humanRehearingRequired": true,
+      "humanPass": false,
+      "publicationApproved": false,
+      "measuredNativePause": {
+        "firstMarchenkoEnd": 2.24,
+        "OlehStart": 2.56,
+        "seconds": 0.32,
+        "silenceInserted": false,
+        "punctuationOnlyRender": true
+      },
+      "smallASRWordDifferences": [
+        {
+          "op": "replace",
+          "expected": [
+            "marchenko",
+            "oleh",
+            "marchenko"
+          ],
+          "observed": [
+            "machenko",
+            "oli",
+            "machenko"
+          ]
+        }
+      ]
+    },
+    {
+      "take": 3,
+      "displayText": "Taras ist der Bruder von Oleh. Er lebt in Kyjiw und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig? Taras ist verheiratet.",
+      "spokenText": "Taras ist der Bruder von Oleh. Er lebt in Kiew und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig? Taras ist verheiratet.",
+      "aliases": [
+        "a0c3ab83-08b7-5b2f-a98a-82db10efe623:0"
+      ],
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/fb2c7b0ecf139bef927e83dbac0856276ca1e631c50b5566de7e18612fc738b2.mp3",
+      "audioSHA256": "350dbd3b612004d4eb9a31a2dfbe01ab3851e7c95b1206422375428eb9bfed35",
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/fb2c7b0ecf139bef927e83dbac0856276ca1e631c50b5566de7e18612fc738b2.diagnostic-final.json",
+      "metadataSHA256": "3ac5157ff88829eddb31bbf026aeef481073c27325e63e27b0842d5183994d6c",
+      "frozenInputMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/fb2c7b0ecf139bef927e83dbac0856276ca1e631c50b5566de7e18612fc738b2.json",
+      "frozenInputMetadataSHA256": "4599898dfa0ef48da803c022f37f23d0a0fec9ce4916fe75ed2d23ad8fea9edc",
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/raw-classifier-receipts/1f3bdb00c9665a982087ed5286b2014476002951ff0af3b8d6f06d5d3e65656d.json",
+      "rawReceiptSHA256": "9dad645bdec637db8140cc12e9cc5dd6967df1f4eb17919738c5bbd7e441d342",
+      "rawArraysSHA256": "cdc45e743dd967ba543ad700939094c7fee2d38cffd5fc6f41472da845c49ecc",
+      "wordTimings": [
+        {
+          "start": 0.48,
+          "end": 0.96
+        },
+        {
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "start": 1.76,
+          "end": 2.16
+        },
+        {
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "start": 3.28,
+          "end": 3.76
+        },
+        {
+          "start": 3.76,
+          "end": 4.0
+        },
+        {
+          "start": 4.0,
+          "end": 4.4
+        },
+        {
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "start": 4.64,
+          "end": 4.96
+        },
+        {
+          "start": 5.36,
+          "end": 5.44
+        },
+        {
+          "start": 5.44,
+          "end": 5.6
+        },
+        {
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "start": 5.84,
+          "end": 6.08
+        },
+        {
+          "start": 6.16,
+          "end": 6.24
+        },
+        {
+          "start": 6.24,
+          "end": 6.4
+        },
+        {
+          "start": 6.4,
+          "end": 6.72
+        },
+        {
+          "start": 7.04,
+          "end": 7.2
+        },
+        {
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "start": 7.36,
+          "end": 7.84
+        },
+        {
+          "start": 8.16,
+          "end": 8.64
+        },
+        {
+          "start": 8.64,
+          "end": 8.8
+        },
+        {
+          "start": 8.8,
+          "end": 9.36
+        }
+      ],
+      "zeroPunctuationIntervals": [],
+      "actualDecodedDuration": 9.39,
+      "smallASR": {
+        "id": "sitov.s3epoch75.native.3",
+        "textExpected": "Taras ist der Bruder von Oleh. Er lebt in Kiew und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig? Taras ist verheiratet.",
+        "textObserved": "Taras ist der Bruder von Ole. Er lebt in Kiew und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig? Taras ist verheiratet.",
+        "audioSha256": "350dbd3b612004d4eb9a31a2dfbe01ab3851e7c95b1206422375428eb9bfed35"
+      },
+      "rawAccepted": true,
+      "humanRehearingRequired": true,
+      "humanPass": false,
+      "publicationApproved": false,
+      "explicitNameRendering": {
+        "display": "Kyjiw",
+        "spoken": "Kiew",
+        "oneTokenOnly": true,
+        "outsideNameExact": true
+      },
+      "smallASRWordDifferences": [
+        {
+          "op": "replace",
+          "expected": [
+            "oleh"
+          ],
+          "observed": [
+            "ole"
+          ]
+        }
+      ]
+    }
+  ],
+  "holds": [
+    {
+      "status": "HOLD_HUMAN_REHEARING_ALL4",
+      "details": "ASR is diagnostic only. Neuen recognized Neun; neu-en not lexical equivalence approval. Kiew ASR phrase correct but Ole/Oleh difference retained. Native Marchenko pause0.32s must be heard."
+    },
+    {
+      "status": "HOLD_CANONICAL_DISPLAY_MAPPING",
+      "details": "All timing strings are exact spoken inputs; punctuation dash zero interval is retained, no invented duration or product PASS."
+    }
+  ],
+  "rawChecks": [
+    {
+      "folder": "contexts",
+      "id": "sitov.s3epoch75.native.3",
+      "text": "Taras ist der Bruder von Oleh. Er lebt in Kiew und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig? Taras ist verheiratet.",
+      "receipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw-classifier-receipts/1f3bdb00c9665a982087ed5286b2014476002951ff0af3b8d6f06d5d3e65656d.json",
+      "receiptSHA256": "5f046d86afce84af1e39265fee59574cb22540228ef4a994eb7d4a2f7c1d318d",
+      "arraysSHA256": "cdc45e743dd967ba543ad700939094c7fee2d38cffd5fc6f41472da845c49ecc",
+      "rawDecisionRecomputed": true,
+      "accepted": true,
+      "actualDecodedDuration": 9.39,
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/fb2c7b0ecf139bef927e83dbac0856276ca1e631c50b5566de7e18612fc738b2.full-decode.wav",
+      "fullDecodedWavSHA256": "ba1a2135c13c436491d5c72c63a65fc977074e770be0b2e184032c5a7ff081e8",
+      "zeroPunctuationIntervals": [],
+      "nativeRaw": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw/9081deaf60ba0e564e0b216e9148bdc128b1b77cb375df37d0d7e0796b869d21.wav",
+      "nativeRawSHA256": "3a4ee3df8c7509bd041af759ad528284f56edde721427801c9ab71be54cc2c67"
+    },
+    {
+      "folder": "contexts",
+      "id": "sitov.s3epoch75.native.0",
+      "text": "Nicht den alten Mantel, sondern den neuen.",
+      "receipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw-classifier-receipts/5cd2d5d849da0418745f7c60a7d26520d4e7cf7a5867a3cf6b56e9c210376ca6.json",
+      "receiptSHA256": "550529b7b2841ec9fc0b99932568ab6b7a8e36168fa6a16ec3007297765296d2",
+      "arraysSHA256": "fc72ad86b9156e20f5f16fdef96893e0af4a2187bf94ccbcb3fedf6c826858e3",
+      "rawDecisionRecomputed": true,
+      "accepted": true,
+      "actualDecodedDuration": 2.59,
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/89e94d81a713c6bb518641ee1a953122b6fce192fc3c84dfd6a828c6603944bf.full-decode.wav",
+      "fullDecodedWavSHA256": "b7d211e89cb2d2be745d819fbf425bc77478684b1e2a5da383f1570b8048f2bd",
+      "zeroPunctuationIntervals": [],
+      "nativeRaw": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw/378945b58d317af75685a53688888822c6af76f0ca6532c8ede18e828cdb2102.wav",
+      "nativeRawSHA256": "03f1424c5e0cdab5d479db51e561ace4ddfc67720bf090a36b660e27ef7c2d41"
+    },
+    {
+      "folder": "contexts",
+      "id": "sitov.s3epoch75.native.1",
+      "text": "Leon spricht langsam und deutlich: neu-en.",
+      "receipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw-classifier-receipts/9b0dc5d32d3297ef47dc4d8eefa7addc285c14079c35c0a06061aa58d8e944b3.json",
+      "receiptSHA256": "c663630be396109995cda32a8b09f8699a5feed38600d57b27fb43f4a8f0243f",
+      "arraysSHA256": "e1e3336acbd987c26b4881992583cb3401186a1cfd637d1e7112c2d2c6dd1c47",
+      "rawDecisionRecomputed": true,
+      "accepted": true,
+      "actualDecodedDuration": 3.47,
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/f837a914ab741456edddeabdb2cc3c78632fe1860825b41cfa9cacb9a51054a5.full-decode.wav",
+      "fullDecodedWavSHA256": "933754a732643af8ea1b700fac43f62f34429e2d442f0d913db72b19bffe0876",
+      "zeroPunctuationIntervals": [],
+      "nativeRaw": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw/acf7aa5692c17accb569e2c124171a326a353edb83eadccbc80c212796fc0ec1.wav",
+      "nativeRawSHA256": "97889292f2f073206fba9cc7f3b85e050e82428abcea7c446221935ca9992618"
+    },
+    {
+      "folder": "contexts",
+      "id": "sitov.s3epoch75.native.2",
+      "text": "Wie heißen Sie? – Marchenko. Oleh Marchenko.",
+      "receipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw-classifier-receipts/ff85b0068211878445cc5f76fc340233c1c54c919028b75c11b6dd9e3ed47d12.json",
+      "receiptSHA256": "d6f53f1a1daf714b8d09fc235be0d6a7f4c95a55f7a73d58bd97a20658a03e8f",
+      "arraysSHA256": "5822b198f2e6be16d17bc5b95c58edee6c037a4930e05f08b5881ec0373cf87b",
+      "rawDecisionRecomputed": true,
+      "accepted": true,
+      "actualDecodedDuration": 3.55,
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/432e6df59e178b67334a984ff2fb7d8b2325a6417de07add05b42dbd1f536438.full-decode.wav",
+      "fullDecodedWavSHA256": "3d8ac05e58fe5bbe83b1f51d0effa2e47b32f7dc4e1eebd133aeaa222ec94091",
+      "zeroPunctuationIntervals": [
+        {
+          "index": 3,
+          "token": "–",
+          "interval": {
+            "start": 1.12,
+            "end": 1.12
+          }
+        }
+      ],
+      "nativeRaw": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw/dd729a787a16a31a4febb48c4aa9509c35894828c5feebe36950998c13aa769c.wav",
+      "nativeRawSHA256": "dd27f62271bc17252c4775a873fcb3af9f2ad381a856641e0e54f969e3346873"
+    },
+    {
+      "folder": "final",
+      "id": "sitov-s3epoch75-crop-1",
+      "text": "neu-en",
+      "receipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/raw-classifier-receipts/1328e6f68c837c901e83d73cc2f4d018fea40a5890af74152ccb94722935b15c.json",
+      "receiptSHA256": "3900bb4d507202ab30190858c0dd0d00bc5cd2421a444c7fe45c0c6385100c70",
+      "arraysSHA256": "24b08c9b1769f4080f147d50a97b3ec12373b11f8319f9c082231ec7c81a97d2",
+      "rawDecisionRecomputed": true,
+      "accepted": true,
+      "actualDecodedDuration": 1.0,
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/sitov-s3epoch75-crop-1.full-decode.wav",
+      "fullDecodedWavSHA256": "8a3161540f19912efdb404a86d6e803bfb4f17e7b5f6096ec3b01cfda6e3e3d9",
+      "zeroPunctuationIntervals": [],
+      "nativeRaw": null,
+      "nativeRawSHA256": null
+    },
+    {
+      "folder": "final",
+      "id": "sitov.s3epoch75.native.3",
+      "text": "Taras ist der Bruder von Oleh. Er lebt in Kiew und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig? Taras ist verheiratet.",
+      "receipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/raw-classifier-receipts/1f3bdb00c9665a982087ed5286b2014476002951ff0af3b8d6f06d5d3e65656d.json",
+      "receiptSHA256": "9dad645bdec637db8140cc12e9cc5dd6967df1f4eb17919738c5bbd7e441d342",
+      "arraysSHA256": "cdc45e743dd967ba543ad700939094c7fee2d38cffd5fc6f41472da845c49ecc",
+      "rawDecisionRecomputed": true,
+      "accepted": true,
+      "actualDecodedDuration": 9.39,
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/fb2c7b0ecf139bef927e83dbac0856276ca1e631c50b5566de7e18612fc738b2.full-decode.wav",
+      "fullDecodedWavSHA256": "ba1a2135c13c436491d5c72c63a65fc977074e770be0b2e184032c5a7ff081e8",
+      "zeroPunctuationIntervals": [],
+      "nativeRaw": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw/9081deaf60ba0e564e0b216e9148bdc128b1b77cb375df37d0d7e0796b869d21.wav",
+      "nativeRawSHA256": "3a4ee3df8c7509bd041af759ad528284f56edde721427801c9ab71be54cc2c67"
+    },
+    {
+      "folder": "final",
+      "id": "sitov-s3epoch75-crop-0",
+      "text": "neuen",
+      "receipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/raw-classifier-receipts/96026101516030119ce952a56406707c41a59ca0cc426d2532590f459ce45b3e.json",
+      "receiptSHA256": "a1574fa1e48f9479cd4d71fb5ed22e22a05ba9cb435e387408c4327b6ecdea31",
+      "arraysSHA256": "b35fbf2f9fa3de4207a45aca2194849beeec63e6676840e7879dcb4abef6aa39",
+      "rawDecisionRecomputed": true,
+      "accepted": true,
+      "actualDecodedDuration": 0.81,
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/sitov-s3epoch75-crop-0.full-decode.wav",
+      "fullDecodedWavSHA256": "efc8d789580fced00dc762e001511ff06bc1867c3d5fec8de1dc0ce0186a93d6",
+      "zeroPunctuationIntervals": [],
+      "nativeRaw": null,
+      "nativeRawSHA256": null
+    },
+    {
+      "folder": "final",
+      "id": "sitov.s3epoch75.native.2",
+      "text": "Wie heißen Sie? – Marchenko. Oleh Marchenko.",
+      "receipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/final/raw-classifier-receipts/ff85b0068211878445cc5f76fc340233c1c54c919028b75c11b6dd9e3ed47d12.json",
+      "receiptSHA256": "35835264dd68a1272c49f36e2f58a674a0e19794c255d147ebe51aba3589f8cc",
+      "arraysSHA256": "5822b198f2e6be16d17bc5b95c58edee6c037a4930e05f08b5881ec0373cf87b",
+      "rawDecisionRecomputed": true,
+      "accepted": true,
+      "actualDecodedDuration": 3.55,
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/432e6df59e178b67334a984ff2fb7d8b2325a6417de07add05b42dbd1f536438.full-decode.wav",
+      "fullDecodedWavSHA256": "3d8ac05e58fe5bbe83b1f51d0effa2e47b32f7dc4e1eebd133aeaa222ec94091",
+      "zeroPunctuationIntervals": [
+        {
+          "index": 3,
+          "token": "–",
+          "interval": {
+            "start": 1.12,
+            "end": 1.12
+          }
+        }
+      ],
+      "nativeRaw": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch75-four-native-v1/contexts/raw/dd729a787a16a31a4febb48c4aa9509c35894828c5feebe36950998c13aa769c.wav",
+      "nativeRawSHA256": "dd27f62271bc17252c4775a873fcb3af9f2ad381a856641e0e54f969e3346873"
+    }
+  ],
+  "humanPass": false,
+  "publicationApproved": false,
+  "noImport": true,
+  "sourceIdsAndAnswersUnchanged": true,
+  "sourceBindings": [
+    {
+      "alias": "1b35e3c9-607a-5d64-a213-16fcb77532d7:1",
+      "exactText": "Wie heißen Sie? – Marchenko, Oleh Marchenko.",
+      "sourceFile": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-a1.1.json",
+      "sourceFileSHA256": "19e0c14637f69ad1bb738cb88595fea2eec5455c932461f84b710b866a543efa"
+    },
+    {
+      "alias": "a0c3ab83-08b7-5b2f-a98a-82db10efe623:0",
+      "exactText": "Taras ist der Bruder von Oleh. Er lebt in Kyjiw und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig? Taras ist verheiratet.",
+      "sourceFile": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-a1.1.json",
+      "sourceFileSHA256": "19e0c14637f69ad1bb738cb88595fea2eec5455c932461f84b710b866a543efa"
+    },
+    {
+      "alias": "sitov-pretest:5b3316e2-4a9f-5689-ba11-e5d0dc420f2b:sitov.pretest.a12-06.nominal.q2:sitov.pretest.a12-06.nominal.q2.b",
+      "exactText": "neuen",
+      "sourceFile": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json",
+      "sourceFileSHA256": "3b8743fd84d1af7cc7a652a86c20b6278eb6e9035b4420125358f54469a974cd"
+    },
+    {
+      "alias": "sitov-pretest:3dfcf736-84e5-599d-a492-b780ffc491c4:sitov.pretest.a21-05.nominal.q6:sitov.pretest.a21-05.nominal.q6.b",
+      "exactText": "neuen",
+      "sourceFile": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json",
+      "sourceFileSHA256": "3b8743fd84d1af7cc7a652a86c20b6278eb6e9035b4420125358f54469a974cd"
+    },
+    {
+      "alias": "sitov-pretest:c5d7b014-5b84-57f5-bfb0-67e3bcb65066:sitov.pretest.a21-09.nominal.q3:sitov.pretest.a21-09.nominal.q3.c",
+      "exactText": "neuen",
+      "sourceFile": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json",
+      "sourceFileSHA256": "3b8743fd84d1af7cc7a652a86c20b6278eb6e9035b4420125358f54469a974cd"
+    },
+    {
+      "alias": "sitov-pretest:194df28b-7175-5ffa-9813-2c5967cc2cb9:sitov.pretest.a22-04.nominal.q5:sitov.pretest.a22-04.nominal.q5.b",
+      "exactText": "neuen",
+      "sourceFile": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json",
+      "sourceFileSHA256": "3b8743fd84d1af7cc7a652a86c20b6278eb6e9035b4420125358f54469a974cd"
+    },
+    {
+      "alias": "sitov-pretest:19846618-a6c3-5001-84d5-06b21b99dff5:sitov.pretest.b11-01.nominal.q6:sitov.pretest.b11-01.nominal.q6.b",
+      "exactText": "neuen",
+      "sourceFile": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json",
+      "sourceFileSHA256": "3b8743fd84d1af7cc7a652a86c20b6278eb6e9035b4420125358f54469a974cd"
+    }
+  ],
+  "ownedJobsRemaining": 0,
+  "status": "FOUR_NATIVE_DIAGNOSTIC_CANDIDATES_HUMAN_AND_MAPPING_HOLD",
+  "artifactManifest": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch75-artifact-sha256.json",
+    "sha256": "915afa9713458cade42db71a6929bd5c5213910a928567733cdc95a44c35469b",
+    "selfExcluded": true
+  }
+}
