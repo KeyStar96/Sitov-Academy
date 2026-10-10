@@ -1071,31 +1071,31 @@
               "Ich heiße Emre Demir."
             ],
             "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
-            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
             "explanation_card": "p1_name",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
-                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
                 "task": "You introduce yourself. What is correct?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
-                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
                 "task": "Вы представляетесь. Что правильно?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
-                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
                 "task": "Ви представляєтеся. Що правильно?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
-                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
                 "task": "Kendinizi tanıtıyorsunuz. Hangisi doğru?"
               }
             }
@@ -1179,31 +1179,31 @@
               "Frau Kaya, das ist Jonas."
             ],
             "hint": "Eine andere Person stellst du mit „Das ist …“ vor.",
-            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
             "explanation_card": "p1_name",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "To introduce someone else, say „Das ist …“ – This is …",
-                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
                 "task": "Ms Kaya and Jonas are new in the building. You introduce Jonas."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Другого человека представляют так: „Das ist …“ – «Это …».",
-                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
                 "task": "Госпожа Kaya и Jonas — новые жильцы в доме. Вы представляете Jonas."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Іншу людину представляють так: „Das ist …“ – «Це …».",
-                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
                 "task": "Пані Kaya і Jonas — нові мешканці в будинку. Ви представляєте Jonas."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Başka birini „Das ist …“ ile tanıtırsınız = Bu …",
-                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
                 "task": "Kaya Hanım ve Jonas binada yeni. Jonas’ı tanıtıyorsunuz."
               }
             }
@@ -1459,34 +1459,34 @@
               "Name"
             ],
             "hint": "Über dich selbst sprichst du ohne Frau oder Herr.",
-            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+            "explanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
             "explanation_card": "p1_name",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "When you talk about yourself, don’t use Frau or Herr – just as you wouldn’t say „I am Mr Smith“.",
-                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+                "explanation": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya.",
                 "task": "Good day! My name is Kamil Nowak.",
                 "gap_hint": "name"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "О себе говорят без Frau или Herr – так же, как по-русски не говорят «Я – господин Иванов».",
-                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+                "explanation": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya.",
                 "task": "Добрый день! Меня зовут Kamil Nowak.",
                 "gap_hint": "имя"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Про себе кажуть без Frau чи Herr – так само, як українською не кажуть «Я – пан Коваленко».",
-                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+                "explanation": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya.",
                 "task": "Добрий день! Мене звати Kamil Nowak.",
                 "gap_hint": "ім’я"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Kendinizden söz ederken Frau veya Herr kullanmayın – Türkçede de „Ben Bay Demir“ demezsiniz.",
-                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+                "explanation": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya.",
                 "task": "İyi günler! Benim adım Kamil Nowak.",
                 "gap_hint": "ad"
               }
@@ -27217,7 +27217,7 @@
                 "Uhrzeit ungefähr"
               ],
               "instruction": "Wie spät ist es? Wähle die richtige Antwort.",
-              "question": "Es ist 8:59. Oleh sagt: „Es ist … neun.“",
+              "question": "Es ist 8:59. Oleh sagt: „Es ist ___ neun.“",
               "options": [
                 "gleich",
                 "halb",
@@ -34838,7 +34838,7 @@
                 "Akkusativ"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Oleh fährt immer Bus. Er hat … Fahrrad.",
+              "question": "Oleh fährt immer Bus. Er hat ___ Fahrrad.",
               "options": [
                 "keinen",
                 "keine",
@@ -42205,7 +42205,7 @@
         ],
         "merkkarte": {
           "card": "p7_perfekt_t",
-          "rule": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet. Satzklammer im Perfekt: haben oder sein steht auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. W-Frage: Was hast du am Wochenende gemacht? Ja-/Nein-Frage: Bist du mit dem Bus gefahren?",
+          "rule": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet.",
           "examples": [
             "Ich habe gestern Fußball gespielt.",
             "Wir haben am Samstag Kuchen gekauft.",
@@ -42215,16 +42215,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Perfect tense with haben – regular verbs: ge + stem + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. If the stem ends in -t or -d: ge…et: arbeiten → gearbeitet. Sentence bracket in the perfect tense: haben or sein in position 2, the participle at the end: Ich habe gestern Fußball gespielt. Wh-question: Was hast du am Wochenende gemacht? Yes/no question: Bist du mit dem Bus gefahren?"
+              "rule": "Perfect tense with haben – regular verbs: ge + stem + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. If the stem ends in -t or -d: ge…et: arbeiten → gearbeitet."
             },
             "ru": {
-              "rule": "Perfekt с haben – правильные глаголы: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Если основа оканчивается на -t или -d: ge…et: arbeiten → gearbeitet. Рамочная конструкция в Perfekt: haben или sein – на 2-м месте, причастие – в конце: Ich habe gestern Fußball gespielt. Вопрос с вопросительным словом: Was hast du am Wochenende gemacht? Общий вопрос: Bist du mit dem Bus gefahren?"
+              "rule": "Perfekt с haben – правильные глаголы: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Если основа оканчивается на -t или -d: ge…et: arbeiten → gearbeitet."
             },
             "uk": {
-              "rule": "Perfekt із haben – правильні дієслова: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Якщо основа закінчується на -t або -d: ge…et: arbeiten → gearbeitet. Рамкова конструкція в Perfekt: haben або sein – на 2-му місці, дієприкметник – у кінці: Ich habe gestern Fußball gespielt. Запитання з питальним словом: Was hast du am Wochenende gemacht? Загальне запитання: Bist du mit dem Bus gefahren?"
+              "rule": "Perfekt із haben – правильні дієслова: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Якщо основа закінчується на -t або -d: ge…et: arbeiten → gearbeitet."
             },
             "tr": {
-              "rule": "haben ile Perfekt – düzenli fiiller: ge + kök + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Kök -t ya da -d ile bitiyorsa: ge…et: arbeiten → gearbeitet. Perfekt’te cümle çerçevesi: haben ya da sein 2. sırada, ortaç sonda: Ich habe gestern Fußball gespielt. Soru kelimeli soru: Was hast du am Wochenende gemacht? Evet/hayır sorusu: Bist du mit dem Bus gefahren?"
+              "rule": "haben ile Perfekt – düzenli fiiller: ge + kök + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Kök -t ya da -d ile bitiyorsa: ge…et: arbeiten → gearbeitet."
             }
           }
         },
@@ -42920,7 +42920,7 @@
         ],
         "merkkarte": {
           "card": "p7_perfekt_sein",
-          "rule": "Perfekt mit sein: Verben der Bewegung von A nach B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Die meisten anderen Verben bilden das Perfekt mit haben: Ich habe geschlafen.",
+          "rule": "Perfekt mit sein: Verben der Bewegung von A nach B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Die meisten anderen Verben bilden das Perfekt mit haben: Ich habe geschlafen. Satzklammer im Perfekt: Im Aussagesatz und in der W-Frage steht die Form von haben oder sein auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? In der Ja-/Nein-Frage steht haben oder sein am Anfang: Bist du mit dem Bus gefahren?",
           "examples": [
             "Wir sind nach Leipzig gefahren.",
             "Ich bin mit dem Bus zur Arbeit gefahren.",
@@ -42930,16 +42930,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Perfect tense with sein: verbs of movement from A to B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Most other verbs use haben: Ich habe geschlafen."
+              "rule": "Perfect tense with sein: verbs of movement from A to B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Most other verbs use haben: Ich habe geschlafen. Sentence bracket in the perfect tense: in a statement and a wh-question, the form of haben or sein is in position 2 and the participle is at the end: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? In a yes/no question, haben or sein comes first: Bist du mit dem Bus gefahren?"
             },
             "ru": {
-              "rule": "Perfekt с sein: глаголы движения из пункта А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Большинство других глаголов – с haben: Ich habe geschlafen."
+              "rule": "Perfekt с sein: глаголы движения из пункта А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Большинство других глаголов – с haben: Ich habe geschlafen. Рамочная конструкция в Perfekt: в повествовательном предложении и вопросе с вопросительным словом форма haben или sein стоит на втором месте, причастие — в конце: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? В общем вопросе haben или sein стоит в начале: Bist du mit dem Bus gefahren?"
             },
             "uk": {
-              "rule": "Perfekt із sein: дієслова руху з пункту А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Більшість інших дієслів – із haben: Ich habe geschlafen."
+              "rule": "Perfekt із sein: дієслова руху з пункту А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Більшість інших дієслів – із haben: Ich habe geschlafen. Рамкова конструкція в Perfekt: у розповідному реченні та запитанні з питальним словом форма haben або sein стоїть на другому місці, дієприкметник — у кінці: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? У загальному запитанні haben або sein стоїть на початку: Bist du mit dem Bus gefahren?"
             },
             "tr": {
-              "rule": "sein ile Perfekt: A’dan B’ye hareket bildiren fiiller: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Diğer fiillerin çoğu haben ile: Ich habe geschlafen."
+              "rule": "sein ile Perfekt: A’dan B’ye hareket bildiren fiiller: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Diğer fiillerin çoğu haben ile: Ich habe geschlafen. Perfekt’te cümle çerçevesi: Düz cümlede ve soru kelimeli soruda haben ya da sein fiilinin çekimli biçimi 2. sırada, ortaç sondadır: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? Evet/hayır sorusunda haben ya da sein başta yer alır: Bist du mit dem Bus gefahren?"
             }
           }
         },

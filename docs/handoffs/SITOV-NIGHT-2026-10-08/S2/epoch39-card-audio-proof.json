@@ -1,0 +1,331 @@
+{
+  "epoch": 39,
+  "brand": "Sitov Academy",
+  "base": "c73be5b6c304739e76b5df7427a97c79bf4ca5d9",
+  "boundS7SHA256": "276dfffcf5a07799c1fd798064b559a3216d7de94486ba34cd2844e95d69a72e",
+  "actualChangedSourceFiles": [
+    "supabase/seeds/path-a1.1.json"
+  ],
+  "beforeSeedSHA256": "f5e973ff970477677a58b2831f7a362c4a0dcc476cd264046aa02b9470d47b69",
+  "afterSeedSHA256": "834b240fbfd999063361706f6225d5a4ff229a2e477a5f32110caa613f24ee88",
+  "totalExercisesCompared": 9569,
+  "totalNodesCompared": 856,
+  "changedExercises": [
+    {
+      "id": "ac7e601e-1b4d-5421-aa06-96e0d1fc3f0f",
+      "ref": "P1-N3-E01"
+    },
+    {
+      "id": "217d6b5a-2a91-53ea-a56b-b31f167dae3e",
+      "ref": "P1-N3-E03"
+    },
+    {
+      "id": "c017ed4d-4bc6-5730-abe9-80bc248b571f",
+      "ref": "P1-N3-E08"
+    },
+    {
+      "id": "e42167d3-36c4-5270-a696-406897292843",
+      "ref": "P5-N2-E06"
+    },
+    {
+      "id": "c0ae363d-6c1f-58a7-a381-b7e206815e1f",
+      "ref": "P6-N5-E01"
+    }
+  ],
+  "changedParents": [
+    "P7-N5",
+    "P7-N7"
+  ],
+  "affectedNodes": [
+    "P1-N3",
+    "P5-N2",
+    "P6-N5",
+    "P7-N5",
+    "P7-N7"
+  ],
+  "scalarCount": 27,
+  "scalars": [
+    {
+      "context": "P1-N3-E01",
+      "pointer": "explanation",
+      "old": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+      "new": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E01",
+      "pointer": "translations/en/explanation",
+      "old": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+      "new": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E01",
+      "pointer": "translations/ru/explanation",
+      "old": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+      "new": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E01",
+      "pointer": "translations/uk/explanation",
+      "old": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+      "new": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E01",
+      "pointer": "translations/tr/explanation",
+      "old": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+      "new": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E03",
+      "pointer": "explanation",
+      "old": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+      "new": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E03",
+      "pointer": "translations/en/explanation",
+      "old": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+      "new": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E03",
+      "pointer": "translations/ru/explanation",
+      "old": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+      "new": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E03",
+      "pointer": "translations/uk/explanation",
+      "old": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+      "new": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E03",
+      "pointer": "translations/tr/explanation",
+      "old": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+      "new": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E08",
+      "pointer": "explanation",
+      "old": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya.",
+      "new": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E08",
+      "pointer": "translations/en/explanation",
+      "old": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Frau Kaya.",
+      "new": "Introducing yourself: say your own name without Frau or Herr: Ich heiße Emre Demir. Mein Name ist Demir. Use Frau/Herr only for other people: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E08",
+      "pointer": "translations/ru/explanation",
+      "old": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Frau Kaya.",
+      "new": "Как представиться: о себе говорят без Frau или Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – только о других: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E08",
+      "pointer": "translations/uk/explanation",
+      "old": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Frau Kaya.",
+      "new": "Як представитися: про себе кажуть без Frau чи Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr – лише про інших: Das ist Herr Kaya."
+    },
+    {
+      "context": "P1-N3-E08",
+      "pointer": "translations/tr/explanation",
+      "old": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Frau Kaya.",
+      "new": "Kendini tanıtma: Kendi adınızı Frau veya Herr olmadan söyleyin: Ich heiße Emre Demir. Mein Name ist Demir. Frau/Herr sadece başkaları için: Das ist Herr Kaya."
+    },
+    {
+      "context": "P7-N5",
+      "pointer": "merkkarte/rule",
+      "old": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet. Satzklammer im Perfekt: haben oder sein steht auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. W-Frage: Was hast du am Wochenende gemacht? Ja-/Nein-Frage: Bist du mit dem Bus gefahren?",
+      "new": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet."
+    },
+    {
+      "context": "P7-N5",
+      "pointer": "merkkarte/translations/en/rule",
+      "old": "Perfect tense with haben – regular verbs: ge + stem + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. If the stem ends in -t or -d: ge…et: arbeiten → gearbeitet. Sentence bracket in the perfect tense: haben or sein in position 2, the participle at the end: Ich habe gestern Fußball gespielt. Wh-question: Was hast du am Wochenende gemacht? Yes/no question: Bist du mit dem Bus gefahren?",
+      "new": "Perfect tense with haben – regular verbs: ge + stem + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. If the stem ends in -t or -d: ge…et: arbeiten → gearbeitet."
+    },
+    {
+      "context": "P7-N5",
+      "pointer": "merkkarte/translations/ru/rule",
+      "old": "Perfekt с haben – правильные глаголы: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Если основа оканчивается на -t или -d: ge…et: arbeiten → gearbeitet. Рамочная конструкция в Perfekt: haben или sein – на 2-м месте, причастие – в конце: Ich habe gestern Fußball gespielt. Вопрос с вопросительным словом: Was hast du am Wochenende gemacht? Общий вопрос: Bist du mit dem Bus gefahren?",
+      "new": "Perfekt с haben – правильные глаголы: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Если основа оканчивается на -t или -d: ge…et: arbeiten → gearbeitet."
+    },
+    {
+      "context": "P7-N5",
+      "pointer": "merkkarte/translations/uk/rule",
+      "old": "Perfekt із haben – правильні дієслова: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Якщо основа закінчується на -t або -d: ge…et: arbeiten → gearbeitet. Рамкова конструкція в Perfekt: haben або sein – на 2-му місці, дієприкметник – у кінці: Ich habe gestern Fußball gespielt. Запитання з питальним словом: Was hast du am Wochenende gemacht? Загальне запитання: Bist du mit dem Bus gefahren?",
+      "new": "Perfekt із haben – правильні дієслова: ge + основа + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Якщо основа закінчується на -t або -d: ge…et: arbeiten → gearbeitet."
+    },
+    {
+      "context": "P7-N5",
+      "pointer": "merkkarte/translations/tr/rule",
+      "old": "haben ile Perfekt – düzenli fiiller: ge + kök + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Kök -t ya da -d ile bitiyorsa: ge…et: arbeiten → gearbeitet. Perfekt’te cümle çerçevesi: haben ya da sein 2. sırada, ortaç sonda: Ich habe gestern Fußball gespielt. Soru kelimeli soru: Was hast du am Wochenende gemacht? Evet/hayır sorusu: Bist du mit dem Bus gefahren?",
+      "new": "haben ile Perfekt – düzenli fiiller: ge + kök + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Kök -t ya da -d ile bitiyorsa: ge…et: arbeiten → gearbeitet."
+    },
+    {
+      "context": "P7-N7",
+      "pointer": "merkkarte/rule",
+      "old": "Perfekt mit sein: Verben der Bewegung von A nach B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Die meisten anderen Verben bilden das Perfekt mit haben: Ich habe geschlafen.",
+      "new": "Perfekt mit sein: Verben der Bewegung von A nach B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Die meisten anderen Verben bilden das Perfekt mit haben: Ich habe geschlafen. Satzklammer im Perfekt: Im Aussagesatz und in der W-Frage steht die Form von haben oder sein auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? In der Ja-/Nein-Frage steht haben oder sein am Anfang: Bist du mit dem Bus gefahren?"
+    },
+    {
+      "context": "P7-N7",
+      "pointer": "merkkarte/translations/en/rule",
+      "old": "Perfect tense with sein: verbs of movement from A to B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Most other verbs use haben: Ich habe geschlafen.",
+      "new": "Perfect tense with sein: verbs of movement from A to B: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Most other verbs use haben: Ich habe geschlafen. Sentence bracket in the perfect tense: in a statement and a wh-question, the form of haben or sein is in position 2 and the participle is at the end: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? In a yes/no question, haben or sein comes first: Bist du mit dem Bus gefahren?"
+    },
+    {
+      "context": "P7-N7",
+      "pointer": "merkkarte/translations/ru/rule",
+      "old": "Perfekt с sein: глаголы движения из пункта А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Большинство других глаголов – с haben: Ich habe geschlafen.",
+      "new": "Perfekt с sein: глаголы движения из пункта А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Большинство других глаголов – с haben: Ich habe geschlafen. Рамочная конструкция в Perfekt: в повествовательном предложении и вопросе с вопросительным словом форма haben или sein стоит на втором месте, причастие — в конце: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? В общем вопросе haben или sein стоит в начале: Bist du mit dem Bus gefahren?"
+    },
+    {
+      "context": "P7-N7",
+      "pointer": "merkkarte/translations/uk/rule",
+      "old": "Perfekt із sein: дієслова руху з пункту А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Більшість інших дієслів – із haben: Ich habe geschlafen.",
+      "new": "Perfekt із sein: дієслова руху з пункту А в пункт Б: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Більшість інших дієслів – із haben: Ich habe geschlafen. Рамкова конструкція в Perfekt: у розповідному реченні та запитанні з питальним словом форма haben або sein стоїть на другому місці, дієприкметник — у кінці: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? У загальному запитанні haben або sein стоїть на початку: Bist du mit dem Bus gefahren?"
+    },
+    {
+      "context": "P7-N7",
+      "pointer": "merkkarte/translations/tr/rule",
+      "old": "sein ile Perfekt: A’dan B’ye hareket bildiren fiiller: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Diğer fiillerin çoğu haben ile: Ich habe geschlafen.",
+      "new": "sein ile Perfekt: A’dan B’ye hareket bildiren fiiller: gehen → ich bin gegangen, fahren → ich bin gefahren, kommen → ich bin gekommen. Diğer fiillerin çoğu haben ile: Ich habe geschlafen. Perfekt’te cümle çerçevesi: Düz cümlede ve soru kelimeli soruda haben ya da sein fiilinin çekimli biçimi 2. sırada, ortaç sondadır: Ich habe gestern Fußball gespielt. Was hast du am Wochenende gemacht? Evet/hayır sorusunda haben ya da sein başta yer alır: Bist du mit dem Bus gefahren?"
+    },
+    {
+      "context": "P5-N2-E06",
+      "pointer": "content/question",
+      "old": "Es ist 8:59. Oleh sagt: „Es ist … neun.“",
+      "new": "Es ist 8:59. Oleh sagt: „Es ist ___ neun.“"
+    },
+    {
+      "context": "P6-N5-E01",
+      "pointer": "content/question",
+      "old": "Oleh fährt immer Bus. Er hat … Fahrrad.",
+      "new": "Oleh fährt immer Bus. Er hat ___ Fahrrad."
+    }
+  ],
+  "allUnassignedExercisesAndParentMetadataExact": true,
+  "allIdsKeysOptionsRanksPartsUnchanged": true,
+  "otherNineSeedFilesByteExact": true,
+  "allSchemasValidatedExercises": 9569,
+  "nativeBuilderParity": {
+    "levels": [
+      "A1.2",
+      "A2.1",
+      "A2.2",
+      "B1.1",
+      "B1.2",
+      "B2.1",
+      "B2.2",
+      "C1.1",
+      "C1.2"
+    ],
+    "passed": 9,
+    "nodeTestsPassed": 16,
+    "nodeTestsFailed": 0,
+    "a11": "A1.1 has no separate native author source/builder. Its seed is the native source; schema and exact bound full-source comparison passed."
+  },
+  "audioRows": [
+    {
+      "id": "e42167d3-36c4-5270-a696-406897292843",
+      "ref": "P5-N2-E06",
+      "oldAlias": "sitov-path-adoption-33:e42167d3-36c4-5270-a696-406897292843:0",
+      "canonicalCatalogOrigin": "path-seed:e42167d3-36c4-5270-a696-406897292843:0",
+      "aliasIdentityPreserved": true,
+      "oldCanonical": [
+        "Es ist 8:59. Oleh sagt: „Es ist … neun.“ gleich"
+      ],
+      "newCanonical": [
+        "Es ist 8:59. Oleh sagt: „Es ist gleich neun.“"
+      ],
+      "oldSha256": "7e3ae619d806186772dc56434ac6e530c6f63f547c7b4478ddfef3a103fd330d",
+      "newSha256": "2fe4a566139111140da3250281c30c2590aa2b5ba9b80474aeadb20322383c0d"
+    },
+    {
+      "id": "c0ae363d-6c1f-58a7-a381-b7e206815e1f",
+      "ref": "P6-N5-E01",
+      "oldAlias": "sitov-path-adoption-33:c0ae363d-6c1f-58a7-a381-b7e206815e1f:0",
+      "canonicalCatalogOrigin": "path-seed:c0ae363d-6c1f-58a7-a381-b7e206815e1f:0",
+      "aliasIdentityPreserved": true,
+      "oldCanonical": [
+        "Oleh fährt immer Bus. Er hat … Fahrrad. kein"
+      ],
+      "newCanonical": [
+        "Oleh fährt immer Bus. Er hat kein Fahrrad."
+      ],
+      "oldSha256": "83952c7bc1f8c6ece5f38fbec41795f04d36ad9955762a1db7a861ff91a9234e",
+      "newSha256": "88351ddc12a76bfd848bfe2f70668babf6f7d6e85bc9583fdcefa702af97abd1"
+    }
+  ],
+  "bothCanonicalExtractorsComparedTasks": 9569,
+  "changedAudioAliases": 2,
+  "allOtherCanonicalAudioPayloadsExact": true,
+  "humanHearing": false,
+  "diffCheck": "PASS",
+  "independentBoundProof": {
+    "base": "c73be5b6c304739e76b5df7427a97c79bf4ca5d9",
+    "wholeA11EqualsOnlyBoundS7ProposalsAndAuthorizedNodeMirrors": true,
+    "exactScalarChanges": 27,
+    "threeP1N3TasksNowMatchParentAllFiveLocales": true,
+    "P7N5MatchesRegularParticipleFirstExplanationAllFiveLocales": true,
+    "P7N7ExactS7FiveLocaleSupplement": true,
+    "P7N7ScopedParentExplanationExceptionRequiredAtMIntegration": true,
+    "A11SeparateNativeBuilderExists": false,
+    "a11SchemaAndExactComparisonPassed": true
+  },
+  "privateEvidence": {
+    "epoch39-bound-S7-review.json": {
+      "path": "S2/epoch39-bound-S7-review.json",
+      "bytes": 250139,
+      "sha256": "276dfffcf5a07799c1fd798064b559a3216d7de94486ba34cd2844e95d69a72e"
+    },
+    "epoch39-old-new-full.json": {
+      "path": "S2/epoch39-old-new-full.json",
+      "bytes": 388264,
+      "sha256": "03d8fc7ef5c7e6b200cda84e118a9cdd48a79540343c64fde7e569183f92d1c3"
+    },
+    "epoch39-independent-proof.json": {
+      "path": "S2/epoch39-independent-proof.json",
+      "bytes": 480,
+      "sha256": "a6b1d98f0e135abe10e7baa1c4ebe8b74b3264293d6c44159505b512207e7a2a"
+    },
+    "epoch39-final-canonical-audio.json": {
+      "path": "S2/epoch39-final-canonical-audio.json",
+      "bytes": 2206,
+      "sha256": "75ee96f77b6654f557d9c16b8552f96a4f93ad33485cdcf3545f801a4cc490d8"
+    },
+    "epoch39-native-tests.log": {
+      "path": "S2/epoch39-native-tests.log",
+      "bytes": 1451,
+      "sha256": "b0e17bb70d7e9150a755f30473ba0a2b1e25815693b87f5eeb028994d5710b30"
+    },
+    "epoch39-repair.py": {
+      "path": "S2/epoch39-repair.py",
+      "bytes": 5403,
+      "sha256": "cb994a582d044dfe30a010d92a1b8d5507ed7a43212ea79a2a93f8eef1a5eb9d"
+    },
+    "epoch39-validate-audio.ts": {
+      "path": "S2/epoch39-validate-audio.ts",
+      "bytes": 3357,
+      "sha256": "fc96d78cdaa7b32dca95cd36f345e69eae0afa4c18a3ffd7f3c6e1575b703433"
+    }
+  },
+  "requiredMFollowup": [
+    "Re-review the two card changes and three synchronized P1-N3 explanations.",
+    "Remove obsolete P1-N3 and P7-N5 parent/first-explanation exceptions in M-owned regression bindings; add exact P7-N7 scoped exception.",
+    "Prepare and import the two changed canonical German utterances with verified word timings locally before publication."
+  ],
+  "operationsPerformed": {
+    "database": false,
+    "ssh": false,
+    "model": false,
+    "audioSynthesis": false,
+    "import": false,
+    "push": false,
+    "deploy": false
+  }
+}
