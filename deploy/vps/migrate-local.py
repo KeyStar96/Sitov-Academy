@@ -23,6 +23,8 @@ ORDER.append('112_sitov_legacy_metadata_performance.sql')
 ORDER.append('113_sitov_staff_legacy_verb_scope.sql')
 ORDER.append('114_sitov_path_content_revisions.sql')
 ORDER.append('115_sitov_prepared_audio_variants.sql')
+ORDER.append('116_sitov_reviewed_audio_variants.sql')
+ORDER.append('117_sitov_spoken_clock_alignment.sql')
 AUTOCOMMIT={'08_performance_indexes.sql'}
 
 def run(args,**kwargs):

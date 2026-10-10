@@ -5,9 +5,11 @@ import { createHash } from 'node:crypto'
 const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8')
 const registry=JSON.parse(read('lib/audio/models/sitov-qwen-male-de/approved-variants.json'))
 const sql=read('supabase/vps/115_sitov_prepared_audio_variants.sql')
+const reviewed=read('supabase/vps/116_sitov_reviewed_audio_variants.sql')
+const clocks=read('supabase/vps/117_sitov_spoken_clock_alignment.sql')
 test('SQL seven text/hash/tag bindings exactly match the narrow registry',()=>{
  const bindings=[...sql.matchAll(/\('([^']+)','([a-f0-9]{64})','(sitov-audio-repair-20261010-v1)'\)/g)].map(([,text,textSha256,variant])=>({text,textSha256,variant}))
- assert.deepEqual(bindings,registry.variants);assert.equal(bindings.length,7)
+ assert.deepEqual(bindings,registry.variants.filter(row=>row.variant==='sitov-audio-repair-20261010-v1'));assert.equal(bindings.length,7)
  for(const row of bindings)assert.equal(row.textSha256,createHash('sha256').update(row.text.normalize('NFC')).digest('hex'))
  assert.match(sql,/v\.source_text=spoken AND v\.text_sha256=/)
  assert.match(sql,/,"variant":/)
@@ -21,10 +23,24 @@ test('SQL seven text/hash/tag bindings exactly match the narrow registry',()=>{
 })
 test('migration mirror/schema tail/runner ordering are exact and no old objects are written',()=>{
  assert.equal(sql,read('supabase/migrations/20261010003600_sitov_prepared_audio_variants.sql'))
- assert.ok(read('supabase/schema.sql').endsWith(sql))
+ const schema=read('supabase/schema.sql')
+ assert.ok(schema.includes(sql));assert.ok(schema.endsWith(clocks))
  const runner=read('deploy/vps/migrate-local.py');assert.match(runner,/ORDER.append\('114_sitov_path_content_revisions.sql'\)\nORDER.append\('115_sitov_prepared_audio_variants.sql'\)/)
  assert.doesNotMatch(sql,/\b(?:UPDATE|INSERT INTO|DELETE FROM)\s+(?:storage|public|sitov_pronunciation_private|path_private)\./i)
  assert.match(sql,/FROM PUBLIC,anon,authenticated,service_role/)
+})
+test('final thirteen reviewed keys and ordered clock migration reach the release runner',()=>{
+ const bindings=[...reviewed.matchAll(/\('([^']+)','([a-f0-9]{64})','(sitov-audio-repair-20261010-v[12])'\)/g)].map(([,text,textSha256,variant])=>({text,textSha256,variant}))
+ assert.deepEqual(bindings,registry.variants);assert.equal(bindings.length,13)
+ for(const row of bindings)assert.equal(row.textSha256,createHash('sha256').update(row.text.normalize('NFC')).digest('hex'))
+ assert.equal(reviewed,read('supabase/migrations/20261010094000_sitov_reviewed_audio_variants.sql'))
+ assert.equal(clocks,read('supabase/migrations/20261010094500_sitov_spoken_clock_alignment.sql'))
+ const schema=read('supabase/schema.sql');assert.ok(schema.indexOf(reviewed)>schema.indexOf(sql));assert.ok(schema.endsWith(clocks))
+ assert.match(read('deploy/vps/migrate-local.py'),/ORDER.append\('115_sitov_prepared_audio_variants.sql'\)\nORDER.append\('116_sitov_reviewed_audio_variants.sql'\)\nORDER.append\('117_sitov_spoken_clock_alignment.sql'\)/)
+ for(const source of [reviewed,clocks]){
+  assert.doesNotMatch(source,/\b(?:UPDATE|INSERT INTO|DELETE FROM)\s+(?:storage|public|sitov_pronunciation_private|path_private)\./i)
+  assert.match(source,/FROM PUBLIC,anon,authenticated,service_role/)
+ }
 })
 test('prepared proof patch changes only the reviewed old address-construction block',()=>{
  const old=sql.match(/previous constant text:=\$old\$([\s\S]*?)\$old\$/)[1]

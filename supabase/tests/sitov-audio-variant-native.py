@@ -10,7 +10,10 @@ def sha(s):return hashlib.sha256(s.encode()).hexdigest()
 def normalize(s):return re.sub(r'[\t\n\v\f\r \u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]+',' ',unicodedata.normalize('NFC',s)).strip(' ')
 profile=json.loads((root/'lib/audio/models/sitov-qwen-male-de/config.json').read_text());fp=sha(json.dumps(profile,sort_keys=True,separators=(',',':'),ensure_ascii=False))
 registry=json.loads((root/'lib/audio/models/sitov-qwen-male-de/approved-variants.json').read_text())
-variants={r['text']:r['variant']for r in registry['variants']}
+# This historical rollback fixture exercises migration115's seven original
+# keys. The full thirteen-key116/117 fixture is a separate bounded proof.
+variants={r['text']:r['variant']for r in registry['variants'] if r['variant']=='sitov-audio-repair-20261010-v1'}
+assert len(variants)==7
 def path(text,variant=True):
  spoken=normalize(text);identity={'text':spoken,'voice':profile['voice'],'rate':'qwen-native-1-lufs-18-aligned-v1','format':'audio-24khz-48kbitrate-mono-mp3','leadIn':.35,'profile':fp}
  if variant and spoken in variants:identity['variant']=variants[spoken]
