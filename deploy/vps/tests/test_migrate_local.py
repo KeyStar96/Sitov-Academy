@@ -269,7 +269,7 @@ class MigrationFailureTests(unittest.TestCase):
         content = source.read_text()
         self.assertEqual((SQL_DIR / name).read_text(), content)
         self.assertIn(name, MIGRATION.ORDER)
-        self.assertEqual(MIGRATION.ORDER[-1], '121_sitov_pretest_publication_marks.sql')
+        self.assertEqual(MIGRATION.ORDER[-1], '122_sitov_learner_read_performance.sql')
         self.assertLess(MIGRATION.ORDER.index(name), MIGRATION.ORDER.index(MIGRATION.ORDER[-1]))
         self.assertLess(MIGRATION.ORDER.index('112_sitov_legacy_metadata_performance.sql'), MIGRATION.ORDER.index(name))
         self.assertLess(MIGRATION.ORDER.index('110_sitov_storage_definer_execution.sql'), MIGRATION.ORDER.index(name))

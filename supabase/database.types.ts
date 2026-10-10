@@ -2440,6 +2440,7 @@ export type Database = {
         Returns: Json
       }
       get_learning_new_counts: { Args: never; Returns: Json }
+      get_sitov_vocabulary_level_counts: { Args: never; Returns: Json }
       get_learning_new_items: { Args: { p_level: string }; Returns: Json }
       mark_learning_seen: {
         Args: { p_kind: string; p_object_key: string }
