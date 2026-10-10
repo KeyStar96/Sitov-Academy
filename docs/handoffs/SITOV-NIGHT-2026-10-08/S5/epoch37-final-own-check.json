@@ -1,0 +1,137 @@
+{
+  "phase": "finalAfterConfirmedNormalLogout",
+  "attempts": 1,
+  "passes": 1,
+  "status": "passed",
+  "exactAttemptAndPassHashesUnchanged": true,
+  "finalOwnStateHashes": {
+    "public.path_node_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.sitov_verb_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_unit_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.student_level_access": "1cdabbf5f97627f0e5c28e49ae91c820",
+    "public.learning_first_visits": "b54c258e43e00cbcca4733d3bb784966",
+    "public.learning_activity_days": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_seen_receipts": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_trainer_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.vocabulary_direction_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "sitov_pronunciation_private.pretest_passes": "37aaa4e3caddfbf365396d81ff083ac7",
+    "sitov_pronunciation_private.pretest_attempts": "a7854c6a51cf9e69e5fd0cb4a5a52ebd",
+    "sitov_pronunciation_private.pretest_receipts": "b4cd6da9898414657182606551aff4e4"
+  },
+  "ownAuthIdentityEmailGuardPassed": true,
+  "ownAuthCounts": {
+    "auth.users": 1,
+    "auth.sessions": 0,
+    "auth.refresh_tokens": 0
+  },
+  "ownUILanguage": "tr",
+  "observations": [
+    {
+      "at": "2026-10-10T05:45:02.275053+00:00",
+      "memAvailableMiB": 2280.5546875,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 173174784,
+      "gatewayPeakBytes": 177704960,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-10T03:34:50.216594244Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T17:16:29.252379601Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T17:15:58.569281779Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T17:15:58.18032093Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T17:16:28.902042175Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    },
+    {
+      "at": "2026-10-10T05:45:03.642144+00:00",
+      "memAvailableMiB": 2285.1171875,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 173125632,
+      "gatewayPeakBytes": 177704960,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-10T03:34:50.216594244Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T17:16:29.252379601Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T17:15:58.569281779Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T17:15:58.18032093Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T17:16:28.902042175Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ],
+  "fixtureRetained": true,
+  "newActors": 0,
+  "newAttempts": 0,
+  "full188Repeated": false,
+  "boundFull188BaselineEpoch": 35
+}

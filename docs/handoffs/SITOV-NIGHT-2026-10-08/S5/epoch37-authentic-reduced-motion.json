@@ -1,0 +1,13 @@
+{
+  "nativeSetting": "macOS Bedienungshilfen > Bewegung > Bewegung reduzieren",
+  "initialNativeValue": "off",
+  "changedThroughNativeUI": true,
+  "nativeEnabled": true,
+  "browserMedia": {
+    "reduced": true
+  },
+  "nativeRestored": "off",
+  "restoredBrowserMedia": {
+    "reduced": false
+  }
+}

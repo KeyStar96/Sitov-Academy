@@ -1,0 +1,1146 @@
+[
+  {
+    "case": "tr390-light-high-repeat-focus",
+    "before": {
+      "active": "Yavaş tekrar et",
+      "activeRect": {
+        "bottom": 438.0546875,
+        "height": 48,
+        "right": 189.796875,
+        "width": 139,
+        "x": 50.796875,
+        "y": 390.0546875
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": -88.7862548828125,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 940.25,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 868.25
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2435.5,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Yavaş tekrar et",
+      "activeRect": {
+        "bottom": 438.0546875,
+        "height": 48,
+        "right": 189.796875,
+        "width": 139,
+        "x": 50.796875,
+        "y": 390.0546875
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": -88.7862548828125,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 940.25,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 868.25
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2435.5,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-reverse-initial",
+    "before": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 731.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 659.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": 119.7137451171875,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 731.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 659.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2644,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 731.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 659.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": 119.7137451171875,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 731.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 659.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2644,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-help-pageup-before-reverse",
+    "before": {
+      "active": "Yardım",
+      "activeRect": {
+        "bottom": 1295.25,
+        "height": 48,
+        "right": 372,
+        "width": 354,
+        "x": 18,
+        "y": 1247.25
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": -363.4375,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1124.25,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 1052.25
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2251.5,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Yardım",
+      "activeRect": {
+        "bottom": 1295.25,
+        "height": 48,
+        "right": 372,
+        "width": 354,
+        "x": 18,
+        "y": 1247.25
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": -363.4375,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1124.25,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 1052.25
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2251.5,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-reverse-from-pageup",
+    "before": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 447.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 375.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": 403.7137451171875,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 447.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 375.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2926,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 447.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 375.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": 403.7137451171875,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 447.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 375.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2926,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-help-end-up-before-reverse",
+    "before": {
+      "active": "Yardım",
+      "activeRect": {
+        "bottom": 697.75,
+        "height": 48,
+        "right": 372,
+        "width": 354,
+        "x": 18,
+        "y": 649.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 234.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2849,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Yardım",
+      "activeRect": {
+        "bottom": 697.75,
+        "height": 48,
+        "right": 372,
+        "width": 354,
+        "x": 18,
+        "y": 649.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 234.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2849,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-reverse-visible-nav",
+    "before": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 234.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2849,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 234.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2849,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-help-near-nav-before-reverse",
+    "before": {
+      "active": "Yardım",
+      "activeRect": {
+        "bottom": 897.75,
+        "height": 48,
+        "right": 372,
+        "width": 354,
+        "x": 18,
+        "y": 849.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 34.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 726.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 654.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2649,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Yardım",
+      "activeRect": {
+        "bottom": 897.75,
+        "height": 48,
+        "right": 372,
+        "width": 354,
+        "x": 18,
+        "y": 849.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 34.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 726.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 654.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2649,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-reverse-near-nav",
+    "before": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 726.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 654.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 34.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 726.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 654.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2649,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 726.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 654.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 34.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 726.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 654.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2649,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-forward-record",
+    "before": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 731.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 659.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": 119.7137451171875,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 731.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 659.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2644,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 731.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 659.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": 119.7137451171875,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 731.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 659.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 2644,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-reading-pageup",
+    "before": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 1459.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 1387.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": -698.9375,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1459.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 1387.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 1916,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 1459.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 1387.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": -698.9375,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1459.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 1387.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": false,
+      "scrollTop": 1916,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-reduced-reverse",
+    "before": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 234.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": true,
+      "scrollTop": 2849,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": 234.0625,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 526.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 454.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": true,
+      "scrollTop": 2849,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-reduced-repeat",
+    "before": {
+      "active": "Yavaş tekrar et",
+      "activeRect": {
+        "bottom": 498.5546875,
+        "height": 48,
+        "right": 189.796875,
+        "width": 139,
+        "x": 50.796875,
+        "y": 450.5546875
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": -239.9375,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1000.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 928.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": true,
+      "scrollTop": 2375,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Yavaş tekrar et",
+      "activeRect": {
+        "bottom": 498.5546875,
+        "height": 48,
+        "right": 189.796875,
+        "width": 139,
+        "x": 50.796875,
+        "y": 450.5546875
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "1",
+      "navRect": {
+        "bottom": 834,
+        "height": 73.1875,
+        "right": 378,
+        "width": 366,
+        "x": 12,
+        "y": 760.8125
+      },
+      "navVisibility": "visible",
+      "recordClearanceToNav": -239.9375,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 1000.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 928.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": true,
+      "scrollTop": 2375,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  },
+  {
+    "case": "tr390-light-high-reduced-forward-record",
+    "before": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 449.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 377.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": 401.7137451171875,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 449.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 377.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": true,
+      "scrollTop": 2926,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "after": {
+      "active": "Kayda başla",
+      "activeRect": {
+        "bottom": 449.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 377.75
+      },
+      "contrast": "high",
+      "height": 844,
+      "lang": "tr",
+      "navOpacity": "0",
+      "navRect": {
+        "bottom": 923.1875,
+        "height": 71.7237548828125,
+        "right": 374.3399963378906,
+        "width": 358.67999267578125,
+        "x": 15.660003662109377,
+        "y": 851.4637451171875
+      },
+      "navVisibility": "hidden",
+      "recordClearanceToNav": 401.7137451171875,
+      "recordEnabled": true,
+      "recordRect": {
+        "bottom": 449.75,
+        "height": 72,
+        "right": 353,
+        "width": 316,
+        "x": 37,
+        "y": 377.75
+      },
+      "recordScrollMarginEnd": "112px",
+      "reduced": true,
+      "scrollTop": 2926,
+      "scrollWidth": 390,
+      "theme": "light",
+      "width": 390,
+      "wordCount": 40,
+      "wordOverlaps": []
+    },
+    "stationary": true
+  }
+]
