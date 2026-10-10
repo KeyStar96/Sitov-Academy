@@ -80,11 +80,33 @@ class CombinedTests(unittest.TestCase):
   with self.assertRaises(ValueError):m.batches([{'x':'a'*1000}],max_bytes=100)
   attack="'; $sitov_combined_before$ COMMIT; DROP TABLE x; --"
   self.assertNotIn(attack,m.literal({'x':attack}));self.assertNotIn('DROP TABLE x',m.literal({'x':attack}))
- def test_readonly_recovery_never_blind_retry(self):
-  p,i=inputs();rows=m.validate_sources(p,i);plan={'parents':p,'rows':rows};row=rows[0]
-  obs=dict(exercises={row['id']:row['beforeFull']},parents={f.NODE:p['nodes'][0]['before']},objectives={f.UNIT+'/P1-G1':p['objectives'][0]['before']},archives=[],receipts=[])
-  self.assertEqual(m.classify(plan,obs),'OLD_REVIEW_REQUIRED');obs['exercises'][row['id']]=row['afterFull'];self.assertEqual(m.classify(plan,obs),'MIXED_OR_CHANGED_ABORT')
-  obs['parents'][f.NODE]=p['nodes'][0]['after'];obs['objectives'][f.UNIT+'/P1-G1']=p['objectives'][0]['after'];self.assertEqual(m.classify(plan,obs),'NEW_NATIVE_ARCHIVE_VERIFICATION_REQUIRED')
-  self.assertEqual(m.classify(plan,{}),'INCOMPLETE_READBACK_ABORT')
+ def recovery_fixture(self):
+  p,i=inputs();rows=m.validate_sources(p,i);rows[0]['review']={'approved':True,'reviewer':'synthetic','binding':rows[0]['sourceBinding']};plan={'parents':p,'rows':rows,'requestIds':[f.NODE]};row=rows[0];e=row['beforeFull']['exercise'];url='storage://audio_cache/sitov-qwen-v1/de/'+'a'*64+'.mp3'
+  full=copy.deepcopy(row['afterFull']);full['exercise']['solution_audio_url']=url
+  projection={k:e[k]for k in ('id','type','unit_id','node_id','goal_id','source_ref','sort_order')};projection.update(row['after']);before=copy.deepcopy(projection);before.update(content=e['content'],topic=e['topic'],explanation_card=e['explanation_card'],translations={t['locale']:{k:t[k]for k in m.TR_FIELDS}for t in row['beforeFull']['translations']})
+  review=row['review']|{'before_hash':'a'*64,'after_hash':'b'*64}
+  a=dict(exercise_id=row['id'],request_id=f.NODE,before_projection=before,after_projection=projection,before_full=row['beforeFull'],after_full=full,before_hash='a'*64,after_hash='b'*64,actor_role='service_role',review_evidence=review)
+  item=dict(id=row['id'],expected_hash='a'*64,after=projection,review=review)
+  parent=copy.deepcopy(p['nodes'][0]['after']);parent['node']['updated_at']='2026-02-01T00:00:00+00:00'
+  obs=dict(planSHA256=m.sha(plan),complete=True,readOnly=True,privileged=True,role='none',exercises={row['id']:dict(full=full,projection=projection,projectionHash='b'*64,beforeProjectionHash='a'*64,derivedPreparedURL=url)},parents={f.NODE:parent},objectives={f.UNIT+'/P1-G1':p['objectives'][0]['after']},archives=[dict(record=a,beforeHashRecomputed='a'*64,afterHashRecomputed='b'*64)],receipts=[dict(record=dict(request_id=f.NODE,payload=[item],result=[dict(id=row['id'],before_hash='a'*64,after_hash='b'*64)]),payloadOctets=500)])
+  return plan,obs
+ def test_strict_recovery_new_and_old_no_writer(self):
+  plan,obs=self.recovery_fixture();self.assertEqual(m.classify(plan,obs),'NEW_VERIFIED');row=plan['rows'][0]
+  obs['exercises'][row['id']]['full']=row['beforeFull'];obs['exercises'][row['id']]['derivedPreparedURL']=None;obs['parents'][f.NODE]=plan['parents']['nodes'][0]['before'];obs['objectives'][f.UNIT+'/P1-G1']=plan['parents']['objectives'][0]['before'];obs['archives']=[];obs['receipts']=[]
+  self.assertEqual(m.classify(plan,obs),'OLD_REVIEW_REQUIRED')
+  self.assertEqual(m.classify(plan,{}),'MIXED_OR_CHANGED_ABORT')
+ def test_recovery_receipt_hash_url_actor_unknownfield_negatives(self):
+  plan,base=self.recovery_fixture();eid=plan['rows'][0]['id']
+  edits=[lambda o:o['receipts'].clear(),lambda o:o['receipts'][0]['record']['payload'][0].update(expected_hash='c'*64),lambda o:o['archives'][0]['record'].update(actor_role='postgres'),lambda o:o['archives'][0].update(afterHashRecomputed='c'*64),lambda o:o['exercises'][eid]['full']['exercise'].update(solution_audio_url=None),lambda o:o['exercises'][eid]['full']['exercise'].update(future={'keep':False}),lambda o:o.update(planSHA256='c'*64),lambda o:o.update(readOnly=False),lambda o:o['receipts'][0].update(payloadOctets=1500001)]
+  for edit in edits:
+   obs=copy.deepcopy(base);edit(obs)
+   with self.subTest(edit=edit):self.assertEqual(m.classify(plan,obs),'MIXED_OR_CHANGED_ABORT')
+ def test_bounded_readonly_collector_and_wrong_sha(self):
+  from datetime import datetime,timezone,timedelta
+  plan,obs=self.recovery_fixture();deadline=(datetime.now(timezone.utc)+timedelta(minutes=2)).isoformat();sql=m.collector_sql(plan,m.sha(plan),deadline)
+  self.assertIn('BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY',sql);self.assertIn("work_mem='4MB'",sql);self.assertIn("statement_timeout='15s'",sql);self.assertIn('LIMIT 6',sql);self.assertIn('beforeHashRecomputed',sql);self.assertIn('sitov_prepared_german_audio_url',sql)
+  self.assertNotIn('sitov_revise_path_content',sql);self.assertNotIn('INSERT INTO',sql);self.assertNotIn('UPDATE public.',sql)
+  with self.assertRaises(ValueError):m.collector_sql(plan,'c'*64,deadline)
+  with self.assertRaises(ValueError):m.parse_collector(plan,'{}')
 
 if __name__=='__main__':unittest.main()

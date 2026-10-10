@@ -1,0 +1,19 @@
+# Sitov Academy — Epoch 42: Read-only-Recovery-Entwurf
+
+Basis `9a3cec57d6b292436960938b899d5f1209f5bb00`. Combined-CAS enthält jetzt einen Offline-Emitter `collector_sql(plan, canonical_plan_sha, deadline)` und einen reinen Verifier `classify(plan, observed)` mit `parse_collector` für JSONL. Das Tool selbst verbindet sich niemals zur Datenbank und ruft bei unklarem ACK niemals den Writer auf.
+
+Der Collector emittiert REPEATABLE READ READ ONLY, 15s Statement-/Idle-Timeout, 2s Lock-Timeout und 4MB work_mem. Eine explizite zukünftige Frist bis maximal 15 Minuten, privilegierter Eigentümer, Rolle none und tatsächlicher Read-only-Modus werden vor jeder begrenzten Abfrage geprüft. Ausgaben sind je Parent, Objective und Exercise einzelne JSONL-Zeilen; Übersetzungen sind auf sechs begrenzt, Archiv-/Receipt-Ausgaben auf Planumfang+1. Keine 421er-/Historien-Gesamtaggregation. Native Before-/After-Projection-Hashes werden im PostgreSQL-Prozess neu berechnet. Für relevante neue Zustände wird die exakte SQL71-/115-Prepared-URL erneut über den echten Adapter abgeleitet; externe Aufnahmen bleiben unverändert.
+
+CLI-Erweiterung: bestehende explizit gehashte Parent-/Inventar-/Revieweingaben plus `--collector-deadline` und `--plan-sha256` erzeugen ausschließlich Collector-SQL. Plan-SHA ist SHA256 der bestehenden `canonical(plan)`-Serialisierung. `--reviewed-commit` ist im Collector-Modus verboten. Output bleibt exklusiv 0600.
+
+OLD wird ausschließlich bei exakten vollständigen Vorherbildern und ohne Archiv/Receipt akzeptiert und heißt weiter `OLD_REVIEW_REQUIRED`. NEW_VERIFIED verlangt vollständige Nachherbilder einschließlich dynamisch korrekter Audio-URL, vollständige alte/neue Archivbilder, aktuelle und archivierte Projektionen, native neu berechnete Hashes, genaue quellengebundene Review-Evidenz, actor_role service_role, eindeutige Archiv-/Receipt-Zuordnung, deterministische Request-IDs, sortierte lückenlose ID-Abdeckung, native Batch-Oktettgrenzen sowie exakte Payloads und Resultate. Gemischte, fehlende oder veränderte Daten werden abgelehnt. Parent updated_at bleibt ausschließlich der bereits zugelassene serverseitige Zeitstempel und muss gegenüber dem alten Bild fortgeschritten sein.
+
+`python3 -m unittest discover -s deploy/vps/tests -p 'test_sitov_path_*_cas.py' -v`: 19 PASS. CPU-Negative betreffen unter anderem falsche/fehlende Receipts, native Hashabweichung, Actor, neue unbekannte Felder, veraltete/falsche URLs, Plan-SHA, Read-only-Modus und Batchgröße. CLI help PASS.
+
+**Native Recovery ist ausdrücklich noch nicht nachgewiesen.** Ansatz eins wurde vor Fixture-BEGIN durch die engere Ausführungsgrenze gestoppt. Der geschützte 185er-Klonbestand wurde anschließend vollständig per Einzelzeilenstream erneut exakt bestätigt. Ansatz zwei scheiterte ebenfalls vor jeder Mutation an der strengen 15-Sekunden-Frischebedingung des vorangegangenen Baseline-Nachweises. Kein Writer und kein Collector wurden nativ ausgeführt; keine Freigabe wurde umgangen oder nach SAVE eine neue Phase begonnen.
+
+Letzter vollständiger Guard: `cfeb746a211c54255d8c4d519f92efe05637482f3f2ca34194f894ce32ef8814`, 3 Health-Prüfungen PASS, 2420 MiB verfügbar, null aktive Klon-Abfragen. Ausschließlich zugewiesener QA-Klon; keine Produktionsabfrage/-änderung, keine persistente DML/DDL, keine Audio-/Modell-/Publikationsaktion. Null offene Jobs.
+
+M muss tatsächliche OLD/NEW-Erhebung, SQL-Syntax und Read-only-Umschaltung, Archiv-/Receipt-Recovery samt fehlendem ACK ohne zweiten Writer sowie negative native Stale-/Hash-/URL-Fälle prüfen. Das ist ein reviewfähiger Entwurf; CPU-Erfolg ersetzt diese Gates nicht. Reale 421er-Freigaben wurden nicht erfunden. Release-ready=false.
+
+Private Nachweise: `S1/epoch42-proof-private.json`, `S1/epoch42-remote-evidence-private`, `S1/epoch42-resume-ledger.json` und `S1/epoch42-evidence-manifest-private.json` im Koordinationsverzeichnis; keine vollständigen Quellzeilen in Git.

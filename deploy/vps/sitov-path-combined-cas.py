@@ -290,35 +290,130 @@ def check_solution_url(old_url, exercise_type, derived_prepared_url, observed_ur
 
 
 def classify(plan, observed):
-    """Read-only offline classification of explicit M-collected full readback.
-
-    No retry/connection/write. Missing evidence or mixed state is never NEW.
-    Native collector and receipt/hash authenticity remain M's rehearsal gate.
-    """
+    """Pure verification; unknown acknowledgement never invokes a writer."""
     try:
+        require(observed['planSHA256'] == sha(plan) and observed['complete'] is True,
+                'incomplete or wrong plan')
+        require(observed['readOnly'] is True and observed['privileged'] is True
+                and observed['role'] == 'none', 'untrusted collector role')
         old, new = True, True
-        for row in plan['rows']:
-            actual = normalized_full(observed['exercises'][row['id']])
-            old &= actual == normalized_full(row['beforeFull'])
-            new &= actual == normalized_full(row['afterFull'])
+        require(set(observed['parents']) == {r['before']['node']['id'] for r in plan['parents']['nodes']}, 'parent coverage')
+        require(set(observed['exercises']) == {r['id'] for r in plan['rows']}, 'exercise coverage')
+        require(set(observed['objectives']) == {r['before']['unit_id']+'/'+r['before']['id'] for r in plan['parents']['objectives']}, 'objective coverage')
         for row in plan['parents']['nodes']:
             actual = normalized_full(observed['parents'][row['before']['node']['id']])
             old &= actual == normalized_full(row['before'])
             after = normalized_full(row['after']); actual_new = copy.deepcopy(actual)
-            actual_new['node'].pop('updated_at'); after['node'].pop('updated_at')
-            new &= actual_new == after
+            stamp = actual_new['node'].pop('updated_at'); prior = after['node'].pop('updated_at')
+            from datetime import datetime
+            new &= actual_new == after and datetime.fromisoformat(stamp) > datetime.fromisoformat(prior)
         for row in plan['parents']['objectives']:
-            key = row['before']['unit_id'] + '/' + row['before']['id']
-            old &= observed['objectives'][key] == row['before']
-            new &= observed['objectives'][key] == row['after']
+            actual = observed['objectives'][row['before']['unit_id']+'/'+row['before']['id']]
+            old &= actual == row['before']; new &= actual == row['after']
+        for row in plan['rows']:
+            record = observed['exercises'][row['id']]; actual = normalized_full(record['full'])
+            old &= actual == normalized_full(row['beforeFull'])
+            after = normalized_full(row['afterFull'])
+            e = row['beforeFull']['exercise']
+            try:
+                after['exercise']['solution_audio_url'] = expected_solution_url(e['solution_audio_url'], e['type'], record['derivedPreparedURL'])
+                new &= actual == after
+            except ValueError:
+                new = False
         archives, receipts = observed['archives'], observed['receipts']
         if old and not archives and not receipts: return 'OLD_REVIEW_REQUIRED'
-        # Fail closed: this draft intentionally requires separate native
-        # archive/receipt verification before any NEW state is accepted.
-        if new: return 'NEW_NATIVE_ARCHIVE_VERIFICATION_REQUIRED'
+        require(new, 'mixed or changed source')
+        require(len(archives) == len(plan['rows']) and 1 <= len(receipts) <= len(plan['rows']), 'archive/receipt counts')
+        by_id = {}; by_request = {}; expected_items = {}
+        for rec in archives:
+            a = rec['record']; eid = a['exercise_id']
+            require(eid not in by_id, 'duplicate archive'); by_id[eid] = a
+            source = next(r for r in plan['rows'] if r['id'] == eid)
+            current = observed['exercises'][eid]; projection = current['projection']
+            before = copy.deepcopy(projection); e = source['beforeFull']['exercise']
+            before.update(content=e['content'], topic=e['topic'], explanation_card=e['explanation_card'],
+                          translations={t['locale']:{k:t[k] for k in TR_FIELDS} for t in source['beforeFull']['translations']})
+            require(a['before_projection'] == before and a['after_projection'] == projection, 'archive projections')
+            for key in ('id','type','unit_id','node_id','goal_id','source_ref','sort_order'):
+                require(projection[key] == source['afterFull']['exercise'][key], 'projection immutable drift')
+            require(all(projection[k] == source['after'][k] for k in MUTABLE), 'projection after drift')
+            require(normalized_full(a['before_full']) == normalized_full(source['beforeFull'])
+                    and normalized_full(a['after_full']) == normalized_full(current['full']), 'archive full images')
+            require(a['actor_role'] == 'service_role' and a['before_hash'] == rec['beforeHashRecomputed'] == current['beforeProjectionHash']
+                    and a['after_hash'] == rec['afterHashRecomputed'] == current['projectionHash'], 'native hashes/actor')
+            review = source['review'] | {'before_hash':a['before_hash'], 'after_hash':a['after_hash']}
+            require(a['review_evidence'] == review, 'sourcebound review drift')
+            expected_items[eid] = {'id':eid,'expected_hash':a['before_hash'],'after':projection,'review':review}
+        require(set(by_id) == {r['id'] for r in plan['rows']}, 'archive coverage')
+        for rec in receipts:
+            r = rec['record']; req = r['request_id']; require(req not in by_request, 'duplicate receipt'); by_request[req] = rec
+        require(set(by_request) == set(plan['requestIds'][:len(receipts)]), 'deterministic request coverage')
+        seen = []
+        for req in plan['requestIds'][:len(receipts)]:
+            rec = by_request[req]; r = rec['record']; payload = r['payload']
+            require(isinstance(payload,list) and 1 <= len(payload) <= 100 and 0 < rec['payloadOctets'] <= MAX_BATCH, 'native batch bound')
+            ids = [v['id'] for v in payload]; require(ids == sorted(ids) and len(set(ids)) == len(ids), 'batch ID order')
+            require(payload == [expected_items[eid] for eid in ids], 'receipt payload drift')
+            require(r['result'] == [{'id':eid,'before_hash':by_id[eid]['before_hash'],'after_hash':by_id[eid]['after_hash']} for eid in ids], 'receipt result drift')
+            require(all(by_id[eid]['request_id'] == req for eid in ids), 'archive request mismatch')
+            seen.extend(ids)
+        require(seen == sorted(expected_items), 'global batch coverage/order')
+        return 'NEW_VERIFIED'
+    except (KeyError, TypeError, ValueError, StopIteration, OverflowError):
         return 'MIXED_OR_CHANGED_ABORT'
-    except (KeyError, TypeError, ValueError):
-        return 'INCOMPLETE_READBACK_ABORT'
+
+
+def collector_sql(plan, plan_sha, deadline):
+    """Emit bounded owner READ ONLY JSONL SQL; never execute or retry."""
+    from datetime import datetime, timezone, timedelta
+    require(plan_sha == sha(plan), 'explicit canonical plan SHA mismatch')
+    end = datetime.fromisoformat(deadline)
+    now = datetime.now(timezone.utc)
+    require(end.tzinfo is not None and now < end <= now+timedelta(minutes=15), 'finite collector deadline required')
+    deadline_sql = end.astimezone(timezone.utc).isoformat()
+    guard = "DO $sitov_recovery_guard$ BEGIN IF clock_timestamp()>TIMESTAMPTZ '"+deadline_sql+"' OR current_setting('role')<>'none' OR current_setting('transaction_read_only')<>'on' OR NOT coalesce((SELECT rolsuper OR rolbypassrls FROM pg_catalog.pg_roles WHERE rolname=current_user),false) THEN RAISE EXCEPTION 'sitov_recovery_owner_deadline_readonly'; END IF; END $sitov_recovery_guard$;\n"
+    out = ["BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY;\nSET LOCAL statement_timeout='15s';SET LOCAL lock_timeout='2s';SET LOCAL work_mem='4MB';SET LOCAL idle_in_transaction_session_timeout='15s';SET LOCAL search_path=pg_catalog;\n",guard,
+           "SELECT jsonb_build_object('kind','meta','planSHA256','"+plan_sha+"','readOnly',true,'privileged',true,'role',current_setting('role'));\n"]
+    for row in plan['parents']['nodes']:
+        eid = parent.identifier(row['before']['node']['id'])
+        out += [guard,"SELECT jsonb_build_object('kind','parent','id','"+eid+"','full',jsonb_build_object('node',(SELECT to_jsonb(n)FROM public.path_nodes n WHERE id='"+eid+"'),'translations',(SELECT coalesce(jsonb_agg(to_jsonb(t)ORDER BY locale),'[]')FROM(SELECT * FROM public.path_node_translations WHERE node_id='"+eid+"' ORDER BY locale LIMIT 6)t)));\n"]
+    for row in plan['parents']['objectives']:
+        e = row['before']; unit = parent.identifier(e['unit_id']); oid = e['id']
+        require(re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,99}',oid), 'invalid objective identifier')
+        out += [guard,"SELECT jsonb_build_object('kind','objective','key','"+unit+'/'+oid+"','full',(SELECT to_jsonb(o)FROM public.path_objectives o WHERE unit_id='"+unit+"' AND id='"+oid+"'));\n"]
+    for row in plan['rows']:
+        eid = parent.identifier(row['id']); e = row['beforeFull']['exercise']
+        before = {'content':e['content'],'topic':e['topic'],'explanation_card':e['explanation_card'], 'translations':{t['locale']:{k:t[k]for k in TR_FIELDS}for t in row['beforeFull']['translations']}}
+        candidate = {'type':e['type'],'content':row['after']['content']}
+        spoken = "("+literal(candidate)+")#>>'{content,correct_answer}'" if e['type']=='fill_in_blank' else "(learning_private.sitov_learning_audio_texts('exercises',"+literal(candidate)+",'[]'))[1]"
+        derive = "NULL::text"
+        if e['type'] in {'fill_in_blank','multiple_choice'} and (e['solution_audio_url'] is None or not e['solution_audio_url'].strip(' ') or '/audio_cache/' in e['solution_audio_url']):
+            derive = "CASE WHEN EXISTS(SELECT 1 FROM path_private.sitov_content_revisions WHERE exercise_id='"+eid+"')THEN vocabulary_private.sitov_prepared_german_audio_url("+spoken+")ELSE NULL END"
+        out += [guard,"SELECT jsonb_build_object('kind','exercise','id','"+eid+"','record',jsonb_build_object('full',jsonb_build_object('exercise',to_jsonb(e),'translations',(SELECT coalesce(jsonb_agg(to_jsonb(t)ORDER BY locale),'[]')FROM(SELECT * FROM public.grammar_translations WHERE exercise_id=e.id ORDER BY locale LIMIT 6)t)),'projection',p.v,'projectionHash',path_private.sitov_revision_hash(p.v),'beforeProjectionHash',path_private.sitov_revision_hash(p.v||"+literal(before)+"),'derivedPreparedURL',"+derive+")) FROM public.learning_exercises e CROSS JOIN LATERAL(SELECT CASE WHEN (SELECT count(*)FROM(SELECT 1 FROM public.grammar_translations WHERE exercise_id=e.id LIMIT 6)bounded)=5 THEN path_private.sitov_revision_projection(e.id)END v)p WHERE e.id='"+eid+"';\n"]
+    ids = ','.join("'"+parent.identifier(r['id'])+"'::uuid"for r in plan['rows'])
+    requests = ','.join("'"+parent.identifier(r)+"'::uuid"for r in plan['requestIds'])
+    bound = str(len(plan['rows'])+1)
+    out += [guard,"SELECT jsonb_build_object('kind','archive','record',to_jsonb(r),'beforeHashRecomputed',path_private.sitov_revision_hash(r.before_projection),'afterHashRecomputed',path_private.sitov_revision_hash(r.after_projection)) FROM path_private.sitov_content_revisions r WHERE exercise_id IN("+ids+") OR request_id IN("+requests+") ORDER BY revision_id LIMIT "+bound+";\n",guard,
+            "SELECT jsonb_build_object('kind','receipt','record',to_jsonb(r),'payloadOctets',octet_length(r.payload::text)) FROM path_private.sitov_content_revision_receipts r WHERE request_id IN("+requests+") ORDER BY request_id LIMIT "+bound+";\n",guard,
+            "SELECT jsonb_build_object('kind','end','planSHA256','"+plan_sha+"');\nCOMMIT;\n"]
+    return ''.join(out)
+
+
+def parse_collector(plan, raw):
+    records = [json.loads(line,object_pairs_hook=parent.unique_object) for line in raw.splitlines() if line.strip()]
+    require(2 <= len(records) <= 4*len(plan['rows'])+len(plan['parents']['nodes'])+len(plan['parents']['objectives'])+3,'collector row bound')
+    meta = records[0]; require(meta.pop('kind') == 'meta' and records[-1] == {'kind':'end','planSHA256':sha(plan)},'collector framing')
+    observed = meta | {'complete':True,'parents':{},'objectives':{},'exercises':{},'archives':[],'receipts':[]}
+    for rec in records[1:-1]:
+        kind = rec['kind']
+        if kind in {'parent','objective','exercise'}:
+            target = observed[{'parent':'parents','objective':'objectives','exercise':'exercises'}[kind]]
+            key = rec['key'] if kind=='objective' else rec['id']; require(key not in target,'duplicate collector identity')
+            target[key] = rec['record'] if kind=='exercise' else rec['full']
+        else:
+            require(kind in {'archive','receipt'},'unknown collector record')
+            observed['archives' if kind=='archive' else 'receipts'].append({k:v for k,v in rec.items()if k!='kind'})
+    return observed
 
 
 def write_exclusive(path, content):
@@ -332,12 +427,19 @@ def main():
     for field in ('parents', 'inventory', 'reviews'):
         ap.add_argument('--' + field, required=True); ap.add_argument('--' + field + '-sha256', required=True)
     ap.add_argument('--output', required=True); ap.add_argument('--reviewed-commit', action='store_true')
+    ap.add_argument('--collector-deadline'); ap.add_argument('--plan-sha256')
     args = ap.parse_args()
     parents = parent.load(args.parents, args.parents_sha256)
     inventory = load(args.inventory, args.inventory_sha256)
     reviews = load(args.reviews, args.reviews_sha256)
     plan = prepare(parents, inventory, reviews, args.parents_sha256, args.inventory_sha256)
-    write_exclusive(args.output, emit(plan, args.reviewed_commit))
+    if args.collector_deadline:
+        require(not args.reviewed_commit, 'collector never commits writes')
+        output = collector_sql(plan, args.plan_sha256, args.collector_deadline)
+    else:
+        require(args.plan_sha256 is None, 'plan SHA option requires collector')
+        output = emit(plan, args.reviewed_commit)
+    write_exclusive(args.output, output)
 
 
 if __name__ == '__main__': main()
