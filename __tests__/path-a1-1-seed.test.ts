@@ -44,6 +44,11 @@ interface SeedPath {
 // Parsed at runtime so the 2 MB file never becomes a TypeScript literal type.
 const paths: SeedPath[] = JSON.parse(readFileSync(join(__dirname, '../supabase/seeds/path-a1.1.json'), 'utf8'))
 const rows = paths.flatMap(path => path.nodes.flatMap(node => node.exercises.map(exercise => ({ path, node, exercise }))))
+const sitovReviewedBindings = JSON.parse(readFileSync(join(__dirname, '../docs/handoffs/SITOV-NIGHT-2026-10-08/M/a11-reviewed-regression-bindings.json'), 'utf8')) as {
+  cards: { nodeId: string; card: string; ruleSha256: string; firstExerciseId: string; firstExplanationSha256: string }[]
+  receptiveFixedPhrases: { ref: string; field: string; textSha256: string; allowedWords: string[]; taskId: string; goal: string }[]
+}
+const sitovTextHash = (text: string) => createHash('sha256').update(text).digest('hex')
 const LOCALES: Locale[] = ['en', 'ru', 'uk', 'tr']
 const TYPE_ORDER = ['multiple_choice', 'fill_in_blank', 'sentence_building']
 // Mirrors learning_private.german_text_allowed and grammar_private.german_content_allowed.
@@ -94,7 +99,15 @@ describe('A1.1 learning path seed', () => {
       expect(node.exercises.length).toBeLessThanOrEqual(10)
       const card = node.merkkarte!
       expect(node.exercises.map(exercise => exercise.explanation_card)).toContain(card.card)
-      expect(card.rule).toBe(node.exercises.find(exercise => exercise.explanation_card === card.card)!.explanation)
+      const first = node.exercises.find(exercise => exercise.explanation_card === card.card)!
+      const reviewed = sitovReviewedBindings.cards.find(binding => binding.nodeId === node.id)
+      if (reviewed) {
+        // A reviewed parent card covers the whole node; an exercise explains its own goal.
+        expect(card.card).toBe(reviewed.card)
+        expect(first.id).toBe(reviewed.firstExerciseId)
+        expect(sitovTextHash(card.rule)).toBe(reviewed.ruleSha256)
+        expect(sitovTextHash(first.explanation)).toBe(reviewed.firstExplanationSha256)
+      } else expect(card.rule).toBe(first.explanation)
       expect(card.examples.length).toBeGreaterThanOrEqual(2)
       expect(card.examples.length).toBeLessThanOrEqual(4)
       expect(NOT_GERMAN.test(card.examples.join(' '))).toBe(false)
@@ -166,14 +179,24 @@ describe('A1.1 learning path seed', () => {
   })
 
   it('uses no grammar from later paths, no textbook names and no grammar references', () => {
-    const violations = rows.flatMap(({ path, exercise }) => TASK_FIELDS.flatMap(field => strings(exercise.content[field])).flatMap(text => {
+    const used = new Set<string>()
+    const violations = rows.flatMap(({ path, exercise }) => TASK_FIELDS.flatMap(field => strings(exercise.content[field]).flatMap(text => {
       const found = LATER.filter(rule => path.path < rule.from).flatMap(rule => {
         const cleaned = rule.phrases.reduce((value, phrase) => value.split(phrase).join(''), text)
-        return Array.from(cleaned.matchAll(/\p{L}+/gu), match => match[0]).filter(word => rule.words.includes(word.toLocaleLowerCase('de-DE')))
+        return Array.from(cleaned.matchAll(/\p{L}+/gu), match => match[0]).map(word => word.toLocaleLowerCase('de-DE')).filter(word => rule.words.includes(word))
       })
+      const reviewed = sitovReviewedBindings.receptiveFixedPhrases.find(binding => binding.ref === exercise.ref && binding.field === field && binding.textSha256 === sitovTextHash(text))
+      if (reviewed) {
+        expect(exercise.id).toBe(reviewed.taskId)
+        expect(exercise.goal).toBe(reviewed.goal)
+        expect(found).toEqual(reviewed.allowedWords)
+        used.add(`${reviewed.ref}:${reviewed.field}:${reviewed.textSha256}`)
+        return []
+      }
       return found.length ? [`${exercise.ref}: ${found.join(', ')}`] : []
-    }))
+    })))
     expect(violations).toEqual([])
+    expect(used.size).toBe(sitovReviewedBindings.receptiveFixedPhrases.length)
     expect(TEXTBOOK.test(JSON.stringify(paths))).toBe(false)
   })
 

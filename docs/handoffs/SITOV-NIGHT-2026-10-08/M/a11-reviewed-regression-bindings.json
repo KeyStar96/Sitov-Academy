@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "reviewer": "Sitov Academy M",
+  "reviewedAt": "2026-10-10T01:42:51.279515+00:00",
+  "scope": "Exact reviewed current A1.1 source exceptions; no source/answers/IDs/levels changed; every other equality and future grammar prohibition remains enforced.",
+  "sourceHead": "717e884c5df0ce9917c4b6cd4a8c83d3f9cef5fe",
+  "cards": [
+    {
+      "nodeId": "P1-N1",
+      "card": "p1_greet",
+      "ruleSha256": "ba7b3a39d0ace31a7ed9e1deca667efd031d748bb20d18433351f83aaec869eb",
+      "firstExerciseId": "0d619795-3373-5141-a891-6f8c3722c6fd",
+      "firstExerciseRef": "P1-N1-E01",
+      "firstExplanationSha256": "0e3f3b2e7705304d02051e4c34cc53259a173df749ef617dfa7e979f73e3fee3",
+      "reasonDe": "Die unabhängig geprüfte gemeinsame Lernkarte umfasst mehrere Lernziele des Knotens; die erste Einzelerklärung bleibt auf ihre eigene Aufgabe zugeschnitten. Die Kartenbindung ist unverändert.",
+      "rule": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“ Verabschieden: Auf Wiedersehen (formell), Tschüs (informell), Gute Nacht (spät am Abend, vor dem Schlafen). Am Telefon sagt man: Auf Wiederhören.",
+      "firstExplanation": "Begrüßen nach der Tageszeit: Guten Morgen (morgens), Guten Tag (tagsüber), Guten Abend (abends). Hallo ist informell. Am Telefon: Firma + Name + Gruß: „Bäckerei Sonnenkorn, Jonas Weber, guten Tag.“"
+    },
+    {
+      "nodeId": "P1-N3",
+      "card": "p1_name",
+      "ruleSha256": "ccaf3ef00c785529d726a54f605523c3880b5fcaea3a221874066a468311e86d",
+      "firstExerciseId": "ac7e601e-1b4d-5421-aa06-96e0d1fc3f0f",
+      "firstExerciseRef": "P1-N3-E01",
+      "firstExplanationSha256": "4a0b112ad75d04a9a8332639b4271f5035bb39146ab996ae8e5a5eea116577b3",
+      "reasonDe": "Die unabhängig geprüfte gemeinsame Lernkarte umfasst mehrere Lernziele des Knotens; die erste Einzelerklärung bleibt auf ihre eigene Aufgabe zugeschnitten. Die Kartenbindung ist unverändert.",
+      "rule": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Herr Kaya.",
+      "firstExplanation": "Sich vorstellen: Den eigenen Namen sagt man ohne Frau oder Herr: Ich heiße Emre Demir. Mein Name ist Demir. Frau und Herr benutzt man nur für andere: Das ist Frau Kaya."
+    },
+    {
+      "nodeId": "P1-N8",
+      "card": "p1_strategy",
+      "ruleSha256": "11acec962576d6d8cb1ba84043a47c1782b29496727d3a459b70dfd30cbad227",
+      "firstExerciseId": "b2a6344b-a62e-53db-aebd-cf9c578edb3b",
+      "firstExerciseRef": "P1-N8-E01",
+      "firstExplanationSha256": "fdd708eb4bc7345b6418e422a3489219390a5d0b7627dfd719963351471a4c59",
+      "reasonDe": "Die unabhängig geprüfte gemeinsame Lernkarte umfasst mehrere Lernziele des Knotens; die erste Einzelerklärung bleibt auf ihre eigene Aufgabe zugeschnitten. Die Kartenbindung ist unverändert.",
+      "rule": "Gesprächsstrategien: Nicht verstanden? → „Wie bitte?“ Zeit zum Nachdenken? → „Moment, bitte.“ Keine Antwort? → „Das weiß ich nicht.“ Zustimmen → „Ja, genau.“ Interesse zeigen → „Ach so!“ oder „Interessant!“ Am Telefon: Man meldet sich mit Firma und Namen oder sagt „Hier ist …“. Nach einer Person fragt man: „Ist Herr Lindner da?“ Zum Schluss sagt man: „Auf Wiederhören!“",
+      "firstExplanation": "Gesprächsstrategien: Nicht verstanden? → „Wie bitte?“ Zeit zum Nachdenken? → „Moment, bitte.“ Keine Antwort? → „Das weiß ich nicht.“ Zustimmen → „Ja, genau.“ Interesse zeigen → „Ach so!“ oder „Interessant!“"
+    },
+    {
+      "nodeId": "P2-N3",
+      "card": "p2_family",
+      "ruleSha256": "741e7c4d7f6aa8f8c50bfa03b534a908a2202fe148b8851bbb7ab64a7d6cfd83",
+      "firstExerciseId": "5d6a4321-0b33-5ed5-aae1-ab956a44aee9",
+      "firstExerciseRef": "P2-N3-E01",
+      "firstExplanationSha256": "cbcb313d58f7e2befa761a833c2472836bb35873829eecf522aeda18fb5b7603",
+      "reasonDe": "Die unabhängig geprüfte gemeinsame Lernkarte umfasst mehrere Lernziele des Knotens; die erste Einzelerklärung bleibt auf ihre eigene Aufgabe zugeschnitten. Die Kartenbindung ist unverändert.",
+      "rule": "Familie: der Vater und die Mutter = die Eltern. Der Sohn und die Tochter = die Kinder. Der Bruder und die Schwester = die Geschwister. Der Mann und die Frau = das Ehepaar. Andere vorstellen: „Das ist Selim. Er kommt aus der Türkei und wohnt in Kassel.“ Für mehrere Personen: „Das sind meine Eltern.“ Bei er und sie endet das Verb auf -t: er wohnt, sie kommt.",
+      "firstExplanation": "Familie: der Vater und die Mutter = die Eltern. Der Sohn und die Tochter = die Kinder. Der Bruder und die Schwester = die Geschwister. Der Mann und die Frau = das Ehepaar."
+    },
+    {
+      "nodeId": "P7-N5",
+      "card": "p7_perfekt_t",
+      "ruleSha256": "c2db7f92e176d937145bb86fcd3a2949b41a1e4b172ea8210ff1c1bdb2169feb",
+      "firstExerciseId": "ba70c8da-7b47-5439-ac42-bb5ca28f7345",
+      "firstExerciseRef": "P7-N5-E01",
+      "firstExplanationSha256": "2b9945a6448150751a507683d5f79b15394888c2dee8091ee31eccf290cd861e",
+      "reasonDe": "Die unabhängig geprüfte gemeinsame Lernkarte umfasst mehrere Lernziele des Knotens; die erste Einzelerklärung bleibt auf ihre eigene Aufgabe zugeschnitten. Die Kartenbindung ist unverändert.",
+      "rule": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet. Satzklammer im Perfekt: haben oder sein steht auf Position 2, das Partizip am Ende: Ich habe gestern Fußball gespielt. W-Frage: Was hast du am Wochenende gemacht? Ja-/Nein-Frage: Bist du mit dem Bus gefahren?",
+      "firstExplanation": "Perfekt mit haben – regelmäßige Verben: ge + Stamm + t: machen → gemacht, kaufen → gekauft, spielen → gespielt, hören → gehört. Endet der Stamm auf -t oder -d: ge…et: arbeiten → gearbeitet."
+    }
+  ],
+  "receptiveFixedPhrases": [
+    {
+      "ref": "P2-N9-E01",
+      "field": "question",
+      "textSha256": "4c1d866ba0ee0f66dc385da63eafb146567f62dd844368bb56b635cdeede5abb",
+      "allowedWords": [
+        "war"
+      ],
+      "taskId": "78fbe0fc-54d5-5ebb-a1bd-48b93eabef16",
+      "goal": "P2-K4",
+      "text": "Oleh ist 29 Jahre alt. Er war noch nie verheiratet. Er hat keine Kinder. Was ist richtig?",
+      "reasonDe": "Rezeptives Verstehen des Familienstands: war noch nie verheiratet schließt frühere Ehe und Verwitwung aus; die Antwort produziert nur ledig, keine Präteritumsform."
+    },
+    {
+      "ref": "P2-N10-E02",
+      "field": "question",
+      "textSha256": "0bb549b34751d81b7279d38ac32a02d0378447203d8bc39664629f2b7e3eaf7b",
+      "allowedWords": [
+        "einen"
+      ],
+      "taskId": "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+      "goal": "P2-Z1",
+      "text": "Taras ist der Bruder von Oleh. Er lebt in Kyjiw und arbeitet als Koch. Er hat einen Mann und ein Kind. Was ist richtig?",
+      "reasonDe": "einen Mann ist ein vorgegebener Familienstandshinweis; Ziel Personenverstehen, keine Artikelergänzung."
+    },
+    {
+      "ref": "P5-N3-E02",
+      "field": "text_after",
+      "textSha256": "40532f83aca467d912028dfaea76575b5996d0e67f5fa34333e7f7cdb62ff51e",
+      "allowedWords": [
+        "seinen"
+      ],
+      "taskId": "7c42c6a7-ff31-553c-a374-872dbb72049c",
+      "goal": "P5-G1",
+      "text": " am Abend seinen Vater an.",
+      "reasonDe": "seinen Vater ist als ganze Objektgruppe vorgegeben; ergänzt wird nur ruft, das Lernziel ist die Satzklammer des trennbaren Verbs."
+    },
+    {
+      "ref": "P5-N6-E10",
+      "field": "correct_answer",
+      "textSha256": "5d02f8b94a85f455c5fb34737d6a474aaf86f43a45e88602d316c7359b2d130e",
+      "allowedWords": [
+        "seinen"
+      ],
+      "taskId": "934dd6d1-6a25-59ca-aebe-a00e058c0eee",
+      "goal": "P5-G4",
+      "text": "Am Abend ruft Emre seinen Vater an.",
+      "reasonDe": "seinen Vater wird als vollständiger unveränderter Satzteil angeboten; Ziel Verbposition, keine selbständige Possessivdeklination."
+    },
+    {
+      "ref": "P5-N6-E10",
+      "field": "accepted_answers",
+      "textSha256": "5d02f8b94a85f455c5fb34737d6a474aaf86f43a45e88602d316c7359b2d130e",
+      "allowedWords": [
+        "seinen"
+      ],
+      "taskId": "934dd6d1-6a25-59ca-aebe-a00e058c0eee",
+      "goal": "P5-G4",
+      "text": "Am Abend ruft Emre seinen Vater an.",
+      "reasonDe": "seinen Vater wird als vollständiger unveränderter Satzteil angeboten; Ziel Verbposition, keine selbständige Possessivdeklination."
+    },
+    {
+      "ref": "P5-N6-E10",
+      "field": "accepted_answers",
+      "textSha256": "196912b87e751b3229697a1e5a73606b4b30862c40746c6f8d16fdc58ce64513",
+      "allowedWords": [
+        "seinen"
+      ],
+      "taskId": "934dd6d1-6a25-59ca-aebe-a00e058c0eee",
+      "goal": "P5-G4",
+      "text": "Emre ruft am Abend seinen Vater an.",
+      "reasonDe": "seinen Vater wird als vollständiger unveränderter Satzteil angeboten; Ziel Verbposition, keine selbständige Possessivdeklination."
+    },
+    {
+      "ref": "P5-N6-E10",
+      "field": "parts",
+      "textSha256": "16b76498369ee8fa0ee6502920d8b73d66e76206dcc2e64774d1fee6fa34fc1e",
+      "allowedWords": [
+        "seinen"
+      ],
+      "taskId": "934dd6d1-6a25-59ca-aebe-a00e058c0eee",
+      "goal": "P5-G4",
+      "text": "seinen Vater",
+      "reasonDe": "seinen Vater wird als vollständiger unveränderter Satzteil angeboten; Ziel Verbposition, keine selbständige Possessivdeklination."
+    },
+    {
+      "ref": "P5-N10-E01",
+      "field": "question",
+      "textSha256": "d014a87b5dd2f97c7d4a2548fe82e6160d4b671741ffc3f125e8c9b76ad853d4",
+      "allowedWords": [
+        "seinen"
+      ],
+      "taskId": "239aa0d4-a9f7-5055-aaee-5a81c236027d",
+      "goal": "P5-Z1",
+      "text": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Wann steht Oleh auf?",
+      "reasonDe": "seinen Vater ist ein vorgegebener Teil des Lesetextes; richtige Antwort ist eine Uhrzeit."
+    },
+    {
+      "ref": "P5-N10-E02",
+      "field": "question",
+      "textSha256": "0115a3598ff874ee17dda3d19c6ea7344e3968d88232ed3b515ce5baae24f88c",
+      "allowedWords": [
+        "seinen"
+      ],
+      "taskId": "465e830d-bd8b-59b3-a979-965ca0399531",
+      "goal": "P5-Z1",
+      "text": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Nach der Arbeit kauft er am Nachmittag ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Was macht Oleh am Nachmittag nach der Arbeit?",
+      "reasonDe": "seinen Vater ist eine feste Objektgruppe im Lesetext und im Distraktor; Antwort bleibt Er kauft ein und kocht."
+    },
+    {
+      "ref": "P5-N10-E02",
+      "field": "options",
+      "textSha256": "bd73fe16d5e4a85ecd4841e8a8a76a1cd036bb95314fb2838b82547fa7710479",
+      "allowedWords": [
+        "seinen"
+      ],
+      "taskId": "465e830d-bd8b-59b3-a979-965ca0399531",
+      "goal": "P5-Z1",
+      "text": "Er ruft seinen Vater an.",
+      "reasonDe": "seinen Vater ist eine feste Objektgruppe im Lesetext und im Distraktor; Antwort bleibt Er kauft ein und kocht."
+    },
+    {
+      "ref": "P5-N10-E03",
+      "field": "question",
+      "textSha256": "0983f5a7a30e8832af693d0e8e0c8db3eb112cd76b04adc2c26dd4bc47924d9d",
+      "allowedWords": [
+        "seinen"
+      ],
+      "taskId": "23660efb-121f-5557-a9a8-21b5a0292c87",
+      "goal": "P5-Z1",
+      "text": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Wie lange arbeitet Oleh?",
+      "reasonDe": "seinen Vater ist eine feste Objektgruppe im Lesetext; Antwort ist eine Zeitdauer."
+    }
+  ],
+  "humanListening": false,
+  "publicationApproved": false
+}
