@@ -1,3 +1,7 @@
+## 10. Oktober 2026, 10:03 MESZ — zehn weitere echte Audiofreigaben
+
+Die tatsächlichen zwölf Nutzerurteile sind gesichert: zehn PASS, zwei REJECT (“1 Apfel, also ein Stück.” und “neuen”). Alle zehn PASS sind unabhängig technisch verifiziert; insgesamt jetzt 17 exakt gebundene menschliche PASS. Neues unveröffentlichtes lokales Bündel: 5.255 ausgewählte Aufnahmen, 83 gehaltene Texte. Zwei neue Reparaturkandidaten und die lesende QA-Voraussetzungsprüfung laufen begrenzt. Weitere 24 Hörfälle (214 Sekunden) sind vorbereitet. Native Vollübernahme, Bestandsschutz und Deployment bleiben offen. Details: [bestätigter Audio-Checkpoint](../handoffs/SITOV-NIGHT-2026-10-08/M/current6c26022-seventeen-human-pass-checkpoint.md).
+
 ## Bestätigter Zwischenstand 10.10.2026, 09:49 MESZ
 
 Die vollständige aktuelle Freigabebindung aller **538 geänderten Aufgaben, 59 Eltern und zehn Ziele** ist von M anhand der Originalbelege unabhängig bestätigt. Der tatsächliche aktuelle CAS-Preparer akzeptiert alle 538 Zeilen mit einer ausdrücklichen M-Quellfreigabe ausschließlich für die isolierte Probe; noch keine native Gesamtbatch-Ausführung und keine Produktionsfreigabe. Alle 66 ursprünglichen DB→Source-Antwort-/Antwortlistenänderungen sind separat erfasst und benötigen historische native Nachweise.
