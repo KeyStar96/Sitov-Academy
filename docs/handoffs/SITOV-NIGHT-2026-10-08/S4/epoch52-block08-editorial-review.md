@@ -1,0 +1,13 @@
+# Sitov Academy – S4 Epoch52, Block08
+
+**30 ganze Aufgaben vollständig gelesen:28ACCEPT, zwei HOLD. Alle acht ganzen Elternkontexte und56einzelnen Lernziele aus fünf Pfaden ACCEPT.** Aufgaben vollständig in DE/EN/RU/UK/TR mit allen Schlüsseln, akzeptierten Antworten, Optionen, Satzteilen, Hinweisen und Erklärungen; Eltern ohne Kinder vollständig mit vorhandenen Karten, allen fünf Regeln und sämtlichen Beispielen gelesen.
+
+HOLD A2.1/P1-N10-E05: deutscher Lückensatz „... bin ich aufgestanden, dann habe ich geduscht“ erlaubt neben Zuerst auch Später oder Schließlich, wenn ein späteres Aufstehen oder vorangehender Verlauf gemeint ist. Minimalvorschlag nur /content/instruction: „Ergänze das passende Wort.“ → „Ergänze das Wort für den ersten Schritt der Erzählung.“
+
+HOLD A2.1/P1-N10-E06: im deutschen Satz „Zuerst haben wir gekocht, dann gegessen und ... haben wir einen Film gesehen“ ist gestern grammatisch möglich, falls Kochen/Essen davor lagen. Minimalvorschlag nur /content/instruction: „Ergänze das passende Wort.“ → „Ergänze das Wort für den letzten Schritt der Erzählung.“ Beide Übersetzungsaufgaben/gap_hints benennen first/finally bereits ausdrücklich; ihre Texte bleiben. Keine Sourceänderung angewendet, keine Antwortwort-/Schlüssel-/Varianten-/Options-/Satzteil-/Kardinalitätsänderung vorgeschlagen.
+
+Die Mehrfachantworten wurden vollständig geprüft: A1.2/P1-N3-E07 vier korrekte Wortstellungen; A1.2/P3-N4-E09 zwei; A1.2/P4-N4-E09 zwei; A1.2/P6-N4-E10 drei; A2.1/P1-N10-E08 Dann/Danach/Später drei; A2.1/P1-N10-E09 zwei. Alle bleiben erhalten. Notwendige feminine Genus-/Kasus-/Besitzer- und Familienwortschatzkontraste wie Schwester/Ärztin/ihre Praxis, seine Freundin, ihre Mutter, sie/ihr und Enkelin bleiben sachlich korrekt. UK дитина/неї ist ukrainisches Nomengenus, keine weibliche Figurenbehauptung.
+
+Jede Zeile enthält getrennte Task-/Parent-/ALLGoals-Urteile, drei aktuelle SHA256, reviewer:S4, source40hex und vollständigen ReadScope. Jedes Elternobjekt und jedes Lernziel einzeln begründet. Ausschließlich aktualisierter Input377195B SHAc27867857b6ec164983efcf8821f310cbf5fcc51504730d0a91fe51f2e5c10a3; Quell-/Inhaltsstand af644f8dd574a03af7394e99da9d474b8d7912e7. Alle aktuellen Objekte und drei Inputhashes gegen Git geprüft. Keine gekürzten Inhaltsreads, keine früheren Urteile übernommen.
+
+Nur eigene Offline-Python-Prüfungen und zwei Reviewdokumente; keine Sourcefixes/Tests/DB/SSH/QA/Browser/Runtime/Build/Audio/Imports/Publikation/Push/Deploy, keine Geschwisteraufgaben-/Gesamtkorpusfreigabe. Sämtliche öffentlichen und privaten Epoch52-Belege zusammen unter2MB.
