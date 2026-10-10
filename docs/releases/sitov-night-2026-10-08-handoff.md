@@ -1,3 +1,17 @@
+## Bestätigter Zwischenstand 10.10.2026, 07:42 MESZ
+
+Weiterhin unvollständig und nicht freigegeben. AUTO_DEPLOY ist autorisiert; Produktion bleibt auf `966a380f7a6118654f19750a9d62200795feb8c2`, Payment aus. Wochenkontingent zuletzt tatsächlich 53 % verbraucht /47 % übrig; Reset bereits verbraucht, keine weiteren Guthaben.
+
+- Aktuelle Inhaltsquelle `7d9a403388efa7ae0f67c93164adfd0bdcff05b3`: 538 geänderte Aufgaben,58 Eltern,704 kanonische Audios/760 Aliasse. S1 hat247 vollständige source-/reviewergebundene ACCEPT-Kandidaten und291 offene vollständige Genehmigungen ermittelt. Dies sind verschiedene Prüfstadien, keine Gesamtfreigabe.
+- Die ersten90 der291 Aufgaben sind inzwischen unabhängig mit allen fünf Sprachfassungen, ganzen Eltern und allen Pfadzielen gelesen. Block01:21 Gesamt-ACCEPT/9 HOLD; Block02:29 Task-ACCEPT/1 HOLD; Block03:20 Gesamt-ACCEPT/10 HOLD. M hat die60 neuen Task-/Parent-/ALLGoals-Bindungen gegen tatsächliche Seedobjekte unabhängig nachgerechnet. Exakte Berichte bleiben in den S4-/S7-Handoffs erhalten.
+- Daraus sind52 genaue Autorenkorrekturen vorbereitet:49 Scalars in10 Aufgaben,ein Elternscalar,zwei Zielscalars. Noch nicht umgesetzt oder in eine Datenbank übernommen. Eine1→1-Antwortwortrevision benötigt zusätzlich nativen Nachweis der unveränderlichen historischen Version und gespeicherten Altantworten. Fachlich nötige feminine Grammatik-/Anredekontraste bleiben erhalten.
+- Audioentwurf5244:4680 Vortest-Assets +621 Pfad-Assets −57 identische Überschneidungen; alle finalen Dateien und Metadaten geprüft,621 Pfad-MP3 tatsächlich dekodiert.287 passende Original-Pfadaufnahmen bleiben bytegleich.94 Texte noch HOLD (83 Pfad/11 Vortest), unabhängige Hörfreigaben nicht vorhanden. Keine Publikationsfreigabe.
+- S5 epoch36 prüfte17 echte Browserfälle einschließlich320/390/1440px,UK/TR,Hell/Dunkel/hoherKontrast: kein Textüberlappen oder horizontaler Überlauf. Ein echter erster Hilfe→Shift+Tab-Fokus lag unter der mobilen Navigation; dieser Befund bleibt offen. M-Fix `b06843194db2e4c5ad5fea3cf40b12394f941f04` reserviert per scroll-margin die bestehende Leistenhöhe. Frischer maskierter Produktionsbuild tatsächlich PASS, Build-ID `XLm2trsHZX8ZGja1yykY-`; nativer Regressionstest S5e37 läuft. Kein Mikrofon-/ReducedMotion-Erfolg ohne tatsächlichen Nachweis.
+
+Nächste Pflichtschritte: konkrete Befunde reparieren und vollständig neu bestätigen; restliche Blöcke04–10 lesen; reale Hörfreigaben; vollständiges Content-CAS-Manifest samt Eltern/Zielen, native Gesamtbatch-/Konkurrenztests, aktuelle Audio-/Versionsübernahme; finaler QA-Bestandsschutz und eigener Fixture-Abbau. Danach frischer Produktionsbackup,185 geschützte Tabellen und sämtliche75 effektiven kommerziellen Bestandsrechte vor/nach Migration, isolierte Probe, prepare-only und exakt geprüfte Revision mit authentifizierten Smoke-/Health-/Readiness-Prüfungen aktivieren.
+
+Die folgenden Abschnitte dokumentieren frühere Stände und ersetzen diesen Zwischenstand nicht.
+
 # Sitov Academy – Nachtlauf-Übergabe 2026-10-08
 
 ## Aktueller bestätigter Stand 10.10.2026, 07:18 MESZ
