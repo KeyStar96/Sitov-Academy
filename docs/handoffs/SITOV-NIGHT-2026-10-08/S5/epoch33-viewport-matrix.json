@@ -1,0 +1,30 @@
+[
+  {
+    "at": "2026-10-10T04:26:19.803Z",
+    "requestedWidth": 320,
+    "observed": {
+      "focusLabel": "Repeat slowly",
+      "germanPassage": true,
+      "htmlLang": "en",
+      "reducedMotion": false,
+      "scrollWidth": 320,
+      "theme": "dark",
+      "width": 320
+    },
+    "state": "Browser tab: 22, Title: \"German courses in Hannover & online | Sitov Academy\", URL: \"http://127.0.0.1:3143/en/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 125 button Repeat slowly"
+  },
+  {
+    "at": "2026-10-10T04:26:20.152Z",
+    "requestedWidth": 1440,
+    "observed": {
+      "focusLabel": "Repeat slowly",
+      "germanPassage": true,
+      "htmlLang": "en",
+      "reducedMotion": false,
+      "scrollWidth": 1440,
+      "theme": "dark",
+      "width": 1440
+    },
+    "state": "Browser tab: 22, Title: \"German courses in Hannover & online | Sitov Academy\", URL: \"http://127.0.0.1:3143/en/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 135\n+\t\t\t\t139 text Hello, Sitov QA Paul\n+\t\t\t\t\t140 container\n+\t\t\t\t\t\t141 heading Practise your pronunciation, Value: 2\n+\t\t\t\t\t\t\t142 text Practise your pronunciation\n+\t\t\t\t\t\t143 text Record yourself, listen to it and submit it for correction.\n+\t\t\t\t\t\t144 button Start recording\nThe focused UI element is 125 button Repeat slowly"
+  }
+]

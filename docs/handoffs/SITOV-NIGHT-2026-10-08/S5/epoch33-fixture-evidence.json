@@ -1,0 +1,89 @@
+{
+  "source": "db9bd0cc589adbc92120ec9260417f223d377c75",
+  "builtSource": "6aae253d678bd825db68d02d05fe226f8354234c",
+  "buildId": "rsOvgr-hO4pf3nuHqucj_",
+  "appDiffExit": 0,
+  "ownStudents": 1,
+  "zeroAchievements": {
+    "path": 0,
+    "verbs": 0,
+    "passes": 0,
+    "attempts": 0,
+    "vocabulary": 0
+  },
+  "baseline": {
+    "defs": 49,
+    "users": 2,
+    "active": 5,
+    "assets": 2511,
+    "passes": 0,
+    "proofs": 4583,
+    "attempts": 0,
+    "authHash": "6e7a71642b3859afe3ea9c70121ae2c2",
+    "seenHash": "d41d8cd98f00b204e9800998ecf8427e",
+    "assetsHash": "3d43997655c10204a86f8cfd7aa89477",
+    "proofsHash": "9c2c9777d8f549fff64695886dd5efbb",
+    "profileHash": "d65b2aa94875b59a45b22f8edba1a047",
+    "submissions": 0,
+    "firstVisitHash": "a826f17674ef09e3c79dfd6ea2ba9819",
+    "definitionsHash": "cbf3e1b6ad5d8ee80870c33ecde7942f",
+    "draftReceiptHash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "safeFullTableCount": 188,
+  "safeInitialBaselineAll188Equal": true,
+  "safeInitialChangedTables": [],
+  "safeInitialSeconds": 18.732603429991286,
+  "observations": [
+    {
+      "at": "2026-10-10T04:22:42.324177+00:00",
+      "memAvailableMiB": 2277.1875,
+      "health": [
+        200,
+        200,
+        200
+      ],
+      "gatewayCurrentBytes": 169414656,
+      "gatewayPeakBytes": 175534080,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      },
+      "states": [
+        {
+          "service": "db",
+          "startedAt": "2026-10-10T03:34:50.216594244Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "auth",
+          "startedAt": "2026-10-09T17:16:29.252379601Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "storage",
+          "startedAt": "2026-10-09T17:15:58.569281779Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "rest",
+          "startedAt": "2026-10-09T17:15:58.18032093Z",
+          "restartCount": 0,
+          "oomKilled": false
+        },
+        {
+          "service": "gateway",
+          "startedAt": "2026-10-09T17:16:28.902042175Z",
+          "restartCount": 0,
+          "oomKilled": false
+        }
+      ]
+    }
+  ]
+}

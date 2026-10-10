@@ -1,0 +1,76 @@
+{
+  "at": "2026-10-10T04:25:37.582Z",
+  "passDOM": "- link \"Skip to content\":\n  - /url: \"#main-content\"\n- main:\n  - link \"Sitov Academy\":\n    - /url: /en/dashboard\n    - generic: Sitov Academy\n  - link \"Open profile\":\n    - /url: /en/dashboard/profile\n    - generic: Profile\n  - button \"Appearance & readability\":\n    - generic: Appearance\n  - button \"Log out\":\n    - generic: Log out\n  - navigation \"Page navigation\":\n    - list:\n      - link \"Home\":\n        - /url: /en/dashboard\n        - generic: Home\n      - link \"A1.1\":\n        - /url: /en/dashboard/level/A1.1\n        - generic: A1.1\n      - heading \"Pronunciation\" [level=1]:\n        - generic: Pronunciation\n  - tablist \"Pronunciation\":\n    - tab \"Speak\" [selected]:\n      - generic: Speak\n    - tab \"Mailbox\":\n      - generic: Mailbox\n  - tabpanel \"Speak\":\n    - region \"Speak\":\n      - paragraph:\n        - generic: Pronunciation\n        - generic: A1.1\n      - heading \"Speak\" [level=1]\n      - generic: Guten Tag, das bin ich\n      - button \"Open speaking text\":\n        - generic: Open speaking text\n      - generic: ü\n    - list:\n      - button \"Guten Tag, das bin ich Open speaking text\" [pressed]:\n        - generic: Guten Tag, das bin ich\n        - generic: Open speaking text\n      - button \"Mein Frühstück This pretest is not available yet.\" [disabled]:\n        - generic: Mein Frühstück\n        - generic: This pretest is not available yet.\n      - button \"Unser Kursraum This pretest is not available yet.\" [disabled]:\n        - generic: Unser Kursraum\n        - generic: This pretest is not available yet.\n      - button \"Ein neuer Nachbar This pretest is not available yet.\" [disabled]:\n        - generic: Ein neuer Nachbar\n        - generic: This pretest is not available yet.\n      - button \"Am Samstag im Park This pretest is not available yet.\" [disabled]:\n        - generic: Am Samstag im Park\n        - generic: This pretest is not available yet.\n      - button \"Mein Zimmer This pretest is not available yet.\" [disabled]:\n        - generic: Mein Zimmer\n        - generic: This pretest is not available yet.\n      - button \"Im kleinen Laden This pretest is not available yet.\" [disabled]:\n        - generic: Im kleinen Laden\n        - generic: This pretest is not available yet.\n      - button \"Meine Familie This pretest is not available yet.\" [disabled]:\n        - generic: Meine Familie\n        - generic: This pretest is not available yet.\n      - button \"Der Weg zum Kurs This pretest is not available yet.\" [disabled]:\n        - generic: Der Weg zum Kurs\n        - generic: This pretest is not available yet.\n      - button \"Ein ruhiger Abend This pretest is not available yet.\" [disabled]:\n        - generic: Ein ruhiger Abend\n        - generic: This pretest is not available yet.\n    - list \"Your three steps\":\n      - generic: \"01\"\n      - text: Listen & read\n      - generic: \"02\"\n      - text: Record\n      - generic: \"03\"\n      - text: Wait for a reply\n    - region \"Your texts\":\n      - heading \"Your texts\" [level=2]\n      - paragraph: 1 reading passages · A1.1\n      - list:\n        - button \"Guten Tag, das bin ich Not recorded yet\" [pressed]:\n          - generic: \"01\"\n          - generic: Guten Tag, das bin ich\n          - generic: Not recorded yet\n    - article:\n      - generic: A1.1\n      - generic: 40 words\n      - generic: About 1 min\n      - heading \"Guten Tag, das bin ich\" [level=2]\n      - paragraph: \"Focus: ie und ch; kurze Satzpausen\"\n      - paragraph:\n        - button \"Show the meaning of “Guten”\": Guten\n        - button \"Show the meaning of “Tag,”\": Tag,\n        - button \"Show the meaning of “ich”\": ich\n        - button \"Show the meaning of “heiße”\": heiße\n        - button \"Show the meaning of “Leon.”\": Leon.\n        - button \"Show the meaning of “Ich”\": Ich\n        - button \"Show the meaning of “komme”\": komme\n        - button \"Show the meaning of “aus”\": aus\n        - button \"Show the meaning of “Polen”\": Polen\n        - button \"Show the meaning of “und”\": und\n        - button \"Show the meaning of “wohne”\": wohne\n        - button \"Show the meaning of “jetzt”\": jetzt\n        - button \"Show the meaning of “in”\": in\n        - button \"Show the meaning of “Hannover.”\": Hannover.\n        - button \"Show the meaning of “Ich”\": Ich\n        - button \"Show the meaning of “bin”\": bin\n        - button \"Show the meaning of “dreißig”\": dreißig\n        - button \"Show the meaning of “Jahre”\": Jahre\n        - button \"Show the meaning of “alt.”\": alt.\n        - button \"Show the meaning of “Meine”\": Meine\n        - button \"Show the meaning of “Familie”\": Familie\n        - button \"Show the meaning of “ist”\": ist\n        - button \"Show the meaning of “klein.”\": klein.\n        - button \"Show the meaning of “Mein”\": Mein\n        - button \"Show the meaning of “Mann”\": Mann\n        - button \"Show the meaning of “heißt”\": heißt\n        - button \"Show the meaning of “Paul.”\": Paul.\n        - button \"Show the meaning of “Wir”\": Wir\n        - button \"Show the meaning of “lernen”\": lernen\n        - button \"Show the meaning of “zusammen”\": zusammen\n        - button \"Show the meaning of “Deutsch.”\": Deutsch.\n        - button \"Show the meaning of “Am”\": Am\n        - button \"Show the meaning of “Abend”\": Abend\n        - button \"Show the meaning of “trinken”\": trinken\n        - button \"Show the meaning of “wir”\": wir\n        - button \"Show the meaning of “Tee”\": Tee\n        - button \"Show the meaning of “und”\": und\n        - button \"Show the meaning of “lesen”\": lesen\n        - button \"Show the meaning of “ein”\": ein\n        - button \"Show the meaning of “Buch.”\": Buch.\n      - paragraph:\n        - text: While you listen, the words light up – just read along.\n      - paragraph:\n        - text: \"Tap a word: playback pauses and its meaning appears.\"\n      - button \"Listen to the complete reading passage\":\n        - generic: Listen to text\n      - button \"Repeat slowly\"\n      - button \"Listen to the text from the beginning\":\n        - generic: From the start\n      - generic: Speed\n      - combobox \"Speed\":\n        - option \"0.75×\"\n        - option \"0.85×\" [selected]\n        - option \"1×\"\n        - option \"1.25×\"\n      - generic: ▾\n    - button \"Start recording\":\n      - generic: Start recording\n    - paragraph: Only you and the teaching team can access your recording.\n    - region \"Read and record\":\n      - button \"Help\":\n        - generic: Help\n- alert",
+  "attributes": {
+    "german": [
+      {
+        "tag": "SPAN",
+        "text": "Guten Tag, das bin ich"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Guten Tag, das bin ich"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Mein Frühstück"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Unser Kursraum"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Ein neuer Nachbar"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Am Samstag im Park"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Mein Zimmer"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Im kleinen Laden"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Meine Familie"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Der Weg zum Kurs"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Ein ruhiger Abend"
+      },
+      {
+        "tag": "SPAN",
+        "text": "Guten Tag, das bin ich"
+      },
+      {
+        "tag": "H2",
+        "text": "Guten Tag, das bin ich"
+      },
+      {
+        "tag": "SPAN",
+        "text": "ie und ch; kurze Satzpausen"
+      },
+      {
+        "tag": "DIV",
+        "text": "Guten Tag, ich heiße Leon. Ich komme aus Polen und wohne jetzt in Hannover. Ich bin dreißig Jahre alt. Meine Familie ist klein. Mein Mann heißt Paul. Wir lernen zusammen Deutsch. A"
+      }
+    ],
+    "htmlLang": "en",
+    "overflow": false,
+    "reducedMotion": false,
+    "theme": "dark",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  }
+}

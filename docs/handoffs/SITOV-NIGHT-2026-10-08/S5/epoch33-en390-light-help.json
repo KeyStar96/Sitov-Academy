@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-10T04:26:50.123Z",
+  "state": "Browser tab: 22, Title: \"German courses in Hannover & online | Sitov Academy\", URL: \"http://127.0.0.1:3143/en/dashboard/level/A1.1/pronunciation?sitov_target=6d2f8e95-6f87-510b-b244-0631733f8ff9\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n~\t\t\t\t\t\t138 button (expanded) Help, ID: sitov-help-_r_1_-toggle, Secondary Actions: Collapse\n+\t\t\t\t\t\t140 container Help, ID: sitov-help-_r_1_-panel\n+\t\t\t\t\t\t\t141 heading Read and record, Value: 3\n+\t\t\t\t\t\t\t\t142 text Read and record\n+\t\t\t\t\t\t\t143 text Listen to the reference and read along. Record your voice, listen to the recording and send it to your teacher. Your teacher’s reply appears in your inbox.\nThe focused UI element is 138 button (expanded) Help, ID: sitov-help-_r_1_-toggle, Secondary Actions: Collapse",
+  "attributes": {
+    "focusedLabel": "Help",
+    "htmlLang": "en",
+    "scrollWidth": 390,
+    "theme": "light",
+    "width": 390
+  },
+  "keyboardEnterOpenedHelp": true
+}

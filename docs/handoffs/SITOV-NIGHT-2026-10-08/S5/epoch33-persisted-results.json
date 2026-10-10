@@ -1,0 +1,54 @@
+{
+  "attempts": 1,
+  "statuses": [
+    "passed"
+  ],
+  "definitions": [
+    "33a26b75-e3f3-4fab-8766-1104800a4aab"
+  ],
+  "texts": [
+    "6d2f8e95-6f87-510b-b244-0631733f8ff9"
+  ],
+  "scores": [
+    {
+      "total": 12,
+      "correct": 12,
+      "passed": true,
+      "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+      "testVersion": "b907698d35a8b605db25746b3844c801df181d6b7cfa95c4f43151dd275df17f",
+      "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c"
+    }
+  ],
+  "passes": 1,
+  "ownFixtureRetained": true,
+  "currentOwnStateHashes": {
+    "public.path_node_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.sitov_verb_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_unit_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.student_level_access": "1cdabbf5f97627f0e5c28e49ae91c820",
+    "public.learning_first_visits": "b54c258e43e00cbcca4733d3bb784966",
+    "public.learning_activity_days": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_seen_receipts": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_trainer_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.vocabulary_direction_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "sitov_pronunciation_private.pretest_passes": "37aaa4e3caddfbf365396d81ff083ac7",
+    "sitov_pronunciation_private.pretest_attempts": "a7854c6a51cf9e69e5fd0cb4a5a52ebd",
+    "sitov_pronunciation_private.pretest_receipts": "b4cd6da9898414657182606551aff4e4"
+  },
+  "initialOwnStateHashes": {
+    "public.path_node_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.sitov_verb_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_unit_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.student_level_access": "1cdabbf5f97627f0e5c28e49ae91c820",
+    "public.learning_first_visits": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_activity_days": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_seen_receipts": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_trainer_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.vocabulary_direction_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "sitov_pronunciation_private.pretest_passes": "d41d8cd98f00b204e9800998ecf8427e",
+    "sitov_pronunciation_private.pretest_attempts": "d41d8cd98f00b204e9800998ecf8427e",
+    "sitov_pronunciation_private.pretest_receipts": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "privateLedgerPhase": "PERSIST_PASS_UI_MATRIX_PENDING",
+  "checkpointAfterNormalLogout": true
+}

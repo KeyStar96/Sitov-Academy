@@ -1,0 +1,20 @@
+# S5 epoch33 – aktuelle UI-Matrix, begrenzter Teilstand
+
+Assigned `db9bd0cc589adbc92120ec9260417f223d377c75`, bestehender Buildsource `6aae253d678bd825db68d02d05fe226f8354234c`, BUILD_ID `rsOvgr-hO4pf3nuHqucj_`, Owner-Metadaten `master/qa-next-current-owned.json`, Loopback3143. Prüfte App/components/lib/messages/public/styles/Next-/Packageconfig: diff-quietExit0. Neuer Branch `codex/sitov-night-s5-current-ui-matrix`. Lease04:20:51.176585–04:29:51.176585UTC, SAVE04:27:51.176585UTC.
+
+Vor Fixture neuer sicherer table_hashes.py, SHA256c576cbf26ba42604b3a5884944476738148ade8144896098a5321925817bc940:188/188HashgleichM-Nachherbasis,18.732603s. Fresh2277.19MiB,3×200,noOOM,960MiB/2CPU. Ausgang49defs/5active/4583proofs/2511objects/2users/0attempt/pass/submissions. Kein alter UNION/jsonb_agg-Hashhelfer ausgeführt. Genau1eigenerminimalkommerziellerA1.1-Schüler; privateCredentials+IDslot vorCreate; nullVocabulary/Verb/Path/Attempt/PASS. Parentprivatedir0700/Ledger0600, remoteledgerprivateQAroot0700.
+
+NormaleEN-Passwortanmeldung. DunklesDesign ausschließlichüber„Appearance & readability“→„Switch to dark mode“. Currentfirsttext6d2f8e95-6f87-510b-b244-0631733f8ff9/currentdef33a26b75-e3f3-4fab-8766-1104800a4aab,12aktuellgezogeneFragen vollständigkorrekt über tatsächlicheRadio-/Next-/Checkanswers-Controls. Privaterfrozencurrent24taskAnswerkey nurzurAuswahl sichtbarerAntworten. KeineStart-/SubmitRPC/JWT/Cookies/Reactstate/PASSinjektion. NachAbgabe tatsächlicherfreigegebenerSprechtext bereits sichtbar; separater12/12PASS-Screen wurde nichtcaptured. NativeownReadback nachLogout bestätigt exakt1passedAttempt/12von12/1PASS/samecurrentdefinition+text. Genau1freigegebenerText;9anderegesperrt. KeineerneuteDEFAIL/Retake-Historie.
+
+| Tatsächlich geprüfter Fall | Beleg und Grenze |
+|---|---|
+| EN390×844dark, normaleMotion | englischerUI-Rahmen, deutscherLesetext lang=de/translate=no,keinHorizontaloverflow,TabvomvollständigenAudio-Control fokussiert„Repeat slowly“ |
+| EN320×844dark, normaleMotion | selbergenehmigterText/Fixture;htmlLangEN,DeTextattrs,scrollWidth=320,nativeTabfokusRepeatslowly |
+| EN1440×844dark, normaleMotion | gleichePrüfung;scrollWidth=1440,nativeTabfokusRepeatslowly |
+| EN390×844light, normaleMotion | normaleUIThemenwahl,englischeHelp perEntergeöffnet/perSpacegeschlossen,FocusbleibtHelp |
+
+**Offen:** tatsächliches reduced-motion; gemessene matchMedia-Präferenzfalse, App-Darstellung bietet nurhell/dunkel/contrast, Browserfähigkeiten nurviewport/visibility. KeinMedia-/React-/CSS-Mocking,keineOS-Einstellung geändert. DE/RU/UK/TR undweitergehendeTheme-/Viewportkombinationen aufNEUEMBuildungeprüft. NativeTab-Ziel ist DOM-belegt; SichtbarkeitdesFokusringsnachabgeschlossenerScrollmotionnichtverifiziert. 390darkScreenshotzeigtfloatingStartRecordingüberunterenTextzeilen; aufgrundMomentaufnahmewährendTab-/ScrollübergangnochkeinabgesicherterstationärerLayoutfehler,gezielterFollowupoffen. KeinphysicalMic/Permissionmock/fabrizierteAufnahme/HumanHearingclaim; Playback/AudioBytes hier nicht erneutgeprüft.
+
+RegulärerENLogout `/en/login?status=logout_success` mit„You have been signed out. See you soon!“ bestätigt;Tabgeschlossen/Viewportreset. Fixture absichtlichbeibehaltenfürbegrenzteFortsetzung, keinePASS-Löschung/keinerneuterSetup. NativevollständigeeigeneAttempt-/PASS-/Profile-/People-Zeilen undStateHashes nachLogout inprivatenlocal+remoteLedger. Publicbelege enthalten nurredigierteScore-/Content-IDs/Hashes. NachFixture keinfinaler188Vergleich,daMatrixnichtfertig/keineBereinigung; sharedratecounterunangetastet undnichtzurückgesetzt. Originalusers/BusinessdatennichtverändertbehauptenwirhiernichtdurchfinalenVollvergleich. Privateledger: coordination/S5/epoch33-private.json und `/tmp/sitov-night-20261008-qa-master/s5-epoch33-ledger.json`. NächsteLease genauDIESENSchülernormalweiterverwenden,keinNeuanlegen/keinTestwiederholen.
+
+PARTIAL boundedmatrix, keineRELEASE_READY-Freigabe. JSONprivacy/ownActor+AttemptIDsabsent/gitdiffcheck geprüft. Quell-/QA-Freeze bleibt bisMRootreview; 0Jobs/WAIT.

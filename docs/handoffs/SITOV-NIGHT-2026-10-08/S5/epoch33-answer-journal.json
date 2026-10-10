@@ -1,0 +1,86 @@
+[
+  {
+    "question": 1,
+    "taskId": "sitov.pretest.a11-01.nominal.q1",
+    "prompt": "Ergänze: ___ Familie ist klein.",
+    "choice": "Meine",
+    "at": "2026-10-10T04:24:39.727Z"
+  },
+  {
+    "question": 2,
+    "taskId": "sitov.pretest.a11-01.nominal.q2",
+    "prompt": "Ergänze: ___ Mann heißt Paul.",
+    "choice": "Mein",
+    "at": "2026-10-10T04:24:40.843Z"
+  },
+  {
+    "question": 3,
+    "taskId": "sitov.pretest.a11-01.nominal.q6",
+    "prompt": "Wessen Mann ist Paul in »Mein Mann heißt Paul«?",
+    "choice": "Der Mann der sprechenden Person.",
+    "at": "2026-10-10T04:24:41.862Z"
+  },
+  {
+    "question": 4,
+    "taskId": "sitov.pretest.a11-01.syntax.q5",
+    "prompt": "Übung: »Wir trinken Tee und kaufen Milch.« Was trinken wir?",
+    "choice": "Tee.",
+    "at": "2026-10-10T04:24:42.576Z"
+  },
+  {
+    "question": 5,
+    "taskId": "sitov.pretest.a11-01.syntax.q2",
+    "prompt": "Was verbindet »und« in »Ich komme aus Polen und wohne in Hannover«?",
+    "choice": "Zwei Aussagen über dieselbe Person.",
+    "at": "2026-10-10T04:24:43.296Z"
+  },
+  {
+    "question": 6,
+    "taskId": "sitov.pretest.a11-01.syntax.q4",
+    "prompt": "Welche Wortfolge vervollständigt den Aussagesatz nach »Am Abend«?",
+    "choice": "trinken wir Tee",
+    "at": "2026-10-10T04:24:43.996Z"
+  },
+  {
+    "question": 7,
+    "taskId": "sitov.pretest.a11-01.verbs.q2",
+    "prompt": "Ergänze: Ich ___ aus Polen.",
+    "choice": "komme",
+    "at": "2026-10-10T04:24:54.297Z"
+  },
+  {
+    "question": 8,
+    "taskId": "sitov.pretest.a11-01.verbs.q1",
+    "prompt": "Welche Grundform gehört zu »heiße« in »Ich heiße Leon«?",
+    "choice": "heißen",
+    "at": "2026-10-10T04:24:55.011Z"
+  },
+  {
+    "question": 9,
+    "taskId": "sitov.pretest.a11-01.verbs.q6",
+    "prompt": "Welche zwei Grundformen gehören zu »Wir trinken Tee und lesen ein Buch«?",
+    "choice": "trinken und lesen",
+    "at": "2026-10-10T04:24:55.728Z"
+  },
+  {
+    "question": 10,
+    "taskId": "sitov.pretest.a11-01.words.q6",
+    "prompt": "Welcher Tagesabschnitt ist »der Abend«?",
+    "choice": "Der spätere Teil des Tages.",
+    "at": "2026-10-10T04:24:56.432Z"
+  },
+  {
+    "question": 11,
+    "taskId": "sitov.pretest.a11-01.words.q1",
+    "prompt": "Was bedeutet »ich heiße Leon«?",
+    "choice": "Mein Name ist Leon.",
+    "at": "2026-10-10T04:24:57.049Z"
+  },
+  {
+    "question": 12,
+    "taskId": "sitov.pretest.a11-01.words.q3",
+    "prompt": "Was bedeutet »in Hannover wohnen«?",
+    "choice": "In Hannover leben.",
+    "at": "2026-10-10T04:25:03.097Z"
+  }
+]
