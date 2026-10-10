@@ -1,0 +1,984 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "epoch": 34,
+  "reviewer": "sitov.agent.S4",
+  "author": "sitov.agent.S2",
+  "reviewerKind": "independent_agent_editorial_review",
+  "humanReview": false,
+  "sourceBase": "c78938d7e33249f3ad65e1ca8767611647a772c5",
+  "completedAtUtc": "2026-10-10T00:16:27.725Z",
+  "assignmentInputByteSha256": "50c869ff44d5a4e99dc01f0d1f52765897a914e5e880747d5d7a019f95e7fd96",
+  "sourceInventorySha256": "e1d9a6a45106b69210f08b41f645b5aaa45930d6dbf14ba74178bae6c4a0b909",
+  "hashMethod": "SHA256 UTF8 native JavaScript JSON.stringify, parsed key order preserved; full private input additionally byte SHA256. These hashes bind full private records without committing their dumps.",
+  "scope": "Only first24 of48 sorted actual UUIDs; remaining24 not reviewed here.",
+  "coverage": {
+    "assignedNodes": 24,
+    "reviewedCompleteNodes": 24,
+    "unreviewedAssignedNodes": 0,
+    "currentChildTasks": 186,
+    "accept": 9,
+    "hold": 15,
+    "fiveLanguageParentRules": 120
+  },
+  "perNode": [
+    {
+      "index": 1,
+      "nodeId": "001271cc-c353-4df2-abc7-0ed04774a9be",
+      "level": "A1.1",
+      "path": "P7",
+      "sourceId": "P7-N6",
+      "title": "Perfekt: getroffen, geschrieben",
+      "verdict": "HOLD",
+      "reasonDe": "Die aufgeführten Partizipien sind richtig, aber der Hinweis behauptet für alle unregelmäßigen Verben die Endung -en; gemischte Verben wie bringen/gebracht widerlegen das. Außerdem bleibt P7-N6-E05 in Deutsch und ru/uk bei der Lehrerin, während die Karte den Lehrer verwendet. Ohne grammatisches Lernziel zum weiblichen Beruf ist der fiktionale Kontext nicht vollständig umgestellt.",
+      "repairProposalDe": "P7-N6-E05: content.text_before exakt zu Ich habe eine E-Mail an den Lehrer ändern; Antwort geschrieben und Optionsfolge erhalten. Die ru/uk task-Texte zum männlichen Lehrer angleichen. Hinweise in allen Sprachen auf die hier geübten starken Verben beschränken.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 6,
+      "fullAssignmentRecordNativeSha256": "c9fc7f5540ec719c6b12af7ccf0036254935d9a2edc8f0693d400a5130d17fc0",
+      "beforeFullRecordNativeSha256": "8f286219667bed228584e246544eee07c33f08265f32be6b34511d8ea9007458",
+      "beforeBusinessRecordNativeSha256": "561d59899a5d71e5899db3a110a1873f83a2793dc45cb0668eef73e603189058",
+      "afterBusinessRecordNativeSha256": "8c4a6f1461d6a7b06f356c81febae3cc8ae6a93becf9ccd8af5bfcc6774abadc",
+      "wholeCurrentSeedNodeNativeSha256": "56fbd0e7d8297d3ea54d8ac9dc045af1eabdbaf120605f42cef8734891f4dd06",
+      "sourceLineageCommits": [
+        "7b8819f05aeacf100fc1cbd3d391a4fc11396141",
+        "daea8c386be8a453ab7b772be9605aabbf17ea02"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/0",
+        "/merkkarte/examples/2",
+        "/merkkarte/examples/3"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 2,
+      "nodeId": "01dbc5eb-a41a-4744-b586-ac5ae2108f90",
+      "level": "A1.1",
+      "path": "P7",
+      "sourceId": "P7-N5",
+      "title": "Perfekt: gemacht, gearbeitet",
+      "verdict": "ACCEPT",
+      "reasonDe": "Regelmäßige Partizipien gekocht/gespielt/gekauft/gearbeitet/gemacht, Endung -et nach t/d und die gezeigten Satzklammern stimmen. Alle fünf Aufgaben, Emre und 20 Uhr sind in den vier Übersetzungen kohärent. Die Fragebeispiele zeigen die eigene Verbstellung der Ja/Nein-Frage.",
+      "repairProposalDe": null,
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 5,
+      "fullAssignmentRecordNativeSha256": "238fdb015a9c132b7a7918df286084332515de2a9dc38076569226c4f7dd2d90",
+      "beforeFullRecordNativeSha256": "26381a35f3cb359f2dc5127d31bdd1cb9854c3b5d9b819c0736cbfcada6aa9b1",
+      "beforeBusinessRecordNativeSha256": "0bec0c93f21f4875a799be728db9e2b458a3fcc7c0a61d97b9fa816e2891e4f2",
+      "afterBusinessRecordNativeSha256": "e4431a1333944abde950178a2477449ea72d0a5eef15f92606f769de9c5babfb",
+      "wholeCurrentSeedNodeNativeSha256": "8d999234f2a02c49bd815c9b01641202c4df8f9ce1be98dcd4381a4e12286b98",
+      "sourceLineageCommits": [
+        "d699794d362b023050fd4eb00221bd67388c3543"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/rule",
+        "/translations/de/rule",
+        "/translations/en/rule",
+        "/translations/ru/rule",
+        "/translations/tr/rule",
+        "/translations/uk/rule"
+      ],
+      "findingOrigin": "Die gelieferten Elternänderungen sind im gelesenen vollständigen Kontext konsistent; keine pauschale Zustimmung zu anderen Pfaden."
+    },
+    {
+      "index": 3,
+      "nodeId": "07f03804-034c-4943-bc74-7ab2cfe9a719",
+      "level": "A1.1",
+      "path": "P6",
+      "sourceId": "P6-N3",
+      "title": "Akkusativ: den, das, die",
+      "verdict": "ACCEPT",
+      "reasonDe": "Bestimmte Akkusativartikel den/das/die einschließlich Plural sind korrekt; alle fünf Schlüssel passen zu Roman/Fußballspiel/Musik/Film/Zeitung. Oleh und Kofi stimmen mit den Übersetzungen überein. Feminine die-Beispiele sind sachlich nötige Artikelgrammatik.",
+      "repairProposalDe": null,
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 5,
+      "fullAssignmentRecordNativeSha256": "f66bbf061c50a0fb31cecf0b85a0d69cdc5c2bf78452da29bcda9d54fe51842a",
+      "beforeFullRecordNativeSha256": "1588617ff6968c578116695a0fc93cc3343b0bec3d91cb6ed7abe171983550f9",
+      "beforeBusinessRecordNativeSha256": "063f07b1c139933bf45ad58b8dc5813150c4246ebdabb3bafc7bf766fa98131c",
+      "afterBusinessRecordNativeSha256": "d2bfc32db86a41a8148e52b0945c0ce1215b8be0a1ada6b9c100ee6e1833f52f",
+      "wholeCurrentSeedNodeNativeSha256": "5a38ef6f5cdce91e440b808f771e120490b494c4285e84bbd1d4b8bb1e7a8d29",
+      "sourceLineageCommits": [
+        "8281cf9581507dbf3def77e2d7f35b00b5b8b799"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/0"
+      ],
+      "findingOrigin": "Die gelieferten Elternänderungen sind im gelesenen vollständigen Kontext konsistent; keine pauschale Zustimmung zu anderen Pfaden."
+    },
+    {
+      "index": 4,
+      "nodeId": "189284c1-83e9-4544-9cad-d5126486ebd6",
+      "level": "A1.1",
+      "path": "P1",
+      "sourceId": "P1-N9",
+      "title": "Visitenkarte und Formular",
+      "verdict": "HOLD",
+      "reasonDe": "Die Elternkarte und die Formularaufgaben verwenden korrekt Oleh Marchenko/Lwiw/Ukraine. Alle fünf Kindaufgaben erklären p1_card aber noch mit dem Beispiel Olena, auch in en/ru/uk/tr. Das ist eine konkrete veraltete Figurenreferenz innerhalb derselben explanation_card, keine falsche Formularlösung.",
+      "repairProposalDe": "In explanation sowie translations.{en,ru,uk,tr}.explanation jedes der fünf Kinder ausschließlich den exakten Namen Olena durch Oleh ersetzen; alle anderen Zeichen, Aufgaben-IDs, Antworten und Optionen erhalten.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 5,
+      "fullAssignmentRecordNativeSha256": "7bfd5d65ecbe2bbeeedc8e99d6ddcc07e3c5276b76bba73f3dfc7b0700469395",
+      "beforeFullRecordNativeSha256": "fa0388b5bb79009c46293ab5198f2832856dfdda6e6c1bd1e6736a5a1087157c",
+      "beforeBusinessRecordNativeSha256": "ebf06876aba62aec6a87bd01f2a6e5fd0a6c05eb4cce1f7673304a0d96858509",
+      "afterBusinessRecordNativeSha256": "18fedc43d19a6c97b907a01f5806a820d951db24c189164089fa51cddcc509b9",
+      "wholeCurrentSeedNodeNativeSha256": "6860d2b36e08e354e12fde4d0155b99776f2e62cea22d6c0f0b77b24b65ae995",
+      "sourceLineageCommits": [
+        "d699794d362b023050fd4eb00221bd67388c3543"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/0",
+        "/merkkarte/rule",
+        "/translations/de/rule",
+        "/translations/en/rule",
+        "/translations/ru/rule",
+        "/translations/tr/rule",
+        "/translations/uk/rule"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 5,
+      "nodeId": "190c4bef-e94a-4e28-94b8-29cf9eaa449a",
+      "level": "A1.1",
+      "path": "P3",
+      "sourceId": "P3-N5",
+      "title": "Im Geschäft",
+      "verdict": "HOLD",
+      "reasonDe": "Dialogrollen Verkäufer/Kunde, Preisantwort 2,20 Euro, höfliches hätte gern und alle fünf Schlüssel sind korrekt. Die deutsche Mengenangabe ein Pfund Tomaten meint im Einkauf 500 Gramm; ru/uk/tr geben richtig ein halbes Kilo wieder. Englisch a pound kann dagegen das englische Pfund von etwa454 Gramm bedeuten und erhält die Menge nicht eindeutig.",
+      "repairProposalDe": "P3-N5-E05 translations.en.task exakt: I would like half a kilo of tomatoes. Deutsche Aufgaben-, Options- und Antworttexte unverändert lassen.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 5,
+      "fullAssignmentRecordNativeSha256": "bfd5c5132631bf0ec63e237ab3d27caab7070b64093f17f7a8ddfe6665fee333",
+      "beforeFullRecordNativeSha256": "1c81138abde8b463957342d150ded398b273989601eacba19c2ac11404c2ba60",
+      "beforeBusinessRecordNativeSha256": "e88fde5bf80870cde502d4fea39471f567b114f8c392b06f75a7520ab0d4f049",
+      "afterBusinessRecordNativeSha256": "dd2e590c4c63cbbe32156362c50d802731e53bf576736937719a4c0e61a49cb7",
+      "wholeCurrentSeedNodeNativeSha256": "eb3443e4a5130e7d5483c87f6af3666ed1514a289f564b651b1e8935dc4d5bd9",
+      "sourceLineageCommits": [
+        "7b8819f05aeacf100fc1cbd3d391a4fc11396141"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/rule",
+        "/translations/de/rule"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 6,
+      "nodeId": "25d45a84-e4b4-4886-b10b-39a0eba56d0e",
+      "level": "A1.2",
+      "path": "P5",
+      "sourceId": "P5-N10",
+      "title": "Die Mailbox",
+      "verdict": "ACCEPT",
+      "reasonDe": "Ansage und eigene Nachricht sind sauber getrennt; der Praxistext fordert späteren Anruf statt Rückruf oder Nachricht. Alle zehn Lösungen, Personenbezüge sowie die jeweils eigenen Telefonnummern 0561 778812/0171 2233445/030 5550142 stimmen in den vier Sprachfassungen. Namen in verschiedenen Beispielszenarien dürfen verschieden sein; Dilan erhält hier keine weibliche Rollenmarkierung.",
+      "repairProposalDe": null,
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 10,
+      "fullAssignmentRecordNativeSha256": "1263a72ce4527e3b5fe28f250a31b2703fb53f48480e393d1d3046c03e268a12",
+      "beforeFullRecordNativeSha256": "95bee28351bcf38df009eba118f59a2985b5328822e9e5ed2ce90ff7b7fc8d62",
+      "beforeBusinessRecordNativeSha256": "d5d7bbd5d162e229794d95866b24b452290453512b314036bfe70bdba31ce597",
+      "afterBusinessRecordNativeSha256": "0e4a58157c0f1e4f234fb53939942566462cf458bfba7aa321cfe7830c0b5518",
+      "wholeCurrentSeedNodeNativeSha256": "f098740fcbf257972f828298379dac0d67a0a045a7665942abe8b647a1d763b6",
+      "sourceLineageCommits": [
+        "4d9249b5e8fc797f8a0567fddeaf1a58e8b30fc9"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/rule",
+        "/translations/de/rule",
+        "/translations/en/rule",
+        "/translations/ru/rule",
+        "/translations/tr/rule",
+        "/translations/uk/rule"
+      ],
+      "findingOrigin": "Die gelieferten Elternänderungen sind im gelesenen vollständigen Kontext konsistent; keine pauschale Zustimmung zu anderen Pfaden."
+    },
+    {
+      "index": 7,
+      "nodeId": "28460b9a-8231-4ad8-b548-96f411bac7d3",
+      "level": "A2.1",
+      "path": "P1",
+      "sourceId": "P1-N5",
+      "title": "Warum? – Weil ich arbeiten muss.",
+      "verdict": "ACCEPT",
+      "reasonDe": "Die neun vollständigen Aufgaben prüfen die dargestellten einfachen weil-Sätze mit Modalverb, Perfekt und trennbaren Verben korrekt: arbeiten muss, geschlafen habe, aufsteht, verpasst hat, gekommen sind, einkauft. Alle Namen/Zeiten und vier Übersetzungen sind passend. Keine Freigabe für komplexe Ersatzinfinitivkonstruktionen daraus abgeleitet.",
+      "repairProposalDe": null,
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 9,
+      "fullAssignmentRecordNativeSha256": "6d0532b83a1337d0bab90a959b157e1cd14015e0bb7b520b30d7d3afd8cdf5ea",
+      "beforeFullRecordNativeSha256": "bccf1dac34a57e0cda6e901faa682643392acfc6934828cd790bb1006867f5a2",
+      "beforeBusinessRecordNativeSha256": "4e979aa752ad105bf19356d4631971e9879453c8cc446ce9a0ea9d5dc7636ef1",
+      "afterBusinessRecordNativeSha256": "1aeb5bcfd1eadff422a5bea4e11167efea24c13c4658edb7c1647c4d2055700d",
+      "wholeCurrentSeedNodeNativeSha256": "f9f3e82fbca4b5d18036cbaec113706e36c84b41433d7a7623e42b9f581227bb",
+      "sourceLineageCommits": [
+        "daea8c386be8a453ab7b772be9605aabbf17ea02"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/1"
+      ],
+      "findingOrigin": "Die gelieferten Elternänderungen sind im gelesenen vollständigen Kontext konsistent; keine pauschale Zustimmung zu anderen Pfaden."
+    },
+    {
+      "index": 8,
+      "nodeId": "285d17b8-83d2-4658-95ac-89fc78440aff",
+      "level": "A1.2",
+      "path": "P1",
+      "sourceId": "P1-N5",
+      "title": "Früher und heute",
+      "verdict": "ACCEPT",
+      "reasonDe": "Präteritum war/hatte und Gegensatz früher/heute passen zu allen sieben Aufgaben. Tareks früherer Lehrerberuf gegenüber heutigem Busfahrer ist eindeutig; Verkäufer/Koch und männliche Übersetzungen bleiben kohärent.",
+      "repairProposalDe": null,
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 7,
+      "fullAssignmentRecordNativeSha256": "16b6e9871fb7b6003041523e589bbf6bc3268a068e860cd9024bbec4909df02b",
+      "beforeFullRecordNativeSha256": "b28d5acae569cd6326115915dfb4ce6076bfefeb08da392ab6897ef649da2a27",
+      "beforeBusinessRecordNativeSha256": "987a3fb2e8bd94b188da1c4f0bf7e09df9f5a4601571ff61e6c54e3bfae306f7",
+      "afterBusinessRecordNativeSha256": "246bf2d3c06154cd2d5de79317837ac37b8cae88386ac71060d20e9923c53cd5",
+      "wholeCurrentSeedNodeNativeSha256": "37a8ebf003a92e06d04d812080ffdd4d6330b856366db3308f653215d5f6e737",
+      "sourceLineageCommits": [
+        "4d9249b5e8fc797f8a0567fddeaf1a58e8b30fc9"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/rule",
+        "/translations/de/rule",
+        "/translations/en/rule",
+        "/translations/ru/rule",
+        "/translations/tr/rule",
+        "/translations/uk/rule"
+      ],
+      "findingOrigin": "Die gelieferten Elternänderungen sind im gelesenen vollständigen Kontext konsistent; keine pauschale Zustimmung zu anderen Pfaden."
+    },
+    {
+      "index": 9,
+      "nodeId": "2be627b9-03fc-4bf7-8fa3-65748d1636a1",
+      "level": "A1.2",
+      "path": "P6",
+      "sourceId": "P6-N4",
+      "title": "mir, dir, ihm, ihr",
+      "verdict": "HOLD",
+      "reasonDe": "Die deutsche vollständige Dativtabelle und die zehn Schlüssel sind korrekt; sie/ihr-Beispiele müssen als fachlich erforderliche feminine Pronomen erhalten bleiben. Die türkische Regel glossiert jedoch er/es → ihm gemeinsam mit ona, erkek und macht so auch das neutrale es fälschlich männlich.",
+      "repairProposalDe": "/after/translations/tr/rule: die exakte Teilfolge er/es → ihm (ona, erkek) durch er/es → ihm (ona) ersetzen; dieselbe Regelquelle in merkkarte.translations.tr und den betroffenen Kind-Erklärungen getrennt prüfen. Keine Antwortschlüssel ändern.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 10,
+      "fullAssignmentRecordNativeSha256": "9d4f8dd00faf602b4e781051097d125690dc93d2265cfb6561553d14b45bf6bb",
+      "beforeFullRecordNativeSha256": "586b76c898678dd6b56c5e2cd5e159b2580e619fe1b4405be5fea997016d70a2",
+      "beforeBusinessRecordNativeSha256": "2dcf4d2fdfe11548b0a5cba9c4e7054f3c96d2eca50adbd9a79fd7023d6c0695",
+      "afterBusinessRecordNativeSha256": "04746da6b8db22711b9d0a3fa2b7cd1b2f9e2d98df2bc24b151cbe87e39203a3",
+      "wholeCurrentSeedNodeNativeSha256": "366dc3c21d2018f60858325b57c9620d7675bfdfaaa47bfc83919ea269af0f3a",
+      "sourceLineageCommits": [
+        "4d9249b5e8fc797f8a0567fddeaf1a58e8b30fc9"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/2"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 10,
+      "nodeId": "3a155537-879e-4c0f-b01c-b8c705acad0d",
+      "level": "A1.1",
+      "path": "P5",
+      "sourceId": "P5-N6",
+      "title": "Am Montag arbeite ich",
+      "verdict": "HOLD",
+      "reasonDe": "V2, abgetrennte Präfixe und die Uhrzeiten sind korrekt. P5-N6-E10 enthält noch Emres Mutter; das ist hier keine Aufgabe zu femininem Geschlecht. Zusätzlich übersetzen ru/uk P5-N6-E05 die Arztpraxis als Praktika/Praktyka statt Arztpraxis.",
+      "repairProposalDe": "P5-N6-E05 translations.ru.task exakt: Кабинет врача открыт с восьми до двенадцати часов. translations.uk.task exakt: Лікарський кабінет відкритий з восьмої до дванадцятої години. Die Mutter-Reparatur in E10 würde wortlautbasierte Antworten berühren und braucht eigene autorisierte Versionsentscheidung; hier keine Schlüsseländerung.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 10,
+      "fullAssignmentRecordNativeSha256": "9f4ac673df2460d3bba8a005d322e1958f59be7370fa2bfb2ceec8950600bc85",
+      "beforeFullRecordNativeSha256": "24627c4650d63662a71a47e584f936965d431352e1dccff1c38198c4146f7974",
+      "beforeBusinessRecordNativeSha256": "b4b4c9e388717bbc000978f7e0ab77f8ca4c4b68d5cc8129bdf18ec61456489c",
+      "afterBusinessRecordNativeSha256": "27161fce73d620f213f8a8dd2cef8d98a9a8b930f0137982d06d4298e63cee4c",
+      "wholeCurrentSeedNodeNativeSha256": "c417abb117ae942d4c4b45977d86f7bb405c09d5c17b7293e0dfa6ee6a9d9b6c",
+      "sourceLineageCommits": [
+        "469d8f75c1457786ea6390c098f53c1ba55b07c4"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/3",
+        "/merkkarte/rule",
+        "/translations/de/rule",
+        "/translations/en/rule",
+        "/translations/ru/rule",
+        "/translations/tr/rule",
+        "/translations/uk/rule"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 11,
+      "nodeId": "3f44f3f8-d2b5-45a0-a591-0783a831a4e2",
+      "level": "A1.2",
+      "path": "P1",
+      "sourceId": "P1-N3",
+      "title": "als und bei",
+      "verdict": "HOLD",
+      "reasonDe": "als + Beruf und bei + Arbeitgeber sowie alle sieben Präpositionsschlüssel sind korrekt. Die aktuelle Karte zeigt weiterhin Dilara als Köchin, Kinder zeigen Amira/Kellnerin und Hanna/Erzieherin. Diese Figuren sind für das Lernziel als/bei nicht fachlich erforderlich; eine bloße Änderung der Hauptregel hat den Kontext nicht abgeschlossen.",
+      "repairProposalDe": "/after/merkkarte/examples/0 exakt: Amir arbeitet als Koch. Für E03/E05 gleichartige männliche Figuren in content.text_before/text_after und den vier task-Übersetzungen vorschlagen; die Antworten als und Optionsfolge unverändert halten.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 7,
+      "fullAssignmentRecordNativeSha256": "6f4d65b55a1edee5577034c670a81dae0968f71c7f88429c40679ac25c347d7f",
+      "beforeFullRecordNativeSha256": "746ad1687388a2215aef36fe943ea01c855ab3958ad89281ed7a71a538dda164",
+      "beforeBusinessRecordNativeSha256": "34893f3f9bc3ece871e2c79f28e9978e58f4f63372b0fde4b1937c1bffab6ba8",
+      "afterBusinessRecordNativeSha256": "86d88c790765068ff5bc78c18cbcc782db55818c22b0d279a7d056ce69869497",
+      "wholeCurrentSeedNodeNativeSha256": "671292ec7c638f059abba754047f4bedae9da94f9994bd51c31cfe55fcb3b3cb",
+      "sourceLineageCommits": [
+        "4d9249b5e8fc797f8a0567fddeaf1a58e8b30fc9"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/rule",
+        "/translations/de/rule",
+        "/translations/en/rule",
+        "/translations/ru/rule",
+        "/translations/tr/rule",
+        "/translations/uk/rule"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 12,
+      "nodeId": "52445717-5156-48a2-948c-d1d04b85f7c7",
+      "level": "A2.1",
+      "path": "P1",
+      "sourceId": "P1-N4",
+      "title": "weil",
+      "verdict": "HOLD",
+      "reasonDe": "Die neun Lösungen zu weil sind korrekt. Vor weil steht ein Komma ist als allgemeine Regel zu absolut, da die akzeptierte Voranstellung Weil ich krank bin, bleibe ich im Bett. das Komma nach dem Nebensatz verlangt. Außerdem bleibt Olga in E08 ohne notwendiges feminines Grammatikziel.",
+      "repairProposalDe": "In de-Regel den Satz Vor weil steht ein Komma. exakt ersetzen durch Zwischen Hauptsatz und weil-Satz steht ein Komma. Dieselbe Einschränkung in en/ru/uk/tr und der gemeinsamen Erklärung nachziehen. E08: Olga ist glücklich, weil ihre Familie sie → Oleg ist glücklich, weil seine Familie ihn; besucht bleibt Lösung, Übersetzungen männlich angleichen.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 9,
+      "fullAssignmentRecordNativeSha256": "e82d2ace8320b693cbb1239b7f1d4c45eb11a58814c8b442d987f4692982d674",
+      "beforeFullRecordNativeSha256": "26954ba360803711c076aae9fb3020932883d7b2070a783e821b4b43a779e838",
+      "beforeBusinessRecordNativeSha256": "e2a24ad1798e9310dae6c92ca576a74da9c60879597fd096f7e35637436e288d",
+      "afterBusinessRecordNativeSha256": "159fed00914a1df21c228317cfc999f2157eb6ffbbc0b4298ec52f22e983daca",
+      "wholeCurrentSeedNodeNativeSha256": "46bab7d5f3a2fc24f3bd36f257d8a91861aa29fcac97e5c1c23f82e79e30c566",
+      "sourceLineageCommits": [
+        "469d8f75c1457786ea6390c098f53c1ba55b07c4"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/0"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 13,
+      "nodeId": "54a69e26-5567-4481-85c2-b4fe0181d83d",
+      "level": "A2.1",
+      "path": "P6",
+      "sourceId": "P6-N6",
+      "title": "Meine Schulzeit",
+      "verdict": "HOLD",
+      "reasonDe": "Schulanfang mit sechs/sieben, gehasst/geliebt und die Präteritumformen sind korrekt. E03 enthält eine fiktionale Lehrerin, obwohl nur streng geprüft wird. E09 erklärt kategorisch Modalverben im Präteritum, nicht im Perfekt; Perfekt mit Ersatzinfinitiv ist aber grammatisch möglich. Eine bevorzugte Lernform darf nicht als Verbot anderer Formen erklärt werden.",
+      "repairProposalDe": "Gemeinsame Erklärung p6_modal_prt: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. ersetzen durch Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Die vier Übersetzungen entsprechend einschränken. E03 Lehrerin zu Lehrer, feminine ru/uk Rollenmarkierung angleichen; streng bleibt Schlüssel.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 10,
+      "fullAssignmentRecordNativeSha256": "b4f1aac5deb1a6056d53540337b018aebe20460dcc64c7abd4b81ce9d03f1250",
+      "beforeFullRecordNativeSha256": "bd01bbecf1654350bbb38f6a0fa560885a37f3915f61626edbcf822f1e9d9eef",
+      "beforeBusinessRecordNativeSha256": "1529ad2ccba05802d49ae4917cab72b93e53c0c38efa3530595f17445706b3ae",
+      "afterBusinessRecordNativeSha256": "e277ea5e746bf72a955c2835eb9ec2ae9b674730448938d1d37d4b9701ea3deb",
+      "wholeCurrentSeedNodeNativeSha256": "e61974665bda7d859764386e448cc89307c499412cbfd0e2544ba9e82cdcc9f5",
+      "sourceLineageCommits": [
+        "daea8c386be8a453ab7b772be9605aabbf17ea02"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/rule",
+        "/translations/de/rule",
+        "/translations/en/rule",
+        "/translations/ru/rule",
+        "/translations/tr/rule",
+        "/translations/uk/rule"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 14,
+      "nodeId": "67ecdd1d-695b-4cf5-8f63-e8e60d58fea5",
+      "level": "A2.1",
+      "path": "P6",
+      "sourceId": "P6-N2",
+      "title": "Ausbildung und Beruf",
+      "verdict": "HOLD",
+      "reasonDe": "Ausbildung/Studium/Praktikum/Weiterbildung und alle zehn Wortlösungen stimmen mit den vollständigen Aufgaben. Vier Wochen, drei Jahre, sechs Jahre sind in allen Übersetzungen erhalten. E04 Frau Rojas und E09 Friseurin/выучилась/вивчилася sind jedoch verbleibende weibliche fiktionale Lernrollen ohne Geschlechtslernziel.",
+      "repairProposalDe": "E09 content.text_before exakt: Ich habe eine Ausbildung als Friseur ; gemacht und Optionsfolge bleiben. ru/uk task in männliche Erzählform ändern; E04 Herr Rojas/er und passende vier Übersetzungen separat vorschlagen.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 10,
+      "fullAssignmentRecordNativeSha256": "dc29e892c7ecbdc5d0cbd2f8c00833b28c15745ab8576cee84ebaf7a900b7dd0",
+      "beforeFullRecordNativeSha256": "cee9cc821e1497df8ae92c03fbeea76a5591161208a450dc190722a3c52550c5",
+      "beforeBusinessRecordNativeSha256": "deb7cc0afdd1993c0b0661c65bd3b94dcadddb8912e681f601b2c37ae52f33e0",
+      "afterBusinessRecordNativeSha256": "93cf68013c7f0dac8c9a8dead65f29015ad95a3650f01acef26342f01d96889d",
+      "wholeCurrentSeedNodeNativeSha256": "0fb136d6e0f19188f39d9f699cb2d82731605e81689ceda62b1a51fc250806f8",
+      "sourceLineageCommits": [
+        "daea8c386be8a453ab7b772be9605aabbf17ea02"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/2"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 15,
+      "nodeId": "69d03f8e-bb3b-4546-b1e5-7ffda24b57ec",
+      "level": "A1.2",
+      "path": "P3",
+      "sourceId": "P3-N4",
+      "title": "sein oder ihr?",
+      "verdict": "HOLD",
+      "reasonDe": "Die neun Possessivlösungen und die sechs feminine/Plural-Endungen sind korrekt; Frau Aksoy, Schwester/Ärztin und ihr sind fachlich nötige Kontrastbeispiele und werden nicht pauschal vermännlicht. Die Regel erfasst aber nur er/sie nach natürlichem Geschlecht, während E08 das neutrale das Kind → Sein prüft. Mädchen kann grammatisch mit es/sein oder bei natürlichem Bezug sie/ihr aufgegriffen werden; pauschal Mädchen → sie ist unvollständig.",
+      "repairProposalDe": "Die Besitzerzuordnung in der gemeinsamen Regel durch er oder es → sein, sie (Singular oder Plural) → ihr präzisieren; vorhandene Nomen-Endungsbeispiele und sämtliche Schlüssel erhalten. Die vier Übersetzungen auf Pronomenbezug statt pauschal biologisches Geschlecht ausrichten.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 9,
+      "fullAssignmentRecordNativeSha256": "25c403479ab1dd68ba42c53a389f023a25a04628976359c533e66d0f7418e95b",
+      "beforeFullRecordNativeSha256": "16f81287c7cc25ebfa2b6b89b09530057dbb56d2e79acbc0f4ac57e69150b028",
+      "beforeBusinessRecordNativeSha256": "a976aae462da28d2f81236f1f885a56117b0ec7b9dc12d1d6de9168dcaf63dd7",
+      "afterBusinessRecordNativeSha256": "adfcc3ba03f120a32bdd2f9f363619fe99c4a49d1ac13640f1d71c1300b5d956",
+      "wholeCurrentSeedNodeNativeSha256": "be46539b1d270491af35d1fe6274d3401725f221af7597ee681e9760d0ce5ad5",
+      "sourceLineageCommits": [
+        "4d9249b5e8fc797f8a0567fddeaf1a58e8b30fc9",
+        "daea8c386be8a453ab7b772be9605aabbf17ea02"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/1",
+        "/merkkarte/rule",
+        "/translations/de/rule",
+        "/translations/en/rule",
+        "/translations/ru/rule",
+        "/translations/tr/rule",
+        "/translations/uk/rule"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 16,
+      "nodeId": "6ef97dbb-0cd0-4b85-a3ab-ebd5bfb21c3c",
+      "level": "A1.1",
+      "path": "P5",
+      "sourceId": "P5-N3",
+      "title": "Trennbare Verben",
+      "verdict": "ACCEPT",
+      "reasonDe": "Alle sieben Aufgaben bilden die Satzklammer in den hier gezeigten Hauptsätzen korrekt: stehe auf, ruft an, kaufen ein, räumt auf, fängt an, holt ab, sehe fern. Vater, Samir, Emre und 16 Uhr stimmen mit den Übersetzungen. Isoliertes Sie ruft … an in einem Grammatikhinweis ist ein legitimes Pronomenbeispiel.",
+      "repairProposalDe": null,
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 7,
+      "fullAssignmentRecordNativeSha256": "c0700ce5844e9d32a145bb0ac6a24ea9eef18d288f3b0398af3de17a00caf59a",
+      "beforeFullRecordNativeSha256": "683f6e089ccb01bc6efee015b448309481b55a0d48a19264b2c63152de180568",
+      "beforeBusinessRecordNativeSha256": "071b10f2783286c2ab7c095378ebf72b02da2486a93f59f29f50419dbc43d224",
+      "afterBusinessRecordNativeSha256": "812629029540f602f23741079db1577f6eab16a8787a6b21dd7d5f905ad41653",
+      "wholeCurrentSeedNodeNativeSha256": "2cd3d85ded16e226ccb8de38153cf733870d16e602087179af8091a4165589a7",
+      "sourceLineageCommits": [
+        "469d8f75c1457786ea6390c098f53c1ba55b07c4"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/1"
+      ],
+      "findingOrigin": "Die gelieferten Elternänderungen sind im gelesenen vollständigen Kontext konsistent; keine pauschale Zustimmung zu anderen Pfaden."
+    },
+    {
+      "index": 17,
+      "nodeId": "6f293a02-9679-4411-b854-e5bf54e6adf7",
+      "level": "A1.1",
+      "path": "P5",
+      "sourceId": "P5-N4",
+      "title": "Fragen und Alltag",
+      "verdict": "HOLD",
+      "reasonDe": "Die fünf Lösungen und die Hauptsatzfragen mit trennbaren Verben sind korrekt. Die neue Karte und E04 verwenden Oleh. E01 explanation in fünf Sprachen sowie vier übersetzte hints verwenden weiterhin Olena. Damit ist die gemeinsame Karte p5_separable_q intern nicht versionsgleich.",
+      "repairProposalDe": "In P5-N4-E01 explanation und translations.{en,ru,uk,tr}.{hint,explanation} ausschließlich Olena durch Oleh ersetzen. E04-Schlüssel Rufst du Oleh an? und alle IDs unverändert erhalten.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 5,
+      "fullAssignmentRecordNativeSha256": "ddf5722396abe53c98f01a4c1fe80ec3f58b18383463c318afeb44b913869f44",
+      "beforeFullRecordNativeSha256": "ad50eb88b08e7495405c76befa391faa73201a8066578e6e2c0adc24699f16f7",
+      "beforeBusinessRecordNativeSha256": "92462753c97aba9e8006fa988ba6430c9211c69d776c1e09c07f826d0b36c1b7",
+      "afterBusinessRecordNativeSha256": "8f9c1d51e22de4cde91732096cedb947e4421c4272a378ddae0cb36190fad8f4",
+      "wholeCurrentSeedNodeNativeSha256": "f24ea002e690cfadd565ce4899a48439f8250f514dbb177b4a4c32ab57781aee",
+      "sourceLineageCommits": [
+        "d699794d362b023050fd4eb00221bd67388c3543"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/1",
+        "/merkkarte/rule",
+        "/translations/de/rule",
+        "/translations/en/rule",
+        "/translations/ru/rule",
+        "/translations/tr/rule",
+        "/translations/uk/rule"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 18,
+      "nodeId": "791c5e63-7f2d-4eb4-88b5-cfddc5df8a67",
+      "level": "A2.1",
+      "path": "P1",
+      "sourceId": "P1-N11",
+      "title": "Das gefällt ihm.",
+      "verdict": "ACCEPT",
+      "reasonDe": "finden als Subjektverb und gefallen mit Dativ sind korrekt; alle neun Schlüssel und vier Sprachfassungen passen. Frau Kaya/Olga sowie sie/ihr sind hier notwendige Kontrastbeispiele zur männlichen Form er/ihm und werden ausdrücklich erhalten; Plural ihnen bleibt korrekt.",
+      "repairProposalDe": null,
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 9,
+      "fullAssignmentRecordNativeSha256": "bced57bf0574cf9d99828d3c45679df37d6f32a2e4f51ac98a9dad002bea4f7a",
+      "beforeFullRecordNativeSha256": "c93e653d9ed4ae1a1f5461eacc1a1943f0b365f7057b8ffac0b893c4dfc0b9c6",
+      "beforeBusinessRecordNativeSha256": "a9a8e9f3a0c5f58382b5d1b85b0f2fb8f4ab8eaff914b08082368f1b3653e1b3",
+      "afterBusinessRecordNativeSha256": "a2dd3801a3884e71d5387b312b93ad3bfb8efe75f44220f07a356f4650b5961f",
+      "wholeCurrentSeedNodeNativeSha256": "78d4cae98ede87eedbf584231a7c83ad72f537f43df9dae69f2bd796ce94e250",
+      "sourceLineageCommits": [
+        "4d9249b5e8fc797f8a0567fddeaf1a58e8b30fc9"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/0"
+      ],
+      "findingOrigin": "Die gelieferten Elternänderungen sind im gelesenen vollständigen Kontext konsistent; keine pauschale Zustimmung zu anderen Pfaden."
+    },
+    {
+      "index": 19,
+      "nodeId": "7ba5cc58-740b-46bf-bc68-acbff5b3a64f",
+      "level": "A1.2",
+      "path": "P4",
+      "sourceId": "P4-N4",
+      "title": "Wo ist …? beim, im, in der",
+      "verdict": "HOLD",
+      "reasonDe": "Lokatives bei/in + Dativ, die Kontraktionen und Länderausnahmen sind korrekt, alle neun Lösungen sind plausibel. Sofia und Dilara bleiben jedoch fiktionale weibliche Subjekte ohne erforderliches Geschlechtslernziel; Oma in E09 ist ebenfalls kein nötiger Dativ-Geschlechtskontrast. Bei der Freundin in der Regel ist dagegen ein legitimes feminines Dativbeispiel und bleibt erhalten.",
+      "repairProposalDe": "E01 Frage Sofia ist krank. Sie ist … Arzt. zu Samir ist krank. Er ist … Arzt.; E08 text_before Dilara ist gerade zu Dilaver ist gerade ; vier task-Übersetzungen mitziehen. E09 Oma berührt wortlautbasierte Antworten und benötigt eigene autorisierte Versionsentscheidung; hier keine Schlüsseländerung.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 9,
+      "fullAssignmentRecordNativeSha256": "0afd1f83f5cad5d17231c90c753989a07aed6d05f2577eb1f180db80471a2ac2",
+      "beforeFullRecordNativeSha256": "d8a289c586a0b3627eb62cf51343826638f81e48ce93e6437378138aa2e2fa58",
+      "beforeBusinessRecordNativeSha256": "d4ca7748de1824cd13731d423324c10be94513b0b1bc9767873ca47b0abbdb94",
+      "afterBusinessRecordNativeSha256": "929479ad49028ed02b9469388097f031a70ef052821455071155c1955628025a",
+      "wholeCurrentSeedNodeNativeSha256": "5960a98eac32778461045bbba252925a95de948ec71335b3b7ca06df6a92c16c",
+      "sourceLineageCommits": [
+        "d699794d362b023050fd4eb00221bd67388c3543"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/2"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 20,
+      "nodeId": "7caff01d-c495-487c-b0c7-52d789fa46e0",
+      "level": "A2.2",
+      "path": "P2",
+      "sourceId": "P2-N3",
+      "title": "einen neuen Laden",
+      "verdict": "ACCEPT",
+      "reasonDe": "Akkusativ-Adjektivendungen und Artikelformen stimmen in allen zehn Aufgaben einschließlich für meinen kleinen Bruder und silbernen/scharfes/lange. Die vier Regeln stimmen vollständig überein. Kleid/Kette sind Gegenstände; Leon/Milan als Käufer/Träger sind männlich und fachlich korrekt.",
+      "repairProposalDe": null,
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 10,
+      "fullAssignmentRecordNativeSha256": "580e0434e572dbeea93bb2a23ffbe79eb1215482c871335eac5b0bbe1af6a638",
+      "beforeFullRecordNativeSha256": "48b417f343af047204e38e75e50d2b594b65aa971d1ddaeb1c3b54f1a6738a93",
+      "beforeBusinessRecordNativeSha256": "067d5f44e79a964f60847aa96016f9df2b292ff942d45995850c9faf564ce9b9",
+      "afterBusinessRecordNativeSha256": "90f6223819782a896e3144961011616f7ba4be2b4bf51bd7658fe6a651cfd133",
+      "wholeCurrentSeedNodeNativeSha256": "8a98c7ea665577e677e5a746b6bfe9ac4680f21f0a83085095d281ed8df1d2bf",
+      "sourceLineageCommits": [
+        "daea8c386be8a453ab7b772be9605aabbf17ea02"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/1"
+      ],
+      "findingOrigin": "Die gelieferten Elternänderungen sind im gelesenen vollständigen Kontext konsistent; keine pauschale Zustimmung zu anderen Pfaden."
+    },
+    {
+      "index": 21,
+      "nodeId": "82f848b0-b63e-42a5-99a2-c861e248cd87",
+      "level": "A1.1",
+      "path": "P6",
+      "sourceId": "P6-N5",
+      "title": "Akkusativ: keinen, kein, keine",
+      "verdict": "HOLD",
+      "reasonDe": "Die kein-Tabelle und alle fünf Lösungen sind korrekt. Die Karte wurde zu Er trinkt kein Bier geändert, E03 samt en/ru/uk bleibt aber bei Sie/She/Она/Вона trinkt. Das weibliche Subjekt wird für die neutrale Form kein Bier nicht gebraucht.",
+      "repairProposalDe": "P6-N5-E03 content.text_before exakt Er trinkt ; translations.en.task He doesn’t drink beer.; ru.task Он не пьёт пиво.; uk.task Він не п’є пива. Antwort kein, Optionen und IDs erhalten.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 5,
+      "fullAssignmentRecordNativeSha256": "2ba279aa124051829bc027c6c952d5b6010adbbbcd25994bae39cabfb413753b",
+      "beforeFullRecordNativeSha256": "8841ba45846f371d27a41119072e7988bff49b7b87eaa2ac24af81662525854c",
+      "beforeBusinessRecordNativeSha256": "0428b782bfb9cd314ae1cebdfe0d756c16517f4881b2239b18fe880a34038498",
+      "afterBusinessRecordNativeSha256": "55ff811d71a531d0d693cee5a4e940ab985f15c0e1e36c16c0c76e2d50189f0a",
+      "wholeCurrentSeedNodeNativeSha256": "b4bced5079c65dcb31142ed935eb15e8746cb43c567eaec0ce332ff36ab02d5c",
+      "sourceLineageCommits": [
+        "daea8c386be8a453ab7b772be9605aabbf17ea02"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/1"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 22,
+      "nodeId": "86aaa575-cba0-499a-a528-1915a7fab3c4",
+      "level": "A1.1",
+      "path": "P7",
+      "sourceId": "P7-N8",
+      "title": "Gestern, früher, am Wochenende",
+      "verdict": "HOLD",
+      "reasonDe": "Der vollständige Wochenendtext und alle neun Schlüssel sind inhaltlich korrekt. E04 enthält weiterhin Freundin in Optionen und Lösung, E05 eine Kollegin. Außerdem stellt der Hinweis gestern/früher/am Wochenende → Perfekt eine bloße Lernpräferenz als zwingende Tempusregel dar; dieselben Zeitangaben sind auch mit Präteritum möglich.",
+      "repairProposalDe": "Gemeinsamen Hinweis auf Für diese Erzählung über die Vergangenheit üben wir das Perfekt. begrenzen und vier Übersetzungen angleichen. E05 Kollegin zu Kollege ohne Schlüsseländerung möglich. E04 Freundin würde Optionen/korrekte Antworttexte betreffen; HOLD bis gesonderter autorisierter Versionsentscheidung.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 9,
+      "fullAssignmentRecordNativeSha256": "dc65fb95d9936ae335ab2630ea93e899c472ff5a64007e6da9b4b45a4785551f",
+      "beforeFullRecordNativeSha256": "af35af95c80a1ebe0321694d0c6f59a1f25f6e3ab7ab45c3bdc0636841d27ca3",
+      "beforeBusinessRecordNativeSha256": "172dd46117936b634d17e9bf4c181955be1949a658ce83c24c3b23e61c5bb37f",
+      "afterBusinessRecordNativeSha256": "b7a5b157754b84d756b6d0a3e47060afd9dd5698e7a8d744b1170c8fdf956b7e",
+      "wholeCurrentSeedNodeNativeSha256": "31e41f6dc47adb576f3e9718139a6c79a257d67dcac85593d1b8a61fb5b6e83f",
+      "sourceLineageCommits": [
+        "7b8819f05aeacf100fc1cbd3d391a4fc11396141"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/1"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 23,
+      "nodeId": "8e95313f-6d9a-4502-a051-fd3ff917227e",
+      "level": "A2.1",
+      "path": "P1",
+      "sourceId": "P1-N6",
+      "title": "eingekauft, angerufen",
+      "verdict": "HOLD",
+      "reasonDe": "Alle zehn Partizip- und Hilfsverblösungen sind korrekt und die deutschen Formen in allen vier Regeln erhalten. E02 enthält noch die Mutter statt einer männlichen Lernrolle. Die pauschale Hilfsverbregel bei Bewegung oder Veränderung braucht außerdem eine Einschränkung auf die hier gezeigten intransitiven Verben; transitives Verändern kann haben verlangen.",
+      "repairProposalDe": "E02 question exakt: Hast du deinen Vater schon …?; Antwort angerufen und Optionen erhalten. Vier task-Texte entsprechend Vater. Die Hilfsverbregel konkretisieren: aufstehen, ankommen und einschlafen bilden hier das Perfekt mit sein; einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen mit haben.",
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 10,
+      "fullAssignmentRecordNativeSha256": "d675745efbc2fdec680c7679edaaa25055f4b9cac6b712feac01aec6ae0d56bb",
+      "beforeFullRecordNativeSha256": "48c81c6883e982813462ee3294b00acbc353e297d497342f6b744d75ca540a6c",
+      "beforeBusinessRecordNativeSha256": "11054336b7f6c34a91a28262df94649fdd1d0b047bfbf9d6376b4fc15e8bed91",
+      "afterBusinessRecordNativeSha256": "0abcd934bf04ce1e3b71625367170936cececd35dc8d452b318a849d96bb5b40",
+      "wholeCurrentSeedNodeNativeSha256": "febb8a81f1577cc16ab2cab726e0037f196567772a65b346d77d2c9b127ec969",
+      "sourceLineageCommits": [
+        "d699794d362b023050fd4eb00221bd67388c3543"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/0"
+      ],
+      "findingOrigin": "Urteil zum vollständigen aktuellen Kontext. Die benannten Kindaufgaben stehen außerhalb des gelieferten Elternfeld-Deltas; ein historisches Vorher der Kinder ist nicht enthalten, daher keine Behauptung, S2 habe diese Kindfehler neu eingeführt. Unveränderte Regelaussagen sind bestehende Befunde, keine durch bloße Namensänderung verursachten Grammatikfehler."
+    },
+    {
+      "index": 24,
+      "nodeId": "99f0b432-5761-468c-b86d-2769d0568178",
+      "level": "A1.1",
+      "path": "P6",
+      "sourceId": "P6-N8",
+      "title": "nehmen und fahren",
+      "verdict": "ACCEPT",
+      "reasonDe": "Alle fünf Präsensformen nimmst/nimmt/Fährst/fährt/fahrt sind korrekt. Die Regel unterscheidet du/er/sie/es von ihr; die mm-Schreibung ist in den vier Hinweisen richtig erklärt. Oleh, Dresden und Bus bleiben in allen Sprachfassungen kohärent.",
+      "repairProposalDe": null,
+      "semanticallyRead": {
+        "completeGermanRuleAndExamples": true,
+        "allFourTranslatedRules": true,
+        "wholeChildTasks": true,
+        "allDistinctChildHintsExplanationsAndTaskTranslations": true,
+        "explanationCardAndGoalContext": true
+      },
+      "taskCount": 5,
+      "fullAssignmentRecordNativeSha256": "8c6db4f0e6eb8ed5eabfc0d255d828c1f30316705ece13cf78966e0b8533091d",
+      "beforeFullRecordNativeSha256": "3ff6ed1c0d312bebb47fa56462c600b3b0f66b77b152a62a758fa4345b27c227",
+      "beforeBusinessRecordNativeSha256": "efb14ca4c81d10f186d5352c3526f3af23d1037a9bb53fba7ca19540a81699ca",
+      "afterBusinessRecordNativeSha256": "ec794cf6e2385241feafbd93850463e2509a5004271e9c7e546119ba34bc8bcc",
+      "wholeCurrentSeedNodeNativeSha256": "42bb92f7089657edc0a012bea88ca4f6c286accc6fd9244a5cbd49f6a338a4b8",
+      "sourceLineageCommits": [
+        "469d8f75c1457786ea6390c098f53c1ba55b07c4"
+      ],
+      "preservation": "Audit only: IDs/order/keys/goals/card references and all product sources unmodified. No full old child-task snapshot is present in beforeFull; historical child-key equality is not newly claimed.",
+      "suppliedParentDeltaPointers": [
+        "/merkkarte/examples/2"
+      ],
+      "findingOrigin": "Die gelieferten Elternänderungen sind im gelesenen vollständigen Kontext konsistent; keine pauschale Zustimmung zu anderen Pfaden."
+    }
+  ],
+  "extraReadbackIndependentVerification": {
+    "status": "PASS",
+    "unitTranslations": 330,
+    "unitsUniquelyMappedByCompleteFiveTitleVector": 66,
+    "objectives": 746,
+    "onlyObjectiveDifference": [
+      {
+        "key": [
+          "e323b471-5f08-433b-89ef-1aaf65cb3e3c",
+          "P7-G4"
+        ],
+        "before": {
+          "id": "P7-G4",
+          "area": "grammar",
+          "unit_id": "e323b471-5f08-433b-89ef-1aaf65cb3e3c",
+          "description": "Die Konjunktion „denn“ für Gründe: Wir feiern, denn Lara hat Geburtstag."
+        },
+        "after": {
+          "id": "P7-G4",
+          "area": "grammar",
+          "description": "Die Konjunktion „denn“ für Gründe: Wir feiern, denn Lars hat Geburtstag.",
+          "unit_id": "e323b471-5f08-433b-89ef-1aaf65cb3e3c"
+        }
+      }
+    ],
+    "all24WholeSeedNodesEqualExactBaseSource": true,
+    "inputReadbackHashesVerified": true
+  },
+  "objectiveReview": {
+    "verdict": "ACCEPT",
+    "key": [
+      "e323b471-5f08-433b-89ef-1aaf65cb3e3c",
+      "P7-G4"
+    ],
+    "before": {
+      "id": "P7-G4",
+      "area": "grammar",
+      "unit_id": "e323b471-5f08-433b-89ef-1aaf65cb3e3c",
+      "description": "Die Konjunktion „denn“ für Gründe: Wir feiern, denn Lara hat Geburtstag."
+    },
+    "after": {
+      "id": "P7-G4",
+      "area": "grammar",
+      "description": "Die Konjunktion „denn“ für Gründe: Wir feiern, denn Lars hat Geburtstag.",
+      "unit_id": "e323b471-5f08-433b-89ef-1aaf65cb3e3c"
+    },
+    "fullP7CurrentUnitNativeSha256": "9d624dfbb2d67769382c900f3c47cd20b9d283a89bb657a50139358acd036237",
+    "completeGermanGrammarTasksRead": 69,
+    "allG4CompleteTasksAndFourTranslationsRead": 13,
+    "grammarTaskIds": [
+      "40a851ff-9be3-54e7-a719-a81a68cbbe58",
+      "707cafc3-6886-5ae3-aa4b-448b8ab8ad3d",
+      "22961da5-eb6e-5096-a173-36f0dd160cff",
+      "28e9fd7b-a242-5290-a5c9-5f996db07bba",
+      "23208b80-daa1-536d-ac1a-75c6f2ff6a4a",
+      "dadb88a2-f641-5581-ab41-15e0dcc7ebd8",
+      "1aa0c126-7a5a-59dc-ab99-d73424fa9f80",
+      "ba14cf5d-85b6-5379-a605-7a008afe2722",
+      "5494bb4f-776d-57fb-a258-0c3015ebe312",
+      "0f93cf57-4d84-577d-aee4-d2e2d13d9b6b",
+      "5c58c27c-689f-5473-a382-94da65054a96",
+      "a1e985bd-a571-5730-ac20-0a1cbf798419",
+      "ca2d47dc-6e90-5f8e-a7c4-1f47f992f828",
+      "87a94dbd-bb2d-5075-ad59-10f2253ac6f2",
+      "0194e210-1b58-5cbb-acea-65e9add8d981",
+      "fabd05fb-047e-54d6-aa9c-7df80e7524f3",
+      "57a4a6b5-540d-5571-aef5-7d329c7c5559",
+      "f2bc295d-409b-5bd7-a920-e5e108a91433",
+      "63fa391a-31c9-5e38-ace2-2853251361a6",
+      "e7f9d6bd-3809-5c36-a68c-75daa75ea813",
+      "7e9bc539-c43f-5805-a857-04653ca79c2f",
+      "c8d8f392-0f0f-5195-a074-6152fd709cb3",
+      "6a546f83-8f9d-597e-acd7-2a499154e4cb",
+      "c0873a40-cf2a-57f3-a4cb-3374e47fd79f",
+      "17072e4e-4917-5cfd-a264-e717798454b1",
+      "a51727e9-59c2-539b-a872-9a11f0127798",
+      "2b11c503-688b-53c5-a30e-cd93e444b3af",
+      "f8b13318-95d0-570c-a54b-20cb7353c19d",
+      "dc77a64b-69a7-5dc6-a15c-aa1ff33b2c1e",
+      "a22a13fd-1bfa-5ea5-a9eb-ff429083da9c",
+      "42f9aff1-3abb-5d72-a3fd-79f345aaf252",
+      "acd3cb46-40b8-5a94-acc4-a9c0993baaf2",
+      "76b60727-1082-5e04-a98f-ce2a0e9bc845",
+      "b628db40-9908-53d6-a79d-f605121ea573",
+      "8c4e0516-5198-558e-aa9f-a944aa466852",
+      "171d5757-55f7-5d91-aa9a-dc37ef0bdd9f",
+      "e51d8a8b-dd9f-5e22-afac-9cf1bbb96a45",
+      "d727f0fe-52e3-5f2e-ad9c-c669461615d1",
+      "573a37eb-71dd-5b04-a6bb-02790a8fbda7",
+      "0e576015-20f9-5511-a852-9d34a3320086",
+      "8f965957-d3cc-575f-ad3e-e18bb988ee58",
+      "a1f73c83-e017-5cff-ac44-d761c66f746e",
+      "2042b3fa-6b24-5f5f-acd6-13d8cf6e7d11",
+      "4319d289-52e9-5409-a541-092d80757be3",
+      "ea2009d8-cc94-51c5-afe1-67061f9fa66f",
+      "708cded1-bae2-5e20-a312-ac1c61063378",
+      "ee1e86a9-e2da-5085-a93b-b41b12bd0c01",
+      "2cf3f59d-baef-55df-a9ac-0ea7a80a9a49",
+      "8f1f55f8-ac09-5931-a4b8-0538ebe9a46b",
+      "346f0281-5938-593d-aea6-ab97746d58ab",
+      "46e19b69-b5be-5155-a42b-70f0bd0c2629",
+      "713ae354-2bd6-59a0-ad97-8e21b8a78713",
+      "f5f77623-7cc5-5fb6-a95a-8aaf3d3f9b87",
+      "d66b8fd1-434e-55e0-a6cd-32d7ff46aa01",
+      "54504cbb-884b-5da5-a792-6fbcfaf7eee1",
+      "6397b006-2214-5716-a632-355ad2e72cad",
+      "a5c27d40-c0bc-5315-a2be-d56c7713fbd6",
+      "88ea7aba-10e2-5618-ac27-1fa17e15e52d",
+      "765d3462-2aa9-5917-a16a-58ea7a9a3841",
+      "f60eef90-84f3-5c0e-af5c-3e3c1df3bc38",
+      "237d072c-cdda-58bb-a50b-9047135397ba",
+      "9f7be6e6-d8e4-50d5-a500-ae98a0cdb5c7",
+      "9206464f-7d74-5fd3-ae5e-ae9d48d65f38",
+      "758dd8d5-db95-59b1-ab5e-0e3e458832e7",
+      "541c1536-dc19-56c8-a51c-c5a816af0637",
+      "794430aa-0d94-55b2-ac29-db341786a8e8",
+      "e57ae75a-e965-5fc0-a891-bc5b2cd4e3fc",
+      "ee306581-da2b-5ccb-a89a-ca413ff0f7a8",
+      "65ffb2a2-1ff8-566f-ae4b-ec34d9ceba4c"
+    ],
+    "reasonDe": "Lara zu Lars ändert nur die fiktive Person. denn nennt weiterhin korrekt den Grund und verbindet Hauptsätze mit unveränderter V2-Stellung; objectiveID P7-G4, unit_id und area grammar bleiben exakt. Alle aktuellen G1–G5 Aufgaben wurden im vollständigen deutschen Kontext gelesen; alle G4-Hinweise/Erklärungen und vier Übersetzungen einschließlich Wiederholung und Test geprüft. Das ist eine Zustimmung zur einzelnen Zielbeschreibungsänderung, keine Gesamtfreigabe des Pfads.",
+    "contextLimitsDe": [
+      "P7-N7-E04 enthält weiterhin die Mutter; nicht notwendiger weiblicher Lerncharakter beim Konjunktionsziel. Exakter kleiner Vorschlag: content.text_after zu mein Vater hat Geburtstag.; denn und Optionsfolge erhalten, vier task-Übersetzungen auf Vater ändern.",
+      "Weitere weibliche Rollen in anderen P7-Grammatikaufgaben sind sichtbar, unter anderem Lea in P7-N5-E01, Schwester in P7-N13-E12 und Oma in P7-N14-E28. Keine pauschale Zustimmung zum vollständigen Pfad oder zu Antworttextänderungen.",
+      "Die Formulierung Subjekt, dann Verb ist die hier geübte Grundstellung nach denn, kein Verbot anderer zulässiger V2-Vorfeldbesetzungen."
+    ]
+  },
+  "publicationApproval": false,
+  "importApproval": false,
+  "fullRowCasApproval": false,
+  "limits": [
+    "HOLD applies to whole supplied context; a sound parent delta does not certify unresolved child-task source.",
+    "Exact repairs are proposals only and require authoring, independent review and any necessary immutable version/audio binding before application.",
+    "Do not change stored answer strings for E10/P5-N6, E09/P4-N4 or E04/P7-N8 under this audit; their role changes require separate authorized decisions.",
+    "No ordinary import, archive, DB/SSH/API/runtime/model/audio/product source/test mutations; no listening/calibration/release approval."
+  ]
+}
