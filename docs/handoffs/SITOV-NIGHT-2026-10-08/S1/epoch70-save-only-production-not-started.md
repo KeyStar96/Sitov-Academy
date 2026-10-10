@@ -1,0 +1,7 @@
+# Sitov Academy: S1 epoch70 SAVE_ONLY, production step not started
+
+M's SAVE_ONLY instruction arrived before any remote execution. Actual epoch70 counts:0 SSH connections,0 remote jobs,0 transfers,0 pg_dump attempts,0 production queries and0 writes. No fresh production backup was created. Previous epoch69 native/copy jobs were already drained and its verified proof remains saved. S1 has no active network job preventing the requested network switch.
+
+A local bounded READONLY production/one-custom-backup driver draft was prepared and Python AST syntax parsed, 9692 bytes, SHA-256 `aa41360fd13ed9a25d7541293389998b277402b2159b0103595d6be3ec461476`. It was not executed or behaviorally validated. The draft reuses the existing pg_dump custom/pg_restore-list format and pinned row-stream helper, with private files, bounded60s dump, per-table streaming hashes, actual identity/actor metadata/release checks and before/after strict QA runtime gates. It is a review artifact only; no native or production PASS is claimed.
+
+Fresh production identity/catalog/actor counts, release/process SHA and health, paymentOFF evidence, original185 current whole-table hashes, full rights matrix and fresh consistent backup/hash/format verification all remain PENDING. Claims-based RLS is not real network authentication. M's SAVE_ONLY instruction blocks new work until a new explicit grant. Worker returns WAIT with0 jobs/active jobs; only this sanitized handoff is committed.
