@@ -1,0 +1,2014 @@
+{
+  "schema_version": 1,
+  "epoch": 25,
+  "group": "SITOV-NIGHT-2026-10-08",
+  "reviewer": "S7",
+  "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+  "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+  "input": {
+    "file": "M-S7-epoch25-context30-review-input-private.json",
+    "SHA256": "9f63d5da8b76640336292d6007bfefd6f7b80e1c84107ce4e91adbb2af5e2684",
+    "bytes": 174855
+  },
+  "createdAt": "2026-10-10T04:58:07.348541+00:00",
+  "hashConvention": "SHA256 of sorted-key compact UTF8 JSON ensure_ascii=false",
+  "sourceVerification": {
+    "all30WholeTasksMatchActualSource": true,
+    "all12WholeParentsMatchActualSource": true,
+    "allThreeCompleteObjectiveSetsMatchActualSource": true,
+    "seedBytesIdenticalAtIntegrationAndActualContentCommit": true,
+    "literalDictionaryRoundTripExact": true,
+    "identitiesAndKeysNotMutated": true,
+    "historicalIdentityAuditPerformed": false
+  },
+  "counts": {
+    "assigned": 30,
+    "wholeTasksFullyRead": 30,
+    "wholeTasksACCEPT": 24,
+    "wholeTasksHOLD": 6,
+    "wholeParentsFullyRead": 12,
+    "standaloneParentsACCEPT": 12,
+    "completeObjectiveSetsFullyRead": 3,
+    "objectivesFullyRead": 33,
+    "individualObjectivesACCEPT": 33,
+    "rowsACCEPT": 24,
+    "rowsHOLD": 6,
+    "rowsPARTIAL": 0,
+    "rowsUnread": 0,
+    "literalDictionaryEntriesRead": 72,
+    "findings": 5,
+    "proposedTaskScalarChanges": 22,
+    "proposedParentScalarChanges": 0
+  },
+  "records": [
+    {
+      "reviewer": "S7",
+      "id": "6d58afac-febb-560a-aa1a-cfb76e174fee",
+      "ref": "P2-N10-E01",
+      "contextKey": "A1.1/P2/P2-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Alter 34 steht ausdrücklich im Originaltext; 43 und Hausnummer 7 sind andere Angaben. Männliche Person, fünf Fragen/Lesestrategien und Formularregel stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "95582dafd4f1d2a7e9af84100f28392e6c0b4046b075ae812d2a409b1f058f9d",
+      "wholeParentMinusChildrenSHA256": "1d82a29d687d1a654dc169734a665ff8d01b87eb06934fa3c53321c408959315",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+      "ref": "P2-N10-E02",
+      "contextKey": "A1.1/P2/P2-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "HOLD",
+      "fullTaskVerdict": "HOLD",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Männlicher Bruder mit einem Mann und einem Kind stützt im A1-Familienkontext verheiratet; Leipzig/zwei Kinder widersprechen dem Text. Fünf Erklärungen enthalten jedoch die weibliche Alters-Nebenrolle Ihre Tochter ohne Genus-Lernziel. HOLD für fünf Erklärungsfelder, Schlüssel unverändert.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "3030c66bc8f05c283361c5254c59cc221e2d245d3ba93af60cece04d9f087a9a",
+      "wholeParentMinusChildrenSHA256": "1d82a29d687d1a654dc169734a665ff8d01b87eb06934fa3c53321c408959315",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [
+        "S7-E25-F1"
+      ],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "eac885b9-7087-5b0e-a81e-e5df1fe006bd",
+      "ref": "P2-N10-E04",
+      "contextKey": "A1.1/P2/P2-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Explizite Überraschung über drei Kinder verlangt Ach/Drei Kinder; Widerspruch oder Zurückhaltung erfüllen sie nicht. Männlicher Sprecher/Bruder, fünf Fassungen und Reaktionsstrategie stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "0470f19d1803dccc3f79e1e9f73d2ac3068aec4b6c38fc4a3351fc22ab1f84ff",
+      "wholeParentMinusChildrenSHA256": "1d82a29d687d1a654dc169734a665ff8d01b87eb06934fa3c53321c408959315",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "06854c0d-e295-57b8-a7f7-b70439b1c235",
+      "ref": "P2-N10-E06",
+      "contextKey": "A1.1/P2/P2-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Geburtsort ist ausdrücklich Ankara, nicht Wohnort Kassel oder Straße. Männliche Person, fünf vollständige Übersetzungen und Formularregel sind kohärent.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "1daaab2601c5fac59a9c2e2709f6b7980db3230ca664b7a958ad85687633e9d0",
+      "wholeParentMinusChildrenSHA256": "1d82a29d687d1a654dc169734a665ff8d01b87eb06934fa3c53321c408959315",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "0ba71947-5c97-55e0-a395-1c9df37cd698",
+      "ref": "P2-N10-E07",
+      "contextKey": "A1.1/P2/P2-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Wohnort ist ausdrücklich Kassel statt Geburtsort oder Land. Männliche Person, fünf Fassungen und Formularregel stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "0e40c2216a8c0ec0ebd83703483db458a63b211b7b823897782d28c5ca29fa6e",
+      "wholeParentMinusChildrenSHA256": "1d82a29d687d1a654dc169734a665ff8d01b87eb06934fa3c53321c408959315",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "773bbf18-b10d-578a-a148-c91ece070405",
+      "ref": "P2-N10-E08",
+      "contextKey": "A1.1/P2/P2-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Familienstand verheiratet ist ausdrücklich belegt; Kinderzahl ist kein Familienstand, ledig widerspricht dem Text. Fünf Fassungen und Formularregel stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "55cd5a35119ff715cf3209f6a386481b9bf7ab2d20deffffe5bd9e7a9e8ecca0",
+      "wholeParentMinusChildrenSHA256": "1d82a29d687d1a654dc169734a665ff8d01b87eb06934fa3c53321c408959315",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "64c4b417-52c5-5e92-a92a-d56c29b821b1",
+      "ref": "P2-N11-E04",
+      "contextKey": "A1.1/P2/P2-N11",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Feminines Nominativnomen Mutter verlangt meine. Weiblicher Bezug ist nötig zum expliziten Possessiv-/Genusziel; alle fünf Fassungen sind korrekt. Der türkische Hinweis ist hier bereits präzise auf grammatisches Geschlecht eingeschränkt.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "9a16ff837f03cf54e5e9322137413a5b07de7f3cccd76748baaca488bfdef181",
+      "wholeParentMinusChildrenSHA256": "88ac1753038906252286dd4f88053f3510b0184708a604bba41e27dea62af4f8",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "419da395-c505-52ae-ac5f-b93837b4ead5",
+      "ref": "P2-N11-E06",
+      "contextKey": "A1.1/P2/P2-N11",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Zwei männliche Geschwister als 3. Person Plural verlangen sind; ist/seid passen nicht. Fünf Fassungen, Sonderverb-Erklärung und Reviewziel stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "7343ca7fe10a2e335176d3976d5f97bd6ade945b60ff9de1afc3ec40010e87d3",
+      "wholeParentMinusChildrenSHA256": "88ac1753038906252286dd4f88053f3510b0184708a604bba41e27dea62af4f8",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "07cda87a-75a8-5b91-af07-ce8654173346",
+      "ref": "P2-N11-E10",
+      "contextKey": "A1.1/P2/P2-N11",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Er plus kommen verlangt kommt; Kofi ist männlich, Ghana/Bremen in allen fünf Fassungen erhalten. Erklärung und Reviewziel stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "f7534a79799facbfdf26ade9a1fb985d78dc8dabc44f761f76c4529e721ceb25",
+      "wholeParentMinusChildrenSHA256": "88ac1753038906252286dd4f88053f3510b0184708a604bba41e27dea62af4f8",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "c0be9a3b-01ed-5a00-a717-c8dc3c6e188a",
+      "ref": "P2-N12-E05",
+      "contextKey": "A1.1/P2/P2-N12",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Formelle Anrede plus maskulines Sohn verlangen Ihr. Optionen, Hinweise, fünf Erklärungen und Fragebedeutung stimmen; feminine Ihre ist notwendiger Genusdistraktor. Kein Schlüsselwechsel.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "3bcc4b09b905e837aab53b9288352b4ce4a07c61b5ee46a383a142d15425e1f6",
+      "wholeParentMinusChildrenSHA256": "7c0f55e1461f867c946f6b256b776b114a4af63b63847a1f2628a7db707fcc42",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "08171b2e-a3f4-5cd1-a5bd-d123220d95a0",
+      "ref": "P2-N12-E07",
+      "contextKey": "A1.1/P2/P2-N12",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Plural Eltern verlangt Das sind meine Eltern. Übrige Optionen haben falsche Verb-/Possessivform. Eltern ist ein allgemeiner Familienbegriff; fünf Fassungen und Erklärung stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "0b1739d0fde82f932549ace906e6a18b2c875a2e87e74e563fde978e393131cc",
+      "wholeParentMinusChildrenSHA256": "7c0f55e1461f867c946f6b256b776b114a4af63b63847a1f2628a7db707fcc42",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "171804c7-8c5d-5a94-acd1-911fe2511f35",
+      "ref": "P2-N12-E13",
+      "contextKey": "A1.1/P2/P2-N12",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "HOLD",
+      "fullTaskVerdict": "HOLD",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Gap-Hinweis dein und maskulines Mann verlangen dein; Kamil und sein Mann sind männliche Rollen. Fünf Aufgabenfassungen kohärent, aber TR-Hinweis behauptet pauschal unveränderliche Possessivendungen. HOLD für genau diesen Hinweis.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "6a6cf653e24905337f5287d1a8838795d10be96026b767d69e35eab41cd0126c",
+      "wholeParentMinusChildrenSHA256": "7c0f55e1461f867c946f6b256b776b114a4af63b63847a1f2628a7db707fcc42",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [
+        "S7-E25-F2"
+      ],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "edd8e808-5cad-5663-a7d0-aea8985792ea",
+      "ref": "P2-N12-E18",
+      "contextKey": "A1.1/P2/P2-N12",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Zwei männliche Personen verlangen Plural kommen; kommt/kommst passen nicht. Herkunft und Wohnort sind in fünf Fassungen kohärent; Erklärung zeigt passende Vorstellungsmuster.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "44ab2b1f0f4a7956085672254f61a19931f4d83bd805796a9563206cd58a9467",
+      "wholeParentMinusChildrenSHA256": "7c0f55e1461f867c946f6b256b776b114a4af63b63847a1f2628a7db707fcc42",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "3d6fe125-0766-5ec0-a10c-b5484212a51a",
+      "ref": "P2-N12-E20",
+      "contextKey": "A1.1/P2/P2-N12",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Geburtsort ist im Original ausdrücklich Krakau, nicht Wohnort Bremen oder Land Polen. Männlicher Selbstname und fünf Übersetzungen sind kohärent; lokalisierte Stadtnamen bezeichnen dieselbe Stadt, deutscher Schlüssel bleibt erhalten.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "b2936f8d5926c3a769f5a3aa18398c10d36b8771aa75f3a544c2219981511326",
+      "wholeParentMinusChildrenSHA256": "7c0f55e1461f867c946f6b256b776b114a4af63b63847a1f2628a7db707fcc42",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "69af1018-5fac-5d0f-abea-1980bb88a2f0",
+      "ref": "P3-N4-E06",
+      "contextKey": "A1.1/P3/P3-N4",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Formelles Sie verlangt möchten; ich-/du-Formen passen nicht. Alle fünf Fassungen, Einkaufsdialog-Erklärung und vollständige Elternkonjugation stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "217e360d65521a567ef225388d9c99d00658f5b020ce6610321c5032ea8584e0",
+      "wholeParentMinusChildrenSHA256": "baf56b22fe9db6c3843e3e186612eb143aeff67ec2b9eb0db20ba4c0955d25bf",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "574fc990-d5d8-547a-a3cd-dcc875afdd1d",
+      "ref": "P3-N5-E01",
+      "contextKey": "A1.1/P3/P3-N5",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Original nennt Verkäufer als Hilfe anbietenden Sprecher; Verkäufer ist der korrekte Schlüssel. Aufgabe ist bewusst leicht für A1, männliche Rollen und fünf Fassungen/Regeln stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "01df05bb1116d3b4abbea0097d8bb50ecaade3f87b0d13d79a9b24c637bef569",
+      "wholeParentMinusChildrenSHA256": "fc1ebc46fa7ef463a76da1acac931994717148e75c67731ef59ce458887ed09c",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "40051675-a208-5509-a2fd-df920c6c9a5b",
+      "ref": "P3-N5-E02",
+      "contextKey": "A1.1/P3/P3-N5",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Preisfrage verlangt Zwei Euro zwanzig; Abschluss und bloße Zustimmung beantworten den Preis nicht. Fünf Fassungen und Einkaufsregel stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "727a1b4dff1fa66b9fe6433cd19ac49ffead63c672ff969484693b8f686ac192",
+      "wholeParentMinusChildrenSHA256": "fc1ebc46fa7ef463a76da1acac931994717148e75c67731ef59ce458887ed09c",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "81d91c9d-1c20-5b9d-af8d-65aa95e7565c",
+      "ref": "P3-N5-E03",
+      "contextKey": "A1.1/P3/P3-N5",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Explizit nichts mehr benötigen verlangt Nein, danke/Das ist alles. Ja bitte widerspricht dem Bedarf; Preisfrage ist eine andere Handlung. Fünf Fassungen stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "afb303e7b5e09f2e9083288aca77798e2540c381e9ef152734ae2ef7f3c5b208",
+      "wholeParentMinusChildrenSHA256": "fc1ebc46fa7ef463a76da1acac931994717148e75c67731ef59ce458887ed09c",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "00a4e787-49ba-5a94-ae89-41cf990288e6",
+      "ref": "P3-N5-E04",
+      "contextKey": "A1.1/P3/P3-N5",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Höflicher Einkaufswunsch Ich hätte gern ist in allen fünf Hinweisen/Erklärungen ausdrücklich vorgegeben; hätte ist die passende haben-Form. Aufgabe, Schlüssel und fünf Bedeutungsfassungen stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "7bcca9d73e52b0ad2b7d50520eca05ce44073e55a5157d144c5ce5ec5d4cb548",
+      "wholeParentMinusChildrenSHA256": "fc1ebc46fa7ef463a76da1acac931994717148e75c67731ef59ce458887ed09c",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "fa145cd6-f402-5aa1-aecd-4a625744289d",
+      "ref": "P3-N5-E05",
+      "contextKey": "A1.1/P3/P3-N5",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Gespeicherter Satz Ich hätte gern ein Pfund Tomaten ist grammatisch korrekt und verwendet alle vier Teile exakt. Übersetzungen geben das deutsche Einkaufspfund als halbes Kilo korrekt wieder. Fünf Hinweise/Erklärungen passen; keine pauschale Aussage zur Laufzeitakzeptanz ungespeicherter Alternativwortstellungen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "2c4f4ec1bf666606a55a0e4812c0fb25a49e3e4f075f1d2da9cef802cedbaaec",
+      "wholeParentMinusChildrenSHA256": "fc1ebc46fa7ef463a76da1acac931994717148e75c67731ef59ce458887ed09c",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "09106034-ce64-5c70-a0a1-de6abba806e0",
+      "ref": "P3-N9-E07",
+      "contextKey": "A1.1/P3/P3-N9",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "HOLD",
+      "fullTaskVerdict": "HOLD",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "1 Liter Milch verlangt l statt kg/g. Aufgabe/Schlüssel/Erklärungen fachlich korrekt, aber alle fünf Bedienanweisungen nennen Formular, RU/UK sogar Fragebogen, obwohl ein Einkaufszettel ergänzt wird. HOLD für fünf präzise Einkaufszettel-Anweisungen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "9060ca957531a0937f67710a5411883dd2e07d3e509e3ae08ed494fb20bbbdc7",
+      "wholeParentMinusChildrenSHA256": "79e7dc531d12874d92971c699875b197c4cf903a2e2c3ca54483ba1e64b213e2",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [
+        "S7-E25-F3"
+      ],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "0cd053ee-f43c-50a7-a8b0-36a0d460b011",
+      "ref": "P3-N10-E03",
+      "contextKey": "A1.1/P3/P3-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Auf angebotene Hilfe am Obststand passt der konkrete Apfelwunsch; Abschluss oder entschuldigende Verneinung erfüllen die Situation nicht. Männlicher Kunde/Verkäufer und fünf Fassungen stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "1fe9f48f6bc628c85f85249398272bde41d4df6a8032be59e8401eed13c492c8",
+      "wholeParentMinusChildrenSHA256": "f1cbb08d1a7bd4162c74b9abd911ed111320a5c880a3d395a9d5ccbee408152e",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "7a3330ac-3790-5973-a402-55c953d56127",
+      "ref": "P3-N10-E10",
+      "contextKey": "A1.1/P3/P3-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "HOLD",
+      "fullTaskVerdict": "HOLD",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Zwei ausdrücklich genannte Flaschen verlangen Flaschen; Singularform oder unbelegte Literzahl passen nicht. HOLD für fünf Bedienanweisungen, die Formular/Fragebogen statt Einkaufszettel nennen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "471a450edd4b1d6ea8ab1076c07487ca1df8d34a9b570fbbacbe4bf2ba3f6b44",
+      "wholeParentMinusChildrenSHA256": "f1cbb08d1a7bd4162c74b9abd911ed111320a5c880a3d395a9d5ccbee408152e",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [
+        "S7-E25-F3"
+      ],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "c2ff8dc9-0ee9-5703-a8f9-eb414a9b7961",
+      "ref": "P3-N11-E02",
+      "contextKey": "A1.1/P3/P3-N11",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Zusätzlicher Eierwunsch verlangt Ja/sechs Eier bitte; Ablehnung oder Preisfrage erfüllen den Wunsch nicht. Männlicher Verkäufer, fünf Fassungen und Einkaufsregel stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "4e9633b28b6bc6478bee13b748448340daa360cccb342dedcc50cec4a92f96c8",
+      "wholeParentMinusChildrenSHA256": "b71b2ea05390da6c0ba1c56145333c4b66549b1ca29dd35c00821a50479318d9",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "6123d110-e262-5de5-a87b-09cae7a21ff6",
+      "ref": "P3-N11-E07",
+      "contextKey": "A1.1/P3/P3-N11",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Höfliche Bestellung verlangt Ich hätte gern zwei Brötchen; übrige Optionen sind keine passende Bestellformel. Männlicher Kunde/Verkäufer, fünf Fassungen und Hinweise stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "d33126b2f331ce98f28e5c25402586e6abacb3bf1454898bba963d14cc612708",
+      "wholeParentMinusChildrenSHA256": "b71b2ea05390da6c0ba1c56145333c4b66549b1ca29dd35c00821a50479318d9",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "b2cde403-9af7-5e65-a1df-01a8f5260329",
+      "ref": "P3-N11-E08",
+      "contextKey": "A1.1/P3/P3-N11",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "HOLD",
+      "fullTaskVerdict": "HOLD",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Vorhandene Tasche und kein Bedarf verlangen Nein, danke. Alle Schlüssel/Erklärungen korrekt; EN-Aufgabentext verengt die nicht näher bestimmte Tüte unbelegt auf plastic bag. HOLD für einen Übersetzungsscalar; carrier bag bewahrt den Bedeutungsumfang.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "0fbe4a2d67fdde0261a99eb4c4d6e3c9ea0e1131c69095894a7021d9b61bcecd",
+      "wholeParentMinusChildrenSHA256": "b71b2ea05390da6c0ba1c56145333c4b66549b1ca29dd35c00821a50479318d9",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "findings": [
+        "S7-E25-F4"
+      ],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "f93733b4-3353-5063-a14a-8047e73871f4",
+      "ref": "P4-N4-E07",
+      "contextKey": "A1.1/P4/P4-N4",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Vor bestimmtem der Schlüssel verlangt Verneinung nicht; kein/keine können diese Struktur nicht vervollständigen. Männlicher Besitzer und fünf Fassungen/Regeln stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "4621f1fe0f6abd2d934fb522b28d8a4372df6d425c0a89ce6793e428393a6535",
+      "wholeParentMinusChildrenSHA256": "c41b4ab664dc931fc3ad637efc3f41b091f2bc08355fc4d921332e5e2be247c4",
+      "allPathObjectivesSHA256": "1cc8668a85e9d254609a1681b6d971f969c0e71ce97d3d9d176d629664f32959",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "1b14e5c3-ecb2-5bf6-a914-0e2e302bbfd7",
+      "ref": "P4-N5-E01",
+      "contextKey": "A1.1/P4/P4-N5",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Feminines Sachnomen Lampe plus positives Gefallen verlangt Sie gefällt mir sehr gut. Sie ist sachbezogen und notwendiges Genusbeispiel, keine weibliche Lernperson. Männlicher Frager und fünf Fassungen stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "c35c179c38e83a09d2302de9894050e69e5c1c452031a1239841d8659913e911",
+      "wholeParentMinusChildrenSHA256": "3bf3a255f5c57d45c442992f967cf9d500070a5afee662a30007142a7042887f",
+      "allPathObjectivesSHA256": "1cc8668a85e9d254609a1681b6d971f969c0e71ce97d3d9d176d629664f32959",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "e824a250-6cc4-5ec9-accb-0073ff53261f",
+      "ref": "P4-N7-E01",
+      "contextKey": "A1.1/P4/P4-N7",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "fullTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Antwort aus eigener Position in der Küche verlangt Hier/in der Küche; Bad ist falscher Raum und Woher kein passendes Antwortsignal. Männlicher Frager, fünf Fassungen und Ortsregel stimmen.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "babb88c42f6394fbab97e424a7531f589a40b85db0be37df41959471cb247bc8",
+      "wholeParentMinusChildrenSHA256": "cc6e6bc75858ea1cd1a9844aa527b51060805ce34e4718f92f47990303f6c5a2",
+      "allPathObjectivesSHA256": "1cc8668a85e9d254609a1681b6d971f969c0e71ce97d3d9d176d629664f32959",
+      "findings": [],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    },
+    {
+      "reviewer": "S7",
+      "id": "cf3d5152-dd57-5ecd-a9c5-2dde6c48d89e",
+      "ref": "P4-N13-E03",
+      "contextKey": "A1.1/P4/P4-N13",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "HOLD",
+      "fullTaskVerdict": "HOLD",
+      "parentVerdict": "ACCEPT",
+      "allGoalsVerdict": "ACCEPT",
+      "fullTaskReason": "Schau mal ist zum Zeigen des eigenen Balkons korrekt; Aufgabe fragt ausdrücklich, was Oleh sagt. Die fünf Bedienanweisungen fragen dagegen, was du sagst. HOLD für rollen-neutrale Auswahl-Anweisungen; männliche Rolle und Schlüssel bleiben erhalten.",
+      "allGoalsReason": "Sämtliche elf Ziele des jeweiligen Pfades vollständig gelesen und fachlich akzeptiert. Aufgabenziel im vollständigen Set und tatsächlichen Elternknoten enthalten.",
+      "wholeTaskSHA256": "7b6782a4972579101f44a7fb135393c5844669951de1212e1d4c1bd4298df883",
+      "wholeParentMinusChildrenSHA256": "e1642804a88692cbf5a7ff0c70e409929b486ba08699e145ec0b6e0447fa8a99",
+      "allPathObjectivesSHA256": "1cc8668a85e9d254609a1681b6d971f969c0e71ce97d3d9d176d629664f32959",
+      "findings": [
+        "S7-E25-F5"
+      ],
+      "actualReadScope": {
+        "wholeTask": true,
+        "locales": [
+          "de",
+          "en",
+          "ru",
+          "uk",
+          "tr"
+        ],
+        "allKeysAndOptions": true,
+        "allAcceptedAnswersAtBothLevels": true,
+        "allPartsIfPresent": true,
+        "allHintsAndExplanations": true,
+        "wholeActualParentMinusChildren": true,
+        "allParentLocaleTitles": true,
+        "wholeCardAllFiveRulesAllExamplesAndHighlightIfPresent": true,
+        "allPathObjectives": true,
+        "literalDedupOnly": true,
+        "dictionaryReadIds": "S1-S72",
+        "approvalFromPriorReviewsOrHashEquality": false
+      }
+    }
+  ],
+  "standaloneParents": [
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P2/P2-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "1d82a29d687d1a654dc169734a665ff8d01b87eb06934fa3c53321c408959315",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "reason": "Fünf Titel/Regeln definieren Geburtsort, Wohnort, Familienstand und Telefonnummern korrekt; vier Formularfeld-Beispiele und Ziele K6/K7/Z1 passen. Keine weibliche konkrete Lernrolle im Elterntext.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P2/P2-N11",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "88ac1753038906252286dd4f88053f3510b0184708a604bba41e27dea62af4f8",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "reason": "Fünf Reviewtitel und alle elf P2-Zielkennungen kohärent; keine eigene Karte oder Beispiele vorhanden.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P2/P2-N12",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "7c0f55e1461f867c946f6b256b776b114a4af63b63847a1f2628a7db707fcc42",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "reason": "Fünf Testtitel, elf Zielkennungen und test_size 12 kohärent; keine eigene Karte/Beispiele vorhanden. Kindaufgaben-Hinweis wird separat bewertet.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P3/P3-N4",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "baf56b22fe9db6c3843e3e186612eb143aeff67ec2b9eb0db20ba4c0955d25bf",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "reason": "Fünf vollständige möchte-Paradigmen und vier Beispiele sind korrekt; Sohn ist männlich, Wasser/Tomaten/Banane sind Sachen. Ziel P3-G4 und Verbhighlight passen.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P3/P3-N5",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "fc1ebc46fa7ef463a76da1acac931994717148e75c67731ef59ce458887ed09c",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "reason": "Fünf Regeln erklären Einkaufsgespräch mit männlichen Verkäufer-/Kundenrollen, vier Beispiele zeigen Preis, Abschluss und Mengenwünsche. Ziel P3-K2 passt.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P3/P3-N9",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "79e7dc531d12874d92971c699875b197c4cf903a2e2c3ca54483ba1e64b213e2",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "reason": "Fünf Regeln erklären Rezeptaufbau/Zutaten/Personenzahl; vier Einkaufszettel-Beispiele decken Mengen ab. Titel und Ziel enthalten Rezept und Einkaufszettel; kein fachlicher Widerspruch.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P3/P3-N10",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "f1cbb08d1a7bd4162c74b9abd911ed111320a5c880a3d395a9d5ccbee408152e",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "reason": "Fünf Reviewtitel und alle elf P3-Zielkennungen kohärent; keine eigene Karte/Beispiele vorhanden.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P3/P3-N11",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "b71b2ea05390da6c0ba1c56145333c4b66549b1ca29dd35c00821a50479318d9",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "reason": "Fünf Testtitel, elf Zielkennungen und test_size 12 kohärent; keine eigene Karte/Beispiele vorhanden.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P4/P4-N4",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "c41b4ab664dc931fc3ad637efc3f41b091f2bc08355fc4d921332e5e2be247c4",
+      "allPathObjectivesSHA256": "1cc8668a85e9d254609a1681b6d971f969c0e71ce97d3d9d176d629664f32959",
+      "reason": "Fünf Regeln erklären nicht/kein für die angebotenen A1-Nomen-/Adjektivstrukturen korrekt; vier Beispiele/Artikelhighlight passen. Keine weibliche Lernperson.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P4/P4-N5",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "3bf3a255f5c57d45c442992f967cf9d500070a5afee662a30007142a7042887f",
+      "allPathObjectivesSHA256": "1cc8668a85e9d254609a1681b6d971f969c0e71ce97d3d9d176d629664f32959",
+      "reason": "Fünf Regeln erklären Gefallen im Singular/Plural samt Abstufung korrekt; vier Beispiele und Ziel passen. Feminines sie bezieht sich im Wohnkontext auf Sachen.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P4/P4-N7",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "cc6e6bc75858ea1cd1a9844aa527b51060805ce34e4718f92f47990303f6c5a2",
+      "allPathObjectivesSHA256": "1cc8668a85e9d254609a1681b6d971f969c0e71ce97d3d9d176d629664f32959",
+      "reason": "Fünf Regeln erklären Rückfragen/Schau mal/Sag mal, vier Beispiele passen zu Ort/Wohnen und Gesprächssignalen. Titel und Ziele K2/K5 kohärent.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    },
+    {
+      "reviewer": "S7",
+      "contextKey": "A1.1/P4/P4-N13",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "integrationSourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+      "status": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "e1642804a88692cbf5a7ff0c70e409929b486ba08699e145ec0b6e0447fa8a99",
+      "allPathObjectivesSHA256": "1cc8668a85e9d254609a1681b6d971f969c0e71ce97d3d9d176d629664f32959",
+      "reason": "Fünf Testtitel, elf Zielkennungen und test_size 12 kohärent; keine eigene Karte/Beispiele vorhanden. Sprecher-Anweisung der Kindaufgabe wird separat bewertet.",
+      "actualReadScope": {
+        "wholeParentMinusChildren": true,
+        "fiveLocaleTitles": true,
+        "wholeCardRulesExamplesHighlightIfPresent": true,
+        "allFiveRuleLanguagesIfPresent": true,
+        "allGoalIds": true
+      }
+    }
+  ],
+  "completeObjectiveSets": [
+    {
+      "reviewer": "S7",
+      "pathKey": "A1.1/P2",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "status": "ACCEPT",
+      "allPathObjectivesSHA256": "d2ae3cf718b556ec049cb16d2c52af16e5c736b51d078e9fc532db65d75cfc6b",
+      "objectiveCount": 11,
+      "readEveryObjective": true,
+      "reason": "Alle elf Grammatik-/Kommunikations-/Kann-/Wortschatzziele vollständig gelesen, kohärent und A1.1-angemessen. Explizite Genus- und Sachpronomenkontraste bleiben korrekt.",
+      "individualObjectives": [
+        {
+          "reviewer": "S7",
+          "id": "P2-G1",
+          "SHA256": "e338722c45eb3ecedb008f72be0e4d79de2e90923fc70625cd08a78ccd0f1d63",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-G2",
+          "SHA256": "bc30aa1ea4af486e5f28089b7f26c8ac32d745977522b3feda2269ff273319e4",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-K1",
+          "SHA256": "3cf7e83e18f6bef69747c993f59ff8eda5218d64d44a2a4a32dc37f105f2c343",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-K2",
+          "SHA256": "71bd6c56e395b299dafb2fd9378367218d71fca75256851da05c6b8273cc448b",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-K3",
+          "SHA256": "1c2197048e0fa6317c55927cefadfb75251dcfaed58e42655f046d5ddbd4bea7",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-K4",
+          "SHA256": "977a02999b0c3750bb2d10012cdbd802a13afaf28b1b4e92b7825f47fced5b22",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-K5",
+          "SHA256": "8da9e953983aeb4aea42be7d63d838856db0d1fe3f4e9213de96d5bfc7552c11",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-K6",
+          "SHA256": "7704fcbe46f8b1fec8f7d3a030173f595052d36040395eb657f177241f41e2d9",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-K7",
+          "SHA256": "0ac6ef91e265d4812d37fe03d649142fb00848a7eef1d574bd4141d06a3b5643",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-Z1",
+          "SHA256": "4642da45ad2b9af06a3c06561b4484460c7b3fe742a787d000b099f9dd736b26",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P2-W1",
+          "SHA256": "6796ac2de4373715a345acb02504d46ba4015f73cc4133886c032d046d71b464",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        }
+      ]
+    },
+    {
+      "reviewer": "S7",
+      "pathKey": "A1.1/P3",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "status": "ACCEPT",
+      "allPathObjectivesSHA256": "688b2f9c4f0dac0693714e15492fbf62560bc4af4673199350d2a9e62bdb6d07",
+      "objectiveCount": 11,
+      "readEveryObjective": true,
+      "reason": "Alle elf Grammatik-/Kommunikations-/Kann-/Wortschatzziele vollständig gelesen, kohärent und A1.1-angemessen. Explizite Genus- und Sachpronomenkontraste bleiben korrekt.",
+      "individualObjectives": [
+        {
+          "reviewer": "S7",
+          "id": "P3-G1",
+          "SHA256": "4aba7f0a3b1ed2a42e2b727badbc1ecd89c4aa6f70fc57c03a32e1f157bca001",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-G2",
+          "SHA256": "8d046241d1e3b11c1c96d0f98ce61ca36133b0d327947fd904cd9d989e0a6998",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-G3",
+          "SHA256": "22b6c88485f0c07b9a7c87b79ed42649b540372c4d0be91721a1b7ff021e5287",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-G4",
+          "SHA256": "4a5e3d83afffaf27ccfc50e419bfd110ce64129a561bf3f4b8adc1cabd90db2c",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-K1",
+          "SHA256": "c5a574615d6e770b2512fb983a1df8f70e3e9dbd9101496f25c2b155284ee112",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-K2",
+          "SHA256": "c0c958c92dd36b90223feb32ca9a4efe88a8ee2b893027e9e6cdd3e1547a317e",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-K3",
+          "SHA256": "2a87fd03fb4f102a4142ddf2e0039feb548e7c0cf7754d2a9a353ebf93e7732a",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-K4",
+          "SHA256": "ab9346235ca6c7a1fdd1d615cb4327f1303f35f7f907c7522cc5b54640256c38",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-K5",
+          "SHA256": "c8cb21369945a337271d157973b2049ad5a9fa1db0d5a8377cefd6d6af45e240",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-Z1",
+          "SHA256": "baae3d917d539215a2139f142a23901e35d3eebd741af78eecc48fc2381d4018",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P3-W1",
+          "SHA256": "29796b9bf6a0c6a6147500b4f5eebb392b53fab7219f42c47557d0d4cca78676",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        }
+      ]
+    },
+    {
+      "reviewer": "S7",
+      "pathKey": "A1.1/P4",
+      "actualSourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "status": "ACCEPT",
+      "allPathObjectivesSHA256": "1cc8668a85e9d254609a1681b6d971f969c0e71ce97d3d9d176d629664f32959",
+      "objectiveCount": 11,
+      "readEveryObjective": true,
+      "reason": "Alle elf Grammatik-/Kommunikations-/Kann-/Wortschatzziele vollständig gelesen, kohärent und A1.1-angemessen. Explizite Genus- und Sachpronomenkontraste bleiben korrekt.",
+      "individualObjectives": [
+        {
+          "reviewer": "S7",
+          "id": "P4-G1",
+          "SHA256": "751d71b8c90a64807aac788116873ca3034ca74b73b20085a8b3bc65edc71006",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-G2",
+          "SHA256": "01a690a71846e962ad4bef4f1f944864e7812c9b92630d0bc91e095b4a55b6a8",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-G3",
+          "SHA256": "2686f816ff018f9c69973a06019b3ecfdc399016f8aaa13e0622df69300fbb7c",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-K1",
+          "SHA256": "319aa98a23ad17c62f5962eb8cdbf9263b50f5475198a8224b4c54f193a870a7",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-K2",
+          "SHA256": "d7fe0c97a6b7cf44a4671b396c3ff59a805392cc24a17ddf83a5219f823ff1e6",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-K3",
+          "SHA256": "50b1f8ae0a2d2c08648d9d6077be6dc6c83ffd70075d692d28c4a8f772311a1f",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-K4",
+          "SHA256": "e9bef004501e72f16c1ddc01f659459466319bf2d6fd074536b3244d89dc6cac",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-K5",
+          "SHA256": "0629c9eb9c741b98bae25ab645b5785f372152d80a1e06ce211ca5e772ab713b",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-K6",
+          "SHA256": "e51d86775f111cb5383c5958c6a519f1ca4c880c3f13dea789ae3b9e46660611",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-Z1",
+          "SHA256": "7c109d353a8299d9bb58b7e1a1ba1fff829fdf649b5b0e0b4c7581364e685a37",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        },
+        {
+          "reviewer": "S7",
+          "id": "P4-W1",
+          "SHA256": "ba82f6ef4c8014d7d7ccbd77f97c012ea66983387d86b4a9e8374925b15a7ea8",
+          "status": "ACCEPT",
+          "reason": "Vollständig gelesen; fachlich korrekt und im Pfadkontext stimmig."
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "S7-E25-F1",
+      "status": "HOLD",
+      "affectedTaskRefs": [
+        "P2-N10-E02"
+      ],
+      "reason": "Konkrete weibliche Alters-Nebenrolle in fünf Erklärungen ohne fachlich nötigen Genuskontrast.",
+      "minimalFix": "In fünf Erklärungsfeldern ausschließlich Wie alt ist Ihre Tochter durch Wie alt ist Ihr Sohn ersetzen; keine Antwortänderung."
+    },
+    {
+      "id": "S7-E25-F2",
+      "status": "HOLD",
+      "affectedTaskRefs": [
+        "P2-N12-E13"
+      ],
+      "reason": "Türkischer Hinweis behauptet unbeschränkt, Possessivendungen änderten sich nicht; richtig ist die Einschränkung auf fehlenden Genuswechsel.",
+      "minimalFix": "Genau einen TR-Hinweis an die vollständig gelesene korrekte aktuelle Fassung P2-N11-E04 angleichen."
+    },
+    {
+      "id": "S7-E25-F3",
+      "status": "HOLD",
+      "affectedTaskRefs": [
+        "P3-N9-E07",
+        "P3-N10-E10"
+      ],
+      "reason": "Bedienanweisung nennt in DE/EN/TR Formular und RU/UK Fragebogen; tatsächlich wird ein Einkaufszettel ergänzt.",
+      "minimalFix": "Nur die zehn Anweisungsfelder präzise als Einkaufszettel benennen; l/Flaschen und alle anderen Inhalte erhalten."
+    },
+    {
+      "id": "S7-E25-F4",
+      "status": "HOLD",
+      "affectedTaskRefs": [
+        "P3-N11-E08"
+      ],
+      "reason": "EN-Aufgabentext fügt die Materialfestlegung plastic hinzu, die in der deutschen Tüte nicht enthalten ist.",
+      "minimalFix": "Nur plastic bag durch carrier bag in einer EN-Aufgabenfassung ersetzen; Schlüssel Nein danke unverändert."
+    },
+    {
+      "id": "S7-E25-F5",
+      "status": "HOLD",
+      "affectedTaskRefs": [
+        "P4-N13-E03"
+      ],
+      "reason": "Bedienanweisung fragt in fünf Sprachen nach du, eigentliche Aufgabe nach der Aussage von Oleh mit dessen mein Balkon.",
+      "minimalFix": "Fünf Anweisungen rollen-neutral als Wähle die richtige Antwort formulieren, exakt nach gelesener Fassung P3-N5-E01. Keine Rolle/Antwort ändern."
+    }
+  ],
+  "minimalFixProposals": [
+    {
+      "findingId": "S7-E25-F1",
+      "scope": "task",
+      "id": "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+      "ref": "P2-N10-E02",
+      "pointer": "/explanation",
+      "old": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihre Tochter?“",
+      "new": "Familienstand und Alter: ledig, verheiratet, geschieden, verwitwet. Kinder: „Ich habe zwei Kinder.“ Alter mit sein: „Mein Sohn ist acht Jahre alt.“ Frage: „Wie alt ist Ihr Sohn?“",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F1",
+      "scope": "task",
+      "id": "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+      "ref": "P2-N10-E02",
+      "pointer": "/translations/en/explanation",
+      "old": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
+      "new": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihr Sohn?“",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F1",
+      "scope": "task",
+      "id": "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+      "ref": "P2-N10-E02",
+      "pointer": "/translations/ru/explanation",
+      "old": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
+      "new": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihr Sohn?“",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F1",
+      "scope": "task",
+      "id": "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+      "ref": "P2-N10-E02",
+      "pointer": "/translations/uk/explanation",
+      "old": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
+      "new": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihr Sohn?“",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F1",
+      "scope": "task",
+      "id": "a0c3ab83-08b7-5b2f-a98a-82db10efe623",
+      "ref": "P2-N10-E02",
+      "pointer": "/translations/tr/explanation",
+      "old": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
+      "new": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihr Sohn?“",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F2",
+      "scope": "task",
+      "id": "171804c7-8c5d-5a94-acd1-911fe2511f35",
+      "ref": "P2-N12-E13",
+      "pointer": "/translations/tr/hint",
+      "old": "Türkçede iyelik eki değişmez, Almancada değişir: eril/nötr → mein, dişil/çoğul → meine.",
+      "new": "Türkçede iyelik ekleri ismin dil bilgisel cinsiyetine göre değişmez. Almancada ise mein/meine biçimi ismin cinsiyetine ve sayısına bağlıdır.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "09106034-ce64-5c70-a0a1-de6abba806e0",
+      "ref": "P3-N9-E07",
+      "pointer": "/content/instruction",
+      "old": "Ergänze das Formular.",
+      "new": "Ergänze den Einkaufszettel.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "09106034-ce64-5c70-a0a1-de6abba806e0",
+      "ref": "P3-N9-E07",
+      "pointer": "/translations/en/instruction",
+      "old": "Complete the form.",
+      "new": "Complete the shopping list.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "09106034-ce64-5c70-a0a1-de6abba806e0",
+      "ref": "P3-N9-E07",
+      "pointer": "/translations/ru/instruction",
+      "old": "Заполните анкету.",
+      "new": "Дополните список покупок.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "09106034-ce64-5c70-a0a1-de6abba806e0",
+      "ref": "P3-N9-E07",
+      "pointer": "/translations/uk/instruction",
+      "old": "Заповніть анкету.",
+      "new": "Доповніть список покупок.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "09106034-ce64-5c70-a0a1-de6abba806e0",
+      "ref": "P3-N9-E07",
+      "pointer": "/translations/tr/instruction",
+      "old": "Formu doldurun.",
+      "new": "Alışveriş listesini tamamlayın.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "7a3330ac-3790-5973-a402-55c953d56127",
+      "ref": "P3-N10-E10",
+      "pointer": "/content/instruction",
+      "old": "Ergänze das Formular.",
+      "new": "Ergänze den Einkaufszettel.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "7a3330ac-3790-5973-a402-55c953d56127",
+      "ref": "P3-N10-E10",
+      "pointer": "/translations/en/instruction",
+      "old": "Complete the form.",
+      "new": "Complete the shopping list.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "7a3330ac-3790-5973-a402-55c953d56127",
+      "ref": "P3-N10-E10",
+      "pointer": "/translations/ru/instruction",
+      "old": "Заполните анкету.",
+      "new": "Дополните список покупок.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "7a3330ac-3790-5973-a402-55c953d56127",
+      "ref": "P3-N10-E10",
+      "pointer": "/translations/uk/instruction",
+      "old": "Заповніть анкету.",
+      "new": "Доповніть список покупок.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F3",
+      "scope": "task",
+      "id": "7a3330ac-3790-5973-a402-55c953d56127",
+      "ref": "P3-N10-E10",
+      "pointer": "/translations/tr/instruction",
+      "old": "Formu doldurun.",
+      "new": "Alışveriş listesini tamamlayın.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F4",
+      "scope": "task",
+      "id": "b2cde403-9af7-5e65-a1df-01a8f5260329",
+      "ref": "P3-N11-E08",
+      "pointer": "/translations/en/task",
+      "old": "The shop assistant asks: “Would you like a bag?” Kamil has a bag with him and doesn’t need a plastic bag.",
+      "new": "The shop assistant asks: “Would you like a bag?” Kamil has a bag with him and doesn’t need a carrier bag.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F5",
+      "scope": "task",
+      "id": "cf3d5152-dd57-5ecd-a9c5-2dde6c48d89e",
+      "ref": "P4-N13-E03",
+      "pointer": "/content/instruction",
+      "old": "Was sagst du in dieser Situation?",
+      "new": "Wähle die richtige Antwort.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F5",
+      "scope": "task",
+      "id": "cf3d5152-dd57-5ecd-a9c5-2dde6c48d89e",
+      "ref": "P4-N13-E03",
+      "pointer": "/translations/en/instruction",
+      "old": "What do you say in this situation?",
+      "new": "Choose the correct answer.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F5",
+      "scope": "task",
+      "id": "cf3d5152-dd57-5ecd-a9c5-2dde6c48d89e",
+      "ref": "P4-N13-E03",
+      "pointer": "/translations/ru/instruction",
+      "old": "Что вы скажете в этой ситуации?",
+      "new": "Выберите правильный ответ.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F5",
+      "scope": "task",
+      "id": "cf3d5152-dd57-5ecd-a9c5-2dde6c48d89e",
+      "ref": "P4-N13-E03",
+      "pointer": "/translations/uk/instruction",
+      "old": "Що ви скажете в цій ситуації?",
+      "new": "Виберіть правильну відповідь.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    },
+    {
+      "findingId": "S7-E25-F5",
+      "scope": "task",
+      "id": "cf3d5152-dd57-5ecd-a9c5-2dde6c48d89e",
+      "ref": "P4-N13-E03",
+      "pointer": "/translations/tr/instruction",
+      "old": "Bu durumda ne dersiniz?",
+      "new": "Doğru cevabı seçin.",
+      "changesAnswerKey": false,
+      "requiresIndependentAuthorReview": true
+    }
+  ],
+  "dictionaryRead": {
+    "file": "epoch25-read-view-private.json",
+    "all72LiteralStringsActuallyReadInFull": true,
+    "entries": "S1-S72",
+    "referencesReadWithinEveryTaskAndParent": true,
+    "literalEqualityOnly": true
+  },
+  "difficultyReview": "A1.1-gerechte Personen-/Formularangaben, Präsens/Possessivformen, Einkaufsmengen/-dialoge und Wohnkommunikation. Primäre Schlüssel sind gegenüber Optionen, Lückenhinweisen und Originaltexten geprüft; einzige Satzbauaufgabe verwendet alle vier Teile korrekt.",
+  "limits": [
+    "Keine pauschale Freigabe aus Dokumentpräsenz, Hashgleichheit oder früheren Audits; aktuelle ganze Aufgaben/Eltern/alle Ziele eigenständig gelesen.",
+    "Notwendige feminine Mutter/Tochter-Definitionen und Possessiv-/Pronomen-/Anredekontraste sowie allgemeine Familienbegriffe bleiben erhalten.",
+    "Exakte private Vorschläge sind nicht angewendet. Keine ID-, Schlüssel-, accepted_answers-, Teile- oder Fortschrittsänderungen vorgeschlagen.",
+    "Keine Datenbank/API/SQL/SSH/Browser/Runtime/Tests/Audio/TTS/Alignment/Import oder Veröffentlichung.",
+    "Keine Aussage über tatsächlich ausgeführte Laufzeitbewertung ungespeicherter Alternativwortstellungen."
+  ],
+  "sourceChanges": false,
+  "publicationApproved": false,
+  "audioReleaseApproved": false,
+  "savedBeforeSaveOnly": true,
+  "savedBeforeHardDeadline": true
+}
