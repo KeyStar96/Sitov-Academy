@@ -1,0 +1,40 @@
+{
+  "epoch": 79,
+  "status": "EXACT_PRODUCTION_PRIMARY60_CANONICAL_BUNDLE_TECHNICAL_PASS_ONLY",
+  "counts": {
+    "originalWholeMP3Decodes": 60,
+    "originalPositive": 49,
+    "originalZeroLexicalHeld": 11,
+    "genuineMNativeRealignmentsAdopted": 11,
+    "strictImporterValidated": 60,
+    "productionAudioByteMatches": 60,
+    "differentAudioBytes": 0,
+    "existingExactSHAASRAvailable": 4
+  },
+  "bundle": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-S3-primary60-production-epoch79-v1",
+  "bundleManifestSHA256": "4e2a3c4a32fa4d453bb755ade946edff9d39e7fe4df550dfa0327b12bfca2fd6",
+  "MRootProof": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-production11-root-deepverify-v1-private.json",
+  "MRootProofSHA256": "e78cf5d21cacc55d0dc08d657e5a9849b6eebe2054213f841f64e8f14fc6f368",
+  "allOriginalReadbackSidecarsPreserved": true,
+  "originalReadbackFilesNeverModified": true,
+  "currentProductionMetadataStillOriginal": true,
+  "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+  "newTakes": 0,
+  "S3NewModelsOrDownloads": 0,
+  "S3NewAligners": 0,
+  "S3ProductionGETs": 0,
+  "humanListening": false,
+  "perceptualNaturalnessProof": false,
+  "noFurtherUserAudioTests": true,
+  "publicationApproved": false,
+  "ownedJobs": [],
+  "pending": [
+    "M must handle exact original11metadata -> fresh realtiming sidecars using explicit native/source/storage CAS and immutablehistory policy; S3 did not write currentstorage",
+    "M independent semantic/audio QC remains distinct; only4 existing exactSHA ASR observations available,56 absent; no human/perceptual/calibration claim",
+    "Actual DBJSONBversions/UUID/history/proof/approval/current117/native/publicationauthority gates remain M-owned"
+  ],
+  "privateProof": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch79-canonical60-selection-proof-private.json",
+  "privateProofSHA256": "7adb01d583ddb9cd0890189a459d3741f4501469cccd373316898a5aa55d198a",
+  "artifactManifest": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch79-artifact-sha256.json",
+  "artifactManifestSHA256": "b7ef993cae197fef29fd0a283a95470262d907998da1a986f0862c5868a2f3ab"
+}
