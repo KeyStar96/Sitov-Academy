@@ -1,0 +1,305 @@
+{
+  "epoch": 71,
+  "verdict": "HOLD",
+  "qaMutation": false,
+  "reason": "Original combined prepublication before/after full snapshot lists/multisets were never persisted by epoch70; sorted/Counter classification cannot reconstruct absent original bytes. Row order cause remains unproven.",
+  "exactOldHistoryChecks": [
+    {
+      "table": "pretest_definitions",
+      "oldRowsExact": 48,
+      "knownNewRows": 1,
+      "onlyNormalizedField": "ac525e09-1093-4e31-8ce3-b6d55fe77110.active false->true for comparison"
+    },
+    {
+      "table": "pretest_approvals",
+      "oldRowsExact": 48,
+      "knownNewRows": 1,
+      "onlyNormalizedField": null
+    },
+    {
+      "table": "pretest_question_audio_proofs",
+      "oldRowsExact": 4490,
+      "knownNewRows": 93,
+      "onlyNormalizedField": null
+    },
+    {
+      "table": "pretest_attempts",
+      "oldRowsExact": 0,
+      "knownNewRows": 0,
+      "onlyNormalizedField": null
+    },
+    {
+      "table": "pretest_passes",
+      "oldRowsExact": 0,
+      "knownNewRows": 0,
+      "onlyNormalizedField": null
+    }
+  ],
+  "unchangedSinceEpoch70ReadonlyRecovery": [
+    "pretest_definitions",
+    "pretest_approvals",
+    "pretest_question_audio_proofs",
+    "pretest_attempts",
+    "pretest_passes"
+  ],
+  "firstSourceExact": true,
+  "knownPublicationReceipt": [
+    {
+      "payload": {
+        "textId": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+        "testVersion": "b907698d35a8b605db25746b3844c801df181d6b7cfa95c4f43151dd275df17f",
+        "textVersion": "62ea9efcfc7ff25a7fe7a7679c0df58a83db282a0717a647afbf17543a1cff9c",
+        "definitionId": "33a26b75-e3f3-4fab-8766-1104800a4aab",
+        "baseActiveDefinitionId": "ac525e09-1093-4e31-8ce3-b6d55fe77110"
+      },
+      "actor_id": "fb32275b-268e-4fb1-9c69-be3e2adb6d8a",
+      "request_id": "853693b9-e5e8-4eff-ba0b-dc3a0d574fc5"
+    }
+  ],
+  "known15NewStorageRows": [
+    {
+      "id": "06c995fa-854a-4b33-8dbc-a3aefb71b588",
+      "name": "sitov-qwen-v1/de/9b12d09d782e799cc1c8319efea2cd0b654ad91171fc9f411b20ad6a08fd8ece.mp3",
+      "created_at": "2026-10-10T03:06:25.283065+00:00"
+    },
+    {
+      "id": "108016df-b4cd-4e6d-9ba8-fc547e885520",
+      "name": "sitov-qwen-v1/de/8f6a6116076d1d0afc06239850e75f03bd1cf75d54e7630b61da2bdd4669c714.mp3",
+      "created_at": "2026-10-10T03:06:22.838904+00:00"
+    },
+    {
+      "id": "1d85a3d3-1585-4fd1-84b3-19f77255f383",
+      "name": "sitov-qwen-v1/de/d5eee9fc971f7b70b7f66fbe0be2ed32cf5a29f81d6b2f40a6b107d3e8509bfc.mp3",
+      "created_at": "2026-10-10T03:06:20.330365+00:00"
+    },
+    {
+      "id": "20f378b5-dfb2-4f6b-a699-5ec6b70fbcda",
+      "name": "sitov-qwen-v1/de/f6823a56027379545eb92ed19499d8f6fd0dd8a133a18b3df0f008d4104354c4.mp3",
+      "created_at": "2026-10-10T03:06:21.245845+00:00"
+    },
+    {
+      "id": "2ba18505-7d6c-4a80-ad91-8a92e6d6195c",
+      "name": "sitov-qwen-v1/de/88b6999624c9f3cde59987001dfd4980545eaf5720e271da307b1816a251a381.mp3",
+      "created_at": "2026-10-10T03:06:24.784556+00:00"
+    },
+    {
+      "id": "443fe64d-9da9-4e77-bba5-95be22c2571f",
+      "name": "sitov-qwen-v1/de/ce04de3c104c7753f94548ca9f5ea024f79f0c835831626fb3e2f58d58d74c5f.mp3",
+      "created_at": "2026-10-10T03:06:17.607165+00:00"
+    },
+    {
+      "id": "46a0080b-b841-4b66-91a7-89e78ff37c64",
+      "name": "sitov-qwen-v1/de/fecd6cec0867225c8887edf4ad57bd71e11318983f7c5ea91e1f23dac3e5be61.mp3",
+      "created_at": "2026-10-10T03:06:18.644644+00:00"
+    },
+    {
+      "id": "4a34f3e5-d556-4b25-913a-01fd8e523b72",
+      "name": "sitov-qwen-v1/de/41f2806732a14620fcedae453b812fed78c4c62090e4a14eba2c1c8a20d9d1fd.mp3",
+      "created_at": "2026-10-10T03:06:17.190441+00:00"
+    },
+    {
+      "id": "4e04573f-d76d-483d-a279-50351c524d50",
+      "name": "sitov-qwen-v1/de/34b8624d351f619283d398e0202cec2b90078f9431c16e724fc1f21a078c7e66.mp3",
+      "created_at": "2026-10-10T03:06:19.84748+00:00"
+    },
+    {
+      "id": "4ebf3d69-5c69-40bb-b60b-dc6fad897246",
+      "name": "sitov-qwen-v1/de/89137d72d3f65e8d2589e0f9532beeb322a2805aaeaf8030d9684bae2b0921a2.mp3",
+      "created_at": "2026-10-10T03:06:23.75905+00:00"
+    },
+    {
+      "id": "5c830fe5-f0fa-4b81-9a1b-3cc0c5bf9f2f",
+      "name": "sitov-qwen-v1/de/dd0998fdfac6c7bd468b4b9480db9c15c6789df3491580929e87606dc20e26be.mp3",
+      "created_at": "2026-10-10T03:06:20.795601+00:00"
+    },
+    {
+      "id": "8d5d540b-dbf8-4e00-801e-0aadf0724a35",
+      "name": "sitov-qwen-v1/de/43e6d21d3594c0320aaedbc8113671a8919f995eb036a314442d15e1bb163965.mp3",
+      "created_at": "2026-10-10T03:06:22.069266+00:00"
+    },
+    {
+      "id": "c266dafd-3152-4854-941b-9b6cedcddffc",
+      "name": "sitov-qwen-v1/de/a247eb64e156ac01dadbb76db20637e6570311f93fb1b0dad063ea5348e4195e.mp3",
+      "created_at": "2026-10-10T03:06:23.28237+00:00"
+    },
+    {
+      "id": "cd8a6718-f75e-45e9-aba7-e69189f31647",
+      "name": "sitov-qwen-v1/de/3829dc7759b63983b26570c2832515852424e86ad266b591abd8a89098afece0.mp3",
+      "created_at": "2026-10-10T03:06:24.356013+00:00"
+    },
+    {
+      "id": "d0e5fbd4-0e2c-4976-9fbc-b2443ac6e649",
+      "name": "sitov-qwen-v1/de/cc89dbbd31e51f535de176e20eea532378ec5ba9a4ac2ab25c30110e2e63487a.mp3",
+      "created_at": "2026-10-10T03:06:16.59615+00:00"
+    }
+  ],
+  "currentCanonicalTableMultisets": {
+    "public.learning_units": {
+      "rows": 991,
+      "canonicalMultisetSha256": "9604d1d94c39246547ee0b92f7266d1dd3132d05ea3eac77d458c7a86a098f6d"
+    },
+    "public.learning_reading_texts": {
+      "rows": 30,
+      "canonicalMultisetSha256": "c6f0aa3179edb452f8f528d6ab8952ee276590b6173bfcdc32af0ab7d8e0d35d"
+    },
+    "storage.objects": {
+      "rows": 2511,
+      "canonicalMultisetSha256": "830a265b1305abbb3b3b6dc2071240647b2c64b19adf2207350264459ec13a13"
+    },
+    "sitov_pronunciation_private.pretest_definitions": {
+      "rows": 49,
+      "canonicalMultisetSha256": "10ad8902476f4fa7cb9b2b781280e093ce82c00a4b883b91d3707829a89514ac"
+    },
+    "sitov_pronunciation_private.pretest_approvals": {
+      "rows": 49,
+      "canonicalMultisetSha256": "762ef896ac4d848aae90dfd82321d586ab8f5a8987e5614c9b0a0db40741c704"
+    },
+    "sitov_pronunciation_private.pretest_question_audio_proofs": {
+      "rows": 4583,
+      "canonicalMultisetSha256": "6801570ded82acf432b85bec0f598695d2d1dbeef2660b47f51544a3f109d8c4"
+    },
+    "sitov_pronunciation_private.pretest_attempts": {
+      "rows": 0,
+      "canonicalMultisetSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "sitov_pronunciation_private.pretest_passes": {
+      "rows": 0,
+      "canonicalMultisetSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "sitov_pronunciation_private.publication_receipts": {
+      "rows": 3,
+      "canonicalMultisetSha256": "58308e41557735607bdda2deaa68e15ba76a517c89105ac0b541f479fe807435"
+    }
+  },
+  "missingOriginalBytes": [
+    "Complete prepublication public.learning_units rows",
+    "Complete prepublication public.learning_reading_texts rows except first text, which has exact epoch69 baseline",
+    "All original2496 storage.objects full JSON rows, including row UUID/ownership/timestamps/metadata; epoch70 successful protected comparisons were ephemeral SQL/process snapshots, not replayable full before manifests"
+  ],
+  "limits": [
+    "100 actual byte/metadata readbacks and original2496 preservation remain prior phase ACKs; this read-only lease does not replace their absent full-row baseline",
+    "Authentication normal-login effects were outside failed combined query; no auth baseline reconstructed and no auth sessions/tokens queried",
+    "No outbox baseline existed in the failed combined comparison; public receipt exact current request/actor row captured, other outbox rows not silently normalized",
+    "No fresh full188/protected185 certification; no S5 readiness approval"
+  ],
+  "artifactSha256": {
+    "currentRows": "014b2a4f74af7907a6b0d0f1549b5c052573e2f826161a4d4f394ad7d986626b",
+    "sql": "d67c523b7d261f4dd6250b6c536a441550c6937e0dc91c9287163ea27839b1c5"
+  },
+  "runtime": {
+    "at": "2026-10-10T03:14:25.556226+00:00",
+    "network": "sitov-night-20261008-qa-isolated",
+    "gateway_url": "http://10.0.3.3:8000",
+    "containers": [
+      {
+        "name": "/sitov-night-20261008-qa-db",
+        "image_id": "sha256:bce4f0725a10d80bb16e01d678db8d40dd09223d18562125902e2682dd74ecdb",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 335544320,
+        "nano_cpus": 750000000,
+        "hostports": {
+          "5432/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-auth",
+        "image_id": "sha256:f2112b9289422f205df4ea15b8b550d425ae42528ea54521faa32cc7b62490de",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 134217728,
+        "nano_cpus": 250000000,
+        "hostports": {}
+      },
+      {
+        "name": "/sitov-night-20261008-qa-storage",
+        "image_id": "sha256:4f0eb90b935c676914ed0609c2c7d47cddb3f336155726bb2d5542617d4afdfa",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 268435456,
+        "nano_cpus": 500000000,
+        "hostports": {
+          "5000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-rest",
+        "image_id": "sha256:7afcb0447b7849f6875bba4a0c603d79b1e2e44aec97af123bf9a0a2ccfeae52",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 67108864,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "3000/tcp": null
+        }
+      },
+      {
+        "name": "/sitov-night-20261008-qa-gateway",
+        "image_id": "sha256:6addf50e6bd8d578314cb9ce4f2d2d1e3781d2edecef59f707e00c6e05d384f5",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "restart_count": 0,
+        "memory_limit": 201326592,
+        "nano_cpus": 250000000,
+        "hostports": {
+          "8000/tcp": null,
+          "8001/tcp": null,
+          "8002/tcp": null,
+          "8003/tcp": null,
+          "8004/tcp": null,
+          "8443/tcp": null,
+          "8444/tcp": null,
+          "8445/tcp": null,
+          "8446/tcp": null,
+          "8447/tcp": null
+        }
+      }
+    ],
+    "health": [
+      {
+        "path": "/auth/v1/health",
+        "http_status": 200
+      },
+      {
+        "path": "/rest/v1/",
+        "http_status": 200
+      },
+      {
+        "path": "/storage/v1/status",
+        "http_status": 200
+      }
+    ],
+    "memoryMiB": 2357
+  },
+  "baseSha": "e1d571b092d14ea1f43552a87d5b604f713ebfc3",
+  "privateEvidenceSha256": {
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch71-current-rows.jsonl": "014b2a4f74af7907a6b0d0f1549b5c052573e2f826161a4d4f394ad7d986626b",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch71-current-rows.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch71-readonly-remote.py": "3d0e64ca3f936b4e90c7b72bd6c82e5dcf0e750e7b7b0c2d21a7634db24c8d15",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch71-readonly.py": "d31801d76a0be0307a5f603c3ad594df567513feaa6bf81ab7714288abe7418b",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch71-readonly.sql": "d67c523b7d261f4dd6250b6c536a441550c6937e0dc91c9287163ea27839b1c5",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch71-snapshot-inventory.jsonl": "1df8dfd50ccf43c0c238c7ec24803145227a772b055ca4a8336de46f567181a4",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch71-snapshot-inventory.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch71-verdict.json": "6a7ec3c136c409795ed98de157686d7e93a9a014d5699efec2bc125733f9732b"
+  },
+  "sourcePhaseArtifactsChecked": [
+    "S3/epoch70-audio.py",
+    "S3/epoch70-audio-result.json",
+    "S3/epoch70-driver.py",
+    "S3/epoch70-publish.py",
+    "S3/epoch70-recovery.jsonl",
+    "/tmp/sitov-night-20261008-s3-epoch70/audio-result.json",
+    "/tmp/sitov-night-20261008-s3-epoch70/audio-phases.json",
+    "/tmp/sitov-night-20261008-s3-epoch70/publication.json"
+  ],
+  "unexaminedBaselineLeadAfterSave": "M supplied after SAVE: S1/epoch43-resume-ledger.json and helpersprivate.py may identify fresh fullQA188 baseline from02:31:13–02:31:58, SHA f78808720aa242bfb6a17dde4b398497d1f0478465ba4eb9c9d376d25e1236b1. Not inspected/queried during SAVE. Potential next-lease recovery of source/storage original table hashes/per-row multisets; HOLD does not mean permanently unrecoverable."
+}
