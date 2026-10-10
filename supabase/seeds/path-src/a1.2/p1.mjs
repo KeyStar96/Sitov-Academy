@@ -24,21 +24,37 @@ const path = {
       title: 'Berufe: er und sie',
       t: ['Jobs: he and she', 'Профессии: он и она', 'Професії: він і вона', 'Meslekler: erkek ve kadın'],
       card: {
-        id: 'p1_in',
-        rule: 'Berufe: Für Frauen kommt meistens -in ans Wort: der Lehrer – die Lehrerin. Oft wird a, o, u zu ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Plural: die Lehrerinnen. Achtung: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.',
-        examples: ['Emre ist Verkäufer. Dilara ist Verkäuferin.', 'Der Arzt und die Ärztin arbeiten im Krankenhaus.', 'Die zwei Köchinnen kochen sehr gut.'],
-        highlight: null,
-        t: [
-          'Jobs: for women you usually add -in: der Lehrer – die Lehrerin. Often a, o, u become ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Plural: die Lehrerinnen. Watch out: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.',
-          'Профессии: для женщин обычно добавляется -in: der Lehrer – die Lehrerin. Часто a, o, u меняются на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множественное число: die Lehrerinnen. Внимание: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.',
-          'Професії: для жінок зазвичай додається -in: der Lehrer – die Lehrerin. Часто a, o, u змінюються на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множина: die Lehrerinnen. Увага: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.',
-          'Meslekler: Kadınlar için genellikle kelimeye -in eklenir: der Lehrer – die Lehrerin. Çoğu zaman a, o, u harfleri ä, ö, ü olur: der Arzt – die Ärztin, der Koch – die Köchin. Çoğul: die Lehrerinnen. Dikkat: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.',
-        ],
-        hint: ['Eine Frau? Dann meistens Beruf + -in. Achte auf den Umlaut: Arzt – Ärztin.', 'A woman? Then usually job + -in. Mind the umlaut: Arzt – Ärztin.', 'Женщина? Тогда обычно профессия + -in. Не забудьте умлаут: Arzt – Ärztin.', 'Жінка? Тоді зазвичай професія + -in. Не забудьте умлаут: Arzt – Ärztin.', 'Kadın mı? O zaman genellikle meslek + -in. Umlaut’a dikkat: Arzt – Ärztin.'],
-        hints: {
-          word: ['Denk an den Arbeitsort: Wer arbeitet dort?', 'Think of the workplace: who works there?', 'Подумайте о месте работы: кто там работает?', 'Подумайте про місце роботи: хто там працює?', 'Çalışma yerini düşünün: orada kim çalışır?'],
-        },
-      },
+  "id": "p1_in",
+  "rule": "Berufe: Für Frauen kommt meistens -in ans Wort: der Lehrer – die Lehrerin. Oft wird a, o, u zu ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Plural: die Lehrerinnen. Achtung: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
+  "examples": [
+    "Männliche Form: Verkäufer. Weibliche Form: Verkäuferin.",
+    "Der Arzt und die Ärztin arbeiten im Krankenhaus.",
+    "Die zwei Köchinnen kochen sehr gut."
+  ],
+  "highlight": null,
+  "t": [
+    "Jobs: for women you usually add -in: der Lehrer – die Lehrerin. Often a, o, u become ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Plural: die Lehrerinnen. Watch out: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
+    "Профессии: для женщин обычно добавляется -in: der Lehrer – die Lehrerin. Часто a, o, u меняются на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множественное число: die Lehrerinnen. Внимание: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
+    "Професії: для жінок зазвичай додається -in: der Lehrer – die Lehrerin. Часто a, o, u змінюються на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множина: die Lehrerinnen. Увага: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
+    "Meslekler: Kadınlar için genellikle kelimeye -in eklenir: der Lehrer – die Lehrerin. Çoğu zaman a, o, u harfleri ä, ö, ü olur: der Arzt – die Ärztin, der Koch – die Köchin. Çoğul: die Lehrerinnen. Dikkat: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester."
+  ],
+  "hint": [
+    "Eine Frau? Dann meistens Beruf + -in. Achte auf den Umlaut: Arzt – Ärztin.",
+    "A woman? Then usually job + -in. Mind the umlaut: Arzt – Ärztin.",
+    "Женщина? Тогда обычно профессия + -in. Не забудьте умлаут: Arzt – Ärztin.",
+    "Жінка? Тоді зазвичай професія + -in. Не забудьте умлаут: Arzt – Ärztin.",
+    "Kadın mı? O zaman genellikle meslek + -in. Umlaut’a dikkat: Arzt – Ärztin."
+  ],
+  "hints": {
+    "word": [
+      "Denk an den Arbeitsort: Wer arbeitet dort?",
+      "Think of the workplace: who works there?",
+      "Подумайте о месте работы: кто там работает?",
+      "Подумайте про місце роботи: хто там працює?",
+      "Çalışma yerini düşünün: orada kim çalışır?"
+    ]
+  }
+},
       ex: [
         mc('W1', 'Berufe', I.choose, 'Wer arbeitet in einer Küche und macht das Essen?', ['der Koch', 'der Friseur', 'der Busfahrer'],
           ['Who works in a kitchen and makes the food?', 'Кто работает на кухне и готовит еду?', 'Хто працює на кухні й готує їжу?', 'Kim mutfakta çalışır ve yemek yapar?'], { h: 'word' }),
@@ -52,11 +68,8 @@ const path = {
           ['Jonas is a salesman. His sister Lea is a saleswoman too.', 'Jonas – продавец. Его сестра Lea тоже продавец.', 'Jonas – продавець. Його сестра Lea теж продавчиня.', 'Jonas satış elemanı. Kız kardeşi Lea da satış elemanı.'], 'Verkäufer'),
         gap('G1', 'weibliche Form', I.feminine, 'Mein Onkel ist Koch und meine Tante ist ', '.', 'Köchin', ['Kochin', 'Köcherin'],
           ['My uncle is a cook and my aunt is a cook.', 'Мой дядя – повар, и моя тётя – повар.', 'Мій дядько – кухар, а моя тітка – кухарка.', 'Amcam aşçı, teyzem de aşçı.'], 'Koch'),
-        gap('G1', 'Sonderform', I.feminine, 'Tom ist Hausmann. Seine Nachbarin Eva ist ', '.', 'Hausfrau', ['Hausmännin', 'Hausmannin'],
-          ['Tom is a house husband. His neighbour Eva is a housewife.', 'Tom – домохозяин. Его соседка Eva – домохозяйка.', 'Tom – домогосподар. Його сусідка Eva – домогосподарка.', 'Tom ev erkeği. Komşusu Eva ev hanımı.'], 'Hausmann'),
-        gap('W1', 'Berufe', I.word, 'Frau Aksoy schneidet Haare. Sie ist ', ' von Beruf.', ['Friseurin', 'Frisörin'], ['Bäckerin', 'Polizistin'],
-          ['Ms Aksoy cuts hair. She is a hairdresser by profession.', 'Госпожа Aksoy стрижёт волосы. По профессии она парикмахер.', 'Пані Aksoy стриже волосся. За професією вона перукарка.', 'Aksoy Hanım saç kesiyor. Mesleği kuaförlük.'],
-          ['hairdresser', 'парикмахер', 'перукарка', 'kuaför'], { h: 'word' }),
+        gap("G1", "Sonderform", I.feminine, "Die weibliche Form von „Hausmann“ heißt ", ".", "Hausfrau", ["Hausmannin","Hausmännin"], ["The female form of Hausmann is …","Женская форма слова Hausmann — …","Жіноча форма слова Hausmann — …","Hausmann sözcüğünün kadın biçimi …"], "Hausmann", {"c":"p1_in","sitovOptionOrder":["Hausfrau","Hausmannin","Hausmännin"]}),
+        gap("W1", "Berufe", I.word, "Eine Frau, die beruflich Haare schneidet, ist ", " von Beruf.", ["Friseurin","Frisörin"], ["Polizistin","Bäckerin"], ["A woman who cuts hair professionally is a …","Женщина, которая профессионально стрижёт волосы, по профессии — …","Жінка, яка професійно стриже волосся, за професією — …","Mesleği saç kesmek olan bir kadına … denir."], ["hairdresser","парикмахер","перукарка","kuaför"], {"h":"word","c":"p1_in","sitovOptionOrder":["Polizistin","Friseurin","Bäckerin"]}),
       ],
     },
     {

@@ -253,8 +253,7 @@ const path = {
         gap("G3", "euch", I.pronoun, "Tim und Milan, ich lade ", " zu meiner Party ein.", "euch", ["ihr","uns"], ["Tim and Milan, I am inviting you to my party.","Tim и Milan, я приглашаю вас на свою вечеринку.","Tim і Milan, я запрошую вас на свою вечірку.","Tim ve Milan, sizi partime davet ediyorum."], "ihr", {"c":"p7_akk"}),
         gap('G3', 'es', I.pronoun, 'Das Fahrrad ist kaputt. Kannst du ', ' bitte reparieren?', 'es', ['ihn', 'sie'],
           ['The bike is broken. Can you repair it, please?', 'Велосипед сломался. Ты можешь его починить, пожалуйста?', 'Велосипед зламався. Ти можеш його полагодити, будь ласка?', 'Bisiklet bozuk. Onu tamir edebilir misin lütfen?'], 'ihn / es / sie', { h: 'thing' }),
-        gap('G3', 'für + Akkusativ', I.pronoun, 'Hier ist ein Brief für ', ', Frau Kaya.', 'Sie', ['Ihnen', 'dich'],
-          ['Here is a letter for you, Ms Kaya.', 'Вот письмо для вас, госпожа Kaya.', 'Ось лист для вас, пані Kaya.', 'Burada sizin için bir mektup var, Kaya Hanım.'], 'Sie / Ihnen'),
+        gap("G3", "für + Akkusativ", I.pronoun, "Hier ist ein Brief für ", ", Herr Kaya.", "Sie", ["Ihnen","dich"], ["Here is a letter for you, Mr Kaya.","Вот письмо для вас, господин Kaya.","Ось лист для вас, пане Kaya.","Burada sizin için bir mektup var, Kaya Bey."], "Sie / Ihnen", {"c":"p7_akk"}),
         sb('G3', 'dich', I.order, 'Ich / habe / dich / sehr lieb.',
           ['I love you very much.', 'Я тебя очень люблю.', 'Я тебе дуже люблю.', 'Seni çok seviyorum.']),
       ],
@@ -353,11 +352,11 @@ const path = {
       ],
     },
     {
-      title: 'Liebe Vanessa, lieber Paul',
-      t: ['Dear Vanessa, dear Paul', 'Дорогая Vanessa, дорогой Paul', 'Люба Vanessa, любий Paul', 'Sevgili Vanessa, sevgili Paul'],
+      title: "Liebe …, lieber …",
+      t: ["Dear …, dear …","Дорогая …, дорогой …","Люба …, любий …","Sevgili …, sevgili …"],
       card: {
   "id": "p7_brief",
-  "rule": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+  "rule": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
   "examples": [
     "Liebe Oma, vielen Dank für das Geschenk!",
     "Sehr geehrter Herr Brandt, ich lade Sie herzlich ein.",
@@ -365,10 +364,10 @@ const path = {
   ],
   "highlight": null,
   "t": [
-    "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
-    "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
-    "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
-    "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
+    "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+    "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+    "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+    "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
   ],
   "hint": [
     "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
@@ -387,11 +386,9 @@ const path = {
           ['You are writing a card to your aunt Olga. Which salutation fits?', 'Вы пишете открытку своей тёте Olga. Какое обращение подходит?', 'Ви пишете листівку своїй тітці Olga. Яке звертання підходить?', 'Teyzeniz Olga’ya bir kart yazıyorsunuz. Hangi hitap uygun?']),
         gap('K3', 'Lieber', I.form, '', ' Paul, vielen Dank für deine Einladung!', 'Lieber', ['Liebe', 'Liebes'],
           ['Dear Paul, thank you very much for your invitation!', 'Дорогой Paul, большое спасибо за приглашение!', 'Любий Paul, щиро дякую за запрошення!', 'Sevgili Paul, davetin için çok teşekkürler!'], 'lieb'),
-        gap('K3', 'Liebe', I.form, '', ' Sofia, ich gratuliere dir zum Geburtstag!', 'Liebe', ['Lieber', 'Lieben'],
-          ['Dear Sofia, happy birthday to you!', 'Дорогая Sofia, поздравляю тебя с днём рождения!', 'Люба Sofia, вітаю тебе з днем народження!', 'Sevgili Sofia, doğum gününü kutluyorum!'], 'lieb'),
+        gap("K3", "Liebe", I.form, "Die weibliche Form der informellen Anrede „Lieber“ lautet: ", ".", "Liebe", ["Lieber","Lieben"], ["The female form of the informal salutation Lieber is …","Женская форма неофициального обращения Lieber — …","Жіноча форма неофіційного звертання Lieber — …","Samimi hitap Lieber sözcüğünün kadın biçimi …"], "lieb", {"c":"p7_brief"}),
         gap("K3", "Gruß informell", I.word, "Bis bald und viele ", ", dein Milan", "Grüße", ["Gäste","Geschenke"], ["See you soon and best wishes, your Milan","До скорой встречи и большой привет, твой Milan","До скорої зустрічі й щирі вітання, твій Milan","Yakında görüşmek üzere, selamlar, Milan’ın"], ["greetings, regards","приветы","вітання","selamlar"], {"c":"p7_brief"}),
-        gap('K3', 'Gruß formell', I.form, 'Sehr geehrte Frau Lindner, vielen Dank für Ihre E-Mail. Mit freundlichen ', ', Emre Demir', 'Grüßen', ['Grüße', 'Gruß'],
-          ['Dear Ms Lindner, thank you for your e-mail. Yours sincerely, Emre Demir', 'Уважаемая госпожа Lindner, спасибо за ваш e-mail. С уважением, Emre Demir', 'Шановна пані Lindner, дякую за ваш e-mail. З повагою, Emre Demir', 'Sayın Lindner Hanım, e-postanız için teşekkürler. Saygılarımla, Emre Demir'], 'Gruß'),
+        gap("K3", "Gruß formell", I.form, "Sehr geehrter Herr Lindner, vielen Dank für Ihre E-Mail. Mit freundlichen ", ", Emre Demir", "Grüßen", ["Grüße","Gruß"], ["Dear Mr Lindner, thank you for your e-mail. Yours sincerely, Emre Demir","Уважаемый господин Lindner, спасибо за ваш e-mail. С уважением, Emre Demir","Шановний пане Lindner, дякую за ваш e-mail. З повагою, Emre Demir","Sayın Lindner Bey, e-postanız için teşekkürler. Saygılarımla, Emre Demir"], "Gruß", {"c":"p7_brief"}),
       ],
     },
     {

@@ -111,7 +111,7 @@
           "card": "p1_in",
           "rule": "Berufe: Für Frauen kommt meistens -in ans Wort: der Lehrer – die Lehrerin. Oft wird a, o, u zu ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Plural: die Lehrerinnen. Achtung: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
           "examples": [
-            "Emre ist Verkäufer. Dilara ist Verkäuferin.",
+            "Männliche Form: Verkäufer. Weibliche Form: Verkäuferin.",
             "Der Arzt und die Ärztin arbeiten im Krankenhaus.",
             "Die zwei Köchinnen kochen sehr gut."
           ],
@@ -470,7 +470,7 @@
                 "Sonderform"
               ],
               "instruction": "Ergänze die weibliche Berufsbezeichnung.",
-              "text_before": "Tom ist Hausmann. Seine Nachbarin Eva ist ",
+              "text_before": "Die weibliche Form von „Hausmann“ heißt ",
               "text_after": ".",
               "gap_hint": "Hausmann",
               "correct_answer": "Hausfrau",
@@ -494,25 +494,25 @@
                 "instruction": "Fill in the female job title.",
                 "hint": "A woman? Then usually job + -in. Mind the umlaut: Arzt – Ärztin.",
                 "explanation": "Jobs: for women you usually add -in: der Lehrer – die Lehrerin. Often a, o, u become ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Plural: die Lehrerinnen. Watch out: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Tom is a house husband. His neighbour Eva is a housewife."
+                "task": "The female form of Hausmann is …"
               },
               "ru": {
                 "instruction": "Вставьте название профессии в женском роде.",
                 "hint": "Женщина? Тогда обычно профессия + -in. Не забудьте умлаут: Arzt – Ärztin.",
                 "explanation": "Профессии: для женщин обычно добавляется -in: der Lehrer – die Lehrerin. Часто a, o, u меняются на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множественное число: die Lehrerinnen. Внимание: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Tom – домохозяин. Его соседка Eva – домохозяйка."
+                "task": "Женская форма слова Hausmann — …"
               },
               "uk": {
                 "instruction": "Вставте назву професії в жіночому роді.",
                 "hint": "Жінка? Тоді зазвичай професія + -in. Не забудьте умлаут: Arzt – Ärztin.",
                 "explanation": "Професії: для жінок зазвичай додається -in: der Lehrer – die Lehrerin. Часто a, o, u змінюються на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множина: die Lehrerinnen. Увага: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Tom – домогосподар. Його сусідка Eva – домогосподарка."
+                "task": "Жіноча форма слова Hausmann — …"
               },
               "tr": {
                 "instruction": "Meslek adının kadın biçimini yazın.",
                 "hint": "Kadın mı? O zaman genellikle meslek + -in. Umlaut’a dikkat: Arzt – Ärztin.",
                 "explanation": "Meslekler: Kadınlar için genellikle kelimeye -in eklenir: der Lehrer – die Lehrerin. Çoğu zaman a, o, u harfleri ä, ö, ü olur: der Arzt – die Ärztin, der Koch – die Köchin. Çoğul: die Lehrerinnen. Dikkat: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Tom ev erkeği. Komşusu Eva ev hanımı."
+                "task": "Hausmann sözcüğünün kadın biçimi …"
               }
             }
           },
@@ -526,7 +526,7 @@
                 "Berufe"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Frau Aksoy schneidet Haare. Sie ist ",
+              "text_before": "Eine Frau, die beruflich Haare schneidet, ist ",
               "text_after": " von Beruf.",
               "correct_answer": "Friseurin",
               "options": [
@@ -551,28 +551,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Think of the workplace: who works there?",
                 "explanation": "Jobs: for women you usually add -in: der Lehrer – die Lehrerin. Often a, o, u become ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Plural: die Lehrerinnen. Watch out: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Ms Aksoy cuts hair. She is a hairdresser by profession.",
+                "task": "A woman who cuts hair professionally is a …",
                 "gap_hint": "hairdresser"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Подумайте о месте работы: кто там работает?",
                 "explanation": "Профессии: для женщин обычно добавляется -in: der Lehrer – die Lehrerin. Часто a, o, u меняются на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множественное число: die Lehrerinnen. Внимание: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Госпожа Aksoy стрижёт волосы. По профессии она парикмахер.",
+                "task": "Женщина, которая профессионально стрижёт волосы, по профессии — …",
                 "gap_hint": "парикмахер"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Подумайте про місце роботи: хто там працює?",
                 "explanation": "Професії: для жінок зазвичай додається -in: der Lehrer – die Lehrerin. Часто a, o, u змінюються на ä, ö, ü: der Arzt – die Ärztin, der Koch – die Köchin. Множина: die Lehrerinnen. Увага: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Пані Aksoy стриже волосся. За професією вона перукарка.",
+                "task": "Жінка, яка професійно стриже волосся, за професією — …",
                 "gap_hint": "перукарка"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Çalışma yerini düşünün: orada kim çalışır?",
                 "explanation": "Meslekler: Kadınlar için genellikle kelimeye -in eklenir: der Lehrer – die Lehrerin. Çoğu zaman a, o, u harfleri ä, ö, ü olur: der Arzt – die Ärztin, der Koch – die Köchin. Çoğul: die Lehrerinnen. Dikkat: der Hausmann – die Hausfrau, der Krankenpfleger – die Krankenschwester.",
-                "task": "Aksoy Hanım saç kesiyor. Mesleği kuaförlük.",
+                "task": "Mesleği saç kesmek olan bir kadına … denir.",
                 "gap_hint": "kuaför"
               }
             }
@@ -8150,7 +8150,7 @@
                 "müssen"
               ],
               "instruction": "Ergänze das Modalverb in der richtigen Form.",
-              "text_before": "Frau Kaya ",
+              "text_before": "Herr Kaya ",
               "text_after": " heute lange arbeiten.",
               "gap_hint": "müssen",
               "correct_answer": "muss",
@@ -8174,25 +8174,25 @@
                 "instruction": "Fill in the modal verb in the correct form.",
                 "hint": "Singular without ü: muss, musst, muss. Plural with ü: müssen, müsst, müssen.",
                 "explanation": "müssen = something is necessary (must, have to). ich muss, du musst, er/es/sie/man muss, wir müssen, ihr müsst, sie/Sie müssen. With ich and er/sie there is no ending and no ü: ich muss, sie muss.",
-                "task": "Ms Kaya has to work late today."
+                "task": "Mr Kaya has to work late today."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в правильной форме.",
                 "hint": "Единственное число без ü: muss, musst, muss. Множественное с ü: müssen, müsst, müssen.",
                 "explanation": "müssen = что-то необходимо (должен, нужно). ich muss, du musst, er/es/sie/man muss, wir müssen, ihr müsst, sie/Sie müssen. У ich и er/sie нет окончания и нет ü: ich muss, sie muss.",
-                "task": "Госпожа Kaya сегодня должна долго работать."
+                "task": "Господин Kaya сегодня должен долго работать."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в правильній формі.",
                 "hint": "Однина без ü: muss, musst, muss. Множина з ü: müssen, müsst, müssen.",
                 "explanation": "müssen = щось необхідно (мушу, треба). ich muss, du musst, er/es/sie/man muss, wir müssen, ihr müsst, sie/Sie müssen. У ich та er/sie немає закінчення і немає ü: ich muss, sie muss.",
-                "task": "Пані Kaya сьогодні мусить довго працювати."
+                "task": "Пан Kaya сьогодні мусить довго працювати."
               },
               "tr": {
                 "instruction": "Kip fiilini doğru biçimde yazın.",
                 "hint": "Tekil ü’süz: muss, musst, muss. Çoğul ü’lü: müssen, müsst, müssen.",
                 "explanation": "müssen = bir şey gereklidir (zorunda olmak). ich muss, du musst, er/es/sie/man muss, wir müssen, ihr müsst, sie/Sie müssen. ich ve er/sie için ek yoktur ve ü yoktur: ich muss, sie muss.",
-                "task": "Kaya Hanım bugün uzun süre çalışmak zorunda."
+                "task": "Kaya Bey bugün uzun süre çalışmak zorunda."
               }
             }
           },
@@ -14306,7 +14306,7 @@
                 "Imperativ Sie"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Lindner, … Sie bitte hier!",
+              "question": "Herr Lindner, … Sie bitte hier!",
               "options": [
                 "wartet",
                 "warten",
@@ -14328,25 +14328,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "The verb comes first, then Sie. Bitte makes the sentence polite.",
                 "explanation": "Imperative with Sie: the verb first, then Sie. Warten Sie bitte! Füllen Sie das Formular aus! With bitte it is polite. With sein: Seien Sie bitte leise!",
-                "task": "Ms Lindner, please wait here!"
+                "task": "Mr Lindner, please wait here!"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Глагол стоит в начале, потом Sie. Bitte делает фразу вежливой.",
                 "explanation": "Императив с Sie: сначала глагол, потом Sie. Warten Sie bitte! Füllen Sie das Formular aus! Слово bitte делает просьбу вежливой. У sein: Seien Sie bitte leise!",
-                "task": "Госпожа Lindner, подождите, пожалуйста, здесь!"
+                "task": "Господин Lindner, подождите, пожалуйста, здесь!"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Дієслово стоїть на початку, потім Sie. Bitte робить фразу ввічливою.",
                 "explanation": "Імператив із Sie: спочатку дієслово, потім Sie. Warten Sie bitte! Füllen Sie das Formular aus! Слово bitte робить прохання ввічливим. У sein: Seien Sie bitte leise!",
-                "task": "Пані Lindner, зачекайте, будь ласка, тут!"
+                "task": "Пане Lindner, зачекайте, будь ласка, тут!"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Fiil başta, sonra Sie gelir. Bitte cümleyi kibarlaştırır.",
                 "explanation": "Sie ile emir kipi: önce fiil, sonra Sie. Warten Sie bitte! Füllen Sie das Formular aus! bitte ile kibar olur. sein fiilinde: Seien Sie bitte leise!",
-                "task": "Lindner Hanım, lütfen burada bekleyin!"
+                "task": "Lindner Bey, lütfen burada bekleyin!"
               }
             }
           },
@@ -14921,7 +14921,7 @@
               ],
               "instruction": "Ergänze das passende Wort.",
               "text_before": "Im Formular: ",
-              "text_after": " Maria, Familienname Rojas.",
+              "text_after": " Mateo, Familienname Rojas.",
               "correct_answer": "Vorname",
               "options": [
                 "Vorname",
@@ -14943,28 +14943,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Think of a form: which piece of information goes in this field?",
                 "explanation": "At a public office: you take a number and wait. At the counter (Schalter) you show your ID card (Ausweis) or passport (Pass). You fill in a form (e.g. an application = Antrag) and sign it. A registration form asks for: Familienname (surname), Vorname (first name), Geburtsdatum (date of birth), Geburtsort (place of birth), Geschlecht (sex: männlich, weiblich, divers), Staatsangehörigkeit (nationality) and Unterschrift (signature).",
-                "task": "On the form: first name Maria, surname Rojas.",
+                "task": "On the form: first name Mateo, surname Rojas.",
                 "gap_hint": "first name"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Представьте бланк: что пишут в этом поле?",
                 "explanation": "В учреждении: вы берёте номер и ждёте. У окна (Schalter) вы показываете удостоверение (Ausweis) или паспорт (Pass). Вы заполняете бланк (например, заявление = Antrag) и подписываете его. В бланке регистрации есть: Familienname (фамилия), Vorname (имя), Geburtsdatum (дата рождения), Geburtsort (место рождения), Geschlecht (пол: männlich, weiblich, divers), Staatsangehörigkeit (гражданство) и Unterschrift (подпись).",
-                "task": "В бланке: имя Maria, фамилия Rojas.",
+                "task": "В бланке: имя Mateo, фамилия Rojas.",
                 "gap_hint": "имя"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Уявіть бланк: що пишуть у цьому полі?",
                 "explanation": "В установі: ви берете номер і чекаєте. Біля віконця (Schalter) ви показуєте посвідчення (Ausweis) або паспорт (Pass). Ви заповнюєте бланк (наприклад, заяву = Antrag) і підписуєте його. У бланку реєстрації є: Familienname (прізвище), Vorname (ім’я), Geburtsdatum (дата народження), Geburtsort (місце народження), Geschlecht (стать: männlich, weiblich, divers), Staatsangehörigkeit (громадянство) і Unterschrift (підпис).",
-                "task": "У бланку: ім’я Maria, прізвище Rojas.",
+                "task": "У бланку: ім’я Mateo, прізвище Rojas.",
                 "gap_hint": "ім’я"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Bir form düşünün: bu alana hangi bilgi yazılır?",
                 "explanation": "Resmî dairede: Sıra numarası alır ve beklersiniz. Gişede (Schalter) kimliğinizi (Ausweis) ya da pasaportunuzu (Pass) gösterirsiniz. Bir form (örneğin başvuru = Antrag) doldurur ve imzalarsınız. Kayıt formunda şunlar yer alır: Familienname (soyadı), Vorname (ad), Geburtsdatum (doğum tarihi), Geburtsort (doğum yeri), Geschlecht (cinsiyet: männlich, weiblich, divers), Staatsangehörigkeit (uyruk) ve Unterschrift (imza).",
-                "task": "Formda: ad Maria, soyadı Rojas.",
+                "task": "Formda: ad Mateo, soyadı Rojas.",
                 "gap_hint": "ad"
               }
             }
@@ -15180,7 +15180,7 @@
       {
         "id": "P3-G2",
         "area": "grammar",
-        "description": "sein oder ihr: Der Possessivartikel richtet sich nach der Person (Simon – seine Hand, Sofia – ihre Hand)."
+        "description": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
       },
       {
         "id": "P3-G3",
@@ -17001,7 +17001,7 @@
                 "ihr"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Aksoy hat Schmerzen. … Hand tut weh.",
+              "question": "Ergänze den Possessivartikel zu „sie (Singular)“: … Hand tut weh.",
               "options": [
                 "Seine",
                 "Ihre",
@@ -17023,25 +17023,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
                 "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
-                "task": "Ms Aksoy is in pain. Her hand hurts."
+                "task": "Complete the possessive for sie (singular): … Hand tut weh."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
                 "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
-                "task": "У госпожи Aksoy боли. У неё болит рука."
+                "task": "Дополните притяжательный артикль для sie (ед. число): … Hand tut weh."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
                 "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
-                "task": "У пані Aksoy болі. У неї болить рука."
+                "task": "Доповніть присвійний артикль для sie (однина): … Hand tut weh."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
                 "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
-                "task": "Aksoy Hanım’ın ağrısı var. Eli ağrıyor."
+                "task": "sie (tekil) için iyelik artikelini tamamlayın: … Hand tut weh."
               }
             }
           },
@@ -17771,7 +17771,7 @@
                 "Akkusativ maskulin"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Frau Kaya, haben Sie ",
+              "text_before": "Herr Kaya, haben Sie ",
               "text_after": " Ausweis dabei?",
               "gap_hint": "Ihr",
               "correct_answer": "Ihren",
@@ -17795,25 +17795,25 @@
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "der noun + accusative → -en: meinen, deinen, seinen, ihren.",
                 "explanation": "Possessives in the accusative: only masculine nouns (der) get -en: Ich suche meinen Arzt. Hast du deinen Termin? Er nimmt seinen Tee. Sie ruft ihren Chef an. Wir besuchen unseren Opa. Careful: euren (not eueren). With “das”, “die” and plural nouns the accusative looks like the nominative: mein Medikament, meine Tablette, meine Tabletten.",
-                "task": "Ms Kaya, do you have your ID card with you?"
+                "task": "Mr Kaya, do you have your ID card with you?"
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Слово с der + Akkusativ → -en: meinen, deinen, seinen, ihren.",
                 "explanation": "Притяжательные слова в Akkusativ: только у слов мужского рода (der) появляется -en: Ich suche meinen Arzt. Hast du deinen Termin? Er nimmt seinen Tee. Sie ruft ihren Chef an. Wir besuchen unseren Opa. Внимание: euren (не eueren). У слов с «das», «die» и во множественном числе Akkusativ совпадает с Nominativ: mein Medikament, meine Tablette, meine Tabletten.",
-                "task": "Госпожа Kaya, удостоверение у вас с собой?"
+                "task": "Господин Kaya, удостоверение у вас с собой?"
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Слово з der + Akkusativ → -en: meinen, deinen, seinen, ihren.",
                 "explanation": "Присвійні слова в Akkusativ: лише у слів чоловічого роду (der) з’являється -en: Ich suche meinen Arzt. Hast du deinen Termin? Er nimmt seinen Tee. Sie ruft ihren Chef an. Wir besuchen unseren Opa. Увага: euren (не eueren). У слів із «das», «die» та в множині Akkusativ збігається з Nominativ: mein Medikament, meine Tablette, meine Tabletten.",
-                "task": "Пані Kaya, посвідчення у вас із собою?"
+                "task": "Пане Kaya, посвідчення у вас із собою?"
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "der’li isim + Akkusativ → -en: meinen, deinen, seinen, ihren.",
                 "explanation": "Akkusativ’te iyelik sözcükleri: Yalnızca eril isimlerde (der) -en gelir: Ich suche meinen Arzt. Hast du deinen Termin? Er nimmt seinen Tee. Sie ruft ihren Chef an. Wir besuchen unseren Opa. Dikkat: euren (eueren değil). “das”, “die” ve çoğulda Akkusativ, Nominativ ile aynıdır: mein Medikament, meine Tablette, meine Tabletten.",
-                "task": "Kaya Hanım, kimliğiniz yanınızda mı?"
+                "task": "Kaya Bey, kimliğiniz yanınızda mı?"
               }
             }
           },
@@ -19143,7 +19143,7 @@
                 "Krankmeldung lesen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Frau Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wie lange ist Mateo krank?",
+              "question": "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Herrn Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wie lange ist Mateo krank?",
               "options": [
                 "Bis Mittwoch.",
                 "Nur heute.",
@@ -19197,19 +19197,19 @@
                 "Krankmeldung lesen"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Frau Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wer soll die Information auch bekommen?",
+              "question": "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Herrn Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wer soll die Information auch bekommen?",
               "options": [
                 "Herr Brandt",
-                "Frau Lindner",
+                "Herr Lindner",
                 "Mateo Rojas"
               ],
-              "correct_answer": "Frau Lindner",
+              "correct_answer": "Herr Lindner",
               "accepted_answers": [
-                "Frau Lindner"
+                "Herr Lindner"
               ]
             },
             "accepted_answers": [
-              "Frau Lindner"
+              "Herr Lindner"
             ],
             "hint": "In der Krankmeldung steht: Wer? Warum nicht? Wie lange?",
             "explanation": "Krankmeldung schreiben: Anrede: Sehr geehrte Frau … / Sehr geehrter Herr … Grund: Leider bin ich krank. Ich kann heute nicht in die Firma kommen. Dauer: Ich bin bis Freitag krank. Bitte: Bitte informieren Sie auch Herrn Wolf. Gruß: Mit freundlichen Grüßen.",
@@ -21390,7 +21390,7 @@
                 "ihr"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Sofia hat Schnupfen. ",
+              "text_before": "Ergänze den Possessivartikel zu „sie (Singular)“: ",
               "text_after": " Nase ist rot.",
               "gap_hint": "sein / ihr",
               "correct_answer": "Ihre",
@@ -21407,32 +21407,32 @@
               "Ihre"
             ],
             "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
-                "task": "Sofia has a cold. Her nose is red."
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "task": "Complete the possessive for sie (singular): … Nase ist rot."
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
-                "task": "У Sofia насморк. У неё красный нос."
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "task": "Дополните притяжательный артикль для sie (ед. число): … Nase ist rot."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
-                "task": "У Sofia нежить. У неї червоний ніс."
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "task": "Доповніть присвійний артикль для sie (однина): … Nase ist rot."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
-                "task": "Sofia nezle. Burnu kırmızı."
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "task": "sie (tekil) için iyelik artikelini tamamlayın: … Nase ist rot."
               }
             }
           },
@@ -21814,7 +21814,7 @@
                 "ihr"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Das ist Frau Lindner. … Sohn ist krank.",
+              "question": "Ergänze den Possessivartikel zu „sie (Singular)“: … Sohn ist krank.",
               "options": [
                 "Ihre",
                 "Ihr",
@@ -21829,32 +21829,32 @@
               "Ihr"
             ],
             "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
-                "task": "This is Ms Lindner. Her son is ill."
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "task": "Complete the possessive for sie (singular): … Sohn ist krank."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
-                "task": "Это госпожа Lindner. Её сын болен."
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "task": "Дополните притяжательный артикль для sie (ед. число): … Sohn ist krank."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
-                "task": "Це пані Lindner. Її син хворий."
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "task": "Доповніть присвійний артикль для sie (однина): … Sohn ist krank."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
-                "task": "Bu Lindner Hanım. Oğlu hasta."
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "task": "sie (tekil) için iyelik artikelini tamamlayın: … Sohn ist krank."
               }
             }
           },
@@ -22911,7 +22911,7 @@
                 "leider"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Sehr geehrte Frau Wolf, ",
+              "text_before": "Sehr geehrter Herr Wolf, ",
               "text_after": " kann ich morgen nicht zum Kurs kommen. Ich bin krank.",
               "correct_answer": "leider",
               "options": [
@@ -22934,28 +22934,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "A sick note says: who? why not? how long?",
                 "explanation": "Writing a sick note: salutation: Sehr geehrte Frau … / Sehr geehrter Herr … Reason: Leider bin ich krank (unfortunately I am ill). Ich kann heute nicht in die Firma kommen. Duration: Ich bin bis Freitag krank. Request: Bitte informieren Sie auch Herrn Wolf. Closing: Mit freundlichen Grüßen.",
-                "task": "Dear Ms Wolf, unfortunately I cannot come to class tomorrow. I am ill.",
+                "task": "Dear Mr Wolf, unfortunately I cannot come to class tomorrow. I am ill.",
                 "gap_hint": "unfortunately"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "В сообщении о болезни есть: кто? почему не придёт? как долго?",
                 "explanation": "Как сообщить о болезни письменно: обращение: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (к сожалению, я болею). Ich kann heute nicht in die Firma kommen. Срок: Ich bin bis Freitag krank. Просьба: Bitte informieren Sie auch Herrn Wolf. В конце: Mit freundlichen Grüßen.",
-                "task": "Уважаемая госпожа Wolf, к сожалению, завтра я не могу прийти на курс. Я болею.",
+                "task": "Уважаемый господин Wolf, к сожалению, завтра я не могу прийти на курс. Я болею.",
                 "gap_hint": "к сожалению"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "У повідомленні про хворобу є: хто? чому не прийде? як довго?",
                 "explanation": "Як повідомити про хворобу письмово: звертання: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (на жаль, я хворію). Ich kann heute nicht in die Firma kommen. Термін: Ich bin bis Freitag krank. Прохання: Bitte informieren Sie auch Herrn Wolf. У кінці: Mit freundlichen Grüßen.",
-                "task": "Шановна пані Wolf, на жаль, завтра я не можу прийти на курс. Я хворію.",
+                "task": "Шановний пане Wolf, на жаль, завтра я не можу прийти на курс. Я хворію.",
                 "gap_hint": "на жаль"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Hastalık bildiriminde şunlar yazar: Kim? Neden gelemiyor? Ne kadar süre?",
                 "explanation": "Hastalık bildirimi yazma: Hitap: Sehr geehrte Frau … / Sehr geehrter Herr … Neden: Leider bin ich krank (maalesef hastayım). Ich kann heute nicht in die Firma kommen. Süre: Ich bin bis Freitag krank. Rica: Bitte informieren Sie auch Herrn Wolf. Kapanış: Mit freundlichen Grüßen.",
-                "task": "Sayın Wolf Hanım, maalesef yarın kursa gelemiyorum. Hastayım.",
+                "task": "Sayın Wolf Bey, maalesef yarın kursa gelemiyorum. Hastayım.",
                 "gap_hint": "maalesef"
               }
             }
@@ -24048,7 +24048,7 @@
                 "mit + Dativ"
               ],
               "instruction": "Ergänze den passenden Artikel.",
-              "text_before": "Frau Kaya fährt mit ",
+              "text_before": "Herr Kaya fährt mit ",
               "text_after": " U-Bahn zur Arbeit.",
               "gap_hint": "die",
               "correct_answer": "der",
@@ -24072,25 +24072,25 @@
                 "instruction": "Fill in the correct article.",
                 "hint": "After mit: der/das → dem, die → der, plural → den.",
                 "explanation": "mit + dative: how do you travel? der → dem: mit dem Bus, mit dem Zug. das → dem: mit dem Auto, mit dem Fahrrad. die → der: mit der U-Bahn, mit der Straßenbahn. Plural → den + -n: mit den Kindern. Without transport: Ich gehe zu Fuß (I walk).",
-                "task": "Ms Kaya goes to work by underground."
+                "task": "Mr Kaya goes to work by underground."
               },
               "ru": {
                 "instruction": "Вставьте подходящий артикль.",
                 "hint": "После mit: der/das → dem, die → der, множественное число → den.",
                 "explanation": "mit + Dativ: на чём вы едете? der → dem: mit dem Bus, mit dem Zug. das → dem: mit dem Auto, mit dem Fahrrad. die → der: mit der U-Bahn, mit der Straßenbahn. Множественное число → den + -n: mit den Kindern. Без транспорта: Ich gehe zu Fuß (иду пешком).",
-                "task": "Госпожа Kaya ездит на работу на метро."
+                "task": "Господин Kaya ездит на работу на метро."
               },
               "uk": {
                 "instruction": "Вставте відповідний артикль.",
                 "hint": "Після mit: der/das → dem, die → der, множина → den.",
                 "explanation": "mit + Dativ: чим ви їдете? der → dem: mit dem Bus, mit dem Zug. das → dem: mit dem Auto, mit dem Fahrrad. die → der: mit der U-Bahn, mit der Straßenbahn. Множина → den + -n: mit den Kindern. Без транспорту: Ich gehe zu Fuß (іду пішки).",
-                "task": "Пані Kaya їздить на роботу на метро."
+                "task": "Пан Kaya їздить на роботу на метро."
               },
               "tr": {
                 "instruction": "Uygun artikeli yazın.",
                 "hint": "mit’ten sonra: der/das → dem, die → der, çoğul → den.",
                 "explanation": "mit + Dativ: Neyle gidiyorsunuz? der → dem: mit dem Bus, mit dem Zug. das → dem: mit dem Auto, mit dem Fahrrad. die → der: mit der U-Bahn, mit der Straßenbahn. Çoğul → den + -n: mit den Kindern. Araçsız: Ich gehe zu Fuß (yürüyerek gidiyorum).",
-                "task": "Kaya Hanım işe metroyla gidiyor."
+                "task": "Kaya Bey işe metroyla gidiyor."
               }
             }
           },
@@ -40914,7 +40914,7 @@
                 "Ihnen"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Aksoy, gefällt … das Kleid?",
+              "question": "Herr Aksoy, gefällt … das Kleid?",
               "options": [
                 "Ihnen",
                 "dir",
@@ -40936,25 +40936,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Wem? → dative: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
                 "explanation": "Personal pronouns in the dative: ich → mir, du → dir, er/es → ihm, sie → ihr, wir → uns, ihr → euch, sie → ihnen, Sie → Ihnen. The question is: Wem? (to whom?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Ms Aksoy, do you like the dress?"
+                "task": "Mr Aksoy, do you like the dress?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Wem? (кому?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
                 "explanation": "Личные местоимения в Dativ: ich → mir (мне), du → dir (тебе), er/es → ihm (ему), sie → ihr (ей), wir → uns (нам), ihr → euch (вам), sie → ihnen (им), Sie → Ihnen (Вам). Вопрос: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Госпожа Aksoy, вам нравится это платье?"
+                "task": "Господин Aksoy, вам нравится это платье?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Wem? (кому?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
                 "explanation": "Особові займенники в Dativ: ich → mir (мені), du → dir (тобі), er/es → ihm (йому), sie → ihr (їй), wir → uns (нам), ihr → euch (вам), sie → ihnen (їм), Sie → Ihnen (Вам). Запитання: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Пані Aksoy, вам подобається ця сукня?"
+                "task": "Пане Aksoy, вам подобається ця сукня?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Wem? (kime?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
                 "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Aksoy Hanım, elbise hoşunuza gidiyor mu?"
+                "task": "Aksoy Bey, elbise hoşunuza gidiyor mu?"
               }
             }
           },
@@ -46980,7 +46980,7 @@
                 "ihnen"
               ],
               "instruction": "Ergänze das passende Pronomen.",
-              "text_before": "Das sind Tom und Eva. Der Koffer gehört ",
+              "text_before": "Das sind Tom und Emil. Der Koffer gehört ",
               "text_after": ".",
               "gap_hint": "sie (Plural)",
               "correct_answer": "ihnen",
@@ -47004,25 +47004,25 @@
                 "instruction": "Fill in the correct pronoun.",
                 "hint": "Who are you talking about? A man → ihm, a woman → ihr, several people → ihnen.",
                 "explanation": "Personal pronouns in the dative: ich → mir, du → dir, er/es → ihm, sie → ihr, wir → uns, ihr → euch, sie → ihnen, Sie → Ihnen. The question is: Wem? (to whom?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "These are Tom and Eva. The suitcase belongs to them."
+                "task": "These are Tom and Emil. The suitcase belongs to them."
               },
               "ru": {
                 "instruction": "Вставьте подходящее местоимение.",
                 "hint": "О ком вы говорите? Мужчина → ihm, женщина → ihr, несколько человек → ihnen.",
                 "explanation": "Личные местоимения в Dativ: ich → mir (мне), du → dir (тебе), er/es → ihm (ему), sie → ihr (ей), wir → uns (нам), ihr → euch (вам), sie → ihnen (им), Sie → Ihnen (Вам). Вопрос: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Это Tom и Eva. Чемодан принадлежит им."
+                "task": "Это Tom и Emil. Чемодан принадлежит им."
               },
               "uk": {
                 "instruction": "Вставте відповідний займенник.",
                 "hint": "Про кого ви говорите? Чоловік → ihm, жінка → ihr, кілька людей → ihnen.",
                 "explanation": "Особові займенники в Dativ: ich → mir (мені), du → dir (тобі), er/es → ihm (йому), sie → ihr (їй), wir → uns (нам), ihr → euch (вам), sie → ihnen (їм), Sie → Ihnen (Вам). Запитання: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Це Tom і Eva. Валіза належить їм."
+                "task": "Це Tom і Emil. Валіза належить їм."
               },
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Kimden söz ediyorsunuz? Erkek → ihm, kadın → ihr, birden fazla kişi → ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
-                "task": "Bunlar Tom ve Eva. Bavul onlara ait."
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "task": "Bunlar Tom ve Emil. Bavul onlara ait."
               }
             }
           },
@@ -50835,7 +50835,7 @@
               ],
               "instruction": "Ergänze das passende Pronomen.",
               "text_before": "Hier ist ein Brief für ",
-              "text_after": ", Frau Kaya.",
+              "text_after": ", Herr Kaya.",
               "gap_hint": "Sie / Ihnen",
               "correct_answer": "Sie",
               "options": [
@@ -50858,25 +50858,25 @@
                 "instruction": "Fill in the correct pronoun.",
                 "hint": "Wen oder was? → accusative: mich, dich, ihn, es, sie, uns, euch, sie.",
                 "explanation": "Personal pronouns in the accusative: ich → mich, du → dich, er → ihn, es → es, sie → sie, wir → uns, ihr → euch, sie → sie, Sie → Sie. The question is: Wen oder was? (whom or what?) Ich liebe dich. Kannst du mich anrufen? Der Kuchen ist lecker. Ich esse ihn. After für comes the accusative: für mich, für dich, für ihn, für sie, für uns.",
-                "task": "Here is a letter for you, Ms Kaya."
+                "task": "Here is a letter for you, Mr Kaya."
               },
               "ru": {
                 "instruction": "Вставьте подходящее местоимение.",
                 "hint": "Wen oder was? (кого или что?) → Akkusativ: mich, dich, ihn, es, sie, uns, euch, sie.",
                 "explanation": "Личные местоимения в Akkusativ: ich → mich (меня), du → dich (тебя), er → ihn (его), es → es, sie → sie (её), wir → uns (нас), ihr → euch (вас), sie → sie (их), Sie → Sie (Вас). Вопрос: Wen oder was? (кого или что?) Ich liebe dich. Kannst du mich anrufen? Der Kuchen ist lecker. Ich esse ihn. После für стоит Akkusativ: für mich, für dich, für ihn, für sie, für uns.",
-                "task": "Вот письмо для вас, госпожа Kaya."
+                "task": "Вот письмо для вас, господин Kaya."
               },
               "uk": {
                 "instruction": "Вставте відповідний займенник.",
                 "hint": "Wen oder was? (кого або що?) → Akkusativ: mich, dich, ihn, es, sie, uns, euch, sie.",
                 "explanation": "Особові займенники в Akkusativ: ich → mich (мене), du → dich (тебе), er → ihn (його), es → es, sie → sie (її), wir → uns (нас), ihr → euch (вас), sie → sie (їх), Sie → Sie (Вас). Запитання: Wen oder was? (кого або що?) Ich liebe dich. Kannst du mich anrufen? Der Kuchen ist lecker. Ich esse ihn. Після für стоїть Akkusativ: für mich, für dich, für ihn, für sie, für uns.",
-                "task": "Ось лист для вас, пані Kaya."
+                "task": "Ось лист для вас, пане Kaya."
               },
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Wen oder was? (kimi ya da neyi?) → Akkusativ: mich, dich, ihn, es, sie, uns, euch, sie.",
                 "explanation": "Akkusativ’te kişi zamirleri: ich → mich (beni), du → dich (seni), er → ihn (onu, eril), es → es, sie → sie (onu, dişil), wir → uns (bizi), ihr → euch (sizi), sie → sie (onları), Sie → Sie (sizi, resmî). Soru: Wen oder was? (kimi ya da neyi?) Ich liebe dich. Kannst du mich anrufen? Der Kuchen ist lecker. Ich esse ihn. für’den sonra Akkusativ gelir: für mich, für dich, für ihn, für sie, für uns.",
-                "task": "Burada sizin için bir mektup var, Kaya Hanım."
+                "task": "Burada sizin için bir mektup var, Kaya Bey."
               }
             }
           },
@@ -51990,20 +51990,20 @@
         "id": "P7-N9",
         "kind": "practice",
         "sort_order": 9,
-        "topic": "Feste · Liebe Vanessa, lieber Paul",
-        "title": "Liebe Vanessa, lieber Paul",
+        "topic": "Feste · Liebe …, lieber …",
+        "title": "Liebe …, lieber …",
         "translations": {
           "en": {
-            "title": "Dear Vanessa, dear Paul"
+            "title": "Dear …, dear …"
           },
           "ru": {
-            "title": "Дорогая Vanessa, дорогой Paul"
+            "title": "Дорогая …, дорогой …"
           },
           "uk": {
-            "title": "Люба Vanessa, любий Paul"
+            "title": "Люба …, любий …"
           },
           "tr": {
-            "title": "Sevgili Vanessa, sevgili Paul"
+            "title": "Sevgili …, sevgili …"
           }
         },
         "goals": [
@@ -52011,7 +52011,7 @@
         ],
         "merkkarte": {
           "card": "p7_brief",
-          "rule": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+          "rule": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
           "examples": [
             "Liebe Oma, vielen Dank für das Geschenk!",
             "Sehr geehrter Herr Brandt, ich lade Sie herzlich ein.",
@@ -52020,16 +52020,16 @@
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen."
+              "rule": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen."
             },
             "ru": {
-              "rule": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen."
+              "rule": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen."
             },
             "uk": {
-              "rule": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen."
+              "rule": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen."
             },
             "tr": {
-              "rule": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
+              "rule": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
             }
           }
         },
@@ -52059,31 +52059,31 @@
               "Lieber Jonas,"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
                 "task": "You are writing an e-mail to your friend Jonas. How do you begin?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
                 "task": "Вы пишете e-mail своему другу Jonas. Как вы начнёте?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
                 "task": "Ви пишете e-mail своєму другові Jonas. Як ви почнете?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
                 "task": "Arkadaşınız Jonas’a bir e-posta yazıyorsunuz. Nasıl başlarsınız?"
               }
             }
@@ -52113,31 +52113,31 @@
               "Mit freundlichen Grüßen"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
                 "task": "You are writing a letter to the citizens’ office. How does the letter end?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
                 "task": "Вы пишете письмо в бюргерамт. Как заканчивается письмо?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
                 "task": "Ви пишете лист до бюргерамту. Як закінчується лист?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
                 "task": "Vatandaşlık bürosuna bir mektup yazıyorsunuz. Mektup nasıl biter?"
               }
             }
@@ -52167,31 +52167,31 @@
               "Liebe Olga,"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
                 "task": "You are writing a card to your aunt Olga. Which salutation fits?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
                 "task": "Вы пишете открытку своей тёте Olga. Какое обращение подходит?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
                 "task": "Ви пишете листівку своїй тітці Olga. Яке звертання підходить?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
                 "task": "Teyzeniz Olga’ya bir kart yazıyorsunuz. Hangi hitap uygun?"
               }
             }
@@ -52223,31 +52223,31 @@
               "Lieber"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct form.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
                 "task": "Dear Paul, thank you very much for your invitation!"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
                 "task": "Дорогой Paul, большое спасибо за приглашение!"
               },
               "uk": {
                 "instruction": "Вставте правильну форму.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
                 "task": "Любий Paul, щиро дякую за запрошення!"
               },
               "tr": {
                 "instruction": "Doğru biçimi yazın.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
                 "task": "Sevgili Paul, davetin için çok teşekkürler!"
               }
             }
@@ -52262,8 +52262,8 @@
                 "Liebe"
               ],
               "instruction": "Ergänze die richtige Form.",
-              "text_before": "",
-              "text_after": " Sofia, ich gratuliere dir zum Geburtstag!",
+              "text_before": "Die weibliche Form der informellen Anrede „Lieber“ lautet: ",
+              "text_after": ".",
               "gap_hint": "lieb",
               "correct_answer": "Liebe",
               "options": [
@@ -52279,32 +52279,32 @@
               "Liebe"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct form.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
-                "task": "Dear Sofia, happy birthday to you!"
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "task": "The female form of the informal salutation Lieber is …"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
-                "task": "Дорогая Sofia, поздравляю тебя с днём рождения!"
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "task": "Женская форма неофициального обращения Lieber — …"
               },
               "uk": {
                 "instruction": "Вставте правильну форму.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
-                "task": "Люба Sofia, вітаю тебе з днем народження!"
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "task": "Жіноча форма неофіційного звертання Lieber — …"
               },
               "tr": {
                 "instruction": "Doğru biçimi yazın.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
-                "task": "Sevgili Sofia, doğum gününü kutluyorum!"
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "task": "Samimi hitap Lieber sözcüğünün kadın biçimi …"
               }
             }
           },
@@ -52334,34 +52334,34 @@
               "Grüße"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
                 "task": "See you soon and best wishes, your Milan",
                 "gap_hint": "greetings, regards"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
                 "task": "До скорой встречи и большой привет, твой Milan",
                 "gap_hint": "приветы"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
                 "task": "До скорої зустрічі й щирі вітання, твій Milan",
                 "gap_hint": "вітання"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
                 "task": "Yakında görüşmek üzere, selamlar, Milan’ın",
                 "gap_hint": "selamlar"
               }
@@ -52377,7 +52377,7 @@
                 "Gruß formell"
               ],
               "instruction": "Ergänze die richtige Form.",
-              "text_before": "Sehr geehrte Frau Lindner, vielen Dank für Ihre E-Mail. Mit freundlichen ",
+              "text_before": "Sehr geehrter Herr Lindner, vielen Dank für Ihre E-Mail. Mit freundlichen ",
               "text_after": ", Emre Demir",
               "gap_hint": "Gruß",
               "correct_answer": "Grüßen",
@@ -52394,32 +52394,32 @@
               "Grüßen"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct form.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
-                "task": "Dear Ms Lindner, thank you for your e-mail. Yours sincerely, Emre Demir"
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "task": "Dear Mr Lindner, thank you for your e-mail. Yours sincerely, Emre Demir"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
-                "task": "Уважаемая госпожа Lindner, спасибо за ваш e-mail. С уважением, Emre Demir"
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "task": "Уважаемый господин Lindner, спасибо за ваш e-mail. С уважением, Emre Demir"
               },
               "uk": {
                 "instruction": "Вставте правильну форму.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
-                "task": "Шановна пані Lindner, дякую за ваш e-mail. З повагою, Emre Demir"
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "task": "Шановний пане Lindner, дякую за ваш e-mail. З повагою, Emre Demir"
               },
               "tr": {
                 "instruction": "Doğru biçimi yazın.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
-                "task": "Sayın Lindner Hanım, e-postanız için teşekkürler. Saygılarımla, Emre Demir"
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "task": "Sayın Lindner Bey, e-postanız için teşekkürler. Saygılarımla, Emre Demir"
               }
             }
           }
@@ -54079,31 +54079,31 @@
               "Sehr geehrter Herr Wolf,"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
                 "task": "You are writing to your boss, Mr Wolf. Which salutation is formal?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
                 "task": "Вы пишете своему начальнику, господину Wolf. Какое обращение официальное?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
                 "task": "Ви пишете своєму начальникові, панові Wolf. Яке звертання офіційне?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
                 "task": "Patronunuz Wolf Bey’e yazıyorsunuz. Hangi hitap resmîdir?"
               }
             }
@@ -55087,47 +55087,47 @@
                 "Gruß informell"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Du schreibst eine E-Mail an deine Freundin Amira. Welcher Gruß passt am Ende?",
+              "question": "Du schreibst eine E-Mail an deinen Freund Amir. Welcher Gruß passt am Ende?",
               "options": [
-                "Mit freundlichen Grüßen, Frau Sara",
-                "Liebe Grüße, deine Sara",
-                "Sehr geehrte Amira"
+                "Mit freundlichen Grüßen, Herr Samir",
+                "Liebe Grüße, dein Samir",
+                "Sehr geehrter Amir"
               ],
-              "correct_answer": "Liebe Grüße, deine Sara",
+              "correct_answer": "Liebe Grüße, dein Samir",
               "accepted_answers": [
-                "Liebe Grüße, deine Sara"
+                "Liebe Grüße, dein Samir"
               ]
             },
             "accepted_answers": [
-              "Liebe Grüße, deine Sara"
+              "Liebe Grüße, dein Samir"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
-                "task": "You are writing an e-mail to your friend Amira. Which closing fits at the end?"
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "task": "You are writing an e-mail to your friend Amir. Which closing fits at the end?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
-                "task": "Вы пишете e-mail своей подруге Amira. Какое прощание подходит в конце?"
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "task": "Вы пишете e-mail своему другу Amir. Какое прощание подходит в конце?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
-                "task": "Ви пишете e-mail своїй подрузі Amira. Яке прощання підходить у кінці?"
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "task": "Ви пишете e-mail своєму другові Amir. Яке прощання підходить у кінці?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
-                "task": "Arkadaşınız Amira’ya bir e-posta yazıyorsunuz. Sonda hangi kapanış uygun?"
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "task": "Arkadaşınız Amir’e bir e-posta yazıyorsunuz. Sonda hangi kapanış uygun?"
               }
             }
           },
@@ -55141,7 +55141,7 @@
                 "einladen"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du feierst deinen Geburtstag und schreibst an Herrn und Frau Wolf. Ihr sagt „Sie“.",
+              "question": "Du feierst deinen Geburtstag und schreibst an Herrn Wolf und Herrn Kaya. Ihr sagt „Sie“.",
               "options": [
                 "Ich lade Sie herzlich zu meiner Geburtstagsfeier ein.",
                 "Ich lade euch ein, Leute!",
@@ -55163,25 +55163,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "An invitation says: what? when? where? reply by when?",
                 "explanation": "Inviting: Ich habe Geburtstag. Am Samstag werde ich 30. Ich möchte meinen Geburtstag feiern und lade dich herzlich ein (I warmly invite you). Ich lade Sie zu meiner Party ein. Kommst du? Kannst du kommen? Ich würde mich freuen (I would be pleased). Wir freuen uns auf viele Gäste. Bitte antworte bis Freitag (please reply by Friday). Bitte gib Bescheid (please let me know).",
-                "task": "You are celebrating your birthday and write to Mr and Ms Wolf. You say “Sie” to them."
+                "task": "You are celebrating your birthday and write to Mr Wolf and Mr Kaya. You say “Sie” to them."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "В приглашении есть: что? когда? где? до какого числа ответить?",
                 "explanation": "Как пригласить: Ich habe Geburtstag. Am Samstag werde ich 30. Ich möchte meinen Geburtstag feiern und lade dich herzlich ein (сердечно приглашаю тебя). Ich lade Sie zu meiner Party ein. Kommst du? Kannst du kommen? Ich würde mich freuen (я был бы рад). Wir freuen uns auf viele Gäste. Bitte antworte bis Freitag (ответь, пожалуйста, до пятницы). Bitte gib Bescheid (дай, пожалуйста, знать).",
-                "task": "Вы празднуете день рождения и пишете господину и госпоже Wolf. Вы с ними на «вы»."
+                "task": "Вы празднуете день рождения и пишете господину Wolf и господину Kaya. Вы с ними на «вы»."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "У запрошенні є: що? коли? де? до якого числа відповісти?",
                 "explanation": "Як запросити: Ich habe Geburtstag. Am Samstag werde ich 30. Ich möchte meinen Geburtstag feiern und lade dich herzlich ein (щиро запрошую тебе). Ich lade Sie zu meiner Party ein. Kommst du? Kannst du kommen? Ich würde mich freuen (я був би радий). Wir freuen uns auf viele Gäste. Bitte antworte bis Freitag (відповідай, будь ласка, до п’ятниці). Bitte gib Bescheid (дай, будь ласка, знати).",
-                "task": "Ви святкуєте день народження й пишете панові та пані Wolf. Ви з ними на «ви»."
+                "task": "Ви святкуєте день народження й пишете панові Wolf та панові Kaya. Ви з ними на «ви»."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Bir davetiyede şunlar yazar: Ne? Ne zaman? Nerede? Ne zamana kadar cevap?",
                 "explanation": "Davet etme: Ich habe Geburtstag. Am Samstag werde ich 30. Ich möchte meinen Geburtstag feiern und lade dich herzlich ein (seni içtenlikle davet ediyorum). Ich lade Sie zu meiner Party ein. Kommst du? Kannst du kommen? Ich würde mich freuen (sevinirim). Wir freuen uns auf viele Gäste. Bitte antworte bis Freitag (lütfen cumaya kadar cevap ver). Bitte gib Bescheid (lütfen haber ver).",
-                "task": "Doğum gününüzü kutluyorsunuz ve Wolf Bey ile Wolf Hanım’a yazıyorsunuz. Onlara “Sie” diyorsunuz."
+                "task": "Doğum gününüzü kutluyorsunuz ve Wolf Bey ile Kaya Bey’e yazıyorsunuz. Onlara “Sie” diyorsunuz."
               }
             }
           },
@@ -55534,31 +55534,31 @@
               "Lieber"
             ],
             "hint": "Frau → Liebe … Mann → Lieber … Formell → Sehr geehrte/r … und Mit freundlichen Grüßen.",
-            "explanation": "Briefe und E-Mails: Anrede informell: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Anrede formell: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+            "explanation": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
             "explanation_card": "p7_brief",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Woman → Liebe … Man → Lieber … Formal → Sehr geehrte/r … and Mit freundlichen Grüßen.",
-                "explanation": "Letters and e-mails: informal salutation: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Formal salutation: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
+                "explanation": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen.",
                 "task": "Dear Mr Albers, thank you very much for your invitation."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Женщина → Liebe … Мужчина → Lieber … Официально → Sehr geehrte/r … и Mit freundlichen Grüßen.",
-                "explanation": "Письма и e-mail: неформальное обращение: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Официальное обращение: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
+                "explanation": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen.",
                 "task": "Уважаемый господин Albers, большое спасибо за ваше приглашение."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Жінка → Liebe … Чоловік → Lieber … Офіційно → Sehr geehrte/r … і Mit freundlichen Grüßen.",
-                "explanation": "Листи та e-mail: неформальне звертання: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
+                "explanation": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen.",
                 "task": "Шановний пане Albers, щиро дякую за ваше запрошення."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kadın → Liebe … Erkek → Lieber … Resmî → Sehr geehrte/r … ve Mit freundlichen Grüßen.",
-                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe Vanessa, / Lieber Paul, / Hallo Milan, Resmî hitap: Sehr geehrte Frau Kaya, / Sehr geehrter Herr Wolf, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
+                "explanation": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen.",
                 "task": "Sayın Albers Bey, davetiniz için çok teşekkürler."
               }
             }

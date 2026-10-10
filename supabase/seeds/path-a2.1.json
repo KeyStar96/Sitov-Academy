@@ -49,7 +49,7 @@
       {
         "id": "P1-G5",
         "area": "grammar",
-        "description": "Zugehörigkeit bei Namen: Annas Mutter – und mit von + Dativ: die Mutter von Anna."
+        "description": "Zugehörigkeit bei Namen: Pauls Mutter – und mit von + Dativ: die Mutter von Paul."
       },
       {
         "id": "P1-K1",
@@ -1267,7 +1267,7 @@
           "card": "p1_leben",
           "rule": "So leben Menschen: Ich lebe allein. Ich bin Single. Wir leben als Paar zusammen. Ich wohne in einer Wohngemeinschaft (WG). In einer Großfamilie wohnen Großeltern, Eltern und Kinder zusammen. Familienstand: ledig (nie verheiratet), verheiratet, getrennt, geschieden. Alleinerziehend: Eine Mutter oder ein Vater lebt allein mit dem Kind. Arbeit: berufstätig sein, arbeitslos sein, in Rente sein, studieren, als Koch arbeiten. Zeit: Ich lebe seit drei Jahren allein.",
           "examples": [
-            "Meine Tante ist geschieden und lebt allein.",
+            "Mein Onkel ist geschieden und lebt allein.",
             "Wir wohnen zu viert in einer WG.",
             "Mein Opa ist seit zwei Jahren in Rente."
           ],
@@ -1352,7 +1352,7 @@
                 "alleinerziehend"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Rojas lebt ohne Partner mit ihren zwei Kindern. Sie ist …",
+              "question": "Herr Rojas lebt ohne Partner mit seinen zwei Kindern. Er ist …",
               "options": [
                 "eine Großfamilie",
                 "in Rente",
@@ -1374,25 +1374,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Marital status: ledig, verheiratet, getrennt, geschieden. Work: berufstätig, arbeitslos, in Rente.",
                 "explanation": "How people live: Ich lebe allein (alone). Ich bin Single. Wir leben als Paar zusammen (together as a couple). Ich wohne in einer Wohngemeinschaft (WG = shared flat). In a Großfamilie (extended family) grandparents, parents and children live together. Marital status: ledig (never married), verheiratet (married), getrennt (separated), geschieden (divorced). Alleinerziehend: a mother or father lives alone with the child (single parent). Work: berufstätig (working), arbeitslos (unemployed), in Rente (retired), studieren, als Koch arbeiten (work as a cook). Time: Ich lebe seit drei Jahren allein.",
-                "task": "Ms Rojas lives with her two children and without a partner. She is …"
+                "task": "Mr Rojas lives with his two children and without a partner. He is …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Семейное положение: ledig, verheiratet, getrennt, geschieden. Работа: berufstätig, arbeitslos, in Rente.",
                 "explanation": "Как живут люди: Ich lebe allein (один). Ich bin Single. Wir leben als Paar zusammen (вместе как пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, которую снимают вместе). В Großfamilie (большой семье) вместе живут бабушки и дедушки, родители и дети. Семейное положение: ledig (никогда не был в браке), verheiratet (в браке), getrennt (живут раздельно), geschieden (в разводе). Alleinerziehend: мать или отец живёт с ребёнком без партнёра. Работа: berufstätig (работает), arbeitslos (безработный), in Rente (на пенсии), studieren, als Koch arbeiten (работать поваром). Время: Ich lebe seit drei Jahren allein.",
-                "task": "Госпожа Rojas живёт с двумя детьми без партнёра. Она …"
+                "task": "Господин Rojas живёт с двумя детьми без партнёра. Он …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Сімейний стан: ledig, verheiratet, getrennt, geschieden. Робота: berufstätig, arbeitslos, in Rente.",
                 "explanation": "Як живуть люди: Ich lebe allein (сам). Ich bin Single. Wir leben als Paar zusammen (разом як пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, яку винаймають разом). У Großfamilie (великій родині) разом живуть бабусі й дідусі, батьки та діти. Сімейний стан: ledig (ніколи не був у шлюбі), verheiratet (у шлюбі), getrennt (живуть окремо), geschieden (розлучений). Alleinerziehend: мати або батько живе з дитиною без партнера. Робота: berufstätig (працює), arbeitslos (безробітний), in Rente (на пенсії), studieren, als Koch arbeiten (працювати кухарем). Час: Ich lebe seit drei Jahren allein.",
-                "task": "Пані Rojas живе з двома дітьми без партнера. Вона …"
+                "task": "Пан Rojas живе з двома дітьми без партнера. Він …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Medeni durum: ledig, verheiratet, getrennt, geschieden. İş: berufstätig, arbeitslos, in Rente.",
                 "explanation": "İnsanlar nasıl yaşar: Ich lebe allein (yalnız). Ich bin Single. Wir leben als Paar zusammen (çift olarak birlikte). Ich wohne in einer Wohngemeinschaft (WG = ortak ev). Bir Großfamilie’de (geniş aile) büyükanne ve büyükbaba, anne baba ve çocuklar birlikte yaşar. Medeni durum: ledig (hiç evlenmemiş), verheiratet (evli), getrennt (ayrı yaşayan), geschieden (boşanmış). Alleinerziehend: Anne ya da baba çocuğuyla yalnız yaşar. İş: berufstätig (çalışan), arbeitslos (işsiz), in Rente (emekli), studieren, als Koch arbeiten (aşçı olarak çalışmak). Zaman: Ich lebe seit drei Jahren allein.",
-                "task": "Rojas Hanım iki çocuğuyla, eşi olmadan yaşıyor. O …"
+                "task": "Rojas Bey iki çocuğuyla, eşi olmadan yaşıyor. O …"
               }
             }
           },
@@ -5916,7 +5916,7 @@
                 "negativ"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Kaya fährt jeden Tag zwei Stunden zur Arbeit. Das ist anstrengend. Wie findet sie das?",
+              "question": "Für „sie (Singular)“: Welche Aussage über eine lange, anstrengende Fahrt zur Arbeit ist negativ?",
               "options": [
                 "Das gefällt ihr nicht.",
                 "Das gefällt ihr sehr.",
@@ -5938,25 +5938,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "finden: er / sie + findet. gefallen: ihm (man), ihr (woman), ihnen (several people).",
                 "explanation": "Saying what someone thinks of something: Das findet er toll. (He thinks that is great.) Das findet sie nicht so toll. Das gefällt ihm. (He likes that.) Das gefällt ihr nicht. finden + accusative: Er findet die Wohnung schön. gefallen + dative: Die Wohnung gefällt ihm (a man), ihr (a woman), ihnen (several people).",
-                "task": "Ms Kaya travels two hours to work every day. That is exhausting. What does she think of that?"
+                "task": "For sie (singular): which statement about a long, exhausting journey to work is negative?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "finden: er / sie + findet. gefallen: ihm (мужчина), ihr (женщина), ihnen (несколько человек).",
                 "explanation": "Как сказать, что человек о чём-то думает: Das findet er toll. (Он считает, что это здорово.) Das findet sie nicht so toll. Das gefällt ihm. (Ему это нравится.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (мужчине), ihr (женщине), ihnen (нескольким людям).",
-                "task": "Госпожа Kaya каждый день два часа едет на работу. Это утомительно. Как она к этому относится?"
+                "task": "Для sie (ед. число): какое высказывание о долгой утомительной поездке на работу выражает отрицательное отношение?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "finden: er / sie + findet. gefallen: ihm (чоловік), ihr (жінка), ihnen (кілька людей).",
                 "explanation": "Як сказати, що людина про щось думає: Das findet er toll. (Він вважає, що це чудово.) Das findet sie nicht so toll. Das gefällt ihm. (Йому це подобається.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (чоловікові), ihr (жінці), ihnen (кільком людям).",
-                "task": "Пані Kaya щодня дві години їде на роботу. Це виснажливо. Як вона до цього ставиться?"
+                "task": "Для sie (однина): яке висловлювання про довгу виснажливу поїздку на роботу виражає негативне ставлення?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "finden: er / sie + findet. gefallen: ihm (erkek), ihr (kadın), ihnen (birkaç kişi).",
                 "explanation": "Birinin bir şeyi nasıl bulduğunu söylemek: Das findet er toll. (Bunu harika buluyor.) Das findet sie nicht so toll. Das gefällt ihm. (Bu onun hoşuna gidiyor.) Das gefällt ihr nicht. finden + Akkusativ: Er findet die Wohnung schön. gefallen + Dativ: Die Wohnung gefällt ihm (bir erkeğin), ihr (bir kadının), ihnen (birkaç kişinin) hoşuna gidiyor.",
-                "task": "Kaya Hanım her gün işe iki saatte gidiyor. Bu yorucu. Bunu nasıl buluyor?"
+                "task": "sie (tekil) için: İşe yapılan uzun ve yorucu yolculuk hakkında hangi ifade olumsuzdur?"
               }
             }
           },
@@ -7686,19 +7686,19 @@
                 "Verb am Ende"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Frau Nowak fährt heute mit dem Bus.",
+              "question": "Herr Nowak fährt heute mit dem Bus.",
               "options": [
-                "Sie fährt mit dem Bus, weil ihr Auto ist in der Werkstatt.",
-                "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist.",
-                "Sie fährt mit dem Bus, weil ist ihr Auto in der Werkstatt."
+                "Er fährt mit dem Bus, weil sein Auto ist in der Werkstatt.",
+                "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist.",
+                "Er fährt mit dem Bus, weil ist sein Auto in der Werkstatt."
               ],
-              "correct_answer": "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist.",
+              "correct_answer": "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist.",
               "accepted_answers": [
-                "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist."
+                "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist."
               ]
             },
             "accepted_answers": [
-              "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist."
+              "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist."
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
             "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
@@ -7708,25 +7708,25 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
                 "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Ms Nowak is going by bus today."
+                "task": "Mr Nowak is going by bus today."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
                 "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Госпожа Nowak сегодня едет на автобусе."
+                "task": "Господин Nowak сегодня едет на автобусе."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
                 "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Пані Nowak сьогодні їде автобусом."
+                "task": "Пан Nowak сьогодні їде автобусом."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
                 "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Nowak Hanım bugün otobüsle gidiyor."
+                "task": "Nowak Bey bugün otobüsle gidiyor."
               }
             }
           },
@@ -7956,47 +7956,47 @@
                 "Name + s"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Das ist der Hund von Frau Kaya. = Das ist …",
+              "question": "Das ist der Hund von Emre. = Das ist …",
               "options": [
-                "Frau Kayas Hund",
-                "Frau Kaya Hund",
-                "Hunds Frau Kaya"
+                "Emres Hund",
+                "Emre Hund",
+                "Hunds Emre"
               ],
-              "correct_answer": "Frau Kayas Hund",
+              "correct_answer": "Emres Hund",
               "accepted_answers": [
-                "Frau Kayas Hund"
+                "Emres Hund"
               ]
             },
             "accepted_answers": [
-              "Frau Kayas Hund"
+              "Emres Hund"
             ],
-            "hint": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "hint": "Name + s: Pauls Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Pauls Mutter, Pauls Auto, Emres Büro. Du kannst auch von + Name sagen: die Mutter von Paul. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "This is the dog of Ms Kaya. = This is …"
+                "hint": "Name + s: Pauls Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Pauls Mutter (Paul’s mother), Pauls Auto, Emres Büro. You can also say von + name: die Mutter von Paul. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "This is Emre’s dog. = This is …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Это собака госпожи Kaya. = Это …"
+                "hint": "Имя + s: Pauls Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Pauls Mutter (мама Пауля), Pauls Auto, Emres Büro. Можно сказать и von + имя: die Mutter von Paul. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Это собака Emre. = Это …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Це собака пані Kaya. = Це …"
+                "hint": "Ім’я + s: Pauls Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Pauls Mutter (мама Пауля), Pauls Auto, Emres Büro. Можна сказати й von + ім’я: die Mutter von Paul. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Це собака Emre. = Це …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Bu Kaya Hanım’ın köpeği. = Bu …"
+                "hint": "İsim + s: Pauls Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Pauls Mutter (Paul’ün annesi), Pauls Auto, Emres Büro. von + isim de denir: die Mutter von Paul. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Bu Emre’nin köpeği. = Bu …"
               }
             }
           },
@@ -9543,7 +9543,7 @@
                 "Vermieterin"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Lindner gehört das Haus. Sie bekommt jeden Monat die Miete. Sie ist die …",
+              "question": "Wie heißt eine Frau, der ein vermietetes Haus gehört und die dafür Miete bekommt? Sie ist die …",
               "options": [
                 "Vermieterin",
                 "Hausmeisterin",
@@ -9565,25 +9565,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Think: is it a person in the building, a place in the building or a part of the flat?",
                 "explanation": "In a block of flats: der Mieter / die Mieterin (tenant) lives in the flat and pays die Miete (rent). Der Vermieter / die Vermieterin (landlord, landlady) gets the rent. Der Hausmeister (caretaker) repairs things in the building. All Hausbewohner (residents) use das Treppenhaus (stairwell), den Hof (courtyard), den Keller (cellar) and den Aufzug (lift). The post goes into den Briefkasten (letterbox), the rubbish (der Müll) into die Mülltonne (bin). In the flat: die Wand (wall), die Decke (ceiling), der Boden (floor), das Fenster (window), die Heizung (heating), die Steckdose (socket), die Glühbirne (light bulb).",
-                "task": "The house belongs to Ms Lindner. She gets the rent every month. She is the …"
+                "task": "What do you call a woman who owns a rented house and receives the rent? She is the …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Подумайте: это человек в доме, место в доме или часть квартиры?",
                 "explanation": "В многоквартирном доме: der Mieter / die Mieterin (квартиросъёмщик) живёт в квартире и платит die Miete (арендную плату). Der Vermieter / die Vermieterin (арендодатель) получает плату. Der Hausmeister (управдом, завхоз) чинит всё в доме. Все Hausbewohner (жильцы) пользуются das Treppenhaus (лестничной клеткой), den Hof (двором), den Keller (подвалом) и den Aufzug (лифтом). Почта попадает в den Briefkasten (почтовый ящик), мусор (der Müll) – в die Mülltonne (мусорный бак). В квартире: die Wand (стена), die Decke (потолок), der Boden (пол), das Fenster (окно), die Heizung (отопление), die Steckdose (розетка), die Glühbirne (лампочка).",
-                "task": "Дом принадлежит госпоже Lindner. Каждый месяц она получает арендную плату. Она …"
+                "task": "Как называется женщина, которой принадлежит сдаваемый дом и которая получает за него арендную плату? Она …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Подумайте: це людина в будинку, місце в будинку чи частина квартири?",
                 "explanation": "У багатоквартирному будинку: der Mieter / die Mieterin (орендар) живе у квартирі та платить die Miete (орендну плату). Der Vermieter / die Vermieterin (орендодавець) отримує плату. Der Hausmeister (завгосп будинку) лагодить усе в будинку. Усі Hausbewohner (мешканці) користуються das Treppenhaus (сходовою кліткою), den Hof (двором), den Keller (підвалом) і den Aufzug (ліфтом). Пошта потрапляє в den Briefkasten (поштову скриньку), сміття (der Müll) – у die Mülltonne (сміттєвий бак). У квартирі: die Wand (стіна), die Decke (стеля), der Boden (підлога), das Fenster (вікно), die Heizung (опалення), die Steckdose (розетка), die Glühbirne (лампочка).",
-                "task": "Будинок належить пані Lindner. Щомісяця вона отримує орендну плату. Вона …"
+                "task": "Як називається жінка, якій належить будинок, що здається в оренду, і яка отримує за нього орендну плату? Вона …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Düşünün: Bu binadaki bir kişi mi, binadaki bir yer mi, yoksa dairenin bir parçası mı?",
                 "explanation": "Apartmanda: der Mieter / die Mieterin (kiracı) dairede oturur ve die Miete (kira) öder. Der Vermieter / die Vermieterin (ev sahibi) kirayı alır. Der Hausmeister (kapıcı, bina görevlisi) binadaki şeyleri tamir eder. Bütün Hausbewohner (bina sakinleri) das Treppenhaus (merdiven boşluğu), den Hof (avlu), den Keller (bodrum) ve den Aufzug’u (asansör) kullanır. Posta den Briefkasten’a (posta kutusu), çöp (der Müll) die Mülltonne’ye (çöp bidonu) gider. Dairede: die Wand (duvar), die Decke (tavan), der Boden (zemin), das Fenster (pencere), die Heizung (kalorifer), die Steckdose (priz), die Glühbirne (ampul).",
-                "task": "Ev Lindner Hanım’a ait. Her ay kirayı o alıyor. O …"
+                "task": "Kiraya verilen bir evin sahibi olan ve kirasını alan kadına ne denir? O …"
               }
             }
           },
@@ -12956,7 +12956,7 @@
                 "Pflanzen gießen"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du fährst in den Urlaub. Deine Pflanzen brauchen Wasser. Was fragst du deine Nachbarin, Frau Bondar?",
+              "question": "Du fährst in den Urlaub. Deine Pflanzen brauchen Wasser. Was fragst du deinen Nachbarn, Herrn Bondar?",
               "options": [
                 "Könnten Sie bitte meine Pflanzen gießen?",
                 "Könnten Sie bitte meine Pflanzen kaufen?",
@@ -12978,25 +12978,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Asking politely: Könnten Sie …? Würden Sie …? Könntest du …? The infinitive goes to the end.",
                 "explanation": "Asking neighbours for a favour: first you give the reason: Ich bin nächste Woche im Urlaub. Ich habe morgen Frühschicht (early shift). Then comes the request. With du: Kannst du bitte meinen Briefkasten leeren? (empty my letterbox) Könntest du die Pflanzen gießen? (water the plants) With Sie: Könnten Sie bitte ein Paket für mich annehmen? (accept a parcel) Würden Sie den Techniker in meine Wohnung lassen? (let the technician in) Könnten and würden are especially polite. The infinitive goes to the end.",
-                "task": "You are going on holiday. Your plants need water. What do you ask your neighbour, Ms Bondar?"
+                "task": "You are going on holiday. Your plants need water. What do you ask your neighbour, Mr Bondar?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Вежливая просьба: Könnten Sie …? Würden Sie …? Könntest du …? Инфинитив стоит в конце.",
                 "explanation": "Как попросить соседей об одолжении: сначала назовите причину: Ich bin nächste Woche im Urlaub. Ich habe morgen Frühschicht (утренняя смена). Затем идёт просьба. На «ты»: Kannst du bitte meinen Briefkasten leeren? (вынуть почту) Könntest du die Pflanzen gießen? (полить растения) На «вы»: Könnten Sie bitte ein Paket für mich annehmen? (принять посылку) Würden Sie den Techniker in meine Wohnung lassen? (впустить мастера) Könnten и würden звучат особенно вежливо. Инфинитив стоит в конце.",
-                "task": "Вы уезжаете в отпуск. Вашим растениям нужна вода. О чём вы попросите соседку, госпожу Bondar?"
+                "task": "Вы уезжаете в отпуск. Вашим растениям нужна вода. О чём вы попросите соседа, господина Bondar?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Ввічливе прохання: Könnten Sie …? Würden Sie …? Könntest du …? Інфінітив стоїть у кінці.",
                 "explanation": "Як попросити сусідів про послугу: спочатку назвіть причину: Ich bin nächste Woche im Urlaub. Ich habe morgen Frühschicht (ранкова зміна). Потім іде прохання. На «ти»: Kannst du bitte meinen Briefkasten leeren? (вийняти пошту) Könntest du die Pflanzen gießen? (полити рослини) На «ви»: Könnten Sie bitte ein Paket für mich annehmen? (прийняти посилку) Würden Sie den Techniker in meine Wohnung lassen? (впустити майстра) Könnten і würden звучать особливо ввічливо. Інфінітив стоїть у кінці.",
-                "task": "Ви їдете у відпустку. Вашим рослинам потрібна вода. Про що ви попросите сусідку, пані Bondar?"
+                "task": "Ви їдете у відпустку. Вашим рослинам потрібна вода. Про що ви попросите сусіда, пана Bondar?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Kibarca rica: Könnten Sie …? Würden Sie …? Könntest du …? Mastar sonda durur.",
                 "explanation": "Komşulardan bir iyilik istemek: Önce nedeni söylersiniz: Ich bin nächste Woche im Urlaub. Ich habe morgen Frühschicht (sabah vardiyası). Sonra rica gelir. du ile: Kannst du bitte meinen Briefkasten leeren? (posta kutumu boşaltmak) Könntest du die Pflanzen gießen? (çiçekleri sulamak) Sie ile: Könnten Sie bitte ein Paket für mich annehmen? (paketi teslim almak) Würden Sie den Techniker in meine Wohnung lassen? (teknisyeni içeri almak) Könnten ve würden özellikle kibardır. Mastar sonda durur.",
-                "task": "Tatile gidiyorsunuz. Çiçeklerinizin suya ihtiyacı var. Komşunuz Bondar Hanım’a ne sorarsınız?"
+                "task": "Tatile gidiyorsunuz. Çiçeklerinizin suya ihtiyacı var. Komşunuz Bondar Bey’e ne sorarsınız?"
               }
             }
           },
@@ -14986,8 +14986,8 @@
                 "Frau"
               ],
               "instruction": "Ergänze das Wort mit der richtigen Endung.",
-              "text_before": "Sehr ",
-              "text_after": " Frau Rojas, vielen Dank für Ihren Brief.",
+              "text_before": "Die formelle Anrede für eine Frau lautet: „Sehr ",
+              "text_after": " Frau …,“",
               "gap_hint": "geehrt-",
               "correct_answer": "geehrte",
               "options": [
@@ -15010,25 +15010,25 @@
                 "instruction": "Fill in the word with the correct ending.",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Formal closing: Mit freundlichen Grüßen.",
                 "explanation": "Greeting and closing in a letter. Formal, no name known: Sehr geehrte Damen und Herren, … (Dear Sir or Madam) Formal with a name: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Closing: Mit freundlichen Grüßen (Yours sincerely). To neighbours or colleagues: Hallo Frau Kaya, … Liebe Nachbarn, … Closing: Viele Grüße. Herzliche Grüße. To friends: Liebe Lena, … Lieber Paul, … After the greeting there is a comma, and the text continues with a small letter.",
-                "task": "Dear Ms Rojas, thank you very much for your letter."
+                "task": "The formal salutation for a woman is: „Sehr … Frau …,“"
               },
               "ru": {
                 "instruction": "Вставьте слово с правильным окончанием.",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Официальное прощание: Mit freundlichen Grüßen.",
                 "explanation": "Обращение и прощание в письме. Официально, имя неизвестно: Sehr geehrte Damen und Herren, … (Уважаемые дамы и господа) Официально с именем: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Прощание: Mit freundlichen Grüßen (С уважением). Соседям или коллегам: Hallo Frau Kaya, … Liebe Nachbarn, … Прощание: Viele Grüße. Herzliche Grüße. Друзьям: Liebe Lena, … Lieber Paul, … После обращения ставится запятая, дальше пишут с маленькой буквы.",
-                "task": "Уважаемая госпожа Rojas, большое спасибо за ваше письмо."
+                "task": "Официальное обращение к женщине: „Sehr … Frau …,“"
               },
               "uk": {
                 "instruction": "Вставте слово з правильним закінченням.",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Офіційне прощання: Mit freundlichen Grüßen.",
                 "explanation": "Звертання і прощання в листі. Офіційно, ім’я невідоме: Sehr geehrte Damen und Herren, … (Шановні пані та панове) Офіційно з іменем: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Прощання: Mit freundlichen Grüßen (З повагою). Сусідам або колегам: Hallo Frau Kaya, … Liebe Nachbarn, … Прощання: Viele Grüße. Herzliche Grüße. Друзям: Liebe Lena, … Lieber Paul, … Після звертання ставиться кома, далі пишуть із малої літери.",
-                "task": "Шановна пані Rojas, щиро дякую за вашого листа."
+                "task": "Офіційне звертання до жінки: „Sehr … Frau …,“"
               },
               "tr": {
                 "instruction": "Kelimeyi doğru ekle yazın.",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Resmî kapanış: Mit freundlichen Grüßen.",
                 "explanation": "Mektupta hitap ve kapanış. Resmî, isim bilinmiyor: Sehr geehrte Damen und Herren, … (Sayın Bayanlar ve Baylar) Resmî ve isimle: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Kapanış: Mit freundlichen Grüßen (Saygılarımla). Komşulara ya da iş arkadaşlarına: Hallo Frau Kaya, … Liebe Nachbarn, … Kapanış: Viele Grüße. Herzliche Grüße. Arkadaşlara: Liebe Lena, … Lieber Paul, … Hitaptan sonra virgül konur, ardından küçük harfle devam edilir.",
-                "task": "Sayın Rojas, mektubunuz için çok teşekkür ederim."
+                "task": "Bir kadına resmî hitap: „Sehr … Frau …,“"
               }
             }
           },
@@ -15895,7 +15895,7 @@
                 "danken"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Frau Kaya hat dein Paket angenommen. Was sagst du?",
+              "question": "Herr Kaya hat dein Paket angenommen. Was sagst du?",
               "options": [
                 "Tut mir leid, das habe ich nicht gewusst.",
                 "Nein, gar nicht.",
@@ -15917,25 +15917,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Thanking: Vielen Dank für … Apologising: Tut mir leid. Das war keine Absicht.",
                 "explanation": "Saying thank you: Vielen Dank für Ihre Hilfe. Danke für Ihr Verständnis (understanding). Das ist wirklich nett von Ihnen. Das wäre wirklich nett. (That would be really kind.) After danke für comes the accusative: für die Hilfe, für den Tipp, für das Paket. In notices: Wir hoffen auf Ihr Verständnis. Ich hoffe, das ist in Ordnung für Sie. Apologising: Oh, Entschuldigung! Tut mir leid. Das war keine Absicht. (I did not mean to.) Das habe ich nicht gewusst. (I did not know that.) Answer: Kein Problem. Das macht nichts. (It does not matter.) Schon gut.",
-                "task": "Ms Kaya accepted your parcel. What do you say?"
+                "task": "Mr Kaya accepted your parcel. What do you say?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Благодарность: Vielen Dank für … Извинение: Tut mir leid. Das war keine Absicht.",
                 "explanation": "Как поблагодарить: Vielen Dank für Ihre Hilfe. Danke für Ihr Verständnis (понимание). Das ist wirklich nett von Ihnen. Das wäre wirklich nett. (Это было бы очень мило.) После danke für стоит Akkusativ: für die Hilfe, für den Tipp, für das Paket. В объявлениях: Wir hoffen auf Ihr Verständnis. Ich hoffe, das ist in Ordnung für Sie. Как извиниться: Oh, Entschuldigung! Tut mir leid. Das war keine Absicht. (Я не нарочно.) Das habe ich nicht gewusst. (Я этого не знал.) Ответ: Kein Problem. Das macht nichts. (Ничего страшного.) Schon gut.",
-                "task": "Госпожа Kaya приняла вашу посылку. Что вы скажете?"
+                "task": "Господин Kaya принял вашу посылку. Что вы скажете?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Подяка: Vielen Dank für … Вибачення: Tut mir leid. Das war keine Absicht.",
                 "explanation": "Як подякувати: Vielen Dank für Ihre Hilfe. Danke für Ihr Verständnis (розуміння). Das ist wirklich nett von Ihnen. Das wäre wirklich nett. (Це було б дуже мило.) Після danke für стоїть Akkusativ: für die Hilfe, für den Tipp, für das Paket. В оголошеннях: Wir hoffen auf Ihr Verständnis. Ich hoffe, das ist in Ordnung für Sie. Як вибачитися: Oh, Entschuldigung! Tut mir leid. Das war keine Absicht. (Я не навмисно.) Das habe ich nicht gewusst. (Я цього не знав.) Відповідь: Kein Problem. Das macht nichts. (Нічого страшного.) Schon gut.",
-                "task": "Пані Kaya прийняла вашу посилку. Що ви скажете?"
+                "task": "Пан Kaya прийняв вашу посилку. Що ви скажете?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Teşekkür: Vielen Dank für … Özür: Tut mir leid. Das war keine Absicht.",
                 "explanation": "Teşekkür etmek: Vielen Dank für Ihre Hilfe. Danke für Ihr Verständnis (anlayış). Das ist wirklich nett von Ihnen. Das wäre wirklich nett. (Bu gerçekten çok iyi olurdu.) danke für’den sonra Akkusativ gelir: für die Hilfe, für den Tipp, für das Paket. Duyurularda: Wir hoffen auf Ihr Verständnis. Ich hoffe, das ist in Ordnung für Sie. Özür dilemek: Oh, Entschuldigung! Tut mir leid. Das war keine Absicht. (İsteyerek olmadı.) Das habe ich nicht gewusst. (Bunu bilmiyordum.) Cevap: Kein Problem. Das macht nichts. (Önemli değil.) Schon gut.",
-                "task": "Kaya Hanım paketinizi teslim aldı. Ne dersiniz?"
+                "task": "Kaya Bey paketinizi teslim aldı. Ne dersiniz?"
               }
             }
           },
@@ -16003,7 +16003,7 @@
                 "Frau"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du schreibst einen Brief an deine Vermieterin, Frau Weber. Wie beginnst du?",
+              "question": "Welche formelle Anrede für eine Frau mit dem Nachnamen Weber ist korrekt?",
               "options": [
                 "Sehr geehrter Frau Weber,",
                 "Liebe Weber,",
@@ -16025,25 +16025,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Formal closing: Mit freundlichen Grüßen.",
                 "explanation": "Greeting and closing in a letter. Formal, no name known: Sehr geehrte Damen und Herren, … (Dear Sir or Madam) Formal with a name: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Closing: Mit freundlichen Grüßen (Yours sincerely). To neighbours or colleagues: Hallo Frau Kaya, … Liebe Nachbarn, … Closing: Viele Grüße. Herzliche Grüße. To friends: Liebe Lena, … Lieber Paul, … After the greeting there is a comma, and the text continues with a small letter.",
-                "task": "You are writing a letter to your landlady, Ms Weber. How do you begin?"
+                "task": "Which formal salutation for a woman with the surname Weber is correct?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Официальное прощание: Mit freundlichen Grüßen.",
                 "explanation": "Обращение и прощание в письме. Официально, имя неизвестно: Sehr geehrte Damen und Herren, … (Уважаемые дамы и господа) Официально с именем: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Прощание: Mit freundlichen Grüßen (С уважением). Соседям или коллегам: Hallo Frau Kaya, … Liebe Nachbarn, … Прощание: Viele Grüße. Herzliche Grüße. Друзьям: Liebe Lena, … Lieber Paul, … После обращения ставится запятая, дальше пишут с маленькой буквы.",
-                "task": "Вы пишете письмо своей арендодательнице, госпоже Weber. Как вы начнёте?"
+                "task": "Какое официальное обращение к женщине с фамилией Weber правильное?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Офіційне прощання: Mit freundlichen Grüßen.",
                 "explanation": "Звертання і прощання в листі. Офіційно, ім’я невідоме: Sehr geehrte Damen und Herren, … (Шановні пані та панове) Офіційно з іменем: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Прощання: Mit freundlichen Grüßen (З повагою). Сусідам або колегам: Hallo Frau Kaya, … Liebe Nachbarn, … Прощання: Viele Grüße. Herzliche Grüße. Друзям: Liebe Lena, … Lieber Paul, … Після звертання ставиться кома, далі пишуть із малої літери.",
-                "task": "Ви пишете листа своїй орендодавиці, пані Weber. Як ви почнете?"
+                "task": "Яке офіційне звертання до жінки з прізвищем Weber правильне?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Frau → Sehr geehrte / Liebe. Herr → Sehr geehrter / Lieber. Resmî kapanış: Mit freundlichen Grüßen.",
                 "explanation": "Mektupta hitap ve kapanış. Resmî, isim bilinmiyor: Sehr geehrte Damen und Herren, … (Sayın Bayanlar ve Baylar) Resmî ve isimle: Sehr geehrte Frau Kaya, … Sehr geehrter Herr Weber, … Kapanış: Mit freundlichen Grüßen (Saygılarımla). Komşulara ya da iş arkadaşlarına: Hallo Frau Kaya, … Liebe Nachbarn, … Kapanış: Viele Grüße. Herzliche Grüße. Arkadaşlara: Liebe Lena, … Lieber Paul, … Hitaptan sonra virgül konur, ardından küçük harfle devam edilir.",
-                "task": "Ev sahibiniz Weber Hanım’a bir mektup yazıyorsunuz. Nasıl başlarsınız?"
+                "task": "Soyadı Weber olan bir kadına hangi resmî hitap doğrudur?"
               }
             }
           },
@@ -16914,7 +16914,7 @@
                 "höflich bitten"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du brauchst eine Leiter. Deine Nachbarin, Frau Haddad, hat eine. Was fragst du höflich?",
+              "question": "Du brauchst eine Leiter. Dein Nachbar, Herr Haddad, hat eine. Was fragst du höflich?",
               "options": [
                 "Geben Sie mir Ihre Leiter!",
                 "Könnten Sie mir bitte Ihre Leiter leihen?",
@@ -16936,25 +16936,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "Asking politely: Könnten Sie …? Würden Sie …? Könntest du …? The infinitive goes to the end.",
                 "explanation": "Asking neighbours for a favour: first you give the reason: Ich bin nächste Woche im Urlaub. Ich habe morgen Frühschicht (early shift). Then comes the request. With du: Kannst du bitte meinen Briefkasten leeren? (empty my letterbox) Könntest du die Pflanzen gießen? (water the plants) With Sie: Könnten Sie bitte ein Paket für mich annehmen? (accept a parcel) Würden Sie den Techniker in meine Wohnung lassen? (let the technician in) Könnten and würden are especially polite. The infinitive goes to the end.",
-                "task": "You need a ladder. Your neighbour, Ms Haddad, has one. What do you ask politely?"
+                "task": "You need a ladder. Your neighbour, Mr Haddad, has one. What do you ask politely?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Вежливая просьба: Könnten Sie …? Würden Sie …? Könntest du …? Инфинитив стоит в конце.",
                 "explanation": "Как попросить соседей об одолжении: сначала назовите причину: Ich bin nächste Woche im Urlaub. Ich habe morgen Frühschicht (утренняя смена). Затем идёт просьба. На «ты»: Kannst du bitte meinen Briefkasten leeren? (вынуть почту) Könntest du die Pflanzen gießen? (полить растения) На «вы»: Könnten Sie bitte ein Paket für mich annehmen? (принять посылку) Würden Sie den Techniker in meine Wohnung lassen? (впустить мастера) Könnten и würden звучат особенно вежливо. Инфинитив стоит в конце.",
-                "task": "Вам нужна лестница. У вашей соседки, госпожи Haddad, она есть. Как вежливо попросить?"
+                "task": "Вам нужна лестница. У вашего соседа, господина Haddad, она есть. Как вежливо попросить?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Ввічливе прохання: Könnten Sie …? Würden Sie …? Könntest du …? Інфінітив стоїть у кінці.",
                 "explanation": "Як попросити сусідів про послугу: спочатку назвіть причину: Ich bin nächste Woche im Urlaub. Ich habe morgen Frühschicht (ранкова зміна). Потім іде прохання. На «ти»: Kannst du bitte meinen Briefkasten leeren? (вийняти пошту) Könntest du die Pflanzen gießen? (полити рослини) На «ви»: Könnten Sie bitte ein Paket für mich annehmen? (прийняти посилку) Würden Sie den Techniker in meine Wohnung lassen? (впустити майстра) Könnten і würden звучать особливо ввічливо. Інфінітив стоїть у кінці.",
-                "task": "Вам потрібна драбина. У вашої сусідки, пані Haddad, вона є. Як ввічливо попросити?"
+                "task": "Вам потрібна драбина. У вашого сусіда, пана Haddad, вона є. Як ввічливо попросити?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Kibarca rica: Könnten Sie …? Würden Sie …? Könntest du …? Mastar sonda durur.",
                 "explanation": "Komşulardan bir iyilik istemek: Önce nedeni söylersiniz: Ich bin nächste Woche im Urlaub. Ich habe morgen Frühschicht (sabah vardiyası). Sonra rica gelir. du ile: Kannst du bitte meinen Briefkasten leeren? (posta kutumu boşaltmak) Könntest du die Pflanzen gießen? (çiçekleri sulamak) Sie ile: Könnten Sie bitte ein Paket für mich annehmen? (paketi teslim almak) Würden Sie den Techniker in meine Wohnung lassen? (teknisyeni içeri almak) Könnten ve würden özellikle kibardır. Mastar sonda durur.",
-                "task": "Bir merdivene ihtiyacınız var. Komşunuz Haddad Hanım’da var. Kibarca ne sorarsınız?"
+                "task": "Bir merdivene ihtiyacınız var. Komşunuz Haddad Bey’de var. Kibarca ne sorarsınız?"
               }
             }
           },
@@ -24402,19 +24402,19 @@
                 "Wie oft?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Interview mit Frau Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Was macht Frau Haddad morgens von Montag bis Freitag?",
+              "question": "Interview mit Herrn Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Was macht Herr Haddad morgens von Montag bis Freitag?",
               "options": [
-                "Sie trinkt nur einen Kaffee.",
-                "Sie isst Salat.",
-                "Sie frühstückt zwei Stunden."
+                "Er trinkt nur einen Kaffee.",
+                "Er isst Salat.",
+                "Er frühstückt zwei Stunden."
               ],
-              "correct_answer": "Sie trinkt nur einen Kaffee.",
+              "correct_answer": "Er trinkt nur einen Kaffee.",
               "accepted_answers": [
-                "Sie trinkt nur einen Kaffee."
+                "Er trinkt nur einen Kaffee."
               ]
             },
             "accepted_answers": [
-              "Sie trinkt nur einen Kaffee."
+              "Er trinkt nur einen Kaffee."
             ],
             "hint": "Wann? Wie oft? Was mag die Person, was nicht? Such diese Informationen im Text.",
             "explanation": "Texte über Essgewohnheiten verstehen: Achte auf Wörter für die Häufigkeit (immer, oft, selten, nie), auf Zeitangaben (morgens, mittags, abends, am Wochenende, unter der Woche) und auf Vorlieben (gern, lieber, am liebsten, mag kein …). Auch Zahlen sind wichtig: zweimal pro Woche, um 12 Uhr, 40 Minuten.",
@@ -24424,25 +24424,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "When? How often? What does the person like, what not? Look for this information in the text.",
                 "explanation": "Understanding texts about eating habits: look for frequency words (immer, oft, selten, nie), time expressions (morgens – in the morning, mittags – at midday, abends – in the evening, am Wochenende, unter der Woche – on weekdays) and likes (gern, lieber, am liebsten, mag kein …). Numbers matter too: zweimal pro Woche, um 12 Uhr, 40 Minuten.",
-                "task": "What does Ms Haddad do in the morning from Monday to Friday?"
+                "task": "What does Mr Haddad do in the morning from Monday to Friday?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Когда? Как часто? Что человек любит, а что нет? Найдите эти сведения в тексте.",
                 "explanation": "Как понимать тексты о привычках в еде: обращайте внимание на слова, обозначающие частоту (immer, oft, selten, nie), на указания времени (morgens – утром, mittags – днём, abends – вечером, am Wochenende, unter der Woche – в будни) и на предпочтения (gern, lieber, am liebsten, mag kein …). Важны и числа: zweimal pro Woche, um 12 Uhr, 40 Minuten.",
-                "task": "Что госпожа Haddad делает по утрам с понедельника по пятницу?"
+                "task": "Что господин Haddad делает по утрам с понедельника по пятницу?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Коли? Як часто? Що людина любить, а що ні? Знайдіть ці відомості в тексті.",
                 "explanation": "Як розуміти тексти про звички в їжі: звертайте увагу на слова, що означають частоту (immer, oft, selten, nie), на вказівки часу (morgens – уранці, mittags – удень, abends – увечері, am Wochenende, unter der Woche – у будні) та на вподобання (gern, lieber, am liebsten, mag kein …). Важливі й числа: zweimal pro Woche, um 12 Uhr, 40 Minuten.",
-                "task": "Що пані Haddad робить уранці з понеділка до п’ятниці?"
+                "task": "Що пан Haddad робить уранці з понеділка до п’ятниці?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Ne zaman? Ne sıklıkta? Kişi neyi seviyor, neyi sevmiyor? Bu bilgileri metinde arayın.",
                 "explanation": "Yeme alışkanlıklarıyla ilgili metinleri anlamak: Sıklık bildiren kelimelere (immer, oft, selten, nie), zaman ifadelerine (morgens – sabahları, mittags – öğlenleri, abends – akşamları, am Wochenende, unter der Woche – hafta içi) ve tercihlere (gern, lieber, am liebsten, mag kein …) dikkat edin. Sayılar da önemlidir: zweimal pro Woche, um 12 Uhr, 40 Minuten.",
-                "task": "Haddad Hanım pazartesiden cumaya sabahları ne yapıyor?"
+                "task": "Haddad Bey pazartesiden cumaya sabahları ne yapıyor?"
               }
             }
           },
@@ -24456,7 +24456,7 @@
                 "Wann?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Interview mit Frau Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Wann frühstückt die Familie zusammen?",
+              "question": "Interview mit Herrn Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Wann frühstückt die Familie zusammen?",
               "options": [
                 "Nie.",
                 "Am Sonntag.",
@@ -24510,7 +24510,7 @@
                 "Wo?"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Interview mit Frau Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Wo isst Frau Haddad mittags?",
+              "question": "Interview mit Herrn Haddad: „Unter der Woche frühstücke ich nie, ich trinke nur einen Kaffee. Mittags esse ich in der Kantine, meistens Salat. Abends koche ich für die Familie. Am Sonntag frühstücken wir alle zusammen, zwei Stunden lang!“ Wo isst Herr Haddad mittags?",
               "options": [
                 "Im Restaurant.",
                 "In der Kantine.",
@@ -24532,25 +24532,25 @@
                 "instruction": "Read the text and choose the correct answer.",
                 "hint": "When? How often? What does the person like, what not? Look for this information in the text.",
                 "explanation": "Understanding texts about eating habits: look for frequency words (immer, oft, selten, nie), time expressions (morgens – in the morning, mittags – at midday, abends – in the evening, am Wochenende, unter der Woche – on weekdays) and likes (gern, lieber, am liebsten, mag kein …). Numbers matter too: zweimal pro Woche, um 12 Uhr, 40 Minuten.",
-                "task": "Where does Ms Haddad have lunch?"
+                "task": "Where does Mr Haddad have lunch?"
               },
               "ru": {
                 "instruction": "Прочитайте текст и выберите правильный ответ.",
                 "hint": "Когда? Как часто? Что человек любит, а что нет? Найдите эти сведения в тексте.",
                 "explanation": "Как понимать тексты о привычках в еде: обращайте внимание на слова, обозначающие частоту (immer, oft, selten, nie), на указания времени (morgens – утром, mittags – днём, abends – вечером, am Wochenende, unter der Woche – в будни) и на предпочтения (gern, lieber, am liebsten, mag kein …). Важны и числа: zweimal pro Woche, um 12 Uhr, 40 Minuten.",
-                "task": "Где госпожа Haddad обедает?"
+                "task": "Где господин Haddad обедает?"
               },
               "uk": {
                 "instruction": "Прочитайте текст і виберіть правильну відповідь.",
                 "hint": "Коли? Як часто? Що людина любить, а що ні? Знайдіть ці відомості в тексті.",
                 "explanation": "Як розуміти тексти про звички в їжі: звертайте увагу на слова, що означають частоту (immer, oft, selten, nie), на вказівки часу (morgens – уранці, mittags – удень, abends – увечері, am Wochenende, unter der Woche – у будні) та на вподобання (gern, lieber, am liebsten, mag kein …). Важливі й числа: zweimal pro Woche, um 12 Uhr, 40 Minuten.",
-                "task": "Де пані Haddad обідає?"
+                "task": "Де пан Haddad обідає?"
               },
               "tr": {
                 "instruction": "Metni okuyun ve doğru cevabı seçin.",
                 "hint": "Ne zaman? Ne sıklıkta? Kişi neyi seviyor, neyi sevmiyor? Bu bilgileri metinde arayın.",
                 "explanation": "Yeme alışkanlıklarıyla ilgili metinleri anlamak: Sıklık bildiren kelimelere (immer, oft, selten, nie), zaman ifadelerine (morgens – sabahları, mittags – öğlenleri, abends – akşamları, am Wochenende, unter der Woche – hafta içi) ve tercihlere (gern, lieber, am liebsten, mag kein …) dikkat edin. Sayılar da önemlidir: zweimal pro Woche, um 12 Uhr, 40 Minuten.",
-                "task": "Haddad Hanım öğle yemeğini nerede yiyor?"
+                "task": "Haddad Bey öğle yemeğini nerede yiyor?"
               }
             }
           },
@@ -27802,7 +27802,7 @@
                 "Abteilung"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Frau Kaya arbeitet in der ",
+              "text_before": "Herr Kaya arbeitet in der ",
               "text_after": " „Verkauf“.",
               "correct_answer": "Abteilung",
               "options": [
@@ -27825,28 +27825,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Money → Gehalt. Time → Schicht, Überstunde, Feierabend, Urlaub. Place in the company → Abteilung, Kantine.",
                 "explanation": "All about work: das Gehalt (salary: the money for your work per month), die Überstunde (overtime: work after normal working hours), die Schicht (shift: Frühschicht – early, Spätschicht – late, Nachtschicht – night), der Feierabend (the end of the working day), der Urlaub (holiday, leave), die Abteilung (department), die Kantine (staff canteen), der Betriebsrat (works council: it helps the staff in the company), die Gewerkschaft (trade union), der Arbeitgeber (employer), der Arbeitnehmer (employee).",
-                "task": "Ms Kaya works in the sales department.",
+                "task": "Mr Kaya works in the sales department.",
                 "gap_hint": "department"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Деньги → Gehalt. Время → Schicht, Überstunde, Feierabend, Urlaub. Место в фирме → Abteilung, Kantine.",
                 "explanation": "Всё о работе: das Gehalt (зарплата: деньги за работу в месяц), die Überstunde (сверхурочный час: работа после обычного рабочего времени), die Schicht (смена: Frühschicht – утренняя, Spätschicht – вечерняя, Nachtschicht – ночная), der Feierabend (конец рабочего дня), der Urlaub (отпуск), die Abteilung (отдел), die Kantine (столовая на предприятии), der Betriebsrat (совет предприятия: помогает сотрудникам в фирме), die Gewerkschaft (профсоюз), der Arbeitgeber (работодатель), der Arbeitnehmer (работник).",
-                "task": "Госпожа Kaya работает в отделе продаж.",
+                "task": "Господин Kaya работает в отделе продаж.",
                 "gap_hint": "отдел"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Гроші → Gehalt. Час → Schicht, Überstunde, Feierabend, Urlaub. Місце у фірмі → Abteilung, Kantine.",
                 "explanation": "Усе про роботу: das Gehalt (зарплата: гроші за роботу на місяць), die Überstunde (понаднормова година: робота після звичайного робочого часу), die Schicht (зміна: Frühschicht – ранкова, Spätschicht – вечірня, Nachtschicht – нічна), der Feierabend (кінець робочого дня), der Urlaub (відпустка), die Abteilung (відділ), die Kantine (їдальня на підприємстві), der Betriebsrat (рада підприємства: допомагає працівникам у фірмі), die Gewerkschaft (профспілка), der Arbeitgeber (роботодавець), der Arbeitnehmer (працівник).",
-                "task": "Пані Kaya працює у відділі продажу.",
+                "task": "Пан Kaya працює у відділі продажу.",
                 "gap_hint": "відділ"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Para → Gehalt. Zaman → Schicht, Überstunde, Feierabend, Urlaub. Şirketteki yer → Abteilung, Kantine.",
                 "explanation": "İşle ilgili her şey: das Gehalt (maaş: aylık çalışma karşılığı para), die Überstunde (fazla mesai: normal çalışma saatinden sonraki iş), die Schicht (vardiya: Frühschicht – sabah, Spätschicht – akşam, Nachtschicht – gece), der Feierabend (paydos, iş gününün sonu), der Urlaub (izin, tatil), die Abteilung (bölüm), die Kantine (iş yeri yemekhanesi), der Betriebsrat (işyeri temsilciliği: şirkette çalışanlara yardım eder), die Gewerkschaft (sendika), der Arbeitgeber (işveren), der Arbeitnehmer (çalışan).",
-                "task": "Kaya Hanım satış bölümünde çalışıyor.",
+                "task": "Kaya Bey satış bölümünde çalışıyor.",
                 "gap_hint": "bölüm"
               }
             }

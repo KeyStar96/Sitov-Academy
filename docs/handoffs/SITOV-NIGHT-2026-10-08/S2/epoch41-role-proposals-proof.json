@@ -1,0 +1,292 @@
+{
+  "epoch": 41,
+  "brand": "Sitov Academy",
+  "base": "ae5fc45e140022b24fd9418ea13a0a88b40916c8",
+  "boundS4SHA256": "85cbb24c2701451a89aa46061428f4cd03410e73d9ff96562211991faa556509",
+  "actualChangedSourceFiles": [
+    "supabase/seeds/path-a1.2.json",
+    "supabase/seeds/path-a2.1.json",
+    "supabase/seeds/path-src/a1.2/p1.mjs",
+    "supabase/seeds/path-src/a1.2/p2-check.mjs",
+    "supabase/seeds/path-src/a1.2/p2.mjs",
+    "supabase/seeds/path-src/a1.2/p3-check.mjs",
+    "supabase/seeds/path-src/a1.2/p3.mjs",
+    "supabase/seeds/path-src/a1.2/p4.mjs",
+    "supabase/seeds/path-src/a1.2/p6-check.mjs",
+    "supabase/seeds/path-src/a1.2/p6.mjs",
+    "supabase/seeds/path-src/a1.2/p7-check.mjs",
+    "supabase/seeds/path-src/a1.2/p7.mjs",
+    "supabase/seeds/path-src/a2.1/p1-check.mjs",
+    "supabase/seeds/path-src/a2.1/p1.mjs",
+    "supabase/seeds/path-src/a2.1/p2-check.mjs",
+    "supabase/seeds/path-src/a2.1/p2.mjs",
+    "supabase/seeds/path-src/a2.1/p3.mjs",
+    "supabase/seeds/path-src/a2.1/p4.mjs"
+  ],
+  "reviewedRows": 35,
+  "exactTaskProposalsApplied": 34,
+  "acceptedGrammaticalTaskUnchanged": true,
+  "scalarChanges": 274,
+  "changedParentContexts": 3,
+  "changedPathObjectiveScalars": 2,
+  "affectedNodes": 25,
+  "totalExercisesCompared": 9569,
+  "totalNodesCompared": 856,
+  "totalPathsCompared": 66,
+  "answerRevisions": [
+    {
+      "id": "e098a0a2-2ce4-561b-ab34-7261b54c0ef8",
+      "ref": "P3-N8-E03",
+      "level": "a1.2",
+      "before": [
+        "Frau Lindner"
+      ],
+      "after": [
+        "Herr Lindner"
+      ],
+      "cardinality": "1->1",
+      "correctOptionPositionBeforeZeroBased": 1,
+      "correctOptionPositionAfterZeroBased": 1,
+      "Archive114Required": true,
+      "Archive114Performed": false
+    },
+    {
+      "id": "fd2e9650-57f6-543f-ae99-d257023edd7b",
+      "ref": "P7-N14-E09",
+      "level": "a1.2",
+      "before": [
+        "Liebe Grüße, deine Sara"
+      ],
+      "after": [
+        "Liebe Grüße, dein Samir"
+      ],
+      "cardinality": "1->1",
+      "correctOptionPositionBeforeZeroBased": 1,
+      "correctOptionPositionAfterZeroBased": 1,
+      "Archive114Required": true,
+      "Archive114Performed": false
+    },
+    {
+      "id": "6cd866de-f49e-52dc-a647-4c376165a243",
+      "ref": "P1-N14-E03",
+      "level": "a2.1",
+      "before": [
+        "Sie fährt mit dem Bus, weil ihr Auto in der Werkstatt ist."
+      ],
+      "after": [
+        "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist."
+      ],
+      "cardinality": "1->1",
+      "correctOptionPositionBeforeZeroBased": 1,
+      "correctOptionPositionAfterZeroBased": 1,
+      "Archive114Required": true,
+      "Archive114Performed": false
+    },
+    {
+      "id": "d378404d-686b-54f5-a56a-71c783fd5f9b",
+      "ref": "P1-N14-E08",
+      "level": "a2.1",
+      "before": [
+        "Frau Kayas Hund"
+      ],
+      "after": [
+        "Emres Hund"
+      ],
+      "cardinality": "1->1",
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "Archive114Required": true,
+      "Archive114Performed": false
+    },
+    {
+      "id": "0c6e7a4d-922f-5168-a3fd-5c5eb28e1bec",
+      "ref": "P3-N11-E01",
+      "level": "a2.1",
+      "before": [
+        "Sie trinkt nur einen Kaffee."
+      ],
+      "after": [
+        "Er trinkt nur einen Kaffee."
+      ],
+      "cardinality": "1->1",
+      "correctOptionPositionBeforeZeroBased": 0,
+      "correctOptionPositionAfterZeroBased": 0,
+      "Archive114Required": true,
+      "Archive114Performed": false
+    }
+  ],
+  "allOtherAnswersVariantsIdsTypesGoalsOrderPartsCardReferencesExact": true,
+  "allUnassignedSeedExercisesAndParentsExact": true,
+  "otherEightSeedBytesExact": true,
+  "nativeSourceTasksCompared": 8800,
+  "nativeSourceFilesCompared": 128,
+  "allUnassignedNativeAuthorBusinessValuesExact": true,
+  "allTenSeedSchemasValidatedExercises": 9569,
+  "nativeBuilderParity": [
+    {
+      "level": "a1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.2",
+      "parity": "PASS"
+    }
+  ],
+  "nodeTests": {
+    "pass": 16,
+    "fail": 0
+  },
+  "nativeUnapprovedMirrorDraft": [],
+  "nativeUnapprovedMirrorScalars": 0,
+  "unapprovedMirrorSeedChangesApplied": false,
+  "overallStatus": "SOURCE_CANDIDATE_UNIT_PASS_M_ARCHIVE_AUDIO_REVIEW_REQUIRED",
+  "eslint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffCheck": "PASS",
+  "finalAudioAliases": 57,
+  "changedAudioAliases": 34,
+  "changedAudioTasks": 34,
+  "bothActualAudioExtractorsComparedTasks": 9569,
+  "allUnassignedCanonicalAudioPayloadsExact": true,
+  "humanHearing": false,
+  "privateEvidence": {
+    "epoch41-bound-S4-review.json": {
+      "path": "S2/epoch41-bound-S4-review.json",
+      "bytes": 841870,
+      "sha256": "85cbb24c2701451a89aa46061428f4cd03410e73d9ff96562211991faa556509"
+    },
+    "epoch41-old-new-full.json": {
+      "path": "S2/epoch41-old-new-full.json",
+      "bytes": 4102794,
+      "sha256": "72e2d827074c0571714d6d863709f665717d128be449aab22cd01540619edb7f"
+    },
+    "epoch41-final-canonical-audio.json": {
+      "path": "S2/epoch41-final-canonical-audio.json",
+      "bytes": 89623,
+      "sha256": "ea3012504f71541be148655b91eeee1c9ae4a6a920ee7babe638a3bdce5ba190"
+    },
+    "epoch41-native-parity.json": {
+      "path": "S2/epoch41-native-parity.json",
+      "bytes": 93497,
+      "sha256": "0fb86b69a44010249414bdff4239755479563aeb2b398df7f759c4e354ea074a"
+    },
+    "epoch41-native-source-proof.json": {
+      "path": "S2/epoch41-native-source-proof.json",
+      "bytes": 126581,
+      "sha256": "0a2d9d50da49f2ba5ba8d6bbb1fd7bb362291c9ddb48416f4083ababed36082a"
+    },
+    "epoch41-native-tests.log": {
+      "path": "S2/epoch41-native-tests.log",
+      "bytes": 24840,
+      "sha256": "2227fb678c0d015f8d1f03983835b6b6f736ba84ebc036d5bf1f4c76cd2fb252"
+    },
+    "epoch41-eslint.log": {
+      "path": "S2/epoch41-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch41-author-edits.json": {
+      "path": "S2/epoch41-author-edits.json",
+      "bytes": 5860,
+      "sha256": "2e5197cd4d08da29af64dbe2db6d5434f33557b0414db43af7aa14e279ca1985"
+    },
+    "epoch41-repair.py": {
+      "path": "S2/epoch41-repair.py",
+      "bytes": 6619,
+      "sha256": "5593db2c95aa8265225c767effd99ded0dedf17df326064d248944fec3e836b7"
+    },
+    "epoch41-sync.mjs": {
+      "path": "S2/epoch41-sync.mjs",
+      "bytes": 8133,
+      "sha256": "d109c2082363bc48430d33d7803a08b96ad0740fe07a95562812b73b91d825e8"
+    },
+    "epoch41-native-check.mjs": {
+      "path": "S2/epoch41-native-check.mjs",
+      "bytes": 2312,
+      "sha256": "906794975daabfd3e4542f4c4016c92495e55803ed484228e5cda08fccf4e2e8"
+    },
+    "epoch41-source-proof.mjs": {
+      "path": "S2/epoch41-source-proof.mjs",
+      "bytes": 3572,
+      "sha256": "95aed8792e302b51f415bdbc09d8c35afc9b8f429eff80118e60bbdffae2400e"
+    },
+    "epoch41-validate-audio.ts": {
+      "path": "S2/epoch41-validate-audio.ts",
+      "bytes": 3568,
+      "sha256": "72763ea097b889192a77ac07b71cc4b72cb2d8f0a0acc96b7b14391940876679"
+    },
+    "epoch41-approved-mirror-input.json": {
+      "path": "S2/epoch41-approved-mirror-input.json",
+      "bytes": 93497,
+      "sha256": "0fb86b69a44010249414bdff4239755479563aeb2b398df7f759c4e354ea074a"
+    },
+    "epoch41-bound-M-mirror-review.json": {
+      "path": "S2/epoch41-bound-M-mirror-review.json",
+      "bytes": 6992,
+      "sha256": "b9d3205417c75a739e472d568ba96461b2771baeadc68ea3b923e7a6dda8a365"
+    },
+    "epoch41-apply-m-mirrors.py": {
+      "path": "S2/epoch41-apply-m-mirrors.py",
+      "bytes": 3459,
+      "sha256": "0c6dbc628fd561b6a26c9739eac394294dab131348c8fe4833d2e00490228636"
+    },
+    "epoch41-final-native-parity.json": {
+      "path": "S2/epoch41-final-native-parity.json",
+      "bytes": 862,
+      "sha256": "aa4167dbc89eabf93cd0a35deaa8e1566ed4bab01b8b2c9d56e63603137e28cc"
+    },
+    "epoch41-final-native-tests.log": {
+      "path": "S2/epoch41-final-native-tests.log",
+      "bytes": 1447,
+      "sha256": "a9b4c527dd115dc761d9eac3f1e07b517c02d6d2d013c63ba9477f4338483153"
+    },
+    "epoch41-final-native-check.mjs": {
+      "path": "S2/epoch41-final-native-check.mjs",
+      "bytes": 2318,
+      "sha256": "7ffaa20d155f8f0e8a95fd474ba613589e7efed774109f7f5b12aaeed74753e8"
+    }
+  },
+  "MFollowup": [
+    "Independent final source re-review; the7additional mirrors are authorized by exact M full-task/five-locale review.",
+    "Archive actual historical answers/progress under114 before5explicit1→1answerwordrevisions.",
+    "Prepare/import34changedcanonicalGermanutterances plusverifiedwordtimings locally beforepublication."
+  ],
+  "noAudioDbSshImportPublicationPushDeployRuntimeTestMDocsChanges": true,
+  "MAdditionalAuthorizedMirrorTasks": 7,
+  "MAdditionalAuthorizedMirrorScalars": 35,
+  "boundMMirrorReviewSHA256": "b9d3205417c75a739e472d568ba96461b2771baeadc68ea3b923e7a6dda8a365",
+  "MAdditionalMirrorAppliedAt": "2026-10-10T02:55:03.291752+00:00",
+  "changedExerciseCount": 41,
+  "initialBoundMirrorDraftPath": "S2/epoch41-approved-mirror-input.json",
+  "initialNativeParityResult": "8/9;35additionalmirrorfields subsequently authorized by M; final9/9PASS"
+}

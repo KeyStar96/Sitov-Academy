@@ -1,7 +1,6 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
 const SHOULD = ['should, be supposed to', 'должен (так велел кто-то другой)', 'мати щось зробити (так сказав хтось інший)', '-meli/-malı (başkası öyle söylüyor)']
-const MAIL = 'E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Frau Lindner. Mit freundlichen Grüßen, Mateo Rojas“'
 const TIP = 'Tipp: „Sie haben Husten und Schnupfen? Trinken Sie viel Tee, schlafen Sie viel und bleiben Sie zu Hause. Haben Sie nach drei Tagen noch Fieber? Dann gehen Sie zum Arzt.“'
 
 /** A1.2 · Pfad 3 · Gesundheit und Krankheit – Lektionen. Wiederholung und Test: p3-check.mjs */
@@ -12,7 +11,7 @@ const path = {
   t: ['Health and illness', 'Здоровье и болезни', 'Здоров’я і хвороби', 'Sağlık ve hastalık'],
   objectives: {
     G1: 'Possessivartikel für alle Personen im Nominativ: mein, dein, sein, ihr, unser, euer, ihr, Ihr – mit -e bei „die“ und im Plural (eure).',
-    G2: 'sein oder ihr: Der Possessivartikel richtet sich nach der Person (Simon – seine Hand, Sofia – ihre Hand).',
+    G2: "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand).",
     G3: 'Possessivartikel im Akkusativ: bei maskulinen Nomen mit -en (meinen, deinen, seinen, ihren, unseren, euren, Ihren).',
     G4: 'Modalverb sollen: soll, sollst, sollen, sollt; der Infinitiv steht am Satzende.',
     K1: 'Über das Befinden sprechen: sagen, was wehtut, und Krankheiten nennen (Fieber, Husten, Schnupfen, Schmerzen).',
@@ -195,8 +194,7 @@ const path = {
       ex: [
         mc('G2', 'sein', I.choose, 'Jonas ist beim Arzt. … Hals tut weh.', ['Sein', 'Ihr', 'Seine'],
           ['Jonas is at the doctor’s. His throat hurts.', 'Jonas у врача. У него болит горло.', 'Jonas у лікаря. У нього болить горло.', 'Jonas doktorda. Boğazı ağrıyor.']),
-        mc('G2', 'ihr', I.choose, 'Frau Aksoy hat Schmerzen. … Hand tut weh.', ['Ihre', 'Seine', 'Ihr'],
-          ['Ms Aksoy is in pain. Her hand hurts.', 'У госпожи Aksoy боли. У неё болит рука.', 'У пані Aksoy болі. У неї болить рука.', 'Aksoy Hanım’ın ağrısı var. Eli ağrıyor.']),
+        mc("G2", "ihr", I.choose, "Ergänze den Possessivartikel zu „sie (Singular)“: … Hand tut weh.", ["Ihre","Seine","Ihr"], ["Complete the possessive for sie (singular): … Hand tut weh.","Дополните притяжательный артикль для sie (ед. число): … Hand tut weh.","Доповніть присвійний артикль для sie (однина): … Hand tut weh.","sie (tekil) için iyelik artikelini tamamlayın: … Hand tut weh."], {"c":"p3_seinihr"}),
         mc("G2", "ihr (Plural)", I.choose, "Tom und Emil haben Husten. … Mutter kauft Tee.", ["Ihre","Eure","Seine"], ["Tom and Emil have a cough. Their mother buys tea.","У Tom и Emil кашель. Их мама покупает чай.","У Tom і Emil кашель. Їхня мама купує чай.","Tom ve Emil öksürüyor. Anneleri çay alıyor."], {"c":"p3_seinihr"}),
         gap('G2', 'sein', I.possessive, 'Das ist Herr Petrov. ', ' Rücken tut weh.', 'Sein', ['Ihr', 'Seine'],
           ['This is Mr Petrov. His back hurts.', 'Это господин Petrov. У него болит спина.', 'Це пан Petrov. У нього болить спина.', 'Bu Petrov Bey. Sırtı ağrıyor.'], 'sein / ihr'),
@@ -237,8 +235,7 @@ const path = {
           ['Emre takes his cough syrup every evening.', 'Emre принимает свой сироп от кашля каждый вечер.', 'Emre приймає свій сироп від кашлю щовечора.', 'Emre her akşam öksürük şurubunu içiyor.'], 'sein'),
         gap('G3', 'Akkusativ maskulin', I.possessive, 'Wir besuchen heute ', ' Opa im Krankenhaus.', 'unseren', ['unser', 'unsere'],
           ['Today we are visiting our grandpa in hospital.', 'Сегодня мы навещаем нашего дедушку в больнице.', 'Сьогодні ми відвідуємо нашого дідуся в лікарні.', 'Bugün hastanede dedemizi ziyaret ediyoruz.'], 'unser'),
-        gap('G3', 'Akkusativ maskulin', I.possessive, 'Frau Kaya, haben Sie ', ' Ausweis dabei?', 'Ihren', ['Ihr', 'Ihre'],
-          ['Ms Kaya, do you have your ID card with you?', 'Госпожа Kaya, удостоверение у вас с собой?', 'Пані Kaya, посвідчення у вас із собою?', 'Kaya Hanım, kimliğiniz yanınızda mı?'], 'Ihr'),
+        gap("G3", "Akkusativ maskulin", I.possessive, "Herr Kaya, haben Sie ", " Ausweis dabei?", "Ihren", ["Ihr","Ihre"], ["Mr Kaya, do you have your ID card with you?","Господин Kaya, удостоверение у вас с собой?","Пане Kaya, посвідчення у вас із собою?","Kaya Bey, kimliğiniz yanınızda mı?"], "Ihr", {"c":"p3_possakk"}),
         gap('G3', 'Akkusativ maskulin', I.possessive, 'Kinder, nehmt ', ' Tee mit!', 'euren', ['euer', 'eure'],
           ['Children, take your tea with you!', 'Дети, возьмите с собой свой чай!', 'Діти, візьміть із собою свій чай!', 'Çocuklar, çayınızı yanınıza alın!'], 'euer'),
         gap('G3', 'Akkusativ neutral', I.possessive, 'Ich nehme ', ' Medikament immer am Morgen.', 'mein', ['meinen', 'meine'],
@@ -350,10 +347,8 @@ const path = {
       ex: [
         mc('K3', 'sich krankmelden', I.choose, 'Du bist krank und kannst nicht arbeiten. Was schreibst du an die Chefin?', ['Leider kann ich heute nicht kommen. Ich bin krank.', 'Leider möchte ich heute nicht kommen.', 'Heute komme ich gern.'],
           ['You are ill and cannot work. What do you write to your boss?', 'Вы заболели и не можете работать. Что вы напишете начальнице?', 'Ви захворіли й не можете працювати. Що ви напишете начальниці?', 'Hastasınız ve çalışamıyorsunuz. Patronunuza ne yazarsınız?']),
-        mc('Z1', 'Krankmeldung lesen', I.read, `${MAIL} Wie lange ist Mateo krank?`, ['Bis Mittwoch.', 'Bis Freitag.', 'Nur heute.'],
-          ['How long is Mateo ill?', 'Как долго Mateo будет болеть?', 'Як довго Mateo хворітиме?', 'Mateo ne zamana kadar hasta?']),
-        mc('Z1', 'Krankmeldung lesen', I.read, `${MAIL} Wer soll die Information auch bekommen?`, ['Frau Lindner', 'Herr Brandt', 'Mateo Rojas'],
-          ['Who else should get the information?', 'Кто ещё должен получить эту информацию?', 'Хто ще має отримати цю інформацію?', 'Bu bilgiyi başka kim almalı?']),
+        mc("Z1", "Krankmeldung lesen", I.read, "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Herrn Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wie lange ist Mateo krank?", ["Bis Mittwoch.","Nur heute.","Bis Freitag."], ["How long is Mateo ill?","Как долго Mateo будет болеть?","Як довго Mateo хворітиме?","Mateo ne zamana kadar hasta?"], {"c":"p3_krank","sitovOptionOrder":["Bis Mittwoch.","Nur heute.","Bis Freitag."]}),
+        mc("Z1", "Krankmeldung lesen", I.read, "E-Mail: „Sehr geehrter Herr Brandt, leider bin ich krank und kann bis Mittwoch nicht in die Firma kommen. Bitte informieren Sie auch Herrn Lindner. Mit freundlichen Grüßen, Mateo Rojas“ Wer soll die Information auch bekommen?", ["Herr Lindner","Herr Brandt","Mateo Rojas"], ["Who else should get the information?","Кто ещё должен получить эту информацию?","Хто ще має отримати цю інформацію?","Bu bilgiyi başka kim almalı?"], {"c":"p3_krank","sitovOptionOrder":["Herr Brandt","Herr Lindner","Mateo Rojas"]}),
         gap('K3', 'leider', I.word, '', ' kann ich heute nicht zum Kurs kommen. Ich habe Fieber.', 'Leider', ['Gern', 'Hoffentlich'],
           ['Unfortunately I cannot come to class today. I have a temperature.', 'К сожалению, сегодня я не могу прийти на курс. У меня температура.', 'На жаль, сьогодні я не можу прийти на курс. У мене температура.', 'Maalesef bugün kursa gelemiyorum. Ateşim var.'],
           ['unfortunately', 'к сожалению', 'на жаль', 'maalesef']),

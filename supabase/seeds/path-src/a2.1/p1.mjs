@@ -16,7 +16,7 @@ const path = {
     G2: 'Perfekt der trennbaren Verben: eingekauft, angerufen, aufgestanden, kennengelernt.',
     G3: 'Perfekt der Verben auf -ieren ohne ge-: telefoniert, studiert, passiert.',
     G4: 'Perfekt der nicht trennbaren Verben ohne ge-: erlebt, bemerkt, verpasst, verstanden.',
-    G5: 'Zugehörigkeit bei Namen: Annas Mutter – und mit von + Dativ: die Mutter von Anna.',
+    G5: "Zugehörigkeit bei Namen: Pauls Mutter – und mit von + Dativ: die Mutter von Paul.",
     K1: 'Von Pannen im Alltag erzählen und darauf reagieren: Stell dir vor … So ein Pech! Und was ist dann passiert?',
     K2: 'Von Wohn- und Lebensformen erzählen: allein, als Paar, in einer WG; ledig, verheiratet, geschieden; berufstätig, in Rente.',
     K3: 'Sagen, wie jemand etwas findet: Das findet sie toll. Das gefällt ihm nicht.',
@@ -116,23 +116,32 @@ const path = {
       title: 'Allein, als Paar oder in der WG',
       t: ['Alone, as a couple or in a shared flat', 'Один, вдвоём или в съёмной квартире с соседями', 'Сам, удвох чи в спільній квартирі', 'Yalnız, çift olarak ya da ortak evde'],
       card: {
-        id: 'p1_leben',
-        rule: 'So leben Menschen: Ich lebe allein. Ich bin Single. Wir leben als Paar zusammen. Ich wohne in einer Wohngemeinschaft (WG). In einer Großfamilie wohnen Großeltern, Eltern und Kinder zusammen. Familienstand: ledig (nie verheiratet), verheiratet, getrennt, geschieden. Alleinerziehend: Eine Mutter oder ein Vater lebt allein mit dem Kind. Arbeit: berufstätig sein, arbeitslos sein, in Rente sein, studieren, als Koch arbeiten. Zeit: Ich lebe seit drei Jahren allein.',
-        examples: ['Meine Tante ist geschieden und lebt allein.', 'Wir wohnen zu viert in einer WG.', 'Mein Opa ist seit zwei Jahren in Rente.'],
-        highlight: null,
-        t: [
-          'How people live: Ich lebe allein (alone). Ich bin Single. Wir leben als Paar zusammen (together as a couple). Ich wohne in einer Wohngemeinschaft (WG = shared flat). In a Großfamilie (extended family) grandparents, parents and children live together. Marital status: ledig (never married), verheiratet (married), getrennt (separated), geschieden (divorced). Alleinerziehend: a mother or father lives alone with the child (single parent). Work: berufstätig (working), arbeitslos (unemployed), in Rente (retired), studieren, als Koch arbeiten (work as a cook). Time: Ich lebe seit drei Jahren allein.',
-          'Как живут люди: Ich lebe allein (один). Ich bin Single. Wir leben als Paar zusammen (вместе как пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, которую снимают вместе). В Großfamilie (большой семье) вместе живут бабушки и дедушки, родители и дети. Семейное положение: ledig (никогда не был в браке), verheiratet (в браке), getrennt (живут раздельно), geschieden (в разводе). Alleinerziehend: мать или отец живёт с ребёнком без партнёра. Работа: berufstätig (работает), arbeitslos (безработный), in Rente (на пенсии), studieren, als Koch arbeiten (работать поваром). Время: Ich lebe seit drei Jahren allein.',
-          'Як живуть люди: Ich lebe allein (сам). Ich bin Single. Wir leben als Paar zusammen (разом як пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, яку винаймають разом). У Großfamilie (великій родині) разом живуть бабусі й дідусі, батьки та діти. Сімейний стан: ledig (ніколи не був у шлюбі), verheiratet (у шлюбі), getrennt (живуть окремо), geschieden (розлучений). Alleinerziehend: мати або батько живе з дитиною без партнера. Робота: berufstätig (працює), arbeitslos (безробітний), in Rente (на пенсії), studieren, als Koch arbeiten (працювати кухарем). Час: Ich lebe seit drei Jahren allein.',
-          'İnsanlar nasıl yaşar: Ich lebe allein (yalnız). Ich bin Single. Wir leben als Paar zusammen (çift olarak birlikte). Ich wohne in einer Wohngemeinschaft (WG = ortak ev). Bir Großfamilie’de (geniş aile) büyükanne ve büyükbaba, anne baba ve çocuklar birlikte yaşar. Medeni durum: ledig (hiç evlenmemiş), verheiratet (evli), getrennt (ayrı yaşayan), geschieden (boşanmış). Alleinerziehend: Anne ya da baba çocuğuyla yalnız yaşar. İş: berufstätig (çalışan), arbeitslos (işsiz), in Rente (emekli), studieren, als Koch arbeiten (aşçı olarak çalışmak). Zaman: Ich lebe seit drei Jahren allein.',
-        ],
-        hint: ['Familienstand: ledig, verheiratet, getrennt, geschieden. Arbeit: berufstätig, arbeitslos, in Rente.', 'Marital status: ledig, verheiratet, getrennt, geschieden. Work: berufstätig, arbeitslos, in Rente.', 'Семейное положение: ledig, verheiratet, getrennt, geschieden. Работа: berufstätig, arbeitslos, in Rente.', 'Сімейний стан: ledig, verheiratet, getrennt, geschieden. Робота: berufstätig, arbeitslos, in Rente.', 'Medeni durum: ledig, verheiratet, getrennt, geschieden. İş: berufstätig, arbeitslos, in Rente.'],
-      },
+  "id": "p1_leben",
+  "rule": "So leben Menschen: Ich lebe allein. Ich bin Single. Wir leben als Paar zusammen. Ich wohne in einer Wohngemeinschaft (WG). In einer Großfamilie wohnen Großeltern, Eltern und Kinder zusammen. Familienstand: ledig (nie verheiratet), verheiratet, getrennt, geschieden. Alleinerziehend: Eine Mutter oder ein Vater lebt allein mit dem Kind. Arbeit: berufstätig sein, arbeitslos sein, in Rente sein, studieren, als Koch arbeiten. Zeit: Ich lebe seit drei Jahren allein.",
+  "examples": [
+    "Mein Onkel ist geschieden und lebt allein.",
+    "Wir wohnen zu viert in einer WG.",
+    "Mein Opa ist seit zwei Jahren in Rente."
+  ],
+  "highlight": null,
+  "t": [
+    "How people live: Ich lebe allein (alone). Ich bin Single. Wir leben als Paar zusammen (together as a couple). Ich wohne in einer Wohngemeinschaft (WG = shared flat). In a Großfamilie (extended family) grandparents, parents and children live together. Marital status: ledig (never married), verheiratet (married), getrennt (separated), geschieden (divorced). Alleinerziehend: a mother or father lives alone with the child (single parent). Work: berufstätig (working), arbeitslos (unemployed), in Rente (retired), studieren, als Koch arbeiten (work as a cook). Time: Ich lebe seit drei Jahren allein.",
+    "Как живут люди: Ich lebe allein (один). Ich bin Single. Wir leben als Paar zusammen (вместе как пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, которую снимают вместе). В Großfamilie (большой семье) вместе живут бабушки и дедушки, родители и дети. Семейное положение: ledig (никогда не был в браке), verheiratet (в браке), getrennt (живут раздельно), geschieden (в разводе). Alleinerziehend: мать или отец живёт с ребёнком без партнёра. Работа: berufstätig (работает), arbeitslos (безработный), in Rente (на пенсии), studieren, als Koch arbeiten (работать поваром). Время: Ich lebe seit drei Jahren allein.",
+    "Як живуть люди: Ich lebe allein (сам). Ich bin Single. Wir leben als Paar zusammen (разом як пара). Ich wohne in einer Wohngemeinschaft (WG = квартира, яку винаймають разом). У Großfamilie (великій родині) разом живуть бабусі й дідусі, батьки та діти. Сімейний стан: ledig (ніколи не був у шлюбі), verheiratet (у шлюбі), getrennt (живуть окремо), geschieden (розлучений). Alleinerziehend: мати або батько живе з дитиною без партнера. Робота: berufstätig (працює), arbeitslos (безробітний), in Rente (на пенсії), studieren, als Koch arbeiten (працювати кухарем). Час: Ich lebe seit drei Jahren allein.",
+    "İnsanlar nasıl yaşar: Ich lebe allein (yalnız). Ich bin Single. Wir leben als Paar zusammen (çift olarak birlikte). Ich wohne in einer Wohngemeinschaft (WG = ortak ev). Bir Großfamilie’de (geniş aile) büyükanne ve büyükbaba, anne baba ve çocuklar birlikte yaşar. Medeni durum: ledig (hiç evlenmemiş), verheiratet (evli), getrennt (ayrı yaşayan), geschieden (boşanmış). Alleinerziehend: Anne ya da baba çocuğuyla yalnız yaşar. İş: berufstätig (çalışan), arbeitslos (işsiz), in Rente (emekli), studieren, als Koch arbeiten (aşçı olarak çalışmak). Zaman: Ich lebe seit drei Jahren allein."
+  ],
+  "hint": [
+    "Familienstand: ledig, verheiratet, getrennt, geschieden. Arbeit: berufstätig, arbeitslos, in Rente.",
+    "Marital status: ledig, verheiratet, getrennt, geschieden. Work: berufstätig, arbeitslos, in Rente.",
+    "Семейное положение: ledig, verheiratet, getrennt, geschieden. Работа: berufstätig, arbeitslos, in Rente.",
+    "Сімейний стан: ledig, verheiratet, getrennt, geschieden. Робота: berufstätig, arbeitslos, in Rente.",
+    "Medeni durum: ledig, verheiratet, getrennt, geschieden. İş: berufstätig, arbeitslos, in Rente."
+  ]
+},
       ex: [
         mc('K2', 'geschieden', I.choose, 'Herr Lindner war verheiratet. Seit einem Jahr ist er nicht mehr verheiratet. Er ist …', ['geschieden', 'ledig', 'berufstätig'],
           ['Mr Lindner was married. For a year he has no longer been married. He is …', 'Господин Lindner был женат. Уже год он не женат. Он …', 'Пан Lindner був одружений. Уже рік він не одружений. Він …', 'Lindner Bey evliydi. Bir yıldır evli değil. O …']),
-        mc('K2', 'alleinerziehend', I.choose, 'Frau Rojas lebt ohne Partner mit ihren zwei Kindern. Sie ist …', ['alleinerziehend', 'in Rente', 'eine Großfamilie'],
-          ['Ms Rojas lives with her two children and without a partner. She is …', 'Госпожа Rojas живёт с двумя детьми без партнёра. Она …', 'Пані Rojas живе з двома дітьми без партнера. Вона …', 'Rojas Hanım iki çocuğuyla, eşi olmadan yaşıyor. O …']),
+        mc("K2", "alleinerziehend", I.choose, "Herr Rojas lebt ohne Partner mit seinen zwei Kindern. Er ist …", ["alleinerziehend","eine Großfamilie","in Rente"], ["Mr Rojas lives with his two children and without a partner. He is …","Господин Rojas живёт с двумя детьми без партнёра. Он …","Пан Rojas живе з двома дітьми без партнера. Він …","Rojas Bey iki çocuğuyla, eşi olmadan yaşıyor. O …"], {"c":"p1_leben"}),
         mc('K2', 'Wohngemeinschaft', I.choose, 'Tim wohnt mit drei Studenten zusammen. Jeder hat ein Zimmer, die Küche benutzen alle. Tim wohnt in einer …', ['Wohngemeinschaft', 'Großfamilie', 'Rente'],
           ['Tim lives with three students. Everyone has a room, they all use the kitchen. Tim lives in a …', 'Tim живёт вместе с тремя студентами. У каждого своя комната, кухня общая. Tim живёт в …', 'Tim живе разом із трьома студентами. У кожного своя кімната, кухня спільна. Tim живе в …', 'Tim üç öğrenciyle birlikte oturuyor. Herkesin bir odası var, mutfağı hep birlikte kullanıyorlar. Tim … oturuyor.']),
         mc('K2', 'in Rente', I.choose, 'Meine Oma ist 70 Jahre alt und arbeitet nicht mehr. Sie ist …', ['in Rente', 'berufstätig', 'ledig'],
@@ -505,8 +514,7 @@ const path = {
       ex: [
         mc('K3', 'positiv', I.choose, 'Emre wohnt in einer WG und hat dort viele Freunde. Wie findet er das?', ['Das findet er toll.', 'Das gefällt ihm nicht.', 'Das findet er nicht so toll.'],
           ['Emre lives in a shared flat and has many friends there. What does he think of that?', 'Emre живёт в общей квартире, там у него много друзей. Как он к этому относится?', 'Emre живе у спільній квартирі, там у нього багато друзів. Як він до цього ставиться?', 'Emre ortak bir evde oturuyor ve orada birçok arkadaşı var. Bunu nasıl buluyor?']),
-        mc('K3', 'negativ', I.choose, 'Frau Kaya fährt jeden Tag zwei Stunden zur Arbeit. Das ist anstrengend. Wie findet sie das?', ['Das gefällt ihr nicht.', 'Das gefällt ihr sehr.', 'Das findet sie super.'],
-          ['Ms Kaya travels two hours to work every day. That is exhausting. What does she think of that?', 'Госпожа Kaya каждый день два часа едет на работу. Это утомительно. Как она к этому относится?', 'Пані Kaya щодня дві години їде на роботу. Це виснажливо. Як вона до цього ставиться?', 'Kaya Hanım her gün işe iki saatte gidiyor. Bu yorucu. Bunu nasıl buluyor?']),
+        mc("K3", "negativ", I.choose, "Für „sie (Singular)“: Welche Aussage über eine lange, anstrengende Fahrt zur Arbeit ist negativ?", ["Das gefällt ihr nicht.","Das gefällt ihr sehr.","Das findet sie super."], ["For sie (singular): which statement about a long, exhausting journey to work is negative?","Для sie (ед. число): какое высказывание о долгой утомительной поездке на работу выражает отрицательное отношение?","Для sie (однина): яке висловлювання про довгу виснажливу поїздку на роботу виражає негативне ставлення?","sie (tekil) için: İşe yapılan uzun ve yorucu yolculuk hakkında hangi ifade olumsuzdur?"], {"c":"p1_bewerten"}),
         mc('K3', 'ihr', I.choose, 'Olga lebt allein. Das gefällt … gut.', ['ihr', 'ihm', 'sie'],
           ['Olga lives alone. She likes that.', 'Olga живёт одна. Ей это нравится.', 'Olga живе сама. Їй це подобається.', 'Olga yalnız yaşıyor. Bu onun hoşuna gidiyor.']),
         mc('K3', 'er', I.choose, 'Mein Bruder wohnt bei den Schwiegereltern. Das findet … nicht so toll.', ['er', 'ihm', 'ihn'],
