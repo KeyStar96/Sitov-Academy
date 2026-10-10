@@ -1429,7 +1429,7 @@
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Türkçede „olmak“ ek olarak gelir (-ım, -sın). Almancada ayrı bir fiil gerekir: ich bin, du bist, Sie sind.",
                 "explanation": "sein (olmak) fiili düzensizdir: ich bin, du bist, Sie sind. Almancada bu fiil atlanamaz: Ich bin Oleh = Ben Oleh’im.",
-                "task": "Siz Kaya Bey mısınız?"
+                "task": "Siz Kaya Bey misiniz?"
               }
             }
           },
@@ -3537,7 +3537,7 @@
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Telefonda biriyle konuşmak mı istiyorsunuz? Sorun: Ist … da? = … orada mı?",
                 "explanation": "Telefonda: Firma adı ve isimle ya da „Hier ist …“ (Ben …) diyerek cevap verilir. Birini sormak için: „Ist Herr Lindner da?“ (Herr Lindner orada mı?) Sonunda: „Auf Wiederhören!“",
-                "task": "Muayenehaneyi arıyor ve Lindner Bey’ı soruyorsunuz."
+                "task": "Muayenehaneyi arıyor ve Lindner Bey’i soruyorsunuz."
               }
             }
           },
