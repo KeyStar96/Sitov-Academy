@@ -31671,47 +31671,47 @@
                 "verbinden"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du rufst in einer Firma an und möchtest mit Frau Weber sprechen. Was sagst du?",
+              "question": "Du rufst in einer Firma an und möchtest mit Herrn Weber sprechen. Was sagst du?",
               "options": [
-                "Kann ich Frau Weber etwas ausrichten?",
-                "Können Sie mich bitte mit Frau Weber verbinden?",
-                "Können Sie mich bitte mit Frau Weber besuchen?"
+                "Kann ich Herrn Weber etwas ausrichten?",
+                "Können Sie mich bitte mit Herrn Weber verbinden?",
+                "Können Sie mich bitte mit Herrn Weber besuchen?"
               ],
-              "correct_answer": "Können Sie mich bitte mit Frau Weber verbinden?",
+              "correct_answer": "Können Sie mich bitte mit Herrn Weber verbinden?",
               "accepted_answers": [
-                "Können Sie mich bitte mit Frau Weber verbinden?"
+                "Können Sie mich bitte mit Herrn Weber verbinden?"
               ]
             },
             "accepted_answers": [
-              "Können Sie mich bitte mit Frau Weber verbinden?"
+              "Können Sie mich bitte mit Herrn Weber verbinden?"
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
-                "task": "You phone a company and want to speak to Ms Weber. What do you say?"
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "task": "You phone a company and want to speak to Mr Weber. What do you say?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
-                "task": "Вы звоните в фирму и хотите поговорить с госпожой Weber. Что вы скажете?"
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "task": "Вы звоните в фирму и хотите поговорить с господином Weber. Что вы скажете?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
-                "task": "Ви телефонуєте у фірму й хочете поговорити з пані Weber. Що ви скажете?"
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "task": "Ви телефонуєте у фірму й хочете поговорити з паном Weber. Що ви скажете?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
-                "task": "Bir şirketi arıyorsunuz ve Weber Hanım’la konuşmak istiyorsunuz. Ne dersiniz?"
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "task": "Bir şirketi arıyorsunuz ve Weber Bey’le konuşmak istiyorsunuz. Ne dersiniz?"
               }
             }
           },
@@ -31740,31 +31740,31 @@
               "Auf Wiederhören!"
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
                 "task": "How do you say goodbye on the phone?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
                 "task": "Как прощаются по телефону?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
                 "task": "Як прощаються телефоном?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
                 "task": "Telefonda nasıl vedalaşılır?"
               }
             }
@@ -31779,7 +31779,7 @@
                 "sonst jemand"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Frau Weber ist nicht da. Du möchtest mit einer anderen Person aus ihrer Abteilung sprechen. Was fragst du?",
+              "question": "Herr Weber ist nicht da. Du möchtest mit einer anderen Person aus seiner Abteilung sprechen. Was fragst du?",
               "options": [
                 "Ist denn sonst jemand aus der Abteilung da?",
                 "Ist denn sonst niemand zu Hause?",
@@ -31794,32 +31794,32 @@
               "Ist denn sonst jemand aus der Abteilung da?"
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
-                "task": "Ms Weber is not there. You want to speak to someone else from her department. What do you ask?"
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "task": "Mr Weber is not there. You want to speak to someone else from his department. What do you ask?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
-                "task": "Госпожи Weber нет. Вы хотите поговорить с кем-нибудь ещё из её отдела. Что вы спросите?"
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "task": "Господина Weber нет. Вы хотите поговорить с кем-нибудь ещё из его отдела. Что вы спросите?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
-                "task": "Пані Weber немає. Ви хочете поговорити з кимось іншим із її відділу. Що ви запитаєте?"
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "task": "Пана Weber немає. Ви хочете поговорити з кимось іншим із його відділу. Що ви запитаєте?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
-                "task": "Weber Hanım yok. Onun bölümünden başka biriyle konuşmak istiyorsunuz. Ne sorarsınız?"
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "task": "Weber Bey yok. Onun bölümünden başka biriyle konuşmak istiyorsunuz. Ne sorarsınız?"
               }
             }
           },
@@ -31833,47 +31833,47 @@
                 "Durchwahl"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Du möchtest Frau Weber morgen direkt anrufen. Was brauchst du?",
+              "question": "Du möchtest Herrn Weber morgen direkt anrufen. Was brauchst du?",
               "options": [
-                "ihre Schicht",
-                "ihre Durchwahl",
-                "ihr Gehalt"
+                "seine Schicht",
+                "seine Durchwahl",
+                "sein Gehalt"
               ],
-              "correct_answer": "ihre Durchwahl",
+              "correct_answer": "seine Durchwahl",
               "accepted_answers": [
-                "ihre Durchwahl"
+                "seine Durchwahl"
               ]
             },
             "accepted_answers": [
-              "ihre Durchwahl"
+              "seine Durchwahl"
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
-                "task": "You want to phone Ms Weber directly tomorrow. What do you need?"
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "task": "You want to phone Mr Weber directly tomorrow. What do you need?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
-                "task": "Завтра вы хотите позвонить госпоже Weber напрямую. Что вам нужно?"
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "task": "Завтра вы хотите позвонить господину Weber напрямую. Что вам нужно?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
-                "task": "Завтра ви хочете зателефонувати пані Weber напряму. Що вам потрібно?"
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "task": "Завтра ви хочете зателефонувати пану Weber напряму. Що вам потрібно?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
-                "task": "Yarın Weber Hanım’ı doğrudan aramak istiyorsunuz. Neye ihtiyacınız var?"
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "task": "Yarın Weber Bey’i doğrudan aramak istiyorsunuz. Neye ihtiyacınız var?"
               }
             }
           },
@@ -31957,34 +31957,34 @@
               "verbinden"
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
                 "task": "Could you put me through to Mr Albers, please?",
                 "gap_hint": "connect, put through"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
                 "task": "Соедините меня, пожалуйста, с господином Albers.",
                 "gap_hint": "соединить"
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
                 "task": "З’єднайте мене, будь ласка, з паном Albers.",
                 "gap_hint": "з’єднати"
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
                 "task": "Beni Albers Bey’e bağlar mısınız lütfen?",
                 "gap_hint": "bağlamak"
               }
@@ -32000,8 +32000,8 @@
                 "im Haus"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Guten Morgen, ist Frau Kaya schon im ",
-              "text_after": "? Ich möchte sie sprechen.",
+              "text_before": "Guten Morgen, ist Herr Kaya schon im ",
+              "text_after": "? Ich möchte ihn sprechen.",
               "correct_answer": "Haus",
               "options": [
                 "Feierabend",
@@ -32018,35 +32018,35 @@
               "Büro"
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
-                "task": "Good morning, is Ms Kaya in yet? I would like to speak to her.",
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "task": "Good morning, is Mr Kaya in yet? I would like to speak to him.",
                 "gap_hint": "building (in the office)"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
-                "task": "Доброе утро, госпожа Kaya уже на месте? Я хотел бы с ней поговорить.",
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "task": "Доброе утро, господин Kaya уже на месте? Я хотел бы с ним поговорить.",
                 "gap_hint": "здание (на месте)"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
-                "task": "Доброго ранку, пані Kaya вже на місці? Я хотів би з нею поговорити.",
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "task": "Доброго ранку, пан Kaya вже на місці? Я хотів би з ним поговорити.",
                 "gap_hint": "будівля (на місці)"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
-                "task": "Günaydın, Kaya Hanım geldi mi? Onunla görüşmek istiyorum.",
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "task": "Günaydın, Kaya Bey geldi mi? Onunla görüşmek istiyorum.",
                 "gap_hint": "bina (iş yerinde)"
               }
             }
@@ -32062,7 +32062,7 @@
               ],
               "instruction": "Ergänze die passende Präposition.",
               "text_before": "Können Sie mich bitte ",
-              "text_after": " Frau Lindner verbinden?",
+              "text_after": " Herrn Lindner verbinden?",
               "gap_hint": "mit / zu / bei",
               "correct_answer": "mit",
               "options": [
@@ -32078,32 +32078,32 @@
               "mit"
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct preposition.",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
-                "task": "Could you put me through to Ms Lindner, please?"
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "task": "Could you put me through to Mr Lindner, please?"
               },
               "ru": {
                 "instruction": "Вставьте подходящий предлог.",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
-                "task": "Соедините меня, пожалуйста, с госпожой Lindner."
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "task": "Соедините меня, пожалуйста, с господином Lindner."
               },
               "uk": {
                 "instruction": "Вставте відповідний прийменник.",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
-                "task": "З’єднайте мене, будь ласка, з пані Lindner."
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "task": "З’єднайте мене, будь ласка, з паном Lindner."
               },
               "tr": {
                 "instruction": "Uygun edatı yazın.",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
-                "task": "Beni Lindner Hanım’a bağlar mısınız lütfen?"
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "task": "Beni Lindner Bey’e bağlar mısınız lütfen?"
               }
             }
           },
@@ -32133,34 +32133,34 @@
               "Durchwahl"
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
                 "task": "Please give me Mr Petrov’s extension. Then I will call him directly.",
                 "gap_hint": "extension, direct number"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
                 "task": "Дайте мне, пожалуйста, добавочный номер господина Petrov. Тогда я позвоню ему напрямую.",
                 "gap_hint": "добавочный номер"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
                 "task": "Дайте мені, будь ласка, внутрішній номер пана Petrov. Тоді я зателефоную йому напряму.",
                 "gap_hint": "внутрішній номер"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
                 "task": "Lütfen bana Petrov Bey’in dahili numarasını verin. O zaman onu doğrudan ararım.",
                 "gap_hint": "dahili numara"
               }
@@ -32179,45 +32179,45 @@
               "parts": [
                 "mich",
                 "durchstellen",
-                "zu Frau Weber",
+                "zu Herrn Weber",
                 "Sie",
                 "Können"
               ],
-              "correct_answer": "Können Sie mich zu Frau Weber durchstellen?",
+              "correct_answer": "Können Sie mich zu Herrn Weber durchstellen?",
               "accepted_answers": [
-                "Können Sie mich zu Frau Weber durchstellen?"
+                "Können Sie mich zu Herrn Weber durchstellen?"
               ]
             },
             "accepted_answers": [
-              "Können Sie mich zu Frau Weber durchstellen?"
+              "Können Sie mich zu Herrn Weber durchstellen?"
             ],
             "hint": "verbinden mit …, durchstellen zu … Am Telefon sagt man zum Abschied: Auf Wiederhören.",
-            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Frau Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
+            "explanation": "In einer Firma anrufen: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? Ist Herr Albers schon im Haus? Können Sie mich zur Personalabteilung durchstellen? Ist denn sonst jemand aus der Abteilung da? Geben Sie mir doch bitte die Durchwahl von Herrn Weber. Nach verbinden mit steht der Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Am Ende: Vielen Dank. Auf Wiederhören!",
             "explanation_card": "p4_telefon",
             "translations": {
               "en": {
                 "instruction": "Make a question from the words.",
                 "hint": "verbinden mit …, durchstellen zu … On the phone you say goodbye with: Auf Wiederhören.",
-                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Could you put me through to Ms Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (her extension) After verbinden mit comes the dative: mit Herrn Albers, mit Frau Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
-                "task": "Can you put me through to Ms Weber?"
+                "explanation": "Phoning a company: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Could you put me through to Mr Weber?) Ist Herr Albers schon im Haus? (Is Mr Albers in yet?) Können Sie mich zur Personalabteilung durchstellen? (put me through to human resources) Ist denn sonst jemand aus der Abteilung da? (Is anyone else from the department there?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (his extension) After verbinden mit comes the dative: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. At the end: Vielen Dank. Auf Wiederhören! (goodbye on the phone)",
+                "task": "Can you put me through to Mr Weber?"
               },
               "ru": {
                 "instruction": "Составьте вопрос из этих слов.",
                 "hint": "verbinden mit …, durchstellen zu … По телефону прощаются словами: Auf Wiederhören.",
-                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Соедините меня, пожалуйста, с госпожой Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (её добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
-                "task": "Вы можете переключить меня на госпожу Weber?"
+                "explanation": "Звонок в фирму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Соедините меня, пожалуйста, с господином Weber.) Ist Herr Albers schon im Haus? (Господин Albers уже на месте?) Können Sie mich zur Personalabteilung durchstellen? (переключить на отдел кадров) Ist denn sonst jemand aus der Abteilung da? (Есть ли кто-нибудь ещё из отдела?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (его добавочный номер) После verbinden mit стоит Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. В конце: Vielen Dank. Auf Wiederhören! (до свидания по телефону)",
+                "task": "Вы можете переключить меня на господина Weber?"
               },
               "uk": {
                 "instruction": "Складіть запитання з цих слів.",
                 "hint": "verbinden mit …, durchstellen zu … Телефоном прощаються словами: Auf Wiederhören.",
-                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (З’єднайте мене, будь ласка, з пані Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (її внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Frau Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
-                "task": "Ви можете перемкнути мене на пані Weber?"
+                "explanation": "Дзвінок у фірму: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (З’єднайте мене, будь ласка, з паном Weber.) Ist Herr Albers schon im Haus? (Пан Albers уже на місці?) Können Sie mich zur Personalabteilung durchstellen? (перемкнути на відділ кадрів) Ist denn sonst jemand aus der Abteilung da? (Чи є ще хтось із відділу?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (його внутрішній номер) Після verbinden mit стоїть Dativ: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. У кінці: Vielen Dank. Auf Wiederhören! (до побачення телефоном)",
+                "task": "Ви можете перемкнути мене на пана Weber?"
               },
               "tr": {
                 "instruction": "Bu kelimelerle bir soru oluşturun.",
                 "hint": "verbinden mit …, durchstellen zu … Telefonda vedalaşırken şöyle denir: Auf Wiederhören.",
-                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Frau Weber verbinden? (Beni Weber Hanım’a bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Frau Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Frau Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
-                "task": "Beni Weber Hanım’a aktarabilir misiniz?"
+                "explanation": "Bir şirketi aramak: Guten Tag, hier ist Emre Demir. Können Sie mich bitte mit Herrn Weber verbinden? (Beni Weber Bey’e bağlar mısınız?) Ist Herr Albers schon im Haus? (Albers Bey geldi mi?) Können Sie mich zur Personalabteilung durchstellen? (personel bölümüne aktarmak) Ist denn sonst jemand aus der Abteilung da? (Bölümden başka biri var mı?) Geben Sie mir doch bitte die Durchwahl von Herrn Weber. (dahili numarası) verbinden mit’ten sonra Dativ gelir: mit Herrn Albers, mit Herrn Weber, mit der Abteilung. Sonunda: Vielen Dank. Auf Wiederhören! (telefonda hoşça kalın)",
+                "task": "Beni Weber Bey’e aktarabilir misiniz?"
               }
             }
           }
@@ -37186,31 +37186,31 @@
               "Er zieht seinen Sohn an."
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Which sentence is correct?",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
                 "task": "The father helps his little son in the morning."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
                 "task": "Утром отец помогает своему маленькому сыну."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
                 "task": "Уранці батько допомагає своєму маленькому синові."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
                 "task": "Baba sabahları küçük oğluna yardım ediyor."
               }
             }
@@ -37240,31 +37240,31 @@
               "mich / mich"
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
                 "task": "After sport I have a shower and get changed."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
                 "task": "После спорта я принимаю душ и переодеваюсь."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
                 "task": "Після спорту я приймаю душ і переодягаюся."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
                 "task": "Spordan sonra duş alır ve üstümü değiştiririm."
               }
             }
@@ -37294,31 +37294,31 @@
               "Ich wasche mich."
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
                 "task": "Which sentence is reflexive?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
                 "task": "Какое предложение возвратное?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
                 "task": "Яке речення зворотне?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
                 "task": "Hangi cümle dönüşlü?"
               }
             }
@@ -37348,31 +37348,31 @@
               "mich"
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
                 "task": "It is so noisy here. I cannot concentrate."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
                 "task": "Здесь так шумно. Я не могу сосредоточиться."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
                 "task": "Тут так гамірно. Я не можу зосередитися."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
                 "task": "Burası çok gürültülü. Dikkatimi toplayamıyorum."
               }
             }
@@ -37404,31 +37404,31 @@
               "sich"
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Fill in the reflexive pronoun.",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
                 "task": "Tom gets up at six. Then he shaves."
               },
               "ru": {
                 "instruction": "Вставьте возвратное местоимение.",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
                 "task": "Tom встаёт в шесть часов. Потом он бреется."
               },
               "uk": {
                 "instruction": "Вставте зворотний займенник.",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
                 "task": "Tom встає о шостій. Потім він голиться."
               },
               "tr": {
                 "instruction": "Dönüşlü zamiri yazın.",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
                 "task": "Tom saat altıda kalkıyor. Sonra tıraş oluyor."
               }
             }
@@ -37460,31 +37460,31 @@
               "mich"
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Fill in the reflexive pronoun.",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
                 "task": "Wait, please! I am just getting changed quickly."
               },
               "ru": {
                 "instruction": "Вставьте возвратное местоимение.",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
                 "task": "Подожди, пожалуйста! Я только быстро переоденусь."
               },
               "uk": {
                 "instruction": "Вставте зворотний займенник.",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
                 "task": "Зачекай, будь ласка! Я тільки швидко переодягнуся."
               },
               "tr": {
                 "instruction": "Dönüşlü zamiri yazın.",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
                 "task": "Bekle lütfen! Hemen üstümü değiştiriyorum."
               }
             }
@@ -37516,31 +37516,31 @@
               "dich"
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Fill in the reflexive pronoun.",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
                 "task": "Do you never comb your hair? It is all over the place."
               },
               "ru": {
                 "instruction": "Вставьте возвратное местоимение.",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
                 "task": "Ты никогда не причёсываешься? У тебя волосы совсем растрёпаны."
               },
               "uk": {
                 "instruction": "Вставте зворотний займенник.",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
                 "task": "Ти ніколи не причісуєшся? У тебе волосся зовсім розкуйовджене."
               },
               "tr": {
                 "instruction": "Dönüşlü zamiri yazın.",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
                 "task": "Hiç saçını taramaz mısın? Saçların darmadağınık."
               }
             }
@@ -37572,31 +37572,31 @@
               "uns"
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Fill in the reflexive pronoun.",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
                 "task": "The food is cold. We are complaining to the waiter."
               },
               "ru": {
                 "instruction": "Вставьте возвратное местоимение.",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
                 "task": "Еда холодная. Мы жалуемся официанту."
               },
               "uk": {
                 "instruction": "Вставте зворотний займенник.",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
                 "task": "Їжа холодна. Ми скаржимося офіціантові."
               },
               "tr": {
                 "instruction": "Dönüşlü zamiri yazın.",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
                 "task": "Yemek soğuk. Garsona şikâyet ediyoruz."
               }
             }
@@ -37628,31 +37628,31 @@
               "Vor dem Essen waschen sich die Kinder."
             ],
             "hint": "Mit sich selbst → reflexiv: mich, dich, sich. Mit einer anderen Person oder Sache → nicht reflexiv.",
-            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Sie zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Sie zieht ihren Bruder an. Er wäscht das Auto. Ich kämme meine Tochter. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
+            "explanation": "Viele Verben gibt es reflexiv und nicht reflexiv. Reflexiv: Die Person macht etwas mit sich selbst. Er zieht sich an. Er wäscht sich. Ich kämme mich. Nicht reflexiv: Die Person macht etwas mit einer anderen Person oder mit einer Sache. Er zieht seinen Bruder an. Er wäscht das Auto. Ich kämme meinen Sohn. Im Alltag: sich waschen, sich duschen, sich anziehen, sich umziehen, sich kämmen, sich schminken, sich rasieren. Auch: sich konzentrieren, sich beschweren.",
             "explanation_card": "p5_reflexiv2",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "To oneself → reflexive: mich, dich, sich. To another person or a thing → not reflexive.",
-                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Sie zieht sich an. (She gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Sie zieht ihren Bruder an. (She dresses her brother.) Er wäscht das Auto. Ich kämme meine Tochter. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
+                "explanation": "Many verbs exist both as reflexive and as non-reflexive verbs. Reflexive: the person does something to himself or herself. Er zieht sich an. (He gets dressed.) Er wäscht sich. (He washes himself.) Ich kämme mich. (I comb my hair.) Not reflexive: the person does something to another person or to a thing. Er zieht seinen Bruder an. (He dresses his brother.) Er wäscht das Auto. Ich kämme meinen Sohn. Everyday verbs: sich waschen, sich duschen (to shower), sich anziehen (to get dressed), sich umziehen (to get changed), sich kämmen, sich schminken (to put on make-up), sich rasieren (to shave). Also: sich konzentrieren (to concentrate), sich beschweren (to complain).",
                 "task": "The children wash before the meal."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "С самим собой → возвратный: mich, dich, sich. С другим человеком или предметом → невозвратный.",
-                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Sie zieht sich an. (Она одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Sie zieht ihren Bruder an. (Она одевает брата.) Er wäscht das Auto. Ich kämme meine Tochter. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
+                "explanation": "Многие глаголы бывают возвратными и невозвратными. Возвратный: человек делает что-то с самим собой. Er zieht sich an. (Он одевается.) Er wäscht sich. (Он моется.) Ich kämme mich. (Я причёсываюсь.) Невозвратный: человек делает что-то с другим человеком или с предметом. Er zieht seinen Bruder an. (Он одевает брата.) Er wäscht das Auto. Ich kämme meinen Sohn. В быту: sich waschen, sich duschen (принимать душ), sich anziehen (одеваться), sich umziehen (переодеваться), sich kämmen, sich schminken (краситься), sich rasieren (бриться). Также: sich konzentrieren (сосредоточиться), sich beschweren (жаловаться).",
                 "task": "Дети моются перед едой."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Із собою → зворотне: mich, dich, sich. З іншою людиною або річчю → незворотне.",
-                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Sie zieht sich an. (Вона одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Sie zieht ihren Bruder an. (Вона одягає брата.) Er wäscht das Auto. Ich kämme meine Tochter. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
+                "explanation": "Багато дієслів бувають зворотними й незворотними. Зворотне: людина робить щось із собою. Er zieht sich an. (Він одягається.) Er wäscht sich. (Він миється.) Ich kämme mich. (Я причісуюся.) Незворотне: людина робить щось з іншою людиною або з річчю. Er zieht seinen Bruder an. (Він одягає брата.) Er wäscht das Auto. Ich kämme meinen Sohn. У побуті: sich waschen, sich duschen (приймати душ), sich anziehen (одягатися), sich umziehen (переодягатися), sich kämmen, sich schminken (фарбуватися), sich rasieren (голитися). Також: sich konzentrieren (зосередитися), sich beschweren (скаржитися).",
                 "task": "Діти миються перед їжею."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Kendine → dönüşlü: mich, dich, sich. Başka birine ya da bir nesneye → dönüşsüz.",
-                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Sie zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Sie zieht ihren Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meine Tochter. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
+                "explanation": "Birçok fiil hem dönüşlü hem dönüşsüz kullanılır. Dönüşlü: Kişi bir şeyi kendisine yapar. Er zieht sich an. (Giyiniyor.) Er wäscht sich. (Yıkanıyor.) Ich kämme mich. (Saçımı tarıyorum.) Dönüşsüz: Kişi bir şeyi başka birine ya da bir nesneye yapar. Er zieht seinen Bruder an. (Erkek kardeşini giydiriyor.) Er wäscht das Auto. Ich kämme meinen Sohn. Gündelik hayatta: sich waschen, sich duschen (duş almak), sich anziehen (giyinmek), sich umziehen (üstünü değiştirmek), sich kämmen, sich schminken (makyaj yapmak), sich rasieren (tıraş olmak). Ayrıca: sich konzentrieren (dikkatini toplamak), sich beschweren (şikâyet etmek).",
                 "task": "Çocuklar yemekten önce yıkanıyor."
               }
             }
@@ -46441,7 +46441,7 @@
               ],
               "instruction": "Ergänze das Modalverb im Präteritum.",
               "text_before": "Früher ",
-              "text_after": " meine Mutter jeden Samstag arbeiten.",
+              "text_after": " mein Vater jeden Samstag arbeiten.",
               "gap_hint": "müssen",
               "correct_answer": "musste",
               "options": [
@@ -46464,25 +46464,25 @@
                 "instruction": "Fill in the modal verb in the past tense (Präteritum).",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
                 "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
-                "task": "My mother used to have to work every Saturday."
+                "task": "My father used to have to work every Saturday."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в прошедшем времени (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
                 "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
-                "task": "Раньше моей маме приходилось работать каждую субботу."
+                "task": "Раньше моему папе приходилось работать каждую субботу."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в минулому часі (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
                 "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
-                "task": "Раніше моїй мамі доводилося працювати щосуботи."
+                "task": "Раніше моєму татові доводилося працювати щосуботи."
               },
               "tr": {
                 "instruction": "Kip fiilini geçmiş zamanda (Präteritum) yazın.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
                 "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
-                "task": "Eskiden annem her cumartesi çalışmak zorundaydı."
+                "task": "Eskiden babam her cumartesi çalışmak zorundaydı."
               }
             }
           },

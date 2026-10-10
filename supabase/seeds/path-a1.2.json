@@ -16906,7 +16906,7 @@
             "title": "sein чи ihr? (його чи її?)"
           },
           "tr": {
-            "title": "sein mi ihr mi? (erkeğin mi kadının mı?)"
+            "title": "sein mi ihr mi?"
           }
         },
         "goals": [
@@ -17055,7 +17055,7 @@
                 "ihr (Plural)"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Tom und Eva haben Husten. … Mutter kauft Tee.",
+              "question": "Tom und Emil haben Husten. … Mutter kauft Tee.",
               "options": [
                 "Eure",
                 "Ihre",
@@ -17077,25 +17077,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
                 "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
-                "task": "Tom and Eva have a cough. Their mother buys tea."
+                "task": "Tom and Emil have a cough. Their mother buys tea."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
                 "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
-                "task": "У Tom и Eva кашель. Их мама покупает чай."
+                "task": "У Tom и Emil кашель. Их мама покупает чай."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
                 "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
-                "task": "У Tom і Eva кашель. Їхня мама купує чай."
+                "task": "У Tom і Emil кашель. Їхня мама купує чай."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
                 "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
-                "task": "Tom ve Eva öksürüyor. Anneleri çay alıyor."
+                "task": "Tom ve Emil öksürüyor. Anneleri çay alıyor."
               }
             }
           },
@@ -17307,13 +17307,13 @@
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
                 "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
-                "task": "Моя сестра – врач. Её практика находится в Бонне."
+                "task": "Моя сестра — врач. Её врачебный кабинет находится в Бонне."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
                 "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
-                "task": "Моя сестра – лікарка. Її практика розташована в Бонні."
+                "task": "Моя сестра — лікарка. Її лікарський кабінет розташований у Бонні."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",

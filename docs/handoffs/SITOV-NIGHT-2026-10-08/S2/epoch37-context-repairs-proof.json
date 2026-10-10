@@ -1,0 +1,138 @@
+{
+  "validation": {
+    "epoch": 37,
+    "base": "5e5dd34c1e8dfb0e20dced484c35f9826e5ea038",
+    "boundFields": 161,
+    "reviewFields": 156,
+    "EvaNameFields": 5,
+    "changedTasks": 25,
+    "changedNodes": 5,
+    "allExerciseIdentitiesCompared": 9569,
+    "allUnassignedExercisesExact": true,
+    "schemaValidatedExercises": 3839,
+    "eslint": "PASS zero errors/warnings",
+    "nativeParity": {
+      "A1.2": "PASS",
+      "A2.2": "PASS",
+      "A2.1": "HOLD exactly P4-N8-E10.content.parts"
+    },
+    "gateReason": "Builder hashes changed zu Herrn Weber token into another part permutation; exact S4 proposal positions preserved. No source-author part-order override exists and builder file outside allowlist. Separate bounded generator fix required.",
+    "keyChanges": [
+      {
+        "id": "9b9e68de-cd7a-50cf-aad0-430644d65e6c",
+        "ref": "P4-N8-E01",
+        "old": [
+          {
+            "rank": 1,
+            "text": "Können Sie mich bitte mit Frau Weber verbinden?"
+          }
+        ],
+        "new": [
+          {
+            "rank": 1,
+            "text": "Können Sie mich bitte mit Herrn Weber verbinden?"
+          }
+        ]
+      },
+      {
+        "id": "acaccd80-03ef-5a14-ae94-433c4841137d",
+        "ref": "P4-N8-E04",
+        "old": [
+          {
+            "rank": 1,
+            "text": "ihre Durchwahl"
+          }
+        ],
+        "new": [
+          {
+            "rank": 1,
+            "text": "seine Durchwahl"
+          }
+        ]
+      },
+      {
+        "id": "7b824e7d-b6ca-558e-ae23-5fd263931892",
+        "ref": "P4-N8-E10",
+        "old": [
+          {
+            "rank": 1,
+            "text": "Können Sie mich zu Frau Weber durchstellen?"
+          }
+        ],
+        "new": [
+          {
+            "rank": 1,
+            "text": "Können Sie mich zu Herrn Weber durchstellen?"
+          }
+        ]
+      }
+    ],
+    "audioAliases": 38,
+    "changedAudioAliases": 12,
+    "independentReviewRequired": true,
+    "ordinaryImportAllowed": false,
+    "sourceCandidateHOLD": true
+  },
+  "privateEvidence": {
+    "epoch37-validation.json": {
+      "path": "S2/epoch37-validation.json",
+      "bytes": 1885,
+      "sha256": "d53a67cda88e022136b3c843cf3ef9831cedc81a99f5d43ca8e58c651ffe5cd5"
+    },
+    "epoch37-scalar-diff.json": {
+      "path": "S2/epoch37-scalar-diff.json",
+      "bytes": 150247,
+      "sha256": "2c2bd1a2d45e40ed2fd74d27b03817e641c18da3f0470a82a8a13ae4259a776e"
+    },
+    "epoch37-old-new-full.json": {
+      "path": "S2/epoch37-old-new-full.json",
+      "bytes": 959209,
+      "sha256": "4625db18d68922872e12f257aa1c4a464e3e7b632ae6abf59da637c2053c4afe"
+    },
+    "epoch37-full-source-before-after.json": {
+      "path": "S2/epoch37-full-source-before-after.json",
+      "bytes": 768309,
+      "sha256": "822a5f11daf8f01061b8ad964ac37e458eeaa4b3f8742045e61bee86bc7a4f30"
+    },
+    "epoch37-bound-S4-review.json": {
+      "path": "S2/epoch37-bound-S4-review.json",
+      "bytes": 350896,
+      "sha256": "ed0cecc5f969a2f56c8dede35c6d22cbaac4807a4cdcb2763aa81a4a250effaf"
+    },
+    "epoch37-sync.mjs": {
+      "path": "S2/epoch37-sync.mjs",
+      "bytes": 7939,
+      "sha256": "a604ffd8b08184b479ff18cac195ed64f92ebb361306f6cb33037bc432d0ae8a"
+    },
+    "epoch37-repair.py": {
+      "path": "S2/epoch37-repair.py",
+      "bytes": 3223,
+      "sha256": "f7aa798cc68eb0976821b9188d6119284bc926ac75af9f4ead5f0086f55b8d54"
+    },
+    "epoch37-minimize-orders.mjs": {
+      "path": "S2/epoch37-minimize-orders.mjs",
+      "bytes": 3097,
+      "sha256": "1206c213c1b4b88ae13a76b60821c238ddeb67825e46efa875108bad7d936e8c"
+    },
+    "epoch37-author-edits.json": {
+      "path": "S2/epoch37-author-edits.json",
+      "bytes": 3427,
+      "sha256": "07156dc3659fd9f73de27b3bf7807dd6f1b62557d41c160ad18153e7c7fe25da"
+    },
+    "epoch37-eslint.log": {
+      "path": "S2/epoch37-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch37-validate-audio.ts": {
+      "path": "S2/epoch37-validate-audio.ts",
+      "bytes": 2172,
+      "sha256": "c7ced15ce141240a20f992023f433424dd049450fc0723735f4e66b66a5af23c"
+    },
+    "epoch37-final-canonical-audio.json": {
+      "path": "S2/epoch37-final-canonical-audio.json",
+      "bytes": 20150,
+      "sha256": "7046bb14a84bb070a3ae6316a35510d7ac16198e9d975bf49a19ba0f52c8c89e"
+    }
+  }
+}

@@ -10033,7 +10033,7 @@
                 "Kinder"
               ],
               "instruction": "Lies den Text und wähle die richtige Antwort.",
-              "question": "Emre sagt: „Deniz und Elif sind meine Kinder.“ Wie viele Kinder hat Emre?",
+              "question": "Emre sagt: „Deniz und Emir sind meine Kinder.“ Wie viele Kinder hat Emre?",
               "options": [
                 "eins",
                 "zwei",
@@ -10205,7 +10205,7 @@
                 "Ihr"
               ],
               "instruction": "Ergänze den passenden Possessivartikel.",
-              "text_before": "Frau Lindner fragt Herrn Haddad: „Wie alt ist ",
+              "text_before": "Herr Lindner fragt Herrn Haddad: „Wie alt ist ",
               "text_after": " Tochter?“",
               "gap_hint": "Ihr",
               "correct_answer": "Ihre",
@@ -10229,25 +10229,25 @@
                 "instruction": "Fill in the correct possessive (my, your …).",
                 "hint": "The people use Sie with each other, so the possessive is Ihr/Ihre with a capital I – a polite „your“.",
                 "explanation": "Formal or informal: Sie goes with Ihr/Ihre (always a capital I): Ihr Name, Ihre Adresse, Ihre Kinder. du goes with dein/deine: dein Name, deine Adresse.",
-                "task": "Ms Lindner asks Mr Haddad: “How old is your daughter?”"
+                "task": "Mr Lindner asks Mr Haddad: “How old is your daughter?”"
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
                 "hint": "Люди обращаются друг к другу на Sie – значит, нужно Ihr/Ihre с большой буквы, как «Ваш/Ваша».",
                 "explanation": "Официально или неформально: к Sie относится Ihr/Ihre (всегда с большой буквы): Ihr Name, Ihre Adresse, Ihre Kinder. К du – dein/deine: dein Name, deine Adresse.",
-                "task": "Госпожа Lindner спрашивает господина Haddad: «Сколько лет вашей дочери?»"
+                "task": "Господин Lindner спрашивает господина Haddad: «Сколько лет вашей дочери?»"
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
                 "hint": "Люди звертаються одне до одного на Sie – отже, потрібно Ihr/Ihre з великої літери, як «Ваш/Ваша».",
                 "explanation": "Офіційно чи неформально: до Sie належить Ihr/Ihre (завжди з великої літери): Ihr Name, Ihre Adresse, Ihre Kinder. До du – dein/deine: dein Name, deine Adresse.",
-                "task": "Пані Lindner запитує пана Haddad: «Скільки років вашій доньці?»"
+                "task": "Пан Lindner запитує пана Haddad: «Скільки років вашій доньці?»"
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
                 "hint": "Kişiler birbirine Sie diyor; bu yüzden büyük I ile Ihr/Ihre gerekir – „sizin“ gibi.",
                 "explanation": "Resmî ya da samimi: Sie ile Ihr/Ihre (her zaman büyük I) kullanılır: Ihr Name, Ihre Adresse, Ihre Kinder. du ile dein/deine: dein Name, deine Adresse.",
-                "task": "Lindner Hanım, Haddad Bey’e soruyor: “Kızınız kaç yaşında?”"
+                "task": "Lindner Bey, Haddad Bey’e soruyor: “Kızınız kaç yaşında?”"
               }
             }
           },
@@ -10317,7 +10317,7 @@
                 "Alter"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Meine Tochter Lina ist zwölf Jahre ",
+              "text_before": "Mein Sohn Leon ist zwölf Jahre ",
               "text_after": ".",
               "correct_answer": "alt",
               "options": [
@@ -10340,28 +10340,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "Age uses sein (to be), as in English: Er ist acht Jahre alt.",
                 "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
-                "task": "My daughter Lina is twelve years old.",
+                "task": "My son Leon is twelve years old.",
                 "gap_hint": "old (age)"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Возраст выражают глаголом sein: Er ist acht Jahre alt – «Ему восемь лет». Не: „Er hat acht Jahre“.",
                 "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
-                "task": "Моей дочери Lina двенадцать лет.",
+                "task": "Моему сыну Leon двенадцать лет.",
                 "gap_hint": "лет (возраст)"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Вік виражають дієсловом sein: Er ist acht Jahre alt – «Йому вісім років». Не: „Er hat acht Jahre“.",
                 "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
-                "task": "Моїй доньці Lina дванадцять років.",
+                "task": "Моєму синові Leon дванадцять років.",
                 "gap_hint": "років (вік)"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Yaş sein ile söylenir: Er ist acht Jahre alt = O sekiz yaşında. „Er hat acht Jahre“ denmez.",
                 "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
-                "task": "Kızım Lina on iki yaşında.",
+                "task": "Oğlum Leon on iki yaşında.",
                 "gap_hint": "yaşında"
               }
             }
@@ -10376,7 +10376,7 @@
                 "Zahlen bis 20"
               ],
               "instruction": "Schreib die Zahl als Wort.",
-              "text_before": "5 Jahre – Elif ist ",
+              "text_before": "5 Jahre – Emir ist ",
               "text_after": " Jahre alt.",
               "correct_answer": "fünf",
               "options": [

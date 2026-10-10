@@ -1,0 +1,9 @@
+# S2 epoch37 · gebundene Kontextkorrekturen
+
+Exakte Basis `5e5dd34c1e8dfb0e20dced484c35f9826e5ea038`; S4-Review SHA `ed0cecc5f969a2f56c8dede35c6d22cbaac4807a4cdcb2763aa81a4a250effaf` geprüft. Genau 156 Vorschlagsfelder aus 26 Datensätzen plus fünf freigegebene Eva→Emil-Felder angewendet, insgesamt 161 skalare Änderungen in 25 Aufgaben/fünf Knoten. Mutter/Ihre und fachlich erforderliche feminine Beispiele bleiben erhalten. Ganze alte/neue Aufgaben/Knoten, Pfad-Diff und sämtliche betroffenen nativen Git-Quellen privat gesichert.
+
+Drei ausdrücklich versionierte Telefon-Antworten E01/E04/E10 ändern sich mit je einer akzeptierten Variante auf unverändertem Rang1. IDs, Ziele, Typen, Kartenbindungen, Übungsreihenfolge und alle 9.569 Identitäten geprüft; unbeauftragte Aufgaben exakt unverändert. Schema 3.839 Aufgaben und ESLint ohne Fehler/Warnungen bestanden. Die kanonische Audio-Endliste stammt aus dem realen Adapter; keine Synthese oder Import.
+
+**HOLD: Native A2.1-Parität scheitert ausschließlich an P4-N8-E10.content.parts.** Der freigegebene Seed erhält `[mich, durchstellen, zu Herrn Weber, Sie, Können]`. Der bestehende Generator produziert nach der Tokenänderung `[mich, durchstellen, Sie, Können, zu Herrn Weber]`. Alle übrigen Inhalte stimmen überein; A1.2 und A2.2 bestehen die Parität. Für die exakte freigegebene Teilefolge fehlt dem Builder ein Autorenvertrag zur fixierten Teileordnung. Die benötigte Builderdatei liegt außerhalb der epoch37-Freigabe und wurde nicht verändert. M erhielt den Befund während der Einheit; separate begrenzte Generatorreparatur bzw. ausdrückliche neue Teilepermutationsfreigabe erforderlich.
+
+Quellkandidat gesichert, keine Import-/Publikationsfreigabe. Keine DB-/SSH-/API-/Modell-/Audio-/QA-/Import-/Push-/Deployment-Aktion. Atomarer WAIT nach Commit, keine weitere Einheit automatisch.
