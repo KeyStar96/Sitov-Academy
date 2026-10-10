@@ -1,0 +1,56 @@
+{
+  "brand": "Sitov Academy",
+  "epoch": 81,
+  "status": "OFFLINE_FUTURE_AUTHENTICATED_QA60_DRIVER_PREPARED_UNEXECUTED",
+  "baseCommit": "24042d3dd37c04bfd0c5ba27a5ee58e0a3b7ad1a",
+  "inputSHA256": "865ab54617c12bf06ac11b3ab554b258b1f60c91769e63e04593e46c0cd15b57",
+  "driver": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch81-driver.py",
+  "driverSHA256": "deb9e7efe0ce6bcb66ce5516e783623bfe14ab4b290b4a0e1c7e68bfb4336948",
+  "template": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch81-execution-template-private.json",
+  "templateSHA256": "29f0963f108514303d7a31202652e9db992eb220484fdceee2d6428efeafc280",
+  "artifactManifestSHA256": "efba9579c24559c59f1d09d2495c4a7d3683839e9924972585ef6e928478e2a3",
+  "pinnedInputs": {
+    "driver": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch81-driver.py",
+      "SHA256": "deb9e7efe0ce6bcb66ce5516e783623bfe14ab4b290b4a0e1c7e68bfb4336948"
+    },
+    "nativeIds": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-native60-root-actual-results-v1-private.json",
+      "SHA256": "385cdc2ea1071d365776a2a8d202117987a0e6072678f14a57aadb388accb956"
+    },
+    "nativeProof": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-native60-whole-current-root-verification-v1-private.json",
+      "SHA256": "98264701ee6d01906e1e68be4e8cecea591ccf2e31cb2892a588368c41e3fafc"
+    },
+    "runtime": {
+      "path": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/e2e/sitov-night-real-transport/runtime.py",
+      "SHA256": "065b3c62085a4d955de9796037ff15529d01c58b723206c1edc26856bc8414f9"
+    },
+    "authRestSwitchReview": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-owned-authrest-reviewed-switch-v2.py",
+      "SHA256": "671d8a6eb60b2948b63b2bf1f19412124ec0a8a96e347985ab9173bdf891343d"
+    }
+  },
+  "nativeDefinitions": 60,
+  "offlineTests": 20,
+  "executionAuthorized": false,
+  "futureExecutionEpochMustExceed": 81,
+  "actualHTTP": false,
+  "actualMFA": false,
+  "actualPublications": 0,
+  "actualStudentFlow": false,
+  "SQLExecuted": false,
+  "runtimeEffects": false,
+  "productionWrites": 0,
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "ownedJobs": [],
+  "limitations": [
+    "Runnable future proposal; actual endpoint/schema/ACL/MFA/runtime behavior untested",
+    "Future M manifest must pin staged paths/code/proofs/QA runtime and genuine QA keys after actual Auth/REST/Storage target switch",
+    "New fixture staff receives server-owned teacher role and must complete real GoTrue TOTP; copied real accounts never changed",
+    "Fresh student gets commercial QA entitlement separately from exact individual test PASS; recording is a synthetic copy of verified prepared audio, not a real student recording",
+    "Partial publication remains journaled and preserved; no automatic activation reversal, journal reuse or immutable-history deletion",
+    "Whole isolated QA namespace remains until M captures evidence and decides teardown; no automatic account cleanup"
+  ]
+}
