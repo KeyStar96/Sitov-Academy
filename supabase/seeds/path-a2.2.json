@@ -2289,10 +2289,10 @@
               "target_form": [
                 "wäre gern"
               ],
-              "instruction": "Ergänze die richtige Verbform.",
+              "instruction": "Ergänze die Konjunktiv-II-Form von sein.",
               "text_before": "Oleg ist krank. Er ",
               "text_after": " gern wieder gesund.",
-              "gap_hint": "sein / haben / werden (Konjunktiv II)",
+              "gap_hint": "sein (Konjunktiv II)",
               "correct_answer": "wäre",
               "options": [
                 "hätte",
@@ -2311,25 +2311,25 @@
             "explanation_card": "p1_wunsch",
             "translations": {
               "en": {
-                "instruction": "Fill in the correct verb form.",
+                "instruction": "Fill in the Konjunktiv II form of sein.",
                 "hint": "Place or adjective → wäre gern. Noun (a thing) → hätte gern. Verb (doing something) → würde gern + infinitive.",
                 "explanation": "Wishes: reality is different. With gern you say what you wish for. wäre gern + place or adjective: Ich wäre gern am Meer. Er wäre gern reich. (He would like to be rich.) hätte gern + noun in the accusative: Er hätte gern einen Garten. würde gern + infinitive: Wir würden gern reisen. (We would like to travel.) Even stronger is am liebsten: Am liebsten würde ich jetzt schlafen. (Most of all I would like to sleep now.)",
                 "task": "Oleg is ill. He would like to be well again."
               },
               "ru": {
-                "instruction": "Вставьте правильную форму глагола.",
+                "instruction": "Вставьте форму глагола sein в Konjunktiv II.",
                 "hint": "Место или прилагательное → wäre gern. Существительное (вещь) → hätte gern. Глагол (что-то делать) → würde gern + инфинитив.",
                 "explanation": "Желания: в действительности всё иначе. С gern говорят о том, чего хочется. wäre gern + место или прилагательное: Ich wäre gern am Meer. Er wäre gern reich. (Он хотел бы быть богатым.) hätte gern + существительное в Akkusativ: Er hätte gern einen Garten. würde gern + инфинитив: Wir würden gern reisen. (Мы хотели бы путешествовать.) Ещё сильнее am liebsten: Am liebsten würde ich jetzt schlafen. (Больше всего мне сейчас хотелось бы спать.)",
                 "task": "Oleg болен. Он хотел бы снова быть здоровым."
               },
               "uk": {
-                "instruction": "Вставте правильну форму дієслова.",
+                "instruction": "Вставте форму дієслова sein у Konjunktiv II.",
                 "hint": "Місце або прикметник → wäre gern. Іменник (річ) → hätte gern. Дієслово (щось робити) → würde gern + інфінітив.",
                 "explanation": "Бажання: насправді все інакше. З gern кажуть про те, чого хочеться. wäre gern + місце або прикметник: Ich wäre gern am Meer. Er wäre gern reich. (Він хотів би бути багатим.) hätte gern + іменник в Akkusativ: Er hätte gern einen Garten. würde gern + інфінітив: Wir würden gern reisen. (Ми хотіли б подорожувати.) Ще сильніше am liebsten: Am liebsten würde ich jetzt schlafen. (Найбільше мені зараз хотілося б спати.)",
                 "task": "Oleg хворий. Він хотів би знову бути здоровим."
               },
               "tr": {
-                "instruction": "Fiilin doğru biçimini yazın.",
+                "instruction": "sein fiilinin Konjunktiv II biçimini yazın.",
                 "hint": "Yer ya da sıfat → wäre gern. İsim (bir şey) → hätte gern. Fiil (bir şey yapmak) → würde gern + mastar.",
                 "explanation": "Dilekler: Gerçek başka. gern ile insan ne dilediğini söyler. wäre gern + yer ya da sıfat: Ich wäre gern am Meer. Er wäre gern reich. (Zengin olmak isterdi.) hätte gern + Akkusativ halinde isim: Er hätte gern einen Garten. würde gern + mastar: Wir würden gern reisen. (Seyahat etmek isterdik.) Daha güçlüsü am liebsten: Am liebsten würde ich jetzt schlafen. (En çok şimdi uyumak isterdim.)",
                 "task": "Oleg hasta. Yeniden sağlıklı olmak isterdi."

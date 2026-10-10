@@ -1,0 +1,115 @@
+{
+  "epoch": 49,
+  "brand": "Sitov Academy",
+  "base": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+  "actualContentSource": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+  "inputSHA256": "a469fce8ab83a1a3738f5f28585b47d4fe589af83a5ea0fc3003473af888e2d5",
+  "taskId": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+  "ref": "P1-N4-E07",
+  "oldWholeTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+  "newWholeTaskSHA256": "32fc2c5bad37f09170c7080fe390b8dfb781c8808485e443a1e7639b7a0d1aa6",
+  "exactScalarChanges": 6,
+  "localizedInstructions": 5,
+  "gapHints": 1,
+  "tasksChanged": 1,
+  "parentChanges": 0,
+  "objectiveChanges": 0,
+  "answerRevisions": 0,
+  "correctOptionIndex": 1,
+  "allSixOldScalarAndWholeTaskHashesVerified": true,
+  "comparedTasks": 9569,
+  "comparedNodes": 856,
+  "comparedPaths": 66,
+  "allUnassignedWholeObjectsExact": true,
+  "nineOtherSeedsByteExact": true,
+  "allOtherNativeFilesByteExact": true,
+  "nativeRawScalarsChanged": 6,
+  "nativeTaskSourcesChanged": 1,
+  "nativeParity": {
+    "level": "A2.2",
+    "compiledTasks": 1087,
+    "status": "PASS"
+  },
+  "jest": {
+    "testsPass": 11,
+    "testsFail": 0,
+    "testsSkippedByTargetedA22Filter": 88,
+    "suitesPass": 1,
+    "scope": "A2.2 only; no full suites"
+  },
+  "schemaValidatedTasks": 9569,
+  "eslint": {
+    "files": 1,
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffCheck": "PASS",
+  "bothActualAudioAdaptersComparedTasks": 9569,
+  "finalCanonicalAudioAliases": 2,
+  "changedCanonicalAudioAliases": 0,
+  "changedAudioTasks": 0,
+  "fullActualCatalogLevelsCompared": 10,
+  "exactCatalogLevels": 10,
+  "actualUnchangedAliasCacheAndOriginProof": true,
+  "independentWholeTaskReapprovalPendingM": true,
+  "databaseAdoptionApproved": false,
+  "publicationApproved": false,
+  "noAudioGenerationDbSshRuntimeBrowserQAImportsPublicationPushDeployActions": true,
+  "humanHearing": false,
+  "changedSourceFiles": [
+    "supabase/seeds/path-a2.2.json",
+    "supabase/seeds/path-src/a2.2/p1.mjs"
+  ],
+  "privateEvidence": {
+    "epoch49-bound-M-input.json": {
+      "path": "S2/epoch49-bound-M-input.json",
+      "bytes": 8086,
+      "SHA256": "a469fce8ab83a1a3738f5f28585b47d4fe589af83a5ea0fc3003473af888e2d5"
+    },
+    "epoch49-bound-master-assignment.json": {
+      "path": "S2/epoch49-bound-master-assignment.json",
+      "bytes": 1053,
+      "SHA256": "a34c64fe8a14042ad096796087751d3ba6583a3aed0a1dc0bc3ff064e24916bf"
+    },
+    "epoch49-before-full-context.json": {
+      "path": "S2/epoch49-before-full-context.json",
+      "bytes": 10385,
+      "SHA256": "ed8462a0dd0231486cda7fdc3609bde93c0eef604a0f459592bc0930de9e92f7"
+    },
+    "epoch49-old-new-full.json": {
+      "path": "S2/epoch49-old-new-full.json",
+      "bytes": 13003,
+      "SHA256": "6072063d00d5647cf4dd3796578f0524c7486164f9b28c8270fc2c977698294f"
+    },
+    "epoch49-final-reapproval-input.json": {
+      "path": "S2/epoch49-final-reapproval-input.json",
+      "bytes": 10462,
+      "SHA256": "d8d1a3f7446d99aa9716f53dce28d3f5c2445e4b189e6c3bfa073e2bec96aaa7"
+    },
+    "epoch49-final-canonical-audio.json": {
+      "path": "S2/epoch49-final-canonical-audio.json",
+      "bytes": 8834,
+      "SHA256": "4e949ed486267b4ff90830934ea6303e51bdb511210120eef06ceabef4a5b4a4"
+    },
+    "epoch49-native-source-proof.json": {
+      "path": "S2/epoch49-native-source-proof.json",
+      "bytes": 358780,
+      "SHA256": "fd50210f94b0a55dc60498c0ab0209ff1a48eaf8e8d56406b102394ddf441778"
+    },
+    "epoch49-native-line-proof.json": {
+      "path": "S2/epoch49-native-line-proof.json",
+      "bytes": 1298,
+      "SHA256": "958e869972cfbc831f9cd06c314c4085d63ae0364f6cc1e01da11b187ed0a6f0"
+    },
+    "epoch49-author-review.json": {
+      "path": "S2/epoch49-author-review.json",
+      "bytes": 936,
+      "SHA256": "23e31a51a00a6a72767a57e01ba75ce2d5e9402bf9c6ce882130e13a461dfdb4"
+    },
+    "epoch49-jest-result.json": {
+      "path": "S2/epoch49-jest-result.json",
+      "bytes": 37023,
+      "SHA256": "3cda0af193cb8b82163e27697c4d7b911c6da8e5489f0793ae4f410017e04a0b"
+    }
+  }
+}
