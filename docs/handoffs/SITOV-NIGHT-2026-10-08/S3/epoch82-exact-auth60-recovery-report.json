@@ -1,0 +1,91 @@
+{
+  "brand": "Sitov Academy",
+  "epoch": 82,
+  "status": "OFFLINE_EXACT_PARTIAL_AUTH60_RECOVERY_PREPARED_UNEXECUTED",
+  "baseCommit": "adb92162b7715cba282a5e224cca3028df4084dc",
+  "inputSHA256": "101fc3cd528e4bbd1d014549dc384090983659f16652f8582bb6e6003ee010ce",
+  "recoveryPath": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch82-recovery.py",
+  "recoverySHA256": "79aef8b037bf6215a16386256309a5af77bae34919a87383b873015001de6949",
+  "baseDriverSHA256": "01acdb0e1dd8d4ee0e3e293674ba22a1581a51325e099d077bb15088b15fc014",
+  "templateSHA256": "74ecaceaef18d5fe50e2198637639cbcc00e1664f31f209742b8619c29ea027c",
+  "artifactManifestSHA256": "7c02b210e3d359b1f46de30cb304abec0e3c1f33aed0034298361b5917635abc",
+  "pinnedInputs": {
+    "driver": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1/driver.py",
+      "SHA256": "01acdb0e1dd8d4ee0e3e293674ba22a1581a51325e099d077bb15088b15fc014"
+    },
+    "nativeIds": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1/M-native60-root-actual-results-v1-private.json",
+      "SHA256": "385cdc2ea1071d365776a2a8d202117987a0e6072678f14a57aadb388accb956"
+    },
+    "nativeProof": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1/M-native60-whole-current-root-verification-v1-private.json",
+      "SHA256": "98264701ee6d01906e1e68be4e8cecea591ccf2e31cb2892a588368c41e3fafc"
+    },
+    "runtime": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1/runtime.py",
+      "SHA256": "065b3c62085a4d955de9796037ff15529d01c58b723206c1edc26856bc8414f9"
+    },
+    "authRestSwitchReview": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1/M-owned-authrest-reviewed-switch-v2.py",
+      "SHA256": "671d8a6eb60b2948b63b2bf1f19412124ec0a8a96e347985ab9173bdf891343d"
+    },
+    "tableHashes": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1/table_hashes.py",
+      "SHA256": "c576cbf26ba42604b3a5884944476738148ade8144896098a5321925817bc940"
+    },
+    "guardRuntime": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1/runtime.py",
+      "SHA256": "065b3c62085a4d955de9796037ff15529d01c58b723206c1edc26856bc8414f9"
+    },
+    "expectedAudio": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1/epoch80-reviewed-native60-private.json",
+      "SHA256": "578fd3f0ecafa6f126d0c6451ac9a1c4624a138f91e17e323bc58a8777182880"
+    },
+    "recovery": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch82-recovery.py",
+      "SHA256": "79aef8b037bf6215a16386256309a5af77bae34919a87383b873015001de6949"
+    },
+    "baseDriver": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch82-base-driver.py",
+      "SHA256": "01acdb0e1dd8d4ee0e3e293674ba22a1581a51325e099d077bb15088b15fc014"
+    },
+    "legacyLedger": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1-actual/ledger-private.json",
+      "SHA256": "f73bd0865d18526252863aec51e349bf21caca0d202037566de6911de712f816"
+    },
+    "drain": {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-authenticated60-execution-v1-actual/network-drain-checkpoint-private.json",
+      "SHA256": "f7f9ed37e35761350d28cfe56f00c4a9a2efd467c8dd1d0d6fd69a508348ad26"
+    }
+  },
+  "offlineTests": 26,
+  "expectedExistingActors": 2,
+  "expectedInitialNativePublications": 1,
+  "legacyJournalPublished": 0,
+  "remainingInactive": 59,
+  "executionAuthorized": false,
+  "futureEpochMustExceed": 82,
+  "maximumSeconds": 480,
+  "actualHTTP": false,
+  "actualSQL": false,
+  "nativeSQLCompilationVerified": false,
+  "runtimeEffects": false,
+  "credentialsReadOrCopied": false,
+  "newActorsCreated": 0,
+  "models": 0,
+  "humanReview": false,
+  "calibrationStatus": "pending",
+  "productionWrites": 0,
+  "openJobs": [],
+  "limits": [
+    "No recovery execution or native compilation performed; future M reviews/stages/pins and authorizes epoch>82",
+    "Initial native state must be exactly first one active with exact same actor/request/payload receipt, remaining59 inactive; drift HOLD",
+    "Lost publication/retry ack captures native readback if strict guard permits and aborts with pending journal preserved; no blind retry",
+    "Runtime strict1984MiB available/exact960MiB caps/2CPU/3health/all5 noOOM reused; no lowered guard",
+    "SQL read-only15s/2s/4MB/idle15; IO<=15s and total<=480; native query/schema behavior untested",
+    "Reuse same existing actors/factor and0600remotecredentialfile; credentials SHA must be bound by M remotely without copying/printing",
+    "Inherited zero-progress flow uses guarded private synthetic QA answer keys and prepared-audio copy, not real learner audio or calibration evidence",
+    "Preserve all partial receipts/accounts/MFA/attempts/submissions and immutable evidence; no automatic cleanup/activation reversal"
+  ]
+}
