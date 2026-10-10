@@ -119,7 +119,8 @@ def valid_metadata_alignment(metadata, text):
     return valid_spoken_alignment(metadata['spokenAlignment'], metadata.get('wordTimings'), text) if 'spokenAlignment' in metadata else valid_timings(metadata.get('wordTimings'), text)
 
 
-def validate_bundle(root, profile):
+def iter_validated_bundle(root, profile):
+    """Validate/yield one asset at a time for bounded-memory audits."""
     if (profile.get('schemaVersion') != 1 or profile.get('engine') != 'qwen3-tts'
             or profile.get('language') != 'German' or profile.get('profile') != 'male'
             or profile.get('voice') != 'sitov-qwen-male-de-v1'
@@ -140,7 +141,7 @@ def validate_bundle(root, profile):
     rows = manifest.get('rows')
     if not isinstance(rows, list) or not rows:
         raise ValueError('Empty audio bundle')
-    planned, seen = [], set()
+    seen = set()
     for row in rows:
         if 'variant' in row:
             raise ValueError('Caller-selected audio variant forbidden')
@@ -168,8 +169,12 @@ def validate_bundle(root, profile):
             raise ValueError('Audio/text checksum mismatch')
         if metadata.get('engine') != profile['engine'] or metadata.get('voice') != profile['voice'] or metadata.get('revision') != profile['revision'] or metadata.get('profileFingerprint') != fingerprint or not valid_metadata_alignment(metadata, text):
             raise ValueError('Invalid provider/alignment metadata')
-        planned.append((row, audio, metadata))
-    return planned
+        yield row, audio, metadata
+
+
+def validate_bundle(root, profile):
+    # Public import CLI still fully validates before any remote mutation.
+    return list(iter_validated_bundle(root, profile))
 
 
 class LocalStorage:

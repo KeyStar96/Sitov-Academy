@@ -308,5 +308,29 @@ class ImportSitovQwenAudioTests(unittest.TestCase):
         self.assertIn('ON_ERROR_STOP=1', run.call_args.args[0])
 
 
+    def test_streaming_audit_reads_one_audio_and_full_validation_still_rejects_later_errors(self):
+        manifest = self.bundle(('Hallo.', 'Guten Morgen.'))
+        original = Path.read_bytes
+        reads = []
+        def read(path):
+            if path.suffix == '.mp3':
+                reads.append(str(path))
+            return original(path)
+        with patch.object(Path, 'read_bytes', new=read):
+            assets = MODULE.iter_validated_bundle(self.root, PROFILE)
+            first = next(assets)
+            self.assertEqual(first[0]['text'], 'Hallo.')
+            self.assertEqual(len(reads), 1)
+            next(assets)
+            self.assertEqual(len(reads), 2)
+            self.assertRaises(StopIteration, next, assets)
+        metadata_path = self.root / (manifest['rows'][1]['cachePath'] + '.json')
+        metadata = json.loads(metadata_path.read_text())
+        metadata['wordTimings'] = []
+        metadata_path.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(ValueError, 'alignment metadata'):
+            MODULE.validate_bundle(self.root, PROFILE)
+
+
 if __name__ == '__main__':
     unittest.main()
