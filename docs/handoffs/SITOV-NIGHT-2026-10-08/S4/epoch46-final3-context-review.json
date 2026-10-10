@@ -1,0 +1,695 @@
+{
+  "epoch": 46,
+  "school": "Sitov Academy",
+  "reviewer": "S4",
+  "createdAt": "2026-10-10T04:25:21.043652+00:00",
+  "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+  "actualContentCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+  "verdict": "3_TASKS_3_PARENT_CONTEXTS_2_ALL_OBJECTIVE_SETS_ACCEPT",
+  "hashConvention": "SHA256 UTF8 Python json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(comma,colon)); byteSHA256 hashes exact file bytes.",
+  "input": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-S4-epoch46-final3-context-review-input-private.json",
+    "bytes": 29732,
+    "byteSHA256": "7d22fadc1de1dac2c8b8360ddb95c50f78695afaa7e9dd0d7d30b5c64271c651"
+  },
+  "counts": {
+    "assignedTasks": 3,
+    "wholeFiveLocaleTasksRead": 3,
+    "ACCEPT": 3,
+    "HOLD": 0,
+    "PARTIAL": 0,
+    "completeContainingParentContextsRead": 3,
+    "uniqueALLPathObjectiveSetsRead": 2,
+    "uniqueCurrentWholeObjectivesRead": 24,
+    "oldP7ObjectivesReadForDelta": 13,
+    "literalDictionaryStrings": 73
+  },
+  "sourceFileBindings": [
+    {
+      "file": "supabase/seeds/path-a1.1.json",
+      "currentByteSHA256": "afb5c9c5ddc2ba16252507b1aac00d9438ae68297b473b0ff2f77f13debbf962",
+      "S7ActualSourceByteSHA256": "b15d8bf5602b4c5cef34166b46c54eb8ff456403e4e1fa928b72904c03a0a171"
+    },
+    {
+      "file": "supabase/seeds/path-a1.2.json",
+      "currentByteSHA256": "3ae4ce04b9d80f819d82eac83f442b1ac2aefcc228f85e60834df51da34098fd",
+      "S7ActualSourceByteSHA256": "3ae4ce04b9d80f819d82eac83f442b1ac2aefcc228f85e60834df51da34098fd"
+    },
+    {
+      "file": "supabase/seeds/path-a2.1.json",
+      "currentByteSHA256": "2734676bffb1d33b5ebf7c1d80950519cf0cce7f4b1904413e68176294fb8a77",
+      "S7ActualSourceByteSHA256": "88fdd330b1872a17dd99210d1cde9bce45970bc32ecb733470235cf800ecb11c"
+    },
+    {
+      "file": "supabase/seeds/path-a2.2.json",
+      "currentByteSHA256": "800c2fa907d66546e6a80a431595bc24176242ea3367d051f5c480329b53568d",
+      "S7ActualSourceByteSHA256": "800c2fa907d66546e6a80a431595bc24176242ea3367d051f5c480329b53568d"
+    },
+    {
+      "file": "supabase/seeds/path-b1.1.json",
+      "currentByteSHA256": "e4920a3efbdea368ce7ad31623303c740305a4b4d75f03330145dc8c765408ea",
+      "S7ActualSourceByteSHA256": "e4920a3efbdea368ce7ad31623303c740305a4b4d75f03330145dc8c765408ea"
+    },
+    {
+      "file": "supabase/seeds/path-b1.2.json",
+      "currentByteSHA256": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5",
+      "S7ActualSourceByteSHA256": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5"
+    },
+    {
+      "file": "supabase/seeds/path-b2.1.json",
+      "currentByteSHA256": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665",
+      "S7ActualSourceByteSHA256": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665"
+    },
+    {
+      "file": "supabase/seeds/path-b2.2.json",
+      "currentByteSHA256": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a",
+      "S7ActualSourceByteSHA256": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a"
+    },
+    {
+      "file": "supabase/seeds/path-c1.1.json",
+      "currentByteSHA256": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c",
+      "S7ActualSourceByteSHA256": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c"
+    },
+    {
+      "file": "supabase/seeds/path-c1.2.json",
+      "currentByteSHA256": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5",
+      "S7ActualSourceByteSHA256": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5"
+    }
+  ],
+  "exactSourceDeltaVerification": {
+    "fixCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+    "previousCommit": "6aae253d678bd825db68d02d05fe226f8354234c",
+    "versusS7ActualSourceCommit": "c8cbd52e9ee89621dc0658d7eaa2b24e4c5eb0e9",
+    "seedScalarChanges": [
+      {
+        "file": "supabase/seeds/path-a1.1.json",
+        "path": [
+          6,
+          "objectives",
+          8,
+          "description"
+        ],
+        "before": "Sich oder das eigene Kind entschuldigen und darauf reagieren („Gute Besserung“, „Ich sage es der Lehrerin“).",
+        "after": "Sich oder das eigene Kind entschuldigen und darauf reagieren („Gute Besserung“, „Ich sage es dem Lehrer“)."
+      },
+      {
+        "file": "supabase/seeds/path-a2.1.json",
+        "path": [
+          1,
+          "nodes",
+          0,
+          "exercises",
+          2,
+          "content",
+          "question"
+        ],
+        "before": "Wie heißt eine Frau, der ein vermietetes Haus gehört und die dafür Miete bekommt? Sie ist die ___",
+        "after": "Wie heißt eine Frau, der ein vermietetes Haus gehört und die Miete bekommt? Sie ist die ___"
+      }
+    ],
+    "taskScalarChanges": 1,
+    "objectiveScalarChanges": 1,
+    "answerKeyChanges": 0,
+    "acceptedAnswerChanges": 0,
+    "optionChanges": 0,
+    "partsChanges": 0,
+    "parentChanges": 0,
+    "allOtherSeedFieldsPreserved": true,
+    "allSeedTasksCompared": 9569,
+    "allSeedParentsCompared": 856,
+    "nativeAuthoringMirror": {
+      "file": "supabase/seeds/path-src/a2.1/p2.mjs",
+      "beforeByteSHA256": "46b6f8df085c9f34ffa2aa1ad355450fe0d2f62fc3ee1caad4558f269b09739e",
+      "afterByteSHA256": "eb08be230632af56c46ef5631e877d74f6717bb9919856b38371e3f1fd3e0d32",
+      "sameOneQuestionRemovalOnly": true,
+      "generatorExecuted": false
+    },
+    "fixCommitChangedFiles": [
+      "docs/handoffs/SITOV-NIGHT-2026-10-08/S2/epoch44-two-scalars-proof.json",
+      "docs/handoffs/SITOV-NIGHT-2026-10-08/S2/epoch44-two-scalars.md",
+      "supabase/seeds/path-a1.1.json",
+      "supabase/seeds/path-a2.1.json",
+      "supabase/seeds/path-src/a2.1/p2.mjs"
+    ],
+    "productFilesLimitedToTwoSeedsAndOneNativeMirror": true
+  },
+  "rows": [
+    {
+      "index": 1,
+      "id": "80c5a07d-15d1-5240-a67f-556b880387ce",
+      "ref": "P7-N10-E07",
+      "contextKey": "A1.1/P7/P7-N10",
+      "verdict": "ACCEPT",
+      "wholeTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allObjectivesVerdict": "ACCEPT",
+      "reasonDe": "Ich kann nicht zum Deutschkurs kommen verlangt können in erster Person Singular: kann. Herr Roth/Albers sind männliche Adressaten. RU/UK-Klammerformen болен (больна) bzw. хворий (хвора) beziehen sich auf das reale Selbst einer offenen Schreibvorlage; keine benannte weibliche Lernfigur. Alle fünf Fassungen und die vollständigen Elternregeln sind korrekt. Sämtliche 13 P7-Ziele passen; die männliche P7-K4-Reaktionsformel stimmt nun mit der Karte überein.",
+      "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "actualContentCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "wholeFinalSeedExerciseSHA256": "72c97634e0ada8b87cb9d4f411e14959fa4749b45d3ff6c3a0991eccf13cf618",
+      "wholeFinalParentWithoutChildrenSHA256": "1926be33f1bd2e310b5b030edb8d686eba98aabea15f978fc4a64a2febff8cf3",
+      "wholeFinalObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "localeFullSHA256": {
+        "de": "c5c20119f522b698894b770328ac3757f45459be8611056adfb74001521ca58f",
+        "en": "3ebd7a9cb5e570d2e803131b822d5c309626c71e0f3abca9e380b6bbc284da2e",
+        "ru": "51067b6f61c33e1871cddceb4ac2d94aa4d6e0353eb4e0762c8c1e7c04ca0ef1",
+        "uk": "c1c91b3f05f133f72720cf2ad0b9a82d4ff7143237c3676cca6032d80209fd56",
+        "tr": "e0a8ea602c62a3a80cd5734a3bfe0db91ddb8a40155bbafe2bde22ed5c4951d3"
+      },
+      "acceptedAnswers": [
+        "kann"
+      ],
+      "correctOptionPositionZeroBased": 2,
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "wholeTaskDE_EN_RU_UK_TR": true,
+        "allOptionsPartsKeysAcceptedAnswersHintsExplanations": true,
+        "wholeParentWithoutChildrenAllLocaleTitlesCardsRulesExamples": true,
+        "fullpathobjectivesRead": true,
+        "unassignedSiblingsRead": false,
+        "contentReadTruncations": 0,
+        "literalDeduplicationDictionary": "literalStringDictionary"
+      },
+      "priorReviewUsedAsApproval": false,
+      "publicationApproved": false
+    },
+    {
+      "index": 2,
+      "id": "ba113900-0731-5e25-a06f-428c2a001809",
+      "ref": "P7-N11-E11",
+      "contextKey": "A1.1/P7/P7-N11",
+      "verdict": "ACCEPT",
+      "wholeTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allObjectivesVerdict": "ACCEPT",
+      "reasonDe": "Viele Grüße ist die eindeutige Grußformel; Dank/Besserung passen nicht. Kofi Mensah ist männlicher Absender; RU я болен und UK я хворий stimmen. Alle fünf Aufgabenfassungen, Hinweise und vollständige Schreibregel korrekt. Wiederholungs-Elternkontext ohne eigene Karte und alle 13 P7-Ziele passen; die korrigierte Kommunikationsrolle verändert die Antwortanforderung nicht.",
+      "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "actualContentCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "wholeFinalSeedExerciseSHA256": "b4a7dac5a43490bbfdee4a899518d54054871578705ebf153e66cf386351caa6",
+      "wholeFinalParentWithoutChildrenSHA256": "e28af79867e7c9cd74bf3c775e853cbc1aca4aad578a7a8d0a1c5d3ef464e965",
+      "wholeFinalObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "localeFullSHA256": {
+        "de": "e5f96084659fd8571b654a171d58850ff95e241c67c94142f0360c4fb0750080",
+        "en": "9f3a17c2134e0b95d430ec027e6adfae679e5a8f02668cf091b4aff9c7609872",
+        "ru": "62339a10fbe64229837471f15d49493cde86853af8fb9bf636f4d03f71dce314",
+        "uk": "6205fcfe6aa5082ebce96923b5cedfdc2f5781d637fb8450967c7b0e3eff4ba6",
+        "tr": "555cb50dbb6a2a8f08b5ef3eba4bed2e1c64e778a361e6118ae07ada744ab3e2"
+      },
+      "acceptedAnswers": [
+        "Grüße"
+      ],
+      "correctOptionPositionZeroBased": 1,
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "wholeTaskDE_EN_RU_UK_TR": true,
+        "allOptionsPartsKeysAcceptedAnswersHintsExplanations": true,
+        "wholeParentWithoutChildrenAllLocaleTitlesCardsRulesExamples": true,
+        "fullpathobjectivesRead": true,
+        "unassignedSiblingsRead": false,
+        "contentReadTruncations": 0,
+        "literalDeduplicationDictionary": "literalStringDictionary"
+      },
+      "priorReviewUsedAsApproval": false,
+      "publicationApproved": false
+    },
+    {
+      "index": 3,
+      "id": "786e931e-5782-5fbb-aacc-c04cdb662120",
+      "ref": "P2-N1-E03",
+      "contextKey": "A2.1/P2/P2-N1",
+      "verdict": "ACCEPT",
+      "wholeTaskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "allObjectivesVerdict": "ACCEPT",
+      "reasonDe": "Eine Frau, der ein vermietetes Haus gehört und die Miete bekommt, heißt Vermieterin. Hausmeisterin repariert/verwaltet; Mieterin zahlt Miete. Weibliche Formen sind notwendige Wortschatzdefinitionen, keine benannte Lernfigur. Alle fünf Fassungen, Kartenregeln und Beispiele stimmen. Alle elf A2.1/P2-Ziele zu Ort/Richtung, Nachbarschaftshilfe, Mitteilungen und Wohnwortschatz sind kompatibel. Das entfernte dafür war für Bedeutung und Lösung unnötig; der Wortlaut führt kein späteres Pronominaladverbziel mehr ein.",
+      "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "actualContentCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "wholeFinalSeedExerciseSHA256": "fe39f23ea1c63fd1f674669304012b62f52c6c36c2f2fcbb01f4f7f9850e5d9c",
+      "wholeFinalParentWithoutChildrenSHA256": "64630233e852ce2875c25ed3bed8c6eece4eeae0f2cfb5022d7fd03863459914",
+      "wholeFinalObjectivesSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "localeFullSHA256": {
+        "de": "4f8b78e6502bc5780fb394aac0c82472694131d773449e09c3d5ee7976a20f2f",
+        "en": "d315265660e7e1e60a64c764baf75e57b164263366a1cffa890f5f5b08e9c0e6",
+        "ru": "46440641cde1fc76ab6272804fe096bafda2cf050f3013c6bbe6fa070dcce994",
+        "uk": "2ae4b1eb9428ecabd5147c835cdb255fdff44a9d0d1d447636be59a84b90e6d6",
+        "tr": "6683cd8e4638bfa06561d80de2975b6612a0c622cdfc792e684946f70f4c79b6"
+      },
+      "acceptedAnswers": [
+        "Vermieterin"
+      ],
+      "correctOptionPositionZeroBased": 0,
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "wholeTaskDE_EN_RU_UK_TR": true,
+        "allOptionsPartsKeysAcceptedAnswersHintsExplanations": true,
+        "wholeParentWithoutChildrenAllLocaleTitlesCardsRulesExamples": true,
+        "fullpathobjectivesRead": true,
+        "unassignedSiblingsRead": false,
+        "contentReadTruncations": 0,
+        "literalDeduplicationDictionary": "literalStringDictionary"
+      },
+      "priorReviewUsedAsApproval": false,
+      "publicationApproved": false
+    }
+  ],
+  "parentContextReviews": [
+    {
+      "contextKey": "A1.1/P7/P7-N10",
+      "verdict": "ACCEPT",
+      "allObjectivesVerdict": "ACCEPT",
+      "reasonDe": "Entschuldigung, Krankmeldung und Reaktion Gute Besserung/Ich sage es dem Lehrer sind in allen fünf Regeln korrekt. Alle Beispiele und vollständigen 13 Pfadziele passen zu P7-K4/P7-Z1. Der Kommunikationsrollenbezug ist jetzt durchgehend männlich; Modalverb-/Perfektziele und Antwortanforderungen bleiben gleich.",
+      "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "wholeFinalParentWithoutChildrenSHA256": "1926be33f1bd2e310b5b030edb8d686eba98aabea15f978fc4a64a2febff8cf3",
+      "wholeFinalObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "allPathObjectiveIDs": [
+        "P7-G1",
+        "P7-G2",
+        "P7-G3",
+        "P7-G4",
+        "P7-G5",
+        "P7-K1",
+        "P7-K2",
+        "P7-K3",
+        "P7-K4",
+        "P7-K5",
+        "P7-K6",
+        "P7-Z1",
+        "P7-W1"
+      ],
+      "wholeParentFiveLocalesCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "allPathObjectiveCount": 13,
+      "unassignedChildrenApproved": false
+    },
+    {
+      "contextKey": "A1.1/P7/P7-N11",
+      "verdict": "ACCEPT",
+      "allObjectivesVerdict": "ACCEPT",
+      "reasonDe": "Alle fünf Wiederholungstitel und alle 13 Zielverweise passen zu sämtlichen vollständig gelesenen Pfadzielen. Keine eigene Karte/Regeln/Beispiele vorhanden. Die zugewiesene Grußformelaufgabe und korrigierte männliche Lehrerreaktion sind kompatibel.",
+      "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "wholeFinalParentWithoutChildrenSHA256": "e28af79867e7c9cd74bf3c775e853cbc1aca4aad578a7a8d0a1c5d3ef464e965",
+      "wholeFinalObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "allPathObjectiveIDs": [
+        "P7-G1",
+        "P7-G2",
+        "P7-G3",
+        "P7-G4",
+        "P7-G5",
+        "P7-K1",
+        "P7-K2",
+        "P7-K3",
+        "P7-K4",
+        "P7-K5",
+        "P7-K6",
+        "P7-Z1",
+        "P7-W1"
+      ],
+      "wholeParentFiveLocalesCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "allPathObjectiveCount": 13,
+      "unassignedChildrenApproved": false
+    },
+    {
+      "contextKey": "A2.1/P2/P2-N1",
+      "verdict": "ACCEPT",
+      "allObjectivesVerdict": "ACCEPT",
+      "reasonDe": "Die fünf vollständigen Wohnwortschatzregeln unterscheiden Mieter/Vermieter/Hausmeister sowie Haus-/Wohnungsteile korrekt; drei Beispiele und alle elf Pfadziele passen. Weibliche Berufs-/Personenbezeichnungen sind explizite Wortschatz-/Genuspaare. Die zugewiesene Vermieterin-Definition passt zu P2-W1.",
+      "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+      "wholeFinalParentWithoutChildrenSHA256": "64630233e852ce2875c25ed3bed8c6eece4eeae0f2cfb5022d7fd03863459914",
+      "wholeFinalObjectivesSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "allPathObjectiveIDs": [
+        "P2-G1",
+        "P2-G2",
+        "P2-G3",
+        "P2-K1",
+        "P2-K2",
+        "P2-K3",
+        "P2-K4",
+        "P2-K5",
+        "P2-K6",
+        "P2-Z1",
+        "P2-W1"
+      ],
+      "wholeParentFiveLocalesCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "allPathObjectiveCount": 11,
+      "unassignedChildrenApproved": false
+    }
+  ],
+  "allPathObjectiveReviews": [
+    {
+      "pathKey": "A1.1/P7",
+      "verdict": "ACCEPT_OBJECTIVE_CONTEXT",
+      "wholeFinalObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+      "allPathObjectiveCount": 13,
+      "fullpathobjectivesRead": true,
+      "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75"
+    },
+    {
+      "pathKey": "A2.1/P2",
+      "verdict": "ACCEPT_OBJECTIVE_CONTEXT",
+      "wholeFinalObjectivesSHA256": "d65bdb0b569b7fe44bd664f737b686290caafbcb895b92d5eeb8f2ddda81cbdb",
+      "allPathObjectiveCount": 11,
+      "fullpathobjectivesRead": true,
+      "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75"
+    }
+  ],
+  "objectiveDeltaReview": {
+    "scope": "ONLY final A1.1/P7 ALL-objective set semantic delta versus S7 epoch23 original actual-source 64-objective review",
+    "verdict": "ACCEPT_COMPATIBLE_WITH_UNCHANGED_PRIOR_REVIEWED_TASK_PARENT_CONTEXTS",
+    "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+    "originalActualSourceCommit": "c8cbd52e9ee89621dc0658d7eaa2b24e4c5eb0e9",
+    "priorS7ReviewFile": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S7/epoch23-reviewed.json",
+    "priorS7ReviewByteSHA256": "a23e41f69dc60fbf120ba60d10486fefb7ff97ed4369a8afc0f241fbc6b81f4d",
+    "priorS7WholeObjectiveCount": 64,
+    "priorS7P7ObjectiveCount": 13,
+    "oldALLObjectivesSHA256": "4bb39fcecedd83b4275515793e165203f96a53102f829102a185159bf7b0511e",
+    "finalALLObjectivesSHA256": "82b72920e2f0103ce37630d4f0982fdbf6d658b0600d963e59d226f4ed353428",
+    "fullpathobjectivesRead": true,
+    "wholeOldAndFinalP7ObjectivesActuallyRead": true,
+    "delta": {
+      "file": "supabase/seeds/path-a1.1.json",
+      "path": [
+        6,
+        "objectives",
+        8,
+        "description"
+      ],
+      "before": "Sich oder das eigene Kind entschuldigen und darauf reagieren („Gute Besserung“, „Ich sage es der Lehrerin“).",
+      "after": "Sich oder das eigene Kind entschuldigen und darauf reagieren („Gute Besserung“, „Ich sage es dem Lehrer“)."
+    },
+    "objectiveID": "P7-K4",
+    "area": "communication",
+    "sameIDAreaCommunicationMeaningAndGrammarGoals": true,
+    "allOther12P7ObjectivesUnchanged": true,
+    "newAnswerRequirement": false,
+    "prior27WholeTasksAnd14ParentsMechanicallyVerifiedUnchanged": true,
+    "compatibilityReasonDe": "Nur die Reaktionsformel wechselt von der Lehrerin zu dem Lehrer. Die kommunikative Handlung bleibt eine Krankmeldung entgegenzunehmen und weiterzugeben; Ziel-ID und Bereich bleiben gleich. Alle Modalverb-/Perfekt-/Satzklammerziele sind unverändert. Die männliche Rolle stimmt mit der bereits geprüften Regelkarte überein. Daher ist ausschließlich diese Lernzieländerung mit den unveränderten, bereits unabhängig geprüften Aufgaben-/Elternkontexten kompatibel. Die drei zugewiesenen Aufgaben wurden hier zusätzlich vollständig frisch gelesen.",
+    "newBlanketWholeTaskApproval": false,
+    "automaticReviewCompositionApproved": false,
+    "compositionAuthority": "M must explicitly decide any later composition of prior full review and this exact semantic delta."
+  },
+  "priorTaskParentPreservationBindings": [
+    {
+      "id": "0d619795-3373-5141-a891-6f8c3722c6fd",
+      "contextKey": "A1.1/P1/P1-N1",
+      "unchangedWholeTaskSHA256": "2cdb7e201a1c459631b8d03ff3c1df6c8301e6129ae46e12d160bed549f06b35",
+      "unchangedParentSHA256": "e6841077169b67016d32aa3d9e987343633c37bff1d83c9733848796d8e6c87a",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "7840ba0e-2cb9-5c7c-a3fa-3e01e33b17db",
+      "contextKey": "A1.1/P1/P1-N1",
+      "unchangedWholeTaskSHA256": "4695dfd89ac58572de4b0935facb207c1e91a93dd1f366950c6d4b00d989c884",
+      "unchangedParentSHA256": "e6841077169b67016d32aa3d9e987343633c37bff1d83c9733848796d8e6c87a",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "d5656583-fcdf-5ffd-a1a4-48d246e06c2d",
+      "contextKey": "A1.1/P1/P1-N1",
+      "unchangedWholeTaskSHA256": "65be1f8b1f93a51348875a565dabdf41751a3213bc78c1b08653c7986c6a4ec2",
+      "unchangedParentSHA256": "e6841077169b67016d32aa3d9e987343633c37bff1d83c9733848796d8e6c87a",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "87960740-85cc-5c61-a339-0aec28910c9c",
+      "contextKey": "A1.1/P1/P1-N2",
+      "unchangedWholeTaskSHA256": "ca83b1b6a4957df15931bacdb85b444f2d7a052c4b5c6c47a18fd2615a01e293",
+      "unchangedParentSHA256": "587f56bb7e62a759e799fe14ee2cc68f5a3e5457a12ea0c8038cecca90d1acca",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "d6edb692-86d2-5636-a5ba-755aa24ff8db",
+      "contextKey": "A1.1/P1/P1-N3",
+      "unchangedWholeTaskSHA256": "5b2d329b8b901fab14abf36d1544f4b91b486255a04e11106d25fd1ba7a8628f",
+      "unchangedParentSHA256": "d10cafc41acc35347b767c0e417f7b68e503df73721546823935b23acbc03793",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "217d6b5a-2a91-53ea-a56b-b31f167dae3e",
+      "contextKey": "A1.1/P1/P1-N3",
+      "unchangedWholeTaskSHA256": "0b1661d814e62f45385fe1ea336b1f920ea64ecef97023018504ead1bdf72d26",
+      "unchangedParentSHA256": "d10cafc41acc35347b767c0e417f7b68e503df73721546823935b23acbc03793",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "4634b67f-1e37-5f06-acce-fa68f7bc6403",
+      "contextKey": "A1.1/P1/P1-N3",
+      "unchangedWholeTaskSHA256": "6ee65e2298ad18dd9ad1c95cb001570fc7ed8d87a5439ce3402ab46bac9ee074",
+      "unchangedParentSHA256": "d10cafc41acc35347b767c0e417f7b68e503df73721546823935b23acbc03793",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "87b3cc6a-3c4a-5960-aa97-3419177c9dab",
+      "contextKey": "A1.1/P1/P1-N6",
+      "unchangedWholeTaskSHA256": "5378e0ddafd55015834c77c651a7367c10fe6bd3995030dfb51af3c6fde68b1b",
+      "unchangedParentSHA256": "dcba2261d14cb7987b96b0d0b5102b9cbd603d3170118d03425494867ba83978",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "b2a6344b-a62e-53db-aebd-cf9c578edb3b",
+      "contextKey": "A1.1/P1/P1-N8",
+      "unchangedWholeTaskSHA256": "a528e7204e63262dff2d894a62a522a1dd69b1a2d8380641c44198be78e9e83b",
+      "unchangedParentSHA256": "38fd0668887992ce1626b2fcda1b3d5724872b3faf6c3c347d5495200b31fac0",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "4d943c1c-d012-5500-aafd-e2f02a26de37",
+      "contextKey": "A1.1/P1/P1-N8",
+      "unchangedWholeTaskSHA256": "94808f3b3b605d60ad8d0ac2967e6a4709043413d414cdfd2f6e02d1caf9b014",
+      "unchangedParentSHA256": "38fd0668887992ce1626b2fcda1b3d5724872b3faf6c3c347d5495200b31fac0",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "1305d47f-435f-5d5b-a179-7f771093cbf4",
+      "contextKey": "A1.1/P1/P1-N10",
+      "unchangedWholeTaskSHA256": "44af34afbb87e9764b060f3edc75f29f1ec63958640b14e411af4b6b7c8eeef3",
+      "unchangedParentSHA256": "ab5df85b71544449e9e612ff4c118f2b83390e5762567d523cb64f75295d23d4",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "53e0be79-221d-5f53-a454-e8d23fee8e2a",
+      "contextKey": "A1.1/P1/P1-N11",
+      "unchangedWholeTaskSHA256": "65789c24560e67fb4202f2a353750c9e26f5f3f9dc9d2943bd19a9d186e1e901",
+      "unchangedParentSHA256": "b5bb8eb18377c8c800e3921e54fbe9916b7f9a8464abe2b66feed2961450868a",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "1cfedce6-c385-5e55-a351-c79f9f3d4a9a",
+      "contextKey": "A1.1/P1/P1-N11",
+      "unchangedWholeTaskSHA256": "c23ad83b0a772b7d0161305647153fef9ac27ef96abc1593bf5e0b083e358735",
+      "unchangedParentSHA256": "b5bb8eb18377c8c800e3921e54fbe9916b7f9a8464abe2b66feed2961450868a",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "7863bdb2-e5ae-555b-a0d4-a49e406ff663",
+      "contextKey": "A1.1/P1/P1-N11",
+      "unchangedWholeTaskSHA256": "fed469231132515305ecaa4d01898a66dd331f65026c4f8bd8d803dfe5390293",
+      "unchangedParentSHA256": "b5bb8eb18377c8c800e3921e54fbe9916b7f9a8464abe2b66feed2961450868a",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "488cabff-bdf9-5dbb-ab1e-e79cd81295cd",
+      "contextKey": "A1.1/P1/P1-N11",
+      "unchangedWholeTaskSHA256": "7ee39f630a72a06bbe4410dd7f3bad4ea06dea2f111a9aa5711fa9d1f035e7f7",
+      "unchangedParentSHA256": "b5bb8eb18377c8c800e3921e54fbe9916b7f9a8464abe2b66feed2961450868a",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "48b7b2e4-bb18-5ef8-a062-7ca2b1aa4d0a",
+      "contextKey": "A1.1/P1/P1-N11",
+      "unchangedWholeTaskSHA256": "bb498d6160f60e98ac1c82f736c784c17bee1ead8c2b16c0f125bbb1435f68a3",
+      "unchangedParentSHA256": "b5bb8eb18377c8c800e3921e54fbe9916b7f9a8464abe2b66feed2961450868a",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "f7b45c94-d5a7-57de-ab41-15d6245cd190",
+      "contextKey": "A1.1/P1/P1-N11",
+      "unchangedWholeTaskSHA256": "16122312d7d7e46c7b770021e27153de0a0a5bd8139aa8a1f0ab624bdc672117",
+      "unchangedParentSHA256": "b5bb8eb18377c8c800e3921e54fbe9916b7f9a8464abe2b66feed2961450868a",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "8236aa5b-a9a1-54c8-ad74-83ed5b23ff23",
+      "contextKey": "A1.1/P2/P2-N1",
+      "unchangedWholeTaskSHA256": "b530bb376cdfef3480d02bf31a26bb333b678c688982229598928ff3eaf68016",
+      "unchangedParentSHA256": "b253f8bf246cf22aadfebaf14a26a9672fa4434327050e45fead40664873300e",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "86a59c42-5542-50de-a153-01b930919851",
+      "contextKey": "A1.1/P2/P2-N2",
+      "unchangedWholeTaskSHA256": "f8b7d62ad6e8d6b13253204c7860a009cc6a0560f96a9ec417788ec5a470b726",
+      "unchangedParentSHA256": "b8c2afc96fad253dbebea4a315041c99eb7c71ed907d6450aff4eb18ebdf0a4e",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "4925dd44-6f47-5abf-ae7a-8aebb3d158d0",
+      "contextKey": "A1.1/P2/P2-N12",
+      "unchangedWholeTaskSHA256": "4c282ceb4a8a5cbbcb57b8dff4ad3dfa724af0915c0839509c11fdec22139e41",
+      "unchangedParentSHA256": "7c0f55e1461f867c946f6b256b776b114a4af63b63847a1f2628a7db707fcc42",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "1c827a28-8478-531c-a422-8da06a7267e0",
+      "contextKey": "A1.1/P2/P2-N12",
+      "unchangedWholeTaskSHA256": "333806d91d252bee87fc3fdd84bd7476c2c101ffbdd8f5498b0fbbb544959aae",
+      "unchangedParentSHA256": "7c0f55e1461f867c946f6b256b776b114a4af63b63847a1f2628a7db707fcc42",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "53d42a10-0ae5-51b8-a5cb-cabee04122c0",
+      "contextKey": "A1.1/P4/P4-N5",
+      "unchangedWholeTaskSHA256": "d67a08057377730a8c2d0a6d39c71ccd39f68673d02220fb61abdaf329674135",
+      "unchangedParentSHA256": "3bf3a255f5c57d45c442992f967cf9d500070a5afee662a30007142a7042887f",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "1183ed3a-27fa-547c-a9db-0584a35c766c",
+      "contextKey": "A1.1/P6/P6-N12",
+      "unchangedWholeTaskSHA256": "ac3f5f12d8f2debca482aba74682185f788f1addc5a78ab24eeee50c531fa20d",
+      "unchangedParentSHA256": "abd2092fe2b7ccbe3f6f2d854b76bf25787b975bf3f6b9318f5123b669355d22",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "64d59542-e525-582e-afb6-d9f5bda8d17e",
+      "contextKey": "A1.1/P6/P6-N12",
+      "unchangedWholeTaskSHA256": "41f730788ace210f62dd0ace36e9ad668037f4382edb9d9c40a31e8cd4f18a3e",
+      "unchangedParentSHA256": "abd2092fe2b7ccbe3f6f2d854b76bf25787b975bf3f6b9318f5123b669355d22",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "35cc159a-b8c5-52ff-ab96-579a0f64298e",
+      "contextKey": "A1.1/P6/P6-N12",
+      "unchangedWholeTaskSHA256": "e243313fa64e694f0ac024e207be4448798483b844fe6db80f94e99c46c5873b",
+      "unchangedParentSHA256": "abd2092fe2b7ccbe3f6f2d854b76bf25787b975bf3f6b9318f5123b669355d22",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": false
+    },
+    {
+      "id": "80c5a07d-15d1-5240-a67f-556b880387ce",
+      "contextKey": "A1.1/P7/P7-N10",
+      "unchangedWholeTaskSHA256": "72c97634e0ada8b87cb9d4f411e14959fa4749b45d3ff6c3a0991eccf13cf618",
+      "unchangedParentSHA256": "1926be33f1bd2e310b5b030edb8d686eba98aabea15f978fc4a64a2febff8cf3",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": true
+    },
+    {
+      "id": "ba113900-0731-5e25-a06f-428c2a001809",
+      "contextKey": "A1.1/P7/P7-N11",
+      "unchangedWholeTaskSHA256": "b4a7dac5a43490bbfdee4a899518d54054871578705ebf153e66cf386351caa6",
+      "unchangedParentSHA256": "e28af79867e7c9cd74bf3c775e853cbc1aca4aad578a7a8d0a1c5d3ef464e965",
+      "S7FullTaskVerdict": "ACCEPT",
+      "freshWholeTaskReviewInEpoch46": true
+    }
+  ],
+  "literalStringDictionary": {
+    "legend": "First occurrence S<number>:literal, later @S<number> references only byte-identical complete strings within this epoch.",
+    "dictionary": {
+      "S1": "Können, Wollen, Vergangenheit · Entschuldigungen",
+      "S2": "Sich oder das Kind entschuldigen: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reaktionen: „Oh, gute Besserung!“ – „Danke für die Information. Ich sage es dem Lehrer.“",
+      "S3": "Oh, gute Besserung! Ich sage es dem Lehrer.",
+      "S4": "Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.",
+      "S5": "Danke für die Information. Ich sage es dem Lehrer.",
+      "S6": "Excusing yourself or your child: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Reactions: „Oh, gute Besserung!“ (Get well soon!) – „Danke für die Information. Ich sage es dem Lehrer.“ (I’ll tell the teacher.)",
+      "S7": "Как извиниться за себя или ребёнка: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакции: „Oh, gute Besserung!“ («Выздоравливайте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителю»).",
+      "S8": "Як вибачитися за себе чи дитину: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Реакції: „Oh, gute Besserung!“ («Одужуйте!») – „Danke für die Information. Ich sage es dem Lehrer.“ («Я передам учителеві»).",
+      "S9": "Kendiniz ya da çocuğunuz için mazeret bildirme: „Mein Sohn ist krank. Er kann heute nicht in die Schule kommen.“ Tepkiler: „Oh, gute Besserung!“ (Geçmiş olsun!) – „Danke für die Information. Ich sage es dem Lehrer.“ (Öğretmene söylerim.)",
+      "S10": "Modalverben können und wollen; ich und er/sie/es ohne Endung.",
+      "S11": "Satzklammer mit Modalverb: Modalverb auf Position 2, Infinitiv am Ende.",
+      "S12": "Perfekt mit haben: ge…t (auch gearbeitet) und ge…en mit Vokalwechsel (getroffen, getrunken, gesprochen, geschrieben).",
+      "S13": "Perfekt mit sein bei Bewegung (gegangen, gefahren, gekommen).",
+      "S14": "Satzklammer im Perfekt, auch in der Frage.",
+      "S15": "Vorschlagen („Wollen wir …?“) und reagieren.",
+      "S16": "Fähigkeit mit Abstufung (sehr gut, ein bisschen, nicht so gut, gar nicht).",
+      "S17": "Sich oder das eigene Kind entschuldigen und darauf reagieren („Gute Besserung“, „Ich sage es dem Lehrer“).",
+      "S18": "Strategien: „Ja, super!“, „Nein, nicht so gern“, „Schade!“.",
+      "S19": "Über gestern, früher und das Wochenende sprechen.",
+      "S20": "Kann-Ziele: eine Entschuldigung für den Deutschkurs formulieren, von vergangenen Tätigkeiten erzählen.",
+      "S21": "Wortschatz: fünf Wörter zum Thema Schule, fünf Aktivitäten im Deutschkurs, fünf Freizeitaktivitäten.",
+      "S22": "Ergänze das Modalverb in der richtigen Form.",
+      "S23": "Lieber Herr Roth, leider bin ich heute krank. Ich ",
+      "S24": "Eine Entschuldigung hat vier Teile: Anrede, Grund, Information, Gruß.",
+      "S25": "Eine Entschuldigung schreiben: Anrede (Lieber Herr Roth, / Lieber Herr Albers,) – Grund (Ich bin krank.) – Information (Ich kann heute nicht zum Deutschkurs kommen.) – Gruß (Viele Grüße) – Name.",
+      "S26": "Fill in the modal verb in the correct form.",
+      "S27": "An excuse note has four parts: greeting, reason, information, closing.",
+      "S28": "Writing an excuse note: greeting (Lieber Herr Roth, / Lieber Herr Albers,) – reason (Ich bin krank.) – information (Ich kann heute nicht zum Deutschkurs kommen.) – closing (Viele Grüße) – name.",
+      "S29": "Dear Mr Roth, unfortunately I am ill today. I can’t come to the German course.",
+      "S30": "Вставьте модальный глагол в правильной форме.",
+      "S31": "Записка-извинение состоит из четырёх частей: обращение, причина, информация, прощание.",
+      "S32": "Как написать извинение: обращение (Lieber Herr Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – информация (Ich kann heute nicht zum Deutschkurs kommen.) – прощание (Viele Grüße) – имя.",
+      "S33": "Дорогой господин Roth, к сожалению, сегодня я болен (больна). Я не могу прийти на курс немецкого.",
+      "S34": "Вставте модальне дієслово в правильній формі.",
+      "S35": "Лист-вибачення має чотири частини: звертання, причина, інформація, прощання.",
+      "S36": "Як написати вибачення: звертання (Lieber Herr Roth, / Lieber Herr Albers,) – причина (Ich bin krank.) – інформація (Ich kann heute nicht zum Deutschkurs kommen.) – прощання (Viele Grüße) – ім’я.",
+      "S37": "Шановний пане Roth, на жаль, сьогодні я хворий (хвора). Я не можу прийти на курс німецької.",
+      "S38": "Mazeret mesajının dört bölümü vardır: hitap, sebep, bilgi, selam.",
+      "S39": "Mazeret yazma: hitap (Lieber Herr Roth, / Lieber Herr Albers,) – sebep (Ich bin krank.) – bilgi (Ich kann heute nicht zum Deutschkurs kommen.) – selam (Viele Grüße) – isim.",
+      "S40": "Sevgili Roth Bey, maalesef bugün hastayım. Almanca kursuna gelemiyorum.",
+      "S41": "Können, Wollen, Vergangenheit · Wiederholung",
+      "S42": "Lieber Herr Roth, ich bin krank. Ich kann heute nicht kommen. Viele ",
+      "S43": "Dear Mr Roth, I am ill. I can’t come today. Best regards, Kofi Mensah",
+      "S44": "Дорогой господин Roth, я болен. Сегодня я не могу прийти. С наилучшими пожеланиями, Kofi Mensah",
+      "S45": "Шановний пане Roth, я хворий. Сьогодні я не можу прийти. З найкращими побажаннями, Kofi Mensah",
+      "S46": "Sevgili Roth Bey, hastayım. Bugün gelemiyorum. Selamlar, Kofi Mensah",
+      "S47": "Im Mietshaus: Der Mieter oder die Mieterin wohnt in der Wohnung und zahlt Miete. Der Vermieter oder die Vermieterin bekommt die Miete. Der Hausmeister repariert Sachen im Haus. Alle Hausbewohner benutzen das Treppenhaus, den Hof, den Keller und den Aufzug. Die Post kommt in den Briefkasten, der Müll in die Mülltonne. In der Wohnung: die Wand, die Decke, der Boden, das Fenster, die Heizung, die Steckdose, die Glühbirne.",
+      "S48": "Der Hausmeister repariert das Licht im Treppenhaus.",
+      "S49": "Der Müll kommt in die Mülltonne im Hof.",
+      "S50": "In a block of flats: der Mieter / die Mieterin (tenant) lives in the flat and pays die Miete (rent). Der Vermieter / die Vermieterin (landlord, landlady) gets the rent. Der Hausmeister (caretaker) repairs things in the building. All Hausbewohner (residents) use das Treppenhaus (stairwell), den Hof (courtyard), den Keller (cellar) and den Aufzug (lift). The post goes into den Briefkasten (letterbox), the rubbish (der Müll) into die Mülltonne (bin). In the flat: die Wand (wall), die Decke (ceiling), der Boden (floor), das Fenster (window), die Heizung (heating), die Steckdose (socket), die Glühbirne (light bulb).",
+      "S51": "В многоквартирном доме: der Mieter / die Mieterin (квартиросъёмщик) живёт в квартире и платит die Miete (арендную плату). Der Vermieter / die Vermieterin (арендодатель) получает плату. Der Hausmeister (управдом, завхоз) чинит всё в доме. Все Hausbewohner (жильцы) пользуются das Treppenhaus (лестничной клеткой), den Hof (двором), den Keller (подвалом) и den Aufzug (лифтом). Почта попадает в den Briefkasten (почтовый ящик), мусор (der Müll) – в die Mülltonne (мусорный бак). В квартире: die Wand (стена), die Decke (потолок), der Boden (пол), das Fenster (окно), die Heizung (отопление), die Steckdose (розетка), die Glühbirne (лампочка).",
+      "S52": "У багатоквартирному будинку: der Mieter / die Mieterin (орендар) живе у квартирі та платить die Miete (орендну плату). Der Vermieter / die Vermieterin (орендодавець) отримує плату. Der Hausmeister (завгосп будинку) лагодить усе в будинку. Усі Hausbewohner (мешканці) користуються das Treppenhaus (сходовою кліткою), den Hof (двором), den Keller (підвалом) і den Aufzug (ліфтом). Пошта потрапляє в den Briefkasten (поштову скриньку), сміття (der Müll) – у die Mülltonne (сміттєвий бак). У квартирі: die Wand (стіна), die Decke (стеля), der Boden (підлога), das Fenster (вікно), die Heizung (опалення), die Steckdose (розетка), die Glühbirne (лампочка).",
+      "S53": "Apartmanda: der Mieter / die Mieterin (kiracı) dairede oturur ve die Miete (kira) öder. Der Vermieter / die Vermieterin (ev sahibi) kirayı alır. Der Hausmeister (kapıcı, bina görevlisi) binadaki şeyleri tamir eder. Bütün Hausbewohner (bina sakinleri) das Treppenhaus (merdiven boşluğu), den Hof (avlu), den Keller (bodrum) ve den Aufzug’u (asansör) kullanır. Posta den Briefkasten’a (posta kutusu), çöp (der Müll) die Mülltonne’ye (çöp bidonu) gider. Dairede: die Wand (duvar), die Decke (tavan), der Boden (zemin), das Fenster (pencere), die Heizung (kalorifer), die Steckdose (priz), die Glühbirne (ampul).",
+      "S54": "Wechselpräpositionen an, auf, hinter, in, neben, über, unter, vor, zwischen: Wo? mit Dativ – Wohin? mit Akkusativ.",
+      "S55": "Verben für Ort und Richtung: liegen, stehen, hängen, stecken (Wo?) – legen, stellen, hängen, stecken (Wohin?).",
+      "S56": "Richtungen nennen: hier, da, dort – hierhin, dahin, dorthin; rein, raus, rauf, runter, rüber.",
+      "S57": "Jemanden höflich ansprechen und um Hilfe bitten: Störe ich? Darf ich Sie etwas fragen? Ich habe ein Problem.",
+      "S58": "Nachbarn um einen Gefallen bitten: Könnten Sie bitte …? Kannst du bitte …? Würden Sie …?",
+      "S59": "Auf eine Bitte reagieren: Natürlich. Kein Problem. Leider kann ich nicht, weil …",
+      "S60": "Sich bedanken: Vielen Dank für Ihre Hilfe. Das ist wirklich nett. Wir hoffen auf Ihr Verständnis.",
+      "S61": "Sich entschuldigen: Tut mir leid. Das war keine Absicht. Das habe ich nicht gewusst.",
+      "S62": "Anrede und Gruß in Briefen und Mitteilungen: Sehr geehrte …, Liebe …, Mit freundlichen Grüßen.",
+      "S63": "Kann-Ziele: Aushänge und Mitteilungen im Mietshaus verstehen.",
+      "S64": "Wie heißt eine Frau, der ein vermietetes Haus gehört und die Miete bekommt? Sie ist die ___",
+      "S65": "Überleg: Ist es eine Person im Haus, ein Ort im Haus oder ein Teil von der Wohnung?",
+      "S66": "Think: is it a person in the building, a place in the building or a part of the flat?",
+      "S67": "What do you call a woman who owns a rented house and receives the rent? She is the …",
+      "S68": "Подумайте: это человек в доме, место в доме или часть квартиры?",
+      "S69": "Как называется женщина, которой принадлежит сдаваемый дом и которая получает за него арендную плату? Она …",
+      "S70": "Подумайте: це людина в будинку, місце в будинку чи частина квартири?",
+      "S71": "Як називається жінка, якій належить будинок, що здається в оренду, і яка отримує за нього орендну плату? Вона …",
+      "S72": "Düşünün: Bu binadaki bir kişi mi, binadaki bir yer mi, yoksa dairenin bir parçası mı?",
+      "S73": "Kiraya verilen bir evin sahibi olan ve kirasını alan kadına ne denir? O …"
+    }
+  },
+  "limits": [
+    "Three assigned tasks only receive fresh full-task judgments. Prior27-task/14-parent preservation is a mechanical comparison, not a new reading or blanket approval.",
+    "Separate P7 semantic compatibility verdict approves only the exact one-quote delta; M must explicitly compose reviews later if appropriate.",
+    "No source edits, tests, runtime, DB, SSH, audio, import or publication. No corpus, Vogel3 or audio-asset approval."
+  ],
+  "publicationApproved": false,
+  "testsExecuted": false
+}
