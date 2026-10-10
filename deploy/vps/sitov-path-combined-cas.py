@@ -280,6 +280,48 @@ def emit(plan, reviewed_commit=False):
             'SET CONSTRAINTS ALL IMMEDIATE;\n' + ('COMMIT;\n' if reviewed_commit else 'ROLLBACK;\n'))
 
 
+def emit_bounded(plan, reviewed_commit=False, chunk_size=20):
+    """Bound native statements while preserving one all-or-nothing transaction.
+
+    Native JSONB byte limits remain authoritative. An unexpectedly split chunk
+    aborts the entire transaction rather than advancing the request sequence.
+    """
+    require(type(chunk_size) is int and 1 <= chunk_size <= 100, 'invalid native chunk size')
+    count = len(plan['rows'])
+    require(1 <= count <= 1000, 'invalid native chunk coverage')
+    original = emit(plan, True)
+    for setting in ('statement_timeout', 'idle_in_transaction_session_timeout'):
+        old = setting + "='20s'"
+        require(original.count(old) == 1, 'parent native timeout contract drift')
+        original = original.replace(old, setting + "='15s'", 1)
+    start = original.index('DO $sitov_combined_revision$')
+    body = original[start:]
+    final_start = body.index(' FOR entry IN SELECT value FROM jsonb_each(expected) LOOP')
+    construction = body[body.index('\n\nDECLARE'):final_start]
+    chunks = (count + chunk_size - 1) // chunk_size
+    out = original[:start] + 'CREATE TEMP TABLE sitov_combined_expected(id text PRIMARY KEY,value jsonb NOT NULL) ON COMMIT DROP;\n'
+    for index in range(chunks):
+        size = min(chunk_size, count - index * chunk_size)
+        tag = '$sitov_combined_chunk_' + str(index).zfill(2) + '$'
+        chunk = construction.replace('idx integer:=0', 'idx integer:=' + str(index))
+        chunk = chunk.replace("ORDER BY value->>'id' LOOP", "ORDER BY value->>'id' LIMIT " + str(size) + ' OFFSET ' + str(index * chunk_size) + ' LOOP', 1)
+        out += ('DO ' + tag + chunk + " IF (SELECT count(*) FROM jsonb_each(expected))<>" + str(size)
+                + " OR idx<>" + str(index + 1) + " THEN RAISE EXCEPTION 'sitov_combined_chunk_shape'; END IF;\n"
+                + ' INSERT INTO pg_temp.sitov_combined_expected(id,value) SELECT key,value FROM jsonb_each(expected);\nEND;\n' + tag + ';\n')
+    final = body[final_start:body.index('\nEND;\n$sitov_combined_revision$;')]
+    final = final.replace(' FOR entry IN SELECT value FROM jsonb_each(expected) LOOP',
+                          ' FOR entry IN SELECT value FROM pg_temp.sitov_combined_expected ORDER BY id LOOP', 1)
+    final = final.replace(')<>idx THEN', ')<>' + str(chunks) + ' THEN', 1)
+    out += ("DO $sitov_combined_final$\nDECLARE p jsonb;source jsonb;old jsonb;entry jsonb;req uuid;archived record;\nBEGIN\n"
+            + ' SELECT plan::jsonb INTO STRICT p FROM pg_temp.sitov_combined_plan;\n'
+            + ' IF (SELECT count(*)FROM pg_temp.sitov_combined_expected)<>' + str(count)
+            + " OR (SELECT count(*)FROM pg_temp.sitov_combined_expected x JOIN jsonb_array_elements(p->'rows')r ON x.id=r->>'id')<>" + str(count)
+            + " THEN RAISE EXCEPTION 'sitov_combined_final_coverage';END IF;\n"
+            + final + '\nEND;\n$sitov_combined_final$;\nSET CONSTRAINTS ALL IMMEDIATE;\n'
+            + ('COMMIT;\n' if reviewed_commit else 'ROLLBACK;\n'))
+    return out
+
+
 def normalized_full(value):
     result = copy.deepcopy(value)
     result['translations'] = sorted(result['translations'], key=lambda r: r['locale'])
@@ -446,6 +488,7 @@ def main():
         ap.add_argument('--' + field, required=True); ap.add_argument('--' + field + '-sha256', required=True)
     ap.add_argument('--output', required=True); ap.add_argument('--reviewed-commit', action='store_true')
     ap.add_argument('--collector-deadline'); ap.add_argument('--plan-sha256')
+    ap.add_argument('--native-chunk-size', type=int)
     args = ap.parse_args()
     parents = parent.load(args.parents, args.parents_sha256)
     inventory = load(args.inventory, args.inventory_sha256)
@@ -453,10 +496,12 @@ def main():
     plan = prepare(parents, inventory, reviews, args.parents_sha256, args.inventory_sha256)
     if args.collector_deadline:
         require(not args.reviewed_commit, 'collector never commits writes')
+        require(args.native_chunk_size is None, 'collector cannot emit native writer chunks')
         output = collector_sql(plan, args.plan_sha256, args.collector_deadline)
     else:
         require(args.plan_sha256 is None, 'plan SHA option requires collector')
-        output = emit(plan, args.reviewed_commit)
+        output = (emit(plan, args.reviewed_commit) if args.native_chunk_size is None
+                  else emit_bounded(plan, args.reviewed_commit, args.native_chunk_size))
     write_exclusive(args.output, output)
 
 

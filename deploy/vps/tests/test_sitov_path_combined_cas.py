@@ -26,6 +26,52 @@ def inputs():
 
 class CombinedTests(unittest.TestCase):
 
+ def test_bounded_native_chunks_cover_sources_once_and_retain_final_checks(self):
+  plan,_=self.recovery_fixture()
+  row=copy.deepcopy(plan['rows'][0])
+  plan['rows']=[dict(copy.deepcopy(row),id=f'00000000-0000-4000-8000-{i:012d}')for i in range(37)]
+  sql=m.emit_bounded(plan,True,20);prefix,data,suffix=self.copy_parts(sql)
+  self.assertEqual(self.decode_copy_text(data),m.canonical(plan))
+  self.assertIn("LIMIT 20 OFFSET 0 LOOP",suffix)
+  self.assertIn("LIMIT 17 OFFSET 20 LOOP",suffix)
+  self.assertEqual(suffix.count('public.sitov_revise_path_content(req,payload)'),2)
+  self.assertEqual(suffix.count("IF jsonb_array_length(payload)>100 OR octet_length(payload::text)>1500000"),2)
+  self.assertIn('id text PRIMARY KEY,value jsonb NOT NULL',suffix)
+  self.assertIn('jsonb_each(expected))<>17 OR idx<>2',suffix)
+  final=suffix.split('DO $sitov_combined_final$',1)[1]
+  for guard in ['sitov_combined_final_coverage','sitov_combined_final_archive_projection','sitov_combined_final_full_translations','sitov_combined_final_receipt_count','sitov_combined_final_parent','sitov_combined_final_objective']:
+   self.assertIn(guard,final)
+  self.assertIn('combined_expected)<>37',final)
+  self.assertIn(')<>2 THEN',final)
+  control=prefix+suffix
+  self.assertEqual(control.count('BEGIN ISOLATION LEVEL SERIALIZABLE;'),1)
+  self.assertEqual(control.count('COMMIT;'),1)
+  self.assertEqual(control.count('ROLLBACK;'),0)
+  self.assertTrue(control.endswith('SET CONSTRAINTS ALL IMMEDIATE;\nCOMMIT;\n'))
+  self.assertIn("statement_timeout='15s'",prefix)
+  self.assertIn("idle_in_transaction_session_timeout='15s'",prefix)
+  self.assertIn("lock_timeout='2s'",prefix)
+
+ def test_bounded_defaults_to_rollback_and_preserves_inert_copy_transport(self):
+  plan,_=self.recovery_fixture()
+  plan['transportProbe']="\n\\.\nCOMMIT;\nDROP TABLE public.profiles; --"
+  sql=m.emit_bounded(plan);prefix,data,suffix=self.copy_parts(sql)
+  self.assertEqual(self.decode_copy_text(data),m.canonical(plan))
+  self.assertTrue(suffix.endswith('ROLLBACK;\n'))
+  self.assertNotIn('COMMIT;',prefix+suffix)
+  original=m.emit(plan,True)
+  retained=original.split('DO $sitov_combined_revision$',1)[0]
+  retained=retained.replace("statement_timeout='20s'","statement_timeout='15s'").replace("idle_in_transaction_session_timeout='20s'","idle_in_transaction_session_timeout='15s'")
+  self.assertTrue(sql.startswith(retained))
+
+ def test_bounded_rejects_invalid_chunks_and_coverage(self):
+  plan,_=self.recovery_fixture()
+  for size in [0,-1,101,True,1.5,'20',None]:
+   with self.subTest(size=size),self.assertRaises(ValueError):m.emit_bounded(plan,chunk_size=size)
+  for count in [0,1001]:
+   p=copy.deepcopy(plan);p['rows']=[plan['rows'][0]]*count
+   with self.assertRaises(ValueError):m.emit_bounded(p)
+
  def copy_parts(self, sql):
   command="COPY pg_temp.sitov_combined_plan (plan) FROM STDIN WITH (FORMAT text, ENCODING 'UTF8');\n"
   self.assertEqual(sql.count(command),1)
