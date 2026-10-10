@@ -1,0 +1,15 @@
+# Sitov Academy: S1 epoch66 wrapper path HOLD, actual OLD preserved
+
+Exactly one M-prepared driver invocation ran11:35:30.534123–11:37:10.007764 UTC. Its one writer-wrapper attempt exited3 with actual stderr `writer-native15s.sql: No such file or directory`; driver/SSH exited2 without timeout. No COMMIT acknowledgement exists. The external native CAS SQL file was not opened by container psql, and no native CAS dataset write occurred. No retry, implementation change or guard weakening was performed.
+
+The47-byte wrapper uses relative psql include `\ir 'writer-native15s.sql'`. psql runs inside the QA container while the external SQL file is in the host package; the include cannot resolve that host file. The exact M driver/manifest/approval SHA bindings were verified remotely immediately before exec. This invocation used epoch66 manifest SHA-256 `07c36cdd9813ff22cdad09197992f396860b8f48ad7d43c5a38416482d4cdd8b`; original frozen plan and8,921,650-byte native15s SQL remain unchanged. Repair or another attempt requires M's new explicit scope.
+
+Full actual native before and recovery collectors cover538 tasks,59 parents and10 objectives. Independent local reparse/classification confirms OLD_REVIEW_REQUIRED before and after, all538 whole originals still current, zero archives and zero receipts. Raw collector streams are byte-identical, SHA-256 `baad7af1bd266cdad3f619792c5382f4960ffc1e913fe0fbddf22af205f7d357`.
+
+All2690 original translations (five per task) remain exactly preserved in the actual DB rows; they are not claimed archived. All66 actual original correct-answer/accepted-list pairs are individually enumerated against reviewed replacements and remain unchanged. No538-archive NEW success is claimed.
+
+Full native qualified original185 projections before/after exactly match `cfeb746a211c54255d8c4d519f92efe05637482f3f2ca34194f894ce32ef8814`. The separate oldQA188 native table maps before/after exactly match `bfc6c80c1b75ec095677a5aa4344439829dc906bdd5ef2e21d3bd5cacb1a7e43`. Native stage inventory214 matches M's pinned postmigration inventory; membership remains9569 path tasks/856 parents/66 path units/definitions0.
+
+Actual retained identity is `sitov_m_final5338_202610101020`, OID62580, owner supabase_admin, work_mem4MB, with only the approved supabase_storage_admin idle/noTX Storage connection at10.0.3.5/32 and empty application name. No own active query remains in its final session inventory. Final pinned runtime guard at2026-10-10T11:37:09.843826+00:00 passed with2130.84375MiB available, exact960MiB/2CPU, three HTTP200s and all five noOOM flags; the1984MiB threshold remains unchanged.
+
+Actual native raw streams, stderr/exits, protected before/after, all538 check records,66 answer records and immutable M package snapshots are saved privately. Actual ledger SHA-256 `d154d008c7e885bdf89b97efeb0a2c5a4343d3d0ec06e91c9fb42d30b8350e54`. S1 is saved before SAVE in WAIT with zero jobs/active jobs; no production, audio import, Auth, REST or runtime write was performed. M's real5398 GET proof remains independently bound prerequisite evidence; no human/audio/publication/adoption approval is inferred.
