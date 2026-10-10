@@ -1,0 +1,11 @@
+# Sitov Academy – Epoch 62: tatsächlicher RAM-Guard-HOLD vor nativer Fixture
+
+Der vorbereitete 175668-Byte-116/117-ROLLBACK-Test wurde nicht nativ gestartet. Der erste begrenzte Fernlauf begann um 10:07:30 UTC innerhalb der ersten drei Lease-Minuten und stoppte sofort mit dem tatsächlichen Fehler `QA memory gate failed`. Eine kurze anschließende lesende Statusabfrage erfasste um 10:08:48 UTC 2202,82 MiB verfügbar sowie die eigene Scratchkopie mit null Sessions. Dieser Zwischenwert ersetzt keinen vollständigen Runtime-Guard.
+
+Der danach innerhalb derselben unveränderten Lease frisch gestartete vollständige Guard stoppte um 10:09:30 UTC erneut mit `QA memory gate failed`. Gemäß M wurde darauf vollständig SAVE/WAIT eingeleitet. Es gab keinen dritten Versuch, keine Fixturetransaktion, keine 116/117-Anwendung, keine temporären Storage-Metadateninserts und keinen CAS-/Blob-/Audioimport.
+
+Aktuelle 116/117-Datei-SHAs stimmen mit der gebundenen vorbereiteten Fixture überein. Der private Driver erhält sämtliche Rawlog-Leerzeilen und überspringt sie nur beim JSON-Parsing; der native Kern ist auf maximal 90 Sekunden mit separater Cleanupreserve begrenzt. Diese Änderungen sind vorbereitet, jedoch nicht nativ ausgeführt. Native Anker-, Replay-, Rechte-, Clock- und Negativtests bleiben offen.
+
+In Epoch 62 wurden keine vollständigen 185-/188-Baselines oder 538/59/10-Collector-Prüfungen begonnen. Vorherige OLD-/Baseline-Nachweise werden nur als historische Referenzen erhalten und nicht als neue PASS-Ergebnisse ausgegeben. Die letzte tatsächliche Scratchabfrage bestätigt sitov_s1_epoch58_prereq_20261010090403 / OID 54639 / supabase_admin mit null Sessions; seitdem begann S1 keine Scratch-SQL-Session.
+
+Beide Guard-Ausgaben und ihre Zeiten bleiben getrennt im Original erhalten. Der anfängliche Cleanup-Assertiontext entstand, weil der frühe Runtime-Abbruch die lokale Identitätsvariable ungesetzt ließ; daraus wird keine Änderung der Scratchidentität abgeleitet. Keine Produktion, Runtime-/Capsänderung, Neustarts, fremden Sessionkills oder Guardabsenkung. Eigene Jobs und aktive Jobs sind null. Originale Fehler, physische Zwischenmessung, letzte Identität, vorbereitete Fixture/Driver und SHA-Manifest liegen privat unter S1/epoch62-*.
