@@ -1,0 +1,76 @@
+{
+  "at": "2026-10-10T03:41:36.059050+00:00",
+  "sourceCommit": "03ae6c9905b4c154df33457ecf0ca39a29e3d378",
+  "S5Commit": "467bf78661228f2a8c4d77afd68b3601bc3400a5",
+  "actualMainBrowserFlow": {
+    "failed": 0,
+    "passed": 12,
+    "questions": 12,
+    "sameCurrentDefinition": "33a26b75-e3f3-4fab-8766-1104800a4aab",
+    "fullTextAudioBytes": 83756,
+    "actualDownloadedSHA256": "9b092de30df8673721a37f0e2d03fe76f641d6bec6b76aaece3212aaa6e24a0b",
+    "MRehashedActualDownload": true,
+    "microphoneTested": false
+  },
+  "cleanupRecovery": {
+    "allOriginalTablesExceptSharedRateExact": 187,
+    "baselineTableCount": 188,
+    "ownUserPersonAttemptsPassesSubmissionsRemaining": 0,
+    "sourceRateTableDeltaRows": 3,
+    "sourceRateTableDeltaOriginIndependentlyClassified": false,
+    "sharedRateCountersReset": false,
+    "observedQADatabaseOOM": true,
+    "aggregateQueryCausedOOMConclusivelyProven": false,
+    "oneExistingQADatabaseRestart": true,
+    "all188ExactAcrossRestart": true,
+    "containerIdentityMountsResourcesUnchanged": true,
+    "currentOOMKilled": false,
+    "healthHTTP200": 3,
+    "productionMutation": false
+  },
+  "role42TechnicalDraft": {
+    "utterances": 102,
+    "failedSynthesis": 0,
+    "rawCandidatesIndependentlyRecomputed": 102,
+    "rawRejected": 0,
+    "smallASRExact": 78,
+    "largerASRDiagnostics": 24,
+    "manifestSHA256": "186ffdb5ef159b078c67ecb1e78505fcd4501b8b2312974bd358f3bf85cbdbd0",
+    "humanHearing": false,
+    "publicationApproved": false,
+    "supersedingSourceCorrectionsPending": true
+  },
+  "privateEvidence": [
+    {
+      "file": "M-S5epoch31-runtime-readonly-diagnosis-private.json",
+      "bytes": 4590,
+      "sha256": "3e65e15af0ad3a1dc526c210a053e668921bb1fc89f940415bf15f8f62dec859"
+    },
+    {
+      "file": "M-S5epoch31-full188-stream-recovery-private.json",
+      "bytes": 52231,
+      "sha256": "564752c6caaa8bf0a47155f94330920dd78218d8db697660d670d244b8ed9351"
+    },
+    {
+      "file": "M-S5epoch31-rate-readonly-private.json",
+      "bytes": 1117,
+      "sha256": "bf63282626185287cd5396a40fce8958ee774172b2b8c3b9b00b6f2f4947483b"
+    },
+    {
+      "file": "M-S5epoch31-one-db-restart-reviewed-private.json",
+      "bytes": 21555,
+      "sha256": "ef49e9a8285ed2de6b6e911c0677c9910eea885c1af72f5e10f5980a7c54ecf6"
+    },
+    {
+      "file": "M-role42-catalog-private.json",
+      "bytes": 427,
+      "sha256": "cf988d40ed6955c57f1c356a2499f2b69f207460687ccd83debb25fdd0ab8d09"
+    },
+    {
+      "file": "M-role42-raw-deep-private.json",
+      "bytes": 55314,
+      "sha256": "e5d5f59e73055965d2f3b310d4970a90977bb98e6d9c724e1eb2690af59592c3"
+    }
+  ],
+  "releaseReady": false
+}
