@@ -1,0 +1,642 @@
+{
+  "group": "SITOV-NIGHT-2026-10-08",
+  "at": "2026-10-10T05:23:32.162272+00:00",
+  "reviewer": "M",
+  "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3",
+  "inputSHA256": "a84c762f7235d3e7eeea7c6aa47ad3cf56ead54d22d70fcfda98e9e41b745f49",
+  "actualReadScope": "3 complete current parentMinusChildren including every DE/EN/RU/UK/TR field/card/rule/example, ALL24 unique objectives ofbothpaths; no child task review claimed",
+  "parentContextReviews": [
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "sourceId": "P3-N2",
+      "reviewer": "M",
+      "verdict": "ACCEPT",
+      "reasonDe": "Alle fünf vollständigen Titel- und Regelfassungen passen zum Befinden/Körperteilwortschatz P3-K1/W1. Singular tut/Plural tun, Schmerzkomposita und Fieber/Husten/Schnupfen sind sprachlich stimmig; Leon ist männlicher generischer Lerncharakter. Keine medizinische Wirksamkeitsprüfung behauptet.",
+      "wholeParentMinusChildrenSHA256": "26da0df00493706e8d236835e45915ed9a413350e256060d3c43bd52670665e5",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "allFiveLocaleFullParentActuallyRead": true,
+      "allPathObjectivesActuallyRead": true,
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "sourceId": "P3-N8",
+      "reviewer": "M",
+      "verdict": "ACCEPT",
+      "reasonDe": "Alle fünf vollständigen Fassungen vermitteln schriftliche Krankmeldung mit Anrede, Grund, Dauer, Bitte und Gruß passend zu K3/Z1. Sehr geehrte Frau/Sehr geehrter Herr sind ausdrücklich notwendige Anrede- und Flexionskontraste, keine weibliche Lernfigur; konkrete Beispiele Herrn Wolf/Lindner bleiben männlich.",
+      "wholeParentMinusChildrenSHA256": "395ce57f2170894ec5f5c3d3de0e596293796d04b1a6126c0382ca98a42777a0",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "allFiveLocaleFullParentActuallyRead": true,
+      "allPathObjectivesActuallyRead": true,
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "sourceId": "P2-N11",
+      "reviewer": "M",
+      "verdict": "ACCEPT",
+      "reasonDe": "Alle fünf vollständigen Fassungen und drei Beispiele passen zu Gegenstandsbeschreibung/K4, emotionaler Bedeutung/K3 und den Demonstrativformen im Akkusativ. Meiner Oma ist ein sachlich nötiges feminines Dativ-/Possessivbeispiel im Pfad mit explizitem G3, neben maskulinen/neutrum/femininen Objektpronomen und von meinem Opa; keine neu benannte weibliche Lernfigur. Mann/Onkel/Opa als konkrete Beispielrollen bleiben männlich. Übersetzungen sind bedeutungsgleich; sprachliche Form und Gegenstandspronomen korrekt.",
+      "wholeParentMinusChildrenSHA256": "d331d98fd3b8dd638f1021e50411e072325c7957c3088314bc281bd4d40a4d37",
+      "allPathObjectivesSHA256": "21713cd50fc87d154cab3a9e67363cbae19d6ad2aed5bef3bea73bf54345f087",
+      "allFiveLocaleFullParentActuallyRead": true,
+      "allPathObjectivesActuallyRead": true,
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    }
+  ],
+  "allPathObjectiveReviews": [
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-G1",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Possessivstämme aller Personen und feminine/Plural-e einschließlich eure korrekt.",
+      "wholeObjectiveSHA256": "fdf29e3cdab19fae6dc8b71d3080913fced12fe1b688b9c43d9141468ced6ebe",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-G2",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Possessivstamm nach Besitzer; Simon/seine gegenüber sie Singular/ihre ist notwendiger Geschlechtskontrast.",
+      "wholeObjectiveSHA256": "1ee0ff39bb3dafd2059b52185f88fa4960c8cb11b090577705d4671d61b4d3ab",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-G3",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Maskuliner Akkusativ erhält-en, genannte Possessivformen korrekt.",
+      "wholeObjectiveSHA256": "cb6a6b4676ea6575e4de6c8e4ef9e4ab07bd8c08089e088dd5657fb2e51a9622",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-G4",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Sollenkonjugation korrekt; Satzklammer mit Infinitiv am Ende.",
+      "wholeObjectiveSHA256": "ced0b71ea84d98764dfb4bd813c05d0f6086305605ed4095609f2c48851ac21b",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-K1",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Befinden und gängiger Krankheitswortschatz entsprechen Regelkarte Was tut weh.",
+      "wholeObjectiveSHA256": "296295b91a105e4173bdc51fa33707a62d446d61e32ecb2d0014654e622b6792",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-K2",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Sprachliches Weitergeben von Ratschlägen mit soll+Infinitiv passend, kein klinischer Nachweis behauptet.",
+      "wholeObjectiveSHA256": "9387eeb81410393bb4da79cef1022eabcc7a8d9b723c0bfaa6e7f61010c60d5d",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-K3",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Kann heute nicht kommen ist passende kurze Krankmeldung.",
+      "wholeObjectiveSHA256": "643a59ee4fd3ae895921af850bc3c39896431b47e76889161fccc49c8b8b1555",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-K4",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Höfliche Terminbitte und Dringlichkeit sprachlich korrekt.",
+      "wholeObjectiveSHA256": "265212f11462c323708128f66e5ac82c86a1bdf574b74e8b83085933bce963b1",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-K5",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Notfallfragen zu Ort/Geschehen/Person als Kommunikationsziel passend.",
+      "wholeObjectiveSHA256": "41541ef6244a62a1fad876e84737abb1fe42e36b8d255bc109286c403644e645",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-K6",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Reaktionsformeln und Abschiede sind idiomatisch.",
+      "wholeObjectiveSHA256": "b635cf10f2f08b17f457edadb7fb41176a65b47604ffc4483097830605dd668f",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-Z1",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Schreiben/Verstehen von Krankmeldung/Praxisinformation passt zum Pfad.",
+      "wholeObjectiveSHA256": "0d2a6cd86d545f7d50b3bcbf12e8e48aabd8868a61da7ca6295b52e48dd48b76",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "id": "P3-W1",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Körperteile/Krankheiten/Arzt/Apotheke schließen die Themen ab.",
+      "wholeObjectiveSHA256": "056bed11e2f311cbcb6a5306267812e8abb2153eccb5dd43cbe2c5782963ef78",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-G1",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Gemischte Adjektivdeklination Nominativ sowie artikelloser gegenüber Possessivplural korrekt.",
+      "wholeObjectiveSHA256": "a722700b20e4f6ab0116a0a6eca7470a7bb287daf2fdcf3cb39ac0cdd0e0e01e",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-G2",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Genannte gemischte Adjektivformen im Akkusativ korrekt.",
+      "wholeObjectiveSHA256": "33caaeea4cdb92897d8bafd7317d6062c946153d0113aaff6c821689caf228c2",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-G3",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Dativ nach ein/kein/mein mit Adjektiv-en; einem/einer und Plural-Möbeln korrekt.",
+      "wholeObjectiveSHA256": "d1bb580567b344211d7a170dceaf26e965a35bd577986b27297903214f0b3d96",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-G4",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Regelmäßige und unregelmäßige Vergleichsformen einschließlich hoch/höher/am höchsten korrekt.",
+      "wholeObjectiveSHA256": "0cf0cac05fb481b43b3b65a7818242c86347128b2a53995bbe49fa7baa9315f1",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-G5",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Ungleichheit mit als, Gleichheit mit genauso+wie korrekt.",
+      "wholeObjectiveSHA256": "e43979574c056efa3fb2396f3bfb11a93c1a1467217f3d418c9f908c3454efba",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-G6",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Arbeitslos als Ableitung mit Fugen-s und Bedeutung ohne Arbeit korrekt.",
+      "wholeObjectiveSHA256": "93287283fcf4879082a98546570614f969de22847cb1896b127cae41fc9317f7",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-K1",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Genannte kurze skeptische Reaktionen idiomatisch.",
+      "wholeObjectiveSHA256": "6bb684151199669733df376785a9ca66be88e0f34a3eac8e4d291c0bfa4ece00",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-K2",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Ausgaben/Vorlieben mit ausgeben/kaufen/sparen passend.",
+      "wholeObjectiveSHA256": "0238c25d2ad07fb7b4edbbece9666ea0cb24f38af16b35495db66f4654c704ae",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-K3",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Wichtigkeitsabstufung und Dativpronomen korrekt.",
+      "wholeObjectiveSHA256": "ab3939324d60f1d611508dcdee947ae53d172011da1e709a86d8908c36bffdd8",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-K4",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Gegenstand erzählen, feminine Kette/sie und von meiner Oma illustrieren Genus/Dativ; notwendige Grammatikbeispiele sachlich erhalten.",
+      "wholeObjectiveSHA256": "57c3812b0238f2d8ff25b4e27f5489d0f52264a526272a3f3a7786c87cc65c8e",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-Z1",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Kleinanzeigen verstehen passt zu Waren/Gegenständen.",
+      "wholeObjectiveSHA256": "d879bfc4fb8f0b6422a39e0403a3ea449367c98fe25a50b16d1cdcdd0cb14f43",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "id": "P2-W1",
+      "verdict": "ACCEPT",
+      "reviewer": "M",
+      "reasonDe": "Gegenstände/Materialien passen zum Wortschatzrahmen.",
+      "wholeObjectiveSHA256": "2f4db9d9a28cd06bfeed9f51e7169a99e0778ac2dcbd0745b89f888200dcb285",
+      "sourceCommit": "7d9a403388efa7ae0f67c93164adfd0bdcff05b3"
+    }
+  ],
+  "originalLiteralContexts": [
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "sourceId": "P3-N2",
+      "parent": {
+        "id": "P3-N2",
+        "kind": "practice",
+        "sort_order": 2,
+        "topic": "Gesundheit und Krankheit · Was tut weh?",
+        "title": "Was tut weh?",
+        "translations": {
+          "en": {
+            "title": "What hurts?"
+          },
+          "ru": {
+            "title": "Что болит?"
+          },
+          "uk": {
+            "title": "Що болить?"
+          },
+          "tr": {
+            "title": "Neresi ağrıyor?"
+          }
+        },
+        "goals": [
+          "P3-K1",
+          "P3-W1"
+        ],
+        "merkkarte": {
+          "card": "p3_weh",
+          "rule": "Sagen, was wehtut: Ein Körperteil: Mein Kopf tut weh. Zwei oder mehr: Meine Augen tun weh. Auch so: Ich habe Kopfschmerzen, Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Krank sein: Ich habe Fieber. Ich habe Husten und Schnupfen. Ich bin krank. Nicht so schlimm? Es ist nicht schlimm.",
+          "examples": [
+            "Mein Rücken tut weh.",
+            "Meine Füße tun weh.",
+            "Leon hat Fieber und Halsschmerzen."
+          ],
+          "highlight": "verb",
+          "translations": {
+            "en": {
+              "rule": "Saying what hurts: one body part: Mein Kopf tut weh. Two or more: Meine Augen tun weh. Also: Ich habe Kopfschmerzen (a headache), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Being ill: Ich habe Fieber (a temperature). Ich habe Husten (a cough) und Schnupfen (a cold). Ich bin krank. Not so bad? Es ist nicht schlimm."
+            },
+            "ru": {
+              "rule": "Как сказать, что болит: одна часть тела: Mein Kopf tut weh. Две и больше: Meine Augen tun weh. Ещё так: Ich habe Kopfschmerzen (головная боль), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. О болезни: Ich habe Fieber (температура). Ich habe Husten (кашель) und Schnupfen (насморк). Ich bin krank. Ничего страшного? Es ist nicht schlimm."
+            },
+            "uk": {
+              "rule": "Як сказати, що болить: одна частина тіла: Mein Kopf tut weh. Дві й більше: Meine Augen tun weh. Ще так: Ich habe Kopfschmerzen (головний біль), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Про хворобу: Ich habe Fieber (температура). Ich habe Husten (кашель) und Schnupfen (нежить). Ich bin krank. Нічого страшного? Es ist nicht schlimm."
+            },
+            "tr": {
+              "rule": "Ağrıyan yeri söyleme: Tek bir vücut bölümü: Mein Kopf tut weh. İki ya da daha fazla: Meine Augen tun weh. Şöyle de olur: Ich habe Kopfschmerzen (baş ağrısı), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Hasta olmak: Ich habe Fieber (ateş). Ich habe Husten (öksürük) und Schnupfen (nezle). Ich bin krank. Çok kötü değil mi? Es ist nicht schlimm."
+            }
+          }
+        }
+      },
+      "allObjectives": [
+        {
+          "id": "P3-G1",
+          "area": "grammar",
+          "description": "Possessivartikel für alle Personen im Nominativ: mein, dein, sein, ihr, unser, euer, ihr, Ihr – mit -e bei „die“ und im Plural (eure)."
+        },
+        {
+          "id": "P3-G2",
+          "area": "grammar",
+          "description": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
+        },
+        {
+          "id": "P3-G3",
+          "area": "grammar",
+          "description": "Possessivartikel im Akkusativ: bei maskulinen Nomen mit -en (meinen, deinen, seinen, ihren, unseren, euren, Ihren)."
+        },
+        {
+          "id": "P3-G4",
+          "area": "grammar",
+          "description": "Modalverb sollen: soll, sollst, sollen, sollt; der Infinitiv steht am Satzende."
+        },
+        {
+          "id": "P3-K1",
+          "area": "communication",
+          "description": "Über das Befinden sprechen: sagen, was wehtut, und Krankheiten nennen (Fieber, Husten, Schnupfen, Schmerzen)."
+        },
+        {
+          "id": "P3-K2",
+          "area": "communication",
+          "description": "Anweisungen und Ratschläge für die Gesundheit verstehen, geben und weitersagen: Der Arzt sagt, ich soll viel trinken."
+        },
+        {
+          "id": "P3-K3",
+          "area": "communication",
+          "description": "Sich krankmelden: Leider kann ich heute nicht kommen."
+        },
+        {
+          "id": "P3-K4",
+          "area": "communication",
+          "description": "Einen Termin beim Arzt vereinbaren: Könnte ich bitte einen Termin haben? Es ist dringend."
+        },
+        {
+          "id": "P3-K5",
+          "area": "communication",
+          "description": "Einen Notfall melden: Wo sind Sie? Was ist passiert? Was ist mit der Person?"
+        },
+        {
+          "id": "P3-K6",
+          "area": "communication",
+          "description": "Im Gespräch reagieren: Oh nein! Oje! Ach so. Hoffentlich! Bis gleich. Bis später."
+        },
+        {
+          "id": "P3-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: eine Krankmeldung schreiben und verstehen, Gesundheitstipps und Informationen zu Praxis, Notdienst und Apotheke verstehen."
+        },
+        {
+          "id": "P3-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Körperteile, Krankheiten und Wörter rund um Arzt und Apotheke."
+        }
+      ]
+    },
+    {
+      "level": "A1.2",
+      "path": "P3",
+      "sourceId": "P3-N8",
+      "parent": {
+        "id": "P3-N8",
+        "kind": "practice",
+        "sort_order": 8,
+        "topic": "Gesundheit und Krankheit · Krankmeldung",
+        "title": "Krankmeldung",
+        "translations": {
+          "en": {
+            "title": "Calling in sick"
+          },
+          "ru": {
+            "title": "Сообщение о болезни"
+          },
+          "uk": {
+            "title": "Повідомлення про хворобу"
+          },
+          "tr": {
+            "title": "Hastalık bildirimi"
+          }
+        },
+        "goals": [
+          "P3-K3",
+          "P3-Z1"
+        ],
+        "merkkarte": {
+          "card": "p3_krank",
+          "rule": "Krankmeldung schreiben: Anrede: Sehr geehrte Frau … / Sehr geehrter Herr … Grund: Leider bin ich krank. Ich kann heute nicht in die Firma kommen. Dauer: Ich bin bis Freitag krank. Bitte: Bitte informieren Sie auch Herrn Wolf. Gruß: Mit freundlichen Grüßen.",
+          "examples": [
+            "Leider kann ich heute nicht zum Deutschkurs kommen.",
+            "Ich habe Fieber und muss im Bett bleiben.",
+            "Bitte informieren Sie auch Herrn Lindner."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Writing a sick note: salutation: Sehr geehrte Frau … / Sehr geehrter Herr … Reason: Leider bin ich krank (unfortunately I am ill). Ich kann heute nicht in die Firma kommen. Duration: Ich bin bis Freitag krank. Request: Bitte informieren Sie auch Herrn Wolf. Closing: Mit freundlichen Grüßen."
+            },
+            "ru": {
+              "rule": "Как сообщить о болезни письменно: обращение: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (к сожалению, я болею). Ich kann heute nicht in die Firma kommen. Срок: Ich bin bis Freitag krank. Просьба: Bitte informieren Sie auch Herrn Wolf. В конце: Mit freundlichen Grüßen."
+            },
+            "uk": {
+              "rule": "Як повідомити про хворобу письмово: звертання: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (на жаль, я хворію). Ich kann heute nicht in die Firma kommen. Термін: Ich bin bis Freitag krank. Прохання: Bitte informieren Sie auch Herrn Wolf. У кінці: Mit freundlichen Grüßen."
+            },
+            "tr": {
+              "rule": "Hastalık bildirimi yazma: Hitap: Sehr geehrte Frau … / Sehr geehrter Herr … Neden: Leider bin ich krank (maalesef hastayım). Ich kann heute nicht in die Firma kommen. Süre: Ich bin bis Freitag krank. Rica: Bitte informieren Sie auch Herrn Wolf. Kapanış: Mit freundlichen Grüßen."
+            }
+          }
+        }
+      },
+      "allObjectives": [
+        {
+          "id": "P3-G1",
+          "area": "grammar",
+          "description": "Possessivartikel für alle Personen im Nominativ: mein, dein, sein, ihr, unser, euer, ihr, Ihr – mit -e bei „die“ und im Plural (eure)."
+        },
+        {
+          "id": "P3-G2",
+          "area": "grammar",
+          "description": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand)."
+        },
+        {
+          "id": "P3-G3",
+          "area": "grammar",
+          "description": "Possessivartikel im Akkusativ: bei maskulinen Nomen mit -en (meinen, deinen, seinen, ihren, unseren, euren, Ihren)."
+        },
+        {
+          "id": "P3-G4",
+          "area": "grammar",
+          "description": "Modalverb sollen: soll, sollst, sollen, sollt; der Infinitiv steht am Satzende."
+        },
+        {
+          "id": "P3-K1",
+          "area": "communication",
+          "description": "Über das Befinden sprechen: sagen, was wehtut, und Krankheiten nennen (Fieber, Husten, Schnupfen, Schmerzen)."
+        },
+        {
+          "id": "P3-K2",
+          "area": "communication",
+          "description": "Anweisungen und Ratschläge für die Gesundheit verstehen, geben und weitersagen: Der Arzt sagt, ich soll viel trinken."
+        },
+        {
+          "id": "P3-K3",
+          "area": "communication",
+          "description": "Sich krankmelden: Leider kann ich heute nicht kommen."
+        },
+        {
+          "id": "P3-K4",
+          "area": "communication",
+          "description": "Einen Termin beim Arzt vereinbaren: Könnte ich bitte einen Termin haben? Es ist dringend."
+        },
+        {
+          "id": "P3-K5",
+          "area": "communication",
+          "description": "Einen Notfall melden: Wo sind Sie? Was ist passiert? Was ist mit der Person?"
+        },
+        {
+          "id": "P3-K6",
+          "area": "communication",
+          "description": "Im Gespräch reagieren: Oh nein! Oje! Ach so. Hoffentlich! Bis gleich. Bis später."
+        },
+        {
+          "id": "P3-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: eine Krankmeldung schreiben und verstehen, Gesundheitstipps und Informationen zu Praxis, Notdienst und Apotheke verstehen."
+        },
+        {
+          "id": "P3-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Körperteile, Krankheiten und Wörter rund um Arzt und Apotheke."
+        }
+      ]
+    },
+    {
+      "level": "A2.2",
+      "path": "P2",
+      "sourceId": "P2-N11",
+      "parent": {
+        "id": "P2-N11",
+        "kind": "practice",
+        "sort_order": 11,
+        "topic": "Warenwelt · Diese Kette habe ich von …",
+        "title": "Diese Kette habe ich von …",
+        "translations": {
+          "en": {
+            "title": "I got this necklace from …"
+          },
+          "ru": {
+            "title": "Эту цепочку мне подарил(а) …"
+          },
+          "uk": {
+            "title": "Цей ланцюжок мені подарував / подарувала …"
+          },
+          "tr": {
+            "title": "Bu kolyeyi … verdi"
+          }
+        },
+        "goals": [
+          "P2-K4"
+        ],
+        "merkkarte": {
+          "card": "p2_gegenstand",
+          "rule": "Von einem Gegenstand erzählen: Diesen Ring habe ich von meiner Oma bekommen. Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. Er/Es/Sie ist mir besonders wichtig, weil … Er gefällt mir so gut, denn er ist sehr alt. Im Akkusativ: diesen (der), dieses (das), diese (die).",
+          "examples": [
+            "Diesen Schal hat mir mein Onkel geschenkt.",
+            "Dieses Bild habe ich auf dem Flohmarkt gekauft.",
+            "Die Uhr ist mir besonders wichtig, weil sie von meinem Opa ist."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Talking about an object: Diesen Ring habe ich von meiner Oma bekommen. (I got this ring from my grandma.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (My husband gave me this necklace.) Er/Es/Sie ist mir besonders wichtig, weil … (It is especially important to me because …) Er gefällt mir so gut, denn er ist sehr alt. In the accusative: diesen (der), dieses (das), diese (die)."
+            },
+            "ru": {
+              "rule": "Как рассказать о предмете: Diesen Ring habe ich von meiner Oma bekommen. (Это кольцо я получил от бабушки.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Эту цепочку мне подарил муж.) Er/Es/Sie ist mir besonders wichtig, weil … (Он/она мне особенно дорог(а), потому что …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die)."
+            },
+            "uk": {
+              "rule": "Як розповісти про предмет: Diesen Ring habe ich von meiner Oma bekommen. (Цей перстень я отримав від бабусі.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Цей ланцюжок мені подарував чоловік.) Er/Es/Sie ist mir besonders wichtig, weil … (Він/вона мені особливо дорогий/дорога, бо …) Er gefällt mir so gut, denn er ist sehr alt. В Akkusativ: diesen (der), dieses (das), diese (die)."
+            },
+            "tr": {
+              "rule": "Bir eşyayı anlatmak: Diesen Ring habe ich von meiner Oma bekommen. (Bu yüzüğü büyükannemden aldım.) Dieses Messer habe ich in der Schweiz gekauft. Diese Kette hat mir mein Mann geschenkt. (Bu kolyeyi bana kocam hediye etti.) Er/Es/Sie ist mir besonders wichtig, weil … (Benim için özellikle önemli, çünkü …) Er gefällt mir so gut, denn er ist sehr alt. Akkusativ’de: diesen (der), dieses (das), diese (die)."
+            }
+          }
+        }
+      },
+      "allObjectives": [
+        {
+          "id": "P2-G1",
+          "area": "grammar",
+          "description": "Adjektive nach ein, kein, mein im Nominativ: ein neuer Laden, ein schönes Licht, eine schöne Wohnung, braune Möbel – aber: meine braunen Möbel."
+        },
+        {
+          "id": "P2-G2",
+          "area": "grammar",
+          "description": "Adjektive nach ein, kein, mein im Akkusativ: einen neuen Laden, ein schönes Licht, eine schöne Wohnung."
+        },
+        {
+          "id": "P2-G3",
+          "area": "grammar",
+          "description": "Adjektive nach ein, kein, mein im Dativ: einem neuen Laden, einer schönen Wohnung, braunen Möbeln – immer -en."
+        },
+        {
+          "id": "P2-G4",
+          "area": "grammar",
+          "description": "Komparativ und Superlativ: schön – schöner – am schönsten; groß – größer – am größten; hoch – höher – am höchsten."
+        },
+        {
+          "id": "P2-G5",
+          "area": "grammar",
+          "description": "Vergleichen mit als und wie: schöner als … – genauso schön wie …"
+        },
+        {
+          "id": "P2-G6",
+          "area": "grammar",
+          "description": "Wortbildung: Nomen + -los = Adjektiv: die Arbeit → arbeitslos (ohne Arbeit)."
+        },
+        {
+          "id": "P2-K1",
+          "area": "communication",
+          "description": "Skeptisch reagieren: Tja, ich weiß nicht. Hm, findest du? Na ja, geht so. Bist du sicher?"
+        },
+        {
+          "id": "P2-K2",
+          "area": "communication",
+          "description": "Vorlieben und Konsumverhalten ausdrücken: Am meisten gebe ich für … aus. Ich kaufe am liebsten … Da spare ich."
+        },
+        {
+          "id": "P2-K3",
+          "area": "communication",
+          "description": "Wichtigkeit ausdrücken: Mir ist … wichtig. Wie wichtig ist dir …? Das ist mir überhaupt nicht wichtig."
+        },
+        {
+          "id": "P2-K4",
+          "area": "communication",
+          "description": "Von einem Gegenstand erzählen: Diese Kette habe ich von meiner Oma bekommen. Sie ist mir besonders wichtig, weil …"
+        },
+        {
+          "id": "P2-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Kleinanzeigen verstehen."
+        },
+        {
+          "id": "P2-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Gegenstände und Materialien."
+        }
+      ]
+    }
+  ],
+  "taskApprovalClaimed": false,
+  "publicationApproved": false
+}
