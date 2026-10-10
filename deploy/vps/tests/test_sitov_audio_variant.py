@@ -15,7 +15,7 @@ class SitovAudioVariantTests(unittest.TestCase):
   for text,path in GOLDEN.items():
    self.assertEqual(m.expected_path(text,self.profile,self.fingerprint),path)
    self.assertEqual(m.expected_path(' \u00a0'+text+'\n ',self.profile,self.fingerprint),path)
-  manifest=self.fixture.bundle(tuple(GOLDEN));self.assertEqual(len(m.validate_bundle(self.fixture.root,self.profile)),7)
+  manifest=self.fixture.bundle(tuple(GOLDEN));self.assertEqual(m.validate_bundle(self.fixture.root,self.profile),7)
   manifest['rows'][0]['cachePath']='sitov-qwen-v1/de/f688be4502c52ae64c4468fc23e9f29b1f451a7e432fac020e386ffd5f0c0d6f.mp3'
   self.fixture.write_manifest(manifest)
   with self.assertRaisesRegex(ValueError,'address mismatch'):m.validate_bundle(self.fixture.root,self.profile)
@@ -46,7 +46,7 @@ class SitovAudioVariantTests(unittest.TestCase):
    self.assertEqual(m.expected_path(' \u00a0'+text+'\n ',self.profile,self.fingerprint),expected)
    old={'text':text,'voice':self.profile['voice'],'rate':'qwen-native-1-lufs-18-aligned-v1','format':'audio-24khz-48kbitrate-mono-mp3','leadIn':.35,'profile':self.fingerprint}
    self.assertNotEqual(expected,'sitov-qwen-v1/de/'+m.digest(m.compact(old,ordered=True).encode())+'.mp3')
-  manifest=self.fixture.bundle(tuple(goldens));self.assertEqual(len(m.validate_bundle(self.fixture.root,self.profile)),6)
+  manifest=self.fixture.bundle(tuple(goldens));self.assertEqual(m.validate_bundle(self.fixture.root,self.profile),6)
   registry=json.loads(m.VARIANTS_PATH.read_text());next(r for r in registry['variants'] if r['text']=='neuen')['variant']='sitov-audio-repair-20261010-v1'
   path=self.fixture.root/'wrong-final-version.json';path.write_text(json.dumps(registry))
   with patch.object(m,'VARIANTS_PATH',path),self.assertRaisesRegex(ValueError,'registry'):m.expected_path('neuen',self.profile,self.fingerprint)
