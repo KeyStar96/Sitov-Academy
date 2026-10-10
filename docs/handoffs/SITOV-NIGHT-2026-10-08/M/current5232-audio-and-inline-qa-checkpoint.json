@@ -1,0 +1,89 @@
+{
+  "at": "2026-10-10T04:55:33.794294+00:00",
+  "school": "Sitov Academy",
+  "actualContentCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+  "sourceBeforePending20ScalarRepair": true,
+  "currentPathAudio": {
+    "at": "2026-10-10T04:50:14.562725+00:00",
+    "sources": [
+      {
+        "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-current532-audio-selection-draft-v4-private.json",
+        "sha256": "806a34ce7ef35901b6ae642e246f7775d28b03a095a54817801ead7f6d5dca9e"
+      }
+    ],
+    "uniqueByteTextTimingTriples": 608,
+    "passed": 608,
+    "failed": 0,
+    "reusedImmutable": 455,
+    "newActualDecodes": 153,
+    "scope": "Actual local selected-MP3 decode and strict bounds. Technical only, no listening/publication.",
+    "humanListening": false,
+    "publicationApproved": false
+  },
+  "bundle": {
+    "at": "2026-10-10T04:53:56.351367+00:00",
+    "scope": "Offline immutable technical draft; no upload, hearing claim or publication.",
+    "bundlePath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-final-selected5232-draft-v1",
+    "sources": [
+      {
+        "name": "M-current60-audio-selection-draft-v6-private.json",
+        "sha256": "19292ecfc538cd84fe9ee1a5b77f2751855377745eef5433141e6ae09727bc6b"
+      },
+      {
+        "name": "M-current532-audio-selection-draft-v4-private.json",
+        "sha256": "806a34ce7ef35901b6ae642e246f7775d28b03a095a54817801ead7f6d5dca9e"
+      }
+    ],
+    "actualDecodeProofSha256": "113ee6375c32239d896efcda79647743e0127e148f624acdd8c7391647cbb549",
+    "manifestSha256": "cd81059b2d67738a6985585d01de9b0e6163c403bc3b59d0657efc336e93a93a",
+    "selected": 5232,
+    "held": 100,
+    "derivedTimingsProjected": 165,
+    "sourceMetadataRekeyed": 4250,
+    "finalMetadataReadbackVerified": 5232,
+    "actualImporterValidated": 5232,
+    "humanListening": false,
+    "publicationApproved": false
+  },
+  "originalMP3CollisionResolution": {
+    "freshExactReadback": 31,
+    "strictDecodePASS": 31,
+    "bytesPreserved": true,
+    "differentMP3Overwrite": false
+  },
+  "parentObjectivePreparation": {
+    "at": "2026-10-10T04:48:25.516941+00:00",
+    "sourceCommit": "db9bd0cc589adbc92120ec9260417f223d377c75",
+    "parents": 57,
+    "objectives": 5,
+    "all746ObjectivesCompared": true,
+    "all330UnitTranslationsExact": true,
+    "all57FullBeforeRowsOriginalAndAfterUnknownFieldsPreserved": true,
+    "previous4ObjectiveChangesExact": true,
+    "fullOriginalObjectiveExportSHA256": "a8bd013b75959a8015c0ad56cedcdaced7aeb7de7b889eba2acabc3065b961de",
+    "fullOriginalTranslationExportSHA256": "cb7e2f20b858410b59525413daa32f267fc78535e0636ab226ef7fc52bbe6474",
+    "parentPayloadSHA256": "845723c3283df9721d33358d3efda03903e50cd67913571dbf3eddd7ec410121",
+    "productionAdoptionApproved": false
+  },
+  "inlineRecorderQABuild": {
+    "at": "2026-10-10T04:54:21.560030+00:00",
+    "sourceCommit": "eed9cc8fb28634753ba1a45e4cdaf37429c2c31f",
+    "exitCode": 0,
+    "buildID": "y6jNTwXmEGFKxEVq8szt1",
+    "logSHA256": "875ca049505ab717057a15f28d4a5ca747f5c5c372d1fde4b625b92a22de316f",
+    "isolatedQAEnvMasked": true,
+    "webpack": true,
+    "productionDeployment": false
+  },
+  "importantLimits": [
+    "Full current-path strict bounds validation first stopped for12 legitimate historical original source paths outside the dedicated audio root; exact SHA-verified source copies were made without changing originals, then608/608 passed. No audio defect inferred from that path guard.",
+    "5232 unique prepared draft assets equal4680 pretest+608 current path with56 shared texts, all56 same MP3 bytes; every final metadata readback and importer validate PASS twice.",
+    "100 held text-selection rows remain:11 pretest and89 current path, including diagnostic name/word differences and a formal surname placeholder.",
+    "165 timing projections are technical drafts; existing metadata changes require exact original-metadata CAS.",
+    "Human hearing and empirical calibration remain unestablished; no publication, production upload or deployment claimed.",
+    "S7epoch24 independent audit actuallyfound5whole-task and1parent HOLD; exactly20 scoped scalar repairs assigned toS2epoch45, not yet integrated."
+  ],
+  "productionChanged": false,
+  "publicationApproved": false,
+  "releaseReady": false
+}
