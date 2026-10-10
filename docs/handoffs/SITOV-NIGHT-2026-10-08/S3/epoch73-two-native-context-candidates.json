@@ -1,0 +1,196 @@
+{
+  "status": "ONE_EXACT_SMALL_ASR_CANDIDATE_ONE_UNRESOLVED_NEUEN_BOTH_PENDING_HUMAN",
+  "outputDir": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1",
+  "results": [
+    {
+      "spokenText": "neuen",
+      "displayText": "neuen",
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-1.mp3",
+      "audioSha256": "799ca0ce8c19095e31e36b0b31f2e74d12006e3fea5669a4dbc320cc6fbecb44",
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-1.final.json",
+      "metadataSha256": "967ad3d6ece6052632d816cd3e06f7b356084f4b03f00e24093d2d66f7bf896b",
+      "actualDecodedDuration": 0.59,
+      "decodedWavSHA256": "ef0ef9abcfaada2c9ccd498bd7a33f4893106037df96ae584ce6a8be9c294ad8",
+      "rawAlignmentAccepted": true,
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/raw-classifier-receipts/1663f82b1d46ffcbac3cc03a3482d8b8d2dd2afdc8917003bc3cd27d31913138.json",
+      "candidateOnly": true,
+      "humanListening": false,
+      "publicationApproved": false
+    },
+    {
+      "spokenText": "Ein Apfel, also ein Stück.",
+      "displayText": "1 Apfel, also ein Stück.",
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-0.mp3",
+      "audioSha256": "6935a69ce58b95744054c55903c8d7a78c5ef16d9a22e6963ad168e7318a6ac4",
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-0.final.json",
+      "metadataSha256": "43c82ff17b2467697da13af4713c2c2aa4ab1400600ab44de6a2d9f36c0e3d4b",
+      "actualDecodedDuration": 1.99,
+      "decodedWavSHA256": "1413637f0714ef586ed5f66d5071e043b74bad8c4c9a238d436a22730fb41dfc",
+      "rawAlignmentAccepted": true,
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/raw-classifier-receipts/bb65f7c0859c66d39449724821a235398c40c61f6be749277addac12565bd147.json",
+      "candidateOnly": true,
+      "humanListening": false,
+      "publicationApproved": false
+    }
+  ],
+  "asr": {
+    "at": "2026-10-10T08:02:13.656367+00:00",
+    "scope": "Pinned local ASR diagnostic of exact final MP3 bytes; not subjective human listening, empirical calibration, import or publication proof",
+    "total": 2,
+    "complete": true,
+    "rows": [
+      {
+        "id": "sitov-s3epoch73-0",
+        "textExpected": "Ein Apfel, also ein Stück.",
+        "textObserved": "Ein Apfel, also ein Stück.",
+        "audioSha256": "6935a69ce58b95744054c55903c8d7a78c5ef16d9a22e6963ad168e7318a6ac4"
+      },
+      {
+        "id": "sitov-s3epoch73-1",
+        "textExpected": "neuen",
+        "textObserved": "Neun",
+        "audioSha256": "799ca0ce8c19095e31e36b0b31f2e74d12006e3fea5669a4dbc320cc6fbecb44"
+      }
+    ]
+  },
+  "newNativeTakes": 2,
+  "noSourceOrRegistryChanges": true,
+  "noImport": true,
+  "publicationApproved": false,
+  "contexts": [
+    {
+      "text": "Leon kauft einen neuen Mantel.",
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/886c2398a1eb6bf3bb62d7e6d9083867d9735c023a68aebd2073b7d1b971b945.mp3",
+      "audioSha256": "ef8b15dfef2bc8f3176fc973d1082b20aa82601edcb1cb9509ad43aa0e504b44",
+      "nativeRawWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw/37673eb0c0d907d3df0f5c4c245413ba03059b2590ba70a1cd87674d0e35faee.wav",
+      "nativeRawSha256": "ea643e6989a850225bc8e931d6615e521691f7847d3853722badcc0ede99cceb",
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/886c2398a1eb6bf3bb62d7e6d9083867d9735c023a68aebd2073b7d1b971b945.full-decode.wav",
+      "fullDecodedWavSha256": "182beb6a81facf7e359f8fc0ef8e06c25e799fb249b2679d057f0aba804f4b35",
+      "actualDecodedDuration": 2.35,
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/886c2398a1eb6bf3bb62d7e6d9083867d9735c023a68aebd2073b7d1b971b945.json",
+      "metadataSha256": "488292c06f61a3da2371034397f059d4012cf1ce52fa9cb4b44e32ab2e06a3e7",
+      "rawModelTimingReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw-classifier-receipts/6919f31f349bfbedf8c68163348fc87581e04a65e55f474da1eedf2419394883.json"
+    },
+    {
+      "text": "Leon bestellt im Laden: Ein Apfel, also ein Stück.",
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/decc0ea0105a174e81556da5c6935607ce17bf39a79526734eebf9aa3c504103.mp3",
+      "audioSha256": "834cabff6883bdcb9c4a224ed36e77f665096ee934aebaf94cda4d8f4f61f387",
+      "nativeRawWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw/584c096d2de2cf558afdd5586869ed8a59b5c8b5aeb807f488bd5d132cf46432.wav",
+      "nativeRawSha256": "caaef45adbbc98d959f2553ffe5527f62b3e841a7a76d42a11200a2f6eea6ac3",
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/decc0ea0105a174e81556da5c6935607ce17bf39a79526734eebf9aa3c504103.full-decode.wav",
+      "fullDecodedWavSha256": "78a84495fde33b91130e04a3c741bb21dc4a890e05b02fdd461f47aea3fc0b7e",
+      "actualDecodedDuration": 4.35,
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/decc0ea0105a174e81556da5c6935607ce17bf39a79526734eebf9aa3c504103.json",
+      "metadataSha256": "54a25e5a21f6c9179993f4ef3ed02ca36f2529549d91ac91dc7944fb2bf39925",
+      "rawModelTimingReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw-classifier-receipts/90382f714e7c39a4319ed6c2563624a9752478150d272d7b38ce66c4a3fa1768.json"
+    }
+  ],
+  "technicalVerification": {
+    "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+    "ttsRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48",
+    "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+    "referenceAudioSha256": "685523fce41587b65dca813bace5782b3c0bd359d37615675decdb06bea569a1",
+    "rawReceiptsAndArraysVerified": 4,
+    "rawDecisionsRecomputed": 4,
+    "fullDecodeCount": 4,
+    "allHashesAndExactTextBindingsVerified": true,
+    "display1SpokenEinBindingExplicit": true,
+    "noTimeStretchOrSplice": true,
+    "newNativeTakes": 2,
+    "humanListening": false,
+    "thresholdsEmpiricallyCalibrated": false
+  },
+  "perTextStatus": [
+    {
+      "displayText": "neuen",
+      "spokenText": "neuen",
+      "audioSha256": "799ca0ce8c19095e31e36b0b31f2e74d12006e3fea5669a4dbc320cc6fbecb44",
+      "metadataSha256": "967ad3d6ece6052632d816cd3e06f7b356084f4b03f00e24093d2d66f7bf896b",
+      "smallASR": "Neun",
+      "status": "HOLD_ASR_NEUN_NOT_TWO_SYLLABLE_PROOF",
+      "humanPass": false,
+      "publicationApproved": false
+    },
+    {
+      "displayText": "1 Apfel, also ein Stück.",
+      "spokenText": "Ein Apfel, also ein Stück.",
+      "audioSha256": "6935a69ce58b95744054c55903c8d7a78c5ef16d9a22e6963ad168e7318a6ac4",
+      "metadataSha256": "43c82ff17b2467697da13af4713c2c2aa4ab1400600ab44de6a2d9f36c0e3d4b",
+      "smallASR": "Ein Apfel, also ein Stück.",
+      "status": "CANDIDATE_PENDING_REAL_HUMAN_REHEARING",
+      "humanPass": false,
+      "publicationApproved": false
+    }
+  ],
+  "ownedJobsRemaining": 0,
+  "inputSha256": "afad42d50b20e07fc514e0a517eeda459992c9fd51ae78fe44d34e810c325c44",
+  "humanRejectEvidenceSha256": "9a4861956c1692a1807bbba80eca87478094bac2647688938fe20b5835d22afc",
+  "baseSha": "a4fb987be70d0b7184535a4418e68a42017ec2c0",
+  "actualContentSource": "6c26022d91d9d00bf1b112f9efb11e481d9e361c",
+  "sourceScriptSha256": {
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/scripts/sitov_qwen_runtime.py": "ec1f299bed570181b383ef89be48174ca0ca1b14082edd8d997f2aa23309d1e9",
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/scripts/sitov_qwen_alignment.py": "3f4fb466f234c552608e9f5f799f631759c3f8788c938a6a3c594e8ce4746dae",
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/scripts/sitov-qwen-generate.py": "f3ff8bdd80643ffd41b55fe091f2eb3db8c2aeaff620d18d97bf405c32e60d4f",
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/scripts/sitov-qwen-align-prepared.py": "2202765b1964542a4b6f166dda64aea18e75647cc8d3fd2c7d32edbfc61eb65f",
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/lib/audio/models/sitov-qwen-male-de/config.json": "a0ec8738c48bf228fed95ca8f8f34344e0e596b3eaea29a47b5c6d53bdb887df"
+  },
+  "isolatedAudioEvidenceSha256": {
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/886c2398a1eb6bf3bb62d7e6d9083867d9735c023a68aebd2073b7d1b971b945.full-decode.wav": "182beb6a81facf7e359f8fc0ef8e06c25e799fb249b2679d057f0aba804f4b35",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/886c2398a1eb6bf3bb62d7e6d9083867d9735c023a68aebd2073b7d1b971b945.json": "488292c06f61a3da2371034397f059d4012cf1ce52fa9cb4b44e32ab2e06a3e7",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/886c2398a1eb6bf3bb62d7e6d9083867d9735c023a68aebd2073b7d1b971b945.mp3": "ef8b15dfef2bc8f3176fc973d1082b20aa82601edcb1cb9509ad43aa0e504b44",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/catalog.json": "b580c92fc03f1284f9aa880a551d573cd09eed1671a9da0fff236423d7a116a9",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/decc0ea0105a174e81556da5c6935607ce17bf39a79526734eebf9aa3c504103.full-decode.wav": "78a84495fde33b91130e04a3c741bb21dc4a890e05b02fdd461f47aea3fc0b7e",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/decc0ea0105a174e81556da5c6935607ce17bf39a79526734eebf9aa3c504103.json": "54a25e5a21f6c9179993f4ef3ed02ca36f2529549d91ac91dc7944fb2bf39925",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/decc0ea0105a174e81556da5c6935607ce17bf39a79526734eebf9aa3c504103.mp3": "834cabff6883bdcb9c4a224ed36e77f665096ee934aebaf94cda4d8f4f61f387",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw/37673eb0c0d907d3df0f5c4c245413ba03059b2590ba70a1cd87674d0e35faee.wav": "ea643e6989a850225bc8e931d6615e521691f7847d3853722badcc0ede99cceb",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw/584c096d2de2cf558afdd5586869ed8a59b5c8b5aeb807f488bd5d132cf46432.wav": "caaef45adbbc98d959f2553ffe5527f62b3e841a7a76d42a11200a2f6eea6ac3",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw-classifier-receipts/6919f31f349bfbedf8c68163348fc87581e04a65e55f474da1eedf2419394883.json": "800bf709e40e3b361c17b2bd036b615f2222fe6725b8aa9368ef690d19d76733",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw-classifier-receipts/6919f31f349bfbedf8c68163348fc87581e04a65e55f474da1eedf2419394883.npz": "f651c8bdeafb4e936e155457aa414f926409ffa4a5d50858c59d320013b0a5cc",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw-classifier-receipts/90382f714e7c39a4319ed6c2563624a9752478150d272d7b38ce66c4a3fa1768.json": "8a1bf4617550670ff6b51ea40dd6e0dcaaf67149e40341d2ba3519a8739f4a68",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/raw-classifier-receipts/90382f714e7c39a4319ed6c2563624a9752478150d272d7b38ce66c4a3fa1768.npz": "112cf1929689324bb2bfbf3167a78d928f5c2f3615b2de41ed7d06dda8f8451e",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/sitov-qwen-manifest.json": "e4c3cc0e32386ed742d88bb5c1d8dd26927045319d344db45d05bf49dc7a83ab",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/contexts/sitov-qwen-progress.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/asr-diagnostic-private.json": "edb05769b158f875c275fd0c047f3ce81f2c269ccdb10402fd42809e736686f8",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/raw-classifier-receipts/1663f82b1d46ffcbac3cc03a3482d8b8d2dd2afdc8917003bc3cd27d31913138.json": "f53ccd0b706e2223029e1e379785ab7cbab87a0d6268ce4d53b7ee88735ff8c8",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/raw-classifier-receipts/1663f82b1d46ffcbac3cc03a3482d8b8d2dd2afdc8917003bc3cd27d31913138.npz": "59c47279cd8cbc6ab4e61a312a6ccf4ba75ad926e6228dcce92dc165eda24aea",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/raw-classifier-receipts/bb65f7c0859c66d39449724821a235398c40c61f6be749277addac12565bd147.json": "aed1af00caed6a04a8c7a4895e2b7f5dbd4d82fac758cb1650e201240a19a6e6",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/raw-classifier-receipts/bb65f7c0859c66d39449724821a235398c40c61f6be749277addac12565bd147.npz": "e0c4f40237e2526929fa92b4ecbed06279c118d095022347224875c2a87b621e",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-qwen-manifest.json": "a84f2edb13de22244aa4d5519548fa4cfce286d7d5bcc143e6f794066569c889",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-0.crop.wav": "47a557bc5e8b81dbc4ef9c7f6ff5b08e8e881c6ea4d63130e1c6a729c344f3b7",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-0.final.json": "43c82ff17b2467697da13af4713c2c2aa4ab1400600ab44de6a2d9f36c0e3d4b",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-0.full-decode.wav": "1413637f0714ef586ed5f66d5071e043b74bad8c4c9a238d436a22730fb41dfc",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-0.input.json": "57dd23f50a98825c46966a8322d31d483ff097b39d80322dc6e627f88130388e",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-0.mp3": "6935a69ce58b95744054c55903c8d7a78c5ef16d9a22e6963ad168e7318a6ac4",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-1.crop.wav": "a2dca785eefa4c7ca7e00d03e94255728297ad3e8e485812226a9a7bb81b6798",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-1.final.json": "967ad3d6ece6052632d816cd3e06f7b356084f4b03f00e24093d2d66f7bf896b",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-1.full-decode.wav": "ef0ef9abcfaada2c9ccd498bd7a33f4893106037df96ae584ce6a8be9c294ad8",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-1.input.json": "9ff6f4814f7f18804c8e52d9947327a2552429d60bb767b31f6b8a48d6dac0a3",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/final/sitov-s3epoch73-1.mp3": "799ca0ce8c19095e31e36b0b31f2e74d12006e3fea5669a4dbc320cc6fbecb44",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch73-native-context2-v1/specifications-private.json": "6570c57247439911f993a55f13818f67ab587efa319ce9338175461b4ded95a6"
+  },
+  "privateEvidenceSha256": {
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-crop0.log": "a6ab09cc16acb5b52f2f4508c36fe44ea5a0c9926d3e7ce36317e39eb254e31b",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-crop1.log": "a06a8429261627846e4b552bb6fb46f86960b8af55d8c2aaf26f4e8941c57ab8",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-decode-sitov-s3epoch73-0.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-decode-sitov-s3epoch73-1.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-phase-ledger.json": "41d8e169f0f7180a043a371e1fcaac2fdd80147900b830e467745c3c242833a8",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-pipeline.py": "5f8682d68834733725d14c55fa6c363ad818d50ce9b078eed83e1d41d794f842",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-raw-context2.log": "9da11b717de1f0e13dc24db3c22f97ff00969769aa35fea83fe4f6655e5f5a53",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-raw-final2.log": "f4e017960e2bf9e2da99b207f3877a39cfaae239bb08c2546a818e3131eef8b9",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-results.json": "b4186ab29e0d4480f5a68a3a0cd5a6ce45f9d6121848e4907ba56ea3f7211d42",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-review-package.json": "4b58f3beaec7da5fa0665aaeac3a480aa91ae3ef7c223d701032db0912d0af6f",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-save.py": "701b8041c071a51d8c5fe08974cad56b26441cf61bde50e395828c7c5d34eb09",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-small-final2.log": "a40c92311357ca5039544895330726d60c767c1c3d8947fc465653086f5c5dac",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-technical-verification.json": "11ea18bf673b013c15b8ac7a5bff1b99f644a0ccc55de121c312a8c63c9b361f",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-tts-context2.log": "9466e0400785bde7c2b9e975207e8caeeb623a66a4b31fe61ec0d372a9e75606",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch73-verify.py": "5aa8fe2601c75d31f6de47ee4f407e182287c6aa6ccd7216b8129ce2656b1a4f"
+  },
+  "limits": [
+    "Exactly2new full native context takes; no further synthesis",
+    "Small ASR is diagnostic only; neuen still recognized asNeun, no repair success or two-syllable guarantee",
+    "Raw classifier acceptance is technical and not empirically calibrated phonetic/naturalness approval",
+    "Display1->spokenEin explicitly bound but has no registry/cache/publication authorization",
+    "No source/task/answer/registry/parameter change; no DB/SSH/storage/QA/production/import",
+    "Real human re-hearing of exact final hashes and context remains required"
+  ]
+}
