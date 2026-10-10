@@ -3,9 +3,16 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { sitovReadAuthoringSources,sitovValidatePretestDrafts,sitovHash,sitovPublicPretestAudioAliases,sitovValidatePretestAudioAliases } from './sitov-pronunciation-pretests-authoring.mjs'
 // Preserve actual repository objects before the historical loader rewinds any review layer.
-const sitovReviewed59ManifestRaw=await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')
-const sitovReviewed59AudioRaw=await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')
-const sitovReviewed59CurrentManifest=JSON.parse(sitovReviewed59ManifestRaw),sitovReviewed59CurrentAudio=JSON.parse(sitovReviewed59AudioRaw)
+const sitovPrompts13ManifestRaw=await readFile('supabase/seeds/sitov-pronunciation-pretests-2026-10-08.json','utf8')
+const sitovPrompts13AudioRaw=await readFile('supabase/seeds/sitov-pronunciation-pretest-audio-2026-10-08.json','utf8')
+const sitovPrompts13Review=JSON.parse(await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/M/audio-prompts13-author-review.json','utf8'))
+const sitovReviewed59CurrentManifest=JSON.parse(sitovPrompts13ManifestRaw),sitovReviewed59CurrentAudio=JSON.parse(sitovPrompts13AudioRaw)
+// Reconstruct the exact previous reviewed version for its historical assertions.
+for(const r of sitovPrompts13Review.pools){const d=sitovReviewed59CurrentManifest.drafts.find(d=>d.textId===r.textId);d.definition=structuredClone(r.previousDefinition);d.review=structuredClone(r.previousReview)}
+for(const r of sitovPrompts13Review.audioAliasRepairs)sitovReviewed59CurrentAudio[r.alias]=r.previousTextDe
+const sitovReviewed59ManifestRaw=JSON.stringify(sitovReviewed59CurrentManifest,null,2)+'\n',sitovReviewed59AudioRaw=JSON.stringify(sitovReviewed59CurrentAudio,null,2)+'\n'
+assert.equal(sitovHash(JSON.stringify(sitovReviewed59CurrentManifest)),sitovPrompts13Review.previousManifestHash)
+assert.equal(sitovHash(JSON.stringify(sitovReviewed59CurrentAudio)),sitovPrompts13Review.previousAliasesHash)
 const sitovEpoch32ReviewRaw=await readFile('docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch32-independent-editorial-review.json','utf8'),sitovEpoch32Review=JSON.parse(sitovEpoch32ReviewRaw)
 const sitovReviewed59ReviewSha='e8c31f5c8d055f9dd552f8d4d7be83209c60cb37de4f0d4ce69aa2dcc1d7e143'
 assert.equal(sitovHash(sitovEpoch32ReviewRaw),sitovReviewed59ReviewSha,'exact independently reviewed59 document')
