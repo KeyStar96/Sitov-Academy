@@ -1,0 +1,402 @@
+{
+  "epoch": 43,
+  "brand": "Sitov Academy",
+  "base": "9ed9a6f32363644623dcdf295e0764bcca3b3429",
+  "boundS4SHA256": "892e8661f8bd77329584da2eebcf537df40e8e392f086e4f1c6c96cf47aa1180",
+  "boundS7SHA256": "e1137409d41ec28d99e7efcf4282d02fa9c0e563ec5d2dfa643f65eb6bf4f747",
+  "actualChangedSourceFiles": [
+    "supabase/seeds/path-a2.1.json",
+    "supabase/seeds/path-a2.2.json",
+    "supabase/seeds/path-src/a2.1/p4-check.mjs",
+    "supabase/seeds/path-src/a2.1/p4.mjs",
+    "supabase/seeds/path-src/a2.1/p6.mjs",
+    "supabase/seeds/path-src/a2.2/p7.mjs"
+  ],
+  "stageAExactCorrectedTasks": 4,
+  "stageBAuthorizedMaleRoleTasks": 7,
+  "changedExerciseCount": 11,
+  "scalarChanges": 56,
+  "changedParents": 0,
+  "changedPathObjectives": 0,
+  "affectedNodes": 5,
+  "totalExercisesCompared": 9569,
+  "totalNodesCompared": 856,
+  "totalPathsCompared": 66,
+  "allIdsTypesGoalsRefsOrderCardReferencesCardinalitiesAndCorrectOptionRanksExact": true,
+  "stageAFourOptionsKeysAcceptedArraysExact": true,
+  "stageBSevenHintsExplanationsAndOtherTranslationFieldsExact": true,
+  "sentenceBuildingPartsOnlyMaleTokenSubstitutionAtSameIndexes": [
+    {
+      "id": "bd0882ff-ae36-5c8c-a63f-bf5a55b7c938",
+      "ref": "P4-N6-E10",
+      "partIndexMappings": [
+        {
+          "index": 0,
+          "before": "in der Kantine",
+          "after": "in der Kantine"
+        },
+        {
+          "index": 1,
+          "before": "sie",
+          "after": "er"
+        },
+        {
+          "index": 2,
+          "before": "Vielleicht",
+          "after": "Vielleicht"
+        },
+        {
+          "index": 3,
+          "before": "noch",
+          "after": "noch"
+        },
+        {
+          "index": 4,
+          "before": "ist",
+          "after": "ist"
+        }
+      ],
+      "allIndexesCardinalitiesPreserved": true
+    },
+    {
+      "id": "3f2a6b3f-84c4-5174-abdc-8ca4f1adfe77",
+      "ref": "P4-N9-E10",
+      "partIndexMappings": [
+        {
+          "index": 0,
+          "before": "Kann",
+          "after": "Kann"
+        },
+        {
+          "index": 1,
+          "before": "etwas",
+          "after": "etwas"
+        },
+        {
+          "index": 2,
+          "before": "ausrichten",
+          "after": "ausrichten"
+        },
+        {
+          "index": 3,
+          "before": "ich",
+          "after": "ich"
+        },
+        {
+          "index": 4,
+          "before": "ihr",
+          "after": "ihm"
+        }
+      ],
+      "allIndexesCardinalitiesPreserved": true
+    }
+  ],
+  "previous23MirrorTasks115ExplanationFieldsExact": true,
+  "otherEightSeedFilesByteExact": true,
+  "allUnassignedTasksParentsObjectivesExact": true,
+  "canonicalKeyRevisionTasks": 5,
+  "changedAcceptedAnswerVariantMappings": 6,
+  "allSevenRoleTaskAcceptedAnswerMappings": [
+    {
+      "level": "a2.1",
+      "id": "8d020392-84b9-54f1-a480-fb04d4e36142",
+      "ref": "P4-N6-E04",
+      "canonicalBefore": "Wahrscheinlich hat sie heute frei.",
+      "canonicalAfter": "Wahrscheinlich hat er heute frei.",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Wahrscheinlich hat sie heute frei.",
+          "after": "Wahrscheinlich hat er heute frei.",
+          "changed": true,
+          "mapping": "1→1 explicit male token substitution"
+        }
+      ],
+      "archive114RequiredBeforeAdoption": true,
+      "historicalArchivePerformed": false
+    },
+    {
+      "level": "a2.1",
+      "id": "f7fde7b0-35b2-59e0-af70-8a1b2beeb7c8",
+      "ref": "P4-N6-E07",
+      "canonicalBefore": "glaube",
+      "canonicalAfter": "glaube",
+      "canonicalChanged": false,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "glaube",
+          "after": "glaube",
+          "changed": false,
+          "mapping": "identity"
+        },
+        {
+          "rank": 1,
+          "before": "denke",
+          "after": "denke",
+          "changed": false,
+          "mapping": "identity"
+        },
+        {
+          "rank": 2,
+          "before": "meine",
+          "after": "meine",
+          "changed": false,
+          "mapping": "identity"
+        },
+        {
+          "rank": 3,
+          "before": "vermute",
+          "after": "vermute",
+          "changed": false,
+          "mapping": "identity"
+        }
+      ],
+      "archive114RequiredBeforeAdoption": false,
+      "historicalArchivePerformed": false
+    },
+    {
+      "level": "a2.1",
+      "id": "bd0882ff-ae36-5c8c-a63f-bf5a55b7c938",
+      "ref": "P4-N6-E10",
+      "canonicalBefore": "Vielleicht ist sie noch in der Kantine.",
+      "canonicalAfter": "Vielleicht ist er noch in der Kantine.",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Vielleicht ist sie noch in der Kantine.",
+          "after": "Vielleicht ist er noch in der Kantine.",
+          "changed": true,
+          "mapping": "1→1 explicit male token substitution"
+        },
+        {
+          "rank": 1,
+          "before": "Sie ist vielleicht noch in der Kantine.",
+          "after": "Er ist vielleicht noch in der Kantine.",
+          "changed": true,
+          "mapping": "1→1 explicit male token substitution"
+        }
+      ],
+      "archive114RequiredBeforeAdoption": true,
+      "historicalArchivePerformed": false
+    },
+    {
+      "level": "a2.1",
+      "id": "d097b2e3-3a77-5471-a273-d371b3443565",
+      "ref": "P4-N9-E02",
+      "canonicalBefore": "Kann ich ihr etwas ausrichten?",
+      "canonicalAfter": "Kann ich ihm etwas ausrichten?",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Kann ich ihr etwas ausrichten?",
+          "after": "Kann ich ihm etwas ausrichten?",
+          "changed": true,
+          "mapping": "1→1 explicit male token substitution"
+        }
+      ],
+      "archive114RequiredBeforeAdoption": true,
+      "historicalArchivePerformed": false
+    },
+    {
+      "level": "a2.1",
+      "id": "92fca694-d0ad-56de-aa8e-4a86953f6b07",
+      "ref": "P4-N9-E08",
+      "canonicalBefore": "Platz",
+      "canonicalAfter": "Platz",
+      "canonicalChanged": false,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Platz",
+          "after": "Platz",
+          "changed": false,
+          "mapping": "identity"
+        }
+      ],
+      "archive114RequiredBeforeAdoption": false,
+      "historicalArchivePerformed": false
+    },
+    {
+      "level": "a2.1",
+      "id": "3f2a6b3f-84c4-5174-abdc-8ca4f1adfe77",
+      "ref": "P4-N9-E10",
+      "canonicalBefore": "Kann ich ihr etwas ausrichten?",
+      "canonicalAfter": "Kann ich ihm etwas ausrichten?",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Kann ich ihr etwas ausrichten?",
+          "after": "Kann ich ihm etwas ausrichten?",
+          "changed": true,
+          "mapping": "1→1 explicit male token substitution"
+        }
+      ],
+      "archive114RequiredBeforeAdoption": true,
+      "historicalArchivePerformed": false
+    },
+    {
+      "level": "a2.1",
+      "id": "e6f34a9a-fe83-5273-aa56-ae55617e8bbb",
+      "ref": "P4-N12-E12",
+      "canonicalBefore": "Nein, das glaube ich nicht. Ich glaube, sie kommt aus Spanien.",
+      "canonicalAfter": "Nein, das glaube ich nicht. Ich glaube, er kommt aus Spanien.",
+      "canonicalChanged": true,
+      "acceptedAnswerMappings": [
+        {
+          "rank": 0,
+          "before": "Nein, das glaube ich nicht. Ich glaube, sie kommt aus Spanien.",
+          "after": "Nein, das glaube ich nicht. Ich glaube, er kommt aus Spanien.",
+          "changed": true,
+          "mapping": "1→1 explicit male token substitution"
+        }
+      ],
+      "archive114RequiredBeforeAdoption": true,
+      "historicalArchivePerformed": false
+    }
+  ],
+  "actualHistoricalArchivePerformed": false,
+  "nativeSourceTasksCompared": 8800,
+  "nativeSourceFilesCompared": 128,
+  "explicitNativeTasksChanged": 11,
+  "nativeParentsObjectivesChanged": 0,
+  "allUnassignedNativeAuthorBusinessValuesExact": true,
+  "nativeBuilderParity": [
+    {
+      "level": "a1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.2",
+      "parity": "PASS"
+    }
+  ],
+  "nodeTests": {
+    "pass": 16,
+    "fail": 0
+  },
+  "allTenSeedSchemasValidatedExercises": 9569,
+  "eslint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffCheck": "PASS",
+  "bothActualAudioExtractorsComparedTasks": 9569,
+  "finalAudioAliases": 14,
+  "changedAudioAliases": 9,
+  "changedAudioTasks": 9,
+  "allUnassignedCanonicalPayloadsExact": true,
+  "humanHearing": false,
+  "independentFinalEditorialApprovalPending": true,
+  "publicationApproved": false,
+  "privateEvidence": {
+    "epoch43-bound-S4-review.json": {
+      "path": "S2/epoch43-bound-S4-review.json",
+      "bytes": 103616,
+      "sha256": "892e8661f8bd77329584da2eebcf537df40e8e392f086e4f1c6c96cf47aa1180"
+    },
+    "epoch43-bound-S7-review.json": {
+      "path": "S2/epoch43-bound-S7-review.json",
+      "bytes": 43445,
+      "sha256": "e1137409d41ec28d99e7efcf4282d02fa9c0e563ec5d2dfa643f65eb6bf4f747"
+    },
+    "epoch43-old-new-full.json": {
+      "path": "S2/epoch43-old-new-full.json",
+      "bytes": 959980,
+      "sha256": "4f4d56192123229136a681c03c72b04d406f03244a19fdee4f8b0eb0fbea8486"
+    },
+    "epoch43-final-canonical-audio.json": {
+      "path": "S2/epoch43-final-canonical-audio.json",
+      "bytes": 21383,
+      "sha256": "49831f1fb3a1bd4a260662d33304a80eed4ccb05c3c99e1b7c989b4e1f5ee564"
+    },
+    "epoch43-native-source-proof.json": {
+      "path": "S2/epoch43-native-source-proof.json",
+      "bytes": 30686,
+      "sha256": "a0e8cd0a29151bd8079152e82f74cf54f2a49871878089292130c6182be61c29"
+    },
+    "epoch43-independent-preservation-proof.json": {
+      "path": "S2/epoch43-independent-preservation-proof.json",
+      "bytes": 6649,
+      "sha256": "4a6e34efb354dba3e84a4a521e4c239ddcb2fe7c1a863202f3f52978ac2e392f"
+    },
+    "epoch43-final-native-parity.json": {
+      "path": "S2/epoch43-final-native-parity.json",
+      "bytes": 759,
+      "sha256": "aba78d613a665ea54009d4e42f9ab9eb6dcb7879aafdb0cdcd41b202fff56516"
+    },
+    "epoch43-native-tests.log": {
+      "path": "S2/epoch43-native-tests.log",
+      "bytes": 1447,
+      "sha256": "572f54aaaecab349df246c2fecab21cd4850e06335df45ace5875cb0973d6d76"
+    },
+    "epoch43-eslint.log": {
+      "path": "S2/epoch43-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch43-author-edits.json": {
+      "path": "S2/epoch43-author-edits.json",
+      "bytes": 1762,
+      "sha256": "e006a2d624c8fa8a569231116eaeac38928d4776c120e317a2a5546215aeef9f"
+    },
+    "epoch43-repair.py": {
+      "path": "S2/epoch43-repair.py",
+      "bytes": 10596,
+      "sha256": "e76e35d476502eb62ae868d17ef9c9c3bcc5547b2f5ea16c93fc566d967e9e46"
+    },
+    "epoch43-sync.mjs": {
+      "path": "S2/epoch43-sync.mjs",
+      "bytes": 8215,
+      "sha256": "6f932042bed8a826baf43c8301551fe62c528974031f6e537d844c67279a33f4"
+    },
+    "epoch43-validate-audio.ts": {
+      "path": "S2/epoch43-validate-audio.ts",
+      "bytes": 3568,
+      "sha256": "ce9805e8a249df7e3ef6c377c72718a8f443b89530f7029819f9d827e5a10901"
+    },
+    "epoch43-source-proof.mjs": {
+      "path": "S2/epoch43-source-proof.mjs",
+      "bytes": 3572,
+      "sha256": "a7178362bbac276bf7aa3af4822b5d91614c22cb4b48718b66136da8a466c7e6"
+    }
+  },
+  "MFollowup": [
+    "Independent final content review of all11authoredtasks.",
+    "Archive actual historic answers/progress under114 for5canonicalkeyrevisiontasks and6changedacceptedanswervariants beforeadoption.",
+    "Prepare/import9changedcanonicalGermanpayloads withverifiedwordtimings locally beforepublication."
+  ],
+  "noAudioDbSshRuntimeTestsMDocsImportPublicationPushDeployChanges": true
+}

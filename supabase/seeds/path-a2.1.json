@@ -30609,17 +30609,17 @@
               "instruction": "Welcher Satz ist richtig?",
               "question": "Tom vermutet etwas.",
               "options": [
-                "Wahrscheinlich hat sie heute frei.",
-                "Wahrscheinlich heute frei sie hat.",
-                "Wahrscheinlich sie hat heute frei."
+                "Wahrscheinlich hat er heute frei.",
+                "Wahrscheinlich heute frei er hat.",
+                "Wahrscheinlich er hat heute frei."
               ],
-              "correct_answer": "Wahrscheinlich hat sie heute frei.",
+              "correct_answer": "Wahrscheinlich hat er heute frei.",
               "accepted_answers": [
-                "Wahrscheinlich hat sie heute frei."
+                "Wahrscheinlich hat er heute frei."
               ]
             },
             "accepted_answers": [
-              "Wahrscheinlich hat sie heute frei."
+              "Wahrscheinlich hat er heute frei."
             ],
             "hint": "Nicht sicher: vielleicht. Fast sicher: wahrscheinlich. Meinung: Ich glaube, … Ich denke, …",
             "explanation": "Etwas vermuten: Vielleicht ist er krank. Wahrscheinlich kommt er später. Ich glaube, er ist im Urlaub. Ich denke, er hat viel Arbeit. Zustimmen: Ja, das glaube ich auch. Ja, das denke ich auch. Widersprechen: Nein, das glaube ich nicht. Nichts wissen: Keine Ahnung. Nach vielleicht und wahrscheinlich steht das Verb auf Position 2: Vielleicht hat er frei.",
@@ -30777,7 +30777,7 @@
               ],
               "instruction": "Ergänze die richtige Verbform.",
               "text_before": "Ich bin nicht sicher, aber ich ",
-              "text_after": ", sie hat heute Spätschicht.",
+              "text_after": ", er hat heute Spätschicht.",
               "correct_answer": "glaube",
               "options": [
                 "frage",
@@ -30805,21 +30805,21 @@
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Not sure: vielleicht. Almost sure: wahrscheinlich. Opinion: Ich glaube, … Ich denke, …",
                 "explanation": "Making a guess: Vielleicht ist er krank. (Perhaps he is ill.) Wahrscheinlich kommt er später. (He will probably come later.) Ich glaube, er ist im Urlaub. (I think he is on holiday.) Ich denke, er hat viel Arbeit. Agreeing: Ja, das glaube ich auch. Ja, das denke ich auch. Disagreeing: Nein, das glaube ich nicht. Not knowing: Keine Ahnung. (No idea.) After vielleicht and wahrscheinlich the verb is in position 2: Vielleicht hat er frei.",
-                "task": "I am not sure, but I think she is on the late shift today.",
+                "task": "I am not sure, but I think he is on the late shift today.",
                 "gap_hint": "think, believe"
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Не уверен: vielleicht. Почти уверен: wahrscheinlich. Мнение: Ich glaube, … Ich denke, …",
                 "explanation": "Как высказать предположение: Vielleicht ist er krank. (Может быть, он заболел.) Wahrscheinlich kommt er später. (Вероятно, он придёт позже.) Ich glaube, er ist im Urlaub. (Я думаю, он в отпуске.) Ich denke, er hat viel Arbeit. Согласиться: Ja, das glaube ich auch. Ja, das denke ich auch. Возразить: Nein, das glaube ich nicht. Не знать: Keine Ahnung. (Понятия не имею.) После vielleicht и wahrscheinlich глагол стоит на втором месте: Vielleicht hat er frei.",
-                "task": "Я не уверен, но думаю, у неё сегодня вечерняя смена.",
+                "task": "Я не уверен, но думаю, у него сегодня вечерняя смена.",
                 "gap_hint": "думать, полагать"
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Не впевнений: vielleicht. Майже впевнений: wahrscheinlich. Думка: Ich glaube, … Ich denke, …",
                 "explanation": "Як висловити припущення: Vielleicht ist er krank. (Можливо, він захворів.) Wahrscheinlich kommt er später. (Імовірно, він прийде пізніше.) Ich glaube, er ist im Urlaub. (Я думаю, він у відпустці.) Ich denke, er hat viel Arbeit. Погодитися: Ja, das glaube ich auch. Ja, das denke ich auch. Заперечити: Nein, das glaube ich nicht. Не знати: Keine Ahnung. (Гадки не маю.) Після vielleicht і wahrscheinlich дієслово стоїть на другому місці: Vielleicht hat er frei.",
-                "task": "Я не впевнений, але думаю, у неї сьогодні вечірня зміна.",
+                "task": "Я не впевнений, але думаю, у нього сьогодні вечірня зміна.",
                 "gap_hint": "думати, вважати"
               },
               "tr": {
@@ -30958,20 +30958,20 @@
               "instruction": "Bring die Wörter in die richtige Reihenfolge.",
               "parts": [
                 "in der Kantine",
-                "sie",
+                "er",
                 "Vielleicht",
                 "noch",
                 "ist"
               ],
-              "correct_answer": "Vielleicht ist sie noch in der Kantine.",
+              "correct_answer": "Vielleicht ist er noch in der Kantine.",
               "accepted_answers": [
-                "Vielleicht ist sie noch in der Kantine.",
-                "Sie ist vielleicht noch in der Kantine."
+                "Vielleicht ist er noch in der Kantine.",
+                "Er ist vielleicht noch in der Kantine."
               ]
             },
             "accepted_answers": [
-              "Vielleicht ist sie noch in der Kantine.",
-              "Sie ist vielleicht noch in der Kantine."
+              "Vielleicht ist er noch in der Kantine.",
+              "Er ist vielleicht noch in der Kantine."
             ],
             "hint": "Nicht sicher: vielleicht. Fast sicher: wahrscheinlich. Meinung: Ich glaube, … Ich denke, …",
             "explanation": "Etwas vermuten: Vielleicht ist er krank. Wahrscheinlich kommt er später. Ich glaube, er ist im Urlaub. Ich denke, er hat viel Arbeit. Zustimmen: Ja, das glaube ich auch. Ja, das denke ich auch. Widersprechen: Nein, das glaube ich nicht. Nichts wissen: Keine Ahnung. Nach vielleicht und wahrscheinlich steht das Verb auf Position 2: Vielleicht hat er frei.",
@@ -30981,19 +30981,19 @@
                 "instruction": "Put the words in the correct order.",
                 "hint": "Not sure: vielleicht. Almost sure: wahrscheinlich. Opinion: Ich glaube, … Ich denke, …",
                 "explanation": "Making a guess: Vielleicht ist er krank. (Perhaps he is ill.) Wahrscheinlich kommt er später. (He will probably come later.) Ich glaube, er ist im Urlaub. (I think he is on holiday.) Ich denke, er hat viel Arbeit. Agreeing: Ja, das glaube ich auch. Ja, das denke ich auch. Disagreeing: Nein, das glaube ich nicht. Not knowing: Keine Ahnung. (No idea.) After vielleicht and wahrscheinlich the verb is in position 2: Vielleicht hat er frei.",
-                "task": "Perhaps she is still in the canteen."
+                "task": "Perhaps he is still in the canteen."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Не уверен: vielleicht. Почти уверен: wahrscheinlich. Мнение: Ich glaube, … Ich denke, …",
                 "explanation": "Как высказать предположение: Vielleicht ist er krank. (Может быть, он заболел.) Wahrscheinlich kommt er später. (Вероятно, он придёт позже.) Ich glaube, er ist im Urlaub. (Я думаю, он в отпуске.) Ich denke, er hat viel Arbeit. Согласиться: Ja, das glaube ich auch. Ja, das denke ich auch. Возразить: Nein, das glaube ich nicht. Не знать: Keine Ahnung. (Понятия не имею.) После vielleicht и wahrscheinlich глагол стоит на втором месте: Vielleicht hat er frei.",
-                "task": "Может быть, она ещё в столовой."
+                "task": "Может быть, он ещё в столовой."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Не впевнений: vielleicht. Майже впевнений: wahrscheinlich. Думка: Ich glaube, … Ich denke, …",
                 "explanation": "Як висловити припущення: Vielleicht ist er krank. (Можливо, він захворів.) Wahrscheinlich kommt er später. (Імовірно, він прийде пізніше.) Ich glaube, er ist im Urlaub. (Я думаю, він у відпустці.) Ich denke, er hat viel Arbeit. Погодитися: Ja, das glaube ich auch. Ja, das denke ich auch. Заперечити: Nein, das glaube ich nicht. Не знати: Keine Ahnung. (Гадки не маю.) Після vielleicht і wahrscheinlich дієслово стоїть на другому місці: Vielleicht hat er frei.",
-                "task": "Можливо, вона ще в їдальні."
+                "task": "Можливо, він ще в їдальні."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
@@ -32335,19 +32335,19 @@
                 "ausrichten"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Deine Kollegin ist nicht da. Du möchtest dem Anrufer helfen. Was fragst du?",
+              "question": "Dein Kollege ist nicht da. Du möchtest dem Anrufer helfen. Was fragst du?",
               "options": [
-                "Kann ich ihr etwas ausrichten?",
+                "Kann ich ihm etwas ausrichten?",
                 "Kann ich Ihnen die Kantine zeigen?",
                 "Haben Sie schon Feierabend?"
               ],
-              "correct_answer": "Kann ich ihr etwas ausrichten?",
+              "correct_answer": "Kann ich ihm etwas ausrichten?",
               "accepted_answers": [
-                "Kann ich ihr etwas ausrichten?"
+                "Kann ich ihm etwas ausrichten?"
               ]
             },
             "accepted_answers": [
-              "Kann ich ihr etwas ausrichten?"
+              "Kann ich ihm etwas ausrichten?"
             ],
             "hint": "zurückrufen = später selbst anrufen. ausrichten = eine Nachricht weitergeben. Mann → er, ihm. Frau → sie, ihr.",
             "explanation": "Am Telefon Auskunft geben: Tut mir leid, Herr Weber ist gerade nicht am Platz. Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Hilfe anbieten: Kann ich ihr etwas ausrichten? Soll er Sie zurückrufen, wenn er kommt? Können Sie morgen früh noch einmal anrufen? Antworten: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. Für einen Mann: er, ihm. Für eine Frau: sie, ihr.",
@@ -32363,13 +32363,13 @@
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "zurückrufen = перезвонить позже. ausrichten = передать сообщение. Мужчина → er, ihm. Женщина → sie, ihr.",
                 "explanation": "Как дать справку по телефону: Tut mir leid, Herr Weber ist gerade nicht am Platz. (сейчас нет на месте) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Он уже ушёл.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Предложить помощь: Kann ich ihr etwas ausrichten? (Ей что-нибудь передать?) Soll er Sie zurückrufen, wenn er kommt? (Ему перезвонить вам?) Können Sie morgen früh noch einmal anrufen? Ответы: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я попробую позже ещё раз.) О мужчине: er, ihm. О женщине: sie, ihr.",
-                "task": "Вашей коллеги нет. Вы хотите помочь звонящему. Что вы спросите?"
+                "task": "Вашего коллеги нет. Вы хотите помочь звонящему. Что вы спросите?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "zurückrufen = передзвонити пізніше. ausrichten = передати повідомлення. Чоловік → er, ihm. Жінка → sie, ihr.",
                 "explanation": "Як дати довідку телефоном: Tut mir leid, Herr Weber ist gerade nicht am Platz. (зараз немає на місці) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Він уже пішов.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Запропонувати допомогу: Kann ich ihr etwas ausrichten? (Їй щось передати?) Soll er Sie zurückrufen, wenn er kommt? (Йому передзвонити вам?) Können Sie morgen früh noch einmal anrufen? Відповіді: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я спробую пізніше ще раз.) Про чоловіка: er, ihm. Про жінку: sie, ihr.",
-                "task": "Вашої колеги немає. Ви хочете допомогти тому, хто телефонує. Що ви запитаєте?"
+                "task": "Вашого колеги немає. Ви хочете допомогти тому, хто телефонує. Що ви запитаєте?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
@@ -32417,13 +32417,13 @@
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "zurückrufen = перезвонить позже. ausrichten = передать сообщение. Мужчина → er, ihm. Женщина → sie, ihr.",
                 "explanation": "Как дать справку по телефону: Tut mir leid, Herr Weber ist gerade nicht am Platz. (сейчас нет на месте) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Он уже ушёл.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Предложить помощь: Kann ich ihr etwas ausrichten? (Ей что-нибудь передать?) Soll er Sie zurückrufen, wenn er kommt? (Ему перезвонить вам?) Können Sie morgen früh noch einmal anrufen? Ответы: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я попробую позже ещё раз.) О мужчине: er, ihm. О женщине: sie, ihr.",
-                "task": "«Госпоже Kaya перезвонить вам?»"
+                "task": "«Господину Kaya перезвонить вам?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "zurückrufen = передзвонити пізніше. ausrichten = передати повідомлення. Чоловік → er, ihm. Жінка → sie, ihr.",
                 "explanation": "Як дати довідку телефоном: Tut mir leid, Herr Weber ist gerade nicht am Platz. (зараз немає на місці) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Він уже пішов.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Запропонувати допомогу: Kann ich ihr etwas ausrichten? (Їй щось передати?) Soll er Sie zurückrufen, wenn er kommt? (Йому передзвонити вам?) Können Sie morgen früh noch einmal anrufen? Відповіді: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я спробую пізніше ще раз.) Про чоловіка: er, ihm. Про жінку: sie, ihr.",
-                "task": "«Пан Kaya передзвонити вам?»"
+                "task": "«Чи має пан Kaya вам передзвонити?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
@@ -32663,7 +32663,7 @@
                 "am Platz"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Sie ist gerade nicht am ",
+              "text_before": "Er ist gerade nicht am ",
               "text_after": ". Kann ich etwas ausrichten?",
               "correct_answer": "Platz",
               "options": [
@@ -32686,21 +32686,21 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "zurückrufen = to call back later. ausrichten = to pass on a message. Man → er, ihm. Woman → sie, ihr.",
                 "explanation": "Giving information on the phone: Tut mir leid, Herr Weber ist gerade nicht am Platz. (not at his desk right now) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (He has already left.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Offering help: Kann ich ihr etwas ausrichten? (Can I give her a message?) Soll er Sie zurückrufen, wenn er kommt? (Shall he call you back?) Können Sie morgen früh noch einmal anrufen? Answers: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (I will try again later.) For a man: er, ihm. For a woman: sie, ihr.",
-                "task": "She is not at her desk right now. Can I take a message?",
+                "task": "He is not at his desk right now. Can I take a message?",
                 "gap_hint": "desk, place"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "zurückrufen = перезвонить позже. ausrichten = передать сообщение. Мужчина → er, ihm. Женщина → sie, ihr.",
                 "explanation": "Как дать справку по телефону: Tut mir leid, Herr Weber ist gerade nicht am Platz. (сейчас нет на месте) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Он уже ушёл.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Предложить помощь: Kann ich ihr etwas ausrichten? (Ей что-нибудь передать?) Soll er Sie zurückrufen, wenn er kommt? (Ему перезвонить вам?) Können Sie morgen früh noch einmal anrufen? Ответы: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я попробую позже ещё раз.) О мужчине: er, ihm. О женщине: sie, ihr.",
-                "task": "Её сейчас нет на месте. Что-нибудь передать?",
+                "task": "Его сейчас нет на месте. Что-нибудь передать?",
                 "gap_hint": "рабочее место"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "zurückrufen = передзвонити пізніше. ausrichten = передати повідомлення. Чоловік → er, ihm. Жінка → sie, ihr.",
                 "explanation": "Як дати довідку телефоном: Tut mir leid, Herr Weber ist gerade nicht am Platz. (зараз немає на місці) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Він уже пішов.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Запропонувати допомогу: Kann ich ihr etwas ausrichten? (Їй щось передати?) Soll er Sie zurückrufen, wenn er kommt? (Йому передзвонити вам?) Können Sie morgen früh noch einmal anrufen? Відповіді: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я спробую пізніше ще раз.) Про чоловіка: er, ihm. Про жінку: sie, ihr.",
-                "task": "Її зараз немає на місці. Щось передати?",
+                "task": "Його зараз немає на місці. Щось передати?",
                 "gap_hint": "робоче місце"
               },
               "tr": {
@@ -32786,15 +32786,15 @@
                 "etwas",
                 "ausrichten",
                 "ich",
-                "ihr"
+                "ihm"
               ],
-              "correct_answer": "Kann ich ihr etwas ausrichten?",
+              "correct_answer": "Kann ich ihm etwas ausrichten?",
               "accepted_answers": [
-                "Kann ich ihr etwas ausrichten?"
+                "Kann ich ihm etwas ausrichten?"
               ]
             },
             "accepted_answers": [
-              "Kann ich ihr etwas ausrichten?"
+              "Kann ich ihm etwas ausrichten?"
             ],
             "hint": "zurückrufen = später selbst anrufen. ausrichten = eine Nachricht weitergeben. Mann → er, ihm. Frau → sie, ihr.",
             "explanation": "Am Telefon Auskunft geben: Tut mir leid, Herr Weber ist gerade nicht am Platz. Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Hilfe anbieten: Kann ich ihr etwas ausrichten? Soll er Sie zurückrufen, wenn er kommt? Können Sie morgen früh noch einmal anrufen? Antworten: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. Für einen Mann: er, ihm. Für eine Frau: sie, ihr.",
@@ -32804,19 +32804,19 @@
                 "instruction": "Make a question from the words.",
                 "hint": "zurückrufen = to call back later. ausrichten = to pass on a message. Man → er, ihm. Woman → sie, ihr.",
                 "explanation": "Giving information on the phone: Tut mir leid, Herr Weber ist gerade nicht am Platz. (not at his desk right now) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (He has already left.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Offering help: Kann ich ihr etwas ausrichten? (Can I give her a message?) Soll er Sie zurückrufen, wenn er kommt? (Shall he call you back?) Können Sie morgen früh noch einmal anrufen? Answers: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (I will try again later.) For a man: er, ihm. For a woman: sie, ihr.",
-                "task": "Can I give her a message?"
+                "task": "Can I give him a message?"
               },
               "ru": {
                 "instruction": "Составьте вопрос из этих слов.",
                 "hint": "zurückrufen = перезвонить позже. ausrichten = передать сообщение. Мужчина → er, ihm. Женщина → sie, ihr.",
                 "explanation": "Как дать справку по телефону: Tut mir leid, Herr Weber ist gerade nicht am Platz. (сейчас нет на месте) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Он уже ушёл.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Предложить помощь: Kann ich ihr etwas ausrichten? (Ей что-нибудь передать?) Soll er Sie zurückrufen, wenn er kommt? (Ему перезвонить вам?) Können Sie morgen früh noch einmal anrufen? Ответы: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я попробую позже ещё раз.) О мужчине: er, ihm. О женщине: sie, ihr.",
-                "task": "Ей что-нибудь передать?"
+                "task": "Ему что-нибудь передать?"
               },
               "uk": {
                 "instruction": "Складіть запитання з цих слів.",
                 "hint": "zurückrufen = передзвонити пізніше. ausrichten = передати повідомлення. Чоловік → er, ihm. Жінка → sie, ihr.",
                 "explanation": "Як дати довідку телефоном: Tut mir leid, Herr Weber ist gerade nicht am Platz. (зараз немає на місці) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Він уже пішов.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Запропонувати допомогу: Kann ich ihr etwas ausrichten? (Їй щось передати?) Soll er Sie zurückrufen, wenn er kommt? (Йому передзвонити вам?) Können Sie morgen früh noch einmal anrufen? Відповіді: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я спробую пізніше ще раз.) Про чоловіка: er, ihm. Про жінку: sie, ihr.",
-                "task": "Їй щось передати?"
+                "task": "Йому щось передати?"
               },
               "tr": {
                 "instruction": "Bu kelimelerle bir soru oluşturun.",
@@ -34641,19 +34641,19 @@
                 "widersprechen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "„Ich denke, die neue Kollegin kommt aus Italien.“ – Du hast eine andere Idee.",
+              "question": "„Ich denke, der neue Kollege kommt aus Italien.“ – Du hast eine andere Idee.",
               "options": [
-                "Ja, das denke ich auch. Sie kommt aus Spanien.",
-                "Keine Ahnung, sie kommt aus Italien.",
-                "Nein, das glaube ich nicht. Ich glaube, sie kommt aus Spanien."
+                "Ja, das denke ich auch. Er kommt aus Spanien.",
+                "Keine Ahnung, er kommt aus Italien.",
+                "Nein, das glaube ich nicht. Ich glaube, er kommt aus Spanien."
               ],
-              "correct_answer": "Nein, das glaube ich nicht. Ich glaube, sie kommt aus Spanien.",
+              "correct_answer": "Nein, das glaube ich nicht. Ich glaube, er kommt aus Spanien.",
               "accepted_answers": [
-                "Nein, das glaube ich nicht. Ich glaube, sie kommt aus Spanien."
+                "Nein, das glaube ich nicht. Ich glaube, er kommt aus Spanien."
               ]
             },
             "accepted_answers": [
-              "Nein, das glaube ich nicht. Ich glaube, sie kommt aus Spanien."
+              "Nein, das glaube ich nicht. Ich glaube, er kommt aus Spanien."
             ],
             "hint": "Nicht sicher: vielleicht. Fast sicher: wahrscheinlich. Meinung: Ich glaube, … Ich denke, …",
             "explanation": "Etwas vermuten: Vielleicht ist er krank. Wahrscheinlich kommt er später. Ich glaube, er ist im Urlaub. Ich denke, er hat viel Arbeit. Zustimmen: Ja, das glaube ich auch. Ja, das denke ich auch. Widersprechen: Nein, das glaube ich nicht. Nichts wissen: Keine Ahnung. Nach vielleicht und wahrscheinlich steht das Verb auf Position 2: Vielleicht hat er frei.",
@@ -34669,13 +34669,13 @@
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "Не уверен: vielleicht. Почти уверен: wahrscheinlich. Мнение: Ich glaube, … Ich denke, …",
                 "explanation": "Как высказать предположение: Vielleicht ist er krank. (Может быть, он заболел.) Wahrscheinlich kommt er später. (Вероятно, он придёт позже.) Ich glaube, er ist im Urlaub. (Я думаю, он в отпуске.) Ich denke, er hat viel Arbeit. Согласиться: Ja, das glaube ich auch. Ja, das denke ich auch. Возразить: Nein, das glaube ich nicht. Не знать: Keine Ahnung. (Понятия не имею.) После vielleicht и wahrscheinlich глагол стоит на втором месте: Vielleicht hat er frei.",
-                "task": "«Я думаю, новая коллега из Италии». – У вас другое предположение."
+                "task": "«Я думаю, новый коллега из Италии». – У вас другое предположение."
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Не впевнений: vielleicht. Майже впевнений: wahrscheinlich. Думка: Ich glaube, … Ich denke, …",
                 "explanation": "Як висловити припущення: Vielleicht ist er krank. (Можливо, він захворів.) Wahrscheinlich kommt er später. (Імовірно, він прийде пізніше.) Ich glaube, er ist im Urlaub. (Я думаю, він у відпустці.) Ich denke, er hat viel Arbeit. Погодитися: Ja, das glaube ich auch. Ja, das denke ich auch. Заперечити: Nein, das glaube ich nicht. Не знати: Keine Ahnung. (Гадки не маю.) Після vielleicht і wahrscheinlich дієслово стоїть на другому місці: Vielleicht hat er frei.",
-                "task": "«Я думаю, нова колега з Італії». – У вас інше припущення."
+                "task": "«Я думаю, новий колега з Італії». – У вас інше припущення."
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
@@ -34803,7 +34803,7 @@
                 "nicht im Haus"
               ],
               "instruction": "Was sagst du in dieser Situation?",
-              "question": "Du arbeitest im Büro. Ein Anrufer möchte Herrn Rojas sprechen, aber er ist beim Arzt. Was sagst du?",
+              "question": "Du arbeitest im Büro. Ein Anrufer möchte Herrn Rojas sprechen, aber er hat heute einen Arzttermin und ist den ganzen Tag nicht im Büro. Was sagst du?",
               "options": [
                 "Herr Rojas ist gerade am Platz.",
                 "Tut mir leid, Herr Rojas ist heute nicht im Haus.",
@@ -34825,25 +34825,25 @@
                 "instruction": "What do you say in this situation?",
                 "hint": "zurückrufen = to call back later. ausrichten = to pass on a message. Man → er, ihm. Woman → sie, ihr.",
                 "explanation": "Giving information on the phone: Tut mir leid, Herr Weber ist gerade nicht am Platz. (not at his desk right now) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (He has already left.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Offering help: Kann ich ihr etwas ausrichten? (Can I give her a message?) Soll er Sie zurückrufen, wenn er kommt? (Shall he call you back?) Können Sie morgen früh noch einmal anrufen? Answers: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (I will try again later.) For a man: er, ihm. For a woman: sie, ihr.",
-                "task": "You work in the office. A caller wants to speak to Mr Rojas, but he is at the doctor’s. What do you say?"
+                "task": "You work in the office. A caller wants to speak to Mr Rojas, but he has a doctor's appointment today and will be out of the office all day. What do you say?"
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "zurückrufen = перезвонить позже. ausrichten = передать сообщение. Мужчина → er, ihm. Женщина → sie, ihr.",
                 "explanation": "Как дать справку по телефону: Tut mir leid, Herr Weber ist gerade nicht am Platz. (сейчас нет на месте) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Он уже ушёл.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Предложить помощь: Kann ich ihr etwas ausrichten? (Ей что-нибудь передать?) Soll er Sie zurückrufen, wenn er kommt? (Ему перезвонить вам?) Können Sie morgen früh noch einmal anrufen? Ответы: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я попробую позже ещё раз.) О мужчине: er, ihm. О женщине: sie, ihr.",
-                "task": "Вы работаете в офисе. Звонящий хочет поговорить с господином Rojas, но он у врача. Что вы скажете?"
+                "task": "Вы работаете в офисе. Звонящий хочет поговорить с господином Rojas, но сегодня у него приём у врача и его весь день не будет в офисе. Что вы скажете?"
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "zurückrufen = передзвонити пізніше. ausrichten = передати повідомлення. Чоловік → er, ihm. Жінка → sie, ihr.",
                 "explanation": "Як дати довідку телефоном: Tut mir leid, Herr Weber ist gerade nicht am Platz. (зараз немає на місці) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Він уже пішов.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Запропонувати допомогу: Kann ich ihr etwas ausrichten? (Їй щось передати?) Soll er Sie zurückrufen, wenn er kommt? (Йому передзвонити вам?) Können Sie morgen früh noch einmal anrufen? Відповіді: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я спробую пізніше ще раз.) Про чоловіка: er, ihm. Про жінку: sie, ihr.",
-                "task": "Ви працюєте в офісі. Той, хто телефонує, хоче поговорити з паном Rojas, але він в лікаря. Що ви скажете?"
+                "task": "Ви працюєте в офісі. Той, хто телефонує, хоче поговорити з паном Rojas, але сьогодні він має візит до лікаря й увесь день не буде в офісі. Що ви скажете?"
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "zurückrufen = sonra geri aramak. ausrichten = mesaj iletmek. Erkek → er, ihm. Kadın → sie, ihr.",
                 "explanation": "Telefonda bilgi vermek: Tut mir leid, Herr Weber ist gerade nicht am Platz. (şu anda yerinde değil) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Artık çıktı.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Yardım önermek: Kann ich ihr etwas ausrichten? (Ona bir şey ileteyim mi?) Soll er Sie zurückrufen, wenn er kommt? (Sizi geri arasın mı?) Können Sie morgen früh noch einmal anrufen? Cevaplar: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Daha sonra tekrar denerim.) Erkek için: er, ihm. Kadın için: sie, ihr.",
-                "task": "Ofiste çalışıyorsunuz. Arayan kişi Rojas Bey’le görüşmek istiyor, ama o doktorda. Ne dersiniz?"
+                "task": "Ofiste çalışıyorsunuz. Arayan kişi Rojas Bey’le görüşmek istiyor, ama onun bugün doktor randevusu var ve bütün gün ofiste olmayacak. Ne dersiniz?"
               }
             }
           },
@@ -48578,7 +48578,7 @@
                 "Verb am Ende"
               ],
               "instruction": "Welcher Satz ist richtig?",
-              "question": "Herr Kaya sagt ihre Meinung.",
+              "question": "Herr Kaya sagt seine Meinung.",
               "options": [
                 "Ich finde, dass Noten wichtig sind.",
                 "Ich finde, dass sind Noten wichtig.",
@@ -48600,7 +48600,7 @@
                 "instruction": "Which sentence is correct?",
                 "hint": "After dass the verb goes to the end: …, dass er recht hat.",
                 "explanation": "dass (that) introduces a subordinate clause: the verb goes to the end. There is a comma before dass. Ich finde, dass Schule wichtig ist. Ich glaube, dass er recht hat. Es ist wichtig, dass man einen Abschluss hat. With a modal verb and in the perfect tense all verb parts go to the end: Ich denke, dass jeder eine Ausbildung machen sollte. Ich weiß, dass sie studiert hat. Separable verbs are written together: Ich hoffe, dass der Kurs bald anfängt. dass follows: ich denke, finde, meine, glaube, weiß, hoffe; ich bin sicher; es ist wichtig, schön, schade.",
-                "task": "Mr Kaya gives her opinion."
+                "task": "Mr Kaya gives his opinion."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",

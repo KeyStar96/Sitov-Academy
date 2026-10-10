@@ -308,7 +308,7 @@ const path = {
         hint: ['Nach dass steht das Verb am Ende: …, dass er recht hat.', 'After dass the verb goes to the end: …, dass er recht hat.', 'После dass глагол стоит в конце: …, dass er recht hat.', 'Після dass дієслово стоїть у кінці: …, dass er recht hat.', 'dass’tan sonra fiil sonda durur: …, dass er recht hat.'],
       },
       ex: [
-        mc("G2", "Verb am Ende", I.sentence, "Herr Kaya sagt ihre Meinung.", ["Ich finde, dass Noten wichtig sind.","Ich finde, dass sind Noten wichtig.","Ich finde, dass Noten sind wichtig."], ["Mr Kaya gives her opinion.","Господин Kaya высказывает своё мнение.","Пан Kaya висловлює свою думку.","Kaya Bey görüşünü söylüyor."], {"c":"p6_dass","sitovOptionOrder":["Ich finde, dass Noten wichtig sind.","Ich finde, dass sind Noten wichtig.","Ich finde, dass Noten sind wichtig."]}),
+        mc("G2", "Verb am Ende", I.sentence, "Herr Kaya sagt seine Meinung.", ["Ich finde, dass Noten wichtig sind.","Ich finde, dass sind Noten wichtig.","Ich finde, dass Noten sind wichtig."], ["Mr Kaya gives his opinion.","Господин Kaya высказывает своё мнение.","Пан Kaya висловлює свою думку.","Kaya Bey görüşünü söylüyor."], {"c":"p6_dass","sitovOptionOrder":["Ich finde, dass Noten wichtig sind.","Ich finde, dass sind Noten wichtig.","Ich finde, dass Noten sind wichtig."]}),
         mc('G2', 'dass', I.choose, 'Ich glaube, … die Prüfung schwer ist.', ['dass', 'das', 'weil'],
           ['I think that the exam is difficult.', 'Я думаю, что экзамен трудный.', 'Я думаю, що іспит складний.', 'Sınavın zor olduğunu düşünüyorum.']),
         mc('G2', 'Verb am Ende', I.choose, 'Es ist wichtig, dass man einen guten Schulabschluss …', ['hat.', 'haben.', 'hat man.'],
