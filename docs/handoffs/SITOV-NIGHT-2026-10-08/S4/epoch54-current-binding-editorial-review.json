@@ -1,0 +1,2832 @@
+{
+  "epoch": 54,
+  "scope": "CURRENT_EXACT_WHOLE_CONTEXT_REAPPROVAL_AFTER_CHANGED_FULL_OBJECTIVE_SETS",
+  "school": "Sitov Academy",
+  "reviewer": "S4",
+  "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+  "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+  "createdAt": "2026-10-10T07:05:28.613414+00:00",
+  "verdict": "ACCEPT_ASSIGNED_WHOLE_CONTENT_AND_CURRENT_BINDINGS",
+  "input": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-S4-epoch54-binding-block02-plus-seven-standalone-parents-private.json",
+    "bytes": 382404,
+    "byteSHA256": "93414f0a0488ab97ac135bb08bf2d6a3778b82452b8c7e43e8602d321ac7a0d4",
+    "inventorySHA256": "08694f652cfb3d42ba045675b789551bda8c6c8f7160eb7137b796cfd2c598fb",
+    "sourceCommitAsSupplied": "381c2995723b16cc40974a29cc2a7f0872da1b90"
+  },
+  "hashConvention": "SHA256 of sorted compact JSON, ensure_ascii=False, UTF-8; file byte hashes separately identified",
+  "counts": {
+    "assignedTasks": 30,
+    "wholeFiveLocaleTasksRead": 30,
+    "TaskACCEPT": 30,
+    "TaskHOLD": 0,
+    "ParentACCEPT": 12,
+    "ParentHOLD": 0,
+    "containingParentsRead": 5,
+    "standaloneParentsRead": 7,
+    "allPathObjectiveSetsRead": 6,
+    "individualObjectivesRead": 69,
+    "individualObjectivesACCEPT": 69,
+    "individualObjectivesHOLD": 0
+  },
+  "sourceFileBindings": [
+    {
+      "file": "supabase/seeds/path-a1.1.json",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "bytes": 3079347,
+      "byteSHA256": "19e0c14637f69ad1bb738cb88595fea2eec5455c932461f84b710b866a543efa",
+      "technicalBaseBytesEqualActualContentSource": true
+    },
+    {
+      "file": "supabase/seeds/path-a1.2.json",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "bytes": 4198624,
+      "byteSHA256": "51c74e840fc0905722822f7c6b24b3842dc54c4fb7e628d90e2b4df794939429",
+      "technicalBaseBytesEqualActualContentSource": true
+    },
+    {
+      "file": "supabase/seeds/path-a2.1.json",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "bytes": 5982298,
+      "byteSHA256": "3a5b3336c286a26cd4aed66b0858aa3eeda2b83e557d4b9f0f0f099ec731557e",
+      "technicalBaseBytesEqualActualContentSource": true
+    },
+    {
+      "file": "supabase/seeds/path-b1.1.json",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "bytes": 7093687,
+      "byteSHA256": "91eef07260950fe8901a20b9b783ad7b15586f6fd43e2e7037830fa54990444d",
+      "technicalBaseBytesEqualActualContentSource": true
+    }
+  ],
+  "rows": [
+    {
+      "index": 1,
+      "id": "afea87a5-8475-50d1-ac12-3019ae86a92f",
+      "ref": "P1-N2-E07",
+      "contextKey": "A2.1/P1/P1-N2",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Zugehörigkeit verlangt von meiner Tante; bei/mit geben nicht das übersetzte Besitzverhältnis wieder. Fünf Fassungen und Dativhinweis stimmen; Tante bleibt unbestimmtes Dativbeispiel.",
+      "parentReasonDe": "Alle fünf Titel bezeichnen Antons Vater. Die fünf Regeln erklären Namen-s ohne Apostroph und von + Dativ korrekt. Leons Cousin, Cousin von Leon und Wohnung von meiner Tante sind drei richtige Beispiele; unbestimmte Tante bleibt für den femininen Dativkontrast. Ziel P1-G5 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "045766241d2114d80093fbc14dfb5d82fdd927d21f777ca1794816ad715d69fd",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "von"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 2,
+      "id": "19572c2e-b45e-5d04-a0b6-fce7e549046a",
+      "ref": "P1-N2-E08",
+      "contextKey": "A2.1/P1/P1-N2",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Nach von und femininem Singular Schwester ist meiner korrekt; meine/meinem sind hier falsche Kasus-/Genusformen. Alle fünf Fassungen sagen Schwester; unbestimmtes grammatisches Kontrastbeispiel.",
+      "parentReasonDe": "Alle fünf Titel bezeichnen Antons Vater. Die fünf Regeln erklären Namen-s ohne Apostroph und von + Dativ korrekt. Leons Cousin, Cousin von Leon und Wohnung von meiner Tante sind drei richtige Beispiele; unbestimmte Tante bleibt für den femininen Dativkontrast. Ziel P1-G5 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "d44a68076cc3b74326feec992872873ea78061733d3af592fa5298afd6d44c17",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "meiner"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 3,
+      "id": "cff629c3-4073-50e7-a1d9-00a4f39b3986",
+      "ref": "P1-N2-E09",
+      "contextKey": "A2.1/P1/P1-N2",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Von meinem Bruder braucht maskulinen Dativ meinem. Meinen/meiner passen nicht; fünf Fassungen und Regel entsprechen der Zugehörigkeit.",
+      "parentReasonDe": "Alle fünf Titel bezeichnen Antons Vater. Die fünf Regeln erklären Namen-s ohne Apostroph und von + Dativ korrekt. Leons Cousin, Cousin von Leon und Wohnung von meiner Tante sind drei richtige Beispiele; unbestimmte Tante bleibt für den femininen Dativkontrast. Ziel P1-G5 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "87d9a3f7a7cb595172546446c01b89620c0cf1a3e01099d8544c5ca89d8df411",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "meinem"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 4,
+      "id": "399b49a1-2a9c-5de7-a8b1-47c959435faa",
+      "ref": "P1-N2-E10",
+      "contextKey": "A2.1/P1/P1-N2",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Die vier Teile ergeben Das ist Antons Schwager. Genitiv-s korrekt. Alle fünf Fassungen präzisieren den Bruder von Antons Mann; männliche Familienrollen und Verwandtschaftsbegriff konsistent.",
+      "parentReasonDe": "Alle fünf Titel bezeichnen Antons Vater. Die fünf Regeln erklären Namen-s ohne Apostroph und von + Dativ korrekt. Leons Cousin, Cousin von Leon und Wohnung von meiner Tante sind drei richtige Beispiele; unbestimmte Tante bleibt für den femininen Dativkontrast. Ziel P1-G5 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "5dbedf33f4106aea4879ae4e0b415a21f5c58eb0497de81f8c3e2801257e1048",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Das ist Antons Schwager."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": null,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 5,
+      "id": "8c7529e2-b566-5b2f-a5b8-2022deb1e0c4",
+      "ref": "P1-N4-E01",
+      "contextKey": "A2.1/P1/P1-N4",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Nur weil ich keinen Hunger habe hat das finite Verb am Nebensatzende. Paul erklärt Nichtessen; beide Distraktoren verletzen die weil-Stellung. Alle fünf Fassungen korrekt.",
+      "parentReasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "b605568a8f88e081a015162b8ef740ef832f14992593a9b5b6808104ced8e016",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Ich esse nichts, weil ich keinen Hunger habe."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 6,
+      "id": "470908b7-360f-5cd8-a4d6-57ea91baf7e4",
+      "ref": "P1-N4-E02",
+      "contextKey": "A2.1/P1/P1-N4",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Warum lernst du Deutsch wird mit Weil ich in Deutschland arbeite grammatisch und kausal beantwortet. Beide Ablenkungen haben falsche Verbposition; du-Form und fünf Fassungen stimmen.",
+      "parentReasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "0af62df106c999030d3a3fb1cb6ab1b1bcd0d30615592e0fbaa5cc52cccbc2ef",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Weil ich in Deutschland arbeite."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 7,
+      "id": "948fdca0-e443-5184-a1bb-8bd02b9a4bfe",
+      "ref": "P1-N4-E03",
+      "contextKey": "A2.1/P1/P1-N4",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Milans Müdigkeit begründet seine Absage; weil er müde ist ist allein korrekt verbfinal. Alle fünf Fassungen behalten den männlichen Milan und den Grund.",
+      "parentReasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "37925f5537e7d45b2b039fd76fe08ff9a2c1547617bbe193e637953f6ea3a066",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "weil er müde ist."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 8,
+      "id": "67cb5cff-044b-5963-ab23-42b3fe621b30",
+      "ref": "P1-N4-E04",
+      "contextKey": "A2.1/P1/P1-N4",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Der kaputte Fahrrad-Zustand erklärt die Buswahl mit weil. Und/aber benötigen im gegebenen Satz andere Verbposition. Alle fünf Fassungen geben den Grund zutreffend wieder.",
+      "parentReasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "7576838da80e2d5865d867afba919956f32ef93e63478405afc1ee9572e5607d",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "weil"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 9,
+      "id": "31f84fa0-1461-5420-a0f1-8c283eda6a59",
+      "ref": "P1-N4-E05",
+      "contextKey": "A2.1/P1/P1-N4",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Der intendierte Regen-Grund verlangt weil es regnet; alle vier Übersetzungen und die weil-Lernregel stützen diese kausale Lesart. Aber/oder ergeben hier keinen passenden Grund. Optionen, Schlüssel und Hinweise stimmen.",
+      "parentReasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "371e32ebf4d22e6ced81141769340eaa0a24ea6f124f1cb4ef9a67da697a0af6",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "weil"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 10,
+      "id": "58f3a77e-e847-5a2b-a248-d879f75fe8a5",
+      "ref": "P1-N4-E06",
+      "contextKey": "A2.1/P1/P1-N4",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Paul/er verlangt hat, am Ende des weil-Satzes. Haben/hast stimmen nicht mit dem Subjekt überein; fünf Fassungen geben fehlendes Geld korrekt wieder.",
+      "parentReasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "f17f4f3a812423641c678c2ba4c2b69b57e18cec0c3773b68f4bb20e9c16b5e1",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "hat"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 11,
+      "id": "53115b00-d853-5935-a7d1-6409848c2c8e",
+      "ref": "P1-N4-E07",
+      "contextKey": "A2.1/P1/P1-N4",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Ich verlangt bin am weil-Satzende; sein/ist sind falsch. Späterer Anruf und jetziger Kurs sind in allen fünf Fassungen konsistent.",
+      "parentReasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "9ebdf327071d2a26dead6922c8b5c23e193023f7e6c4a9f072ea0fe380d7aa27",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "bin"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 12,
+      "id": "720a39b1-2120-5a60-ab32-21677d71e462",
+      "ref": "P1-N4-E08",
+      "contextKey": "A2.1/P1/P1-N4",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Seine Familie ist grammatisch Singular, daher besucht; besuchen/besuchst passen nicht. Oleg/ihn bleibt männlich, fünf Übersetzungen und Familienbesuch stimmen.",
+      "parentReasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "023141b044a0d3ea492c9c8a2456c6b6bff2056b833bd68e35d0a04f14ae399a",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "besucht"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 13,
+      "id": "be9f084c-396c-5d9d-ab9c-332ed39ae651",
+      "ref": "P1-N4-E09",
+      "contextKey": "A2.1/P1/P1-N4",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Alle sieben Teile ergeben Ich bleibe im Bett, weil ich krank bin. Auch vorangestellter Weil-Satz ist korrekt als zweite akzeptierte Fassung. Verbendstellung und Hauptsatzinversion stimmen; fünf Fassungen, russisch/ukrainisch männliche Ich-Form, korrekt.",
+      "parentReasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "67f70fe52a97a1099e7b5d129b4f73fe2cf683c4b21d07cfb12382c636b05e34",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Ich bleibe im Bett, weil ich krank bin.",
+        "Weil ich krank bin, bleibe ich im Bett."
+      ],
+      "acceptedAnswerCount": 2,
+      "correctOptionPositionZeroBased": null,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 14,
+      "id": "f8d11112-613b-5e4a-a2c4-8dec6deca5b7",
+      "ref": "P1-N5-E06",
+      "contextKey": "A2.1/P1/P1-N5",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Den Bus verpassen bildet hier das Perfekt mit haben, Leon/er also hat. Haben/ist sind falsch; Partizip vor Hilfsverb am weil-Satzende stimmt in allen fünf Fassungen.",
+      "parentReasonDe": "Fünf Titel behalten die Frage/Modalantwort. Alle fünf Regeln erklären Infinitiv vor Modalverb, Partizip vor Hilfsverb im Perfekt und zusammengeschriebenes trennbares Verb im weil-Satz korrekt. Lernen müssen, schlecht geschlafen haben und nie frühstücken sind drei passende Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "adb6fe555f07b6800d615a59dd341adef30d773026c4981345034ece04f2e05a",
+      "wholeParentMinusChildrenSHA256": "39262cdd6f73a733a3beffc8d3d28740d8cece1ab2cc3a757552820f6e9b3401",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "hat"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 15,
+      "id": "7118d842-bba9-5b3d-a23b-ead85f63b377",
+      "ref": "P1-N5-E08",
+      "contextKey": "A2.1/P1/P1-N5",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Im weil-Satz bleibt einkauft zusammengeschrieben und steht verbfinal. Kauft ein/einkaufen sind hier falsch. Milan und aktuelle Supermarkthandlung stimmen in allen fünf Fassungen.",
+      "parentReasonDe": "Fünf Titel behalten die Frage/Modalantwort. Alle fünf Regeln erklären Infinitiv vor Modalverb, Partizip vor Hilfsverb im Perfekt und zusammengeschriebenes trennbares Verb im weil-Satz korrekt. Lernen müssen, schlecht geschlafen haben und nie frühstücken sind drei passende Beispiele; P1-G1 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "7eb32dd6973760c95caeb531063256341886967ee8411fee782f04f7c0d413bc",
+      "wholeParentMinusChildrenSHA256": "39262cdd6f73a733a3beffc8d3d28740d8cece1ab2cc3a757552820f6e9b3401",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "einkauft"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 16,
+      "id": "01d13ca7-afb2-5b91-a95b-77804dba9266",
+      "ref": "P1-N6-E01",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Einkaufen bildet eingekauft mit ge zwischen Präfix und Stamm; einkauft/geeinkauft sind keine passenden Partizipien. Satz und fünf Fassungen stimmen.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "f9b9eaae0c5bc7962a05589fc2771314e1b932c3d3123664cff10589cb6f7a3b",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "eingekauft."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 17,
+      "id": "1216c74c-ed7f-516d-aa43-e6312496f846",
+      "ref": "P1-N6-E02",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Anrufen bildet angerufen; Infinitiv anrufen und geanruft sind falsch. Vater, du-Frage und fünf Fassungen sind konsistent männlich.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "b828e0980ec6a664bbbd6936de40db953a1ea46ac24f40dd09e7626fdc9730b4",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "angerufen"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 18,
+      "id": "44dbdb3c-c389-5acf-ab0e-1cb61bc89a42",
+      "ref": "P1-N6-E03",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Intransitives aufstehen nimmt sein, bei ich also bin. Hat/habe sind hier falsch. Der begrenzte Hinweis behauptet keine allgemeine Regel für sämtliche trennbaren Verben; fünf Fassungen stimmen.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "5e665e7e95f8e2fa15dc26355340bccaab15ccbca978dc333d844ccc5c63cfa8",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "bin"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 19,
+      "id": "8dcc2329-c8a3-57f2-a0dd-baf4cdfb51ba",
+      "ref": "P1-N6-E04",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Kennenlernen bildet hier haben + kennengelernt. Gekennenlernt und sind kennengelernt sind falsch; Oleg/Leon/neuer Freund und fünf Sprachfassungen stimmen.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "b9c2155b5ce4c8877ea23009291c9c6b7e57afc516f679c8953a316f685005b0",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Wir haben Leon in Köln kennengelernt."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 20,
+      "id": "f1df64e0-9a95-5905-ab49-19654f396f6c",
+      "ref": "P1-N6-E05",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Aufräumen bildet aufgeräumt; geaufräumt/aufräumt sind falsch. Pauls eigenes Zimmer und Samstag stimmen in fünf Fassungen.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "20d61dd3caf3352eb3cbcfb601c339b39b290e200642b385b0a558797dc7f37f",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "aufgeräumt"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 21,
+      "id": "3f6b964e-6f81-5879-ac35-5679f78bf876",
+      "ref": "P1-N6-E06",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Abholen bildet abgeholt, hier habe ... abgeholt. Abholt/geabholt sind falsch. Kinder bleiben unbestimmte Pluralpersonen; fünf Übersetzungen stimmen.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "66eefc41137a48f595ea80ddf11e8e9a9d9f8ae67e4ccdfdd0f66a8e8e76471f",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "abgeholt"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 22,
+      "id": "4551dd55-4d67-578b-ae1b-d0f2ea0fdd5e",
+      "ref": "P1-N6-E07",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Ankommen bildet angekommen und nutzt hier ist. Angekommt/geankommen sind falsch; Zug, München und Pünktlichkeit sind in allen Fassungen gleich.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "a768f50d2cb2babac75c732b23b87d62617a42ff5095a266bb0f105e47af2c1f",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "angekommen"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 23,
+      "id": "8ce1bf82-79c5-508a-a66e-1c13fe65d99b",
+      "ref": "P1-N6-E08",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Einladen bildet eingeladen; geeinladen/eingeladet sind falsch. Nachbarn als unbestimmte Gruppe und Einladung zum Essen sind korrekt übersetzt.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "85f58d5cb619f27cd23fd8013411985f75ea4eed9719455946b7abc84ee9f2da",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "eingeladen"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 24,
+      "id": "f42f8fe7-fee6-54a3-a3d4-d5e2765757e0",
+      "ref": "P1-N6-E09",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Intransitives einschlafen nimmt sein, das Kind also ist. Hat/sind passen nicht. Das grammatisch neutrale Kind wird in den fünf Fassungen sachgerecht wiedergegeben.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "09476e91819bca33adea54a08f16cb1a7cd4cd3c58cf87e425c995ebae419e15",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "ist"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 0,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 25,
+      "id": "5b9305e2-a060-5b38-a65b-3576cc7a6bad",
+      "ref": "P1-N6-E10",
+      "contextKey": "A2.1/P1/P1-N6",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Alle fünf Teile ergeben Ich habe gestern lange ferngesehen; Gestern habe ich lange ferngesehen ist ebenfalls korrekt akzeptiert. Haben und ferngesehen bilden die Satzklammer; fünf Fassungen stimmen.",
+      "parentReasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "5a1d0fddcf340154457ccd2864ed154f215c9213c2933342b37a6ea023656934",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Ich habe gestern lange ferngesehen.",
+        "Gestern habe ich lange ferngesehen."
+      ],
+      "acceptedAnswerCount": 2,
+      "correctOptionPositionZeroBased": null,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 26,
+      "id": "a6ef36e8-98b1-53b7-aab3-d76640bae92c",
+      "ref": "P1-N10-E01",
+      "contextKey": "A2.1/P1/P1-N10",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Für den Anfang der Ereignisfolge ist Zuerst die richtige der drei Optionen; später/schließlich bezeichnen spätere Schritte. Frage, fünf Fassungen und Gliederungsregel passen.",
+      "parentReasonDe": "Fünf Titel und Regeln erklären zuerst/dann/danach/später/schließlich mit Verb auf Position 2 korrekt. Sämtliche eingebetteten Beispielsätze und die drei Kartenbeispiele bilden nachvollziehbare Ereignisfolgen. Leon ist männlich; P1-K4 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "d5fe9723898f5f9da79655c980cf7b2504decc21498b51b105791f414de7a002",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Zuerst"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 27,
+      "id": "19ec5d62-735f-59d4-adc7-a2ca8f090b97",
+      "ref": "P1-N10-E02",
+      "contextKey": "A2.1/P1/P1-N10",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Für den letzten Ereignisschritt passt Schließlich; zuerst/am Anfang benennen den Beginn. Alle fünf Fassungen und die Lernkarte stimmen.",
+      "parentReasonDe": "Fünf Titel und Regeln erklären zuerst/dann/danach/später/schließlich mit Verb auf Position 2 korrekt. Sämtliche eingebetteten Beispielsätze und die drei Kartenbeispiele bilden nachvollziehbare Ereignisfolgen. Leon ist männlich; P1-K4 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "951a18493bdd16e0bbeb0738f5f5ea96e788809eddf7027babbc99cf5351e609",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Schließlich"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 2,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 28,
+      "id": "76ea54c1-c380-5b3a-a898-6a2039353f38",
+      "ref": "P1-N10-E03",
+      "contextKey": "A2.1/P1/P1-N10",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Nach Dann steht habe auf Position 2, gefolgt von ich; nur Dann habe ich meinen Bruder angerufen ist korrekt. Leon/Bruder und fünf Fassungen stimmen.",
+      "parentReasonDe": "Fünf Titel und Regeln erklären zuerst/dann/danach/später/schließlich mit Verb auf Position 2 korrekt. Sämtliche eingebetteten Beispielsätze und die drei Kartenbeispiele bilden nachvollziehbare Ereignisfolgen. Leon ist männlich; P1-K4 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "da0ee4c5debd7ebbb6781f9ac024aeeedf9c82e11e1586a3eb65539b969b3a7f",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "Dann habe ich meinen Bruder angerufen."
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 29,
+      "id": "6360e0e4-9fc0-5339-ad44-387cdbdc52f4",
+      "ref": "P1-N10-E04",
+      "contextKey": "A2.1/P1/P1-N10",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Zuerst – dann – schließlich bildet die verlangte chronologische Folge. Beide Ablenkungen vertauschen Anfang/Ende; fünf Fassungen und Hinweise sind konsistent.",
+      "parentReasonDe": "Fünf Titel und Regeln erklären zuerst/dann/danach/später/schließlich mit Verb auf Position 2 korrekt. Sämtliche eingebetteten Beispielsätze und die drei Kartenbeispiele bilden nachvollziehbare Ereignisfolgen. Leon ist männlich; P1-K4 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "fdb8851af166e5bd34e12b71cf598bb141ebe833adc0cf1313a44a7f9b9abb5c",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "zuerst – dann – schließlich"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    },
+    {
+      "index": 30,
+      "id": "0a315cdb-30cf-5903-a9db-15e3aca48bbf",
+      "ref": "P1-N10-E07",
+      "contextKey": "A2.1/P1/P1-N10",
+      "level": "A2.1",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "TaskVerdict": "ACCEPT",
+      "ParentVerdict": "ACCEPT",
+      "ALLGoalsVerdict": "ACCEPT",
+      "taskReasonDe": "Gehen bildet hier Perfekt mit sein; wir verlangt sind. Haben/seid sind falsch. Später besetzt Position 1; fünf Fassungen geben den Kinobesuch richtig wieder.",
+      "parentReasonDe": "Fünf Titel und Regeln erklären zuerst/dann/danach/später/schließlich mit Verb auf Position 2 korrekt. Sämtliche eingebetteten Beispielsätze und die drei Kartenbeispiele bilden nachvollziehbare Ereignisfolgen. Leon ist männlich; P1-K4 passt.",
+      "ALLGoalsReasonDe": "Alle vollständigen aktuellen Pfadziele frisch gelesen; jedes Ziel ist unten einzeln fachlich begründet.",
+      "wholeTaskSHA256": "8b3588375b734f2da5a24a79d49d436c42f856925b4795e27a0c3c7a1c9576f5",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "readScope": {
+        "actualWholeTaskAllFiveLocalesIncludingKeysAcceptedOptionsPartsHintsExplanations": true,
+        "actualWholeParentMinusChildrenAllLocalesCardsRulesExamples": true,
+        "allActualPathObjectives": true,
+        "contentReadTruncations": 0,
+        "priorApprovalReused": false
+      },
+      "acceptedAnswers": [
+        "sind"
+      ],
+      "acceptedAnswerCount": 1,
+      "correctOptionPositionZeroBased": 1,
+      "answerWordRevisionProposed": false,
+      "acceptedCardinalityChangeProposed": false,
+      "publicationApproved": false,
+      "fullRead": true
+    }
+  ],
+  "parentReviews": [
+    {
+      "contextKey": "A2.1/P1/P1-N2",
+      "verdict": "ACCEPT",
+      "reasonDe": "Alle fünf Titel bezeichnen Antons Vater. Die fünf Regeln erklären Namen-s ohne Apostroph und von + Dativ korrekt. Leons Cousin, Cousin von Leon und Wohnung von meiner Tante sind drei richtige Beispiele; unbestimmte Tante bleibt für den femininen Dativkontrast. Ziel P1-G5 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P1-N2",
+        "kind": "practice",
+        "sort_order": 2,
+        "topic": "Ankommen · Antons Vater",
+        "title": "Antons Vater",
+        "translations": {
+          "en": {
+            "title": "Anton’s father"
+          },
+          "ru": {
+            "title": "Отец Антона"
+          },
+          "uk": {
+            "title": "Батько Антона"
+          },
+          "tr": {
+            "title": "Anton’un babası"
+          }
+        },
+        "goals": [
+          "P1-G5"
+        ],
+        "merkkarte": {
+          "card": "p1_genitiv",
+          "rule": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+          "examples": [
+            "Das ist Leons Cousin.",
+            "Das ist der Cousin von Leon.",
+            "Die Wohnung von meiner Tante ist groß."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+            },
+            "ru": {
+              "rule": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+            },
+            "uk": {
+              "rule": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+            },
+            "tr": {
+              "rule": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N4",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel erklären weil. Alle fünf Regeln lehren Grund, Warum-Frage, Komma und Verbendstellung samt zulässiger Gesprächsellipse korrekt. Leon/Berlin, Bus/kaputtes Auto und Müdigkeit/wenig Schlaf sind drei stimmige Beispiele; P1-G1 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "85c7f8b7786c60863f5707d17812f15f16f6cd695cac11e59f3481b9133ee456",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P1-N4",
+        "kind": "practice",
+        "sort_order": 4,
+        "topic": "Ankommen · weil",
+        "title": "weil",
+        "translations": {
+          "en": {
+            "title": "weil (because)"
+          },
+          "ru": {
+            "title": "weil (потому что)"
+          },
+          "uk": {
+            "title": "weil (тому що)"
+          },
+          "tr": {
+            "title": "weil (çünkü)"
+          }
+        },
+        "goals": [
+          "P1-G1"
+        ],
+        "merkkarte": {
+          "card": "p1_weil",
+          "rule": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+          "examples": [
+            "Leon lernt Deutsch, weil er in Berlin arbeitet.",
+            "Ich nehme den Bus, weil mein Auto kaputt ist.",
+            "Warum bist du müde? – Weil ich wenig schlafe."
+          ],
+          "highlight": "verb",
+          "translations": {
+            "en": {
+              "rule": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe."
+            },
+            "ru": {
+              "rule": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe."
+            },
+            "uk": {
+              "rule": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe."
+            },
+            "tr": {
+              "rule": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N5",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel behalten die Frage/Modalantwort. Alle fünf Regeln erklären Infinitiv vor Modalverb, Partizip vor Hilfsverb im Perfekt und zusammengeschriebenes trennbares Verb im weil-Satz korrekt. Lernen müssen, schlecht geschlafen haben und nie frühstücken sind drei passende Beispiele; P1-G1 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "39262cdd6f73a733a3beffc8d3d28740d8cece1ab2cc3a757552820f6e9b3401",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P1-N5",
+        "kind": "practice",
+        "sort_order": 5,
+        "topic": "Ankommen · Warum? – Weil ich arbeiten muss.",
+        "title": "Warum? – Weil ich arbeiten muss.",
+        "translations": {
+          "en": {
+            "title": "Why? – Because I have to work."
+          },
+          "ru": {
+            "title": "Почему? – Потому что мне нужно работать."
+          },
+          "uk": {
+            "title": "Чому? – Тому що мені треба працювати."
+          },
+          "tr": {
+            "title": "Neden? – Çünkü çalışmam gerekiyor."
+          }
+        },
+        "goals": [
+          "P1-G1"
+        ],
+        "merkkarte": {
+          "card": "p1_weil2",
+          "rule": "Im weil-Satz stehen alle Verbteile am Ende. Mit Modalverb: Infinitiv + Modalverb: …, weil ich arbeiten muss. Im Perfekt: Partizip + haben oder sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Trennbare Verben schreibt man zusammen: …, weil er früh aufsteht.",
+          "examples": [
+            "Ich komme nicht, weil ich lernen muss.",
+            "Er ist müde, weil er schlecht geschlafen hat.",
+            "Er hat Hunger, weil er nie frühstückt."
+          ],
+          "highlight": "verb",
+          "translations": {
+            "en": {
+              "rule": "In a weil clause all parts of the verb go to the end. With a modal verb: infinitive + modal verb: …, weil ich arbeiten muss. In the perfect tense: participle + haben or sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Separable verbs are written as one word: …, weil er früh aufsteht."
+            },
+            "ru": {
+              "rule": "В предложении с weil все части сказуемого стоят в конце. С модальным глаголом: инфинитив + модальный глагол: …, weil ich arbeiten muss. В Perfekt: причастие + haben или sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Глаголы с отделяемой приставкой пишутся слитно: …, weil er früh aufsteht."
+            },
+            "uk": {
+              "rule": "У реченні з weil усі частини присудка стоять у кінці. З модальним дієсловом: інфінітив + модальне дієслово: …, weil ich arbeiten muss. У Perfekt: дієприкметник + haben або sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Дієслова з відокремлюваним префіксом пишуться разом: …, weil er früh aufsteht."
+            },
+            "tr": {
+              "rule": "weil cümlesinde fiilin bütün parçaları sonda durur. Kip fiiliyle: mastar + kip fiili: …, weil ich arbeiten muss. Perfekt’te: Partizip + haben ya da sein: …, weil ich den Bus verpasst habe. …, weil wir spät gekommen sind. Ayrılabilen fiiller bitişik yazılır: …, weil er früh aufsteht."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N6",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel beschreiben trennbares Perfekt. Alle fünf Regeln und sämtliche aufgeführten Partizipien sind korrekt; die Hilfsverbregel ist ausdrücklich auf die hier verwendeten Verben begrenzt. Onkel anrufen, Leute kennenlernen und aufstehen sind drei passende Beispiele. P1-G2 passt; keine pauschale sein-Regel.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "bfd01ce28112edbe0790ed94e0a16360aaea2fb1d2afafd86533ee15903f6354",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P1-N6",
+        "kind": "practice",
+        "sort_order": 6,
+        "topic": "Ankommen · eingekauft, angerufen",
+        "title": "eingekauft, angerufen",
+        "translations": {
+          "en": {
+            "title": "eingekauft, angerufen (perfect tense of separable verbs)"
+          },
+          "ru": {
+            "title": "eingekauft, angerufen (Perfekt глаголов с отделяемой приставкой)"
+          },
+          "uk": {
+            "title": "eingekauft, angerufen (Perfekt дієслів із відокремлюваним префіксом)"
+          },
+          "tr": {
+            "title": "eingekauft, angerufen (ayrılabilen fiillerin Perfekt’i)"
+          }
+        },
+        "goals": [
+          "P1-G2"
+        ],
+        "merkkarte": {
+          "card": "p1_trennbar",
+          "rule": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
+          "examples": [
+            "Ich habe gestern meinen Onkel angerufen.",
+            "Wir haben im Kurs viele Leute kennengelernt.",
+            "Heute bin ich zu spät aufgestanden."
+          ],
+          "highlight": "verb",
+          "translations": {
+            "en": {
+              "rule": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here."
+            },
+            "ru": {
+              "rule": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben."
+            },
+            "uk": {
+              "rule": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben."
+            },
+            "tr": {
+              "rule": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N10",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel und Regeln erklären zuerst/dann/danach/später/schließlich mit Verb auf Position 2 korrekt. Sämtliche eingebetteten Beispielsätze und die drei Kartenbeispiele bilden nachvollziehbare Ereignisfolgen. Leon ist männlich; P1-K4 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": false,
+      "wholeParentMinusChildren": {
+        "id": "P1-N10",
+        "kind": "practice",
+        "sort_order": 10,
+        "topic": "Ankommen · Zuerst, dann, schließlich",
+        "title": "Zuerst, dann, schließlich",
+        "translations": {
+          "en": {
+            "title": "First, then, finally"
+          },
+          "ru": {
+            "title": "Сначала, потом, наконец"
+          },
+          "uk": {
+            "title": "Спочатку, потім, нарешті"
+          },
+          "tr": {
+            "title": "Önce, sonra, sonunda"
+          }
+        },
+        "goals": [
+          "P1-K4"
+        ],
+        "merkkarte": {
+          "card": "p1_gliedern",
+          "rule": "Eine Geschichte ordnen: Zuerst … Dann … Danach … Später … Schließlich … Diese Wörter stehen oft auf Position 1. Dann kommt das Verb auf Position 2 und danach das Subjekt: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen.",
+          "examples": [
+            "Zuerst habe ich verschlafen.",
+            "Dann habe ich den Bus verpasst.",
+            "Schließlich bin ich mit dem Taxi gefahren."
+          ],
+          "highlight": "verb",
+          "translations": {
+            "en": {
+              "rule": "Putting a story in order: Zuerst (first) … Dann (then) … Danach (after that) … Später (later) … Schließlich (finally) … These words often stand in position 1. Then the verb comes in position 2, followed by the subject: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen."
+            },
+            "ru": {
+              "rule": "Как выстроить рассказ: Zuerst (сначала) … Dann (потом) … Danach (после этого) … Später (позже) … Schließlich (наконец) … Эти слова часто стоят на первом месте. Затем на втором месте идёт глагол, а после него подлежащее: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen."
+            },
+            "uk": {
+              "rule": "Як вибудувати розповідь: Zuerst (спочатку) … Dann (потім) … Danach (після цього) … Später (пізніше) … Schließlich (нарешті) … Ці слова часто стоять на першому місці. Далі на другому місці йде дієслово, а після нього підмет: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen."
+            },
+            "tr": {
+              "rule": "Bir hikâyeyi sıralamak: Zuerst (önce) … Dann (sonra) … Danach (ondan sonra) … Später (daha sonra) … Schließlich (sonunda) … Bu kelimeler çoğu zaman 1. sırada durur. Ardından fiil 2. sıraya, özne de onun arkasına gelir: Zuerst habe ich gefrühstückt. Dann bin ich zum Bahnhof gefahren. Später habe ich Leon getroffen. Schließlich sind wir nach Hause gegangen."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A1.1/P6/P6-N12",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel betreffen Porträts/Interviews. Fünf Regeln lenken auf Name, Herkunft, Hobby, Bewertung und die passende Sie-Frage. Alle vier Beispiele sind korrekt und männlich: Kofi, Er, Herr Nowak. P6-Z1 passt; keine Kindaufgaben dieses standalone Elternkontexts freigegeben.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "abd2092fe2b7ccbe3f6f2d854b76bf25787b975bf3f6b9318f5123b669355d22",
+      "allPathObjectivesSHA256": "af6eebddc8a73f90f9ed4f88d6441bccf6ed3bc4dbf5aa6f830af0dd05132c86",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": true,
+      "wholeParentMinusChildren": {
+        "id": "P6-N12",
+        "kind": "practice",
+        "sort_order": 12,
+        "topic": "Freizeit und Wetter · Porträts und Interviews",
+        "title": "Porträts und Interviews",
+        "translations": {
+          "en": {
+            "title": "Portraits and interviews"
+          },
+          "ru": {
+            "title": "Портреты и интервью"
+          },
+          "uk": {
+            "title": "Портрети й інтерв’ю"
+          },
+          "tr": {
+            "title": "Portreler ve röportajlar"
+          }
+        },
+        "goals": [
+          "P6-Z1"
+        ],
+        "merkkarte": {
+          "card": "p6_portrait",
+          "rule": "Porträts und Interviews verstehen: Achte auf Name, Herkunft, Hobbys und Bewertungen (gern, nicht gern, toll, langweilig). Die Fragen im Interview helfen: „Was machen Sie gern in der Freizeit?“",
+          "examples": [
+            "Kofi spielt Fußball im Verein.",
+            "Er liest gern Krimis.",
+            "Kochen findet er langweilig.",
+            "Herr Nowak tanzt gern."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Understanding portraits and interviews: look for name, origin, hobbies and opinions (gern, nicht gern, toll, langweilig). The interview questions help: „Was machen Sie gern in der Freizeit?“"
+            },
+            "ru": {
+              "rule": "Как понимать портреты и интервью: обращайте внимание на имя, происхождение, хобби и оценки (gern, nicht gern, toll, langweilig). Помогают вопросы интервью: „Was machen Sie gern in der Freizeit?“"
+            },
+            "uk": {
+              "rule": "Як розуміти портрети й інтерв’ю: звертайте увагу на ім’я, походження, хобі та оцінки (gern, nicht gern, toll, langweilig). Допомагають запитання інтерв’ю: „Was machen Sie gern in der Freizeit?“"
+            },
+            "tr": {
+              "rule": "Portre ve röportajları anlama: İsim, köken, hobiler ve değerlendirmelere (gern, nicht gern, toll, langweilig) dikkat edin. Röportaj soruları yardımcı olur: „Was machen Sie gern in der Freizeit?“"
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A1.2/P3/P3-N2",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel fragen nach Schmerzen. Die fünf Regeln unterscheiden tut/tun bei Singular/Plural und nennen passende Schmerz-/Krankheitsausdrücke. Rücken tut, Füße tun und Leon hat Fieber/Halsschmerzen sind drei korrekte Beispiele; P3-K1/W1 passen. Kein medizinischer Ratschlag oder individualisierte weibliche Figur.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "26da0df00493706e8d236835e45915ed9a413350e256060d3c43bd52670665e5",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": true,
+      "wholeParentMinusChildren": {
+        "id": "P3-N2",
+        "kind": "practice",
+        "sort_order": 2,
+        "topic": "Gesundheit und Krankheit · Was tut weh?",
+        "title": "Was tut weh?",
+        "translations": {
+          "en": {
+            "title": "What hurts?"
+          },
+          "ru": {
+            "title": "Что болит?"
+          },
+          "uk": {
+            "title": "Що болить?"
+          },
+          "tr": {
+            "title": "Neresi ağrıyor?"
+          }
+        },
+        "goals": [
+          "P3-K1",
+          "P3-W1"
+        ],
+        "merkkarte": {
+          "card": "p3_weh",
+          "rule": "Sagen, was wehtut: Ein Körperteil: Mein Kopf tut weh. Zwei oder mehr: Meine Augen tun weh. Auch so: Ich habe Kopfschmerzen, Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Krank sein: Ich habe Fieber. Ich habe Husten und Schnupfen. Ich bin krank. Nicht so schlimm? Es ist nicht schlimm.",
+          "examples": [
+            "Mein Rücken tut weh.",
+            "Meine Füße tun weh.",
+            "Leon hat Fieber und Halsschmerzen."
+          ],
+          "highlight": "verb",
+          "translations": {
+            "en": {
+              "rule": "Saying what hurts: one body part: Mein Kopf tut weh. Two or more: Meine Augen tun weh. Also: Ich habe Kopfschmerzen (a headache), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Being ill: Ich habe Fieber (a temperature). Ich habe Husten (a cough) und Schnupfen (a cold). Ich bin krank. Not so bad? Es ist nicht schlimm."
+            },
+            "ru": {
+              "rule": "Как сказать, что болит: одна часть тела: Mein Kopf tut weh. Две и больше: Meine Augen tun weh. Ещё так: Ich habe Kopfschmerzen (головная боль), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. О болезни: Ich habe Fieber (температура). Ich habe Husten (кашель) und Schnupfen (насморк). Ich bin krank. Ничего страшного? Es ist nicht schlimm."
+            },
+            "uk": {
+              "rule": "Як сказати, що болить: одна частина тіла: Mein Kopf tut weh. Дві й більше: Meine Augen tun weh. Ще так: Ich habe Kopfschmerzen (головний біль), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Про хворобу: Ich habe Fieber (температура). Ich habe Husten (кашель) und Schnupfen (нежить). Ich bin krank. Нічого страшного? Es ist nicht schlimm."
+            },
+            "tr": {
+              "rule": "Ağrıyan yeri söyleme: Tek bir vücut bölümü: Mein Kopf tut weh. İki ya da daha fazla: Meine Augen tun weh. Şöyle de olur: Ich habe Kopfschmerzen (baş ağrısı), Bauchschmerzen, Halsschmerzen, Zahnschmerzen. Hasta olmak: Ich habe Fieber (ateş). Ich habe Husten (öksürük) und Schnupfen (nezle). Ich bin krank. Çok kötü değil mi? Es ist nicht schlimm."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A1.2/P3/P3-N8",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel und Regeln beschreiben eine Krankmeldung mit Anrede, Grund, Dauer, Bitte und Gruß. Sehr geehrte Frau / Sehr geehrter Herr ist ein notwendiger unbestimmter Anredekontrast; konkrete Herr Wolf/Herr Lindner sind männlich. Alle drei Beispiele korrekt; P3-K3/Z1 passen.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "395ce57f2170894ec5f5c3d3de0e596293796d04b1a6126c0382ca98a42777a0",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": true,
+      "wholeParentMinusChildren": {
+        "id": "P3-N8",
+        "kind": "practice",
+        "sort_order": 8,
+        "topic": "Gesundheit und Krankheit · Krankmeldung",
+        "title": "Krankmeldung",
+        "translations": {
+          "en": {
+            "title": "Calling in sick"
+          },
+          "ru": {
+            "title": "Сообщение о болезни"
+          },
+          "uk": {
+            "title": "Повідомлення про хворобу"
+          },
+          "tr": {
+            "title": "Hastalık bildirimi"
+          }
+        },
+        "goals": [
+          "P3-K3",
+          "P3-Z1"
+        ],
+        "merkkarte": {
+          "card": "p3_krank",
+          "rule": "Krankmeldung schreiben: Anrede: Sehr geehrte Frau … / Sehr geehrter Herr … Grund: Leider bin ich krank. Ich kann heute nicht in die Firma kommen. Dauer: Ich bin bis Freitag krank. Bitte: Bitte informieren Sie auch Herrn Wolf. Gruß: Mit freundlichen Grüßen.",
+          "examples": [
+            "Leider kann ich heute nicht zum Deutschkurs kommen.",
+            "Ich habe Fieber und muss im Bett bleiben.",
+            "Bitte informieren Sie auch Herrn Lindner."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Writing a sick note: salutation: Sehr geehrte Frau … / Sehr geehrter Herr … Reason: Leider bin ich krank (unfortunately I am ill). Ich kann heute nicht in die Firma kommen. Duration: Ich bin bis Freitag krank. Request: Bitte informieren Sie auch Herrn Wolf. Closing: Mit freundlichen Grüßen."
+            },
+            "ru": {
+              "rule": "Как сообщить о болезни письменно: обращение: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (к сожалению, я болею). Ich kann heute nicht in die Firma kommen. Срок: Ich bin bis Freitag krank. Просьба: Bitte informieren Sie auch Herrn Wolf. В конце: Mit freundlichen Grüßen."
+            },
+            "uk": {
+              "rule": "Як повідомити про хворобу письмово: звертання: Sehr geehrte Frau … / Sehr geehrter Herr … Причина: Leider bin ich krank (на жаль, я хворію). Ich kann heute nicht in die Firma kommen. Термін: Ich bin bis Freitag krank. Прохання: Bitte informieren Sie auch Herrn Wolf. У кінці: Mit freundlichen Grüßen."
+            },
+            "tr": {
+              "rule": "Hastalık bildirimi yazma: Hitap: Sehr geehrte Frau … / Sehr geehrter Herr … Neden: Leider bin ich krank (maalesef hastayım). Ich kann heute nicht in die Firma kommen. Süre: Ich bin bis Freitag krank. Rica: Bitte informieren Sie auch Herrn Wolf. Kapanış: Mit freundlichen Grüßen."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A1.2/P7/P7-N9",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel erhalten Liebe/Lieber als notwendigen Anredekontrast. Fünf Regeln unterscheiden informell/formell und Grußformeln korrekt; Kleinschreibung meint die Fortsetzung nach der Kommaanrede. Liebe Oma ist das unbestimmte feminine Gegenbeispiel zu Lieber, keine individuell ausgearbeitete Lernfigur. Herr Brandt und Leon männlich; alle drei Beispiele und P7-K3 stimmen.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "718af63b9744e41232f5c9f1a7b5f9e0d01ff2125c34e25f866741f220065f50",
+      "allPathObjectivesSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": true,
+      "wholeParentMinusChildren": {
+        "id": "P7-N9",
+        "kind": "practice",
+        "sort_order": 9,
+        "topic": "Feste · Liebe …, lieber …",
+        "title": "Liebe …, lieber …",
+        "translations": {
+          "en": {
+            "title": "Dear …, dear …"
+          },
+          "ru": {
+            "title": "Дорогая …, дорогой …"
+          },
+          "uk": {
+            "title": "Люба …, любий …"
+          },
+          "tr": {
+            "title": "Sevgili …, sevgili …"
+          }
+        },
+        "goals": [
+          "P7-K3"
+        ],
+        "merkkarte": {
+          "card": "p7_brief",
+          "rule": "Briefe und E-Mails: Anrede informell: Liebe …, / Lieber …, / Hallo Milan, Anrede formell: Sehr geehrte Frau …, / Sehr geehrter Herr …, Nach der Anrede schreibt man klein weiter. Gruß informell: Viele Grüße / Herzliche Grüße / Liebe Grüße. Gruß formell: Mit freundlichen Grüßen.",
+          "examples": [
+            "Liebe Oma, vielen Dank für das Geschenk!",
+            "Sehr geehrter Herr Brandt, ich lade Sie herzlich ein.",
+            "Viele Grüße, dein Leon"
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Letters and e-mails: informal salutation: Liebe …, / Lieber …, / Hallo Milan, Formal salutation: Sehr geehrte Frau …, / Sehr geehrter Herr …, After the salutation you continue in lower case. Informal closing: Viele Grüße / Herzliche Grüße / Liebe Grüße. Formal closing: Mit freundlichen Grüßen."
+            },
+            "ru": {
+              "rule": "Письма и e-mail: неформальное обращение: Liebe …, / Lieber …, / Hallo Milan, Официальное обращение: Sehr geehrte Frau …, / Sehr geehrter Herr …, После обращения текст продолжают с маленькой буквы. Неформальное прощание: Viele Grüße / Herzliche Grüße / Liebe Grüße. Официальное: Mit freundlichen Grüßen."
+            },
+            "uk": {
+              "rule": "Листи та e-mail: неформальне звертання: Liebe …, / Lieber …, / Hallo Milan, Офіційне звертання: Sehr geehrte Frau …, / Sehr geehrter Herr …, Після звертання текст продовжують із малої літери. Неформальне прощання: Viele Grüße / Herzliche Grüße / Liebe Grüße. Офіційне: Mit freundlichen Grüßen."
+            },
+            "tr": {
+              "rule": "Mektuplar ve e-postalar: Samimi hitap: Liebe …, / Lieber …, / Hallo Milan, Resmî hitap: Sehr geehrte Frau …, / Sehr geehrter Herr …, Hitaptan sonra küçük harfle devam edilir. Samimi kapanış: Viele Grüße / Herzliche Grüße / Liebe Grüße. Resmî kapanış: Mit freundlichen Grüßen."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.1/P4/P4-N6",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel geben Vielleicht ist er krank korrekt wieder. Alle fünf Regeln trennen Vermutung, Zustimmung, Widerspruch und Nichtwissen und lehren V2 nach vielleicht/wahrscheinlich. Drei Beispiele mit Herr Petrov, Chef und er sind stimmig; P4-K1 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "1de0686176841766d8969aba0695d3fd7a7aa0dfc58bdfe01687624e9494d617",
+      "allPathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": true,
+      "wholeParentMinusChildren": {
+        "id": "P4-N6",
+        "kind": "practice",
+        "sort_order": 6,
+        "topic": "Arbeitswelt · Vielleicht ist er krank.",
+        "title": "Vielleicht ist er krank.",
+        "translations": {
+          "en": {
+            "title": "Perhaps he is ill."
+          },
+          "ru": {
+            "title": "Может быть, он заболел."
+          },
+          "uk": {
+            "title": "Можливо, він захворів."
+          },
+          "tr": {
+            "title": "Belki hastadır."
+          }
+        },
+        "goals": [
+          "P4-K1"
+        ],
+        "merkkarte": {
+          "card": "p4_vermuten",
+          "rule": "Etwas vermuten: Vielleicht ist er krank. Wahrscheinlich kommt er später. Ich glaube, er ist im Urlaub. Ich denke, er hat viel Arbeit. Zustimmen: Ja, das glaube ich auch. Ja, das denke ich auch. Widersprechen: Nein, das glaube ich nicht. Nichts wissen: Keine Ahnung. Nach vielleicht und wahrscheinlich steht das Verb auf Position 2: Vielleicht hat er frei.",
+          "examples": [
+            "Wo ist Herr Petrov? – Vielleicht ist er in der Kantine.",
+            "Ich glaube, der Chef kommt heute nicht.",
+            "Wahrscheinlich hat er Urlaub. – Ja, das denke ich auch."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Making a guess: Vielleicht ist er krank. (Perhaps he is ill.) Wahrscheinlich kommt er später. (He will probably come later.) Ich glaube, er ist im Urlaub. (I think he is on holiday.) Ich denke, er hat viel Arbeit. Agreeing: Ja, das glaube ich auch. Ja, das denke ich auch. Disagreeing: Nein, das glaube ich nicht. Not knowing: Keine Ahnung. (No idea.) After vielleicht and wahrscheinlich the verb is in position 2: Vielleicht hat er frei."
+            },
+            "ru": {
+              "rule": "Как высказать предположение: Vielleicht ist er krank. (Может быть, он заболел.) Wahrscheinlich kommt er später. (Вероятно, он придёт позже.) Ich glaube, er ist im Urlaub. (Я думаю, он в отпуске.) Ich denke, er hat viel Arbeit. Согласиться: Ja, das glaube ich auch. Ja, das denke ich auch. Возразить: Nein, das glaube ich nicht. Не знать: Keine Ahnung. (Понятия не имею.) После vielleicht и wahrscheinlich глагол стоит на втором месте: Vielleicht hat er frei."
+            },
+            "uk": {
+              "rule": "Як висловити припущення: Vielleicht ist er krank. (Можливо, він захворів.) Wahrscheinlich kommt er später. (Імовірно, він прийде пізніше.) Ich glaube, er ist im Urlaub. (Я думаю, він у відпустці.) Ich denke, er hat viel Arbeit. Погодитися: Ja, das glaube ich auch. Ja, das denke ich auch. Заперечити: Nein, das glaube ich nicht. Не знати: Keine Ahnung. (Гадки не маю.) Після vielleicht і wahrscheinlich дієслово стоїть на другому місці: Vielleicht hat er frei."
+            },
+            "tr": {
+              "rule": "Tahmin yürütmek: Vielleicht ist er krank. (Belki hastadır.) Wahrscheinlich kommt er später. (Muhtemelen daha sonra gelir.) Ich glaube, er ist im Urlaub. (Sanırım izinde.) Ich denke, er hat viel Arbeit. Katılmak: Ja, das glaube ich auch. Ja, das denke ich auch. Karşı çıkmak: Nein, das glaube ich nicht. Bilmemek: Keine Ahnung. (Hiçbir fikrim yok.) vielleicht ve wahrscheinlich’ten sonra fiil 2. sırada durur: Vielleicht hat er frei."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "A2.1/P4/P4-N9",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel geben Nachrichtenannahme sinngleich wieder. Alle fünf Regeln und drei Beispiele behandeln Abwesenheit, Hilfe und Rückruf korrekt. Herr Weber/Albers sind männlich; er/ihm gegenüber sie/ihr ist ausdrücklich ein notwendiger Pronomenkontrast für unbestimmte Personen, Sie als höfliche Anrede bleibt erhalten. P4-K4 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "fc11675baeb3ad05500ac899cef5ed2ba91877bc428f089d6e6ed6b3c90ce385",
+      "allPathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": true,
+      "wholeParentMinusChildren": {
+        "id": "P4-N9",
+        "kind": "practice",
+        "sort_order": 9,
+        "topic": "Arbeitswelt · Kann ich etwas ausrichten?",
+        "title": "Kann ich etwas ausrichten?",
+        "translations": {
+          "en": {
+            "title": "Can I take a message?"
+          },
+          "ru": {
+            "title": "Что-нибудь передать?"
+          },
+          "uk": {
+            "title": "Щось передати?"
+          },
+          "tr": {
+            "title": "Bir mesajınız var mı?"
+          }
+        },
+        "goals": [
+          "P4-K4"
+        ],
+        "merkkarte": {
+          "card": "p4_nachricht",
+          "rule": "Am Telefon Auskunft geben: Tut mir leid, Herr Weber ist gerade nicht am Platz. Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Hilfe anbieten: Kann ich ihr etwas ausrichten? Soll er Sie zurückrufen, wenn er kommt? Können Sie morgen früh noch einmal anrufen? Antworten: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. Für einen Mann: er, ihm. Für eine Frau: sie, ihr.",
+          "examples": [
+            "Herr Weber ist gerade nicht am Platz.",
+            "Kann ich ihm etwas ausrichten?",
+            "Ich versuche es später noch einmal."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Giving information on the phone: Tut mir leid, Herr Weber ist gerade nicht am Platz. (not at his desk right now) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (He has already left.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Offering help: Kann ich ihr etwas ausrichten? (Can I give her a message?) Soll er Sie zurückrufen, wenn er kommt? (Shall he call you back?) Können Sie morgen früh noch einmal anrufen? Answers: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (I will try again later.) For a man: er, ihm. For a woman: sie, ihr."
+            },
+            "ru": {
+              "rule": "Как дать справку по телефону: Tut mir leid, Herr Weber ist gerade nicht am Platz. (сейчас нет на месте) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Он уже ушёл.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Предложить помощь: Kann ich ihr etwas ausrichten? (Ей что-нибудь передать?) Soll er Sie zurückrufen, wenn er kommt? (Ему перезвонить вам?) Können Sie morgen früh noch einmal anrufen? Ответы: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я попробую позже ещё раз.) О мужчине: er, ihm. О женщине: sie, ihr."
+            },
+            "uk": {
+              "rule": "Як дати довідку телефоном: Tut mir leid, Herr Weber ist gerade nicht am Platz. (зараз немає на місці) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Він уже пішов.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Запропонувати допомогу: Kann ich ihr etwas ausrichten? (Їй щось передати?) Soll er Sie zurückrufen, wenn er kommt? (Йому передзвонити вам?) Können Sie morgen früh noch einmal anrufen? Відповіді: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Я спробую пізніше ще раз.) Про чоловіка: er, ihm. Про жінку: sie, ihr."
+            },
+            "tr": {
+              "rule": "Telefonda bilgi vermek: Tut mir leid, Herr Weber ist gerade nicht am Platz. (şu anda yerinde değil) Herr Albers ist noch nicht da. Er ist nicht mehr im Haus. (Artık çıktı.) Im Moment ist niemand da. Die Kollegen haben schon Feierabend. Yardım önermek: Kann ich ihr etwas ausrichten? (Ona bir şey ileteyim mi?) Soll er Sie zurückrufen, wenn er kommt? (Sizi geri arasın mı?) Können Sie morgen früh noch einmal anrufen? Cevaplar: Ja, bitte. Sie soll mich zurückrufen. Nein danke, ich versuche es später noch einmal. (Daha sonra tekrar denerim.) Erkek için: er, ihm. Kadın için: sie, ihr."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    },
+    {
+      "contextKey": "B1.1/P6/P6-N11",
+      "verdict": "ACCEPT",
+      "reasonDe": "Fünf Titel/Regeln behandeln Geschäftsideen und Dienstleistungen. Lesefragen und alle erklärten Wörter sind im Kontext korrekt; inzwischen wird durch die Übersetzungen als by now/in the meantime klar. Alle drei Beispiele mit um...zu, damit und lohnen sind richtig, er männlich und Sie höfliche Anrede. P6-Z1 passt.",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeParentMinusChildrenSHA256": "f9c147cffc6b6f3b63f80613da7794cccb74a4407e9adbdfe8e9bb36baed8733",
+      "allPathObjectivesSHA256": "c25bab5fd663960345f7e9a4aa1cc1546c62d5dc3b2be53e4bc21432fbf7e1e4",
+      "wholeFiveLocaleCardsRulesExamplesRead": true,
+      "fullpathobjectivesRead": true,
+      "unassignedChildrenApproved": false,
+      "standalone": true,
+      "wholeParentMinusChildren": {
+        "id": "P6-N11",
+        "kind": "practice",
+        "sort_order": 11,
+        "topic": "Dienstleistung · Geschäftsideen",
+        "title": "Geschäftsideen",
+        "translations": {
+          "en": {
+            "title": "Business ideas"
+          },
+          "ru": {
+            "title": "Бизнес-идеи"
+          },
+          "uk": {
+            "title": "Бізнес-ідеї"
+          },
+          "tr": {
+            "title": "İş fikirleri"
+          }
+        },
+        "goals": [
+          "P6-Z1"
+        ],
+        "merkkarte": {
+          "card": "p6_ideen",
+          "rule": "Texte über Geschäftsideen und Dienstleistungen verstehen: Achte auf: Wer hat die Idee? Was wird angeboten? Für wen? Warum (Ziel: um … zu, damit)? Was kostet es? Lohnt es sich? Wichtige Wörter: eine Firma gründen (= neu aufmachen), kündigen (= eine Stelle beenden), sich einen Traum erfüllen, der Lieferservice, der Probetermin (= ein erster Termin zum Testen), sich binden (= einen langen Vertrag machen), inzwischen (= bis heute, in der Zeit seitdem).",
+          "examples": [
+            "Er hat gekündigt, um sich einen Traum zu erfüllen.",
+            "Wir putzen, damit Sie den Feierabend genießen können.",
+            "Reich wird er nicht, aber es lohnt sich."
+          ],
+          "highlight": null,
+          "translations": {
+            "en": {
+              "rule": "Understanding texts about business ideas and services. Look for: who has the idea? what is offered? for whom? why (aim: um … zu, damit)? what does it cost? is it worth it? Important words: eine Firma gründen (= to set up a company), kündigen (= to give up a job, to hand in your notice), sich einen Traum erfüllen (to make a dream come true), der Lieferservice (delivery service), der Probetermin (= a first appointment to try something out), sich binden (= to sign a long contract, to commit yourself), inzwischen (= by now, in the meantime)."
+            },
+            "ru": {
+              "rule": "Как понимать тексты о бизнес-идеях и услугах. Обращайте внимание: у кого идея? что предлагают? для кого? зачем (цель: um … zu, damit)? сколько это стоит? стоит ли это того? Важные слова: eine Firma gründen (= основать фирму), kündigen (= уволиться с работы), sich einen Traum erfüllen (осуществить мечту), der Lieferservice (служба доставки), der Probetermin (= первая пробная встреча), sich binden (= заключить длительный договор, связать себя обязательствами), inzwischen (= к настоящему времени, тем временем)."
+            },
+            "uk": {
+              "rule": "Як розуміти тексти про бізнес-ідеї та послуги. Звертайте увагу: у кого ідея? що пропонують? для кого? навіщо (мета: um … zu, damit)? скільки це коштує? чи варте це того? Важливі слова: eine Firma gründen (= заснувати фірму), kündigen (= звільнитися з роботи), sich einen Traum erfüllen (здійснити мрію), der Lieferservice (служба доставки), der Probetermin (= перша пробна зустріч), sich binden (= укласти тривалий договір, зв’язати себе зобов’язаннями), inzwischen (= на сьогодні, тим часом)."
+            },
+            "tr": {
+              "rule": "İş fikirleri ve hizmetlerle ilgili metinleri anlamak. Şunlara dikkat edin: Fikir kimin? Ne sunuluyor? Kimin için? Neden (amaç: um … zu, damit)? Ne kadar? Değer mi? Önemli kelimeler: eine Firma gründen (= şirket kurmak), kündigen (= işten ayrılmak, istifa etmek), sich einen Traum erfüllen (bir hayalini gerçekleştirmek), der Lieferservice (teslimat servisi), der Probetermin (= denemek için ilk randevu), sich binden (= uzun süreli sözleşme yapmak, bağlanmak), inzwischen (= bugüne kadar, bu arada)."
+            }
+          }
+        }
+      },
+      "fullRead": true
+    }
+  ],
+  "allPathObjectiveReviews": [
+    {
+      "pathKey": "A2.1/P1",
+      "verdict": "ACCEPT",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P1-G1",
+          "area": "grammar",
+          "description": "Gründe nennen mit weil: Nebensatz mit dem Verb am Ende – auch mit Modalverb, im Perfekt und mit trennbaren Verben.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Weil-Nebensätze mit einfachem Verb, Modal, Perfekt und trennbarem Verb korrekt als Verbendkonstruktionen zusammengefasst.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "5f28bd5ec1ee26e65b1256a429188aed7e1dca029b7291389296705ef0a9210f",
+          "fullRead": true
+        },
+        {
+          "id": "P1-G2",
+          "area": "grammar",
+          "description": "Perfekt der trennbaren Verben: eingekauft, angerufen, aufgestanden, kennengelernt.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Eingekauft, angerufen, aufgestanden und kennengelernt sind korrekte Partizipien trennbarer Verben.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "94af2329d1db25846065d14866130bfe77dbfc59bb3ba043103a230951bc5fc2",
+          "fullRead": true
+        },
+        {
+          "id": "P1-G3",
+          "area": "grammar",
+          "description": "Perfekt der Verben auf -ieren ohne ge-: telefoniert, studiert, passiert.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Telefoniert, studiert und passiert zeigen die korrekte Bildung ohne ge bei -ieren.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "c575c07a6eac95381425565f2847e0617356d48e60450d67ef7f866bdc87cf53",
+          "fullRead": true
+        },
+        {
+          "id": "P1-G4",
+          "area": "grammar",
+          "description": "Perfekt der nicht trennbaren Verben ohne ge-: erlebt, bemerkt, verpasst, verstanden.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Erlebt, bemerkt, verpasst und verstanden sind richtige Partizipien nicht trennbarer Verben ohne ge.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "83749cdf799c94dbe019ce30ab86717b0d66456d5492b63b0ace88efe474ed1e",
+          "fullRead": true
+        },
+        {
+          "id": "P1-G5",
+          "area": "grammar",
+          "description": "Zugehörigkeit bei Namen: Pauls Vater – und mit von + Dativ: der Vater von Paul.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Pauls Vater und der Vater von Paul zeigen Namen-s und von + Dativ korrekt mit männlicher Beispielperson.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "52473e9b57a40e249b5e6f8c4ce87be66ce771caebded8b348b0fb373aab908a",
+          "fullRead": true
+        },
+        {
+          "id": "P1-K1",
+          "area": "communication",
+          "description": "Von Pannen im Alltag erzählen und darauf reagieren: Stell dir vor … So ein Pech! Und was ist dann passiert?",
+          "verdict": "ACCEPT",
+          "reasonDe": "Pannen erzählen und mit Stell dir vor / So ein Pech / Folgefrage reagieren sind passende Kommunikationsziele.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "dac471b927aa139295769b912723a776a1a5af559d17a8bb85deffb50cbc0a31",
+          "fullRead": true
+        },
+        {
+          "id": "P1-K2",
+          "area": "communication",
+          "description": "Von Wohn- und Lebensformen erzählen: allein, als Paar, in einer WG; ledig, verheiratet, geschieden; berufstätig, in Rente.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Wohnformen, Familienstand und Berufstätigkeit/Rente sind sachgerechte unbestimmte Lebensformbegriffe.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "127c9049cd9df4768932ebe081804921116d3c2e25343bdff08fb0caeb51f10e",
+          "fullRead": true
+        },
+        {
+          "id": "P1-K3",
+          "area": "communication",
+          "description": "Sagen, wie jemand etwas findet: Das findet er toll. Das gefällt ihm nicht.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Das findet er toll und Das gefällt ihm nicht zeigen Bewertung mit richtigen männlichen Pronomen/Kasus.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "3cb953d84535eb855b54d3d38591ea163821432969678b110e0d76ed414cbd1a",
+          "fullRead": true
+        },
+        {
+          "id": "P1-K4",
+          "area": "communication",
+          "description": "Eine Erzählung gliedern: zuerst, dann, später, schließlich.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Zuerst, dann, später, schließlich sind korrekte narrative Gliederungswörter.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "df9914ae1a5058702a3a937142b6ec6af4bfec6b77a19615d91267bcd950b52d",
+          "fullRead": true
+        },
+        {
+          "id": "P1-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: kurze Erzählungen und Nachrichten über den Alltag verstehen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Kurze Alltagserzählungen und Nachrichten verstehen passt als A2.1-Lese-/Hörziel zum Pfad.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "eeffddb32dd2360c39c7237443c8b3ab86090ddddcf332e65cd593c464f8b0be",
+          "fullRead": true
+        },
+        {
+          "id": "P1-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Familienmitglieder und Lebensformen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Familienmitglieder und Lebensformen fassen den Wortschatz des Pfads passend zusammen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "11179493dd28ede361918756a0f3e84f2fa6616bb7c7b3e162ecc34832f3cee2",
+          "fullRead": true
+        }
+      ],
+      "fullRead": true
+    },
+    {
+      "pathKey": "A1.1/P6",
+      "verdict": "ACCEPT",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "allPathObjectivesSHA256": "af6eebddc8a73f90f9ed4f88d6441bccf6ed3bc4dbf5aa6f830af0dd05132c86",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P6-G1",
+          "area": "grammar",
+          "description": "Akkusativ mit bestimmtem Artikel (den, das, die).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Den/das/die sind korrekte bestimmte Akkusativformen für maskulin/neutrum/feminin und Plural.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "b002ce6d90faa648a0354961ea52d7e52109118e5d99d176f9d401d5c81a2b9b",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G2",
+          "area": "grammar",
+          "description": "Akkusativ mit unbestimmtem Artikel (einen, ein, eine, Plural ohne Artikel).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Einen/ein/eine und artikelloser unbestimmter Plural geben den Akkusativ korrekt wieder.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "239be7758162db92496bb1e0496779e6e59f11d2b90018128e58d0c2ce641077",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G3",
+          "area": "grammar",
+          "description": "Akkusativ mit Negativartikel (keinen, kein, keine).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Keinen/kein/keine sind richtige Negativartikel im Akkusativ.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "39b6e86c5d77f81c312aa9d20a1dd6dafacf8c30b7eb661190837d6cfc68d7d1",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G4",
+          "area": "grammar",
+          "description": "Antworten auf Ja-/Nein-Fragen mit ja, nein und doch (auch auf verneinte Fragen).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Ja/nein/doch für bejahte und verneinte Entscheidungsfragen ist fachlich richtig.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "65f0395fd96e2c94c2e79991aaedd4e249fddf365f400d74e66528e75f0832b5",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G5",
+          "area": "grammar",
+          "description": "Vokalwechsel bei lesen, treffen, nehmen, fahren (Wiederholung: fernsehen, essen, sprechen, schlafen, anfangen).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Alle genannten Verben besitzen den relevanten Präsensvokalwechsel; die Wiederholungszuordnung stimmt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "64b86cdde5a7b2fb04cc39b84f4b578be41a37d0feddea5833390a2ab2b79616",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K1",
+          "area": "communication",
+          "description": "Hobbys nennen und bewerten („Das macht Spaß“, „Ich finde … toll“).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Hobbys nennen und mit Spaß/toll bewerten sind passende A1-Kommunikationshandlungen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "db869a80c4504db0dc902ba0ee6debd9bd2946545955a1712a33b0576b5e6468",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K2",
+          "area": "communication",
+          "description": "Lieblings…: Buch, Film, Musik, Spiel.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Lieblingsbuch/-film/-musik/-spiel sind sachgerechte Wortverbindungen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "4a845e59c6568ce8e2c14caa9d85aaea99ebb3502b333cce986148e6346f3791",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K3",
+          "area": "communication",
+          "description": "Wetter beschreiben: Sonne, Regen, Schnee, Wind, Wolken, Temperatur in Grad; Lieblingswetter; „mag ich gar nicht“.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Sonne/Regen/Schnee/Wind/Wolken/Grad und Vorlieben bilden einen passenden Wetterumfang.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "411fa2df671088b165f08c2013d3d42a4c8ca9ba0af6d21ecc72df228bd23757",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K4",
+          "area": "communication",
+          "description": "Am Imbiss bestellen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Am Imbiss bestellen ist eine konkrete altersunabhängige A1-Alltagshandlung.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "a911c5e431138b8903953d880733d86a55ef16a409c308ad2e116faa4861921b",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K5",
+          "area": "communication",
+          "description": "Zustimmen und verneinen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Zustimmen und verneinen passt zu den Antworten auf Entscheidungsfragen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "077b753ed56345113a2d43d61dcf2d32600f13a22d46426462d10d143983fc6d",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K6",
+          "area": "communication",
+          "description": "Strategien: „Guck mal“, „Na klar“, „Na gut“, „Kein Problem“, „Moment mal“.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Guck mal/Na klar/Na gut/Kein Problem/Moment mal sind richtige Gesprächsstrategien.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "46f04ecd4a8a5ca193fc66563d3f0ff5aec28bb5507ca47954757ed16c5ee4c0",
+          "fullRead": true
+        },
+        {
+          "id": "P6-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: einen Wetterbericht verstehen, kurze Personenporträts und Interviews über Hobbys verstehen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Wetterbericht sowie kurze Hobby-Porträts und Interviews verstehen bündelt die kommunikativen Pfadziele.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "a123886753382ea970190c737317542b8e668ebdb7b2281e639c8c31f1efa0fd",
+          "fullRead": true
+        },
+        {
+          "id": "P6-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: fünf Hobbys, sieben Wetterwörter.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Fünf Hobbys und sieben Wetterwörter sind ein konkreter passender Wortschatzumfang.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "789b8646fe146fbb5e4d0e9fd971794779d6a4de617b7a5efeaaff2591e9264a",
+          "fullRead": true
+        }
+      ],
+      "fullRead": true
+    },
+    {
+      "pathKey": "A1.2/P3",
+      "verdict": "ACCEPT",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P3-G1",
+          "area": "grammar",
+          "description": "Possessivartikel für alle Personen im Nominativ: mein, dein, sein, ihr, unser, euer, ihr, Ihr – mit -e bei „die“ und im Plural (eure).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Possessivartikel aller Personen inklusive höflichem Ihr sind richtig aufgelistet; feminine/Plural-Endung -e und eure korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "fdf29e3cdab19fae6dc8b71d3080913fced12fe1b688b9c43d9141468ced6ebe",
+          "fullRead": true
+        },
+        {
+          "id": "P3-G2",
+          "area": "grammar",
+          "description": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Simon–seine Hand versus sie Singular–ihre Hand erklärt die Besitzer-Pronomen-Abhängigkeit; notwendiger grammatischer Genuskontrast bleibt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "1ee0ff39bb3dafd2059b52185f88fa4960c8cb11b090577705d4671d61b4d3ab",
+          "fullRead": true
+        },
+        {
+          "id": "P3-G3",
+          "area": "grammar",
+          "description": "Possessivartikel im Akkusativ: bei maskulinen Nomen mit -en (meinen, deinen, seinen, ihren, unseren, euren, Ihren).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Meinen/deinen/seinen/ihren/unseren/euren/Ihren sind korrekte maskuline Akkusativformen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "cb6a6b4676ea6575e4de6c8e4ef9e4ab07bd8c08089e088dd5657fb2e51a9622",
+          "fullRead": true
+        },
+        {
+          "id": "P3-G4",
+          "area": "grammar",
+          "description": "Modalverb sollen: soll, sollst, sollen, sollt; der Infinitiv steht am Satzende.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Soll/sollst/sollen/sollt und finaler Infinitiv beschreiben sollen korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "ced0b71ea84d98764dfb4bd813c05d0f6086305605ed4095609f2c48851ac21b",
+          "fullRead": true
+        },
+        {
+          "id": "P3-K1",
+          "area": "communication",
+          "description": "Über das Befinden sprechen: sagen, was wehtut, und Krankheiten nennen (Fieber, Husten, Schnupfen, Schmerzen).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Schmerzstellen, Fieber, Husten und Schnupfen beschreiben Befinden sachgerecht ohne Diagnoseempfehlung.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "296295b91a105e4173bdc51fa33707a62d446d61e32ecb2d0014654e622b6792",
+          "fullRead": true
+        },
+        {
+          "id": "P3-K2",
+          "area": "communication",
+          "description": "Anweisungen und Ratschläge für die Gesundheit verstehen, geben und weitersagen: Der Arzt sagt, ich soll viel trinken.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Der Arzt sagt, ich soll viel trinken ist ein korrektes Muster zum Weitergeben einer Anweisung.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "9387eeb81410393bb4da79cef1022eabcc7a8d9b723c0bfaa6e7f61010c60d5d",
+          "fullRead": true
+        },
+        {
+          "id": "P3-K3",
+          "area": "communication",
+          "description": "Sich krankmelden: Leider kann ich heute nicht kommen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Leider kann ich heute nicht kommen ist eine passende knappe Krankmeldung.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "643a59ee4fd3ae895921af850bc3c39896431b47e76889161fccc49c8b8b1555",
+          "fullRead": true
+        },
+        {
+          "id": "P3-K4",
+          "area": "communication",
+          "description": "Einen Termin beim Arzt vereinbaren: Könnte ich bitte einen Termin haben? Es ist dringend.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Die höfliche Bitte um Arzttermin und Dringlichkeit sind passende A1-Kommunikationsmittel.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "265212f11462c323708128f66e5ac82c86a1bdf574b74e8b83085933bce963b1",
+          "fullRead": true
+        },
+        {
+          "id": "P3-K5",
+          "area": "communication",
+          "description": "Einen Notfall melden: Wo sind Sie? Was ist passiert? Was ist mit der Person?",
+          "verdict": "ACCEPT",
+          "reasonDe": "Wo/was passiert/was mit der Person sind verständliche Notfall-Meldefragen mit unbestimmter Person.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "41541ef6244a62a1fad876e84737abb1fe42e36b8d255bc109286c403644e645",
+          "fullRead": true
+        },
+        {
+          "id": "P3-K6",
+          "area": "communication",
+          "description": "Im Gespräch reagieren: Oh nein! Oje! Ach so. Hoffentlich! Bis gleich. Bis später.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Oh nein/Oje/Ach so/Hoffentlich/Bis gleich/Bis später sind richtige Reaktionsformeln.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "b635cf10f2f08b17f457edadb7fb41176a65b47604ffc4483097830605dd668f",
+          "fullRead": true
+        },
+        {
+          "id": "P3-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: eine Krankmeldung schreiben und verstehen, Gesundheitstipps und Informationen zu Praxis, Notdienst und Apotheke verstehen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Krankmeldung sowie Informationen zu Praxis/Notdienst/Apotheke sind kohärente Kann-Ziele.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "0d2a6cd86d545f7d50b3bcbf12e8e48aabd8868a61da7ca6295b52e48dd48b76",
+          "fullRead": true
+        },
+        {
+          "id": "P3-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Körperteile, Krankheiten und Wörter rund um Arzt und Apotheke.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Körperteile, Krankheiten, Arzt und Apotheke bilden passenden Wortschatz zum Pfad.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "056bed11e2f311cbcb6a5306267812e8abb2153eccb5dd43cbe2c5782963ef78",
+          "fullRead": true
+        }
+      ],
+      "fullRead": true
+    },
+    {
+      "pathKey": "A1.2/P7",
+      "verdict": "ACCEPT",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "allPathObjectivesSHA256": "3a0db653a2f4ce321c527a4a3c436167cc6ecf4414aab22830d2b4b8f6a549c3",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P7-G1",
+          "area": "grammar",
+          "description": "Ordinalzahlen: bis 19. mit -te (der erste, der dritte, der siebte), ab 20. mit -ste (der zwanzigste).",
+          "verdict": "ACCEPT",
+          "reasonDe": "Ordinalbildung -te bis 19 und -ste ab 20 samt erste/dritte/siebte als Ausnahmen korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "5fd47059f1504752a7f5adbe6147e05da95391436d00f774228d8db2c6e86a53",
+          "fullRead": true
+        },
+        {
+          "id": "P7-G2",
+          "area": "grammar",
+          "description": "Das Datum nennen: Heute ist der zweite Mai. Wann? Am zweiten Mai. Vom zweiten bis zum zwanzigsten Mai.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Der zweite Mai, am zweiten Mai und vom zweiten bis zum zwanzigsten Mai geben Datum und Kasus korrekt wieder.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "1739ef152571e89c7241954c718eeb03587bdbaedad65906f3b4901d98bcfcc2",
+          "fullRead": true
+        },
+        {
+          "id": "P7-G3",
+          "area": "grammar",
+          "description": "Personalpronomen im Akkusativ: mich, dich, ihn, es, sie, uns, euch, sie, Sie – auch nach „für“.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Mich/dich/ihn/es/sie/uns/euch/sie/Sie sind richtige Akkusativpronomen; für fordert Akkusativ.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "42c3812f945ede229d539e449b9adb393fe1bc3406caebd8685f5bd02089f1f3",
+          "fullRead": true
+        },
+        {
+          "id": "P7-G4",
+          "area": "grammar",
+          "description": "Die Konjunktion „denn“ für Gründe: Wir feiern, denn Lars hat Geburtstag.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Denn verbindet Grund mit Hauptsatzstellung; Lars hat Geburtstag ist ein korrektes männliches Beispiel.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "73be1dc7dbed5fd163e84f2083f47e1d3af8fe0b9a7923f430fd464d7e17d4a5",
+          "fullRead": true
+        },
+        {
+          "id": "P7-G5",
+          "area": "grammar",
+          "description": "Konjugation von werden: ich werde, du wirst, er wird, wir werden, ihr werdet, sie werden – Ich werde 30.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Alle sechs genannten werden-Formen und Ich werde 30 sind korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "eb69804121ad977584bc62cba555e7dc73118e7974d9fb577881aab16fb0cef7",
+          "fullRead": true
+        },
+        {
+          "id": "P7-K1",
+          "area": "communication",
+          "description": "Über Geburtstage und Jahrestage sprechen: Wann hast du Geburtstag? Ich bin am 19. Januar geboren.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Geburtstagsfrage und geboren am 19. Januar sind richtige Kommunikationsmuster.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "2d1fe775ad9c60b3f802d2c1853f4e36e7931c32e89caa87ea659908f8a572d0",
+          "fullRead": true
+        },
+        {
+          "id": "P7-K2",
+          "area": "communication",
+          "description": "Gratulieren und Glückwünsche aussprechen: Alles Gute! Herzlichen Glückwunsch! Frohe Weihnachten!",
+          "verdict": "ACCEPT",
+          "reasonDe": "Alles Gute/Herzlichen Glückwunsch/Frohe Weihnachten sind passende Glückwünsche.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "b1ec1ca8c6a28f689b7d3c56d60757fd9877ecf2406c9ca5fb7e92f6fe48504d",
+          "fullRead": true
+        },
+        {
+          "id": "P7-K3",
+          "area": "communication",
+          "description": "Briefe und E-Mails beginnen und beenden: Liebe/Lieber …, Viele Grüße, Mit freundlichen Grüßen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Liebe/Lieber und Grußformeln vermitteln Anfang/Ende von Briefen; femininer Anredekontrast notwendig.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "85962c22b3238f4423be15dd4e51420a1c00ddb89ad0a93d2be957db994370d2",
+          "fullRead": true
+        },
+        {
+          "id": "P7-K4",
+          "area": "communication",
+          "description": "Jemanden einladen: Ich lade dich ein. Kommst du? Bitte gib bis Freitag Bescheid.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Ich lade dich ein/Kommst du/Bitte gib bis Freitag Bescheid sind richtige Einladungshandlungen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "aedc31bd105187e291d604021a4954c390fa871ce1280e90a22ad501fddb517f",
+          "fullRead": true
+        },
+        {
+          "id": "P7-K5",
+          "area": "communication",
+          "description": "Eine Einladung annehmen oder absagen und einen Grund nennen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Einladung annehmen/absagen und begründen ist ein kohärentes Kommunikationsziel.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "f648e104d07fd6fbb756a1723250598fef8a6ec0b96836c0aca0ce6bcacd8384",
+          "fullRead": true
+        },
+        {
+          "id": "P7-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Einladungen und kurze Texte über Feste verstehen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Einladungen und kurze Festtexte verstehen ist ein passendes A1.2-Kann-Ziel.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "fb56d8d2c72b77d8ecbd94cee3cea16f07d51d69393b6d91f211a26647a4ce55",
+          "fullRead": true
+        },
+        {
+          "id": "P7-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Feste und Glückwünsche.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Feste und Glückwünsche fassen den erforderlichen Wortschatz passend zusammen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "07605e9fda1c494bc9b353eef6b8ad27ed77d4016e39d56a62e6383561866d17",
+          "fullRead": true
+        }
+      ],
+      "fullRead": true
+    },
+    {
+      "pathKey": "A2.1/P4",
+      "verdict": "ACCEPT",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "allPathObjectivesSHA256": "de180dd02dc3ea0b5c98445d9cea04d0d1a1eeb3333ef7284bc92fa47aca3448",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P4-G1",
+          "area": "grammar",
+          "description": "Bedingungen nennen mit wenn: Hauptsatz vor Nebensatz, das Verb steht am Ende – Ich komme, wenn ich Zeit habe.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Wenn als Bedingung mit Hauptsatz zuerst und finitem Verb am Nebensatzende ist korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "37f02b299d03a233ebf1385360d3c0af280890a968a51fc48d4150668be97484",
+          "fullRead": true
+        },
+        {
+          "id": "P4-G2",
+          "area": "grammar",
+          "description": "wenn-Satz vor dem Hauptsatz: Nach dem Komma steht sofort das Verb – Wenn ich Zeit habe, (dann) komme ich.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Bei vorangestelltem wenn-Satz folgt nach dem Komma das Hauptsatzverb, optional nach dann; Beispiel korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "dbc66f711fb8654b0284813f93f143b0c9084b420ef4de2939abcc6480b0984d",
+          "fullRead": true
+        },
+        {
+          "id": "P4-G3",
+          "area": "grammar",
+          "description": "Ratschläge geben mit sollte: ich sollte, du solltest, er sollte, wir sollten, ihr solltet, sie sollten.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Alle sechs sollte-Formen für Ratschläge sind korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "875c91b44050c8cf2b60d469f9c98b58b4888f8d2a39995805778f64c1e19375",
+          "fullRead": true
+        },
+        {
+          "id": "P4-K1",
+          "area": "communication",
+          "description": "Etwas vermuten: Vielleicht … Wahrscheinlich … Ich glaube, … Das glaube ich auch. Keine Ahnung.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Vielleicht/wahrscheinlich/ich glaube/Zustimmung/Keine Ahnung sind passende Vermutungsstrategien.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "13d1323dfe16542056b9927c72878bfda3cf6ccc5c5a693effbb526fca02eb61",
+          "fullRead": true
+        },
+        {
+          "id": "P4-K2",
+          "area": "communication",
+          "description": "Die Arbeitswelt vergleichen: Bei uns arbeitet man … Das gilt auch für … In meinem Land ist das anders.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Arbeitsweltvergleich mit bei uns/man/in meinem Land ist sachgerecht und ohne fiktive Geschlechtsrolle.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "07cf0277a2c3872308ffca5dfe4cad3e9c8b7f1719bb29f437ec648e8cc14515",
+          "fullRead": true
+        },
+        {
+          "id": "P4-K3",
+          "area": "communication",
+          "description": "In einer Firma anrufen: Können Sie mich mit … verbinden? Ist … schon im Haus? Auf Wiederhören.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Verbinden lassen, Anwesenheit erfragen und Auf Wiederhören sind passende Firmen-Telefonhandlungen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "91e404e0cf213219db8129cf611b74206de4a29508bd410049d9fc355ad4a1a1",
+          "fullRead": true
+        },
+        {
+          "id": "P4-K4",
+          "area": "communication",
+          "description": "Am Telefon Auskunft geben und Nachrichten annehmen: Sie ist nicht am Platz. Kann ich etwas ausrichten? Soll er zurückrufen?",
+          "verdict": "ACCEPT",
+          "reasonDe": "Sie ist nicht am Platz, etwas ausrichten und Rückruf vermitteln sind korrekte Muster; sie ist eine unbestimmte Person neben er, notwendiger Pronomenumfang.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "e2e3e289c8794e202205235566fc26dcc42df823cc549017197f26d8c1e454ec",
+          "fullRead": true
+        },
+        {
+          "id": "P4-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Mitteilungen am Arbeitsplatz und kurze Sachtexte über die Arbeit verstehen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Arbeitsmitteilungen und kurze Sachtexte verstehen passt zum Pfad.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "886b19104e6234909c7ae06bfedefd7ef029d03c8a6c2784230ff8623398f6bc",
+          "fullRead": true
+        },
+        {
+          "id": "P4-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Arbeit und Freizeit.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Arbeit und Freizeit sind die passenden Wortschatzbereiche.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "5dd785a3eb4b9cdc2e90e66eb02a15c0cfce1b30b25787ec0d426d3a7e04c3a2",
+          "fullRead": true
+        },
+        {
+          "id": "P4-W2",
+          "area": "vocabulary",
+          "description": "Wortschatz: Hotel.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Hotel ist ein passender zusätzlicher Berufswortschatzbereich.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "8c348852dfe257f9003d2d47cb71de49916d4642c82c03a3dedf851cfb40384f",
+          "fullRead": true
+        }
+      ],
+      "fullRead": true
+    },
+    {
+      "pathKey": "B1.1/P6",
+      "verdict": "ACCEPT",
+      "reviewer": "S4",
+      "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+      "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "allPathObjectivesSHA256": "c25bab5fd663960345f7e9a4aa1cc1546c62d5dc3b2be53e4bc21432fbf7e1e4",
+      "fullpathobjectivesRead": true,
+      "objectives": [
+        {
+          "id": "P6-G1",
+          "area": "grammar",
+          "description": "Verben und Ausdrücke mit es: Es ist leicht / schön / möglich. Es gibt … Es lohnt sich. Es ist vier Uhr / Sommer. Es regnet. Wie geht es Ihnen?",
+          "verdict": "ACCEPT",
+          "reasonDe": "Unpersönliches es, es gibt/lohnt sich, Zeit/Wetter und Wie geht es Ihnen sind korrekte Verwendungsfälle.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "8dbbb1518d513c7f0b9d16a1ffb326fbc43607717e551ba886e724125daea9dc",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G2",
+          "area": "grammar",
+          "description": "Ein Ziel nennen mit um … zu + Infinitiv (gleiches Subjekt): Er steht früh auf, um als Erster im Laden zu sein.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Um...zu bei gleichem Subjekt und Er steht früh auf, um als Erster ... sind korrekt; männlicher Erster stimmt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "cd69db52c53e070603ef897dcec81c528899c95de61796f8e84b927b726e98f2",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G3",
+          "area": "grammar",
+          "description": "Ein Ziel nennen mit damit (auch bei verschiedenen Subjekten): Sie arbeitet abends, damit ihr Mann den Kurs besuchen kann.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Damit kann verschiedene Subjekte verbinden; Sie arbeitet ... damit ihr Mann ... ist grammatisch richtig und zeigt unbestimmte Pronomen-/Subjektrollen, keine individualisierte Lernfigur.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "c65c69c38f3d6833c9e968eba8f8420e9098456b57f31cd90213f54e28fda4aa",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G4",
+          "area": "grammar",
+          "description": "statt … zu + Infinitiv: Man sollte etwas tun, statt nur zu träumen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Statt...zu drückt eine ersetzte Handlung aus; tun statt träumen ist korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "67a9e853afdd8fad4868962bcecf03c9eb592ee2b92193afa55da825d34c7726",
+          "fullRead": true
+        },
+        {
+          "id": "P6-G5",
+          "area": "grammar",
+          "description": "ohne … zu + Infinitiv: Man kann nichts Neues lernen, ohne Fehler zu machen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Ohne...zu mit nichts Neues lernen ohne Fehler zu machen ist grammatisch und semantisch korrekt.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "0ddcd35cd27e017a44264d1631388bbb3b28289f5f497f99dcb2db689043f832",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K1",
+          "area": "communication",
+          "description": "Über Träume, Wünsche und eine Geschäftsidee sprechen: Mein Traum wäre, … Es wäre schön, … Ich würde mich gern selbstständig machen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Traum/Wunsch/Geschäftsidee mit wäre/würde und selbstständig machen sind passende B1-Ausdrucksmittel.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "96f35a8aa0194bf1a68633585c0f5019cd3984c5eaee49e77fbd3eb4fc35b734",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K2",
+          "area": "communication",
+          "description": "Ein Verkaufsgespräch führen: Sie wünschen? Darf ich Ihnen … empfehlen? Das muss ich mir noch überlegen. Zahlen Sie bar oder mit Karte?",
+          "verdict": "ACCEPT",
+          "reasonDe": "Verkaufsgespräch mit höflicher Sie-Anrede, Empfehlung, Bedenkzeit und Zahlungsart ist stimmig.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "7ac0405f815e1082c08869513b3d1444b92747836a5064fa33b205516d7d21fd",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K3",
+          "area": "communication",
+          "description": "Höfliche Ratschläge geben: An Ihrer Stelle würde ich … Wie wäre es, wenn …? Was halten Sie davon, …? Am besten wäre es, wenn …",
+          "verdict": "ACCEPT",
+          "reasonDe": "An Ihrer Stelle würde/Wie wäre es/Was halten Sie/Am besten wäre sind richtige höfliche Ratschläge.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "0875c3697ff70afd710efba8f7de35058364baa198057caa110d3a60bc022d6d",
+          "fullRead": true
+        },
+        {
+          "id": "P6-K4",
+          "area": "communication",
+          "description": "Eine Reklamation schreiben: Leider musste ich feststellen, dass … Ich möchte Sie bitten, … Bitte bestätigen Sie mir schriftlich …",
+          "verdict": "ACCEPT",
+          "reasonDe": "Reklamationsmuster mit dass-Satz, Bitte und schriftlicher Bestätigung sind sprachlich passend.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "eefd936bef78da214aff308da648803dc1cf8a966387dac81c8e45e4736ac39d",
+          "fullRead": true
+        },
+        {
+          "id": "P6-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: kurze Texte über Geschäftsideen und Dienstleistungen verstehen.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Kurze Texte über Geschäftsideen/Dienstleistungen verstehen passt zum Elternkontext.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "3ccbab45e536cc1ad25561277ec3a5144db7b47a0fac416efa127065d8141c5d",
+          "fullRead": true
+        },
+        {
+          "id": "P6-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Dienstleistung, Kauf und Reklamation.",
+          "verdict": "ACCEPT",
+          "reasonDe": "Dienstleistung/Kauf/Reklamation fassen den Pfadwortschatz korrekt zusammen.",
+          "reviewer": "S4",
+          "sourceCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+          "actualContentCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+          "objectiveSHA256": "e6c35541277dbabb667942f913c8289f7a3ec1d18cfc70191abd5a8c03a58b1c",
+          "fullRead": true
+        }
+      ],
+      "fullRead": true
+    }
+  ],
+  "findings": [],
+  "answerRevisionAndCardinality": {
+    "proposedAnswerWordRevisions": 0,
+    "proposedAnswerKeyChanges": 0,
+    "proposedAcceptedVariantChanges": 0,
+    "proposedAcceptedCardinalityChanges": 0,
+    "proposedOptionsOrPartsChanges": 0,
+    "appliedSourceChanges": 0
+  },
+  "fullpathobjectivesRead": true,
+  "priorReviewUsedAsApproval": false,
+  "publicationApproved": false,
+  "limits": [
+    "Only assigned 30 tasks and 12 parentMinusChildren contexts / their 6 complete objective sets reviewed; standalone children not approved.",
+    "No source changes, DB, SSH, audio, runtime, browser, tests, imports or publication.",
+    "Content audit does not establish historical database version preservation or release readiness."
+  ],
+  "literalStringDictionary": "Private epoch54 dictionary resolves only byte-identical repeated strings, all first occurrences read in full during epoch54.",
+  "fullRead": true
+}
