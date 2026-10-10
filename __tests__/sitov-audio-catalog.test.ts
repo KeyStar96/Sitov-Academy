@@ -14,6 +14,7 @@ const hash = (value: string | Buffer) => createHash('sha256').update(value).dige
 test.each([
   ['e42167d3-36c4-5270-a696-406897292843', 'gleich', 'Es ist 8:59. Oleh sagt: „Es ist gleich neun.“'],
   ['c0ae363d-6c1f-58a7-a381-b7e206815e1f', 'kein', 'Oleh fährt immer Bus. Er hat kein Fahrrad.'],
+  ['c0be9a3b-01ed-5a00-a717-c8dc3c6e188a', 'Ihr', 'Herr Lindner fragt Herrn Demir: „Wie heißt Ihr Sohn?“'],
 ])('keeps the reviewed source sentence filled identically for authoring and publication: %s', (id, answer, spoken) => {
   const paths = JSON.parse(readFileSync(join(__dirname, '../supabase/seeds/path-a1.1.json'), 'utf8')) as {
     nodes: { exercises: { id: string; exercise_type: string; content: Record<string, unknown> }[] }[]
