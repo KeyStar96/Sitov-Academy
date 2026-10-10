@@ -97,9 +97,22 @@ class PreparerTests(unittest.TestCase):
         self.rejects(lambda p: p['nodes'][0].update(after=copy.deepcopy(p['nodes'][0]['before'])))
         self.rejects(lambda p: p['objectives'][0].update(after=copy.deepcopy(p['objectives'][0]['before'])))
         self.rejects(lambda p: p.update(nodes=p['nodes']*101))
-        self.rejects(lambda p: p.update(objectives=p['objectives']*11))
+        self.rejects(lambda p: p.update(objectives=p['objectives']*17))
         self.rejects(lambda p: p['nodes'][0]['after']['node']['merkkarte'].update(x=float('nan')))
         self.rejects(lambda p: p['nodes'][0]['after']['node'].update(title='bad\x00text'))
+
+    def test_complete_eleven_objective_revision_and_upper_bound(self):
+        value = fixture()
+        template = value['objectives'][0]
+        value['objectives'] = []
+        for index in range(1, 18):
+            item = copy.deepcopy(template)
+            item['before']['id'] = item['after']['id'] = f'P1-G{index}'
+            value['objectives'].append(item)
+            if index in (11, 16):
+                self.assertEqual(cas.validate(value), value)
+        with self.assertRaisesRegex(ValueError, 'objective bound exceeded'):
+            cas.validate(value)
 
     def test_duplicate_json_keys_and_raw_size(self):
         with tempfile.TemporaryDirectory() as folder:

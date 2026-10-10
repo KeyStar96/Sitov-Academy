@@ -17,6 +17,7 @@ import re
 import uuid
 
 MAX_BYTES = 2_000_000
+MAX_OBJECTIVES = 16
 LOCALES = {'de', 'en', 'ru', 'uk', 'tr'}
 NODE_FIELDS = {'id', 'unit_id', 'source_id', 'kind', 'sort_order', 'title',
                'topic', 'merkkarte', 'goals', 'anchor_node_id', 'test_size',
@@ -85,7 +86,7 @@ def validate(payload):
     require(type(payload['version']) is int and payload['version'] == 1, 'invalid version')
     require(isinstance(payload['nodes'], list) and len(payload['nodes']) <= 100,
             'node bound exceeded')
-    require(isinstance(payload['objectives'], list) and len(payload['objectives']) <= 10,
+    require(isinstance(payload['objectives'], list) and len(payload['objectives']) <= MAX_OBJECTIVES,
             'objective bound exceeded')
     require(payload['nodes'] or payload['objectives'], 'empty operation')
     ids, objective_keys = set(), set()
